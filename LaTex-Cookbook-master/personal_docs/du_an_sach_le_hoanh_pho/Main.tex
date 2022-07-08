@@ -1,0 +1,156 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage{extsizes}
+\usepackage{amsmath,amssymb,yhmath,mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{tkz-euclide}
+\usepackage{tikz-3dplot}
+\usepackage{tikz,tkz-tab,tkz-linknodes}
+\usetikzlibrary{shapes.geometric,arrows,calc,intersections,angles,patterns,snakes}
+\usetkzobj{all}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.9}
+\usepackage[top=1.5cm, bottom=1.5cm, left=1.5cm, right=1cm] {geometry}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage{currfile}
+\usepackage[loigiai]{ex_test}
+%CÁC GÓI, LỆNH VIẾT TẮT CẦN THÊM
+%CẤU TRÚC TỰ LUẬN
+\usepackage{framed}
+\usepackage[many]{tcolorbox}
+\colorlet{tcbcol@back}{tcbcolback}
+\colorlet{tcbcol@frame}{tcbcolframe}
+\newtheorem{bt}{Bài}
+\newtheorem{btk}{Bài}
+\newtheorem{vd}{Ví dụ}
+\def\beginbox{\begin{tcolorbox}[colframe=blue,colback=white,breakable,boxrule=1pt,arc=0cm]}
+	\def\endbox{\end{tcolorbox}}
+\AtBeginEnvironment{bt}{
+	\beginbox
+	\renewcommand{\loigiai}[1]{
+		\renewcommand{\immini}[2]{
+			\setbox\imbox=\vbox{\hbox{##2}}
+			\widthimmini=\wd\imbox
+			\IMleftright{##1}{##2}
+		}
+		\endbox
+		\begin{onlysolution}
+			#1
+		\end{onlysolution}
+		\def\endbox{}
+	}
+}
+\AtEndEnvironment{bt}{
+	\endbox
+}
+\newtcolorbox[auto counter]{dang}[1]{
+	fonttitle=\bfseries\upshape,fontupper=\itshape,
+	colframe=red!60!green,colback=blue!0.5!white,
+	sharp corners, breakable, 
+	title={\color{white} DẠNG~\thesection.\thetcbcounter.\ #1}
+	\addcontentsline{toc}{subsection}{Dạng~\thesection.\thetcbcounter. #1}
+}
+\newenvironment{tomtat}{
+\begin{tcolorbox}[boxrule=1pt,arc=0mm,breakable,colback=white]
+}{\end{tcolorbox}}
+
+%\theorembodyfont{\it}
+\theoremseparator{.}
+\theorembodyfont{\rm}
+\newtheorem{hq}{ Hệ quả}
+\newtheorem{tc}{ Tính chất}
+\newtheorem{dn}{ Định nghĩa}
+\newtheorem{dl}{ Định lí}
+\theoremstyle{nonumberplain}
+\newtheorem{kn}{ Khái niệm}
+\theoremseparator{}
+\theorembodyfont{\it}
+\usepackage{stackengine}
+\usepackage{scalerel}
+\newcommand\dangersign[1][2ex]{%
+	\renewcommand\stacktype{L}%
+	\scaleto{\stackon[1.3pt]{\color{red}$\triangle$}{\fontsize{4}{0}\selectfont !}}{#1}%
+}
+\newtheorem{note}{{\dangersign[3ex]}}
+\newtheorem{nx}{Nhận xét.}
+
+\newtcolorbox{luuy}[1][]{enhanced,
+	before skip=2mm,after skip=3mm,
+	boxrule=0.4pt,left=5mm,right=2mm,top=1mm,bottom=1mm,
+	colback=yellow!50,
+	colframe=yellow!20!black,
+	sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+	underlay={%
+		\path[fill=tcbcol@back!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+		\path[draw=tcbcol@frame,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+		\path[fill=yellow!50!black,draw=none] (interior.south west) rectangle node[white]{\Huge\bfseries !} ([xshift=4mm]interior.north west);
+	},
+	drop fuzzy shadow, #1}
+
+
+%Tiêu đề chương
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{2}
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+\renewcommand\thesection{\@arabic\c@section}
+\renewcommand\thesubsection{\@Alph\c@subsection}
+\renewcommand\thesubsubsection{\@arabic\c@subsubsection}
+\makeatother
+\titlespacing{\chapter}{0pt}{-10pt}{20pt}
+\titleformat{\chapter}
+{\color{red!50!blue}\centering\scshape\Huge\bfseries}{CHƯƠNG \thechapter.\ }
+{0.5em}
+{\MakeUppercase}
+
+\titleformat{\section}{\centering\scshape\LARGE\bfseries}{CHUYÊN ĐỀ \thesection.}{-2em}{
+	\setcounter{vd}{0}
+	\setcounter{ex}{0}
+	\setcounter{bt}{0}
+	\setcounter{dl}{0}
+	\setcounter{dn}{0}
+	\setcounter{hq}{0}
+	\setcounter{tc}{0}
+\setcounter{\tcbcounter}{0} \MakeUppercase
+}
+
+\titleformat{\subsection}{\Large\color{violet}}{
+\thesubsection.
+ }{1em}{\MakeUppercase
+}
+
+\titleformat{\subsubsection}{\large\color{violet}}{\thesubsubsection.\ }{2em}{\color{violet}
+}
+
+%HẾT CẤU TRÚC TỰ LUẬN
+
+\newcommand{\hoac}[1]{\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{\left\{\begin{aligned}#1\end{aligned}\right.}
+\renewcommand\labelitemi{\raisebox{.2\baselineskip}{%
+		\rule{0.5cm}{.5pt}%
+	}}
+\renewcommand{\labelenumi}{\circEX{\theenumi}}
+\newcounter{CircLabel}
+\newcommand*\CircLabel{%
+	\refstepcounter{CircLabel}%
+	\hskip1em\llap{\circled{\fontsize{8pt}{1pt}\fontfamily{lmss}\bfseries\selectfont\arabic{CircLabel}}}}%
+\NewEnviron{circ_enum}[1][]{%
+	\hfill
+	\setcounter{CircLabel}{0}
+	\def\tempbegin{\begin{taskEX}[label=\CircLabel](#1)}%
+		\expandafter\tempbegin\BODY
+	\end{taskEX}
+}
+
+\setlistsEX{label=\CircLabel}
+
+\AtBeginEnvironment{listEX}{\setcounter{CircLabel}{0}}
+\AtBeginEnvironment{enumEX}{\setcounter{CircLabel}{0}}
+
+%\hideansEX{ex}\hideansEX{vd}\hideansEX{bt}
+\begin{document}
+\tableofcontents
+\input{data/CD10}
+\end{document}

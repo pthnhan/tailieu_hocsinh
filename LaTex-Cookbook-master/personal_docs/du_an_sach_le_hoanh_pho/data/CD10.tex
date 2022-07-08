@@ -1,0 +1,1361 @@
+\section{ĐẠO HÀM VÀ VI PHÂN} %Viết in hoa
+\subsection{Kiến thức trọng tâm}
+\begin{description}
+	\item[Định nghĩa đạo hàm, vi phân]\
+    \begin{itemize}
+        \item Cho hàm số $y=f(x)$ xác định trên khoảng $(a;b)$ và điểm $x_0$ thuộc khoảng đó, đặt $\Delta x=x-x_0$ là số gia của biến số và $\Delta y=f(x_0+\Delta x)-f(x_0)$ là số gia của hàm số. Đạo hàm của $f$ tại $x_0$ là $\displaystyle f'(x_0)=y'(x_0)=\lim_{x\rightarrow x_0}\dfrac{f(x)-f(x_0)}{x-x_0}=\lim_{x\rightarrow}\dfrac{\Delta y}{\Delta x}$ (hữu hạn).
+        \item Vi phân của hàm số $y=f(x)$ tại điểm $x_0$ ứng với số gia $\Delta x$ được ký hiệu $\mathrm{d}f(x_0)$ là $\mathrm{d}f(x_0)=f'(x_0)\Delta x$ hay $\mathrm{d}y=f'(x)\mathrm{d}x=y'\mathrm{d}x$.
+        \item Nếu hàm số $y=f(x)$ có đạo hàm tại $x_0$ thì liên tục tại $x_0$.
+    \end{itemize}
+	\item[Công thức và quy tắc]\
+	\begin{multicols}{2}
+	\begin{itemize}
+	    \item $y=c\Rightarrow y'=0$, $y=x\Rightarrow y'=1$.
+	    \item $y=x^n\Rightarrow y'=n\cdot x^{n-1}$.
+	    \item $y=\sqrt{x}\Rightarrow y'=\dfrac{1}{2\sqrt{x}}$ ($x>0$).
+	    \item $y=\sqrt[n]{x}\Rightarrow y'=\dfrac{1}{n\sqrt{x^n}}$.
+	    \item $y=\sin x\Rightarrow y'=\cos x$.
+	    \item $y=\cos x\Rightarrow y'=-\sin x$.
+	    \item $y=\tan x\Rightarrow y'=\dfrac{1}{\cos^2 x}$.
+	    \item $y=\cot x\Rightarrow y'=\dfrac{-1}{\sin^2 x}$.
+	    \item $y=\arcsin x\Rightarrow y'=\dfrac{1}{\sqrt{1-x^2}}$.
+	    \item $y=\arccos x\Rightarrow y'=\dfrac{-1}{\sqrt{1-x^2}}$.
+	    \item $y=\arctan x\Rightarrow y'=\dfrac{1}{1+x^2}$.
+	    \item $y=\mathrm{arccot}\,x\Rightarrow y'=\dfrac{-1}{1+x^2}$.
+	    \item $(u+v)'=u'+v'$.
+	    \item $(u-v)'=u'-v'$.
+	    \item $(u\cdot v)'=u'\cdot v+u\cdot v'$.
+	    \item $\left(\dfrac{u}{v}\right)'=\dfrac{u'\cdot v-u\cdot v'}{v^2}$.
+	    \item Hàm hợp $\left[f(u(x))\right]'=f'(u)\cdot u'(x)$.
+	    \item Hàm ngược $x'_y=\dfrac{1}{y'_x}$.
+	\end{itemize}
+	\end{multicols}
+	\item[Đạo hàm cấp $n$]\
+	\begin{itemize}
+	    \item Định nghĩa: $f^{(n)}(x)=[f^{(n-1)}(x)]'$.
+	    \item Ta có $(\sin x)^{(n)}=\sin\left(x+\dfrac{n\pi}{2}\right)$, $\left(\dfrac{1}{x}\right)^{(n)}=\dfrac{(-1)^n\cdot n!}{x^{n+1}}$.
+	    \item Ý nghĩa cơ học: Chuyển động $s=s(t)$ có vận tốc tại điểm $t_0$ là $v(t_0)=s'(t_0)$, gia tốc tại điểm $t_0$ là $a(t_0)=v'(t_0)=s''(t_0)$.
+	\end{itemize}
+	\newpage
+	\item[Tiếp tuyến và tiếp xúc]\
+	    \begin{itemize}
+	        \item 
+            \immini
+	        {
+	        Đạo hàm của hàm số $y=f(x)$ tại điểm $x_0$ là hệ số góc $k$ của tiếp tuyến của đồ thị tại điểm $x_0$ hay $k=f'(x_0)$.\\
+	        Phương trình tiếp tuyến tại điểm $M_0(x_0;f(x_0))$ là \[y=f'(x_0)(x-x_0)+f(x_0).\]
+	        }
+	        {
+	        \begin{tikzpicture}[scale=0.6, font=\footnotesize,line join=round, line cap=round, >=stealth]
+    \def\hs{0.25*(\x-1)^2+1}
+    \def\xt{-1} \def\xp{7} \def\yt{6.5} \def\yd{-1}
+    \draw[->] (\xt,0)--(\xp,0) node [below]{$x$};
+    \draw[->] (0,\yd)--(0,\yt) node [left]{$y$};
+    \node at (0,0) [below left]{$O$};
+    \begin{scope}
+    \clip (\xt,\yd) rectangle (\xp,\yt-0.1);
+    \draw[smooth,samples=200,domain=0.5:5.7,thick,violet] plot(\x,{\hs})node[below left]{$(C)$};
+    \draw[smooth,samples=200,domain=-1:6] plot(\x,{0.5*(\x)+0.25})node[below right]{$\Delta$};
+    \draw[smooth,samples=200,domain=-1:6] plot(\x,{1.25*(\x)-1.25});
+    \end{scope}
+    \draw[dashed] (2,0)|-(0,1.25) (5,0)|-(0,5);
+    \fill (2,1.25)node[below right]{$A$} circle(2pt);
+    \fill (5,5)node[below right]{$B$} circle(2pt);
+    \end{tikzpicture}
+	        }
+	        \item Tiếp tuyến đi qua điểm $K(a;b)$: Lập phương trình tiếp tuyến tại $x_0$ rồi cho tiếp tuyến đi qua điểm $K(a;b)$ thì tìm ra $x_0$.
+	        \item Điều kiện tiếp xúc của hai đồ thị $f(x)$ và $g(x)$ là hệ $\heva{&f(x)=g(x)\\&f'(x)=g'(x)}$ có nghiệm. Nghiệm chung $x_0$ là hoành độ tiếp điểm.
+	    \end{itemize}
+	\item[Tính gần đúng]\ \\
+	Ta có $f(x_0+\Delta x)\approx f(x_0)+f'(x_0)\Delta x$.
+	\item[Quy tắc L'Hospital]\
+    \begin{itemize}
+        \item Giả sử hai hàm số $f$ và $g$ liên tục trên khoảng $(a;b)$ chứa $x_0$, có đạo hàm trên $(a;b)\setminus \{x_0\}$ và có $f(x_0)=g(x_0)=0$. Khi đó $\displaystyle\lim_{x\rightarrow x_0}\dfrac{f'(x)}{g'(x)}=L$ thì $\displaystyle\lim_{x\rightarrow x_0}\dfrac{f(x)}{g(x)}=L$.\\
+	    \item Đặc biệt rằng $\displaystyle f'(x_0)=\lim_{x\rightarrow x_0}\dfrac{f(x)-f(x_0)}{x-x_0}\Rightarrow\lim_{x\rightarrow x_0}\dfrac{f(x)-f(x_0)}{x-x_0}=f'(x_0)$.
+    \end{itemize}
+\end{description}
+\subsection{Các bài toán}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5B1-1]
+	Dùng định nghĩa tính đạo hàm của mỗi hàm số tại $x_0$ sau.
+	\begin{listEX}[2]
+	    \item $y=\dfrac{3x+1}{x-2}$, $x_0=3$.
+	    \item $y=\sqrt[3]{x}$, $x_0=\dfrac{1}{8}$.
+	\end{listEX}
+	\loigiai{
+	\begin{listEX}[1]
+	    \item Cho $x_0=3$ số gia $\Delta x$ thì $\Delta y=f(3+\Delta x)-f(3)=\dfrac{3(3+\Delta x)+1}{(3+\Delta x)-2}-\dfrac{10}{1}=\dfrac{-7\Delta x}{1+\Delta x}$.\\
+	    Ta có $\displaystyle \lim_{\Delta x\rightarrow 0}\dfrac{\Delta y}{\Delta x}=\lim_{\Delta x\rightarrow 0}\dfrac{-7}{1+\Delta x}=-7$. Vậy $f'(3)=-7$.
+	    \item Cho $x_0=\dfrac{1}{8}$ số gia $\Delta x$ thì ta có \[\Delta y=f\left(\dfrac{1}{8}+\Delta x\right)-f\left(\dfrac{1}{8}\right)=\sqrt[3]{\dfrac{1}{8}+\Delta x}-\dfrac{1}{2}=\dfrac{\Delta x}{\sqrt[3]{\left(\dfrac{1}{8}+\Delta x\right)^2}+\dfrac{1}{2}\sqrt[3]{\dfrac{1}{8}+\Delta x}+\dfrac{1}{4}}.\]
+	    Ta có $\displaystyle \lim_{\Delta x\rightarrow 0}\dfrac{\Delta y}{\Delta x}=\lim_{\Delta x\rightarrow 0}\dfrac{1}{\sqrt[3]{\left(\dfrac{1}{8}+\Delta x\right)^2}+\dfrac{1}{2}\sqrt[3]{\dfrac{1}{8}+\Delta x}+\dfrac{1}{4}}=\dfrac{1}{3\cdot\dfrac{1}{4}}=\dfrac{4}{3}$.
+	    Vậy $f'\left(\dfrac{1}{8}\right)=\dfrac{4}{3}$.
+	\end{listEX}
+}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5G1-1]
+	Dùng định nghĩa tính đạo hàm của mỗi hàm số sau.
+	\begin{listEX}[2]
+	    \item $y=\dfrac{1+x}{\sqrt{1-x}}$.
+	    \item $y=x^n$ với $n$ nguyên dương.
+	\end{listEX}
+	\loigiai{
+	\begin{listEX}[1]
+	    \item Với mọi $x$ thuộc khoảng $(-\infty;1)$, ta có
+	    \allowdisplaybreaks
+	    \begin{eqnarray*}
+	    & \Delta y & = f(x+\Delta x)-f(x)=\dfrac{1+x+\Delta x}{\sqrt{1-x-\Delta x}}-\dfrac{1+x}{\sqrt{1-x}}\\
+	    & & = \dfrac{(1+x+\Delta x)\sqrt{1-x}-(1+x)\sqrt{1-x-\Delta x}}{\sqrt{1-x-\Delta x}\cdot\sqrt{1-x}}\\
+	    & & =\dfrac{(1+x)(\sqrt{1-x}-\sqrt{1-x-\Delta x})+\Delta x\sqrt{1-x}}{\sqrt{1-x-\Delta x}\cdot\sqrt{1-x}}\\
+	    & & =\dfrac{(1+x)\dfrac{\Delta x}{\sqrt{1-x}+\sqrt{1-x-\Delta x}}+\Delta x\sqrt{1-x}}{\sqrt{1-x-\Delta x}\cdot\sqrt{1-x}}.
+	    \end{eqnarray*}
+	    Ta có $\displaystyle \lim_{\Delta x\rightarrow 0}\dfrac{\Delta y}{\Delta x}=\lim_{\Delta x\rightarrow 0}\dfrac{1+x+\sqrt{1-x}(\sqrt{1-x}+\sqrt{1-x-\Delta x})}{\sqrt{1-x-\Delta x}\cdot\sqrt{1-x}(\sqrt{1-x}+\sqrt{1-x-\Delta x})}=\dfrac{3-x}{2\sqrt{(1-x)^3}}$.\\
+	    Vậy $y'=\dfrac{3-x}{2\sqrt{(1-x)^3}}$, với $x<1$.
+	    \item Với mọi $x\in\mathbb{R}$, cho số gia $\Delta x$, ta có
+	    \allowdisplaybreaks
+	    \[\Delta y=(x+\Delta x)^n-x^n=\mathrm{C}_n^1x^{n-1}\Delta x+\mathrm{C}_n^2 x^{n-2}\Delta x^2+\cdots+\mathrm{C}_n^{n-1}x\Delta x^{n-1}+\Delta x^n.\]
+	    Ta có $\displaystyle\lim_{\Delta x\rightarrow 0}\dfrac{\Delta y}{\Delta x}=\lim_{\Delta x\rightarrow 0}\left(\mathrm{C}_n^1x^{n-1}+\mathrm{C}_n^2 x^{n-2}\Delta x+\cdots+\mathrm{C}_n^{n-1}x\Delta x^{n-2}+\Delta x^{n-1}\right)=\mathrm{C}_n^1x^{n-1}=nx^{n-1}$.\\
+	    Vậy $y'=nx^{n-1}$.
+	\end{listEX}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K11, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5K2-1]
+	Chứng minh các hàm số sau liên tục tại $x=0$ nhưng không có đạo hàm tại đó.
+	\begin{listEX}[2]
+	    \item $y=f(x)=\sqrt{|x|}$.
+	    \item $y=f(x)=\dfrac{|x|}{x+1}$.
+	\end{listEX}
+	\loigiai{
+	\begin{listEX}[1]
+	    \item Ta có $f(0)=0$, $\displaystyle\lim{x\rightarrow 0}\sqrt{|x|}=0=f(0)$ nên $f$ liên tục tại $x=0$.\\
+	    Cho $x=0$ số gia $\Delta x$, ta có $f(0+\Delta x)-f(0)=\sqrt{|\Delta x|}$.\\
+	    Ta có $\displaystyle \lim_{x\rightarrow 0^+}\dfrac{\Delta y}{\Delta x}=\lim_{x\rightarrow 0^+}\dfrac{\sqrt{|\Delta x|}}{\Delta x}=\lim_{x\rightarrow 0^+}\dfrac{1}{\sqrt{|\Delta x|}}=+\infty$.\\
+	    Vậy không tồn tại đạo hàm tại $x=0$.
+	    \item Ta có $f(0)=0$, $\displaystyle\lim_{x\rightarrow 0}\dfrac{|x|}{x+1}=0=f(0)$ nên $f$ liên tục tại $x=0$.\\
+	    Cho $x=0$ số gia $\Delta x$ thì $\Delta y=\dfrac{|\Delta x|}{\Delta x+1}-0=\dfrac{|\Delta x|}{\Delta x+1}$.\\
+	    Ta có $\displaystyle\lim_{\Delta x\rightarrow 0^-}\dfrac{\Delta y}{\Delta x}=\lim_{\Delta x\rightarrow 0^-}\dfrac{-1}{\Delta x+1}=-1$ và $\displaystyle\lim_{\Delta x\rightarrow 0^+}\dfrac{\Delta y}{\Delta x}=\lim_{\Delta x\rightarrow 0^+}\dfrac{1}{\Delta x+1}=1\ne\lim_{\Delta x\rightarrow 0^-}\dfrac{\Delta y}{\Delta x}.$\\
+	    Vậy $f$ không có đạo hàm tại $x=0$.
+	\end{listEX}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5K2-1]
+	Cho hàm số $f(x)=\heva{&\dfrac{1-\sqrt{1-x}}{x}&\text{ khi } x\ne0 \\&\dfrac{1}{2}&\text{ khi } x=0}$. Chứng minh $f$ liên tục và có đạo hàm tại $x=0$.
+	\loigiai{
+	$f(x)-f(0)=\dfrac{1-\sqrt{1-x}}{x}-\dfrac{1}{2}=\dfrac{2-x-2\sqrt{1-x}}{2x}=\dfrac{(2-x)^2-4(1-x)}{2x(2-x+2\sqrt{1-x})}=\dfrac{x}{2x(2-x+2\sqrt{1-x})}$.
+	Ta có $\displaystyle\lim_{x\rightarrow 0}\dfrac{f(x)-f(0)}{x-0}=\lim_{x\rightarrow 0}\dfrac{1}{2x(2-x+2\sqrt{1-x})}=\dfrac{1}{8}$.\\
+	Vậy tồn tại $f'(0)=\dfrac{1}{8}$ nên $f$ liên tục và có đạo hàm tại $x=0$
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5G2-1]
+	Cho hàm số $f(x)=\heva{&x^2\sin\dfrac{1}{x}&\text{ khi } x\ne0 \\&0&\text{ khi } x=0}$. Chứng minh $f$ liên tục và có đạo hàm trên $\mathbb{R}$.
+	\loigiai{
+		Ta có $f(x)=x^2\sin\dfrac{1}{x}$ xác định và liên tục trên $\mathbb{R}\setminus\{0\}$ và $\displaystyle\lim_{x\rightarrow0}f(x)=\lim_{x\rightarrow0}x^2\sin\dfrac{1}{x}=0$ vì $\displaystyle\heva{&\left|x^2\sin\dfrac{1}{x}\right|\le x^2\\&\lim_{x\rightarrow 0}x^2=0.}$\\
+		Nên $\displaystyle\lim_{x\rightarrow0}f(x)=f(0)=0$, do đó $f$ liên tục tại $x=0$ nên liên tục trên $\mathbb{R}$.\\
+		Khi $x\ne 0$ thì $f'(x)=2x\sin\dfrac{1}{x}-\cos x$. Ta tính $f'$ tại $x=0$. Ta có
+		\[\dfrac{\Delta y}{\Delta x}=\dfrac{f(\Delta x)-f(0)}{\Delta x}=\dfrac{(\Delta x)^2\sin\dfrac{1}{\Delta x}-0}{\Delta x}=\Delta x\sin\dfrac{1}{\Delta x}.\]
+		Từ đó $\displaystyle\lim_{\Delta x\rightarrow 0}\dfrac{\Delta y}{\Delta x}=0$ vì $\left|\Delta x\sin\dfrac{1}{\Delta x}\right|\le\Delta x\rightarrow 0$ nên $f'(0)=0$.\\
+		Vậy $f(x)$ có đạo hàm trên $\mathbb{R}$.
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5K2-1]
+	Tìm $a$, $b$ để hàm số $f(x)=\heva{&x^3-2&\text{ khi } x\le0 \\&x^2+ax+b&\text{ khi } x>0}$ có đạo hàm tại $x=0$. Khi đó tính $f'(0)$.
+	\loigiai{
+		Hàm số có đạo hàm tại $x=0$ thì liên tục tại $x=0$ nên \[\displaystyle\lim_{x\rightarrow 0^+}f(x)=f(0)\Rightarrow \displaystyle\lim_{x\rightarrow 0^+}(x^2+ax+b)=-2\Rightarrow b=-2.\]
+		Ta có $\displaystyle\heva{&\lim_{x\rightarrow 0^+}\dfrac{f(x)-f(0)}{x-0}=\lim_{x\rightarrow0^+}\dfrac{x^2+ax}{x}=\lim_{x\rightarrow0^+}(x+a)=a\\&\lim_{x\rightarrow 0^-}\dfrac{f(x)-f(0)}{x-0}=\lim_{x\rightarrow0^-}\dfrac{x^3}{x}=\lim_{x\rightarrow0^-}x^2=0.}$\\
+		Suy ra điều kiện tồn tại đạo hàm tại $x=0$ là $a=0$ và $b'=2$, khi đó $f'(0)=0$.
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5B2-1]
+	Tính đạo hàm của các hàm số sau.
+	\begin{listEX}[2]
+	    \item $y=\dfrac{x^5}{a}-\dfrac{3x^2}{a}+abx$ ($a,\,b\in\mathbb{R}$).
+	    \item $y=(x-1)(x+2)(x-3)$.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+		    \item Ta có $y=\dfrac{1}{a}\cdot x^5-\dfrac{3}{a}\cdot x^2+abx$, tập xác định $\mathscr{D}=\mathbb{R}\Rightarrow y'=\dfrac{1}{a}\cdot5x^4-\dfrac{3}{a}\cdot 2x+ab=\dfrac{5}{a}x^4-\dfrac{6}{a}x+ab$.
+		    \item Ta có
+		    \allowdisplaybreaks
+		    \begin{eqnarray*}
+		    & y' & = (x-1)'(x+2)(x-3)+(x-1)(x+2)'(x-3)+(x-1)(x+2)(x-3)'\\
+		    & & = (x+2)(x-3)+(x-1)(x-3)+(x-1)(x+2)=3x^2-4x-5.
+		    \end{eqnarray*}
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5B2-1]
+	Tính đạo hàm các hàm số sau.
+	\begin{listEX}[2]
+	    \item $y=\dfrac{5x-3}{x^2+x+1}$.
+	    \item $y=\dfrac{1}{(x^2-x+1)^5}$.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+		    \item Ta có $y'=\dfrac{5(x^2+x+1)-(5x-3)(2x+1)}{(x^2+x+1)^2}=\dfrac{-5x^2+6x+8}{(x^2+x+1)^2}$.
+		    \item Đặt $u=x^2-x+1$ thì $y=\dfrac{1}{u^5}$. Ta có $y'=\dfrac{-(u^5)'}{(u^5)^2}=\dfrac{-5u^4\cdot u'}{u^{10}}=\dfrac{-5u'}{u^6}=\dfrac{-5(2x-1)}{(x^2-x+1)^6}$.
+	    \end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5K2-1]
+	Với $a,\,b,\,c,\,d,\,a',\,b',\,c'$ là các hằng số thực, tính đạo hàm của các hàm số sau.
+	\begin{listEX}[2]
+	    \item $y=\dfrac{ax+b}{cx+d}$.
+	    \item $y=\dfrac{ax^2+bx+c}{a'x^2+b'x+c'}$.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+		    \item $y'=\dfrac{a(cx+d)-c(ax+b)}{(cx+d)^2}=\dfrac{ad-bc}{(cx+d)^2}$.
+		    \item Ta có
+		    \allowdisplaybreaks
+		    \begin{eqnarray*}
+		    & y' & = \dfrac{(2ax+b)(a'x^2+b'x+c')-(ax^2+bx+c)(2a'x+b')}{(a'x^2+b'x+c')^2}\\
+		    & & = \dfrac{(ab'-a'b)x^2+2(ac'-a'c)x+bc'-b'c}{(a'x^2+b'x+c')^2}.
+		    \end{eqnarray*}
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5B2-1]
+	Tính đạo hàm các hàm số
+	\begin{listEX}[2]
+	    \item $y=(x-x^2)^{32}$.
+	    \item $y=(x+1)(x+2)^2(x+3)^3$.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+		    \item $y'=32(x-x^2)^{31}\cdot(x-x^2)'=32(x-x^2)^{31}\cdot(1-2x)$.
+		    \item Ta có
+		    \allowdisplaybreaks
+		    \begin{eqnarray*}
+		    & y' & = 1\cdot(x+2)^2(x+3)^3+(x+1)\cdot2(x+2)(x+3)^2+(x+1)(x+2)^2\cdot 3(x+3)^2\\
+		    & & = (x+2)(x+3)^2[(x+2)(x+3)+2(x+1)(x+1)+3(x+1)(x+2)]\\
+		    & & = (x+2)(x+3)^2[x^2+5x+6+2(x^2+2x+1)+3(x^2+3x+2)]\\
+		    & & = (x+2)(x+3)^2(6x^2+22x+18)=2(x+2)(x+3)^2(3x^2+11x+9).
+		    \end{eqnarray*}
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5B2-1]
+	Tính đạo hàm của mỗi hàm số.
+	\begin{listEX}[2]
+        \item $y=\sqrt{\dfrac{x^2+1}{x}}$.
+        \item $y=\dfrac{x}{\sqrt{a^2-x^2}}$, $a$ là hằng số.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+		    \item Ta có $y=\sqrt{\dfrac{x^2+1}{x}}=\sqrt{x+\dfrac{1}{x}}$, nên
+		    \[y'=\dfrac{\left(x+\dfrac{1}{x}\right)'}{2\sqrt{x+\dfrac{1}{x}}}=\dfrac{1-\dfrac{1}{x^2}}{2\sqrt{x+\dfrac{1}{x}}}=\dfrac{x^2-1}{2\sqrt{x^3(x^2+1)}}.\]
+		    \item $y'=\dfrac{1\cdot\sqrt{a^2-x^2}-x\dfrac{-2x}{2\sqrt{a^2-x^2}}}{a^2-x^2}=\dfrac{(a^2-x^2)+x^2}{(a^2-x^2)\sqrt{a^2-x^2}}=\dfrac{a^2}{\sqrt{(a^2-x^2)^3}}$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5K2-1]
+	Tính đạo hàm các hàm số sau.
+	\begin{listEX}[2]
+	    \item $y=\sqrt{1+\sqrt{x}}$.
+	    \item $y=\sqrt[3]{\dfrac{1-x}{1+x}}$.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+		    \item $y'=\dfrac{(1+\sqrt{x})'}{2\sqrt{1+\sqrt{x}}}=\dfrac{1}{4\sqrt{x}\cdot\sqrt{1+\sqrt{x}}}$.
+		    \item Ta có $y^3=\dfrac{1-x}{1+x}$, nên lấy đạo hàm hai vế ta được $3y^2\cdot y'=\dfrac{-2}{(1+x)^2}$.\\
+		    Do đó $y'=\dfrac{-2}{3y^2(1+x)^2}=\dfrac{-2}{3\sqrt[3]{\left(\dfrac{1-x}{1+x}\right)^2}(1+x)^2}=\dfrac{-2}{3\sqrt[3]{(1-x)^2(1+x)^4}}$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5K2-1]
+	Tính đạo hàm của các hàm số sau.
+	\begin{listEX}[2]
+	    \item $y=\cos\sqrt{2x+1}-\cot^3 x$.
+	    \item $y=2\sin 3x\cdot\cos 5x$.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+		    \item Ta có
+		    $y'=-\sin(\sqrt{2x+1})\cdot(\sqrt{2x+1})'-3\cot^2x(\cot x)'=\dfrac{-\sin(\sqrt{2x+1})}{\sqrt{2x+1}}+3\dfrac{\cot^2 x}{\sin^2 x}$.
+		    \item Ta có $y=\sin 8x-\sin 2x$ nên $y'=8\cos8x-2\cos2x$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5K2-1]
+	Tính đạo hàm các hàm số
+	\begin{listEX}[2]
+	    \item $y=\dfrac{1}{|\sin x|}$.
+	    \item $y=\sqrt{1+\tan\left(x+\dfrac{1}{x}\right)}$.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+            \item Ta có $y=\dfrac{1}{\sqrt{\sin^2 x}}$ nên $y'=\dfrac{-\left(\sqrt{\sin x}\right)'}{\sin^2x}=\dfrac{-2\sin x\cos x}{\sin^2x\sqrt{\sin^2x}}=\dfrac{-\cot x}{|\sin x|}$.
+            \item Ta có $y'=\dfrac{1-\dfrac{1}{x^2}}{2\cos^2\left(x+\dfrac{1}{x}\right)\sqrt{1+\tan\left(x+\dfrac{1}{x}\right)}}=\dfrac{x^2-1}{2x^2\cos^2\left(x+\dfrac{1}{x}\right)\sqrt{1+\tan\left(x+\dfrac{1}{x}\right)}}$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5B2-1]
+	Tính đạo hàm của các hàm số sau.
+	\begin{listEX}[2]
+	    \item $y=\sin(\cos^2 x)\cdot\cos(\sin^2 x)$.
+	    \item $y=\sin^n x\cdot \cos nx$, $n\ge 2$.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+		    \item Ta có
+	        \allowdisplaybreaks
+		    \begin{eqnarray*}
+		    & y' & = \cos(\cos^2 x)\cdot(\cos^2 x)'\cdot\cos(\sin^2 x)+\sin(\cos^2 x)\cdot(-\sin(\sin^2 x))\cdot(\sin^2 x)'\\
+		    & & = -2\sin x\cos x\cdot\cos(\cos^2 x)\cdot\cos(\sin^2 x)-2\sin x\cos x\cdot\sin(\cos^2 x)\cdot\sin(\sin^2 x)\\
+		    & & = -\sin 2x[\cos(\cos^2 x)\cdot\cos(\sin^2 x)+\sin(\cos^2 x)\cdot\sin(\sin^2 x)]\\
+		    & & = -\sin2x\cdot\cos(\cos^2x-\sin^2 x)=-\sin 2x\cdot\cos(\cos 2x).
+		    \end{eqnarray*}
+		    \item Ta có
+		    \allowdisplaybreaks
+		    \begin{eqnarray*}
+		    & y' & = n\sin^{n-1}x\cdot\cos x\cdot\cos nx+\sin^n x\cdot(-\sin nx)\cdot n\\
+		    & & = n\sin^{n-1}x(\cos x\cdot\cos nx-\sin x\cdot\sin nx)\\
+		    & & = n\sin^{n-1}x\cdot\cos[(n+1)x].
+		    \end{eqnarray*}
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5K2-1]
+	Tính đạo hàm của các hàm số sau.
+	\begin{listEX}[2]
+	    \item $y=\arcsin(4x^2-7)$.
+	    \item $y=\mathrm{arccot}\sqrt{1-3x}$.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+		    \item $y=\arcsin(4x^2-7)\Rightarrow y'=\dfrac{(4x^2-7)'}{\sqrt{1-(4x^2-7)^2}}=\dfrac{8x}{\sqrt{56x^2-16x^4-48}}$.
+		    \item $y=\mathrm{arccot}\sqrt{1-3x}\Rightarrow y'=\dfrac{-(\sqrt{1-3x})'}{1+(1-3x)^2}=\dfrac{3}{2(2-6x+9x^2)\sqrt{1-3x}}$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5K4-1]
+	Tính vi phân của các hàm số sau.
+	\begin{listEX}[2]
+	    \item $y=x+\sqrt{2-x^2}$.
+	    \item $y=\dfrac{-2x^2-2x+1}{(x^2+x+1)^2}.$
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+		    \item $y'=1-\dfrac{2x}{2\sqrt{2-x^2}}=\dfrac{\sqrt{2-x^2}-x}{\sqrt{2-x^2}}\Rightarrow\mathrm{d}y=\dfrac{\sqrt{2-x^2}-x}{\sqrt{2-x^2}}\mathrm{d}x$.
+		    \item Ta có
+		    \allowdisplaybreaks
+		    \begin{eqnarray*}
+		    & y' & = \dfrac{(-4x-2)(x^2+x+1)^2-(-2x^2-2x+1)2(x^2+x+1)(2x+1)}{(x^2+x+1)^4}\\
+		    & & = \dfrac{-2(2x+1)(x^2+x+1)-2(-2x^2-2x+1)(2x+1)}{(x^2+x+1)^3}=\dfrac{2(2x+1)(x^2+x-2)}{(x^2+x+1)^3}
+		    \end{eqnarray*}
+		    Suy ra $\mathrm{d}y=\dfrac{2(2x+1)(x^2+x-2)}{(x^2+x+1)^3}\mathrm{d}x$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5K4-1]
+	Tính vi phân của các hàm số sau.
+	\begin{listEX}[2]
+	    \item $y=\cos(\cos x)$.
+	    \item $y=\dfrac{1}{(1+\tan x)^2}$.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+		    \item Ta có $\mathrm{d}y=y'\mathrm{d}x=-\sin(\cos x)\cdot(\cos x)'\mathrm{d}x=\sin x\cdot\sin(\cos x)\mathrm{d}x$.
+		    \item Ta có $\mathrm{d}y=\dfrac{-2(1+\tan x)\cdot\dfrac{1}{\cos^2 x}}{(1+\tan x)^4}\mathrm{d}x=\dfrac{-2}{\cos^2 x(1+\tan x)^3}\mathrm{d}x$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5K2-1]
+	Cho hai hàm $f$ và $g$ có đạo hàm trên $\mathbb{R}$. Tính đạo hàm của hàm số hợp.
+	\begin{listEX}[2]
+	    \item $y=f(x^3)-g(x^2)$.
+	    \item $y=\sqrt{f^2(x)+g^3(x^2)}$.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+		    \item $y'=f'(x^3)\cdot(x^3)'-g'(x^2)\cdot(x^2)'=3x^2\cdot f'(x^3)-2x\cdot g'(x^2)$.
+		    \item $y'=\dfrac{(f^2(x)+g^3(x^2))'}{2\sqrt{f^2(x)+g^3(x^2)}}=\dfrac{2f(x)\cdot f'(x)+6x\cdot g^2(x^2)\cdot g'(x^2)}{2\sqrt{f^2(x)+g^3(x^2)}}$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5G2-1]
+	Cho hàm số $y=f(x)$ có đạo hàm trên $\mathbb{R}$. Chứng minh
+	\begin{listEX}[2]
+	    \item Nếu $f$ chẵn thì $f'$ lẻ.
+	    \item Nếu $f$ lẻ thì $f'$ chẵn.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+            \item Nếu $f$ chẵn trên $\mathbb{R}$ thì với mọi $x\in\mathbb{R}$, $f(-x)=f(x)$. Lấy đạo hàm hai vế, ta được
+            \[f'(-x)\cdot(-x)'=f'(x)\Leftrightarrow -f'(-x)=f'(x)\Leftrightarrow f'(-x)=-f'(x).\]
+            Vậy $f'$ lẻ.
+            \item Nếu $f$ lẻ trên $\mathbb{R}$ thì với mọi $x\in\mathbb{R}$, $f(-x)=-f(x)$. Lấy đạo hàm hai vế, ta được
+            \[f'(-x)\cdot(-x)'=-f'(x)\Leftrightarrow -f'(-x)=-f'(x)\Leftrightarrow f'(-x)=f'(x).\]
+            Vậy $f'$ chẵn.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5G2-1]
+	Cho hàm số $y=f(x)$ có đạo hàm với mọi $x$ và thỏa mãn
+	\begin{enumerate}
+	    \item $f^2(1+2x)=x-f^3(1-x)$. Tính $f'(1)$.
+	    \item $2f(x)=1+x\cdot f^3(x)$. Tính đạo hàm tại điểm $M(1;1)$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+		    \item Lấy đạo hàm hai vế, ta có $4f(1+2x)\cdot f'(1+2x)=1+3f^2(1-x)\cdot f'(1-x)$.\\
+		    Thay $x=0$ vào, ta được $4f(1)\cdot f'(1)=1+3f^2(1)\cdot f'(1)$.\\
+		    Thay $x=0$ vào $f^2(1+2x)=x-f^3(1-x)$, thì ta được \[f^2(1)=-f^3(1)\Leftrightarrow f^2(1)\left[1+f(1)\right]=0\Leftrightarrow\hoac{&f(1)=0\\&f(1)=-1.}\]
+		    \begin{itemize}
+		        \item Với $f(1)=0$ thì từ $4f(1)\cdot f'(1)=1+3f^2(1)\cdot f'(1)$ thì $0=1$ (loại).
+		        \item Với $f(1)=-1$ thì từ $4f(1)\cdot f'(1)=1+3f^2(1)\cdot f'(1)\Leftrightarrow -4f'(1)=1+3f'(1)\Rightarrow f'(1)=\dfrac{-1}{7}$.
+		    \end{itemize}
+		    \item Lấy đạo hàm hai vế, ta có $2f'(x)=f^3(x)+3xf^2(x)\cdot f'(x)$.\\
+		    Thế $x=1$ và ta có $f(1)=1$ nên $2f'(1)=1+3f'(1)\Rightarrow f'(1)=-1$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5G2-1]
+	Cho hàm số $f(x)$ có đạo hàm với mọi $x\in\mathbb{R}$ và thỏa mãn $f(2x)=4\cos x\cdot f(x)-2x$. Tính $f'(0)$.
+	\loigiai{
+		Đạo hàm hai vế, ta có $2f'(2x)=-4\sin x\cdot f(x)+4\cos x\cdot f'(x)-2$.\\
+		Thay $x=0$, ta có $2f'(0)=4f'(0)-2\Leftrightarrow f'(0)=1$. Vậy $f'(0)=1$.
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5K2-1]
+	Chứng minh các hàm số sau có đạo hàm $y'=0$.
+	\begin{enumerate}
+	    \item $y=\sin^6 x+\cos^6 x+3\sin^2 x\cos^2 x$.
+	    \item $y=\cos^2\left(\dfrac{\pi}{3}-x\right)+\cos^2\left(\dfrac{\pi}{3}+x\right)+\cos^2\left(\dfrac{2\pi}{3}-x\right)+\cos^2\left(\dfrac{2\pi}{3}+x\right)-2\sin^2 x$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+		    \item Ta có
+		    \allowdisplaybreaks
+		    \begin{eqnarray*}
+		    & y' & = 6\sin^5 x\cos x-6\cos^5x\sin x+6\sin x\cos^3 x-6\cos x\sin^3 x\\
+		    & & = 6\sin x\cos x\left[(\sin^4 x-\cos^4 x)+(\cos^2 x-\sin^2 x)\right]\\
+		    & & =3\sin 2x\left[(\sin^2 x-\cos^2 x)(\sin^2 x+\cos^2 x)+(\cos^2 x-\sin^2x)\right]=0.
+		    \end{eqnarray*}
+		    Ngoài ra có thể biến đổi $y=\sin^6x+\cos^6x+3\sin^2x\cos^2x(\sin^2x+\cos^2x)=(\sin^2x+\cos^2x)^3=1$, từ đó $y'=0$.
+		    \item Ta có
+		    \allowdisplaybreaks
+		    \begin{eqnarray*}
+		     y' & = & 2\cos\left(\dfrac{\pi}{3}-x\right)\sin\left(\dfrac{\pi}{3}-x\right)-2 \cos \left(\dfrac{\pi}{3}+x\right) \sin \left(\dfrac{\pi}{3}+x\right)\\
+		    & & +\, 2\cos\left(\dfrac{2 \pi}{3}-x\right) \sin \left(\dfrac{2 \pi}{3}-x\right)-2 \cos \left(\dfrac{2 \pi}{3}+x\right) \sin \left(\dfrac{2 \pi}{3}+x\right)-4 \sin x \cos x\\
+		    & = & \left[\sin\left(\dfrac{2\pi}{3}-2x\right)-\sin\left(\dfrac{2\pi}{3}+2x\right)\right]+\left[\sin\left(\dfrac{4\pi}{3}-2x\right)-\sin\left(\dfrac{4\pi}{3}+2x\right)\right]-2\sin 2x\\
+		    & = & 2\cos\dfrac{2\pi}{3}\sin(-2x)+2\cos\dfrac{4\pi}{3}\sin(-2x)-2\sin 2x\\
+		    & = & -2\dfrac{-1}{2}\cdot\sin 2x-2\cdot\dfrac{-1}{2}\sin 2x-2\sin 2x=0.
+		    \end{eqnarray*}
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoành Phò]%[Danh Trần]%[1D5K2-1]
+	Giải phương trình $y'=0$ với hàm số
+	\begin{listEX}[2]
+	    \item $y=\dfrac{x^2-3x+4}{x^2-x+1}$.
+	    \item $y=\dfrac{\sqrt{x^2-2x+3}}{2x+1}$.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+		    \item Ta có $x^2-x+1>0$ với mọi $x\in \mathbb{R}$. Ta có
+		    \[y'=\dfrac{(2x-3)(x^2-x+1)-(x^2-3x+4)(2x-1)}{(x^2-x+1)^2}=\dfrac{2x^2-6x+1}{(x^2-x+1)^2}.\]
+		    Khi $y'=0\Leftrightarrow 2x^2-6x+1=0\Leftrightarrow x=\dfrac{3\pm\sqrt{7}}{2}$.
+		    \item Vì $x^2-2x+3>0$ với mọi $x\in\mathbb{R}$ nên điều kiện xác định của $y$ là $x\ne\dfrac{-1}{2}$. Ta có
+		    \allowdisplaybreaks
+		    \begin{eqnarray*}
+		    & y' & =\dfrac{\dfrac{2x-2}{2\sqrt{x^2-2x+3}}(2x+1)-2\sqrt{x^2-2x+3}}{(2x+1)^2}=\dfrac{(x-1)(2x+1)-2(x^2-2x+3)}{(2x+1)^2\sqrt{x^2-2x+3}}\\
+		    & & =\dfrac{3x-7}{(2x+1)^2\sqrt{x^2-2x+3}}.
+		    \end{eqnarray*}
+		    Do đó $y'=0\Leftrightarrow 3x-7=0\Leftrightarrow x=\dfrac{7}{3}$ (nhận).
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5B2-1]
+    Cho hàm số $f(x)=\sqrt{x^2-2x}$. Giải bất phương trình
+    \begin{listEX}[2]
+        \item $f'(x)<0$.
+        \item $f'(x)\leq f(x)$.
+    \end{listEX}
+    \loigiai{
+    Hàm số $f(x)=\sqrt{x^2-2x}$ có tập xác định $\mathscr{D}=(-\infty;0] \cup [2;+\infty)$.\\
+    Ta có $f'(x)=\dfrac{\left(x^2-2x\right)'}{2\sqrt{x^2-2x}} = \dfrac{x-1}{\sqrt{x^2-2x}},\, \forall x\in (-\infty;0) \cup (2;+\infty)$.\\
+    Điều kiện của các bất phương trình là $x<0$ hoặc $x>2$.
+    \begin{enumerate}
+        \item $f'(x)<0 \Leftrightarrow \dfrac{x-1}{\sqrt{x^2-2x}}<0 \Leftrightarrow \heva{&x-1<0\\&x^2-2x>0} \Leftrightarrow x<0$.
+        \item Bất phương trình $f'(x)\leq f(x)$
+        $$\Leftrightarrow \dfrac{x-1}{\sqrt{x^2-2x}}\leq \sqrt{x^2-2x} \Leftrightarrow \heva{&\hoac{&x<0\\&x>2}\\&x-1\leq x^2-2x} \Leftrightarrow \heva{&\hoac{&x<0\\&x>2}\\&\hoac{&x\leq \dfrac{3-\sqrt{5}}{2}\\&x\geq \dfrac{3+\sqrt{5}}{2}}} \Leftrightarrow \hoac{&x<0\\&x\geq \dfrac{3+\sqrt{5}}{2}.}$$
+    \end{enumerate}}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5B3-1]
+    Giải phương trình $y'=0$ với hàm số
+    \begin{listEX}[2]
+        \item $y=\cos^2x+\sin{x}$.
+        \item $y=2x-\cos{x}-\sqrt{3}\sin{x}$.
+    \end{listEX}
+    \loigiai{
+    \begin{enumerate}
+        \item Với $y=\cos^2x+\sin{x}\Rightarrow y'= -2\cos{x}\sin{x}+\cos{x} = \cos{x}(1-2\sin{x})$.\\
+        Do đó $y'=0\Leftrightarrow  \cos{x}(1-2\sin{x})=0 \Leftrightarrow \hoac{&\cos{x}=0 &\quad(1)\\&\sin{x}=\dfrac{1}{2}.&\quad(2)}$
+        \begin{itemize}
+            \item $(1)\Leftrightarrow x=\dfrac{\pi}{2}+k\pi,\, k\in \mathbb{Z}$.
+            \item $(2)\Leftrightarrow \sin{x}=\sin\dfrac{\pi}{6} \Leftrightarrow \hoac{&x=\dfrac{\pi}{6}+k2\pi,\, k\in \mathbb{Z}\\&x=\dfrac{5\pi}{6}+k2\pi,\, k\in \mathbb{Z}.}$
+        \end{itemize}
+    Vậy phương trình có các nghiệm là $x=\dfrac{\pi}{2}+k\pi$, $x=\dfrac{\pi}{6}+k2\pi$, $x=\dfrac{5\pi}{6}+k2\pi$ ($k\in\mathbb{Z}$).
+        \item Với $y=2x-\cos{x}-\sqrt{3}\sin{x}\Rightarrow y'= 2+\sin{x}-\sqrt{3}\cos{x} = 2+2\sin\left(x-\dfrac{\pi}{3}\right)$.\\
+        Do đó $y'=0 \Leftrightarrow \sin\left(x-\dfrac{\pi}{3}\right)=-1 \Leftrightarrow x-\dfrac{\pi}{3}=-\dfrac{\pi}{2}+k2\pi \Leftrightarrow x=-\dfrac{\pi}{6}+k2\pi,\, k\in \mathbb{Z}$.
+\end{enumerate}}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5B3-1]
+    Tìm $m$ để phương trình $y'=0$ có nghiệm $x$ với hàm số
+    \begin{listEX}[1]
+        \item $y=(m-1)\sin{x}-(2m+3)x$.
+        \item $y=(m+1)\sin{x}+m\cos{x}-(m+2)x+1$.
+    \end{listEX}
+    \loigiai{
+    \begin{enumerate}
+        \item Hàm số $y=(m-1)\sin{x}-(2m+3)x$ có $y'=(m-1)\cos{x}-(2m+3)$ nên
+        \[y'=0\Leftrightarrow (m-1)\cos{x}-(2m+3)=0 \Leftrightarrow (m-1)\cos{x}=2m+3.\]
+        $\bullet$ Với $m=1$ ta có phương trình $0\cdot\cos{x}=5$, phương trình vô nghiệm (không thỏa mãn).\\
+        $\bullet$ Với $m\neq 1$, phương trình tương đương $\cos{x}=\dfrac{2m+3}{m-1}$.\\
+        Phương trình có nghiệm $x$ khi và chỉ khi
+        \allowdisplaybreaks
+        \begin{eqnarray*}
+            &&\left|\dfrac{2m+3}{m-1}\right|\leq 1 \Leftrightarrow |2m+3|\leq |m-1| \Leftrightarrow (2m+3)^2\leq (m-1)^2\\ &\Leftrightarrow & 3m^2-14m+8 \leq 0 \Leftrightarrow -4\leq m\leq -\dfrac{2}{3} \text{ (thỏa mãn)}.
+        \end{eqnarray*}
+    Vậy với $m\in \left[-4;-\dfrac{2}{3}\right]$ thì phương trình đã cho có nghiệm.
+        \item Hàm số $y=(m+1)\sin{x}+m\cos{x}-(m+2)x+1$ có $y'=(m+1)\cos{x}-m\sin{x}-(m+2)$ nên
+        \[y'=0 \Leftrightarrow (m+1)\cos{x}-m\sin{x}=m+2.\]
+        Phương trình có nghiệm khi và chỉ khi
+        \[(m+1)^2+(-m)^2\geq (m+2)^2 \Leftrightarrow  m^2-2m-3\geq 0 \Leftrightarrow \hoac{&m\leq -1\\&m\geq 3.}\]
+\end{enumerate}}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5K2-1]
+    Cho hàm số $f(x)=\dfrac{m-1}{4}x^4+\dfrac{m-2}{3}x^3-mx^2+3x-1$. Giải và biện luận phương trình $f'(x)=0$.
+    \loigiai{
+    Ta có $f'(x)=(m-1)x^3+(m-2)x^2-2mx+3 = (x-1)\left[(m-1)x^2+(2m-3)x-3\right]$. $\quad(1)$
+    \[f'(x)=0\Leftrightarrow \hoac{&x=1\\&(m-1)x^2+(2m-3)x-3=0. \quad (2)}\]
+    $\bullet$ Nếu $m=1$, phương trình $(2)$ trở thành $-x-3=0\Leftrightarrow x=-3$. Phương trình $(1)$ có hai nghiệm phân biệt $x=1$; $x=-3$.\\
+    $\bullet$ Nếu $m\neq 1$, phương trình $(2)$ có $\Delta = (2m-3)^2+12(m-1)=4m^2-3$.\\
+        Nếu $\Delta<0\Leftrightarrow -\dfrac{\sqrt{3}}{2}<m<\dfrac{\sqrt{3}}{2}$, phương trình $(2)$ vô nghiệm. Khi đó phương trình $(1)$ có nghiệm duy nhất $x=1$.\\
+        Nếu $\Delta = 0 \Leftrightarrow m=\pm \dfrac{\sqrt{3}}{2}$, phương trình $(2)$ có nghiệm kép. Khi đó phương trình $(1)$ có hai nghiệm phân biệt trong đó có một nghiệm kép.\\
+        Nếu $\Delta>0 \Leftrightarrow \hoac{&m<-\dfrac{\sqrt{3}}{2}\\&m>\dfrac{\sqrt{3}}{2}}$, phương trình $(2)$ có hai nghiệm phân biệt.
+        \begin{itemize}
+            \item Nếu $m=\dfrac{7}{3}$ thì phương trình $(2)$ có nghiệm $x=1$ nên phương trình $(1)$ có hai nghiệm phân biệt và $x=1$ là nghiệm kép.
+            \item Nếu $m\in \left(-\infty;-\dfrac{\sqrt{3}}{2}\right)\cup \left(\dfrac{\sqrt{3}}{2};+\infty\right)\setminus \left\{\dfrac{7}{3}\right\}$ thì phương trình $(2)$ có hai nghiệm phân biệt khác $1$ nên phương trình $(1)$ có $3$ nghiệm phân biệt.
+        \end{itemize}
+    }
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5K3-1]
+   Cho hàm số $f(x)=-\dfrac{1}{2}\sin{2x}-(2m-5)\cos{x}+2(2-m)x+1$. Giải và biện luận phương trình $f'(x)=0$.
+    \loigiai{
+   Ta có $f'(x)=-\cos{2x}+(2m-5)\sin{x}+2(2-m) = 2\sin^2{x}+(2m-5)\sin{x}+3-2m$.
+   \[f'(x)=0\Leftrightarrow 2\sin^2{x}+(2m-5)\sin{x}+3-2m = 0 \Leftrightarrow \hoac{&\sin{x}=1\\&\sin{x}=\dfrac{3-2m}{2}}.\]
+    \begin{itemize}
+        \item Nếu $\hoac{&\dfrac{3-2m}{2}<-1\\&\dfrac{3-2m}{2}>1} \Leftrightarrow \hoac{&m>\dfrac{5}{2}\\&m<\dfrac{1}{2}}$ thì phương trình $\sin{x}=\dfrac{3-2m}{2}$ vô nghiệm. Do đó phương trình đã cho có các nghiệm $x=\dfrac{\pi}{2}+k2\pi,\, k\in\mathbb{Z}$.
+        \item Nếu $\dfrac{3-2m}{2}=1\Leftrightarrow m=\dfrac{1}{2}$ thì phương trình đã cho có các nghiệm $x=\dfrac{\pi}{2}+k2\pi,\, k\in\mathbb{Z}$.
+        \item Nếu $-1\leq \dfrac{3-2m}{2}< 1\Leftrightarrow \dfrac{1}{2}< m\leq \dfrac{5}{2}$ thì đặt $\dfrac{3-2m}{2}=\sin\alpha$. Khi đó phương trình đã cho có các nghiệm $x=\dfrac{\pi}{2}+k2\pi$, $x=\alpha+k2\pi$, $x=\pi-\alpha+k2\pi$ ($k\in\mathbb{Z}$).
+\end{itemize}}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê H_{}oành Phò]%[Nguyễn Trung Kiên]%[1D5B5-1]
+    Tính giá trị đạo hàm tại điểm.
+    \begin{listEX}[2]
+        \item Cho $y=(5x+1)^8$. Tính $y'''(0)$.
+        \item Cho $y=\dfrac{3x-1}{x+2}$. Tính $y''(1)$.
+    \end{listEX}
+    \loigiai{
+    \begin{enumerate}
+        \item Hàm số $y=(5x+1)^8$ có
+        \allowdisplaybreaks
+        \begin{align*}
+        &y'=8(5x+1)^7\cdot (5x+1)' = 40(5x+1)^7.\\
+        &y''=280(5x+1)^6\cdot (5x+1)'=1400(5x+1)^6.\\
+        &y'''=8400(5x+1)^5\cdot (5x+1)'=42000(5x+1)^5.
+        \end{align*}
+        Vậy $y'''(0)=42000(1)^5=42000$.
+        \item Hàm số $y=\dfrac{3x-1}{x+2}$ có tập xác định $\mathscr{D}=\mathbb{R}\setminus \{-1\}$ và
+        \allowdisplaybreaks
+        \begin{align*}
+        &y'=\dfrac{3(x+2)-(3x-1)}{(x+2)^2} = \dfrac{7}{(x+2)^2}.\\
+        &y''=-\dfrac{7\left((x+2)^2\right)'}{(x+2)^4}=- \dfrac{14(x+2)}{(x+2)^4} = -\dfrac{14}{(x+2)^3}.
+        \end{align*}
+        Vậy $y''(1)=-\dfrac{14}{(1+2)^3} = -\dfrac{14}{27}$.
+\end{enumerate}}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5B5-1]
+    Tính đạo hàm cấp cao
+    \begin{listEX}[2]
+        \item Cho $y=\sin{5x}\cdot\sin{3x}$. Tính $y^{(4)}$.
+        \item Cho $y=\sin^4x$. Tính $y'''$.
+    \end{listEX}
+    \loigiai{
+    \begin{enumerate}
+        \item Với $y=\sin{5x}\cdot\sin{3x}=-\dfrac{1}{2}(\cos{8x}-\cos{3x})=\dfrac{1}{2}\cos{3x}-\dfrac{1}{2}\cos{8x}$, ta có
+        \begin{itemize}
+            \item $y'=-\sin{2x}+4\sin{8x}$.
+            \item $y''= -2\cos{2x}+32\cos{8x}$.
+            \item $y'''=4\sin{2x}-252\sin{8x}$.
+            \item $y^{(4)}=8\cos{2x}-2048\cos{8x}$.
+        \end{itemize}
+        \item Với $y=\sin^4{x}$, ta có
+        \begin{itemize}
+            \item $y'=4\sin^3x\cdot\cos{x}=2\sin^2x\cdot \sin{2x}=(1-\cos{2x})\cdot \sin{2x}= \sin{2x}-\dfrac{1}{2}\sin{4x}$.
+            \item $y''=2\cos{2x}-2\cos{4x}$.
+            \item $y'''=-4\sin{2x}+8\sin{4x}$.
+        \end{itemize}
+\end{enumerate}}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5K5-1]
+    Cho hàm số $f(x)=x^4-2x^3\cos{2a}+\dfrac{3x^2}{2}\sin{2a}\cdot \sin{6a}+x\sqrt{2a-1-a^2}+a^3$ (tham số $a$). Chứng minh rằng $f''\left(\dfrac{1}{2}\right)>0$.
+    \loigiai{
+    Điều kiện $2a-1-a^2\geq 0 \Leftrightarrow (a-1)^2\leq 0 \Leftrightarrow a=1$. Khi đó ta có hàm số
+    $$f(x)=x^4-2x^3\cos{2}+\dfrac{3x^2}{2}\sin{2}\cdot \sin{6}+1.$$
+    Ta có
+    \allowdisplaybreaks
+    \begin{eqnarray*}
+    &&f'(x) = 4x^3-6x^2\cos{2} +3x \sin{2}\cdot \sin{6}.\\
+    &&f''(x)=12x^2-12x\cos{2}+3\sin{2}\cdot \sin{6}\\
+    &\Rightarrow & f''\left(\dfrac{1}{2}\right)=3-6\cos{2}+3\sin{2}\cdot \sin{6}.
+    \end{eqnarray*}
+    Vì $\dfrac{\pi}{2}<2<\pi$ nên $\cos{2}<0$, $\sin{2}\sin{6}\geq -1$ nên $f''\left(\dfrac{\pi}{2}\right)>0$.}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5K5-1]
+    \begin{enumerate}
+        \item Chứng minh quy nạp $\left(\dfrac{1}{ax+b}\right)^{(n)}=\dfrac{(-1)^n\cdot n!\cdot a^n}{(ax+b)^{n+1}} (a\neq 0)\quad (*)$.
+        \item Suy ra đạo hàm cấp $n$ của hàm số $y=\dfrac{1}{x^2}$, $y=\dfrac{10x-4}{x^3-4x}$.
+    \end{enumerate}
+    \loigiai{
+        \begin{listEX}[1]
+            \item Khi $n=1$ thì $\left(\dfrac{1}{ax+b}\right)'=\dfrac{-a}{(ax+b)^2}= \dfrac{(-1)^1\cdot 1!\cdot a^1}{(ax+b)^{1+1}}$ đúng.\\
+            Giả sử công thức $(*)$ đúng với $n=k,\, k\geq 1$, tức là:
+            $$\left(\dfrac{1}{ax+b}\right)^{(k)}=\dfrac{(-1)^k\cdot k!\cdot a^k}{(ax+b)^{k+1}}.$$
+            Lấy đạo hàm hai vế ta được
+            $$\left(\dfrac{1}{ax+b}\right)^{(k+1)}=(-1)^k\cdot k!\cdot a^k\dfrac{-(k+1)(ax+b)^k\cdot a}{(ax+b)^{2k+2}} =  \dfrac{(-1)^{k+1}\cdot (k+1)!\cdot a^{k+1}}{(ax+b)^{k+1+1}}.$$
+            Nên công thức $(*)$ đúng với $n=k+1$. Vậy công thức $(*)$ đúng với $\forall n\in \mathbb{N}^*$.
+            \item Xét hàm số $g(x)=-\dfrac{1}{x}$ có $g'(x)=\dfrac{1}{x^2}$. Do đó
+            $$\left(\dfrac{1}{x}\right)^{(n)}=\left(-\dfrac{1}{x}\right)^{(n+1)} = -\dfrac{(-1)^{n+1}(n+1)!}{x^{n+2}} = \dfrac{(-1)^{n+2}(n+1)!}{x^{n+2}}.$$
+            Ta có $\dfrac{10x-4}{x^3-4x}=\dfrac{10x-4}{x\left(x^2-4\right)} = \dfrac{A}{x}+\dfrac{B}{x-2}+\dfrac{C}{x+2}$, suy ra
+            \begin{align*}
+            10x-4=&A(x^2-4)+B(x^2+2x)+C(x^2-2x)\\
+            =& (A+B+C)x^2+2(B-C)x-4A.
+            \end{align*}
+            Đồng nhất hệ số hai vế ta được $\heva{&A+B+C=0\\&2(B-C)=10\\&-4A=-4} \Leftrightarrow \heva{&A=1\\&B=2\\&C=-3.}$\\
+            Do đó $y=\dfrac{1}{x}+\dfrac{2}{x-2}-\dfrac{3}{x+2}$.\\
+            Vậy $y^{(n)} = (-1)^n\cdot n! \left[\dfrac{1}{x^{n+1}}+\dfrac{2}{(x-2)^{n+1}}-\dfrac{3}{(x+2)^{n+1}}\right]$.
+    \end{listEX}}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5G5-1]
+    \begin{enumerate}
+        \item Chứng minh công thức $\left(\sin(ax+b)\right)^{(n)}=a^n\cdot \sin\left(ax+b+n\dfrac{\pi}{2}\right)$.
+        \item Suy ra đạo hàm cấp $n$ của hàm số
+        $$y=\sin^4x+\cos^4x;\, y=\cos{3x}\cdot \cos{x}.$$
+    \end{enumerate}
+    \loigiai{
+    \begin{enumerate}
+        \item Ta chứng minh $\left(\sin(ax+b)\right)^{(n)}=a^n\cdot \sin\left(ax+b+n\dfrac{\pi}{2}\right) \quad(*)$ bằng quy nạp.\\
+        Với $n=1$ ta có $\left(\sin(ax+b)\right)'=a\cdot \cos(ax+b)= a\sin\left(ax+b+\dfrac{\pi}{2}\right)$ đúng.\\
+        Giả sử $\left(\sin(ax+b)\right)^{(k)}=a^k\cdot \sin\left(ax+b+k\dfrac{\pi}{2}\right)$ với $k\geq 1$, lấy đạo hàm hai vế ta được
+        $$\left(\sin(ax+b)\right)^{(k+1)}=a^k\cdot a\cdot \cos\left(ax+b+k\dfrac{\pi}{2}\right)=a^{k+1}\cdot \sin\left(ax+b+(k+1)\dfrac{\pi}{2}\right).$$
+        Suy ra công thức $(*)$ đúng với $n=k+1$. Vậy $(*)$ đúng với $\forall n\in \mathbb{N}^*$.
+        \item Ta có
+        \allowdisplaybreaks
+        \begin{eqnarray*}
+        y&=&\sin^4{x}+\cos^4{x}=\left(\sin^2{x}+\cos^2{x}\right)^2 - 2\sin^2{x}\cos^2{x}\\
+        &=& 1- \dfrac{1}{2}\sin^2{2x}=1-\dfrac{1}{4}(1-\cos{4x})=\dfrac{3}{4}+\dfrac{1}{4}\cos{4x}.
+        \end{eqnarray*}
+        Vậy $y^{(n)}=-(\sin{4x})^{(n-1)} = -4^{n-1}\sin\left(4x+(n-1)\dfrac{\pi}{2}\right)$.
+        Ta có $y=\cos{3x}\cdot \cos{x} = \dfrac{1}{2}(\cos{4x}+\cos{2x})$, suy ra
+        \allowdisplaybreaks
+        \begin{eqnarray*}
+            y^{(n)}&=&-(2\sin{4x}+\sin{2x})^{(n-1)}\\
+            &=&-\left(2\cdot 4^{n-1}\sin\left(4x+(n-1)\dfrac{\pi}{2}\right)+2^{n-1}\sin\left(2x+(n-1)\dfrac{\pi}{2}\right)\right)\\
+            &=& \dfrac{1}{2}\left[4^n\cos\left(4x+n\dfrac{\pi}{2}\right)+2^n\cos\left(2x+n\dfrac{\pi}{2}\right)\right].
+        \end{eqnarray*}
+\end{enumerate}}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5K5-1]
+    Tính đạo hàm cấp $n$ của các hàm số sau đây
+    \begin{listEX}[2]
+        \item $f(x)=(3x-2)^4$.
+        \item $g(x)=\sqrt{x}$.
+    \end{listEX}
+    \loigiai{
+    \begin{enumerate}
+        \item Hàm số $f(x)=(3x-2)^4$ có
+        \begin{itemize}
+            \item $f'(x)=4(3x-2)^3\cdot (3x-2)'=12(3x-2)^3$.
+            \item $f''(x)=108(3x-2)^2$.
+            \item $f'''(x)=648(3x-2)$.
+            \item $f^{(4)}(x) = 1944$.
+            \item $f^{(n)}(x)=0,\, \forall n\geq 5$.
+        \end{itemize}
+        \item Ta có $g'(x)=\dfrac{1}{2\sqrt{x}}=\dfrac{1}{2}x^{-\tfrac{1}{2}}$; $g''(x)=-\dfrac{1}{4}x^{-\tfrac{3}{2}}$; $g'''(x)=\dfrac{3}{8}x^{-\tfrac{5}{2}}$; $g^{(4)}=-\dfrac{15}{16}x^{-\tfrac{7}{2}}$.\\
+        Ta chứng minh quy nạp $$g^{(n)}(x)=\dfrac{(-1)^{n-1}\cdot (2n-3)!!}{2^n}x^{\tfrac{2n-1}{2}},\, \forall n\in\mathbb{N}^*.$$
+        Trong đó $(2n-3)!!=1\cdot 3\cdot 5\cdots (2n-3),\, \forall n\geq 2$ và $(-1)!!=1$.
+\end{enumerate}}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5G5-1]
+    Cho hàm số $f(x)=\dfrac{2x+9}{x^2+3}$. Hãy tính $f^{(1997)}(0)$.
+    \loigiai{
+    Ta có $f(x)=\dfrac{2x+9}{x^2+3} \Leftrightarrow (x^2+3)f(x)=2x+9$, do đó
+    \allowdisplaybreaks
+    \begin{eqnarray*}
+        &&f'(x)\left(x^2+3\right)+2xf(x)=2\\
+        &&f''(x)\left(x^2+3\right)+4xf'(x)+2f(x)=0\\
+        &&f'''(x)\left(x^2+3\right)+6xf''(x)+6f'(x)=0.
+    \end{eqnarray*}
+    Bằng quy nạp ta chứng minh được công thức
+    $$f^{(n)}(x)\left(x^2+3\right)+2nxf^{(n-1)}(x)+n(n-1)f^{(n-2)}(x)=0,\, \forall n\geq 2.$$
+    Suy ra $f^{(n)}(0)=\dfrac{n(n-1)}{3}f^{(n-2)}(0)$, $f'(0)=\dfrac{2}{3}$.\\
+    Vậy $f^{(1997)}(0)=\dfrac{1997!}{3^{998}}f'(0)=\dfrac{2\cdot 1997!}{3^{999}}$.}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5G5-2]
+    Cho $f(x)$, $g(x)$ là các hàm số có đạo hàm đến cấp $n$. Chứng minh công thức
+    \[(f\cdot g)^{(n)}=\displaystyle\sum\limits_{k=0}^n \mathrm{C}_n^k \cdot f^{(k)}\cdot g^{(n-k)}.\tag{1}\]
+    \loigiai{
+    Ta sẽ chứng minh $(1)$ bằng quy nạp theo $n$.\\
+    Khi $n=1$ ta có $(f\cdot g)'=f'\cdot g+ f\cdot g' = \displaystyle\sum\limits_{k=0}^1 \mathrm{C}_1^k f^{(k)}\cdot g^{(1-k)}$ đúng.\\
+    Giả sử $(1)$ đúng với $n,\, n\geq 1$, nghĩa là $(f\cdot g)^{(n)}=\displaystyle\sum\limits_{k=0}^n \mathrm{C}_n^k \cdot f^{(k)}\cdot g^{(n-k)}$, suy ra
+    \allowdisplaybreaks
+    \begin{eqnarray*}
+        (f\cdot g)^{(n+1)} &=& \left((f\cdot g)^{(n)}\right)' = \displaystyle\sum\limits_{k=0}^n \mathrm{C}_n^k\left(f^{(k)}\cdot g^{(n-k)}\right)'\\
+        &=& \displaystyle\sum\limits_{k=0}^n \mathrm{C}_n^k\left(f^{(k+1)\cdot g^{(n-k)}} + f^{(k)}\cdot g^{(n+1-k)}\right)\\
+        &=& \displaystyle\sum\limits_{k=1}^{n+1} \mathrm{C}_n^{k-1}f^{(k)}\cdot g^{(n+1-k)} + \displaystyle\sum\limits_{k=0}^{n} \mathrm{C}_n^{k}f^{(k)}\cdot g^{(n+1-k)}\\
+        &=& f^{(n+1)}\cdot g + \displaystyle\sum\limits_{k=1}^{n} \mathrm{C}_n^{k-1}f^{(k)}\cdot g^{(n+1-k)} + \displaystyle\sum\limits_{k=1}^{n} \mathrm{C}_n^{k}f^{(k)}\cdot g^{(n+1-k)} +f\cdot g^{(n+1)}\\
+        &=& f^{(n+1)}\cdot g + \displaystyle\sum\limits_{k=1}^{n} \left(\mathrm{C}_n^{k-1}+\mathrm{C}_n^k\right)f^{(k)}\cdot g^{(n+1-k)} + f\cdot g^{(n+1)}\\
+        &=& \mathrm{C}_{n+1}^{n+1}f^{(n+1)}\cdot g+ \displaystyle\sum\limits_{k=1}^{n} \mathrm{C}_{n+1}^{k}f^{(k)}\cdot g^{(n+1-k)} + \mathrm{C}_{n+1}^0 f\cdot g^{(n+1)}\\
+        &=& \displaystyle\sum\limits_{k=0}^{n+1} \mathrm{C}_{n+1}^{k} f^{(k)}\cdot g^{(n+1-k)}.
+\end{eqnarray*}
+    Vậy ta được điều phải chứng minh.}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5G5-2]
+    Cho hàm số $f(x)=\left(x^2-2x+2\right)\sin(x-1)$. Chứng tỏ hệ phương trình sau có nghiệm
+    \[\heva{&f^{(2020)}(x)+f^{(2020)}(y)=0\\&x^2+y^2=10.}\]
+    \loigiai{
+    Đặt $a=x-1$, $b=y-1$, $f(x)=\left(x^2-2x+2\right)\sin(x-1) = \left(a^2+1\right)\sin{a} = g(a)$, hệ phương trình trở thành
+    \[\heva{&g^{(2020)}(a)+g^{(2020)}(b)=0 &\quad(1)\\&(a+1)^2+(b+1)^2=10.&\quad(2)}\]
+    Do $g(x)$ là hàm số lẻ nên $g'(x)$ là hàm số chẵn, $g''(x)$ là hàm số lẻ, $\ldots$\\
+    Tổng quát ta có $g^{(2020)}$ là hàm số lẻ nên với $b=-a$ thì $(1)$ thỏa mãn.\\
+    Thay $b=-a$ vào $(2)$ ta có $(a+1)^2+(a-1)^2=10 \Leftrightarrow a^2=4\Leftrightarrow a=\pm 2$.\\
+    Vậy hệ đã cho có các nghiệm $\heva{&x=3\\&y=-1}$, $\heva{&x=-1\\&y=3.}$
+    }
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5B2-3]
+    Viết phương trình tiếp tuyến của đồ thị hàm số
+    \begin{enumerate}
+        \item $y=\dfrac{x-1}{x+1}$ biết hoành độ tiếp điểm là $x_0=0$.
+        \item $y=-\dfrac{1}{3}x^3-2x^2-3x+1$ có hệ số góc lớn nhất.
+    \end{enumerate}
+    \loigiai
+    {\begin{enumerate}
+            \item Ta có với $x_0=0 \Rightarrow y(x_0)=y(0)=-1$, $y'=\dfrac{2}{(x+1)^2}\Rightarrow y'\left(x_0\right)=y'(0)=2$.\\
+            Vậy phương trình tiếp tuyến của đồ thị hàm số tại điểm có hoành độ $x_0=0$ là
+            \[y=y'(x_0)(x-x_0)+y(x_0) = 2x-1.\]
+            \item Ta có $y'=-x^2-4x-3 = -(x+2)^2+1 \leq 1$. \\
+            Do đó hệ số góc lớn nhất của tiếp tuyến là $y'=1$ tại $x_0=-2$ nên $y(x_0)=y(-2)=\dfrac{5}{3}$.\\
+            Vậy phương trình tiếp tuyến cần tìm là $y=1(x+2)+\dfrac{5}{3}= x+\dfrac{11}{3}$.
+    \end{enumerate}}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5B2-3]
+    Lập phương trình tiếp tuyến của đồ thị hàm số
+    \begin{enumerate}
+        \item $y=x^3-3x+2$, biết tiếp tuyến song song với trục hoành.
+        \item $y=2x^2-3x+9$, biết tiếp tuyến hợp với trục hoành một góc $45^\circ$.
+    \end{enumerate}
+    \loigiai{
+    \begin{enumerate}
+        \item Ta có $y'=3x^2-3$.\\
+        Tiếp tuyến cần tìm song song với trục hoành nên có hệ số góc bằng $0$. Do đó
+        $$y'=0\Leftrightarrow 3x^2-3=0\Leftrightarrow x=\pm 1.$$
+        Với $x=1$ thì $y(1)=0$, phương trình tiếp tuyến $y=0$ (loại).\\
+        Với $x=-1$ thì $y(-1)=4$, tiếp tuyến cần tìm là $y=4$ (thỏa mãn).
+        \item Ta có $y'=4x-3$.\\
+        Tiếp tuyến cần tìm hợp với trục hoành một góc $45^\circ$ nên có hệ số góc
+        $$k=\pm \tan 45^\circ = \pm 1.$$
+        Xét $y'=1\Leftrightarrow 4x-3=1\Leftrightarrow x=1$, ta có $y(1)=8$ nên phương trình tiếp tuyến là
+        $$y=1(x-1)+8 \Leftrightarrow y=x+7.$$
+        Xét $y'=-1\Leftrightarrow 4x-3=-1\Leftrightarrow x=\dfrac{1}{2}$, ta có $y\left(\dfrac{1}{2}\right) = 8$ nên phương trình tiếp tuyến là
+        $$y=-\left(x-\dfrac{1}{2}\right)+8 = -x +\dfrac{17}{2}.$$
+\end{enumerate}}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5B2-4]
+    Viết phương trình tiếp tuyến của đồ thị $(P)\colon y=-x^2+17x-66$ biết tiếp tuyến đi qua điểm $B(2;0)$.
+    \loigiai{
+    Ta có $y'=-2x+17$. Phương trình tiếp tuyến của $(P)$ tại điểm $M_0(x_0;y_0)$ là
+    $$y=(-2x_0+17)(x-x_0)+\left(-x_0^2+17x_0-66\right) = (-2x_0+17)x+x_0^2-66. \quad(1)$$
+    Do tiếp tuyến đi qua điểm $B(2;0)$ nên ta có
+    \[2(-2x_0+17)+x_0^2-66=0 \Leftrightarrow x_0^2-4x_0-32=0 \Leftrightarrow \hoac{&x_0=-4\\&x_0=8.}\]
+    Với $x_0=-4$, thay vào $(1)$ ta được phương trình tiếp tuyến $y=25x-50$.\\
+    Với $x_0=8$, thay vào $(1)$ ta được phương trình tiếp tuyến $y=x-2$.}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5K2-4]
+    Có bao nhiêu tiếp tuyến của đồ thị $(C)\colon y=x^3-3x^2+3$ đi qua điểm $E\left(\dfrac{23}{9};-1\right)$.
+    \loigiai{
+    Phương trình đường thẳng $d$ qua điểm $E\left(\dfrac{23}{9};-1\right)$ và có hệ số góc $k$ là
+    \[y=k\left(x-\dfrac{23}{9}\right)-1 = kx-\dfrac{23k}{9}-1.\]
+    Điều kiện để $d$ tiếp xúc với $(C)$ là
+    \[\heva{&f(x)=g(x)\\&f'(x)=g'(x)}\Leftrightarrow \heva{&x^3-3x^2+3=k\left(x-\dfrac{23}{9}\right)-1&\quad (1)\\&3x^2-6x=k.&\quad (2)}\]
+    Thế $k$ từ $(2)$ vào $(1)$ ta được
+    \allowdisplaybreaks
+    \begin{eqnarray*}
+    &&x^3-3x^2+3=\left(3x^2-6x\right)\left(x-\dfrac{23}{9}\right)-1\\
+    &\Leftrightarrow & 3x^3-16x^2+23x-6=0\\
+    &\Leftrightarrow & \hoac{&x=2\\&x=3\\&x=\dfrac{1}{3}.}
+    \end{eqnarray*}
+    Với $x_0=2$ thì $k=0$ ta được phương trình tiếp tuyến $y=-1$.\\
+    Với $x_0=3$ thì $k=9$ ta được phương trình tiếp tuyến $y=9x-24$.\\
+    Với $x_0=\dfrac{1}{3}$ thì $k=-\dfrac{5}{3}$ ta được phương trình tiếp tuyến $y=-\dfrac{5}{3}x+\dfrac{88}{27}$.\\
+    Vậy có ba tiếp tuyến với $(C)$ mà các tiếp tuyến đó đi qua điểm $E\left(\dfrac{23}{9};-1\right)$.}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5K2-5]
+    Tìm $m$ để đường thẳng
+    \begin{enumerate}
+        \item $d\colon y=mx-1$ tiếp xúc với đồ thị $(C)\colon y=x^3-x^2+4x$.
+        \item $d\colon y=7-x$ tiếp xúc với đồ thị $(C)\colon y=\dfrac{x^2+m}{x-1}$.
+    \end{enumerate}
+    \loigiai{
+    \begin{enumerate}
+        \item Đường thẳng $d$ tiếp xúc với đồ thị $(C)$ khi và chỉ khi hệ sau có nghiệm
+        \[\heva{&f(x)=g(x)\\&f'(x)=g'(x)}\Leftrightarrow \heva{&x^3-x^2+4x=mx-1&\quad (1)\\&3x^2-2x+4=m.&\quad (2)}\]
+        Thế $m$ từ $(2)$ vào $(1)$ ta được
+        \allowdisplaybreaks
+        \begin{eqnarray*}
+            &&x^3-x^2+4x= \left(3x^2-2x+4\right)x-1\\
+            &\Leftrightarrow & 2x^3-x^2-1=0 \Leftrightarrow (x-1)\left(2x^2+x+1\right)=0\\
+            &\Leftrightarrow & x=1\, \left(\text{vì } 2x^2+x+1>0,\, \forall x \right).
+        \end{eqnarray*}
+        Với $x=1$ ta có $m=5$. Vậy hai đồ thị tiếp xúc với nhau khi $m=5$.
+        \item Đường thẳng $d$ tiếp xúc với đồ thị $(C)$ khi và chỉ khi hệ sau có nghiệm
+        \[\heva{&f(x)=g(x)\\&f'(x)=g'(x)}\Leftrightarrow \heva{&\dfrac{x^2+m}{x-1}=7-x\\&\dfrac{x^2-2x-m}{(x-1)^2}=-1} \Leftrightarrow \heva{&2x^2-8x+m+7=0\\&2x^2-4x+1-m=0\\&x\neq 1.}\]
+        Khử $m$ ta được phương trình
+        \[4x^2-12x+8=0\Leftrightarrow \hoac{&x=1\text{ (loại)}\\&x=2\text{ (thỏa mãn).}}\]
+        Với $x=2$ ta có $m=1$. Vậy hai đồ thị tiếp xúc với nhau khi $m=1$.
+\end{enumerate}}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5G2-1]
+    Cho $f(x)=(x-x_1)(x-x_2)\cdots (x-x_n)$. Hãy biểu diễn các tổng sau đây theo $f(x)$ và $f'(x)$
+    \[A=\displaystyle\sum\limits_{i=1}^n\dfrac{1}{x-x_i},\,
+    B=\displaystyle\sum\limits_{i=1}^n\dfrac{x_i}{x-x_i},\,
+    C=\displaystyle\sum\limits_{i=1}^n\dfrac{1}{3-x_i}.\]
+    \loigiai{
+    Ta có $f(x)=(x-x_1)(x-x_2)\cdots (x-x_n)$ nên
+    \allowdisplaybreaks
+    \begin{eqnarray*}
+    &&f'(x)=(x-x_2)(x-x_3)\cdots (x-x_n)+(x-x_1)(x-x_3)\cdots (x-x_n)+\cdots\\
+    && + (x-x_1)(x-x_2)\cdots (x-x_{n-1}).
+    \end{eqnarray*}
+    Do đó
+    \begin{eqnarray*}
+    &&A=\displaystyle\sum\limits_{i=1}^n\dfrac{1}{x-x_i} = \dfrac{(x-x_2)(x-x_3)\cdots (x-x_n)+(x-x_1)(x-x_3)\cdots (x-x_n)+\cdots}{(x-x_1)(x-x_2)\cdots (x-x_n)} = \dfrac{f'(x)}{f(x)}.\\
+    &&B=\displaystyle\sum\limits_{i=1}^n\dfrac{x_i}{x-x_i} = \displaystyle\sum\limits_{i=1}^n\left(\dfrac{x}{x-x_i}-1\right) = x\displaystyle\sum\limits_{i=1}^n\dfrac{1}{x-x_i}-n = x\dfrac{f'(x)}{f(x)}-n.\\
+    &&C=\displaystyle\sum\limits_{i=1}^n\dfrac{1}{3-x_i} = -n+3\dfrac{f'(3)}{f(3)}.
+    \end{eqnarray*}}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5G2-1]
+    Cho phương trình $x^5-\dfrac{1}{2}x^4-5x^3+x^2+4x-1=0$.
+    \begin{enumerate}
+        \item Chứng tỏ rằng phương trình có đúng $5$ nghiệm $x_i\, (i=\overline{1,5})$.
+        \item Tính tổng $S=\displaystyle\sum\limits_{i=1}^5\dfrac{x_i+1}{2x_i^5-x_i^4-2}$.
+    \end{enumerate}
+    \loigiai{
+    \begin{enumerate}
+        \item Xét hàm số $f(x)=x^5-\dfrac{1}{2}x^4-5x^3+x^2+4x-1$, $f(x)$ là hàm số liên tục trên $\mathbb{R}$.\\
+        Ta có $f(-2)=-5<0$, $f\left(-\dfrac{3}{2}\right)=2>0$, $f(0)=-1<0$, $f\left(\dfrac{1}{2}\right)=\dfrac{5}{8}>0$, $f(1)=-\dfrac{1}{2}<0$, $f(3)=\dfrac{175}{2}>0$.\\
+        Do đó phương trình $f(x)=0$ có các nghiệm $x_1$, $x_2$, $x_3$, $x_4$, $x_5$ thỏa mãn
+        \[-2<x_1<-\dfrac{3}{2}<x_2<0<x_3<\dfrac{1}{2}<x_4<1<x_5<3.\]
+        Hơn nữa phương trình $f(x)=0$ là phương trình bậc $5$ nên có không quá $5$ nghiệm thực.\\
+        Vậy phương trình đã cho có đúng $5$ nghiệm.
+        \item Ta có $x_i$ là các nghiệm của phương trình trên nên
+        \[x_i^5-\dfrac{1}{2}x_i^4-5x_i^3+x_i^2+4x_i-1=0 \Leftrightarrow  2x_i^5-x_i^4-2=2\left(5x_i^3-x_i^2-4x_i\right).\]
+        Do đó $S=\displaystyle\sum\limits_{i=1}^5\dfrac{x_i+1}{2x_i^5-x_i^4-2}
+        =\displaystyle\sum\limits_{i=1}^5\dfrac{x_i+1}{2\left(5x_i^3-x_i^2-4x_i\right)}$.\\
+        Xét $g(x)=\dfrac{x+1}{5x^3-x^2-4x}= \dfrac{x+1}{x(x-1)(5x+4)}$.\\
+        Ta có $\dfrac{x+1}{x(x-1)(5x+4)}=\dfrac{A}{x}+\dfrac{B}{x-1}+\dfrac{C}{5x+4}$. Đồng nhất thức ta được
+        \[\dfrac{x+1}{x(x-1)(5x+4)}=-\dfrac{1}{4x}+\dfrac{2}{9(x-1)}+\dfrac{5}{36(5x+4)}.\]
+        Do đó $S=-\dfrac{1}{8}\displaystyle\sum\limits_{i=1}^5\dfrac{1}{x_i} + \dfrac{1}{9}\displaystyle\sum\limits_{i=1}^5\dfrac{1}{x_i-1} + \dfrac{1}{72}\displaystyle\sum\limits_{i=1}^5\dfrac{1}{x_i+\dfrac{4}{5}}$.\\
+        Mà $f(x)=(x-x_1)(x-x_2)(x-x_3)(x-x_4)(x-x_5)$, $f'(x)=5x^4-2x^3-15x^2+2x+4$.\\
+        Với $x\neq x_i \, (i=\overline{1,5})$ ta được $\displaystyle\sum\limits_{i=1}^5\dfrac{1}{x-x_i}=\dfrac{f'(x)}{f(x)}$. Do đó ta có
+        \begin{itemize}
+        \item[$\bullet$] $\displaystyle\sum\limits_{i=1}^5\dfrac{1}{1-x_i}=\dfrac{f'(1)}{f(1)}=\dfrac{-6}{-\dfrac{1}{2}}=12 \Rightarrow \displaystyle\sum\limits_{i=1}^5\dfrac{1}{x_i-1}=-12$.
+        \item[$\bullet$] $\displaystyle\sum\limits_{i=1}^5\dfrac{1}{-x_i}
+        =\dfrac{f'(0)}{f(0)}=-4\Rightarrow \displaystyle\sum\limits_{i=1}^5\dfrac{1}{x_i}=4$.
+        \item[$\bullet$] $\displaystyle\sum\limits_{i=1}^5\dfrac{1}{-\dfrac{4}{5}-x_i}
+        =\dfrac{f'\left(-\dfrac{4}{5}\right)}{f\left(-\dfrac{4}{5}\right)}
+        = \dfrac{12900}{4789}\Rightarrow \displaystyle\sum\limits_{i=1}^5\dfrac{1}{x_i+\dfrac{4}{5}}
+        =-\dfrac{12900}{4789}$.
+        \end{itemize}
+        Vậy $S=-\dfrac{1}{8}\cdot 4+\dfrac{1}{9}\cdot (-12) +\dfrac{1}{72}\cdot \left(\dfrac{-12900}{4789}\right) = -\dfrac{8959}{4789}$.
+\end{enumerate}}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5G5-3]
+    Tính tổng
+    \allowdisplaybreaks
+    \begin{eqnarray*}
+    &&T= \mathrm{C}_n^1(\cos{x}-\sin{x})+0\mathrm{C}_n^2+\mathrm{C}_n^3\cdot 3\sin{x}\cos{x}(\sin{x}-\cos{x})\\
+    &+&\cdots + \mathrm{C}_n^n\cdot n\sin{x}\cos{x}\left(\sin^{n-2}x-\cos^{n-2}x\right).
+    \end{eqnarray*}
+    \loigiai{
+    Xét hàm số $y=(1+\cos{x})^n+(1+\sin{x})^n$, ta có
+    \allowdisplaybreaks
+    \begin{eqnarray*}
+    y&=& \left(\mathrm{C}_n^0 +\mathrm{C}_n^1\cos{x}+\mathrm{C}_n^2\cos^2{x} +\cdots +\mathrm{C}_n^n\cos^n{x}\right)\\
+    &+&\left(\mathrm{C}_n^0 +\mathrm{C}_n^1\sin{x}+\mathrm{C}_n^2\sin^2{x} +\cdots +\mathrm{C}_n^n\sin^n{x}\right)\\
+    &=& 2\mathrm{C}_n^0 +\mathrm{C}_n^1(\sin{x}+\cos{x}) +\mathrm{C}_n^2\left(\sin^2{x}+\cos^2{x}\right)+\cdots +\mathrm{C}_n^n\left(\sin^n{x}+\cos^n{x}\right).\\
+    \Rightarrow y'&=& \mathrm{C}_n^1(\cos{x}-\sin{x})+0\mathrm{C}_n^2+\mathrm{C}_n^3\cdot 3\sin{x}\cos{x}(\sin{x}-\cos{x})\\
+    &+&\cdots + \mathrm{C}_n^n\cdot n\sin{x}\cos{x}\left(\sin^{n-2}x-\cos^{n-2}x\right).
+    \end{eqnarray*}
+    Do đó
+    \allowdisplaybreaks
+    \begin{eqnarray*}
+    T&=&y'= \left[(1+\cos{x})^n+(1+\sin{x})^n\right]' = n(1+\cos{x})^{n-1} (-\sin{x})+n(1+\sin{x})^{n-1}\cos{x}\\
+    &=& n\left[\cos{x}(1+\sin{x})^{n-1}-\sin{x}(1+\cos{x})^{n-1}\right].
+    \end{eqnarray*}}
+\end{bt}
+
+\begin{bt}%[Sách bồi HSG, tác giả Lê Hoành Phò]%[Nguyễn Trung Kiên]%[1D5G5-3]
+    Tính tổng
+    \begin{listEX}[2]
+        \item $P=1+2x+3x^2+\cdots +nx^{n-1}$.
+        \item $Q=1^2+2^2x+3^2x^2 + \cdots + n^2x^{n-1}$.
+    \end{listEX}
+    \loigiai{
+    \begin{enumerate}
+        \item Khi $x=1$ thì $P=1+2+3+\cdots +n =\dfrac{n(n+1)}{2}$.\\
+        Khi $x\neq 1$, ta có $1+x+x^2+\cdots +x^n = \dfrac{1-x^{n+1}}{1-x} = \dfrac{x^{n+1}-1}{x-1}$.\\
+        Lấy đạo hàm hai vế ta được
+        \[1+2x+3x^2+\cdots + nx^{n-1}= \dfrac{(n+1)x^n(x-1)-x^{n+1}+1}{(x-1)^2} = \dfrac{nx^{n+1}-(n+1)x^n+1}{(x-1)^2}.\]
+        Từ đó có $P=\dfrac{nx^{n+1}-(n+1)x^n+1}{(x-1)^2}. \quad(*)$
+        \item Khi $x=1$ thì $Q=1^2+2^2+3^2+\cdots +n^2 = \dfrac{n(n+1)(2n+1)}{6}$.\\
+        Khi $x\neq 1$, nhân hai vế của $(*)$ với $x$, ta được
+        \[P\cdot x= 1x+2x^2+3x^3 +\cdots +nx^n = \dfrac{nx^{n+2}-(n+1)x^{n+1}+x}{(x-1)^2}.\]
+        Đạo hàm hai vế ta được
+        \allowdisplaybreaks
+        \begin{eqnarray*}
+        &&1+2^2x+3^2x^2+\cdots +n^2x^{n-1}\\
+        &=&\dfrac{\left(n(n+2)x^{n+1}-(n+1)^2x^n+1\right)(x-1)^2-2(x-1)\left[nx^{n+2}-(n+1)x^{n+1}+x\right]}{(x-1)^4}\\
+        &=&\dfrac{\left(n(n+2)x^{n+1}-(n+1)^2x^n+1\right)(x-1)-2\left[nx^{n+2}-(n+1)x^{n+1}+x\right]}{(x-1)^3}\\
+        &=&\dfrac{n^2x^{n+2}-\left(2n^2+2n-1\right)x^{n+1}+(n+1)^2x^n-x-1}{(x-1)^3}.
+        \end{eqnarray*}
+        Do đó $Q=\dfrac{n^2x^{n+2}-\left(2n^2+2n-1\right)x^{n+1}+(n+1)^2x^n-x-1}{(x-1)^3}$.
+\end{enumerate}}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5G5-3]
+	Cho số nguyên dương $n$. Tính tổng: $$S_k(n)=1^k+2^k+\cdots n^k, \text{ với }k=1,2,3.$$
+	\loigiai{
+		Xét đa thức $F(x)=(x-1)\left(x^2+x^3+\cdots+x^n\right)=x^{n+1}-x^2$.\\
+		Lấy đạo hàm cấp hai $F''(x)$ ta có:$$2\left(2x+3x^2+\cdots+nx^{n-1}\right)+(x-1)\left[2\cdot 1+3\cdot 2\cdot x+\cdots +n(n-1)x^{n-2}\right]=(n+1)nx^{n-1}-2.$$
+		Cho $x=1$, ta có $2(2+3+\cdots +n)=(n-1)(n+2)=2\left(S_1(n)-1\right)$.\\
+		Vậy: $S_1(n)=\dfrac{n(n+1)}{2}$.\\
+		Lấy đạo hàm cấp ba $F'''(x)$, ta có:
+		\begin{align*}
+		3&\left[2\cdot 1+3\cdot 2\cdot x+\cdots+n(n-1)x^{n-2}\right]+\\
+		&(x-1)\left(3\cdot 2\cdot 1+4\cdot 3\cdot 2\cdot x+\cdots +n(n-1)(n-2)x^{n-3}\right)=(n+1)n(n-1)\cdot x^{n-2}.
+		\end{align*}
+		Cho $x=1$, ta có: $$3\left[2\cdot 1+3\cdot 2+\cdots +n(n-1)\right]=(n+1)n(n-1).$$
+		Từ đó: $\displaystyle\sum\limits_{m=1}^nm(m-1)=\dfrac{(n+1)n(n-1)}{3}=S_2(n)-S_1(n)$.\\
+		Vậy: $S_2(n)=\dfrac{n(n+1)(2n+1)}{6}$.\\
+		Tương tự, lấy đạo hàm cấp bốn, ta có:
+		\begin{align*}
+		4&\left[3\cdot 2\cdot 1+ 4\cdot 3\cdot 2+\cdots +n(n-1)(n-2)x^{n-3}\right]\\
+		&+(x-1)\left[4\cdot 3\cdot 2\cdot 1+\cdots + n(n-1)(n-2)(n-3)x^{n-4}\right]=(n+1)n(n-1)(n-2)x^{n-3}.
+		\end{align*}
+		Cho $x=1$, ta có:$$4\left[3\cdot 2\cdot 1+4\cdot 3\cdot 2+\cdots +n(n-1)(n-2)\right]=(n+1)n(n-1)(n-2).$$
+		nên $\displaystyle\sum\limits_{m=1}^nm(m-1)(m-2)=\dfrac{(n+1)n(n-1)(n-2)}{4}=S_3(n)-3S_2(n)+2S_1(n)$.\\
+		Vậy: $S_3(n)=\dfrac{n^2(n+1)^2}{4}$.\\
+		Cách khác: Ta có thể dùng sai phân $\Delta x_2=(x+1)^2-x^2$ để tính $S_1$, $\Delta x_3=(x+1)^3-x^3$ để tính $S_2$, $\Delta x_4=(x+1)^4-x^4$ để tính $S_3$.
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5G5-3]
+	Chứng minh:
+	\begin{enumerate}
+		\item $1\cdot \mathrm{C}_n^1+2\cdot \mathrm{C}_n^2\cdot 9+\cdots + k\cdot \mathrm{C}_n^k\cdot 9^{k-1}+\cdots +n\cdot \mathrm{C}_n^n9^{n-1}=n\cdot 10^{n-1}$.
+		\item $1\cdot \mathrm{C}_n^1+3\cdot \mathrm{C}_n^3+5\mathrm{C}_n^5+7\cdot \mathrm{C}_n^7+\cdots=n\cdot 2^{n-2}$.
+	\end{enumerate}
+	\loigiai{
+		Đặt $f(x)=(1+x)^n$ thì $f'(x)=n(1+x)^{n-1}$ với mọi $x$.\\
+		Mặt khác, khai triển nhị thức: $$f(x)=\displaystyle\sum\limits_{k=0}^n\mathrm{C}_n^k\cdot x^k\Rightarrow f'(x)=\displaystyle\sum\limits_{k=1}^n\mathrm{C}_n^k\cdot k\cdot x^{k-1}.$$
+		Do đó: $\displaystyle\sum\limits_{k=1}^n\mathrm{C}_n^k\cdot k\cdot x^{k-1}=n(1+x)^{n-1}$, với mọi $x$.
+		\begin{enumerate}
+			\item Lấy $x=9$, ta có: $\displaystyle\sum\limits_{k=1}^n\mathrm{C}_n^k\cdot k\cdot 9^{k-1}=n(1+9)^{n-1}=n\cdot 10^{n-1}$, được đpcm.
+			\item Lấy $x=1$, ta có: $\displaystyle\sum\limits_{k=1}^n\mathrm{C}_n^k\cdot k\cdot 1^{k-1}=n(1+1)^{n-1}\Rightarrow1\cdot\mathrm{C}_n^1+2\cdot \mathrm{C}_n^2+3\cdot \mathrm{C}_n^3+\cdots+n\mathrm{C}_n^n =n\cdot 2^{n-1} $.\\
+			Lấy $x=-1$, ta có: $\displaystyle\sum\limits_{k=1}^n\mathrm{C}_n^k\cdot k\cdot (-1)^{k-1}=n(1-1)^{n-1}\Rightarrow1\cdot\mathrm{C}_n^1-2\cdot \mathrm{C}_n^2+3\cdot \mathrm{C}_n^3+\cdots+(-1)^{n-1}\cdot n\mathrm{C}_n^n=0.$\\
+			Cộng lại và chia 2, ta được đpcm.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5G5-3]
+	Tính các tổng
+	\begin{listEX}[2]
+		\item $T=1^2\cdot \mathrm{C}_n^1+2^2\cdot \mathrm{C}_n^2+\cdots +n^2\cdot\mathrm{C}_n^n$.
+		\item $S=1^3\cdot \mathrm{C}_n^1+2^3\cdot \mathrm{C}_n^2+\cdots +n^3\cdot \mathrm{C}_n^n$.
+	\end{listEX}
+	\loigiai{
+		Ta có $(1+x)^n=\displaystyle\sum\limits_{k=0}^n\mathrm{C}_n^k\cdot x^k$, lấy đạo hàm 2 vế, ta có$$n(1+x)^{n-1}=\displaystyle\sum\limits_{k=1}^n\mathrm{C}_n^k\cdot k\cdot x^{k-1}\Rightarrow nx(1+x)^{n-1}=\displaystyle\sum\limits_{k=1}^n\mathrm{C}_n^k\cdot k\cdot x^k.$$
+		Tiếp tục, lấy đạo hàm 2 vế, ta được$$n(1+x)^{n-1}+n(n-1)x(1+x)^{n-2}=\displaystyle\sum\limits_{k=1}^n\mathrm{C}_n^k\cdot k^2\cdot x^{k-1}\quad (1).$$
+		\begin{listEX}
+			\item Chọn $x=1$, thì có $T=n(n+1)2^{n-2}$.
+			\item Từ $(1)$, tiếp tục nhân $x$ vào 2 vế, ta được $$nx(1+x)^{n-1}+n(n-1)x^2(1+x)^{n-2}=\displaystyle\sum\limits_{k=1}^n\mathrm{C}_n^k\cdot k^2\cdot x^{k}.$$
+			Lấy đạo hàm 2 vế, ta được$$n(1+x)^{n-1}+n(n-1)x(1+x)^{n-2}+2n(n-1)x(1+x)^{n-2}+n(n-1)(n-2)x^2(1+x)^{n-3}=\displaystyle\sum\limits_{k=1}^n\mathrm{C}_n^k\cdot k^3\cdot x^{k-1}.$$
+			Chọn $x=1$, thì có $S=n^2(n+3)2^{n-3}$.
+		\end{listEX}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5K4-1]
+	Dùng vi phân, tính gần đúng:
+	\begin{listEX}[2]
+		\item $\sqrt[3]{26{,}7}$.	\item $\dfrac{1}{\sqrt{20{,}3}}$.
+	\end{listEX}
+	\loigiai{
+		Áp dụng công thức gần đúng $f(x_0+\Delta x)\approx f(x_0)+f'(x_0)\cdot\Delta x.$
+		\begin{listEX}
+			\item Xét $f(x)=\sqrt[3]{x}$ thì $f'(x)=\dfrac{1}{3\cdot\sqrt[3]{x^2}}$ với $x_0=27, \Delta x=-0{,}3$.\\
+			Suy ra: $\sqrt[3]{27{,}3}\approx \sqrt[3]{27}+\dfrac{1}{27}(-0{,}3)\approx 2{,}999$.
+			\item Xét số $f(x)=\dfrac{1}{\sqrt{x}}$ thì $f'(x)=\dfrac{-1}{2x\sqrt{x}}$ với $x_0=20{,}25; \Delta x=0{,}05$.\\
+			Suy ra: $\dfrac{1}{20{,}3}\approx\dfrac{1}{4{,}5}+\dfrac{-1}{40{,}5\sqrt{20{,}25}}\cdot (0,05)\approx 0{,}222$.
+		\end{listEX}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5K4-1]
+	Dùng vi phân để tính gần đúng:
+	\begin{listEX}[2]
+		\item $\cos 45^\circ 30'$.
+		\item $\tan 29^\circ 30'$.
+	\end{listEX}
+	\loigiai{
+		Áp dụng công thức gần đúng: $f(x_0+\Delta x)\approx f(x_0)+f'(x_0)\cdot \Delta x$.
+		\begin{listEX}
+			\item Ta có $45^\circ 30'=\dfrac{\pi}{4}+\dfrac{\pi}{360}$.\\
+			Xét $f(x)=\cos x, f'(x)=-\sin x$ với $x_0=\dfrac{\pi}{4}, \Delta x=\dfrac{\pi}{360}$.\\
+			Suy ra: $\cos\left(\dfrac{\pi}{4}+\dfrac{\pi}{360}\right)\approx \cos\dfrac{\pi}{4}-\sin\left(\dfrac{\pi}{4}\right)\cdot\dfrac{\pi}{360}$,\\
+			hay $\cos45^\circ30'\approx \dfrac{\sqrt{2}}{2}-\dfrac{\sqrt{2}}{2}\cdot \dfrac{\pi}{360}\approx 0{,}7009$.
+			\item Ta có $29^\circ30'=\dfrac{\pi}{6}-\dfrac{\pi}{360}$.\\
+			Xét $f(x)=\tan x, f'(x)=1+\tan^2x$ với $x_0=\dfrac{\pi}{6}, \Delta x=-\dfrac{\pi}{360}$.\\
+			Suy ra: $\tan\left(\dfrac{\pi}{6}-\dfrac{\pi}{360}\right)\approx \tan \dfrac{\pi}{6}+\left(1+\tan\dfrac{2\pi}{6}\right)\cdot \dfrac{-\pi}{360}$,\\
+			hay $\tan 29^\circ30'\approx \dfrac{1}{\sqrt{3}}+\dfrac{4}{3}\left(-\dfrac{\pi}{360}\right)\approx 0{,}566$.
+		\end{listEX}	
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5K2-1]
+	Tính các giới hạn:
+	\begin{listEX}[2]
+		\item $\lim\limits_{x\to 2}\dfrac{x^8-x^7-128}{x^2+2x-8}$.
+		\item $\lim\limits_{x\to 9}\dfrac{\sqrt{x}-3}{x-9}$.
+	\end{listEX}
+	\loigiai{
+		Áp dụng quy tắc L'Hospotal:
+		\begin{listEX}
+			\item Xét $f(x)=x^8-x^7-128$ thì $f(2)=0$ và $f'(x)=8x^7-7x^6$.\\
+			Xét $g(x)=x^2+2x-8$ thì $g(2)=0$ và $g'(x)=2x+2$.
+			$$\lim\limits_{x\to2}\dfrac{x^8-x^7-128}{x^2+2x-8}=\dfrac{f'(2)}{g'(2)}=\dfrac{576}{6}=96.$$
+			\item Xét $f(x)=\sqrt{x}-3$ thì $f(9)=0$ và $f'(x)=\dfrac{1}{2\sqrt{x}}$.
+			$$\lim\limits_{x\to 9}\dfrac{\sqrt{x}-3}{x-9}=\lim\limits_{x\to 9}\dfrac{f(x)-f(9)}{x-9}=f'(9)=\dfrac{1}{6}.$$
+		\end{listEX}	
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5K3-1][1D5K2-1]
+	Tính các giới hạn sau:
+	\begin{listEX}[2]
+		\item $\lim\limits_{x\to 0}\dfrac{\sqrt{1+2x}+2\sqrt[3]{1+3x}+3x^2-3}{\sin x}$.
+		\item $\lim\limits_{x\to 0}\dfrac{\sqrt[m]{1+x}-1}{\sqrt[n]{1+x}-1}$.
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}
+			\item Xét $f(x)=\sqrt{1+2x}+2\sqrt[3]{1+3x}+3x^2-3$.\\
+			Thì $f(0)=0$ và $f'(x)=\dfrac{1}{\sqrt{1+2x}}+\dfrac{2}{\sqrt[3]{(1+3x)^2}}+6x$.\\
+			Xét $g(x)=\sin x$ thì $g(0)=0$ và $g'(x)=\cos x$.
+			$$\lim\limits_{x\to 0}\dfrac{\sqrt{1+2x}+2\sqrt[3]{1+3x}+3x^2-3}{\sin{x}}=\dfrac{f'(0)}{g'(0)}=\dfrac{1}{\sqrt{1}}+\dfrac{2}{\sqrt[3]{1}}+0=3.$$
+			\item $\lim\limits_{x\to 0}\dfrac{\sqrt[m]{1+x}-1}{\sqrt[n]{1+x}-1}=\lim\limits_{x\to 0}\dfrac{\left(\sqrt[m]{1+x}-1\right)'}{\left(\sqrt[n]{1+x-1}\right)'}=\lim\limits_{x\to 0}\dfrac{\dfrac{1}{m(1+x)^{\frac{m-1}{m}}}}{\dfrac{1}{n(1+x)^{\frac{n-1}{n}}}}=\dfrac{n}{m}$.
+		\end{listEX}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5G2-1]
+	Tính các giới hạn sau:
+	\begin{listEX}[2]
+		\item $\lim\limits_{x\to 1}\dfrac{x^n-1}{x^m-1}$.
+		\item $\lim\limits_{x\to 0}\dfrac{(1+ax)^{10}-(1+bx)^{10}}{(1+ax)^9-(1+bx)^9}$.
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}
+			\item Xét $f(x)=x^n$ thì $f(1)=1, f'(x)=nx^{n-1},$\\
+			$g(x)=x^m$ thì $g(1)=1, g'(x)=mx^{m-1}$
+			$$\lim\limits_{x\to 1}\dfrac{x^n-1}{x^m-1}=\lim\limits_{x\to 1}\left(\dfrac{x^n-1}{x-1} : \dfrac{x^m-1}{x-1}\right)=\dfrac{f'(1)}{g'(1)}=\dfrac{n}{m}.$$
+			\item Xét $f(x)=(1+ax)^{10}-(1+bx)^{10}$ thì $f(0)=0,$\\
+			$f'(x)=10a(1+ax)^9-10b(1+bx)^9$\\
+			và $g(x)=(1+ax)^9-(1+bx)^9$ thì $g(0)=0$, $g'(x)=9a(1+ax)^8-9b(1+bx)^8$, nên $$\lim\limits_{x\to 0}\dfrac{(1+ax)^{10}-(1+bx)^{10}}{(1+ax)^9-(1+bx)^9}=\dfrac{f'(0)}{g'(0)}=\dfrac{10a-10b}{9a-9b}=\dfrac{10}{9},  (\text{với } a\ne b).$$
+		\end{listEX}	
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5K3-2]
+	Tính các giới hạn sau:
+	\begin{listEX}[2]
+		\item $\lim\limits_{x\to 0}\dfrac{\tan x-\sin x}{x^3}$.
+		\item $\lim\limits_{x\to 0}\dfrac{1-\cos x}{x\sin x}$.
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}
+			\item \begin{align*}
+			\lim\limits_{x\to 0}\dfrac{\tan x-\sin x}{x^3}&=\lim\limits_{x\to 0}\dfrac{(\tan x-\sin x)'}{(x^3)'}\\
+			&=\lim\limits_{x\to 0}\dfrac{\tan^2x+1-\cos x}{3x^2}\\
+			&=\lim\limits_{x\to 0}\dfrac{(\tan^2x+1-\cos x)'}{(3x^2)'}\\
+			&=\lim\limits_{x\to 0}\dfrac{2\tan x(\tan^2x+1)+\sin x}{6x}\\
+			&=\lim\limits_{x\to 0}\dfrac{(2\tan x(\tan^2x+1)+\sin x)'}{(6x)'}\\
+			&=\lim\limits_{x\to 0}\dfrac{6\tan^2x(\tan^2x+1)+2(\tan^2x+1)+\cos x}{6}\\
+			&=\dfrac{1}{2}.
+			\end{align*}
+			\item \begin{align*}
+			\lim\limits_{x\to 0}\dfrac{1-\cos x}{x\sin x}&=\lim\limits_{x\to 0}\dfrac{(1-\cos x)'}{(x\sin x)'}\\
+			&=\lim\limits_{x\to 0}\dfrac{\sin x}{\sin x+x\cos x}\\
+			&=\lim\limits_{x\to 0}\dfrac{(\sin x)'}{(\sin x+x\cos x)'}\\
+			&=\lim\limits_{x\to 0}\dfrac{\cos x}{2\cos x-x\sin x}=\dfrac{1}{2}.
+			\end{align*}
+		\end{listEX}	
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5K5-2]
+	Chứng minh:
+	\begin{listEX}
+		\item Nếu $y=\sqrt{2x-x^2}$ thì $y^3\cdot y''+1=0$.
+		\item Nếu $y=A\sin(at+b)+B\cos(at+b)$ thì $y''+a^2\cdot y=0$.
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}
+			\item $y'=\dfrac{2-2x}{2\sqrt{2x-x^2}}=\dfrac{1-x}{\sqrt{2x-x^2}}$.\\
+			$y''=\dfrac{-\sqrt{2x-x^2}-(1-x)\cdot\dfrac{1-x}{\sqrt{2x-x^2}}}{2x-x^2}=\dfrac{-(2x-x^2)-(1-x)^2}{(2x-x^2)\sqrt{2x-x^2}}=\dfrac{-1}{\sqrt{(2x-x^2)^3}}=\dfrac{-1}{y^3}$.\\
+			Suy ra: $y^3\cdot y''=-1\Rightarrow $đpcm.
+			\item $y'=aA\cos(at+b)-aB\sin(at+b)$.\\
+			$y''=-a^2A\sin(at+b)-a^2B\cos(at+b)=-a^2\left(A\sin(at+b)+B\cos(at+b)\right)=-a^2\cdot y$.\\
+			Do đó: $y''+a^2\cdot y=0$.
+		\end{listEX}	
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5G3-2]
+	Cho $2n$ số $a_i, b_i, i=1,2\ldots,n$ và hàm số: $f(x)=a_1\sin b_1x+a_2\sin b_2x+\cdots+a_n\sin b_n x$ thoả mãn $$\left|f(x) \right|\le \left|\sin x\right|, \forall x\in [-1;1].$$
+	Chứng minh: $\left|a_1b_1+a_2b_2+\cdots+a_nb_n\right|\le 1$.
+	\loigiai{
+		Ta có: $f(0)=0$ và $f'(x)=a_1b_1\cos b_1x+a_2b_2\cos b_2 x+\cdots +a_nb_n\cos b_nx$ nên $f'(0)=a_1b_1+a_2b_2+\cdots+a_nb_n$. Theo định nghĩa: $$f'(0)=\lim\limits_{x\to 0}\frac{f(x)-f(0)}{x-0}=\lim\limits_{x\to 0}\frac{f(x)}{x}=\lim\limits_{x\to 0}\frac{f(x)}{\sin x}\cdot\frac{\sin x}{x}.$$
+		Với mọi $x\in [-1; 1], x\ne 0$: $\left|\dfrac{f(x)}{\sin x}\cdot\dfrac{\sin x}{x}\right|\le \left|\dfrac{\sin x}{x}\right|$ mà $\lim\limits_{x\to 0}\dfrac{\sin x}{x}=1$ nên $\left|f'(0)\right|\le 1$, suy ra đpcm.	
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5G2-1]
+	Cho hàm số $f(x)=ax^2+bx+c$ thoả mãn: $$\left|f(-1)\right|\le 1, \left|f(0)\right|\le 1, \left|f(1)\right|\le 1$$Chứng minh: $\left|f'(x)\right|\le 4, \forall x\in [-1; 1]$.
+	\loigiai{
+		Ta có: $f'(x)=2ax+b$ và $\heva{&f(-1)=a-b+c\\ &f(0)=c\\ &f(1)=a+b+c}$, giải tìm $a,b,c$ ta được:
+		$$\heva{&c=f(0)\\ &b=\dfrac{1}{2}\left[f(1)-f(-1)\right]\\&a=\dfrac{1}{2}\left[f(1)+f(-1)-2f(0)\right]}$$
+		Với mọi $x\in [-1; 1]$ thì $\left|f'(x)\right|\le \max\left\{\left|f'(1)\right|, \left|f'(-1)\right|\right\}$, ta có:
+		\begin{align*}
+		\left|f'(1)\right|&=\left|f(1)+f(-1)-2f(0)+\dfrac{1}{2}\left(f(1)-f(-1)\right)\right|\\
+		&=\left|\frac{3}{2}f(1)+\frac{1}{2}f(-1)-2f(0)\right|\\
+		&\le \frac{3}{2}\left|f(1)\right|+\frac{1}{2}\left|f(-1)\right|+2\left|f(0)\right|\le\frac{3}{2}+\frac{1}{2}+2=4.
+		\end{align*}
+		Ta có: 
+		\begin{align*}
+		\left|f'(-1)\right|&=\left|-f(1)-f(-1)+2f(0)+\dfrac{1}{2}\left(f(1)-f(-1)\right)\right|\\
+		&=\left|-\frac{3}{2}f(-1)-\frac{1}{2}f(1)+2f(0)\right|\\
+		&\le \frac{3}{2}\left|f(-1)\right|+\frac{1}{2}\left|f(1)\right|+2\left|f(0)\right|\le\frac{3}{2}+\frac{1}{2}+2=4.
+		\end{align*}
+		Từ đó suy ra điều phải chứng minh.
+	}
+\end{bt}
+
+\begin{center}
+	\textbf{BÀI LUYỆN TẬP}
+\end{center}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5B1-1]
+	Dùng định nghĩa, tính đạo hàm của mỗi hàm số:
+	\begin{listEX}[2]
+		\item $y=x^4-5x, x_0=-1$.
+		\item $y=\sqrt{3x+1}, x_0=4$.
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}[1]
+			\item Dùng định nghĩa: $f'(x_0)=y'(x_0)=\lim\limits_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}$.\\
+			Kết quả $f'(-1)=-9$.
+			\item Kết quả $f'(4)=\dfrac{3}{2\sqrt{13}}$.
+		\end{listEX}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5B1-1]
+	Dùng định nghĩa, tính đạo hàm của mỗi hàm số:
+	\begin{listEX}[2]
+		\item $y=\dfrac{1}{2x-1}$ với $x\ne \dfrac{1}{2}$.
+		\item $y=\sqrt{3-x}$ với $x<3$.
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}[1]
+			\item Dùng định nghĩa: $f'(x_0)=y'(x_0)=\lim\limits_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}$.\\
+			Kết quả $y'=\dfrac{-2}{(2x-1)^2}$ với $x\ne \dfrac{1}{2}$.
+			\item Kết quả $y'=\dfrac{-1}{2\sqrt{3-x}}$ với $x<3$.
+		\end{listEX}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5B3-1]
+	Tìm đạo hàm của mỗi hàm số sau:
+	\begin{listEX}[2]
+		\item $y=\dfrac{\sin x+\cos x}{\sin x-\cos x}$.
+		\item $y=x^3\cdot \cos^2x$.
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}[1]
+			\item Dùng quy tắc đạo hàm của một thương. Kết quả $y'=\dfrac{-2}{(\sin x-\cos x)^2}$.
+			\item Kết quả $y'=x^2(3\cos^2x-x\sin 2x)$.
+		\end{listEX}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5B4-1]
+	Tính vi phân của các hàm số sau:
+	\begin{listEX}[2]
+		\item $y=x^8-x\sqrt{x}+2$.
+		\item $y=\sqrt{\cos^2{2x}+1}$.
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}[1]
+			\item Kết quả $\mathrm{d}y=\left(8x^7-\dfrac{3}{2}\sqrt{x}\right)\mathrm{d}x$.
+			\item Dùng công thức đạo hàm của căn bậc 2.\\
+			kết quả $\mathrm{d}y=-\dfrac{\sin 4x}{\sqrt{\cos^2 2x+1}}\mathrm{d}x$.
+		\end{listEX}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5K4-1]
+	Dùng vi phân, tính gần đúng:
+	\begin{listEX}[2]
+		\item $\dfrac{1}{0{,}9995}$.
+		\item $\sqrt[3]{2015}$.
+	\end{listEX}
+	\loigiai{
+		Dùng công thức $f(x_0+\Delta x)\approx f(x_0)+f'(x_0)\Delta x$.
+		\begin{listEX}[1]
+			\item Xét hàm số $y=\dfrac{1}{x}$ và chọn $x_0=1,\, \Delta x=-0{,}0005$.\\
+			Kết quả $\dfrac{1}{0{,}9995}=1{,}0005$.
+			\item Xét hàm số $y=\sqrt[3]{x}$ và chọn $x_0=13^3,\, \Delta x=-182$.\\
+			kết quả $\sqrt[3]{2015}\approx 12{,}6$.
+		\end{listEX}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5K2-1]
+	Giải phương trình $y'=0$ với hàm số:
+	\begin{listEX}[2]
+		\item $y=\sqrt{x^3-2x^2+3}$.
+		\item $\dfrac{1}{2}\sin 2x+\sin x-3$.
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}[1]
+			\item Kết quả $x=0$ hoặc $x=\dfrac{4}{3}$.
+			\item Kết quả $x=\pi +k2\pi$ hoặc $x=\pm\dfrac{\pi}{3}+k2\pi, k\in \mathbb{Z}$.
+		\end{listEX}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5G2-5]
+	Cho hypebol $(H): y=\dfrac{1}{x-2}$. Tiếp tuyến $(T)$ của $(H)$ tại điểm $M$ có hoành độ $x=a\ne 2$, cắt trục hoành $Ox$ tại $A$ và cắt đường thẳng $d: x=2$ tại $B$. Chứng minh $M$ là trung điểm của $AB$ và diện tích tam giác giới hạn bởi tiếp tuyến, $Ox$ và $d$ không đổi.
+	\loigiai{
+		Ta có: $(H): y=\dfrac{1}{x-2}\Rightarrow y'=\dfrac{-1}{(x-2)^2}$.
+		
+		Gọi $M\left(a, \dfrac{1}{a-2}\right)$, phương trình tiếp tuyến của $(H)$ tại $M$ là: $$(T): y= \dfrac{-1}{(a-2)^2}(x-a)+\dfrac{1}{a-2}\Rightarrow y=\dfrac{-1}{(a-2)^2}x+\dfrac{2a-2}{(a-2)^2}.$$
+		
+		Suy ra: $A\left(2a-2, 0\right)$ và $B\left(2, \dfrac{2}{a-2}\right)$.
+		
+		Suy ra toạ độ trung điểm của $AB$ là: $\left(a, \dfrac{1}{a-2}\right)\equiv M$. Suy ra $M$ là trung điểm $AB$.\\	
+		Gọi $I(2,0)$ là giao điểm của $(d)$ và trục hoành.\\
+		Khi đó: $IA=|2a-4|$ và $IB=\left|\dfrac{2}{a-2}\right|$.\\
+		Suy ra: $S_{IAB}=\dfrac{1}{2}\cdot IA\cdot IB=\dfrac{1}{2}\left|2a-4\right|\cdot\left|\dfrac{2}{a-2}\right|=2$.\\
+		Do đó, diện tích tam giác giới hạn bởi tiếp tuyến, $Ox$ và $d$ không đổi.
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5K2-5]
+	Lập phương trình tiếp tuyến chung của hai đồ thị: $$(P_1): y=x^2-5x+6 \text{ và } (P_2): y=-x^2+5x-11.$$
+	\loigiai{
+		Gọi $(\Delta)$ là tiếp tuyến chung của hai đồ thị $(P_1)$ và $(P_2)$.\\
+		Gọi $(x_1, y_1)$, $(x_2, y_2)$ lần lượt là tiếp điểm của $(\Delta)$ với $(P_1)$ và $(P_2)$.\\
+		Khi đó, ta có:\\
+		Phương trình tiếp tuyến của $(P_1)$ tại $(x_1, y_1)$ là: $$y=(2x_1-5)(x-x_1)+x_1^2-5x_1+6=(2x_1-5)x-x_1^2+6.$$
+		Phương trình tiếp tuyến của $(P_1)$ tại $(x_1, y_1)$ là: $$y=(-2x_2+5)(x-x_2)-x_2^2+5x_1-11=(-2x_2+5)x+x_2^2-11.$$
+		Đồng nhất hệ số, ta có:$$\heva{&2x_1-5=-2x_2+5\\ &-x_1^2+6=x_2^2-11}\Leftrightarrow\heva{&x_1+x_2=5\\&x_1^2+x_2^2=17}\Leftrightarrow \hoac{&\heva{x_1=1\\x_2=4}\\&\heva{x_1=4\\x_2=1}}.$$
+		Do đó, ta có phương trình tiếp tuyến chung của hai đồ thị $(P_1)$ và $(P_2)$ là: $y=3x-10$ và $y=-3x+5$.
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5G5-3]
+	Tính các tổng:
+	\begin{listEX}[1]
+		\item $S=1\cdot \mathrm{C}_{2000}^0+2\cdot \mathrm{C}_{2000}^1+\cdots+2001\cdot \mathrm{C}_{2000}^{2000}$.
+		\item $P=1\cdot 2^{n-1}\cdot \mathrm{C}_n^1+2\cdot 2^{n-2}\cdot \mathrm{C}_n^2+\cdots +n\cdot 2^0\cdot \mathrm{C}_n^n$.
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}[1]
+			\item Ta có: $$(1+x)^{2000}=\displaystyle\sum\limits_{k=0}^{2000}\mathrm{C}_{2000}^k\cdot x^k\Rightarrow x\cdot(1+x)^{2000}=\displaystyle\sum\limits_{k=0}^{2000}\mathrm{C}_{2000}^k\cdot x^{k+1}.$$
+			Lấy đạo hàm hai vế, ta được:
+			$$(1+x)^{2000}+2000\cdot x\cdot(1+x)^{1999}=\displaystyle\sum\limits_{k=0}^{2000}\mathrm{C}_{2000}^k\cdot (k+1)\cdot x^k.$$
+			Thay $x=1$, ta được: $$2^{2000}+2000\cdot 2\cdot 2^{1999}=\displaystyle\sum\limits_{k=0}^{2000}\mathrm{C}_{2000}^k\cdot (k+1)=S.$$
+			Suy ra, $S=2001\cdot 2^{2000}$.
+			\item Ta có: $$(2+x)^{n}=\displaystyle\sum\limits_{k=0}^{n}\mathrm{C}_{n}^{k}\cdot 2^{n-k}\cdot x^k.$$
+			Lấy đạo hàm hai vế, ta được:
+			$$n\cdot(2+x)^{n-1}=\displaystyle\sum\limits_{k=0}^{n}\mathrm{C}_{n}^k\cdot 2^{n-k}\cdot k\cdot x^{k-1}.$$
+			Thay $x=1$, ta được: $$n\cdot 3^{n-1}=\displaystyle\sum\limits_{k=0}^{n}\mathrm{C}_{n}^k\cdot 2^{n-k}\cdot k=P.$$
+			Suy ra: $P=n\cdot 3^{n-1}$.
+		\end{listEX}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5K2-1]
+	Tính các giới hạn sau:
+	\begin{listEX}[2]
+		\item $\lim\limits_{x\to 1}\dfrac{\sqrt[3]{x-2}+x^2-x+1}{x^2-4x+3}$.
+		\item $\lim\limits_{x\to 0}\dfrac{\sqrt{1+2x}+2\sqrt[3]{1+3x}+3x^2-3}{5x}$.
+	\end{listEX}
+	\loigiai{
+		Quy tắc L'Hospital cho hai hàm số $f$ và  $g$ liên tục trên khoảng $(a, b)$ chứa $x_0$, có đạo hàm trên $(a, b)\setminus {x_0}$ và có $f(x_0)=g(x_0)=0$. Nếu $\lim\limits_{x\to x_0}\dfrac{f'(x)}{g'(x)}=L$ thì $\lim\limits_{x\to x_0}\dfrac{f(x)}{g(x)}=L$.
+		\begin{listEX}[1]
+			\item Đặt: $f(x)=\sqrt[3]{x-2}+x^2-x+1$ và $g(x)=x^2-4x+3$.\\
+			Ta có: 
+			\begin{enumerate}[$\bullet$]
+				\item $f'(x)=\dfrac{1}{3\sqrt[3]{(x-2)^2}}+2x-1\Rightarrow f'(1)=\dfrac{4}{3}$.
+				\item $g'(x)=2x-4\Rightarrow g'(1)=-2$.
+			\end{enumerate}
+			
+			Vì $f(1)=0$ và $g(1)=0$, nên áp dụng quy tắc L'Hospital, ta được: $$\lim\limits_{x\to 1}\frac{f(x)}{g(x)}=\lim\limits_{x\to 1}\frac{f'(x)}{g'(x)}=\frac{f'(1)}{g'(1)}=\frac{-2}{3}.$$
+			\item Đặt: $f(x)=\sqrt{1+2x}+2\sqrt[3]{1+3x}+3x^2-3$ và $g(x)=5x$.\\
+			Ta có: 
+			\begin{enumerate}[$\bullet$]
+				\item $f'(x)=\dfrac{1}{\sqrt{1+2x}}+\dfrac{2}{\sqrt[3]{1+3x}}+6x\Rightarrow f'(0)=3$.
+				\item $g'(x)=5\Rightarrow g'(0)=5$.
+			\end{enumerate}
+			
+			Vì $f(0)=0$ và $g(0)=0$, nên áp dụng quy tắc L'Hospital, ta được: $$\lim\limits_{x\to 0}\frac{f(x)}{g(x)}=\lim\limits_{x\to 0}\frac{f'(x)}{g'(x)}=\frac{f'(0)}{g'(0)}=\frac{3}{5}.$$
+		\end{listEX}
+	}
+\end{bt}
+\begin{bt}%[Dự án Tex-hóa sách Bồi dưỡng HSG K10, Tác giả: Lê Hoàng Phò]%[Phan Thành Nhân]%[1D5G5-1]
+	Lập công thức đạo hàm cấp $n$ của hàm số:
+	\begin{listEX}[2]
+		\item $y=\dfrac{13x+1}{6x^2-x-1}$.
+		\item $y=\sin^2 x-2014x+3$.
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}[1]
+			\item Ta có
+			\begin{align*}
+			y&=\dfrac{2}{3x+1}+\dfrac{3}{2x-1}.\\
+			y'&=\dfrac{2\cdot(-1)\cdot 3}{(3x+1)^2}+\dfrac{3\cdot (-1)\cdot 2}{(2x-1)^2}.\\
+			y''&= \dfrac{2\cdot(-1)\cdot 3\cdot (-1)\cdot 3\cdot 2}{(3x+1)^3}+\dfrac{3\cdot (-1)\cdot 2\cdot (-1)\cdot 2\cdot 2}{(2x-1)^3}\\
+			&=\dfrac{2\cdot(-1)^2\cdot 3^2\cdot 2}{(3x+1)^3}+\dfrac{3\cdot (-1)^2\cdot 2^2\cdot 2}{(2x-1)^3}.\\
+			y'''&= \dfrac{2\cdot(-1)^2\cdot 3^2\cdot 2\cdot (-1)\cdot 3\cdot 3}{(3x+1)^4}+\dfrac{3\cdot (-1)^2\cdot 2^2\cdot 2\cdot (-1)\cdot 2\cdot 3}{(2x-1)^4}\\
+			&=\dfrac{2\cdot(-1)^3\cdot 3^3\cdot 3!}{(3x+1)^4}+\dfrac{3\cdot (-1)^3\cdot 2^3\cdot 3!}{(2x-1)^4}.
+			\end{align*}
+			Do đó, ta dễ dàng chứng minh quy nạp:
+			$$y^{(n)}=\dfrac{2\cdot(-1)^n\cdot 3^n\cdot n!}{(3x+1)^{n+1}}+\dfrac{3\cdot(-1)^n\cdot2^n\cdot n!}{(2x-1)^{n+1}}.$$
+			\item $y'=\sin 2x-2014$\\
+			Tương tự, ta chứng minh quy nạp, thu được: $$y^{(n)}=2^{n-1}\cdot \sin\left[2x+(n-1)\dfrac{\pi}{2}\right].$$
+		\end{listEX}
+	}
+\end{bt}

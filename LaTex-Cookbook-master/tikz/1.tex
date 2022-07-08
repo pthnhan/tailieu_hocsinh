@@ -1,0 +1,715 @@
+\documentclass[12pt,a4paper, twoside]{book}
+\usepackage{amsmath,amssymb,tasks}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{tkz-euclide}
+%\usetkzobj{all}
+\usepackage{tikz-3dplot}
+%\usetikzlibrary{arrows}
+\usetikzlibrary{shapes.geometric}
+\usepackage{wasysym}
+\usepackage[tikz]{bclogo}
+\usetkzobj{all}
+\usepackage{tikz,tkz-tab,tkz-linknodes}
+\usetikzlibrary{snakes}
+\usepackage{tabvar}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+\pgfplotsset{compat=1.9}
+
+\usetikzlibrary{arrows,calc,intersections,angles, quotes, backgrounds}
+\usepackage[top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm] {geometry}
+\usepackage[hidelinks,unicode]{hyperref}
+
+\usepackage{currfile}
+
+\usepackage[solcolor]{ex_test} 
+%\usepackage[loigiai]{ex_test}
+%\usepackage[color]{ex_test}
+%\renewtheorem{ex}{\color{violet}Câu}
+\pagestyle{plain}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{utopia}
+\fancyhf{}
+\usepackage{graphicx}
+%\rhead{\textbf{MỘT SỐ CHỦ ĐỀ TOÁN CHUYÊN LỚP 9}}
+%\lhead{\textbf{PHAN THÀNH NHÂN}}
+%\lfoot{\textit{SĐT: 096 5757 444 - Email: nhanmath97@gmail.com}}
+%\rfoot{Trang \thepage}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\usepackage{esvect}
+\def\vec{\vv}
+\def\overrightarrow{\vv}
+%Lệnh của gói mathrsfs
+\DeclareSymbolFont{rsfs}{U}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\mathscr}{rsfs}
+%Lệnh cung
+\DeclareSymbolFont{largesymbols}{OMX}{yhex}{m}{n}
+\DeclareMathAccent{\wideparen}{\mathord}{largesymbols}{"F3}
+%Lệnh song song
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\varparallel}{\mathrel}{symbolsC}{9}
+\DeclareMathSymbol{\parallel}{\mathrel}{symbolsC}{9}
+%Hệ hoặc, hệ và
+\newcommand{\hoac}[1]{ 
+	\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{
+	\left\{\begin{aligned}#1\end{aligned}\right.}
+\renewcommand{\baselinestretch}{1.5}
+\hidetextchoice
+%Tá
+\newcommand{\Cc}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\Q}{\mathbb{Q}}
+\usepackage{enumerate}
+\usepackage{mathpazo}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage[most]{tcolorbox}
+\newtheorem{ec}{Bài}
+\newtheorem{vd}{Ví dụ}
+\def\beginbox{\begin{tcolorbox}[drop fuzzy shadow southeast, enhanced, colback=red!5!white, colframe=red!75!black]}
+	\def\endbox{\end{tcolorbox}}
+\AtBeginEnvironment{vd}{
+	\beginbox
+	\renewcommand{\loigiai}[1]{
+		\renewcommand{\immini}[2]{
+			\setbox\imbox=\vbox{\hbox{##2}}
+			\widthimmini=\wd\imbox
+			\IMleftright{##1}{##2}
+		}
+		\endbox
+		\begin{onlysolution}
+			#1
+		\end{onlysolution}
+		\def\endbox{}
+	}
+}
+\AtEndEnvironment{vd}{
+	\endbox
+}
+\newtcolorbox[auto counter]{dang}[1]{
+	drop fuzzy shadow southeast, breakable, enhanced, colback=red!5!white, colframe=red!75!black,
+	title={\bf Dạng~\thetcbcounter.\ #1}
+	\addcontentsline{toc}{subsubsection}{Dạng~\thetcbcounter. #1}
+}
+\newtcolorbox{luuy}[1][]{enhanced,breakable,
+	before skip=2mm,after skip=3mm,
+	boxrule=0.4pt,left=5mm,right=2mm,top=1mm,bottom=1mm,
+	colback=yellow!50,
+	colframe=yellow!20!black,
+	sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+	underlay={%
+		\path[fill=tcbcol@back!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+		\path[draw=tcbcol@frame,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+		\path[fill=yellow!50!black,draw=none] (interior.south west) rectangle node[white]{\Huge\bfseries !} ([xshift=4mm]interior.north west);
+	},
+	drop fuzzy shadow, #1}
+\theorembodyfont{\it}
+\newtheorem{dl}{Định lí}
+\theoremseparator{.}
+\theorembodyfont{\rm}
+\newtheorem{hq}{Hệ quả}
+\newtheorem{tc}{Tính chất}
+\newtheorem{dn}{Định nghĩa}
+\theoremstyle{nonumberplain}
+\newtheorem{kn}{Khái niệm}
+\newtheorem{nx}{Nhận xét}
+\theoremseparator{}
+\theorembodyfont{\it}
+\usepackage{stackengine}
+\usepackage{scalerel}
+\newcommand\dangersign[1][2ex]{%
+	\renewcommand\stacktype{L}%
+	\scaleto{\stackon[1.3pt]{\color{red}$\triangle$}{\fontsize{4}{0}\selectfont !}}{#1}%
+}
+\newtheorem{note}{{\dangersign[3ex]}}
+%Tiêu đề chương
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\usepackage{titlesec}
+\makeatletter
+\renewcommand\thesection{\@arabic\c@section.}
+\renewcommand\thesubsection{\@Roman\c@subsection.}
+\renewcommand\thesubsubsection{\@arabic\c@subsubsection.}
+\makeatother
+\fancypagestyle{chapterstart}{% 1st page of the chapters, i.e. no new page for chapter
+}
+\makeatletter
+
+\def\chapter{
+	\pagestyle{chapterstart}
+	\secdef\@chapter\@schapter}
+
+\renewcommand\thesection{\@arabic\c@section} 
+
+\titleformat{\chapter}[display]
+{\selectfont\color{red!50!blue}\centering\scshape\Large\bfseries\huge}
+{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+
+\makeatother
+%\titleformat{\chapter}{\bfseries\huge}{Chương \thechapter}
+%\titleformat{\section}{\selectfont\color{red!50!blue}\centering\scshape\Large\bfseries\huge}{\qquad \huge\S\thesection}{-1.5em}{
+%	%\setcounter{dangso}{0}
+%	\setcounter{vd}{0}
+%	\setcounter{ex}{0}
+%	\setcounter{ec}{0}
+%	\setcounter{dl}{0}
+%	\setcounter{dn}{0}
+%	\setcounter{hq}{0}
+%	\setcounter{tc}{0}
+%	\setcounter{\tcbcounter}{0}
+%}
+\titleformat{\section}[frame]
+{\normalfont}
+{\filright
+	\footnotesize
+	\enspace \textbf{TOÁN CHUYÊN 9 - Chủ đề \thesection} \enspace}
+{8pt}
+{\Large\bfseries\filcenter}
+%\titleformat{\section}{\selectfont\color{red!50!blue}\centering\scshape\Large\bfseries}{\S\thesection}{0em}{
+%	\setcounter{vd}{0}
+%	\setcounter{ex}{0}
+%	\setcounter{bt}{0}
+%	\setcounter{dl}{0}
+%	\setcounter{dn}{0}
+%	\setcounter{hq}{0}
+%	\setcounter{tc}{0}
+%	\setcounter{\tcbcounter}{0}
+%}
+\usepackage{multicol}
+\newcommand{\lietke}[1]{\begin{enumEX}[\quad a)]{1}#1\end{enumEX}}
+\newcommand{\lietkes}[2]{\begin{enumEX}{#1}#2\end{enumEX}}
+\renewcommand{\vec}[1]{\protect\overrightarrow{#1}}
+
+\renewcommand{\baselinestretch}{1.5}
+\hidetextchoice
+
+\begin{document}
+	\def\khvuong[size=#1](#2,#3,#4){
+		\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)-- ($(#3)!#1!(#4)$);
+	}
+\begin{center}
+	\begin{tikzpicture}
+	\def\lucgiacdeu(#1,#2){
+		\draw (#1)+(0:#2)--+(60:#2)--+(120:#2)--+(180:#2)--+(240:#2)--+(-60:#2)--cycle}
+	\def\a{1}
+	\path (0,0) coordinate (O);
+	\lucgiacdeu(O,\a);
+	\foreach \x in {2,4,6}  \lucgiacdeu($(O)!\x!(240:\a)$,\a);
+	\foreach \x in {2,4,6}  \lucgiacdeu($(O)!\x!(-60:\a)$,\a);
+	\foreach \x in {2,4}  \lucgiacdeu($($(O)!6!(240:\a)$)!\x!($($(O)!6!(240:\a)$)+(0:\a)$)$,\a);
+	\end{tikzpicture}
+\end{center}
+\begin{ec}
+	Cho nửa đường tròn tâm $O$, đường kính $AB=2R$ . Trên nửa đường tròn lấy điểm $M$ sao cho $MB=R$. Tiếp tuyến tại $M$ của đường tròn cắt các tiếp tuyến $Ax$ và $By$ lần lượt tại $C$ và $D$ ($Ax$ và $By$ cùng thuộc một nửa mặt phẳng có bờ $AB$ chứa điểm $M$).
+	\lietke{
+		\item Chứng minh: Tam giác $COD$ vuông và $AC+BD=CD$
+		\item Tính $OC$ theo $R$?
+		\item $BC$ cắt đường tròn tại $F$ ($F$ khác $B$), đường thẳng qua $O$ vuông góc với $BC$ cắt $By$ tại $E$. Chứng minh $EF$ là tiếp tuyến của đường tròn $(O)$.	
+	} 
+	Gọi $K$ là giao điểm của $OE$ và BC. Chứng minh $DM=DK$.
+	\begin{center}
+		\begin{tikzpicture}
+			\def\R{5}
+			\path
+			(0,0) coordinate (O)
+			(\R,0) coordinate (B)
+			(-\R,0) coordinate (A)
+			(60:\R) coordinate (M)
+			($(A)!1!90:(B)$) coordinate (x)
+			($(B)!1!-90:(A)$) coordinate (y)
+			($(M)!1mm!90:(O)$) coordinate (z)
+			(intersection of A--x and M--z) coordinate (C)
+			(intersection of B--y and M--z) coordinate (D)
+			($(B)!(O)!(C)$) coordinate (K)
+			(intersection of O--K and B--y) coordinate (E)
+			;
+			\draw[name path =dtO] (B) arc (0:180:\R cm and \R cm);
+			\path[name path=BC] (B)--(C);
+			\path[name intersections ={of = dtO and BC}]
+			(intersection-2) coordinate (F);
+			\draw
+			(C)--(D)--(B)--(A)--cycle
+			(C)--(O)--(D)
+			(O)--(M) 
+			(B)--(C)
+			(O)--(E)--(D)
+			(A)--(E)--(F)--(O)
+			
+			;
+			\khvuong[size=4pt](O,K,C)
+			\foreach \x/\g in {A/-90, O/-90, B/-90, E/45, F/-130, C/90, K/5, M/60, D/0}
+			\fill[black] (\x) circle(1pt) + (\g:3mm)node{$\x$};
+		\end{tikzpicture}		
+	\end{center}
+\end{ec}
+\begin{ec}
+	Từ một điểm $A$ nằm ngoài đường tròn $(O)$, kẻ các tiếp tuyến $AB, AC$ với $(O)$ ($B$ và $C$ là 2 tiếp điểm).
+	\begin{enumerate}[\quad a)]
+		\item Chứng minh 4 điểm $A, B, O, C$ cùng thuộc 1 đường tròn và $AO\perp BC$.
+		\item Trên cung nhỏ $BC$ của $(O)$, lấy điểm $M$ bất kì ($M\ne B, M\ne C, M\notin AO$). Tiếp tuyến tại $M$ cắt $AB, AC$ lần lượt tại $D, E$. Chứng minh chu vi $\Delta ADE$ bằng $2AB$.
+		\item Đường thẳng vuông góc với $AO$ tại $O$ cắt $AB$ và $AC$ lần lượt tại $P$ và $Q$. Chứng minh $4PD\cdot QE=PQ^2$.
+		\item $DE$ cắt $AO$ tại $N$. $BC$ cắt $OM$ tại $K$. Chứng minh $AM\parallel NK$.
+	\end{enumerate}
+		\begin{center}
+			\begin{tikzpicture}[>=stealth]
+			\def\R{3}
+			\def\gAOB{70}
+			\def\gMOA{30}
+			\pgfmathsetmacro{\OA}{\R*sec(\gAOB)}
+			\path
+			(0,0) coordinate (O)
+			(\gAOB:\R) coordinate (B)
+			(-\gAOB:\R) coordinate (C)
+			(0:\OA) coordinate (A)
+			(\gMOA:\R) coordinate (M)
+			($(M)!1!90:(O)$) coordinate (Mx)
+			(90:1) coordinate (Ox)
+			(intersection of A--B and Mx--M) coordinate (D)
+			(intersection of A--C and Mx--M) coordinate (E)
+			(intersection of A--B and O--Ox) coordinate (P)
+			(intersection of A--C and O--Ox) coordinate (Q)
+			(intersection of B--C and O--M) coordinate (K)
+			(intersection of A--O and D--E) coordinate (N)
+			;
+			\draw (O) circle (\R)
+			(A)--(B)--(O)--(C)--cycle
+			(B)--(C)--(Q)--(P)--cycle
+			(D)--(E)
+			(O)--(M)
+			(A)--(O)
+			;
+			\foreach \x/\g in {O/180,A/0,B/\gAOB,C/-\gAOB,D/60,E/-60,P/90,Q/-90, K/-30,N/45,M/\gMOA} \fill[black] (\x) circle (1pt) +(\g:3mm)node{$\x$};
+			\end{tikzpicture}
+		\end{center}
+\end{ec}
+\begin{ec}
+	Cho hình chữ nhật $ABCD$, gọi $H$ là hình chiếu của $B$ lên $AC$. Trên tia đối tia $BH$ lấy điểm $E$ sao cho $BE=AC$.
+	\begin{center}
+		\begin{tikzpicture}
+			\def\a{3}
+			\def\b{4}
+			\def\c{sqrt(\a*\a+\b*\b)}
+			\def\h{(\a*\b)/\c}
+			\def\t{(\c+\h)/(\h)}
+			\path
+			(0,\a) coordinate (A)
+			(\b,\a) coordinate (B)
+			(\b, 0) coordinate (C)
+			(0,0) coordinate (D)
+			($(A)!(B)!(C)$) coordinate (H)
+			($(H)!\t!0:(B)$)  coordinate (E)
+			;
+			\draw (A) -- (B) -- (C) -- (D) -- cycle
+			(H) --(E)
+			(A) -- (C)
+			;
+			\foreach \x/\g in {A/90, B/110,C/-90,D/-90, H/-135, E/45}
+			\fill[black] (\x) circle (1pt) + (\g:3mm)node{$\x$};
+		\end{tikzpicture}
+	\end{center}
+	\begin{center}
+		\begin{tikzpicture}
+		\def\a{6} %chiều dài 
+		\def\b{4} %chiều rộng
+		\pgfmathsetmacro\g{sqrt(\a*\a+\b*\b)} %độ dài đường chéo
+		\path
+		(0,0) coordinate (A)
+		(\a,0) coordinate (B)
+		(\a,-\b) coordinate (C)
+		(0,-\b) coordinate (D)
+		($(A)!(B)!(C)$) coordinate (H)
+		(H)--(B)--([turn]0:\g) coordinate (E)
+		;
+		\draw
+		(A)--(D)--(C)--(B)--(E)
+		(C)--(A)--(B)--(H)--(D)--(B)
+		;
+		\khvuong[size=5pt](B,H,C) %kí hiệu góc vuông BHC
+		\foreach \x/\g in {A/90,B/120,C/-90,D/-90,H/-90,E/90}\fill[black] (\x) circle (1pt) ($(\x)+(\g:3mm)$) node{$\x$};
+		\end{tikzpicture}
+	\end{center}
+\end{ec}
+\begin{center}
+	\begin{tikzpicture}  
+	\path 
+	(90:1)  coordinate (A)
+	(210:1) coordinate (B)
+	(-30:1) coordinate (C);
+	\fill[red,even odd rule] 
+	(0,0) circle(1) 
+	(A)--(C)--(B)--cycle;
+	\end{tikzpicture}
+	\begin{tikzpicture}  
+	\path 
+	(90:1)  coordinate (A)
+	(210:1) coordinate (B)
+	(-30:1) coordinate (C);\fill[red] 
+	(0,0) circle(1) 
+	(A)--(B)--(120:1)--cycle;
+	\end{tikzpicture}
+	\begin{tikzpicture}
+	\draw (-5,0)--(5,0) (0,-5)--(0,5);
+	\foreach \i in {-5,...,5}
+	\draw 
+	(0,\i)--+(1mm,0)--+(-1mm,0)
+	(\i,0)--+(0,1mm)--+(0,-1mm);
+	\end{tikzpicture}
+	\begin{tikzpicture}
+	\draw[gray!50] (0,0) grid (5,5);
+	\fill[black] (120:3) circle (1pt);
+	\draw[blue] (0,0)--++(0:3)--++(120:3)--cycle;
+	\draw[red] (1,1)--++(20:3)--++(140:3)--cycle;
+	\end{tikzpicture}
+	\begin{tikzpicture}
+	\draw[gray!50] (0,0) grid (5,5);
+		%\draw[blue] (0,1)--+(0,3)--+(1,2);
+		%\draw[black] (0,1)--++(0,3)--++(1,2);
+		\draw[red] (0,1)--++(0,3)--+(1,2)--+(3,1);
+		\draw (0,2)-|(3,0);
+	\end{tikzpicture}
+\end{center}
+\newpage
+\begin{center}
+	\begin{tikzpicture}
+	\def\R{3}
+	\path
+	(0,0) coordinate (O)
+	(220:\R) coordinate (A)
+	(110:\R) coordinate (B)
+	(-50:\R) coordinate (C)
+	(-100:\R) coordinate (D)
+	;
+	\draw
+	(O) circle (\R)
+	(A)--(B)--(C)--(D)--cycle
+	(C)--(O)--(A)	
+	pic[draw, angle radius=25pt,fill=gray!20,]{angle=A--B--C}
+	pic[draw, "$x$", angle eccentricity=1.5, angle radius =20pt]{angle=A--B--C}
+	pic[draw, "$y$", angle eccentricity=1.3,fill=gray!20, angle radius =15pt]{angle=C--D--A}
+	;
+	\khvuong[size=10pt](A,O,C);
+	\foreach \x/\g in {A/210, B/110,C/-30,D/-100,O/90} \fill[black] (\x) circle (2pt) +(\g:3mm)node{$\x$};
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+	\def\R{3}
+	\path
+	(0,0) coordinate (O)
+	(200:\R) coordinate (A)
+	(80:\R) coordinate (B)
+	(-40:\R) coordinate (C)
+	(-120:\R) coordinate (D)
+	;
+	\draw
+	(O) circle (\R)
+	(A)--node[sloped] {$|$}(B)--node[sloped] {$|$}(C)--node[sloped] {$|$}(A)
+	(O)--(A)--(D)--(C)--cycle	
+	pic[draw , "$x$", angle eccentricity=1.4, fill=gray!20, angle radius =15pt]{angle=C--D--A}
+	pic[draw, "$y$", angle eccentricity=1.4, fill=gray!20, angle radius =15pt]{angle=A--O--C}
+	;
+	\foreach \x/\g in {A/210, B/110,C/-30,D/-100,O/90} \fill[black] (\x) circle (2pt) +(\g:3mm)node{$\x$};
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+	\def\R{3}
+	\path
+	(0,0) coordinate (O)
+	(200:\R) coordinate (A)
+	(100:\R) coordinate (B)
+	(-40:\R) coordinate (C)
+	(-130:\R) coordinate (D)
+	(20:\R) coordinate (E)
+	($(C)!1.5!0:(D)$) coordinate (X)
+	;
+	\draw
+	(O) circle (\R)
+	(A)--(D)--(C)--(E)--(B)--(A)--(C)--(B)
+	(D)--(X)
+	pic[draw , "$70^\circ$", angle eccentricity=1.6, fill=gray!20, angle radius =15pt]{angle=C--A--B}
+	pic[draw, angle radius=25pt,fill=gray!20,]{angle=B--C--A}
+	pic[draw, "$50^\circ$", angle eccentricity=1.5, angle radius =20pt]{angle=B--C--A}
+	pic[draw, "$x$", angle eccentricity=1.2, angle radius=15pt,fill=gray!20,]{angle=B--E--C}
+	pic[draw, angle radius =10pt]{angle=B--E--C}
+	pic[draw, angle radius =5pt]{angle=B--E--C}
+	;
+		\begin{scope}
+	\clip (X)--(D)--(A);
+	\draw 
+	(D) circle (5mm)
+	+(160:4mm)node[left] {$y$}--+(160:6mm)
+	;
+	\end{scope}
+	\foreach \x/\g in {A/210, B/110,C/-30,D/-100,O/90, E/20} \fill[black] (\x) circle (2pt) +(\g:3mm)node{$\x$};
+	\end{tikzpicture}
+	
+		\begin{tikzpicture}
+	\def\R{3}
+	\path
+	(0,0) coordinate (O)
+	(81:\R) coordinate (A)
+	(5:\R) coordinate (B)
+	(-40:\R) coordinate (C)
+	(180:\R) coordinate (D)
+	($(A)!1mm!90:(O)$) coordinate (X)
+	($(C)!1mm!90:(O)$) coordinate (Y)
+	(intersection of A--X and C--Y) coordinate (E)
+	;
+	\draw
+	(O) circle (\R)
+	(A)--(D)--(C)--(E)--cycle
+	(A)--(O)--(C)
+	(B)--(A)--(C)--cycle
+	pic[draw, "$x$", angle eccentricity = 1.3 ,angle radius =15pt]{angle=C--D--A}
+	pic[draw, "$y$", angle eccentricity =1.3, angle radius=15pt]{angle=C--O--A}
+	pic[draw, angle radius=10pt]{angle=C--O--A}
+	pic[draw, "$z$", angle eccentricity =1.3, angle radius=15pt]{angle=A--B--C}
+	pic[draw, angle radius=10pt]{angle=A--B--C}
+	pic[draw, angle radius=5pt]{angle=A--B--C}
+	;
+	\begin{scope}
+	\clip (A)--(E)--(C);
+	\draw 
+	(E) circle (5mm)
+	+(200:4mm)node[left] {$59^\circ$}--+(200:6mm)
+	;
+	\end{scope}
+	\khvuong[size=8pt](O,A,E);
+	\khvuong[size=8pt](O,C,E)
+	\foreach \x/\g in {A/81, B/5,C/-40,D/180,O/180, E/0} \fill[black] (\x) circle (2pt) +(\g:3mm)node{$\x$};
+	\end{tikzpicture}
+\end{center}
+
+\begin{tikzpicture}
+\pgfmathsetmacro{\ab}{4*(sqrt(3))}
+\path 
+(0,0) coordinate (A)
+(0,\ab) coordinate (B)
+(\ab,0) coordinate (C)
+($(A)!0.5!0:(C)$) coordinate (E)
+($(E)!1mm!90:(B)$) coordinate (X)
+(intersection of E--X and B--C) coordinate (F)
+;
+\draw 
+(A)--(B)--(C)--cycle
+(B)--(E)--(F)
+;
+\foreach \x/\g in {A/-90, B/90, E/-90, C/-90, F/45} \fill[black] (\x) circle (2pt) + (\g:3mm)node{$\x$};
+\end{tikzpicture}
+
+	\begin{tikzpicture}
+	\def\a{1}
+	\def\lucgiacdeu{(0:0)+(0:\a)--+(60:\a)--+(120:\a)--+(180:\a)--+(240:\a)--+(-60:\a)--cycle}
+	\fill[black] (0,0) circle (2pt);
+	\foreach \i in {0,...,5}\draw[shift=(\i*60:2*\a)]\lucgiacdeu;
+%	\foreach \i in {0,1,2}\draw[shift=(\i*120+90:2*\a*sqrt(3))]\lucgiacdeu;
+
+	\end{tikzpicture}
+	\\5
+	
+%	\begin{tikzpicture}
+%		\path (0,3) coordinate (A)
+%		(1,3) coordinate (B)
+%		(2,1) coordinate (C)
+%		(3,1) coordinate (D)
+%		(3,0) coordinate (E)
+%		;
+%		\draw[gray!50] (0,0) grid (3,3);
+%		\draw[line width=2pt] (A)--(B)--(C)--(D)--(E);
+%		\foreach \x in {A,B,C,D,E} \fill[red] (\x) circle (2pt);
+%	\end{tikzpicture}
+%		\begin{tikzpicture}
+%	\path (0,3) coordinate (A)
+%	(1,3) coordinate (B)
+%	(2,0) coordinate (C)
+%	(3,0) coordinate (D)
+%	;
+%	\draw[gray!50] (0,0) grid (3,3);
+%	\draw[line width=2pt] (A)--(B)--(C)--(D);
+%	\foreach \x in {A,B,C,D} \fill[red] (\x) circle (2pt);
+%	\end{tikzpicture}
+%		\begin{tikzpicture}
+%	\path (0,3) coordinate (A)
+%	(1,3) coordinate (B)
+%	(2,2) coordinate (C)
+%	(2,0) coordinate (D)
+%	(3,0) coordinate (E)
+%	;
+%	\draw[gray!50] (0,0) grid (3,3);
+%	\draw[line width=2pt] (A)--(B)--(C)--(D)--(E);
+%	\foreach \x in {A,B,C,D,E} \fill[red] (\x) circle (2pt);
+%	\end{tikzpicture}
+%	\begin{tikzpicture}
+%	\path (0,3) coordinate (A)
+%	(2,3) coordinate (B)
+%	(3,1) coordinate (C)
+%	(3,0) coordinate (D)
+%	;
+%	\draw[gray!50] (0,0) grid (3,3);
+%	\draw[line width=2pt] (A)--(B)--(C)--(D);
+%	\foreach \x in {A,B,C,D} \fill[red] (\x) circle (2pt);
+%	\end{tikzpicture}
+	\begin{tikzpicture}
+\path (0,3) coordinate (A)
+(1,3) coordinate (B)
+(1,2) coordinate (C)
+(2,2) coordinate (D)
+(3,1) coordinate (E)
+(3,0) coordinate (F)
+;
+\draw[gray!50] (0,0) grid (3,3);
+\draw[line width=2pt] (A)--(B)--(C)--(D)--(E)--(F);
+\foreach \x in {A,B,C,D, E,F} \fill[red] (\x) circle (2pt);
+\end{tikzpicture}
+	\\
+	\begin{center}
+		\begin{tikzpicture}
+		\foreach \x in {0,1,2,3} \foreach \y in {0,1,2,3} \fill[black] (\x,\y)circle (3pt);
+		\draw
+		(0,0)--(0,3)--(3,3)--(3,0)--cycle
+		(1,0)--(3,1)--(2,3)--(0,2)--cycle
+		(2,0)--(3,2)--(1,3)--(0,1)--cycle
+		(1,1)--(2,1)--(2,2)--(1,2)--cycle
+		;
+		\foreach \x in {(2,2), (1,0), (1,3), (3,0)}\fill[red] \x circle (3pt)node{$/$}node{$\backslash$};
+		\end{tikzpicture}\hspace{4cm}
+		\begin{tikzpicture}
+		\foreach \x in {0,1,2,3} \foreach \y in {0,1,2,3} \fill[black] (\x,\y)circle (3pt);
+		\fill[red] (1,3) circle (3pt) (2,0) circle (3pt);
+		\end{tikzpicture}\hspace{2cm}
+		\begin{tikzpicture}
+		\foreach \x in {0,1,2,3} \foreach \y in {0,1,2,3} \fill[black] (\x,\y)circle (3pt);
+		\draw
+		(0,0)--(0,3)--(3,3)--(3,0)--cycle
+		(1,0)--(3,1)--(2,3)--(0,2)--cycle
+		(1,0)--(0,1)--(1,2)--(2,1)--cycle;
+		\end{tikzpicture}\hspace{3cm}
+			\begin{tikzpicture}
+		\foreach \x in {0,1,2,3} \foreach \y in {0,1,2,3} \fill[black] (\x,\y)circle (3pt);
+		\draw	(2,1)--(1,2)--(2,3)--(3,2)--cycle;
+		\fill[red] (2,3) circle (3pt);
+		\end{tikzpicture}\\[2cm]
+		\begin{tikzpicture}
+		\foreach \x in {0,1,2,3} \foreach \y in {0,1,2,3} \fill[black] (\x,\y)circle (3pt);
+		\foreach \x in {(1,1), (2,1), (2,2), (1,0), (1,3),(3,0)}\fill[red] \x circle (3pt)node{$/$}node{$\backslash$};
+		\end{tikzpicture}\hspace{4cm}
+		
+		\begin{tikzpicture}
+		\foreach \x in {0,1,2,3} \foreach \y in {0,1,2,3} \fill[black] (\x,\y)circle (3pt);
+		\foreach \x in {(2,2), (1,2), (1,0), (1,3),(3,0)}\fill[red] \x circle (3pt)node{$/$}node{$\backslash$};
+		\end{tikzpicture}\hspace{4cm}
+	\end{center}
+	
+	
+\begin{center}
+	% \bisectorpoint(A,B,C)(D) >>>OK!
+	% BD là phân giác góc đỉnh B
+	% điểm D nằm trên cạnh AC
+	\def\bisectorpoint(#1,#2,#3)(#4){%
+		\path let
+		\p1=($(#2)-(#1)$),\p2=($(#2)-(#3)$),
+		\n1={veclen(\x1,\y1)},\n2={veclen(\x2,\y2)}
+		in ($(#1)!scalar(\n1/(\n1+\n2))!(#3)$) coordinate (#4);
+	}%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{tikzpicture}[join=round]
+	\path
+	(200:3) coordinate (A) node[left]{A}
+	(120:3) coordinate (C) node[above]{C}
+	(-20:3) coordinate (B) node[right]{B}
+	;
+	\begin{scope}[on background layer]
+	\clip (C)--(A)--(B);
+	\draw[red] (A) circle(5mm);
+	\bisectorpoint(C,A,B)(D)
+	\path (A)--($(A)!5mm!(D)$)--
+	([turn]0:1mm) coordinate (D1)--
+	([turn]180:2mm) coordinate (D2);
+	\draw[red] (D1)--(D2);
+	\end{scope}
+	\draw (A)--(B)--(C)--cycle;
+	\end{tikzpicture}
+\end{center}
+
+\begin{center}
+	\begin{tikzpicture}
+	\def\gb{70}
+	\def\bc{4}
+	\path
+	(0,0) coordinate (B)
+	(\bc, 0) coordinate (C)
+	($(B)!1mm!\gb:(C)$) coordinate (ba)
+	($(C)!1mm!180-\gb:(B)$) coordinate (ca)
+	(intersection of B--ba and C--ca) coordinate (A)
+	($(B)!0.5!(A)$) coordinate (N)
+	($(N)!1cm!-90:(B)$) coordinate (X)
+	(intersection of N--X and B--C) coordinate (D)
+	;
+	\path[name path =AC] (A)--(C);
+	\path[name path=dtA] (A) let
+	\p1 = ($ (D) - (C) $) in circle ({veclen(\x1,\y1)});
+	\path[name intersections ={of = dtA and AC}] (intersection-1) coordinate (Y);
+	\path ($(Y)!2!(A)$) coordinate (M);
+	\draw
+	(A)--(B)--(C)--cycle
+	(A)--(M) (A)--(D)--(C)
+	(D)--(X)
+	;
+	\fill[black] (M) circle(2pt);
+	\end{tikzpicture}
+\end{center}
+\begin{center}
+	\begin{tabular}{cccc}
+		\begin{tikzpicture}[line join = round, line cap = round, >=stealth, font=\footnotesize, scale=1]
+		\tkzDefPoints{0/0/O,1.5/0/G,-1.5/0/F,1.5/1.5/B,0/1.5/E,-1.5/1.5/A,-1.5/-1.5/D,0/-1.5/H, 1.5/-1.5/C}
+		\tkzDrawSegments[dashed](A,C B,D) \tkzDrawSegments(A,B B,C C,D D,A)
+		\tkzDrawPoints[fill=black](A,B,C,D,O,E,F,G,H)
+		\tkzLabelPoints[above](A,B,E) \tkzLabelPoints[right](G)
+		\tkzLabelPoints[left](F) \tkzLabelPoints[below](D,H,C,O)
+		\end{tikzpicture} & 
+		\begin{tikzpicture}[line join = round, line cap = round, >=stealth, font=\footnotesize, scale=1]
+		\tkzDefPoints{0/0/O,1.5/0/G,-1.5/0/F,1.5/1.5/B,0/1.5/E,-1.5/1.5/A,-1.5/-1.5/D,0/-1.5/H, 1.5/-1.5/C}
+		\tkzDrawSegments[dashed](O,C B,D) \tkzDrawSegments(E,B B,C C,D D,F F,E F,O O,E)
+		\tkzDrawPoints[fill=black](B,C,D,O,E,F,G,H)
+		\tkzLabelPoints[above](B,E) \tkzLabelPoints[right](G)
+		\tkzLabelPoints[left](F) \tkzLabelPoints[below](D,H,C,O)
+		\end{tikzpicture} & 
+		\begin{tikzpicture}[line join = round, line cap = round, >=stealth, font=\footnotesize, scale=1]
+		\tkzDefPoints{0/0/O,1.5/0/G,-1.5/0/F,1.5/1.5/B,0/1.5/E,-1.5/1.5/A,-1.5/-1.5/D,0/-1.5/H, 1.5/-1.5/C}
+		\tkzDefPointBy[homothety=center H ratio 0.15](G)\tkzGetPoint{L}
+		\tkzDefPointBy[homothety=center F ratio 0.15](E)\tkzGetPoint{K}
+		\tkzDrawSegments[dashed](K,L) \tkzDrawSegments(E,G G,H H,D D,F F,E E,H F,G)
+		\tkzDrawPoints[fill=black](D,O,E,F,G,H,L,K)
+		\tkzLabelPoints[above](K,E) \tkzLabelPoints[right](G,L)
+		\tkzLabelPoints[left](F) \tkzLabelPoints[below](D,H)
+		\tkzLabelPoints[above right](O)
+		\tkzLabelLine[pos=.5,above right](G,E){$20$ cm}
+		\end{tikzpicture} & 
+		\begin{tikzpicture}[line join = round, line cap = round, >=stealth, font=\footnotesize, scale=1]
+		\tkzDefPoints{0/0/O,1.5/0/G,-1.5/0/F,1.5/1.5/B,0/1.5/E,-1.5/1.5/A,-1.5/-1.5/D,0/-1.5/H, 1.5/-1.5/C}
+		\tkzDefPointBy[homothety=center H ratio 0.08](G)\tkzGetPoint{L}
+		\tkzDefPointBy[homothety=center F ratio 0.08](E)\tkzGetPoint{K}
+		\tkzDefPointBy[reflection=over K--L](F)\tkzGetPoint{F'}
+		\tkzDefPointBy[reflection=over K--L](H)\tkzGetPoint{H'}
+		\tkzDefPointBy[reflection=over K--L](D)\tkzGetPoint{D'}
+		\tkzInterLL(O,E)(F',D') \tkzGetPoint{M}
+		\tkzInterLL(O,G)(H',D') \tkzGetPoint{N}
+		%\foreach \x in {O, G, F, B, E, A, D, H, C, L, K, F', H', D'} \fill (\x) circle (2pt) node {\x};
+		\path (intersection of E--O and F'--D') coordinate (X)
+		(intersection of G--O and H'--D') coordinate (Y);
+		\tkzDrawSegments(F',E E,G G,H' H',D' D',F' E,X Y,G F',H')
+		%\tkzDrawSegments(E,G G,L K,E F',D' H',D' M,E N,G)
+		\end{tikzpicture}\\
+		Bước 1 & Bước 2 & Bước 3 &
+	\end{tabular}
+\end{center}
+\end{document}

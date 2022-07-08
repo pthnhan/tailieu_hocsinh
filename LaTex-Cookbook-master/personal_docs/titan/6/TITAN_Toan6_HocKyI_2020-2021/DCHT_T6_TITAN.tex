@@ -1,0 +1,441 @@
+\documentclass[12pt,a5paper,twoside]{book}
+%HANDY - CÁC GÓI LỆNH CHUNG
+\usepackage{antpolt}\usepackage[QX]{fontenc}
+\usepackage{amsmath,amssymb,mathrsfs,maybemath,xlop,polynom}
+\usepackage{diagbox,makecell,slashbox,booktabs,pict2e}
+\usepackage{fontawesome}
+\usepackage{enumerate}
+\usepackage{yhmath}
+\renewcommand{\labelenumi}{\alph{enumi})}
+\renewcommand\labelitemi{\textbullet}
+\renewcommand\labelitemii{\faPlusSquareO}
+\usepackage[svgnames]{xcolor}
+\usepackage{tkz-euclide}
+\usepackage{tikz-3dplot}
+\usepackage{tikz,tkz-tab,tkz-linknodes}
+\usetikzlibrary{shapes.geometric,arrows,calc,intersections,angles,patterns,snakes,arrows,decorations.text,decorations.pathmorphing,backgrounds,positioning,fit,petri}
+%\usetkzobj{all}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.9}
+\usepackage[top=1.5cm, bottom=1.75cm, left=1.5cm, right=1cm] {geometry}
+\usepackage[unicode]{hyperref}
+\usepackage{currfile}
+\usepackage{ex_test}
+%HANDY - TÙY CHỌN MÀU CHO TOÀN BỘ VĂN BẢN
+\def\colorone{black} %Màu của part
+\def\colortwo{black}  %Màu của tiêu đề bài
+\def\colorthree{gray!50} %Màu của vòng xoắn trước bài
+\def\colorfour{black} %Màu subsubsection
+\def\colorfive{black} %Màu của phần bài tập
+\def\colorsix{cyan}
+\def\colorseven{blue!40!black}
+\def\coloreight{blue!40!black}
+\def\colorneight{white}
+\def\colorten{teal!80!black}
+%HANDY - MÀU CHO GÓI LỆNH EX-TEST
+\renewcommand*\circEX[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw=red,inner sep=1pt,fill=yellow!50] (char) {\color{red} #1};}}
+\renewcommand*\squareEX[1]{\tikz[baseline=(char.base)]{\node[shape=rectangle,draw=red,inner sep=2.5pt,fill=yellow!50] (char) {\color{red} #1};}}
+%HANDY - CÁC TÙY CHỌN CHO CÁC Ý HIỆU MỚI HOẶC PHẦN VIẾT TẮT
+\def\loigiaiEX{\color{\colorfour}\faShareSquareO~Lời giải.}
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\varparallel}{\mathrel}{symbolsC}{9}
+\DeclareMathSymbol{\parallel}{\mathrel}{symbolsC}{9}
+
+%HANDY - CẤU TRÚC TỰ LUẬN
+\usepackage{framed}
+\usepackage[most]{tcolorbox}
+\theoremstyle{explain}
+\renewtheorem{ex}{\fontfamily{pag}\selectfont\color{\colorfive}Bài}
+\newtheorem{bt}{\fontfamily{pag}\selectfont\color{\colorfive}Bài}
+\newtheorem{vd}{\fontfamily{pag}\selectfont\color{\colorfive}\faCubes~Ví dụ}
+\newtheorem{baitoan}{\sffamily\color{\colorfive}\faEdit~Bài toán}
+\listtheorem{vd,bt,baitoan}
+
+%%%%%%MÔI TRƯỜNG VÍ DỤ
+\def\beginbox{\begin{tcolorbox}[boxrule=.3mm,colframe=\colorone,colback=\colorone!5,breakable,arc is angular]}
+	\def\endbox{\end{tcolorbox}}
+\AtBeginEnvironment{vd}{
+	\beginbox
+	\renewcommand{\loigiai}[1]{
+		\renewcommand{\immini}[2]{
+			\setbox\imbox=\vbox{\hbox{##2}}
+			\widthimmini=\wd\imbox
+			\IMleftright{##1}{##2}
+		}
+		\endbox
+		\begin{onlysolution}
+			#1
+		\end{onlysolution}
+		\def\endbox{}
+	}
+}
+\AtEndEnvironment{vd}{
+	\endbox
+}
+
+%%%%%%HANDY - MÔI TRƯỜNG DẠNG TOÁN
+\usepackage{varwidth}
+\newcounter{dang}\setcounter{dang}{0}
+\renewcommand{\thedang}{\arabic{dang}}
+\newtcolorbox{dang}[1]{enhanced, breakable,
+	before skip=2mm,after skip=2mm,
+	colback=\colorseven!5,colframe=\colorseven,boxrule=0.5mm,
+	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight},
+	varwidth boxed title*=-3cm,arc is angular,
+	boxed title style={frame code={
+			\path[fill=\coloreight]
+			([yshift=-1mm,xshift=-1mm]frame.north west)
+			arc[start angle=0,end angle=180,radius=1mm]
+			([yshift=-1mm,xshift=1mm]frame.north east)
+			arc[start angle=180,end angle=0,radius=1mm];
+			\path[left color=\coloreight,right color=\coloreight,
+			middle color=\coloreight]
+			([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+			[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+			-- (frame.south east) -- (frame.south west)
+			-- ([xshift=-1mm,yshift=-1mm]frame.north west)
+			[sharp corners]-- cycle;
+		},interior engine=empty,
+	},colbacktitle=\coloreight, coltitle = \colorneight, breakable,
+	fonttitle=\bfseries,
+	title={\fontfamily{pbk}\selectfont\faFolderOpen \ Dạng~\stepcounter{dang}\thedang.\ #1}
+	\addcontentsline{toc}{subsubsection}{\it \faFolderOpenO \ Dạng~\thedang.\ #1}
+}
+%\AfterEndEnvironment{dang}{\centerline{\fontfamily{qhv}\selectfont\small\color{\colorfive}\textbf{\faGg\faGg\faGg~VÍ DỤ MINH HỌA\ \faGg\faGg\faGg}}\setcounter{ex}{0}\setcounter{vd}{0}\setcounter{bt}{0}}
+
+%%%%%%HANDY - MÔI TRƯỜNG CHÚ Ý
+\newtcolorbox{note}[1][]{enhanced,breakable,
+	before skip=2mm,after skip=3mm,
+	boxrule=0.4pt,left=4mm,right=2mm,top=1mm,bottom=1mm,
+	colback=\colorone!5,
+	colframe=\colorone!20!black,
+	sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+	underlay={%
+		\path[fill=\colorone!30] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+		\path[draw=\colorone,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+		\path[fill=\colorone!60,draw=none] (interior.south west) rectangle node[white]{\Huge\bfseries !} ([xshift=4mm]interior.north west);
+	},
+	drop fuzzy shadow,#1}
+
+%%%%%%HANDY - MÔI TRƯỜNG TÓM TẮT 
+\newenvironment{tomtat}{
+	\begin{tcolorbox}[boxrule=1pt,arc=0mm,breakable,colframe=black,colback=white]
+	}{\end{tcolorbox}}
+%%%%%%HANDY - THAY ĐỔI MÔI TRƯỜNG ĐỊNH LÝ - MỆNH ĐỀ
+\theoremseparator{.}
+\theorembodyfont{\rm}
+\newtheorem{dl}{\fontfamily{pag}\selectfont Định lí}
+\newtheorem{md}{\fontfamily{pag}\selectfont Mệnh đề}
+\newtheorem{hq}{\fontfamily{pag}\selectfont Hệ quả}
+\newtheorem{tc}{\fontfamily{pag}\selectfont Tính chất}
+\newtheorem{bd}{\fontfamily{pag}\selectfont Bổ đề}
+\theoremstyle{nonumberplain}
+\newtheorem{phantich}{\color{\colorsix}\faQuestionCircle\ \sc Phân tích}
+\AtEndEnvironment{phantich}{{\par\noindent\color{\colortwo} \faMailReply\ \sc Quay trở lại bài toán. \vspace*{-0.3\baselineskip}}}
+\newtheorem{kn}{\fontfamily{pag}\selectfont Khái niệm}
+\newtheorem{dn}{\fontfamily{pag}\selectfont Định nghĩa}
+\newtheorem{vidu}{\fontfamily{pag}\selectfont Ví dụ}
+\newtheorem{nx}{\fontfamily{pag}\selectfont Nhận xét}
+\theoremseparator{}
+\theorembodyfont{\it}
+\listenumerate{vd,bt,dl,md,hq,tc,bd,kn,dn,vidu,nx}
+
+%ĐN thêm lệnh
+\usepackage{esvect}
+\def\vec{\vv}
+\def\overrightarrow{\vv}
+\newcommand{\hoac}[1]{ 
+	\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{
+	\left\{\begin{aligned}#1\end{aligned}\right.}
+\renewcommand{\tagEX}[1]{%
+	\hfill{\rm (#1)}\newline
+	\@ifnextchar\begin%
+	{\vspace{-\baselineskip}}
+	{}
+}
+\newcommand{\BTVD}{\centerline{\fontfamily{qhv}\selectfont\color{\colorfive}\textbf{\faGg\faGg\faGg~BÀI TẬP VẬN DỤNG \faGg\faGg\faGg}}\setcounter{bt}{0}}
+\newcommand{\dropsign}[1]{\smash{\llap{\raisebox{-.5\normalbaselineskip}{$#1$\hspace{2\arraycolsep}}}}}%
+\newcommand{\cm}[1]{\newline{\bf Chứng minh.} #1 \hfill$\square$}
+\newcommand{\dotsEX}[1]{\tikz[line join = round, line cap = round,x = 1cm]\draw[dotted](0,0)--(#1,0);}
+\newcommand{\DAPAN}{\centerline{\fontfamily{qhv}\selectfont\color{violet}\textbf{\faGg\faGg\faGg~BẢNG ĐÁP ÁN\ \faGg\faGg\faGg}}\vspace{.3cm}\boxans}
+\newcommand{\OTC}[1]{
+	\section*{#1}
+	\addcontentsline{toc}{section}{\fontfamily{pbk}\selectfont\color{\colortwo}\normalsize #1}
+	\setcounter{subsection}{0}
+}
+%Lệnh năm học
+\newcommand{\namhoc}[1]{
+	\begin{center}
+		\bfseries\fontfamily{put}\selectfont\color{\colortwo}\Large\faCubes~NĂM HỌC #1
+		\setcounter{subsection}{0}
+	\end{center}
+	\addcontentsline{toc}{section}{\fontfamily{put}\selectfont\normalsize \faCubes\sc~Năm học #1}
+}
+
+%ĐN các mục
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{1}
+\renewcommand*\l@subsection{\@dottedtocline{2}{3.8em}{2.2em}}
+\renewcommand*\l@subsubsection{\@dottedtocline{3}{6.0em}{2em}}
+\renewcommand{\thepart}{\Alph{part}}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\Roman{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+\renewcommand{\theparagraph}{\alph{paragraph}}
+\renewcommand{\thesubparagraph}{\roman{subparagraph}}
+\usepackage{titlesec}
+\titleformat{\part}[display]
+{\Large\fontfamily{pbk}\selectfont\bfseries\color{\colorone}}
+{
+	\centering
+	\begin{tikzpicture}
+	\draw(0,1.5)node{\LARGE PHẦN};
+	\node[
+	shape=circle,
+	draw,
+	double,
+	fill = \colorone,
+	line width = 5pt
+	]
+	(partnumber) at (0,-1) {\color{white}\fontsize{60pt}{1pt}\selectfont\thepart};
+	\end{tikzpicture}
+}
+{0.5em}
+{
+	\setcounter{chapter}{0}
+	\titlerule[2.5pt]\vskip2pt\titlerule\vskip15pt\centering\fontsize{40pt}{1pt}\selectfont\MakeUppercase
+}
+
+\titleformat{\chapter}[frame]
+{\color{\colorone}\fontfamily{pbk}\selectfont}
+{
+	\filright\normalsize\enspace \faFolderOpen~CHƯƠNG \Huge\thechapter\enspace
+}
+{0.5cm}
+{\Huge\bfseries\filcenter\MakeUppercase}
+%Điều chỉnh khoảng cách ban đầu của tiêu đề chương
+\titlespacing*{\chapter}{0pt}{-25pt}{3pt}
+
+\titleformat{\section}
+%[display]
+{\filcenter\fontfamily{put}\selectfont\color{\colortwo}\Large}
+{
+	%\faBook\bf~Vấn đề
+	%\faBook\bf~Chuyên đề
+	\tikz[baseline=(char.base)]\node[shape=circle,draw,line width = 1pt,inner sep=1pt,fill=\colorthree] (char){\Huge\textcolor{\colortwo}{
+			\S
+			\thesection}};
+}
+{0em}
+{	
+	\LARGE\bfseries\filcenter
+	\setcounter{dl}{0}\setcounter{md}{0}%
+	\setcounter{bd}{0}\setcounter{hq}{0}%
+	\setcounter{tc}{0}%
+	\setcounter{dang}{0}%
+	%\setcounter{ex}{0}\setcounter{bt}{0}
+	\setcounter{vd}{0}
+	\setcounter{baitoan}{0}
+	\MakeUppercase
+}
+
+\titleformat{\subsection}
+{\fontfamily{pbk}\selectfont\large\bfseries\color{\colorone}}
+{
+	\hspace*{-2.2ex}\tikz[baseline=(char.base)]\node[shape=circle,draw,inner sep=2pt,fill=\colorone] (char){\textcolor{white}{\thesubsection}};
+}
+{.1em}
+{
+	%\setcounter{ex}{0}\setcounter{vd}{0}\setcounter{bt}{0}
+	\MakeUppercase
+}
+
+\titleformat{\subsubsection}
+{\fontfamily{pbk}\selectfont\small\bfseries\color{\colorfour}}
+{
+	\hspace*{-2ex}\tikz[baseline=(char.base)]
+	\node[shape=diamond,draw,inner sep=2pt,fill=\colorfour] (char) {\textcolor{white}{\thesubsubsection}};
+}
+{.3em}
+{
+	%\setcounter{ex}{0}\setcounter{bt}{0}\setcounter{vd}{0}
+	\MakeUppercase
+}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries\color{black}}
+{
+	\hspace*{.5ex}\tikz[baseline=(char.base)]
+	\node[shape=circle,draw,inner sep=2pt,fill=black] (char) {\textcolor{white}{\theparagraph}};
+}
+{0em}
+{
+	\setcounter{vidu}{0}
+}
+
+\titleformat{\subparagraph}
+{\normalfont\normalsize\bfseries\color{black}}
+{
+	\hspace*{.5ex}\tikz[baseline=(char.base)]
+	\node[shape=diamond,draw,inner sep=2pt,fill=black] (char) {\textcolor{white}{\thesubparagraph}};
+}
+{.5em}
+{}
+
+%Header and Footer
+\usepackage{fancyhdr,lastpage}
+%\pagestyle{fancy}
+%\lhead{\color{blue}TITAN EDUCATION}
+%\rhead{\tiny\leftmark}
+%\lfoot{CHƯƠNG 2: HÀM SỐ BẬC NHẤT}
+%\cfoot{}
+%\rfoot{\small Trang \thepage/}
+%\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\assignpagestyle{\part}{empty}
+\assignpagestyle{\chapter}{fancy}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrule}{{\color{black}\vskip-\footruleskip\vskip-\footrulewidth \hrule width\headwidth height\footrulewidth\vskip\footruleskip}}
+%\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\sectionmark}[1]{\markright{\arabic{section}. #1}}
+\fancyhead[LO,RE,LE,RO]{}
+%\fancyfoot[LO]{\color{black}\fontsize{10 pt}{1pt}\selectfont\bfseries\leftmark}
+\fancyfoot[LE]{\color{black}\bfseries \thepage~|~\pageref{LastPage}}
+\fancyfoot[RO]{\color{black}\bfseries \thepage~|~\pageref{LastPage}}
+\fancyhead[LE]{\color{black}\bfseries \leftmark}
+\fancyhead[RO]{\color{black}\bfseries TITAN EDUCATION}
+%MỘT SỐ MÔI TRƯỜNG MỚI
+
+%\usepackage[final]{pdfpages}
+\begin{document}
+		\thispagestyle{empty}
+		\input{data/HK0/HK0}
+		\begingroup
+		\makeatletter
+		\pagestyle{empty}
+		\let\ps@fancy\ps@empty
+		\tableofcontents
+		\clearpage
+		\cleardoublepage
+		\endgroup
+	\part{SỐ HỌC}
+	\setcounter{chapter}{0}
+	\chapter{ÔN TẬP VÀ BỔ TÚC VỀ SỐ TỰ NHIÊN}
+		\input{data/HK0/DS/6D1-10}
+		\include{data/HK0/DS/6D1-20}
+		\include{data/HK0/DS/6D1-30}
+		\include{data/HK0/DS/6D1-40}
+		\include{data/HK0/DS/6D1-50}
+		\include{data/HK0/DS/6D1-60}
+		\include{data/HK0/DS/6D1-70}
+		\include{data/HK0/DS/6D1-80}
+		\include{data/HK0/DS/6D1-90}
+		%%
+		\include{data/HK1/DS/6D1-11}
+		\include{data/HK1/DS/6D1-21}
+		\include{data/HK1/DS/6D1-31}
+		\include{data/HK1/DS/6D1-41}
+		\include{data/HK1/DS/6D1-51}
+		\include{data/HK1/DS/6D1-61}
+		\include{data/HK1/DS/6D1-71}
+		%\include{data/HK1/DS/6D1-81}
+		%\include{data/HK1/DS/6D1-91}
+	%\chapter{SỐ TỰ NHIÊN}
+		%\input{data/HK1/DS/6D2-11}
+		%\include{data/HK1/DS/6D2-21}
+		%\include{data/HK1/DS/6D2-31}
+		%\include{data/HK1/DS/6D2-41}
+		%\include{data/HK1/DS/6D2-51}
+		%\include{data/HK1/DS/6D2-61}
+		%\include{data/HK1/DS/6D2-71}
+	%\chapter{PHÂN SỐ}
+		%\input{data/HK1/DS/6D3-11}
+		%\include{data/HK1/DS/6D3-21}
+		%\include{data/HK1/DS/6D3-31}
+		%\include{data/HK1/DS/6D3-41}
+	\part{HÌNH HỌC}
+	\setcounter{chapter}{0}
+	\chapter{ĐOẠN THẲNG}
+		\input{data/HK0/HH/6H1-1}
+		\include{data/HK0/HH/6H1-2}
+		\include{data/HK0/HH/6H1-3}
+		\include{data/HK0/HH/6H1-4}
+		\include{data/HK0/HH/6H1-5}
+	%	\include{data/HK0/HH/6H1-6}
+		\include{data/HK1/HH/6H1-8}
+		\include{data/HK1/HH/6H1-9}
+		
+%	\part{TOÁN THỰC TẾ}
+%	\setcounter{chapter}{0}
+%		\chapter*{TOÁN THỰC TẾ}
+%		\begingroup
+%		\fancyhead[LE]{\color{black}\bfseries TOÁN THỰC TẾ}
+%		\input{data/HK0/TT/TT01}
+%		\endgroup
+	\part{ĐỀ KIỂM TRA}
+	\titleformat{\section}
+	{\filcenter\fontfamily{put}\selectfont\color{\colortwo}\Large}
+	{
+		\bf ĐỀ SỐ
+		\tikz[baseline=(char.base)]\node[shape=circle,draw,line width = 1pt,inner sep=1pt,fill=\colorthree] (char){\Large\textcolor{\colortwo}{
+				\thesection}};
+	}
+	{0em}
+	{	\@gobble
+	}
+	\chapter*{ĐỀ KIỂM TRA GIỮA HỌC KỲ I}
+	\addcontentsline{toc}{chapter}{ĐỀ KIỂM TRA}
+	\setcounter{section}{0}
+	\begingroup
+	\fancyhead[LE]{\color{black}\bfseries ĐỀ KIỂM TRA GIỮA HỌC KỲ I}
+	\input{data/HK0/DT/6DT18_CK0_Titan_De1}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De2}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De3}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De4}
+		%\include{data/HK0/DT/6DT18_CK0_Titan_De5}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De6}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De7}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De8}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De9}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De10}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De11}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De12}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De13}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De14}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De15}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De16}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De17}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De18}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De19}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De20}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De21}
+		\include{data/HK0/DT/6DT18_CK0_Titan_De22}
+	\endgroup
+	%\chapter*{ĐỀ KIỂM TRA GIỮA KHÓA HỌC KỲ I}
+	%\addcontentsline{toc}{chapter}{ĐỀ KIỂM TRA GIỮA KHÓA HỌC KỲ I}
+	%\setcounter{section}{0}
+	%\begingroup
+	%\fancyhead[LE]{\color{black}\bfseries ĐỀ KIỂM TRA}
+	\input{data/HK1/DT/6DT18_GK1_Titan_De1}
+	\include{data/HK1/DT/6DT18_GK1_Titan_de2}
+	\include{data/HK1/DT/6DT18_GK1_Titan_De3}
+	\include{data/HK1/DT/6DT18_GK1_Titan_De4}
+	\include{data/HK1/DT/6DT18_GK1_Titan_De5}
+	\include{data/HK1/DT/6DT18_GK1_Titan_De6}
+	%	\include{data/HK1/DT/6DT18_GK1_Titan_De7}
+	%	\include{data/HK1/DT/6DT18_GK1_Titan_De8}
+	%	\include{data/HK1/DT/6DT18_GK1_Titan_De9}
+	%	\include{data/HK1/DT/6DT18_GK1_Titan_De10}
+	%	\include{data/HK1/DT/6DT18_GK1_Titan_De11}
+	%	\include{data/HK1/DT/6DT18_GK1_Titan_De12}
+	%	\include{data/HK1/DT/6DT18_GK1_Titan_De13}
+	%	\include{data/HK1/DT/6DT18_GK1_Titan_De14}
+	%	\include{data/HK1/DT/6DT18_GK1_Titan_De15}
+	%	\include{data/HK1/DT/6DT18_GK1_Titan_De16}
+	%\endgroup
+\end{document}

@@ -1,0 +1,118 @@
+\documentclass[12pt,a4paper, twoside]{book}
+\usepackage{tkz-euclide}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{arrows,calc,intersections,angles, quotes}
+\begin{document}
+	\def\khvuong[size=#1](#2,#3,#4){
+		\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)-- ($(#3)!#1!(#4)$);
+	}
+	\begin{center}
+		\begin{tikzpicture}
+		\def\R{3}
+		\path
+		(0,0) coordinate (O)
+		(220:\R) coordinate (A)
+		(110:\R) coordinate (B)
+		(-50:\R) coordinate (C)
+		(-100:\R) coordinate (D)
+		;
+		\draw
+		(O) circle (\R)
+		(A)--(B)--(C)--(D)--cycle
+		(C)--(O)--(A)	
+		pic[draw, angle radius=25pt,fill=gray!20,]{angle=A--B--C}
+		pic[draw, "$x$", angle eccentricity=1.5, angle radius =20pt]{angle=A--B--C}
+		pic[draw, "$y$", angle eccentricity=1.3,fill=gray!20, angle radius =15pt]{angle=C--D--A}
+		;
+		\khvuong[size=10pt](A,O,C);
+		\foreach \x/\g in {A/210, B/110,C/-30,D/-100,O/90} \fill[black] (\x) circle (2pt) +(\g:3mm)node{$\x$};
+		\end{tikzpicture}
+		
+		\begin{tikzpicture}
+		\def\R{3}
+		\path
+		(0,0) coordinate (O)
+		(200:\R) coordinate (A)
+		(80:\R) coordinate (B)
+		(-40:\R) coordinate (C)
+		(-120:\R) coordinate (D)
+		;
+		\draw
+		(O) circle (\R)
+		(A)--node[sloped] {$|$}(B)--node[sloped] {$|$}(C)--node[sloped] {$|$}(A)
+		(O)--(A)--(D)--(C)--cycle	
+		pic[draw , "$x$", angle eccentricity=1.4, fill=gray!20, angle radius =15pt]{angle=C--D--A}
+		pic[draw, "$y$", angle eccentricity=1.4, fill=gray!20, angle radius =15pt]{angle=A--O--C}
+		;
+		\foreach \x/\g in {A/210, B/110,C/-30,D/-100,O/90} \fill[black] (\x) circle (2pt) +(\g:3mm)node{$\x$};
+		\end{tikzpicture}
+		
+		\begin{tikzpicture}
+		\def\R{3}
+		\path
+		(0,0) coordinate (O)
+		(200:\R) coordinate (A)
+		(100:\R) coordinate (B)
+		(-40:\R) coordinate (C)
+		(-130:\R) coordinate (D)
+		(20:\R) coordinate (E)
+		($(C)!1.5!0:(D)$) coordinate (X)
+		;
+		\draw
+		(O) circle (\R)
+		(A)--(D)--(C)--(E)--(B)--(A)--(C)--(B)
+		(D)--(X)
+		pic[draw , "$70^\circ$", angle eccentricity=1.6, fill=gray!20, angle radius =15pt]{angle=C--A--B}
+		pic[draw, angle radius=25pt,fill=gray!20,]{angle=B--C--A}
+		pic[draw, "$50^\circ$", angle eccentricity=1.5, angle radius =20pt]{angle=B--C--A}
+		pic[draw, "$x$", angle eccentricity=1.2, angle radius=15pt,fill=gray!20,]{angle=B--E--C}
+		pic[draw, angle radius =10pt]{angle=B--E--C}
+		pic[draw, angle radius =5pt]{angle=B--E--C}
+		;
+		\begin{scope}
+		\clip (X)--(D)--(A);
+		\draw 
+		(D) circle (5mm)
+		+(160:4mm)node[left] {$y\,$}--+(160:6mm)
+		;
+		\end{scope}
+		\foreach \x/\g in {A/210, B/110,C/-30,D/-100,O/90, E/20} \fill[black] (\x) circle (2pt) +(\g:3mm)node{$\x$};
+		\end{tikzpicture}
+		
+		\begin{tikzpicture}
+		\def\R{3}
+		\path
+		(0,0) coordinate (O)
+		(81:\R) coordinate (A)
+		(5:\R) coordinate (B)
+		(-40:\R) coordinate (C)
+		(180:\R) coordinate (D)
+		($(A)!1mm!90:(O)$) coordinate (X)
+		($(C)!1mm!90:(O)$) coordinate (Y)
+		(intersection of A--X and C--Y) coordinate (E)
+		;
+		\draw
+		(O) circle (\R)
+		(A)--(D)--(C)--(E)--cycle
+		(A)--(O)--(C)
+		(B)--(A)--(C)--cycle
+		pic[draw, "$x$", angle eccentricity = 1.3 ,angle radius =15pt]{angle=C--D--A}
+		pic[draw, "$y$", angle eccentricity =1.3, angle radius=15pt]{angle=C--O--A}
+		pic[draw, angle radius=10pt]{angle=C--O--A}
+		pic[draw, "$z$", angle eccentricity =1.3, angle radius=15pt]{angle=A--B--C}
+		pic[draw, angle radius=10pt]{angle=A--B--C}
+		pic[draw, angle radius=5pt]{angle=A--B--C}
+		;
+		\begin{scope}
+		\clip (A)--(E)--(C);
+		\draw 
+		(E) circle (5mm)
+		+(200:4mm)node[left] {$59^\circ$}--+(200:6mm)
+		;
+		\end{scope}
+		\khvuong[size=8pt](O,A,E);
+		\khvuong[size=8pt](O,C,E)
+		\foreach \x/\g in {A/81, B/5,C/-40,D/180,O/180, E/0} \fill[black] (\x) circle (2pt) +(\g:3mm)node{$\x$};
+		\end{tikzpicture}
+	\end{center}
+\end{document}
