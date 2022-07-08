@@ -1,0 +1,1269 @@
+\section{BIỂU ĐỒ}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Biểu đồ tần suất hình cột}
+Cho bảng phân bố tần suất ghép lớp
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|} 
+		\hline
+		Lớp $x$ & $[x_0;x_1)$ & $[x_1;x_2)$ & $[x_2;x_3)$ & $[x_3;x_4]$ & Cộng\\
+		\hline
+		Tần suất $(\%)$ & $f_1$ & $f_2$ & $f_3$ & $f_4$ & $100\, \%$\\
+		\hline
+	\end{tabular}
+\end{center}
+Ta có thể mô tả bảng phân bố tần suất ghép lớp qua biểu đồ tần suất hình cột như hình vẽ sau
+\begin{center}
+	\begin{tikzpicture}[ybar,scale=0.8,>=stealth,x=1mm,y=1.2mm]
+	\draw[thin](-5,0)--(5,0);
+	\draw[thin,line cap=round, dash pattern=on 0pt off 1.8pt] (5,0)--(8,0);
+	\draw[thin,->](8,0)--(70,0)node[below]{\tiny $x$};
+	\draw[thin,->](0,-4.8)--(0,40)node[right]{\tiny Tần suất};
+	
+	\foreach \x in {4,5,8,20,24,32,...,56}
+	\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+	\foreach \y in {10,16.67,20,23.33,26.67,30,33.33}
+	\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+	
+	\foreach \x/\xtext in {4/1,24/x_0,32/x_1,40/x_2,48/x_3,56/x_4}
+	\draw(\x,0) node[below] {\tiny $\xtext$};
+	\foreach \y/\ytext in {10/{},16.67/f_1,23.33/f_4,26.67/f_3,33.33/f_2}
+	\draw(0,\y) node[left] {\tiny $\ytext$};
+	\node[below left](0,0){\tiny $O$};
+	\tkzDefPoints{0/0/O, 2/0/x, 0/2/y}
+	\tkzMarkRightAngle[size=0.1](x,O,y)
+	
+	\draw[pattern=north east lines,bar width=8mm]plot coordinates{(28,16.67)};
+	\draw[pattern=dots,bar width=8mm]plot coordinates{(52,23.33)};
+	\draw[pattern=north west lines,bar width=8mm]plot coordinates{(44,26.67)};
+	\draw[pattern=horizontal lines,bar width=8mm]plot coordinates{(36,33.33)};
+	
+	\draw[dashed,thin] (0,16.67)--(24,16.67) (0,23.33)--(48,23.33) (0,26.67)--(40,26.67) (0,33.33)--(32,33.33);
+	\end{tikzpicture}
+\end{center}
+\begin{note}
+	Tương tự, ta cũng có thể vẽ biểu đồ hình cột mô tả cho bảng phân bố tần suất, tần số và tần số ghép lớp.
+\end{note}
+\subsubsection{Đường gấp khúc tần suất}
+Cho bảng phân bố tần suất ghép lớp
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+		\hline
+		Lớp $x$ & [$x_0$; $x_1$) & [$x_1$; $x_2$) & [$x_2$; $x_3$) & [$x_3$; $x_4$) & [$x_4$; $x_5$] & Cộng\\
+		\hline
+		Tần suất (\%) & $f_1$ & $f_2$ & $f_3$ & $f_4$ & $f_5$ & 100 \%\\
+		\hline
+	\end{tabular}
+\end{center}
+\immini{
+	Ta cũng có thể mô tả bảng tần suất ghép lớp bằng một đường gấp khúc qua các bước sau:
+	
+	- Trên mặt phẳng tọa độ ta xác định các điểm $(c_i;f_i),\, i=1, 2, 3, 4, 5$ trong đó $c_i$ là trung bình cộng của hai đầu nút của lớp $i$ (ta gọi $c_i$ là giá trị đại diện của lớp $i$).
+	
+	- Nối các điểm $(c_i;f_i)$ với $(c_{i+1};f_{i+1}),\, i=1, 2, 3, 4,$ ta thu được đường gấp khúc, gọi là đường gấp khúc tần suất. 
+}{
+	
+	\begin{tikzpicture}[ybar,scale=0.7,>=stealth,x=2mm,y=1.3mm]
+	\draw[thin,->](-5,0)--(48,0)node[below]{\tiny $x$};
+	\draw[thin,->](0,-4.8)--(0,45)node[left]{\tiny Tần suất};
+	
+	\foreach \x in {4, 12,20,28,36}
+	\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+	\foreach \y in {8,10,18,20,28,30,36}
+	\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+	\foreach \x/\xtext in {4/c_1, 12/c_2, 20/c_3, 28/c_4, 36/c_5}
+	\draw(\x,0) node[below] {\tiny $\xtext$};
+	\foreach \y/\ytext in {8/f_1, 10/f_5, 18/f_2, 28/f_4, 36/f_3}
+	\draw(0,\y) node[left] {\tiny $\ytext$};
+	\node[below left](0,0){\tiny $O$};
+	\tkzDefPoints{0/0/O, 2/0/x, 0/2/y,-10/0/{z}}
+	\tkzMarkRightAngle[size=0.1](x,O,y)
+	\draw[thick] (4,8)--(12,18)--(20,36)--(28,28)--(36,10);
+	\draw[fill=black] (4,8) circle (1.0pt);
+	\draw[fill=black] (12,18) circle (1.0pt);
+	\draw[fill=black] (20,36) circle (1.0pt);
+	\draw[fill=black] (28,28) circle (1.0pt);
+	\draw[fill=black] (36,10) circle (1.0pt);
+	\draw[dashed,thin] (0,8)--(4,8)--(4,0);
+	\draw[dashed,thin] (0,18)--(12,18)--(12,0);
+	\draw[dashed,thin] (0,36)--(20,36)--(20,0);
+	\draw[dashed,thin] (0,28)--(28,28)--(28,0);
+	\draw[dashed,thin] (0,10)--(36,10)--(36,0);
+	\end{tikzpicture}
+}
+\begin{note}
+	Ta cũng có thể mô tả bảng tần suất, tần số và tần số ghép lớp bằng cách vẽ biểu đồ hình cột hoặc đường gấp khúc. Ở đó ta chỉ cần thay cột tần suất bằng cột tần số.
+\end{note}
+\subsubsection{Biểu đồ hình quạt}
+Cho bảng phân bố tần suất ghép lớp 
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|} 
+		\hline
+		Lớp $x$ & $[x_0;x_1)$ & $[x_1;x_2)$ & $[x_2;x_3)$ & $[x_3;x_4]$ & Cộng\\
+		\hline
+		Tần suất $(\%)$ & $f_1$ & $f_2$ & $f_3$ & $f_4$ & $100\, \%$\\
+		\hline
+	\end{tabular}
+\end{center}
+Ta có thể mô tả bảng phân bố tần suất ghép lớp thông qua biểu đồ hình quạt như sau
+
+\begin{center}
+	\begin{tikzpicture}[scale=0.7,>=stealth]
+	\draw(0,0) circle (3cm);
+	\draw[pattern=north east lines] (0,0) -- +(0:3) arc (0:90:3)--(0,0) (1.5,1.5) node{\footnotesize $f_1$};
+	\draw[pattern=north west lines] (0,0) -- +(90:3) arc (90:216:3)--(0,0) (-1.5,0.5) node{\footnotesize $f_2$ };  
+	\draw[pattern=dots] (0,0) -- +(216:3) arc (216:288:3)--(0,0)(-0.5,-1.5)node{\footnotesize $f_3$ }  
+	(1.7,-1.3)node{\footnotesize $f_4$};
+	\draw[pattern=north east lines] (3.5,1.5) rectangle (4,2) (5.25,1.75) node{\footnotesize $[x_0; x_1)$};
+	\draw[pattern=north west lines] (3.5,0.5) rectangle (4,1) (5.25,0.75) node{\footnotesize $[x_1; x_2)$};
+	\draw[pattern=dots] (3.5,-0.5) rectangle (4,0) (5.25,-0.25) node{\footnotesize $[x_2; x_3)$};
+	\draw (3.5,-1.5) rectangle (4,-1) (5.25,-1.25) node{\footnotesize $[x_3; x_4]$};
+	\end{tikzpicture}
+\end{center}
+\begin{note}
+	Chúng ta cũng có thể dùng biểu đồ hình quạt để mô tả bảng phân bố tần số, tần số ghép lớp.
+\end{note}
+\subsection{Các dạng toán}
+\begin{dang}{Vẽ biểu đồ tần số và tần suất hình cột}
+	Từ các số liệu trong bảng phân bố tần số và tần suất, ta tọa độ hóa để vẽ biểu đồ trên hệ trục tọa độ. 
+\end{dang}
+\begin{vd}%[0D5B2]%[Nguyễn Tiến Thùy]
+	Kết quả điểm thi môn Toán của lớp 10A9 trường THPT Đông Thụy Anh được cho theo bảng dưới đây.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|} 
+			\hline
+			Điểm & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ & Cộng\\
+			\hline
+			Tần số & $1$ & $9$ & $12$ & $14$ & $1$ & $3$ & $40$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hãy vẽ biểu đồ tần số và tần suất dạng cột để mô tả cho bảng số liệu trên.
+	\loigiai{
+		Biểu đồ tần số hình cột mô tả kết quả điểm thi của lớp 10A9
+		\begin{center}
+			\begin{tikzpicture}[ybar,scale=1,>=stealth,x=1cm,y=4mm]
+			\draw[thin](-1,0)--(1,0);
+			\draw[thin,line cap=round,dash pattern=on 0pt off 1.8pt] (1,0)--(1.25,0);
+			\draw[thin,->](1.25,0)--(8,0)node[below]{\tiny Điểm};
+			\draw[thin,->](0,-1)--(0,15)node[right]{\tiny Tần số};
+			
+			% Chỗ này gạch trên trục hoành
+			\foreach \x in {1,1.25,2,3,4,5,6,7}
+			\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+			% Chỗ này gạch trên trục tung, những chỗ cần gạch
+			\foreach \y in {1,2,...,14}
+			\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+			% Chỗ này ghi số liệu trên trục hoành
+			\foreach \x/\xtext in {1/1,2/5,3/6,4/7,5/8,6/9,7/10}
+			\draw(\x,0) node[below] {\tiny $\xtext$};
+			% Chỗ này ghi số liệu trên trục tung
+			\foreach \y/\ytext in {1/1,9/9,12/12,14/14,3/3}
+			\draw(0,\y) node[left] {\tiny $\ytext$};
+			
+			\node[below left](0,0){\tiny $O$};
+			% Góc vuông thôi
+			\tkzDefPoints{0/0/O, 2/0/x, 0/2/y}
+			\tkzMarkRightAngle[size=0.1](x,O,y)
+			% Các cột, anh Thùy thích bao nhiêu cột
+			\draw[pattern=north east lines,bar width=8mm]plot coordinates{(2,1)};
+			\draw[pattern=dots,bar width=8mm]plot coordinates{(3,9)};
+			\draw[pattern=north west lines,bar width=8mm]plot coordinates{(4,12)};
+			\draw[bar width=8mm]plot coordinates{(5,14)};
+			\draw[pattern=bricks,bar width=8mm]plot coordinates{(6,1)};
+			\draw[pattern=horizontal lines,bar width=8mm]plot coordinates{(7,3)};
+			% Nét đứt...
+			\draw[dashed,thin] (0,1)--(2,1) (0,9)--(3,9) (0,12)--(4,12) (0,14)--(5,14) (0,1)--(6,1) (0,3)--(7,3);
+			\end{tikzpicture}
+		\end{center}
+		Bảng phân bố tần suất
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|} 
+				\hline
+				Điểm & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ & Cộng\\
+				\hline
+				Tần suất & $2\mathrm{,}5$ & $22\mathrm{,}5$ & $30$ & $35$ & $2\mathrm{,}5$ & $7\mathrm{,}5$ & $100\, \%$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		Biểu đồ tần số hình cột mô tả kết quả điểm thi của lớp 10A9
+		\begin{center}
+			\begin{tikzpicture}[ybar,scale=1,>=stealth,x=1cm,y=4mm]
+			\draw[thin](-1,0)--(1,0);
+			\draw[thin,line cap=round,dash pattern=on 0pt off 1.8pt] (1,0)--(1.25,0);
+			\draw[thin,->](1.25,0)--(8,0)node[below]{\tiny Điểm};
+			\draw[thin,->](0,-1)--(0,15)node[right]{\tiny Tần suất};
+			
+			% Chỗ này gạch trên trục hoành
+			\foreach \x in {1,1.25,2,3,4,5,6,7}
+			\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+			% Chỗ này gạch trên trục tung, những chỗ cần gạch
+			\foreach \y in {1,2,...,14}
+			\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+			% Chỗ này ghi số liệu trên trục hoành
+			\foreach \x/\xtext in {1/1,2/5,3/6,4/7,5/8,6/9,7/10}
+			\draw(\x,0) node[below] {\tiny $\xtext$};
+			% Chỗ này ghi số liệu trên trục tung
+			\foreach \y/\ytext in {1/2\mathrm{,}5,9/22\mathrm{,}5,12/30,14/35,3/7\mathrm{,}5}
+			\draw(0,\y) node[left] {\tiny $\ytext$};
+			
+			\node[below left](0,0){\tiny $O$};
+			% Góc vuông thôi
+			\tkzDefPoints{0/0/O, 2/0/x, 0/2/y}
+			\tkzMarkRightAngle[size=0.1](x,O,y)
+			% Các cột, anh Thùy thích bao nhiêu cột
+			\draw[pattern=north east lines,bar width=8mm]plot coordinates{(2,1)};
+			\draw[pattern=dots,bar width=8mm]plot coordinates{(3,9)};
+			\draw[pattern=north west lines,bar width=8mm]plot coordinates{(4,12)};
+			\draw[fill=gray!20,bar width=8mm]plot coordinates{(5,14)};
+			\draw[pattern=bricks,bar width=8mm]plot coordinates{(6,1)};
+			\draw[pattern=horizontal lines,bar width=8mm]plot coordinates{(7,3)};
+			% Nét đứt...
+			\draw[dashed,thin] (0,1)--(2,1) (0,9)--(3,9) (0,12)--(4,12) (0,14)--(5,14) (0,1)--(6,1) (0,3)--(7,3);
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+\begin{vd}%[0D5B2]%[Nguyễn Tiến Thùy]
+	Số điện tiêu thụ của $30$ hộ ở một khu dân cư trong một tháng được thống kê theo bảng sau:
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|} 
+			\hline
+			$50$ & $47$ & $30$ & $65$ & $63$ & $70$ & $38$ & $34$ & $48$ & $53$\\
+			\hline
+			$33$ & $39$ & $32$ & $40$ & $50$ & $55$ & $50$ & $61$ & $37$ & $37$\\
+			\hline
+			$43$ & $35$ & $65$ & $60$ & $31$ & $33$ & $41$ & $45$ & $55$ & $59$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hãy lập bảng phân bố tần số, tần suất ghép lớp và lập biểu đồ tần suất hình cột mô tả cho bảng phân bố tần suất ghép lớp đó.
+	\loigiai{
+		Bảng phân bố tần số và tần suất ghép lớp:
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|} 
+				\hline
+				Lớp số điện $(\mathrm{kW})$ & $[30;40)$ & $[40;50)$ & $[50;60)$ & $[60;70]$ & Cộng\\
+				\hline
+				Tần số & $11$ & $6$ & $7$ & $6$ & $30$\\
+				\hline
+				Tần suất $(\%)$ & $37,67$ & $20$ & $23,33$ & $20$ & $100\, \%$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		Biểu đồ tần suất ghép lớp hình cột mô tả cho bảng số liệu đã cho
+		\begin{center}
+			\begin{tikzpicture}[ybar,scale=0.8,>=stealth,x=1mm,y=1.2mm]
+			\draw[thin](-5,0)--(4,0);
+			\draw[thin,line cap=round, dash pattern=on 0pt off 1.8pt] (4,0)--(7,0);
+			\draw[thin,->](7,0)--(80,0)node[below]{\tiny Số điện};
+			\draw[thin,->](0,-4.8)--(0,50)node[right]{\tiny Tần suất ($\%$)};
+			
+			\foreach \x in {4,7,15,25,35,45,55,65}
+			\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+			\foreach \y in {10,20,23.33,37.67,40}
+			\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+			
+			\foreach \x/\xtext in {4/1,25/30,35/40,45/50,55/60,65/70}
+			\draw(\x,0) node[below] {\tiny $\xtext$};
+			\foreach \y/\ytext in {10/10,20/20,23.33/23\mathrm{,}33,37.67/37\mathrm{,}67,40/40}
+			\draw(0,\y) node[left] {\tiny $\ytext$};
+			\node[below left](0,0){\tiny $O$};
+			\tkzDefPoints{0/0/O, 2/0/x, 0/2/y}
+			\tkzMarkRightAngle[size=0.1](x,O,y)
+			
+			\draw[pattern=north east lines,bar width=10mm]plot coordinates{(30,37.67)};
+			\draw[pattern=dots,bar width=10mm]plot coordinates{(40,20)};
+			\draw[pattern=north west lines,bar width=10mm]plot coordinates{(50,23.33)};
+			\draw[pattern=horizontal lines,bar width=10mm]plot coordinates{(60,20)};
+			
+			\draw[dashed,thin] (0,37.67)--(30,37.67) (0,20)--(40,20) (0,23.33)--(50,23.33) (0,20)--(60,20);
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+
+\begin{vd}%[0D5B2]%[Nguyễn Tiến Thùy]
+	Cho biểu đồ tần suất ghép lớp hình cột mô tả thành tích bạn Bình tập chạy trong $20$ lần như hình dưới đây. Hãy lập bảng phân bố tần suất ghép lớp mà biểu đồ đã mô tả.
+	\begin{center}
+		\begin{tikzpicture}[ybar,scale=0.8,>=stealth,x=1mm,y=1.2mm]
+		\draw[thin](-5,0)-- (5,0);
+		\draw[thin,line cap=round, dash pattern=on 0pt off 1.8pt] (5,0)--(8,0);
+		\draw[thin,->](8,0)--(70,0)node[below]{\tiny Thời gian(s)};
+		\draw[thin,->](0,-4.8)--(0,45)node[right]{\tiny Tần suất(\%)};
+		
+		\foreach \x in {4,5,8,20,24,32,...,56}
+		\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+		\foreach \y in {25,40,20,15}
+		\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+		
+		\foreach \x/\xtext in {4/\frac{1}{4},24/11,32/11\mathrm{,}5,40/12,48/12\mathrm{,}5,56/13}
+		\draw(\x,0) node[below] {\tiny $\xtext$};
+		\foreach \y/\ytext in {15/15,20/20,25/25,40/40}
+		\draw(0,\y) node[left] {\tiny $\ytext$};
+		\node[below left](0,0){\tiny $O$};
+		\tkzDefPoints{0/0/O, 2/0/x, 0/2/y}
+		\tkzMarkRightAngle[size=0.1](x,O,y)
+		
+		\draw[pattern=north east lines,bar width=8mm]plot coordinates{(28,15)};
+		\draw[pattern=dots,bar width=8mm]plot coordinates{(52,20)};
+		\draw[pattern=north west lines,bar width=8mm]plot coordinates{(44,25)};
+		\draw[pattern=horizontal lines,bar width=8mm]plot coordinates{(36,40)};
+		
+		\draw[dashed,thin] (0,15)--(24,15) (0,20)--(48,20) (0,25)--(40,25) (0,40)--(32,40);
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Bảng phân bố tần suất thể hiện thành tích tập chạy của bạn Bình trong $20$ lần:
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|} 
+				\hline
+				Lớp thời gian chạy $(\mathrm{s})$ & $[11;11,5)$ & $[11,5;12)$ & $[12;12,5)$ & $[12,5;13]$ & Cộng\\
+				\hline
+				Tần suất $(\%)$ & $15$ & $40$ & $25$ & $20$ & $100\, \%$\\
+				\hline
+			\end{tabular}
+		\end{center}
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[0D5B2]%[Nguyễn Tiến Thùy]
+	Một công ty sản xuất bóng đèn kiểm tra định kì bằng cách thắp thử nghiệm $30$ bóng đèn để kiểm tra tuổi thọ (tính theo giờ). Kết quả của cuộc thử nghiệm được thống kê theo bảng sau:
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|} 
+			\hline
+			$1180$ & $1150$ & $1190$ & $1170$ & $1180$ & $1170$ & $1160$ & $1170$ & $1160$ & $1150$\\
+			\hline
+			$1190$ & $1180$ & $1170$ & $1170$ & $1170$ & $1190$ & $1170$ & $1170$ & $1170$ & $1180$\\
+			\hline
+			$1170$ & $1160$ & $1160$ & $1160$ & $1170$ & $1160$ & $1180$ & $1180$ & $1150$ & $1170$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hãy lập bảng phân bố tần số và vẽ biểu đồ tần số hình cột.
+	\loigiai{
+		Bảng phân bố tần số
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|} 
+				\hline
+				Giờ & $1150$ & $1160$ & $1170$ & $1180$ & $1190$ & Cộng\\
+				\hline
+				Tần số & $3$ & $6$ & $12$ & $6$ & $3$ & $30$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		Mô tả bảng phân bố tần số bằng biểu đồ tần số hình cột
+		\begin{center}
+			\begin{tikzpicture}[ybar,scale=1,>=stealth,x=1cm,y=4mm]
+			\draw[thin](-1,0)--(1,0);
+			\draw[thin,line cap=round,dash pattern=on 0pt off 1.8pt] (1,0)--(1.25,0);
+			\draw[thin,->](1.25,0)--(8,0)node[below]{\tiny Giờ};
+			\draw[thin,->](0,-1)--(0,15)node[right]{\tiny Tần số};
+			
+			% Chỗ này gạch trên trục hoành
+			\foreach \x in {1,1.25,2,3,4,5,6,7}
+			\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+			% Chỗ này gạch trên trục tung, những chỗ cần gạch
+			\foreach \y in {1,2,...,12}
+			\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+			% Chỗ này ghi số liệu trên trục hoành
+			\foreach \x/\xtext in {1/1,2/1150,3/1160,4/1170,5/1180,6/1190}
+			\draw(\x,0) node[below] {\tiny $\xtext$};
+			% Chỗ này ghi số liệu trên trục tung
+			\foreach \y/\ytext in {3/3,6/6,12/12}
+			\draw(0,\y) node[left] {\tiny $\ytext$};
+			
+			\node[below left](0,0){\tiny $O$};
+			% Góc vuông thôi
+			\tkzDefPoints{0/0/O, 2/0/x, 0/2/y}
+			\tkzMarkRightAngle[size=0.1](x,O,y)
+			% Các cột, anh Thùy thích bao nhiêu cột
+			\draw[pattern=north east lines,bar width=8mm]plot coordinates{(2,3)};
+			\draw[pattern=dots,bar width=8mm]plot coordinates{(3,6)};
+			\draw[pattern=north west lines,bar width=8mm]plot coordinates{(4,12)};
+			\draw[fill=gray!20,bar width=8mm]plot coordinates{(5,6)};
+			\draw[pattern=bricks,bar width=8mm]plot coordinates{(6,3)};
+			% Nét đứt...
+			\draw[dashed,thin] (0,3)--(2,3) (0,6)--(3,6) (0,12)--(4,12) (0,6)--(5,6) (0,3)--(6,3);
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+\begin{bt}%[0D5B2]%[Nguyễn Tiến Thùy]
+	Số cuộn phim mà $40$ nhà nhiếp ảnh nghiệp dư sử dụng trong một tháng được thống kê bằng bảng số liệu sau:
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|} 
+			\hline
+			$5$ & $3$ & $3$ & $1$ & $4$ & $3$ & $4$ & $3$ & $6$ & $8$\\
+			\hline
+			$4$ & $2$ & $4$ & $6$ & $8$ & $9$ & $6$ & $2$ & $10$ & $11$\\
+			\hline
+			$15$ & $1$ & $2$ & $5$ & $13$ & $7$ & $7$ & $2$ & $5$ & $4$\\
+			\hline
+			$3$ & $16$ & $10$ & $4$ & $7$ & $2$ & $10$ & $11$ & $8$ & $9$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hãy lập bảng tần số, tần suất ghép lớp và mô tả bảng phân bố tần suất ghép lớp bằng biểu đồ tần suất hình cột.
+	\loigiai{
+		Bảng phân bố tần số và tần suất ghép lớp của bảng thống kê số cuộn phim của $40$ nhà nhiếp ảnh nghiệp dư sử dụng trong một tháng là
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|} 
+				\hline
+				Lớp số cuộn phim & $[0;4)$ & $[4;8)$ & $[8;12)$ & $[12;16]$ & Cộng\\
+				\hline
+				Tần số & $12$ & $15$ & $10$ & $3$ & $40$\\
+				\hline
+				Tần suất $(\%)$ & $30$ & $37,5$ & $25$ & $7,5$ & $100\, \%$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		Biểu đồ mô tả cho bảng tần suất ghép lớp 
+		\begin{center}
+			\begin{tikzpicture}[ybar,scale=0.6,>=stealth,x=5mm,y=2mm]
+			\draw[->,thin](-1,0)--(19,0)node[below]{\tiny Số cuộn phim};
+			\draw[thin,->](0,-4.8)--(0,45)node[right]{\tiny Tần suất (\%)};
+			
+			\foreach \x in {4,8,12,16}
+			\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+			\foreach \y in {7.5,10,20,25,30,37.5,40}
+			\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+			
+			\foreach \x/\xtext in {4/4,8/8,12/12,16/16}
+			\draw(\x,0) node[below] {\tiny $\xtext$};
+			\foreach \y/\ytext in {7.5/7\mathrm{,}5,10/10,20/20,25/25,30/30,37.5/37\mathrm{,}5,40/40}
+			\draw(0,\y) node[left] {\tiny $\ytext$};
+			\node[below left](0,0){\tiny $O$};
+			\tkzDefPoints{0/0/O, 2/0/x, 0/2/y}
+			\tkzMarkRightAngle[size=0.1](x,O,y)
+			
+			\draw[pattern=north east lines,bar width=2cm]plot coordinates{(2,30)};
+			\draw[pattern=dots,bar width=2cm]plot coordinates{(6,37.5)};
+			\draw[pattern=north west lines,bar width=2cm]plot coordinates{(10,25)};
+			\draw[pattern=horizontal lines,bar width=2cm]plot coordinates{(14,7.5)};
+			
+			\draw[dashed,thin] (0,37.5)--(4,37.5) (0,25)--(8,25) (0,7.5)--(12,7.5);
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+\begin{bt}%[0D5B2]%[Nguyễn Tiến Thùy]
+	Cho biểu đồ tần suất ghép lớp hình cột mô tả thống kê tiền nước (nghìn đồng) phải trả hàng tháng của gia đình anh Huy trong năm $2017$ như hình vẽ:
+	\begin{center}
+		\begin{tikzpicture}[ybar,scale=0.8,>=stealth,x=1mm,y=1.2mm]
+		\draw[thin](-5,0)-- (5,0);
+		\draw[thin,line cap=round, dash pattern=on 0pt off 1.8pt] (5,0)--(8,0);
+		\draw[thin,->](8,0)--(70,0)node[below]{\tiny Tiền nước};
+		\draw[thin,->](0,-4.8)--(0,40)node[right]{\tiny Tần suất};
+		
+		\foreach \x in {4,5,8,20,24,32,...,56}
+		\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+		\foreach \y in {10,16.67,20,23.33,26.67,30,33.33}
+		\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+		
+		\foreach \x/\xtext in {4/10,24/80,32/100,40/120,48/140,56/160}
+		\draw(\x,0) node[below] {\tiny $\xtext$};
+		\foreach \y/\ytext in {10/10,16.67/16\mathrm{,}67,23.33/23\mathrm{,}33,26.67/26\mathrm{,}67,33.33/33\mathrm{,}33}
+		\draw(0,\y) node[left] {\tiny $\ytext$};
+		\node[below left](0,0){\tiny $O$};
+		\tkzDefPoints{0/0/O, 2/0/x, 0/2/y}
+		\tkzMarkRightAngle[size=0.1](x,O,y)
+		
+		\draw[pattern=north east lines,bar width=8mm]plot coordinates{(28,33.33)};
+		\draw[pattern=dots,bar width=8mm]plot coordinates{(52,23.33)};
+		\draw[pattern=north west lines,bar width=8mm]plot coordinates{(44,26.67)};
+		\draw[pattern=horizontal lines,bar width=8mm]plot coordinates{(36,16.67)};
+		
+		\draw[dashed,thin] (0,16.67)--(32,16.67) (0,23.33)--(48,23.33) (0,26.67)--(40,26.67) (0,33.33)--(24,33.33);
+		\end{tikzpicture}
+	\end{center}
+	Hãy lập bảng phân bố tần suất ghép lớp về tiền điện hàng tháng phải trong năm $2017$ của gia đình anh Huy.
+	\loigiai{
+		Bảng phân bố tần suất ghép lớp tiền nước hàng tháng của gia đình anh Huy trong năm $2017$ như sau:
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|} 
+				\hline
+				Tiền nước(nghìn đồng) & $[80;100)$ & $[100;120)$ & $[120;140)$ & $140;160$ & Cộng\\
+				\hline
+				Tần suất($\%$) & $33\mathrm{,}33$ & $16\mathrm{,}67$ & $26\mathrm{,}67$ & $23\mathrm{,}33$ & $100\, \%$\\
+				\hline
+			\end{tabular}
+		\end{center}
+	}
+\end{bt}
+
+\begin{dang}{Biểu đồ đường gấp khúc}
+\end{dang}
+\begin{vd}%[NguyệnNgô]%[0D5B2]
+	Cho bảng tần suất ghép lớp:
+	\vspace*{-10pt}
+	\begin{center}
+		Điểm thi học kì I môn Toán của $40$ học sinh lớp $10$D$3$ của trường THPT A\\
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			Lớp điểm thi & [0; 2) & [2; 4) & [4; 6) & [6; 8) & [8; 10] & Cộng\\
+			\hline
+			Tần suất (\%) & 7,5 & 12,5 & 40 & 30 & 10 & 100\%\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Hãy vẽ biểu đồ đường gấp khúc tần suất về điểm thi học kì I môn Toán của $40$ học sinh lớp $10$D$3$ của trường THPT A.
+		\item Có bao nhiêu học sinh thuộc lớp điểm chiếm tỉ lệ cao nhất.
+		\item Biết điểm giỏi là từ $8$ đến $10$. Hỏi lớp $10$D$3$ có bao nhiêu học sinh đạt điểm giỏi.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Bảng giá trị đại diện (GTĐD) của các lớp:
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}
+					\hline
+					Lớp điểm thi & [0; 2) & [2; 4) & [4; 6) & [6; 8) & [8; 10]\\
+					\hline
+					GTĐD & 1 & 3 & 5 & 7 & 9\\
+					\hline
+				\end{tabular}
+			\end{center}
+			Biểu đồ đường gấp khúc tần suất về điểm thi học kì I môn Toán của $40$ học sinh lớp $10$D$3$ của trường THPT A:
+			\begin{center}
+				%Biểu đồ đường gấp khúc
+				\begin{tikzpicture}[ybar,scale=1.0,>=stealth,x=1mm,y=1.2mm]%Thay đối scale hay x,y phải thay đổi lại trục Ox và tuỳ chọn dots để có 3 chấm trên Ox
+				%Vẽ hai trục
+				\draw[thin,->](-5,0)--(48,0)node[below]{\tiny Điểm thi};
+				\draw[thin,->](0,-4.8)--(0,50)node[left]{\tiny Tần suất};
+				
+				%Vẽ các đơn vị trên trục. 1 đơn vị trên trục Ox là 2mm.
+				\foreach \x in {4, 12,20,28,36}
+				\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+				\foreach \y in {7.5,10,12.5,20,30,40}
+				\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+				%Vẽ các nhãn trên trục.
+				%Khi lặp, dùng \mathrm{,} để gõ dấu phẩy trong nhãn (xem trục Oy).
+				\foreach \x/\xtext in {4/1, 12/3, 20/5, 28/7, 36/9}
+				\draw(\x,0) node[below] {\tiny $\xtext$};
+				\foreach \y/\ytext in {7.5/7\mathrm{,}5, 10/10, 12.5/12\mathrm{,}5, 20/20, 30/30,40/40}
+				\draw(0,\y) node[left] {\tiny $\ytext$};
+				\node[below left](0,0){\tiny $O$};
+				\tkzDefPoints{0/0/O, 2/0/x, 0/2/y}
+				\tkzMarkRightAngle[size=0.1](x,O,y)
+				%Vẽ đường gấp khúc
+				\draw[thick] (4,7.5)--(12,12.5)--(20,40)--(28,30)--(36,10);
+				\draw[fill=black] (4,7.5) circle (1.0pt);
+				\draw[fill=black] (12,12.5) circle (1.0pt);
+				\draw[fill=black] (20,40) circle (1.0pt);
+				\draw[fill=black] (28,30) circle (1.0pt);
+				\draw[fill=black] (36,10) circle (1.0pt);
+				%Vẽ các đường gióng
+				\draw[dashed,thin] (0,7.5)--(4,7.5)--(4,0);
+				\draw[dashed,thin] (0,12.5)--(12,12.5)--(12,0);
+				\draw[dashed,thin] (0,40)--(20,40)--(20,0);
+				\draw[dashed,thin] (0,30)--(28,30)--(28,0);
+				\draw[dashed,thin] (0,10)--(36,10)--(36,0);
+				\end{tikzpicture}
+			\end{center}
+			\item Lớp điểm $[4; 6)$ chiếm tỉ lệ cao nhất bằng $40$ \%. Suy ra số học sinh thuộc lớp này bằng: $\dfrac{40\times 40}{100}=16$.
+			\item Lớp điểm $[8; 10]$ chiếm tỉ lệ $10$ \% nên số học sinh đạt điểm giỏi là: $\dfrac{10\times 40}{100}=4$.
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[NguyệnNgô]%[0D5K2]
+	Cho các bảng tần số ghép lớp:
+	\vspace*{-10pt}
+	\begin{center}
+		Chiều cao (cm) của $40$ học sinh lớp $10$A$1$ của trường THPT B\\
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			Lớp chiều cao & [1,5; 1,55) & [1,55; 1,6) & [1,6; 1,65) & [1,65; 1,7) & [1,7; 1,75] & Cộng\\
+			\hline
+			Tần số & 0 & 2 & 15 & 18 & 5 & 40\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{center}
+		Chiều cao (cm) của $40$ học sinh lớp $10$D$1$ của trường THPT B\\
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			Lớp chiều cao & [1,5; 1,55) & [1,55; 1,6) & [1,6; 1,65) & [1,65; 1,7) & [1,7; 1,75] & Cộng\\
+			\hline
+			Tần số & 1 & 12 & 23 & 4 & 0 & 40\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Hãy vẽ đường gấp khúc tần số về chiều cao của $40$ học sinh lớp $10$A$1$ và đường gấp khúc tần số về chiều cao của $40$ học sinh lớp $10$D$1$  của trường THPT B trên cùng một biểu đồ.
+		\item Nhận xét về chiều cao trung bình của học sinh lớp $10$A$1$ so với lớp $10$D$1$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item
+			Bảng giá trị đại diện (GTĐD) của các lớp:
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}
+					\hline
+					Lớp chiều cao & [1,5; 1,55) & [1,55; 1,6) & [1,6; 1,65) & [1,65; 1,7) & [1,7; 1,75]\\
+					\hline
+					GTĐD & 1,525 & 1,575 & 1,625 & 1,675 & 1,725\\
+					\hline
+				\end{tabular}
+			\end{center}
+			Biểu đồ đường gấp khúc tần số về chiều cao của $40$ học sinh lớp $10$A$1$ và đường gấp khúc tần số về chiều cao của $40$ học sinh lớp $10$D$1$  của trường THPT B:
+			\begin{center}
+				%Biểu đồ đường gấp khúc
+				\begin{tikzpicture}[ybar,scale=1.0,>=stealth,x=1mm,y=1.2mm]%Thay đối scale hay x,y phải thay đổi lại trục Ox và tuỳ chọn dots để có 3 chấm trên Ox
+				%Vẽ hai trục
+				\draw[thin](-5,0)-- (12,0);
+				\draw[thin,line cap=round, dash pattern=on 0pt off 2pt] (12,0)--(15,0);%Thay đổi số chấm qua tuỳ chọn off 2pt
+				\draw[thin,->](15,0)--(105,0)node[below]{\tiny Chiều cao (cm)};
+				\draw[thin,->](0,-4.8)--(0,50)node[left]{\tiny Tần số};
+				
+				
+				%Vẽ các đơn vị trên trục. 1 đơn vị trên trục Ox là 2mm.
+				\foreach \x in {8,12,15,20, 36,52,68,84}
+				\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+				\foreach \y in {2,4,8,10,20,24,30,36,40,46}
+				\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+				%Vẽ các nhãn trên trục.
+				%Khi lặp, dùng \mathrm{,} để gõ dấu phẩy trong nhãn (xem trục Oy).
+				\foreach \x/\xtext in {8/0\mathrm{,}025,20/1\mathrm{,}525, 36/1\mathrm{,}575, 52/1\mathrm{,}625, 68/1\mathrm{,}675, 84/1\mathrm{,}725}
+				\draw(\x,0) node[below] {\tiny $\xtext$};
+				\foreach \y/\ytext in {2/1, 4/2, 8/4, 10/5, 24/12,30/15,36/18,46/23}
+				\draw(0,\y) node[left] {\tiny $\ytext$};
+				\node[below left](0,0){\tiny $O$};
+				\tkzDefPoints{0/0/O, 2/0/x, 0/2/y}
+				\tkzMarkRightAngle[size=0.1](x,O,y)
+				%Vẽ đường gấp khúc
+				\draw[thick] (20,0)--(36,4)--(52,30)--(68,36)--(84,10);
+				\draw[fill=black] (20,0) circle (1.0pt);
+				\draw[fill=black] (36,4) circle (1.0pt);
+				\draw[fill=black] (52,30) circle (1.0pt);
+				\draw[fill=black] (68,36) circle (1.0pt);
+				\draw[fill=black] (84,10) circle (1.0pt);
+				
+				\draw[thick] (20,2)--(36,24)--(52,46)--(68,8)--(84,0);
+				\draw[fill=black] (20,2) circle (1.0pt);
+				\draw[fill=black] (36,24) circle (1.0pt);
+				\draw[fill=black] (52,46) circle (1.0pt);
+				\draw[fill=black] (68,8) circle (1.0pt);
+				\draw[fill=black] (84,0) circle (1.0pt);
+				%Vẽ các đường gióng
+				
+				\draw[dashed,thin] (0,4)--(36,4)--(36,0);
+				\draw[dashed,thin] (0,30)--(52,30)--(52,0);
+				\draw[dashed,thin] (0,36)--(68,36)--(68,0);
+				\draw[dashed,thin] (0,10)--(84,10)--(84,0);
+				
+				\draw[dashed,thin] (0,24)--(36,24)--(36,0);
+				\draw[dashed,thin] (0,46)--(52,46)--(52,0);
+				\draw[dashed,thin] (0,8)--(68,8)--(68,0);
+				\draw[dashed,thin] (0,2)--(20,2)--(20,0);
+				\end{tikzpicture}
+			\end{center}
+			\item Nhận xét: Sĩ số hai lớp bằng nhau. Đường gấp khúc biểu diễn chiều cao từ $1{,}65$ cm trở lên của lớp $10$A$1$ nằm trên lớp $10$D$1$, đường gấp khúc biểu diễn chiều cao dưới $1{,}65$ cm của lớp $10$A$1$ nằm dưới lớp $10$D$1$. Vậy chiều cao trung bình lớp $10$A$1$ lớn hơn lớp $10$D$1$.
+		\end{enumerate}
+	}
+\end{vd}
+
+
+
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+
+\begin{bt}%[NguyệnNgô]%[0D5B2]
+	Cho bảng tần suất ghép lớp:
+	\vspace*{-10pt}
+	\begin{center}
+		Cân nặng (kg) của $50$ học sinh lớp $10$A$3$ của trường THPT C\\
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline
+			Lớp cân nặng & [40; 42) & [42; 44) & [44; 46) & [46; 48) & [48; 50) & [50; 52] & Cộng\\
+			\hline
+			Tần suất (\%) & 2 & 10 & 24 & 38 & 20 & 6 & 100\, \%\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Hãy vẽ biểu đồ đường gấp khúc tần suất về cân nặng của $50$ học sinh lớp $10$A$3$ của trường THPT C.
+		\item Có bao nhiêu học sinh có cân nặng từ $48$ kg đến $52$ kg.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item[1.] Bảng giá trị đại diện (GTĐD) của các lớp:
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|c|}
+					\hline
+					Lớp cân nặng & [40; 42) & [42; 44) & [44; 46) & [46; 48) & [48; 50) & [50; 52]\\
+					\hline
+					GTĐD & 41 & 43 & 45 & 47 & 49 & 51\\
+					\hline
+				\end{tabular}
+			\end{center}
+			Biểu đồ đường gấp khúc tần suất về cân nặng của $50$ học sinh lớp $10$A$3$ của trường THPT C:
+			\begin{center}
+				%Biểu đồ đường gấp khúc
+				\begin{tikzpicture}[ybar,scale=1.0,>=stealth,x=1mm,y=1.2mm]%Thay đối scale hay x,y phải thay đổi lại trục Ox và tuỳ chọn dots để có 3 chấm trên Ox
+				%Vẽ hai trục
+				\draw[thin](-5,0)-- (6,0);
+				\draw[thin,line cap=round, dash pattern=on 0pt off 2pt] (6,0)--(9,0);%Thay đổi số chấm qua tuỳ chọn off 2pt
+				\draw[thin,->](9,0)--(65,0)node[below]{\tiny Cân nặng (kg)};
+				\draw[thin,->](0,-4.8)--(0,45)node[left]{\tiny Tần suất};
+				
+				%Vẽ các đơn vị trên trục. 1 đơn vị trên trục Ox là 2mm.
+				\foreach \x in {4, 6, 9,15,23,31,39,47,55}
+				\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+				\foreach \y in {2,6,10,20,24,38}
+				\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+				%Vẽ các nhãn trên trục.
+				%Khi lặp, dùng \mathrm{,} để gõ dấu phẩy trong nhãn (xem trục Oy).
+				\foreach \x/\xtext in {4/1,15/41,23/43,31/45,39/47,47/49,55/51}
+				\draw(\x,0) node[below] {\tiny $\xtext$};
+				\foreach \y/\ytext in {2/2,6/6,10/10,20/20,24/24,38/38}
+				\draw(0,\y) node[left] {\tiny $\ytext$};
+				\node[below left](0,0){\tiny $O$};
+				\tkzDefPoints{0/0/O, 2/0/x, 0/2/y}
+				\tkzMarkRightAngle[size=0.1](x,O,y)
+				%Vẽ đường gấp khúc
+				\draw[thick] (15,2)--(23,10)--(31,24)--(39,38)--(47,20)--(55,6);
+				\draw[fill=black] (15,2) circle (1.0pt);
+				\draw[fill=black] (23,10) circle (1.0pt);
+				\draw[fill=black] (31,24) circle (1.0pt);
+				\draw[fill=black] (39,38) circle (1.0pt);
+				\draw[fill=black] (47,20) circle (1.0pt);
+				\draw[fill=black] (55,6) circle (1.0pt);
+				%Vẽ các đường gióng
+				\draw[dashed,thin] (0,2)--(15,2)--(15,0);
+				\draw[dashed,thin] (0,10)--(23,10)--(23,0);
+				\draw[dashed,thin] (0,24)--(31,24)--(31,0);
+				\draw[dashed,thin] (0,38)--(39,38)--(39,0);
+				\draw[dashed,thin] (0,20)--(47,20)--(47,0);
+				\draw[dashed,thin] (0,6)--(55,6)--(55,0);
+				\end{tikzpicture}
+			\end{center}
+			\item[2.] Học sinh có cân nặng từ $48$ kg đến $52$ kg chiếm tỉ lệ $20$ \% $+6$ \% $=26$ \%. Suy ra số học sinh có cân nặng từ $48$ kg đến $52$ kg là $\dfrac{26\times 50}{100}=13$.
+		\end{enumerate}
+	}
+\end{bt}
+
+
+\begin{bt}%[NguyệnNgô]%[0D5K2]
+	Cho các bảng tần số ghép lớp:
+	\vspace*{-10pt}
+	\begin{center}
+		Điểm phẩy học kì $1$ môn Toán của $40$ học sinh lớp $10$A$1$ của trường THPT A\\
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			Lớp điểm phẩy & [5; 6) & [6; 7) & [7; 8) & [8; 9) & [9; 10] & Cộng\\
+			\hline
+			Tần số & 0 & 2 & 25 & 10 & 3 & 40\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{center}
+		Điểm phẩy học kì $1$ môn Văn của $40$ học sinh lớp $10$A$1$ của trường THPT A\\
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			Lớp điểm phẩy & [5; 6) & [6; 7) & [7; 8) & [8; 9) & [9; 10] & Cộng\\
+			\hline
+			Tần số & 5 & 23 & 11 & 1 & 0 & 40\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Hãy vẽ đường gấp khúc tần số về điểm phẩy học kì $1$ môn Toán và đường gấp khúc tần số về điểm phẩy học kì $1$ môn Văn của $40$ học sinh lớp $10$A$1$ trên cùng một biểu đồ.
+		\item Nhận xét về điểm phẩy trung bình môn Toán so với môn Văn của học sinh lớp $10$A$1$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item[1.]
+			Bảng giá trị đại diện (GTĐD) của các lớp:
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}
+					\hline
+					Lớp điểm phẩy & [5; 6) & [6; 7) & [7; 8) & [8; 9) & [9; 10]\\
+					\hline
+					GTĐD & 5,5 & 6,5 & 7,5 & 8,5 & 9,5\\
+					\hline
+				\end{tabular}
+			\end{center}
+			Biểu đồ đường gấp khúc tần số về điểm phẩy học kì $1$ môn Toán và đường gấp khúc tần số về điểm phẩy học kì $1$ môn Văn của $40$ học sinh lớp $10$A$1$:
+			\begin{center}
+				%Biểu đồ đường gấp khúc
+				\begin{tikzpicture}[ybar,scale=1.0,>=stealth,x=1mm,y=1.2mm]%Thay đối scale hay x,y phải thay đổi lại trục Ox và tuỳ chọn dots để có 3 chấm trên Ox
+				%Vẽ hai trục
+				\draw[thin,->](-5,0)--(48,0)node[below]{\tiny Điểm phẩy};
+				\draw[thin,->](0,-4.8)--(0,55)node[left]{\tiny Tần số};
+				
+				%Vẽ các đơn vị trên trục. 1 đơn vị trên trục Ox là 2mm.
+				\foreach \x in {4,22,26,30,34,38}
+				\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+				\foreach \y in {2,4,6,10,20,22,46,50}
+				\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+				%Vẽ các nhãn trên trục.
+				%Khi lặp, dùng \mathrm{,} để gõ dấu phẩy trong nhãn (xem trục Oy).
+				\foreach \x/\xtext in {4/1,22/5\mathrm{,}5,26/6\mathrm{,}5,30/7\mathrm{,}5,34/8\mathrm{,}5,38/9\mathrm{,}5}
+				\draw(\x,0) node[below] {\tiny $\xtext$};
+				\foreach \y/\ytext in {2/1, 4/2, 6/3, 10/5, 20/10, 22/11, 46/23, 50/25}
+				\draw(0,\y) node[left] {\tiny $\ytext$};
+				\node[below left](0,0){\tiny $O$};
+				\tkzDefPoints{0/0/O, 2/0/x, 0/2/y}
+				\tkzMarkRightAngle[size=0.1](x,O,y)
+				%Vẽ đường gấp khúc
+				\draw[thick] (22,0)--(26,4)--(30,50)--(34,20)--(38,6);
+				\draw[fill=black] (22,0) circle (1.0pt);
+				\draw[fill=black] (26,4) circle (1.0pt);
+				\draw[fill=black] (30,50) circle (1.0pt);
+				\draw[fill=black] (34,20) circle (1.0pt);
+				\draw[fill=black] (38,6) circle (1.0pt);
+				
+				\draw[thick] (22,10)--(26,46)--(30,22)--(34,2)--(38,0);
+				\draw[fill=black] (22,10) circle (1.0pt);
+				\draw[fill=black] (26,46) circle (1.0pt);
+				\draw[fill=black] (30,22) circle (1.0pt);
+				\draw[fill=black] (34,2) circle (1.0pt);
+				\draw[fill=black] (38,0) circle (1.0pt);
+				%Vẽ các đường gióng
+				
+				\draw[dashed,thin] (0,4)--(26,4)--(26,0);
+				\draw[dashed,thin] (0,50)--(30,50)--(30,0);
+				\draw[dashed,thin] (0,20)--(34,20)--(34,0);
+				\draw[dashed,thin] (0,6)--(38,6)--(38,0);
+				
+				\draw[dashed,thin] (0,10)--(22,10)--(22,0);
+				\draw[dashed,thin] (0,46)--(26,46)--(26,0);
+				\draw[dashed,thin] (0,22)--(30,22)--(30,0);
+				\draw[dashed,thin] (0,2)--(34,2)--(34,0);
+				\end{tikzpicture}
+			\end{center}
+			\item[2.] Nhận xét: Đường gấp khúc biểu diễn điểm phẩy từ $7{,}0$ trở lên của môn Toán nằm trên môn Văn, đường gấp khúc biểu diễn điểm phẩy dưới $7{,}0$ của môn Toán nằm dưới môn Văn. Vậy điểm phẩy trung bình môn Toán cao hơn môn Văn.
+		\end{enumerate}
+	}
+\end{bt}
+
+
+\begin{bt}%[Ngô Thị Nguyện]%[0D5B2]
+	Cho bảng tần suất:
+	\vspace*{-10pt}
+	\begin{center}
+		Số con của $50$ hộ gia đình ở địa phương A\\
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline
+			Số con & 0 & 1 & 2 & 3 & 4 & Cộng\\
+			\hline
+			Tần suất (\%) & 4 & 20 & 60 & 14 & 2 & 100\,\%\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hãy vẽ biểu đồ đường gấp khúc tần suất về số con của $50$ hộ gia đình ở địa phương A và nhận xét xem có bao nhiêu hộ gia đình chưa thực hiện tốt kế hoạch hóa gia đình (có nhiều hơn $2$ con).
+	\loigiai
+	{Biểu đồ đường gấp khúc tần suất về số con của $50$ hộ gia đình ở địa phương A:
+		\begin{center}
+			%Biểu đồ đường gấp khúc
+			\begin{tikzpicture}[ybar,scale=0.7,>=stealth,x=3mm,y=1.2mm]%Thay đối scale hay x,y phải thay đổi lại trục Ox và tuỳ chọn dots để có 3 chấm trên Ox
+			%Vẽ hai trục
+			\draw[thin,->](-5,0)--(25,0)node[below]{\tiny Số con};
+			\draw[thin,->](0,-4.8)--(0,70)node[left]{\tiny Tần suất};
+			
+			%Vẽ các đơn vị trên trục. 1 đơn vị trên trục Ox là 2mm.
+			\foreach \x in {4,8,12,16}
+			\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+			\foreach \y in {2,4,14,20,60}
+			\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+			
+			%Vẽ các nhãn trên trục.
+			%Khi lặp, dùng \mathrm{,} để gõ dấu phẩy trong nhãn (xem trục Oy).
+			\foreach \x/\xtext in {4/1,8/2,12/3,16/4}
+			\draw(\x,0) node[below] {\tiny $\xtext$};
+			\foreach \y/\ytext in {2/2, 4/4, 14/14, 20/20, 60/60}
+			\draw(0,\y) node[left] {\tiny $\ytext$};
+			\node[below left](0,0){\tiny $O$};
+			\tkzDefPoints{0/0/O, 2/0/x, 0/2/y}
+			\tkzMarkRightAngle[size=0.1](x,O,y)
+			
+			%Vẽ đường gấp khúc
+			\draw[thick] (0,4)--(4,20)--(8,60)--(12,14)--(16,2);
+			\draw[fill=black] (0,4) circle (1.0pt);
+			\draw[fill=black] (4,20) circle (1.0pt);
+			\draw[fill=black] (8,60) circle (1.0pt);
+			\draw[fill=black] (12,14) circle (1.0pt);
+			\draw[fill=black] (16,2) circle (1.0pt);
+			
+			%Vẽ các đường gióng
+			\draw[dashed,thin] (0,20)--(4,20)--(4,0);
+			\draw[dashed,thin] (0,60)--(8,60)--(8,0);
+			\draw[dashed,thin] (0,14)--(12,14)--(12,0);
+			\draw[dashed,thin] (0,2)--(16,2)--(16,0);
+			\end{tikzpicture}
+		\end{center}
+		Các gia đình có nhiều hơn $2$ con chiếm $14$ \% $+2$ \% $=16$ \%. Suy ra số gia đình có nhiều hơn $2$ con là $\dfrac{16\times 50}{100}=8$.
+	}
+\end{bt}
+
+
+\begin{bt}%[Ngô Thị Nguyện]%[0D5B2]
+	Cho bảng tần suất ghép lớp:
+	\vspace*{-10pt}
+	\begin{center}
+		Tốc độ (km/h) của $40$ chiếc xe máy qua trạm kiểm soát giao thông B\\
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline
+			Lớp tốc độ & [40; 50) & [50; 60) & [60; 70) & [70; 80] & Cộng\\
+			\hline
+			Tần suất (\%) & 25 & 15 & 40 & 20 & 100\,\%\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hãy vẽ biểu đồ đường gấp khúc tần suất về tốc độ (km/h) của $40$ chiếc xe máy qua trạm kiểm soát giao thông B và nhận xét xem có bao nhiêu chiếc xe đi với tốc độ không dưới $70$ km/h.
+	\loigiai
+	{
+		Bảng giá trị đại diện (GTĐD) của các lớp:
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|}
+				\hline
+				Lớp tốc độ &  [40; 50) & [50; 60) & [60; 70) & [70; 80] \\
+				\hline
+				GTĐD & 45 & 55 & 65 & 75\\
+				\hline
+			\end{tabular}
+		\end{center}
+		Biểu đồ đường gấp khúc tần suất về tốc độ (km/h) của $40$ chiếc xe máy qua trạm kiểm soát giao thông B:
+		\begin{center}
+			%Biểu đồ đường gấp khúc
+			\begin{tikzpicture}[ybar,scale=1.0,>=stealth,x=1mm,y=1.2mm]%Thay đối scale hay x,y phải thay đổi lại trục Ox và tuỳ chọn dots để có 3 chấm trên Ox
+			%Vẽ hai trục
+			\draw[thin](-5,0)-- (3,0);
+			\draw[thin,line cap=round, dash pattern=on 0pt off 2pt] (3,0)--(6,0);%Thay đổi số chấm qua tuỳ chọn off 2pt
+			\draw[thin,->](6,0)--(90,0)node[below]{\tiny Tốc độ (km/h)};
+			\draw[thin,->](0,-4.8)--(0,48)node[left]{\tiny Tần suất};
+			
+			%Vẽ các đơn vị trên trục. 1 đơn vị trên trục Ox là 2mm.
+			\foreach \x in {2,3,6,10,30,50,70}
+			\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+			\foreach \y in {10,15,20,25,30,40}
+			\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+			
+			%Vẽ các nhãn trên trục.
+			%Khi lặp, dùng \mathrm{,} để gõ dấu phẩy trong nhãn (xem trục Oy).
+			\foreach \x/\xtext in {2/1,10/45,30/55,50/65,70/75}
+			\draw(\x,0) node[below] {\tiny $\xtext$};
+			\foreach \y/\ytext in {15/15,20/20,25/25,40/40}
+			\draw(0,\y) node[left] {\tiny $\ytext$};
+			\node[below left](0,0){\tiny $O$};
+			\tkzDefPoints{0/0/O, 2/0/x, 0/2/y}
+			\tkzMarkRightAngle[size=0.1](x,O,y)
+			
+			%Vẽ đường gấp khúc
+			\draw[thick] (10,25)--(30,15)--(50,40)--(70,20);
+			\draw[fill=black] (10,25) circle (1.0pt);
+			\draw[fill=black] (30,15) circle (1.0pt);
+			\draw[fill=black] (50,40) circle (1.0pt);
+			\draw[fill=black] (70,20) circle (1.0pt);
+			
+			%Vẽ các đường gióng
+			\draw[dashed,thin] (0,25)--(10,25)--(10,0);
+			\draw[dashed,thin] (0,15)--(30,15)--(30,0);
+			\draw[dashed,thin] (0,40)--(50,40)--(50,0);
+			\draw[dashed,thin] (0,20)--(70,20)--(70,0);
+			\end{tikzpicture}
+		\end{center}
+		Các xe đi với vận tốc không dưới $70$ km/h chiếm $20$ \%. Suy ra số xe đi với vận tốc không dưới $70$ km/h là $\dfrac{20\times 40}{100}=8$.
+	}
+\end{bt}
+
+
+\begin{bt}%[Ngô Thị Nguyện]%[0D5B2]
+	Cho bảng tần suất:
+	\vspace*{-10pt}
+	\begin{center}
+		Tiền lương (nghìn đồng) hàng tháng của $50$ công nhân ở xưởng may C\\
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline
+			Tiền lương & 700 & 800 & 900 & 1000 & 1100 & 1200 & Cộng\\
+			\hline
+			Tần suất (\%) & 16 & 18 & 24 & 20 & 12 & 10 & 100\,\%\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hãy vẽ biểu đồ đường gấp khúc tần suất và đường gấp khúc tần số về tiền lương (nghìn đồng) hàng tháng của $50$ công nhân ở xưởng may C.
+	\loigiai
+	{Bảng phân bố tần số:
+		\begin{center}
+			Tiền lương (nghìn đồng) hàng tháng của $50$ công nhân ở xưởng may C\\
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+				\hline
+				Tiền lương & 700 & 800 & 900 & 1000 & 1100 & 1200 & Cộng\\
+				\hline
+				Tần số & 8 & 9 & 12 & 10 & 6 & 5 & 50\\
+				\hline
+			\end{tabular}
+		\end{center}
+		Biểu đồ đường gấp khúc tần suất về tiền lương (nghìn đồng) hàng tháng của $50$ công nhân ở xưởng may C:
+		\begin{center}
+			%Biểu đồ đường gấp khúc
+			\begin{tikzpicture}[ybar,scale=1.0,>=stealth,x=1mm,y=1.2mm]%Thay đối scale hay x,y phải thay đổi lại trục Ox và tuỳ chọn dots để có 3 chấm trên Ox
+			%Vẽ hai trục
+			\draw[thin](-5,0)-- (7,0);
+			\draw[thin,line cap=round, dash pattern=on 0pt off 2pt] (7,0)--(10,0);%Thay đổi số chấm qua tuỳ chọn off 2pt
+			\draw[thin,->](10,0)--(80,0)node[below]{\tiny Tiền lương};
+			\draw[thin,->](0,-4.8)--(0,30)node[left]{\tiny Tần suất};
+			
+			%Vẽ các đơn vị trên trục. 1 đơn vị trên trục Ox là 2mm.
+			\foreach \x in {4,7,10,15,25,35,45,55,65}
+			\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+			\foreach \y in {10,12,16,18,20,24}
+			\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+			
+			%Vẽ các nhãn trên trục.
+			%Khi lặp, dùng \mathrm{,} để gõ dấu phẩy trong nhãn (xem trục Oy).
+			\foreach \x/\xtext in {4/40,15/700,25/800,35/900,45/1000,55/1100,65/1200}
+			\draw(\x,0) node[below] {\tiny $\xtext$};
+			\foreach \y/\ytext in {10/10,12/12,16/16,18/18,20/20,24/24}
+			\draw(0,\y) node[left] {\tiny $\ytext$};
+			\node[below left](0,0){\tiny $O$};
+			\tkzDefPoints{0/0/O, 2/0/x, 0/2/y}
+			\tkzMarkRightAngle[size=0.1](x,O,y)
+			
+			%Vẽ đường gấp khúc
+			\draw[thick] (15,16)--(25,18)--(35,24)--(45,20)--(55,12)--(65,10);
+			\draw[fill=black] (15,16) circle (1.0pt);
+			\draw[fill=black] (25,18) circle (1.0pt);
+			\draw[fill=black] (35,24) circle (1.0pt);
+			\draw[fill=black] (45,20) circle (1.0pt);
+			\draw[fill=black] (55,12) circle (1.0pt);
+			\draw[fill=black] (65,10) circle (1.0pt);
+			
+			%Vẽ các đường gióng
+			\draw[dashed,thin] (0,16)--(15,16)--(15,0);
+			\draw[dashed,thin] (0,18)--(25,18)--(25,0);
+			\draw[dashed,thin] (0,24)--(35,24)--(35,0);
+			\draw[dashed,thin] (0,20)--(45,20)--(45,0);
+			\draw[dashed,thin] (0,12)--(55,12)--(55,0);
+			\draw[dashed,thin] (0,10)--(65,10)--(65,0);
+			\end{tikzpicture}
+		\end{center}
+		
+		Biểu đồ đường gấp khúc tần suất về tiền lương (nghìn đồng) hàng tháng của $50$ công nhân ở xưởng may C:
+		\begin{center}
+			%Biểu đồ đường gấp khúc
+			\begin{tikzpicture}[ybar,scale=1.0,>=stealth,x=1mm,y=1.2mm]%Thay đối scale hay x,y phải thay đổi lại trục Ox và tuỳ chọn dots để có 3 chấm trên Ox
+			%Vẽ hai trục
+			\draw[thin](-5,0)-- (7,0);
+			\draw[thin,line cap=round, dash pattern=on 0pt off 2pt] (7,0)--(10,0);%Thay đổi số chấm qua tuỳ chọn off 2pt
+			\draw[thin,->](10,0)--(80,0)node[below]{\tiny Tiền lương};
+			\draw[thin,->](0,-4.8)--(0,30)node[left]{\tiny Tần số};
+			
+			%Vẽ các đơn vị trên trục. 1 đơn vị trên trục Ox là 2mm.
+			\foreach \x in {4,7,10,15,25,35,45,55,65}
+			\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+			\foreach \y in {10,12,16,18,20,24}
+			\draw[thin,shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+			
+			%Vẽ các nhãn trên trục.
+			%Khi lặp, dùng \mathrm{,} để gõ dấu phẩy trong nhãn (xem trục Oy).
+			\foreach \x/\xtext in {4/40,15/700,25/800,35/900,45/1000,55/1100,65/1200}
+			\draw(\x,0) node[below] {\tiny $\xtext$};
+			\foreach \y/\ytext in {10/5,12/6,16/8,18/9,20/10,24/12}
+			\draw(0,\y) node[left] {\tiny $\ytext$};
+			\node[below left](0,0){\tiny $O$};
+			\tkzDefPoints{0/0/O, 2/0/x, 0/2/y}
+			\tkzMarkRightAngle[size=0.1](x,O,y)
+			
+			%Vẽ đường gấp khúc
+			\draw[thick] (15,16)--(25,18)--(35,24)--(45,20)--(55,12)--(65,10);
+			\draw[fill=black] (15,16) circle (1.0pt);
+			\draw[fill=black] (25,18) circle (1.0pt);
+			\draw[fill=black] (35,24) circle (1.0pt);
+			\draw[fill=black] (45,20) circle (1.0pt);
+			\draw[fill=black] (55,12) circle (1.0pt);
+			\draw[fill=black] (65,10) circle (1.0pt);
+			
+			%Vẽ các đường gióng
+			\draw[dashed,thin] (0,16)--(15,16)--(15,0);
+			\draw[dashed,thin] (0,18)--(25,18)--(25,0);
+			\draw[dashed,thin] (0,24)--(35,24)--(35,0);
+			\draw[dashed,thin] (0,20)--(45,20)--(45,0);
+			\draw[dashed,thin] (0,12)--(55,12)--(55,0);
+			\draw[dashed,thin] (0,10)--(65,10)--(65,0);
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+
+\begin{dang}{Biểu đồ hình quạt}
+\end{dang}
+\begin{vd}%[Ngô Thị Nguyện]%[0D5B2]
+	Chiều cao (cm) của $36$ học sinh nam ở một lớp 12A1:\\
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Lớp chiều cao (cm) & [160; 164) & [164; 168) & [168; 172) & [172; 176] & Cộng\\
+			\hline
+			Tần số  & 5 & 12 & 11 & 8 & 36\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Vẽ biểu đồ tần suất hình quạt cho bảng thống kê trên.
+	\loigiai{
+		Ta có bảng phân bố tần suất sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				Lớp chiều cao (cm) & [160; 164) & [164; 168) & [168; 172) & [172; 176] & Cộng\\
+				\hline
+				Tần số  & 5 & 12 & 11 & 8 & 36\\
+				\hline
+				Tần suất (\%)  & 14 & 33 & 31 & 22 & 100\\
+				\hline
+			\end{tabular}
+		\end{center}
+		Từ đó ta có biểu đồ tần suất hình quạt như sau:
+		\begin{center}
+			\begin{tikzpicture}[scale=0.7,>=stealth]
+			\draw(0,0) circle (3cm);
+			\draw[pattern=north east lines] (0,0) -- +(0:3) arc (0:51:3)--(0,0) (1.5,0.5) node{\footnotesize $14\%$};
+			\draw[pattern=north west lines] (0,0) -- +(51:3) arc (51:169:3)--(0,0) (-1.5,1) node{\footnotesize $33\%$ };
+			\draw[pattern=dots] (0,0) -- +(169:3) arc (169:279:3)--(0,0)(-0.5,-1.5)node{\footnotesize $31\%$ }
+			(2,-1.5)node{\footnotesize $22\%$};
+			\draw[pattern=north east lines] (3.5,1.5) rectangle (4,2) (5.25,1.75) node{\footnotesize $[160; 164)$};
+			\draw[pattern=north west lines] (3.5,0.5) rectangle (4,1) (5.25,0.75) node{\footnotesize $[164; 168)$};
+			\draw[pattern=dots] (3.5,-0.5) rectangle (4,0) (5.25,-0.25) node{\footnotesize $[168; 172)$};
+			\draw (3.5,-1.5) rectangle (4,-1) (5.25,-1.25) node{\footnotesize $[172; 176]$};
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+
+\begin{vd}%[Ngô Thị Nguyện]%[0D5B2]
+	Tiến hành một cuộc thăm dò về số cân nặng của một nhóm xã. Kết quả thu được biểu diễn qua biểu đồ tần suất hình quạt như sau:
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7,>=stealth]
+		\draw(0,0) circle (3cm);
+		\draw[pattern=north east lines] (0,0) -- +(0:3) arc (0:90:3)--(0,0) (1.5,1.5) node{\footnotesize $25\%$};
+		\draw[pattern=north west lines] (0,0) -- +(90:3) arc (90:162:3)--(0,0) (-1.5,1.5) node{\footnotesize $20\%$ };
+		\draw[pattern=dots] (0,0) -- +(162:3) arc (162:234:3)--(0,0)(-2,-0.5)node{\footnotesize $20\%$ }
+		(1,-1)node{\footnotesize $35\%$};
+		\draw[pattern=north east lines] (3.5,1.5) rectangle (4,2) (5.25,1.75) node{\footnotesize $[35; 40)$};
+		\draw[pattern=north west lines] (3.5,0.5) rectangle (4,1) (5.25,0.75) node{\footnotesize $[40; 45)$};
+		\draw[pattern=dots] (3.5,-0.5) rectangle (4,0) (5.25,-0.25) node{\footnotesize $[45; 50)$};
+		\draw (3.5,-1.5) rectangle (4,-1) (5.25,-1.25) node{\footnotesize $[50; 55]$};
+		\end{tikzpicture}
+	\end{center}
+	Hỏi số người trong xã có cân nặng từ $40$ kg đến dưới $50$ kg là bao nhiêu người, biết rằng xã có $1000$ người.
+	\loigiai{
+		Dựa vào biểu đồ quạt ta có:\\
+		Tỉ lệ người có cân nặng từ $40$ kg đến dưới $50$ kg là $20+20=40$ \%.\\
+		Số người có cân nặng từ $40$ kg đến dưới $50$ kg là $\dfrac{40\times 1000}{100}=400$ người.
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Ngô Thị Nguyện]%[0D5B2]
+	Số lượng khách đến tham quan tại Đà Nẵng trong $12$ tháng được cho bởi biểu đồ như sau:
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7,>=stealth]
+		\draw(0,0) circle (3cm);
+		\draw[pattern=north east lines] (0,0) -- +(0:3) arc (0:60:3)--(0,0) (1.5,0.75) node{\footnotesize $16,67\%$};
+		\draw[pattern=north west lines] (0,0) -- +(60:3) arc (60:180:3)--(0,0) (-0.5,1.5) node{\footnotesize $33,33\%$ };
+		\draw[pattern=dots] (0,0) -- +(180:3) arc (180:270:3)--(0,0)(-1.5,-1.5)node{\footnotesize $25\%$ }
+		(1.5,-1.5)node{\footnotesize $25\%$};
+		\draw[pattern=north east lines] (3.5,1.5) rectangle (4,2) (5.5,1.75) node{\footnotesize $[200;300)$};
+		\draw[pattern=north west lines] (3.5,0.5) rectangle (4,1) (5.5,0.75) node{\footnotesize $[300;400)$};
+		\draw[pattern=dots] (3.5,-0.5) rectangle (4,0) (5.5,-0.25) node{\footnotesize $[400;500)$};
+		\draw (3.5,-1.5) rectangle (4,-1) (5.5,-1.25) node{\footnotesize $[500;600]$};
+		\end{tikzpicture}
+	\end{center}
+	Tính số tháng mà số người tham quan không dưới $400$ người.
+	\loigiai{
+		Dựa vào biểu đồ, ta có số người tham quan không dưới $400$ người chiếm tỉ lệ phần trăm là: $25+25=50$ \%.\\
+		Vậy số tháng mà số người thăm quan trên $400$ người là $\dfrac{50\times 12}{100}=6$ tháng.
+	}
+\end{bt}
+\begin{bt}%[Ngô Thị Nguyện]%[0D5B2]
+	Biểu đồ hình quạt sau  mô tả tỉ lệ về giá trị đạt được của khoáng sản xuất khẩu nước ngoài của nước ta:
+	%Biểu đồ quạt
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7,>=stealth]
+		\draw(0,0) circle (3cm);
+		\draw[pattern=north east lines] (0,0) -- +(0:3) arc (0:216:3)--(0,0) (0,1.5) node{\footnotesize $x\%$};
+		\draw[pattern=north west lines] (0,0) -- +(216:3) arc (216:306:3)--(0,0) (-0.5,-1.5) node{\footnotesize $25\%$ };
+		\draw[pattern=dots] (0,0) -- +(306:3) arc (306:342:3)--(0,0)(1.5,-1)node{\footnotesize $10\%$ }
+		(2,-0.25)node{\footnotesize $5\%$};
+		\draw[pattern=north east lines] (3.5,1.5) rectangle (4,2) (5.25,1.75) node{\footnotesize Dầu };
+		\draw[pattern=north west lines] (3.5,0.5) rectangle (4,1) (5.25,0.75) node{\footnotesize Than đá};
+		\draw[pattern=dots] (3.5,-0.5) rectangle (4,0) (5.25,-0.25) node{\footnotesize Sắt};
+		\draw (3.5,-1.5) rectangle (4,-1) (5.25,-1.25) node{\footnotesize Vàng};
+		\end{tikzpicture}
+		
+	\end{center}
+	Biết rằng giá trị xuất khẩu của nước ta về dầu là $450$ triệu USA. Hỏi giá trị xuất khẩu vàng là bao nhiêu triệu USA?
+	\loigiai{
+		Tỉ lệ phần trăm của dầu là $100$ \% $-25$ \% $-10$ \% $-5$ \% $=60$ \%.\\
+		Suy ra giá trị xuất khẩu của vàng là $\dfrac{450}{60}\cdot 5=37,5$ triệu USA.
+	}
+\end{bt}
+\begin{bt}%[Ngô Thị Nguyện]%[0D5B2]
+	Cho bảng phân bố tần số điểm thi môn Anh Văn của một trung tâm ở
+	Hà Nội:
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Điểm thi & 6 & 7 & 8 & 9 & Cộng \\
+			\hline
+			Tần số & 40 & 60 & 80 & 20 & 200 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Vẽ biểu dồ hình quạt mô tả bảng dữ liệu thống kê trên.
+	\loigiai{
+		Ta có bảng phân bố tần suất sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				Điểm thi & 6 & 7 & 8 & 9 & Cộng \\
+				\hline
+				Tần số & 40 & 60 & 80 & 20 & 200 \\
+				\hline
+				Tần suất (\%) & 20 & 30 & 40 & 10 & 100 \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Khi đó ta có biểu đồ tần suất hình quạt:
+		\begin{center}
+			\begin{tikzpicture}[scale=0.7,>=stealth]
+			\draw(0,0) circle (3cm);
+			\draw[pattern=north east lines] (0,0) -- +(0:3) arc (0:60:3)--(0,0) (1.5,0.5) node{\footnotesize $20\%$};
+			\draw[pattern=north west lines] (0,0) -- +(60:3) arc (60:168:3)--(0,0) (-1.5,1.5) node{\footnotesize $30\%$ };
+			\draw[pattern=dots] (0,0) -- +(168:3) arc (168:324:3)--(0,0)(-1.5,-0.5)node{\footnotesize $40\%$ }
+			(1.5,-0.5)node{\footnotesize $10\%$};
+			\draw[pattern=north east lines] (3.5,1.5) rectangle (4,2) (4.5,1.75) node{\footnotesize $6$};
+			\draw[pattern=north west lines] (3.5,0.5) rectangle (4,1) (4.5,0.75) node{\footnotesize $7$};
+			\draw[pattern=dots] (3.5,-0.5) rectangle (4,0) (4.5,-0.25) node{\footnotesize $8$};
+			\draw (3.5,-1.5) rectangle (4,-1) (4.5,-1.25) node{\footnotesize $9$};
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+\begin{bt}%[Ngô Thị Nguyện]%[0D5B2]
+	Tuổi thọ (tính theo tháng) của $100$ bóng đèn thắp thử được thể hiện qua biểu đồ tần suất hình quạt:
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7,>=stealth]
+		\draw(0,0) circle (3cm);
+		\draw[pattern=north east lines] (0,0) -- +(0:3) arc (0:72:3)--(0,0) (1.5,1.5) node{\footnotesize $x\%$};
+		\draw[pattern=north west lines] (0,0) -- +(72:3) arc (72:162:3)--(0,0) (-1.5,1.5) node{\footnotesize $25\%$ };
+		\draw[pattern=dots] (0,0) -- +(162:3) arc (162:324:3)--(0,0)(-0.5,-1.5)node{\footnotesize $45\%$ }
+		(1.5,-0.5)node{\footnotesize $y\%$};
+		\draw[pattern=north east lines] (3.5,1.5) rectangle (4,2) (5.5,1.75) node{\footnotesize $[2;3)$};
+		\draw[pattern=north west lines] (3.5,0.5) rectangle (4,1) (5.5,0.75) node{\footnotesize $[3;4)$};
+		\draw[pattern=dots] (3.5,-0.5) rectangle (4,0) (5.5,-0.25) node{\footnotesize $[4;5)$};
+		\draw (3.5,-1.5) rectangle (4,-1) (5.5,-1.25) node{\footnotesize $[5;6]$};
+		\end{tikzpicture}
+	\end{center}
+	Biết rằng $x,y$ thỏa mãn $x^2+y^2=500$. Tìm số bóng đèn có tuổi thọ trong khoảng $[2;5)$ biết rằng $x>15$.
+	\loigiai{
+		Ta có hệ\\ $\heva{&x+y=30\\&x^2+y^2=500}\Leftrightarrow\heva{&y=30-x\\&x^2+(30-x)^2=500}\Leftrightarrow\heva{&y=30-x\\&2x^2-60x+400=0}\Leftrightarrow\heva{&y=30-x\\&\hoac{&x=20\\&x=10}}\Leftrightarrow\heva{&x=20\\&y=10}$.\\
+		Tỉ lệ của số bóng đèn có tuổi thọ trong khoảng $[2;5)$ là $20$ \% $+25$ \% $+45$ \% $=90$ \%. Khi đó, số bóng đèn có tuổi thọ trong khoảng $[2;5)$ là
+		$\dfrac{90\times 100}{100}=90$ bóng.
+	}
+\end{bt}

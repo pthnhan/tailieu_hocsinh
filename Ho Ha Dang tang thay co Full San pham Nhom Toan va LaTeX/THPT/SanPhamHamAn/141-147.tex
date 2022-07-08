@@ -1,0 +1,318 @@
+\begin{ex}%[WTT Bài toán hàm ẩn, Phan Quốc Trí]%[2D1G2-2]
+\immini{
+Cho hàm số $y=f(x)$ có đồ thị như hình bên dưới. Đồ thị hàm số $g(x)=f\left(\left| x \right| -2  \right)$ có bao nhiêu điểm cực trị?
+	\choice
+	{$1$}
+	{$3$}
+	{\True $5$}
+	{$7$}
+	}{
+	\begin{tikzpicture}[scale=1]
+\def \xmin{-2.1}
+\def \xmax{3.5}
+\def \ymin{-0.7}
+\def \ymax{5.3}
+\tkzDefPoints{0/0/O}
+\draw[->] (\xmin,0) -- (\xmax,0);
+\draw[->,color=black] (0,\ymin) -- (0,\ymax);
+\draw[color=black](\xmax-0.3,.2)node[right] {$x$};
+\draw[color=black] (.1,\ymax) node[right] {\normalsize $y$};
+\draw[color=black] (0pt,-8pt) node[left] {\small $O$};
+\begin{scope}
+\clip(\xmin ,\ymin) rectangle (\xmax-.3,\ymax-.3);
+\draw[color=black,smooth,samples=100,domain=-4.08:4.06] 
+plot(\x,{(\x)^3-3*(\x)^2-0*(\x)+4});
+\end{scope}
+\node at (-0.3,4.2){\small 4};
+\node at (-1.3,-0.3){\small 1};
+\node at (2,-0.3){\small 2};
+\tkzDrawPoints[fill=black](O)
+\end{tikzpicture} 
+	}
+	\loigiai{
+Ta biết rằng, đồ thị hàm số $g(x)=f\left( |x| -2 \right)$ được suy ra từ đồ thị hàm số $y=f(x)$ bằng cách tịnh tiến sang phải $2$ đơn vị rồi mới lấy đối xứng.
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+\def \xmin{-2.1}
+\def \xmax{5.5}
+\def \ymin{-17}
+\def \ymax{5.3}
+\tkzDefPoints{0/0/O, 2/4/M, 4/0/N, 0/-16/K}
+\draw[->] (\xmin,0) -- (\xmax,0);
+\draw[->,color=black] (0,\ymin) -- (0,\ymax);
+\draw[color=black](\xmax-0.3,.2)node[right] {$x$};
+\draw[color=black] (.1,\ymax) node[right] {\normalsize $y$};
+\draw[color=black] (0pt,-8pt) node[left] {\small $O$};
+\begin{scope}
+\clip(\xmin ,\ymin) rectangle (\xmax-.3,\ymax-.3);
+\draw[color=black,smooth,samples=100,domain=\xmin+0.3:\xmax-0.3] 
+plot(\x,{(\x)^3-9*(\x)^2+24*(\x)-16});
+\end{scope}
+\draw[dashed] (0,4)--(2,4);
+\node at (0.7,-0.4){\small 1};
+\node at (-0.3,4){\small 4};
+\node at (-0.5,-16){\small -16};
+\node at (4,-0.4){\small 4};
+\tkzDrawPoints[fill=black](O,M,N,K)
+\node at (3,-3) {$ y=f(x-2) $};
+\end{tikzpicture} 
+\begin{tikzpicture}[scale=0.6]
+\def \xmin{-5.5}
+\def \xmax{5.5}
+\def \ymin{-17}
+\def \ymax{5.3}
+\tkzDefPoints{0/0/O, 2/4/M, 4/0/N, 0/-16/K}
+\draw[->] (\xmin,0) -- (\xmax,0);
+\draw[->,color=black] (0,\ymin) -- (0,\ymax);
+\draw[color=black](\xmax-0.3,.2)node[right] {$x$};
+\draw[color=black] (.1,\ymax) node[right] {\normalsize $y$};
+\draw[color=black] (0pt,-8pt) node[left] {\small $O$};
+\begin{scope}
+\clip(\xmin ,\ymin) rectangle (\xmax-.3,\ymax-.3);
+\draw[color=black,smooth,samples=700,domain=\xmin+0.3:\xmax-0.3] 
+plot(\x,{(abs(\x))^3-9*(\x)^2+24*(abs(\x))-16});
+\end{scope}
+\draw[dashed] (0,4)--(2,4);
+\node at (0.7,-0.4){\small 1};
+\node at (-0.3,4){\small 4};
+\node at (-0.5,-16){\small -16};
+\node at (4,-0.4){\small 4};
+\tkzDrawPoints[fill=black](O,M,N,K)
+\node at (4,-3) {$g(x)=f\left( |x| -2 \right)$};
+\end{tikzpicture} 
+\end{center}
+Dựa vào đồ thị hàm số $g(x)=f\left( |x| -2 \right)$, suy ra hàm số $g(x)$ có $5$ điểm cực trị.
+	}
+\end{ex}
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Phan Quốc Trí]%[2D1G2-2]
+\immini{
+Cho hàm số $y=f(x)$ có đồ thị như hình bên. Đồ thị hàm số $g(x)=f\left( \left| x-2 \right| \right) +1$ có bao nhiêu điểm cực trị?
+	\choice
+	{$2$}
+	{\True $3$}
+	{$5$}
+	{$7$}
+	}{
+	\begin{tikzpicture}[scale=0.8]
+\def \xmin{-2.3}
+\def \xmax{2.3}
+\def \ymin{-5.0}
+\def \ymax{2.2}
+\tkzDefPoints{0/0/O}
+\tkzDrawPoints[fill=black](O)
+% Vẽ 2 trục, điền các số lên trục
+\draw[->] (\xmin,0) -- (\xmax,0);
+\draw[->,color=black] (0,\ymin) -- (0,\ymax);
+\draw[color=black](\xmax-0.3,.2)node[right] {$x$};
+\draw[color=black] (.1,\ymax) node[right] {\normalsize $y$};
+\draw[color=black] (0pt,-8pt) node[left] {\small $O$};
+\clip(\xmin ,\ymin) rectangle (\xmax-.3,\ymax-.3);
+%Vẽ đồ thị
+\draw[color=black,smooth,samples=100,domain=\xmin:\xmax] 
+plot(\x,{(\x)^4-2*(\x)^2-3});
+\draw[dashed] (1,0)--(1,-4)--(-1,-4)--(-1,0);
+\node at (-1,0.4){\small $-1$};
+\node at (1,0.4){\small $1$};
+\node at (-.3,-2.7){\small $ -3 $};
+\node at (-.3,-4.3){\small $ -4 $};
+\end{tikzpicture} 
+	}
+	\loigiai{
+Đồ thị hàm số 	 $g(x)=f\left( \left| x-2 \right| \right) +1$ được suy ra từ đồ thị hàm số $f(x)$ như sau:
+\begin{description}
+\item[Bước 1:] Lấy đối xứng qua $Oy$ nhưng vì đồ thị đã đối xứng sẵn nên bước này bỏ qua.
+\item[Bước 2:] Tịnh tiến đồ thị ở bước 1 sang phải 2 đơn vị.
+\item[Bước 3:] Tịnh tiến đồ thị ở bước 2 lên trên 1 đơn vị.
+\end{description}
+Vì phép tịnh tiến không làm thay đổi số cực trị nên ta không quan tâm đến bước 2 và bước 3. Từ nhận xét bước 1 ta thấy số điểm cực trị của đồ thị hàm số $g(x)$ bằng số điểm cực trị của đồ thị hàm số $f(x)$ là $3$ điểm cực trị.
+	}
+\end{ex}
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Phan Quốc Trí]%[2D1G2-2]
+\immini{
+Cho hàm số $y=f(x)$ có đồ thị như hình bên. Hàm số $g(x)=f(f(x))$ có bao nhiêu điểm cực trị?
+	\choice
+	{$3$}
+	{\True $4$}
+	{$5$}
+	{$6$}
+	}{
+	\begin{tikzpicture}[scale=0.6]
+\def \xmin{-1.5}
+\def \xmax{4.0}
+\def \ymin{-5}
+\def \ymax{2.3}
+\tkzDefPoints{0/0/O, 2/-4/M}
+\draw[->] (\xmin,0) -- (\xmax,0);
+\draw[->,color=black] (0,\ymin) -- (0,\ymax);
+\draw[color=black](\xmax-0.3,.2)node[right] {$x$};
+\draw[color=black] (.1,\ymax) node[right] {\normalsize $y$};
+\draw[color=black] (0pt,8pt) node[left] {\small $O$};
+\begin{scope}
+\clip(\xmin ,\ymin) rectangle (\xmax-.3,\ymax-.3);
+%Vẽ đồ thị
+\draw[color=black,smooth,samples=700,domain=\xmin+0.3:\xmax-0.3] 
+plot(\x,{(\x)^3-3*(\x)^2+0*(\x)});
+\end{scope}
+%vẽ râu ria
+\draw[dashed] (0,-4)--(2,-4)--(2,0);
+\node at (2,0.4){ 2};
+\node at (-0.4,-4){-4};
+\tkzDrawPoints[fill=black](O,M)
+\end{tikzpicture} 
+	}
+	\loigiai{
+\begin{description}
+\item[Cách 1]
+Dựa vào đồ thị ta thấy $f(x)$ đạt cực trị tại $x=0$ và $x=2$. \\
+Suy ra $f'(x)=\hoac{&x=0 \text{ (nghiệm đơn) }\\&x=2 \text{ (nghiệm đơn)} }$. Ta có $g'(x)=f'(x)\cdot f' \left[ f(x) \right]$\\
+nên $g'(x)=0 \Leftrightarrow \hoac{&f'(x)=0\\& f'\left[ f(x) \right]=0. } \Leftrightarrow \hoac{&x=0 \text{ (nghiệm đơn) }\\&x=2 \text{ (nghiệm đơn)}\\& f(x)=0 \quad (1) \\& f(x) = 2. \quad (2) }$
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+\def \xmin{-1.5}
+\def \xmax{5.5}
+\def \ymin{-5}
+\def \ymax{3.3}
+\tkzDefPoints{0/0/O, 2/-4/M}
+\draw[->] (\xmin,0) -- (\xmax,0);
+\draw[->,color=black] (0,\ymin) -- (0,\ymax);
+\draw[color=black](\xmax-0.3,.2)node[right] {$x$};
+\draw[color=black] (.1,\ymax) node[right] {\normalsize $y$};
+\draw[color=black] (0pt,8pt) node[left] {\small $O$};
+\begin{scope}
+\clip(\xmin ,\ymin) rectangle (\xmax-.3,\ymax-.3);
+%Vẽ đồ thị
+\draw[color=black,smooth,samples=700,domain=\xmin+0.3:\xmax-0.3] 
+plot(\x,{(\x)^3-3*(\x)^2+0*(\x)});
+\end{scope}
+%vẽ râu ria
+\draw[dashed] (0,-4)--(2,-4)--(2,0);
+\draw (\xmin+0.2,2)--(\xmax-0.2,2);
+\node at (2,0.4){ 2};
+\node at (-0.4,-4){-4};
+\node at (4.5,2.4){$ y=2 $};
+\tkzDrawPoints[fill=black](O,M)
+\end{tikzpicture} 
+\end{center}
+Dựa vào đồ thị ta có:
+\begin{itemize}
+\item Phương trình $(1)$ có hai nghiệm $x=0$ (nghiệm kép) và $x=a \; (a>2)$.
+\item  Phương trình $(2)$ có một nghiệm $x=b \; (b>a)$
+\end{itemize}
+Vậy phương trình $g'(x)=0$ có bốn nghiệm bội lẻ là $x=0$, $x=2$, $x=a$ và $x=b$. Suy ra hàm số $g(x)=f(f(x))$ có $4$ điểm cực trị.
+\item[Cách 2] 
+Với $u=f(x)$ thì $f'(f(x))_x = f^{'}_u \cdot u'_x = f^{'}_u \cdot f^{'}_x$ 
+$$\Rightarrow f'(f(x)) =0 \Leftrightarrow \hoac{&f'_u=0\\&f'_x = 0} \Leftrightarrow \hoac{&u=f(x)=0\\&u=f(x)=2\\&x=0\\&x=2}$$
+\begin{itemize}
+\item Ta thấy $f(x)=0$ có hai nghiệm $x_{1,2}=0$ và $x_3>2$.
+\item Ta thấy $f(x)=2$ có hai nghiệm $x_4>x_3$
+\end{itemize}
+$\Rightarrow f'(f(x))=0$ có nghiệm $x=0$ bậc 3, $x=2$, $x_3$, $x_4$ bậc 1, suy ra hàm số có 4 cực trị.
+\end{description}
+	}
+\end{ex}
+
+\textbf{Dạng II.3 BẢNG BIẾN THIÊN}
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Phan Quốc Trí]%[2D1G2-2]
+Cho hàm số $y=f(x)$ xác định, liên tục trên $\mathbb{R}$ và có bảng biến thiên như sau.
+\begin{center}
+	\begin{tikzpicture}
+	\tkzTabInit[nocadre=false, lgt=1, espcl=2.0]{$x$ /0.6,$f'$ /0.6,$f$ /2}{$-\infty$,$-1$,$0$,$1$,$+\infty$}
+	\tkzTabLine{,-,d,+,$0$,-,$0$,+,}
+	\tkzTabVar{+/ $+\infty$,-/$1$,+/$2$,-/$1$,+/$+\infty$}
+	\end{tikzpicture}
+\end{center}
+Hàm số $g(x)=3f(x)+1$ đạt cực tiểu tại điểm nào sau đây?
+	\choice
+	{$x=-1$}
+	{$x=1$}
+	{\True $x=\pm 1$}
+	{$x=0$}
+	\loigiai{
+Ta có $g'(x)=3f'(x)$.\\ Do đó điểm cực tiểu của hàm số $g(x)$ trùng với điểm cực tiểu của hàm số $y=f(x)$.\\ Vậy điểm cực tiểu của hàm số là $x\pm 1$.
+	}
+\end{ex}
+
+\begin{ex}
+Cho hàm số $y=f(x)$ xác định, liên tục trên $\mathbb{R}$ và có bảng biến thiên như sau. 
+\begin{center}
+	\begin{tikzpicture}
+	\tkzTabInit[nocadre=false, lgt=1, espcl=2.0]{$x$ /0.6,$y'$ /0.6,$y$ /2}{$-\infty$,$0$,$1$,$2$,$+\infty$}
+	\tkzTabLine{,+,$0$,-,d,+,$0$,-,}
+	\tkzTabVar{-/ $+\infty$,+/$3$,-/$-1$,+/$2$,-/$-\infty$}
+	\end{tikzpicture}
+\end{center}
+Hàm số $g(x)=f(3-x)$ có bao nhiêu điểm cực trị?
+	\choice
+	{$2$}
+	{$3$}
+	{\True $5$}
+	{$6$}
+	\loigiai{
+Ta có $g'(x)=-f'(3-x)$.
+\begin{itemize}
+\item $g'(x) =0 \Leftrightarrow f'(3-x) = 0 \Leftrightarrow \hoac{&3-x=0\\&3-x=2} \Leftrightarrow \hoac{&x=3\\&x=1.}$
+\item $g'(x)$ không xác định $\Leftrightarrow 3-x=1 \Leftrightarrow x=2$
+\end{itemize}
+Bảng biến thiên
+\begin{center}
+	\begin{tikzpicture}
+	\tkzTabInit[nocadre=false, lgt=1, espcl=2.0]{$x$ /0.6,$g'$ /0.6,$g$ /2}{$-\infty$,$1$,$2$,$3$,$+\infty$}
+	\tkzTabLine{,+,$0$,-,d,+,$0$,-,}
+	\tkzTabVar{-/ $+\infty$,+/$2$,-/$-1$,+/$3$,-/$-\infty$}
+	\end{tikzpicture}
+\end{center}
+Vậy hàm số $g(x)=f(3-x)$ có ba điểm cực trị.
+	}
+\end{ex}
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Phan Quốc Trí]%[2D1G2-2]
+Cho hàm số $y=f(x)$ xác định, liên tục trên $\mathbb{R}$ và có bảng biến thiên như sau.
+\begin{center}
+	\begin{tikzpicture}
+	\tkzTabInit[nocadre=false, lgt=1, espcl=3]{$x$ /1,$f'$ /1,$f$ /2}{$-\infty$,$-2$,$1$,$+\infty$}
+	\tkzTabLine{,-,0,+,0,+,}
+	\tkzTabVar{+/$+\infty$, -/$-2$,R,+/$+\infty$}
+		\tkzTabVal{2}{4}{0.5}{}{$2$}
+	\end{tikzpicture}
+\end{center}
+Hàm số $g(x)=f(x^2+1)$ có bao nhiêu điểm cực trị?
+	\choice
+	{$0$}
+	{\True $1$}
+	{$2$}
+	{$3$}
+	\loigiai{
+Ta có $g'(x)=2x \cdot f'(x^2+1)$.
+$$g'(x)=0 \Leftrightarrow \hoac{& x=0\\& f'(x^2+1)=0} \Leftrightarrow \hoac{& x=0\\& x^2-1=-2\\&x^2-1=1} \Leftrightarrow \hoac{& x=0 \text{ (nghiệm đơn)} \\ & x=0 \text{ (nghiệm kép)}} \Leftrightarrow x=0 \text{ (nghiệm bội 3)} $$
+Vậy $g'(x)=0$ có duy nhất nghiệm bội lẻ $x=0$ nên hàm số $g(x)$ có 1 điểm cực trị.
+	}
+\end{ex}
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Phan Quốc Trí]%[2D1G1-2]
+Cho hàm số $y=f(x)$ có bảng biến thiên như hình vẽ.
+\begin{center}
+	\begin{tikzpicture}
+	\tkzTabInit[nocadre=false, lgt=1, espcl=2.0]{$x$ /0.6,$y'$ /0.6,$y$ /2}{$-\infty$,$-2$,$0$,$2$,$+\infty$}
+	\tkzTabLine{,+,$0$,-,$0$,+,$0$,-,}
+	\tkzTabVar{-/ $+\infty$,+/$3$,-/$-1$,+/$3$,-/$-\infty$}
+	\end{tikzpicture}
+\end{center}
+Hàm số $g(x)=f(x^2-2)$ nghịch biến trên khoảng nào dưới đây?
+	\choice
+	{$(-2;0)$}
+	{\True $(2;+\infty )$}
+	{$(0;2)$}
+	{$(-\infty; -2)$}
+	\loigiai{
+Ta có $y'=2x \cdot f'(x^2-2)$.
+\begin{eqnarray*}
+y'>0 & \Leftrightarrow & \hoac{&\heva{&x>0\\ & f'(x^2-2) > 0 } \\&\heva{&x<0 \\ & f'(x^2-2)<0}} \Leftrightarrow 
+ \hoac{&\heva{&x>0\\ & \hoac{&x^2-2<-2\\& 0 < x^2-2 <2} } \\&\heva{&x<0 \\ & \hoac{& x^2-2>2\\ & -2< x^2 -2 <0}}}\\
+ & \Leftrightarrow & \hoac{& \sqrt{2} < x <2\\ & x<-4 \\ & -\sqrt{2} <x < 0.}
+\end{eqnarray*}
+Do đó hàm số $y=f(x^2-2)$ đồng biến trên các khoảng $(-\infty;-4)$, $(-\sqrt{2}; 0)$, $(\sqrt{2}; 2)$ và nghịch biến trên các khoảng $\left( -4; -\sqrt{2} \right)$, $\left(0; \sqrt{2} \right)$, $(2; +\infty )$.
+	}
+\end{ex}

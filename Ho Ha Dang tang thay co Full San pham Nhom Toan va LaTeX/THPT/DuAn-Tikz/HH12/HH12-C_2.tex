@@ -1,0 +1,1098 @@
+\section{Chương 2}
+\subsection{Hình 2.2}
+\begin{center}
+Mặt tròn xoay\\
+\begin{tikzpicture}[line cap=round,line join=round]%[Lê Bình]
+%Định nghĩa độ dài trục của các elip
+%Thay đổi độ lớn các trục elip, khoảng cách giữa các elip để thay đổi hình
+%Elip giữa
+\def\a{2}
+\def\b{0.5}
+%Elip trên
+\def\aa{0.6*\a}
+\def\bb{0.8*\b}
+%Elip dưới
+\def\aaa{0.7*\a}
+\def\bbb{0.7*\b}
+%Khoảng cách elip gữa tới 2 elip
+\def\c{3}
+\def\d{3.5}
+%Định nghĩa các điểm
+\coordinate[label=right:{$O$}] (O) at (0,0);
+\coordinate (O') at ($(O)+(0,\d)$);
+\coordinate (O'') at ($(O)-(0,\c)$);
+\coordinate [label=below right:{$\Delta$}] (S) at ($(O')+(0,3*\bb)$);%Điểm tạm để vẽ \delta
+\coordinate (S') at ($(O'')-(0,3*\bbb)$);
+\coordinate (A) at ($(O')-(2*\a,2*\b)$);
+\coordinate (B) at ($(O'')-(2*\a,2*\b)$);
+\tkzDefPointBy[rotation = center O' angle 180](A)\tkzGetPoint{C}%C đối xứng với A qua O'
+\coordinate (D) at ($(B)+(C)-(A)$);
+\coordinate (E) at ($(O)-(2*\a,2*\b)$);%Điểm tạm để xác định M
+%Vẽ các elip và các đoạn thẳng tạm để tìm giao điểm
+\draw[draw=none,name path=ELIPA] (O) ellipse (\a cm and \b cm);
+\draw[name path=ELIPB] (O') ellipse (\aa cm and \bb cm);
+\draw[draw=none,name path=ELIPC] (O'') ellipse (\aaa cm and \bbb cm);
+\draw[name path=AC] (A)--(C);
+\draw[draw=none,name path=BD] (B)--(D);
+\draw[draw=none,name path=OE] (O)--(E);
+%Vẽ mặt phẳng
+\draw(A)--(B) (C)--(D);
+\tkzMarkAngle[size=0.5](B,A,C)
+\tkzLabelAngle[pos=0.3](B,A,C){$P$}
+%Tìm các giao điểm với các elip
+\draw[name intersections={of=ELIPA and OE, by={M}}] (M) node[below right]{$M$};
+\draw[name intersections={of=ELIPB and AC, by={F,G}}];
+\draw[name intersections={of=ELIPC and BD, by={H,I}}];
+\draw[dashed] (M)--(O);
+%Vẽ đường cong giữa
+\coordinate (J) at ($(M)+(-0.1*\a,0.3*\c)$);%Điểm tạm để vẽ đường cong
+\coordinate [label=below left:{$\mathscr{C}$}](K) at ($(M)+(0.5*\a,0.55*\c)$);%Điểm tạm để vẽ đường cong
+\draw [name path=curvea] (I)--(M) .. controls (J) and (K) .. (G);
+%Vẽ đường cong trái
+\coordinate (L) at ($(-\a,0)+(-0.1*\a,0.3*\c)$);
+\coordinate (N) at ($(-\a,0)+(0.75*\a,0.5*\c)$);
+\draw [dashed,name path=curveb] ($(O'')-(\aaa,0)$)--($(O)-(\a,0)$) .. controls (L) and (N) .. ($(O')-(\aa,0)$);
+\draw[name intersections={of=curveb and AC, by={V}}];
+\begin{scope}
+\clip($(V)-(\a,0)$) rectangle (C);
+\draw($(O'')-(\aaa,0)$)--($(O)-(\a,0)$) .. controls (L) and (N) .. ($(O')-(\aa,0)$);
+\end{scope}
+%Vẽ đường cong phải
+\coordinate (P) at ($(\a,0)+(0.1*\a,0.3*\c)$);
+\coordinate (Q) at ($(\a,0)+(-0.75*\a,0.5*\c)$);
+\draw [name path=curvec] ($(O'')+(\aaa,0)$)--($(O)+(\a,0)$) .. controls (P) and (Q) .. ($(O')+(\aa,0)$);
+%Vẽ các elip và đường nối
+\draw[name intersections={of=curvec and BD, by={R}}] (B)--(I) (R)--(D);
+\draw[dashed] (I)--(R);
+%Vẽ \Delta
+\draw[draw=none,name path=SS'] (S)--(S');
+\draw[name intersections={of=ELIPB and SS', by={T,U}}] (S)--(U);
+\draw[name intersections={of=ELIPC and SS', by={W,V}}] (V)--(S');
+\draw[dashed] (U)--(V);
+%Vẽ elip giữa
+\begin{scope}
+\clip($(M)-(0,\b)$) rectangle (\a,0);
+\draw(O) ellipse (\a cm and \b cm);
+\end{scope}
+\draw[dashed](O) ellipse (\a cm and \b cm);
+%Vẽ elip dưới
+\begin{scope}
+\clip($(I)-(0,\bbb)$) rectangle ($(O'')+(\aaa,0)$);
+\draw(O'') ellipse (\aaa cm and \bbb cm);
+\end{scope}
+\draw[dashed](O'') ellipse (\aaa cm and \bbb cm);
+\tkzDrawPoints[fill=black](O,M)
+\end{tikzpicture}\newline
+Hình $2.2$, trang $31$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.3}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]%[Nguyễn Thế Anh]
+\tkzDefPoints{0/0/I,0/4/O,-3/0/A,3/0/C} %Định nghĩa các toạ đô dịnh cơ sở
+\coordinate (B) at (-50:3 cm and 0.6 cm);
+\tkzDefPointsBy [symmetry=center I](B){D}
+\tkzDefPointsBy[homothety=center O ratio -0.75](I,A,B,C,D){I',A',B',C',D'} % Vị tự để tìm các điểm cơ sở của đáy trên cuả hình
+\tkzDefPointBy[homothety=center O ratio 1.5](B)
+\tkzDefPointsBy[homothety=center O ratio 1.5](B,B',I',I){d,B2,I2,I3} % Vị tư để vẽ đoạn nối dài BB' và I1I2
+\usetikzlibrary{intersections}
+\draw [name path=ELIP1] (I') ellipse (2.25 cm and 0.45 cm);
+\draw [name path=ELIP2] (C) arc (0:-180:3 cm and 0.6 cm);
+% Tìm giao điểm của Elip trên với hay đường thẳng BB' và DD'
+\draw[name path=d1,opacity=0] (O)--(B2);
+\draw[name path=d2,opacity=0] (O)--(I2);
+\draw[name path=d3,opacity=0] (I)--(I3);
+\draw[name intersections={of= d1 and ELIP1, by={M,N}}];
+\draw[name intersections={of= d2 and ELIP1, by={K,L}}];
+\draw[name intersections={of= d3 and ELIP2, by={Q}}];
+\draw[densely dashed] (C) arc (0:180:3 cm and 0.6 cm);
+\tkzDefPointsBy[homothety=center O ratio 1.5](Q){I3} % Vị tư để vẽ đoạn nối dài QI3
+\tkzMarkAngles[black](I,O,B)% Vẽ cung tròn cho cho IOB
+\tkzLabelAngle[pos=1.5,rotate=-12](I,O,B){\footnotesize $\beta$}% Vẽ nhãn cho góc
+\tkzLabelLine[pos=2.25,black,right](I,Q){$\Delta$} % Gán nhãn cho đường thẳng Delta
+\tkzMarkRightAngle(O,I,B) % Vẽ góc vuông cho cho OIB
+\tkzDrawSegments[thick](C',O A',O O,A O,C O,B B2,B' d,B I',L M,N) % Vẽ các đương và điểm cần hiện ra
+\tkzDrawSegments[thick](I',I2 Q,I3)
+\tkzDrawSegments[dashed](O,I I,Q I,B N,O L,O)
+\tkzDrawPoints[fill=black](I,I',O)
+\tkzLabelPoints[right](O)
+\tkzLabelPoints[right](d)
+\end{tikzpicture}\newline
+Hình $2.3$, trang $31$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.4}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]%[Nguyễn Thế Anh]
+\tkzDefPoints{0/0/I,0/5/O,-3/0/A,3/0/C} %Định nghĩa các toạ đô dịnh cơ sở
+\coordinate (M) at (-40:3 cm and 0.6 cm);
+\tkzDefPointsBy [symmetry=center I](M){D} %Lấy điểm đối xứng cửa B qua I
+\draw[densely dashed] (C) arc (0:180:3 cm and 0.6 cm); %Vẽ hai nữa Elip đáy
+\draw(C) arc (0:-180:3 cm and 0.6 cm);
+\tkzMarkRightAngle(O,I,M) % Vẽ góc vuông tại I
+\tkzDrawPolygon[draw=none,pattern=north east lines](O,I,M)
+%\tkzDrawPolygon[pattern=horizontal lines](O,I,B) % Kẻ soc ngang cho tam giác OIB
+\tkzDrawSegments(O,A) % Vẽ Các đường thẳng và các điểm của hình
+\tkzDrawSegments(O,C)
+\tkzDrawSegments[dashed](O,I)
+\tkzDrawSegments(O,M)
+\tkzDrawSegments[dashed](I,M)
+\tkzDrawPoints[fill=black](O,I,M)
+\tkzLabelPoints[left](I)
+\tkzLabelPoints[below](M)
+\tkzLabelPoints[above](O)
+\end{tikzpicture}\newline
+Hình $2.4$, trang $32$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.5}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]%[Phan Thanh Tâm]
+\def \x{3}
+\def \y{1.5}
+\def \z{6}
+\def \an{108}% 70<\an<110 Góc quay của điểm A.
+\def \be{10}% 0<\be<10 
+
+\coordinate (I) at (0,0);
+\coordinate (O) at ($(I)+(0,\z)$);
+\coordinate (G) at ($(I) + (0+\be:{\x} and {\y})$);
+\coordinate (H) at ($(I) + (180-\be:{\x} and {\y})$);
+\coordinate (A) at ($(I) + (\an:{\x} and {\y})$);
+\coordinate (B) at ($(I) + (\an+60:{\x} and {\y})$);
+\coordinate (C) at ($(B)-(A)$);
+\coordinate (D) at ($(C)-(B)$);
+\coordinate (E) at ($(D)-(C)$);
+\coordinate (F) at ($(E)-(D)$);
+
+\draw [dashed] (A)--(B)--(C)--(D)--(E)--(F)--(A);
+\draw[dashed]  (10:{\x} and {\y}) arc (10:170:{\x} and {\y});
+\draw  (170:{\x} and {\y}) arc (170:370:{\x} and {\y});
+
+\tkzDrawSegments(O,C O,D O,E O,G O,H)
+\tkzDrawSegments[dashed](O,A O,B O,F O,D O,I)
+\tkzDrawPoints[fill = black,size = 2 pt](A,B,C,D,E,F,I,O)
+\tkzLabelPoint[above](O){$O$}
+\end{tikzpicture}\newline
+Hình $2.5$, trang $33$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.6}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]%[Võ Phước Đông]
+\tkzInit[xmin=-4,xmax=8,ymin=-1,ymax=8]
+%Vẽ hình nón.
+\tkzDefPoints{-4/0/A, -4/5/B, -6/0/C, -2/0/D}
+\tkzDrawSegments(B,C B,D)
+\tkzDrawSegments[dashed](A,D)
+\draw[dashed] (-6,0) arc (-180:-360:2cm and 1cm);
+\draw (-6,0) arc (180:360:2cm and 1cm);
+\tkzDrawPoints[fill=black](A)
+\tkzLabelSegment[above](A,D){$r$}
+\tkzLabelSegment[right](B,D){$l$}
+% Vẽ cung tròn.
+\tkzDefPoints{3/5/E, 1/0/F, 8/7/G, 2.4/-0.4/N}
+\tkzDrawSegments(E,F E,G)
+\tkzDrawArc[rotate,color=black](E,F)(133.7)
+\tkzLabelSegment[above](E,G){$l$}
+\tkzLabelPoint[above](N){$2\pi r$}
+% Vẽ đường tròn.
+\tkzDefPoints{5.3/-2/H, 7.3/-2/K}
+\tkzDrawCircle[R](H, 2cm)
+\tkzDrawSegments(H,K)
+\tkzLabelSegment[above](H,K){$r$}
+\tkzDrawPoints[fill=black](H)
+%\tkzLabelPoint(Z'){\textit{Hình $2.6$}}
+\end{tikzpicture}\newline
+Hình $2.6$, trang $33$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.7}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]%[Đức Nguyễn]
+\def \x{0}%Hoành độ tâm I
+\def \y{0}%Tung độ tâm I
+\def \z{5}%Chiều cao
+\def \a{3}%Trục lớn
+\def \b{0.7}%Trục nhỏ
+\coordinate (I) at (\x,\y);
+\coordinate (O) at ($(I) + (0,\z)$);
+%\draw (I) ellipse (\a cm and \b cm);
+\coordinate (A) at ($(I) + (-\a,0)$);
+\coordinate (G) at ($(I) + (0,\b)$);
+\coordinate (B) at ($(I) + (\a,0)$);
+\coordinate (M) at ($(I) + (-30:{\a} and {\b})$);
+\draw[dashed] (A) arc (180:0:{\a} and {\b});
+\draw (A) arc (180:360:{\a} and {\b});
+%\tkzDefPointsBy [symmetry=center I](M){D}
+\tkzMarkRightAngle(O,I,M)
+\tkzDrawPoints[fill=black](O,I,M)
+\tkzDrawSegments(O,A)
+\tkzDrawSegments(O,B)
+\tkzDrawSegments[dashed](O,I)
+\tkzDrawSegments(O,M)
+\tkzDrawSegments[dashed](I,M)
+\tkzMarkAngle[mkpos=.5, size=0.5cm](I,O,M)
+\tkzLabelPoints[left](I)
+\tkzLabelPoints[below](M)
+\tkzLabelPoints[above](O)
+\end{tikzpicture}\newline
+Hình $2.7$, trang $34$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.8}
+\begin{center}
+\begin{tikzpicture}[>=stealth,line cap=round,line join=round]%[Hồ Hà Đặng]
+\usetikzlibrary{intersections}
+\tkzInit[xmin=-3,xmax=3,ymin=-3,ymax=6]
+\tkzClip
+\tkzDefPoints{2/0/A,-2/0/B, 0/4/C} %định nghĩa 3 điểm ban đầu
+\draw[name path=ELIPT] (C) ellipse (2cm and .8cm); %vẽ elip trên liền
+\draw[name path=ELIPD1,dashed] (A) arc (0:180:2cm and .8cm); 
+\draw[name path=ELIPD2] (B) arc (180:360:2cm and .8cm);%vẽ 2 elip 1 liền 1 đứt
+\tkzDefMidPoint(A,B)\tkzGetPoint{I}
+\tkzDefPointsBy[translation= from I to C](A,B){} %tịnh tiến lấy các đường sinh
+\tkzDefPointWith[linear,K=-0.4](C,I)\tkzGetPoint{E}
+\tkzDefPointWith[linear,K=-0.4](I,C)\tkzGetPoint{F}
+\tkzDefMidPoint(I,A)\tkzGetPoint{P}
+\tkzDefMidPoint(C,A')\tkzGetPoint{Q}
+\tkzDefPointWith[linear,K=-0.05](Q,P)\tkzGetPoint{Q'}
+\tkzDefPointWith[linear,K=-0.35](P,Q)\tkzGetPoint{P'}
+\draw [name path=DT1] (Q')--(P'); %tên đường mới để cắt 2 elip trên dưới
+\fill [name intersections={of=ELIPD2 and DT1,by={K}}]; %lấy giao điểm 1
+\fill [name intersections={of=ELIPT and DT1,by={H}}]; %lấy gd 2
+\draw [draw=none, name path=DTcenter] (E)--(F); %trục EF
+\fill [name intersections={of=ELIPD2 and DTcenter,by={G}}]; 
+\fill [name intersections={of=ELIPT and DTcenter,by={J,T}}]; %lấy các giao điểm vẽ đường nét đứt
+\tkzDefMidPoint(C,H)\tkzGetPoint{M}
+\tkzDefMidPoint(I,K)\tkzGetPoint{N}
+\tkzDefMidPoint(H,K)\tkzGetPoint{N'}
+\tkzDrawSegments(A,A' B,B' G,F T,E C,H)
+\tkzLabelPoint[above](M){$ r $}
+\tkzLabelPoint[above](N){$ r $}
+\tkzLabelPoint[above left](F){$ \Delta $}
+\tkzLabelPoint[right](N'){$ l $}
+\tkzDrawSegments[dashed](I,K G,T)
+\tkzMarkRightAngles(Q',H,C H,C,E C,I,K I,K,H)
+\end{tikzpicture}\newline
+Hình $2.8$, trang $35$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.9}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]%[Phan Thanh Tâm]
+\def \x{2}
+\def \y{1}
+\def \z{4}
+\def \an{225}% 180<\an<360
+\coordinate (B) at (0,0);
+\coordinate (A) at ($(B)+(0,\z)$);
+\coordinate (E) at (-\x,\z);
+\coordinate (F) at (\x,\z);
+\coordinate (G) at (-\x,0);
+\coordinate (H) at (\x,0);
+\coordinate (C) at ($(B) + (\an:{\x} and {\y})$);
+\coordinate (D) at ($(C)+(0,\z)$);
+\tkzFillPolygon[pattern=north west lines](A,B,C,D)
+
+\draw[dashed] (G) arc (180:0:{\x} and {\y});
+\draw (G) arc (180:360:{\x} and {\y});
+\draw (A) ellipse ({\x} and {\y});
+
+\draw (A) -- ($ (A)+(0,\x) $) node[below right]{$ \Delta $};
+\draw[dashed](B) -- ($ (B)-(0,\y) $);
+\draw ($ (B)-(0,\y) $) -- ($ (B)-(0,\x) $);
+\tkzDrawSegments[](A,D D,C E,G F,H)
+\tkzDrawSegments[dashed](A,B B,C)
+\tkzDrawPoints[fill = black,size = 2 pt](A,B,C,D)
+
+\tkzLabelPoints[right](A,B)
+\tkzLabelPoints[above](D)
+\tkzLabelPoints[below](C)
+\end{tikzpicture}\newline
+Hình $2.9$, trang $35$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.10}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]%[Black Mild, Nguyễn Thế Anh]
+%Hình vẽ thêm từ phần của thầy Phan Chiến Thắng bỏ dự án.
+\def \a{3}    %bán trục lớn ellip
+\def \b{1.5} %bán trục nhỏ ellip
+\def \l{8}     %chiều cao trụ tròn
+
+\tkzDefPoints{0/0/I,-\a/0/A, -\a/\l/A'} %Định nghĩa các điểm cơ sở
+\tkzDefPointsBy [symmetry=center I](A){C}
+
+% định nghĩa điểm thông qua tọa độ cực
+\coordinate (B) at (-40:3 cm and 1.5 cm);
+\coordinate (E) at (-100:3 cm and 1.5 cm);
+\coordinate (G) at (-150:3 cm and 1.5 cm);
+\tkzDefPointsBy [symmetry=center I](B,E,G){D,F,H}
+\tkzDefPointsBy[translation = from A to A'](B,C,D,E,F,G,H,I){B',C',D',E',F',G',H',I'}
+
+%Vẽ hai elip đáy trên, dưới
+\draw[densely dashed] (C) arc (0:180:\a cm and \b cm); 
+\draw(C) arc (0:-180:\a cm and \b cm);
+\draw (I') ellipse (\a cm and \b cm);
+
+\tkzDrawPolygon[dashed](G,E,B,H,F,D)
+\tkzDrawPolygon(G',E',B',H',F',D')
+\tkzDrawSegments(A,A' B,B' C,C' E,E' G,G' I',D')
+\tkzDrawSegments[dashed](D,D' F,F' H,H')
+\tkzLabelSegment(I',D'){$\mathbf{r}$}
+\tkzLabelSegment[left](E',E){$\mathbf{l}$}
+\tkzDrawPoints[fill=black](I,I')
+%\tkzDrawPoints(A,C,I,B,E,G,D,F,K,A',B',C',D',E',F',G',H',I')
+%\tkzLabelPoints(A,C,I,B,E,G,D,F,K,A',B',C',D',E',F',G',H',I')
+\end{tikzpicture}\newline
+Hình $2.10$, trang $36$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.11}
+\begin{center}
+Hình Chú ý - Mục 3. Diện tích xung quanh của hình trụ tròn xoay\\
+\begin{tikzpicture}[line cap=round,line join=round]%[KV Thanh]
+\def\l{2.5}; %Độ dài đường sinh
+\def\L{1}; %Độ dài nửa trục lớn của ellip và cũng là bán kính hình trụ
+\def\N{0.4}; %Độ dài nửa trục bé
+\coordinate (a) at (0,\l); %Tọa độ tâm ellip đáy trên của hình trụ
+\coordinate (v) at (3,0); %véc tơ tịnh tiến hình 1 sang 2
+\draw (a) ellipse ({\L}  and {\N});
+\draw [dashed](\L,0) arc (0:180:{\L} and {\N});
+\draw (\L,0) arc (0:-180:{\L} and {\N});
+\draw (-\L,0)--(-\L,\l) node[midway,left] {$l$};
+\draw (\L,0)--(\L,\l);
+\coordinate (b) at ($(a)+(-25: {\L} and {\N})$);%Lấy 1 điểm nằm trên ellip để vẽ bán kính
+\draw (a)--(b) node[midway,above] {$r$};
+\coordinate (m) at ($(a)+(v)$); %Xác định tọa độ 4 đỉnh hình chữ nhật và tâm của các đường tròn
+\coordinate (n) at ($(m)-(a)$);
+\coordinate (p) at ($(n)+(2*3.14*\L,0)$);
+\coordinate (q) at ($(m)+(p)-(n)$);
+\coordinate (i) at ($(m)!.5!(q)$);
+\coordinate (j) at ($(n)!.5!(p)$);
+\coordinate (o) at ($(i)+(0,\L)$);
+\coordinate (o') at ($(j)+(0,-\L)$);
+\draw (o) circle (\L);
+\draw (o') circle (\L);
+\draw (m)--(n)--(p)--(q) node[midway,right] {$l$}--cycle;
+\coordinate (e) at ($(o)+(-20: \L)$); %Lấy tọa độ 1 điểm trên đường tròn để vẽ bán kính
+\draw (o)--(e) node[midway,above] {$r$};
+\coordinate (f) at ($(o')+(-20: \L)$);
+\draw (o')--(f) node[midway,above] {$r$};
+\node [above] at (j) {$2\pi r$};
+\end{tikzpicture}\newline
+Hình $2.11$, trang $37$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.12}
+\begin{center}
+Hình ví dụ b\\
+\begin{tikzpicture}[line cap=round,line join=round]%[Lê Bình]
+%Định nghĩa độ dài trục lớn, trục nhỏ của ellip và độ dài trục hình trụ
+%Thay đổi a, b, c để thay đổi hình
+\def\a{3}
+\def\b{1}
+\def\c{6}
+%Định nghĩa các điểm
+\coordinate[label=above:{$I$}] (I) at (0,0);
+\coordinate[label=below:{$H$}] (H) at ($(I)-(0,\c)$);
+\coordinate[label=above:{$A$}] (A) at (220:\a cm and \b cm);%Lấy A thuộc ellip
+\tkzDefPointBy[rotation = center I angle 180](A)\tkzGetPoint{B}%B đối xứng với A qua O
+\coordinate[label=below:{$D$}] (D) at ($(A)-(0,\c)$);
+\coordinate[label=below:{$C$}] (C) at ($(B)-(0,\c)$);
+%Vẽ ellip và các đường nối
+\draw (I) ellipse (\a cm and \b cm);
+\draw[dashed] (I)--(H) (B)--(C)--(D) ($(H)-(\a,0)$) arc (180:0:\a cm and \b cm);
+\draw($(I)+(\a,0)$)--($(H)+(\a,0)$) ($(I)-(\a,0)$)--($(H)-(\a,0)$) (A)--(B)
+	(A)--(D) node[midway,left]{$a$} ($(H)-(\a,0)$) arc (180:360:\a cm and \b cm);
+%Vẽ các góc và điểm
+\tkzMarkRightAngle(B,A,D)
+\tkzMarkRightAngle(A,B,C)
+\tkzMarkRightAngle(B,C,D)
+\tkzMarkRightAngle(A,D,C)
+\tkzDrawPoints[fill=black](H,I)
+\tkzLabelPoints[above](B)
+\end{tikzpicture}\newline
+Hình $2.12$, trang $38$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.14}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]%[Mai Hà Lan]
+\tkzDefPoints {0/0/O, 3/0/A}
+\coordinate (I) at ($(O)+(0,2.1213)$);
+\coordinate (J) at ($(O)+(0,2.8)$);
+\tkzDefPointBy[symmetry = center O](J)  \tkzGetPoint{J'}
+\tkzDrawPoints[fill=black](O,I,J,J')
+\tkzLabelPoints(O)
+\tkzDrawSegments[dashed](J,J')
+\tkzDrawCircle[radius](O,A)
+%-------------- Vẽ elip
+\draw[dashed] (3,0) arc (0:180:3  and .8 ); %elip lớn 
+\draw[dashed] (45:3 ) arc (10:170:2.137  and .5 ); % elip nhỏ 
+\draw (-3,0) arc (180:360:3  and .8 ); % elip lớn 
+\draw[name path=ELN] (135:3 ) arc (170:380:2.137  and .5 );% elip nhỏ 
+%--------------- Vẽ OM
+\draw[name path=DT, draw=none] (135:3)--(O);
+\draw[name intersections={of=ELN and DT, by={N,M}}] (M) node[below left] {M};
+\tkzDrawPoints[fill=black](M)
+\draw[dashed] (O) -- (M) node at (150:1)  {r};
+\end{tikzpicture}\newline
+Hình $2.14$, trang $41$, sách giao khoa hình học cơ bản lớp $12-2017$
+\end{center}
+
+\subsection{Hình 2.15}
+\begin{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %   Hình a   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[line cap=round,line join=round]%[Vinh Vo]
+\def \r {4} % Bán kính đường tròn lớn (có thể thay đổi)
+\tkzDefPoint(0,0){O}% Toạ độ tâm mặt cầu
+\tkzDefPoint(0,-0.1){u}% Đơn vị dùng để chỉnh elip (đường tròn giao tuyến)
+\tkzDefShiftPoint[O](0:\r){A} %Điểm bắt đầu vẽ 2 đường tròn lớn
+\tkzDefShiftPoint[O](40:\r){B}% Điểm bắt đầu vẽ đường tròn nhỏ
+\draw[thick] (A) arc (0:360:\r  ); % 
+\draw[thick,name path=elip1d,dashed] (A) arc (0:180:\r cm and 1.5 cm);%
+\draw[thick,name path=elip1l]  (A) arc (0:-180:\r cm  and 1.5 cm);%
+\tkzDefLine[parallel=through B](O,A)%
+\tkzGetPoint{B1}%
+\tkzDefLine[perpendicular=through O](O,A)%
+\tkzGetPoint{O1}%
+\tkzInterLL(O,O1)(B,B1)%
+\tkzGetPoint{I} % Tâm của đường tròn nhỏ (chứa dây cung CD)
+\tkzDefCircle[radius](B,I) 
+\tkzGetLength{rBIpt}
+\tkzpttocm(\rBIpt){re} % r là khoảng cách IB (bán kính lớn của elip)
+\draw[thick,dashed] ($(B)+(u)$) arc (0:180:  \re  cm and 0.8cm);
+\draw[thick,name path=elip1] ($(B)+(u)$) arc (0:-185:  \re  cm and 0.6cm);
+\tkzDefShiftPoint[I](-5:4){M}% điểm phụ để xác định tạo độ điểm C,D
+\tkzDefShiftPoint[I](-160:3){N}%
+\path[name path=line1](I)--(M);
+\path[name path=line2](I)--(N);
+\path[name intersections={of=elip1 and line1,by=D}];%
+\path[name intersections={of=elip1 and line2,by=C}];%
+\tkzDefBarycentricPoint(C=1,D=-3)
+\tkzGetPoint{E}% Điểm phụ để vẽ đường thẳng CD
+\tkzDefBarycentricPoint(D=1,C=-2.1)
+\tkzGetPoint{F}
+%Đoạn lệnh xác định đường kính qua O
+\tkzDefShiftPoint[O](-110:\r ){AA}
+\path[name path=elip2l,red,rotate=-110]  (AA) arc (0:-180:\r cm and 2.2 cm);
+\path[name path=elip2d,dashed,red,rotate=-110]  (AA) arc (0:180:\r cm  and 2.2 cm);
+\tkzDefShiftPoint[O](90:4.5){S}
+\tkzDefShiftPoint[O](-90:4.5){S1}
+\path[name path=line9](S)--(S1);
+\path[name intersections={of=elip1d and elip2d,by=g1}];
+\path[name intersections={of=elip1l and elip2l,by=g2}];
+\path[name intersections={of=line9 and elip2d,by=g4}];
+\path[name intersections={of=line9 and elip2l,by=g3}];
+% Vẽ các đoạn thẳng và các điểm cơ bản.
+\tkzDrawSegments[dashed](C,D g3,g4)
+\tkzDrawSegments(C,F D,E)
+\tkzDrawPoints[fill=black,size=5pt](C,D)
+\tkzDrawPoints[fill=black,size=5pt](O, g3,g4)
+\tkzLabelPoints(O)
+\tkzLabelPoint[above](C){$ C $}
+\tkzLabelPoint[below](D){$ D $}
+\tkzLabelPoint(-4,-\r- 0.5){Hình a)}
+\end{tikzpicture}\hspace{1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %   Hình b   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[line cap=round,line join=round]%[Vinh Vo]
+\def \r {4} % Bán kính đường tròn lớn (có thể thay đổi)
+\tkzDefPoint(0,0){O}% Toạ độ tâm mặt cầu
+\tkzDefPoint(0,-0.1){u}% Đơn vị dùng để chỉnh elip (đường tròn giao tuyến)
+\tkzDefShiftPoint[O](0:\r){A} %Điểm bắt đầu vẽ 2 đường tròn lớn
+\draw[thick,name path=cycle] (A) arc (0:360:\r ); % 
+\draw[thick,name path=elip1d,dashed] (A) arc (0:180:\r cm and 1.5 cm);%
+\draw[thick,name path=elip1l]  (A) arc (0:-180:\r cm  and 1.5 cm);%
+%Đoạn lệnh xác định đường kính qua O
+\tkzDefShiftPoint[O](-110:\r  ){AA}
+\draw[thick,name path=elip2l,rotate=-110]  (AA) arc (0:-180:\r cm and 2.2cm);
+\draw[thick,name path=elip2d,dashed,rotate=-110]  (AA) arc (0:180:\r cm and 2.2cm);
+\tkzDefShiftPoint[O](90:4.5){S}
+\tkzDefShiftPoint[O](-90:4.5){S1}
+\path[name path=line9](S)--(S1);
+\path[name intersections={of=elip1d and elip2d,by=g1}];
+\path[name intersections={of=elip1l and elip2l,by=g2}];
+\path[name intersections={of=line9 and elip2d,by=g4}];
+\path[name intersections={of=line9 and elip2l,by=g3}];
+\draw[dashed](g3)--(g4);
+\tkzDefBarycentricPoint(g1=1,g2=-3)\tkzGetPoint{g5}
+\tkzDefBarycentricPoint(g2=1,g1=-3)\tkzGetPoint{g6}
+\path[name path=line10](g1)--(g6);
+\path[name intersections={of= cycle and line10,by=g7}];
+% Vẽ các đoạn thẳng và các điểm cơ bản.
+\tkzDrawPoints[fill=black,size=5pt](O)
+\tkzLabelPoints(O)
+\tkzLabelPoint(O){$ O $}
+\tkzLabelPoint(g1){$ B $}
+\tkzLabelPoint[above left](g2){$ A $}
+\tkzDrawPoints[fill=black,size=5pt](g3,g4,g1,g2)
+\tkzDrawSegments[dashed](g1,g2)
+\tkzDrawSegments(g5,g2)
+\tkzDrawSegments[dashed](g1,g2 g1,g7)
+\tkzDrawSegments(g5,g2 g7,g6)
+\tkzLabelPoint(-4,-\r- 0.5){Hình b)}
+\end{tikzpicture}\newline
+Hình $2.15$, trang $42$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.16}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]%[Mai Hà Lan]
+\tkzDefPoints{0/0/O, 3/0/I}
+\tkzDefPointBy[rotation = center O angle 90](I)\tkzGetPoint{I'}
+\tkzDefPointBy[rotation = center O angle -90](I)  \tkzGetPoint{I''}
+\tkzDrawPoints[fill=black](O)
+\tkzLabelPoints(O)
+\tkzDrawCircle[3](O,I) node at (0,-4)
+\draw[name path=ELNS, dashed] (3,0) arc (0:180:3  and 1.25 ); %elip ngang sau
+\draw[name path=ELNT] (-3,0) arc (180:360:3  and 1.25 ); % elip ngang trước
+\draw[name path=ELDS, dashed][rotate=80] (-3,0) arc (180:360:3  and 1.25 ); %elip dọc sau
+\draw[name path=ELDT, rotate=80] (3,0) arc (0:180:3 and 1.25); %elip dọc trước
+\draw[name intersections={of=ELNS and ELDS, by={M}}] ; %giao điểm của hai cung elip sau
+\draw[name intersections={of=ELNT and ELDT, by={N}}] ; %giao điểm của hai cung elip trước
+%----------Vẽ đường kính MN ngang
+\tkzDrawPoints[fill=black](M,N)
+\draw[dashed] (M)--(N);
+%--------- Vẽ đường kính AB
+\draw[name path=I'I'', draw=none] (I')--(I'');
+\draw[name intersections={of=ELDT and I'I'', by={A}}] (A) node[below right] {A};
+\draw[name intersections={of=ELDS and I'I'', by={B}}] (B) node[above left] {B};
+\tkzDrawPoints[fill=black](A,B)
+\draw[dashed] (A)--(B);
+\end{tikzpicture}\newline
+Hình $2.16$, trang $42$, sách giao khoa hình học cơ bản lớp $12-2017$
+\end{center}
+
+\subsection{Hình 2.17}
+\begin{center}
+\begin{tikzpicture}[>=stealth,line cap=round,line join=round]%[Trần Minh Ngọc]
+\tkzDefPoints{0/4/M, 0/-4/P}
+\tkzDefMidPoint(M,P) \tkzGetPoint{O}
+\tkzDefPointBy[rotation= center O angle 90](P) \tkzGetPoint{D} 
+\tkzDefPointBy[rotation= center O angle -90](P) \tkzGetPoint{F} 
+\tkzDefPointBy[rotation= center O angle 10](P) \tkzGetPoint{E} 
+\tkzCalcLength[cm](M,P) \tkzGetLength{rMP}
+\draw[dashed,name path=xichdao] (D) arc (0:360:{0.5*\rMP} and {0.1*\rMP});
+\draw[draw=none,rotate =-80,name path=kinhtuyen] (E) arc (0:360:{0.5*\rMP} and {0.15*\rMP});
+\draw (M) arc (90:280:{0.5*\rMP});
+\draw[dashed] (M) arc (90:-80:{0.5*\rMP});
+\draw[draw=none,name path=MP] (M)--(P);
+\draw[name intersections={of=kinhtuyen and MP, by={A}}];
+\draw[name intersections={of=kinhtuyen and xichdao, by={N}}];
+\draw[rotate =-80] (E) arc (0:150:{0.5*\rMP} and {0.15*\rMP});
+\draw[dashed,rotate =-80] (E) arc (0:-30:{0.5*\rMP} and {0.15*\rMP});
+\tkzFindAngle (N,O,D) \tkzGetAngle{an} \FPround\an\an{0}
+\pgfmathsetmacro{\ann}{atan2(sin(\an),cos(\an)/5)}
+\draw (F) arc (180:360-\ann:{0.5*\rMP} and {0.1*\rMP});
+%Vẽ vĩ tuyến
+\tkzDefMidPoint(M,O) \tkzGetPoint{I}
+\tkzDefPointBy[rotation= center O angle -30](F) \tkzGetPoint{H} 
+\tkzDefPointBy[rotation= center I angle 180](H) \tkzGetPoint{T} 
+\tkzCalcLength[cm](H,T) \tkzGetLength{rHT}
+\draw[dashed,name path=vituyen] (H) arc (-180:180:{0.5*cos(30)*\rMP} and {0.1*cos(30)*\rMP});
+\draw[name intersections={of=kinhtuyen and vituyen, by={K}}];
+\tkzFindAngle (K,I,T) \tkzGetAngle{an} \FPround\an\an{0}
+\pgfmathsetmacro{\ann}{atan2(sin(\an),cos(\an)/5)}
+\draw (H) arc (180:360-\ann:{0.5*\rHT} and {0.1*\rHT});
+%Vẽ mặt phẳng cắt
+\tkzDefBarycentricPoint(M=4,O=-1) \tkzGetPoint{U}
+\tkzDefPointBy[rotation= center O angle 180](U) \tkzGetPoint{V} 
+\tkzDefPointBy[rotation= center O angle 180](A) \tkzGetPoint{B} 
+\tkzDefPointBy[translation= from H to K ](U) \tkzGetPoint{R} 
+\tkzDefPointBy[translation= from U to V ](R) \tkzGetPoint{S} 
+\tkzDefPointBy[translation= from U to R ](K) \tkzGetPoint{J} 
+\tkzDefPointBy[rotation= center N angle 180](I) \tkzGetPoint{Q} 
+\tkzDrawPoints[fill=black](A,O,B) 
+\tkzLabelPoints[left](A,B,O)
+\tkzDrawSegments[](A,U U,R R,S S,V V,P)  
+\tkzDrawSegments[dashed](A,P) 
+%Kí hiệu kinh tuyến, vĩ tuyến
+\tkzDefMidPoint(U,R) \tkzGetPoint{G}
+\tkzDefMidPoint(V,S) \tkzGetPoint{X}
+\draw[draw=none,name path=GX] (G)--(X);
+\draw[name intersections={of=GX and vituyen, by={Z}}];
+\draw [->](Z)--(J) node[right]{$\mbox{\emph{vĩ tuyến}}$};
+\draw[draw=none,name path=SO] (S)--(O);
+\draw[name intersections={of=SO and kinhtuyen, by={Y}}];
+\draw [->](Y)--(Q) node[below]{$\mbox{\emph{kinh tuyến}}$};
+\end{tikzpicture}\newline
+Hình $2.17$, trang $43$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.18}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]%[Phan Thanh Tâm]
+\def \R{3}
+\def \a{15}% 5<\a<=35 Nếu def lại điểm H xa hơn có thể tăng góc \a
+\def \b{-15}%-25 <\be< 0 Góc xoay của Elip
+
+\pgfmathsetmacro\H{\R*cos(\a)}
+\pgfmathsetmacro\L{sqrt((\R^2*(cos(\a))^2*(sin(\b))^2)/(1-(cos(\a))^2*(cos(\b))^2)))}
+\coordinate (O) at (0,0);
+\draw (O) circle (\R);
+\coordinate (A) at (0,\H);
+\coordinate (B) at (0,-\H);
+\coordinate (C) at ($(O) + (2*\b-90:\H)$);
+\coordinate (G) at ($(O) + (\b-90:\R)$);
+\coordinate (F) at ($2*(O)-(G)$);
+\coordinate (M) at ($2*(C)$);
+\coordinate (H) at ($3/2*(B)$);
+
+\coordinate (D) at ($ 5/4*(B) $);
+\tkzDefLine[perpendicular=through D](O,H)\tkzGetPoint{a}
+\tkzInterLL(O,C)(D,a) \tkzGetPoint{E}
+\coordinate (b) at ($ 2*(D)-(a) $);
+\coordinate (d) at ($(a) + (-135:\R)$);
+\coordinate (c) at ($(b)+(d)-(a)$);
+\draw[dashed,rotate=\b] (G) arc (-90:90:{\L} and {\R});
+\draw[rotate=\b] (G) arc (270:90:{\L} and {\R});
+\tkzDrawPoints[fill = black,size = 2 pt](O,A,B,C,H,M)
+\draw[dashed] (A)--(0,-\R) (O)--(C) (D) -- (E);
+\draw (0,-\R) -- (H) -- (M)-- (C) (D)--(a)--(d)--(c)--(b) -- (E);
+
+\tkzMarkRightAngle(O,H,M)
+\tkzMarkAngles(d,c,b)
+\tkzLabelAngle[pos=0.7](d,c,b){$P$}
+\tkzLabelPoints[right](O,H)
+\tkzLabelPoints[left](M)
+\end{tikzpicture}\newline
+Hình $2.18$, trang $43$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.19}
+\begin{center}
+Mặt phẳng tiếp xúc mặt cầu\\
+\begin{tikzpicture}[line cap=round,line join=round]%[Lê Bình]
+%Vẽ thêm từ phần của thầy Nguyen Chin En bỏ dự án
+%Thay đổi R để thay đổi hình.
+%Định nghĩa bán kính đường tròn, trục nhỏ của elip tính qua R.
+\def\R{3}
+\def\b{0.4*\R}
+%Định nghĩa các điểm
+\coordinate[label=left:{$O$}] (O) at (0,0);
+\coordinate[label=below:{$H$}] (H) at ($(O)-(0,\R)$);
+\coordinate(A) at ($(H)-(2*\R,0.8*\R)$);
+\coordinate(B) at ($(H)+(-1.5*\R,0.45*\R)$);
+\coordinate(C) at ($(A)+(3.5*\R,0)$);
+\coordinate(D) at ($(B)+(C)-(A)$);
+\coordinate[label=left:{$M$}](M) at ($(H)-(0.7*\R,0.5*\R)$);
+\draw[name path=DTRON] (O) circle (\R cm);
+\draw[draw=none,name path=BD] (B)--(D);
+\draw[dashed,name intersections={of=DTRON and BD, by={E,F}}] (E)--(F);%Xác định giao điểm và vẽ đoạn nét đứt trên
+\draw(F)--(D)--(C)--(A)--(B)--(E);
+%Vẽ elip
+\draw[rotate=90,name path=Elip] (\R,0) arc (0:180:\R cm and \b cm);
+\draw[rotate=90,dashed] (\R,0) arc (0:-180:\R cm and \b cm);
+%Xác định giao điểm của OM và elip rồi vẽ các đoạn thẳng.
+\draw[draw=none,name path=OM] (O)--(M);
+\draw[dashed,name intersections={of=Elip and OM, by={I}}] (H)--(O)--(I);
+\draw(I)--(M)--(H);
+%Vẽ các điểm, đặt tên và ký hiệu góc.
+\tkzDrawPoints[fill=black](H,M,O)
+\tkzMarkRightAngle(O,H,M)
+\tkzMarkAngle[size=0.5](C,A,B)
+\tkzLabelAngle[pos=0.3](B,A,C){$P$}
+\end{tikzpicture}\newline
+Hình $2.19$, trang $44$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.20}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]%[Vinh Vo]
+\def \r {4}% Bán kính đường tròn lớn
+\tkzDefPoint(0,0){O} % Tâm mặt cầu
+\tkzDefPoint(0,0.1){u} % Đơn vị chỉnh elip 
+\tkzDefShiftPoint[O](-30:\r  ){A} % Điểm để vẽ cung lớn và elip
+\tkzDefPointBy[rotation= center O angle 240](A)
+\tkzGetPoint{B} % 
+\tkzDrawArc[thick,name path=cycle](O,A)(B)% Cung lớn
+\tkzDrawArc[thick,dashed](O,B)(A)% Cung bé
+% Đoạn xác định tâm và bán kính elip (đường tròn giao tuyến)
+\tkzDefMidPoint(A,B) 
+\tkzGetPoint{H}
+\tkzDefCircle[radius](H,A) 
+\tkzGetLength{rHApt}
+\tkzpttocm(\rHApt){re} 
+\draw[thick,dashed] ($(A)+(u)$) arc (0:180:\re cm and 1cm);
+\draw[thick,name path=elip] ($(A)+(u)$) arc (0:-180:\re cm and 1cm);
+% Đoạn xác định vị trí điểm M
+\draw[dashed](O)--(H);
+\tkzDefShiftPoint[H](-160:4){H1}
+\path[name path=line](H1)--(H);
+\path[name intersections={of=elip and line, by=H2}];
+% Đoạn xác định 4 đỉnh của mặt phẳng (P) kết nối với điểm H
+\tkzDefShiftPoint[H](-160:9.3){P1}
+\tkzDefShiftPoint[P1](55:5.5){P2}
+\tkzDefShiftPoint[P1](0:12.5){P4}
+\tkzDefShiftPoint[P2](0:12.5){P3}
+\path[name path=line9](P3)--(P2);
+\path[name intersections={of=cycle and line9,name=gd}];
+%Vẽ các đoạn thẳng và các điểm đặc biệt.
+\draw[dashed](O)--(H2)--(H);
+\draw(P2)--(P1)--(P4)--(P3);
+\draw[dashed](gd-1)--(gd-2);
+\draw(P2)--(gd-2);
+\draw(P3)--(gd-1);
+\tkzLabelPoint[below left](H2){$M$}
+\tkzLabelPoint(H){$H$}
+\tkzLabelPoint[above right](O){$O$}
+\draw($(H2)!0.5!(O)$)node[left]{$ r $};
+\draw($(H2)!0.5!(H)$)node[above]{$ r' $};
+\tkzMarkRightAngle(H2,H,O)
+\tkzDrawPoints[fill=black,size=5pt](O,H,H2)
+% Đánh dấu mặt phẳng (P)
+\tkzMarkAngle[arc=l,size=1.5cm](P4,P1,P2)
+\tkzLabelAngle[pos=1](P4,P1,P2){$ P $}
+\end{tikzpicture}\newline
+Hình $2.20$, trang $44$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.21}
+\begin{center}
+Mặt phẳng cắt mặt cầu theo đường tròn lớn\\
+\begin{tikzpicture}[>=stealth,line cap=round,line join=round]%[Lê Bình]
+%Vẽ thêm từ phần của thầy Nguyen Chin En bỏ dự án
+%Thay đổi R để thay đổi hình.
+%Định nghĩa bán kính đường tròn, trục nhỏ elip tính qua R.
+\def\R{3}
+\def\b{0.4*\R}
+%Định nghĩa các điểm
+\coordinate[label=above:{$O$}] (O) at (0,0);
+\coordinate(A) at ($(O)-(2*\R,0.6*\R)$);
+\coordinate(B) at ($(O)+(-1.5*\R,0.7*\R)$);
+\coordinate(C) at ($(A)+(3.5*\R,0)$);
+\coordinate(D) at ($(B)+(C)-(A)$);
+\coordinate(M) at (-130:\R cm and \b cm);
+%Xác định các giao điểm
+\draw[draw=none,name path=DTRON] (O) circle (\R cm);
+\draw[draw=none,name path=BD] (B)--(D);
+\draw[dashed,name intersections={of=DTRON and BD, by={E,F}}] (E)--(F);%Đoạn nét đứt trên
+%Xác định các giao điểm dưới
+\draw[draw=none,name path=AC] (A)--(C);
+\draw[dashed,name intersections={of=DTRON and AC, by={G,H}}];
+\coordinate(M1) at ($(O)+(\R,0)$);
+%Xác định các góc và vẽ 2 cung nét đứt.
+\tkzFindAngle (M1,O,H) \tkzGetAngle{ana}
+\draw[dashed](M1) arc (0:\ana:\R cm);
+\coordinate(M2) at ($(O)-(\R,0)$);
+\draw[dashed](M2) arc (-180:-180-\ana:\R cm);
+%Vẽ cung nét liền ở gữa
+\draw(H) arc (\ana:-180-\ana:\R cm);
+%Vẽ các yếu tố còn thiếu
+\draw(M1) arc (0:180:\R cm);
+\draw (F)--(B)--(A)--(C)--(D)--(E);
+\draw[dashed] (O)--(M) node[midway,above]{$r$};
+\draw[dashed] (M1) arc (0:180:\R cm and \b cm);
+\draw (M1) arc (0:-180:\R cm and \b cm);
+%Lấy các điểm tạm để vẽ mũi tên.
+\coordinate(N1) at (-40:\R cm and \b cm);
+\coordinate(N2) at ($(C)-(0,0.5)$);
+\draw[->] (N1)--(N2) node [below]{Đường tròn lớn};
+%Vẽ các điểm, ký hiệu góc
+\tkzDrawPoints[fill=black](M,O)
+\tkzMarkAngle[size=0.5](C,A,B)
+\tkzLabelAngle[pos=0.3](B,A,C){$P$}
+\end{tikzpicture}\newline
+Hình $2.21$, trang $45$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.22}
+\begin{center}
+Đường thẳng và mặt cầu không giao nhau\\
+\begin{tikzpicture}[line cap=round,line join=round]%[Lê Bình]
+%Vẽ thêm từ phần của thầy Phan Chiến Thắng bỏ dự án
+%Thay đổi H trên elip cần thay đổi giá trị \goc cho phù hợp
+%Thay đổi R để thay đổi kích thước hình.
+%Định nghĩa bán kính đường tròn, trục nhỏ elip tính qua R.
+\def\R{3}
+\def\b{0.4*\R}
+%Định nghĩa các điểm
+\coordinate[label=above:{$O$}] (O) at (0,0);
+\coordinate(A) at ($(O)-(3*\R,0.8*\R)$);
+\coordinate(B) at ($(O)+(-2*\R,0.6*\R)$);
+\coordinate(C) at ($(A)+(4*\R,0)$);
+\coordinate(D) at ($(B)+(C)-(A)$);
+\coordinate(L) at (-135:\R cm and \b cm);%Điểm tạm để lấy điểm H
+\coordinate[label=left:{$H$}] (H) at ($(O)!1.8!(L)$);
+%Xác định các giao điểm
+\draw[draw=none,name path=DTRON] (O) circle (\R cm);
+\draw[draw=none,name path=BD] (B)--(D);
+\draw[dashed,name intersections={of=DTRON and BD, by={E,F}}] (E)--(F);%Đoạn nét đứt trên
+%Xác định các giao điểm dưới
+\draw[draw=none,name path=AC] (A)--(C);
+\draw[dashed,name intersections={of=DTRON and AC, by={N,P}}];
+\coordinate(M1) at ($(O)+(\R,0)$);
+%Xác định các góc và vẽ 2 cung nét đứt.
+\tkzFindAngle (M1,O,P) \tkzGetAngle{ana}
+\draw[dashed](M1) arc (0:\ana:\R cm);
+\coordinate(M2) at ($(O)-(\R,0)$);
+\draw[dashed](M2) arc (-180:-180-\ana:\R cm);
+%Vẽ \Delta
+\def\goc{110}%Góc để vẽ \Delta.
+\tkzDefPointBy[rotation=center H angle \goc](O)\tkzGetPoint{T}
+\coordinate[label=above right:{$\Delta$}](Q) at ($(T)!0.2!(H)$);
+\coordinate[label=below left:{$M$}](M) at ($(Q)!0.3!(H)$);
+\coordinate(S) at ($(Q)!1.3!(H)$);
+\draw (S)--(Q) (H)--(L);
+\tkzMarkRightAngle(T,H,O)
+%Vẽ cung nét liền ở gữa
+\draw(P) arc (\ana:-180-\ana:\R cm);
+%Vẽ các yếu tố còn thiếu
+\draw(M1) arc (0:180:\R cm);
+\draw (F)--(B)--(A)--(C)--(D)--(E);
+\draw[dashed] (O)--(L);
+\draw[dashed] (M1) arc (0:180:\R cm and \b cm);
+\draw (M1) arc (0:-180:\R cm and \b cm);
+%Vẽ các điểm, ký hiệu góc
+\tkzDrawPoints[fill=black](H,O,M)
+\tkzMarkAngle[size=0.5](C,A,B)
+\tkzLabelAngle[pos=0.3](B,A,C){$P$}
+\end{tikzpicture}\newline
+Hình $2.22$, trang $46$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.23}
+\begin{center}
+Đường thẳng tiếp xúc mặt cầu\\
+\begin{tikzpicture}[line cap=round,line join=round]%[Lê Bình]
+%Vẽ thêm từ phần của thầy Phan Chiến Thắng bỏ dự án
+%Thay đổi H trên elip cần thay đổi góc cho phù hợp
+%Thay đổi R để thay đổi kích thước hình.
+%Định nghĩa bán kính đường tròn, trục nhỏ elip tính qua R.
+\def\R{3}
+\def\b{0.4*\R}
+%Định nghĩa các điểm
+\coordinate[label=above:{$O$}] (O) at (0,0);
+\coordinate(A) at ($(O)-(2*\R,0.7*\R)$);
+\coordinate(B) at ($(O)+(-1.5*\R,0.6*\R)$);
+\coordinate(C) at ($(A)+(3.5*\R,0)$);
+\coordinate(D) at ($(B)+(C)-(A)$);
+\coordinate[label=below:{$H$}] (H) at (-70:\R cm and \b cm);
+%Xác định các giao điểm
+\draw[draw=none,name path=DTRON] (O) circle (\R cm);
+\draw[draw=none,name path=BD] (B)--(D);
+\draw[dashed,name intersections={of=DTRON and BD, by={E,F}}] (E)--(F);%Đoạn nét đứt trên
+%Xác định các giao điểm dưới
+\draw[draw=none,name path=AC] (A)--(C);
+\draw[dashed,name intersections={of=DTRON and AC, by={N,M}}];
+\coordinate(M1) at ($(O)+(\R,0)$);
+%Xác định các góc và vẽ 2 cung nét đứt.
+\tkzFindAngle (M1,O,M) \tkzGetAngle{ana}
+\draw[dashed](M1) arc (0:\ana:\R cm);
+\coordinate(M2) at ($(O)-(\R,0)$);
+\draw[dashed](M2) arc (-180:-180-\ana:\R cm);
+%Vẽ \Delta
+\def\goc{-125}%Góc để vẽ \Delta.
+\tkzDefPointBy[rotation=center H angle \goc](O)\tkzGetPoint{T}
+\coordinate(S) at ($(T)!4!(H)$);
+\draw (S)node[above]{$\Delta$}--(T);
+\tkzMarkRightAngle(T,H,O)
+%Vẽ cung nét liền ở gữa
+\draw(M) arc (\ana:-180-\ana:\R cm);
+%Vẽ các yếu tố còn thiếu
+\draw(M1) arc (0:180:\R cm);
+\draw (F)--(B)--(A)--(C)--(D)--(E);
+\draw[dashed] (O)--(H) node[midway,above]{$r$};
+\draw[dashed] (M1) arc (0:180:\R cm and \b cm);
+\draw (M1) arc (0:-180:\R cm and \b cm);
+%Vẽ các điểm, ký hiệu góc
+\tkzDrawPoints[fill=black](H,O)
+\tkzMarkAngle[size=0.5](C,A,B)
+\tkzLabelAngle[pos=0.3](B,A,C){$P$}
+\end{tikzpicture}\newline
+Hình $2.23$, trang $46$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.24}
+\begin{center}
+Đường thẳng cắt mặt cầu\\
+\begin{tikzpicture}[line cap=round,line join=round]%[Lê Bình]
+%Vẽ thêm từ phần của thầy Phan Chiến Thắng bỏ dự án
+%Thay đổi R để thay đổi kích thước hình.
+%Định nghĩa bán kính đường tròn, trục nhỏ elip tính qua R.
+\def\R{3}
+\def\b{0.4*\R}
+%Định nghĩa các điểm
+\coordinate[label=above:{$O$}] (O) at (0,0);
+\coordinate(A) at ($(O)-(2*\R,0.7*\R)$);
+\coordinate(B) at ($(O)+(-1.5*\R,0.6*\R)$);
+\coordinate(C) at ($(A)+(3.5*\R,0)$);
+\coordinate(D) at ($(B)+(C)-(A)$);
+\coordinate[label=below:{$M$}] (M) at (-110:\R cm and \b cm);
+\coordinate[label=below:{$N$}] (N) at (-30:\R cm and \b cm);
+\coordinate[label=below:{$H$}] (H) at ($(M)!0.5!(N)$);
+%Xác định các giao điểm
+\draw[draw=none,name path=DTRON] (O) circle (\R cm);
+\draw[draw=none,name path=BD] (B)--(D);
+\draw[dashed,name intersections={of=DTRON and BD, by={E,F}}] (E)--(F);%Đoạn nét đứt trên
+%Xác định các giao điểm dưới
+\draw[draw=none,name path=AC] (A)--(C);
+\draw[dashed,name intersections={of=DTRON and AC, by={U,V}}];
+\coordinate(M1) at ($(O)+(\R,0)$);
+%Xác định các góc và vẽ 2 cung nét đứt.
+\tkzFindAngle (M1,O,V) \tkzGetAngle{ana}
+\draw[dashed](M1) arc (0:\ana:\R cm);
+\coordinate(M2) at ($(O)-(\R,0)$);
+\draw[dashed](M2) arc (-180:-180-\ana:\R cm);
+%Vẽ \Delta
+\coordinate(S) at ($(N)!2!(M)$);
+\coordinate(T) at ($(M)!1.5!(N)$);
+\draw (S)node[above]{$\Delta$}--(M) (N)--(T);
+\tkzMarkRightAngle(T,H,O)
+%Vẽ cung nét liền ở gữa
+\draw(V) arc (\ana:-180-\ana:\R cm);
+%Vẽ các yếu tố còn thiếu
+\draw(M1) arc (0:180:\R cm);
+\draw (F)--(B)--(A)--(C)--(D)--(E);
+\draw[dashed] (O)--(H) (M)--(N);
+\draw[dashed] (M1) arc (0:180:\R cm and \b cm);
+\draw (M1) arc (0:-180:\R cm and \b cm);
+%Vẽ các điểm, ký hiệu góc
+\tkzDrawPoints[fill=black](H,O,M,N)
+\tkzMarkAngle[size=0.5](C,A,B)
+\tkzLabelAngle[pos=0.3](B,A,C){$P$}
+\end{tikzpicture}\newline
+Hình $2.24$, trang $47$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.25}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]%[Vinh Vo]
+\def \r {5} % Bán kính đường tròn lớn
+\tkzDefPoint(0,0){O} % Tâm mặt cầu
+\tkzDefPoint(0,0.1){u} % Đơn vị chỉnh elip (đường tròn giao tuyến)
+% Xác định 2 điểm đầu và cuối của cung nhỏ
+\tkzDefShiftPoint[O](45:\r ){A}
+\tkzDefPointBy[rotation= center O angle -220](A)
+\tkzGetPoint{B}
+% Xác định góc
+\tkzDefShiftPoint[O](90:\r){S}
+\tkzDrawArc[thick,name path=cycle,dashed](O,A)(B)
+\tkzDrawArc[thick](O,B)(A)
+\tkzDefShiftPoint[O](0:7){a}
+\tkzDefShiftPoint[O](-180:7){b}
+\tkzFindAngle(O,B,A)   \tkzGetAngle{OBA}
+\tkzFindAngle(B,O,a)   \tkzGetAngle{BOa}
+% Xác định đỉnh của hình bình hành (mặt phẳng P)
+\tkzDefShiftPoint[B](250:0){P1} %Điểm này dùng để vẽ mặt phẳng giao tuyến khi cần
+\tkzDefShiftPoint[P1](150:5.2){P2}
+\tkzDefShiftPoint[P1](180-\BOa+\OBA:2.2*\r cm){P4}
+\tkzDefShiftPoint[P2](180-\BOa+\OBA:2.2*\r cm){P3}
+\tkzDrawSegments(P1,P2 P2,P3 P3,P4 P4,P1)
+% Xác định các yếu tố trên mặt phẳng P
+\tkzDefShiftPoint[O](120:4){H}
+\tkzDefShiftPoint[H](240:2){d1}
+\tkzDefShiftPoint[H](5:3){d2}
+\tkzDrawSegments[dashed](O,H)
+\tkzDrawLines[add=1.5 and 0.5](H,d1 H,d2)
+% Xác định các yếu tố vẽ elip (đường tròn giao tuyến)
+\tkzDefShiftPoint[O](-30:\r ){E}
+\tkzDefShiftPoint[O](-150:\r ){F}
+\tkzDefMidPoint(E,F) \tkzGetPoint{K}
+\tkzDefCircle[radius](K,E) 
+\tkzGetLength{rKEpt}
+\tkzpttocm(\rKEpt-0.1pt){re} 
+\draw[dashed] ($(E)+(u)$) arc (0:180:\re cm and 1.2cm);
+\draw ($(E)+(u)$) arc (0:-180:\re cm and 1.2cm);
+% Vẽ các đoạn thẳng và các điểm đặc biệt
+\tkzDrawPoints[fill=black,size=5pt](H,K,O)
+\tkzMarkRightAngles[size=0.3](O,H,d1 O,H,d2)
+\tkzLabelPoint[above left](H){$ A $}
+\tkzLabelPoint[above right](O){$ O $}
+% Đánh dấu mặt phẳng P
+\tkzMarkAngle[arc=l,size=1.5cm](P1,P2,P3)
+\tkzLabelAngle[pos=1](P1,P2,P3){$ P $}
+% Tên hình
+\tkzLabelPoint(-5,-\r -1){Hình 2.25 trang 47 SGK HH12 CB}
+\end{tikzpicture}\newline
+Hình $2.25$, trang $47$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}
+
+\subsection{Hình 2.26}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]%[Phan Thanh Tâm]
+\def \angle {-20}% chưa thay đổi được
+\def \r {5}% thay đổi được
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](\angle:2*\r cm){B}
+\tkzDefShiftPoint[A](3*\angle:\r cm){O}
+\tkzDefShiftPoint[A](5*\angle:2*\r cm){C}
+
+%%%%%%%%%%
+% Vẽ khối cầu
+\tkzDefLine[perpendicular=through O](A,B) \tkzGetPoint{dO}
+\tkzInterLL(A,B)(O,dO) \tkzGetPoint{M}
+\tkzCalcLength[cm](O,M)
+\tkzGetLength{rOM}
+\path[name path=circle] (O) circle (\rOM); % khối cầu
+
+\tkzDefBarycentricPoint(A=1,O=2)
+\tkzGetPoint{I}
+\tkzDefLine[perpendicular=through I](A,O) \tkzGetPoint{dI}
+\path[name path=lineIdI](I)--(dI);
+\path[name intersections={of = circle and lineIdI, by= E}];
+
+\tkzCalcLength[cm](I,E)
+\tkzGetLength{rIE}
+
+\draw[thick,rotate=90+3*\angle](E) arc (0:180):\rIE cm and 0.2*\rIE cm);
+\draw[thick,dashed,rotate=90+3*\angle](E) arc (0:-180):\rIE cm and 0.2*\rIE cm);
+
+\tkzDefShiftPoint[A](3*\angle:1.3*\r cm){J}
+
+\tkzDefLine[perpendicular=through J](A,O) \tkzGetPoint{dJ}
+\tkzDefLine[perpendicular=through J](O,A) \tkzGetPoint{dJJ}
+%\path[name path=lineJdJ](J)--(dJ);
+\tkzInterLL(A,B)(J,dJ)
+\tkzGetPoint{F}
+
+\tkzInterLL(A,C)(J,dJJ)
+\tkzGetPoint{FF}
+
+\tkzCalcLength[cm](J,F)
+\tkzGetLength{rJF}
+
+\path[name path=elip1,thick,rotate=90+3*\angle] ($(J) +(0,-0.2)+ (50:\rJF cm and 0.25*\rJF cm)$(P) arc(50:-100:\rJF cm and 0.25*\rJF cm);
+\path[name intersections={of = circle and elip1, by= cc}];
+
+\path[name path=elip2,thick,rotate=90+3*\angle] ($(J) +(0,-0.2)+ (200:\rJF cm and 0.25*\rJF cm)$(P) arc(200:270:\rJF cm and 0.25*\rJF cm);
+\path[name intersections={of = circle and elip2, by= ccc}];
+\tkzFindAngle(cc,A,F)   \tkzGetAngle{ccAF}
+
+\tkzDefShiftPoint[A](0:5){AA}
+
+\tkzFindAngle(AA,A,cc)   \tkzGetAngle{ccA}
+\tkzFindAngle(AA,A,J)   \tkzGetAngle{JA}
+\draw[name path=elipb,thick,rotate=30] ($(J)+ (0,-0.2) + (-77:\rJF cm and 0.25*\rJF cm)$(P) arc(-77:257.5:\rJF cm and 0.25*\rJF cm);
+\draw[dashed,name path=elip,thick,rotate=30] ($(J)+ (0,-0.2) + (-77:\rJF cm and 0.25*\rJF cm)$(P) arc(-77:-103:\rJF cm and 0.25*\rJF cm);
+
+\path[name path=elipt1,thick,rotate=30] ($(J)+ (0,-0.2) + (0:\rJF cm and 0.25*\rJF cm)$(P) arc(0:60:\rJF cm and 0.25*\rJF cm);
+\path[name path=elipt2,thick,rotate=30] ($(J)+ (0,-0.2) + (120:\rJF cm and 0.25*\rJF cm)$(P) arc(120:250:\rJF cm and 0.25*\rJF cm);
+\path[name intersections={of = circle and elipt1, by= t1}];
+\path[name intersections={of = circle and elipt2, by= t2}];	
+\tkzDrawArc[dashed,thick,color=black](O,t1)(t2)
+\tkzDrawArc[thick,color=black](O,t2)(t1)
+\tkzDrawPoints[fill = black,size = 2 pt](A,O,I)
+\tkzLabelPoints[above right](A,O)
+%\tkzDrawSegments(A,F A,FF)
+\tkzDrawSegments[dashed](A,J)
+
+\path[name path=lineAF](A)--(F);
+\path[name path=lineAFF](A)--(FF);
+%\tkzLabelPoints(t-1,t-2)
+\draw[thick]($ (F)$)--(A);
+\draw[thick]($ (FF)$)--(A);
+
+\path[name path=elipt1,thick,rotate=30] ($(J)+ (0,-0.2) + (0:\rJF cm and 0.25*\rJF cm)$(P) arc(0:60:\rJF cm and 0.25*\rJF cm);
+\path[name path=elipt2,thick,rotate=30] ($(J)+ (0,-0.2) + (120:\rJF cm and 0.25*\rJF cm)$(P) arc(120:250:\rJF cm and 0.25*\rJF cm);
+\path[name intersections={of = circle and elipt1, by= t1}];
+\path[name intersections={of = circle and elipt2, by= t2}];
+\end{tikzpicture}\newline
+Hình $2.26$, trang $47$, sách giáo khoa hình học cơ bản lớp $12 - 2017$
+\end{center}

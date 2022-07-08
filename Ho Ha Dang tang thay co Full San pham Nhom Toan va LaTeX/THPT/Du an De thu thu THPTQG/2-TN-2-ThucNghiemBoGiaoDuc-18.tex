@@ -1,0 +1,1291 @@
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{tikz,tkz-tab,tkz-linknodes}
+\usepackage{tkz-euclide}
+\usepackage{tikz-3dplot}
+\usepackage[most]{tcolorbox}
+\usepackage[tikz]{bclogo}
+\usetkzobj{all}
+\usetikzlibrary{arrows,calc,intersections,angles,quotes,shapes.geometric}
+\usetikzlibrary{snakes}
+\usepackage{tabvar}
+\usepackage{venndiagram}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+\pgfplotsset{compat=1.9}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=1.5cm] {geometry}
+%\usepackage[unicode, bookmarks=false]{hyperref}
+\usepackage[hidelinks,unicode]{hyperref}
+
+\usepackage{currfile}
+
+
+\usepackage[loigiai]{ex_test} 
+%\usepackage[loigiai]{ex_test}
+%\usepackage[color]{ex_test}
+\def\colorEX{\color{blue}}
+%\renewtheorem{ex}{\color{violet}Câu}
+\newtheorem{bt}{Bài}
+\usepackage{esvect}
+\def\vec{\vv}
+\def\overrightarrow{\vv}
+%Lệnh của gói mathrsfs
+%\DeclareSymbolFont{rsfs}{U}{rsfs}{m}{n}
+%\DeclareSymbolFontAlphabet{\mathscr}{rsfs}
+%Lệnh cung
+\DeclareSymbolFont{largesymbols}{OMX}{yhex}{m}{n}
+\DeclareMathAccent{\wideparen}{\mathord}{largesymbols}{"F3}
+%Lệnh song song
+%\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+%\DeclareMathSymbol{\varparallel}{\mathrel}{symbolsC}{9}
+%\DeclareMathSymbol{\parallel}{\mathrel}{symbolsC}{9}
+%Hệ hoặc, hệ và
+\newcommand{\hoac}[1]{ 
+	\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{
+	\left\{\begin{aligned}#1\end{aligned}\right.}
+\renewcommand{\baselinestretch}{1.4}
+\makeatletter
+\renewcommand{\labelenumi}{\alph{enumi})}
+\renewcommand \thesection {\@arabic\c@section}
+\newenvironment{name}[2]{\begin{bclogo}[logo =\bccrayon, noborder =false, marge =2, arrondi =0.2, couleur = red!20]
+		{\textcolor{blue}{\LaTeX\ hóa:  \textbf{#1}}}\vspace*{-3pt}%
+		\section{#2}
+\end{bclogo}}
+
+\begin{document}
+\begin{name}
+{Biên soạn: Thầy Huỳnh Quy, Hoàng Hải, Phan Minh Tâm, QK Trương, Vũ Văn Trường, Nguyễn Hữu Nhanh Tiến, Lê Đình Mẫn, Anh Tuấn Nguyễn, Đỗ Đường Hiếu, Nhan Ho Thanh, Dũng Lê}
+{Đề thi thực nghiệm Bộ Giáo Dục số 2 năm 2017 -2018}
+\end{name}
+\setcounter{ex}{0}\setcounter{bt}{0}
+\Opensolutionfile{ans}[ans/ans-2-TN-2-BoGiaoDuc-18]
+
+
+\begin{ex}%[12-TN-BGD-2]%[Huỳnh Văn Quy]%[2H3Y2-2]
+	Trong không gian $Oxyz$, cho mặt phẳng $(P)\colon 2x-z+5=0$. Một véc-tơ pháp tuyến của mặt phẳng $(P)$ là
+	\choice
+	{$\vec{n}_1=(2;1;5)$}
+	{$\vec{n}_2=(2;0;1)$}
+	{$\vec{n}_3=(2;-1;5)$}
+	{\True $\vec{n}_4=(2;0;-1)$}
+	\loigiai{Một véc-tơ pháp tuyến của mặt phẳng $(P)$ là $\vec{n}_4=(2;0;-1)$.}	
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Huỳnh Văn Quy]%[2D1Y2-2]
+	Cho hàm số $y=f(x)$ có đồ thị như hình sau
+	\begin{center}
+		\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1cm,y=1cm]
+		\draw[->,color=black] (-2.2,0.) -- (2.3,0.0);
+		\foreach \x in {-2,-1,1,2} 
+		\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+		\draw[->,color=black] (0.,-3.1) -- (0.,2.0);
+		\foreach \y in {-3,-1,1} 
+		\draw[shift={(0,\y)},color=black] (-3pt,0pt) -- (2pt,0pt) node[left] {\footnotesize $\y$};
+		\draw[color=black] (0,0) node[above right] {\scriptsize $O$};
+		\clip(-2.2,-3.1) rectangle (2.4,2.1);
+		\draw[line width=1.2pt,smooth,samples=100,domain=-2:2] plot(\x,{(\x)^3-3*(\x)-1});
+		\draw[color=black] (2.3,0) node[above left] {\scriptsize $x$};
+		\draw[color=black] (0,1.8) node[below right] {\scriptsize $y$};
+		\draw[dashed] (-1,0)--(-1,1)--(0,1) (0,-3)--(1,-3)--(1,0);
+		\end{tikzpicture}
+	\end{center}
+	Hàm số đạt cực đại tại điểm
+	\choice
+	{$x=2$}
+	{$x=1$}
+	{$x=-3$}
+	{\True $x=-1$}
+	\loigiai{Hàm số đã cho đạt cực đại tại điểm $x=-1$.}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Huỳnh Văn Quy]%[2D2Y3-2]
+	Cho $a$ là số thực dương bất kỳ. Mệnh đề nào sau đây đúng?
+	\choice
+	{$\log_{3}(3a)=1+a$}
+	{$\log_{3}(3a)=\log_{3}a$}
+	{\True $\log_{3}(3a)=1+\log_{3}a$}
+	{$\log_{3}(3a)=3+\log_{3}a$}
+	\loigiai{Ta có: $\log_{3}(3a)=\log_{3}3+\log_{3}a=1+\log_{3}a$.}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Huỳnh Văn Quy]%[1D2Y2-1]
+	Một hộp có $3$ viên bi đỏ và $4$ viên bi xanh. Số cách lấy ra hai viên bi, trong đó có một viên bi đỏ và một viên bi xanh bằng
+	\choice
+	{$7$}
+	{$81$}
+	{\True $12$}
+	{$64$}
+	\loigiai{Số cách lấy thỏa mãn đề bài là $\mathrm{C}_3^1\cdot\mathrm{C}_4^1=12$.}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Huỳnh Văn Quy]%[2D4Y1-2]
+	Điểm $M$ trong hình vẽ dưới đây biểu diễn số phức $\overline{z}$.
+	\begin{center}
+		\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1cm,y=1cm]
+		\draw[->,color=black] (-0.5,0.) -- (3,0.0);
+		\foreach \x in {2} 
+		\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+		\draw[->,color=black] (0.,-0.5) -- (0.,4.0);
+		\foreach \y in {3} 
+		\draw[shift={(0,\y)},color=black] (-1pt,0pt) -- (3pt,0pt) node[left] {\footnotesize $\y$};
+		\draw[color=black] (0,0) node[below left] {$O$};
+		\clip(-0.5,-0.5) rectangle (3.3,4.2);
+		\draw[color=black] (3.0,0) node[above] {$x$};
+		\draw[color=black] (0,3.9) node[right] {$y$};
+		\draw[color=black] (2,3) node[above right] {$M$};
+		\draw[dashed] (2,0)--(2,3)--(0,3);
+		\coordinate (M) at (2,3);
+		\fill (M) circle (1.5pt);
+		\end{tikzpicture}
+	\end{center}
+	Số phức $z$ bằng
+	\choice
+	{$2+3i$}
+	{\True $2-3i$}
+	{$3+2i$}
+	{$3-2i$}
+	\loigiai{Dựa vào đồ thị, ta có điểm biểu diễn của $\overline{z}$ là $M(2;3)$. Suy ra $\overline{z}=2+3i\Rightarrow z=2-3i$.}
+\end{ex}
+
+
+\begin{ex}%[12-TN-BGD-2]%[Hoàng Hải]%[2H1Y3-2]
+Khối lăng trụ có đáy là hình vuông cạnh $a$, đường cao bằng $a\sqrt{3}$ có thể tích bằng
+\choice
+{$ 2a^3\sqrt{3} $}
+{\True$ a^3\sqrt{3} $}
+{$ \dfrac{a^3\sqrt{3}}{6} $}
+{$ \dfrac{a^3\sqrt{3}}{3} $}
+\loigiai{
+	Thể tích khối trụ là $ V = B \cdot h = a^2\cdot a\sqrt{3} = a^3\sqrt{3} $.
+}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Hoàng Hải]%[2H3Y3-2]
+Trong không gian $ Oxyz $, đường thẳng đi qua điểm $ A(3;0;-4) $ và có véc-tơ chỉ phương $ \vec{u}=(5;1;-2) $ có phương trình
+\choice
+{$ \dfrac{x+3}{5} = \dfrac{y}{1} = \dfrac{z+4}{-2} $}
+{\True $ \dfrac{x-3}{5} = \dfrac{y}{1} = \dfrac{z+4}{-2} $}
+{$ \dfrac{x-3}{5} = \dfrac{y}{1} = \dfrac{z-4}{-2} $}
+{$ \dfrac{x+3}{5} = \dfrac{y}{1} = \dfrac{z-4}{-2} $}
+\loigiai{
+	Phương trình chính tắc của đường thẳng cần tìm là
+	$ \dfrac{x-3}{5} = \dfrac{y}{1} = \dfrac{z+4}{-2} $.
+}\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Hoàng Hải]%[2H3Y1-2]
+Trong không gian $ Oxyz $ cho hai điểm $ A(2;1;-1),B(1;2;3) $. Độ dài đoạn thẳng $ AB $ bằng
+\choice
+{$ 18 $}
+{$ \sqrt{22} $}
+{$ \sqrt{3} $}
+{\True $ 3\sqrt{2} $}
+\loigiai{
+Ta có $ AB = \sqrt{(2-1)^2+(1-2)^2+(-1-3)^2} = 3\sqrt{2} $.
+}\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Hoàng Hải]%[2D1Y5-1]
+Đường cong trong hình dưới là đồ thị của hàm số nào sau đây?
+\begin{center}
+	\begin{tikzpicture}[>=stealth,x=1cm,y=1cm,scale=0.5]
+	\draw[->] (-5.5,0) -- (6.5,0) node[right] {$x$};
+	\draw[->] (0,-4.5) -- (0,6.5) node[above] {$y$};
+	\draw[domain=-5:0.6] plot (\x,{(\x+1)/(\x-1)});
+	\draw[domain=1.4:6] plot (\x,{(\x+1)/(\x-1)});
+	\draw[domain=-5:6,dashed] plot (\x,1);
+	\draw[domain=-4:6,dashed] plot (1,\x);
+	\draw($(0,0)$)node[below right = -0.05 and -0.1]{$O$};
+	\draw($(1,0)$)node[below right]{$1$};
+	\draw($(0,1)$)node[above left]{$1$};
+	\end{tikzpicture}
+\end{center}
+\choice
+{\True $ y=\dfrac{x+1}{x-1} $}
+{$ y=-x^4+2x^3-1 $}
+{$ y=x^3-3x+2 $}
+{$ y=\dfrac{x-1}{x+1} $}
+\loigiai{
+Dựa vào đồ thị ta thấy hàm số không xác định tại $ x=1 $. \\
+Do đó hàm số thích hợp là $ y=\dfrac{x+1}{x-1} $.
+}\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Hoàng Hải]%[2D3Y3-3]
+Gọi $ D $ là hình phẳng giới hạn bởi đồ thị hàm số $ y=x^2-4x+3 $, trục hoành với hai đường thẳng $ x=1,x=3 $. Thể tích của khối tròn xoay tạo thành khi quay $ D $ quanh trục hoành bằng
+\choice
+{$ \dfrac{16}{15} $}
+{$ \dfrac{4\pi}{3} $}
+{$ \dfrac{4}{3} $}
+{\True $ \dfrac{16\pi}{15} $}
+\loigiai{
+Thể tích khối tròn xoay tạo thành là
+$ V=\pi \int\limits_{1}^{3} (x^2-4x+3)^2 \mathrm{\,d}x = \dfrac{16\pi}{15}$.
+}\end{ex}
+
+
+
+\begin{ex}%[12-TN-BGD-2]%[Phan Minh Tâm]%[2D3Y1-1]
+Họ nguyên hàm của hàm số $ f(x)=5^x $ là
+	\choice
+	{ $ 5^x \cdot \ln 5 +C $}
+	{\True $ \dfrac{5^x}{\ln 5}+C $}
+	{$ \dfrac{5^{x+1}}{x+1}+C $}
+	{$ 5^{x+1}+C $}
+	\loigiai
+	{Ta có $ f(x)=5^x $ nên họ nguyên hàm của $ f(x) $ là $ F(x) = \dfrac{5^x}{\ln 5}+C. $
+	}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Phan Minh Tâm]%[2H2Y1-2]
+Diện tích xung quanh của hình trụ có bán kính đáy $ R = 2 $	và đường sinh $ l = 3 $ bằng
+	\choice
+	{$ 4\pi $}
+	{ $ 6\pi $}
+	{$ 24\pi $}
+	{\True $ 12\pi $}
+	\loigiai
+	{Diện tích xung quanh của hình trụ là $ S_{xq}=2\pi \cdot R \cdot l = 2\pi \cdot 2 \cdot 3 = 12 \pi. $
+	}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Phan Minh Tâm]%[1D4Y2-7]
+Tính giới hạn $ \lim\limits_{x \to +\infty } \dfrac{x-2}{x^2+1} $	bằng
+	\choice
+	{$ 2 $}
+	{\True $ 0 $}
+	{$ -2 $}
+	{$ 1 $}
+	\loigiai
+	{Ta có $ \lim\limits_{x \to +\infty } \dfrac{x-2}{x^2+1} =\lim\limits_{x \to +\infty } \dfrac{\dfrac{1}{x}-\dfrac{2}{x^2}}{1+\dfrac{1}{x^2}} = 0.$
+	}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Phan Minh Tâm]%[2D2Y5-1]
+Phương trình $ \log_2 (x-2)=1 $	có nghiệm là
+	\choice
+	{$ x=3 $}
+	{$ x=2 $}
+	{$ x=1 $}
+	{\True $ x=4 $}
+	\loigiai
+	{Ta có $ \log_2 (x-2)=1 \Leftrightarrow x-2 = 2^1 \Leftrightarrow x = 4.$
+	}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Phan Minh Tâm]%[2D1Y1-2]
+Cho hàm số $ y=f(x) $	có bảng biến thiên như hình sau
+\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit[espcl=2.5,lgt=1.5]
+		{$x$/0.7,$y'$/0.7,$y$/2}
+		{$-\infty$,$-1$,0,$1$,$+\infty$}
+		\tkzTabLine{,+,0,-,0,+,0,-}
+		\tkzTabVar{-/$-\infty$,+/$2$,-/$1$,+/$2$,-/$-\infty$}
+		\end{tikzpicture}
+\end{center}
+Hàm số $ y=f(x) $ nghịch biến trên khoảng nào dưới đây?
+	\choice
+	{$ (0;1) $}
+	{$ (-\infty;-1) $}
+	{$ (-1;1) $}
+	{\True $ (-1;0) $}
+	\loigiai
+	{Dựa vào bảng biến thiên hàm số nghịch biến trên khoảng $ (-1;0) $ và $ (1;+\infty) $.
+	}
+\end{ex}
+
+
+\begin{ex}%[12-TN-BGD-2]%[QK Truong]%[1D2B5-2]
+	Một hộp chứa $ 12 $ quả cầu gồm $ 5 $ quả cầu màu xanh và $ 7 $ quả cầu màu đỏ. Chọn ngẫu nhiên lần lượt hai quả cầu từ hộp đó. Xác suất để hai quả cầu được chọn ra cùng màu bằng
+	\choice
+	{$\dfrac{31}{33}$}
+	{$\dfrac{25}{66}$}
+	{$\dfrac{25}{33}$}
+	{\True $\dfrac{31}{66}$}
+	\loigiai{Gọi $\Omega$ là không gian mẫu của phép thử. Ta có $n\left(\Omega\right)=12 \cdot 11 = 132.$\\
+		Gọi $ A $ là biến cố ``Hai quả cầu được chọn ra cùng màu''.
+		\begin{enumerate}[$\bullet$]
+			\item TH 1: Hai quả cầu cùng màu xanh có $ 5\cdot 4=20 $ cách chọn.
+			\item	TH 2: Hai quả cầu cùng màu đỏ có $ 7\cdot 6=42 $ cách chọn.
+		\end{enumerate}
+		Suy ra $n\left( A\right) =20+42=62.$\\
+		Xác suất của biến cố: $\mathrm{P}(A)=\dfrac{62}{132}=\dfrac{31}{66}.$
+	}
+	
+\end{ex}
+\begin{ex}%[12-TN-BGD-2]%[QK Truong]%[2D4B4-1]
+	Gọi $z_1,z_2$ là hai nghiệm phức của phương trình $ z^2-4z+5=0 $. Giá trị của biểu thức $\left| z_1^2\right| + \left| z_2^2\right|$ bằng
+	\choice
+	{\True $10$}
+	{$20$}
+	{$6$}
+	{$6-8i$}
+	\loigiai{
+		Ta có $ z^2-4z+5=0\Leftrightarrow \hoac{&z=2+i\\&z=2-i.}$\\
+		Vậy $\left| z_1^2\right| + \left| z_2^2\right|=\left| \left(2+i\right)^2 \right| + \left| \left(2-i\right)^2 \right|=10.$
+	}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[QK Truong]%[2H1B3-4]
+	Cho hình chóp $ S.ABC $ có đáy $ ABC $ là tam giác vuông tại $ A $, $ AB=a $, $ AC=a\sqrt{2} $. Biết thể tích khối chóp bằng $ \dfrac{a^3}{2} $. Khoảng cách từ điểm $ S $ đến mặt phẳng $ \left( ABC\right)  $ bằng
+	\choice
+	{$ \dfrac{a\sqrt{2}}{6} $}
+	{$ \dfrac{a\sqrt{2}}{2} $}
+	{$ \dfrac{3a\sqrt{2}}{4} $}
+	{\True $ \dfrac{3a\sqrt{2}}{2} $}
+	\loigiai{
+		\immini
+		{Ta có $V_{S.ABC}=\dfrac{1}{3}\cdot \mathrm{d}\left( S,(ABC)\right)\cdot S_{\triangle ABC}$.\\
+			Suy ra $\mathrm{d}\left( S,(ABC)\right)=\dfrac{3V_{S.ABC}}{S_{\triangle ABC}}
+			=\dfrac{3\cdot\dfrac{a^3}{2}}{\dfrac{1}{2}AB\cdot AC}
+			=\dfrac{3\cdot\dfrac{a^3}{2}}{\dfrac{1}{2}a\cdot a\sqrt{2}}=\dfrac{3a\sqrt{2}}{2}.$ 		
+		}
+		{
+			\begin{tikzpicture}[scale=0.8]
+			\tkzInit[xmin=-1,xmax=4,ymin=-3,ymax=4]
+			\tkzDefPoints{0/0/A, 3/0/C,1/-2/B,2/3/S}
+			\tkzLabelPoints[left](A,B)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above](S)
+			\tkzDrawSegments[dashed](A,C)
+			\tkzDrawSegments(S,A S,B S,C A,B B,C)
+			\tkzDrawPoints(S,A,B,C)
+			\tkzMarkRightAngles(B,A,C)
+			\end{tikzpicture}
+		}			
+	}
+\end{ex}
+\begin{ex}%[12-TN-BGD-2]%[QK Truong]%[2D1B4-1]
+	Đồ thị hàm số nào dưới đây  $\textbf{không}$ có đường tiệm cận đứng?
+	\choice
+	{$ y=\dfrac{x-1}{x+1} $}
+	{$ y=\dfrac{x^2+1}{x+1} $}
+	{$ y=\dfrac{2}{x+1} $}
+	{\True $ y=\dfrac{x^2+3x+2}{x+1} $}
+	\loigiai{Xét hàm số $y=\dfrac{x^2+3x+2}{x+1}$.
+		\begin{enumerate}[$\bullet$]
+			\item Tập xác định $\mathscr{D}=\mathbb{R}\setminus\{-1\}$.
+			\item Ta có $ \lim\limits_{x\to -1} \dfrac{x^2+3x+2}{x+1}=\lim\limits_{x\to -1} \left( x+2\right) =1 $. 
+		\end{enumerate}
+		Vậy đồ thị hàm số $ y=\dfrac{x^2+3x+2}{x+1} $ không có tiệm cận đứng.		
+	}
+\end{ex}
+\begin{ex}%[12-TN-BGD-2]%[QK Truong]%[2D3K2-3]
+	Cho hàm số $ y=f\left( x\right)  $ liên tục trên đoạn $\left[ 1;2\right]$ và $\displaystyle\int\limits_1^2 (x-1)f'(x)\mathrm{\,d}x=a$. Tính $\displaystyle\int\limits_1^2 f(x)\mathrm{\,d}x$ theo $a$ và $ b=f(2). $
+	\choice
+	{$a-b$}
+	{\True $b-a$}
+	{$a+b$}
+	{$-b-a$}
+	\loigiai{
+		Đặt $ \heva{&u=x-1 \\ &v'=f'(x)} \Rightarrow \heva{&u'=1 \\ & v=f(x).}$\\
+		Ta suy ra
+		\begin{eqnarray*}
+			\displaystyle\int\limits_1^2 (x-1)f'(x)\mathrm{\,d}x=a &\Leftrightarrow& (x-1)f(x)\Big|_1^2-\displaystyle\int\limits_1^2 f(x)\mathrm{\,d}x=a\\
+			&\Leftrightarrow& f(2)-\displaystyle\int\limits_1^2 f(x)\mathrm{\,d}x=a\\
+			&\Leftrightarrow& \displaystyle\int\limits_1^2 f(x)\mathrm{\,d}x=b-a.	
+		\end{eqnarray*}	
+	}
+	
+\end{ex}
+
+
+
+
+\begin{ex}%[12-TN-BGD-2]%[Vũ Văn Trường]%[2D1B5-3]
+\immini{
+Cho hàm số $y=f(x)=ax^4+bx^2+c$ có đồ thị như hình vẽ bên. Số nghiệm của phương trình $f(x)-1=0$ là
+\choice
+{\True $3$}
+{$2$}
+{$4$}
+{$1$}
+}
+{
+\begin{tikzpicture}[scale=0.7,thick,>=stealth,x=1.cm,
+y=1.cm]
+%Vẽ hai trục
+\draw[thin,->](-3.0,0)--(3,0) node[below]{$x$};
+\draw[thin,->](0,-3.75)--(0,2) node[left]{$y$};
+\tkzText[above left=-0.1](0,1){\footnotesize $1$}
+\tkzText[below left=-0.1](0,-3){\footnotesize $-3$}
+\node[below left=-0.2](0,0){\footnotesize $O$};
+%Vẽ đồ thị
+\draw[smooth,samples=100,domain=-2.05:2.05]
+plot(\x,{(\x)^4-4*(\x)^2+1});
+% Vẽ đường gióng
+\draw[dashed](-1.41,0)--(-1.41,-3)--(1.41,-3)--(1.41,0);
+\fill (-1.41,0) circle(1.5pt);
+\fill (1.41,0) circle(1.5pt);
+\fill (0,0) circle(1.5pt);
+\fill (0,1) circle(1.5pt);
+\fill (0,-3) circle(1.5pt);
+\end{tikzpicture}
+}
+\loigiai{
+\immini{
+Ta có $f(x)-1=0\Leftrightarrow f(x)=1$, từ đó suy ra số nghiệm phương trình $f(x)-1=0$ chính bằng số điểm chung của đồ thị hàm số $y=f(x)$ và đường thẳng $d\colon y=1$.\\
+Nhìn vào đồ thị ta suy ra phương trình đã cho có $3$ nghiệm.
+}
+{
+\begin{tikzpicture}[scale=0.7,thick,>=stealth,x=1.cm,
+y=1.cm]
+%Vẽ hai trục
+\draw[thin,->](-3.0,0)--(3,0) node[below]{$x$};
+\draw[thin](-3.0,1)--(3,1) node[above]{$d$};
+\draw[thin,->](0,-3.75)--(0,2) node[left]{$y$};
+\tkzText[above left=-0.1](0,1){\footnotesize $1$}
+\tkzText[below left=-0.1](0,-3){\footnotesize $-3$}
+\node[below left=-0.2](0,0){\footnotesize $O$};
+%Vẽ đồ thị
+\draw[smooth,samples=100,domain=-2.05:2.05]
+plot(\x,{(\x)^4-4*(\x)^2+1});
+% Vẽ đường gióng
+\draw[dashed](-1.41,0)--(-1.41,-3)--(1.41,-3)--(1.41,0);
+\fill (-1.41,0) circle(1.5pt);
+\fill (1.41,0) circle(1.5pt);
+\fill (0,0) circle(1.5pt);
+\fill (0,1) circle(1.5pt);
+\fill (0,-3) circle(1.5pt);
+\end{tikzpicture}
+}
+}
+\end{ex}
+\begin{ex}%[12-TN-BGD-2]%[Vũ Văn Trường]%[2D2B4-4]
+Gọi $a, b$ lần lượt là giá trị nhỏ nhất và giá trị lớn nhất của hàm số $y=x^2+\log_2(2-x)$ trên đoạn $[-2;0]$. Tổng $a+b$ bằng
+\choice
+{$5$}
+{$0$}
+{\True $7$}
+{$6$}
+\loigiai{
+Ta có $y'=2x-\dfrac{1}{(2-x)\cdot \ln2}$.\\
+Do $x\in [-2;0]$ nên $\heva{&2x<0\\&2-x>0}\Rightarrow y'<0\ \forall x\in [-2;0]$.\\
+$\heva{&y(0)=\log_22=1\\&y(-2)=4+\log_24=6.}$\\
+\immini{Ta có bảng biến thiên\\
+Từ đó suy ra $\heva{&a=1\\&b=6.}$\\
+Vậy $a+b=7$.}{ \begin{tikzpicture}
+\tkzTabInit[lgt=1.5,espcl=3.5]
+{$x$ /0.8,$y'$ /0.8,$y$ /2.5}
+{$-2$,$0$}
+\tkzTabLine{,-,}
+\tkzTabVar{+/$6$/,-/ $1$/}
+\end{tikzpicture}}
+}
+\end{ex}
+\begin{ex}%[12-TN-BGD-2]%[Vũ Văn Trường]%[2D2B5-2]
+Tổng bình phương tất cả các nghiệm của phương trình $\log_2^2x-3\log_3x\cdot \log_23+2=0$ bằng
+\choice
+{$25$}
+{\True $20$}
+{$18$}
+{$6$}
+\loigiai{
+Điều kiện $x>0$.\\
+$\log_2^2x-3\log_3x\cdot \log_23+2=0\Leftrightarrow \log_2^2x-3\log_2x+2=0\Leftrightarrow \hoac{&\log_2x=1\\&\log_2x=2.}$\\
+Từ đó suy ra phương trình có các nghiệm $x_1=2$ và $x_2=4$.\\
+Vậy $x_1^2+x_2^2=20$.
+}
+\end{ex}
+\begin{ex}%[12-TN-BGD-2]%[Vũ Văn Trường]%[2D1B3-1]
+Giá trị lớn nhất của hàm số $f(x)=\dfrac{1}{3}x^3-3x^2+5x-\dfrac{2}{3}$ trên đoạn $[0;5]$ bằng
+\choice
+{$-\dfrac{2}{3}$}
+{$5$}
+{$\dfrac{2}{3}$}
+{\True $\dfrac{5}{3}$}
+\loigiai{
+$y'=x^2-6x+5$, $y'=0\Leftrightarrow \hoac{&x=1\\&x=5.}$\\
+Ta có bảng biến thiên\\
+\begin{center}
+ \begin{tikzpicture}
+		\tkzTabInit[lgt=1.25,espcl=2.5]
+		{$x$ /0.8,$f'(x)$ /0.8,$f(x)$ /2.5}
+		{$0$,$1$,$5$}
+		\tkzTabLine{,+,0,-,0}
+		\tkzTabVar{-/$-\dfrac{2}{3}$/,+/ $\dfrac{5}{3}$/,-/ $-9$/,}
+\end{tikzpicture}
+\end{center}
+Từ đó suy ra giá trị lớn nhất của hàm số $f(x)=\dfrac{1}{3}x^3-3x^2+5x-\dfrac{2}{3}$ trên đoạn $[0;5]$ bằng $\dfrac{5}{3}$.
+}
+\end{ex}
+\begin{ex}%[12-TN-BGD-2]%[Vũ Văn Trường]%[2H3B2-3]
+Trong không gian $Oxyz$, cho mặt cầu $(S)\colon (x+1)^2+(y-3)^2+(z+2)^2=9$. Mặt phẳng $(P)$ tiếp xúc với mặt cầu $(S)$ tại điểm $A(-2;1;-4)$ có phương trình là
+\choice
+{$x+2y+2z+4=0$}
+{$x-2y-2z-4=0$}
+{\True $x+2y+2z+8=0$}
+{$3x-4y+6z+34=0$}
+\loigiai{
+Mặt cầu $(S)$ có tâm $I(-1;3;-2)$ và bán kính $R=3$.\\
+Ta có $\overrightarrow{IA}=(-1;-2;-2)$
+Mặt phẳng $(P)$ tiếp xúc với mặt cầu $(S)$ tại điểm $A(-2;1;-4)$ nên có véc-tơ pháp tuyến $\overrightarrow{n}=(1;2;2)\parallel \overrightarrow{IA}$.\\
+Vậy $(P)$ có phương trình $1(x+2)+2(y-1)+2(z+4)=0$ hay $x+2y+2z+8=0$.
+}
+\end{ex}
+
+
+\begin{ex}%[12-TN-BGD-2]%[Lê Đình Mẫn]%[2H3B3-2]
+Trong không gian $Oxyz$, cho đường thẳng $d \colon \dfrac{x}{2}=\dfrac{y-3}{1}=\dfrac{z-2}{-3}$ và mặt phẳng $(P) \colon x-y+2z-6=0$. Đường thẳng nằm trong mặt phẳng $(P)$, cắt và vuông góc với $d$ có phương trình
+\choice
+{\True $\dfrac{x+2}{1}=\dfrac{y-2}{7}=\dfrac{z-5}{3}$}
+{$\dfrac{x-2}{1}=\dfrac{y-4}{7}=\dfrac{z+1}{3}$}
+{$\dfrac{x-2}{1}=\dfrac{y+2}{7}=\dfrac{z+5}{3}$}
+{$\dfrac{x+2}{1}=\dfrac{y+4}{7}=\dfrac{z-1}{3}$}
+\loigiai{
+Phương trình tham số của $d \colon \heva{&x=2t\\&y=3+t\\&z=2-3t.}$\\
+Gọi $M(2t;3+t;2-3t)$ là giao điểm của $d$ và $(P)$.\\
+$M$ thuộc $(P)$ nên $2t-(3+t)+2(2-3t)-6=0\Leftrightarrow t=-1$, suy ra $M(-2;2;5)$.\\
+$d$ có véc-tơ chỉ phương của $\overrightarrow{u}_d=(2;1;-3)$,	$(P)$ có véc-tơ pháp tuyến $\overrightarrow{n}_{(P)}=(1;-1;2)$.\\
+Gọi $\Delta$ là đường thẳng nằm trong $(P)$, cắt và vuông góc với $d$. Suy ra $\Delta$ đi qua $M(-2;2;5)$ và có véc-tơ chỉ phương $\overrightarrow{u}_{\Delta}=\left[\overrightarrow{n}_{(P)},\overrightarrow{u}_d\right]=(1;7;3)$.\\
+Vậy $\Delta$ có phương trình là $\dfrac{x+2}{1}=\dfrac{y-2}{7}=\dfrac{z-5}{3}$.
+}
+\end{ex}
+\begin{ex}%[12-TN-BGD-2]%[Lê Đình Mẫn]%[1H3K2-3]
+Cho tứ diện $ABCD$ có $AB$ vuông góc với mặt phẳng $(BCD)$. Biết tam giác $BCD$ vuông tại $C$ và $AB=\dfrac{a\sqrt{6}}{2}$, $AC=a\sqrt{2}$, $CD=a$. Gọi $E$ là trung điểm của $AD$ (tham khảo hình vẽ dưới đây). 
+\begin{center}
+\begin{tikzpicture}[scale=.6]
+\tkzDefPoints{0/0/B, 2/-2/C, 7/0/D}
+\coordinate (A) at ($(B)+(0,4)$);
+\tkzDefMidPoint(A,D)\tkzGetPoint{E}
+\tkzDrawSegments[dashed](B,D)
+\tkzDrawPolygon(A,C,D)
+\tkzDrawSegments(A,B B,C C,E)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](D,E)
+\tkzLabelPoints[below](C)
+\tkzLabelPoints[above](A)
+\tkzMarkRightAngles(C,B,A D,B,A B,C,D)
+\tkzDrawPoints[fill=black,size=6](A,B,C,D,E)
+\end{tikzpicture}
+\end{center}
+Góc giữa hai đường thẳng $AB$ và $CE$ bằng
+\choice
+{$60^\circ$}
+{\True $45^\circ$}
+{$30^\circ$}
+{$90^\circ$}
+\loigiai{
+\immini{Gọi $F$ là trung điểm của $BD$, suy ra $EF\parallel AB$ nên $(AB,CE)=(EF,CE)$.\\
+Do $AB\perp (BCD)$ nên $EF\perp (BCD)$, suy ra $\bigtriangleup EFC$ vuông tại $F$.\\
+Mặt khác $\heva{&CD \perp BC\\&CD\perp AB}\Rightarrow CD\perp AC$.\\
+Ta có
+$EF=\dfrac{1}{2}AB=\dfrac{a\sqrt{6}}{4}$, $AD=\sqrt{AC^2+CD^2}=a\sqrt{3}$.\\
+$\bigtriangleup ACD$ vuông tại $C$ và có $E$ là trung điểm của $AD$ nên $CE=\dfrac{1}{2}AD=\dfrac{a\sqrt{3}}{2}$.\\
+$\cos \widehat{CEF}=\dfrac{EF}{EC}=\dfrac{\sqrt{2}}{2}\Rightarrow \widehat{CEF}=45^\circ$.\\
+Vậy $(AB,CE)=(EF,CE)=\widehat{CEF}=45^\circ.$
+}
+{	\begin{tikzpicture}[scale=.8]
+\tkzDefPoints{0/0/B, 2/-2/C, 7/0/D}
+\coordinate (A) at ($(B)+(0,4)$);
+\tkzDefMidPoint(A,D)\tkzGetPoint{E}
+\tkzDefMidPoint(D,B)\tkzGetPoint{F}
+\tkzDrawSegments[dashed](B,D E,F F,C)
+\tkzDrawPolygon(A,C,D)
+\tkzDrawSegments(A,B B,C C,E)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](D,E)
+\tkzLabelPoints[below](C)
+\tkzLabelPoints[below right](F)
+\tkzLabelPoints[above](A)
+\tkzMarkRightAngles(C,B,A D,B,A B,C,D E,F,C)
+\tkzDrawPoints[fill=black,size=6](A,B,C,D,E,F)
+\end{tikzpicture}}
+}
+\end{ex}
+\begin{ex}%[12-TN-BGD-2]%[Lê Đình Mẫn]%[1D2B3-2]
+Hệ số của số hạng chứa $x^8$ trong khai triển của biểu thức $\left(\dfrac{2}{x^3}-\sqrt{x^5}\right)^{12}$ (với $x>0$) bằng
+\choice
+{$-7920$}
+{\True $7920$}
+{$-126720$}
+{$126720$}  
+\loigiai{
+Số hạng tổng quát trong khai triển biểu thức $\left(\dfrac{2}{x^3}-\sqrt{x^5}\right)^{12}$ (với $x>0$) là
+$$\mathrm{C}_{12}^k \cdot \left( \dfrac{2}{x^3} \right)^{12-k} \cdot \left( -\sqrt{x^5}\right)^k=\mathrm{C}_{12}^k\cdot 2^{12-k}\cdot x^{3k-36}\cdot (-1)^k \cdot x^{\frac{5k}{2}}=(-1)^k\cdot 2^{12-k}\cdot \mathrm{C}_{12}^k\cdot x^{\frac{11k-72}{2}}.$$
+Số hạng đó chứa $x^8$, suy ra $\dfrac{11k-72}{2}=8 \Leftrightarrow k=8.$\\
+Vậy hệ số của số hạng chứa $x^8$ trong khai triển đã cho là $(-1)^8\cdot 2^4\cdot \mathrm{C}_{12}^8=7920$.
+}
+\end{ex}
+\begin{ex}%[12-TN-BGD-2]%[Lê Đình Mẫn]%[2D4B2-4]
+Xét các số phức $z$ thỏa mãn điều kiện $|z-3+2i|=5$. Trong mặt phẳng tọa độ $Oxy$, tập hợp các điểm biểu diễn các số phức $w=z+1-i$ là
+\choice
+{\True đường tròn tâm $I(4;-3)$, bán kính $R=5$}
+{đường tròn tâm $I(-4;3)$, bán kính $R=5$}
+{đường tròn tâm $I(-2;1)$, bán kính $R=5$}
+{đường tròn tâm $I(3;-2)$, bán kính $R=5$}  
+\loigiai{
+Ta có $z=w-1+i$, kết hợp giả thiết suy ra $|w-4+3i|=5$. Vậy, tập hợp các điểm biểu diễn các số phức $w=z+1-i$ là đường tròn tâm $I(4;-3)$, bán kính $R=5$.
+}
+\end{ex}
+\begin{ex}%[12-TN-BGD-2]%[Lê Đình Mẫn]%[2D3K1-1]
+Cho hàm số $f(x)$ xác định trên $\mathbb{R}\backslash\{1;2\}$ thỏa mãn $f'(x)=|x-1|+|x-2|$, $f(0)+f\left(\dfrac{3}{2}\right)=1$ và $f(4)=2$. Giá trị của biểu thức $f(-1)+f\left(\dfrac{3}{2}+f(3)\right)$ bằng
+\choice
+{$-4$}
+{$-\dfrac{1}{2}$}
+{$-\dfrac{3}{2}$}
+{\True $-5$}  
+\loigiai{
+Từ giả thiết ta có $f'(x)=\heva{&-2x+3&\textrm{ khi }&x<1\\ &1&\textrm{ khi }&1<x<2\\ &2x-3&\textrm{ khi }&x>2}$. Suy ra
+$$f(x)=\heva{&-x^2+3x+c&\textrm{ khi }&x<1\\ &x+d&\textrm{ khi }&1<x<2\\ &x^2-3x+e&\textrm{ khi }&x>2},\ \textrm{với }c,d,e\in\mathbb{R}.$$
+Từ $f(0)+f\left(\dfrac{3}{2}\right)=1$ và $f(4)=2$ ta có $\heva{&c+\dfrac{3}{2}+d\\ &4+e=2}\Rightarrow c+\dfrac{3}{2}+d+e=-1$.\\
+Vậy, $f(-1)+f\left(\dfrac{3}{2}+f(3)\right)=c-4+\dfrac{3}{2}+d+e=-1-4=-5$.
+}
+\end{ex}
+
+
+
+\begin{ex}%[12-TN-BGD-2]%[Nguyễn Hữu Nhanh Tiến]%[1H3K4-3]
+	\immini{
+		Cho hình hộp chữ nhật $ABCD.A'B'C'D'$ có $AB=a$, $BC=2a$, $AA'=3a$. Gọi $\alpha$ là góc giữa hai mặt phẳng $(ACD')$ và $(ABCD)$ (tham khảo hình vẽ bên). Giá trị của $\tan\alpha$ bằng
+		\choice
+		{$\dfrac{6\sqrt{5}}{2}$}
+		{\True $\dfrac{3\sqrt{5}}{2}$}
+		{$3$}
+		{$\dfrac{3\sqrt{2}}{5}$}
+	}{
+		\begin{tikzpicture}[xscale=0.6,yscale=0.5]
+		\tkzDefPoints{0/0/A, -2/-1.5/B, 3/-1.5/C, 5/0/D, 0/5/A', -2/3.5/B', 3/3.5/C', 5/5/D'}
+		\draw[dashed] (A') node[above left] {$A'$} --(A) node[left] {$A$}--(B) node[left] {$B$}  (D) node[right] {$D$} -- (A) -- (C) node[below right] {$C$} (A)--(D');
+		\draw (B') node[above left] {$B'$}--(C') node[above] {$C'$}--(D') node[right] {$D'$}--(A')--(B')--(B)--(C)--(D)--(D') (C)--(C') (C)--(D');
+		\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D')
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\immini{
+			Gọi $K$ là hình chiếu của $D$ trên $AC$.\\
+			Vì $AC\perp DK$ và $AC\perp DD'$ nên $AC\perp KD'$.\\
+			Vậy góc giữa $(ACD')$ và $(ABCD)$ bằng góc $\widehat{D'KD}$.\\
+			Ta có $KD=\dfrac{AD\cdot CD}{\sqrt{AD^2+CD^2}}=\dfrac{2a\cdot a}{\sqrt{(2a)^2+a^2}}=\dfrac{2a}{\sqrt{5}}$.\\
+			$\tan\alpha=\dfrac{DD'}{KD}=3a\div \dfrac{2a}{\sqrt{5}}=\dfrac{3\sqrt{5}}{2}$.
+		}{
+			\begin{tikzpicture}[xscale=0.75,yscale=0.5]
+			\tkzDefPoints{0/0/A, -2/-1.5/B, 3/-1.5/C, 5/0/D, 0/5/A', -2/3.5/B', 3/3.5/C', 5/5/D'}
+			\coordinate (K) at ($(A)!0.7!(C)$);
+			\draw[dashed] (A') node[above left] {$A'$} --(A) node[left] {$A$}--(B) node[left] {$B$}  (D) node[right] {$D$} -- (A) -- (C) node[below right] {$C$} (A)--(D') (D)--(K) node[left] {$K$}--(D');
+			\draw (B') node[above left] {$B'$}--(C') node[above] {$C'$}--(D') node[right] {$D'$}--(A')--(B')--(B)--(C)--(D)--(D') (C)--(C') (C)--(D');
+			\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D',K)
+			\tkzMarkRightAngle[size=0.4](C,K,D)
+			\tkzMarkAngle(D,K,D')
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[12-TN-BGD-2]%[Nguyễn Hữu Nhanh Tiến]%[2D1G3-1]
+	\immini{Cho hàm số $y=f(x)$ có đồ thị $y=f'(x)$ như hình bên. Xét hàm số $g(x)=\dfrac{1}{3}x^3+\dfrac{3}{4}x^2-\dfrac{3}{2}x-f(x)$ mệnh đề nào sau đây đúng?
+	\choice
+	{$\max\limits_{[-3;1]}g(x)=g(-3) $}
+	{\True $\max\limits_{[-3;1]}g(x)=g(-1) $}
+	{$\max\limits_{[-3;1]}g(x)=g(1) $}
+	{$\max\limits_{[-3;1]}g(x)=\dfrac{g(-3)+g(1)}{2} $}}{ \begin{tikzpicture}[line join=round, line cap=round,>=stealth,thick,scale=.8]
+\tikzset{label style/.style={font=\footnotesize}}
+%%Nhập giới hạn đồ thị và hàm số cần vẽ
+\def \xmin{-4}
+\def \xmax{4}
+\def \ymin{-4.5}
+\def \ymax{3.9}
+\def \hamso{sin(\x r)}
+%\def \tiemcanxien{\x+1}
+%%Tự động
+\draw[->] (\xmin,0)--(\xmax,0) node[below left] {$x$};
+\draw[->] (0,\ymin)--(0,\ymax) node[below left] {$y$};
+\draw (0,0) node [below right] {$O$};
+\draw (0,-2) node [right] {$-2$};
+\draw (0,3) node [right] {$3$};
+\draw (-3,0) node [below left] {$-3$};
+\draw (-1,0) node [above] {$-1$};
+%%Vẽ các điểm trên 2 hệ trục
+\foreach \x in {1}
+\draw[thin] (\x,1pt)--(\x,-1pt) node [below] {$\x$};
+\foreach \y in {1}
+\draw[thin] (1pt,\y)--(-1pt,\y) node [left] {$\y$};
+%%Vẽ thêm mấy cái râu ria
+\draw[dashed,thin](-1,0)--(-1,-2)--(0,-2) (1,0)--(1,1)--(0,1) (-3,0)--(-3,3)--(0,3);
+
+\begin{scope}
+\clip (\xmin+0.01,\ymin+0.01) rectangle (\xmax-0.01,\ymax-0.01);
+\draw[samples=350,domain=\xmin+0.01:\xmax-0.01,smooth,variable=\x] plot (\x,{0.18*(\x)^4-0.18*(\x)^3-1.4*(\x)^2+1.68*(\x)+0.72});
+
+\end{scope}
+\end{tikzpicture}
+}
+\loigiai{
+\immini{	Ta có\\
+	 $g(x)=\dfrac{1}{3}x^3+\dfrac{3}{4}x^2-\dfrac{3}{2}x-f(x) \Rightarrow g'(x)=x^2+\dfrac{3}{2}x-\dfrac{3}{2}-f'(x)$.\\
+	Dựa vào đồ thị $f'(x)$ ta có $\heva{&f'(-1)=2\\&f'(-3)=3\\&f'(1)=1} \Rightarrow \heva{&g'(-1)=0\\&g'(-3)=6\\&g'(1)=2}$.\\
+	Ta vẽ đồ thị hàm số $y=x^2+\dfrac{3}{2}x-\dfrac{3}{2}$.\\
+	Xét trên $(-1;1)$ thì $f'(x)>x^2+\dfrac{3}{2}x-\dfrac{3}{2}$ nên $g'(x)<0$.\\
+	Xét trên $(-3;-1)$ thì $f'(x)<x^2+\dfrac{3}{2}x-\dfrac{3}{2}$ nên $g'(x)>0$.\\
+	Suy ra $\max\limits_{[-3;1]}g(x)=g(-1)$ (vì $g'(x)$ đổi dấu từ dương sang âm tại điểm $x=-1$.)
+}{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,thick,scale=.8]
+	\tikzset{label style/.style={font=\footnotesize}}
+	%%Nhập giới hạn đồ thị và hàm số cần vẽ
+	\def \xmin{-4}
+	\def \xmax{4}
+	\def \ymin{-4.5}
+	\def \ymax{3.9}
+	\def \hamso{sin(\x r)}
+	%\def \tiemcanxien{\x+1}
+	%%Tự động
+	\draw[->] (\xmin,0)--(\xmax,0) node[below left] {$x$};
+	\draw[->] (0,\ymin)--(0,\ymax) node[below left] {$y$};
+\draw (0,0) node [below right] {$O$};
+\draw (0,-2) node [right] {$-2$};
+\draw (0,3) node [right] {$3$};
+\draw (-3,0) node [below left] {$-3$};
+\draw (-1,0) node [above] {$-1$};
+	%%Vẽ các điểm trên 2 hệ trục
+	\foreach \x in {1}
+	\draw[thin] (\x,1pt)--(\x,-1pt) node [below] {$\x$};
+	\foreach \y in {1}
+	\draw[thin] (1pt,\y)--(-1pt,\y) node [left] {$\y$};
+	%%Vẽ thêm mấy cái râu ria
+	\draw[dashed,thin](-1,0)--(-1,-2)--(0,-2) (1,0)--(1,1)--(0,1) (-3,0)--(-3,3)--(0,3);
+	\begin{scope}
+	\clip (\xmin+0.01,\ymin+0.01) rectangle (\xmax-0.01,\ymax-0.01);
+	\draw[samples=350,domain=\xmin+0.01:\xmax-0.01,smooth,variable=\x] plot (\x,{0.18*(\x)^4-0.18*(\x)^3-1.4*(\x)^2+1.68*(\x)+0.72});
+	
+	\end{scope}
+	\begin{scope}
+	\clip (\xmin+0.01,\ymin+0.01) rectangle (\xmax-0.01,\ymax-0.01);
+	\draw[dashed,samples=350,domain=\xmin+0.01:\xmax-0.01,smooth,variable=\x] plot (\x,{(\x)^2+1.5*(\x)-1.5});
+	
+	\end{scope}
+	\end{tikzpicture}}
+}
+\end{ex}
+\begin{ex}%[12-TN-BGD-2]%[Nguyễn Hữu Nhanh Tiến]%[2H2K1-1]
+	Cho hình chóp đều $S.ABCD$ có cạnh đáy bằng $a$, diện tích mỗi mặt bên bằng $a^2$. Thể tích khối nón có đỉnh $S$ và đường tròn đáy nội tiếp hình vuông $ABCD$ bằng\\
+	
+	\choice
+	{$\dfrac{\pi a^3\sqrt{15}}{8}$}
+	{$\dfrac{\pi a^3\sqrt{15}}{12}$}
+	{$\dfrac{\pi a^3\sqrt{15}}{18}$}
+	{\True $\dfrac{\pi a^3\sqrt{15}}{24}$}
+	\loigiai{
+		\immini{
+			Đường tròn nội tiếp hình vuông có bán kính $R=\dfrac{AD}{2}=\dfrac{a}{2}$. \\
+			Do đó diện tích của hình tròn này bằng $B=\pi R^2=\dfrac{\pi a^2}{4}$.\\
+			Gọi $M$ là trung điểm của $CD$.\\
+			Theo giả thiết $S_{\text{SCD}}=a^2$, suy ra\\
+			$\dfrac{1}{2}\cdot SM\cdot CD=a^2\Rightarrow SM=2a$.\\
+			Tam giác $SOM$ vuông tại $O$\\
+			$\begin{aligned}
+			SO=\ & \sqrt{SM^2-OM^2}=\sqrt{(2a)^2-\left(\dfrac{a}{2}\right)^2}\\
+			=\ & \dfrac{a\sqrt{15}}{2}.
+			\end{aligned}$
+		}{
+			\begin{tikzpicture}[scale=0.8]
+			\tkzDefPoints{0/0/A, -3/-2/B, 4/-2/C, 7/0/D}
+			\coordinate (O) at ($(A)!0.5!(C)$);
+			\coordinate (S) at ($(O)+(0,6)$);
+			\coordinate (M) at ($(C)!0.5!(D)$);
+			\draw[dashed] (A) node[left] {$A$}--(B) node[left] {$B$} (S) node[above left] {$S$}--
+			(A)--(D) node[right] {$D$} (S)--(O) (A)--(C) (B)--(D) (M) node[below right] {$M$}--(O);
+			\draw (S)--(B)--(C) node[below right] {$C$}--(D)--(S)--(C) (S)--(M);
+			\node[below] at (O) {$O$};
+			\tkzDrawPoints[fill=black](A,B,C,D,O,S,M)
+			\end{tikzpicture}
+		}
+		\noindent
+		Vậy thể tích của khối nón cần tìm bằng $V=\dfrac{1}{3}\cdot B\cdot SO=\dfrac{1}{3}\cdot \dfrac{\pi a^2}{4}\cdot \dfrac{a\sqrt{15}}{2}=\dfrac{\pi a^3\sqrt{15}}{24}$.
+	}
+\end{ex}
+\begin{ex}%[12-TN-BGD-2]%[Nguyễn Hữu Nhanh Tiến]%[2D1K1-3]
+	Có tất cả bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y=\dfrac{mx+10}{2x+m}$ nghịch biến trên khoảng $(0;2)$?
+	\choice
+	{\True $6$}
+	{$5$}
+	{$9$}
+	{$4$}
+	\loigiai{
+		Ta có tập xác định $\mathscr{D}=\left(-\infty;-\dfrac{m}{2}\right)\cup\left(-\dfrac{m}{2};+\infty\right)$ và đạo hàm $y'=\dfrac{m^2-20}{(2x+m)^2}$.\\
+		Hàm số nghịch biến trên khoảng $(0;2)$ khi và chỉ khi
+		$$\heva{& (0;2)\subset \mathscr{D}\\ & y'<0,\ \forall x\in \mathscr{D}}\Leftrightarrow \heva{& \hoac{ & 2\leq -\dfrac{m}{2}\\ & -\dfrac{m}{2}\leq 0}\\ & m^2-20<0}\Leftrightarrow \heva{& \hoac{ & m\leq -4\\ &m\geq 0}\\ & -2\sqrt{5}<m<2\sqrt{5}}\Leftrightarrow \hoac{&-2\sqrt{5}<m\leq -4\\ &0\leq m<2\sqrt{5}.}$$
+		Vậy có $6$ giá trị nguyên của $m$ là $\{-4;0;1;2;3;4\}$.
+	}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Nguyễn Hữu Nhanh Tiến]%[2D2K5-3]
+	Số giá trị nguyên của $m$ để phương trình $4^x-2^{x+3}+1=m$ có hai nghiệm phân biệt là
+	\choice
+	{$17$}
+	{\True $15$}
+	{$14$}
+	{$16$}
+	\loigiai{
+		Phương trình đã cho tương đương $2^{2x}-8\cdot 2^x+1=m.\quad (1)$\\
+		Đặt $t=2^x$, điều kiện $t>0$, thu được phương trình $t^2-8t+1=m.\quad (2)$\\
+		Chú ý rằng, với mỗi $t>0$ thì sự tương ứng $t \leftrightarrow x$ là $1-1$. Do đó phương trình $(1)$ có hai nghiệm phân biệt khi và chỉ khi phương trình $(2)$ có hai nghiệm dương phân biệt.\\
+		Bảng biến thiên của hàm số $f(t)=t^2-8t+1$ trên $(0;+\infty)$
+		\begin{center}
+			\begin{tikzpicture}[>=stealth]
+			\tkzTabInit[lgt=1.2,espcl=3,nocadre]
+			{$t$ /0.8, $f'(t)$ /0.8, $f(t)$ /2}
+			{$0$, $4$, $+\infty$}
+			\tkzTabLine{ , -, 0, +, }
+			\tkzTabVar{+/ $1$, -/ $-15$, +/ $+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Dựa vào bảng biến thiên ta thấy phương trình $(2)$ có $2$ nghiệm dương phân biệt khi và chỉ khi $-15<m<1$, tương ứng có $0-(-14)+1=15$ giá trị nguyên của $m$.
+	}
+\end{ex}
+
+
+
+
+
+\begin{ex}%[12-TN-BGD-2]%[Nguyễn Tuấn Anh]%[2D2K4-3]
+\immini{Cho hàm số $y=f(x)$. Hàm số $y=f'(x)$ có đồ thị như hình vẽ bên. Hàm số $y=f \left(-\ln x+1 \right)$ nghịch biến trên khoảng
+\choice
+	{$\left( \mathrm{e};\mathrm{e}^4 \right)$}
+	{$\left(0; \dfrac{4}{\mathrm{e}} \right)$}
+	{\True $\left(0; \dfrac{1}{\mathrm{e}^4} \right)$}
+	{ $\left( \dfrac{1}{\mathrm{e}};\mathrm{e}^4 \right)$}
+}
+{
+	\begin{tikzpicture}[>=stealth,scale=0.5, line join=round, line cap=round]
+\def\a{1} \def\b{0} \def\c{-4} \def\d{0} % Hệ số
+\def\xt{-3} \def\xp{3} \def\yt{4} \def\yd{-4} % x_trái, x_phải, y_trên, y_dưới (giới hạn)
+\draw[->] (\xt,0)--(\xp,0) node [below]{$x$};
+\draw[->] (0,\yd)--(0,\yt) node [left]{$y$};
+\node at (0,0) [below left]{$O$};
+\clip (\xt-0.1,\yd+0.1) rectangle (\xp-0.1,\yt-0.1);
+\draw[smooth,samples=300] plot(\x,{\a*(\x)^3+\b*(\x)^2+\c*(\x)+\d});
+\tkzDefPoints{-2/0/$-2$,2/0/$2$}
+\tkzDrawPoints[fill=black,size=4]($-2$,$2$)
+\tkzLabelPoints[below left]($-2$)
+\tkzLabelPoints[above right]($2$)
+\end{tikzpicture}
+}
+	\loigiai{Hàm số $y=f \left(-\ln x+1 \right)$ xác định trên $(0; +\infty)$.\\
+		Ta có: $\left[ f \left(-\ln x+1 \right)\right]'=-\dfrac{1}{x} \cdot f'\left(-\ln x+1 \right)$. Do vậy, yêu cầu bài toán tương đương với
+		$$f'\left(-\ln x+1 \right)>0 \Leftrightarrow
+		\hoac{&-2<-\ln x+1<0\\&- \ln x + 1 > 2}
+\Leftrightarrow
+		\hoac{&\mathrm{e} < x < \mathrm{e}^3\\&0<x < \dfrac{1}{\mathrm{e}}.}$$
+Vậy hàm số $y=f \left(-\ln x+1 \right)$ nghịch biến trên các khoảng $(\mathrm{e}; \mathrm{e}^3)$ và $\left(0; \dfrac{1}{e}\right)$. 
+Suy ra hàm số $y=f \left(-\ln x+1 \right)$ nghịch biến trên khoảng $\left(0; \dfrac{1}{\mathrm{e}^4} \right)$.
+		}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Nguyễn Tuấn Anh]%[2D3K2-2]
+	Biết $\displaystyle \int\limits_3^8 \dfrac{\mathrm{\,d}x}{x+x\sqrt{x+1}}=\dfrac{1}{2}\ln \dfrac{a}{b}+\dfrac{c}{d}$ với $a,b,c,d$ là các số nguyên dương và $\dfrac{a}{b};\dfrac{c}{d}$ là các phân số tối giản. Tính $P=abc-d$.
+	\choice
+	{\True $P=-6$}
+	{$P=-54$}
+	{$P=54$}
+	{ $P=6$}
+	\loigiai{
+		Ta có:
+		$$\displaystyle \int\limits_3^8 \dfrac{\mathrm{\,d}x}{x+x\sqrt{x+1}}
+		=\int\limits_3^8 \dfrac{\mathrm{\,d}x}{x (1+\sqrt{x+1})}
+		=\int\limits_3^8 \dfrac{\sqrt{x+1}-1}{x^2}\mathrm{\,d}x
+		=\int\limits_3^8 \dfrac{\sqrt{x+1}}{x^2}\mathrm{\,d}x-\int\limits_3^8 \dfrac{1}{x^2}\mathrm{\,d}x.$$	
+\begin{itemize}
+\item Tính $\displaystyle \int\limits_3^8 \dfrac{\sqrt{x+1}}{x^2}\mathrm{\,d}x$. Đặt $t=\sqrt{x+1}$, ta được:
+$$
+\begin{array}{l}
+\displaystyle
+2 \cdot \int\limits_3^8 \dfrac{\sqrt{x+1}}{x^2}\mathrm{\,d}x
+=4\cdot\int\limits_2^3 \dfrac{t^2}{(t^2-1)^2}\mathrm{\,d}t
+=\int\limits_2^3 \left( \dfrac{1}{t+1}+\dfrac{1}{t-1}\right)^2\mathrm{\,d}t
+\\\\
+\displaystyle
+=\int\limits_2^3 \left( \dfrac{1}{t+1}\right)^2\mathrm{\,d}t+\int\limits_2^3 \left( \dfrac{1}{t-1}\right)^2\mathrm{\,d}t+\int\limits_2^3 \left( \dfrac{1}{t-1}-\dfrac{1}{t+1}\right)\mathrm{\,d}t
+\\\\
+\displaystyle
+=-\left. \left( \frac{1}{t + 1} + \frac{1}{t - 1} \right) \right|_2^3 +\left. \ln \left( \frac{t - 1}{t + 1} \right) \right|_2^3
+\end{array}$$
+Từ đó ta được  $\displaystyle \int\limits_3^8 \dfrac{\sqrt{x+1}}{x^2}\mathrm{\,d}x=\dfrac{7}{24}+\dfrac{1}{2}\ln \dfrac{3}{2}$.
+\item Tính $\displaystyle \int\limits_3^8 \dfrac{1}{x^2}\mathrm{\,d}x=- \left. \frac{1}{x} \right|_3^8 =   \frac{5}{24}$.
+\end{itemize}		
+		Vậy $\displaystyle \int\limits_3^8 \dfrac{\mathrm{\,d}x}{x+x\sqrt{x+1}}=\dfrac{1}{2}\ln \dfrac{3}{2}+\dfrac{1}{12}$. Hay nói cách khác $a=3,b=2,c=1,d=12$ do đó $P=-6.$
+		}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Nguyễn Tuấn Anh]%[2H3K3-7]
+	Trong không gian $Oxyz$, mặt cầu tâm $I(2;5;3)$ cắt đường thẳng $d\colon\dfrac{x-1}{2}=\dfrac{y}{1}=\dfrac{z-2}{2}$ tại hai điểm phân biệt $A$, $B$ với chu vi tam giác $IAB$ bằng $14 +2\sqrt{31}$ có phương trình
+	\choice
+	{$(x-2)^2+(y-5)^2+(z-3)^2=196$}
+	{$(x-2)^2+(y-5)^2+(z-3)^2=31$}
+	{\True $(x-2)^2+(y-5)^2+(z-3)^2=49$}
+	{$(x-2)^2+(y-5)^2+(z-3)^2=124$}
+	\loigiai{
+	Khoảng cách từ tâm $I$ đến đường thẳng $d$ là:
+	$$\mathrm{d}(I;d)=\dfrac{\left| \left[ \overrightarrow {u_d} ;\overrightarrow {IM}  \right] \right|}{\left| \overrightarrow {{u_d}}  \right|}=3\sqrt{2}$$
+	với $M=(1;0;2) \in d$.
+	\\
+	Chu vi tam giác $IAB$ là:
+	$$14 +2\sqrt{31}=IA+IB+AB=2R+AB.\quad (1)$$
+	Theo định lý Pitago, ta có:
+	$$\mathrm{d}^2(I;d)+\left(\dfrac{AB}{2}\right)^2=R^2 \Leftrightarrow 4R^2-AB^2=72.\quad (2)$$		
+	Từ $(1),(2)$ ta được $R=7$, tức mặt cầu có phương trình là:
+	$$(x-2)^2+(y-5)^2+(z-3)^2=49$$
+	}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Nguyễn Tuấn Anh]%[2D1K5-6]
+	Cho hàm số $y=x^3-3x^2+2$ có đồ thị là $(C)$ và điểm $A(-1;a)$. Gọi $S$ là tập hợp các giá trị thực của $a$ để có đúng hai tiếp tuyến của $(C)$ đi qua $A$. Tổng các phần tử của $S$ bằng
+	\choice
+	{$-1$}
+	{\True $4$}
+	{$-3$}
+	{ $-2$}
+	\loigiai{
+	Hiển nhiên đường thẳng dạng $x=c$ trong đó $c$ là hằng số không thể là tiếp tuyến của $(C)$. Gọi $d\colon y=mx+n$ là đường thẳng đi qua $A$. Khi đó ta được:
+	$$a=n-m \Leftrightarrow n=a+m$$
+	hay $d\colon y=mx+(a+m)$. Đường thẳng $d$ là tiếp tuyến của $(C)$ nếu và chỉ nếu hệ sau có nghiệm:
+	$$\heva{&x^3-3x^2+2=mx+a+m\\& 3x^2-6x=m}
+	\Leftrightarrow
+	\heva{&x^3-3x^2+2=(3x^2-6x)x+a+3x^2-6x\\& 3x^2-6x=m.}  $$
+Yêu cầu bài toán là hệ trên (ẩn $x$) có $2$ nghiệm phân biệt  (khi đó sẽ có hai tiếp tuyến). Điều này xảy ra khi và chỉ khi phương trình:
+$$x^3 - 3x^2 + 2 = \left( 3x^2 - 6x \right)x + a + 3x^2 - 6x \Leftrightarrow 2x^3 - 6x - 2 =  - a$$
+có hai nghiệm phân biệt. Khảo sát hàm số $y=g(x)= 2x^3 - 6x - 2$, ta có bảng biến thiên sau:
+\begin{center}
+\begin{tikzpicture}
+\tkzTabInit[nocadre=false,lgt=0.7,espcl=2.1]
+{$x$ /0.6,$y'$ /0.6,$y$ /2}
+{$-\infty$,$-1$,$1$,$+\infty$}
+\tkzTabLine{,+,$0$,-,$0$,+,}
+\tkzTabVar{-/$-\infty$, +/$2$,-/$-6$,+/$+\infty$}
+\end{tikzpicture}
+\end{center}
+Vậy $$\hoac{&-a=2\\&-a=-6} \Leftrightarrow \hoac{&a=-2\\&a=6.}$$
+			}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Nguyễn Tuấn Anh]%[1D2K5-2]
+	Giải bóng đá Đông Nam Á có $8$ đội bóng của $8$ quốc gia tham dự, trong đó có $4$ đội: Việt Nam, Lào, Thái Lan và Myanma. Ban tổ chức bốc thăm ngẫu nhiên chia $8$ đội thành hai bảng $A$, $B$ và mỗi bảng có $4$ đội để thi đấu vòng loại. Tính xác suất để hai đội Lào và Myanma phải gặp nhau ở vòng loại, biết rằng Việt Nam và Thái Lan là hai đội hạt giống nên không cùng thuộc một bảng.
+	\choice
+	{$\dfrac{3}{5}$}
+	{$\dfrac{3}{7}$}
+	{\True $\dfrac{2}{5}$}
+	{$\dfrac{2}{7}$}
+	\loigiai{
+		\begin{itemize}
+		\item Đếm số phần tử của không gian mẫu: Vì Việt Nam và Thái Lan là hai đội hạt giống nên không xếp cùng một bảng do đó ta có $2$ cách xếp bảng cho Việt Nam và Thái Lan (Việt Nam - Bảng A; Thái Lan  - Bảng B và ngược lại).
+		
+		Ứng với mỗi cách chia bảng như vậy, đối với bảng $A$ ta cần chọn thêm $3$ đội trong $6$ đội còn lại, số cách chọn là $\mathrm{C}_6^3$, $3$ đội còn lại sẽ là $3$ đội của bảng $B$.
+		
+		Vậy số phần tử của không gian mẫu là: $2\mathrm{C}_6^3$.
+		\item Gọi $T$ là biến cố ``Lào và Myanma cùng thuộc một bảng'' (khi đó Lào và Myanma chắc chắn sẽ gặp nhau ở vòng loại).
+		
+		Ta có $4$ trường hợp có thể xảy ra:
+		\begin{itemize}
+		\item Lào và Myanma cùng thuộc bảng $A$ và có Việt Nam: Bảng này còn thiếu $1$ đội, ta chọn đội này từ $4$ đội còn lại. Do đó có $4$ cách chọn. Tương tự cho $3$ trường hợp còn lại.
+		\item Lào và Myanma cùng thuộc bảng $A$ và có Thái Lan.
+		\item Lào và Myanma cùng thuộc bảng $B$ và có Việt Nam.
+		\item Lào và Myanma cùng thuộc bảng $B$ và có Thái Lan.
+        \end{itemize}	
+        Vậy $n(T)=4\cdot 4=16$. Do đó xác suất cần tìm là:
+        $$\mathrm{P}(T)=\dfrac{16}{2\mathrm{C}_6^3}=\dfrac{2}{5}.$$	
+		\end{itemize}
+	}
+\end{ex}
+
+
+
+\begin{ex}%[12-TN-BGD-2]%[Đỗ Đường Hiếu]%[2H3K4-1]
+	Cho hình chóp $S.ABC$ có $SB\perp BA$, $BA\perp AC$, $AC\perp SC$, $AB=2a$, $AC=a$. Biết khoảng cách giữa $SA$ và $BC$ là $\dfrac{2}{3}a$. Tính cô-sin của góc tạo bởi hai mặt phẳng $(SAB)$ và $(SBC)$.
+	\choice
+	{$\dfrac{\sqrt{10}}{10}$}
+	{$\dfrac{\sqrt{3}}{2}$}
+	{$\dfrac{1}{2}$}
+	{\True $\dfrac{2\sqrt{2}}{3}$}
+	
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzDefPoints{0/0/D, -1.5/-2/B, 5/0/C};
+			\coordinate (A) at ($(B)+(C)-(D)$); 
+			\coordinate (S) at ($(D)+(0,4)$); 
+			\coordinate (M) at ($(S)!.5!(D)$);
+			\coordinate (x) at ($(D)!1.3!(B)$);
+			\coordinate (y) at ($(D)!1.3!(C)$);
+			\coordinate (z) at ($(D)!1.3!(S)$);
+			\draw[->] (B)--(x) node[above] {$x$};
+			\draw[->] (C)--(y) node[above] {$y$};
+			\draw[->] (S)--(z) node[above] {$z$};
+			\tkzDrawPoints(A,B,S,C,D,M);
+			\draw[dashed](S)--(D)--(C) (D)--(B)--(C) (A)--(D) (B)--(M)--(C);
+			\draw (S)--(A)--(B)--(S)--(C)--(A);
+			\tkzLabelPoints[below](A,B,C,D);
+			\tkzLabelPoints[right](M);
+			\tkzLabelPoints[left](S);
+			\tkzMarkRightAngles(B,A,C S,B,A S,C,A S,D,B S,D,C B,A,D);
+			\end{tikzpicture}
+		\end{center}
+		Kẻ hình chữ nhật $ABDC$. Khi đó ta có
+		\begin{itemize}
+			\item $\heva{&AB\perp BD\\& AB\perp SB}\Rightarrow AB\perp SD$ \quad $(1)$.
+			\item $\heva{&AC\perp CD\\& AC\perp SC}\Rightarrow AC\perp SD$ \quad $(2)$.
+		\end{itemize}
+		Từ $(1)$ và $(2)$ suy ra $SD\perp (ABDC)$.\\
+		Đặt $SD=b$. Đặt hệ trục tọa độ $Oxyz$ như hình vẽ, ta có $D(0;0;0)$, $A(a;2a;0)$, $B(a;0;0)$, $C(0;2a;0)$, $S(0;0;b)$.\\
+		Gọi $M$ là trung điểm $SD$, suy ra $M(0;0;\dfrac{b}{2})$. Khi đó, phương trình mặt phẳng $(BCM)$ là
+		$$\dfrac{x}{a}+\dfrac{y}{2a}+\dfrac{z}{\dfrac{b}{2}}=1\Leftrightarrow 2bx+by+2az-2ab=0.$$
+		Vì $SA\parallel OM \Rightarrow SA\parallel (BCM)$ nên 
+		\begin{eqnarray*}
+			\mathrm{d}(SA,BC)=\mathrm{d}(A,(BCM))&=&\dfrac{\left|2b\cdot a+ b\cdot (2a)+2a\cdot 0-2ab\right|}{\sqrt{(2b)^2+b^2+(2a)^2}}\\
+			&=&\dfrac{2ab}{\sqrt{4a^2+5b^2}}.
+		\end{eqnarray*}
+		Từ đó 
+		\begin{eqnarray*}
+			\mathrm{d}(SA,BC)=\dfrac{2}{3}a &\Leftrightarrow & \dfrac{2ab}{\sqrt{4a^2+5b^2}}=\dfrac{2}{3}a\\
+			&\Leftrightarrow & b=a.
+		\end{eqnarray*}	
+		Như vậy $SD=a$ và $S(0;0;a)$.\\
+		Ta có $\overrightarrow{SB}=(a;0;-a)$, $\overrightarrow{BA}=(0;2a;0)$, $\left[\overrightarrow{SB}, \overrightarrow{BA}\right]=(2a^2;0;2a^2)$. Suy ra mặt phẳng $(SAB)$ có véc-tơ pháp tuyến $\overrightarrow{n}_1=(1;0;1)$.\\
+		Phương trình mặt phẳng $(SBC)$ là
+		$$\dfrac{x}{a}+\dfrac{y}{2a}+\dfrac{z}{a}=1\Leftrightarrow 2x+y+2z-2a=0.$$
+		Nên, mặt phẳng $(SBC)$ có véc-tơ pháp tuyến $\overrightarrow{n}_2=(2;1;2)$.\\
+		Cô-sin của góc tạo bởi hai mặt phẳng $(SAB)$ và $(SBC)$ là
+		$$\cos \varphi = \dfrac{\left|\overrightarrow{n}_1\cdot \overrightarrow{n}_2 \right|}{\left|\overrightarrow{n}_1 \right|\cdot \left| \overrightarrow{n}_2 \right|}=\dfrac{\left|1\cdot 2+0\cdot 1+1\cdot 2\right|}{\sqrt{1^2+0^2+1^2}\cdot \sqrt{2^2+1^2+2^2}}=\dfrac{2\sqrt{2}}{3}.$$
+	}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Đỗ Đường Hiếu]%[2H3K3-2]
+	Trong không gian $Oxyz$, cho hai điểm $A(0;0;-3)$, $B(4;0;0)$. Đường thẳng đi qua tâm đường tròn nội tiếp và tâm đường tròn ngoại tiếp $\triangle OAB$ có phương trình
+	\choice
+	{$\heva{&x=1-2t\\&y=0\\&z=-1-t}$}
+	{\True $\heva{&x=1+2t\\&y=0\\&z=-1-t}$}
+	{$\heva{&x=1-2t\\&y=0\\&z=1+t}$}
+	{$\heva{&x=1+2t\\&y=1\\&z=-1-t}$}
+	\loigiai{
+		Tam giác $OAB$ vuông tại $A$ nên tâm $I$ đường tròn ngoại tiếp $\triangle OAB$ là trung điểm của $AB$. Suy ra $I\left(2;0;-\dfrac{3}{2}\right)$.\\
+		Gọi $J(x;y;z)$ là tâm đường tròn nội tiếp $\triangle OAB$, ta có 
+		\begin{eqnarray*}
+			&&AB\cdot \overrightarrow{JO}+OA\cdot \overrightarrow{JB}+OB\cdot \overrightarrow{JA}=\cdot \overrightarrow{0}\\
+			&\Leftrightarrow& 5\cdot \overrightarrow{JO}+3\cdot \overrightarrow{JB}+4\cdot \overrightarrow{JA}=\cdot \overrightarrow{0}\\
+			&\Leftrightarrow& 12\cdot \overrightarrow{OJ}=4\cdot \overrightarrow{OA}+3\cdot \overrightarrow{OB}\\
+			&\Rightarrow &J=\left(1;0;-1\right).
+		\end{eqnarray*}
+		Ta có $\overrightarrow{IJ}=\left(-1;0;\dfrac{1}{2}\right)$ nên suy ra đường thẳng $IJ$ có véc-tơ chỉ phương là $\overrightarrow{u}(2;0;-1)$.\\
+		Phương trình đường thẳng $IJ$ là $\heva{&x=1+2t\\&y=0\\&z=-1-t}$.
+		
+	}
+\end{ex}
+
+
+\begin{ex}%[12-TN-BGD-2]%[Đỗ Đường Hiếu]%[2H3K3-7]
+	Trong không gian $Oxyz$, cho hai đường thẳng $d_1\colon \dfrac{x-4}{3}=\dfrac{y-1}{-1}=\dfrac{z+5}{-2}$ và $d_2\colon \dfrac{x-2}{1}=\dfrac{y+3}{3}=\dfrac{z}{1}$. Gọi $I(a;b;c)$ là tâm mặt cầu có bán kính nhỏ nhất tiếp xúc với cả hai đường thẳng $d_1$ và $d_2$. Tính $S=a^2+b^2+c^2$.
+	\choice
+	{$2$}
+	{$\dfrac{4}{\sqrt{3}}$}
+	{\True $6$}
+	{$4$}
+	\loigiai{
+		Gọi $M$, $N$ là tiếp điểm của mặt cầu tâm $I$ với các đường thẳng $d_1$, $d_2$. Gọi $AB$ là đoạn vuông góc chung của hai đường thẳng $d_1$ và $d_2$. Khi đó, gọi $R$ là bán kính mặt cầu tâm $I$, ta có:
+		$$2R=IM+IN\ge MN\ge AB\Rightarrow R\ge \dfrac{AB}{2}.$$
+		Dấu đẳng thức xảy ra khi $I$ là trung điểm $AB$.\\
+		Đường thẳng $d_1$ có véc-tơ chỉ phương $\overrightarrow{u}_1=(3;-1;-2)$, đường thẳng $d_2$ có véc-tơ chỉ phương $\overrightarrow{u}_2=(1;3;1)$.\\
+		Ta có $A\in d_1 \Rightarrow A(4+3a;1-a;-5-2a)$, $B\in d_2 \Rightarrow B(2+b;-3+3b;b)$, $\overrightarrow{AB}=(b-3a-2;3b+a-4;b+2a+5)$.\\
+		$AB$ là đoạn vuông góc chung của $d_1$, $d_2$ nên
+		\begin{eqnarray*}
+			\heva{&\overrightarrow{AB}\perp \overrightarrow{u}_1\\&\overrightarrow{AB}\perp \overrightarrow{u}_2}
+			&\Leftrightarrow & \heva{&\overrightarrow{AB}\cdot \overrightarrow{u}_1=0\\&\overrightarrow{AB}\cdot \overrightarrow{u}_2=0}\\
+			&\Leftrightarrow & \heva{&(b-3a-2)\cdot 3+(3b+a-4)\cdot (-1)+(b+2a+5)\cdot (-2)=0\\&(b-3a-2)\cdot 1+(3b+a-4)\cdot 3+(b+2a+5)\cdot 1=0}\\
+			&\Leftrightarrow & \heva{&7a+b=-6\\&2a+11b=9}\\
+			&\Leftrightarrow & \heva{&a=-1\\&b=1.}
+		\end{eqnarray*}
+		Như vậy $A(1;2;-3)$, $B(3;0;1)$. Do đó $I(2;1;-1)$ $\Rightarrow S=a^2+b^2+c^2 =2^2+1^2+(-1)^2=6$.
+	}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Đỗ Đường Hiếu]%[2H1K3-2]
+	Cho hình lăng trụ đứng $ABC.A'B'C'$ có đáy $ABC$ là tam giác vuông tại $A$, $AC=a$, $\widehat{ACB}=60^\circ$. Đường chéo $BC'$ của mặt bên $(BCC'B')$ tạo với mặt phẳng $(ACC'A')$ một góc $30^\circ$. Tính thể tích của khối lăng trụ theo $a$.
+	\choice
+	{$a^3\sqrt{3}$}
+	{\True $a^3\sqrt{6}$}
+	{$\dfrac{a^3\sqrt{3}}{3}$}
+	{$\dfrac{a^3\sqrt{6}}{3}$}
+	\loigiai{
+		\immini{Từ tam giác $ABC$ là tam giác vuông tại $A$, $AC=a$, $\widehat{ACB}=60^\circ$, ta có $AB=a\sqrt{3}$, $BC=2a$.\\
+			Đặt $AA'=b$, khi đó $BC'=\sqrt{4a^2+b^2}$, $AC'=\sqrt{a^2+b^2}$.\\
+			Góc giữa $BC'$ và mặt phẳng $(ACC'A')$ bằng góc $\widehat{BC'A}$. Suy ra $\widehat{BC'A}=30^\circ$.\\
+			Trong tam giác $ABC'$ vuông tại $A$ ta có
+			\begin{eqnarray*}
+				\cos \widehat{BC'A}=\dfrac{AC'}{BC'} &\Leftrightarrow &	\cos 30^\circ=\dfrac{\sqrt{a^2+b^2}}{\sqrt{4a^2+b^2}}\\
+				&\Leftrightarrow &	\dfrac{\sqrt{3}}{2}=\dfrac{\sqrt{a^2+b^2}}{\sqrt{4a^2+b^2}}\\
+				&\Leftrightarrow &	b=2\sqrt{2}a.
+		\end{eqnarray*}}
+		{\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{0/0/A, 2/-1/B, 5/0/C};
+			\coordinate (A') at ($(A)+(0,4)$); 
+			\coordinate (B') at ($(B)+(0,4)$); 
+			\coordinate (C') at ($(C)+(0,4)$);
+			\tkzDrawPoints(A,B,C,A',B',C');
+			\draw[dashed](A)--(C) (A)--(C');
+			\draw (A)--(B)--(C) (A')--(B')--(C')--(A') (A')--(A) (B)--(B') (C)--(C')--(B);
+			\tkzLabelPoints[below](A,B,C);
+			\tkzLabelPoints[above](A',B',C');
+			\tkzMarkRightAngles(B,A,C B,A,C');
+			\tkzMarkAngle(A,C',B);
+			\end{tikzpicture}}
+		\noindent
+		Thể tích khối lăng trụ đứng $ABC.A'B'C'$ đã cho là
+		$$V=S_{ABC}\cdot AA'=\dfrac{1}{2}\cdot AB\cdot AC\cdot AA'=\dfrac{1}{2}\cdot a\sqrt{3}\cdot a\cdot 2\sqrt{2}a=a^3\sqrt{6}.$$
+	}
+\end{ex}
+
+
+
+\begin{ex}%[12-TN-BGD-2]%[Nhan Ho Thanh]%[2D4G5-1]
+Xét các số phức $z=a+bi \,\left( a,b \in \mathbb{R}\right)$ thoả mãn $\left|z-4-3i\right|=\left|\overline{z}-2+i\right|$. Tính $P=a^2+b^2$ khi $\left|z+1-3i\right|+\left|z-1+i\right|$ đạt giá trị nhỏ nhất. 
+\choice
+{$P=\dfrac{293}{9}$}
+{\True$P=\dfrac{449}{32}$}
+{$P=\dfrac{481}{32}$}
+{$P=\dfrac{137}{9}$}
+\loigiai{
+\immini{
+số phức $z=a+bi$ có điểm biểu diễn là $M(a;b)$ \\
+$\left|z-4-3i\right|=\left|\overline{z}-2+i\right| \Rightarrow x+y=5$ \\
+suy ra tập hợp điểm biểu diễn của số phức $z$ là đường thẳng $d:x+y=5$\\
+Đặt $A(-1;3),B(1;-1)\Rightarrow T=MA+MB $\\
+Xét hàm số $f(x,y)=x+y-5$ ta có $f(A)\cdot f(B)=15>0\Rightarrow $ hai điểm $A$ và $B$ nằm cùng phía so với đường thẳng $d$ \\ }
+{
+\begin{tikzpicture}
+\tkzInit[ymin=-2,ymax=3,xmin=-2,xmax=5]
+\tkzClip
+\tkzDefPoints{0/1.5/A,-2/0/E,5/0/F,0/-1.5/A',4/2/B}
+\tkzLabelPoint[](A){$A$}
+
+%\tkzLabelPoint[](F){$F $}
+\tkzLabelPoint[](A'){$A' $}
+\tkzLabelPoint[](B){$B$}
+\tkzInterLL(E,F)(A',B)\tkzGetPoint{M}
+\tkzDrawPoints(A,B,A',M)
+\tkzLabelPoints(M)
+\tkzDrawSegments(E,F A,A' A',B)
+\end{tikzpicture} }
+Gọi $A'$ là điểm đối xứng của $A$ qua $d \Rightarrow A'(2;6)$\\
+Phương trình đường thẳng $A'B:7x-y-8=0$\\
+Khi đó $MA+MB$ nhỏ nhất khi và chỉ khi $M,A,B$ thẳng hàng $\Leftrightarrow M $ là giao điểm của $A'B$ và $d$ $\Rightarrow M\left(\dfrac{13}{8};\dfrac{27}{8}\right)\Rightarrow P=a^2+b^2=\dfrac{449}{32}$. 
+
+}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Nhan Ho Thanh]%[2D3G2-4]
+Cho hàm số $y=f(x)$ liên tục trên đoạn $[a;b]$ và thoả mãn $f(x)+2f\left(\dfrac{1}{x}\right)=3x, \forall x \in \mathbb{R^*}$. Tính tích phân $\displaystyle\int\limits_{\tfrac{1}{2}}^2\dfrac{f(x)}{x}\mathrm{\,d}x $.
+\choice
+{$I=4\ln2+\dfrac{15}{8}$}
+{$I=4\ln2-\dfrac{15}{8}$}
+{$I=\dfrac{5}{2}$}
+{\True$I=\dfrac{3}{2}$}
+\loigiai{
+\immini{
+Theo giả thuyết: $f(x)+2f\left(\dfrac{1}{x}\right)=3x$ $\hfill(1)$\\
+Đặt $t=\dfrac{1}{x}\Rightarrow f\left(\dfrac{1}{t}\right)+2f(t)=\dfrac{3}{t}\Leftrightarrow f\left(\dfrac{1}{x}\right)+2f(x)=\dfrac{3}{x} $ $\hfill(2)$\\
+
+Từ $(1)$ và $(2)$ ta có hệ $\heva {&f(x)+2f\left(\dfrac{1}{x}\right)=3x \\& f\left(\dfrac{1}{x}\right)+2f(x)=\dfrac{3}{x}} \Rightarrow f(x)=\dfrac{2}{x}-x$	\\
+
+$\Rightarrow I=\displaystyle\int\limits_{\tfrac{1}{2}}^2 \dfrac{f(x)}{x}\mathrm{\,d}x=\displaystyle\int\limits_{\tfrac{1}{2}}^2\left(\dfrac{2}{x^2}-1\right) \mathrm{\,d}x=\dfrac{3}{2} $.
+}}
+\end{ex}
+\begin{ex}%[12-TN-BGD-2]%[Nhan Ho Thanh]%[1D5K3-1]
+Cho hàm số $y=\sin2x$. hãy chọn phát biểu đúng 
+\choice
+{$y^2+(y')^2=4$}
+{$4y-y''=0$}
+{\True$4y+y''=0$}
+{$y=y'\tan2x $}
+\loigiai{
+Ta có $y=\sin2x \Rightarrow y'=2\cos2x \Rightarrow y''=-4\sin2x$ \\
+Dựa vào bốn đáp án ta thấy $4y+y''=4\sin2x-4\sin2x =0 $. 
+}
+\end{ex}
+
+
+
+\begin{ex}%[12-TN-BGD-2]%[Dũng Lê]%[2D2K5-3]
+Số giá trị nguyên của $m\in(-200;2000)$ để $3\cdot a^{\sqrt{\log_ab}}-b^{\sqrt{\log_ba}}>m\sqrt{\log_ab}+2$ với mọi $a,b\in(1;+\infty)$ là
+\choice
+{$2002$}
+{$2199$}
+{$199$}
+{$200$}
+\loigiai{
+Vì $a,b>1\Rightarrow \log_ab>0$. Đặt $t=\sqrt{\log_ab}, (t>0)\Leftrightarrow t^2=\log_ab\Leftrightarrow b=a^{t^2}$.\\
+Bất phương trình đã cho trở thành:\\
+$3a^t-\left(a^{t^2}\right)^{\frac{1}{t}}>mt+2\Leftrightarrow 2a^t>mt+2\Leftrightarrow\dfrac{m}{2}<\dfrac{a^t-1}{t},\forall t>0$.\\
+Mà $\lim\limits_{t\to 0^+}\dfrac{a^t-1}{t}=\ln a>0\Leftrightarrow \dfrac{m}{2}\leq 0\Leftrightarrow m\leq 0$. Kết hợp với điều kiện $-200<m<2000$ ta được $-200<m\leq 0$, $m$ nguyên, suy ra có $200$ giá trị thỏa mãn.
+}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Dũng Lê]%[2D1G5-3]
+Cho hàm số $f(x)=x^3-6x^2+9x$. Đặt $f^k(x)=f\left(f^{k-1}(x)\right)$ với $k$ là số nguyên lớn hơn $1$. Hỏi phương trình $f^5(x)=0$ có tất cả bao nhiêu nghiệm phân biệt?
+\choice
+{$365$}
+{$363$}
+{$120$}
+{\True $122$}
+\loigiai{
+\immini{
+Ta có $f(x)=x(x-3)^2, f'(x)=3(x^2-4x+3), f'(x)=0\Leftrightarrow \hoac{&x=1\\&x=3}$.\\
+Đồ thị hàm số nhưng hình vẽ bên.\\
+Phương trình $f(x)=0\Leftrightarrow\hoac{&x=0\\&x=3}$, do đó phương trình có $2$ nghiệm phân biệt.\\
+Dựa vào đồ thị ta có phương trình $f(x)=3$ có $3$ nghiệm phân biệt thuộc $(0;4)\backslash\{0;3\}$.\\
+}{
+\begin{tikzpicture}[>=stealth,scale=.7]
+\draw[->] (-1,0)--(0,0) node[below right]{\scriptsize $O$}--(5,0) node[below]{$x$};
+\draw[->] (0,-1) --(0,5) node[right]{$y$};
+\foreach \x in {-1,1,2,3,4}{
+\draw (\x,0) node[below]{$\x$} circle (1pt);
+\draw (0,\x) node[left]{$\x$} circle (1pt);
+}
+\draw [domain=0:4.1, samples=100] plot (\x, {(\x)^3-6*(\x)^2+9*(\x)}) node[right]{$y=f(x)$};
+\draw [dashed] (1,0)--(1,4)--(0,4) (4,0)--(4,4)--(0,4);
+\draw (-1,3)--(5,3)node[below right]{$y=3$};
+\end{tikzpicture}
+}
+\noindent Gọi $a_k$ là số nghiệm của phương trình $f^k(x)=0$ với $k\in\mathbb{Z}, k\geq 1$.\\
+Gọi $b_k$ là số nghiệm của phương trình $f^k(x)=3$ với $k\in\mathbb{Z}, k\geq 1$.\\
+Khi đó, $a_1=2, b_1=3$.\\
+Với $k>1$, ta có: $f^2(x)=f\left(f^{k-1}(x)\right)=0\Leftrightarrow\hoac{&f^{k-1}(x)=0\\&f^{k-1}(x)=3}$.\\
+Suy ra: $a_k=a_{k-1}+b_k$.\\
+$f^k(x)=f\left(f^{k-1}(x)\right)=3\Leftrightarrow\hoac{&f^{k-1}(x)=m_1\\&f^{k-1}(x)=m_2\\&f^{k-1}(x)=m_3}$ với $m_1,m_2,m_3\in(0;4)\backslash\{1;3\}$.\\
+Mỗi phương trình trên có ba nghiệm phân biệt thuộc khoảng $(0;4)\backslash\{0;3\}$.\\
+Do đó: $b_k=3b_{k-1}\Rightarrow (b_k)$ là cấp số nhân có công bội là $q=3$, số hạng đầu $b_1=3\Rightarrow b_k=3\cdot3^{k-1}=3^k$.\\
+Suy ra: \\
+$\begin{aligned}
+a_k&=a_{k-1}+b_{k-1}\\
+&=a_{k-2}+b_{k-2}+b_{k-1}\\
+&=\ldots\\
+&=a_1+b_1+b2+\cdots+b_{k-1}\\
+&=2+3+3^2+\cdots+3^{k-1}\\
+&=2+3\cdot\dfrac{3^{k-1}-1}{3-1}=\dfrac{3^k+1}{2}.
+\end{aligned}$\\
+Vậy phương trình $f^5(x)=0$ có $\dfrac{3^5+1}{2}=122$.
+}
+\end{ex}
+
+\begin{ex}%[12-TN-BGD-2]%[Dũng Lê]%[2D1K2-4]
+Tìm tất cả các giá trị của tham số $m$ để hàm số $y=\dfrac{1}{3}|x|^3-mx^2+(m+6)|x|+2017$ có $5$ điểm cực trị.
+\choice
+{$m<-2\vee m>3$}
+{$m>-6$}
+{$m>0$}
+{\True $m>3$}
+\loigiai{
+Giả sử hàm số $y=\dfrac{1}{3}|x|^3-mx^2+(m+6)|x|+2017$ có đồ thị là $(C)$.\\
+Xét hàm số $y=\dfrac{1}{3}x^3-mx^2+(m+6)x+2017$ có đồ thị là $(C')$.\\
+Ta thấy đồ thị $(C)$ có được bằng cách lấy đối xứng qua trục tung phần đồ thị của $(C')$ nằm bên phải trục tung. Do đó để hàm số $y=\dfrac{1}{3}|x|^3-mx^2+(m+6)|x|+2017$ có $5$ điểm cực trị thì hàm số $y=\dfrac{1}{3}x^3-mx^2+(m+6)x+2017$ phải có hai điểm cực trị dương. Tức là $f(x)=x^2-2mx+m+6=0$ phải có hai nghiệm dương phân biệt\\
+$\Leftrightarrow\heva{&\Delta>0\\a\cdot f(0)>0\\&\dfrac{S}{2}>0}\Leftrightarrow \heva{&m^2-m-6>0\\& m+6>0\\&m>0}\Leftrightarrow \heva{&m<-2\vee m>3\\&m>-6\\&m>0}\Leftrightarrow m>3$
+}
+\end{ex}
+\Closesolutionfile{ans}
+\newpage
+\begin{center}
+	\textbf{ĐÁP ÁN}
+\end{center}
+\begin{multicols}{10}
+	\input{ans/ans-2-TN-2-BoGiaoDuc-18} 
+\end{multicols}
+
+
+\end{document}

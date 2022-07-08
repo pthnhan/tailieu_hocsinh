@@ -1,0 +1,808 @@
+\section{Xác suất của biến cố}
+
+\subsection{Tóm tắt lí thuyết}
+
+\subsubsection{Định nghĩa cổ điển của xác suất}
+\begin{dn}
+	Xác suất của biến cố $A$ được tính bởi công thức:
+	\begin{center}
+		$\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}$.
+	\end{center}
+	Trong đó $n(A)$ là số kết quả thuận lợi của biến cố $A$; $n(\Omega)$ là số kết quả có thể xảy ra của phép thử.
+\end{dn}
+
+\subsubsection{Tính chất của xác suất}
+	\begin{dl}
+	Giả sử $A$ và $B$ là các biến cố liên quan đến một phép thử có một số hữu hạn kết quả đồng khả năng xuất hiện. Khi đó, ta có
+	\begin{enumerate}
+		\item $\mathrm{P}(\varnothing)=0$, $\mathrm{P}(\Omega)=1$.
+		\item $0\le \mathrm{P}(A)\le 1$, với mọi biến cố $A$.
+		\item Nếu $A$ và $B$ xung khắc, thì
+		$$\mathrm{P}(A\cup B)=\mathrm{P}(A)+\mathrm{P}(B)$$
+		\hfill \textit{(công thức cộng xác suất).}
+	\end{enumerate}
+\end{dl}
+\begin{note}
+	Các biến cố $A$ và $B$ là xung khắc nếu và chỉ nếu chúng không khi nào cùng xảy ra.
+\end{note}
+
+\begin{hq}
+	Với mọi biến cố $A$, ta có 
+	$$\mathrm{P}\left(\overline{A}\right)=1-\mathrm{P}(A).$$
+\end{hq}
+
+
+\subsubsection{Các biến cố độc lập, công thức nhân xác suất}
+\begin{kn}
+	Trong một phép thử, nếu sự xảy ra của biến cố này không ảnh hưởng đến xác suất xảy ra của một biến cố khác thì ta nói hai biến cố đó \emph{độc lập}.
+\end{kn}
+\begin{vd}%\label{vd1_NXS}
+	Có hai bạn, một người có đồng tiền và một người có súc sắc. Xét phép thử ``Bạn thứ nhất gieo đồng tiền, sau đó bạn thứ hai gieo súc sắc''. Gọi $A$ là biến cố ``Đồng tiền xuất hiện mặt sấp'' và $B$ là biến cố ``Con súc sắc xuất hiện mặt 6 chấm''. Khi đó sự xảy ra của biến cố $A$ rõ ràng không ảnh hưởng tới xác suất xảy ra của biến cố $B$. Do đó biến cố $A$ và $B$ là độc lập.
+\end{vd}
+\begin{tc}
+	Với hai biến cố bất kỳ, ta có mối quan hệ sau (công thức nhân xác suất):
+	$$A \text{ và } B \text{ là hai biến cố độc lập}\Leftrightarrow \mathrm{P}(A.B)=\mathrm{P}(A).\mathrm{P}(B).$$
+\end{tc}
+
+\subsubsection{Xác suất điều kiện}
+
+\begin{dn}
+	Xác suất có điều kiện của biến cố $A$ với điều kiện $B$ là một số được xác định bởi công thức
+	$$\mathrm{P}(A|B)=\dfrac{\mathrm{P}(AB)}{\mathrm{P}(B)}\ \text{nếu}\ \mathrm{P}(B)>0.$$
+\end{dn}
+
+
+\begin{tc}\hfill
+	\begin{enumerate}
+		\item $\mathrm{P}(A|B)\ge 0$.
+		\item $\mathrm{P}(\Omega|B)=\mathrm{P}(B|B)=1$,
+		\item Nếu $A_i$, $i=1,\ldots,n$ là các biến cố đôi một xung khắc thì
+		$\mathrm{P}\left(\bigcup\limits_{i=1}^n A_i | B\right)=\displaystyle\sum\limits_{i=1}^n\mathrm{P}(A_i|B)$.
+		\item (Công thức nhân xác suất) $\mathrm{P}(AB)=\mathrm{P}(B)\mathrm{P}(A|B)=\mathrm{P}(A)\mathrm{P}(B|A)$.
+	\end{enumerate}
+\end{tc}
+
+\begin{note}
+	Xác suất điều kiện cho phép tính xác suất xảy ra của một biến cố khi biến cố khác đã xảy ra. Trong trường hợp hai biến cố $A$ và $B$ độc lập thì việc biến cố $B$ xảy ra không ảnh hưởng gì tới việc xảy ra biến cố $A$ nên $\mathrm{P}(A|B)=\mathrm{P}(A)$. Ta được công thức nhân xác suất thông thường.
+\end{note}
+
+\begin{dl}[Công thức xác suất toàn phần]
+	Nếu $B_i$, $i=1,\ldots,n$, là hệ các biến cố đôi một xung khắc sao cho $\bigcup\limits_{i=1}^n B_i=\Omega$ thì với biến cố $A$ bất kì ta luôn có
+	$$\mathrm{P}(A)=\displaystyle\sum\limits_{i=1}^n \mathrm{P}(B_i)\mathrm{P}(A|B_i).$$
+	Hệ các biến cố $B_i$ ($i=1,\ldots,n$) như vậy được gọi là hệ đầy đủ.
+\end{dl}
+
+\begin{dl}[Công thức Bayes]
+	Cho biến cố $A$ và hệ đầy đủ $B_i$ ($i=1,\ldots,n$) đều có xác suất dương. Khi đó
+	$$\mathrm{P}(B_i|A)=\dfrac{\mathrm{P}(B_i)\mathrm{P}(A|B_i)}{\mathrm{P}(A)}=\dfrac{\mathrm{P}(B_i)\mathrm{P}(A|B_i)}{\displaystyle\sum\limits_{i=1}^n \mathrm{P}(B_i)\mathrm{P}(A|B_i)}.$$
+\end{dl}
+	
+	
+\subsection{Các dạng toán}
+
+\begin{dang}{Sử dụng công thức tính xác suất của một biến cố}
+	\begin{center}
+		$\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}$.
+	\end{center}	
+\end{dang}
+\begin{vd}%[Triệu Minh Hà][0D2B5]
+	Gieo một con súc sắc $3$ lần. Tính xác suất của biến cố sau:
+	\begin{enumerate}
+		\item $A$: "$3$ lần gieo cho kết quả như nhau".
+		\item $B$: "Tích $3$ lần gieo là số lẻ".
+		\item $C$: "Tổng $3$ lần gieo là $5$".
+		\item $D$: "Lần gieo sau gieo được số lớn hơn lần gieo trước".
+	\end{enumerate}
+	\loigiai{
+		Gieo súc sắc $3$ lần sẽ có $n(\Omega)=6.6.6=216$ cách có thể xảy ra. Ta gọi kết quả $3$ lần gieo lần lượt theo dãy số $(x;y;z)$.
+		\begin{enumerate}
+			\item Có $A=\{(1;1;1),(2;2;2),(3;3;3),(4;4;4),(5;5;5),(6;6;6)\}$.\\ Do đó $n(A)=6\Rightarrow \mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{1}{36}.$
+			\item Để có biến cố $B$ thì $3$ lần gieo chỉ gieo được trong các số $1,3,5$. Từ đó\\Lần $1$: $3$ cách.\\ Lần $2$: $3$ cách.\\ Lần $3$: $3$ cách.\\$\Rightarrow n(B)=3.3.3=27\Rightarrow \mathrm{P}(B)=\dfrac{n(B)}{n(\Omega)}=\dfrac{27}{216}$.
+			\item $C=\{(1;1;3),(1;2;2),(1;3;1),;(2;1;2),(2;2;1),(3;1;1)\}$.\\ Do đó $n(C)=6\Rightarrow \mathrm{P}(C)=\dfrac{n(C)}{n(\Omega)}=\dfrac{1}{36}$.
+			\item Kết quả thuận lợi của $D$ là việc chọn ra $3$ giá trị khác nhau trong $3$ lần gieo và sắp xếp từ bé đến lớn tức là số kết quả bằng số việc chon $3$ phần tử trong $6$ phần tử, vậy\\ $n(D)=C^3_6=20\Rightarrow \mathrm{P}(C)=\dfrac{n(C)}{n(\Omega)}=\dfrac{5}{54}$.
+		\end{enumerate}
+	}
+\end{vd}
+\begin{vd}%[Triệu Minh Hà][0D2B5]
+	Trong một hộp kín có $18$ quả bóng khác nhau: $9$ trắng, $6$ đen, $3$ vàng.Lấy ngẫu nhiên đồng thời $5$ quả bóng trong đó. Tính xác suất của:
+	\begin{enumerate}
+		\item  $A$: "$5$ quả bóng cùng màu".
+		\item  $B$: "$5$ quả bóng có đủ $3$ màu"
+		\item  $C$: "$5$ quả bóng không có màu trắng"
+	\end{enumerate}
+	\loigiai{
+		Lấy ngẫu nhiên $5$ bóng đồng thời trong hộp kín đo đó $n(\Omega)=C^5_{18}= 8568$ cách.
+		\begin{enumerate}
+			\item TH1: $5$ quả bóng đồng màu trắng: $C^5_9=126$ cách lấy.\\ TH2: $5$ quả bóng đồng màu đen: $C^5_6=6$ cách lấy.\\
+			Từ đó $n(A)=126+6=132\Rightarrow \mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{11}{714}$.
+			\item TH1: $1$ trắng, $1$ đen, $3$ vàng: $ 9.6.C^3_3=54$ cách.\\
+			TH2: $1$ trắng, $2$ đen, $2$ vàng: $9.C^2_6.C^2_3= 405 $ cách.\\
+			TH3: $2$ trắng, $1$ đen, $2$ vàng: $C^2_9.6.C^2_3=648$ cách.\\
+			TH4: $2$ trắng, $2$ đen, $1$ vàng: $C^2_9.C^2_6.3=1620$ cách.\\
+			TH5: $3$ trắng, $1$ đen, $1$ vàng: $C^3_9.6.3= 1512$ cách.\\
+			Từ đó $n(B)=4239\Rightarrow \mathrm{P}(B)=\dfrac{n(B)}{n(\Omega)}=\dfrac{471}{952}$.
+			\item $5$ quả bóng lấy trong $9$ quả đen vàng do đó\\ $n(B)=C^5_9=126\Rightarrow \mathrm{P}(B)=\dfrac{n(B)}{n(\Omega)}=\dfrac{1}{68}$.
+		\end{enumerate}
+	}
+\end{vd}
+\begin{vd}%[Triệu Minh Hà][0D2B5]
+	Trong lớp $12A5$ có $45$ học sinh có $20$ học sinh nam, $25$ học sinh nữ. Lấy ngẫu nhiên $5$ học sinh, Xác định xác suất của biến cố:
+	\begin{enumerate}
+		\item $5$ học sinh lấy ra là nam.
+		\item $5$ học sinh lấy ra có đủ nam và nữ.
+		\item Có ít nhất $3$ học sinh nữ.
+	\end{enumerate}
+	\loigiai
+	{
+		Lấy ngẫu nhiên $5$ học sinh trong $45$ học sinh, vậy số kết quả có thể xảy ra là:\\
+		$n(\Omega)=C^5_{45}= 1221759$.
+		\begin{enumerate}
+			\item 
+			Lấy $5$ nam trong $20$ nam\\ $\Rightarrow n(A)=C^5_{20}=15504\Rightarrow \mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{1699}{133886}$.
+			\item Gọi $B$: "$5$ học sinh lấy ra có đủ nam và nữ".\\
+			Để đếm $n(B)$ ta phân làm các trường hợp.\\
+			TH1: $1$ nam, $4$ nữ: $C^1_{20}.C^4_{25}=253000$\\
+			TH2: $2$ nam, $3$ nữ: $C^2_{20}.C^3_{25}=437000 $ \\
+			TH3: $3$ nam, $2$ nữ: $C^3_{20}. C^2_{25}=342000$ \\
+			TH4: $4$ nam, $1$ nữ: $C^4_{20}.C^1_{25}=121125$ \\
+			Từ đó\\
+			$n(B)=1153125\Rightarrow\mathrm{P}(B)=\dfrac{n(B)}{n(\Omega)}=\dfrac{3125}{3311}$.
+			\item Gọi $C$: "$5$ học sinh lấy ra ít nhất là $3$ nữ".\\
+			Để đếm $n(C)$ ta phân làm các trường hợp sau:\\
+			TH1: $3$ nữ, $2$ nam: $C^3_{25}.C^2_{20}=437000$ \\
+			TH2: $4$ nữ, $1$ nam: $C^4_{25}.C^1_{20}=253000$  \\
+			TH3: $5$ nữ: $C^5_{25}=53130$ \\
+			$\Rightarrow n(C)=743130\Rightarrow \mathrm{P}=\dfrac{n(C)}{n(\Omega)}=\dfrac{82570}{135751} $.
+		\end{enumerate}
+	}	
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Triệu Minh Hà][0D2B5]
+	Một người chọn ngẫu nhiên hai chiếc giày từ $6$ đôi giày có kích thước khác nhau trong tủ. Tính xác suất để hai chiếc chọn được tạo thành từ một đôi.
+	\loigiai{
+		Chọn $2$ chiếc từ $12$ chiếc $\Rightarrow n(\Omega)=C^2_{12}=66$.\\
+		Gọi $A$: "Hai chiếc tạo thành một đôi".\\
+		$n(A)=6\Rightarrow \mathrm{P}(A)\dfrac{n(A)}{n(\Omega)}=\dfrac{1}{11}$
+	}
+\end{bt}
+\begin{bt}%[Triệu Minh Hà][0D2B5]
+	Lấy ngẫu nhiên đồng thời ba thẻ thẻ từ một hộp chứa $30$ thẻ được đánh số từ $1$ đến $30$. Tính xác suất để $3$ thẻ được lấy là $3$ số liên tiếp.
+	\loigiai{
+		$n(\Omega)=C^3_{30}=4060$.\\
+		Gọi $A$: "3 thẻ được lấy là 3 số liên tiếp".\\
+		Có $A=\{(1;2;3),(2;3;4),...,(28;29;30)\}\Rightarrow n(A)=28\Rightarrow \mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{1}{45}$.
+	}
+\end{bt}
+\begin{bt}%[Triệu Minh Hà][0D2B5]
+	Xét tập hợp $A$ gồm các số tự nhiên có bốn chữ số khác nhau được lập thành từ các chữ số $1$, $2$, $3$, $4$, $5$, $6$, $7$. Chọn ngẫu nhiên một phần tử của tập $A$. Tính xác suất để phần tử đó là một số chẵn.
+	\loigiai{
+		$n(\Omega)=A^4_7=840$.\\
+		Gọi $A$: "Số lấy ra là số chẵn".\\
+		Vậy $n(A)=3.A^3_6=360\Rightarrow \mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{3}{7}$.
+	}
+\end{bt}
+\begin{bt}%[Triệu Minh Hà][0D2B5]
+	Một hộp chứa $4$ viên bi màu vàng, $6$ viên bi màu đỏ và $5$ viên bi màu xanh,các viên bi là khác nhau. Lấy ngẫu nhiên đồng thời $7$ bi trong hộp. Tính xác suất sao cho trong $7$ bi lấy ra có số bi màu vàng bằng số bi màu đỏ.
+	\loigiai{
+		$n(\Omega)=C^7_{15}=6435$.\\
+		Gọi $A$: "Số bi màu vàng bằng số bi màu đỏ".\\
+		$n(A)=4.6.C^5_5+C^2_4.C^2_6.C^3_5+C^3_4.C^3_6.5=1324\\\Rightarrow \mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{1324}{6435}$.
+		
+	}
+\end{bt}
+
+
+	\begin{dang}{Tính xác suất theo quy tắc cộng}
+	{\textbf{Phương pháp giải:}}
+	\begin{itemize}
+		\item Sử dụng định nghĩa biến cố xung khắc, biến cố đối.
+		\item Áp dụng các công thức
+		\begin{enumerate}
+			\item Nếu $A$ và $B$ xung khắc thì $\mathrm{P}(A\cup B)=\mathrm{P}(A)+\mathrm{P}(B)$.
+			\item $\mathrm{P}\left(\overline{A}\right)=1-\mathrm{P}(A)$.
+		\end{enumerate}
+	\end{itemize}
+\end{dang}
+
+
+\begin{vd}%%[Đào-V- Thủy]%[1D2B5]
+	Từ một hộp gồm $6$ viên bi xanh và $4$ viên bi đỏ. Lấy ngẫu nhiên hai viên bi.
+	\begin{enumerate}
+		\item Tính xác suất để thu được hai viên bi cùng màu.
+		\item Tính xác suất để thu được hai viên bi khác màu.
+	\end{enumerate}
+	\loigiai{
+		Ta có $n(\Omega)=C_{10}^2$.
+		\begin{enumerate}
+			\item Gọi $A$ là biến cố: \lq\lq Lấy được hai viên bi cùng màu\rq\rq.\\
+			$A_1$ là biến cố: \lq\lq Lấy được hai viên bi cùng màu xanh\rq\rq.\, $\Rightarrow \mathrm{P}(A_1)=\dfrac{C_6^2}{C_{10}^2}$.\\
+			$A_2$ là biến cố: \lq\lq Lấy được hai viên bi cùng màu đỏ\rq\rq.
+			\, $\Rightarrow \mathrm{P}(A_2)=\dfrac{C_4^2}{C_{10}^2}$.\\
+			Vậy $\mathrm{P}(A)=\mathrm{P}(A_1\cup A_2)=\mathrm{P}(A_1)+\mathrm{P}(A_2)=\dfrac{C_6^2+C_4^2}{C_{10}^2}=\dfrac{7}{15}$.
+			\item Gọi $B$ là biến cố: \lq\lq Lấy được hai viên bi khác màu\rq\rq.\\
+			Vì chỉ có hai màu xanh hoặc đỏ nên ta có $B=\overline{A}$.\\
+			Vậy $\mathrm{P}(B)=\mathrm{P}\left(\overline{A}\right)=1-\mathrm{P}(A)=\dfrac{8}{15}$.
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%%[Đào-V- Thủy]%[1D2B5]
+	Một giáo viên muốn chọn hai câu hỏi ra đề kiểm tra $15$ phút môn Toán lớp $11$. Trong ngân hàng đề có $10$ câu lượng giác, $6$ câu toán tổ hợp, $8$ câu hỏi toán xác suất.
+	\begin{enumerate}
+		\item Tính xác suất để hai câu hỏi rơi vào cùng một chủ đề.
+		\item Tính xác suất để hai câu hỏi rơi vào hai chủ đề khác nhau.
+	\end{enumerate}
+	\loigiai{
+		Ta có $n(\Omega)=C_{24}^2$.
+		\begin{enumerate}
+			\item Gọi $A$ là biến cố: \lq\lq Chọn được hai câu cùng chủ đề\rq\rq.\\
+			$A_1$ là biến cố: \lq\lq Chọn được hai câu lượng giác\rq\rq.\,$\Rightarrow \mathrm{P}(A_1)=\dfrac{C_{10}^2}{C_{24}^2}$.\\
+			$A_2$ là biến cố: \lq\lq Chọn được hai câu tổ hợp\rq\rq.\, $\Rightarrow \mathrm{P}(A_2)=\dfrac{C_8^2}{C_{24}^2}$.\\
+			$A_3$ là biến cố: \lq\lq Chọn được hai câu xác suất\rq\rq.\, $\Rightarrow \mathrm{P}(A_3)=\dfrac{C_6^2}{C_{24}^2}$.\\
+			Vậy $\mathrm{P}(A)=\mathrm{P}(A_1\cup A_2\cup A_3)=\mathrm{P}(A_1)+\mathrm{P}(A_2)+\mathrm{P}(A_3)=\dfrac{C_{10}^2+C_8^2+C_6^2}{C_{24}^2}=\dfrac{22}{69}$.
+			\item Gọi $B$ là biến cố: \lq\lq Chọn được hai câu vào hai chủ đề khác nhau\rq\rq.\\
+			Vì $B=\overline{A}$ nên $\mathrm{P}(B)=1-\mathrm{P}(A)=\dfrac{47}{69}$.
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%%[Đào-V- Thủy]%[1D2B5]
+	Một lớp có $41$ học sinh trong đó có $15$ bạn nam và $26$ bạn nữ. Cô giáo chủ nhiệm chọn ngẫu nhiên ra bốn bạn đi trực ban. 
+	\begin{enumerate}
+		\item Tính xác suất để cả bốn bạn đó đều là nữ.
+		\item Tính xác suất để có ít nhất một bạn nam.
+	\end{enumerate}
+	\loigiai{
+		Ta có $n(\Omega)=C_{41}^4$.
+		\begin{enumerate}
+			\item Gọi $A$ là biến cố: \lq\lq Cả bốn bạn đều là nữ\rq\rq.\\
+			$n(A)=C_{26}^4$.\\
+			Vậy $\mathrm{P}(A)=\dfrac{C_{26}^4}{C_{41}^4}=\dfrac{115}{779}$.
+			\item Gọi $B$ là biến cố: \rq\rq Có ít nhất một bạn nam\rq\rq.\\
+			Ta có $B=\overline{A}$. Do đó $\mathrm{P}(B)=1-\mathrm{P}(A)=\dfrac{664}{779}$.
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%%[Đào-V- Thủy]%[1D2K5]
+	Có hai hòm đựng thẻ, mỗi hòm đựng $10$ thẻ đánh số từ $1$ đến $10$. Lấy ngẫu nhiên từ mỗi hòm một thẻ. Tính xác suất để trong hai thẻ lấy ra
+	\begin{enumerate}
+		\item có ít nhất một thẻ đánh số $1$.
+		\item tổng hai số ghi trên hai thẻ khác $19$.
+	\end{enumerate}
+	\loigiai{
+		Ta có $n(\Omega)=C_{10}^1.C_{10}^1$.
+		\begin{enumerate}
+			\item Gọi $A$ là biến cố: \lq\lq Lấy được ít nhất một thẻ đánh số $1$\rq\rq.\\
+			Khi đó, $\overline{A}$ là biến cố: \lq\lq Cả hai thẻ đều không đánh số $1$\rq\rq.\\
+			Ta có $n\left(\overline{A}\right)=C_9^1.C_9^1\Rightarrow \mathrm{P}\left(\overline{A}\right)=\dfrac{C_9^1.C_9^1}{C_{10}^1.C_{10}^1}$.\\
+			Vậy $\mathrm{P}(A)=1-\mathrm{P}\left(\overline{A}\right)=\dfrac{19}{100}$.
+			\item Gọi $B$ là biến cố: \lq\lq Tổng hai số ghi trên thẻ khác $19$\rq\rq.\\
+			Khi đó, $\overline{B}$ là biến cố: \lq\lq Tổng hai số ghi trên thẻ bằng $19$\rq\rq.\\
+			Ta có $n\left(\overline{B}\right)=2\Rightarrow \mathrm{P}(B)=\dfrac{2}{C_{10}^1.C_{10}^1}$.\\
+			Vậy $\mathrm{P}(B)=1-\mathrm{P}\left(\overline{B}\right)=\dfrac{49}{50}$.
+		\end{enumerate}
+	}
+\end{vd}
+
+
+
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+
+\begin{bt}%%[Đào-V- Thủy]%[1D2B5]
+	Một hộp gồm $10$ viên bi trắng, $8$ viên bi đỏ và $6$ viên bi xanh. Chọn ngẫu nhiên ba viên bi.
+	\begin{enumerate}
+		\item Tính xác suất để thu được ba viên bi cùng màu.
+		\item Tính xác suất để thu được ba viên bi khác màu.
+		\item Tính xác suất để có ít nhất một viên bi trắng.
+	\end{enumerate}
+	\loigiai{
+		Ta có $n(\Omega)=C_{24}^3$.
+		\begin{enumerate}
+			\item $\mathrm{P}(A)=\dfrac{C_{10}^3}{C_{24}^3}+\dfrac{C_8^3}{C_{24}^3}+\dfrac{C_6^3}{C_{24}^3}=\dfrac{49}{506}$.
+			\item $\mathrm{P}(B)=\dfrac{C_{10}^1.C_8^1.C_6^1}{C_{24}^3}=\dfrac{80}{253}$.
+			\item $\mathrm{P}(C)=1-\mathrm{P}\left(\overline{C}\right)=1-\dfrac{C_{14}^3}{C_{24}^3}=\dfrac{415}{506}$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%%[Đào-V- Thủy]%[1D2K5]
+	Gieo một con súc sắc cân đối và đồng chất $2$ lần.
+	\begin{enumerate}
+		\item Tính xác suất để tổng hai mặt thu được của $2$ lần gieo là số lẻ.
+		\item Tính xác suất để tổng hai mặt thu được của $2$ lần gieo là số chẵn.
+	\end{enumerate}
+	\loigiai{
+		Ta có $n(\Omega)=C_6^1.C_6^1=36$.
+		\begin{enumerate}
+			\item Biến cố $A$ xảy ra khi nếu lần đầu gieo là số lẻ thì lần sau gieo là số chẵn và ngược lại.\\
+			Do đó $n(A)=3.3+3.3=18$.\\
+			Vậy $\mathrm{P}(A)=\dfrac{1}{2}$.
+			\item Vì $B=\overline{A}$ nên $\mathrm{P}(B)=\dfrac{1}{2}$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%%[Đào-V- Thủy]%[1D2B5]
+	Một lớp có $35$ học sinh trong đó có $20$ bạn nam và $15$ bạn nữ. Giáo viên chủ nhiệm chọn ngẫu nhiên ba bạn vào đội cờ đỏ.
+	\begin{enumerate}
+		\item Tính xác suất để cả ba bạn đó đều là nam.
+		\item Tính xác suất để có ít nhất một bạn nữ.
+	\end{enumerate}
+	\loigiai{
+		Ta có $n(\Omega)=C_{35}^3$.
+		\begin{enumerate}
+			\item $\mathrm{P}(A)=\dfrac{C_{20}^3}{C_{35}^3}=\dfrac{228}{1309}$.
+			\item $\mathrm{P}(B)=1-\mathrm{P}(A)=\dfrac{1081}{1309}$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%%[Đào-V- Thủy]%[1D2B5]
+	Một bó hoa gồm $40$ bông trong đó có $12$ bông hồng, $15$ bông huệ, $8$ bông lan còn lại là hoa ly. Chọn ngẫu nhiên $5$ bông hoa từ bó hoa đó.
+	\begin{enumerate}
+		\item Tính xác suất để lấy được $5$ bông hoa cùng loại.
+		\item Tính xác suất để lấy được $5$ bông trong đó có ít nhất hai loại khác nhau.
+	\end{enumerate}
+	\loigiai{
+		Ta có $n(\Omega)=C_{40}^5$.
+		\begin{enumerate}
+			\item $\mathrm{P}(A)=\dfrac{C_{12}^5}{C_{40}^5}+\dfrac{C_{15}^5}{C_{40}^5}+\dfrac{C_8^5}{C_{40}^5}+\dfrac{C_5^5}{C_{40}^5}=\dfrac{107}{18278}$.
+			\item $\mathrm{P}(B)=1-\mathrm{P}(A)=\dfrac{18171}{18278}$.
+		\end{enumerate}
+	}
+\end{bt}
+
+
+\begin{dang}{Tính xác suất dùng công thức nhân xác suất}
+	Để tính xác suất dạng này ta xác định các biến cố độc lập, sau đó tính xác suất từng biến cố rồi nhân lại.
+\end{dang}
+\begin{vd}%%[Lâm Hữu Phước]%[2D2Y5]
+	Trong ví dụ \ref{vd1_NXS}, hãy tính xác suất của biến cố ``Người thứ nhất gieo được mặt sấp và người thứ hai gieo được mặt 6 chấm''.
+	\loigiai
+	{Ta có $A.B$ là biến cố ``Người thứ nhất gieo được mặt sấp và người thứ hai gieo được mặt 6 chấm''. Do $A$ và $B$ là độc lập nên $\mathrm{P}(A.B)=\mathrm{P}(A).\mathrm{P}(B)=\dfrac{1}{2}.\dfrac{1}{6}=\dfrac{1}{12}$.
+	}
+\end{vd}
+\begin{vd}%%[Lâm Hữu Phước]%[2D2B5]
+	Có 2 hộp chứa các quả cầu. Hộp thứ nhất chứa 3 quả cầu xanh, 4 quả cầu đỏ, hộp thứ hai chứa 5 quả cầu xanh và 4 quả cầu đỏ. Lấy mỗi hộp 1 quả cầu. Tính xác suất để lấy được hai quả cầu xanh.
+	\loigiai
+	{
+		Gọi $A$ là biến cố ``lấy được quả cầu xanh ở hộp thứ nhất'' và $B$ là biến cố ``lấy được quả cầu xanh ở hộp thứ hai''. Khi đó ta có $\mathrm{P}(A)=\dfrac{3}{7}$ và $\mathrm{P}(B)=\dfrac{5}{9}$. Kết quả việc lấy quả cầu ở hộp thứ nhất không ảnh hưởng đến kết quả lấy quả cầu ở hộp thứ hai và ngược lại nên $A$ và $B$ là hai biến cố độc lập. Xác suất cần tìm là $\mathrm{P}(A.B)=\mathrm{P}(A).\mathrm{P}(B)=\dfrac{3}{7}.\dfrac{5}{9}=\dfrac{5}{21}$.
+	}
+\end{vd}
+\begin{vd}%%[Lâm Hữu Phước]%[2D2B5]
+	Gieo một con súc sắc cân đối và đồng chất hai lần. Tính xác suất để lần gieo thứ nhất được mặt có số chấm lẻ và lần thứ hai được mặt có số chấm chẵn.
+	\loigiai
+	{
+		Gọi $A$ là biến cố ``lần đầu gieo được mặt có số chấm lẻ'' và $B$ là biến cố ``lần thứ hai gieo được mặt có số chấm chẵn''. Khi đó $\mathrm{P}(A)=\dfrac{1}{2}$ và $\mathrm{P}(B)=\dfrac{1}{2}$. Kết quả việc gieo súc sắc lần một không ảnh hưởng tới kết quả gieo súc sắc lần hai và ngược lại nên $A$ và $B$ là hai biến cố độc lập. Xác suất cần tìm là $\mathrm{P}(A.B)=\mathrm{P}(A).\mathrm{P}(B)=\dfrac{1}{2}.\dfrac{1}{2}=\dfrac{1}{4}$.
+	}
+\end{vd}
+\begin{vd}%%[Lâm Hữu Phước]%[2D2K5]
+	Có hai xạ thủ bắn bia. Xác suất để xạ thủ bắn trúng bia là 0,8; xác suất để xạ thủ thứ hai bắn trúng bia là 0,7. Tính xác suất để cả hai xạ thủ cùng bắn trúng bia.
+	\loigiai
+	{
+		Gọi $A$ là biến cố ``Xạ thủ thứ nhất bắn trúng bia'' và $B$ là biến cố ``Xạ thủ thứ hai bắn trúng bia''. Do kết quả bắn trúng bia của xạ thủ thứ nhất không ảnh hưởng tới xạ thủ thứ hai và ngược lại nên $A$ và $B$ là các biến cố độc lập. Khi đó xác suất cần tìm là $\mathrm{P}(A.B)=\mathrm{P}(A).\mathrm{P}(B)=0,8.0,7= 0,56$.
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%%[Lâm Hữu Phước]%[2D2B5]
+	Có hai hộp đựng các quả cầu. Hộp thứ nhất có 3 quả cầu xanh, 2 quả cầu trắng và 4 quả cầu vàng, hộp thứ hai có 4 quả cầu xanh, 3 quả cầu trắng và 5 quả cầu vàng. Lấy ở mỗi hộp 2 quả cầu. Tính xác suất để lấy được 4 quả cầu màu vàng.
+	\loigiai{
+		Hướng dẫn: 
+		Với $A$ là biến cố ``Hộp thứ nhất lấy được 2 quả vàng'' và $B$ là biến cố ``Hộp thứ hai lấy được hai quả vàng'' thì ta có $A,\ B$ độc lập và xác suất cần tìm là $$\mathrm{P}(A.B)=\mathrm{P}(A).\mathrm{P}(B)=\dfrac{1}{6}.\dfrac{5}{33}=\dfrac{5}{198}$$.
+	}
+\end{bt}
+\begin{bt}%%[Lâm Hữu Phước]%[2D2B5]
+	Gieo một con súc sắc cân đối và đồng chất hai lần. Tính xác suất để tổng số chấm hai lần gieo không nhỏ hơn 11.
+	\loigiai
+	{Hướng dẫn: Gọi $A_5$ là biến cố ``lần gieo 1 được mặt 5 chấm'', $A_6$ là biến cố ``lần gieo 1 được mặt 6 chấm''; $B_5$ là biến cố ``lần gieo 2 được mặt 5 chấm'', $B_6$ là biến cố ```lần gieo 2 được mặt 6 chấm'', $A$ là biến cố`` tổng số chấm 2 lần gieo không nhỏ hơn 11''. Khi đó $$\mathrm{P}(A)=\mathrm{P}(A_5.B_6)+\mathrm{P}(A_6.B_5)+\mathrm{P}(A_6.B_6)=\dfrac{1}{12}$$.
+	}
+\end{bt}
+\begin{bt}%%[Lâm Hữu Phước]%[2D2B5]
+	Có hai hộp đựng bi. Hộp thứ nhất đựng 6 bi xanh, 5 bi đỏ và 3 bi vàng; hộp thứ hai đựng 4 bi xanh, 6 bi đỏ và 3 bi vàng. Lấy mỗi hộp một viên bi. Tính xác suất sao cho lấy được 2 viên bi cùng màu.
+	\loigiai{
+		Hướng dẫn: Gọi $A_x,\ A_d,\ A_v$ lần lượt là các biến cố ``hộp thứ nhất lấy được bi xanh'', ``hộp thứ nhất lấy được bi đỏ'', ``hộp thứ nhất lấy được bi vàng'' và $B_x,\ B_d,\ B_v$ lần lượt là các biến cố ``hộp thứ hai lấy được bi xanh'', ``hộp thứ hai lấy được bi đỏ'', ``hộp thứ hai lấy được bi vàng'' và $A$ là biến cố ``lấy được 2 viên bi cùng màu''. Khi đó $\mathrm{P}(A)=\mathrm{P}(A_x.B_x)+\mathrm{P}(A_d.B_d)+\mathrm{P}(A_v.B_v)=\dfrac{9}{26}$.
+	}
+\end{bt}
+\begin{bt}%%[Lâm Hữu Phước]%[2D2B5]
+	Hai người đi săn cùng bắn vào một con nai. Xác suất người thứ nhất bắn trúng con nai là 0,9, xác suất người thứ hai bắn trúng con nai là 0,8. Tính xác suất để 
+	\begin{enumerate}[\indent a.]
+		\item Con nai bị cả hai người đi săn bắn trúng.
+		\item Con nai không bị bắn trúng.
+	\end{enumerate}
+	\loigiai{
+		Hướng dẫn: Gọi $A_1$ là biến cố ``người thứ nhất bắn trúng nai'' và $A_2$ là biến cố ``người thứ hai bắn trúng nai''. 
+		\begin{enumerate}[\indent a.]
+			\item Gọi $A$ là biến cố ``cả hai người cùng bắn trúng nai''. Khi đó $\mathrm{P}(A)=\mathrm{P}(A_1.A_2)=0,9.0,8=0,72$.
+			\item Gọi $B$ là biến cố ``con nai không bị bắn trúng''. Khi đó $$\mathrm{P}(B)=\mathrm{P}\bigl(\overline{A_1}.\overline{A_2}\bigr)=0,1.0,2=0,02$$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%%[Lâm Hữu Phước]%[2D2B5]
+	Một dây chuyền sản xuất có 3 bước. Sản phẩm tạo ra không có lỗi nếu cả 3 bước đều không có lỗi. Xác suất có lỗi của các bước theo thứ tự lần lượt là 0,01, 0,02, 0,05. Tính xác suất để 
+	\begin{enumerate}[\indent a.]
+		\item Sản phẩm sản xuất ra không bị lỗi.
+		\item Sản phẩm sản xuất ra bị lỗi.
+	\end{enumerate}
+	\loigiai{
+		Hướng dẫn: Gọi $A_i,\ i\in\{1,2,3\}$ là biến cố ``bước sản xuất thứ $i$ bị lỗi''.
+		\begin{enumerate}[\indent a.]
+			\item Gọi $A$ là biến cố ``sản phẩm sản xuất ra không bị lỗi''. Ta có 
+			$\mathrm{P}(A)=\mathrm{P}(\overline{A_1}.\overline{A_2}.\overline{A_3})=(1-0,01)(1-0,02)(1-0,05)=0,92169$.
+			\item Gọi $B$ là biến cố ``sản phẩm sản xuất ra bị lỗi''. Ta có 
+			$\mathrm{P}(B)=\mathrm{P}\bigl(\overline{A}\bigr)=1-0,92169=0.07831$.
+		\end{enumerate} 
+	}
+\end{bt}
+
+\begin{dang}{Xác suất điều kiện, xác suất toàn phần và công thức Bayes}
+	\textit{Phương pháp giải:}
+	\begin{enumerate}
+		\item Bài toán xác suất điều kiện: Tìm hai trong ba xác suất $\mathrm{P}(AB)$, $\mathrm{P}(B)$, $\mathrm{P}(A|B)$. Từ đó tìm được xác suất còn lại.
+		\item Bài toán xác suất toàn phần: Xác định hệ biến cố đầy đủ $B_i$, tính các biến cố $\mathrm{P}(A|B_i)$, áp dụng công thức xác suất toàn phần.
+		
+	\end{enumerate}
+\end{dang}
+
+
+\begin{vd}%[Vũ Nguyễn Hoàng Anh]%[1D2K5]
+	Nam thực hiện liên tiếp hai thí nghiệm. Thí nghiệm thứ nhất có xác suất thành công là $0,7$. Nếu thí nghiệm thứ nhất thành công thì xác suất thành công của thí nghiệm thứ hai là $0,9$. Nếu thí nghiệm thứ nhất không thành công thì xác suất để thành công thí nghiệm thứ hai là $0,4$. Tìm xác suất để:
+	\begin{enumerate}
+		\item Cả hai thí nghiệm thành công.
+		\item Cả hai thí nghiệm đều không thành công.
+		\item Thí nghiệm thứ nhất thành công và thí nghiệm thứ hai không thành công.
+	\end{enumerate}
+\end{vd}
+\loigiai{
+	Gọi $A$, $B$ lần lượt là biến cố "Thí nghiệm thứ nhất thành công" và "Thí nghiệm thứ hai thành công".
+	\begin{enumerate}
+		\item $AB$ là biến cố "Cả hai thí nghiệm thành công". Theo giả thiết ta có $\mathrm{P}(A)=0,7$, $P(B|A)=0,9$. Suy ra $P(AB)=P(A) \mathrm{P}(B|A)=0,7\times 0,9=0,63$.
+		\item $\overline{A}\cdot\overline{B}$ là biến cố "Cả hai thí nghiệm đều không thành công". Theo giả thiết ta có $\mathrm{P}\left( \overline{A}\right)=0,3$, $\mathrm{P}\left( \overline{B}|\overline{A} \right)=0,6$. Suy ra $\mathrm{P} \left( \overline{A}\cdot \overline{B} \right)=\mathrm{P} \left( \overline{A} \right)\mathrm{P} \left(\overline{B}|\overline{A}\right)=0,3 \times 0,6=0,18$.
+		\item $A\overline{B}$ là biến cố "Thí nghiệm thứ nhất thành công nhưng thí nghiệm thứ hai không thành công". Theo giả thiết ta có $\mathrm{P} \left(\overline{B}|A \right)=1-0,9=0,1$. Suy ra $\mathrm{P} \left( A\overline{B} \right) = \mathrm{P}(A)\mathrm{P} \left(\overline{B}|A \right)=0,7\times 0,1=0,07$.
+	\end{enumerate}
+}
+
+\begin{vd}%[Vũ Nguyễn Hoàng Anh]%[1D2B5]%[1D2G5]
+	Một công ti một ngày sản xuất được $850$ sản phẩm trong đó có $50$ sản phẩm không đạt chất lượng. Lần lượt lấy ra ngẫu nhiên không hoàn lại $2$ sản phẩm để kiểm tra.
+	\begin{enumerate}
+		\item Tính xác suất để sản phẩm thứ hai không đạt chất lượng biết sản phẩm thứ nhất đạt chất lượng.
+		\item Tính xác suất để sản phẩm thứ hai không đạt chất lượng.
+	\end{enumerate}
+\end{vd}
+\loigiai{
+	\begin{enumerate}
+		\item Gọi $A_k$ là biến cố sản phầm thứ $k$ không đạt chất lượng ($k=1,2$). Do sản phẩm thứ nhất không đạt chất lượng nên còn $49$ sản phẩm không đạt chất lượng trong tổng số $849$ sản phẩm. Vậy xác suất cần tìm là
+		$$\mathrm{P}(A_2|A_1)=\dfrac{49}{849}.$$
+		\item Do $A_1$ và $\overline{A_1}$ là hệ biến cố đầy đủ nên theo công thức xác suất toàn phần ta có
+		$$\mathrm{P}(A_2)=\mathrm{P}(A_1)\mathrm{P}(A_2|A_1)+\mathrm{P}\left(\overline{A_1}\right) \mathrm{P}\left(A_2|\overline{A_1}\right)=\dfrac{50}{850}\cdot \dfrac{49}{849}+\dfrac{800}{850}\cdot \dfrac{50}{849}=\dfrac{1}{17}.$$
+	\end{enumerate}
+}
+
+
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+
+
+\begin{bt}%[Vũ Nguyễn Hoàng Anh]%[1D2K5]%[1D2G5]
+	Gieo liên tiếp một con súc sắc.
+	\begin{enumerate}
+		\item Tính xác suất để lần gieo thứ $k$ là lần đầu tiên ra mặt "bốn".
+		\item Tính xác suất để trong $k-1$ lần gieo trước đó, không có lần nào ra mặt "ba".
+		\item Tính xác suất để mặt "bốn" xuất hiện trước mặt "ba".
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Gọi $A_i$ là biến có lần thứ $i$ gieo được mặt "bốn". Khi đó $A=\overline{A_1}\cdot \overline{A_2}\cdots \overline{A_{k-1}}A_k$ là biến cố lần thứ $k$ là lần đầu tiên gieo được mặt "bốn". Theo công thức nhân xác suất ta có
+			$$\mathrm{P}(A)=\dfrac{1}{6}\left(\dfrac{5}{6}\right)^{k-1}.$$
+			\item Gọi $B$ là biến cố $k-1$ lần đầu không có lần nào ra mặt "ba". Suy ra
+			$$\mathrm{P}(AB)=\dfrac{1}{6}\left(\dfrac{4}{6}\right)^{k-1}\Rightarrow \mathrm{P}(B|A)=\dfrac{\mathrm{P}(AB)}{\mathrm{A}}=\left(\dfrac{4}{5}\right)^{k-1}.$$
+			\item Gọi $C$ là biến cố mặt "bốn" xuất hiện trước mặt "ba", $C_1$, $C_2$, $C_3$ lần lượt là các biến cố "lần đầu ra mặt bốn", "lần đầu ra mặt ba", "lần đầu không ra cả mặt ba và bốn". Khi đó $C_1$, $C_2$, $C_3$ là hệ biến cố đầy đủ. Suy ra
+			\begin{align*}
+			\mathrm{P}(C)&=\mathrm{P}(C_1)\mathrm{P}(C|C_1)+ \mathrm{P}(C_2)\mathrm{P}(C|C_2) + \mathrm{P}(C_3)\mathrm{P}(C|C_3)\\
+			&=\dfrac{1}{6}\cdot 1 + \dfrac{1}{6}\cdot 0 + \dfrac{4}{6} \cdot \mathrm{P}(C)\\
+			\Rightarrow &\mathrm{P}(C)=\dfrac{1}{2}.
+			\end{align*}
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Vũ Nguyễn Hoàng Anh]%[1D2K5]
+	Một gia đình có $n$ người con. Tính xác suất để cả $n$ người con là con trai biết rằng có ít nhất một người con là con trai.
+	\loigiai{
+		Gọi $A$, $B$ lần lượt là biến cố "cả $n$ người con đều là con trai" và "có ít nhất một người con là con trai". Khi đó $\mathrm{P}(A)=\dfrac{1}{2^n}$, $\mathrm{P}(B) =1- \mathrm{P} \left(\overline{B}\right)=1-\dfrac{1}{2^n}$. Suy ra xác suất cần tìm là 
+		$$\mathrm{P}(A|B)=\dfrac{\mathrm{P}(AB)}{\mathrm{P}(B)}=\dfrac{\mathrm{P}(A)}{\mathrm{P}(B)}=\dfrac{1}{2^n-1}.$$
+	}
+\end{bt}
+
+\begin{bt}%[Vũ Nguyễn Hoàng Anh]%[1D2K5]
+	Từ một hộp có $100$ quả cầu trắng và $50$ quả cầu đen. Người ta rút ngẫu nhiên không hoàn lại từng quả một và rút hai lần. Tính xác suất để lần thứ hai mới rút được là quả cầu trắng.
+	\loigiai{
+		Kí hiệu $A_k$ là biến cố "lần thứ $k$ rút được quả trắng" ($k=1,2,\ldots)$. Theo công thức nhân xác suất ta có
+		$$\mathrm{P} \left(\overline{A_1}A_2\right)=\mathrm{P} \left(\overline{A_1}\right)\mathrm{P}\left(A_2|\overline{A_1}\right)=\dfrac{50}{100+50} \cdot \dfrac{100}{100+50-1}=\dfrac{100}{447}.$$
+		Vậy xác suất cần tìm là $\dfrac{100}{447}$.
+	}
+\end{bt}
+
+\begin{bt}%[Vũ Nguyễn Hoàng Anh]%[1D2G5]
+	Từ một hộp có $50$ quả cầu trắng và $100$ quả cầu đen. Người ta rút ngẫu nhiên không hoàn lại từng quả một và rút hai lần. Tính xác suất để lần đầu rút được quả trắng biết lần thứ hai cũng rút được quả trắng.
+	\loigiai{
+		Kí hiệu $A_k$ là biến cố "lần thứ $k$ rút được quả trắng" ($k=1,2,\ldots)$. Khi đó $\left\{A_1, \overline{A_1}\right\}$ là một hệ đầy đủ. Suy ra
+		\begin{align*}
+		\mathrm{P}(A_2)&=\mathrm{P}(A_1)\mathrm{P}(A_2|A_1)+\mathrm{P} \left(\overline{A_1}\right)\mathrm{P} \left(A_2|\overline{A_1}\right)\\
+		&=\dfrac{50}{50+100}\cdot \dfrac{50-1}{50+100-1}+\dfrac{100}{50+100}\cdot \dfrac{50}{50+100-1}\\
+		&=\dfrac{1}{3}.
+		\end{align*}
+		Xác suất cần tìm là $\mathrm{P}(A_1|A_2)$. Áp dụng công thức Bayes ta có
+		$$\mathrm{P}\left(A_1|A_2\right)=\dfrac{P(A_1)\mathrm{P}(A_2|A_1)}{A_2}=\dfrac{49}{149}.$$
+	}
+\end{bt}
+
+\begin{bt}%[Vũ Nguyễn Hoàng Anh]%[1D2G5]
+	Một cuộc thi có ba vòng thi. Vòng 1 lấy $90\%$ thí sinh, vòng 2 lấy $80\%$ số thí sinh đỗ vòng 1, vòng 3 lấy $60\%$ số thí sinh đỗ vòng 2. Tính xác suất để một thí sinh bị loại ở vòng ba.
+	\loigiai{
+		Gọi $B_k$ là biến cố "thí sinh đó bị loại ở vòng $k$" ($k=1,2,3)$. Ta có
+		\begin{align*}
+		&\mathrm{P}(B_1)=0,1\\
+		&\mathrm{P}(B_2)=\mathrm{P} \left(\overline{B}_1B_2\right)=\mathrm{P}\left(\overline{B_1}\right) \mathrm{P} \left(B_2|\overline{B_1}\right)=0,9 \times 0,2=0,18\\
+		\end{align*}
+		Suy ra
+		\begin{align*}
+		\mathrm{P}(B_3)&=\mathrm{P}\left(\overline{B_1} \overline{B_2} B_3\right)=\mathrm{P}\left(\overline{B_1}\overline{B_2}\right)\mathrm{P} \left(B_3| \overline{B_1}\overline{B_2}\right)\\
+		&=\mathrm{P} \left(B_3|\overline{B_1}\overline{B_2}\right)\mathrm{P} \left(\overline{B_2}|\overline{B_1}\right)\mathrm{P} \left(\overline{B_1}\right)=0,9\times 0,8\times 0,4\\
+		&=0,228.
+		\end{align*}
+	}
+\end{bt}
+
+
+\begin{center}
+	\textbf{BÀI TẬP TỔNG HỢP}
+\end{center}
+
+\begin{bt}%[Vũ Nguyễn Hoàng Anh]%[1D2G5]
+	Biết rằng tỉ lệ nhóm máu O, A, B và AB trong cộng đồng lần lượt là $33,7\%$, $37,5\%$, $20,9\%$ và $7,9\%$. Chọn ngẫu nhiên một người cho máu và một người nhận máu. Tính xác suất để có thể thực hiện truyền máu (làm tròn đến ba chữ số sau dấu phẩy).
+	\loigiai{
+		Gọi $H$, $O$, $A$, $B$, $C$ là các biến cố "có thể thực hiện truyền máu", "người nhận có nhóm máu O", "người nhận có nhóm máu A", "người nhận có nhóm máu B", người nhận có nhóm máu AB".\\
+		Khi đó $\{O, A, B,C\}$ là một hệ đầy đủ. Theo công thức xác suất toàn phần ta có
+		\begin{align*}
+		\mathrm{P}(H) &=\mathrm{P}(O)\mathrm{P}(H|O) +\mathrm{P}(A)\mathrm{P}(H|A) + \mathrm{P}(B)\mathrm{P}(H|B) +\mathrm{P}(C)\mathrm{P}(H|C)\\
+		&=0,337\cdot 0,337+ 0,375\cdot (0,375 +0,337) + 0,209\cdot (0,209+ 0,337) + 0,079\cdot 1\\
+		&\approx 0,574.
+		\end{align*} 
+	}
+\end{bt}
+
+\begin{bt}%[Vũ Nguyễn Hoàng Anh]%[1D2G5]
+	Một nhà máy có hai xưởng sản xuất: xưởng I chiếm $65\%$ tổng sản phẩm, xưởng II chiếm $35\%$ tổng sản phẩm. Biết rằng tỉ lệ đạt sản phẩm chất lượng tốt của hai xưởng lần lượt là $90\%$ và $85\%$. Lấy ra ngẫu nhiên một sản phẩm của nhà máy. Tính xác suất để sản phẩm đó đạt chất lượng tốt.
+	\loigiai{
+		Goi $H$, $A_1$, $A_2$ lần lượt là các biến cố "sản phẩm lấy ra đạt chất lượng tốt", "sản phẩm do xưởng I sản xuất", sản phẩm do xưởng II sản xuất".\\
+		Khi đó $\{A_1,A_2\}$ là một hệ đầy đủ. Theo công thức xác suất toàn phần ta có
+		\begin{align*}
+		\mathrm{P}(H)&=\mathrm{P}(A_1)\mathrm{P}\left(H|A_1\right)+\mathrm{P}(A_2)\mathrm{P}(H|A_2)\\
+		&=0,65\times 0,9 + 0,35\times 0,85\\
+		&=0,8825.
+		\end{align*}
+	}
+\end{bt}
+
+
+
+
+\begin{center}
+	\textbf{BÀI TẬP TỔNG HỢP}
+\end{center}
+\begin{bt}%%[Lâm Hữu Phước]%[2D2K5]
+	Trong một hộp có chứa 8 thẻ số, mỗi thẻ được ghi một trong các chữ số từ 1 đến 7. Lấy ngẫu nhiên một thẻ ra, ghi lại con số rồi bỏ lại thẻ vào trong hộp, lần thứ hai cũng lấy thẻ ra, ghi lại con số và bỏ vào trong hộp, làm tương tự như vậy đủ 5 lần để có 5 chữ số. Tính xác suất để lấy được 3 thẻ mang số chẵn và 2 thẻ mang số lẻ.
+	\loigiai
+	{Hướng dẫn: Gọi $A_1$ là biến cố ``lấy ra được thẻ mang số lẻ'' và $A_2$ là biến cố ``lấy ra được thẻ mang số chẵn''. Ta có $C_5^3$ cách để lấy được 3 thẻ mang số chẵn và 2 thẻ mang số lẻ. Do đó với $A$ là biến cố ``lấy được 3 thẻ mang số chẵn và 2 thẻ mang số lẻ'' thì 
+		$$\mathrm{P}(A)=C_5^3 \mathrm{P}(A_1.A_1.A_2.A_2.A_2)=10.\biggl(\dfrac{4}{7}\biggr)^2.\biggl(\dfrac{3}{7}\biggr)^3=\dfrac{4320}{16807}$$
+	}
+\end{bt}
+\begin{bt}%%[Lâm Hữu Phước]%[2D2K5]
+	Gieo một con súc sắc cân đối và đồng chất $n$ lần. Tìm $n$ để xác suất để ít nhất một lần xuất hiện mặt 6 chấm lớn hơn 0,9.
+	\loigiai{
+		Hướng dẫn: Gọi $A_i,\ i\in \{1,\dots,n\}$ là biến cố ``gieo lần thứ $i$ được mặt 6 chấm'' và $A$ là biến cố ``gieo được ít nhất một lần xuất hiện mặt 6 chấm''. Khi đó $$\mathrm{P}(A)=1-\mathrm{P}\bigl(\overline{A}\bigr)=1-\mathrm{P}\bigl(\overline{A_1}.\overline{A_2}\dots\overline{A_n}\bigr)=1-\biggl(\dfrac{5}{6}\biggr)^n$$. Từ đó suy ra để xác suất $\mathrm{P}(A)>0,9$ thì $n\geq 13$.
+	}
+\end{bt}
+
+%\subsection{Bài tập tổng hợp phần xác suất}
+\begin{bt}%[Dương BùiĐức]%[1D2B5]
+	Một hộp đựng 10 sản phẩm tốt và 5 sản phẩm xấu. Lấy đồng thời 3 sản phẩm. Tính xác suất để:
+	\begin{enumerate}
+		\item Cả 3 sản phẩm được lấy ra đều tốt.
+		\item Trong 3 sản phẩm được lấy ra có ít nhất 2 sản phẩm là tốt.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Gọi $A$ là biến cố "Cả 3 sản phẩm được lấy ra đều tốt".
+			\[
+			\mathrm{P}(A)=\dfrac{C_{10}^{3}}{C^{3}_{15}}=\dfrac{4.5.6}{13.7.5}=\dfrac{24}{91}
+			\]
+			\item Gọi $B$ là biến cố "Trong 3 sản phẩm được lấy ra có ít nhất 2 sản phẩm là tốt".
+			\[
+			\mathrm{P}(B)=\dfrac{C_{10}^{2}}{C_{15}^{2}}+\dfrac{C_{10}^{3}}{C^{3}_{15}}=\dfrac{45}{105}+\dfrac{24}{91}=\dfrac{63}{91}
+			\]
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức]%[1D2B5]
+	Gieo đồng thời hai con súc sắc phân biệt nhau. Tìm xác suất để được hai mặt sao cho
+	\begin{multicols}{3}
+		\columnsep=0pt
+		\columnseprule=0pt
+		\begin{enumerate}
+			\item tổng số chấm bằng 7.
+			\item tổng số chấm nhỏ hơn 8.
+			\item ít nhất một mặt 6 chấm.
+		\end{enumerate}
+	\end{multicols}
+	\loigiai{
+		\begin{enumerate}
+			\item Nhận xét $7=6+1=5+2=4+3$.\\
+			Gọi $A$ là biến cố "Tổng số chấm của hai con súc sắc bằng 7" $\Rightarrow \mathrm{P}(A)=\dfrac{6}{36}=\dfrac{1}{6}$.
+			\item Gọi $B$ là biến cố "Tổng số chấm của hai con súc sắc nhỏ hơn 8".\\
+			Gọi $B_{k}$ là biến cố "Tổng số chấm của hai con súc sắc bằng $k$". Ta xét các tình huống sau:
+			\begin{itemize}
+				\item Tổng số chấm bằng 8: $\mathrm{P}(B_{8})=\dfrac{5}{36}$.
+				\item Tổng số chấm bằng 9: $\mathrm{P}(B_{9})=\dfrac{4}{36}$.
+				\item Tổng số chấm bằng 10: $\mathrm{P}(B_{10})=\dfrac{3}{36}$.
+				\item Tổng số chấm bằng 11: $\mathrm{P}(B_{11})=\dfrac{2}{36}$.
+				\item Tổng số chấm bằng 12: $\mathrm{P}(B_{12})=\dfrac{1}{36}$.
+			\end{itemize}
+			Vậy $\mathrm{P}(B)=1-\dfrac{1+2+3+4+5}{36}=\dfrac{7}{12}$.
+			\item Gọi $C$ là biến cố "Có ít nhất một mặt 6 chấm" $\Rightarrow \mathrm{P}(C)=\dfrac{11}{36}$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức]%[1D2B5]
+	Thang máy của một tòa nhà 7 tầng xuất phát từ tầng 1 với 3 khách. Tìm xác suất để:
+	\begin{multicols}{2}
+		\columnsep=0pt
+		\columnseprule=0pt
+		\begin{enumerate}
+			\item Tất cả ra ở cùng một tầng.
+			\item Mỗi người ra ở một tầng khác nhau.
+		\end{enumerate}
+	\end{multicols}
+	\loigiai{
+		\begin{enumerate}
+			\item Gọi $A$ là biến cố "Tất cả ra ở cùng một tầng" $\Rightarrow \mathrm{P}(A)=\dfrac{7}{7^{3}}=\dfrac{1}{49}$.
+			\item Gọi $B$ là biến cố "Mỗi người ra ở một tầng khác nhau" $\Rightarrow \mathrm{P}(B)=\dfrac{7.6.5}{7^{3}}=\dfrac{30}{49}$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức]%[1D2K5]
+	Bốn nam và 4 nữ được xếp ngồi vào 8 ghế xếp thành 2 hàng, mỗi hàng có 4 ghế đối diện nhau. Tính xác suất:
+	\begin{multicols}{2}
+		\columnsep=0pt
+		\columnseprule=0pt
+		\begin{enumerate}
+			\item Nam, nữ ngồi đối diện nhau.
+			\item Các bạn nam ngồi đối diện nhau.
+		\end{enumerate}
+	\end{multicols}
+	\loigiai{
+		\begin{enumerate}
+			\item Gọi $A$ là biến cố "Nam, nữ ngồi đối diện nhau". Xét ở mỗi hàng:
+			\begin{itemize}
+				\item Ở vị trí thứ nhất ta có $8$ cách xếp và ở vị trí đối diện có $4$ cách xếp.
+				\item Ở vị trí thứ hai ta có $6$ cách xếp và ở vị trí đối diện có $3$ cách xếp.
+				\item Ở vị trí thứ ba ta có $4$ cách xếp và ở vị trí đối diện có $2$ cách xếp.
+				\item Ở vị trí thứ tư ta có $2$ cách xếp và ở vị trí đối diện có $1$ cách xếp.
+			\end{itemize}
+			\[
+			\mathrm{P}(A)=\dfrac{2.(8.4.6.3.4.2.2.1)}{8!}=\dfrac{16}{35}
+			\]
+			\item Gọi $B$ là biến cố "Các bạn nam ngồi đối diện nhau".
+			\begin{itemize}
+				\item Số cách chọn hai ghế đối diện trong $8$ ghế là $C^{1}_{4}=4$ cách.
+				\item Số cách xếp 2 bạn nam vào hai ghế đối diện được chọn là $A^{2}_{4}=12$ cách.
+				\item Số cách xếp 2 bạn nam còn lại vào hai ghế đối diện là $3.2=6$ cách.
+				\item Số cách xếp $4$ bạn nữ vào $4$ vị trí còn lại là $4!$.
+			\end{itemize}
+			\[
+			\mathrm{P}(B)=\dfrac{4.12.6.4!}{8!}=\dfrac{6}{35}
+			\]
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức]%[1D2K5]
+	Gọi $X$ là tập hợp các số tự nhiên có $8$ chữ số được lập từ các số $0$, $1$, $2$, $3$, $4$, $5$. Chọn ngẫu nhiên một số từ $X$. Tính xác suất để có thể chọn được một số thỏa mãn số $5$ lặp lại $3$ lần và các số còn lại xuất hiện $1$ lần.
+	\loigiai{
+		Số phần tử của $X$ là $5.6^{7}$.\\
+		Gọi $A$ là biến cố "Chọn được một số thỏa mãn số $5$ lặp lại $3$ lần và các số còn lại xuất hiện $1$ lần".
+		\begin{itemize}
+			\item Coi vai trò của tất cả các số là như nhau.
+			\begin{itemize}
+				\item Số các vị trí xếp số $5$ là $C^{3}_{8}=56$.
+				\item Cách xếp các số còn lại vào $5$ vị trí còn lại là $5!$.
+			\end{itemize}
+			\item Xét trường hợp số $0$ đứng đầu.
+			\begin{itemize}
+				\item Số các vị trí xếp số $5$ là $C^{3}_{7}=35$.
+				\item Cách xếp các số còn lại vào $4$ vị trí còn lại là $4!$.
+			\end{itemize}
+		\end{itemize}
+		Số phần tử của $A$ là $56.5!-35.4!=5880\Rightarrow \mathrm{P}(A)=\dfrac{5880}{5.6^{7}}=0,0042$
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức]%[1D2K5]
+	Gọi $X$ là tập hợp các số tự nhiên có $5$ chữ số. Chọn ngẫu nhiên một số từ tập $X$. Tính xác suất để chọn được số tự nhiên thỏa mãn số đứng trước luôn lớn hơn số đứng đằng sau.
+	\loigiai{
+		Số phần tử của tập $X$ là $9.10^{4}$.\\
+		Gọi $A$ là biến cố "Chọn được số tự nhiên thỏa mãn số đứng trước luôn lớn hơn số đứng đằng sau".
+		Vì số đứng đầu không thể là số $0$ nên ta xét các chữ số từ $1$ đến $9$.
+		\begin{itemize}
+			\item Số cách chọn $5$ số bất kỳ trong $9$ số là $C^{5}_{9}=126$.
+			\item Vì $5$ số bất kỳ ta chỉ có một cách xếp sao cho số đứng sau luôn lớn hơn số đứng trước nên số các số tự nhiên thỏa mãn số đứng sau luôn lớn hơn số đứng trước là $126$.
+		\end{itemize}
+		\[
+		\mathrm{P}(A)=\dfrac{126}{9.10^{4}}=\dfrac{7}{5000}
+		\]
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức]%[1D2K5]
+	Gọi $X$ là tập hợp các số tự nhiên có $5$ chữ số phân biệt được lập từ các số $1$, $2$, $3$, $4$, $5$. Chọn ngẫu nhiên một số từ $X$. Tính xác suất để có thể chọn được một số thỏa mãn $5$ chữ số phân biệt nhỏ hơn $45000$.
+	\loigiai{
+		Số lượng phần tử của $X$ là $5!=120$.\\
+		Gọi $A$ là biến cố "Chọn được một số thỏa mãn $5$ chữ số phân biệt nhỏ hơn $45000$".\\
+		Gọi số có $5$ chữ số được lập từ các số $1$, $2$, $3$, $4$, $5$ là $\overline{a_{1}a_{2}a_{3}a_{4}a_{5}}$ ($a_{1},a_{2},a_{3},a_{4},a_{5}\in \{1;2;3;4;5\}$)
+		\begin{itemize}
+			\item $a_{1}<4$:
+			\begin{itemize}
+				\item Vị trí $a_{1}$ có $3$ cách chọn.
+				\item Số cách xếp $4$ số vào $4$ vị trí còn lại là $4!=24$ cách.
+			\end{itemize}
+			\item $a_{1}=4$, $a_{2}<5$:
+			\begin{itemize}
+				\item Vị trí $a_{1}$ có $1$ cách chọn.
+				\item Vị trí $a_{2}$ có $3$ cách chọn.
+				\item Số cách xếp $3$ số vào $3$ vị trí còn lại là $3!=6$ cách.
+			\end{itemize}
+		\end{itemize}
+		\[
+		\mathrm{P}(A)=\dfrac{90}{120}=\dfrac{3}{4}
+		\]
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức]%[1D2G5]
+	Gọi $X$ là tập hợp các số tự nhiên có $3$ chữ số phân biệt được lập từ các số $0$, $1$, $2$, $3$, $4$, $5$. Chọn ngẫu nhiên một số từ $X$. Tính xác suất để có thể chọn được một số không chia hết cho $3$.
+	\loigiai{
+		Số lượng phần tử của $X$ là $5.5.4=100$.\\
+		Gọi $A$ là biến cố "Chọn được một số không chia hết cho $3$".\\
+		Dấu hiệu chia hết cho $3$ là tổng các chữ số là một số chia hết cho $3$ nên ta xét các trường hợp sau.
+		\begin{itemize}
+			\item Tổng các chữ số bằng $12\Rightarrow$ xét tập các chữ số $\{3;4;5\}$: có $3!=6$ số.
+			\item Tổng các chữ số bằng $9$:
+			\begin{itemize}
+				\item Xét tập các chữ số $\{0;4;5\}$: có $4$ số.
+				\item Xét tập các chữ số $\{1;3;5\}$: có $6$ số.
+				\item Xét tập các chữ số $\{2;3;4\}$: có $6$ số.
+			\end{itemize}
+			\item Tổng các chữ số bằng $6$:
+			\begin{itemize}
+				\item Xét tập các chữ số $\{0;1;5\}$: có $4$ số.
+				\item Xét tập các chữ số $\{0;2;4\}$: có $4$ số.
+				\item Xét tập các chữ số $\{1;2;3\}$: có $6$ số.
+			\end{itemize}
+			\item Tổng các chữ số bằng $3\Rightarrow$ xét tập các chữ số $\{0;1;2\}$: có $4$ số.
+		\end{itemize}
+		\[
+		\mathrm{P}(A)=1-\dfrac{40}{100}=0,6
+		\]
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức]%[1D2G5]
+	Trong một kì thi một học sinh làm bài thi trắc nghiệm gồm $50$ câu (trong đó có $1$ câu đúng và $3$ câu sai ) và chấm theo thang điểm sau: mỗi câu đúng được $0,2$ điểm và mỗi câu sai bị trừ $0,05$ điểm. Một học sinh đó vì không học bài nên chọn đáp án ngẫu nhiên. Tính xác xuất để học sinh đó được $4,5$ điểm, biết cậu học sinh đó không bỏ khoanh câu nào.
+	\loigiai{
+		Gọi $a$, $b$ lần lượt là số câu đúng và số câu sai được chọn $\Rightarrow \heva{&a+b=50\\ &0,2a-0,05b=4,5}\Rightarrow \heva{&a=28\\ &b=22}$.\\
+		Vì xác suất để chọn được một câu đúng là $0,25$ và xác suất chọn được một câu sai là $0,75$ nên xác suất để học sinh đó được $4,5$ điểm là $2,197.10^{-6}$.
+	}
+\end{bt}	

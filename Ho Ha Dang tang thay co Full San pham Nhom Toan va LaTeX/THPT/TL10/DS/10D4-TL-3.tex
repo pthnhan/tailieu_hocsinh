@@ -1,0 +1,1606 @@
+\section{DẤU CỦA NHỊ THỨC BẬC NHẤT}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Nhị thức bậc nhất}
+\begin{dn}
+Nhị thức bậc nhất đối với $x$ là biểu thức dạng $f(x)=ax+b$ trong đó $a,b$ là hai số đã cho, $a\ne 0$.
+\end{dn}
+
+\begin{vd}% \hfill
+\begin{enumerate}
+\item $-2x+3$ là nhị thức bậc nhất đối với $x$.
+\item $7y-9$ là nhị thức bậc nhất đối với $y$.
+\item $5u$ là nhị thức bậc nhất đối với $u$.
+\end{enumerate}
+\end{vd}
+
+\subsubsection{Định lý về dấu của nhị thức bậc nhất}
+\begin{dl}
+Nhị thức $f(x)=ax+b$ có giá trị cùng dấu với hệ số $a$ khi $x$ lấy các giá trị trong khoảng $\left(-\dfrac{b}{a};+\infty\right)$, trái dấu với hệ số $a$ khi $x$ lấy các giá trị trong khoảng $\left(-\infty;-\dfrac{b}{a}\right)$.
+\end{dl}
+\begin{itemize}
+\item Các kết quả của định lý trên được thể hiện qua bảng sau\\
+\begin{tikzpicture}
+\tkzTabInit[lgt=4,espcl=6]
+{$x$/1,$f(x)=ax+b$/1}
+{$-\infty$,$-\dfrac{b}{a}$,$+\infty$}
+\tkzTabLine{ ,\text{trái dấu với $a$},$0$ , \text{cùng dấu với $a$}, }
+\end{tikzpicture}\\
+Ta gọi bảng này là \textit{bảng xét dấu} nhị thức $f(x)=ax+b$.
+\item Biểu diễn trên trục số\\
+\begin{tikzpicture}[>=stealth]
+\tkzInit[ymax=1.2,ymin=-1.2,xmax=7.8,xmin=-7.5]
+\tkzClip
+\coordinate[label={above left}:$-\dfrac{b}{a}$] (O) at (0,0);
+\coordinate (A) at ($(O)+(-7,0)$);
+\coordinate[label={below right}:$x$] (B) at ($(O)+(7,0)$);
+\draw[->] (A)--(B);
+\coordinate (C) at (-1,-1);
+\coordinate (D) at ($(C)+(-6,0)$);
+\tkzDefPointBy[symmetry = center O](C) \tkzGetPoint{C'}
+\coordinate (D') at ($(C')+(6,0)$);
+\draw (D)--(C)--(C')--(D');
+\coordinate[label={left}:$\text{$f(x)$ trái dấu với $a$}$] (d) at ($(C)+(-0.5,0.5)$);
+\coordinate[label={right}:$\text{$f(x)$ cùng dấu với $a$}$] (t) at ($(C')+(0.5,-0.5)$);
+\end{tikzpicture}
+\item Minh họa bằng đồ thị
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+$a>0$ & $a<0$\\
+\hline
+\begin{tikzpicture}[scale=0.7,>=stealth]
+\draw [->] (-2,0)--(3.5,0) node [below]{\footnotesize $x$};
+\draw [->] (0,-1) -- (0,2.8) node [left]{\footnotesize $y$};
+\node (0,0) [below right] {\footnotesize $O$};
+\draw (-1,0) node[above left] {\footnotesize $-\frac{b}{a}$};
+\draw [smooth,samples=100,domain=-2:2] plot (\x, {0.75*(\x)+0.75}) node[left] {\tiny $y=ax+b$};
+\foreach \x in {(1.5,1.5),(0.75,0.9),(0.1,0.4)} 
+\node at \x {\tiny $+$};
+\foreach \y in {(-1,-0.3),(-1.8,-0.9)} 
+\node at \y {\tiny $-$};
+\end{tikzpicture} &\begin{tikzpicture}[scale=0.7,>=stealth]
+\draw [->] (-2,0)--(3.5,0) node [below]{\footnotesize $x$};
+\draw [->] (0,-1) -- (0,2.8) node [left]{\footnotesize $y$};
+\node (0,0) [below left] {\footnotesize $O$};
+\draw (1,0) node[above right] {\footnotesize $-\frac{b}{a}$};
+\draw [smooth,samples=100,domain=-2:2] plot (\x, {-0.75*(\x)+0.75});
+\node[right] at (-2,2.3) {\tiny $y=ax+b$};
+\foreach \x in {(-1.5,1.5),(-0.75,0.9),(-0.1,0.4)} 
+\node at \x {\tiny $+$};
+\foreach \y in {(1,-0.3),(1.8,-0.9)} 
+\node at \y {\tiny $-$};
+\end{tikzpicture}\\
+\hline
+\end{tabular}
+\end{center}
+\end{itemize}
+
+\begin{note}
+Định lý trên có thể rút gọn bằng một trong hai quy tắc sau: \textbf{phải cùng trái trái} hoặc \textbf{trước trái sau cùng}.
+\end{note}
+\subsubsection{Các ví dụ minh họa}
+\begin{vd}%[Lê Minh Cường][0D4B3]
+Xét dấu của nhị thức bậc nhất:
+$f(x)=2x+1$
+\loigiai{$f(x)=2x+1=0\Leftrightarrow x=-\dfrac{1}{2}$\\
+	Bảng xét dấu:
+	\begin{center}
+		\begin{tikzpicture}
+		\tkzTabInit[nocadre=false, lgt=1, espcl=3]{$x$ /1,$y$ /1}{$-\infty$,$-\dfrac{1}{2}$,$+\infty$}
+		\tkzTabLine{,-, 0 ,+,}
+		\end{tikzpicture}
+	\end{center}
+}
+\end{vd}
+\begin{vd}%[Lê Minh Cường][0D4B3]
+	Xét dấu biểu thức:	$f(x)=4mx-3$
+	\loigiai{
+		Xét $m=0$ thì $f(x)=-3<0 $ $\forall x \in \mathbb{R} $\\
+		Xét $m\neq 0$ ta có hai trường hợp:
+		\begin{itemize}
+		\item Trường hợp 1: $m>0$.\\
+			Bảng xét dấu:
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[nocadre=false, lgt=1, espcl=3]{$x$ /1,$y$ /1}{$-\infty$,$-\dfrac{3}{4m}$,$+\infty$}
+			\tkzTabLine{,-, 0 ,+,}
+			\end{tikzpicture}
+		\end{center}
+		\item Trường hợp 2: $m<0$.\\
+	Bảng xét dấu:
+	\begin{center}
+		\begin{tikzpicture}
+		\tkzTabInit[nocadre=false, lgt=1, espcl=3]{$x$ /1,$y$ /1}{$-\infty$,$-\dfrac{3}{4m}$,$+\infty$}
+		\tkzTabLine{,+, 0 ,-,}
+		\end{tikzpicture}
+	\end{center}
+		\end{itemize}
+		Kết luận:\\ $m=0$ thì $f(x)<0$   $\forall x\in\mathbb{R}$;\\
+		$m>0$ thì $f(x)<0$ khi $x<\dfrac{-3}{4m}$, $f(x)>0$ khi $x>\dfrac{-3}{4m}$;\\
+		$m<0$ thì $f(x)<0$ khi $x>\dfrac{-3m}{4}$, $f(x)>0$ khi $x<\dfrac{-3}{4m}$.
+	
+	
+	}
+\end{vd}
+\subsection{Các dạng toán}
+
+\begin{dang}{Xét dấu tích - thương các nhị thức bậc nhất}
+	Giả sử $f(x)$ là một tích (hoặc thương) của các nhị thức bậc nhất. Ta xét dấu $f(x)$ theo các bước như sau:
+	\begin{enumerate}[Bước 1:]
+		\item Tìm nghiệm của các nhị thức bậc nhất và sắp xếp theo thứ tự tăng dần.
+		\item Lập bảng xét dấu: Xét dấu các nhị thức bậc nhất và suy ra dấu của $f(x)$.
+		\item Kết luận về dấu của $f(x)$.
+	\end{enumerate}
+\end{dang}
+
+\begin{vd}%[Hữu Bình][0D4B3]
+	Xét dấu biểu thức $f(x)=(3x-1)(2-x)$.
+	\loigiai{
+		Ta có 
+		\begin{itemize}
+			\item $3x-1=0 \Leftrightarrow x=\dfrac{1}{3}$.
+			\item $2-x=0 \Leftrightarrow x=2$. 
+		\end{itemize}
+		Bảng xét dấu của $f(x)$:
+		\begin{center}
+			\begin{tikzpicture}[scale=1,thick,>=stealth']
+			\tkzTabInit
+			{$x$ /1.1, $3x-1$ /0.8, $2-x$ /0.8, $f(x)$ /0.8}
+			{$-\infty$,$\dfrac{1}{3}$,$2$,$+\infty$}
+			\tkzTabLine{ ,-,$0$,+,|,+ }
+			\tkzTabLine{ ,+,|,+,$0$,- }
+			\tkzTabLine{ ,-,$0$,+,$0$,- }
+			\end{tikzpicture}
+		\end{center}
+		Từ bảng xét dấu ta thấy
+		\begin{itemize}
+			\item $f(x)>0$ khi $x\in\left(\dfrac{1}{3};2\right)$.
+			\item $f(x)<0$ khi $x\in\left(-\infty;\dfrac{1}{3}\right)\cup(2;+\infty)$.
+			\item $f(x)=0$ khi $x=\dfrac{1}{3}$ hoặc $x=2$.
+		\end{itemize}
+	}
+\end{vd}
+
+\begin{vd}%[Hữu Bình][0D4B3]
+	Xét dấu biểu thức $g(x)=\dfrac{(x+1)(3x-5)}{-2x+4}$.
+	\loigiai{
+		Ta có 
+		\begin{itemize}
+			\item $x+1=0 \Leftrightarrow x=-1$.
+			\item $3x-5=0 \Leftrightarrow x=\dfrac{5}{3}$.	 
+			\item $-2x+4=0 \Leftrightarrow x=2$.
+		\end{itemize}
+		Bảng xét dấu của $g(x)$:
+		\begin{center}
+			\begin{tikzpicture}[scale=1,thick,>=stealth']
+			\tkzTabInit
+			{$x$ /1.1, $x+1$ /0.8, $3x-5$ /0.8, $-2x+4$ /0.8, $g(x)$ /0.8}
+			{$-\infty$,$-1$,$\dfrac{5}{3}$,$2$,$+\infty$}
+			\tkzTabLine{ ,-,$0$,+,|,+,|,+ }
+			\tkzTabLine{ ,-,|,-,$0$,+,|,+ }
+			\tkzTabLine{ ,+,|,+,|,+,$0$,- }
+			\tkzTabLine{ ,+,0,-,0,+,d,- }
+			\end{tikzpicture}
+		\end{center}
+		Từ bảng xét dấu ta thấy
+		\begin{itemize}
+			\item $g(x)>0$ khi $x\in\left(-\infty;-1\right)\cup\left(\dfrac{5}{3};2\right)$.
+			\item $g(x)<0$ khi $x\in\left(-1;\dfrac{5}{3}\right)\cup(2;+\infty)$.
+			\item $g(x)=0$ khi $x=\dfrac{5}{3}$ hoặc $x=-1$.
+			\item $g(x)$ không xác định khi $x=2$ (trong bảng xét dấu kí hiệu bởi ||).
+		\end{itemize}
+	}
+\end{vd}
+
+\begin{vd}%[Hữu Bình][0D4B3]
+	Xét dấu biểu thức $h(x)=\dfrac{2x+1}{(6-2x)(5-x)}$.
+	\loigiai{
+		Ta có 
+		\begin{itemize}
+			\item $2x+1=0 \Leftrightarrow x=-\dfrac{1}{2}$.
+			\item $6-2x=0 \Leftrightarrow x=3$.	 
+			\item $5-x=0 \Leftrightarrow x=5$.
+		\end{itemize}
+		Bảng xét dấu của $h(x)$:
+		\begin{center}
+			\begin{tikzpicture}[scale=1,thick,>=stealth']
+			\tkzTabInit
+			{$x$ /1.1, $2x+1$ /0.8, $6-2x$ /0.8, $5-x$ /0.8, $h(x)$ /0.8}
+			{$-\infty$,$-\dfrac{1}{2}$,$3$,$5$,$+\infty$}
+			\tkzTabLine{ ,-,0,+,|,+,|,+ }
+			\tkzTabLine{ ,+,|,+,$0$,-,|,- }
+			\tkzTabLine{ ,+,|,+,|,+,$0$,- }
+			\tkzTabLine{ ,-,0,+,d,-,d,+ }
+			\end{tikzpicture}
+		\end{center}
+		Từ bảng xét dấu ta thấy
+		\begin{itemize}
+			\item $h(x)>0$ khi $x\in\left(-\dfrac{1}{2};3\right)\cup\left(5;+\infty\right)$.
+			\item $h(x)<0$ khi $x\in\left(-\infty;-\dfrac{1}{2}\right)\cup(3;5)$.
+			\item $h(x)=0$ khi $x=-\dfrac{1}{2}$.
+			\item $h(x)$ không xác định khi $x=3$ và $x=5$.
+		\end{itemize}
+	}
+\end{vd}
+
+\begin{vd}%[Hữu Bình][0D4K3]
+	Xét dấu biểu thức $h(x)=\dfrac{2}{x+1}+\dfrac{3}{4-2x}$.
+	\loigiai{
+		Ta có $h(x)=\dfrac{2}{x+1}+\dfrac{3}{4-2x}=\dfrac{11-x}{(x+1)(4-2x)}$
+		\begin{itemize}
+			\item $11-x=0 \Leftrightarrow x=11$.
+			\item $x+1=0 \Leftrightarrow x=-1$.	 
+			\item $4-2x=0 \Leftrightarrow x=2$.
+		\end{itemize}
+		Bảng xét dấu của $h(x)$:
+		\begin{center}
+			\begin{tikzpicture}[scale=1,thick,>=stealth']
+			\tkzTabInit
+			{$x$ /0.8, $11-x$ /0.8, $x+1$ /0.8, $4-2x$ /0.8, $h(x)$ /0.8}
+			{$-\infty$,$-1$,$2$,$11$,$+\infty$}
+			\tkzTabLine{ ,+,|,+,|,+,0,- }
+			\tkzTabLine{ ,-,0,+,|,+,|,+ }
+			\tkzTabLine{ ,+,|,+,0,-,|,- }
+			\tkzTabLine{ ,-,d,+,d,-,0,+ }
+			\end{tikzpicture}
+		\end{center}
+		Từ bảng xét dấu ta thấy
+		\begin{itemize}
+			\item $h(x)>0$ khi $x\in\left(-1;2\right)\cup\left(11;+\infty\right)$.
+			\item $h(x)<0$ khi $x\in\left(-\infty;-1\right)\cup(2;11)$.
+			\item $h(x)=0$ khi $x=11$.
+			\item $h(x)$ không xác định khi $x=-1$ và $x=2$.
+		\end{itemize}
+	}
+\end{vd}
+
+\begin{vd}%[Hữu Bình][0D4K3]
+	Xét dấu biểu thức $f(x)=3x^2-x-2$.
+	\loigiai{
+		Ta có $f(x)=3x^2-x-2=3(x-1)\left(x+\dfrac{2}{3}\right)$
+		\begin{itemize}
+			\item $x-1=0 \Leftrightarrow x=1$.
+			\item $x+\dfrac{2}{3}=0 \Leftrightarrow x=-\dfrac{2}{3}$. 
+		\end{itemize}
+		Bảng xét dấu của $f(x)$:
+		\begin{center}
+			\begin{tikzpicture}[scale=1,thick,>=stealth']
+			\tkzTabInit
+			{$x$ /1.1, $x-1$ /0.8, $x+\dfrac{2}{3}$ /1.1, $f(x)$ /0.8}
+			{$-\infty$,$-\dfrac{2}{3}$,$1$,$+\infty$}
+			\tkzTabLine{ ,-,|,-,0,+ }
+			\tkzTabLine{ ,-,0,+,|,+ }
+			\tkzTabLine{ ,+,$0$,-,$0$,+ }
+			\end{tikzpicture}
+		\end{center}
+		Từ bảng xét dấu ta thấy
+		\begin{itemize}
+			\item $f(x)>0$ khi $x\in\left(-\infty;-\dfrac{2}{3}\right)\cup\left(1;+\infty\right)$.
+			\item $f(x)<0$ khi $x\in\left(-\dfrac{2}{3};1\right)$.
+			\item $f(x)=0$ khi $x=-\dfrac{2}{3}$ hoặc $x=1$.
+		\end{itemize}
+	}
+\end{vd}
+
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+
+\begin{bt}%[Hữu Bình][0D4B3]
+	Xét dấu biểu thức $f(x)=(3-x)(5x-2)(x-1)$.
+	\loigiai{
+		Ta có bảng xét dấu của $f(x)$:
+		\begin{center}
+			\begin{tikzpicture}[scale=1,thick,>=stealth']
+			\tkzTabInit
+			{$x$ /1.1, $3-x$ /0.8, $5x-2$ /0.8, $x-1$ /0.8, $f(x)$ /0.8}
+			{$-\infty$,$\dfrac{2}{5}$,$1$,$3$,$+\infty$}
+			\tkzTabLine{ ,+,|,+,|,+,0,- }
+			\tkzTabLine{ ,-,0,+,|,+,|,+ }
+			\tkzTabLine{ ,-,|,-,0,+,|,+ }
+			\tkzTabLine{ ,+,0,-,0,+,0,- }
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+
+\begin{bt}%[Hữu Bình][0D4B3]
+	Xét dấu biểu thức $f(x)=\dfrac{1-x}{2x+3}$.
+	\loigiai{
+		Ta có bảng xét dấu của $f(x)$:
+		\begin{center}
+			\begin{tikzpicture}[scale=1,thick,>=stealth']
+			\tkzTabInit
+			{$x$ /1.1, $1-x$ /0.8, $2x+3$ /0.8, $f(x)$ /0.8}
+			{$-\infty$,$-\dfrac{3}{2}$,$1$,$+\infty$}
+			\tkzTabLine{ ,+,|,+,0,- }
+			\tkzTabLine{ ,-,0,+,|,+ }
+			\tkzTabLine{ ,-,d,+,$0$,- }
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+
+\begin{bt}%[Hữu Bình][0D4B3]
+	Xét dấu biểu thức $f(x)=\dfrac{x-3}{(2x-1)(-x+2)}$.
+	\loigiai{
+		Ta có bảng xét dấu của $f(x)$:
+		\begin{center}
+			\begin{tikzpicture}[scale=1,thick,>=stealth']
+			\tkzTabInit
+			{$x$ /1.1, $x-3$ /0.8, $2x+1$ /0.8, $-x+2$ /0.8, $f(x)$ /0.8}
+			{$-\infty$,$\dfrac{1}{2}$,$2$,$3$,$+\infty$}
+			\tkzTabLine{ ,-,|,-,|,-,0,+ }
+			\tkzTabLine{ ,-,0,+,|,+,|,+ }
+			\tkzTabLine{ ,+,|,+,0,-,|,- }
+			\tkzTabLine{ ,+,0,-,0,+,0,- }
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+
+\begin{bt}%[Hữu Bình][0D4B3]
+	Xét dấu biểu thức $f(x)=\dfrac{(x-3)(4-x)}{x}$.
+	\loigiai{
+		Ta có bảng xét dấu của $f(x)$:
+		\begin{center}
+			\begin{tikzpicture}[scale=1,thick,>=stealth']
+			\tkzTabInit
+			{$x$ /1.1, $x-3$ /0.8, $4-x$ /0.8, $x$ /0.8, $f(x)$ /0.8}
+			{$-\infty$,$0$,$3$,$4$,$+\infty$}
+			\tkzTabLine{ ,-,|,-,0,+,|,+ }
+			\tkzTabLine{ ,+,|,+,|,+,0,- }
+			\tkzTabLine{ ,-,0,+,|,+,|,+ }
+			\tkzTabLine{ ,+,d,-,0,+,0,- }
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+
+\begin{bt}%[Hữu Bình][0D4K3]
+	Xét dấu biểu thức $f(x)=x^2-4$.
+	\loigiai{
+		Ta có $f(x)=x^2-4=(x+2)(x-2)$. Bảng xét dấu của $f(x)$ là
+		\begin{center}
+			\begin{tikzpicture}[scale=1,thick,>=stealth']
+			\tkzTabInit
+			{$x$ /1.1, $x+2$ /0.8, $x-2$ /0.8, $f(x)$ /0.8}
+			{$-\infty$,$-2$,$2$,$+\infty$}
+			\tkzTabLine{ ,-,0,+,|,+ }
+			\tkzTabLine{ ,-,|,-,0,+ }
+			\tkzTabLine{ ,+,0,-,$0$,+ }
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+
+\begin{bt}%[Hữu Bình][0D4K3]
+	Xét dấu biểu thức $f(x)=\dfrac{3}{2x-1}+\dfrac{1}{x-2}$.
+	\loigiai{
+		Ta có $f(x)=\dfrac{5x-7}{(2x-1)(x-2)}$. Bảng xét dấu của $f(x)$ là
+		\begin{center}
+			\begin{tikzpicture}[scale=1,thick,>=stealth']
+			\tkzTabInit
+			{$x$ /1.1, $5x-7$ /0.8, $2x-1$ /0.8, $x-2$ /0.8, $f(x)$ /0.8}
+			{$-\infty$,$\dfrac{1}{2}$,$\dfrac{7}{5}$,$2$,$+\infty$}
+			\tkzTabLine{ ,-,|,-,0,+,|,+ }
+			\tkzTabLine{ ,-,0,+,|,+,|,+ }
+			\tkzTabLine{ ,-,|,-,|,-,0,+ }
+			\tkzTabLine{ ,-,d,+,0,-,d,+ }
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+
+\begin{bt}%[Hữu Bình][0D4K3]
+	Xét dấu biểu thức $f(x)=\dfrac{x^2-2x+5}{x^2-4}-1$.
+	\loigiai{
+		Ta có $f(x)=\dfrac{-2x+9}{x^2-4}=\dfrac{-2x+9}{(x-2)(x+2)}$. Bảng xét dấu của $f(x)$ là
+		\begin{center}
+			\begin{tikzpicture}[scale=1,thick,>=stealth']
+			\tkzTabInit
+			{$x$ /1.1, $-2x+9$ /0.8, $x-2$ /0.8, $x+2$ /0.8, $f(x)$ /0.8}
+			{$-\infty$,$-2$,$2$,$\dfrac{9}{2}$,$+\infty$}
+			\tkzTabLine{ ,+,|,+,|,+,0,- }
+			\tkzTabLine{ ,-,|,-,0,+,|,+ }
+			\tkzTabLine{ ,-,0,+,|,+,|,+ }
+			\tkzTabLine{ ,+,d,-,d,+,0,- }
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+
+\begin{bt}%[Hữu Bình][0D4G3]
+	Xét dấu biểu thức $f(x)=\dfrac{1}{x}-\dfrac{4}{x-1}+\dfrac{3}{x-2}$.
+	\loigiai{
+		Ta có $f(x)=\dfrac{1}{x}-\dfrac{4}{x-1}+\dfrac{3}{x-2}=\dfrac{2x+2}{x(x-1)(x-2)}$. Bảng xét dấu của $f(x)$ là
+		\begin{center}
+			\begin{tikzpicture}[scale=0.9,thick,>=stealth']
+			\tkzTabInit
+			{$x$ /1.1, $2x+2$ /0.8, $x$ /0.8, $x-1$ /0.8, $x-2$ /0.8, $f(x)$ /0.8}
+			{$-\infty$,$-1$,$0$,$1$,$2$,$+\infty$}
+			\tkzTabLine{ ,-,0,+,|,+,|,+,|,+ }
+			\tkzTabLine{ ,-,|,-,0,+,|,+,|,+ }
+			\tkzTabLine{ ,-,|,-,|,-,0,+,|,+ }
+			\tkzTabLine{ ,-,|,-,|,-,|,-,0,+ }
+			\tkzTabLine{ ,+,0,-,d,+,d,-,d,+ }
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+\begin{dang}{Xét dấu nhị thức có chứa tham số}
+	Khi xét dấu của nhị thức có chứa tham số cần lưu ý, nếu hệ số $ a $ có chứa tham số cần xét các trường hợp:
+	\begin{enumerate}[TH1:]
+		\item $ a = 0 $.
+		\item $ a > 0 $.
+		\item $ a < 0 $.
+	\end{enumerate}
+	Mỗi trường hợp ta có bảng xét dấu tương ứng.
+\end{dang}
+\begin{vd}%[Lê Minh Cường]%[0D4K3]
+	Xét dấu biểu thức: $ f(x) = -mx + 2.$
+	\loigiai{
+		Nếu $m = 0$ thì $f(x) = 2 > 0, \forall x \in \mathbb{R}$. \\
+		Xét $m \ne 0$. Khi đó $f(x)$ là một nhị thức bậc nhất, có nghiệm $x_0 = \dfrac{2}{m}$.
+		Mặt khác, $a > 0 \Leftrightarrow m < 0$ và $a < 0 \Leftrightarrow m > 0$. Vậy ta có bảng xét dấu trong hai trường hợp như sau:	
+		\begin{itemize}
+			\item Trường hợp 1: $m < 0$\\
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[nocadre = false]{$x$/1,$f(x)$/1}{$-\infty$,$\dfrac{2}{m}$,$+\infty$}
+				\tkzTabLine{,-,0,+,}
+				\end{tikzpicture}
+			\end{center}
+			\item Trường hợp 2: $m > 0$\\
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[nocadre = false]{$x$/1,$f(x)$/1}{$-\infty$,$\dfrac{2}{m}$,$+\infty$}
+				\tkzTabLine{,+,0,-,}
+				\end{tikzpicture}
+			\end{center}
+		\end{itemize}
+		Kết luận:\\ $m=0$ thì $f(x)>0,\forall x\in \mathbb{R}$;\\
+		$m<0$ thì $f(x)<0$ khi $x<\dfrac{2}{m},f(x)>0$ khi $x>\dfrac{2}{m}$;\\
+		$m>0$ thì $f(x)<0$ khi $x>\dfrac{2}{m},f(x)>0$ khi $x<\dfrac{2}{m}$.
+	}
+\end{vd}
+\begin{vd}%[Lê Minh Cường]%[0D4K3]
+	Xét dấu của biểu thức $f(x)=-\dfrac{m}{2}x+5$.
+	\loigiai{
+		Xét $m=0$ thì $f(x)=5>0$.\\
+		Xét $m \ne 0$, ta có hai trường hợp: 
+		\begin{itemize}
+			\item Trường hợp 1: $\dfrac{-m}{2}<0 \Leftrightarrow m>0$\\
+			Bảng xét dấu:
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[nocadre=false,lgt=2,espcl=3]{$x$/1,$f(x)$ /1}{$-\infty$ , $\dfrac{10}{m}$ , $+\infty$}
+				\tkzTabLine{ ,+, 0 ,-, }
+				\end{tikzpicture}
+			\end{center}
+			\item Trường hợp 2: $\dfrac{-m}{2}>0 \Leftrightarrow m<0$\\
+			Bảng xét dấu:
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[nocadre=false,lgt=2,espcl=3]{$x$/1,$f(x)$ /1}{$-\infty$ , $\dfrac{10}{m}$ , $+\infty$}
+				\tkzTabLine{ ,-, 0 ,+, }
+				\end{tikzpicture}
+			\end{center}
+		\end{itemize}
+	}
+\end{vd}
+\begin{vd}%[Lê Minh Cường]%[0D4K3]
+	Xét dấu của biểu thức $f(x)=(m-2)x-3+2m$
+	\loigiai{
+		Xét $m=2$, ta có $f(x)=1>0.$\\
+		Xét $m \ne 2$, ta có $f(x)=0 \Leftrightarrow x=\dfrac{3-2m}{m-2}$. \\Lập bảng xét dấu:
+		\begin{itemize}
+			\item Trường hợp 1: $m>2$
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[lgt=3,espcl=3]{$x$/1, $f(x)$/1}{$-\infty$, $\dfrac{3-2m}{m-2}$, $+\infty$}
+				\tkzTabLine{ ,-,$0$,+, }
+				\end{tikzpicture}
+			\end{center}
+			\item Trường hợp 2: $m<2$ \\
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[lgt=3,espcl=3]{$x$/1, $f(x)$/1}{$-\infty$, $\dfrac{3-2m}{m-2}$, $+\infty$}
+				\tkzTabLine{ ,+,$0$,-, }
+				\end{tikzpicture}
+			\end{center}
+		\end{itemize}
+	}
+\end{vd}
+\begin{vd}%[Lê Minh Cường]%[0D4K3]
+	Xét dấu biểu thức $f(x)=(m-1)x-1$ với $m$ là một tham số đã cho.
+	\loigiai{Nếu $m=1$ thì $f(x)=-1<0$ với mọi $x$.
+		\\ 
+		Nếu $m\ne 1$ thì $f(x)$ là một nhị thức bậc nhất có nghiệm $x_0=\dfrac{1}{m-1}$.
+		\\ 
+		Ta có bảng xét dấu nhị thức $f(x)$ trong hai trường hợp như sau:
+		\begin{itemize}
+			\item Trường hợp 1:  $m>1$
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[lgt=2,espcl=3]{$x$/1,$f(x)$ /1}
+				{$-\infty$ , $\dfrac{1}{m-1}$  , $+\infty$}
+				\tkzTabLine{ ,-, 0 ,+, }
+				\end{tikzpicture}
+			\end{center}
+			\item Trường hợp 2: $m<1$ 
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[lgt=2,espcl=3]{$x$/1,$f(x)$ /1}
+				{$-\infty$ , $\dfrac{1}{m-1}$ , $+\infty$}
+				\tkzTabLine{ ,+, 0 ,-, }
+				\end{tikzpicture}
+			\end{center}
+		\end{itemize}
+		
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN (Cho mỗi dạng)}
+\end{center}
+\begin{bt}%[Lê Minh Cường]%[0D4K3]
+	Xét dấu của biểu thức $f(x)=(m-1)x+m^2-1$.
+	\loigiai{
+		Nếu $m-1=0 \Leftrightarrow m=1$ thì $f(x)=0$.\\
+		Nếu $m -1 \ne 0 \Leftrightarrow m \ne 1$ thì$f(x)$ là một nhị thức bậc nhất có nghiệm $x_0=\dfrac{m^2-1}{m-1}=m+1$.\\
+		Ta có bảng xét dấu nhị thức $ f(x) $ trong hai trường hợp như sau: 
+		\begin{itemize}
+			\item Trường hợp 1: $m-1>0 \Leftrightarrow m>1$\\
+			Bảng xét dấu: 
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[nocadre=false,lgt=2,espcl=3]{$x$/1,$f(x)$ /1}{$-\infty$ , $m+1$ , $+\infty$}
+				\tkzTabLine{ ,-, 0 ,+, }
+				\end{tikzpicture}
+			\end{center}
+			\item Trường hợp 2: $m-1<0 \Leftrightarrow m<1$\\
+			Bảng xét dấu:
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[nocadre=false,lgt=2,espcl=3]{$x$/1,$f(x)$ /1}{$-\infty$ , $m+1$ , $+\infty$}
+				\tkzTabLine{ ,+, 0 ,-, }
+				\end{tikzpicture}
+			\end{center}
+		\end{itemize}
+	}
+\end{bt}
+\begin{bt}%[Lê Minh Cường]%[0D4K3]
+	Xét dấu của biểu thức $f(x)=(m^2-3m+2)x+m$.
+	\loigiai{
+		Xét $m^2-3m+2=0 \Leftrightarrow \left[\begin{array}{l}
+		m= 1 \\
+		m= 2 
+		\end{array} \right. 
+		$\\
+		+ Với $m=1$ thì $f(x)=1>0$.\\
+		+ Với $m=2$ thì $f(x)=2>0$.\\
+		Xét $m^2-3m+2 \ne 0 \Leftrightarrow \begin{cases}
+		m \ne 1 \\
+		m \ne 2
+		\end{cases} $ thì $f(x)$ là một nhị thức bậc nhất có nghiệm $x_0=\dfrac{m}{m^2-3m+2}$.\\
+		Ta có bảng xét dấu nhị thức $ f(x) $ trong hai trường hợp như sau: 
+		\begin{itemize}
+			\item Trường hợp 1: $m^2-3m+2 > 0 \Leftrightarrow \left[\begin{array}{l}
+			m< 1 \\
+			m> 2 
+			\end{array} \right. 
+			$\\
+			Bảng xét dấu:
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[nocadre=false,lgt=2,espcl=3]{$x$/1,$f(x)$ /1}{$-\infty$ , $\dfrac{m}{m^2-3m+2}$ , $+\infty$}
+				\tkzTabLine{ ,-, 0 ,+, }
+				\end{tikzpicture}
+			\end{center}
+			\item Trường hợp 2: $m^2-3m+2 < 0 \Leftrightarrow 
+			1<m <2$\\
+			Bảng xét dấu:
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[nocadre=false,lgt=2,espcl=3]{$x$/1,$f(x)$ /1}{$-\infty$ , $\dfrac{m}{m^2-3m+2}$ , $+\infty$}
+				\tkzTabLine{ ,+, 0 ,-, }
+				\end{tikzpicture}
+			\end{center}
+		\end{itemize}
+	}
+\end{bt}
+\begin{bt}%[Lê Minh Cường]%[0D4K3]
+	Xét dấu biểu thức: $$ f(x) = (2m-3)x + 2018$$
+	\loigiai{
+		Nếu $m = \dfrac{3}{2}$ thì $f(x) = 2018 > 0, \forall x \in \mathbb{R}$. \\
+		Nếu $m \ne \dfrac{3}{2}$ thì $f(x)$ là một nhị thức bậc nhất, có nghiệm $x_0 = -\dfrac{2018}{2m-3}$.\\
+		Mặt khác, $a > 0 \Leftrightarrow m > \dfrac{2}{3}$ và $a < 0 \Leftrightarrow m < \dfrac{2}{3}$. \\Vậy ta có bảng xét dấu nhị thức $ f(x) $ trong hai trường hợp như sau:\\	
+		\begin{itemize}
+			\item Trường hợp 1: $m > \dfrac{2}{3}$
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[nocadre = false]{$x$/1,$f(x)$/1}{$-\infty$,$-\dfrac{2018}{2m-3}$,$+\infty$}
+				\tkzTabLine{,-,0,+,}
+				\end{tikzpicture}
+			\end{center}
+			\item Trường hợp 2: $m < \dfrac{2}{3}$
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[nocadre = false]{$x$/1,$f(x)$/1}{$-\infty$,$-\dfrac{2018}{2m-3}$,$+\infty$}
+				\tkzTabLine{,+,0,-,}
+				\end{tikzpicture}
+			\end{center}
+		\end{itemize}	
+	}
+\end{bt}
+
+\begin{bt}%[Lê Minh Cường]%[0D4K3]
+	Xét dấu biểu thức: $$ f(x) = (m^2 + 1)x - 4$$
+	\loigiai{
+		Ta có với mọi $m \in \mathbb{R}$ thì $m^2 + 1 > 0$. Do đó $f(x)$ luôn là một nhị thức bậc nhất có hệ số $a > 0$ và có nghiệm $x_0 = \dfrac{4}{m^2 + 1}$. Vậy với mọi $m$, ta có bảng xét dấu như sau:
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[nocadre = false]{$x$/1,$f(x)$/1}{$-\infty$,$\dfrac{4}{m^2 + 1}$,$+\infty$}
+			\tkzTabLine{,-,0,+,}
+			\end{tikzpicture}
+		\end{center}		
+	}
+\end{bt}
+\begin{bt}%[Lê Minh Cường]%[0D4G3]
+	Xét dấu của biểu thức sau: $f(x)=(2x-m)(x+m)$
+	\loigiai{Ta có $f(x)=0 \Leftrightarrow x=\dfrac{m}{2}\vee x=-m $. Lập bảng xét dấu:
+		\begin{itemize}
+			\item Trường hợp 1: $m \ge 0$ 
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[lgt=3,espcl=3]{$x$/1, $2x-m$/1, $x+m$/1, $f(x)$/1}{$-\infty$,$-m$, $\dfrac{m}{2}$, $+\infty$}
+				\tkzTabLine{ ,-,t,-,$0$,+, }
+				\tkzTabLine{ ,-,$0$,+,t,+, }
+				\tkzTabLine{ ,+,$0$,-,$0$,+, }
+				\end{tikzpicture}
+			\end{center}
+			\item Trường hợp 2:  $m<0$ 
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[lgt=3,espcl=3]{$x$/1, $2x-m$/1, $x+m$/1, $f(x)$/1}{$-\infty$,$\dfrac{m}{2}$, $-m$, $+\infty$}
+				\tkzTabLine{ ,-,$0$,+,t,+, }
+				\tkzTabLine{ ,-,t,-,$0$,+, }
+				\tkzTabLine{ ,+,$0$,-,$0$,+, }
+				\end{tikzpicture}
+			\end{center}
+		\end{itemize}
+	}
+\end{bt}
+\begin{bt}%[Lê Minh Cường]%[0D4G3]
+	Xét dấu của biểu thức sau: $f(x)=\dfrac{2-x}{x-2m+1}$
+	\loigiai{ \begin{itemize}
+			\item Trường hợp 1: $2m-1=2 \Leftrightarrow m=\dfrac{3}{2}$, khi đó ta có:  $$\dfrac{2-x}{x-2}=-1< 0, \forall x\in\mathbb{R}.$$
+			\item Trường hợp 2: $m>\dfrac{3}{2}$. Ta có bảng xét dấu
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[lgt=3,espcl=3]{$x$/1, $2-x$/1, $x-2m+1$/1, $\dfrac{2-x}{x-2m+1}$/1}{$-\infty$, $2$, $2m-1$, $+\infty$}
+				\tkzTabLine{ ,+,t,+,$0$,-, }
+				\tkzTabLine{ ,-,$0$,+,t,+, } 
+				\tkzTabLine{ ,-,$0$,+,d,-, }
+				\end{tikzpicture}
+			\end{center}
+			\item Trường hợp 3: $m <\dfrac{3}{2}$. Ta có bảng xét dấu
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzTabInit[lgt=3,espcl=3]{$x$/1, $2-x$/1, $x-2m+1$/1,$\dfrac{2-x}{x-2m+1}$/1}{$-\infty$, $2m-1$, $2$, $+\infty$}
+				\tkzTabLine{ ,+,t,+,$0$,-, }
+				\tkzTabLine{ ,-,$0$,+,t,+, } 
+				\tkzTabLine{ ,-,d,+,$ 0 $,-, }
+				\end{tikzpicture}
+			\end{center}
+		\end{itemize}
+	}
+\end{bt}
+
+\begin{dang}{Giải bất phương trình tích}
+	\textbf{Dạng.} $P(x)>0, P(x)\geq 0, P(x)<0, P(x)\leq 0$ với $P(x)$ là tích của các nhị thức bậc nhất.\\
+	\textbf{Phương pháp.} Lập bảng xét dấu của biểu thức $P(x)$ từ đó suy ra tập nghiệm của bất phương trình đã cho.
+\end{dang}
+\begin{vd}%[Thọ Bùi]%[0D4B3]
+	Giải bất phương trình $(x+1)(2-x)>0$.
+	\loigiai{
+		Ta có: $x+1=0\Leftrightarrow x=-1; 2-x=0\Leftrightarrow x=2$.\\
+		Bảng xét dấu:
+		\begin{center}
+			\begin{tabular}{|c|ccccccc|}
+				\hline
+				$x$           & $-\infty$ &     & $-1$ &   & $2$ &     & $+\infty$ \\
+				\hline
+				$x+1$         &           & $-$ &  0   & + &     &  +  &           \\
+				\hline
+				$2-x$         &           &  +  &      & + &  0  & $-$ &           \\
+				\hline
+				VT &           & $-$ &  0   & + &  0  & $-$ &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Từ đó suy ra tập nghiệm của bất phương trình là $S=(-1;2)$.
+	}
+\end{vd}
+\begin{vd}%[Thọ Bùi]%[0D4B3]
+	Giải bất phương trình $(2x+1)(x+5)\geq 0$.
+	\loigiai{
+		Ta có: $2x+1=0\Leftrightarrow x=-\dfrac{1}{2}, x+5=0\Leftrightarrow x=-5$.\\
+		Bảng xét dấu:
+		\begin{center}
+			\begin{tabular}{|c|ccccccc|}
+				\hline
+				$x$            & $-\infty$ &     & $-5$ &     & $-\frac{1}{2}$ &   & $+\infty$ \\
+				\hline
+				$2 x+1$        &           & $-$ &      & $-$ &       0        & + &           \\
+				\hline
+				$x+5$          &           & $-$ &  0   &  +  &                & + &           \\
+				\hline
+				VT &           &  +  &  0   & $-$ &       0        & + &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Từ bảng xét dấu suy ra tập nghiệm của bất phương trình là $S=\left(-\infty;-5\right]\cup\left[-\frac{1}{2};+\infty\right)$.
+		
+	}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[0D4B3]
+	Giải bất phương trình $(x+1)(x-2)(10-2x)\leq 0$.
+	\loigiai{
+		Ta có: $x+1=0\Leftrightarrow x=-1, x-2=0\Leftrightarrow x=2, 10-2x=0\Leftrightarrow x=5$.\\
+		Bảng xét dấu:
+		\begin{center}
+			\begin{tabular}{|c|ccccccccc|}
+				\hline
+				$x$                   & $-\infty$ &     & $-1$ &     & $2$ &   & $5$ &     & $+\infty$ \\
+				\hline
+				$x+1$                 &           & $-$ &  0   &  +  &     & + &     &  +  &           \\
+				\hline
+				$x-2$                 &           & $-$ &      & $-$ &  0  & + &     &  +  &           \\
+				\hline
+				$10-2 x$              &           &  +  &      &  +  &     & + &  0  & $-$ &           \\
+				\hline
+				VT&           &  +  &  0   & $-$ &  0  & + &  0  & $-$ &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Từ bảng xét dấu suy ra tập nghiệm của bất phương trình là $S=\left[-1;2\right]\cup\left[5;+\infty\right)$.
+	}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[0D4K3]
+	Giải bất phương trình $(x+2)^2(x-1)(x+3)<0$.
+	\loigiai{
+		Ta có: $x+2=0\Leftrightarrow x=-2, x-1=0\Leftrightarrow x=1, x+3=0\Leftrightarrow x=-3$.\\
+		Bảng xét dấu:
+		\begin{center}
+			\begin{tabular}{|c|ccccccccc|}
+				\hline
+				$x$                     & $-\infty$ &     & $-3$ &     & $-2$ &     & $1$ &   & $+\infty$ \\
+				\hline
+				$(x+2)^{2}$             &           &  +  &      &  +  &  0   &  +  &     & + &           \\
+				\hline
+				$x-1$                   &           & $-$ &      & $-$ &      & $-$ &  0  & + &           \\
+				\hline
+				$x+3$                   &           & $-$ &  0   &  +  &      &  +  &     & + &           \\
+				\hline
+				VT &           &  +  &  0   & $-$ &  0   & $-$ &  0  & + &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		
+	}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[0D4K3]
+	Giải bất phương trình $x^3+x^2-5x+3\leq 0$.
+	\loigiai{
+		Ta có $x^3+x^2-5x+3\leq 0\Leftrightarrow (x-1)^2(x+3)\leq 0$.\\
+		Cho $x-1=0\Leftrightarrow x=1; x+3=0\Leftrightarrow x=-3$.\\
+		Bảng xét dấu:
+		\begin{center}
+			\begin{tabular}{|c|ccccccc|}
+				\hline
+				$x$               & $-\infty$ &     & $-3$ &   & $1$ &   & $+\infty$ \\
+				\hline
+				$(x-1)^{2}$       &           &  +  &      & + &  0  & + &           \\
+				\hline
+				$x+3$             &           & $-$ &  0   & + &     & + &           \\
+				\hline
+				VT &           & $-$ &  0   & + &  0  & + &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Vậy tập nghiệm của bất phương trình là $S=\left(-\infty;-3\right]$.
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Thọ Bùi]%[0D4B3]
+	Giải bất phương trình $(x-3)\left(\sqrt{2}-x\right)>0$.
+	\loigiai{
+		\begin{center}
+			\begin{tabular}{|c|ccccccc|}
+				\hline
+				$x$                 & $-\infty$ &     & $\sqrt{2}$ &     & $3$ &     & $+\infty$ \\
+				\hline
+				$x-3$               &           & $-$ &            & $-$ &  0  &  +  &           \\
+				\hline
+				$\sqrt{2}-x$        &           &  +  &     0      & $-$ &     & $-$ &           \\
+				\hline
+				$(x-3)(\sqrt{2}-x)$ &           & $-$ &     0      &  +  &  0  & $-$ &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Tập nghiệm $S=\left(\sqrt{2};3\right)$.
+	}
+\end{bt}
+\begin{bt}%[Thọ Bùi]%[0D4B3]
+	Giải bất phương trình $(3-2x)(x-4)\leq 0$.
+	\loigiai{
+		\begin{center}
+			\begin{tabular}{|c|ccccccc|}
+				\hline
+				$x$           & $-\infty$ &     & $\frac{3}{2}$ &     & $4$ &     & $+\infty$ \\
+				\hline
+				$3-2 x$       &           &  +  &       0       & $-$ &     & $-$ &           \\
+				\hline
+				$x-4$         &           & $-$ &               & $-$ &  0  &  +  &           \\
+				\hline
+				$(3-2x)(x-4)$ &           & $-$ &       0       &  +  &  0  & $-$ &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Tập nghiệm $S=\left(-\infty;\dfrac{3}{2}\right]\cup\left[4;+\infty\right)$.
+	}
+\end{bt}
+
+\begin{bt}%[Thọ Bùi]%[0D4K3]
+	Tìm tập xác định của hàm số $f(x)=\sqrt{4-x^2}$.
+	\loigiai{
+		Hàm số xác định khi và chỉ khi $4-x^2\geq 0\Leftrightarrow (2-x)(2+x)\geq 0$.\\
+		\begin{center}
+			\begin{tabular}{|c|ccccccc|}
+				\hline
+				$x$          & $-\infty$ &     & $-2$ &   & $2$ &     & $+\infty$ \\
+				\hline
+				$2-x$        &           &  +  &      & + &  0  & $-$ &           \\
+				\hline
+				$2+x$        &           & $-$ &  0   & + &     &  +  &           \\
+				\hline
+				$(2-x)(2+x)$ &           & $-$ &  0   & + &  0  & $-$ &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Vậy tập xác định của hàm số là $\mathcal{D}=\left[-2;2\right]$.
+	}
+\end{bt}
+
+\begin{bt}%[Thọ Bùi]%[0D4B3]
+	Giải bất phương trình $(x+1)(x-2)(3-x)<0$.
+	\loigiai{
+		\begin{center}
+			\begin{tabular}{|c|ccccccccc|}
+				\hline
+				$x$               & $-\infty$ &     & $-1$ &     & $2$ &   & $3$ &     & $+\infty$ \\
+				\hline
+				$x+1$             &           & $-$ &  0   &  +  &     & + &     &  +  &           \\
+				\hline
+				$x-2$             &           & $-$ &      & $-$ &  0  & + &     &  +  &           \\
+				\hline
+				$3-x$             &           &  +  &      &  +  &     & + &  0  & $-$ &           \\
+				\hline
+				$(x+1)(x-2)(3-x)$ &           &  +  &  0   & $-$ &  0  & + &  0  & $-$ &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Tập nghiệm của bất phương trình là $S=\left(-1;2\right)\cup\left(3;+\infty\right)$.
+	}
+\end{bt}
+
+
+\begin{dang}{Giải bất phương trình chứa ẩn ở mẫu thức}
+	\textbf{Dạng.} $\dfrac{P(x)}{Q(x)}>0, \dfrac{P(x)}{Q(x)}\geq 0, \dfrac{P(x)}{Q(x)}<0, \dfrac{P(x)}{Q(x)}\leq 0$, với $P(x), Q(x)$ là tích của các nhị thức bậc nhất.\\
+	\textbf{Phương pháp.} Lập bảng xét dấu của biểu thức $\dfrac{P(x)}{Q(x)}$ để từ đó suy ra tập nghiệm của bất phương trình đã cho.
+\end{dang}
+
+\begin{vd}%[Thọ Bùi]%[0D4K3]
+	Giải bất phương trình $\dfrac{2-x}{3x+6}<0$.
+	\loigiai{
+		Ta có: $2-x=0\Leftrightarrow x=2; 3x+6=0\Leftrightarrow x=-2$.\\
+		Bảng xét dấu:
+		\begin{center}
+			\begin{tabular}{|c|ccccccc|}
+				\hline
+				$x$                & $-\infty$ &     & $-2$ &   & $2$ &     & $+\infty$ \\
+				\hline
+				$2-x$              &           &  +  &      & + &  0  & $-$ &           \\
+				\hline
+				$3 x+6$            &           & $-$ &  0   & + &     &  +  &           \\
+				\hline
+				$\frac{2-x}{3x+6}$ &           & $-$ &  ||  & + &  0  & $-$ &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Tập nghiệm của bất phương trình là $S=(-\infty;-2)\cup (2;+\infty)$.
+	}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[0D4K3]
+	Giải bất phương trình $\dfrac{x+7}{(x+2)(2x-1)}>0$.
+	\loigiai{
+		Ta có: $x+7=0\Leftrightarrow x=-7; x+2=0\Leftrightarrow x=-2; 2x-1=0\Leftrightarrow x=\dfrac{1}{2}$.\\
+		Bảng xét dấu:
+		\begin{center}
+			\begin{tabular}{|c|ccccccccc|}
+				\hline
+				$x$                        & $-\infty$ &     & $-7$ &     & $-2$ &     & $\frac{1}{2}$ &   & $+\infty$ \\
+				\hline
+				$x+7$                      &           & $-$ &  0   &  +  &      &  +  &               & + &           \\
+				\hline
+				$x+2$                      &           & $-$ &      & $-$ &  0   &  +  &               & + &           \\
+				\hline
+				$2 x-1$                    &           & $-$ &      & $-$ &      & $-$ &       0       & + &           \\
+				\hline
+				VT&           & $-$ &  0   &  +  &  ||  & $-$ &       ||      & + &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Tập nghiệm của bất phương trình là $S=(-7;-2)\cup \left(\frac{1}{2};+\infty\right)$.
+	}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[0D4K3]
+	Giải bất phương trình $\dfrac{(x-3)(x+2)}{x^2-1}\geq 1$.
+	\loigiai{
+		Ta có $\dfrac{(x-3)(x+2)}{x^2-1}\geq 1\Leftrightarrow\dfrac{(x-3)(x+2)}{x^2-1}-1\geq 0\Leftrightarrow \dfrac{-x-5}{(x-1)(x+1)}\geq 0$.\\Đặt $VT=\dfrac{-x-5}{(x-1)(x+1)}$.\\Khi đó: $-x-5=0\Leftrightarrow x=-5; x-1=0\Leftrightarrow x=1; x+1=0\Leftrightarrow x=-1$.\\
+		Bảng xét dấu:
+		\begin{center}
+			\begin{tabular}{|c|ccccccccc|}
+				\hline
+				$x$                        & $-\infty$ &     & $-5$ &     & $-1$ &     & $1$ &     & $+\infty$ \\
+				\hline
+				$-x-5$                     &           &  +  &  0   & $-$ &      & $-$ &     & $-$ &           \\
+				\hline
+				$x-1$                      &           & $-$ &      & $-$ &      & $-$ &  0  &  +  &           \\
+				\hline
+				$x+1$                      &           & $-$ &      & $-$ &  0   &  +  &     &  +  &           \\
+				\hline
+				VT&           &  +  &  0   & $-$ &  ||  &  +  &  || & $-$ &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Vậy tập nghiệm của bất phương trình là $S=\left(-\infty;-5\right]\cup\left(-1;1\right)$.
+	}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[0D4K3]
+	Giải bất phương trình $\dfrac{1}{x-2}\leq\dfrac{1}{2x+1}$.
+	\loigiai{
+		Ta có $\dfrac{1}{x-2}\leq\dfrac{1}{2x+1}\Leftrightarrow \dfrac{1}{x-2}-\dfrac{1}{2x+1}\leq 0\Leftrightarrow \dfrac{x+3}{(x-2)(2x+1)}\leq 0$.\\Đặt $VT=\dfrac{x+3}{(x-2)(2x+1)}$.\\
+		Cho $x+3=0\Leftrightarrow x=-3; x-2=0\Leftrightarrow x=2; 2x+1=0\Leftrightarrow x=-\dfrac{1}{2}$.\\
+		Bảng xét dấu:
+		\begin{center}
+			\begin{tabular}{|c|ccccccccc|}
+				\hline
+				$x$                        & $-\infty$ &     & $-3$ &     & $-\frac{1}{2}$ &     & $2$ &   & $+\infty$ \\
+				\hline
+				$x+3$                      &           & $-$ &  0   &  +  &                &  +  &     & + &           \\
+				\hline
+				$x-2$                      &           & $-$ &      & $-$ &                & $-$ &  0  & + &           \\
+				\hline
+				$2 x+1$                    &           & $-$ &      & $-$ &       0        &  +  &     & + &           \\
+				\hline
+				VT&           & $-$ &  0   &  +  &       ||       & $-$ &  || & + &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Vậy tập nghiệm của bất phương trình là $S=\left(-\infty;-3\right]\cup\left(-\frac{1}{2};2\right)$.
+	}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[0D4G3]
+	Giải bất phương trình $\dfrac{x-1}{mx-2}>0\quad (1)$ ($m$ là tham số).
+	\loigiai{
+		Đặt $f(x)=\dfrac{x-1}{mx-2}$.\\
+		TH1: Nếu $m=0$ thì $f(x)=-\dfrac{1}{2}x+\dfrac{1}{2}>0\Leftrightarrow x<1$.\\
+		TH2: Nếu $m\neq 0$ thì $x-1=0\Leftrightarrow x=1; mx-2=0\Leftrightarrow x=\dfrac{2}{m}$.\\
+		Để so sánh $1$ và $\dfrac{2}{m}$ ta xét hiệu $1-\dfrac{2}{m}=\dfrac{m-2}{m}=g(m)$.\\
+		Bảng xét dấu của $g(m)$ như sau:
+		\begin{center}
+			\begin{tabular}{|c|ccccccc|}
+				\hline
+				$m$             & $-\infty$ &     & $0$ &     & $2$ &   & $+\infty$ \\
+				\hline
+				$m-2$           &           & $-$ &     & $-$ &  0  & + &           \\
+				\hline
+				$m$             &           & $-$ &  0  &  +  &     & + &           \\
+				\hline
+				$\dfrac{m-2}{m}$ &           &  +  &  || & $-$ &  0  & + &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		- Với $m<0$ thì $g(m)>0$ nên $1>\dfrac{2}{m}$.
+		\begin{center}
+			\begin{tabular}{|c|ccccccc|}
+				\hline
+				$x$                 & $-\infty$ &     & $\frac{2}{m}$ &     & $1$ &     & $+\infty$ \\
+				\hline
+				$x-1$               &           & $-$ &                & $-$ &  0  &  +  &           \\
+				\hline
+				$mx-2$            &           &  +  &       0        & $-$ &     & $-$ &           \\
+				\hline
+				$\frac{x-1}{mx-2}$ &           & $-$ &       ||       &  +  &  0  & $-$ &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Từ đó tập nghiệm của $(1)$ là $S=\left(\dfrac{2}{m};1\right)$.\\
+		- Với $0<m\leq 2$ thì $g(m)\leq 0$ nên $1\leq\dfrac{2}{m}$.
+		\begin{center}
+			\begin{tabular}{|c|ccccccc|}
+				\hline
+				$x$               & $-\infty$ &     & $1$ &     & $\frac{2}{m}$ &   & $+\infty$ \\
+				\hline
+				$x-1$             &           & $-$ &  0  &  +  &     & + &           \\
+				\hline
+				$mx-2$             &           & $-$ &     & $-$ &  0  & + &           \\
+				\hline
+				$\frac{x-1}{mx-2}$ &           &  +  &  0  & $-$ &  || & + &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Từ đó tập nghiệm của $(1)$ là $S=\left(-\infty;1\right)\cup\left(\dfrac{2}{m};+\infty\right)$.\\
+		- Với $m>2$ thì $g(m)>0$ nên $1>\dfrac{2}{m}$.
+		\begin{center}
+			\begin{tabular}{|c|ccccccc|}
+				\hline
+				$x$                & $-\infty$ &     & $\frac{2}{m}$ &     & $1$ &   & $+\infty$ \\
+				\hline
+				$x-1$              &           & $-$ &               & $-$ &  0  & + &           \\
+				\hline
+				$mx-2$            &           & $-$ &       0       &  +  &     & + &           \\
+				\hline
+				$\frac{x-1}{mx-2}$ &           &  +  &       ||      & $-$ &  0  & + &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Từ đó tập nghiệm của $(1)$ là $S=\left(-\infty;\dfrac{2}{m}\right)\cup\left(1;+\infty\right)$.\\
+		\textit{Kết luận:}\\
+		$\bullet$ $m=0:\; S=\left(-\infty;1\right)$.\\
+		$\bullet$ $m<0:\; S=\left(\dfrac{2}{m};1\right)$.\\
+		$\bullet$ $0<m\leq 2:\; S=\left(-\infty;1\right)\cup\left(\dfrac{2}{m};+\infty\right)$.\\
+		$\bullet$ $m>2:\; S=\left(-\infty;\dfrac{2}{m}\right)\cup\left(1;+\infty\right)$.
+	}
+	
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Thọ Bùi]%[0D4K3]
+	Giải bất phương trình $\dfrac{3x-1}{(x-4)(3-2x)}<0$.
+	\loigiai{
+		\begin{center}
+			\begin{tabular}{|c|ccccccccc|}
+				\hline
+				$x$                         & $-\infty$ &     & $\frac{1}{3}$ &     & $\frac{3}{2}$ &     & $4$ &     & $+\infty$ \\
+				\hline
+				$3 x-1$                     &           & $-$ &       0       &  +  &               &  +  &     &  +  &           \\
+				\hline
+				$x-4$                       &           & $-$ &               & $-$ &               & $-$ &  0  &  +  &           \\
+				\hline
+				$3-2 x$                     &           &  +  &               &  +  &       0       & $-$ &     & $-$ &           \\
+				\hline
+				$\frac{3x-1}{(x-4) (3-2x)}$ &           &  +  &       0       & $-$ &       ||      &  +  &  || & $-$ &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Tập nghiệm $S=\left(\dfrac{1}{3};\dfrac{3}{2}\right)\cup \left(4;+\infty\right)$.
+	}
+\end{bt}
+\begin{bt}%[Thọ Bùi]%[0D4K3]
+	Giải bất phương trình $\dfrac{3}{2-x}\geq 1$.
+	\loigiai{
+		Ta có: $\dfrac{3}{2-x}\geq 1\Leftrightarrow \dfrac{3}{2-x}-1\geq 0\Leftrightarrow \dfrac{x+1}{2-x}\geq 0$.\\
+		Bảng xét dấu:
+		\begin{center}
+			\begin{tabular}{|c|ccccccc|}
+				\hline
+				$x$               & $-\infty$ &     & $-1$ &   & $2$ &     & $+\infty$ \\
+				\hline
+				$x+1$             &           & $-$ &  0   & + &     &  +  &           \\
+				\hline
+				$2-x$             &           &  +  &      & + &  0  & $-$ &           \\
+				\hline
+				$\frac{x+1}{2-x}$ &           & $-$ &  0   & + &  || & $-$ &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Tập nghiệm của bất phương trình là $S=\left[-1;2\right)$.
+	}
+\end{bt}
+
+\begin{bt}%[Thọ Bùi]%[0D4K3]
+	Giải bất phương trình $\dfrac{2}{x-1}\leq\dfrac{5}{2x-1}$.
+	\loigiai{
+		Ta có: $\dfrac{2}{x-1}\leq\dfrac{5}{2x-1}\Leftrightarrow \dfrac{2}{x-1}-\dfrac{5}{2x-1}\leq 0\Leftrightarrow \dfrac{-x+3}{(x-1)(2x-1)}\leq 0$.\\
+		Bảng xét dấu:
+		\begin{center}
+			\begin{tabular}{|c|ccccccccc|}
+				\hline
+				$x$                         & $-\infty$ &     & $\frac{1}{2}$ &     & $1$ &   & $3$ &     & $+\infty$ \\
+				\hline
+				$-x+3$                      &           &  +  &               &  +  &     & + &  0  & $-$ &           \\
+				\hline
+				$x-1$                       &           & $-$ &               & $-$ &  0  & + &     &  +  &           \\
+				\hline
+				$2 x-1$                     &           & $-$ &       0       &  +  &     & + &     &  +  &           \\
+				\hline
+				$\frac{-x+3}{(x-1) (2x-1)}$ &           &  +  &       ||      & $-$ &  || & + &  0  & $-$ &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Tập nghiệm $S=\left(\dfrac{1}{2};1\right)\cup\left[3;+\infty\right)$
+	}
+\end{bt}
+
+\begin{bt}%[Thọ Bùi]%[0D4K3]
+	Giải bất phương trình $\dfrac{x^2-x+2}{x-2}\geq 2x-1$.
+	\loigiai{
+		Ta có $\dfrac{x^2-x+2}{x-2}\geq 2x-1\Leftrightarrow \dfrac{x^2-x+2}{x-2}- 2x+1\geq 0\Leftrightarrow\dfrac{-x(x-4)}{x-2}\geq 0$.\\
+		Bảng xét dấu:
+		\begin{center}
+			\begin{tabular}{|c|ccccccccc|}
+				\hline
+				$x$                   & $-\infty$ &     & $0$ &     & $2$ &     & $4$ &     & $+\infty$ \\
+				\hline
+				$-x$                  &           &  +  &  0  & $-$ &     & $-$ &     & $-$ &           \\
+				\hline
+				$x-4$                 &           & $-$ &     & $-$ &     & $-$ &  0  &  +  &           \\
+				\hline
+				$x-2$                 &           & $-$ &     & $-$ &  0  &  +  &     &  +  &           \\
+				\hline
+				$\frac{-x(x-4)}{x-2}$ &           &  +  &  0  & $-$ &  || &  +  &  0  & $-$ &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Tập nghiệm của bất phương trình là $S=\left(-\infty;0\right]\cup\left(2;4\right]$.
+	}
+\end{bt}
+
+
+\begin{dang}{Giải bất phương trình bậc nhất chứa dấu giá trị tuyệt đối.}
+	{\bf Cách giải:} Xét dấu để phá dấu trị tuyệt đối.\\
+	{\bf Một số dạng thường gặp:} Cho $a>0$, ta có
+	\begin{itemize}
+		\item $\vert f(x) \vert < a \Leftrightarrow \heva{&f(x) < a\\&f(x) > -a}.$
+		\item $\vert f(x) \vert \ge a \Leftrightarrow \hoac{&f(x) \ge a\\&f(x) \le -a}.$
+		\item $\vert f(x) \vert < \vert g(x) \vert \Leftrightarrow \left[f(x)+g(x)\right].\left[f(x)-g(x)\right] <0.$
+		
+	\end{itemize}
+	
+\end{dang}
+
+\begin{vd}%[Ngô Trung Kiên][0D4B3]%2
+	Giải bất phương trình $\vert 3-2x\vert < x+1$.
+	\loigiai{
+		\par Với $3-2x \ge 0 \Leftrightarrow x \le \dfrac{3}{2}$ thì ta có hệ phương trình
+		$$\heva{&x \le \dfrac{3}{2}\\&3-2x<x+1} \Leftrightarrow \heva{&x \le \dfrac{3}{2}\\&3x>2} \Leftrightarrow \heva{&x \le \dfrac{3}{2}\\&x>\dfrac{2}{3}} \Leftrightarrow \dfrac{2}{3}<x \le \dfrac{3}{2}.$$
+		Với $3-2x<0 \Leftrightarrow x>\dfrac{3}{2}$ thì ta có hệ phương trình
+		$$\heva{&x>\dfrac{3}{2}\\&2x-3<x+1} \Leftrightarrow \heva{&x>\dfrac{3}{2}\\&x<4} \Leftrightarrow \dfrac{3}{2}<x<4.$$
+		Kết hợp hai trường hợp, ta có $\dfrac{2}{3}<x<4$.\\
+		Vậy tập nghiệm của bất phương trình $S=\left(\dfrac{2}{3};4 \right)$.
+	}
+\end{vd}
+
+\begin{vd}%[Ngô Trung Kiên][0D4K3]%3
+	Giải bất phương trình $\vert 2x-2 \vert + \vert 3-x \vert >3$.
+	\loigiai{
+		Bỏ dấu giá trị tuyệt đối ở vế trái của phương trình ta có:
+		\begin{center}
+			\begin{tikzpicture} 
+			\tkzTabInit[lgt=2.5,espcl=2.5]
+			{$x$/1,$\vert 2x-2\vert $/1,$\vert 3-x\vert $/1,VT/1}
+			{$-\infty$,$1$,$3$,$+\infty$}
+			\tkzTabLine{ ,2-2x,0,2x-2,t,2x-2}
+			\tkzTabLine{ ,3-x,t,3-x,0,x-3}
+			\tkzTabLine{ ,5-3x,t,1+x,t,3x-5}
+			\end{tikzpicture}
+		\end{center}
+		Bất phương trình $\vert 2x-2 \vert + \vert 3-x \vert >3$
+		\begin{align*}
+		&\Leftrightarrow \heva{&x \le 1\\&5-3x>3} \text{ hoặc} \heva{&1<x \le 3 \\&1+x>3} \text{ hoặc} \heva{&x > 3\\&3x-5>3}.\\
+		&\Leftrightarrow \heva{&x \le 1\\&x<\dfrac{2}{3}} \text{ hoặc} \heva{&1<x \le 3 \\&x>2} \text{ hoặc} \heva{&x > 3\\&x>\dfrac{8}{3}}.\\
+		&\Leftrightarrow x<\dfrac{2}{3} \text{ hoặc } 2<x \le 3 \text{ hoặc } x>3.\\
+		&\Leftrightarrow \hoac{&x<\dfrac{2}{3}\\ &x>2}.
+		\end{align*}
+		Vậy tập nghiệm của bất phương trình $S=\left(-\infty;\dfrac{2}{3}\right) \cup (2;+\infty)$.
+	}
+\end{vd}
+\begin{vd}%[Ngô Trung Kiên][0D4B3]%4
+	Giải bất phương trình $\vert 5-8x \vert <11$.
+	\loigiai{
+		Vì $11>0$ nên $\vert 5-8x \vert <11 \Leftrightarrow \heva{&5-8x<11\\&5-8x>-11} \Leftrightarrow \heva{&x>-\dfrac{3}{4}\\&x<2} \Leftrightarrow -\dfrac{3}{4}<x<2$.\\
+		Vậy tập nghiệm của bất phương trình $S=\left(-\dfrac{3}{4};2\right)$. 
+	}
+\end{vd}
+\begin{vd}%[Ngô Trung Kiên][0D4B3]%5
+	Giải bất phương trình $\vert 2x-4 \vert \ge 2$.
+	\loigiai{
+		Vì $2>0$ nên $\vert 2x-4 \vert \ge 2 \Leftrightarrow \hoac{&2x-4 \ge 2\\&2x-4 \le -2} \Leftrightarrow \hoac{&2x \ge 6\\&2x \le 2} \Leftrightarrow \hoac{&x\ge 3\\&x\le 1}$.\\
+		Vậy tập nghiệm của bất phương trình $S=(-\infty;1] \cup [3;+\infty)$.
+	}
+\end{vd}
+\begin{vd}%[Ngô Trung Kiên][0D4K3]%1
+	Giải bất phương trình $\Bigg\vert \dfrac{x+3}{2}\Bigg\vert < \Bigg\vert \dfrac{6-2x}{5} \Bigg\vert$.
+	\loigiai{
+		Bất phương trình 
+		\begin{align*}
+		\Bigg\vert \dfrac{x+3}{2}\Bigg\vert < \Bigg\vert \dfrac{6-2x}{5} \Bigg\vert 
+		&\Leftrightarrow 5\vert x+3 \vert<2 \vert 6-2x \vert \\
+		&\Leftrightarrow (5x+15)^2<(12-4x)^2\\
+		&\Leftrightarrow (5x+15+12-4x)(5x+15-12+4x)<0\\
+		&\Leftrightarrow (x+27)(9x+3)<0.
+		\end{align*}
+		Lập bảng xét dấu của biểu thức $f(x)=(x+27)(9x+3)$, ta được:
+		\begin{center}
+			\begin{tikzpicture} 
+			\tkzTabInit[lgt=2.5,espcl=2.5]
+			{$x$/1,$x+27$/1,$9x+3$/1, $f(x)$/1}
+			{$-\infty$,$-27$,$-\dfrac{1}{3}$,$+\infty$}
+			\tkzTabLine{ ,-,0,+,t,+}
+			\tkzTabLine{ ,-,t,-,0,+}
+			\tkzTabLine{ ,+,t,-,t,+}
+			\end{tikzpicture}
+		\end{center}
+		Do đó $f(x)=(x+27)(9x+3)<0 \Leftrightarrow -27<x<-\dfrac{1}{3}$.\\
+		Vậy tập nghiệm của bất phương trình $S=\left(-27;-\dfrac{1}{3}\right)$.
+	}
+\end{vd}
+
+\begin{vd}%[Ngô Trung Kiên][0D4K3]%6
+	Giải bất phương trình $\dfrac{\vert x-1\vert}{x^2+3x-4} \ge 2$.
+	\loigiai{
+		Điều kiện: $x^2+3x-4 \ne 0 \Leftrightarrow \heva{&x \ne 1\\&x \ne -4}$.\\
+		Nếu $x-1 \ge 0 \Leftrightarrow x \ge 1$ thì $\vert x-1 \vert =x-1$ và bất phương trình trở thành: 
+		$$\dfrac{x-1}{(x-1)(x+4)} \ge 2 \Leftrightarrow \dfrac{1}{x+4} \ge 2 \Leftrightarrow \dfrac{-2x-7}{x+4} \ge 0 \Leftrightarrow -4 \le x \le -\dfrac{7}{2}.$$
+		Kết hợp $x \ge 1$, ta có $x \in \varnothing$.\\
+		Nếu $x-1 < 0 \Leftrightarrow x < 1$ thì $\vert x-1 \vert =1-x$ và bất phương trình trở thành: 
+		$$\dfrac{1-x}{(x-1)(x+4)} \ge 2 \Leftrightarrow -\dfrac{1}{x+4} \ge 2 \Leftrightarrow \dfrac{-2x-7}{x+4} \le 0 \Leftrightarrow x \ge -4 \text{ hoặc } x \le -\dfrac{7}{2}.$$
+		Kết hợp $x < 1$, ta có $x \le -4$ hoặc $-\dfrac{7}{2} \le x < 1$.\\
+		Kết hợp với điều kiện, ta được $x < -4$ hoặc $-\dfrac{7}{2} \le x < 1$.\\
+		Vậy tập nghiệm của bất phương trình $S=(-\infty;-4) \cup \left[-\dfrac{7}{2};1\right)$.
+	}
+\end{vd}
+\begin{vd}%[Ngô Trung Kiên][0D4K3]%7
+	Giải bất phương trình $\dfrac{\vert x+3 \vert-x}{x} \ge 1$.
+	\loigiai{
+		Điều kiện: $x \ne 0$.\\
+		Nếu $x+3 \ge 0 \Leftrightarrow x \ge -3$ thì bất phương trình trở thành:
+		$$\dfrac{(x+3)-x}{x} \ge 1 \Leftrightarrow \dfrac{3}{x} \ge 1 \Leftrightarrow \dfrac{3-x}{x} \ge 0 \Leftrightarrow 0 \le x \le 3.$$
+		Kết hợp với $x \ge -3$ và điều kiện $x \ne 0$, ta có $0 < x \le 3$.\\
+		Nếu Nếu $x+3 < 0 \Leftrightarrow x < -3$ thì bất phương trình trở thành:
+		$$\dfrac{-(x+3)-x}{x} \ge 1 \Leftrightarrow \dfrac{-2x-3}{x} \ge 1 \Leftrightarrow \dfrac{-3x-3}{x} \ge 0 \Leftrightarrow -1 \le x \le 0.$$
+		Kết hợp với $x < -3$ và điều kiện $x \ne 0$, ta có $x \in \varnothing$.\\
+		Vậy tập nghiệm của bất phương trình là $S=(0;3]$.
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Ngô Trung Kiên][0D4B3]
+	Giải các bất phương trình sau.
+	\begin{enumerate}
+		\item $\vert 3x-5 \vert \le 2$.
+		\item $\vert 6-2x \vert > 6$.
+		\item $\vert 7x+10 \vert -3 \ge 0$.
+		\item $\bigg \vert \dfrac{8}{x+1} \bigg\vert < 2$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item $\vert 3x-5 \vert \le 2 \Leftrightarrow \heva{&3x-5 \le 2\\&3x-5 \ge -2} \Leftrightarrow 1 \le x \le \dfrac{7}{3}$.
+			\item $\vert 6-2x \vert > 6 \Leftrightarrow \hoac{&6-2x>6\\&6-2x<-6} \Leftrightarrow \hoac{&x<0\\&x>6}$.
+			\item $\vert 7x+10 \vert -3 \ge 0 \Leftrightarrow \vert 7x+10 \vert \ge 3 \Leftrightarrow \hoac{&7x+10 \ge 3\\&7x+10<-3} \Leftrightarrow \hoac{&x\ge -1\\&x \le -\dfrac{13}{7}}$.
+			\item $\bigg \vert \dfrac{8}{x+1} \bigg\vert < 2 \Leftrightarrow \heva{&x \ne -1\\&8<2\vert x+1 \vert} \Leftrightarrow \heva{&x \ne -1\\&\vert x+1 \vert>4} \Leftrightarrow \heva{&x \ne -1\\&\hoac{&x+1>4\\&x+1<-4}} \Leftrightarrow \hoac{&x>3\\&x<-5}$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Ngô Trung Kiên][0D4B3]
+	Giải bất phương trình $\vert 2x-4 \vert < x+1$.
+	\loigiai{
+		$$
+		\vert 2x-4 \vert < x+1
+		\Leftrightarrow \hoac{&\heva{&x \ge 2\\&2x-4<x+1}\\&\heva{&x<2\\&4-2x<x+1}}
+		\Leftrightarrow \hoac{&\heva{&x \ge 2\\&x<5}\\&\heva{&x<2\\&x>1}}
+		\Leftrightarrow \hoac{&2 \le x <5\\&1<x<2}
+		\Leftrightarrow 1 < x < 5.
+		$$
+	}
+\end{bt}
+\begin{bt}%[Ngô Trung Kiên][0D4B3]
+	Giải bất phương trình $\vert x+5 \vert + 9 \ge 3x$.
+	\loigiai{
+		$$
+		\vert x+5 \vert +9 \ge 3x
+		\Leftrightarrow \hoac{&\heva{&x \ge -5\\&x+5+9 \ge 3x}\\&\heva{&x<-5\\&-x-5 +9 \ge 3x}}
+		\Leftrightarrow \hoac{&\heva{&x \ge -5\\&x \le 7}\\&\heva{&x<-5\\&x \le 1}}
+		\Leftrightarrow \hoac{&-5 \le x \le 7\\&x <-5}
+		\Leftrightarrow x \le 7.
+		$$
+	}
+\end{bt}
+\begin{bt}%[Ngô Trung Kiên][0D4K3]
+	Giải bất phương trình $\vert 2x-9 \vert > \vert 7-8x\vert$.
+	\loigiai{
+		$$\vert 2x-9 \vert > \vert 7-8x\vert
+		\Leftrightarrow (2x-9)^2>(7-8x)^2 \Leftrightarrow (-6x-2)(10x-16)>0.$$
+		Lập bảng xét dấu cho biểu thức $f(x)=(-6x-2)(10x-16)$, ta được $f(x)>0 \Leftrightarrow -\dfrac{1}{3} <x<\dfrac{8}{5}$.
+	}
+\end{bt}
+\begin{bt}%[Ngô Trung Kiên][0D4K3]
+	Giải bất phương trình $\vert 2x+6 \vert + \vert 5-5x \vert < 2x+1$.
+	\loigiai{
+		Bỏ dấu giá trị tuyệt đối ở vế trái của phương trình ta có:
+		\begin{center}
+			\begin{tikzpicture} 
+			\tkzTabInit[lgt=2.5,espcl=2.5]
+			{$x$/1,$\vert 2x+6\vert $/1,$\vert 5-5x\vert$/1,VT/1}
+			{$-\infty$,$-3$,$1$,$+\infty$}
+			\tkzTabLine{ ,-2x-6,0,2x+6,t,2x+6}
+			\tkzTabLine{ ,5-5x,t,5-5x,0,5x-5}
+			\tkzTabLine{ ,-1-7x,t,11-3x,t,7x+1}
+			\end{tikzpicture}
+		\end{center}
+		Bất phương trình $\vert 2x+6 \vert + \vert 5-5x \vert < 2x+1$
+		\begin{align*}
+		&\Leftrightarrow \heva{&x \le -3\\&-1-7x<2x+1} \text{ hoặc} \heva{&-3<x \le 1 \\&11-3x<2x+1} \text{ hoặc} \heva{&x > 1\\&7x+1<2x+1}.\\
+		&\Leftrightarrow 2<x \le 1.
+		\end{align*}
+	}
+\end{bt}
+\begin{bt}%[Ngô Trung Kiên][0D4K3]
+	Giải bất phương trình $2\vert x-4 \vert + 3\vert 1+x \vert - \vert x \vert \le 3$.
+	\loigiai{
+		Bỏ dấu giá trị tuyệt đối ở vế trái của phương trình ta có:
+		\begin{center}
+			\begin{tikzpicture} 
+			\tkzTabInit[lgt=2.5,espcl=2.5]
+			{$x$/1,$\vert x-4\vert$ /1,$\vert 1+x\vert$ /1,$\vert x \vert$ /1 ,VT/1}
+			{$-\infty$,$-1$,$0$,$4$,$+\infty$}
+			\tkzTabLine{ ,4-x,t,4-x,t,4-x,0,x-4}
+			\tkzTabLine{ ,-1-x,0,1+x,t,1+x,t,1+x}
+			\tkzTabLine{ ,-x,t,-x,0,x,t,x}
+			\tkzTabLine{ ,3-3x,t,5-x,t,5+x,t,3x-3}
+			\end{tikzpicture}
+		\end{center}
+		Bất phương trình $2\vert x-4 \vert + 3\vert 1+x \vert - \vert x \vert \le 3$
+		\begin{align*}
+		&\Leftrightarrow \heva{&x \le -1\\&3-3x \le 3} \text{ hoặc} \heva{&-1<x \le 0 \\&5-x \le 3} \text{ hoặc} \heva{&0<x \le 4\\&5+x \le 3} \text{ hoặc} \heva{&x>4 \\&3x-3 \le 3}.\\
+		&\Leftrightarrow x \in \varnothing.
+		\end{align*}
+	}
+\end{bt}
+
+\begin{bt}%[Ngô Trung Kiên][0D4G3]
+	Giải bất phương trình $\big \vert x-\vert x-1 \vert \big \vert <2$.
+	\loigiai{
+		\begin{align*}
+		\big \vert x-\vert x-1 \vert \big \vert <2
+		&\Leftrightarrow \heva{&x-\vert x-1 \vert <2\\&x-\vert x-1 \vert>-2}\\
+		&\Leftrightarrow \heva{&\vert x-1 \vert >x-2 \text{ (đúng với mọi $x \in \mathbb{R}$)}\\&\vert x-1 \vert<x+2}\\
+		&\Leftrightarrow \vert x-1 \vert<x+2\\
+		&\Leftrightarrow x>-\dfrac{1}{2}.
+		\end{align*}
+	}
+\end{bt}
+
+\begin{center}
+	\textbf{BÀI TẬP TỔNG HỢP}
+\end{center}
+\begin{bt}%[Thọ Bùi]%[0D4K3]
+	Giải bất phương trình $\dfrac{1}{x-1}>\dfrac{1}{x-2}-\dfrac{1}{x+2}$.
+	\loigiai{
+		Ta có: $\dfrac{1}{x-1}>\dfrac{1}{x-2}-\dfrac{1}{x+2}\Leftrightarrow \dfrac{x(x-4)}{(x-1)(x+2)(x-2)}>0$.\\
+		Bảng xét dấu:
+		\begin{center}
+			\begin{tabular}{|c|ccccccccccccc|}
+				\hline
+				$x$                              & $-\infty$ &     & $-2$ &     & $0$ &     & $1$ &     & $2$ &     & $4$ &   & $+\infty$ \\
+				\hline
+				$x$                              &           & $-$ &      & $-$ &  0  &  +  &     &  +  &     &  +  &     & + &           \\
+				\hline
+				$x-4$                            &           & $-$ &      & $-$ &     & $-$ &     & $-$ &     & $-$ &  0  & + &           \\
+				\hline
+				$x-1$                            &           & $-$ &      & $-$ &     & $-$ &  0  &  +  &     &  +  &     & + &           \\
+				\hline
+				$x+2$                            &           & $-$ &  0   &  +  &     &  +  &     &  +  &     &  +  &     & + &           \\
+				\hline
+				$x-2$                            &           & $-$ &      & $-$ &     & $-$ &     & $-$ &  0  &  +  &     & + &           \\
+				\hline
+				$\frac{x(x-4)}{(x-1)(x+2)(x-2)}$ &           & $-$ &  ||  &  +  &  0  & $-$ &  || &  +  &  || & $-$ &  0  & + &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Tập nghiệm của bất phương trình $S=\left(-2;0\right)\cup\left(1;2\right)\cup\left(4;+\infty\right)$.
+	}
+\end{bt}
+\begin{bt}%[Thọ Bùi]%[0D4K3]
+	Tìm nghiệm của bất phương trình $(x-1)(4x-5)(2x-4)>0$ thỏa mãn $|x|<1$.
+	\loigiai{
+		Giải bất phương trình $(x-1)(4x-5)(2x-4)>0$.
+		\begin{center}
+			\begin{tabular}{|c|ccccccccc|}
+				\hline
+				$x$                 & $-\infty$ &     & $1$ &     & $\frac{5}{4}$ &     & $2$ &   & $+\infty$ \\
+				\hline
+				$x-1$               &           & $-$ &  0  &  +  &               &  +  &     & + &           \\
+				\hline
+				$4 x-5$             &           & $-$ &     & $-$ &       0       &  +  &     & + &           \\
+				\hline
+				$2 x-4$             &           & $-$ &     & $-$ &               & $-$ &  0  & + &           \\
+				\hline
+				$(x-1)(4x-5)(2x-4)$ &           & $-$ &  0  &  +  &       0       & $-$ &  0  & + &           \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Suy ra tập nghiệm của bất phương trình là $S=\left(1;\dfrac{5}{4}\right)\cup \left(2;+\infty\right)$.\\
+		Ta có $|x|<1\Leftrightarrow -1<x<1$.\\
+		Do đó ta được $S=\emptyset$.
+	}
+\end{bt}
+\begin{bt}%[Ngô Trung Kiên][0D4G3]
+	Giải bất phương trình $\Bigg \vert \dfrac{2-\vert x \vert}{1+x} \Bigg \vert <2$.
+	\loigiai{
+		Điều kiện: $x \ne -1$.\\
+		Nếu $x \ge 0$ thì bất phương trình trở thành $$\Bigg \vert \dfrac{2-x}{1+x} \Bigg \vert <2 \Leftrightarrow \heva{&\dfrac{2-x}{1+x}<2\\&\dfrac{2-x}{1+x}>-2} \Leftrightarrow \hoac{&x<-1\\&x>0}.$$
+		Kết hợp với $x \ge 0$ và điều kiện $x \ne -1$, ta được $x>0$.\\
+		Nếu $x < 0$ thì bất phương trình trở thành $$\Bigg \vert \dfrac{2+x}{1+x} \Bigg \vert <2 \Leftrightarrow \heva{&\dfrac{2+x}{1+x}<2\\&\dfrac{2+x}{1+x}>-2} \Leftrightarrow \heva{& \hoac{&x<-1\\&x>0} \\& \hoac{&x>-1\\&x<-\dfrac{4}{3}&}} \Leftrightarrow \hoac{&x>0\\&x<-\dfrac{4}{3}&}.$$
+		Kết hợp với $x <0$ và điều kiện $x \ne -1$, ta được $x<-\dfrac{4}{3}$.\\
+		Vậy $x>0$ hoặc $x<-\dfrac{4}{3}$.
+	}
+\end{bt}
+
+\begin{bt}%[Ngô Trung Kiên][0D4G3]
+	Giải bất phương trình $\sqrt{x^2-\vert x-2 \vert} \le x$.
+	\loigiai{
+		\noindent Nếu $x-2 \ge 0 \Leftrightarrow x \ge 2$ thì bất phương trình trở thành: $$\heva{&\sqrt{x^2-x+2} \le x\\&x^2-x+2 \ge 0} \Leftrightarrow x^2-x+2 \le x^2 \Leftrightarrow x \ge 2.$$
+		Kết hợp $x \ge 2$ ta được $x \ge 2$.\\
+		Nếu $x-2 < 0 \Leftrightarrow x < 2$ thì bất phương trình trở thành: $$\sqrt{x^2+x-2} \le x \Leftrightarrow \heva{&x^2+x-2 \ge 0\\&x \ge 0 \\& x^2+x-2 \le x^2} \Leftrightarrow \heva{&(x-1)(x+2)\ge 0\\&x \ge 0 \\& x\le 2} \Leftrightarrow 1 \le x \le 2.$$
+		Kết hợp với $x<2$, ta được $1 \le x <2$.
+		Vậy $x \ge 1$.
+	}
+\end{bt}
+\begin{bt}%[Lê Minh Cường]%[0D4G3]
+	Giải và biện luận bất phương trình sau: 
+	$2(m+1)x\leq(m+1)^2(x-1)$
+	\loigiai{
+		Bất phương trình đã cho tương đương với:
+		$$[(m+1)^2-2(m+1)]x\geq(m+1)^2\Leftrightarrow (m-1)(m+1)x\geq(m+1)^2$$
+		\begin{enumerate}[TH1.]
+			\item Với $m=-1$ bất phương trình trở thành $0\geq0$. Tập nghiệm của bất phương trình này là $\mathbb{R}$.
+			\item  Với $m<-1$ hoặc $m>1$ thì $(m-1)(m+1)>0$, do đó:
+			$x\geq \dfrac{m+1}{m-1}$. Vậy $S=\left( \dfrac{m+1}{m-1};+\infty \right) $.
+			\item Với $-1<m<1$ thì $(m-1)(m+1)<0$, do đó:
+			$x\leq \dfrac{m+1}{m-1}$. Vậy $S=\left(-\infty;\dfrac{m+1}{m-1} \right) $.
+		\end{enumerate}	
+	}
+\end{bt}
+
+\begin{bt}%[Lê Minh Cường]%[0D4G3]
+	Giải và biện luận hệ bất phương trình sau 
+	$\left\lbrace\begin{aligned}&(x-\sqrt{5})(1-2x)>0&(1)\\&x-m\leq0&(2) \end{aligned}\right. $.
+	\loigiai{Tập nghiệm của bất phương trình $ (1) $ $S=\left( \dfrac{1}{2};\sqrt{5}\right)  $.
+		\begin{enumerate}[TH1.]
+			\item Nếu $m\leq \dfrac{1}{2}\Leftrightarrow x\leq m\leq \dfrac{1}{2}$. Hệ bất phương trình này vô nghiệm
+			\item  Nếu $\dfrac{1}{2}<m<\sqrt{5}$, khi đó $x\leq m$. Tập nghiệm của hệ là $S=\left(\dfrac{1}{2};m \right] $ với $m<\sqrt{5}$
+			\item  Nếu $m\ge\sqrt{5}$, bất phương trình $(2)\Leftrightarrow x\leq m$.\\ Để hệ bất phương trình này có nghiệm thì $x\in\left(\dfrac{1}{2};\sqrt{5} \right) $.\\ Vậy tập nghiệm của hệ bất phương trình $S=\left(\dfrac{1}{2};\sqrt{5} \right) $.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Lê Minh Cường]%[0D4G3]
+	Giải và biện luận các bất phương trình sau
+	\begin{multicols}{2}
+		\begin{enumerate}[a)]
+			\item $(2x-4)(x-m)>0$;
+			\item $\dfrac{\sqrt{2}-x}{x-2m+1}\leq 0$;
+		\end{enumerate}
+	\end{multicols}
+	\loigiai{
+		\begin{enumerate}[a)]
+			\item TXĐ: $\mathscr{D}=\mathbb{R}$.
+			\begin{description}
+				\item[Trường hợp 1.] $m=2$, bất phương trình đã cho tương đương $2(x-2)^2>0 \Leftrightarrow x\ne 2$.\\ Vậy tập nghiệm của bất phương trình là $ S=\mathbb{R}\backslash \{2\} $.
+				\item[Trường hợp 2.] $m<2$. Ta có bảng xét dấu
+				\begin{center}
+					\begin{tikzpicture}
+					\tkzTabInit[lgt=3,espcl=3]{$x$/1, $2x-4$/1, $x-m$/1, $(2x-4)(x-m)$/1}{$-\infty$, $m$, $2$, $+\infty$}
+					\tkzTabLine{ ,-,t,-,$0$,+, }
+					\tkzTabLine{ ,-,$0$,+,t,+, } 
+					\tkzTabLine{ ,+,$0$,-,$0$,+, }
+					\end{tikzpicture}
+				\end{center}
+				Dựa vào bảng xét dấu $(2x-4)(x-m)>0\Leftrightarrow x \in (-\infty;m)\cup (2;+\infty)$. 
+				\item[Trường hợp 3.] $m>2$. Ta có bảng xét dấu
+				\begin{center}
+					\begin{tikzpicture}
+					\tkzTabInit[lgt=3,espcl=3]{$x$/1, $2x-4$/1, $x-m$/1, $(2x-4)(x-m)$/1}{$-\infty$, $2$, $m$, $+\infty$}
+					\tkzTabLine{ ,-,$0$,+,t,+, }
+					\tkzTabLine{ ,-,t,-,$0$,+, } 
+					\tkzTabLine{ ,+,$0$,-,$0$,+, }
+					\end{tikzpicture}
+				\end{center}
+				\noindent Dựa vào bảng xét dấu $(2x-4)(x-m)\Leftrightarrow x \in (-\infty;2)\cup (m;+\infty)$.
+			\end{description}
+			Vậy bất phương trình đã cho luốn có vô số nghiệm, tập nghiệm là
+			\begin{itemize}
+				\item $ S=\mathbb{R}\backslash\{2\}  $ với $m=2$;
+				\item  $S=(-\infty;m)\cup (2;+\infty)$ nếu $m< 2$
+				\item  $S=(-\infty;2)\cup (m;\infty)$ nếu $m>2$.
+			\end{itemize}
+			\item TXĐ: $\mathscr{D}=\mathbb{R}\backslash\{2m-1\} $.
+			\begin{description}
+				\item[Trường hợp 1.] $2m-1=\sqrt{2}\Leftrightarrow m=\dfrac{\sqrt{2}+1}{2}$, bất phương trình đã cho tương đương $$-1\leq 0, \text{ (luôn đúng với mọi $x\in\mathbb{R}$)}.$$
+				\item[Trường hợp 2.] $2m-1<\sqrt{2}\Leftrightarrow m<\dfrac{\sqrt{2}+1}{2}$. Ta có bảng xét dấu
+				\begin{center}
+					\begin{tikzpicture}
+					\tkzTabInit[lgt=3,espcl=3]{$x$/1, $\sqrt{2}-x$/1, $x-2m+1$/1, $\dfrac{\sqrt{2}-x}{x-2m+1}$/1.5}{$-\infty$, $2m-1$, $\sqrt{2}$, $+\infty$}
+					\tkzTabLine{ ,+,t,+,$0$,-, }
+					\tkzTabLine{ ,-,$0$,+,t,+, } 
+					\tkzTabLine{ ,-,d,+,$0$,-, }
+					\end{tikzpicture}
+				\end{center}
+				Dựa vào bảng xét dấu $\dfrac{\sqrt{2}-x}{x-2m+1}\leq 0$ khi $x \in (-\infty;2m-1)\cup x\in [\sqrt{2};+\infty)$.
+				\item[Trường hợp 3.] $2m-1>\sqrt{2}\Leftrightarrow m>\dfrac{\sqrt{2}+1}{2}$. Ta có bảng xét dấu
+				\begin{center}
+					\begin{tikzpicture}
+					\tkzTabInit[lgt=3,espcl=3]{$x$/1, $\sqrt{2}-x$/1, $x-2m+1$/1, $\dfrac{\sqrt{2}-x}{x-2m+1}$/1.5}{$-\infty$, $\sqrt{2}$, $2m-1$, $+\infty$}
+					\tkzTabLine{ ,+,$0$,-,t,-, }
+					\tkzTabLine{ ,-,t,-,$0$,+, } 
+					\tkzTabLine{ ,-,$0$,+,d,-, }
+					\end{tikzpicture}
+				\end{center}
+				Dựa vào bảng xét dấu $\dfrac{\sqrt{2}-x}{x-2m+1}\leq 0$ khi $x \in (-\infty;\sqrt{2}]\cup x\in (2m-1;+\infty)$.
+			\end{description}
+			Vậy bất phương trình đã cho luôn có vô số nghiệm, tập nghiệm
+			\begin{itemize}
+				\item $S=\mathbb{R}$ nếu $m=\dfrac{\sqrt{2}+1}{2}$;
+				\item $S=(-\infty;2m-1)\cup[\sqrt{2};+\infty)$ nếu $m<\dfrac{\sqrt{2}+1}{2}$;
+				\item $S=(-\infty;\sqrt{2}]\cup(2m-1;+\infty)$ nếu $m>\dfrac{\sqrt{2}+1}{2}$.
+			\end{itemize}
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Lê Minh Cường]%[0D4G3]
+	Tìm các giá trị của tham số $m$ sao cho hệ bất phương trình sau có nghiệm
+	$$\begin{cases}
+	\dfrac{-2}{3}x+\dfrac{7}{2}&>\dfrac{1}{3}x+\dfrac{1}{2}\\
+	m^2x+1& \geq m^4-x.
+	\end{cases}$$
+	\loigiai{
+		TXĐ: $\mathscr{D}=\mathbb{R}$.
+		
+		\noindent Ta có 
+		$$\begin{cases}
+		\dfrac{-2}{3}x+\dfrac{7}{2}&>\dfrac{1}{3}x+\dfrac{1}{2}\\
+		m^2x+1& \geq m^4-x\end{cases}
+		\Leftrightarrow \begin{cases} x<3\\ (m^2+1)x\geq m^4-1\end{cases}
+		\Leftrightarrow \begin{cases}x<3\\x\geq m^2-1.\end{cases}$$
+		Do đó hệ bất phương trình có nghiệm khi và chỉ khi
+		\begin{center}
+			$m^2-1 <3 \Leftrightarrow m^2-4<0 \Leftrightarrow (m-2)(m+2)<0$.
+		\end{center}
+		Bảng xét dấu
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[lgt=3,espcl=3]
+			{$m$ /1, $m-2$ /1.25, $m+2$ /1.25, $(m-2)(m+2)$ /1.25} 
+			{$-\infty$,$-2$,$2$,$+\infty$}
+			\tkzTabLine { ,-,t,-,$0$,+, }
+			\tkzTabLine { ,+,$0$,-,t,-, }
+			\tkzTabLine { ,-,$0$,+,$0$,-, }
+			\end{tikzpicture}
+		\end{center}
+		Dựa vào bảng xét dấu ta có $m \in (-\infty; -2)\cup (2; +\infty)$ là các giá trị cần tìm.
+	}
+\end{bt}

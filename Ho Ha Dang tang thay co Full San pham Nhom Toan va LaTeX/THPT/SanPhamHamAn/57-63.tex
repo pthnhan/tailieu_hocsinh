@@ -1,0 +1,354 @@
+\begin{ex}%[WTT Bài toán hàm ẩn, Đặng Mạnh Hùng]%[2D1G2-2]
+\immini{Cho hàm số $ y=f(x)$ có đạo hàm liên tục trên $\mathbb{R}$. Đồ thị hàm số $ y=f'(x)$ như hình vẽ bên. Số điểm cực trị của hàm số $ y=f(x)+2x$ là
+\choice
+{$4$}
+{\True $1$}
+{$3$}
+{$2$}}{	\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.8]
+	\def\xmin{-2}\def\xmax{2}\def\ymin{-2}\def\ymax{2}
+	\draw[thick,->] (\xmin-0.6,0)--(\xmax+0.6,0) node[below] {\footnotesize $x$};
+	\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+	\draw (-0.1,0) node [below right] {\footnotesize $O$};
+	\foreach \x in {\xmin,...,\xmax}{\ifthenelse{\not \x=0}{
+			\draw (\x,-0.1)--(\x,0.1) node [above] {\footnotesize $\x$};}{}}
+	\foreach \y in {\ymin,...,-1} {\draw (-0.1,\y)--(0.1,\y) node [right] {\footnotesize $\y$};}
+	\foreach \y in {1,...,\ymax}{\draw (0.1,\y)--(-0.1,\y) node [left] {\footnotesize $\y$};}
+	\clip (\xmin-0.5,\ymin-0.5) rectangle (\xmax+0.5,\ymax+0.5);
+	\draw[smooth,samples=100,thick,domain=\xmin-0.5:\xmax+0.3] plot(\x,{-1.78*(\x)^(3.0)-1.33*(\x)^(2.0)+2.66*(\x)+0.223});
+	\draw[dashed] (-1,0) -- (-1,-2) -- (0,-2);
+	\draw[dashed] (0,1) -- (0.5,1);
+	\end{tikzpicture}}
+	
+	
+	\loigiai{
+		Xét hàm số $ g(x)=f(x)+2x$. Ta có $ g'(x)=f'(x)+2$. Từ đồ thị hàm số $ f'(x)$ ta thấy:\\
+		\faCheck $\quad g'(x)=0 \Leftrightarrow f'(x)=-2 \Leftrightarrow \hoac{& x=-1 \\ & x=\alpha \quad (\alpha>0).}$\\
+		\faCheck $\quad g'(x)>0 \Leftrightarrow f'(x)>-2 \Leftrightarrow \hoac{& x< \alpha\\ & x\ne -1.}$\\
+		\faCheck $\quad g'(x)< 0\Leftrightarrow f'(x)<-2 \Leftrightarrow x> \alpha$.\\
+		Từ đó suy ra hàm số $ y=f(x)+2x$ liên tục và có đạo hàm chỉ đổi dấu khi qua giá trị $ x=\alpha$.\\
+	Từ đó ta có bảng xét dấu $g'(x)$:
+	\begin{center}
+	\begin{tikzpicture}
+	\tkzTabInit[nocadre=false,lgt=2,espcl=2.1]
+	{$x$ /0.6,$g'(x)$ /0.6}
+	{$-\infty$,$-1$,$\alpha$,$+\infty$}
+	\tkzTabLine{,+,$0$,+,$0$,-,}
+	\end{tikzpicture}
+	\end{center}	
+	Vậy hàm số đã cho có đúng một cực trị.}
+\end{ex}
+\begin{ex}%[WTT Bài toán hàm ẩn, Đặng Mạnh Hùng]%[2D1G2-2]
+\immini{Cho hàm số $ y=f(x)$ xác định và liên tục trên $\mathbb{R}$, có đồ thị của hàm số $y=f'(x)$ như hình vẽ bên. Đặt $ g(x)=f(x)+x$. Tìm số cực trị của hàm số $ g(x)$?
+\choice
+{$1$}
+{\True $2$}
+{$3$}
+{$4$}}{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1]
+\def\xmin{-1}\def\xmax{2}\def\ymin{-2}\def\ymax{2}
+\draw[thick,->] (\xmin-0.6,0)--(\xmax+0.6,0) node[below] {\footnotesize $x$};
+\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+\draw (0,0) node [above left] {\footnotesize $O$};
+\foreach \x in {1,2}{\ifthenelse{\not \x=0}{
+		\draw (\x,0.1)--(\x,-0.1) node [below] {\footnotesize $\x$};}{}}
+\node [below]  at (-1.1,0) {\footnotesize $-1$};
+\foreach \y in {\ymin,...,0,2} {
+	\ifthenelse{\not \y=0}{\draw (0.1,\y)--(-0.1,\y) node [left] {\footnotesize $\y$};}{} }
+\node [left]  at (-0.1,1.1) {\footnotesize $1$};
+\clip (\xmin-0.5,\ymin-0.5) rectangle (\xmax+0.5,\ymax+0.5);
+\draw[dashed] (-1,0) -- (-1,1) -- (2,1) -- (2,0);
+\draw[dashed] (1,0) -- (1,1);
+\draw[thick](-3,1)--(3,1);
+\draw[thick] plot [smooth,samples=50,thick,domain=\xmin-0.5:\xmax+0.3]
+(\x,{(\x+1)*((\x-1)^2)*(\x-2)+1});
+\end{tikzpicture}}
+\loigiai{
+\immini{Ta có $g'(x)=f'(x)+1$.\\ Đồ thị của hàm số $ g'(x)$ là phép tịnh tiến đồ thị của hàm số $ y=f'(x)$ theo phương $ Oy$ lên trên $1$ đơn vị, khi đó đồ thị hàm số $ g'(x)$ cắt trục hoành tại hai điểm phân biệt.}{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1]
+	\def\xmin{-1}\def\xmax{2}\def\ymin{-2}\def\ymax{2}
+	\draw[thick,->] (\xmin-0.6,0)--(\xmax+0.6,0) node[below] {\footnotesize $x$};
+	\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+	\draw (0,0) node [above left] {\footnotesize $O$};
+	\foreach \x in {1,2}{\ifthenelse{\not \x=0}{
+			\draw (\x,0.1)--(\x,-0.1) node [below] {\footnotesize $\x$};}{}}
+	\node [below]  at (-1.1,0) {\footnotesize $-1$};
+	\foreach \y in {\ymin,...,0,2} {
+		\ifthenelse{\not \y=0}{\draw (0.1,\y)--(-0.1,\y) node [left] {\footnotesize $\y$};}{} }
+	\node [left]  at (-0.1,1.1) {\footnotesize $1$};
+	\clip (\xmin-0.5,\ymin-0.5) rectangle (\xmax+0.5,\ymax+0.5);
+	%\draw[dashed] (-1,0) -- (-1,1) -- (2,1) -- (2,0);
+	%\draw[dashed] (1,0) -- (1,1);
+	%\draw[thick](-3,1)--(3,1);
+	\draw[thick] plot [smooth,samples=50,thick,domain=\xmin-0.5:\xmax+0.3]
+	(\x,{(\x+1)*((\x-1)^2)*(\x-2)+1});
+	\draw[thick] plot [smooth,samples=50,thick,domain=\xmin-0.5:\xmax+0.3]
+	(\x,{(\x+1)*((\x-1)^2)*(\x-2)});
+	\end{tikzpicture}}
+}
+\end{ex}
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Đặng Mạnh Hùng]%[2D1G2-2]
+\immini{Cho hàm số $ y=f(x)$ có đạo hàm trên và đồ thị hình bên dưới là đồ thị của đạo hàm $ f'\left(x\right)$. Hàm số $g(x)=f(x)+x$ đạt cực tiểu tại điểm
+	\choice
+	{$ x=0$}
+	{\True $ x=1$}
+	{$ x=2$}
+	{Không có điểm cực tiểu}}{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.8]
+	\def\xmin{-1}\def\xmax{2}\def\ymin{-2}\def\ymax{1}
+	\draw[thick,->] (\xmin-0.6,0)--(\xmax+0.6,0) node[below] {\footnotesize $x$};
+	\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+	\draw (-0.1,0.1) node [above left] {\footnotesize $O$};
+	\foreach \x in {\xmin,...,\xmax}{\ifthenelse{\not \x=0}{
+			\draw (\x,-0.1)--(\x,0.1) node [above] {\footnotesize $\x$};}{}}
+	\node [left] at (-0.1,-0.9) {\footnotesize $-1$};
+	\clip (\xmin-0.5,\ymin-0.5) rectangle (\xmax+0.5,\ymax+0.5);
+	\draw[smooth,samples=100,thick,domain=\xmin-0.5:\xmax+0.3]
+	plot(\x,{0-1.2483907078161112*(\x)^(4.0)+3.7930130231037493*(\x)^(3.0)-2.64030411459847*(\x)^(2.0)+0.09568179931083179*(\x)-1.0});
+	
+	\draw[dashed] (0,-1) -- (2,-1) -- (2,0);
+	\draw[dashed] (1,0) -- (1,-1);
+	\end{tikzpicture}}
+	\loigiai{
+		\begin{itemize}
+		\item \textbf{Cách 1:} $g'(x)=f'(x)+1$. Tịnh tiến đồ thị hàm số $ f'(x)$ lên trên $1$ đơn vị ta được đồ thị hàm số $ g'(x)$.
+		
+		\begin{center}{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1.2]
+			\def\xmin{-1}\def\xmax{2}\def\ymin{-2}\def\ymax{1}
+			\draw[thick,->] (\xmin-0.6,0)--(\xmax+0.6,0) node[below] {\footnotesize $x$};
+			\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+			\draw (-0.1,0.1) node [above left] {\footnotesize $O$};
+			\foreach \x in {\xmin,...,\xmax}{\ifthenelse{\not \x=0}{
+					\draw (\x,-0.1)--(\x,0.1) node [above] {\footnotesize $\x$};}{}}
+			\node [left] at (-0.1,-0.9) {\footnotesize $-1$};
+			\clip (\xmin-0.5,\ymin-0.5) rectangle (\xmax+0.5,\ymax+0.5);
+			\draw[smooth,samples=100,thick,domain=\xmin-0.5:\xmax+0.3]
+			plot(\x,{0-1.2483907078161112*(\x)^(4.0)+3.7930130231037493*(\x)^(3.0)-2.64030411459847*(\x)^(2.0)+0.09568179931083179*(\x)-1.0});
+			
+			\draw[smooth,samples=100,thick,domain=\xmin-0.5:\xmax+0.3,shift={(0,1)}]
+			plot(\x,{0-1.2483907078161112*(\x)^(4.0)+3.7930130231037493*(\x)^(3.0)-2.64030411459847*(\x)^(2.0)+0.09568179931083179*(\x)-1.0});
+			\draw[dashed] (0,-1) -- (2,-1) -- (2,0);
+			\draw[dashed] (1,0) -- (1,-1);
+			\end{tikzpicture}}		\end{center}
+		Từ đó ta có bảng biến thiên:
+		\begin{center}	{\begin{tikzpicture}[scale=0.7]
+				\tkzTabInit[nocadre=false, lgt=1, espcl=2.5]{$x$ /1,$y'$ /1,$y$ /2}{$-\infty$,$0$,$1$,$2$,$+\infty$}
+				\tkzTabLine{,-,$0$,-,$0$,+,$0$,-}
+				\tkzTabVar{+ / , R , -/,+/,-/}
+				\end{tikzpicture}}
+			\end{center}
+	\item \textbf{Cách 2:} Ta có $g'(x)=f'(x)+1$; $g'(x)=0\Leftrightarrow f'(x)=-1$. Suy ra số nghiệm của phương trình $g'(x)=0$ chính là số giao điểm giữa đồ thị của hàm số $f'(x)$ và đường thẳng $y=-1$.\newline
+	\begin{center}
+	\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1.2]
+	\def\xmin{-1}\def\xmax{2}\def\ymin{-2}\def\ymax{1}
+	\draw[thick,->] (\xmin-0.6,0)--(\xmax+0.6,0) node[below] {\footnotesize $x$};
+	\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+	\draw (-0.1,0.1) node [above left] {\footnotesize $O$};
+	\foreach \x in {\xmin,...,\xmax}{\ifthenelse{\not \x=0}{
+			\draw (\x,-0.1)--(\x,0.1) node [above] {\footnotesize $\x$};}{}}
+	\node [right] at (-0.1,-0.9) {\footnotesize $-1$};
+	\clip (\xmin-0.5,\ymin-0.5) rectangle (\xmax+0.5,\ymax+0.5);
+	\draw[smooth,samples=100,thick,domain=\xmin-0.5:\xmax+0.3]
+	plot(\x,{0-1.2483907078161112*(\x)^(4.0)+3.7930130231037493*(\x)^(3.0)-2.64030411459847*(\x)^(2.0)+0.09568179931083179*(\x)-1.0});
+	\draw[thick] (-1.9,-1) -- (2,-1)--(2.6,-1);
+	\node [above] at (-1,-0.99) {\footnotesize $y=-1$};
+	\draw[dashed] (0,-1) -- (2,-1) -- (2,0);
+	\draw[dashed] (1,0) -- (1,-1);
+	\end{tikzpicture}	
+	\end{center}
+			Dựa vào đồ thị ta suy ra $g'(x)=0\Leftrightarrow \hoac{& x=0 \\ & x=1 \\ & x=2}$.\\
+			Lập bảng biến thiên cho hàm $ g(x)$ ta thấy $g(x)$ đạt cực tiểu tại $x=1$.
+		\end{itemize}
+		\begin{note}
+			Cách xét dấu bảng biến thiên như sau: Ví dụ trên khoảng $(-\infty ;0)$ ta thấy đồ thị hàm $f'(x)$ nằm phía dưới đường $y=-1$ nên $g'(x)$ mang dấu \lq \lq - \rq \rq.
+		\end{note}
+	}
+	
+\end{ex}
+
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Đặng Mạnh Hùng]%[2D1G2-2]
+\immini{Cho hàm số $ y=f(x)$ có đạo hàm trên và đồ thị hình bên là đồ thị của đạo hàm $ f'(x)$. Hỏi hàm số $g(x)=f(x)+3x$ có bao nhiêu điểm cực trị ?
+\choice
+{$2$}
+{\True $3$}
+{$4$}
+{$7$}}{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1]
+\def\xmin{-1}\def\xmax{3}\def\ymin{-4}\def\ymax{1}
+\draw[thick,->] (\xmin-0.6,0)--(\xmax+0.6,0) node[below] {\footnotesize $x$};
+\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+\draw (-0.1,0) node [below right] {\footnotesize $O$};
+\foreach \x in {\xmin,...,\xmax}{\ifthenelse{\not \x=0}{
+		\draw (\x,-0.1)--(\x,0.1) node [above] {\footnotesize $\x$};}{}}
+\foreach \y in {-4,-2,-1,1} {\draw (-0.1,\y)--(0.1,\y) node [right] {\footnotesize $\y$};}
+\node [right] at (0.1,-2.7) {\footnotesize $-3$}; 
+\clip (\xmin-0.5,\ymin-0.5) rectangle (\xmax+0.5,\ymax+0.5);
+\draw[smooth,samples=100,thick,domain=-1.2:2.5,] plot(\x,{(\x + 1)*(\x)*(\x - 1)*(\x - 2)^2-3.0});
+
+\draw[dashed] (-1,0) -- (-1,-3) -- (2,-3)--(2,0);
+\draw[dashed] (1,0) -- (1,-3);
+\end{tikzpicture}}
+\loigiai{
+	Ta có $g'(x)=f'(x)+3$; $g'(x)=0\Leftrightarrow f'(x)=-3$. Suy ra số nghiệm của phương trình $g'(x)=0$ chính là số giao điểm giữa đồ thị của hàm số $f'(x)$ và đường thẳng $y=-3$.
+	
+\begin{center}
+\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1]
+\def\xmin{-1}\def\xmax{3}\def\ymin{-4}\def\ymax{1}
+\draw[thick,->] (\xmin-0.6,0)--(\xmax+0.6,0) node[below] {\footnotesize $x$};
+\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+\draw (-0.1,0) node [below right] {\footnotesize $O$};
+\foreach \x in {\xmin,...,\xmax}{\ifthenelse{\not \x=0}{
+		\draw (\x,-0.1)--(\x,0.1) node [above] {\footnotesize $\x$};}{}}
+\foreach \y in {-4,-2,-1,1} {\draw (-0.1,\y)--(0.1,\y) node [right] {\footnotesize $\y$};}
+\node [right] at (0.1,-2.7) {\footnotesize $-3$}; 
+\clip (\xmin-0.5,\ymin-0.5) rectangle (\xmax+0.5,\ymax+0.5);
+\draw[smooth,samples=100,thick,domain=-1.2:2.5,] plot(\x,{(\x + 1)*(\x)*(\x - 1)*(\x - 2)^2-3.0});
+\draw[thick] (-1.9,-3) -- (2,-3)--(3.5,-3);
+\node [above] at (2.8,-2.999) {\footnotesize $y=-3$};
+\draw[dashed] (-1,0) -- (-1,-3) -- (2,-3)--(2,0);
+\draw[dashed] (1,0) -- (1,-3);
+\end{tikzpicture}
+\end{center}	
+Dựa vào đồ thị ta suy ra $g'(x)=0\Leftrightarrow \hoac{& x=-1\\& x=0\\ & x=1 \\& x-2}$. Ta thấy $x=-1$ ,$x=0$, $x=1$ là các nghiệm đơn và $x=2$ là nghiệm kép nên đồ thị hàm số $g(x)=f(x)+3x$ có $3$ điểm cực trị. 
+}
+\end{ex}
+
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Đặng Mạnh Hùng]%[2D1G2-2]
+\immini{Cho hàm số $f(x)$ xác định trên $\mathbb{R}$ và có đồ thị $ f'(x)$ như hình vẽ bên . Hàm số $g(x)=f(x)-x$ đạt cực đại tại
+	\choice
+	{$x=-1$}
+	{$x=0$}
+	{$x=1$}
+	{$x=2$}}{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.8]
+	\def\xmin{-1}\def\xmax{2}\def\ymin{-2}\def\ymax{2}
+	\draw[thick,->] (\xmin-0.6,0)--(\xmax+0.6,0) node[below] {\footnotesize $x$};
+	\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+	\draw (0,0) node [below left] {\footnotesize $O$};
+	\foreach \x in {\xmin,...,\xmax}{\ifthenelse{\not \x=0}{
+			\draw (\x,0.1)--(\x,-0.1) node [below] {\footnotesize $\x$};}{}}
+	\foreach \y in {\ymin,...,\ymax} {
+		\ifthenelse{\not \y=0}{\draw (0.1,\y)--(-0.1,\y) node [left] {\footnotesize $\y$};}{} }
+	\clip (\xmin-0.5,\ymin-0.5) rectangle (\xmax+0.5,\ymax+0.5);
+
+	\draw[dashed] (-1,0) -- (-1,1) -- (2,1) -- (2,0);
+	\draw[dashed] (1,0) -- (1,1);
+\draw[thick] plot [smooth,samples=50,thick,domain=\xmin-0.5:\xmax+0.3]
+(\x,{(\x+1)*((\x-1)^2)*(\x-2)});
+	\end{tikzpicture}}
+	\loigiai{
+		\begin{itemize}
+			\item \textbf{Cách 1:} Ta có $g'(x)=f'(x)-1$; $g'(x)=0 \Leftrightarrow f'(x)=1$. Suy ra số nghiệm của phương trình $g'(x)=0$ chính là số giao điểm giữa đồ thị của hàm số $f'(x)$ và đường thẳng $y=1$.
+		\begin{center}
+			\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1]
+			\def\xmin{-1}\def\xmax{2}\def\ymin{-2}\def\ymax{2}
+			\draw[thick,->] (\xmin-1.5,0)--(\xmax+0.6,0) node[below] {\footnotesize $x$};
+			\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+			\draw (0,0) node [below left] {\footnotesize $O$};
+			\foreach \x in {\xmin,...,\xmax}{\ifthenelse{\not \x=0}{
+					\draw (\x,0.1)--(\x,-0.1) node [below] {\footnotesize $\x$};}{}}
+			\foreach \y in {\ymin,...,\ymax} {
+				\ifthenelse{\not \y=0}{\draw (0.1,\y)--(-0.1,\y) node [left] {\footnotesize $\y$};}{} }
+			\clip (\xmin-1.5,\ymin-0.5) rectangle (\xmax+0.5,\ymax+0.5);
+				\draw[thick] (-2.9,1) -- (2,1)--(3,1);
+			\node [above] at (-1.7,1) {\footnotesize $y=1$};
+			\draw[dashed] (-1,0) -- (-1,1) -- (2,1) -- (2,0);
+			\draw[dashed] (1,0) -- (1,1);
+			\draw[thick] plot [smooth,samples=50,thick,domain=\xmin-0.5:\xmax+0.3]
+			(\x,{(\x+1)*((\x-1)^2)*(\x-2)});
+			\end{tikzpicture}
+		\end{center}
+			
+			 Dựa vào đồ thị ta suy ra $g'(x)=0 \Leftrightarrow \hoac{& x=-1\\ & x=1 \\ & x=2}$.\\ Ta có bảng biến thiên:
+			\begin{center} 
+				{\begin{tikzpicture}[scale=0.7]
+					\tkzTabInit[nocadre=false, lgt=1, espcl=2.5]{$x$ /1,$y'$ /1,$y$ /2}{$-\infty$,$-1$,$1$,$2$,$+\infty$}
+					\tkzTabLine{,+,$0$,-,$0$,-,$0$,+}
+					\tkzTabVar{-/, + / , R ,-/, +/}
+					\end{tikzpicture}}
+			\end{center}
+Dựa vào bảng biến thiên ta thấy $g(x)$ đạt cực đại tại $x=-1$.\\
+			\begin{note}
+				Cách xét dấu bảng biến thiên như sau: Ví dụ trên khoảng $(-\infty;-1)$ ta thấy hàm số $f'(x)$ nằm phía trên đường thẳng $y=1$ nên $g'(x)$ mang dấu \lq \lq + \rq \rq.
+			\end{note}
+			\item \textbf{Cách 2:} Ta có $ g'(x)=f'(x)-1$. Đồ thị của hàm số $ g'(x)$ là phép tịnh tiến đồ thị của hàm số $ f'(x)$ theo phương $ Oy$ xuống dưới $1$ đơn vị.
+\begin{center}
+	\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.8]
+	\def\xmin{-1}\def\xmax{2}\def\ymin{-2}\def\ymax{2}
+	\draw[thick,->] (\xmin-0.6,0)--(\xmax+0.6,0) node[below] {\footnotesize $x$};
+	\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+	\draw (0,0) node [below left] {\footnotesize $O$};
+	\foreach \x in {\xmin,...,\xmax}{\ifthenelse{\not \x=0}{
+			\draw (\x,0.1)--(\x,-0.1) node [below] {\footnotesize $\x$};}{}}
+	\foreach \y in {\ymin,...,\ymax} {
+		\ifthenelse{\not \y=0}{\draw (0.1,\y)--(-0.1,\y) node [left] {\footnotesize $\y$};}{} }
+	\clip (\xmin-0.5,\ymin-1.0) rectangle (\xmax+0.5,\ymax+0.5);
+	
+	\draw[dashed] (-1,0) -- (-1,1) -- (2,1) -- (2,0);
+	\draw[dashed] (1,0) -- (1,1);
+\draw[thick] plot [smooth,samples=50,thick,domain=\xmin-0.5:\xmax+0.3]
+(\x,{(\x+1)*((\x-1)^2)*(\x-2)});
+	\end{tikzpicture}
+\end{center}
+			Ta thấy giá trị hàm số $ g'(x)$ đổi dấu từ dương sang âm khi qua điểm $x=-1$.
+		\end{itemize}
+	}
+\end{ex}
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Đặng Mạnh Hùng]%[2D1G2-2]
+\immini{Cho hàm số $ f(x)$ xác định trên $\mathbb{R}$ và có đồ thị của hàm số $ f'(x)$ như hình vẽ. Hàm số $ y=g(x)=f(x)-3x$ có bao nhiêu điểm cực trị?
+	\choice
+	{$1$}
+	{$2$}
+	{\True $3$}
+	{$4$}}{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.7]
+	\def\xmin{-3}\def\xmax{1}\def\ymin{-1}\def\ymax{5}
+	\draw[thick,->] (\xmin-0.6,0)--(\xmax+0.6,0) node[below] {\footnotesize $x$};
+	\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+	\draw (0,0) node [below right] {\footnotesize $O$};
+	\foreach \x in {\xmin,...,\xmax}{\ifthenelse{\not \x=0}{
+			\draw (\x,0.1)--(\x,-0.1) node [below] {\footnotesize $\x$};}{}}
+	\foreach \y in {\ymin,...,\ymax} {
+		\ifthenelse{\not \y=0}{\draw (-0.1,\y)--(0.1,\y) node [right] {\footnotesize $\y$};}{} }
+	\clip (\xmin-0.5,\ymin-0.5) rectangle (\xmax+0.5,\ymax+0.5);
+	\draw[dashed] (-2,0) -- (-2,4) --(0,4);
+	\draw[smooth,samples=100,thick,domain=-3.5:2,] plot(\x,{(\x)^(3.0)+3*(\x)^(2.0)});
+	\end{tikzpicture}}
+	\loigiai{
+	\immini{Ta có $ y'=g'(x)=f'(x)-3$ có đồ thị là phép tịnh tiến đồ thị của hàm số $ f'(x)$ theo phương $ Oy$ xuống dưới $3$ đơn vị. Khi đó đồ thị hàm số $ g'(x)$ cắt trục hoành tại $3$ điểm.}{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.7]
+		\def\xmin{-3}\def\xmax{1}\def\ymin{-3}\def\ymax{5}
+		\draw[thick,->] (\xmin-0.6,0)--(\xmax+0.6,0) node[below] {\footnotesize $x$};
+		\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+		\draw (0,0) node [below right] {\footnotesize $O$};
+		\foreach \x in {\xmin,...,\xmax}{\ifthenelse{\not \x=0}{
+				\draw (\x,0.1)--(\x,-0.1) node [below] {\footnotesize $\x$};}{}}
+		\foreach \y in {\ymin,...,\ymax} {
+			\ifthenelse{\not \y=0}{\draw (-0.1,\y)--(0.1,\y) node [right] {\footnotesize $\y$};}{} }
+		\clip (\xmin-0.5,\ymin-0.5) rectangle (\xmax+0.5,\ymax+0.5);
+		\draw[dashed] (-2,0) -- (-2,4) --(0,4);
+		\draw[smooth,samples=100,thick,domain=-3.5:2,] plot(\x,{(\x)^(3.0)+3*(\x)^(2.0)});
+		\draw[smooth,samples=100,thick,domain=-3.5:2,shift={(0,-3)}] plot(\x,{(\x)^(3.0)+3*(\x)^(2.0)});
+		\end{tikzpicture}}}
+\end{ex}
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Đặng Mạnh Hùng]%[2D1G2-2]
+\immini{Cho hàm số $ y=f(x)$ có đạo hàm liên tục trên $\mathbb{R}$ .Đồ thị hàm số $ y=f'(x)$ như hình vẽ bên. Hỏi số điểm cực trị của hàm số $ g(x)=f(x)-5x$ là
+	\choice
+	{$2$}
+	{$3$}
+	{$4$}
+	{\True $1$}}{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.8]
+	\def\xmin{-2}\def\xmax{2}\def\ymin{-1}\def\ymax{4}
+	\draw[thick,->] (\xmin-0.6,0)--(\xmax+0.6,0) node[below] {\footnotesize $x$};
+	\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+	\draw (0,0) node [below right] {\footnotesize $O$};
+	\foreach \x in {\xmin,...,\xmax}{\ifthenelse{\not \x=0}{
+			\draw (\x,0.1)--(\x,-0.1) node [below] {\footnotesize $\x$};}{}}
+	\foreach \y in {\ymin,...,\ymax} {
+		\ifthenelse{\not \y=0}{\draw (-0.1,\y)--(0.1,\y) node [right] {\footnotesize $\y$};}{} }
+	\clip (\xmin-0.5,\ymin-0.5) rectangle (\xmax+0.5,\ymax+0.5);
+	\draw[dashed] (-1,0) -- (-1,4) --(0,4);
+	\draw[smooth,samples=100,thick,domain=-2.5:2.5] plot(\x,{(\x)^(3.0)-3*(\x)+(2.0)});
+	\end{tikzpicture}}
+	\loigiai{
+		Ta có $ g'(x)=f'(x)-5$. Khi đó đồ thị hàm số $y'=f'(x)$ dịch chuyển  theo phương trục $ Oy$ xuống dưới $5$ đơn vị ta được đồ thị hàm số $g'(x)$.\\
+		Khi đó: $ g'(x)=0$ cắt trục hoành tại $1$ điểm duy nhất.Vậy số điểm cực trị là 1.
+	}
+\end{ex}

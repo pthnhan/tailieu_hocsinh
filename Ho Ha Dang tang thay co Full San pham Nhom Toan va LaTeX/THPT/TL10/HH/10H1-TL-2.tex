@@ -1,0 +1,1602 @@
+\section{TỔNG VÀ HIỆU CỦA HAI VECTƠ}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Định nghĩa tổng và hiệu hai véc-tơ}
+\begin{dn}[Phép cộng]
+	Cho hai véc-tơ $\overrightarrow{a}$ và $\overrightarrow{b}$. 
+	Với điểm $A$ bất kỳ, dựng $\overrightarrow{AB}=\overrightarrow{a}$, dựng $\overrightarrow{BC}=\overrightarrow{b}$. Khi đó, véc-tơ $\overrightarrow{AC}$ được gọi là véc-tơ tổng của $\overrightarrow{a}$ và $\overrightarrow{b}$. \\Ta ký hiệu: $\overrightarrow{a}+\overrightarrow{b}$, tức là: $\overrightarrow{a}+\overrightarrow{b}=\overrightarrow{AB}+\overrightarrow{BC}=\overrightarrow{AC}$.
+\begin{center}
+	\begin{tikzpicture}[>=stealth,scale=.7]
+	\tkzInit[xmin=-.5,xmax=14,ymin=-2.5,ymax=5]\tkzClip \tkzGrid[color=black!10]
+	\tkzDefPoints{0/0/A1,2/4/A2,2/2/B1,7/-2/B2,6/0/A}%,8/4/B,13/0/C}
+	\tkzDefPointBy[translation=from A1 to A](A2)\tkzGetPoint{B}
+	\tkzDefPointBy[translation=from A1 to A](B2)\tkzGetPoint{C}
+	\tkzDefMidPoint(A1,A2)\tkzGetPoint{a}
+	\tkzDefMidPoint(B1,B2)\tkzGetPoint{b}
+	\tkzDefMidPoint(A,B)\tkzGetPoint{c}
+	\tkzDefMidPoint(B,C)\tkzGetPoint{d}
+	\tkzDefMidPoint(A,C)\tkzGetPoint{e}
+	%\tkzDefShiftPoint[A](\a,\b){B}
+	%\tkzDefShiftPoint[B](\b+2,0){C}
+	\tkzDrawVectors[>=stealth](A1,A2 B1,B2 A,B B,C A,C)
+	\tkzLabelPoint[left](a){$\vec{a}$}	\tkzLabelPoint[above,rotate=-45](b){$\vec{b}$}
+	\tkzLabelPoint[left](c){$\vec{a}$}	\tkzLabelPoint[above,rotate=-45](d){$\vec{b}$}
+	\tkzLabelPoint[above,rotate=-15](e){$\vec{a}+\vec{b}$}
+	\tkzLabelPoints[above](B)
+	\tkzLabelPoints[left](A)\tkzLabelPoints[right](C)
+	\end{tikzpicture}
+\end{center}
+Phép toán tìm tổng của hai véc-tơ còn gọi là \textbf{phép cộng véc-tơ}.
+\end{dn}
+\begin{dn}[Véc-tơ đối]
+	Cho véc-tơ $\vec{a}$, véc-tơ có cùng độ dài và ngược hướng với  $\vec{a}$
+ được gọi là véc-tơ đối của $\vec{a}$, ký hiệu là $-\vec{a}$.
+ \begin{center}
+ 	\begin{tikzpicture}[>=stealth,scale=.7]
+ 	\tkzInit[xmin=-.5,xmax=7,ymin=-.5,ymax=3]\tkzClip \tkzGrid[color=black!10]
+ 	\tkzDefPoints{0/0/A1,5/0/A2,1/2/B1}%,6/2/B2}
+ 	\tkzDefPointBy[translation=from A1 to B1](A2)\tkzGetPoint{B2}
+ 	\tkzDefMidPoint(A1,A2)\tkzGetPoint{a}
+ 	\tkzDefMidPoint(B1,B2)\tkzGetPoint{b}
+ 	\tkzDrawVectors[>=stealth](A1,A2 B2,B1)
+ 	\tkzLabelPoint[above](a){$\vec{a}$}	\tkzLabelPoint[above](b){$-\vec{a}$}
+ 	\end{tikzpicture}
+ 	\end{center}
+\end{dn}
+\begin{dn}[Phép trừ]
+	Cho hai véc-tơ $\overrightarrow{a}$ và $\overrightarrow{b}$. Phép phép trừ của  $\vec{a}$ với $\vec{b}$ được định nghĩa là phép cộng của $\vec{a}$ với $-\vec{b}$. \\Ký hiệu $\vec{a}-\vec{b}=\vec{a}+(-\vec{b})$.
+\end{dn}
+\subsubsection{Quy tắc hình bình hành}
+Cho hình bình hành $ABCD$, khi đó \begin{itemize}
+	\item $\overrightarrow{AC}=\overrightarrow{AB}+\overrightarrow{AD}$ %(cộng hai cạnh bên bằng đường chéo).
+	\item $\overrightarrow{AB}-\overrightarrow{AD}=\overrightarrow{DB}$ %(hiệu cùng gốc bằng cuối trừ đầu).
+\end{itemize}
+\begin{center}
+	\begin{tikzpicture}[>=stealth,scale=.7]
+	\tkzInit[xmin=-1,xmax=8,ymin=-1,ymax=4]\tkzClip \tkzGrid[color=black!10]
+	\tkzDefPoints{0/0/A,2/3/B,5/0/D}
+	\tkzDefPointBy[translation=from A to D](B)\tkzGetPoint{C}
+	\tkzDrawVectors[>=stealth](A,C A,B A,D D,B)
+	\tkzDrawSegments(B,C C,D)
+	\tkzLabelPoints[above](B)
+	\tkzLabelPoints[left](A)\tkzLabelPoints[right](C,D)
+	\end{tikzpicture}
+\end{center}
+\subsubsection{Các tính chất của phép cộng, trừ hai véc-tơ}
+\begin{tc}
+(giao hoán và kết hợp) \begin{multicols}{2}
+\begin{enumerate}
+	\item $\vec{a}+\vec{b}=\vec{b}+\vec{a}$,
+	\item  $\vec{a}+(\vec{b}+\vec{c})=(\vec{a}+\vec{b})+\vec{c}$.
+\end{enumerate}
+\end{multicols}
+\end{tc}
+\begin{tc}(véc-tơ đối)
+\begin{multicols}{3}
+\begin{enumerate}
+	\item  $-\vec{0}=\vec{0}$
+	\item  $\vec{a}-\vec{b}=-(\vec{b}-\vec{a})$,
+	\item $-\vec{AB}=\vec{BA}$.
+\end{enumerate}
+\end{multicols}
+\end{tc}
+\begin{tc}
+(cộng với véc-tơ $\vec{0}$) $\vec{a}+\vec{0}=\vec{0}+\vec{a}=\vec{a}$.
+\end{tc}
+\begin{tc}
+	 Cho $ 3 $ điểm $A,B,C$ ta có: \begin{multicols}{2}
+\begin{enumerate}
+	\item $\vec{AB}+\vec{BC}=\vec{AC}$ (quy tắc 3 điểm),  
+	\item $\vec{AB}-\vec{AC}=\vec{CB}$ (quy tắc trừ).
+\end{enumerate}
+	 \end{multicols}
+\end{tc}
+\begin{tc}
+		\begin{enumerate}
+		\item (quy tắc trung điểm) $ I $ là trung điểm $ AB $ $\Leftrightarrow \overrightarrow{IA}+\overrightarrow{IB}=\overrightarrow{0}$,
+		\item (quy tắc trọng tâm) $ G $ là trọng tâm $\triangle ABC$ $\Leftrightarrow \overrightarrow{GA}+\overrightarrow{GB}+\overrightarrow{GC}=\overrightarrow{0}$.
+	\end{enumerate}
+\end{tc}
+\subsection{Các dạng toán}
+\begin{dang}{Xác định véc-tơ}
+Dựa vào quy tắc cộng, trừ, quy tắc 3 điểm, hình bình hành, ta biến đổi và dựng hình để xác định các véc-tơ. Chú ý các quy tắc sau đây.
+\begin{multicols}{2}
+\begin{enumerate}
+	\item $-\vec{AB}=\vec{BA}$.
+	\item $\vec{AB}+\vec{BC}=\vec{AC}$ (quy tắc 3 điểm). 
+	\item $\vec{AB}-\vec{AC}=\vec{CB}$ (quy tắc trừ).
+	\item $\vec{AB}+\vec{AD}=\vec{AC}$ ($ABCD$ là hình bình hành).
+\end{enumerate}
+\end{multicols}
+	
+\end{dang}
+
+\begin{vd}%[Hồ Hà Đặng]%[0H1B2]
+	Cho tam giác $ABC$.
+	\begin{multicols}{2}
+\begin{enumerate}
+	\item Xác định véc-tơ $\vec{a}=\vec{AB}+\vec{BC}$.
+	\item Xác định véc-tơ $\vec{b}=\vec{AB}-\vec{AC}$.
+	\item Xác định véc-tơ $\vec{c}=\vec{AB}+\vec{AC}$.
+\end{enumerate}
+	\end{multicols}
+\loigiai{
+\immini{Ta có
+	\begin{enumerate}
+	\item $\vec{a}=\vec{AB}+\vec{BC}=\vec{AC}$.
+	\item $\vec{b}=\vec{AB}-\vec{AC}=\vec{CB}$.
+	\item $\vec{c}=\vec{AB}+\vec{AC}=\vec{AD}$, với $ABDC$ là hình bình hành.
+\end{enumerate}
+}{
+	\begin{tikzpicture}[>=stealth,scale=.7]
+	\tkzInit[xmin=4,xmax=14,ymin=-1.5,ymax=5]\tkzClip \tkzGrid[color=black!10]
+	\tkzDefPoints{0/0/A1,2/4/A2,2/2/B1,4/-1/B2,6/0/A}%,8/4/B,13/0/C}
+	\tkzDefPointBy[translation=from A1 to A](A2)\tkzGetPoint{B}
+	\tkzDefPointBy[translation=from A1 to A](B2)\tkzGetPoint{C}
+	\tkzDefPointBy[translation=from A to B](C)\tkzGetPoint{D}
+	\tkzDefMidPoint(A,C)\tkzGetPoint{c}
+\tkzDefPointWith[linear,K=.75](C,B)\tkzGetPoint{d}
+\tkzDefPointWith[linear,K=.75](A,D)\tkzGetPoint{f}
+	\tkzDrawVectors[>=stealth](A,B C,B A,C A,D)
+	\tkzDrawSegments[dashed](C,D D,B)
+	\tkzLabelPoint[left](d){$\vec{b}$}
+	\tkzLabelPoint[above](c){$\vec{a}$}
+	\tkzLabelPoint[above](f){$\vec{c}$}	
+	\tkzLabelPoints[above](B,D)
+	\tkzLabelPoints[left](A)\tkzLabelPoints[right](C)
+	\end{tikzpicture}
+}
+}
+\end{vd}
+\begin{vd}%[Hồ Hà Đặng]%[0H1B2]
+Cho hình bình hành $ABCD$, có tâm $O$. Hãy xác định các véc-tơ sau đây:
+\begin{multicols}{2}
+\begin{enumerate}
+	\item $\vec{x}=\vec{AB}+\vec{AD}$.
+	\item $\vec{y}=\vec{AO}+\vec{CD}$.
+	\item $\vec{z}=\vec{CD}-\vec{AC}$.
+	\item $\vec{t}=\vec{OA}-\vec{BD}$.
+\end{enumerate}
+\end{multicols}
+\loigiai{
+		\begin{tikzpicture}[>=stealth,scale=.7]
+	\tkzInit[xmin=-5,xmax=7,ymin=-4,ymax=4]\tkzClip \tkzGrid[color=black!10]
+	\tkzDefPoints{0/0/A,4/0/B,2/3/D}%,8/4/B,13/0/C}
+	\tkzDefPointBy[translation=from A to B](D)\tkzGetPoint{C}
+	\tkzDefPointBy[translation=from C to D](A)\tkzGetPoint{E}
+	
+	\tkzDefMidPoint(A,C)\tkzGetPoint{O}
+	\tkzDefPointBy[translation=from O to B](B)\tkzGetPoint{F}
+	\tkzDefPointBy[translation=from O to A](F)\tkzGetPoint{H}
+	%\tkzDefPointWith[linear,K=.75](C,B)\tkzGetPoint{d}
+	%\tkzDefPointWith[linear,K=.75](A,D)\tkzGetPoint{f}
+	\tkzDrawVectors[>=stealth](A,B A,D A,C C,E B,F O,H)%a
+	\tkzDrawSegments[](A,B B,C C,D D,A A,C B,D)
+	\tkzDrawSegments[dashed](A,E D,E A,H F,H)
+	%\tkzLabelPoint[left](d){$\vec{b}$}
+	%\tkzLabelPoint[above](c){$\vec{a}$}
+	%\tkzLabelPoint[above](f){$\vec{c}$}	
+	\tkzLabelPoints[above](O,D,C)
+	\tkzLabelPoints[below](A,B,E,F,H)
+	%\tkzLabelPoints[right](C,B)
+	\end{tikzpicture}
+	\begin{enumerate}
+		\item Theo tính chất hình bình hành $\vec{x}=\vec{AB}+\vec{AD}=\vec{AC}$.
+		\item $\vec{y}=\vec{AO}+\vec{CD}=\vec{OC}+\vec{CD}=\vec{OD}$.
+		\item $\vec{z}=\vec{CD}-\vec{AC}=\vec{CD}+\vec{CA}=\vec{CE}$ (dựng hình bình hành $CDEA$).
+		\item $\vec{t}=\vec{OA}-\vec{BD}=\vec{OA}+\vec{DB}=\vec{OA}+\vec{OF}=\vec{OH}$.
+		Trong đó, ta dựng $\vec{OF}=\vec{DB}$  và hình bình hành $OFHA$.
+	\end{enumerate}
+}
+\end{vd}
+\begin{vd}%[Hồ Hà Đặng]%[0H1B2]
+Cho tam giác $ABC$ đều, $G$ là trọng tâm và $M$ là trung điểm cạnh $BC$. Hãy xác định các véc-tơ sau đây:
+\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\vec{GB}+\vec{GC}$.
+		\item $\vec{AG}+\vec{CB}$.
+		\item $\vec{AB}+\vec{MC}$.
+		\item $\vec{AB}+\vec{GB}+\vec{GC}$.
+	\end{enumerate}
+\end{multicols}
+\loigiai{
+	\immini{	
+		\begin{enumerate}
+			\item $\vec{GB}+\vec{GC}=\vec{GK}$ (dựng hình bình hành $GBKC$).
+			\item $\vec{AG}+\vec{CB}=\vec{BF}+\vec{CB}=\vec{CF}$ (dựng $\vec{BF}=\vec{AG}$).
+			\item $\vec{AB}+\vec{MC}=\vec{AB}+\vec{BM}=\vec{AM}$.
+			\item $\vec{AB}+\vec{GB}+\vec{GC}=\vec{AB}+\vec{GK}=\vec{AB}+\vec{BF}=\vec{AF}$.
+	\end{enumerate}}{	\begin{tikzpicture}[>=stealth,scale=.7]
+		\tkzInit[xmin=-3,xmax=6,ymin=-4,ymax=6]\tkzClip \tkzGrid[color=black!10]
+		\tkzDefPoints{0/0/B,5/0/C}%,8/4/B,13/0/C}
+		\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+		\tkzDefTriangle[equilateral](B,C)\tkzGetPoint{A}
+		\tkzDefPointWith[linear,K=.66](A,M)\tkzGetPoint{G}
+		\tkzDefPointBy[translation=from G to M](M)\tkzGetPoint{K}
+		\tkzDefPointBy[translation=from A to G](B)\tkzGetPoint{F}
+		\tkzDrawSegments[](A,B B,C C,A)
+		\tkzDrawVectors[>=stealth](G,C G,B G,K B,F C,F A,G A,F)
+		\tkzLabelPoints[above](A)	\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](G,C)	\tkzLabelPoints[below right](M)
+		\tkzLabelPoints[below](K,F)
+		%\tkzLabelPoints[right](C,B)
+		\end{tikzpicture}
+	}
+
+}
+\end{vd}
+
+\begin{vd}%[Hồ Hà Đặng]%[0H1K2]
+Cho đoạn thẳng $AB$ có trung điểm là $I$. Gọi $M$ là một điểm tùy ý không nằm trên đường thẳng $AB$. Lấy trên tia $MI$ một điểm $N$ sao cho $IN=MI$. Hãy xác định các véc-tơ:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\vec{MA}+\vec{MB}-\vec{MI}$.
+			\item $\vec{AM}+\vec{NI}$.
+		\end{enumerate}
+	\end{multicols}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item $\vec{MA}+\vec{MB}-\vec{MI}=\vec{MN}-\vec{MI}=\vec{IN}$.
+				\item $\vec{AM}+\vec{NI}=\vec{NI}+\vec{NB}=\vec{NK}$.
+		\end{enumerate}}{
+\begin{tikzpicture}[>=stealth,scale=.7]
+\tkzInit[xmin=-5,xmax=6,ymin=-4,ymax=4]\tkzClip \tkzGrid[color=black!10]
+\tkzDefPoints{-3/0/A,0/0/I,3/0/B,2/3/M,-2/-3/N}%,8/4/B,13/0/C}
+\tkzDefPointBy[translation=from N to B](I)\tkzGetPoint{K}
+\tkzDrawSegments[](A,B A,M M,B N,A N,B M,N I,K B,K)
+\tkzDrawVectors[>=stealth](N,K I,N)
+
+\tkzLabelPoints[above](A,K)	\tkzLabelPoints[below right](B)
+\tkzLabelPoints[right](N)	\tkzLabelPoints[below right](M)
+\tkzLabelPoints[below](I)
+\end{tikzpicture}
+}
+	}
+\end{vd}
+\begin{center}
+\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+%DỄ
+\begin{bt}%[Hồ Hà Đặng]%[0H1B2]
+	Cho hình bình hành $ABCD$ có tâm $O$. Xác định các véc-tơ đối của các véc-tơ sau đây:
+\begin{multicols}{2}
+	\begin{enumerate}
+	\item $\vec{OA}$, $\vec{DO}$.
+	\item $\vec{AC}$, $\vec{DA}$.
+\end{enumerate}
+\end{multicols}
+	\loigiai{
+		\begin{multicols}{2}
+			\begin{enumerate}
+				\item $-\vec{OA}=\vec{AO}=\vec{OC}$, $-\vec{DO}=\vec{OD}=\vec{BO}$.
+				\item $-\vec{AC}=\vec{CA}$, $-\vec{DA}=\vec{AD}=\vec{BC}$.
+			\end{enumerate}
+		\end{multicols}
+	}
+\end{bt}
+\begin{bt}%[Hồ Hà Đặng]%[0H1B2]
+Cho hình bình hành $ABCD$ có tâm $O$. Xác định các véc-tơ sau đây:
+\begin{multicols}{2}
+\begin{enumerate}
+	\item $\vec{OA}+\vec{OB}+\vec{OC}+\vec{OD}$.
+	\item $\vec{OA}+\vec{BO}+\vec{CO}+\vec{DO}$.
+	\item $\vec{AC}+\vec{BD}+\vec{BA}+\vec{DA}$.
+	\item $\vec{OA}+\vec{CB}+\vec{OC}+\vec{AD}$.
+\end{enumerate}
+\end{multicols}
+\loigiai{
+\begin{enumerate}
+	\item $\vec{OA}+\vec{OB}+\vec{OC}+\vec{OD}=\vec{0}$.
+	\item $\vec{OA}+\vec{BO}+\vec{CO}+\vec{DO}=\vec{CO}+\vec{OA}+\vec{BO}+\vec{DO}=\vec{CA}$.
+	\item $\vec{AC}+\vec{BD}+\vec{BA}+\vec{DA}=\vec{BA}+\vec{AC}+\vec{BD}+\vec{DA}=\vec{AC}+\vec{BA}=\vec{BC}$.
+	\item $\vec{OA}+\vec{OC}+\vec{CB}+\vec{AD}=\vec{0}$.
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}%[Hồ Hà Đặng]%[0H1K2]
+Cho tam giác $ABC$. Tìm véc-tơ $\vec{x}$ trong các trường hợp:
+\begin{multicols}{2}
+\begin{enumerate}
+	\item $\vec{x}+\vec{BC}=\vec{AC}+\vec{BA}$.
+	\item $\vec{CA}-\vec{x}-\vec{CB}=\vec{AB}$.
+\end{enumerate}
+\end{multicols}
+\loigiai{
+\begin{enumerate}
+	\item $\vec{x}=\vec{AC}+\vec{BA}+\vec{CB}=\vec{0}$.
+	\item $\vec{x}=\vec{CA}-\vec{CB}+\vec{BA}=\vec{BA}+\vec{BA}=\vec{BE}$, với $\vec{AE}=\vec{BA}$.
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}%[Hồ Hà Đặng]%[0H1K2]
+	Cho tam giác $ABC$. Gọi $M,N,P$ lần lượt là trung điểm $BC,AC,AB$. Xác định các véc-tơ sau đây:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\vec{PB}+\vec{MC}+\vec{NA}$.
+			\item $\vec{BA}+\vec{PA}+\vec{CM}$.
+		\end{enumerate}
+	\end{multicols}
+	\loigiai{
+		\begin{enumerate}
+	\item $\vec{PB}+\vec{MC}+\vec{NA}=\vec{AP}+\vec{PN}+\vec{NA}=\vec{0}$.
+	\item $\vec{BA}+\vec{PA}+\vec{CM}=\vec{BA}+\vec{NP}+\vec{PA}=\vec{BA}+\vec{NA}=\vec{ND}$ (dựng thêm điểm $D$ sao cho $\vec{AD}=\vec{BA}$).
+\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Hồ Hà Đặng]%[0H1K2]
+Cho tam giác $ABC$, gọi $M$ là trung điểm $AC$ và $N$ là điểm đối xứng của $B$ qua $M$. Xác định các véc-tơ sau đây:
+\begin{multicols}{2}
+\begin{enumerate}
+	\item $\vec{AB}+\vec{AN}$.
+	\item $\vec{BA}+\vec{CN}$.
+	\item $\vec{AB}+\vec{MC}+\vec{MN}$.
+	\item $\vec{BA}+\vec{BC}-\vec{MN}$.
+\end{enumerate}
+\end{multicols}
+	\loigiai{
+Ta có, tứ giác $BANC$ là hình bình hành.
+\begin{enumerate}
+	\item $\vec{AB}+\vec{AN}=\vec{AC}$ (tính chất hình bình hành $BANC$).
+	\item $\vec{BA}+\vec{CN}=\vec{BE}$ (dựng $\vec{AE}=\vec{CN}$).
+	\item $\vec{AB}+\vec{MC}+\vec{MN}=\vec{AB}+\vec{AM}+\vec{MN}=\vec{AB}+\vec{AN}=\vec{AC}$.
+	\item $\vec{BA}+\vec{BC}-\vec{MN}=\vec{BN}+\vec{NM}=\vec{BM}$.
+\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Hồ Hà Đặng]%[0H1K2]
+	Cho hình lục giác đều $ABCDEF$, gọi $M$, $N$, $P$, $Q$, $R$, $S$ lần lượt là trung điểm $AB$, $BC$, $CD$, $DE$, $EF$, $FA$.
+	Xác định các véc-tơ sau đây:
+	\begin{multicols}{2}
+		\begin{enumerate} 
+			\item $\vec{AD}+\vec{BE}+\vec{CF}-\vec{AE}-\vec{BF}-\vec{CD}$.
+			\item $\vec{MQ}+\vec{RN}+\vec{PS}$.
+		\end{enumerate}
+	\end{multicols}
+	\loigiai{
+		\begin{enumerate} 
+	\item $\vec{AD}+\vec{BE}+\vec{CF}-\vec{AE}-\vec{BF}-\vec{CD}=\vec{ED}+\vec{FE}+\vec{DF}=\vec{0}$.
+	\item $\vec{MQ}+\vec{RN}+\vec{PS}=\vec{BD}+\vec{FB}+\vec{DF}=\vec{0}$.
+\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Hồ Hà Đặng]%[0H1K2]
+	Cho tam giác $ABC$. Gọi $D,E,F$ lần lượt nằm trên cạnh $BC,AC,AB$ sao cho $BD=\dfrac{1}{3}BC$, $CE=\dfrac{1}{3}CA$, $AF=\dfrac{1}{3}AB$. Xác định các véc-tơ sau đây:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\vec{AF}+\vec{BD}+\vec{CE}$
+			\item $\vec{AD}+\vec{BE}+\vec{CF}$
+		\end{enumerate}
+	\end{multicols}
+	\loigiai{
+		\begin{enumerate}
+			\item Lấy thêm các điểm $P,Q$ về phía ngoài cạnh $AB,AC$ sao cho $\vec{CE}=\vec{AP}$, $\vec{QA}=\vec{AF}$. Theo đó, tam giác $APQ$ đồng dạng tam giác $ACB$ nên ta có $\vec{PQ}=\vec{BD}$.
+			Khi đó, $\vec{AF}+\vec{BD}+\vec{CE}=\vec{QA}+\vec{PQ}+\vec{AP}=\vec{0}$.
+			\item $\vec{AD}+\vec{BE}+\vec{CF}=\vec{BD}-\vec{BA}+\vec{CE}-\vec{CB}+\vec{AF}-\vec{AC}=(\vec{BD}+\vec{CE}+\vec{AF})-(\vec{BA}+\vec{CB}+\vec{AC})=\vec{0}$.
+		\end{enumerate}
+	}
+\end{bt}
+
+
+%DẠNG 2.
+
+
+\begin{dang}{Xác định điểm thỏa đẳng thức véc-tơ cho trước}
+	Để xác định điểm $M$ thỏa đẳng thức véc-tơ cho trước, ta làm như sau:
+	\\$\circ$ \textbf{HƯỚNG 1:}\\
+	$-$  Biến đổi đẳng thức véc-tơ đã cho về dạng $\vec{AM}=\vec{v}$, trong đó $A$ là điểm cố định và $\vec{v}$ là véc-tơ cố định.\\
+	$-$  Lấy $A$ làm điểm gốc, dựng véc-tơ bằng $\vec{v}$ thì điểm ngọn chính là điểm $M$ cần tìm.
+	\\$\circ$ \textbf{HƯỚNG 2:}\\
+	$-$  Biến đổi đẳng thức véc-tơ đã cho về dạng $\vec{AM}=\vec{AB}$, trong đó $A,B$ là hai điểm cố định.\\
+	$-$  Khi đó điểm $M$ cần tìm trùng với điểm $B$.
+	\\$\circ$\textbf{HƯỚNG 3:}\\
+	$-$  Biến đổi đẳng thức véc-tơ đã cho về một đẳng thức véc-tơ luôn đúng với mọi điểm $M$.\\
+	$-$  Khi đó điểm $M$ cần tìm là điểm tùy ý.
+	\\$\circ$\textbf{HƯỚNG 4:}\\
+	$-$  Biến đổi đẳng thức véc-tơ đã cho về một đẳng thức véc-tơ luôn sai với mọi điểm $M$.\\
+	$-$  Khi đó không có điểm $M$ nào thỏa điều kiện.
+	\\$\circ$\textbf{HƯỚNG 5:}\\
+	$-$  Biến đổi đẳng thức véc-tơ đã cho về dạng $\left\vert \vec{IM}\right\vert=\left\vert \vec{AB}\right\vert$, trong đó $I,A,B$ là các điểm cố định.\\
+	$-$  Khi đó điểm $M$ cần tìm thuộc đường tròn tâm $I$, bán kính $AB$.
+	\\$\circ$\textbf{HƯỚNG 6:}\\
+	$-$  Biến đổi đẳng thức véc-tơ đã cho về dạng $\left\vert \vec{MA}\right\vert=\left\vert \vec{MB}\right\vert$, trong đó $A,B$ là các điểm cố định phân biệt.\\
+	$-$  Khi đó điểm $M$ cần tìm thuộc đường trung trực của đoạn $AB$.
+
+\end{dang}
+%
+\begin{vd}%[Võ Đông Phước]%[0H1B2]
+	Cho tam giác $ABC$. Tìm điểm $M$ thỏa mãn điều kiện $\vec{BA}+\vec{BC}+\vec{MB}=\vec{0}$.
+	\loigiai{
+		\immini{$\vec{BA}+\vec{BC}+\vec{MB}=\vec{0}\Leftrightarrow \vec{BA}+\vec{MC}=\vec{0} \Leftrightarrow \vec{CM}=\vec{BA}$\\
+			$\Rightarrow$ Điểm $M$ là điểm thứ tư của hình bình hành $ABCM$.}
+		{\begin{tikzpicture}[line cap=round,line join=round]
+			\tkzInit[xmin=-1,xmax=6,ymin=-1,ymax=3]\tkzClip
+			\tkzDefPoints{1/2/A, 0/0/B, 4/0/C}
+			\tkzDefPointBy[translation = from B to A](C) \tkzGetPoint{M}
+			\tkzDrawPoints[fill=black](A,B,C,M)
+			\tkzLabelPoint[ above](A){$A$}
+			\tkzLabelPoint[ above](M){$M$}
+			\tkzLabelPoint[ below](B){$B$}
+			\tkzLabelPoint[ below](C){$C$}
+			\tkzDrawSegments(A,B B,C C,A  A,M M,C) 
+			\end{tikzpicture}}
+	}
+\end{vd}
+%
+\begin{vd}%[Võ Đông Phước]%[0H1B2]
+	Cho tam giác $ABC$. Tìm điểm $M$ thỏa mãn điều kiện $\vec{MA}-\vec{MB}+\vec{MC}=\vec{BC}$.
+	\loigiai{
+		\immini{$\vec{MA}-\vec{MB}+\vec{MC}=\vec{BC}\Leftrightarrow \vec{BA}-\vec{BC}=\vec{CM}\Leftrightarrow \vec{CA}=\vec{CM}$\\
+			$\Rightarrow$ Điểm $M$ trùng với điểm $A$.}
+		{\begin{tikzpicture}[line cap=round,line join=round]
+			\tkzInit[xmin=-1,xmax=5,ymin=-1,ymax=3]\tkzClip
+			\tkzDefPoints{1/2/A, 0/0/B, 4/0/C}
+			\tkzDrawPoints[fill=black](A,B,C)
+			\tkzLabelPoint[ above](A){$A$}
+			\tkzLabelPoint[ below](B){$B$}
+			\tkzLabelPoint[ below](C){$C$}
+			\tkzDrawSegments(A,B B,C C,A) 
+			\end{tikzpicture}}
+	}
+\end{vd}
+%
+\begin{vd}%[Võ Đông Phước]%[0H1B2]
+	Cho tam giác $ABC$. Tìm điểm $M$ thỏa mãn điều kiện $\vec{MA}-\vec{MB}=\vec{AB}$.
+	\loigiai{
+		\immini{$\vec{MA}-\vec{MB}=\vec{AB}\Leftrightarrow \vec{BA}=\vec{AB}$\\
+			$\Rightarrow$ không có $M$ nào thỏa điều kiện bài toán.}
+		{\begin{tikzpicture}[line cap=round,line join=round]
+			\tkzInit[xmin=-1,xmax=5,ymin=-1,ymax=3]\tkzClip
+			\tkzDefPoints{1/2/A, 0/0/B, 4/0/C}
+			\tkzDrawPoints[fill=black](A,B,C)
+			\tkzLabelPoint[ above](A){$A$}
+			\tkzLabelPoint[ below](B){$B$}
+			\tkzLabelPoint[ below](C){$C$}
+			\tkzDrawSegments(A,B B,C C,A) 
+			\end{tikzpicture}}
+	}
+\end{vd}
+%
+\begin{vd}%[Võ Đông Phước]%[0H1K2]
+	Cho tam giác $ABC$. Tìm điểm $M$ thỏa mãn điều kiện $\vert\vec{MA}\vert=\vert\vec{MB}-\vec{MC}\vert$.
+	\loigiai{
+		\immini{$\vert\vec{MA}\vert=\vert\vec{MB}-\vec{MC}\vert \Leftrightarrow \vert \vec{MA}\vert =\vert \vec{CB}\vert\Leftrightarrow MA =CB$\\
+			$\Rightarrow$ Điểm $M$ thuộc đường tròn tâm $A$, bán kính $CB$.}
+		{\begin{tikzpicture}[line cap=round,line join=round]
+			\tkzInit[xmin=-1,xmax=4,ymin=-1,ymax=3.5]\tkzClip
+			\tkzDefPoints{1/1/A, 0/0/B, 2/0/C}
+			\tkzDrawPoints[fill=black](A,B,C)
+			\tkzLabelPoint[ above](A){$A$}
+			\tkzLabelPoint[ below](B){$B$}
+			\tkzLabelPoint[ below](C){$C$}
+			\tkzDrawSegments(A,B B,C C,A) 
+			\tkzDefPointBy[translation = from B to C](A) \tkzGetPoint{M}
+			\tkzDrawPoints[fill=black](M)
+			\tkzLabelPoint[ right](M){$M$}
+			\tkzDrawCircle(A,M)
+			\tkzDrawSegments(A,M C,M) 
+			\end{tikzpicture}}
+	}
+\end{vd}
+%
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Cho $\triangle ABC$. Dựng điểm $M$ thỏa mãn điều kiện
+	\begin{equation}\vec{MA}+\vec{MB}-\vec{MC}=\vec{0}.\tag{1}\end{equation}
+	\loigiai{Ta có $(1)\Leftrightarrow \vec{MA}+ \vec{CB}=\vec{0}\Leftrightarrow \vec{MA}=\vec{BC}$. Vậy bốn điểm $A, C, B, M$ tạo thành hình bình hành.
+	}
+\end{bt}
+
+\begin{bt}%[Võ Đông Phước]%[0H1B2]
+	Cho tam giác $ABC$. Tìm điểm $M$ thỏa mãn điều kiện $\vec{MA}+\vec{MB}-\vec{MC}=\vec{0}$.
+	\loigiai{$\vec{MA}+\vec{MB}-\vec{MC}=\vec{0}\Leftrightarrow \vec{MA}+\vec{CB}=\vec{0}\Leftrightarrow \vec{CB}=\vec{AM}$.\\
+		$\Rightarrow$ Điểm $M$ là đỉnh thứ tư của hình bình hành $ACBM$.
+	}
+\end{bt}
+%
+\begin{bt}%[Võ Đông Phước]%[0H1K2]
+	Cho tam giác $ABC$. Gọi $I$ là trung điểm của cạnh $AC$. Tìm điểm $M$ thỏa mãn điều kiện $\vec{IB}+\vec{AI}-\vec{IC}-\vec{CM}=\vec{0}$.
+	\loigiai{$\vec{IB}+\vec{AI}-\vec{IC}-\vec{CM}=\vec{0}\Leftrightarrow \vec{AB}-\left( \vec{IC}+\vec{CM}\right)=\vec{0}\Leftrightarrow \vec{AB}=\vec{IM}$.\\
+		$\Rightarrow$ $M$ là đỉnh thứ tư của hình bình hành $IABM$.
+	}
+\end{bt}
+%
+\begin{bt}%[Võ Đông Phước]%[0H1G2]
+	Cho tam giác $ABC$. Gọi $I,K$ lần lượt là trung điểm của các đoạn thẳng $BC, AI$. Tìm điểm $M$ thỏa mãn điều kiện $\vec{BA}+\vec{BI}-\vec{BM}+\vec{AK}+\vec{IC}=\vec{0}$.
+	\loigiai{
+		\immini{$\vec{BA}+\vec{BI}-\vec{BM}+\vec{AK}+\vec{IC}=\vec{0} \Leftrightarrow \vec{BA}+\vec{MI}+\vec{AK}+\vec{IC}=\vec{0}$\\
+			$\Leftrightarrow \vec{MC}+\vec{BK}=\vec{0}\Leftrightarrow \vec{CM}=\vec{BK}$\\
+			$\Rightarrow$ Điểm $M$ là đỉnh thứ tư của hình bình hành $CBKM$.}
+		{\begin{tikzpicture}[line cap=round,line join=round]
+			\tkzInit[xmin=-1,xmax=7,ymin=-1,ymax=2.5]\tkzClip
+			\tkzDefPoints{1/2/A, 0/0/B, 4/0/C}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{I}
+			\tkzDefMidPoint(A,I)\tkzGetPoint{K}
+			\tkzDefPointBy[translation = from B to K](C) \tkzGetPoint{M}
+			\tkzDrawPoints[fill=black](A,B,C,M,I,K)
+			\tkzLabelPoint[ above](A){$A$}
+			\tkzLabelPoint[ above](M){$M$}
+			\tkzLabelPoint[ below](B){$B$}
+			\tkzLabelPoint[ below](C){$C$}
+			\tkzLabelPoint[ left](K){$K$}
+			\tkzLabelPoint[below](I){$I$}
+			\tkzDrawSegments(A,B B,C C,A A,I K,M C,M B,K) 
+			\end{tikzpicture}}
+	}
+\end{bt}
+%
+\begin{bt}%[Võ Đông Phước]%[0H1B2]
+	Cho hình bình hành $ABCD$ tâm $O$. Tìm điểm $M$ thỏa mãn điều kiện $\vec{CO}+\vec{BO}=\vec{OM}$.
+	\loigiai{$\vec{CO}+\vec{BO}=\vec{OM}\Leftrightarrow \vec{OA}+\vec{OD}=\vec{OM}\Leftrightarrow \vec{OD}=\vec{AM}$.\\
+		$\Rightarrow$ Điểm $M$ là đỉnh thứ tư của hình bình hành $AODM$.
+	}
+\end{bt}
+%
+\begin{bt}%[Võ Đông Phước]%[0H1B2]
+	Cho hình bình hành $ABCD$. Tìm điểm $M$ thỏa mãn điều kiện $\vec{CA}-\vec{BM}+\vec{BC}+\vec{AD}=\vec{0}$.
+	\loigiai{$\vec{CA}-\vec{BM}+\vec{BC}+\vec{AD}=\vec{0}\Leftrightarrow \vec{CA}-\vec{CM}+\vec{AD}=\vec{0}\Leftrightarrow \vec{MA}+\vec{AD}=\vec{0}\Leftrightarrow \vec{MD}=\vec{0}$.\\
+		$\Rightarrow$ Điểm $M$ trùng với điểm $D$.
+	}
+\end{bt}
+%
+\begin{bt}%[Võ Đông Phước]%[0H1K2]
+	Cho tam giác $ABC$. Gọi $G$ là trọng tâm của tam giác $ABC$. Tìm điểm $M$ thỏa mãn điều kiện $\vec{AB}+\vec{BG}+\vec{CA}-\vec{CM}=\vec{0}$.
+	\loigiai{$\vec{AB}+\vec{BG}+\vec{CA}-\vec{CM}=\vec{0}\Leftrightarrow \vec{AG}-\vec{AM}=\vec{0}\Leftrightarrow \vec{AG}=\vec{AM}$.\\
+		$\Rightarrow$ Điểm $M$ trùng với điểm $G$.
+	}
+\end{bt}
+%
+\begin{bt}%[Võ Đông Phước]%[0H1B2]
+	Cho hình bình hành $ABCD$ tâm $O$. Tìm điểm $M$ thỏa mãn điều kiện $\vec{BA}+\vec{MD}+\vec{DO}=\vec{MA}+\vec{BC}$.
+	\loigiai{$\vec{BA}+\vec{MD}+\vec{DO}=\vec{MA}+\vec{BC}\Leftrightarrow \vec{MA}-\vec{MD}-\vec{DO}=\vec{BA}-\vec{BC}$\\
+		$\Leftrightarrow \vec{DA}-\vec{DO}=\vec{BA}-\vec{BC}\Leftrightarrow \vec{OA}=\vec{CA}$.\\
+		$\Rightarrow$ Không có điểm $M$ nào thỏa điều kiện trên.
+	}
+\end{bt}
+%
+\begin{bt}%[Võ Đông Phước]%[0H1G2]
+	Cho hai điểm $A$ và $B$. Tìm điểm $M$ thỏa mãn điều kiện $\vert\vec{MA}+\vec{MB}\vert =\vert\vec{MA}-\vec{MB}\vert$.
+	\loigiai{
+		\immini{$\vert\vec{MA}+\vec{MB}\vert =\vert\vec{MA}-\vec{MB}\vert \Leftrightarrow MN=BA$.\\
+			Với $N$ là đỉnh thứ tư của hình bình hành $AMBN$. Gọi $O$ là trung điểm của đoạn thẳng $AB$.\\
+			$\Rightarrow 2MO=2OB\Rightarrow MO=OB$.\\ 
+			$\Rightarrow$ Điểm $M$ thuộc đường tròn tâm $O$, bán kính $OB$.}
+		{\begin{tikzpicture}[line cap=round,line join=round]
+			\tkzInit[xmin=-4,xmax=7,ymin=-1,ymax=5]
+			\tkzDefPoints{0/0/A, 4/0/B}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{O}
+			\tkzDrawCircle(O,A)
+			\tkzDefPointBy[rotation = center O angle 30](B) \tkzGetPoint{N}
+			\tkzDefPointBy[translation = from N to A](B) \tkzGetPoint{M}
+			\tkzDrawPoints[fill=black](A,B,O, M,N)
+			\tkzLabelPoint[ left](A){$A$}
+			\tkzLabelPoint[below](M){$M$}
+			\tkzLabelPoint[right](B){$B$}
+			\tkzLabelPoint[ above](N){$N$}
+			\tkzLabelPoint[ below](O){$O$}
+			\tkzDrawSegments(A,B A,N A,M M,N M,B N,B) 
+			\end{tikzpicture}}
+	}
+\end{bt}
+%
+\begin{bt}%[Võ Đông Phước]%[0H1K2]
+	Cho  tam giác $ABC$. Tìm điểm $M$ thỏa mãn điều kiện $\vert\vec{MA}-\vec{CA}\vert =\vert\vec{AC}-\vec{AB}\vert$.
+	\loigiai{$\vert\vec{MA}-\vec{CA}\vert =\vert\vec{AC}-\vec{AB}\vert \Leftrightarrow \vert \vec{MC}\vert=\vert \vec{BC}\vert\Leftrightarrow MC=BC$.\\
+		$\Rightarrow$ Điểm $M$ thuộc đường tròn tâm $C$, bán kính $BC$.
+	}
+\end{bt}
+%
+\begin{bt}%[Võ Đông Phước]%[0H1K2]
+	Cho  tam giác $ABC$. Tìm điểm $M$ thỏa mãn điều kiện $\vert\vec{BA}-\vec{BM}\vert =\vert\vec{MA}+\vec{AC}\vert$.
+	\loigiai{$\vert\vec{BA}-\vec{BM}\vert =\vert\vec{MA}+\vec{AC}\vert \Leftrightarrow MA=MC$.\\
+		$\Rightarrow$ Điểm $M$ thuộc đường trung trực của đoạn thẳng $AC$.
+	}
+\end{bt}
+%
+\begin{bt}%[Võ Đông Phước]%[0H1G2]
+	Cho năm điểm $A,B,C,D,E$. Tìm điểm $M$ thỏa mãn điều kiện $\vec{AD}+\vec{BE}+\vec{CM}=\vec{AE}+\vec{BM}+\vec{CD}$.
+	\loigiai{
+		$\vec{AD}+\vec{BE}+\vec{CM}=\vec{AE}+\vec{BM}+\vec{CD}\Leftrightarrow \vec{AD}-\vec{AE}+\vec{BE}-\vec{BM}+\vec{CM}-\vec{CD}=\vec{0}$\\
+		$\Leftrightarrow \vec{ED}+\vec{ME}+\vec{DM}=\vec{0}\Leftrightarrow \vec{MD}+\vec{DM}=\vec{0}\Leftrightarrow \vec{MM}=\vec{0}$.\\
+		$\Rightarrow$ Điểm $M$ là điểm tùy ý.
+	}
+\end{bt}
+
+
+\begin{dang}{Tính độ dài của tổng và hiệu hai véc-tơ}
+	$-$ Độ dài của véc-tơ bằng độ dài của đoạn thẳng có hai đầu mút là điểm đầu và điểm cuối của véc-tơ đó.
+	\\$-$ Ta thường sử dụng các công thức về cạnh như hệ thức lượng tam giác vuông, định lý Pytago, tính chất tam giác đều, hình chữ nhật, hình vuông,\ldots
+\end{dang}
+
+\begin{vd}%[Lê Quân]%[0H1B2]
+	Cho tam giác đều $ABC$ cạnh $a$. Tính $\left| \overrightarrow{AB}  -  \overrightarrow{AC}\right|$.
+	\loigiai{
+		Ta có $\overrightarrow{AB}  -  \overrightarrow{AC}  =  \overrightarrow{CB}$ nên $\left|  \overrightarrow{AB}  -  \overrightarrow{AC}\right|  =  \left| \overrightarrow{CB}\right|  =  CB  =  a$.
+		
+	}
+\end{vd}
+
+
+\begin{vd}%[Lê Quân]%[0H1B2]
+	Cho hình vuông $ABCD$ cạnh $a$. Tính  $\left| \overrightarrow{DB}  +  \overrightarrow{DC}\right|$.
+	\loigiai{
+		\immini{
+			Vẽ hình bình hành $CDBM$ thì $DM$ cắt $BC$ tại trung điểm $I$ của 
+			mỗi đường.
+			
+			Ta có $\overrightarrow{DB}  +  \overrightarrow{DC}  =  \overrightarrow{DM}$ nên $\left| \overrightarrow{DB}  +  \overrightarrow{DC}\right|  =  DM  =  2DI$
+			
+			Mà $DI^2  =  a^2  +  \left(\dfrac{a}{2}\right)^{2}  =  \dfrac{5}{4}a^2$ nên $\left| \overrightarrow{DB}  +  \overrightarrow{DC}\right|  =  a\sqrt{5}$.}
+		{
+			{
+				\begin{tikzpicture}[scale=0.7]
+				\tkzInit[xmin=-3, ymin=-3,xmax=3,ymax=3]
+				\tkzDefPoints{-2/-2/D, -2/2/A,2/2/B, 2/-2/C}
+				\tkzLabelPoints[above left](A)
+				\tkzLabelPoints[above right](B)
+				\tkzLabelPoints[above left](C)
+				\tkzLabelPoints[above left](D)
+				\tkzDrawSegments[color=black](A,B B,C C,D D,A)
+				\tkzDefMidPoint(B,C)
+				\tkzGetPoint{I}
+				\tkzLabelPoints[above left](I)
+				\tkzDefPointBy[symmetry=center I](D)
+				\tkzGetPoint{M}
+				\tkzDrawPoints(A,B,C,D,I,M)
+				\tkzLabelPoints[above left](M)
+				\tkzDrawSegments[color=black](D,B B,M M,C)
+				\tkzDrawSegments[color=black](D,M)
+				\end{tikzpicture}
+			}
+		}
+	}
+\end{vd}
+
+
+\begin{vd}%[Lê Quân]%[0H1B2]
+	Chứng minh rằng nếu $\triangle ABC$ thỏa mãn $\left|\overrightarrow{AB}+\overrightarrow{AC}\right|=\left|\overrightarrow{AB}-\overrightarrow{AC}\right|$ thì $\Delta ABC$ là tam giác vuông.
+	\loigiai{
+		\immini{Dựng hình bình hành $ABDC$.\\
+			Theo quy tắc hình bình hành ta có $\overrightarrow{AB}  +  \overrightarrow{AC}  =  \overrightarrow{AD}$\\
+			Theo quy tắc hiệu hai véc-tơ ta có $\overrightarrow{AB}  -  \overrightarrow{AC}  =  \overrightarrow{CB}$. \\
+			Từ giả thiết  suy ra $\left| \overrightarrow{AD}\right|  =  \left| \overrightarrow{BC}\right|$, tức là $AD  =  BC$. \\
+			Hình bình hành $ABDC$ có hai đường chéo bằng nhau nên nó là hình chữ nhật, tức là tam giác $ABC$ vuông.}
+		{
+			\begin{tikzpicture}[scale=0.7]
+			\tkzInit[xmin=-3, ymin=-3,xmax=3,ymax=3]
+			\tkzDefPoints{-2/-2/A, -2/2/B,2/2/D, 2/-2/C}
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[above left](B)
+			\tkzLabelPoints[above right](C)
+			\tkzLabelPoints[above right](D)
+			\tkzDrawSegments[color=black](A,B B,C C,A A,D)
+			\tkzDrawSegments[color=black](B,D D,C)
+			\tkzDrawPoints(A,B,C,D)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+
+\begin{vd}%[Lê Quân]%[0H1K2]
+	Cho hình vuông $ABCD$ cạnh $a$. Gọi $M$ là trung điểm của $AB$, $N$ là điểm đối xứng với $C$ qua $D$. Hãy tính độ dài của véc-tơ sau $\overrightarrow{MD}$, $\overrightarrow{MN}$.
+	\loigiai{
+		\immini{
+			Áp dụng Định lý Pytago trong tam giác vuông $MAD$ ta có\\ 
+			$DM^2  =  AM^2  +  AD^2  =  \left(\dfrac{a}{2}\right)^{2}  +  a^2  =  \dfrac{5a^2}{4}\Rightarrow DM  =  \dfrac{a\sqrt{5}}{2}$\\
+			Suy ra $\left| \overrightarrow{MD}\right|  =  MD  =  \dfrac{a\sqrt{5}}{2}$.\\
+			Qua N kẻ đường thẳng song song với $AD$ cắt $AB$ tại $P$.\\
+			Khi đó tứ giác $ADNP$ là hình vuông và $PM  =  PA  +  AM  =  a  +  \dfrac{a}{2}  =  \dfrac{3a}{2}$.\\
+		}{
+			\begin{tikzpicture}[scale=0.7]
+			\tkzInit[xmin=-3, ymin=-3,xmax=3,ymax=3]
+			\tkzDefPoints{-2/-2/A, -2/2/D,2/2/C, 2/-2/B, 0/0/O}
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[above right](B)
+			\tkzLabelPoints[above right](C)
+			\tkzLabelPoints[above right](D)
+			\tkzDrawSegments[color=black](A,B B,C C,A A,D)
+			\tkzDrawSegments[color=black](B,D D,C)
+			\tkzDefMidPoint(A,B)
+			\tkzGetPoint{M}
+			\tkzDefPointBy[symmetry=center D](C)
+			\tkzGetPoint{N}
+			\tkzDrawSegments[color=black](M,D D,N N,M)
+			\tkzDefPointBy[symmetry=center A](B)
+			\tkzGetPoint{P}
+			\tkzLabelPoints[below left](M,N,P)
+			\tkzDrawPoints(A,B,C,D,N,M,P)
+			\tkzDrawSegments[color=black](N,P P,A)
+			\end{tikzpicture}
+		}
+		Áp dụng Định lý Pytago trong tam giác vuông $NPM$ ta có \\
+		$MN^2  =  NP^2  +  PM^2  =  a^2  +  \left(\dfrac{3a}{2}\right)^{2}  =  \dfrac{13a^2}{4}\Rightarrow DM  =  \dfrac{a\sqrt{13}}{2}$.
+		Suy ra $\left| \overrightarrow{MN}\right|  =  MN  =  \dfrac{a\sqrt{13}}{2}$.
+	}
+\end{vd}
+
+
+\begin{vd}%[Lê Quân]%[0H1K2]
+	Cho hình vuông $ABCD$ cạnh $a$, $M$ là một điểm bất kỳ. Tính độ dài véc-tơ $\overrightarrow{MA}  -  \overrightarrow{MB}  -  \overrightarrow{MC}  +  \overrightarrow{MD}$.
+	\loigiai{
+		Áp dụng quy tắc trừ ta có\\
+		$\overrightarrow{MA}  -  \overrightarrow{MB}  -  \overrightarrow{MC}  +  \overrightarrow{MD}  =  \left(\overrightarrow{MA}  -  \overrightarrow{MB}\right)  -  \left(\overrightarrow{MC}  -  \overrightarrow{MD}\right)  =  \overrightarrow{BA}  -  \overrightarrow{DC}  =  \overrightarrow{BA}  -  \overrightarrow{DC}$\\
+		Lấy$B'$ là điểm đối xứng của $B$ qua $A$ \\
+		Khi đó $  -  \overrightarrow{DC}  =  \overrightarrow{AB'}\Rightarrow \overrightarrow{BA}  -  \overrightarrow{DC}  =  \overrightarrow{BA}  +  \overrightarrow{AB'}  =  \overrightarrow{BB'}$\\
+		Suy ra $|\overrightarrow{MA}  -  \overrightarrow{MB}  -  \overrightarrow{MC}  +  \overrightarrow{MD}|  =  | \overrightarrow{BB'}|  =  BB'  =  2a$.
+		
+	}
+\end{vd}
+
+\begin{center}
+	\textbf{BÀI TẬP TỔNG HỢP }
+\end{center}
+
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Cho tam giác đều $ABC$ cạnh $5a$. Tính độ dài các véc-tơ $\overrightarrow {AB}  + \overrightarrow {BC} ,\,\,\overrightarrow {CA}  - \overrightarrow {CB} $.
+	\loigiai{Ta có $\overrightarrow {AB}  + \overrightarrow {BC}  = \overrightarrow {AC}  \Rightarrow \left| {\overrightarrow {AB}  + \overrightarrow {BC} } \right| = \left| {\overrightarrow {AC} } \right| = AC = 5a$.\\
+		Ta có $\overrightarrow {CA}  - \overrightarrow {CB}  = \overrightarrow {BA}  \Rightarrow \left| {\overrightarrow {CA}  - \overrightarrow {CB} } \right| = \left| {\overrightarrow {BA} } \right| = BA = 5a$.	
+	}
+\end{bt}
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Xét các véc-tơ $\overrightarrow a $ và $\overrightarrow b $ khác $\overrightarrow 0 $. Khi nào thì $| {\overrightarrow a  + \overrightarrow b } | = | {\overrightarrow a } | + | {\overrightarrow b } |$.
+	\loigiai{Từ điểm $O$ nào đó, ta vẽ $\overrightarrow {OA}  = \overrightarrow a $ và $\overrightarrow {AB}  = \overrightarrow b $. Khi đó $\overrightarrow a  + \overrightarrow b  = \overrightarrow {OA}  + \overrightarrow {AB}  = \overrightarrow {OB} $. Như vậy:
+		$$\left| {\overrightarrow a  + \overrightarrow b } \right| = | {\overrightarrow a } | + | {\overrightarrow b }| \Leftrightarrow \left| {\overrightarrow {OB} } \right| = \left| {\overrightarrow {OA} } \right| + \left| {\overrightarrow {AB} } \right| \Leftrightarrow OB = OA + AB.$$
+		Điều này xảy ra khi và chỉ khi $O, A, B$ thẳng hàng theo thứ tự này. Hay hai véc-tơ $\overrightarrow a $ và $\overrightarrow b $ cùng hướng.
+	}
+\end{bt}
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Xét các véc-tơ $\overrightarrow a $ và $\overrightarrow b $ khác $\overrightarrow 0 $. Khi nào thì $\left| {\overrightarrow a  + \overrightarrow b } \right| = \left| {\overrightarrow a  - \overrightarrow b } \right|$.
+	\loigiai{
+		\immini{Từ điểm $A$ nào đó, ta kẻ $\overrightarrow {AB}  = \overrightarrow a ,\,\overrightarrow {AD}  = \overrightarrow b $. Vẽ điểm $C$ sao cho $ABCD$ là hình bình hành. 
+			Theo quy tắc hình bình hành ta có:
+			$\overrightarrow a  + \overrightarrow b  = \overrightarrow {AC} $. Theo quy tắc về hiệu véc-tơ ta có:
+			$\overrightarrow a  - \overrightarrow b  = \overrightarrow {AB}  - \overrightarrow {AD}  = \overrightarrow {DB} $. Như vậy:
+			$$\left| {\overrightarrow a  + \overrightarrow b } \right| = \left| {\overrightarrow a  - \overrightarrow b } \right| \Leftrightarrow \left| {\overrightarrow {AC} } \right| = \left| {\overrightarrow {DB} } \right| \Leftrightarrow AC = BD.$$
+			Điều này xảy ra khi $ABCD$ là hình chữ nhật. Vậy $AB$ vuông góc với $AD$ hay giá của hai véc-tơ vuông góc với nhau.}
+		{\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm]
+			\clip(-0.46,-0.86) rectangle (3.68,2.5);
+			\draw [->,thick] (0.,0.) -- (0.,2.);
+			\draw [->,thick] (0.,0.) -- (3.,0.);
+			\draw [->,thick] (0.,0.) -- (3.,2.);
+			\draw [->,thick] (3.,0.) -- (0.,2.);
+			\draw [thick] (0.,2.)-- (3.,2.);
+			\draw [thick] (3.,2.)-- (3.,0.);
+			\draw (-0.34,0.) node[anchor=north west] {$A$};
+			\draw (-0.16,2.6) node[anchor=north west] {$B$};
+			\draw (2.9,0.06) node[anchor=north west] {$D$};
+			\draw (2.9,2.5) node[anchor=north west] {$C$};
+			\draw (-0.1,1.42) node[anchor=north west] {$\overrightarrow{a}$};
+			\draw (1.32,0.65) node[anchor=north west] {$\overrightarrow{b}$};
+			\end{tikzpicture}}
+	}
+\end{bt}
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Chứng minh rằng với  $\overrightarrow{a}$ và $\overrightarrow{b}$ không cùng phương thì
+	$$\left| {\overrightarrow a } \right| -|\overrightarrow{b}| < \left| {\overrightarrow a  + \overrightarrow b } \right| < \left| {\overrightarrow a } \right| + |\overrightarrow{b}|.$$
+	\loigiai{
+		Gọi $A, B$ là điểm đầu và điểm cuối của $\overrightarrow{a}$. Vẽ điểm $C$ sao cho $\overrightarrow{BC}=\overrightarrow{b}$. Vì $\overrightarrow{a}$ và $\overrightarrow{b}$ không cùng phương nên ba điểm $A, B, C$ không thẳng hàng. Ta có:
+		$$\left| {\overrightarrow a } \right| - |\overrightarrow b |= AB - BC
+		< AC = \left| {\overrightarrow{AB}  + \overrightarrow{BC} } \right| < AB + BC = \left| {\overrightarrow a } \right| + |\overrightarrow b |.$$
+		Bài toán được chứng minh xong.}
+\end{bt}
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Cho tam giác $ABC$ cân tại $A$, đường cao $AH$. Biết $AB=a$ và $BC=2b$
+	(với $a>b>0$). Tính độ dài véc-tơ tổng $\overrightarrow {AB}  + \overrightarrow {BH} $ và độ dài véc-tơ hiệu $\overrightarrow {AB}  - \overrightarrow {CA} $.
+	\loigiai{\immini
+		{Do tam giác $ABC$ cân tại $A$, đường cao $AH$ nên $H$ là trung điểm $BC$. Suy ra $BH=b$.
+			Trong tam giác vuông $ABH$, ta có:\\
+			$AH = \sqrt {A{B^2} - B{H^2}}  = \sqrt {{a^2} - {b^2}} $.\\
+			Ta có $\overrightarrow {AB}  + \overrightarrow {BH}  = \overrightarrow {AH} $.\\
+			Suy ra $\left| {\overrightarrow {AB}  + \overrightarrow {BH} } \right| = \left| {\overrightarrow {AH} } \right| = \sqrt {{a^2} - {b^2}} $.\\
+			Vẽ hình bình hành $ABDC$. Khi đó:\\
+			$\overrightarrow {AB}  - \overrightarrow {CA}  = \overrightarrow {AB}  + \overrightarrow {AC}  = \overrightarrow {AD} $.\\
+			Do đó: 
+			$\left| {\overrightarrow {AB}  - \overrightarrow {CA} } \right| = \left| {\overrightarrow {AD} } \right| = 2AH = 2\sqrt {{a^2} - {b^2}} $.}
+		{\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm]
+			\clip(-3.56,-2.56) rectangle (3.64,2.68);
+			\draw [thick] (-2.92,0.)-- (0.,2.);
+			\draw [thick] (0.,2.)-- (3.,0.);
+			\draw [thick] (-2.92,0.)-- (3.,0.);
+			\draw [thick] (-2.92,0.)-- (0.,-2.);
+			\draw [thick] (0.,-2.)-- (3.,0.);
+			\draw (-0.26,2.58) node[anchor=north west] {$A$};
+			\draw (-3.52,0.4) node[anchor=north west] {$B$};
+			\draw (2.88,0.34) node[anchor=north west] {$C$};
+			\draw (-0.2,-1.82) node[anchor=north west] {$D$};
+			\draw (0.,0.1) node[anchor=north west] {$H$};
+			\draw [->,thick] (0.,2.) -- (0.,0.);
+			\draw [->,thick] (0.,0.) -- (0.,-2.);
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Cho tam giác  $ABC$ vuông tại $A$, $AB=a$, $BC=a\sqrt 5$. Tính độ dài các véc-tơ $\overrightarrow {AB}  + \overrightarrow {BC}$, $\overrightarrow {CA}  - \overrightarrow {CB} $.
+	\loigiai{\immini
+		{Do tam giác $ABC$ vuông tại $A$ nên \\
+			$AC = \sqrt {B{C^2} - A{B^2}}  = \sqrt {5{a^2} - {a^2}}  = 2a$.\\
+			Ta có $\overrightarrow {AB}  + \overrightarrow {BC}  = \overrightarrow {AC}  \Rightarrow \left| {\overrightarrow {AB}  + \overrightarrow {BC} } \right| = \left| {\overrightarrow {AC} } \right| = AC = 2a$.\\
+			Ta có $\overrightarrow {CA}  - \overrightarrow {CB}  = \overrightarrow {BA}  \Rightarrow \left| {\overrightarrow {CA}  - \overrightarrow {CB} } \right| = \left| {\overrightarrow {BA} } \right| = BA = a$.}
+		{\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm]
+			\clip(-0.6,-0.78) rectangle (4.54,2.74);
+			\draw [thick] (0.,0.)-- (4.,0.);
+			\draw [thick] (0.,0.)-- (0.,2.);
+			\draw [thick] (0.,2.)-- (4.,0.);
+			\draw (-0.24,0.04) node[anchor=north west] {$A$};
+			\draw (-0.26,2.6) node[anchor=north west] {$B$};
+			\draw (3.84,0.06) node[anchor=north west] {$C$};
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Cho tam giác $ABC$ vuông tại $A$, biết $AB=a$ và $AC=3a$. Tính độ dài véc-tơ tổng $\overrightarrow {AB}  + \overrightarrow {AC} $ và độ dài véc-tơ hiệu $\overrightarrow {AB}  - \overrightarrow {AC} $.
+	\loigiai{\immini
+		{Ta có $BC = \sqrt {A{B^2} + A{C^2}} $.\\
+			Hay $BC = \sqrt {{a^2} + 9{a^2}}  = a\sqrt {10} $.\\
+			Ta có $\overrightarrow {AB}  - \overrightarrow {AC}  = \overrightarrow {CB} $.\\
+			Do đó $\left| {\overrightarrow {AB}  - \overrightarrow {AC} } \right| = \left| {\overrightarrow {CB} } \right| = CB = a\sqrt {10} $.\\
+			Vẽ hình bình hành $ABDC$. Theo quy tắc hình bình hành ta có $\overrightarrow {AB}  + \overrightarrow {AC}  = \overrightarrow {AD} $. Do đó $\left| {\overrightarrow {AB}  + \overrightarrow {AC} } \right| = \left| {\overrightarrow {AD} } \right| = AD = a\sqrt {10} $.}
+		{\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm]
+			\clip(-0.6,-0.78) rectangle (6.52,2.74);
+			\draw [thick] (0.,0.)-- (6.,0.);
+			\draw [thick] (0.,0.)-- (0.,2.);
+			\draw [thick] (0.,2.)-- (6.,0.);
+			\draw (-0.24,0.04) node[anchor=north west] {$A$};
+			\draw (-0.26,2.7) node[anchor=north west] {$B$};
+			\draw (5.84,0.06) node[anchor=north west] {$C$};
+			\draw [thick] (0.,2.)-- (6.,2.);
+			\draw [thick] (6.,2.)-- (6.,0.);
+			\draw (5.84,2.62) node[anchor=north west] {$D$};
+			\draw [->,thick] (0.,0.) -- (6.,2.);
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Nguyễn Tài Chung]%[0H1K2]
+	Cho hình thoi $ABCD$ có tâm $O$, cạnh bằng $4$ và $\widehat {BAD} = {60^\circ}$. Tính:
+	$$\left| {\overrightarrow {AB}  + \overrightarrow {AD} } \right|,\left| {\overrightarrow {OC}  - \overrightarrow {AB} } \right|,\left| { - \overrightarrow {OD}  + \overrightarrow {DB}  + \overrightarrow {OC} } \right|.$$
+	\loigiai{\immini
+		{Từ giả thiết suy ra $ABD$ là tam giác đều cạnh bằng $4$. Do đó $AO = \dfrac{{4\sqrt 3 }}{2} = 2\sqrt 3 $, $AC=4\sqrt 3$. Theo quy tắc hình bình hành ta có $\overrightarrow {AB}  + \overrightarrow {AD}  = \overrightarrow {AC} $. Như vậy $\left| {\overrightarrow {AB}  + \overrightarrow {AD} } \right| = AC = 4\sqrt 3 $.\\
+			Ta có: $\overrightarrow {OC}  - \overrightarrow {AB}  = \overrightarrow {AO}  - \overrightarrow {AB}  = \overrightarrow {BO} $. \\
+			Suy ra $\left| {\overrightarrow {OC}  - \overrightarrow {AB} } \right| = BO = \dfrac{1}{2}BD = 2$. \\
+			Vẽ hình bình hành $BDCH$. Do $DB=DC=4$ nên hình bình hành $BDCH$ là hình thoi, do đó $DH=2DK=4\sqrt 3$ ($K$ là trung điểm của $BC$).}
+		{\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm]
+			\clip(-0.46,-0.96) rectangle (6.56,3.22);
+			\draw [->,thick] (0.,0.) -- (1.5,2.598076211353316);
+			\draw [->,thick] (0.,0.) -- (3.,0.);
+			\draw [->,thick] (0.,0.) -- (4.5,2.598076211353316);
+			\draw [thick] (1.5,2.598076211353316)-- (4.5,2.598076211353316);
+			\draw [thick] (4.5,2.598076211353316)-- (3.,0.);
+			\draw (-0.26,0) node[anchor=north west] {$A$};
+			\draw (2.76,0) node[anchor=north west] {$B$};
+			\draw (4.5,3.1) node[anchor=north west] {$C$};
+			\draw (1.32,3.1) node[anchor=north west] {$D$};
+			\draw [thick] (1.5,2.598076211353316)-- (3.,0.);
+			\draw (2.3,1.5) node[anchor=north west] {$O$};
+			\draw [thick] (3.,0.)-- (6.,0.);
+			\draw [->,thick] (1.5,2.598076211353316) -- (6.,0.);
+			\draw [thick] (4.5,2.598076211353316)-- (6.,0.);
+			\draw (5.84,0) node[anchor=north west] {$H$};
+			\draw (3.84,1.7) node[anchor=north west] {$K$};
+			\end{tikzpicture}
+		}
+		Ta có:
+		$\left| { - \overrightarrow {OD}  + \overrightarrow {DB}  + \overrightarrow {OC} } \right| = \left| {\overrightarrow {OC}  - \overrightarrow {OD}  + \overrightarrow {DB} } \right| = \left| {\overrightarrow {DC}  + \overrightarrow {DB} } \right| = \left| {\overrightarrow {DH} } \right| = 4\sqrt 3 $.}
+\end{bt}
+\begin{bt}%[Nguyễn Tài Chung]%[0H1K2]
+	Cho đường thẳng $d$ và hai điểm $A$, $B$ phân biệt, không nằm trên $d$. Tìm $M\in d$ sao cho $\left| {\overrightarrow {MA}  + \overrightarrow {BA} } \right|$ nhỏ nhất.
+	\loigiai{Gọi $C$ là điểm đối xứng của $B$ qua $A$. Khi đó $C$ là điểm cố định và 
+		$$\overrightarrow {MA}  + \overrightarrow {BA}  = \overrightarrow {MA}  + \overrightarrow {AC}  = \overrightarrow {MC}.$$
+		Do đó $\left| {\overrightarrow {MA}  + \overrightarrow {BA} } \right| = \left| {\overrightarrow {MC} } \right| = MC$. Như vậy $\left| {\overrightarrow {MA}  + \overrightarrow {BA} } \right|$ nhỏ nhất khi và chỉ khi $MC$ nhỏ nhất, hay $M$ là hình chiếu vuông góc  của $C$ trên đường thẳng $d$.
+	}
+\end{bt}
+\begin{bt}%[Nguyễn Tài Chung]%[0H1G2]
+	Cho đường thẳng $d$ và hai điểm $A$, $B$  nằm trên nửa mặt phẳng có bờ là đường thẳng $d$. Tìm giá trị nhỏ nhất của biểu thức $\left| {\overrightarrow {MA}  + \overrightarrow {MB} } \right|$, với $M \in d$.
+	\loigiai{\immini
+		{Trong trường hợp $M, A, B$ không thẳng hàng, ta dựng hình bình hành $MANB$. Khi đó $\overrightarrow {MA}  + \overrightarrow {MB}  = \overrightarrow {MN} $. Suy ra $\left| {\overrightarrow {MA}  + \overrightarrow {MB} } \right| = MN$. Gọi $O$ là giao điểm của $MN$ và $AB$. Khi đó, $O$ là trung điểm $AB$ nên $O$ là điểm cố định. Từ $O$, $N$ lần lượt kẻ các đường vuông góc với $d$, cắt $d$ tại $P$, $Q$. Ta có $MN \ge NQ = 2OP$. Còn khi $M, A, B$ thẳng hàng thì hiển nhiên $\left| {\overrightarrow {MA}  + \overrightarrow {MB} } \right| > 2OP$. Vậy $\left| {\overrightarrow {MA}  + \overrightarrow {MB} } \right|$ nhỏ nhất là bằng $2OP$, đạt được khi $M$ trùng $P$. }
+		{\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm]
+			\clip(-0.64,-0.66) rectangle (6.54,3.78);
+			\draw [thick] (0.,1.)-- (4.,3.);
+			\draw [thick] (4.,3.)-- (6.,2.);
+			\draw [thick] (4.,3.)-- (4.,0.);
+			\draw [thick] (0.,1.)-- (6.,2.);
+			\draw [thick] (3.,1.5)-- (3.,0.);
+			\draw [thick] (-1.,0.)-- (7.,0.);
+			\draw (1.72,0) node[anchor=north west] {$M$};
+			\draw (2.82,0) node[anchor=north west] {$P$};
+			\draw (3.8,0) node[anchor=north west] {$Q$};
+			\draw (-0.56,1.4) node[anchor=north west] {$A$};
+			\draw (2.6,2.1) node[anchor=north west] {$O$};
+			\draw (5.86,2.12) node[anchor=north west] {$B$};
+			\draw (3.82,3.5) node[anchor=north west] {$N$};
+			\draw [->,thick] (2.,0.) -- (0.,1.);
+			\draw [->,thick] (2.,0.) -- (6.,2.);
+			\draw [->,thick] (2.,0.) -- (4.,3.);
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+
+%DANG 4
+
+\begin{dang}{Chứng minh đẳng thức véc-tơ}
+	\begin{enumerate}
+		\item Sử dụng quy tắc ba điểm.
+		\item Sử dụng quy tắc hình bình hành.
+	\end{enumerate}
+\end{dang}
+\begin{vd}%[LÊ QUÂN]%[0H1B2]
+	Cho $5$ điểm $A, B, C, D, E$. Chứng minh rằng $\overrightarrow{AB}+\overrightarrow{CD}+\overrightarrow{EA}=\overrightarrow{CB}+\overrightarrow{ED}$.
+	\loigiai{
+		Đẳng thức cần chứng minh tương đương với
+		$$
+		\begin{aligned}
+		&\left(\overrightarrow{AB}-\overrightarrow{CB}\right) +\left(\overrightarrow{CD}-\overrightarrow{ED}\right)+\overrightarrow{EA}=\overrightarrow{0}\\
+		\Leftrightarrow &\overrightarrow{AC}+\overrightarrow{CE}+\overrightarrow{EA}=\overrightarrow{0}\\
+		\Leftrightarrow &\overrightarrow{AE}+\overrightarrow{EA}=\overrightarrow{0}\quad (\text{luôn đúng})
+		\end{aligned}
+		$$
+	}
+\end{vd}
+
+\begin{vd}%[LÊ QUÂN]%[0H1B2]
+	Cho hình bình hành $ABCD$. Chứng minh rằng $\overrightarrow{BA}+\overrightarrow{DA}+\overrightarrow{AC}=\overrightarrow{0}$.
+	\loigiai{
+		Do $ABCD$ là hình bình hành nên $\overrightarrow{BA}=\overrightarrow{CD}$\\
+		Đẳng thức cần chứng minh tương đương với$ \overrightarrow{CD}+\overrightarrow{DC}=\overrightarrow{0}\quad(\text{luôn đúng})$
+	}
+\end{vd}
+
+\begin{vd}%[LÊ QUÂN]%[0H1K2]
+	Cho tam giác $ABC$. Gọi $M, N, P$ lần lượt là trung điểm của các cạnh $BC, CA, AB$. Chứng minh rằng $\overrightarrow{AM}+\overrightarrow{BN}+\overrightarrow{CP}=\overrightarrow{0}$.
+	\loigiai{
+		\immini{
+			Ta có
+			$\heva{&\overrightarrow{AM}=\overrightarrow{AC}+\overrightarrow{CM}\\ &\overrightarrow{BN}=\overrightarrow{BA}+\overrightarrow{AN}\\&\overrightarrow{CP}=\overrightarrow{CB}+\overrightarrow{BP}}$
+			
+			$
+			\begin{aligned}
+			\Rightarrow \overrightarrow{AM}+\overrightarrow{BN}+\overrightarrow{CP}&=\left(\overrightarrow{AC}+\overrightarrow{CB}+\overrightarrow{BA}\right)+\left(\overrightarrow{CM}+\overrightarrow{BP}+\overrightarrow{AN}\right)\\
+			&=\overrightarrow{0}+ \overrightarrow{CM}+\overrightarrow{BP}+\overrightarrow{AN}\\
+			\end{aligned}
+			$
+			
+			Lại có $\heva{&\overrightarrow{BP}=\overrightarrow{MN}\\ &\overrightarrow{AN}=\overrightarrow{NC}}$
+			
+			$\Rightarrow \overrightarrow{AM}+\overrightarrow{BN}+\overrightarrow{CP}= \overrightarrow{CM}+\overrightarrow{MN}+\overrightarrow{NC} =\overrightarrow{0}$
+		}
+		{
+			\begin{tikzpicture}[scale=0.7]
+			\tkzInit[xmin=-3, ymin=-3,xmax=3,ymax=2]
+			\tkzDefPoints{-1/2/A, -3/-3/B,3/-3/C}
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[above left](B)
+			\tkzLabelPoints[above right](C)
+			\tkzDrawSegments[color=black](A,B B,C C,A)
+			\tkzDefMidPoint(A,B)
+			\tkzGetPoint{P}
+			\tkzDefMidPoint(C,B)
+			\tkzGetPoint{M}
+			\tkzDefMidPoint(A,C)
+			\tkzGetPoint{N}
+			\tkzLabelPoints[above left](P)
+			\tkzLabelPoints[ below left](M)
+			\tkzLabelPoints[above right](N)
+			\tkzDrawPoints(A,B,C,P,M,N)
+			\tkzDrawSegments[color=black](M,N N,P P,M)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\begin{vd}%[LÊ QUÂN]%[0H1B2]
+	Cho 5 điểm $A, B, C, D, E$. Chứng minh rằng $\overrightarrow{AC}+\overrightarrow{DE}-\overrightarrow{DC}-\overrightarrow{CE}+\overrightarrow{CB}=\overrightarrow{AB}$.
+	\loigiai{
+		Ta có
+		
+		$\begin{aligned}
+		\overrightarrow{AC}+\overrightarrow{DE}-\overrightarrow{DC}-\overrightarrow{CE}+\overrightarrow{CB}&= \left(\vec{AC}-\vec{DC}\right)+\left(\vec{DC}-\vec{CE}\right)\vec{CB}\\
+		&= \vec{AD}+\vec{DC}+\vec{CB}\\
+		&=\vec{AB}
+		\end{aligned}$
+	}
+\end{vd}
+
+\begin{vd}%[LÊ QUÂN]%[0H1K2]
+	Chứng minh rằng nếu hai hình bình hành $ABCD$ và $A'B'C'D'$ có cùng tâm thì $\overrightarrow{AA'}+\overrightarrow{BB'}+\overrightarrow{CC'}+\overrightarrow{DD'}=\overrightarrow{0}$.
+	\loigiai{
+		Gọi $O$ là tâm của hai hình bình hành.\\
+		Ta có 
+		
+		$
+		\begin{aligned}
+		\overrightarrow{AA'}+\overrightarrow{BB'}+\overrightarrow{CC'}+\overrightarrow{DD'} &=\left(\vec{OA'}-\vec{OA}\right)+\left(\vec{OB'}-\vec{OB}\right)+\left(\vec{OC'}-\vec{OC}\right)+\left(\vec{OD'}-\vec{OD}\right)\\
+		&=-\left(\vec{OA}+\vec{OC}\right)-\left(\vec{OB}+\vec{OD}\right)+\left(\vec{OA'}+\vec{OC'}\right)+\left(\vec{OB'}+\vec{OD'}\right)\\
+		&=\vec{0}
+		\end{aligned}
+		$
+	}
+\end{vd}
+
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN }
+\end{center}
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Chứng minh rằng $\overrightarrow {AB}  = \overrightarrow {CD}  \Leftrightarrow \overrightarrow {AC}  = \overrightarrow {BD} $.
+	\loigiai{Ta có sự tương đương:
+		$$\overrightarrow {AB}  = \overrightarrow {CD}  \Leftrightarrow \overrightarrow {AC}  + \overrightarrow {CB}  = \overrightarrow {CB}  + \overrightarrow {BD}  \Leftrightarrow \overrightarrow {AC}  = \overrightarrow {BD}.$$
+		Do đó ta có điều phải chứng minh.}
+\end{bt}
+
+
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Cho hình bình hành $ABCD$ và $M$ là điểm tùy ý.  Chứng minh:
+	$$\overrightarrow{MA}-\overrightarrow{MB}=\overrightarrow{MD}-\overrightarrow{MC}.$$
+	\loigiai{Ta có:
+		$\overrightarrow{MA}-\overrightarrow{MB}=\overrightarrow{BA}, \overrightarrow{MD}-\overrightarrow{MC}=\overrightarrow{CD}$.
+		Mà $ABCD$ là hình bình hành nên $\overrightarrow{BA}=\overrightarrow{CD}$. Vậy ta có đẳng thức cần chứng minh.}
+\end{bt}
+\begin{bt}%[LÊ QUÂN]%[0H1B2]
+	Cho hình bình hành $ABCD$. Chứng minh rằng với điểm $M$ bất kì ta luôn có $\overrightarrow{MA}+\overrightarrow{MC}=\overrightarrow{MB}+\overrightarrow{MD}$.
+	\loigiai{
+		Ta có 
+		
+		$\begin{aligned}
+		&\vec{MA}+\vec{MC}=\vec{MB}+\vec{MD}
+		\Leftrightarrow \left(\vec{MA}-\vec{MB}\right)+\left(\vec{MC}-\vec{MD}\right)=\vec{0}\\
+		\Leftrightarrow &\vec{BA}+\vec{DC}=\vec{0}\quad (\text{luôn đúng do $ABCD$ là hình bình hành}).
+		\end{aligned} 
+		$
+	}
+\end{bt}
+
+\begin{bt}%[LÊ QUÂN]%[0H1B2]
+	Cho tam giác $ABC$, gọi $M, N, P$ lần lượt là trung điểm của các cạnh $BC, CA, AB$. Chứng minh rằng với điểm $O$ bất kì ta luôn có $\overrightarrow{OA}+\overrightarrow{OB}+\overrightarrow{OC}=\overrightarrow{OM}+\overrightarrow{ON}+\overrightarrow{OP}$.
+	\loigiai{Ta có
+		
+		\immini{$\begin{aligned}
+			&\vec{OA}+\vec{OB}+\vec{OC}=\vec{OM}+\vec{ON}+\vec{OP}\\
+			\Leftrightarrow & \left(\vec{OA}-\vec{OM}\right)+\left(\vec{OB}-\vec{ON}\right)+\left(\vec{OC}-\vec{OP}\right)=\vec{0}\\
+			\Leftrightarrow & \vec{MA}+\vec{NB}+\vec{PC}=\vec{0}\\
+			\Leftrightarrow &\vec{AM}+\vec{BN}+\vec{CP}=\vec{0}
+			\end{aligned}$
+			
+			Mặt khác
+			$\heva{&\overrightarrow{AM}=\overrightarrow{AC}+\overrightarrow{CM}\\ &\overrightarrow{BN}=\overrightarrow{BA}+\overrightarrow{AN}\\&\overrightarrow{CP}=\overrightarrow{CB}+\overrightarrow{BP}}$
+			
+			$
+			\begin{aligned}
+			\Rightarrow \overrightarrow{AM}+\overrightarrow{BN}+\overrightarrow{CP}&=\left(\overrightarrow{AC}+\overrightarrow{CB}+\overrightarrow{BA}\right)+\left(\overrightarrow{CM}+\overrightarrow{BP}+\overrightarrow{AN}\right)\\
+			&= \overrightarrow{CM}+\overrightarrow{BP}+\overrightarrow{AN}\\
+			\end{aligned}
+			$
+			
+			Lại có $\heva{&\overrightarrow{BP}=\overrightarrow{MN}\\ &\overrightarrow{AN}=\overrightarrow{NC}}$
+			
+			$\Rightarrow \overrightarrow{AM}+\overrightarrow{BN}+\overrightarrow{CP}= \overrightarrow{CM}+\overrightarrow{MN}+\overrightarrow{NC} =\overrightarrow{0}$
+		}
+		{
+			\begin{tikzpicture}[scale=0.7]
+			\tkzInit[xmin=-3, ymin=-3,xmax=3,ymax=2]
+			\tkzDefPoints{-1/2/A, -3/-3/B,3/-3/C}
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[above left](B)
+			\tkzLabelPoints[above right](C)
+			\tkzDrawSegments[color=black](A,B B,C C,A)
+			\tkzDefMidPoint(A,B)
+			\tkzGetPoint{P}
+			\tkzDefMidPoint(C,B)
+			\tkzGetPoint{M}
+			\tkzDefMidPoint(A,C)
+			\tkzGetPoint{N}
+			\tkzLabelPoints[above left](P)
+			\tkzLabelPoints[ below left](M)
+			\tkzLabelPoints[above right](N)
+			\tkzDrawPoints(A,B,C,P,M,N)
+			\tkzDrawSegments[color=black](M,N N,P P,M)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[LÊ QUÂN]%[0H1B2]
+	Cho tam giác $ABC$ có trọng tâm $G$. Gọi $I$ là trung điểm của $BC$. Dựng điểm $B'$ sao cho $\overrightarrow{B'B}  =  \overrightarrow{AG}$.
+	Gọi $J$ là trung điểm của $BB'$. Chứng minh rằng $\overrightarrow{BJ}  =  \overrightarrow{IG}$.
+	\loigiai{Ta có:
+		\immini{$\vec{B'B}=\vec{AG}\Rightarrow AGBB'$ là hình bình hành.\\
+			$\Rightarrow \vec{BJ}$ và $\vec{GA}$ cùng hướng.\\
+			$\Rightarrow \vec{BJ}$ và $\vec{IG}$ cùng hướng.\\
+			Mặt khác $\heva{&BJ=\dfrac{1}{2}BB'\\&IG=\dfrac{1}{2}GA}\Rightarrow \vec{BJ}=\vec{IG}$
+		}
+		{
+			\begin{tikzpicture}[scale=0.7]
+			\tkzInit[xmin=-3, ymin=-3,xmax=3,ymax=2]
+			\tkzDefPoints{-1/2/A, -3/-3/B,3/-3/C}
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[above left](B)
+			\tkzLabelPoints[above right](C)
+			\tkzDrawSegments[color=black](A,B B,C C,A)
+			\tkzDefMidPoint(C,B)
+			\tkzGetPoint{I}
+			\tkzDefMidPoint(A,C)
+			\tkzGetPoint{N}
+			\tkzLabelPoints[ below left](I)
+			\tkzLabelPoints[above right](N)
+			\tkzCentroid(A,B,C)
+			\tkzGetPoint{G}
+			\tkzLabelPoints[above left](G)
+			\tkzDrawSegments[color=black](A,I)
+			\tkzDrawSegments[color=black](B,N)
+			\tkzDefPointBy[translation=from G to A](B)
+			\tkzGetPoint{B'}
+			\tkzLabelPoints[above left](B')
+			\tkzDrawSegments[color=black](B,B')
+			\tkzDefMidPoint(B,B')
+			\tkzGetPoint{J}
+			\tkzDrawPoints(A,B,C,I,N,G,B',J)
+			\tkzLabelPoints[above left](J)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[LÊ QUÂN]%[0H1B2]
+	Cho hai hình bình hành $ABCD$ và $AB'C'D'$. Chứng minh rằng $\overrightarrow{B'B}+\overrightarrow{CC'}+\overrightarrow{D'D}=\overrightarrow{0}$.
+	\loigiai{
+		Ta có: $\heva{&\vec{B'B}=\vec{AB}-\vec{AB'}\\&\vec{CC'}=\vec{AC'}-\vec{AC}\\&\vec{D'D}=\vec{AD}-\vec{AD'}}$\\
+		$\Rightarrow \overrightarrow{B'B}+\overrightarrow{CC'}+\overrightarrow{D'D}= \left(\vec{AB}+\vec{AD}-\vec{AC}\right)-\left(\vec{AB'}+\vec{AD'}-\vec{AC'}\right)=\vec{0}$
+	}
+\end{bt}
+
+\begin{bt}%[LÊ QUÂN]%[0H1B2]
+	Cho hình bình hành $ABCD$. Gọi $E$ và $F$ lần lượt là trung điểm của hai cạnh $AB$ và $CD$. Nối $ AF$ và $CE$, hai đường này cắt đường chéo $BD$ lần lượt tại $M$ và $N$. Chứng minh $\overrightarrow{DM}  =  \overrightarrow{MN}  =  \overrightarrow{NB}$.
+	\loigiai{
+		Gọi $I$ là giao điểm của $AC$ và $BD$.\\
+		Dễ thấy $I$ là trung điểm của $MN$.\\
+		Dễ thấy $M$ là trọng tâm  $\Delta ADC\Rightarrow DM=2MI$.\\
+		$N$ là trọng tâm tam giác $\Delta ABC\Rightarrow BN=2NI$\\
+		$\Rightarrow DM=MN=NB\Rightarrow \vec{DM}=\vec{MN}=\vec{NB}$
+	}
+\end{bt}
+
+\begin{bt}%[LÊ QUÂN]%[0H1B2]
+	Cho hình bình hành $ABCD$. Trên các đoạn thẳng $DC,AB$ theo thứ tự lấy các điểm $M,N$ sao cho $DM  =  BN$. Gọi $P$ là giao điểm của $AM,DB$ và $Q$ là giao điểm của $CN,DB$. Chứng minh rằng $\overrightarrow{AM}  =  \overrightarrow{NC}$ và $\overrightarrow{DP}  =  \overrightarrow{QB}$.
+	\loigiai{
+		Ta có $AMCN$ là hình bình hành $\Rightarrow \vec{AM}=\vec{NC}$\\
+		$\Delta DPM=\Delta BQN\Rightarrow DP =QB\Rightarrow \vec{DP}=\vec{QB}$
+		
+	}
+\end{bt}
+
+\begin{bt}%[LÊ QUÂN]%[0H1K2]
+	Cho tam giác $ABC$ có $H$ là trực tâm và $O$ là tâm đường tròn ngoại tiếp. Gọi $B'$ là điểm đối xứng của $B$ qua $O$. Chứng minh $\overrightarrow{AH}  =  \overrightarrow{B'C}$ và $\overrightarrow{AB'}  =  \overrightarrow{HC}$.
+	\loigiai{
+		\immini{
+			Ta có $\widehat{BCB'}=90^\circ$ (góc nội tiếp chắn nửa đường tròn)\\
+			$\Rightarrow AH$ song song với $B'C$ (cùng vuông góc với $BC$)\\
+			$\widehat{BAB'}=90^\circ$ (góc nội tiếp chắn nửa đường tròn)\\
+			$\Rightarrow CH$ song song với $AB'$ (cùng vuông góc với $AB$).\\
+			$\Rightarrow AHCB'$ là hình bình hành\\
+			$\Rightarrow \vec{AH}=\vec{B'C}$ và $\vec{AB'}=\vec{HC}$.}
+		{
+			\begin{tikzpicture}[scale=0.7]
+			\tkzInit[xmin=-3, ymin=-1,xmax=3,ymax=5]
+			\tkzDefPoints{-1/5/A, -2/1/B,3/1/C, -1/2/H}
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[above left](B)
+			\tkzLabelPoints[above right](C)
+			\tkzLabelPoints[above right](H)
+			\tkzDrawSegments[color=black](A,B B,C C,A)
+			\tkzDefCircle[circum](A,B,C)
+			\tkzGetPoint{O}
+			\tkzLabelPoints[above left](O)
+			\tkzDrawCircle(O,A)
+			\tkzDefPointBy[symmetry = center O](B)
+			\tkzGetPoint{B'}
+			\tkzLabelPoints[above right](B')
+			\tkzDrawPoints(O, H, B')
+			\tkzDrawSegments[color=black](A,H H,C C,B' B',A)
+			\tkzDrawSegments[color=black](B,B')
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[LÊ QUÂN]%[0H1K2]
+	Cho tam giác $ABC$ có trung tuyến $AM$. Trên cạnh $AC$ lấy  điểm $E$ sao cho $AE  =\dfrac{1}{3}AC  $ và  $BE$ cắt $AM$ tại $N$. Chứng minh $\overrightarrow{NA}+ \overrightarrow{NM} =\vec{0}$.
+	\loigiai{
+		Gọi $F$ là trung điểm của $EC$\\
+		$\Rightarrow E$ là trung điểm của $AF$\\
+		$\Rightarrow MF$ là đường trung bình của $\Delta BEC$\\
+		$\Rightarrow MF$ song song với $BE$.\\
+		$\Rightarrow NE$ là đường trung bình của tam giác $AMF$.\\
+		$\Rightarrow N$ là trung điểm của $AM\Rightarrow \vec{NA}+\vec{NM}=\vec{0}$.
+	}
+\end{bt}
+
+\begin{bt}%[LÊ QUÂN]%[0H1G2]
+	Cho ngũ giác đều $ABCDE$ tâm $O$. Chứng minh rằng $\overrightarrow{OA}+\overrightarrow{OB}+\overrightarrow{OC}+\overrightarrow{OD}+\overrightarrow{OE}=\overrightarrow{0}$.
+	\loigiai{
+		Các điểm $B, E$ đối xứng với nhau qua $OA\Rightarrow \vec{OB}+\vec{OE}$ có giá là đường thẳng $OA$.\\
+		Các điểm $D, C$ đối xứng với nhau qua $OA\Rightarrow \vec{OC}+\vec{OD}$ có giá là đường thẳng $OA$.\\
+		$\Rightarrow$ Véc-tơ $\vec{u}= \overrightarrow{OA}+\overrightarrow{OB}+\overrightarrow{OC}+\overrightarrow{OD}+\overrightarrow{OE}$ có giá là đường thẳng $OA$.\\
+		Tương tự các véc-tơ $\left(\vec{OA}+\vec{OC}\right)$ và $\left(\vec{OE}+\vec{OD}\right)$ có giá là đường thẳng $OB$.\\
+		$\Rightarrow$ Véc-tơ $\vec{u}= \overrightarrow{OA}+\overrightarrow{OB}+\overrightarrow{OC}+\overrightarrow{OD}+\overrightarrow{OE}$ có giá là đường thẳng $OB$.\\
+		Do $\vec{OA}$ và $\vec{OB}$ có giá không trùng nhau $\Rightarrow \vec{u}=\vec{0}$
+	}
+\end{bt}
+
+\begin{bt}%[LÊ QUÂN]%[0H1G2]
+	Cho đa giác đều $A_1A_2...A_n$ với $n\in \mathbb{N}$ và $n \ge 3$ có tâm $O$. Chứng minh rằng $\vec{u}= \overrightarrow{OA_1}+\overrightarrow{OA_2}+...+\overrightarrow{OA_n}=\overrightarrow{0}$.
+	\loigiai{
+		Ta xét hai trường hợp
+		\begin{itemize}
+			\item Trường hợp 1: $n$ là số chẵn $\Rightarrow n=2k$ với $k\in \mathbb{N}, k\ge 2$. Khi đó các cặp điểm $A_i$ và $A_{k+i}$ với $i=\overline{1,k}$ đối xứng với nhau qua $O$.\\
+			$\Rightarrow \heva{&\vec{OA_1}+\vec{OA_{k+1}}=\vec{0}\\ &\vec{OA_2}+\vec{OA_{k+2}}=\vec{0}\\ &\ldots\\
+				&\vec{OA_k}+\vec{OA_{2k}}=\vec{0}}\Rightarrow \vec{u}=\vec{0}$.
+			\item Trường hợp 2: $n$ là số lẻ $\Rightarrow n=2k+1$ với $k\in \mathbb{N}, k\ge 1$. Khi đó các cặp điểm $A_i$ và $A_{2k+3-i}$ với $i=\overline{2,k+1}$ đối xứng với nhau qua đường thẳng $OA_1$.\\
+			$\Rightarrow$ Giá của các  véc-tơ $\left(\vec{OA_i}+\vec{OA_{2k+3-i}}\right)$ là đường thẳng $OA_1$.\\
+			$\Rightarrow$ Giá của véc-tơ $\vec{u}$ là đường thẳng $OA_1$.\\
+			Tương tự, giá của các véc-tơ $\left(\vec{OA_1}+\vec{OA_3}\right)$, $\left(\vec{OA_{2k}}+\vec{OA_4}\right)$... là đường thẳng $OA_2$.\\
+			$\Rightarrow$ Giá của véc-tơ $\vec{u}$ là đường thẳng $OA_2$.\\
+			$\Rightarrow \vec{u}$ có giá là các đường thẳng  $OA_1$ và $OA_2 \Rightarrow \vec{u}=\vec{0}$.
+		\end{itemize}
+	}
+\end{bt}
+
+\begin{center}
+	\textbf{BÀI TẬP TỔNG HỢP}
+\end{center}
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Cho $n$ véc-tơ $\overrightarrow {a_1} ,\overrightarrow {a_2} ,\ldots,\overrightarrow {a_n} $. Dựng $\overrightarrow {OA_1}  = \overrightarrow {a_1} ,\overrightarrow {A_1A_2}  = \overrightarrow {a_2} ,\dots,\overrightarrow {A_{n - 1}A_n}  = \overrightarrow {a_n} $. Chứng minh rằng điều kiện cần và đủ để đường gấp khúc $OA_1A_2\ldots A_n$ khép kín là $\overrightarrow {a_1}  + \overrightarrow {a_2}  + \cdots + \overrightarrow {a_n}  = \overrightarrow 0 $.
+	\loigiai{Dựng $\overrightarrow {OA_1}  = \overrightarrow {a_1} ,\overrightarrow {A_1A_2}  = \overrightarrow {a_2} ,\dots,\overrightarrow {A_{n - 1}A_n}  = \overrightarrow {a_n} $. Khi đó $\overrightarrow {a_1}  + \overrightarrow {a_2}  + \cdots + \overrightarrow {a_n}  = \overrightarrow {OA_n} $. Như vậy đường gấp khúc $OA_1A_2\dots A_n$ khép kín khi và chỉ khi $O$ trùng với $A_n$ hay $\overrightarrow {OA_n}  = \overrightarrow 0 $, tức là $\overrightarrow {a_1}  + \overrightarrow {a_2}  + \cdots + \overrightarrow {a_n}  = \overrightarrow 0 $.}
+\end{bt}
+
+
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Cho hình vuông $ABCD$ tâm $O$, cạnh $a$. Hãy xác định và tính độ dài các véc-tơ:
+	$$\overrightarrow{AD}+\overrightarrow{AB}, \overrightarrow{OA}+\overrightarrow{OC}, \overrightarrow{OB}+\overrightarrow{BD},\,\,\overrightarrow{AB}+\overrightarrow{AC}.$$
+	\loigiai{
+		Trước hết ta có 
+		$AC=BD=a\sqrt{2}$ và
+		$OA=OB=OC=OD=\dfrac{a\sqrt{2}}{2}.$
+		\begin{center}
+			\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+			\clip(-0.58,-0.66) rectangle (6.48,3.66);
+			\draw [] (0.,0.)-- (0.,3.);
+			\draw [] (0.,3.)-- (3.,3.);
+			\draw [] (3.,3.)-- (3.,0.);
+			\draw [] (3.,0.)-- (0.,0.);
+			\draw (-0.18,3.6) node[anchor=north west] {$A$};
+			\draw (2.92,3.6) node[anchor=north west] {$B$};
+			\draw (2.7,0.02) node[anchor=north west] {$C$};
+			\draw (-0.3,0.04) node[anchor=north west] {$D$};
+			\draw [] (0.,3.)-- (3.,0.);
+			\draw [] (3.,3.)-- (0.,0.);
+			\draw (1.2,1.4) node[anchor=north west] {$O$};
+			\draw [] (3.,0.)-- (6.,0.);
+			\draw [] (6.,0.)-- (3.,3.);
+			\draw (5.8,0.08) node[anchor=north west] {$E$};
+			\draw [] (0.,3.)-- (6.,0.);
+			\end{tikzpicture}
+		\end{center}
+		Ta có:
+		$\overrightarrow{AD}+\overrightarrow{AB}=\overrightarrow{AC}\Rightarrow|\overrightarrow{AD}+\overrightarrow{AB}|=|\overrightarrow{AC}|=a\sqrt{2}.$\\
+		Vì $O$ là trung điểm $AC$ nên $\overrightarrow{OA}+\overrightarrow{OC}=\overrightarrow{0}$. \\
+		Vậy:
+		$|\overrightarrow{OA}+\overrightarrow{OC}|=|\overrightarrow{0}|=0.$\\
+		Theo quy tắc ba điểm: 
+		$\overrightarrow{OB}+\overrightarrow{BD}=\overrightarrow{OD}\Rightarrow |\overrightarrow{OB}+\overrightarrow{BD}|=|\overrightarrow{OD}|=\dfrac{a\sqrt{2}}{2}.$\\
+		Dựng hình bình hành $BACE$. Ta có:
+		$$\overrightarrow{AB}+\overrightarrow{AC}=\overrightarrow{AE}\Rightarrow |\overrightarrow{AB}+\overrightarrow{AC}|=|\overrightarrow{AE}|=AE.$$
+		\noindent{Do đó:}
+		$$|\overrightarrow{AB}+\overrightarrow{AC}|=AE=\sqrt{AD^2+DE^2}=\sqrt{a^2+4a^2}=a\sqrt 5.$$
+	}
+\end{bt}
+
+
+
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Cho hình chữ nhật $ABCD$ tâm $O$, $AB=2a$, $AD=a$, $M$ là trung điểm $CD$.
+	\begin{enumerate}
+		\item  Chứng minh  $\overrightarrow {AB}  - \overrightarrow {AD}  = \overrightarrow {CB}  - \overrightarrow {CD} $.
+		\item  Tính $\left| {\overrightarrow {BD}  + \overrightarrow {OM} } \right|$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item  Ta có 
+			$\overrightarrow {AB}  - \overrightarrow {AD}  = \overrightarrow {DB} $.\hfill(1)\\
+			Ta có	$\overrightarrow {CB}  - \overrightarrow {CD}  = \overrightarrow {DB} $.\hfill(2)\\
+			Từ (1) và (2) suy ra $\overrightarrow {AB}  - \overrightarrow {AD}  = \overrightarrow {CB}  - \overrightarrow {CD} $.
+			\begin{center}
+				\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm]
+				\clip(-0.8,-2.28) rectangle (6.44,3.8);
+				\draw [] (0.,0.)-- (6.,0.);
+				\draw [] (6.,0.)-- (6.,3.);
+				\draw [] (6.,3.)-- (0.,3.);
+				\draw [] (0.,3.)-- (0.,0.);
+				\draw [] (0.,3.)-- (6.,0.);
+				\draw [] (6.,3.)-- (0.,0.);
+				\draw [] (3.,1.5)-- (3.,0.);
+				\draw [] (0.,0.)-- (0.,-2.);
+				\draw [] (6.,3.)-- (0.,-2.);
+				\draw (-0.24,3.7) node[anchor=north west] {$A$};
+				\draw (5.86,3.7) node[anchor=north west] {$B$};
+				\draw (5.82,0.04) node[anchor=north west] {$C$};
+				\draw (-0.6,0.46) node[anchor=north west] {$D$};
+				\draw (2.8,2.2) node[anchor=north west] {$O$};
+				\draw (2.78,0.06) node[anchor=north west] {$M$};
+				\draw (-0.6,-1.54) node[anchor=north west] {$E$};
+				\end{tikzpicture}
+			\end{center}
+			\item  Dựng điểm $E$ sao cho $OMED$ là hình bình hành. Khi đó
+			$$\overrightarrow {BD}  + \overrightarrow {OM}  = \overrightarrow {BD}  + \overrightarrow {DE}  = \overrightarrow {BE}.$$
+			Ta có:
+			$$ BE^2 = AB^2 + AE^2 = 4a^2 + \dfrac{9a^2}{4} = \frac{25a^2}{4} \Rightarrow
+			\left| {\overrightarrow {BD}  + \overrightarrow {OM} } \right| = \left| {\overrightarrow {BE} } \right| = BE = \dfrac{5a}{2}.$$
+		\end{enumerate}
+	}
+\end{bt}
+
+
+
+
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Cho hình bình hành $ABCD$, $I$ là trung điểm $BC$. Tìm điểm $M$ thỏa mãn:
+	\[\overrightarrow {BC}  + \overrightarrow {MD}  = \overrightarrow {BI}  - \overrightarrow {CA}.\tag{*}\]
+	\loigiai{Ta có sự tương đương sau:
+		{\allowdisplaybreaks
+			\begin{align*}
+			&\overrightarrow {BC}  + \overrightarrow {MD}  = \overrightarrow {BI}  - \overrightarrow {CA} 
+			\Leftrightarrow \overrightarrow {BC}  + \overrightarrow {CA}  + \overrightarrow {MD}  = \overrightarrow {BI} \\
+			\Leftrightarrow& \overrightarrow {BA}  + \overrightarrow {MD}  = \overrightarrow {BI} 
+			\Leftrightarrow (\overrightarrow {BA}  - \overrightarrow {BI} ) + \overrightarrow {MD}  = \overrightarrow 0
+			\Leftrightarrow \overrightarrow {IA}  = \overrightarrow {DM}.
+			\end{align*}}\begin{center}
+			\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm]
+			\clip(-0.62,-2.6) rectangle (4.32,2.72);
+			\draw [] (0.,0.)-- (3.,0.);
+			\draw [] (1.,2.)-- (4.,2.);
+			\draw [] (1.,2.)-- (0.,0.);
+			\draw [] (4.,2.)-- (3.,0.);
+			\draw (-0.5,0.18) node[anchor=north west] {$A$};
+			\draw (0.8,2.6) node[anchor=north west] {$B$};
+			\draw (3.84,2.5) node[anchor=north west] {$C$};
+			\draw (3.06,0.18) node[anchor=north west] {$D$};
+			\draw (2.42,2.6) node[anchor=north west] {$I$};
+			\draw [->] (2.5,2.) -- (0.,0.);
+			\draw [] (2.5,2.)-- (3.,0.);
+			\draw [->] (3.,0.) -- (0.5,-2.);
+			\draw [] (0.,0.)-- (0.5,-2.);
+			\draw (0.22,-2) node[anchor=north west] {$M$};
+			\end{tikzpicture}
+		\end{center}
+		\noindent{Vậy} $M$ là điểm sao cho $MDIA$ là hình bình hành.
+	}
+\end{bt}
+
+
+
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Cho tam giác $ABC$. Về phía ngoài tam giác vẽ các hình bình hành $ABIJ$, $BCPQ$, $CARS$.  Chứng minh rằng 
+	$$\overrightarrow{RJ}+\overrightarrow{IQ}+\overrightarrow{PS}=\overrightarrow{0}.$$
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm]
+			\clip(-2.48,-2.62) rectangle (6.64,4.68);
+			\draw [] (0.,0.)-- (2.,3.);
+			\draw [] (2.,3.)-- (5.,0.);
+			\draw [] (5.,0.)-- (0.,0.);
+			\draw [] (-2.,1.)-- (0.,0.);
+			\draw [] (-2.,1.)-- (0.,4.);
+			\draw [] (0.,4.)-- (2.,3.);
+			\draw [] (2.,3.)-- (3.,4.);
+			\draw [] (5.,0.)-- (6.,1.);
+			\draw [] (6.,1.)-- (3.,4.);
+			\draw [] (0.,0.)-- (1.,-2.);
+			\draw [] (5.,0.)-- (6.,-2.);
+			\draw [] (6.,-2.)-- (1.,-2.);
+			\draw (1.6,3.7) node[anchor=north west] {$A$};
+			\draw (-0.4,0.7) node[anchor=north west] {$B$};
+			\draw (5.12,0.2) node[anchor=north west] {$C$};
+			\draw (-2.4,1.4) node[anchor=north west] {$I$};
+			\draw (-0.3,4.6) node[anchor=north west] {$J$};
+			\draw (6.1,1.3) node[anchor=north west] {$S$};
+			\draw (3.16,4.52) node[anchor=north west] {$R$};
+			\draw (6.08,-1.8) node[anchor=north west] {$P$};
+			\draw (0.6,-2) node[anchor=north west] {$Q$};
+			\draw [->] (-2.,1.) -- (1.,-2.);
+			\draw [->] (3.,4.) -- (0.,4.);
+			\draw [->] (6.,-2.) -- (6.,1.);
+			\end{tikzpicture}
+		\end{center}
+		Ta có:
+		{\allowdisplaybreaks
+			\begin{align*}
+			\overrightarrow{RJ}+\overrightarrow{IQ}+\overrightarrow{PS}
+			&=\overrightarrow{RA}+\overrightarrow{AJ}+\overrightarrow{IB}+
+			\overrightarrow{BQ}+\overrightarrow{PC}+\overrightarrow{CS}\\
+			&=(\overrightarrow{RA}+\overrightarrow{CS})+(\overrightarrow{AJ}+\overrightarrow{IB})+(\overrightarrow{BQ}+\overrightarrow{PC})=\overrightarrow{0}.
+			\end{align*}}Vậy ta có điều phải chứng minh.}
+\end{bt}
+
+
+
+
+
+
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Cho tam giác $ABC$. Gọi $A_1, B_1, C_1$ lần lượt là trung điểm các cạnh $BC$, $CA$, $AB$. Chứng minh $\overrightarrow{AA_1}+\overrightarrow{BB_1}+\overrightarrow{CC_1}=\overrightarrow{0}$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm]
+			\clip(-1.54,-0.84) rectangle (4.38,3.8);
+			\draw [] (-1.,0.)-- (4.,0.);
+			\draw [] (0.,1.5)-- (1.5,0.);
+			\draw (0.76,3.6) node[anchor=north west] {$A$};
+			\draw (-1.4,0.05) node[anchor=north west] {$B$};
+			\draw (3.8,0.04) node[anchor=north west] {$C$};
+			\draw (1.3,0.04) node[anchor=north west] {$A_1$};
+			\draw (2.6,2.) node[anchor=north west] {$B_1$};
+			\draw (-0.66,2.06) node[anchor=north west] {$C_1$};
+			\draw [] (1.,3.)-- (1.5,0.);
+			\draw [] (-1.,0.)-- (2.5,1.5);
+			\draw [] (4.,0.)-- (0.,1.5);
+			\draw [->] (1.,3.) -- (0.,1.5);
+			\draw [->] (1.5,0.) -- (2.5,1.5);
+			\draw [->] (-1.,0.) -- (1.5,0.);
+			\draw [->] (2.5,1.5) -- (0.,1.5);
+			\draw [->] (4.,0.) -- (2.5,1.5);
+			\draw [] (0.,1.5)-- (-1.,0.);
+			\draw [] (1.,3.)-- (2.5,1.5);
+			\end{tikzpicture}
+		\end{center}
+		Ta có:
+		{\allowdisplaybreaks
+			\begin{align*}
+			\overrightarrow {AA_1 }  + \overrightarrow {BB_1 }  + \overrightarrow {CC_1 } 
+			&= \left( {\overrightarrow {AC_1 }  + \overrightarrow {C_1 A_1 } } \right) + \left( {\overrightarrow {BA_1 }  + \overrightarrow {A_1 B_1 } } \right) + \left( {\overrightarrow {CB_1 }  + \overrightarrow {B_1 C_1 } } \right) \\ 
+			&= \left( {\overrightarrow {AC_1 }  + \overrightarrow {A_1 B_1 } } \right) + \left( {\overrightarrow {BA_1 }  + \overrightarrow {B_1 C_1 } } \right) + \left( {\overrightarrow {CB_1 }  + \overrightarrow {C_1 A_1 } } \right) \\
+			&= \overrightarrow 0  + \overrightarrow 0  + \overrightarrow 0  = \overrightarrow 0. 
+			\end{align*}}}
+\end{bt}
+
+
+
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Cho $\Delta ABC$. Gọi $A'$ là điểm đối xứng với $B$ qua $A$, gọi $B'$ là điểm đối xứng với  $C$ qua $B$, gọi $C'$ là điểm đối xứng với $A$ qua $C$. 
+	Chứng minh rằng với một điểm $O$ bất kì ta có
+	$$\overrightarrow {OA}  + \overrightarrow {OB}  + \overrightarrow {OC}  = \overrightarrow {OA'}  + \overrightarrow {OB'}  + \overrightarrow {OC'} .$$
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm,scale=.7]
+			\clip(-3.5,-2.42) rectangle (5.3,6.3);
+			\draw (3.,3.24) node[anchor=north west] {$A$};
+			\draw (0.9,0.2) node[anchor=north west] {$B$};
+			\draw (-0.38,2.66) node[anchor=north west] {$C$};
+			\draw (-3.2,1.1) node[anchor=north west] {$C'$};
+			\draw (4.5,6.3) node[anchor=north west] {$A'$};
+			\draw (3.1,-1.5) node[anchor=north west] {$B'$};
+			\draw [->] (-3.,1.) -- (0.,2.);
+			\draw [->] (0.,2.) -- (3.,3.);
+			\draw [->] (4.496,5.992) -- (3.,3.);
+			\draw [->] (3.,3.) -- (1.5,0.);
+			\draw [->] (3.,-2.) -- (1.5,0.);
+			\draw [->] (1.5,0.) -- (0.,2.);
+			\end{tikzpicture}
+		\end{center}
+		Ta có:
+		{\allowdisplaybreaks
+			\begin{align*}
+			\overrightarrow {OA}  + \overrightarrow {OB}  + \overrightarrow {OC}  
+			&= \overrightarrow {OA'}  + \overrightarrow {A'A}  + \overrightarrow {OB'} + \overrightarrow {B'B}  + \overrightarrow {OC'}  + \overrightarrow {C'C}  \\ 
+			& = \left( {\overrightarrow {OA'}  + \overrightarrow {OB'}  + \overrightarrow {OC'} } \right)
+			+ \overrightarrow {A'A}  + \overrightarrow {B'B}  + \overrightarrow {C'C}  \\ 
+			&= \left( {\overrightarrow {OA'}  + \overrightarrow {OB'}  + \overrightarrow {OC'} } \right) + \overrightarrow {AB}  + \overrightarrow {BC}  + \overrightarrow {CA}\\
+			&= \left( {\overrightarrow {OA'}  + \overrightarrow {OB'}  + \overrightarrow {OC'} } \right) + \overrightarrow 0  \\
+			&= \overrightarrow {OA'}  + \overrightarrow {OB'}  + \overrightarrow {OC'}.
+			\end{align*}}}
+\end{bt}
+
+
+
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Cho bảy điểm $A, B, C, D, E, F, H$. Chứng minh:
+	$$\overrightarrow {AB}  + \overrightarrow {CD}  + \overrightarrow {EF}  + \overrightarrow {HA}  
+	= \overrightarrow {CB}  + \overrightarrow {ED}  + \overrightarrow {HF} .$$
+	\loigiai{
+		Ta có:
+		{\allowdisplaybreaks
+			\begin{align*}
+			&\overrightarrow {AB}  + \overrightarrow {CD}  + \overrightarrow {EF}  + \overrightarrow {HA}  - (\overrightarrow {CB}  + \overrightarrow {ED}  + \overrightarrow {HF} )\\
+			=& \overrightarrow {AB}  + (\overrightarrow {CD}  - \overrightarrow {CB} ) + (\overrightarrow {EF}  - \overrightarrow {ED} ) + (\overrightarrow {HA}  - \overrightarrow {HF} )\\
+			=& \overrightarrow {AB}  + \overrightarrow {BD}  + \overrightarrow {DF}  + \overrightarrow {FA}  = \overrightarrow {AB}  + \overrightarrow {BF}  + \overrightarrow {FA}  = \overrightarrow {AF}  + \overrightarrow {FA}  = \overrightarrow 0.
+			\end{align*}}Vậy $\overrightarrow {AB}  + \overrightarrow {CD}  + \overrightarrow {EF}  + \overrightarrow {HA}  
+		= \overrightarrow {CB}  + \overrightarrow {ED}  + \overrightarrow {HF}$.
+	}
+\end{bt}
+
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Cho hai lực $\overrightarrow {F_1} $, $\overrightarrow {F_2} $ đều có cường độ là $40$ N, có điểm đặt tại $O$ và hợp với nhau một góc $60^\circ$. Tính cường độ lực tổng hợp của hai lực này.
+	\loigiai{
+		\immini
+		{Theo quy tắc hình bình hành thì $\overrightarrow {F_1}  + \overrightarrow {F_2}  = \overrightarrow {OR} $. Mà $OF_1=OF_2=40$ (N) nên $OF_1RF_2$ là hình thoi có góc $\widehat {F_1OF_2} = {60^ \circ }$ và hai đường chéo $RO$, $F_1F_2$ vuông góc với nhau tại trung điểm $H$. Ta có $OH = 40 \times \dfrac{\sqrt 3 }{2} = 20\sqrt 3 $ ($OH$ là đường cao của tam giác đều cạnh bằng $40$). Vậy cường độ lực tổng hợp của hai lực đã cho là $\left| {\overrightarrow {F_1}  + \overrightarrow {F_2} } \right| = \left| {\overrightarrow {OR} } \right| = 20\sqrt 3 $ (N).}
+		{\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm]
+			\clip(-0.68,-2.64) rectangle (6.66,2.72);
+			\draw [] (3.,2.)-- (3.,-2.);
+			\draw [] (3.,2.)-- (6.,0.);
+			\draw [] (6.,0.)-- (3.,-2.);
+			\draw (-0.6,0.3) node[anchor=north west] {$O$};
+			\draw (2.7,2.6) node[anchor=north west] {$F_1$};
+			\draw (5.9,0.3) node[anchor=north west] {$R$};
+			\draw (2.82,-1.92) node[anchor=north west] {$F_2$};
+			\draw (3.08,0) node[anchor=north west] {$H$};
+			\draw [->] (0.,0.) -- (3.,2.);
+			\draw [->] (0.,0.) -- (3.,-2.);
+			\draw [->] (0.,0.) -- (6.,0.);
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+
+
+\begin{bt}%[Nguyễn Tài Chung]%[0H1B2]
+	Cho hai lực $\overrightarrow {F_1} $, $\overrightarrow {F_2} $ lần lượt có cường độ $30$ N và $40$ N, có điểm đặt $O$ và vuông góc với nhau. Tính cường độ lực tổng hợp của chúng.
+	\loigiai{
+		\immini
+		{Do hai lực $\overrightarrow {F_1} $, $\overrightarrow {F_2} $ có cùng điểm đặt  $O$ nên tổng hợp lực $\overrightarrow {F_1}  + \overrightarrow {F_2} $ là đường chéo $OR$ của hình bình hành $OF_1RF_2$. 
+			Do hai lực $\overrightarrow {F_1} $, $\overrightarrow {F_2} $  vuông góc với nhau nên hình bình hành $OF_1RF_2$ trở thành hình chữ nhật. Vậy $\overrightarrow {F_1}  + \overrightarrow {F_2}  = \overrightarrow {OR} $. Ta có $OF_1 = 30$, $OF_2 = 40$. Như vậy $OR = F_1F_2 = \sqrt {{40^2} + {30}^2}  = 50$. Do đó cường độ lực tổng hợp $\overrightarrow {OR} $ là $\left| {\overrightarrow {F_1}  + \overrightarrow {F_2} } \right| = \left| {\overrightarrow {OR} } \right| = 50$(N).}
+		{\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm]
+			\clip(-0.64,-0.58) rectangle (4.68,3.5);
+			\draw [] (0.,3.)-- (4.,0.);
+			\draw [] (0.,3.)-- (4.,3.);
+			\draw [] (4.,3.)-- (4.,0.);
+			\draw (-0.5,0.15) node[below right] {$O$};
+			\draw (-0.24,3.6) node[anchor=north west] {$F_1$};
+			\draw (4.1,3.52) node[anchor=north west] {$R$};
+			\draw (3.82,0.08) node[anchor=north west] {$F_2$};
+			\draw (1.7,1.5) node[anchor=north west] {$H$};
+			\draw [->] (0.,0.) -- (0.,3.);
+			\draw [->] (0.,0.) -- (4.,0.);
+			\draw [->] (0.,0.) -- (4.,3.);
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+
+\begin{bt}%[Nguyễn Tài Chung]%[0H1G2]
+	Cho $2018$ điểm trên mặt phẳng. Bạn Quỳnh kí hiệu chúng là $A_1$, $A_2$,\dots, $A_{2018}$. 
+	Bạn Vân kí hiệu chúng là $B_1$, $B_2$,\dots, $B_{2018}$. Chứng minh rằng:
+	\[
+	\overrightarrow {A_1 B_1 }  + \overrightarrow {A_2 B_2 }  +\dots + \overrightarrow {A_{2018} B_{2018} }  = \overrightarrow 0 .
+	\]
+	\loigiai{Lấy một điểm $O$ nào đó. Ta có
+		{\allowdisplaybreaks
+			\begin{align*}
+			&\overrightarrow {A_1 B_1 }  + \overrightarrow {A_2 B_2 }  + \dots + \overrightarrow {A_{2018} B_{2018} } \\
+			=& \overrightarrow {OB_1 }  - \overrightarrow {OA_1 }  + \overrightarrow {OB_2 }  - \overrightarrow {OA_2 }  + \dots + \overrightarrow {OB_{2018} }  - \overrightarrow {OA_{2018} }  \\ 
+			=& \left( {\overrightarrow {OB_1 }  + \overrightarrow {OB_2 }  + \dots + \overrightarrow {OB_{2018} } } \right) - \left( {\overrightarrow {OA_1 }  + \overrightarrow {OA_2 }  +\dots + \overrightarrow {OA_{2018} } } \right).
+			\end{align*}}Vì ${2018}$ điểm $B_1$, $B_2$,\dots, $B_{2018}$ cũng là ${2018}$ điểm $A_1$, $A_2$,\dots, $A_{2018}$ nhưng được kí hiệu một cách khác, do đó
+		\[
+		{\overrightarrow {OB_1 }  + \overrightarrow {OB_2 }  +\dots + \overrightarrow {OB_{2018} } } =  {\overrightarrow {OA_1 }  + \overrightarrow {OA_2 }  +\cdots + \overrightarrow {OA_{2018} } }.
+		\]
+		Suy ra  $\overrightarrow {A_1 B_1 }  + \overrightarrow {A_2 B_2 }  +\dots + \overrightarrow {A_{2018} B_{2018} }  = \overrightarrow 0.$
+	}
+\end{bt}
+
+
+
+\begin{bt}%[Nguyễn Tài Chung]%[0H1G2]
+	Cho $n$-đa giác đều $A_1A_2\dots A_n$ ($n$ lẻ, $n>2$) nội tiếp đường tròn tâm $O$. Chứng minh rằng 
+	$$\overrightarrow {OA_1}  + \overrightarrow {OA_2}  + \cdots + \overrightarrow {OA_n}  = \overrightarrow 0.$$
+	\loigiai{Gọi $d_1$ là đường thẳng đi qua điểm $O$ và điểm $A_1$. Xét các đỉnh của đa giác đã cho mà không nằm trên $d_1$. 
+		Chúng có thể phân tích thành những cặp đỉnh $A_i$, $A_j$ đối xứng nhau qua đường thẳng $d_1$ (chẳng hạn cặp $A_2, A_{n - 1}$, cặp $A_3, A_{n - 2}$,...). Khi đó tổng $\overrightarrow {OA_i}  + \overrightarrow {OA_j} $ là một véc-tơ nằm trên đường thẳng $d_1$. Từ đó suy ra tổng $\overrightarrow {OA_1}  + \overrightarrow {OA_2}  + \cdots + \overrightarrow {OA_n}$ cũng là một véc-tơ có giá nằm trên đường thẳng $d_1$. Hoàn toàn tương tự, nếu gọi $d_2$ là đường thẳng đi qua $O$ và $A_2$ thì tổng $\overrightarrow {OA_1}  + \overrightarrow {OA_2}  + \cdots + \overrightarrow {OA_n}$ cũng là một véc-tơ có giá nằm trên đường thẳng $d_2$. Vì hai đường thẳng $d_1$ và $d_2$ không trùng nhau nên $\overrightarrow {OA_1}  + \overrightarrow {OA_2}  + \cdots + \overrightarrow {OA_n}$ có hai phương khác nhau, hay $\overrightarrow {OA_1}  + \overrightarrow {OA_2}  + \cdots + \overrightarrow {OA_n}  = \overrightarrow 0$.}
+\end{bt}

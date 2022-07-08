@@ -1,0 +1,2324 @@
+\chapter{Đường thẳng và mặt phẳng trong không gian. Quan hệ song song}
+\section{Đại cương về đường thẳng và mặt phẳng}
+%Thầy Lê Triệu Bá Vương
+\begin{center}
+\begin{tikzpicture}[very thick,scale=0.75]%Hình
+%Định nghĩa các điểm
+\tkzDefPoints{0/0/B, 8/0/D, 5/-3/C}
+\tkzDefMidPoint(B,C) \tkzGetPoint{J}
+\path(J)++(90:7)coordinate(A);
+\tkzDefMidPoint(A,D) \tkzGetPoint{K}
+\tkzDefMidPoint(A,B) \tkzGetPoint{a}% Trung điêm của AB
+\tkzInterLL(C,a)(A,J) \tkzGetPoint{G}
+\tkzInterLL(K,G)(D,J) \tkzGetPoint{L}
+\tkzInterLL(L,G)(B,J) \tkzGetPoint{b}
+%Gán tên các điểm
+\tkzLabelPoints[above](A, D, K)
+\tkzLabelPoints[below](J, C)
+\tkzLabelPoints[above left](L, B, G)
+%Nối các đường
+\tkzDrawSegments[style=dashed](B,D b,J J,D G,K)
+\tkzDrawSegments(B,b A,J J,C A,C C,D A,D A,B C,a J,L G,L)
+%Đánh dấu các đoạn bằng nhau
+\tkzMarkSegments[mark=|,color=blue](A,a a,B)
+\tkzMarkSegments[mark=||,color=blue](B,J J,C)
+\tkzMarkSegments[mark=|||,color=blue](A,K K,D)
+\end{tikzpicture}	
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[very thick,scale=0.75]%Hình
+%Định nghĩa các điểm
+\tkzDefPoints{0/0/B, 8/0/A}
+\path(B)++(40:4)coordinate(C)++(0:8)coordinate(D);
+\path(C)++(77:6)coordinate(S);
+\tkzDefMidPoint(B,A) \tkzGetPoint{M}
+\tkzDefMidPoint(D,A) \tkzGetPoint{N}
+\tkzDefMidPoint(S,C) \tkzGetPoint{P}
+\tkzInterLL(C,B)(N,M) \tkzGetPoint{K}
+\tkzInterLL(M,N)(C,D) \tkzGetPoint{L}
+\tkzInterLL(P,L)(S,D) \tkzGetPoint{F}
+\tkzInterLL(P,K)(S,B) \tkzGetPoint{E}
+%Gán tên các điểm
+\fill[blue!15] (M)--(N)--(F)--(P)--(E);
+\tkzLabelPoint[below right](D){$D$}
+\tkzLabelPoint[above right](C){$C$}
+\tkzLabelPoints[below](B, A, M, N)
+\tkzLabelPoints[above](F, L)
+\tkzLabelPoints[above left](E, S,K)
+\tkzLabelPoints[above right](P)
+%Nối các điểm
+\tkzDrawSegments[style=dashed](S,C P,E B,K D,L E,B P,F F,D)
+\tkzDrawPolygon[style=dashed](C,B,M,N,D)
+\tkzDrawSegments(S,E S,A S,F E,K K,M M,A A,N N,F F,L L,N E,M)
+\end{tikzpicture}	
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[very thick]%Hình
+\tkzDefPoints{0/0/A, 5/1/a}
+\path (a)++(25:5)coordinate (b); \path (b)++(90:5)coordinate (c);
+\path (a)++(90:5)coordinate (d); \path (A)++(0:10)coordinate (B);
+\path (A)++(60:5)coordinate (D); \path (B)++(60:5)coordinate (C);
+\path (2,1) ++(60:3)coordinate (O); \path (O) ++(-13:7)coordinate (y);
+\path (O) ++(-30:5)coordinate (x);
+\path (a)++(25:4.5)coordinate(i);
+\tkzInterLL(O,x)(a,b) \tkzGetPoint{M}
+\tkzInterLL(O,x)(a,d) \tkzGetPoint{e}
+\tkzInterLL(O,y)(a,d) \tkzGetPoint{f}
+\tkzInterLL(O,y)(a,b) \tkzGetPoint{N}
+\tkzInterLL(D,C)(a,d) \tkzGetPoint{I}
+\tkzInterLL(D,C)(b,c) \tkzGetPoint{I'}
+\tkzLabelPoints[above](O, x, y)
+\tkzLabelPoints[below](M, N)
+\tkzDrawSegments(A,B A,D B,C D,I I',C a,b b,c a,d c,d O,e M,x O,f N,y)
+\tkzDrawSegments[style=dashed](e,M f,N I,I')
+\draw (i)--++(135:4)node[above right]{$A$};
+\draw (i)--++(135:3)node[above right]{$B$};
+\filldraw (i)++(135:3) circle (1.2pt); \filldraw (i)++(135:4) circle (1.2pt);
+\tkzMarkAngles[size=1,opacity=0.4](d,c,b)
+\tkzLabelAngle[pos=0.7](d,c,b){ $\alpha$}%
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\noindent\begin{tikzpicture}[very thick,scale=0.5]%Hình
+%Định nghĩa các điểm
+\begin{scope}
+\tkzDefPoints{0/0/A, 3/-4/B, 10/0/C}
+\tkzDefMidPoint(B,A) \tkzGetPoint{J}
+\path(J)++(90:8)coordinate(S);
+\tkzDefMidPoint(B,C) \tkzGetPoint{K}
+\tkzDefMidPoint(S,C) \tkzGetPoint{L}
+\tkzLabelPoints[above](S) \tkzLabelPoints[below](B)
+\tkzLabelPoints[left](A)\tkzLabelPoints[right](C)
+\fill[blue!20] (S) -- (B)--(C);
+\fill[pattern=north east lines] (A) -- (B)--(C);
+\tkzDrawSegments[style=dashed](A,C)
+\tkzDrawSegments(S,A S,B S,C A,B B,C)
+\end{scope}
+\begin{scope}[xshift=13cm]
+\tkzDefPoints{0/0/A, 3/-4/B, 8/-3/C, 10/0/D}
+\tkzDefMidPoint(B,A) \tkzGetPoint{J}
+\path(J)++(90:8)coordinate(S);
+\tkzDefMidPoint(S,A) \tkzGetPoint{M}
+\fill[blue!20] (S) -- (A)--(B);
+\fill[pattern=north east lines] (A) -- (B)--(C)--(D);
+\tkzLabelPoints[above](S)\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](D) \tkzLabelPoints[below](B, C)
+\tkzDrawSegments[style=dashed](A,D)
+\tkzDrawSegments(S,A S,B S,C S,D A,B B,C C,D)
+\end{scope}
+\draw[<->] (4,-2)--++(-40:4)--node[midway,fill=white,inner sep=0pt]{Mặt đáy}++(0:7)--++(40:4);
+\draw[<->] (K)--++(-20:1)--node[midway,fill=white,inner sep=0pt]{Cạnh đáy}++(0:6)--(J);
+\draw[<->](S)--++(140:2)--node[midway,fill=white,inner sep=0pt]{Đỉnh}++(180:10)--++(220:2);
+\path(S)++(-90:2)coordinate (MB);
+\draw[<->] (MB)--++(140:3)--node[midway,fill=white,inner sep=0pt]{Mặt bên}++(180:8)--++(220:2);
+\draw[<->](L)--node[midway,fill=white,inner sep=0pt]{Cạnh bên}(M);
+\draw (-2,1)--++(-120:10)coordinate(al)--++(0:25);
+\draw(al)++(0:2) arc (0:60:2);\path(al)++(30:1)node{$\alpha$};
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/B, 8/0/D, 3/-3/C, 2/5/A}
+\tkzCentroid(B,C,D) \tkzGetPoint{G_A}
+\tkzCentroid(A,C,D) \tkzGetPoint{G_B}
+\tkzDefMidPoint(C,D) \tkzGetPoint{I}
+\tkzInterLL(A,G_A)(B,G_B) \tkzGetPoint{G}
+%\tkzDrawPoints(A,B,C,D, G_A,G_B,I, G)
+\tkzLabelPoints(C,D, G_A,G_B,I,G)\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](B)
+\tkzDrawSegments[dashed](B,D B,I A,G_A B,G_B)
+\tkzDrawSegments(A,B B,C C,D D,A A,C A,I)
+\end{tikzpicture}\newline
+Hình bài 4 SGK trang 53
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/D, 10/0/C, 2/-2.5/A, 6/-4/B, 4/6/S}
+\tkzDefMidPoint(C,S) \tkzGetPoint{M}
+\tkzInterLL(A,C)(B,D) \tkzGetPoint{O}
+\tkzInterLL(D,C)(B,A) \tkzGetPoint{E}
+\tkzInterLL(D,S)(E,M) \tkzGetPoint{N}
+\tkzInterLL(O,S)(A,M) \tkzGetPoint{I}
+%\tkzDrawPoints(A,B,C,D,S,M)
+\tkzLabelPoints(C) 
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[right](M,I)
+\tkzLabelPoints[above left](N,D)
+\tkzLabelPoints[ below left](E,A,B,O)
+\tkzDrawSegments[dashed](A,D E,C A,C B,D B,N A,M D,N N,M S,O)
+\tkzDrawSegments(B,E B,C C,S S,N N,E S,A S,B B,M)
+\tkzMarkSegments[mark=|](M,S M,C)
+\end{tikzpicture}\newline
+Hình bài 5 SGK trang 53
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/B, 8/0/D, 3/-3/C, 2/5/A}
+\tkzDefMidPoint(C,B) \tkzGetPoint{N}
+\tkzDefMidPoint(C,A) \tkzGetPoint{M}
+\coordinate(P) at ($(D)!0.33!(B)$);
+\tkzInterLL(C,D)(N,P) \tkzGetPoint{I}
+\tkzInterLL(M,I)(A,D) \tkzGetPoint{J}
+%\tkzDrawPoints(A,B,C,D,M,N,P)
+\tkzLabelPoints(C,D)
+\tkzLabelPoints[above](A,I)
+\tkzLabelPoints[above right](M,J)
+\tkzLabelPoints[left](B,N)
+\tkzLabelPoints[below](P)
+\tkzDrawSegments[dashed](B,D N,I M,P P,J)
+\tkzDrawSegments(A,B B,C C,I D,A A,C M,I M,N)
+\end{tikzpicture}\newline
+Bài 6 SGK trang 54
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/B, 8/0/D, 2/-2/C, 3.5/6/A}
+\tkzDefMidPoint(A,D) \tkzGetPoint{I}
+\tkzDefMidPoint(C,B) \tkzGetPoint{K}
+\coordinate(M) at ($(A)!0.6!(B)$);
+\coordinate(N) at ($(A)!0.3!(C)$);
+\tkzInterLL(M,D)(B,I) \tkzGetPoint{F}
+\tkzInterLL(C,I)(N,D) \tkzGetPoint{E}
+%\tkzDrawPoints(A,B,C,D,I,K,M,N)
+\tkzLabelPoints(C,D)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](B,K,M)
+\tkzLabelPoints[right](I,E,N)
+\tkzLabelPoints[below](F)
+\tkzDrawSegments[dashed](B,D B,I M,D D,K E,F I,K)
+\tkzDrawSegments(A,B B,C C,D A,C A,D C,I D,N M,N A,K)
+\tkzMarkSegments[mark=|](I,A I,D)
+\tkzMarkSegments[mark=||](K,C K,B)
+\end{tikzpicture}\newline
+Hình SGK bài 7 trang 54
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/B, 8/0/D, 3.5/-3/C, 2.5/6/A}
+\tkzDefMidPoint(A,B) \tkzGetPoint{M}
+\tkzDefMidPoint(C,D) \tkzGetPoint{N}
+\coordinate(P) at ($(A)!0.3!(D)$);
+\tkzInterLL(M,P)(B,D) \tkzGetPoint{E}
+\tkzInterLL(E,N)(B,C) \tkzGetPoint{Q}
+%\tkzDrawPoints(A,B,C,D,M,N,P)
+\tkzLabelPoints(C,D,N)
+\tkzLabelPoints[above left](A,M)
+\tkzLabelPoints[above left](B)
+\tkzLabelPoints[above right](P)
+\tkzLabelPoints[below left](E,Q)
+\tkzDrawSegments[dashed](E,D M,P Q,N M,B B,Q)
+\tkzDrawSegments(A,M Q,C C,D A,C A,D E,M E,Q N,P Q,M)
+\tkzMarkSegments[mark=|](M,A M,B)
+\tkzMarkSegments[mark=||](N,C N,D)
+\end{tikzpicture}\newline
+Hình SGK bài 8 trang 54
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/D, -2/-3/A, 5/0/C, -1/5/S}
+%Vẽ B
+\tkzDefMidPoint(C,A) \tkzGetPoint{O}
+\tkzDefPointBy[symmetry = center O](D) \tkzGetPoint{B}
+%%%%% vẽ E và M
+\coordinate (E) at ($(B)!0.7!(C)$);
+\tkzInterLL(D,C)(A,E) \tkzGetPoint{M}
+%% Vẽ C'
+\coordinate (C') at ($(S)!0.6!(C)$);
+%%% Vẽ P
+\tkzInterLL(M,C')(S,D) \tkzGetPoint{P}
+%%%
+%\tkzDrawPoints(A,B,C,D,S,E,M,C',P)
+\tkzLabelPoints(D,C,B,A,E,M) 
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[above right](C',P)
+\tkzLabelLine[above, pos=1.2](E,M){d}
+\tkzDrawSegments[dashed](A,D D,M S,D A,E C,C' A,P P,C' E,C)
+\tkzDrawSegments(B,E S,A S,B S,C' A,B E,C' C',M)
+\tkzDrawLines[add=0 and 0.3](E,M)
+\tkzFillPolygon[color=black, fill opacity=0.1](P,A,E,C')
+\end{tikzpicture}\newline
+Hình bài 9 SGK trang 54
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/A, 10/0/D, 2/-2.5/B, 6/-3/C, 4/6/S}
+\coordinate (N) at ($(D)!0.3!(C)$);
+\coordinate (M) at ($(S)!0.6!(N)$);
+\tkzInterLL(A,C)(B,N) \tkzGetPoint{O}
+\tkzInterLL(A,B)(C,D) \tkzGetPoint{E}
+\tkzInterLL(E,M)(S,C) \tkzGetPoint{P}
+\tkzInterLL(E,M)(S,D) \tkzGetPoint{Q}
+\tkzInterLL(B,M)(S,O) \tkzGetPoint{I}
+%\tkzDrawPoints(A,B,C,D,S,N,M,E)
+\tkzDrawPoints(O)
+\tkzLabelPoints(C,D,N,E,P,O) 
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[right](Q,M,I)
+\tkzLabelPoints[left](B,A)
+\tkzDrawSegments[dashed](A,D S,O B,M B,N B,C A,Q)
+\tkzDrawSegments(E,A B,P C,S S,A S,B S,D E,D S,N E,Q)
+\tkzFillPolygon[color=black, fill opacity=0.2](A,B,P,Q)
+\end{tikzpicture}\newline
+Hình bài 10 SGK trang 54
+\end{center}
+
+%Thầy Huỳnh Quy
+Hình 2.3 trang 44
+
+\begin{tikzpicture}[line cap=round,line join=round]%Hình 2.3 trang 44
+\tkzDefPoints{0/0/A, -1/-2/B, 3/-2/C}
+\coordinate (D) at ($(A)+(C)-(B)$);
+\coordinate (E) at ($(D)+(1,0)$);
+\coordinate (F) at ($(C)+(1,0)$);
+\coordinate (G) at ($(F)+(D)$);
+%\tkzDrawSegments[dashed](S,A A,B A,D)
+\tkzDrawPolygon(A,B,C,D)%vẽ đa giác
+\tkzDrawSegments(E,F F,G)
+%\tkzLabelPoints[left](E,F)%viết tên các điểm
+\tkzMarkAngle[size=0.7](C,B,A)%vẽ góc
+\tkzMarkAngle[size=0.7](G,F,E)
+\tkzLabelAngle[pos = 0.4](C,B,A){$P$}%gán nhãn cho góc
+\tkzLabelAngle[pos = 0.4](G,F,E){$Q$}
+\end{tikzpicture}
+%\newpage	
+Hình 2.4 trang 45	
+
+\begin{tikzpicture}%Hình 2.4 trang 45  
+\tkzDefPoints{0/0/M, 2/3/N, 8/3/P, 3/4/B}
+\coordinate (Q) at ($(M)+(P)-(N)$);	
+\coordinate (A) at ($(M)!0.5!(P)$); % A thoa man MA=0.6MP
+\tkzDrawPoints(A)
+%\tkzLabelPoints(A)
+\draw (A) node[above right]{$A$};
+%\tkzDrawPoint(A,B,C)
+\draw (M)--(N)--(P)--(Q)--cycle;
+\tkzMarkAngle[size=0.8](Q,M,N)
+\draw (M) node[above, xshift=15pt]{$\alpha$};
+\tkzInterLL(A,B)(M,Q)
+\tkzGetPoint{I}
+\tkzDrawSegments[dashed](A,I)
+\tkzDrawSegments(A,B)
+\coordinate (T) at ($(A)!1.4!(I)$); 
+\tkzDrawSegments(I,T)
+\coordinate (H) at ($(B)!0.2!(A)$); 
+\tkzDrawPoints(H)
+\draw (H) node[above right]{$B$};	
+\end{tikzpicture}	
+Hình 2.5 trang 45
+
+\begin{tikzpicture}[line cap=round,line join=round]%Hình trái
+\tkzDefPoints{-1/-2/x, 3/0/y, 0/3/z, 0/0/A}
+\coordinate (B) at ($(A)+(x)$);
+\coordinate (C) at ($(B)+(y)$);
+\coordinate (D) at ($(C)-(x)$);
+\coordinate (E) at ($(A)+(z)$);
+\coordinate (F) at ($(B)+(z)$);
+\coordinate (G) at ($(C)+(z)$);
+\coordinate (H) at ($(D)+(z)$);
+\tkzDrawSegments[dashed](B,A A,D A,E)
+\tkzDrawSegments(D,C D,H)
+\tkzDrawPolygon(E,F,G,H)
+\tkzDrawPolygon(B,F,G,C)
+%\tkzLabelPoints[right](C, G, H, D)
+%\tkzLabelPoints[left](A, B, E, F)
+\end{tikzpicture}\qquad
+\begin{tikzpicture}[line cap=round,line join=round]%Hình giữa
+\tkzDefPoints{-1/-2/x, 3/0/y, 0/3/z, 0/0/A}
+\coordinate (B) at ($(A)+(x)$);
+\coordinate (C) at ($(B)+(y)$);
+\coordinate (D) at ($(C)-(x)$);
+\coordinate (E) at ($(A)+(z)$);
+\coordinate (F) at ($(B)+(z)$);
+\coordinate (G) at ($(C)+(z)$);
+\coordinate (H) at ($(D)+(z)$);
+\tkzDrawSegments[dashed](C,G G,H G,F)
+\tkzDrawSegments(D,C D,H)
+\tkzDrawPolygon(A,B,F,E)
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawPolygon(A,D,H,E)
+%\tkzLabelPoints[right](C, G, H, D)
+%\tkzLabelPoints[left](A, B, E, F)
+\end{tikzpicture}\qquad
+\begin{tikzpicture}[line cap=round,line join=round]%Hình phải
+\tkzDefPoints{2/-1/x, 5/0/y, 0/3/z, 0/0/A}
+\coordinate (B) at ($(A)+(x)$);
+\coordinate (C) at ($(A)+(y)$);
+\coordinate (D) at ($(C)-(x)$);
+\coordinate (E) at ($(A)+(z)$);
+\coordinate (F) at ($(B)+(z)$);
+\coordinate (G) at ($(C)+(z)$);
+\coordinate (H) at ($(D)+(z)$);
+\tkzDrawSegments[dashed](A,D C,D D,H)
+\tkzDrawPolygon(A,B,F,E)
+\tkzDrawPolygon(B,F,G,C)
+\tkzDrawPolygon(E,F,G,H)
+%\tkzLabelPoints[right](C, G, H, D)
+%\tkzLabelPoints[left](A, B, E, F)
+\end{tikzpicture}
+
+Hình 2.6 trang 45\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 2/-1/B, 4/0/C}
+\coordinate (S) at ($(B)+(0,4)$);
+\tkzDrawSegments[dashed](A,C)
+\tkzDrawPolygon(S,B,C)
+\tkzDrawPolygon(S,A,B)
+\tkzDrawSegments(S,A A,B)
+\end{tikzpicture}\qquad
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 2/1/B, 4/0/C, 2/4/S}
+\tkzDrawSegments[dashed](A,B B,C B,S)
+\tkzDrawPolygon(S,A,C)
+\end{tikzpicture}
+Hình 2.8 trang 46\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/M, -1/-2/N, 3/-2/P}
+\tkzDefPoints{1/-1/A, 2/-1.5/B, 2.5/-1/C}
+\coordinate (Q) at ($(M)+(P)-(N)$);
+\tkzDrawPoints(A,B,C)
+%\tkzLabelPoints(A)
+\draw (A) node[above left]{$A$};
+\draw (B) node[below left]{$B$};
+\draw (C) node[above right]{$C$};
+%\tkzDrawSegments[dashed](S,A A,B A,D)
+\tkzDrawPolygon(M,N,P,Q)%vẽ đa giác
+\end{tikzpicture}
+Hình 2.12 trang 47\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/B, 2/3/A}
+\coordinate (C) at ($(B)+(4,0)$);
+\coordinate (M) at ($(B)+(7,0)$);
+\tkzDrawPoints(A,B,C,M)%vẽ các điểm
+%\tkzLabelPoints(A)
+\draw (A) node[above]{$A$};%dán nhãn tại vị trí điểm
+\draw (B) node[below]{$B$};
+\draw (C) node[below]{$C$};
+\draw (M) node[below]{$M$};
+\tkzDrawSegments(C,M)
+\tkzDrawPolygon(A,B,C)%vẽ đa giác
+\end{tikzpicture}
+Hình 2.14 trang 48\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 0/5/B, -3/-2/D, 3/-1/E}
+\coordinate (C) at ($(D)+(B)-(A)$);
+\coordinate (F) at ($(B)+(E)-(A)$);
+\draw (A)--(B)--(C)--(D)--(A);
+\draw (A)--(B)--(F)--(E)--(A);
+\tkzMarkAngle[size=.7](D,C,B)
+\tkzMarkAngle[size=.7](B,F,E)
+\draw (C) node[below right]{$\alpha$};
+\draw (F) node[below left]{$\beta$};
+\draw ($(A)!0.5!(B)$) node[right]{$d$};
+\end{tikzpicture}
+Hình 2.15 trang 48\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, -2/-2/B, 3/-2/C}
+\coordinate (D) at ($(A)+(C)-(B)$);
+\coordinate (E) at ($(A)!0.5!(B)$);
+\coordinate (S) at ($(E)+(0,4)$);
+\coordinate (H) at ($(E)-(1,0)$);
+\coordinate (K) at ($(H)+(B)-(A)$);
+\coordinate (T) at ($(K)+(C)-(B)$);
+\tkzInterLL(A,C)(B,D)
+\tkzGetPoint{I}
+\tkzDrawSegments[dashed](S,A A,B A,D A,C B,D)
+\tkzDrawPolygon(S,C,D)
+\tkzDrawSegments(S,B B,C H,K K,T)
+\tkzLabelPoints[left](A,B)
+\tkzLabelPoints[right](C,D)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[below](I)
+%\tkzLabelPoints[below](H)
+%\tkzDrawPoints(H,K,T)
+\tkzMarkAngle[size=0.7](T,K,H)
+\tkzLabelAngle[pos = 0.4](T,K,H){$P$}%gán nhãn cho góc
+\end{tikzpicture}
+Hình 2.16 trang 48\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/E, -1/-2/F, 3/-2/G, 1.5/2/A}
+\tkzDefPoints{1/-1/M, 2/-1.5/L, 2.5/-0.5/K}
+\coordinate (H) at ($(E)+(G)-(F)$);
+\coordinate (B) at ($(A)!0.4!(M)$); 
+\coordinate (U) at ($(A)!1.4!(M)$); 
+\coordinate (V) at ($(A)!1.3!(L)$); 
+\tkzInterLL(B,K)(A,L)
+\tkzGetPoint{C}
+\coordinate (W) at ($(B)!1.8!(K)$); 
+\tkzDrawPoints(M,L,K,A,B,C)
+%\tkzLabelPoints(A)
+\draw (M) node[left]{$M$};
+\draw (L) node[left]{$L$};
+\draw (K) node[right]{$K$};
+\draw (A) node[above right]{$A$};
+\draw (B) node[left]{$B$};
+\draw (C) node[right]{$C$};
+\tkzDrawSegments(A,M A,L B,K)
+\tkzDrawSegments[dashed](M,U L,V K,W)
+\tkzDrawPolygon(E,F,G,H)%vẽ đa giác
+\tkzFillPolygon[color=black, fill opacity=.1](A,B,C)
+\tkzMarkAngle[size=0.7](G,F,E)
+\tkzLabelAngle[pos = 0.4](G,F,E){$P$}%gán nhãn cho góc
+\end{tikzpicture}
+Hình 2.17 trang 49\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/M, -1/-2/N, 3/-2/P}
+\tkzDefPoints{1/-1/A, 2/-1.5/B, 2.5/-1/C}
+\coordinate (Q) at ($(M)+(P)-(N)$);
+\tkzDrawPoints(A,B,C)
+%\tkzLabelPoints(A)
+\draw (A) node[above left]{$A$};
+\draw (B) node[below left]{$B$};
+\draw (C) node[above right]{$C$};
+\tkzDrawPolygon(M,N,P,Q)%vẽ đa giác
+\tkzMarkAngle[size=0.7](G,F,E)
+\tkzLabelAngle[pos = 0.4](G,F,E){$\alpha$}%gán nhãn cho góc
+\end{tikzpicture}
+
+Hình 2.18 trang 49\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/M, -1/-2/N, 3/-2/P}
+\tkzDefPoints{1.5/-0.5/A, 0.3/-1.5/B, 3/-1.5/C}
+\coordinate (Q) at ($(M)+(P)-(N)$);
+\tkzDrawPoints(A)
+%\tkzLabelPoints(A)
+\draw (A) node[above left]{$A$};
+%\draw (B) node[below left]{$B$};
+\draw (C) node[above]{$d$};
+\tkzDrawSegments(B,C)
+\tkzDrawPolygon(M,N,P,Q)%vẽ đa giác
+\tkzMarkAngle[size=0.7](G,F,E)
+\tkzLabelAngle[pos = 0.4](G,F,E){$\alpha$}%gán nhãn cho góc
+\end{tikzpicture}
+
+Hình 2.19 trang 49\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/M, -1/-2/N, 3/-2/P}
+\tkzDefPoints{2.5/-0.5/A, 0.3/-1/B, 3/-1/C, 0.5/-1.5/D}
+\coordinate (Q) at ($(M)+(P)-(N)$);
+%\tkzLabelPoints(A)
+\draw (A) node[above left]{$a$};
+\draw (C) node[above]{$b$};
+\tkzDrawSegments(B,C A,D)
+\tkzInterLL(A,D)(B,C)
+\tkzGetPoint{H}
+\tkzDrawPoints(H)
+\tkzDrawPolygon(M,N,P,Q)%vẽ đa giác
+\tkzMarkAngle[size=0.7](G,F,E)
+\tkzLabelAngle[pos = 0.4](G,F,E){$\alpha$}%gán nhãn cho góc
+\end{tikzpicture}
+Hình 2.20 trang 49\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/B, 1/4/A, 2/-1/C, 5/1/D}
+\coordinate (E) at ($(B)!2!(C)$); 
+\coordinate (M) at ($(A)!0.5!(B)$); 
+\tkzInterLL(A,C)(M,E)
+\tkzGetPoint{N}
+\tkzDrawPoints(A,B,C,D,M,E,N)%vẽ các điểm
+\tkzInterLL(D,C)(M,E)
+\tkzGetPoint{I}
+%\tkzLabelPoints(A)
+\draw (A) node[above]{$A$};%dán nhãn tại vị trí điểm
+\draw (M) node[left]{$M$};
+\draw (B) node[left]{$B$};
+\draw (C) node[below]{$C$};
+\draw (N) node[left]{$N$};
+\draw (E) node[below right]{$E$};
+\draw (D) node[right]{$D$};
+\tkzMarkSegments[mark=|,color=black](A,N)
+\tkzDrawSegments(N,D M,E C,E D,N A,D D,I)
+\tkzDrawSegments[dashed](D,B D,M C,I)
+\tkzDrawPolygon(A,B,C)%vẽ đa giác
+\end{tikzpicture}
+Hình 2.23 trang 51\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/B, 1/4/A, 3/-1/C, 5/0/D}
+\coordinate (K) at ($(A)!0.3!(D)$); 
+\coordinate (M) at ($(A)!0.55!(B)$); 
+\coordinate (N) at ($(A)!0.75!(C)$); 
+\tkzInterLL(M,N)(B,C)
+\tkzGetPoint{H}
+\tkzInterLL(M,K)(B,D)
+\tkzGetPoint{J}
+\tkzInterLL(C,D)(J,H)
+\tkzGetPoint{I}
+\tkzInterLL(C,D)(M,H)
+\tkzGetPoint{E}
+\tkzDrawPoints(A,B,C,D,M,N,K,I,J,H)%vẽ các điểm
+\draw (A) node[above]{$A$};%dán nhãn tại vị trí điểm
+\draw (B) node[above left]{$B$};
+\draw (C) node[above]{$C$};
+\draw (D) node[right]{$D$};
+\draw (M) node[above left]{$M$};
+\draw (N) node[above right]{$N$};
+\draw (K) node[right]{$K$};
+\draw (I) node[below]{$I$};
+\draw (J) node[left]{$J$};
+\draw (H) node[right]{$H$};
+\tkzDrawSegments(A,M A,D A,N N,K E,D N,I)
+\tkzDrawSegments[dashed](J,D B,H I,E M,B N,C M,K)
+\tkzDrawPolygon(J,M,H)%vẽ đa giác
+\end{tikzpicture}
+\section{Hai đường thẳng chéo nhau và hai đường thẳng song song}
+%Thầy Nguyễn Trung Hiếu
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 5/0/B, 6/3/C}
+\coordinate (D) at ($(A)+(C)-(B)$);
+\tkzDrawPolygon(A,B,C,D)
+\tkzMarkAngle[size=.65](B,A,D)
+\draw (A) node[above right]{$\alpha$};
+\tkzDefPoints{1/2/E, 4.5/0.5/F, 0.8/1.5/G, 5/2.5/H}
+\draw (E)--(F) (G)--(H);
+\tkzInterLL(E,F)(G,H) \tkzGetPoint{M}
+\tkzLabelPoints[above](M)
+\draw (F) node[above]{$a$};
+\draw (H) node[below]{$b$};
+\end{tikzpicture}
+
+$a \cap b = \{M\}$
+
+
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 5/0/B, 6/3/C}
+\coordinate (D) at ($(A)+(C)-(B)$);
+\tkzDrawPolygon(A,B,C,D)
+\tkzMarkAngle[size=.65](B,A,D)
+\draw (A) node[above right]{$\alpha$};
+\tkzDefPoints{0.8/1.5/G, 5/2.5/H, 1/0.5/I}
+\coordinate (K) at ($(H)+(I)-(G)$);
+\draw (G)--(H) (I)--(K);
+\draw ($(G)!0.8!(H)$) node[above]{$a$};
+\draw ($(I)!0.8!(K)$) node[above]{$b$};
+\end{tikzpicture}
+
+$a \parallel b$
+
+
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 5/0/B, 6/3/C}
+\coordinate (D) at ($(A)+(C)-(B)$);
+\tkzDrawPolygon(A,B,C,D)
+\tkzMarkAngle[size=.65](B,A,D)
+\draw (A) node[above right]{$\alpha$};
+\tkzDefPoints{0.5/0.8/G, 5/2.5/H}
+\draw (G)--(H);
+\draw ($(G)!0.2!(H)$) node[above]{$a$};
+\draw ($(G)!0.2!(H)$) node[below]{$b$};
+\end{tikzpicture}
+
+$a \equiv b$\\
+Hình 2.27
+
+
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 5/0/B, 6/3/C}
+\coordinate (D) at ($(A)+(C)-(B)$);
+\tkzDrawPolygon(A,B,C,D)
+\tkzMarkAngle[size=.65](B,A,D)
+\draw (A) node[above right]{$\alpha$};
+\tkzDefPoints{0.8/0.5/G, 4.5/1.5/H, 2/4/E, 2.5/-0.5/F}
+\tkzInterLL(A,B)(E,F) \tkzGetPoint{K}
+\coordinate (I) at ($(E)!0.4!(F)$);
+\draw (G)--(H) (E)--(I) (K)--(F);
+\draw[dashed] (I)--(K);
+\draw ($(E)!0.1!(F)$) node[right]{$a$};
+\draw ($(G)!0.9!(H)$) node[above]{$b$};
+\draw [fill=black] (I) circle(1pt);
+\tkzLabelPoints[left](I)
+\end{tikzpicture}
+
+Hình 2.28
+
+
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B, 1.5/-1/C, 5/0/D, 1.5/3/A}
+\draw (A)--(B)--(C)--(D)--(A)--(C);
+\draw[dashed] (B)--(D);
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[below](C)
+\tkzLabelPoints[right](D)
+\end{tikzpicture}
+
+Hình 2.29
+
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B, 3/-1.5/C, 5/0/D, 2/3/A}
+\draw (A)--(B)--(C)--(D)--(A)--(C);
+\draw[dashed] (B)--(D);
+\coordinate (P) at ($(B)!0.6!(A)$);
+\coordinate (Q) at ($(B)!0.6!(C)$);
+\coordinate (R) at ($(D)!0.4!(C)$);
+\coordinate (S) at ($(D)!0.4!(A)$);
+\tkzDrawPoints[size=3](P,Q,R,S)
+\draw (P)--(Q) (S)--(R);
+\draw[dashed] (P)--(S) (Q)--(R);
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](B,P)
+\tkzLabelPoints[below](C)
+\tkzLabelPoints[right](D)
+\tkzLabelPoints[below left](Q)
+\tkzLabelPoints[below right](R)
+\tkzLabelPoints[above right](S)
+\end{tikzpicture}
+
+Bài tập 1a - TH1 - trang 59
+
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B, 3/-1.5/C, 5/0/D, 2/3/A}
+\draw (A)--(B)--(C)--(D)--(A)--(C);
+\draw[dashed] (B)--(D);
+\coordinate (P) at ($(B)!0.3!(A)$);
+\coordinate (Q) at ($(B)!0.6!(C)$);
+\coordinate (S) at ($(D)!0.4!(A)$);
+\tkzInterLL(P,Q)(A,C) \tkzGetPoint{I}
+\tkzInterLL(I,S)(C,D) \tkzGetPoint{R}
+\tkzDrawPoints[size=3](P,Q,R,S)
+\draw (P)--(I) (S)--(I)--(C);
+\draw[dashed] (P)--(S) (Q)--(R);
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](B,P)
+\tkzLabelPoints[below left](C)
+\tkzLabelPoints[right](D)
+\tkzLabelPoints[below left](Q)
+\tkzLabelPoints[below right](R)
+\tkzLabelPoints[above right](S)
+\tkzLabelPoints[below](I)
+\end{tikzpicture}
+
+Bài tập 1a - TH2 - trang 59
+
+
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B, 3/-1.5/C, 5/0/D, 2/3/A}
+\draw (A)--(B)--(C)--(D)--(A)--(C);
+\draw[dashed] (B)--(D);
+\coordinate (P) at ($(B)!0.6!(A)$);
+\coordinate (Q) at ($(B)!0.4!(C)$);
+\coordinate (R) at ($(D)!0.4!(C)$);
+\coordinate (S) at ($(D)!0.6!(A)$);
+\tkzDrawPoints[size=3](P,Q,R,S)
+\draw (P)--(Q) (S)--(R);
+\draw[dashed] (P)--(S) (Q)--(R);
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](B,P)
+\tkzLabelPoints[below](C)
+\tkzLabelPoints[right](D)
+\tkzLabelPoints[below left](Q)
+\tkzLabelPoints[below right](R)
+\tkzLabelPoints[above right](S)
+\end{tikzpicture}
+
+Bài tập 1b - TH1 - trang 59
+
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B, 3/-1.5/C, 5/0/D, 2/3/A}
+\draw (A)--(B)--(C)--(D)--(A)--(C);
+\draw[dashed] (B)--(D);
+\coordinate (P) at ($(B)!0.7!(A)$);
+\coordinate (Q) at ($(B)!0.5!(C)$);
+\coordinate (S) at ($(D)!0.4!(A)$);
+\tkzInterLL(P,S)(B,D) \tkzGetPoint{I}
+\tkzInterLL(Q,I)(C,D) \tkzGetPoint{R}
+\tkzDrawPoints[size=3](P,Q,R,S)
+\draw (P)--(Q) (S)--(R)--(I)--(S) (D)--(I);
+\draw[dashed] (P)--(S) (Q)--(R);
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](B,P)
+\tkzLabelPoints[below left](C)
+\tkzLabelPoints[above right](D)
+\tkzLabelPoints[below left](Q)
+\tkzLabelPoints[below right](R)
+\tkzLabelPoints[above right](S)
+\tkzLabelPoints[below](I)
+\end{tikzpicture}
+
+Bài tập 1b - TH2 - trang 59
+
+
+
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B, 3/-1.5/C, 5/0/D, 2/3/A}
+\draw (A)--(B)--(C)--(D)--(A)--(C);
+\draw[dashed] (B)--(D);
+\coordinate (P) at ($(B)!0.6!(A)$);
+\coordinate (R) at ($(B)!0.6!(C)$);
+\coordinate (Q) at ($(D)!0.4!(C)$);
+\coordinate (S) at ($(D)!0.4!(A)$);
+\tkzDrawPoints[size=3](P,Q,R,S)
+\draw (P)--(R) (S)--(Q);
+\draw[dashed] (P)--(S) (Q)--(R);
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](B,P)
+\tkzLabelPoints[below](C)
+\tkzLabelPoints[right](D)
+\tkzLabelPoints[below left](R)
+\tkzLabelPoints[below right](Q)
+\tkzLabelPoints[above right](S)
+\end{tikzpicture}
+
+Bài tập 2a - trang 59
+
+
+
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B, 3/-1.5/C, 5/0/D, 2/3/A}
+\draw (A)--(B)--(C)--(D)--(A)--(C);
+\draw[dashed] (B)--(D);
+\coordinate (P) at ($(B)!0.3!(A)$);
+\coordinate (R) at ($(B)!0.6!(C)$);
+\coordinate (Q) at ($(C)!0.4!(D)$);
+\tkzInterLL(P,R)(A,C) \tkzGetPoint{I}
+\tkzInterLL(I,Q)(A,D) \tkzGetPoint{S}
+\tkzDrawPoints[size=3](P,Q,R,S)
+\draw (P)--(I) (S)--(I)--(C);
+\draw[dashed] (P)--(S) (Q)--(R);
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](B,P)
+\tkzLabelPoints[below left](C)
+\tkzLabelPoints[right](D)
+\tkzLabelPoints[below left](R)
+\tkzLabelPoints[below right](Q)
+\tkzLabelPoints[above right](S)
+\tkzLabelPoints[below](I)
+\end{tikzpicture}
+
+Bài tập 2b - trang 59
+
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B, 2/-2/C, 5/0/D, 2.2/3/A}
+\draw (A)--(B)--(C)--(D)--(A)--(C);
+\draw[dashed] (B)--(D);
+\coordinate (M) at ($(A)!0.5!(B)$);
+\coordinate (N) at ($(C)!0.5!(D)$);
+\coordinate (A') at ($(B)!2/3!(N)$);
+\coordinate (M') at ($(B)!1/3!(N)$);
+\tkzInterLL(M,N)(A,A') \tkzGetPoint{G}
+\tkzDrawPoints[size=3](A,A',M,M',N,G)
+\draw[dashed] (M')--(M)--(N)--(B) (A)--(A');
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[below left](C)
+\tkzLabelPoints[right](D,N)
+\tkzLabelPoints[below](A',M')
+\tkzLabelPoints[above right](G)
+\tkzLabelPoints[left](M)
+\tkzMarkSegment[size=2pt,pos=0.5, mark=||](M,B)
+\tkzMarkSegment[size=2pt,pos=0.5, mark=||](A,M)
+\tkzMarkSegment[size=2pt,pos=0.5, mark=x](C,N)
+\tkzMarkSegment[size=2pt,pos=0.5, mark=x](D,N)
+\end{tikzpicture}
+
+Bài tập 3 - trang 60
+%===========================================
+%Thầy Phạm Đức
+\textbf{1H22-2.30-SGK/tr56}\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 5/0/B, 1/2.5/D}
+\tkzDefPointBy[translation = from A to B](D)
+\tkzGetPoint{C}
+\coordinate (P) at ($(D)!.33!(A)$);
+\coordinate (Q) at ($(D)!.67!(A)$);
+\tkzDefPointBy[translation = from A to B](P)
+\tkzGetPoint{P'}
+\tkzDefPointBy[translation = from A to B](Q)
+\tkzGetPoint{Q'}
+\coordinate (P1) at ($(P)!.2!(P')$);
+\coordinate (P2) at ($(P')!.2!(P)$);
+\coordinate (Q1) at ($(Q)!.2!(Q')$);
+\coordinate (Q2) at ($(Q')!.2!(Q)$);
+\coordinate (M) at ($(P)!.4!(P')$);
+\tkzDrawSegments(P1,P2 Q1,Q2)
+\tkzDrawPolygon(A,B,C,D)
+\tkzLabelPoints[above](M)
+\tkzDrawPoints(M)
+\tkzMarkAngle[size=0.7](B,A,D)
+\tkzLabelAngle[pos=.35](B,A,D){$\alpha$}
+\tkzLabelSegments[above,pos=.9](P1,P2){$d'$}
+\tkzLabelSegments[above,pos=.9](Q1,Q2){$d$}
+\end{tikzpicture}
+
+
+\textbf{1H22-2.32-SGK/tr57}\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 2.5/1.5/B, 5/1/C, 0/4.5/x}
+\coordinate (D) at ($(A)+(x)$);
+\coordinate (E) at ($(B)+(x)$);
+\coordinate (F) at ($(C)+(x)$);
+\coordinate (M) at ($(A)!.35!(B)$);
+\coordinate (N) at ($(C)!.4!(B)$);
+\coordinate (I) at ($(E)!.3!(B)$);
+\tkzDrawPolygon(A,D,E,F,C,N,M)
+\tkzDrawSegments(M,I N,I E,I)
+\tkzDrawSegments[dashed](I,B B,M B,N)
+\tkzLabelSegment[left](I,E){$c$}
+\tkzLabelSegment[left](I,M){$a$}
+\tkzLabelSegment[left](I,N){$b$}
+\tkzMarkAngles[size=.6](N,M,I A,D,E E,F,C)
+\tkzLabelAngle[pos=.35](N,M,I){$\gamma$}
+\tkzLabelAngle[pos=.35](A,D,E){$\alpha$}
+\tkzLabelAngle[pos=-.35](E,F,C){$\beta$}
+\end{tikzpicture}
+
+\textbf{1H22-2.33-SGK/tr57}\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 2.5/1.5/B, 5/1/C, 0/4.5/x}
+\coordinate (D) at ($(A)+(x)$);
+\coordinate (E) at ($(B)+(x)$);
+\coordinate (F) at ($(C)+(x)$);
+\coordinate (M) at ($(A)!.35!(B)$);
+\coordinate (N) at ($(C)!.4!(B)$);
+\coordinate (M') at ($(M)+(x)$);
+\coordinate (N') at ($(N)+(x)$);
+\tkzInterLL(B,E)(M',N') \tkzGetPoint{I}
+\tkzDrawPolygon(A,D,E,F,C,N,M)
+\tkzDrawSegments(M,M' M',N' N',N E,I)
+\tkzDrawSegments[dashed](I,B B,M B,N)
+\tkzLabelSegment[left](M,M'){$c$}
+\tkzLabelSegment[left](E,B){$a$}
+\tkzLabelSegment[left](N,N'){$b$}
+\tkzMarkAngles[size=.6](M',N',N A,D,E E,F,C)
+\tkzLabelAngle[pos=.4](M',N',N){$\gamma$}
+\tkzLabelAngle[pos=.35](A,D,E){$\alpha$}
+\tkzLabelAngle[pos=-.35](E,F,C){$\beta$}
+\end{tikzpicture}
+
+\textbf{1H22-2.34a-SGK/tr57}\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 2.5/1.5/B, 5/1/C, 0/4.5/x}
+\coordinate (D) at ($(A)+(x)$);
+\coordinate (E) at ($(B)+(x)$);
+\coordinate (F) at ($(C)+(x)$);
+\tkzDefMidPoint(A,B) \tkzGetPoint{M}
+\tkzDefMidPoint(B,C) \tkzGetPoint{N}
+\coordinate (M') at ($(M)+(x)$);
+\coordinate (N') at ($(N)+(x)$);
+\coordinate (P) at ($(M)!.2!(M')$);
+\coordinate (P') at ($(M')!.2!(M)$);
+\coordinate (Q) at ($(N)!.2!(N')$);
+\coordinate (Q') at ($(N')!.2!(N)$);
+\tkzDrawSegments(P,P' Q,Q' E,B)
+\tkzLabelSegment[left](P,P'){$d_1$}
+\tkzLabelSegment[right](Q,Q'){$d_2$}
+\tkzLabelSegment[left, pos=.2](E,B){$d$}
+\tkzDrawPolygon(A,B,C,F,E,D)
+\tkzMarkAngles[size=.6](A,D,E E,F,C)
+\tkzLabelAngle[pos=.35](A,D,E){$\alpha$}
+\tkzLabelAngle[pos=-.35](E,F,C){$\beta$}
+\end{tikzpicture}
+
+\textbf{1H22-2.34b-SGK/tr57}\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 2.5/1.5/B, 5/1/C, 0/4.5/x}
+\coordinate (D) at ($(A)+(x)$);
+\coordinate (E) at ($(B)+(x)$);
+\coordinate (F) at ($(C)+(x)$);
+\tkzDefMidPoint(A,B) \tkzGetPoint{M}
+\tkzDefMidPoint(B,C) \tkzGetPoint{N}
+\coordinate (M') at ($(M)+(x)$);
+\coordinate (N') at ($(N)+(x)$);
+\coordinate (Q) at ($(N)!.2!(N')$);
+\coordinate (Q') at ($(N')!.2!(N)$);
+\tkzDrawSegments(Q,Q' E,B)
+\tkzLabelSegment[right](E,B){$d_1$}
+\tkzLabelSegment[right](Q,Q'){$d_2$}
+\tkzLabelSegment[left, pos=.2](E,B){$d$}
+\tkzDrawPolygon(A,B,C,F,E,D)
+\tkzMarkAngles[size=.6](A,D,E E,F,C)
+\tkzLabelAngle[pos=.35](A,D,E){$\alpha$}
+\tkzLabelAngle[pos=-.35](E,F,C){$\beta$}
+\end{tikzpicture}
+
+\textbf{1H22-2.34c-SGK/tr57}\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 2.5/1.5/B, 5/1/C, 0/4.5/x}
+\coordinate (D) at ($(A)+(x)$);
+\coordinate (E) at ($(B)+(x)$);
+\coordinate (F) at ($(C)+(x)$);
+\tkzDefMidPoint(A,B) \tkzGetPoint{M}
+\tkzDefMidPoint(B,C) \tkzGetPoint{N}
+\coordinate (M') at ($(M)+(x)$);
+\coordinate (N') at ($(N)+(x)$);
+\coordinate (P) at ($(M)!.2!(M')$);
+\coordinate (P') at ($(M')!.2!(M)$);
+\tkzDrawSegments(P,P' E,B)
+\tkzLabelSegment[left](P,P'){$d_1$}
+\tkzLabelSegment[right](E,B){$d_2$}
+\tkzLabelSegment[left,pos=.2](E,B){$d$}
+\tkzDrawPolygon(A,B,C,F,E,D)
+\tkzMarkAngles[size=.6](A,D,E E,F,C)
+\tkzLabelAngle[pos=.35](A,D,E){$\alpha$}
+\tkzLabelAngle[pos=-.35](E,F,C){$\beta$}
+\end{tikzpicture}
+
+\textbf{1H22-2.35-SGK/tr58}\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/B, 1/2/A, 4.5/0/C}
+\coordinate (D) at ($(A)+(C)-(B)$);
+\coordinate (S) at ($(A)+(-.5,3)$);
+\tkzDefLine[parallel=through S](A,D)\tkzGetPoint{x}
+\tkzDrawPolygon(S,B,C,D)
+\tkzDrawSegments(S,C)
+\tkzDrawSegments[dashed](S,A A,B A,D)
+\tkzDrawLines[add = .2 and 0](S,x)
+\tkzLabelSegment[above,pos=.8](S,x){$d$}
+\tkzLabelPoints[below](B,C)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[above left](A)
+\tkzLabelPoints[above right](D)
+\end{tikzpicture}
+
+\textbf{1H22-2.36-SGK/tr58}\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/B, 5.5/0/D, 3/-2/C}
+\coordinate (A) at ($(B)+(0.5,4)$);
+\tkzDefMidPoint(B,C) \tkzGetPoint{I}
+\tkzDefMidPoint(B,D) \tkzGetPoint{J}
+\coordinate (M) at ($(A)!.4!(C)$);
+\tkzDefLine[parallel=through M](I,J) \tkzGetPoint{x}
+\tkzInterLL(M,x)(A,D) \tkzGetPoint{N}
+%Vẽ mặt phẳng (P)
+\coordinate (P) at ($(I)!1.7!(N)$);
+\tkzDefLine[parallel=through P](M,N) \tkzGetPoint{y}
+\tkzDefLine[parallel=through P](N,J) \tkzGetPoint{z}
+\coordinate (Q) at ($(y)!2!(P)$);
+\coordinate (P') at ($(P)!.5!(z)$);
+\tkzDrawSegments(P,P' P,Q)
+\tkzMarkAngle[size=.8](Q,P,P')
+\tkzLabelAngle[pos=.5](Q,P,P'){$P$}
+%%%
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawSegments(A,C I,M M,N)
+\tkzDrawSegments[dashed](B,D I,J J,N)
+\tkzMarkSegments[mark=||](B,I I,C)
+\tkzMarkSegments[mark=x](B,J J,D)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](C,I,J)
+\tkzLabelPoints[left](B,M)
+\tkzLabelPoints[right](D)
+\tkzLabelPoints[above right](N)
+\end{tikzpicture}
+
+\textbf{1H22-2.37-SGK/tr58}\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 3/1/B, 6/0/C, 0/5/x}
+\coordinate (D) at ($(A)+(x)$);
+\coordinate (E) at ($(B)+(x)$);
+\coordinate (F) at ($(C)+(x)$);
+\coordinate (M) at ($(A)!.35!(B)$);
+\coordinate (N) at ($(C)!.4!(B)$);
+\tkzDefPointBy[translation = from A to D](M)
+\tkzGetPoint{M'}
+\tkzDefPointBy[translation = from C to F](N)
+\tkzGetPoint{N'}
+\tkzInterLL(B,E)(M',N') \tkzGetPoint{I}
+\tkzDrawPolygon(A,D,E,F,C,N,M)
+\tkzDrawSegments(M,M' M',N' N',N E,I)
+\tkzDrawSegments[dashed](I,B B,M B,N)
+\tkzLabelSegment[left](M,M'){$a$}
+\tkzLabelSegment[left](E,B){$b$}
+\tkzLabelSegment[left](N,N'){$c$}
+\tkzMarkAngles[size=.7](N,M,M' B,A,D F,C,B)
+\tkzLabelAngle[pos=.35](N,M,M'){$\gamma$}
+\tkzLabelAngle[pos=.35](B,A,D){$\alpha$}
+\tkzLabelAngle[pos=.38](F,C,B){$\beta$}
+\end{tikzpicture}
+
+\textbf{1H22-2.38-SGK/tr59}\\
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/B, 7/0/D, 3/-2/C}
+\coordinate (A) at ($(C)+(0,6)$);
+\tkzDefMidPoint(A,C) \tkzGetPoint{M}
+\tkzDefMidPoint(B,D) \tkzGetPoint{N}
+\tkzDefMidPoint(A,B) \tkzGetPoint{P}
+\tkzDefMidPoint(C,D) \tkzGetPoint{Q}
+\tkzDefMidPoint(A,D) \tkzGetPoint{R}
+\tkzDefMidPoint(B,C) \tkzGetPoint{S}
+\tkzInterLL(M,N)(P,Q) \tkzGetPoint{G}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawSegments(A,C P,S R,Q S,M M,R)
+\tkzDrawSegments[dashed](B,D P,R P,Q S,Q M,N S,N N,R S,R)
+\tkzLabelPoints[above](A,G)
+\tkzLabelPoints[below](C,S,Q,N)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](D)
+\tkzLabelPoints[above right](R)
+\tkzLabelPoints[above left](P,M)
+\tkzDrawPoints(G)
+\end{tikzpicture}
+\section{Đường thẳng và mặt phẳng song song}
+%Thầy Học Toán
+\begin{tikzpicture}%1H23-2.39 SGK/tr60
+\tkzDefPoints{0/0/A, 5/0/B, 1/2/C, 1.5/2.5/E, 5/2.5/F}
+\tkzDefPointBy[translation=from A to B](C)\tkzGetPoint{D}
+\tkzDrawSegments(A,B A,C C,D D,B E,F)
+\tkzMarkAngle[size=0.6](B,A,C)
+\draw ($(A)!0.08!(C)$)node[right]{$\alpha$};
+\draw($(F)!0.1!(E)$)node[above]{$d$};
+\end{tikzpicture}\hspace*{0.2cm}
+\begin{tikzpicture}%1H23-2.39 SGK/tr60
+\tkzDefPoints{0/0/A, 5/0/B, 1/2/C, 2/3/E, 4/-1/F}
+\tkzDefPointBy[translation=from A to B](C)\tkzGetPoint{D}
+\tkzMarkAngle[size=0.6](B,A,C)
+\draw ($(A)!0.08!(C)$)node[right]{$\alpha$};
+\tkzInterLL(E,F)(A,D)\tkzGetPoint{M}
+\tkzInterLL(M,F)(A,B)\tkzGetPoint{N}
+\tkzDrawSegments(A,B B,D D,C C,A E,M N,F)
+\tkzDrawSegments[dashed](M,N)
+\tkzLabelPoints[above right](M)
+\tkzDrawPoints(M)
+\draw($(E)!0.3!(M)$)node[above right]{$d$};
+\end{tikzpicture}\vspace*{1cm}\\
+\hspace*{3cm}
+\begin{tikzpicture}%1H23-2.39 SGK/tr60
+\tkzDefPoints{0/0/A, 5/0/B, 1/2/C, 1/0.6/E, 5/1.5/F}
+\tkzDefPointBy[translation= from A to B](C)\tkzGetPoint{D}
+\tkzMarkAngle[size=0.6](B,A,C)
+\draw ($(A)!0.08!(C)$)node[right]{$\alpha$};
+\coordinate (M) at ($(E)!0.2!(F)$);
+\coordinate (N) at ($(E)!0.4!(F)$);
+\coordinate (P) at ($(E)!0.6!(F)$);
+\coordinate (Q) at ($(E)!0.8!(F)$);
+\draw($(E)!0.9!(F)$)node[above]{$d$};
+\tkzDrawPoints(M, N, P, Q)
+\tkzDrawSegments(A,B B,D D,C C,A E,F)
+\end{tikzpicture}\vspace*{1cm}\\
+
+\begin{tikzpicture}%1H23-2.40 SGK/tr61
+\tkzDefPoints{0/0/A, 7/0/B, 9/2/C, 2.7/1/E}
+\tkzDefPointBy[translation=from B to A](C)\tkzGetPoint{D}
+\tkzMarkAngle[size=0.6](B,A,D)
+\draw ($(A)!0.06!(D)$)node[right]{$\alpha$};
+\coordinate(M) at ($(C)!0.3!(D)$);
+\coordinate(N) at ($(C)!0.95!(D)$);
+\tkzDefPointBy[translation= from N to M](E)\tkzGetPoint{F}
+\coordinate(Q) at ($(E)!2.5!(N)$);
+\coordinate(P) at ($(F)!2.5!(M)$);
+\tkzMarkAngle[size=0.7](E,Q,P)
+\draw($(Q)!0.07!(P)$)node[below]{$\beta$};
+\draw($(E)!0.8!(F)$)node[above]{$d'$};
+\coordinate(G)at($(M)!0.2!(N)$);
+\coordinate(H)at($(M)!0.8!(N)$);
+\coordinate(L)at($(E)!0.5!(N)$);
+\tkzDefPointBy[translation=from E to L](G)\tkzGetPoint{I}
+\tkzDefPointBy[translation=from E to L](H)\tkzGetPoint{K}
+\draw ($(I)!0.1!(K)$)node[above]{$d$};
+\tkzDrawSegments[dashed](M,N)
+\tkzDrawSegments(A,B B,C C,M N,D D,A E,F F,P P,Q Q,E I,K)
+\end{tikzpicture}\vspace*{1cm}\\
+
+
+
+\begin{tikzpicture}%1H23-2.42 SGK/tr61
+\tkzDefPoints{0/0/A, 6/0/B, 8/2/C, 2/1/E}
+\tkzDefPointBy[translation=from B to A](C)\tkzGetPoint{D}
+\tkzMarkAngle[size=0.6](B,A,D)
+\draw ($(A)!0.06!(D)$)node[right]{$\alpha$};
+\coordinate(M) at ($(C)!0.2!(D)$);
+\coordinate(N) at ($(C)!0.95!(D)$);
+\tkzDefPointBy[translation= from N to M](E)\tkzGetPoint{F}
+\coordinate(Q) at ($(E)!2.5!(N)$);
+\coordinate(P) at ($(F)!2.5!(M)$);
+\tkzMarkAngle[size=0.6](E,Q,P)
+\draw($(Q)!0.07!(P)$)node[below]{$\beta$};
+\draw($(E)!0.8!(F)$)node[above]{$b$};
+\coordinate(G)at($(M)!0.2!(N)$);
+\coordinate(H)at($(M)!0.8!(N)$);
+\coordinate(L)at($(E)!0.5!(N)$);
+\tkzDefPointBy[translation=from E to L](G)\tkzGetPoint{I}
+\tkzDefPointBy[translation=from E to L](H)\tkzGetPoint{K}
+\draw ($(I)!0.1!(K)$)node[above]{$a$};
+\tkzDrawSegments[dashed](M,N)
+\tkzDrawSegments(A,B B,C C,M N,D D,A E,F F,P P,Q Q,E I,K)
+\end{tikzpicture}\vspace*{1cm}\\
+
+
+\begin{tikzpicture}%1H23-2.43 SGK/tr62
+\tkzDefPoints{0/0/A, 5/0/B, 0/6/C, 3/-2/D, 6/-1/N}
+\tkzDefPointBy[translation=from A to C](D)\tkzGetPoint{F}
+\tkzDefPointBy[translation=from A to C](B)\tkzGetPoint{E}
+\tkzInterLL(D,F)(A,B)\tkzGetPoint{I}
+\tkzDefPointBy[translation=from A to C](N)\tkzGetPoint{M}
+\draw($(M)!0.5!(N)$)node[right]{$d$};
+\draw ($(A)!0.5!(C)$)node[left]{$d'$};
+\tkzMarkAngles[size=0.7](F,D,A  E,B,A)
+\draw($(D)!0.07!(F)$)node[left]{$\alpha$};
+\draw($(B)!0.05!(E)$)node[left]{$\beta$};
+\tkzDrawSegments[dashed](A,I)
+\tkzDrawSegments(I,B A,C A,D D,F F,C B,E E,C M,N)
+\end{tikzpicture}\vspace*{1cm}\\
+
+\begin{tikzpicture}%1H23-2.44 SGK/tr63
+\tkzDefPoints{0/0/A, 5/0/B, 6/3/C, 1.2/3.5/E, 5/3.5/F, 1/2/P}
+\tkzDefPointBy[translation=from B to A](C)\tkzGetPoint{D}
+\tkzDefPointBy[translation=from E to F](P)\tkzGetPoint{Q}
+\coordinate(M)at($(P)!0.2!(Q)$);
+\tkzDefPointBy[rotation in rad =center M angle 6](N)\tkzGetPoint{N}
+\coordinate(G) at ($(M)!-0.1!(N)$);
+\coordinate(H) at ($(M)!0.4!(N)$);
+\draw ($(H)!0.1!(G)$)node[above right]{$a$};
+\draw (Q)node[above]{$b'$};
+\draw (F)node[above]{$b$};
+\tkzMarkAngles[size=0.6](B,A,D)
+\draw (A)node[above right]{$\alpha$};
+\tkzDrawSegments(A,B B,C C,D D,A E,F P,Q G,H)
+\tkzDrawPoints(M)
+\tkzLabelPoints[below left](M)
+\end{tikzpicture}
+%Thầy Nguyễn Vũ Hoàng Anh
+\begin{bt}[B1-SGK-tr63]
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 3/1.5/B, 10.5/1.5/C, 6/9/E}
+\tkzDefBarycentricPoint(B=-1,C=1,A=1)\tkzGetPoint{D}
+\tkzDefBarycentricPoint(B=-1,E=1,A=1)\tkzGetPoint{F}
+\tkzDefMidPoint(B,D)\tkzGetPoint{O}
+\tkzDefMidPoint(B,F)\tkzGetPoint{O'}
+\tkzCentroid(A,B,D)\tkzGetPoint{M}
+\tkzCentroid(A,B,E)\tkzGetPoint{N}
+\tkzDefMidPoint(A,B)\tkzGetPoint{I}
+
+\tkzLabelPoints[above left](M,B,I)
+\tkzLabelPoints[below](A,C,D)
+\tkzLabelPoints[left](N,O',F)
+\tkzLabelPoints[above right](O)
+\tkzLabelPoints[right](E)
+
+\tkzDrawSegments[dashed](A,B B,C B,E B,F B,D O,O' M,N I,D I,E)
+\tkzDrawSegments(A,D D,C A,F F,E D,F C,E D,E)
+\end{tikzpicture}
+
+\end{bt}
+
+
+\begin{bt}[B2-SGK-tr63]
+\begin{tikzpicture}
+\tkzDefPoints{2/8/A, -2/0/B, 0/-2/C, 8/0/D, 0/4/M}
+\tkzDefLine[parallel=through M](B,D)\tkzGetPoint{X}
+\tkzDefLine[parallel=through M](A,C)\tkzGetPoint{Y}
+\tkzInterLL(M,X)(A,D)\tkzGetPoint{N}
+\tkzInterLL(M,Y)(B,C)\tkzGetPoint{Q}
+\tkzDefLine[parallel=through N](A,C)\tkzGetPoint{Z}
+\tkzInterLL(N,Z)(C,D)\tkzGetPoint{P}
+
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[below left](Q)
+\tkzLabelPoints[below](C)
+\tkzLabelPoints[below right](P)
+\tkzLabelPoints[right](D)
+\tkzLabelPoints[above right](N)
+\tkzLabelPoints[above left](M)
+
+\tkzDrawSegments[dashed](B,D M,N P,Q)
+\tkzDrawSegments(A,B B,C C,D M,Q N,P A,C A,D)
+\tkzFillPolygon[color=gray, opacity=0.25](M,N,P,Q)
+\end{tikzpicture}
+\end{bt}
+
+\begin{bt}[B3-sgk-tr63]
+\begin{tikzpicture}
+\tkzDefPoints{-2/0/A, 5/1/B, 3/-2/C, -1/-2/D, 0/5/S}
+\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+\tkzDefLine[parallel=through O](S,C)\tkzGetPoint{M'}
+\tkzInterLL(S,A)(O,M')\tkzGetPoint{M}
+\tkzDefLine[parallel=through M](A,B)\tkzGetPoint{N'}
+\tkzInterLL(M,N')(S,B)\tkzGetPoint{N}
+\tkzDefLine[parallel=through O](A,B)\tkzGetPoint{X}
+\tkzInterLL(A,D)(O,X)\tkzGetPoint{Q}
+\tkzInterLL(B,C)(O,X)\tkzGetPoint{P}
+
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[left](A,Q,D)
+\tkzLabelPoints[right](B,P,C)
+\tkzLabelPoints[above right](N)
+\tkzLabelPoints[above left](M)
+\tkzLabelPoints[below](O)
+
+\tkzDrawSegments[dashed](M,N P,Q A,B A,C B,D)
+\tkzDrawSegments(S,A S,B S,C S,D A,D D,C C,B M,Q N,P)
+\tkzFillPolygon[color=gray, opacity=0.25](M,N,P,Q)
+
+\end{tikzpicture}
+\end{bt}
+
+\begin{bt}[B2.16-SBT-tr68]
+\begin{tikzpicture}
+\tkzDefPoints{2/8/A, -2/0/B, 1/-4/C, 8/1/D}
+\tkzCentroid(A,C,D)\tkzGetPoint{G_1}
+\tkzCentroid(B,C,D)\tkzGetPoint{G_2}
+\tkzDefMidPoint(C,D)\tkzGetPoint{M}
+
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[below](C,G_2)
+\tkzLabelPoints[right](D,G_1)
+
+\tkzDrawSegments[dashed](B,D G_1,G_2 B,M)
+\tkzDrawSegments(A,B B,C C,D A,C A,D A,M)
+\end{tikzpicture}
+\end{bt}
+
+\begin{bt}[B2.18-SBT-tr68]
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, -3/-2/B, 3/-2/C, -2/4/S}
+\tkzDefBarycentricPoint(A=1,C=1,B=-1)\tkzGetPoint{D}
+\tkzCentroid(S,A,B)\tkzGetPoint{G}
+\tkzDefMidPoint(A,B)\tkzGetPoint{I}
+\tkzDefBarycentricPoint(A=2,D=1)\tkzGetPoint{M}%Lệnh lấy điểm M trên đoạn AD sao cho AD=3AM
+\tkzDefLine[parallel=through M](A,B)\tkzGetPoint{X}
+\tkzInterLL(M,X)(C,I)\tkzGetPoint{N}
+
+\tkzLabelPoints[above](S,M)
+\tkzLabelPoints[right](D)
+\tkzLabelPoints[above right](G,A)
+\tkzLabelPoints[below](I,N,B,C)
+
+\tkzDrawSegments[dashed](S,A A,B A,D N,G C,I M,N S,I)
+\tkzDrawSegments(S,B S,C S,D B,C C,D)
+\end{tikzpicture}
+\end{bt}
+
+\begin{bt}[B2.19-SBT-tr69]
+\begin{tikzpicture}
+\tkzDefPoints{0/5/S, -3/0/A, -2/-2/B, 2/-2/C}
+\tkzDefBarycentricPoint(A=1,C=2,B=-2)\tkzGetPoint{D}
+\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+\tkzCentroid(S,C,D)\tkzGetPoint{G}
+\tkzDefMidPoint(S,D)\tkzGetPoint{M}
+\tkzDefBarycentricPoint(S=1,C=2)\tkzGetPoint{I}
+\tkzDefMidPoint(A,S)\tkzGetPoint{N}
+\tkzDefMidPoint(S,C)\tkzGetPoint{J}
+
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](D)
+\tkzLabelPoints[below](B,C,O)
+\tkzLabelPoints[above left](N,I)
+\tkzLabelPoints[above right](M,G)
+
+\tkzDrawSegments[dashed](A,D A,C B,D I,O O,G M,N)
+\tkzDrawSegments(S,A S,D S,B S,C A,B B,C C,D B,N C,M J,B J,D B,I D,I)
+\end{tikzpicture}
+
+\end{bt}
+\section{Hai mặt phẳng song song}
+%Thầy Lê Đình Mẫn
+\begin{dl}
+Cho hai mặt phẳng song song. Nếu một mặt phẳng cắt mặt phẳng này thì cũng cắt mặt phẳng kia và hai giao tuyến song song với nhau.
+\end{dl}
+%[1H24-2.54] SGK/tr67
+\begin{tikzpicture}[font=\footnotesize]
+\coordinate (A) at (0,0);
+\coordinate (B) at (3.1,0);
+\coordinate (C) at (4,1.2);
+\coordinate (A1) at (0,1.7);
+\coordinate (M) at (1,3.2);
+\coordinate (N) at (2,-1.5);
+\coordinate (D) at ($(C)-(B)+(A)$);
+\coordinate (B1) at ($(B)-(A)+(A1)$);
+\coordinate (C1) at ($(C)-(B)+(B1)$);
+\coordinate (D1) at ($(C1)-(B1)+(A1)$);
+\coordinate (Q) at ($(D1)-(A1)+(M)$);
+\coordinate (P) at ($(N)-(M)+(Q)$);
+\path[name path=mn] (M)--(N); 
+\path[name path=pq] (P)--(Q);
+\path[name path=ab] (A)--(B); 
+\path[name path=cd] (C)--(D);
+\path[name path=a1b1] (A1)--(B1); 
+\path[name path=c1d1] (C1)--(D1);
+\path[name intersections={of=mn and ab,by=E}];
+\path[name intersections={of=mn and a1b1,by=F}];
+\path[name intersections={of=mn and cd,by=E1}];
+\path[name intersections={of=mn and c1d1,by=F1}];
+\path[name intersections={of=pq and ab,by=G1}];
+\path[name intersections={of=pq and cd,by=G}];
+\path[name intersections={of=pq and a1b1,by=H1}];
+\path[name intersections={of=pq and c1d1,by=H}];
+\draw (E1)--(D)--(A)--(B)--(C)--(G)--(E) (F1)--(D1)--(A1)--(B1)--(C1)--(H)--(F) (H)--(Q)--(M)--(N)--(P)--(G1) (G)--(H1);
+\draw[dashed] (H1)--(H)--(F1) (G1)--(G)--(E1);
+\draw ($(E)!.6!(G)$) node[left]{$a$} ($(F)!.6!(H)$) node[left]{$b$};
+\draw pic[draw,"$\beta$"]{angle=B--A--D} pic[draw,"$\alpha$"]{angle=B1--A1--D1} pic[draw,"$\gamma$", angle eccentricity=0.7]{angle=M--Q--P};
+\end{tikzpicture}
+
+\begin{hq}
+Hai mặt phẳng song song chắn trên hai cát tuyến song song những đoạn thẳng bằng nhau.
+\end{hq}
+%[1H24-2.55] SGK/tr68
+\begin{tikzpicture}[font=\footnotesize]
+\coordinate (A) at (0,0);
+\coordinate (B) at (3.1,0);
+\coordinate (C) at (4,1.2);
+\coordinate (A1) at (0,1.7);
+\coordinate (M) at (1,3.3);
+\coordinate (N) at (2,-0.8);
+\coordinate (Q) at (2,3.7);
+\coordinate (D) at ($(C)-(B)+(A)$);
+\coordinate (B1) at ($(B)-(A)+(A1)$);
+\coordinate (C1) at ($(C)-(B)+(B1)$);
+\coordinate (D1) at ($(C1)-(B1)+(A1)$);
+\coordinate (P) at ($(N)-(M)+(Q)$);
+\coordinate (U) at ($(M)!.27!(N)$);
+\coordinate (V) at ($(M)!.74!(N)$);
+\coordinate (U1) at ($(Q)-(M)+(U)$);
+\coordinate (V1) at ($(Q)-(M)+(V)$);
+\path[name path=mn] (M)--(N); 
+\path[name path=pq] (P)--(Q);
+\path[name path=ab] (A)--(B); 
+\path[name path=a1b1] (A1)--(B1); 
+\path[name intersections={of=mn and ab,by=E}];
+\path[name intersections={of=mn and a1b1,by=F}];
+\path[name intersections={of=pq and ab,by=E1}];
+\path[name intersections={of=pq and a1b1,by=F1}];
+\draw (A)--(B)--(C)--(D)--cycle (A1)--(B1)--(C1)--(D1)--cycle (M)--(U) node[left]{$A$}--(U1)node[right]{$A'$}--(Q) (N)--(E) (E1)--(P) (F)--(V)--(V1)--(F1);
+\draw[dashed] (U)--(F) (V)node[left]{$B$}--(E) (V1)node[right]{$B'$}--(E1) (U1)--(F1);
+\draw (M) node[right]{$a$} (Q) node[right]{$b$};
+\draw pic[draw,"$\beta$"]{angle=B--A--D} pic[draw,"$\alpha$"]{angle=B1--A1--D1};
+\end{tikzpicture}
+
+\begin{dl}(Định lí Ta-lét)\\
+Ba mặt phẳng đôi một song song chắn trên hai cát tuyến bất kì những đoạn thẳng tương ứng tỉ lệ.
+\end{dl}
+%[1H24-2.56] SGK/tr68
+\begin{tikzpicture}[font=\footnotesize]
+\coordinate (A) at (0,0);
+\coordinate (B) at (4.2,0);
+\coordinate (C) at (5,1.2);
+\coordinate (A1) at (0.3,2);
+\coordinate (M) at (1.8,6);
+\coordinate (Q) at (2.3,6);
+\coordinate (N) at (1,-0.5);
+\coordinate (P) at (4,-0.5);
+\coordinate (D) at ($(C)-(B)+(A)$);
+\coordinate (B1) at ($0.85*(B)-0.85*(A)+(A1)$);
+\coordinate (C1) at ($0.95*(D)-0.95*(A)+(B1)$);
+\coordinate (D1) at ($(A1)-(B1)+(C1)$);
+\coordinate (X) at ($(M)!0.83!(N)$);
+\coordinate (Y) at ($(M)!0.55!(N)$);
+\coordinate (Z) at ($(M)!0.23!(N)$);
+\coordinate (X1) at ($(Q)!0.85!(P)$);
+\coordinate (Y1) at ($(Q)!0.5!(P)$);
+\coordinate (Z1) at ($(Q)!0.2!(P)$);
+\foreach \x in {A,B,C,D}
+\coordinate (\x2) at ($(\x)!2!(\x1)$); % Tạo các điểm A2, B2, C2, D2 bằng phép vị tự tâm A, B, C, D tỉ số 2.
+\path[name path=mn] (M)--(N); 
+\path[name path=pq] (P)--(Q);
+\path[name path=ab] (A)--(B); 
+\path[name path=a1b1] (A1)--(B1);
+\path[name path=a2b2] (A2)--(B2);
+\path[name intersections={of=mn and ab,by=E}];
+\path[name intersections={of=mn and a1b1,by=F}];
+\path[name intersections={of=mn and a2b2,by=G}];
+\path[name intersections={of=pq and ab,by=E1}];
+\path[name intersections={of=pq and a1b1,by=F1}];
+\path[name intersections={of=pq and a2b2,by=G1}];
+\draw (A)--(B)--(C)--(D)--cycle (A1)--(B1)--(C1)--(D1)--cycle (A2)--(B2)--(C2)--(D2)--cycle (N)--(E) (E1)--(P) (F)--(X)node[left]{$C$}--(X1)node[right]{$C'$}--(F1) (G)--(Y)node[left]{$B$}--(Y1)node[right]{$B'$}--(G1) (M)node[left]{$d$}--(Z)node[left]{$A$}--(Z1)node[right]{$A'$}--(Q)node[right]{$d'$};
+\draw[dashed] (E)--(X) (E1)--(X1) (F)--(Y) (F1)--(Y1) (G)--(Z) (G1)--(Z1);
+\draw pic[draw,"$R$"]{angle=B--A--D} pic[draw,"$Q$"]{angle=B1--A1--D1} pic[draw,"$P$"]{angle=B2--A2--D2};
+\end{tikzpicture}\\
+%[1H24-2.57] SGK/tr68
+\begin{tikzpicture}[font=\footnotesize]
+\coordinate (A) at (0,0);
+\coordinate (B) at (5.5,0);
+\coordinate (C) at (6.5,2);
+\coordinate (A1) at (0,4.5);
+\coordinate (M1) at (1,7);
+\coordinate (N1) at (2,-1);
+\coordinate (D) at ($(C)-(B)+(A)$);
+\coordinate (B1) at ($(B)-(A)+(A1)$);
+\coordinate (C1) at ($(C)-(B)+(B1)$);
+\coordinate (D1) at ($(C1)-(B1)+(A1)$);
+\coordinate (A11) at ($(M1)!.78!(N1)$);
+\coordinate[shift={(1,-0.3)}] (M2) at (1,7);
+\coordinate[shift={(3,-0.2)}] (M3) at (1,7);
+\coordinate[shift={(3.5,0.5)}] (M4) at (1,7);
+\coordinate[shift={(1.5,0.7)}] (M5) at (1,7);
+\coordinate[shift={(1,-0.3)}] (N2) at (2,-1);
+\coordinate[shift={(3,-0.2)}] (N3) at (2,-1);
+\coordinate[shift={(3.5,0.5)}] (N4) at (2,-1);
+\coordinate[shift={(1.5,0.7)}] (N5) at (2,-1);
+\coordinate[shift={(1,-0.3)}] (B11) at ($(M1)!.78!(N1)$);
+\coordinate[shift={(3,-0.2)}] (C11) at ($(M1)!.78!(N1)$);
+\coordinate[shift={(3.5,0.5)}] (D11) at ($(M1)!.78!(N1)$);
+\coordinate[shift={(1.5,0.7)}] (E11) at ($(M1)!.78!(N1)$);
+\coordinate (A22) at ($(M1)!.22!(N1)$);
+\coordinate[shift={(1,-0.3)}] (B22) at ($(M1)!.22!(N1)$);
+\coordinate[shift={(3,-0.2)}] (C22) at ($(M1)!.22!(N1)$);
+\coordinate[shift={(3.5,0.5)}] (D22) at ($(M1)!.22!(N1)$);
+\coordinate[shift={(1.5,0.7)}] (E22) at ($(M1)!.22!(N1)$);
+\path[name path=k1] (M1)--(N1); 
+\path[name path=k2] (M2)--(N2);
+\path[name path=k3] (M3)--(N3);
+\path[name path=k4] (M4)--(N4);
+\path[name path=k5] (M5)--(N5);
+\path[name path=ab] (A)--(B); 
+\path[name path=cd] (C)--(D);
+\path[name path=a1b1] (A1)--(B1);
+\path[name intersections={of=k1 and ab,by=E1}];
+\path[name intersections={of=k2 and ab,by=E2}];
+\path[name intersections={of=k3 and ab,by=E3}];
+\path[name intersections={of=k4 and ab,by=E4}];
+\path[name intersections={of=k5 and ab,by=E5}];
+\path[name intersections={of=k1 and cd,by=F1}];
+\path[name intersections={of=k4 and cd,by=F4}];
+\path[name intersections={of=k1 and a1b1,by=G1}];
+\path[name intersections={of=k2 and a1b1,by=G2}];
+\path[name intersections={of=k3 and a1b1,by=G3}];
+\path[name intersections={of=k4 and a1b1,by=G4}];
+\path[name intersections={of=k5 and a1b1,by=G5}];
+\draw (M1)--(A22) (M2)--(B22) (M3)--(C22) (M4)--(D22) (M5)--(E22);
+\draw (F1)--(D)--(A)--(B)--(C)--(F4) (A1)--(B1)--(C1)--(D1)--cycle (A11)--(G1) (B11)--(G2) (C11)--(G3) (D11)--(G4) (E1)--(N1) (E2)--(N2) (E3)--(N3) (E4)--(N4) (E5)--(N5) (A11)--(B11)--(C11)--(D11) (A22)--(B22)--(C22)--(D22)--(E22)--cycle;
+\draw[dashed] (A11)--(E1) (B11)--(E2) (C11)--(E3) (D11)--(E4) (E11)--(E5) (F1)--(F4) (A22)--(G1) (B22)--(G2) (C22)--(G3) (D22)--(G4) (E22)--(E11) (A11)--(E11)--(D11);
+\draw (A11) node[left] {$A_1$} (A22) node[left] {$A_1'$} (B11) node[below left] {$A_2$} (C11) node[below left] {$A_3$} (D11) node[right] {$A_4$} (E11) node[above left] {$A_5$} (B22) node[below left] {$A_2'$} (C22) node[below left] {$A_3'$} (D22) node[right] {$A_4'$} (E22) node[above left] {$A_5'$};
+\draw pic[draw,"$\alpha$"]{angle=B--A--D} pic[draw,"$\alpha'$"]{angle=B1--A1--D1};
+\end{tikzpicture}\\
+%[1H24-2.57] SGK/tr70
+\begin{tikzpicture}[font=\footnotesize]
+\coordinate (A) at (0,0);
+\coordinate (B) at (5.5,0);
+\coordinate (C) at (6.5,2);
+\coordinate (S) at (3,4);
+\coordinate (A11) at (1.7,0.7);
+\coordinate (D) at ($(C)-(B)+(A)$);
+\coordinate[shift={(1,-0.3)}] (B11) at (1.7,0.7);
+\coordinate[shift={(3,-0.2)}] (C11) at (1.7,0.7);
+\coordinate[shift={(3.5,0.5)}] (D11) at (1.7,0.7);
+\coordinate[shift={(1.5,0.7)}] (E11) at (1.7,0.7);
+\coordinate (A22) at ($(S)!2!(A11)$);
+\coordinate (B22) at ($(S)!2!(B11)$);
+\coordinate (C22) at ($(S)!2!(C11)$);
+\coordinate (D22) at ($(S)!2!(D11)$);
+\coordinate (E22) at ($(S)!2!(E11)$);
+\path[name path=ab] (A)--(B); 
+\path[name path=cd] (C)--(D);
+\path[name path=bc] (B)--(C);
+\path[name path=m1] (S)--(A22);
+\path[name path=m2] (S)--(B22);
+\path[name path=m3] (S)--(C22);
+\path[name path=m4] (S)--(D22);
+\path[name path=m5] (S)--(E22);
+\path[name intersections={of=m1 and ab,by=E1}];
+\path[name intersections={of=m2 and ab,by=E2}];
+\path[name intersections={of=m3 and ab,by=E3}];
+\path[name intersections={of=m4 and bc,by=E4}];
+\path[name intersections={of=m5 and ab,by=E5}];
+\path[name intersections={of=m1 and cd,by=F1}];
+\path[name intersections={of=m4 and cd,by=F4}];
+\draw (F1)--(D)--(A)--(B)--(C)--(F4) (A11)--(B11)--(C11)--(D11) (S)--(A11) (S)--(B11) (S)--(C11) (S)--(D11) (A22)--(B22)--(C22)--(D22) (A22)--(E1) (B22)--(E2) (C22)--(E3) (D22)--(E4) ;
+\draw[dashed] (D11)--(E11)--(A11) (D22)--(E22)--(A22) (S)--(E22) (A11)--(E1) (B11)--(E2) (C11)--(E3) (D11)--(E4) (F1)--(F4);
+\draw (S) node[above] {$S$} (A11) node[left] {$A_1'$} (B11) node[below left] {$A_2'$} (C11) node[below left] {$A_3'$} (D11) node[right] {$A_4'$} (E11) node[above right] {$A_5'$} (A22) node[left] {$A_1$} (B22) node[below left] {$A_2$} (C22) node[below left] {$A_3$} (D22) node[right] {$A_4$} (E22) node[above right] {$A_5$};
+\draw pic[draw,"$P$"]{angle=B--A--D};
+\end{tikzpicture}
+
+\begin{center}
+\begin{tikzpicture}
+\path (0:0cm) coordinate (M);
+\path (60:3cm) coordinate (N);
+\path (M)++(5,0) coordinate (Q);
+\path (N)++(5,0) coordinate (P);
+\draw (M) node[above right]{$\alpha$} -- (N) -- (P) -- (Q) -- cycle;
+\draw (0.5,0) arc (0:60:0.5cm);
+
+\path (1.3,1) coordinate (A);
+\path (2.3,2) coordinate (B);
+\path (A)++(3,0) coordinate (D);
+\path (B)++(3,0) coordinate (C);
+\draw[dashed] (A) node[below left]{$A$} -- (B) node[above left]{$B$} -- (C) node[above right]{$C$};
+\draw (A) -- (D) node[below right]{$D$} -- (C);
+
+\path (A)++(1.2,4.2) coordinate (R);
+\path (B)++(1.2,4.2) coordinate (S);
+\path (C)++(1.2,4.2) coordinate (U);
+\path (D)++(1.2,4.2) coordinate (V);
+
+\path (A)++(1,3.5) coordinate (A1);
+\path (B)++(1,3.5) coordinate (B1);
+\path (C)++(1,3.5) coordinate (C1);
+\path (D)++(1,3.5) coordinate (D1);
+\draw (A1) node[left]{$A'$} -- (B1) node[left]{$B'$} -- (C1) node[right]{$C'$} -- (D1)node[right]{$D'$} -- cycle;
+\draw[dashed] (B) -- (B1);
+\draw (A) -- (R)node[left]{$a$} (C) -- (U) node[right]{$c$} (D)--(V) node[right]{$d$} (B1) -- (S) node[left]{$b$};
+\end{tikzpicture}\newline
+Bài 1, trang 71
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}
+\path (0,0) coordinate (A);
+\path (5,0) coordinate (B);
+\path (2,-1) coordinate (C);
+\path (A)++(0.5,4) coordinate (A');
+\path (B)++(0.5,4) coordinate (B');
+\path (C)++(0.5,4) coordinate (C');
+\draw[dashed] (A) node[left]{$A$} -- (B) node[right]{$B$};
+\draw (A) -- (C) node[below]{$C$} -- (B)
+(A) -- (A') node[left]{$A'$}
+(B) -- (B') node[right]{$B'$}
+(C) -- (C') node[above]{$C'$}
+(A') -- (B') -- (C') -- cycle;
+
+\path (B)++(1,0) coordinate (B1);
+\path (C)++(-1,0) coordinate (C1);
+\path (intersection of B--C and B1--C1) coordinate (M);
+\path (B')++(1,0) coordinate (B2);
+\path (C')++(-1,0) coordinate (C2);
+\path (intersection of B'--C' and B2--C2) coordinate (M');
+\draw[dashed] (A) -- (M) node[below right]{$M$};
+\draw (A') -- (M') node[below right]{$M'$};
+
+\draw[dashed] (A) -- (B') (A') -- (M);
+\draw (A) -- (C');
+\draw (A') -- (C);
+\draw[dashed] (A') -- (B);
+\path (intersection of A'--B and A--B') coordinate (D);
+\path (intersection of A'--C and A--C') coordinate (E);
+\path (intersection of D--E and A'--M) coordinate (F);
+\draw[dashed] (E) node[left]{$E$} -- (D)node[right]{$D$};
+\draw[fill=black] (F) node[below]{$F$} circle (1pt);
+
+\draw[dashed] (C') -- (D);
+\draw (M) -- (M') ;
+\path (intersection of A--M' and C'--D) coordinate (G);
+\draw[dashed] (A) -- (M');
+\draw[fill=black] (G)node[above]{$G$} circle (1pt);
+\end{tikzpicture}\newline
+Bài 2, trang 71
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}
+\path (0,0) coordinate (A);
+\path (-3,-2) coordinate (D);
+\path (A)++(4.5,0) coordinate (B);
+\path (D)++(4.5,0) coordinate (C);
+\path (A)++(0.5,4) coordinate (A');
+\path (B)++(0.5,4) coordinate (B');
+\path (C)++(0.5,4) coordinate (C');
+\path (D)++(0.5,4) coordinate (D');
+\draw[dashed] (D) node[left]{$D$}--(A)node[left]{$A$}--(B)node[right]{$B$} (A)--(A')node[above]{$A'$};
+\draw (B)--(C)node[right]{$C$}--(D)--(D')node[left]{$D'$}--(C')node[below right]{$C'$}--(B')node[right]{$B'$}--(A')--(D') (B)--(B') (C)--(C');
+
+\draw[dashed] (B)--(D)--(A')--cycle;
+\draw (B') -- (D') -- (C) --cycle;
+
+\path (intersection of A--C and B--D) coordinate (M1);
+\path (intersection of A'--C' and B'--D') coordinate (M2);
+\path (intersection of A'--D and A--D') coordinate (I1);
+\path (intersection of B'--C and B--C') coordinate (I2);
+\path (intersection of A'--M1 and B--I1) coordinate (G1);
+\path (intersection of C--M2 and D'--I2) coordinate (G2);
+\draw[dashed] (A) -- (C') (A')--(M1) node[right]{$O$} (C) -- (M2) node[below left]{$O'$};
+\draw[fill=black] (G1) node[left]{$G_1$} circle (1pt);
+\draw[fill=black] (G2) node[right]{$G_2$} circle (1pt);\
+
+\draw[dashed] (A)--(C);
+\draw (A') -- (C');
+
+\path (intersection of A'--C and A--C') coordinate (I);
+\draw[fill=black] (I)node[right]{$I$} circle (1pt);
+\end{tikzpicture}\newline
+Bài 3, trang 71
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}
+\path (-1,0) coordinate (A);
+\path (4,0) coordinate (B);
+\path (0,-2) coordinate (D);
+\path (2,-1.5) coordinate (C);
+\path (1,4) coordinate (S);
+\draw (S)node[above]{$S$} -- (A)node[left]{$A$} -- (D)node[left]{$D$} -- (C)node[right]{$C$} -- (B)node[right]{$B$} -- (S) -- (C) (S) -- (D);
+\draw[dashed] (A) -- (B);
+
+\path (S)++(1,0) coordinate (SS);
+\path (A)++(-1,0) coordinate (AA);
+\path (intersection of S--A and SS--AA) coordinate (A1);
+\path (A1)++(1,0) coordinate (AA1);
+\path (intersection of A1--A and AA1--AA) coordinate (A2);
+
+\path (B)++(-1,0) coordinate (BB);
+\path (intersection of S--B and SS--BB) coordinate (B1);
+\path (B1)++(1,0) coordinate (BB1);
+\path (intersection of B1--B and BB1--BB) coordinate (B2);
+
+\path (C)++(-1,0) coordinate (CC);
+\path (intersection of S--C and SS--CC) coordinate (C1);
+\path (C1)++(1,0) coordinate (CC1);
+\path (intersection of C1--C and CC1--CC) coordinate (C2);
+
+\path (D)++(-1,0) coordinate (DD);	
+\path (intersection of S--D and SS--DD) coordinate (D1);
+\path (D1)++(1,0) coordinate (DD1);
+\path (intersection of D1--D and DD1--DD) coordinate (D2);
+
+\draw (A1) node[left]{$A_1$} -- (D1)node[left]{$D_1$} -- (C1)node[right]{$C_1$}-- (B1)node[right]{$B_1$}
+(A2) node[left]{$A_2$}--(D2)node[left]{$D_2$}--(C2)node[right]{$C_2$}--(B2)node[right]{$B_2$};
+\draw[dashed] (A1)--(B1) (A2)--(B2);
+\end{tikzpicture}\newline
+Bài 4, trang 71
+\end{center}
+
+
+%Thầy Nguyễn Tiến Thùy
+{\bf 1H24-2.46-SGK/tr64}\\
+\begin{tikzpicture}%Hình 2.46 trang 64
+\tkzDefPoints{0/0/A, 4/0/B, 1.5/1.5/D, 0/-2/A'}
+\coordinate (C) at ($(D)+(B)-(A)$);
+\coordinate (B') at ($(B)+(A')-(A)$);
+\coordinate (C') at ($(C)+(A')-(A)$);
+\coordinate (D') at ($(D)+(A')-(A)$);    
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawPolygon(A',B',C',D') 
+\tkzMarkAngle[size=.7](B,A,D)
+\tkzMarkAngle[size=.7](B',A',D')
+\draw (A) node[xshift=12pt,yshift=5pt]{$\alpha$};
+\draw (A') node[xshift=12pt,yshift=5pt]{$\beta$};   
+%\tkzDrawPoints[fill=black,size=5pt](A,B,C,D,A',B',C',D')
+%\tkzLabelPoints(A,B,C,D,A',B',C',D')
+\end{tikzpicture}
+
+
+{\bf 1H24-2.47-SGK/tr64}\\
+\begin{tikzpicture}%Hình 2.47 trang 64
+% Định nghĩa và xác định tọa độ các điểm
+\tkzDefPoints{0/0/A, 4/0/B, 1.5/1.5/D, 0/-2/A'}
+\coordinate (C) at ($(D)+(B)-(A)$);
+\coordinate (B') at ($(B)+(A')-(A)$);
+\coordinate (C') at ($(C)+(A')-(A)$);
+\coordinate (D') at ($(D)+(A')-(A)$);
+% Dựng đường thẳng d di qua MN
+\coordinate (E) at ($(C)!0.8!(D)$);
+\coordinate (F) at ($(A)!0.8!(B)$);
+\coordinate (M) at ($(A)!0.7!(E)$);
+\coordinate (N) at ($(C)!0.7!(F)$);
+\tkzDrawSegment(M,N)
+% Vẽ hai mặt phẳng
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawPolygon(A',B',C',D')     
+% Vẽ góc
+\tkzMarkAngle[size=.7](B,A,D)
+\tkzMarkAngle[size=.7](B',A',D')
+% Đặt tên
+\draw (A) node[xshift=12pt,yshift=5pt]{$\alpha$};
+\draw (A') node[xshift=12pt,yshift=5pt]{$\beta$};   
+\draw ($(M)!0.5!(N)$) node[above]{$d$};
+%\tkzDrawPoints[fill=black,size=5pt](A,B,C,D,E,F,M,N,A',B',C',D')
+%\tkzLabelPoints(A,B,C,D,E,F,M,N,A',B',C',D')
+\end{tikzpicture}
+
+
+{\bf 1H24-2.48-SGK/tr65}\\
+\begin{tikzpicture}%Hình 2.48 trang 65
+\tkzDefPoints{0/0/A, 4/0/B, 1.5/1.5/D, 0/-2/A'}
+\coordinate (C) at ($(D)+(B)-(A)$);
+\coordinate (B') at ($(B)+(A')-(A)$);
+\coordinate (C') at ($(C)+(A')-(A)$);
+\coordinate (D') at ($(D)+(A')-(A)$);
+
+% Dựng 2 đường thẳng d di qua M
+\coordinate (E) at ($(C)!0.8!(D)$);
+\coordinate (F) at ($(A)!0.8!(B)$);
+\coordinate (Z) at ($(A)!0.7!(E)$);
+\coordinate (W) at ($(C)!0.7!(F)$);
+\tkzDrawSegment(Z,W)
+\coordinate (X) at ($(A)!0.8!(C)$);
+\coordinate (Y) at ($(A)!0.2!(C)$);
+\tkzInterLL(Z,W)(X,Y)\tkzGetPoint{M}
+\tkzDrawSegment(X,Y)
+
+% Vẽ đường thẳng c
+\tkzDefCircle[radius](B,B')
+\tkzDefCircle[radius](B',B)
+\tkzInterCC(B,B')(B',B)\tkzGetFirstPoint{E'}
+\tkzDefCircle[radius](C,C')
+\tkzDefCircle[radius](C',C)
+\tkzInterCC(C,C')(C',C)\tkzGetFirstPoint{F'}
+\coordinate (M') at ($(E')!1.5!(F')$);
+\coordinate (N') at ($(F')!1.5!(E')$);
+
+% Vẽ các nét đứt...
+\tkzCalcLength[cm](B,B') \tkzGetLength{rr}
+\tkzDrawArc[R,thick,dashed](B',\rr cm)(30,90)
+\tkzDrawArc[R,thick,dashed](B,\rr cm)(-90,-30)
+\tkzDrawArc[R,thick,dashed](C',\rr cm)(30,90)
+\tkzDrawArc[R,thick,dashed](C,\rr cm)(-90,-30)
+
+% Vẽ 2 mặt phẳng và các đường thẳng
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawPolygon(A',B',C',D') 
+\tkzDrawSegment(M',N')    
+
+% Vẽ góc
+\tkzMarkAngle[size=.7](B,A,D)
+\tkzMarkAngle[size=.7](B',A',D')
+
+% Đặt tên
+\draw (A) node[xshift=12pt,yshift=5pt]{$\alpha$};
+\draw (A') node[xshift=12pt,yshift=5pt]{$\beta$};   
+\draw ($(Z)!1!(W)$) node[above right,yshift=-3pt]{$a$};
+\draw ($(Y)!1!(X)$) node[right]{$b$};
+\draw (M') node[below right]{$c$};
+
+% Hiện điểm
+\tkzDrawPoints[fill=black,size=3pt](M)% [size=3pt]
+\tkzLabelPoints[above](M)
+%\tkzDrawPoints[fill=black,size=5pt](A,B,C,D,E,F,E',F',Z,W,M',N',A',B',C',D',X,Y)
+%\tkzLabelPoints(A,B,C,D,E,F,E',F',Z,W,M',N',A',B',C',D')
+\end{tikzpicture}
+
+
+{\bf 1H24-2.49-SGK/tr65}\\
+\begin{tikzpicture}%Hình 2.49 trang 65
+\tkzDefPoints{1/5/A, 0/0/B, 3/-2/C, 7/0/D}
+\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+\tkzDefMidPoint(C,D)\tkzGetPoint{N}
+\tkzDefMidPoint(D,B)\tkzGetPoint{P}
+\coordinate (G_1) at ($(A)!0.67!(M)$);
+\coordinate (G_2) at ($(A)!0.67!(N)$);
+\coordinate (G_3) at ($(A)!0.67!(P)$);    
+
+\tkzDrawSegments(A,B A,C A,D B,C C,D A,M A,N)
+\tkzDrawSegments[dashed](B,D A,P M,N N,P P,M G_1,G_2 G_2,G_3 G_3,G_1)
+
+\tkzDrawPoints[fill=black](A,B,C,D,M,N,G_1,G_2,G_3)
+\tkzLabelPoints(N)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[above left,yshift=-3pt](G_3)
+\tkzLabelPoints[above right]()
+\tkzLabelPoints[below,xshift=-2pt](C,P)
+\tkzLabelPoints[below left](M)
+\tkzLabelPoints[below right]()
+\tkzLabelPoints[left](B,G_1)
+\tkzLabelPoints[right](D,G_2)
+\end{tikzpicture}
+
+
+{\bf 1H24-2.50-SGK/tr66}\\
+\begin{tikzpicture}%Hình 2.50 trang 66
+\tkzDefPoints{0/0/O, 4/0/B, 1.5/1.5/D, 0/-2/A'}
+\coordinate (C) at ($(D)+(B)-(O)$);
+\coordinate (B') at ($(B)+(A')-(O)$);
+\coordinate (C') at ($(C)+(A')-(O)$);
+\coordinate (D') at ($(D)+(A')-(O)$);
+\coordinate (A) at ($(O)!0.6!(C)$);
+
+\tkzDrawPolygon(O,B,C,D)
+\tkzDrawPolygon(A',B',C',D') 
+\tkzMarkAngle[size=.7](B,O,D)
+\tkzMarkAngle[size=.7](B',A',D')
+\draw (O) node[xshift=12pt,yshift=5pt]{$\alpha$};
+\draw (A') node[xshift=12pt,yshift=5pt]{$\beta$};   
+\tkzDrawPoints[fill=black](A)
+\tkzLabelPoints(A)
+%\tkzDrawPoints[fill=black,size=5pt](O,B,C,D,A',B',C',D')
+%\tkzLabelPoints(O,B,C,D,A',B',C',D')
+\end{tikzpicture}
+
+
+{\bf 1H24-2.51-SGK/tr66}\\
+\begin{tikzpicture}%Hình 2.51 trang 66
+\tkzDefPoints{0/0/A, 4/0/B, 1.5/1.5/D, 0/-2/A'}
+\coordinate (C) at ($(D)+(B)-(A)$);
+\coordinate (B') at ($(B)+(A')-(A)$);
+\coordinate (C') at ($(C)+(A')-(A)$);
+\coordinate (D') at ($(D)+(A')-(A)$);
+\coordinate (E) at ($(A)!0.2!(C)$);
+\coordinate (F) at ($(A)!0.8!(C)$);  
+
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawPolygon(A',B',C',D') 
+\tkzDrawSegment(E,F)
+\tkzMarkAngle[size=.7](B,A,D)
+\tkzMarkAngle[size=.7](B',A',D')
+\draw (A) node[xshift=12pt,yshift=5pt]{$\alpha$};
+\draw (A') node[xshift=12pt,yshift=5pt]{$\beta$};   
+\tkzLabelSegment[xshift=-2pt,yshift=-1pt](E,F){$d$}    
+%\tkzDrawPoints[fill=black,size=5pt](A,B,C,D,A',B',C',D')
+%\tkzLabelPoints(A,B,C,D,A',B',C',D')
+\end{tikzpicture}
+
+
+{\bf 1H24-2.52-SGK/tr66}\\
+\begin{tikzpicture}%Hình 2.52 trang 66
+\tkzDefPoints{0/0/O, 4/0/B, 1.5/1.5/D, 0/-2/A'}
+\coordinate (C) at ($(D)+(B)-(O)$);
+\coordinate (B') at ($(B)+(A')-(O)$);
+\coordinate (C') at ($(C)+(A')-(O)$);
+\coordinate (D') at ($(D)+(A')-(O)$);
+\coordinate (E) at ($(A')!0.8!(D')$);
+\coordinate (F) at ($(C')!0.8!(B')$);
+\coordinate (G) at ($(E)!0.9!(F)$);
+\coordinate (H) at ($(E)!0.1!(F)$);
+\coordinate (I) at ($(A')!0.2!(C')$);
+\coordinate (K) at ($(C')!0.2!(A')$);
+\tkzDefMidPoint(A',B')\tkzGetPoint{L}
+\tkzDefMidPoint(C',D')\tkzGetPoint{M}
+\tkzDefMidPoint(L,M)\tkzGetPoint{A}
+\coordinate (N) at ($(M)!0.1!(L)$);
+\coordinate (P) at ($(L)!0.1!(M)$);
+
+\tkzDrawPolygon(O,B,C,D)
+\tkzDrawPolygon(A',B',C',D')
+\tkzDrawSegments(G,H I,K N,P) 
+
+\tkzMarkAngle[size=.7](B,O,D)
+\tkzMarkAngle[size=.7](B',A',D')
+
+\draw (O) node[xshift=12pt,yshift=5pt]{$\alpha$};
+\draw (A') node[xshift=12pt,yshift=5pt]{$\beta$};   
+\tkzDrawPoints[fill=black,size=5pt](A)
+\tkzLabelPoints[above left,xshift=7pt](A)
+%\tkzDrawPoints[fill=black,size=5pt](O,B,C,D,A',B',C',D')
+%\tkzLabelPoints(O,B,C,D,A',B',C',D')
+\end{tikzpicture}
+
+
+{\bf 1H24-2.53-SGK/tr67}\\
+\begin{tikzpicture}%Hình 2.53 trang 67
+\tkzDefPoints{0/0/M, 6/0/N, -2/3/Q, 1/1.5/S, -2/-2/A, 2/-4/B, 5/-2/C}
+%======= Hình 1 =======    
+\coordinate (P) at ($(N)+(Q)-(M)$);
+\coordinate (xx) at ($(S)+(C)-(B)$);
+\coordinate (x) at ($(S)!0.5!(xx)$);
+\coordinate (yy) at ($(S)+(C)-(A)$);
+\coordinate (y) at ($(S)!0.5!(yy)$);
+\coordinate (zz) at ($(S)+(B)-(A)$);
+\coordinate (z) at ($(S)!0.5!(zz)$);
+
+\tkzInterLL(S,A)(M,Q)\tkzGetPoint{E}
+\tkzInterLL(S,B)(M,N)\tkzGetPoint{F}
+\tkzInterLL(S,C)(M,N)\tkzGetPoint{G}   
+
+\tkzDrawPolygon(M,N,P,Q)
+\tkzDrawSegments(A,B B,C S,x S,y S,z E,A F,B G,C)
+\tkzDrawSegments[dashed](A,C S,E S,F S,G)
+\tkzDrawPoints[fill=black,size=5pt](S,A,B,C)
+%\tkzLabelPoints(M,N,P,Q,S,A,B,C,x,y,z)
+\tkzLabelPoints(B,C,y,z)
+\tkzLabelPoints[below left](A)
+\tkzLabelPoints[above left](S)
+\tkzLabelPoints[above right](x)
+
+%======= Hình 2 =======
+\tkzDefPoints{8/-4/b, 12/-4/c, 10/1/s}
+\coordinate (ss) at ($(b)!1.4!(s)$);
+\tkzDrawBisector[add= 1 and 1](ss,s,c)\tkzGetPoint{xxx}
+
+%=============================== Em này vẽ tia...
+%\draw (s)--(xxx)coordinate[pos=1.8](aa) -- (aa);   	
+%=============================== Em này vẽ tia...
+
+%========================== Em này vẽ đường thẳng qua hai điểm dài tùy ý ==============================
+%\path (s)--(xxx)coordinate[pos=-0.8](dd) coordinate[pos=2](ff);
+%\draw (dd) -- (ff);
+%\tkzDrawLine[add = 1 and 1](s,xxx)
+%========================== Em này vẽ đường thẳng qua hai điểm dài tùy ý ==============================
+
+\tkzDrawSegments(b,c c,s b,ss)
+
+\tkzMarkAngles[arc=ll,size=5mm](c,b,s s,c,b)
+\tkzMarkAngles[arc=ll,size=5mm](c,s,xxx)
+\tkzMarkAngle[arc=ll,size=4.8mm](xxx,s,ss)
+\tkzDrawPoints[fill=black,size=5pt](b,c,s)
+\draw (b)node[below left]{$B$};
+\draw (c)node[below right]{$C$};
+\draw (s)node[above left]{$S$};
+\draw (xxx)node[xshift=30pt,yshift=5pt]{$x$};
+\end{tikzpicture}
+
+
+
+
+
+
+% ======================================Ko liên quan
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 4/0/B}
+\tkzDrawPoints(A,B)
+% =======================Vẽ đường thẳng dài tùy ý...
+\tkzDrawLine[add=0.5 and 1](A,B)
+% =======================Vẽ đường thẳng dài tùy ý...
+\tkzLabelPoints(A,B)
+\end{tikzpicture}
+\section{Phép chiếu song song. Hình biểu diễn của một hình không gian}
+%Thầy Trần Thanh Quang
+\begin{center}
+1H25-2.61/tr72\\
+\begin{tikzpicture}%Hình 2.61 trang 72
+\tkzDefPoints{0/0/A, 2/3/B, 8/0/D, 3/5/E, 5/-1/P, 5/5.65/M1}
+%\tkzDrawPoint(A,B,C)
+%Định nghĩa các điểm
+\coordinate (C) at ($(B)+(D)-(A)$);
+\coordinate (R) at ($(P)+(M1)-(E)$);
+\tkzDefMidPoint(A,B) 	\tkzGetPoint{K}
+\tkzDefMidPoint(C,D) 	\tkzGetPoint{H}
+%Tạo các giao điểm
+\tkzInterLL(H,K)(E,P)	\tkzGetPoint{I}
+\tkzInterLL(A,D)(E,P)	\tkzGetPoint{J}
+\tkzInterLL(M1,R)(A,D)	\tkzGetPoint{G}
+\coordinate (M') at ($(I)+(M1)-(E)$);
+\coordinate (M) at ($(M1)!0.2!(M')$);
+%Nối các điểm
+\tkzDrawSegments(A,B B,C C,D D,A E,I J,P M1,M' G,R)
+\tkzDrawSegments[style=dashed](I,J M',G)
+\tkzMarkAngle[size=1](D,A,B)
+\tkzLabelAngle[pos = 0.6](C,A,B){$\alpha$}
+%Vẽ các điểm M, M' và gán nhãn
+\draw ($(E)!0.2!(I)$) node[right]{$\Delta$};
+\tkzDrawPoints(M', M)	\tkzLabelPoints[above right](M', M)
+\end{tikzpicture}
+
+1H25-2.62/tr72\\
+\begin{tikzpicture}[>=stealth, line cap=round,line join=round]%Hình 2.62 trang 72
+\tkzDefPoints{0/0/X, 2/3/Y, 8/0/T, 0.5/4/E, 3/1.5/A', 6/1.5/B', 7/1.5/C'}
+\tkzDefPointBy[translation = from X to Y](T) 	\tkzGetPoint{Z}
+\tkzDrawSegments(X,Y Y,Z Z,T T,X)%Vẽ mặt phẳng
+\tkzMarkAngle[size=1](T,X,Y)
+\tkzLabelAngle[pos = 0.6](Z,X,Y){$\alpha$}%Xong vẽ mặt phẳng
+\tkzDefPoint[shift={(3,1.5)}](110:3){A}%Vẽ A theo A'
+\tkzDefPoint[shift={(6,1.5)}](110:3.5){B}%Vẽ B theo B'
+\tkzDefLine[parallel=through C'](A,A') 	\tkzGetPoint{c}
+\tkzDefLine[parallel=through E](A,A') 	\tkzGetPoint{e}
+\tkzInterLL(C',c)(A,B) \tkzGetPoint{C}
+\tkzLabelPoints[below left](A',B',C')	
+\tkzLabelPoints[above left](A,B,C)
+\tkzDrawLines(A,C A',C')	\tkzDrawLine[start=$\Delta$](E,e)
+\begin{scope}[decoration={markings,
+mark=at position 2cm with {\arrow[scale=2]{>}};}]%Định nghĩa dấu mũi tên
+\tkzDrawSegments[postaction={decorate}](A,A' B,B' C,C')
+\end{scope}
+\end{tikzpicture}
+
+
+1H25-2.63/tr73\\
+\begin{tikzpicture}[>=stealth, line cap=round,line join=round]%Hình 2.63 trang 73
+%Định nghĩa các điểm
+\tkzDefPoints{0/0/X, 2/3/Y, 8/0/T, 2/5/E, 2/1/A', 6/1/B', 4/2/C'}
+\tkzDefPointBy[translation = from X to Y](T) 	\tkzGetPoint{Z}
+\tkzDrawSegments(X,Y Y,Z Z,T T,X)%Vẽ mặt phẳng
+\tkzMarkAngle[size=1](T,X,Y)
+\tkzLabelAngle[pos = 0.6](Z,X,Y){$\alpha$}%Xong vẽ mặt phẳng
+\tkzDefPoint[shift={(4,2)}](0:3.5){D'}%Vẽ D' theo C'
+\tkzDefPoint[shift={(2,1)}](70:4){A}%Vẽ A theo A'
+\tkzDefPoint[shift={(6,1)}](70:3){B}%Vẽ B theo B'
+\tkzDefPoint[shift={(4,2)}](70:3.5){C}%Vẽ C theo C'
+\tkzDefLine[parallel=through C](A,B) 	\tkzGetPoint{c}
+\tkzDefLine[parallel=through D'](B',B) \tkzGetPoint{d}
+\tkzInterLL(C,c)(D',d) \tkzGetPoint{D}
+\tkzDrawLine[start=$a$](A,B)	\tkzDrawLine[start=$b$](C,D)
+\tkzDrawLine[start=$a'$](A',B')	\tkzDrawLine[start=$b'$](C',D')
+\tkzDefLine[parallel=through E](D,D') \tkzGetPoint{e}	
+\tkzDrawLine[start = $\Delta$](E,e)
+%Vẽ các dấu mũi tên
+\begin{scope}[decoration={markings,
+mark=at position 1.5cm with {\arrow[scale=2]{>}};}]%Định nghĩa dấu mũi tên
+\tkzDrawSegments[postaction={decorate}](A,A' B,B' C,C' D,D')
+\end{scope}
+\end{tikzpicture}
+
+
+1H25-2.64/tr73\\
+\begin{tikzpicture}[>=stealth, line cap=round,line join=round]%Hình 2.64 trang 73
+\tkzDefPoints{0/0/X, 2/3/Y, 8/0/T, 2/5/E, 1.5/1/A', 8/1/B', 3.5/3.5/I}
+\tkzDefPointBy[translation = from X to Y](T) 	\tkzGetPoint{Z}
+\tkzDrawSegments(X,Y Z,T T,X)%Vẽ mặt phẳng
+\tkzMarkAngle[size=1](T,X,Y)
+\tkzLabelAngle[pos = 0.6](Z,X,Y){$\alpha$}%Xong vẽ mặt phẳng
+\tkzDefPoint[shift={(1.5,1)}](70:4.5){A}%Vẽ A theo A'
+\tkzDefPoint[shift={(8,1)}](70:4.5){B}
+\tkzDefPoint[shift={(3.5,3.5)}](70:1){J}
+\tkzDefPoint[shift={(3.5,3.5)}](0:4){K}
+\tkzDefPointBy[translation = from I to K](J) 	\tkzGetPoint{H}
+\tkzInterLL(Y,Z)(A,A') \tkzGetPoint{M}
+\tkzInterLL(Y,Z)(B,B') \tkzGetPoint{N}
+\tkzDrawSegments(A,B B,B' B',A' A',A Y,M N,Z I,K J,H)
+\tkzDrawSegments[dashed](M,N)
+\tkzDefLine[parallel=through E](A,M) \tkzGetPoint{e}	
+\tkzDrawLine[start = $\Delta$](E,e)
+\tkzMarkAngle[size=0.7](B',A',A)
+\tkzLabelAngle[pos = 0.4](B',A',A){$\beta$}
+\tkzLabelSegment(I,K){$a$}	\tkzLabelSegment(J,H){$b$}
+\tkzLabelSegment(A',B'){$a'\equiv b'$}
+%\tkzDrawPoints(X,Y,Z,T,M,N,A',B',A,B,I,J,K,H)
+%\tkzLabelPoints[above right](X,Y,Z,T,M,N,A',B',A,B,I)
+\end{tikzpicture}
+
+
+1H25-2.65/tr73\\
+\begin{tikzpicture}[>=stealth, line cap=round,line join=round]%Hình 2.65 trang 73
+%Định nghĩa các điểm
+\tkzDefPoints{0/0/X, 2/3/Y, 8/0/T, 2/5/E, 2/1/A', 6/1/B', 5/2/C'}
+\tkzDefPointBy[translation = from X to Y](T) \tkzGetPoint{Z}
+%Vẽ mặt phẳng
+\tkzDrawSegments(X,Y T,X)
+\tkzMarkAngle[size=1](T,X,Y)
+\tkzLabelAngle[pos = 0.6](Z,X,Y){$\beta$}%Xong vẽ mặt phẳng
+\tkzDefPoint[shift={(5,2)}](0:3){D'}%Vẽ D' theo C'
+\tkzDefPoint[shift={(2,1)}](70:4){A}%Vẽ A theo A'
+\tkzDefPoint[shift={(6,1)}](70:3){B}%Vẽ B theo B'
+\tkzDefPoint[shift={(5,2)}](70:3.5){C}%Vẽ C theo C'
+\tkzDefLine[parallel=through C](A,B) \tkzGetPoint{c}
+\tkzDefLine[parallel=through D'](B',B) \tkzGetPoint{d}
+\tkzInterLL(C,c)(D',d) \tkzGetPoint{D}
+\tkzDrawLines(A,B A',B' C,D C',D')
+\tkzDefLine[parallel=through E](D,D') \tkzGetPoint{e}	
+\tkzDrawLine[start = $\Delta$](E,e)
+%Vẽ các dấu mũi tên
+\tkzLabelPoints[above right](A',B',C',D',A,B,C,D)
+\begin{scope}[decoration={markings,
+mark=at position 1.5cm with {\arrow[scale=2]{>}};}]%Định nghĩa dấu mũi tên
+\tkzDrawSegments[postaction={decorate}](A,A' B,B' C,C' D,D')
+\end{scope}
+\end{tikzpicture}
+
+1H25-2.66/tr73\\
+\begin{tikzpicture}[>=stealth, line cap=round,line join=round]%Hình 2.66 trang 73
+\tkzDefPoints{0/0/X, 2/3/Y, 8/0/T, 2/5/E, 2.2/1.5/A', 3.3/1.5/B', 5/1.5/C', 7.3/1.5/D'}
+\tkzDefPointBy[translation = from X to Y](T) 	\tkzGetPoint{Z}
+\tkzDrawSegments(X,Y T,X)%Vẽ mặt phẳng
+\tkzMarkAngle[size=1](T,X,Y)
+\tkzLabelAngle[pos = 0.6](Z,X,Y){$\beta$}%Xong vẽ mặt phẳng
+\tkzDefPoint[shift={(2.3,1.5)}](70:5){A}%Vẽ A theo A'
+\tkzDefPoint[shift={(7.3,1.5)}](70:3){D}%Vẽ D theo D'
+\tkzDefLine[parallel=through C'](D,D') 	\tkzGetPoint{c}
+\tkzDefLine[parallel=through B'](A,A') 	\tkzGetPoint{b}
+\tkzDefLine[parallel=through E](D,D') 	\tkzGetPoint{e}
+\tkzInterLL(C',c)(A,D) \tkzGetPoint{C}
+\tkzInterLL(B',b)(A,D) \tkzGetPoint{B}
+\tkzLabelPoints[below right](A',B',C',D')	
+\tkzLabelPoints[above right](A,B,C,D)
+\tkzDrawLines(A,D A',D')	\tkzDrawLine[start=$\Delta$](E,e)
+\begin{scope}[decoration={markings,
+mark=at position 1.5cm with {\arrow[scale=2]{>}};}]%Định nghĩa dấu mũi tên
+\tkzDrawSegments[postaction={decorate}](A,A' B,B' C,C' D,D')
+\end{scope}
+\end{tikzpicture}
+\end{center}
+%Thầy Đỗ Vũ Minh Thắng
+\begin{center}
+1H25-2.67/tr73\\
+\begin{tikzpicture}
+\tkzDefPoints{2/-4/x, 3/0/y, -4/-2/z, 0/0/A}
+\coordinate (B) at ($(A)+(y)$);
+\coordinate (E) at ($(A)+(x)$);
+\coordinate (D) at ($(E)+(y)$);
+\coordinate (F) at ($(A)+(z)$);
+\coordinate (C) at ($(D)-(z)$);
+\tkzInterLL(A,D)(B,E)
+\tkzGetPoint{I}
+\tkzDrawPolygon(A,B,C,D,E,F)
+\tkzDrawSegments(A,D E,B C,F)
+%Đánh dấu các đoạn bằng nhau
+\tkzMarkSegments[mark=|,color=black](A,I I,D)
+\tkzMarkSegments[mark=||,color=black](B,I I,E)
+\tkzMarkSegments[mark=|||,color=black](F,I I,C)
+\tkzLabelPoints[above](A,B,C,F)
+\tkzLabelPoints[below](D,E)
+\end{tikzpicture}
+\end{center}
+%\newpage
+\begin{center}
+1H25-2.68a/tr74\\
+\begin{tikzpicture}
+\tkzDefPoints{3/-2/x, 5/0/y, 0/4/z, 0/0/A}
+\coordinate (B) at ($(A)+(x)$);
+\coordinate (C) at ($(B)+(y)$);
+\coordinate (D) at ($(C)-(x)$);
+\coordinate (E) at ($(A)+(z)$);
+\coordinate (F) at ($(B)+(z)$);
+\coordinate (G) at ($(C)+(z)$);
+\coordinate (H) at ($(D)+(z)$);
+\tkzDrawSegments[dashed](D,H A,D D,C)
+\tkzDrawSegments(A,B A,E B,C E,H F,G H,G G,C B,F E,F)
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+1H25-2.68b/tr74\\
+\begin{tikzpicture}
+\tkzDefPoints{-3/-2/x, 5/0/y, 0/4/z, -1.5/3.5/t,0/0/A}
+\coordinate (B) at ($(A)+(x)$);
+\coordinate (C) at ($(B)+(y)$);
+\coordinate (D) at ($(C)-(x)$);
+\coordinate (E) at ($(A)+(z)$);
+\coordinate (F) at ($(B)+(z)$);
+\coordinate (G) at ($(C)+(z)$);
+\coordinate (H) at ($(D)+(t)$);
+\tkzDrawSegments[dashed](B,A A,D A,E)
+\tkzDrawSegments(D,C D,H)
+\tkzDrawPolygon(E,F,G,H)
+\tkzDrawPolygon(B,F,G,C)
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+1H25-2.68c/tr74\\
+\begin{tikzpicture}
+\tkzDefPoints{5/0/y, 0/5/z, 0/0/A}
+\coordinate (B) at ($(A)+(y)$);
+\coordinate (C) at ($(B)+(z)$);
+\coordinate (D) at ($(C)-(y)$);
+\tkzDrawPolygon(A,B,C,D)
+\end{tikzpicture}
+\end{center}
+%\newpage
+\begin{center}
+1H25-2.69a/tr74\\
+\begin{tikzpicture}
+\tkzDefPoints{1/3/x, 5/0/y, 0/0/A}
+\coordinate (B) at ($(A)+(x)$);
+\coordinate (C) at ($(A)+(y)$);
+\tkzDrawPolygon(A,B,C)
+%Đánh dấu các đoạn bằng nhau
+\tkzMarkSegments[mark=|,color=black](A,B C,B A,C)
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+1H25-2.69b/tr74\\
+\begin{tikzpicture}
+\tkzDefPoints{1/3/x, 5/0/y, 0/0/A}
+\coordinate (B) at ($(A)+(x)$);
+\coordinate (C) at ($(A)+(y)$);
+\tkzDrawPolygon(A,B,C)
+%Đánh dấu các đoạn bằng nhau
+\tkzMarkSegments[mark=|,color=black](A,B B,C)
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+1H25-2.69c/tr74\\
+\begin{tikzpicture}
+\tkzDefPoints{1/3/x, 5/0/y, 0/0/A}
+\coordinate (B) at ($(A)+(x)$);
+\coordinate (C) at ($(A)+(y)$);
+\tkzDrawPolygon(A,B,C)
+%Đánh dấu góc vuông
+\tkzMarkRightAngle[size=0.5](C,A,B)
+\end{tikzpicture}
+\end{center}
+\begin{center}
+1H25-2.70a/tr74\\
+\begin{tikzpicture}
+\tkzDefPoints{1/3/x, 5/0/y, 0/0/A}
+\coordinate (B) at ($(A)+(x)$);
+\coordinate (C) at ($(A)+(y)$);
+\coordinate (D) at ($(B)+(y)$);
+\tkzDrawPolygon(A,B,D,C)
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+1H25-2.70b/tr74\\
+\begin{tikzpicture}
+\tkzDefPoints{1/3/x, 5/0/y, 0/0/A}
+\coordinate (B) at ($(A)+(x)$);
+\coordinate (C) at ($(A)+(y)$);
+\coordinate (D) at ($(B)+(y)$);
+\tkzDrawPolygon(A,B,D,C)
+%Đánh dấu góc vuông
+\tkzMarkRightAngle[size=0.5](D,B,A)
+%Đánh dấu các đoạn bằng nhau
+\tkzMarkSegments[mark=|,color=black](A,B B,D)
+
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+1H25-2.70c/tr74\\
+\begin{tikzpicture}
+\tkzDefPoints{1/3/x, 5/0/y, 0/0/A}
+\coordinate (B) at ($(A)+(x)$);
+\coordinate (C) at ($(A)+(y)$);
+\coordinate (D) at ($(B)+(y)$);
+\tkzDrawPolygon(A,B,D,C)
+%Đánh dấu các đoạn bằng nhau
+\tkzMarkSegments[mark=|,color=black](A,B B,D)
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+1H25-2.70d/tr74\\
+\begin{tikzpicture}
+\tkzDefPoints{1/3/x, 5/0/y, 0/0/A}
+\coordinate (B) at ($(A)+(x)$);
+\coordinate (C) at ($(A)+(y)$);
+\coordinate (D) at ($(B)+(y)$);
+\tkzDrawPolygon(A,B,D,C)
+%Đánh dấu góc vuông
+\tkzMarkRightAngle[size=0.5](D,B,A)
+\end{tikzpicture}
+\end{center}
+%\newpage
+\begin{center}
+1H25-2.71/tr75\\
+\begin{tikzpicture}
+\clip (0,0) rectangle (10,10);
+\tkzDefPoints{0/-4/x, 4/0/y, -5/-3/z, 6/8/A}
+\coordinate (B) at ($(A)+(y)$);
+\coordinate (C) at ($(B)+(x)$);
+\coordinate (D) at ($(A)+(x)$);
+\coordinate (E) at ($(C)+(z)$);
+\coordinate (F) at ($(D)+(z)$);
+\shade[inner color=white,outer color=gray] (A)--(B)--(C)--(D)--cycle;
+\shade[inner color=white,outer color=gray] (C)--(D)--(F)--(E)--cycle;
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawPolygon(C,D,F,E)
+\fill [color=white](8,6) circle (40pt);  
+\fill[color=white, rotate=25] (6,0) ellipse (60pt and 20pt);
+\draw (8,6) circle (40pt);  
+\draw[rotate=25] (6,0) ellipse (60pt and 20pt);
+\end{tikzpicture}
+\end{center}
+%\newpage
+\begin{center}
+1H25-2.72/tr75\\
+\begin{tikzpicture}
+\tkzDefPoints{3/3/x, 10/0/y, 0/4/z, 2/-9/u, 4/0/v, 3.5/8/M, 0/0/A}
+\coordinate (B) at ($(A)+(x)$);
+\coordinate (D) at ($(A)+(y)$);
+\coordinate (C) at ($(B)+(y)$);
+\coordinate (E) at ($(A)+(z)$);
+\coordinate (F) at ($(B)+(z)$);
+\coordinate (G) at ($(C)+(z)$);
+\coordinate (H) at ($(D)+(z)$);
+\coordinate (N) at ($(M)+(u)$);
+\coordinate (P) at ($(M)+(v)$);
+\coordinate (Q) at ($(N)+(v)$);
+\tkzInterLL(E,G)(P,Q)
+\tkzGetPoint{P'}
+\coordinate (M') at ($(P')-(v)$);
+\tkzInterLL(A,C)(M,N)
+\tkzGetPoint{N'}
+\tkzInterLL(B,D)(P,Q)
+\tkzGetPoint{Q'}
+\tkzInterLL(E,H)(M,N)
+\tkzGetPoint{M''}
+\tkzInterLL(E,H)(P,Q)
+\tkzGetPoint{P''}
+\tkzInterLL(A,D)(M,N)
+\tkzGetPoint{N''}
+\tkzDrawSegments(M,M' M'',N' N'',N P,P' P'',Q)
+\tkzDrawSegments[dashed](M',M'' N',N'' P',P'')
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawPolygon(E,F,G,H)
+\tkzDrawPoints(M',P',N',Q')
+\draw (M') node[above right]{$A$};
+\draw (P') node[above right]{$B$};
+\draw (N') node[above right]{$C$};
+\draw (Q') node[above right]{$D$};	
+\tkzMarkAngle[size=0.8](D,A,B)
+\draw (A) node[above, xshift=15pt, yshift=-4pt]{$\beta$};
+\tkzMarkAngle[size=0.8](H,E,F)
+\draw (E) node[above, xshift=15pt]{$\alpha$};
+
+\end{tikzpicture}
+\end{center}

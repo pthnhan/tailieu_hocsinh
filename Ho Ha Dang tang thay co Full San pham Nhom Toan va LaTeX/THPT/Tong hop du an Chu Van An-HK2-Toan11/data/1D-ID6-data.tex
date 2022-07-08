@@ -1,0 +1,1809 @@
+\chapter{Chương 3. Dãy số - Cấp số cộng- Cấp số nhân}
+\maCH{3}
+\section{Phương pháp quy nạp}
+	\dang{Các dạng toán áp dụng trực tiếp phương pháp quy nạp}
+\begin{ex}%[1D3G1-1][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Nguyễn Đức Lợi]\\
+Tính $S=1+2\cdot 2 + 3\cdot 2^2 + \cdots + 2018\cdot 2^{2017}$.
+\choice
+{\True $2017\cdot 2^{2018}+1$}
+{$2017\cdot 2^{2018}-1$}
+{$2017\cdot 2^{2018}-1$}
+{$2^{2018}+1$}
+\loigiai{
+Ta chứng minh công thức tổng quát bằng phương pháp quy nạp
+\[S_n=1+2\cdot 2 + 3 \cdot 2^2 + \cdots + (n+1) \cdot 2^n=n \cdot 2^{n+1}+1, \forall n \in \Bbb N \tag{$*$}\]
+Dễ thấy $(*)$ đúng khi $n=1$.\\
+Giả sử $(*)$ đúng khi $n=k$, tức là $S_k=1+2\cdot 2 + 3 \cdot 2^2 + \cdots +(k+1) \cdot 2^k=k \cdot 2^{k+1}+1, k\in \Bbb N^*$. \\
+Ta chứng minh $(*)$ đúng khi $n=k+1$. Thật vậy
+$$S_{k+1}=S_k+(k+2)2^{k+1}=k\cdot  2^{k+1}+1+(k+2)\cdot 2^{k+1}=(2k+2)\cdot 2^{k+1}+1=(k+1)\cdot 2^{k+2}+1$$
+Vậy đẳng thức $(*)$ được chứng minh.\\
+Áp dụng vào bài toán với $n=2017$ ta được $S=2017\cdot 2^{2018}+1$.
+}
+\end{ex}
+\section{Dãy số}
+	\dang{Biểu diễn dãy số, tìm công thức tổng quát dãy số}
+\begin{ex}%[1D3K2-1][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Trần Phong]\\
+Cho dãy số $(u_n)$ được xác định bởi $\heva{&u_1=5\\& u_{n+1}=u_n+n}$. Tìm số hạng tổng quát của dãy số.
+\choice
+{\True $u_n=5+\dfrac{(n-1)n}{2}$}
+{$u_n=\dfrac{(n-1)n}{2}$}
+{$u_n=5+\dfrac{(n+1)n}{2}$}
+{$u_n=\dfrac{5+(n+1)(n+2)}{2}$}
+\loigiai{
+Ta có
+$$\begin{array}{lll}
+&u_{n+1}-u_n &=n\\
+&u_n-u_{n-1} &=n-1\\
+&u_{n-1}-u_{n-2}&=n-2\\
+&\quad \ldots & \quad \ldots \\
+&u_2-u_{1}&=1\\
+\end{array}$$
+Cộng vế theo vế ta được: $u_{n+1}-u_1=n+(n-1)+(n-2)+\cdots+1=\dfrac{n(n+1)}{2}$.\\
+Hay $u_{n+1}=5+\dfrac{n(n+1)}{2}$. Suy ra $u_n=5+\dfrac{(n-1)n}{2},\forall n\ge1$.
+}
+\end{ex}
+	\dang{Tìm hạng tử trong dãy số}
+\begin{ex}%[Đề cương HK2, Chu Văn An, Hà Nội,Phan Minh Tâm][1D3B2-2]\\
+	Cho dãy số $ (u_n) $ với $ u_n=\dfrac{an^2}{n+1} $ ($ a $ là hằng số). Số hạng $ u_{n+1} $ là số hạng nào sau đây?
+	\choice
+	{$ u_{n+1}=\dfrac{an^2}{n+2} $}
+	{$ u_{n+1}=\dfrac{an^2+1}{n+1} $}
+	{\True $ u_{n+1}=\dfrac{a(n+1)^2}{n+2} $}
+	{$ u_{n+1}=\dfrac{a(n+1)^2}{n+1} $}
+	\loigiai{
+		Từ công thức số hạng tổng quát $ u_n=\dfrac{an^2}{n+1} $, ta có $ u_{n+1}=\dfrac{a(n+1)^2}{(n+1)+1}=\dfrac{a(n+1)^2}{n+2} $.
+	}
+\end{ex}
+\begin{ex}%[1D3B2-2][Đề cương Toán 11, HK2, Chu Văn An, Hà Nội][Nguyễn Thị Kiều Ngân]\\
+Dãy số $(u_n)$ được xác định bởi $u_n=\dfrac{n^2+3n+7}{n+1}$ có bao nhiêu số hạng nhận giá trị nguyên?
+\choice
+{$2$}
+{Không có}
+{\True $1$}
+{$4$}
+\loigiai{
+	Ta có $u_n=\dfrac{n^2+3n+7}{n+1}=n+2+\dfrac{5}{n+1}$, $\forall n \in \mathbb{N^*}$.\\
+	$u_n$ là số nguyên 
+	$\Leftrightarrow$ $\dfrac{5}{n+1}$  là số nguyên $\Leftrightarrow$ $5$ chia hết cho $(n+1)$ $\Leftrightarrow \hoac{&n+1=1\\&n+1=5\\&n+1=-1 \quad \text{(loại)}\\&n+1=-5 \quad \text{(loại)}}\\ \Leftrightarrow \hoac{&n=0 \quad \text{(loại)}\\&n=4 \quad \text{(nhận).}}$\\
+	Vậy có $1$ số hạng nhận giá trị nguyên là $u_4=7$.
+}
+\end{ex}
+\begin{ex}%[Đề cương Chu Văn An Toán 11][1D3G2-2][NguyenThanhKhoa]\\
+Cho dãy số có $4$ số hạng đầu là: $-1$, $3$, $19$, $53$. Tìm số hạng thứ $10$ của dãy.
+\choice
+{$u_{10}=97$}
+{$u_{10}=71$}
+{$u_{10}=1414$}
+{\True$u_{10}=971$}
+\loigiai{
+	Công thức số hạng tổng quát của dãy số: $u_n=n^3-3n+1$.\\
+Vậy $u_{10}=10^3-3.10+1=971$.}
+\end{ex}
+	\dang{Dãy số tăng, dãy số giảm}
+\begin{ex}%[Đề cương Chu Văn An Toán 11][1D3B2-3][NguyenThanhKhoa]\\
+Xét tính tăng giảm của dãy số $u_n=\dfrac{3n^2-2n+1}{n+1}$.
+\choice
+{Dãy số giảm}
+{\True Dãy số tăng}
+{Dãy số không tăng không giảm}
+{ Cả A, B, C đều sai}
+\loigiai{
+Ta có: $u_{n+1}=\dfrac{3n^2+4n+2}{n+2}$.\\
+Xét $u_{n+1}-u_n=\dfrac{3n^2+9n}{(n+2)(n+1)}>0$.\\
+Vậy dãy số $(u_n)$ là dãy số tăng.	}
+\end{ex} 
+\begin{ex}%[1D3K2-3][Đề cương Toán 11, HK2, Chu Văn An, Hà Nội][Nguyễn Thị Kiều Ngân]\\
+	Xét tính tăng giảm của dãy số $u_n=n-\sqrt{n^2-1}$.
+	\choice
+	{\True Dãy số giảm}
+	{Dãy số không tăng không giảm}
+	{Dãy số tăng}
+	{Ba phương án đều sai}
+	\loigiai{
+		Ta có $u_{n+1}=n+1-\sqrt{(n+1)^2-1}=n+1-\sqrt{n^2+2n}$.\\
+		$u_{n+1}-u_n=1+\sqrt{n^2-1}-\sqrt{n^2+2n}$.\\
+		Dãy số $(u_n)$ là dãy số giảm nếu $u_{n+1}-u_n<0$, $\forall n \in \mathbb{N^*}$.\\
+		Dãy số $(u_n)$ là dãy số tăng nếu $u_{n+1}-u_n>0$, $\forall n \in \mathbb{N^*}$.\\
+		Ta có
+		\begin{eqnarray*}
+			& & u_{n+1}-u_n<0 \\
+			&\Leftrightarrow & 1+\sqrt{n^2-1}-\sqrt{n^2+2n}<0\\
+			& \Leftrightarrow & 1+\sqrt{n^2-1}<\sqrt{n^2+2n}\\
+			& \Leftrightarrow & 1+n^2-1+2\sqrt{n^2-1} < n^2+2n\\
+			& \Leftrightarrow & \sqrt{n^2-1} < n\\
+			& \Leftrightarrow & n^2-1 < n^2
+			 \quad \text{(luôn đúng).}
+		\end{eqnarray*}
+		Vậy dãy số giảm.
+	}
+\end{ex}
+	\dang{Dãy số bị chặn trên, bị chặn dưới}
+\begin{ex}%[1D3K2-4][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Trần Phong]\\
+Xét tính tăng, giảm và bị chặn của dãy số $(u_n)$, biết $u_n=1+\dfrac{1}{2^2}+\dfrac{1}{3^2}+\cdots+\dfrac{1}{n^2}$.
+\choice
+{\True Dãy số tăng, bị chặn}
+{Dãy số tăng, bị chặn dưới}
+{Dãy số giảm, bị chặn trên}
+{Ba phương án đều sai}
+\loigiai{
+Ta có $u_{n+1}-u_n=\dfrac{1}{(n+1)^2}>0\Rightarrow (u_n)$ là dãy số tăng.\\
+Lại có $$u_n<1+\dfrac{1}{1\cdot 2}+\dfrac{1}{2\cdot 3}+\cdots+\dfrac{1}{(n-1)n}=1+1-\dfrac{1}{2}+\dfrac{1}{2}-\dfrac{1}{3}+\cdots+\dfrac{1}{n-1}-\dfrac{1}{n}=2-\dfrac{1}{n}<2,\forall n\in\mathbb N^*.$$
+Suy ra dãy $(u_n)$ bị chặn trên bởi $2$.\\
+Lại có $u_n>0,\forall n\in\mathbb N^*$, suy ra dãy $(u_n)$ bị chặn dưới bởi $0$.\\
+Vậy dãy $(u_n)$ là dãy số tăng và bị chặn.
+}
+\end{ex}
+\begin{ex}%[Đề cương Chu Văn An Toán 11][1D3K2-4][NguyenThanhKhoa]\\
+Xét tính bị chặn của dãy số $u_n=\dfrac{1}{1.3}+\dfrac{1}{3.5}+...+\dfrac{1}{(2n-1)(2n+1)}$
+.
+\choice
+{\True Bị chặn}
+{Bị chặn trên}
+{Bị chặn dưới}
+{Không bị chặn}
+\loigiai{
+	Ta có: $2u_n=\dfrac{2}{1.3}+\dfrac{2}{3.5}+...+\dfrac{2}{(2n-1)(2n+1)}=\left(1-\dfrac{1}{3}\right)+\left(\dfrac{1}{3}-\dfrac{1}{5}\right)+...+\left(\dfrac{1}{2n-1}-\dfrac{1}{2n+1}\right)\\=1-\dfrac{1}{2n+1}$
+$\Rightarrow u_n=\dfrac{1}{2}-\dfrac{1}{2(2n+1)}<\dfrac{1}{2}$.\\
+Lại có $u_n>0$.\\
+Vậy $0<u_n<\dfrac{1}{2}$ nên dãy số $(u_n)$ bị chặn.}
+\end{ex}
+\section{Cấp số cộng}
+	\dang{Nhận diện cấp số cộng}
+\begin{ex}%[1D3Y3-1][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Lê Thị Thúy Hằng]\\
+Cho một cấp số cộng có $u_1 = -\dfrac{1}{2}$; $d= \dfrac{1}{2}$. Trong các kết quả dưới đây, kết quả nào đúng?
+\choice
+{Cấp số cộng có dạng khai triển là $-\dfrac{1}{2}; 0; 1; \dfrac{1}{2}; 1; \ldots $}
+{\True Cấp số cộng có dạng khai triển là $-\dfrac{1}{2}; 0; \dfrac{1}{2}; 1; \dfrac{3}{2}; \ldots $}
+{Cấp số cộng có dạng khai triển là $-\dfrac{1}{2}; 0; \dfrac{1}{2}; 0; \dfrac{1}{2}; \ldots $}
+{Cấp số cộng có dạng khai triển là $\dfrac{1}{2}; 1; \dfrac{3}{2}; 2; \dfrac{5}{2}; \ldots $}
+\loigiai{
+Cấp số cộng có $u_1 = -\dfrac{1}{2}$; $d= \dfrac{1}{2}$ nên nó có dạng khai triển là  $-\dfrac{1}{2}; 0; \dfrac{1}{2}; 1; \dfrac{3}{2}; \ldots $.
+}
+\end{ex} 
+\begin{ex}%[1D3Y3-1][Đề cương Toán 11, HK2, Chu Văn An, Hà Nội][Nguyễn Thị Kiều Ngân]\\
+	Dãy số $(u_n)$ có phải cấp số cộng không? Nếu phải hãy xác định công sai? Biết $u_n=2n+3$.
+	\choice
+	{$d=-2$}
+	{\True $d=2$}
+	{$d=5$}
+	{$d=3$}
+	\loigiai{
+		Ta có $u_{n+1}-u_n=2(n+1)+3-(2n+3)=2$, $\forall n \in \mathbb{N^*}$.\\
+		Suy ra dãy số $(u_n)$ là cấp số cộng có công sai $d=2$.
+	}
+\end{ex}
+\begin{ex}%[1D3B3-1][Đề cương Toán 11, HK2, Chu Văn An, Hà Nội][Nguyễn Thị Kiều Ngân]\\
+	Cho $a$, $b$, $c$ theo thứ tự lập thành cấp số cộng, đẳng thức nào sau đây đúng?
+	\choice
+	{$a^2-c^2=ab-bc$}
+	{$a^2+c^2=2ab+2bc$}
+	{$a^2+c^2=2ab-2bc$}
+	{\True $a^2-c^2=2ab-2bc$}
+	\loigiai{
+		Vì $a$, $b$, $c$ theo thứ tự lập thành cấp số cộng nên $a+c=2b$.\\
+		Ta có $a^2-c^2=(a+c)(a-c)=2b(a-c)=2ab-2bc$.
+	}
+\end{ex}
+	\dang{Tìm công thức của cấp số cộng}
+\begin{ex}%[1D3B3-2][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Trần Phong]\\
+Cho một cấp số cộng có $u_1=-3$, $u_6=27$. Tìm công sai $d$.
+\choice
+{$d=5$}
+{$d=7$}
+{\True $d=6$}
+{$d=8$}
+\loigiai{
+Ta có $u_6=u_1+5d\Leftrightarrow 27=-3+5d\Leftrightarrow d=6$.
+}
+\end{ex}
+\begin{ex}%[Đề cương HK2, Chu Văn An, Hà Nội,Phan Minh Tâm][1D3K3-2]\\
+	Cho dãy số có các số hạng đầu là $ 8,15,22,29,36,... $ Viết công thức số hạng tổng quát $ u_n $ của dãy số trên?
+	\choice
+	{$ u_n=7n+7 $}
+	{$ u_n=7n $}
+	{Dãy số không viết được dưới dạng công thức tổng quát}
+	{\True $ u_n=7n+1 $}
+	\loigiai{
+		Từ các số hạng đầu tiên ta suy ra dãy số là cấp số cộng với $ \heva{&u_1=8\\&d=u_2-u_1=7} $. Do đó, công thức số hạng tổng quát của dãy số là $ u_n=u_1+(n-1)d=8+(n-1)\cdot 7=7n+1 $.
+	}
+\end{ex}
+\begin{ex}%[Đề cương HK2, Chu Văn An, Hà Nội,Phan Minh Tâm][1D3K3-2]\\
+	Cho dãy số có các số hạng đầu là $ 8,15,22,29,36,... $ Viết công thức số hạng tổng quát $ u_n $ của dãy số trên?
+	\choice
+	{$ u_n=7n+7 $}
+	{$ u_n=7n $}
+	{Dãy số không viết được dưới dạng công thức tổng quát}
+	{\True $ u_n=7n+1 $}
+	\loigiai{
+		Từ các số hạng đầu tiên ta suy ra dãy số là cấp số cộng với $ \heva{&u_1=8\\&d=u_2-u_1=7} $. Do đó, công thức số hạng tổng quát của dãy số là $ u_n=u_1+(n-1)d=8+(n-1)\cdot 7=7n+1 $.
+	}
+\end{ex}
+	\dang{Tìm điều kiện để một dãy số là cấp số cộng}
+\begin{ex}%[1D3K3-4][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Lê Thị Thúy Hằng]\\
+Xác định $a, b$ để phương trình $x^3 +ax +b=0$ có ba nghiệm phân biệt lập thành cấp số cộng.
+\choice
+{$b=0, a>0$}
+{$b>0, a<0$}
+{\True $b=0, a<0$}
+{$b=0, a=1$}
+\loigiai{
+Phương trình $x^3 +ax +b=0$ có ba nghiệm phân biệt lập thành cấp số cộng nên ta gọi $u-d$, $u$ và $u+d$ theo thứ tự là ba nghiệm của phương trình. Khi đó, ta có
+$$\allowdisplaybreaks 
+(x-u)(x-u+d)(x-u-d)=0 
+\Leftrightarrow x^3 -3ux^2  +(3u^2 -d)x -u^3 +d^2u =0,$$
+\text{ suy ra } $x^3 -3ux^2  +(3u^2 -d)x -u^3 +d^2u = x^3 +ax +b$. \hfill(1) \\
+Đồng nhất hai vế $(1)$ ta có 
+$\left\{ \begin{aligned}
+& -3u=0 \\
+& 3u^2-d^2=a \\
+& -u^3 +d^2u=b 
+\end{aligned}
+\right. 
+\Leftrightarrow \left\{ \begin{aligned}
+& u=0 \\
+& d^2=-a \\
+& b=0.
+\end{aligned}
+\right. $ \hfill(2) \\
+Từ hệ $(2)$, phương trình $x^3 +ax +b=0$ có ba nghiệm phân biệt lập thành cấp số cộng khi và chỉ khi phương trình $d^2=-a$ ($d$ là ẩn) có hai nghiệm phân biệt hay $a<0$. \\
+Vậy $a<0$, $b=0$ thỏa yêu cầu bài toán.
+}
+\end{ex}
+\begin{ex}%[1D3G3-4][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Nguyễn Đức Lợi]\\
+Tính tổng tất cả các giá trị thực của tham số $m$ để phương trình $x^4-20x^2+(m-1)^2=0$ có bốn nghiệm phân biệt lập thành một cấp số cộng.
+\choicefix
+{$7$}
+{$-2$}
+{\True $2$}
+{Đáp án khác}
+\loigiai{
+Đặt $t=x^2, t \ge 0$. Phương trình đã cho trở thành $t^2-20t+(m-1)^2=0$. \hfill $(1)$\\
+Phương trình ban đầu có 4 nghiệm khi và chỉ khi phương trình $(1)$ có hai nghiệm dương phân biệt
+\[\Leftrightarrow \heva{& \Delta'=100-(m-1)^2>0\\ & t_1+t_2=10 >0 \\& t_1t_2 =(m-1)^2 >0} \Leftrightarrow \heva{&-9<m<11\\& m\ne 1} \tag{$*$}\]
+Với điều kiện $(*)$ thì $(1)$ có hai nghiệm là $t_1>t_2>0$, như vậy phương trình ban đầu có 4 nghiệm là $-\sqrt{t_1} < -\sqrt{t_2}<\sqrt{t_2}<\sqrt{t_1}$. Để 4 nghiệm này lập thành một cấp số cộng thì điều kiện cần và đủ là 
+$$\sqrt{t_1}-\sqrt{t_2}=2\sqrt{t_2}\Leftrightarrow t_1=9t_2$$
+Mặt khác theo định lí Viet thì $\heva{ & t_1+t_2=10 \\& t_1t_2 =(m-1)^2}$.\\
+Do đó ta được $t_2=1$; $t_1=9$ và $(m-1)^2=9 \Leftrightarrow \hoac{& m=4\\ & m=-2}$\\
+Vậy tổng các giá trị thỏa mãn yêu cầu bài toán bằng $4+(-2)=2$.
+}
+\end{ex}
+	\dang{Tính tổng của dãy nhiều số hạng liên quan đến cấp số cộng, tổng các hạng tử của cấp số cộng}
+\begin{ex}%[1D3K3-5][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Lê Thị Thúy Hằng]\\
+Cho cấp số cộng $(u_n)$ thỏa mãn 
+$\left\{ \begin{aligned}
+& u_5 + 3 u_3 - u_2 = -21 \\
+& 3 u_7 - 2 u_4 = -34
+\end{aligned}
+\right.$.
+Tính $S= u_4 + u_5 + \cdots + u_{30}$.
+\choice
+{\True $-1242$}
+{$-1222$}
+{$-1276$}
+{$-1286$}
+\loigiai{
+Gọi cấp số cộng $(u_n)$ có số hạng đầu là $u_1$ và công sai là $d$. \\
+Ta có \\ 
+$$ \allowdisplaybreaks \begin{aligned}
+& \left\{ \begin{aligned}
+& u_5 + 3 u_3 - u_2 = -21 \\
+& 3 u_7 - 2 u_4 = -34
+\end{aligned}
+\right.
+&& \Leftrightarrow \left\{ \begin{aligned}
+& u_1 + 4d + 3 (u_1 + 2d) - u_1 -d = -21 \\
+& 3 (u_1 +6d) - 2 (u_1 + 3d) = -34
+\end{aligned}
+\right. \\
+\Leftrightarrow & \left\{ \begin{aligned}
+	& u_1 + 3d = -7 \\
+	& u_1 + 12d = -34
+\end{aligned}
+\right.
+&& \Leftrightarrow \left\{ \begin{aligned}
+	& u_1 = 2 \\
+	& d = -3.
+\end{aligned}
+\right.
+\end{aligned}$$
+Vậy $S= u_4 + u_5 + \cdots + u_{30} 
+= \dfrac{(u_4 + u_{30}) \cdot 27}{2}
+= \dfrac{(2 u_1 + 32d) \cdot 27}{2}
+= \dfrac{(2 \cdot 2 + 32 \cdot (-3)) \cdot 27}{2} = -1242$.
+}
+\end{ex}
+	\dang{Các bài toán thực tế}
+\begin{ex}%[Đề cương HK2, Chu Văn An, Hà Nội,Phan Minh Tâm][1D3K3-6]\\
+	Tam giác $ ABC $ có ba góc $ A $, $ B $, $ C $ theo thứ tự lập thành cấp số cộng và $ C=5A $. Xác định số đo các góc $ A $, $ B $, $ C $.
+	\choice
+	{$ 10^{\circ}, 120^{\circ}, 50^{\circ} $}
+	{$ 15^{\circ}, 105^{\circ},  60^{\circ} $}
+	{$ 5^{\circ}, 60^{\circ}, 25^{\circ} $}
+	{\True $ 20^{\circ}, 60^{\circ}, 100^{\circ} $}
+	\loigiai{
+		Vì $ A $, $ B $, $ C $ theo thú tự lập thành cấp số cộng nên $ 2B=A+C $.\\
+		Mà $ A+B+C=180^{\circ} $.\\
+		Ta có hệ phương trình $ \heva{&A-2B+C=0\\&A+B+C=180^{\circ}\\&5A-C=0}\Leftrightarrow\heva{&A=20^{\circ}\\&B=60^{\circ}\\&C=100^{\circ}} $.
+		
+	}
+\end{ex}
+\begin{ex}%[Đề cương HK2, Chu Văn An, Hà Nội,Phan Minh Tâm][1D3K3-6]\\
+	Tam giác $ ABC $ có ba góc $ A $, $ B $, $ C $ theo thứ tự lập thành cấp số cộng và $ C=5A $. Xác định số đo các góc $ A $, $ B $, $ C $.
+	\choice
+	{$ 10^{\circ}, 120^{\circ}, 50^{\circ} $}
+	{$ 15^{\circ}, 105^{\circ},  60^{\circ} $}
+	{$ 5^{\circ}, 60^{\circ}, 25^{\circ} $}
+	{\True $ 20^{\circ}, 60^{\circ}, 100^{\circ} $}
+	\loigiai{
+		Vì $ A $, $ B $, $ C $ theo thú tự lập thành cấp số cộng nên $ 2B=A+C $.\\
+		Mà $ A+B+C=180^{\circ} $.\\
+		Ta có hệ phương trình $$ \heva{&A-2B+C=0\\&A+B+C=180^{\circ}\\&5A-C=0}\Leftrightarrow\heva{&A=20^{\circ}\\&B=60^{\circ}\\&C=100^{\circ}.} $$
+		
+	}
+\end{ex}
+\section{Cấp số nhân}
+	\dang{Nhận diện cấp số nhân}
+\begin{ex}%[1D3B4-1][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Nguyễn Đức Lợi]\\
+Cho $n$ là số tự nhiên. Trong các dãy số sau, dãy số nào là cấp số nhân?
+\choice
+{\True $\heva{&u_1=\dfrac{1}{\sqrt{2}}\\&u_{n+1}=-\sqrt{2}u_n, \forall n\geq 1}$}
+{$u_n=n^2+1, \forall n \geq 1$}
+{$\heva{&u_1=1;u_2=\sqrt{2}\\&u_{n+1}=u_n\cdot u_{n-1}, \forall n \geq 1}$}
+{$\heva{&u_1=\dfrac{1}{\sqrt{2}}\\&u_{n+1}=u^2_n, \forall n\geq 1}$}
+\loigiai{
+Xét dãy số $\heva{&u_1=\dfrac{1}{\sqrt{2}}\\&u_{n+1}=-\sqrt{2}u_n, \forall n\geq 1}$ có $\dfrac{u_{n+1}}{u_n}=-\sqrt{2}, \forall n \geq 1$ nên đây là một cấp số nhân.
+}
+\end{ex}
+\begin{ex}%[Đề cương Chu Văn An Toán 11][1D3B4-1][NguyenThanhKhoa]\\
+	Cho dãy số $-1$; $\dfrac{1}{3}$; $-\dfrac{1}{9}$; $\dfrac{1}{27}$; $-\dfrac{1}{81}$ ....Khẳng định nào sau đây là \textbf{sai}?
+	\choice
+	{Dãy số là cấp số nhân với $u_1=-1$; $q=-\dfrac{1}{3}$}
+	{Số hạng tổng quát của dãy số là $u_n=(-1)^n.\dfrac{1}{3^{n-1}}$}
+	{\True Dãy số không phải là cấp số nhân}
+	{Dãy số là dãy số không tăng không giảm}
+	\loigiai{
+		Ta có: $\dfrac{u_2}{u_1}=\dfrac{u_3}{u_2}=\dfrac{u_4}{u_3}=...=-\dfrac{1}{3}$.\\
+		Vậy dãy số đã cho là cấp số nhân với $u_1=-1$, $q=-\dfrac{1}{3}$.\\
+		Số hạng tổng quát: $u_n=u_1.q^{n-1}=(-1).\left(-\dfrac{1}{3}\right)^{n-1}=(-1)^n.\dfrac{1}{3^{n-1}}$.\\
+		Lại có: $u_1<u_2$ mà $u_2>u_3$ nên dãy số này không tăng không giảm.}
+	
+\end{ex}
+\begin{ex}%[Đề cương HK2, Chu Văn An, Hà Nội,Phan Minh Tâm][1D3B4-1]\\
+Khẳng định nào sau đây là \textbf{sai}?
+\choice
+{Dãy số $ 0{,}1;0{,}01; 0{,}001;0{,}0001; ... $ không phải là cấp số cộng}
+{Dãy số $ -\dfrac{1}{2};0;\dfrac{1}{2};1;\dfrac{3}{2};... $ là một cấp số cộng với $ \heva{&u_1=-\dfrac{1}{2}\\&d=\dfrac{1}{2}}$}
+{\True Dãy số $ \dfrac{1}{2};\dfrac{1}{2^2};\dfrac{1}{2^3};... $ là một cấp số cộng có ba số hạng và $ \heva{&u_1=\dfrac{1}{2}\\&d=\dfrac{1}{2}\\} $}
+{Dãy số $ -2;-2;-2;-2;... $ là một cấp số cộng với $ \heva{&u_1=-2\\&d=0\\} $ }
+\loigiai{
+	\begin{itemize}
+		\item Dãy số $ 0{,}1;0{,}01; 0{,}001;0{,}0001; ... $ là cấp số nhân với $ \heva{&u_1=0{,}1\\&q=0{,}1.} $
+		\item ``Dãy số $ -\dfrac{1}{2};0;\dfrac{1}{2};1;\dfrac{3}{2};... $ là một cấp số cộng với $ u_1=-\dfrac{1}{2} $ và $ d=\dfrac{1}{2} $ '' là khẳng định đúng.
+		\item Dãy số $ \dfrac{1}{2};\dfrac{1}{2^2};\dfrac{1}{2^3};... $ là cấp số nhân với $ \heva{&u_1=\dfrac{1}{2}\\&q=\dfrac{1}{2}.} $\\ Do đó, ``Dãy số $ \dfrac{1}{2};\dfrac{1}{2^2};\dfrac{1}{2^3};... $ là một cấp số cộng có ba số hạng  và $ u_1=\dfrac{1}{2} $, $d=\dfrac{1}{2} \cdot  \text{''}$ là khẳng định \textbf{sai}.
+		\item ``Dãy số $ -2;-2;-2;-2;... $ là một cấp số cộng có $ u_1=-2 $, $ d=0 $ '' là khẳng định đúng.
+	\end{itemize}
+}
+\end{ex}
+	\dang{Tìm công thức của cấp số nhân}
+\begin{ex}%[1D3B4-2][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Trần Phong]\\
+Cho cấp số nhân $(u_n)$ với $u_1=-\dfrac{1}{2};u_7=-32$. Tìm $q$.
+\choice
+{$q=\pm\dfrac{1}{2}$}
+{\True $q=\pm2$}
+{$q=\pm4$}
+{$q=\pm1$}
+\loigiai{
+Ta có $u_7=u_1\cdot q^6\Leftrightarrow -32=\left(-\dfrac{1}{2}\right)\cdot q^6\Leftrightarrow q^6=2^6\Leftrightarrow q=\pm2$.
+}
+\end{ex}
+\begin{ex}%[1D3B4-2][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Trần Phong]\\
+Cho cấp số nhân $(u_n)$ với $u_1=-\dfrac{1}{2};u_7=-32$. Tìm $q$.
+\choice
+{$q=\pm\dfrac{1}{2}$}
+{\True $q=\pm2$}
+{$q=\pm4$}
+{$q=\pm1$}
+\loigiai{
+Ta có $u_7=u_1\cdot q^6\Leftrightarrow -32=\left(-\dfrac{1}{2}\right)\cdot q^6\Leftrightarrow q^6=2^6\Leftrightarrow q=\pm2$.
+}
+\end{ex}
+	\dang{Tìm hạng tử trong cấp số nhân}
+\begin{ex}%[1D3B4-3][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Lê Thị Thúy Hằng]\\
+Cho cấp số nhân $(u_n)$ với $u_n = 3^{\frac{n}{2}+1}$. Số $19683$ là số hạng thứ mấy của dãy số $(u_n)$?
+\choice
+{$15$}
+{\True $16$}
+{$19$}
+{$17$}
+\loigiai{
+Ta có $3^{\frac{n}{2}+1} = 19683 
+\Leftrightarrow 3^{\frac{n}{2}+1} = 3^9
+\Leftrightarrow \dfrac{n}{2} + 1= 9 
+\Leftrightarrow n=16$.
+}
+\end{ex}
+\begin{ex}%[1D3B4-3][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Nguyễn Đức Lợi]\\
+Cho cấp số nhân $(u_n)$ có $u_1=-2$ và công bội $q=-5$. Ba số hạng tiếp theo và số hạng tổng quát $u_n$ của dãy lần lượt là
+\choice
+{$10; -50; 250; -2\cdot 5^n$}
+{$10; 50; -250; -2\cdot (-5)^{n-1}$}
+{\True $10; -50; 250; -2\cdot (-5)^{n-1}$}
+{$10; -50; 250; 2\cdot (-5)^{n-1}$}
+\loigiai{Theo định nghĩa của cấp số nhân ta có 
+\allowdisplaybreaks{
+\begin{align*}
+& u_2 = u_1\cdot q = (-2)\cdot (-5) = 10\\
+& u_3 = u_2 \cdot q = 10 \cdot (-5) = -50\\
+& u_4 = u_3 \cdot q = -50 \cdot (-5) = 250.
+\end{align*}}Số hạng tổng quát của dãy là $u_n=u_1\cdot q^{n-1} = -2\cdot (-5)^{n-1}$.
+}
+\end{ex} 
+\begin{ex}%[1D3K4-3][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Trần Phong]\\
+Cho cấp số nhân có $7$ số hạng, số hạng thứ tư bằng $6$ và số hạng thứ bảy gấp $243$ lần số hạng thứ hai. Tìm các số hạng còn lại của cấp số nhân đó.
+\choice
+{$u_1=\dfrac{2}{9};u_2=\dfrac{2}{5};u_3=2;u_5=18;u_6=54;u_7=162$}
+{$u_1=\dfrac{2}{7};u_2=\dfrac{2}{3};u_3=2;u_5=18;u_6=54;u_7=162$}
+{$u_1=\dfrac{2}{9};u_2=\dfrac{2}{3};u_3=2;u_5=21;u_6=54;u_7=162$}
+{\True $u_1=\dfrac{2}{9};u_2=\dfrac{2}{3};u_3=2;u_5=18;u_6=54;u_7=162$}
+\loigiai{
+Ta có $\heva{& u_4=6\\& u_{7}=243u_2}\Leftrightarrow \heva{& u_1\cdot q^3=6\\& u_1\cdot q^6=243\cdot u_1\cdot q}\Leftrightarrow \heva{& u_1\cdot q^3=6  \\& q^5=243} \Leftrightarrow \heva{& u_1=\dfrac{2}{9} \\& q=3.}$\\
+Vậy các số hạng còn lại của cấp số nhân là $u_1=\dfrac{2}{9};u_2=\dfrac{2}{3};u_3=2;u_5=18;u_6=54;u_7=162$.
+}
+\end{ex}
+\begin{ex}%[Đề cương HK2, Chu Văn An, Hà Nội,Phan Minh Tâm][1D3K4-3]\\
+	Cho cấp số nhân $ (u_n) $ với các số hạng khác $ 0 $, tìm số hạng đầu $ u_1 $ biết $ \heva{&u_1+u_2+u_3+u_4=15\\&u_1^2+u_2^2+u_3^2+u_4^2=85.} $
+\choice
+{$ u_1=1 $, $ u_1=2 $}
+{\True $ u_1=1 $, $ u_1=8 $}
+{$ u_1=1 $, $ u_1=5 $}
+{$ u_1=1 $, $ u_1=9 $}
+\loigiai{
+	Ta có $ \heva{&u_1+u_2+u_3+u_4=15\\&u_1^2+u_2^2+u_3^2+u_4^2=85}\Leftrightarrow\heva{&u_1(1+q+q^2+q^3)=15\\&u_1^2(1+q^2+q^4+q^6)=85\\}\Leftrightarrow\heva{&u_1(1+q)(1+q^2)=15 \quad &(1)\\&u_1^2(1+q^2)(1+q^4)=85. \quad &(2)}$\\
+	\textbf{Nhận xét.} $ q=-1 $ không phải là nghiệm của $ (1) $.\\
+	Ta có $ (1) \Leftrightarrow u_1=\dfrac{15}{(1+q)(1+q^2)}\ (3)$ và thế vào $ (2) $ ta được 
+{\allowdisplaybreaks	\begin{align*}
+	\dfrac{15^2}{(1+q)^2(1+q^2)^2}(1+q^2)(1+q^4)=85 &\Leftrightarrow 28\left( q^2+\dfrac{1}{q^2}\right) -34\left( q+\dfrac{1}{q}\right) -34=0.
+	\end{align*}}
+Đặt $ t = q + \dfrac{1}{q} $, khi đó phương trình trở thành $ 14t^2 - 17t - 45 = 0 \Leftrightarrow \hoac{&t = \dfrac{5}{2}\\&t = -\dfrac{9}{7}.} $\\
+	\begin{itemize}
+		\item Với $ t = \dfrac{5}{2} $ ta được $ q+\dfrac{1}{q}=\dfrac{5}{2} \Leftrightarrow \hoac{&q=2 \Rightarrow u_1 = 1\\&q=\dfrac{1}{2} \Rightarrow u_1=8.}  $
+		\item Với $ t = -\dfrac{9}{7} $ ta được $ q+\dfrac{1}{q}=-\dfrac{9}{7} \Leftrightarrow q^2 + \dfrac{9}{7}q + 1 = 0 $ phương trình vô nghiệm.
+	\end{itemize}
+
+}
+
+\end{ex}
+\begin{ex}%[1D3K4-3][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Trần Phong]\\
+Cho cấp số nhân có $7$ số hạng, số hạng thứ tư bằng $6$ và số hạng thứ bảy gấp $243$ lần số hạng thứ hai. Tìm các số hạng còn lại của cấp số nhân đó.
+\choice
+{$u_1=\dfrac{2}{9};u_2=\dfrac{2}{5};u_3=2;u_5=18;u_6=54;u_7=162$}
+{$u_1=\dfrac{2}{7};u_2=\dfrac{2}{3};u_3=2;u_5=18;u_6=54;u_7=162$}
+{$u_1=\dfrac{2}{9};u_2=\dfrac{2}{3};u_3=2;u_5=21;u_6=54;u_7=162$}
+{\True $u_1=\dfrac{2}{9};u_2=\dfrac{2}{3};u_3=2;u_5=18;u_6=54;u_7=162$}
+\loigiai{
+Ta có $\heva{& u_4=6\\& u_{7}=243u_2}\Leftrightarrow \heva{& u_1\cdot q^3=6\\& u_1\cdot q^6=243\cdot u_1\cdot q}\Leftrightarrow \heva{& u_1\cdot q^3=6  \\& q^5=243} \Leftrightarrow \heva{& u_1=\dfrac{2}{9} \\& q=3.}$\\
+Vậy các số hạng còn lại của cấp số nhân là $u_1=\dfrac{2}{9};u_2=\dfrac{2}{3};u_3=2;u_5=18;u_6=54;u_7=162$.
+}
+\end{ex}
+	\dang{Tìm điều kiện của một dãy số là cấp số nhân}
+\begin{ex}%[1D3K4-4][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Lê Thị Thúy Hằng]\\
+Tìm $x$ biết $1$, $x^2$, $6-x^2$ theo thứ tự lập thành cấp số nhân.
+\choice
+{$x= \pm 1$}
+{\True $x= \pm \sqrt{2}$}
+{$x= \pm 2$}
+{$x= \pm \sqrt{3}$}
+\loigiai{
+Ta có $1$, $x^2$, $6-x^2$ theo thứ tự lập thành cấp số nhân nên 
+$$
+(x^2)^2 = 1 \cdot (6-x^2) \Leftrightarrow x^4 - x^2 - 6=0
+\Leftrightarrow \left[ \begin{aligned}
+& x^2 = -2 \text{ (loại)} \\
+& x^2=3
+\end{aligned}\right. 
+\Leftrightarrow x^2=3 \Leftrightarrow x= \pm \sqrt{3}.
+$$
+}
+\end{ex}
+	\dang{Tính tổng của dãy nhiều số hạng liên quan đến cấp số nhân, tổng các hạng tử của cấp số nhân}
+\begin{ex}%[1D3G4-5][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Nguyễn Đức Lợi]\\
+Tính tổng $S=1+11+\cdots + \underbrace{111 \ldots 11}_{n \text{ số } 1}.$
+\choice
+{$\dfrac{10}{81}\left(10^{n-1}-1\right)-\dfrac{n}{9}$}
+{$\dfrac{10}{81}\left(10^{n-1}-1\right)+\dfrac{n}{9}$}
+{$\dfrac{1}{81}\left(10^{n-1}-1\right)-\dfrac{n}{9}$}
+{\True $\dfrac{10}{81}\left(10^{n}-1\right)-\dfrac{n}{9}$}
+\loigiai{
+Ta có $9S=\left(10-1\right)+\left(10^2-1\right)+\cdots + \left(10^n-1\right)=\left(10+10^2+\cdots + 10^n\right)-n$.\\
+Theo công thức tính tổng của $n$ số hạng của một cấp số nhân ta có 
+$$10+10^2+\cdots + 10^n=10\cdot \dfrac{10^n-1}{10-1}$$
+Suy ra $S=\dfrac{10}{9}\cdot \dfrac{10^n-1}{10-1}-\dfrac{n}{9}=\dfrac{10}{81}\left(10^n-1\right)-\dfrac{n}{9}.$
+
+}
+\end{ex}
+	\dang{Kết hợp cấp số nhân và cấp số cộng}
+\begin{ex}%[1D3K4-6][Đề cương Toán 11, HK2, Chu Văn An, Hà Nội][Nguyễn Thị Kiều Ngân]\\
+	Cho các số $5x-y$, $2x+3y$, $x+2y$ theo thứ tự lập thành cấp số cộng; các số $(y+1)^2$; $xy+1$, $(x-1)^2$ theo thứ tự lập thành cấp số nhân. Tìm $(x;y)$.
+	\choice
+	{$(x;y)=(0;0)$, $\left( \dfrac{1}{3}; \dfrac{4}{3} \right)$, $\left( -\dfrac{3}{4}; -\dfrac{3}{10} \right)$}
+	{\True $(x;y)=(0;0)$, $\left( \dfrac{10}{3}; \dfrac{4}{3} \right)$, $\left( -\dfrac{3}{4}; -\dfrac{3}{10} \right)$}
+	{$(x;y)=(0;0)$, $\left( \dfrac{11}{3}; \dfrac{4}{3} \right)$, $\left( -\dfrac{3}{4}; -\dfrac{3}{10} \right)$}
+	{$(x;y)=(0;0)$, $\left( \dfrac{10}{3}; \dfrac{4}{3} \right)$, $\left( -\dfrac{13}{4}; -\dfrac{13}{10} \right)$}
+	\loigiai{
+		\begin{itemize}
+		\item $5x-y$, $2x+3y$, $x+2y$ là cấp số cộng\\
+			$\Leftrightarrow 5x-y+x+2y=2(2x+3y)$\\
+			$\Leftrightarrow 2x=5y$\\				$\Leftrightarrow y=\dfrac{2x}{5} \quad (1)$.
+		\item $(y+1)^2$, $xy+1$, $(x-1)^2$ là cấp số nhân\\
+			$\Leftrightarrow (y+1)^2(x-1)^2=(xy+1)^2$ 
+			$\Leftrightarrow \hoac{&(y+1)(x-1)=xy+1\\&(y+1)(x-1)=-xy-1}$
+			$\Leftrightarrow \hoac{&x-y=2 \quad (2)\\&x-y+2xy=0 \quad (3)}$
+		\end{itemize}			 
+	Từ $(1)$ và $(2)$ ta được $x=\dfrac{10}{3}$, $y=\dfrac{4}{3}$.\\
+	Từ $(1)$ và $(3)$ ta được $\dfrac{4}{5}x^2+\dfrac{3}{5}x=0 \Leftrightarrow \hoac{&x=0\\&x=-\dfrac{3}{4}}.$\\
+	\begin{itemize}
+	\item $x=0 \Rightarrow y=0$.
+	\item $x=-\dfrac{3}{4} \Rightarrow y=-\dfrac{3}{10}$.
+	\end{itemize}
+	Vậy $(x;y)=(0;0)$, $\left( \dfrac{10}{3}; \dfrac{4}{3} \right)$, $\left( -\dfrac{3}{4}; -\dfrac{3}{10} \right)$.
+}
+\end{ex}
+	\dang{Các bài toán thực tế}
+\begin{ex}%[Đề cương Chu Văn An Toán 11][1D3T4-7][NguyenThanhKhoa]\\
+Tế bào E.Coli trong điều kiện nuôi cấy thích hợp cứ $20$ phút lại phân đôi một lần. Nếu có $10^5$ tế bào thì sau hai giờ sẽ phân chia được thành bao nhiêu tế bào?
+\choice
+{$2^7.10^5$ tế bào}
+{\True $2^6.10^5$ tế bào}
+{$2^5.10^5$ tế bào}
+{$2^6$ tế bào}
+\loigiai{
+Sự phân đôi của E.Coli theo một cấp số nhân với công bội $q=2$.\\
+ Sau $2$ giờ E.Coli phân đôi được $6$ lần nên số tế bào là: $2^6.10^5$ tế bào.
+}
+\end{ex}
+\chapter{Chương 4. Giới hạn}
+\maCH{4}
+\section{Giới hạn của dãy số}
+	\dang{Câu hỏi lý thuyết}
+\begin{ex}%[1D4B1-1][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Nguyễn Tiến Thùy]\\
+Chọn mệnh đề đúng trong các mệnh đề sau
+\choice
+{Nếu $\lim|u_n|=+\infty$ thì $\lim u_n=+\infty$}
+{\True Nếu $\lim u_n=0$ thì $\lim|u_n|=0$}
+{Nếu $\lim u_n=-a$ thì $\lim|u_n|=a$}
+{Nếu $\lim|u_n|=+\infty$ thì $\lim u_n=-\infty$}
+\loigiai{
+\begin{itemize}
+\item Nếu $\lim|u_n|=+\infty$ thì $\lim u_n=\pm\infty$.
+\item Nếu $\lim u_n=-a$ thì $\lim|u_n|=|-a|$.
+\end{itemize}
+Vậy ta chọn mệnh đề: Nếu $\lim u_n=0$ thì $\lim|u_n|=0$.
+}
+\end{ex}
+\begin{ex}%[1D4B1-1][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Võ Thanh Phong]\\
+Kết quả của giới hạn $\lim \left[3^n-\sqrt{5}^n\right]$.
+\choice
+{$-\sqrt{5}$}
+{$-\infty$}
+{\True $+\infty$}
+{$3$}
+\loigiai{
+$\lim \left[3^n-\sqrt{5}^n\right]=\lim 3^n\left(1-\left(\dfrac{\sqrt{5}}{3}\right)^n\right)=+\infty$.
+}
+\end{ex}
+	\dang{Nguyên lí kẹp}
+\begin{ex}%[Ngọc Hiếu][De-cuong-11-Hk2-ChuVanAn-Hanoi][1D4B1-2]\\
+Tính $I=\lim \left( \dfrac{1}{\sqrt{n^2+n+1}}+\dfrac{1}{\sqrt{n^2+n+2}}+ \cdots + \dfrac{1}{\sqrt{n^2+2n}}\right)$.
+\choice
+{$I=+ \infty$}
+{$I=3$}
+{$I=2$}
+{\True $I=1$}
+\loigiai{
+Đặt $u_n= \left( \dfrac{1}{\sqrt{n^2+n+1}}+\dfrac{1}{\sqrt{n^2+n+2}}+ \cdots + \dfrac{1}{\sqrt{n^2+2n}}\right)$\\
+Khi đó $\dfrac{n}{\sqrt{n^2+n+1}}<
+u_n< \dfrac{n}{\sqrt{n^2+2n}}$\\
+$\lim \dfrac{n}{\sqrt{n^2+n+1}} = \lim \dfrac{1}{\sqrt{1+\dfrac{1}{n}+\dfrac{1}{n^2}}}=1$ và $\lim \dfrac{n}{\sqrt{n^2+2n}} = \lim \dfrac{1}{\sqrt{1+\dfrac{2}{n}}}=1$.\\
+Vậy $\lim u_n=1.$
+}
+\end{ex}
+\begin{ex}%[Đề cương HK2, THPT Chu Văn An, HN, 2017-2018][1D4K1-2][Huỳnh Văn Quy]\\
+	Tính giá trị của $I=\lim\dfrac{n^3+n\cdot\sin^2n}{10000n^3-n+2}$.
+	\choice
+	{\True $I=0{,}0001$}
+	{$I=\dfrac{1}{1000}$}
+	{$I=0$}
+	{$I=0{,}00001$}
+	\loigiai{Ta có: $I=\lim\dfrac{n^3+n\cdot\sin^2n}{10000n^3-n+2}=\lim\dfrac{1+\dfrac{\sin^2 n}{n^2}}{10000-\dfrac{1}{n^2}+\dfrac{2}{n^3}}=\dfrac{1}{10000}=0{,}0001$.\\
+	Chú ý rằng: $0\leq\dfrac{\sin^2n}{n^2}\leq\dfrac{1}{n^2}$. Mà $\lim\dfrac{1}{n^2}=0\Rightarrow\lim\dfrac{\sin^2n}{n^2}=0$.}
+\end{ex}
+\begin{ex}%[1D4K1-2][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Nguyễn Tiến Thùy]\\
+Tính $T=\lim\dfrac{n\sin n-3n^2}{n^2}$.
+\choice
+{$T=+\infty$}
+{$T=-\infty$}
+{$T=1$}
+{\True $T=-3$}
+\loigiai{
+Ta có $T=\lim\dfrac{n\sin n-3n^2}{n^2}=\lim\left(\dfrac{\sin n}{n}-3\right)$.\\
+Do $-1\le \sin n\le 1$ suy ra $-\dfrac{1}{n}\le \dfrac{\sin n}{n}\le \dfrac{1}{n}$, mà $\lim\left(-\dfrac{1}{n}\right)=0$ và $\lim\dfrac{1}{n}=0$ nên $\lim\dfrac{\sin n}{n}=0$.\\
+Từ đó suy ra $T=\lim\left(\dfrac{\sin n}{n}-3\right)=-3$.
+}
+\end{ex}
+\begin{ex}%[Đề cương HK2, THPT Chu Văn An, HN, 2017-2018][1D4G1-2][Huỳnh Văn Quy]\\
+	Tính $I=\lim\limits_{n\to+\infty}\dfrac{a+aa+\cdots+\overbrace{aaa\ldots a}^{n\:\text{số}\:a}}{10^n}$, $a=\overline{1,9}$.
+	\choice
+	{$I=+\infty$}
+	{$I=\dfrac{a}{10}$}
+	{$I=a$}
+	{\True $I=\dfrac{10a}{81}$}
+	\loigiai{Ta có: $a+aa+aaa+\cdots+\overbrace{aa\ldots a}^{n}=\dfrac{a}{9}\left(9+99+999+\cdots+\overbrace{99\ldots9}^{n}\right)$\\
+	$=\dfrac{a}{9}\left(10+10^2+10^3+\cdots+10^n-n\right)=\dfrac{a}{9}\left(\dfrac{10(10^n-1)}{10-1}-n\right)$.\\
+	Từ đó suy ra $\lim\limits_{n\to+\infty}\dfrac{(a+aa+aaa+\cdots+\overbrace{aa\ldots a}^{n})}{10^n}=\dfrac{10a}{81}$.}
+\end{ex}
+\begin{ex}%[Đề cương HK2, THPT Chu Văn An, HN, 2017-2018][1D4G1-2][Dương Phước Sang]\\
+	Tính $I=\lim \left(\dfrac{1}{2}+\dfrac{3}{2^2}+\dfrac{5}{2^3}+\cdots +\dfrac{2n-1}{2^n}\right)$.
+	\choice
+	{\True $I=3$}
+	{$I=0$}
+	{$I=\dfrac{1}{2}$}
+	{$I=+\infty $}
+	\loigiai{
+		Đặt $S_n=\dfrac{1}{2}+\dfrac{3}{2^2}+\dfrac{5}{2^3}+\cdots +\dfrac{2n-1}{2^n}$. \\
+		Khi đó $\dfrac{1}{2}S_n=\dfrac{1}{2^2}+\dfrac{3}{2^3}+\dfrac{5}{2^4}+\cdots +\dfrac{2n-3}{2^n}+\dfrac{2n-1}{2^{n+1}}$. \\
+		Trừ vế theo vế ta được \\
+		$S_n-\dfrac{1}{2}S_n=\dfrac{1}{2}+\left(\dfrac{2}{2^2}+\dfrac{2}{2^3}+\cdots +\dfrac{2}{2^n}\right)-\dfrac{2n-1}{2^{n+1}}$. \\
+		Từ đó $S_n=1+\left(1+\dfrac{1}{2}+\dfrac{1}{4}+\cdots +\dfrac{1}{2^{n-2}}\right)-\dfrac{2n-1}{2^n}=1+2\left[1-{\left(\dfrac{1}{2}\right)}^{n-1}\right]-\dfrac{2n-1}{2^n}$. \\
+		Với mọi $n\geqslant 4$ ta có $2^n\geqslant n^2$. Thật vậy,
+		\begin{itemize}
+			\item Ta có $2^4 \geqslant 4^2$.
+			\item Nếu $2^k \geqslant k^2~(k \geqslant 4)$ thì $2^{k+1}=2\cdot 2^k \geqslant 2\cdot k^2>k^2+(2k+1)=(k+1)^2$ (do $k \geqslant 4$).
+		\end{itemize}
+		Từ đó $0<\dfrac{2n-1}{2^n}\leqslant \dfrac{2n-1}{n^2}$. Mà $\lim \dfrac{2n-1}{n^2}=0$ nên $\lim \dfrac{2n-1}{2^n}=0$. \\
+		Vậy $I=\lim S_n=\lim \left[1+2\left[1-{\left(\dfrac{1}{2}\right)}^{n-1}\right]-\dfrac{2n-1}{2^n}\right]=1+2=3$.}
+\end{ex}
+	\dang{Dãy phân thức}
+\begin{ex}%[1D4B1-3][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Đỗ Đức Thảo]\\
+	Cho dãy số $u_n$ với $u_n=\dfrac{4n^2+n+2}{an^2+5}$. Để dãy số đã cho có giới hạn bằng $2$ thì giá trị của $a$ là
+	\choice
+	{$-4$}
+	{$4$}
+	{$8$}
+	{\True $2$} 
+	\loigiai{
+	Ta có $\lim u_n=\lim \dfrac{4n^2+n+2}{an^2+5}=\lim \dfrac{4+\dfrac{1}{n}+\dfrac{2}{n^2}}{a+\dfrac{5}{n^2}}=\dfrac{4}{a}=2\Rightarrow a=2$.
+}
+\end{ex}
+\begin{ex}%[Đề cương HK2, THPT Chu Văn An, HN, 2017-2018][1D4B1-3][Huỳnh Văn Quy]\\
+	Trong các giới hạn sau đây, giới hạn nào bằng $0$?
+	\choice
+	{$\lim\dfrac{2n^2-3n^4}{-2n^4+n^2}$}
+	{$\lim\dfrac{3+2n^3}{2n^2-1}$}
+	{\True $\lim\dfrac{2n^2-3}{-2n^3-4}$}
+	{$\lim\dfrac{2n-3n^3}{-2n^2-1}$}
+	\loigiai{Ta có: $\lim\dfrac{2n^2-3}{-2n^3-4}=\lim\dfrac{\dfrac{2}{n}-\dfrac{3}{n^3}}{-2-\dfrac{4}{n^3}}=\dfrac{0}{-2}=0$. }
+\end{ex}
+\begin{ex}%[Ngọc Hiếu][De-cuong-11-Hk2-ChuVanAn-Hanoi][1D4B1-3]\\
+Kết quả của giới hạn $\lim (n+1) \sqrt{\dfrac{2n+2}{n^4+n^2-1}}$ là
+\choice
+{$1$}
+{\True $0$}
+{$+ \infty$}
+{$- \infty$}
+\loigiai{
+\begin{align*}
+\lim (n+1) \sqrt{\dfrac{2n+2}{n^4+n^2-1}}&= \lim \sqrt{\dfrac{(n+1)^2 (2n+2)}{n^4+n^2-1}}\\
+&= \lim \sqrt{\dfrac{2n^3+6n^2+6n+2}{n^4+n^2-1}}\\
+&= \lim \sqrt{\dfrac{\dfrac{2}{n}+\dfrac{6}{n^2}+\dfrac{6}{n^3}+\dfrac{2}{n^4}
+}{1+\dfrac{1}{n^2}-\dfrac{1}{n^4}}}=0.
+\end{align*}
+}
+\end{ex}
+\begin{ex}%[Ngọc Hiếu][De-cuong-11-Hk2-ChuVanAn-Hanoi][1D4B1-3]\\
+Cho dãy số $\left(u_n\right)$ có $u_n=(n+1) \sqrt{\dfrac{2n+2}{100n^4+n^2-1}}$. Tính $I=\lim u_n$
+\choice
+{$I= - \infty$}
+{\True $I=0$}
+{$I= \dfrac{1}{10000}$}
+{$I=\dfrac{1}{100}$}
+\loigiai{
+\begin{align*}
+\lim (n+1) \sqrt{\dfrac{2n+2}{100n^4+n^2-1}}&= \lim \sqrt{\dfrac{(n+1)^2 (2n+2)}{n^4+n^2-1}}\\
+&= \lim \sqrt{\dfrac{2n^3+6n^2+6n+2}{100n^4+n^2-1}}\\
+&= \lim \sqrt{\dfrac{\dfrac{2}{n}+\dfrac{6}{n^2}+\dfrac{6}{n^3}+\dfrac{2}{n^4}
+}{100+\dfrac{1}{n^2}-\dfrac{1}{n^4}}}=0.
+\end{align*}
+}
+\end{ex}
+\begin{ex}%[Ngọc Hiếu][De-cuong-11-Hk2-ChuVanAn-Hanoi][1D4B1-3]\\
+Cho dãy số $\left(u_n \right)$ xác định bởi $u_n = \heva{ \dfrac{n+1}{100n+1} &\text{  khi $n$ chẵn}\\\dfrac{1}{n} &\text{  khi $n$ lẻ}}$. Tìm mệnh đề đúng trong các mệnh đề sau
+\choice
+{$\lim u_n=0$}
+{\True $\lim u_n=0$ với $n$ lẻ và $\lim u_n = \dfrac{1}{100}$ với n chẳn}
+{$\lim u_n$ không tồn tại}
+{$\lim u_n = \dfrac{1}{100}$}
+\loigiai{ \begin{itemize}
+\item Xét $n$ chẵn, 
+$\lim u_n = \lim \dfrac{n+1}{100n+1}= \lim \dfrac{1+ \dfrac{1}{n}}{100+\dfrac{1}{n}}=\dfrac{1}{100}$.
+\item Xét $n$ lẻ, 
+$\lim u_n = \lim \dfrac{1}{n}=0.$
+\end{itemize}
+}
+\end{ex}
+\begin{ex}%[1D4B1-3][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Nguyễn Tiến Thùy]\\
+Tính giá trị của  $T=\lim\dfrac{\sqrt{9n^2-n}-\sqrt{n+2}}{3n-2}$.
+\choice
+{$T=3$}
+{$T=+\infty$}
+{$T=0$}
+{\True $T=1$}
+\loigiai{
+Ta có $T=\lim\dfrac{\sqrt{9n^2-n}-\sqrt{n+2}}{3n-2}=\lim\dfrac{\sqrt{9-\dfrac{1}{n}}-\sqrt{\dfrac{1}{n}+\dfrac{2}{n^2}}}{3-\dfrac{2}{n}}=\dfrac{3}{3}=1$.
+}
+\end{ex}
+\begin{ex}%[1D4B1-3][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Võ Thanh Phong]\\
+Tính $I=\lim \dfrac{\sqrt{n^2+1}-\sqrt[3]{3n^3+2}}{\sqrt[4]{2n^4+n+2}-n}$.
+\choice
+{\True $\dfrac{1-\sqrt[3]{3}}{\sqrt[4]{2}-1}$}
+{$-\dfrac{234}{99}$}
+{ $+\infty$}
+{$-\infty$}
+\loigiai{
+$I=\lim \dfrac{n\left(\sqrt{1+\dfrac{1}{n^2}}-\sqrt[3]{3+\dfrac{2}{n^3}}\right)}{n\left(\sqrt[4]{2+\dfrac{1}{n^3}+\dfrac{2}{n^4}}-1\right)}=\lim \dfrac{\left(\sqrt{1+\dfrac{1}{n^2}}-\sqrt[3]{3+\dfrac{2}{n^3}}\right)}{\left(\sqrt[4]{2+\dfrac{1}{n^3}+\dfrac{2}{n^4}}-1\right)}=\dfrac{1-\sqrt[3]{3}}{\sqrt[4]{2}-1}$.
+}
+\end{ex}
+\begin{ex}%[1D4K1-3][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Đỗ Đức Thảo]\\
+	Tính $L=\lim\limits \dfrac{1+2+2^2+\cdots+2^n}{7\cdot2^n+4}$
+	\choice
+	{\True $L=\dfrac{2}{7}$}
+	{$L=\dfrac{1}{7}$}
+	{$L=0$}
+	{$L=\dfrac{1}{4}$}
+	\loigiai{ Trước tiên ta nhận thấy 
+		$$1+2+2^2+\cdots+2^n=2^{n+1}-1.$$
+		Do đó
+		$L=\lim\limits \dfrac{1+2+2^2+\cdots+2^n}{7\cdot2^n+4}=\lim \dfrac{2^{n+1}-1}{7\cdot 2^n+4}=\lim \dfrac{2-\dfrac{1}{2^n}}{7+\dfrac{4}{2^n}}=\dfrac{2}{7} $.	
+}	
+\end{ex}
+\begin{ex}%[1D4K1-3][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Đỗ Đức Thảo]\\
+	Giá trị của $\lim \dfrac{1^2+2^2+\cdots +n^2}{n(n^2+1)}$ bằng
+	\choice
+	{\True $\dfrac{1}{3}$}
+	{$\dfrac{1}{2}$}
+	{$1$}
+	{$4$}
+	\loigiai{Bằng phương pháp quy nạp ta chứng minh được $1^2+2^2+\cdots +n^2=\dfrac{n(n+1)(2n+1)}{6}$.\\ Do đó $\lim \dfrac{1^2+2^2+\cdots +n^2}{n(n^2+1)}=\lim \dfrac{\dfrac{n(n+1)(2n+1)}{6}}{n(n^2+1)}=\lim \dfrac{2n^2+3n+1}{6(n^2+1)}=\lim \dfrac{2+\dfrac{3}{n}+\dfrac{1}{n^2}}{6+\dfrac{6}{n^2}}=\dfrac{1}{3}$. 
+		
+	}
+\end{ex}
+\begin{ex}%[Đề cương HK2, THPT Chu Văn An, HN, 2017-2018][1D4K1-3][Huỳnh Văn Quy]\\
+Cho dãy số $(u_n)$ bởi công thức truy hồi $\heva{&u_1=\dfrac{1}{2}\\&u_{n+1}=\dfrac{1}{2-u_n}\:\text{nếu}\:n\geq1}$.\\
+Tìm giới hạn $I$ của dãy số $(u_n)$.
+\choice
+{\True $I=1$}
+{$I=\dfrac{2}{3}$}
+{Không tồn tại giới hạn của dãy $(u_n)$}
+{$I=+\infty$}
+\loigiai{Ta có: $u_1=\dfrac{1}{2}$, $u_2=\dfrac{1}{2-u_1}=\dfrac{1}{2-\dfrac{1}{2}}=\dfrac{2}{3}$, $u_3=\dfrac{3}{4}$.\\
+Dự đoán: $u_n=\dfrac{n}{n+1}$.\\
+Suy ra $I=\lim u_n=\lim\dfrac{n}{n+1}=1$.}
+\end{ex}
+\begin{ex}%[Đề cương HK2, THPT Chu Văn An, HN, 2017-2018][1D4K1-3][Huỳnh Văn Quy]\\
+	Giá trị của $L=\lim\left(\dfrac{1}{n^2}+\dfrac{2}{n^2}+\cdots+\dfrac{n-1}{n^2}\right)$ bằng
+	\choice
+	{$1$}
+	{$\dfrac{1}{3}$}
+	{$0$}
+	{\True $\dfrac{1}{2}$}
+	\loigiai{Ta có: $\lim\left(\dfrac{1}{n^2}+\dfrac{2}{n^2}+\cdots+\dfrac{n-1}{n^2}\right)=\lim\dfrac{1+2+\cdots+(n-1)}{n^2}=\lim\dfrac{n^2-n}{2n^2}=\dfrac{1}{2}$.}
+	
+\end{ex}
+\begin{ex}%[Ngọc Hiếu][De-cuong-11-Hk2-ChuVanAn-Hanoi][1D4K1-3]\\
+Cho dãy số $\left( u_n \right)$ với $u_n= \dfrac{bn^2+3n-b}{5n^2+2n+2b}$. Tìm tất cả các giá trị của $b$ để dãy số $\left( u_n \right)$ có giới hạn hữu hạn.
+\choice
+{Không có giá trị $b$ thỏa mãn}
+{\True $b$ là một số thực tùy ý}
+{$b$ nhận một giá trị duy nhất là $2$}
+{$b$ là một số thực tùy ý khác $0$}
+\loigiai{
+$$\lim \dfrac{bn^2+3n-b}{5n^2+2n+2b} = \lim \dfrac{b+\dfrac{3}{n}-\dfrac{b}{n^2}}{5+\dfrac{2}{n}+\dfrac{2b}{n^2}}=\dfrac{b}{5}.$$
+Dãy $\left( u_n \right)$ có giới hạn hữu hạn với mọi giá trị $b$.
+}
+\end{ex} 
+\begin{ex}%[1D4K1-3][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Nguyễn Tiến Thùy]\\
+Tính  $I=\lim\dfrac{\dfrac{1}{2}+1+\dfrac{3}{2}+\cdots +\dfrac{n}{2}}{n^2+1}$.
+\choice
+{\True $I=\dfrac{1}{4}$}
+{$I=\dfrac{1}{2}$}
+{$I=\dfrac{1}{8}$}
+{$I=1$}
+\loigiai{
+Ta có $$\dfrac{1}{2}+1+\dfrac{3}{2}+\cdots +\dfrac{n}{2}=\dfrac{1}{2}+\dfrac{2}{2}+\dfrac{3}{2}+\cdots +\dfrac{n}{2}=\dfrac{1+2+\cdots+n}{2}=\dfrac{(1+n)n}{4}.$$
+Từ đó suy ra 
+$$I=\lim\dfrac{(1+n)n}{4(n^2+1)}=\lim\dfrac{n+n^2}{4n^2+4}=\lim\dfrac{\dfrac{1}{n}+1}{4+\dfrac{4}{n^2}}=\dfrac{1}{4}.$$
+}
+\end{ex}
+\begin{ex}%[Đề cương HK2, THPT Chu Văn An, HN, 2017-2018][1D4K1-3][Dương Phước Sang]\\
+	Tính $C=\lim \dfrac{(2n^3+1)^5(n+2)^{35}}{(2n^2+1)^{25}}$.
+	\choice
+	{\True $C=\dfrac{1}{2^{20}}$}
+	{$C=0$}
+	{$C=\dfrac{1}{2^{25}}$}
+	{$C=\dfrac{1}{10000}$}
+	\loigiai{
+		Ta có $C=\lim \dfrac{(2n^3+1)^5(n+2)^{35}}{(2n^2+1)^{25}}=\lim \dfrac{\left(\dfrac{2n^3+1}{n^3}\right)^5\left(\dfrac{n+2}{n}\right)^{35}}{\left(\dfrac{2n^2+1}{n^2}\right)^{25}}$ \\
+		$=\lim \dfrac{\left(2+\dfrac{1}{n^3}\right)^5\left(1+\dfrac{2}{n}\right)^{35}}{\left(2+\dfrac{1}{n^2}\right)^{25}}=\dfrac{2^5\cdot 1^{35}}{2^{25}}=\dfrac{1}{2^{20}}$.}
+\end{ex}
+\begin{ex}%[1D4G1-3][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Nguyễn Tiến Thùy]\\
+Cho dãy số có giới hạn $(u_n)$ xác định bởi $\heva{&u_1=2\\ &u_{n+1}=\dfrac{u_n+1}{2},\, n\ge 1}$. Tính $\lim u_n$.
+\choice
+{\True $\lim u_n=1$}
+{$\lim u_n=0$}
+{$\lim u_n=+\infty$}
+{$\lim u_n=2$}
+\loigiai{
+Do dãy số $(u_n)$ có giới hạn nên ta giả sử $\lim u_n=a$, từ đó suy ra $\lim u_{n+1}=a$.\\
+Theo bài ra ta có
+$$u_{n+1}=\dfrac{u_n+1}{2},\forall n\ge 1$$
+suy ra 
+$$\lim u_{n+1}=\lim\dfrac{u_n+1}{2}\Rightarrow a=\dfrac{a+1}{2}\Leftrightarrow a=1.$$
+}
+\end{ex}
+\begin{ex}%[1D4G1-3][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Võ Thanh Phong]\\
+Tính $I=\lim \dfrac{2\cdot 1^2+3\cdot 2^2+\cdots +(n+1)\cdot n^2}{n^4}$.
+\choice
+{$+\infty$}
+{$0$}
+{$1$}
+{\True $\dfrac{1}{4}$}
+\loigiai{
+$I=\lim \dfrac{1^2+ 2^2+\cdots + n^2}{n^4}+\lim\dfrac{1^3+ 2^3+\cdots + n^3}{n^4}=\lim \dfrac{n(n+1)(2n+1)}{6n^4}+\lim\dfrac{n^2(n+1)^2}{4n^4}\\=\lim \dfrac{\left(\dfrac{1}{n}+\dfrac{1}{n^2}\right)\left(2+\dfrac{1}{n}\right)}{6}+\lim\dfrac{\left(1+\dfrac{1}{n}\right)^2}{4}=0+\dfrac{1}{4}=\dfrac{1}{4}$.
+}
+\end{ex}
+	\dang{Dùng lượng liên hợp}
+\begin{ex}%[1D4K1-4][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Đỗ Đức Thảo]\\
+	Giá trị của $N=\lim \left(\sqrt{4n^2+1}-\sqrt[3]{8n^3+n^2}\right)$ bằng
+	\choice
+	{$0$}
+	{$-\infty$}
+	{\True $-\dfrac{1}{12}$}
+	{$+\infty$}
+	\loigiai{
+		$\begin{aligned}
+		N&=\lim \left(\sqrt{4n^2+1}-\sqrt[3]{8n^3+n^2}\right)\\&= \lim \left(\sqrt{4n^2+1}-2n + 2n - \sqrt[3]{8n^3+n^2}\right)\\&=\lim\left(\dfrac{1}{\sqrt{4n^2+1}+2n}+\dfrac{-n^2}{4n^2+2n\sqrt[3]{8n^3+n^2}+\left( \sqrt[3]{8n^3+n^2}\right)^2}\right)\\&=\lim \left[\dfrac{1}{n\left(\sqrt{4+\dfrac{1}{n^2}}+1\right)}+\dfrac{-1}{4+2\sqrt[3]{8+\dfrac{1}{n}}+\left(\sqrt[3]{8+\dfrac{1}{n}}\right)^2}\right]\\&=0 +\dfrac{-1}{4+2\cdot2 + 2^2}\\&=-\dfrac{1}{12}.
+		\end{aligned}  $ .
+		
+	}
+\end{ex}
+\begin{ex}%[Đề cương HK2, THPT Chu Văn An, HN, 2017-2018][1D4K1-4][Dương Phước Sang]\\
+	Giá trị của $L=\lim \left(\sqrt[3]{n^3-2n^2}-n\right)$ bằng
+	\choice
+	{$\dfrac{1}{3}$}
+	{$0$}
+	{\True $-\dfrac{2}{3}$}
+	{$1$}
+	\loigiai{
+		Ta có $\lim \left(\sqrt[3]{n^3-2n^2}-n\right)=\lim \dfrac{(n^3-2n^2)-n^3}{\left(\sqrt[3]{n^3-2n^2}\right)^2+n\sqrt[3]{n^3-2n^2}+n^2}$ \\
+		$=\lim \dfrac{-2n^2}{n^2\left[\left(\sqrt[3]{1-\dfrac{2}{n}}\right)^2+\sqrt[3]{1-\dfrac{2}{n}}+1\right]}=\lim \dfrac{-2}{\left(\sqrt[3]{1-\dfrac{2}{n}}\right)^2+\sqrt[3]{1-\dfrac{2}{n}}+1}=-\dfrac{2}{3}$.}
+\end{ex}
+\begin{ex}%[1D4K1-4][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Võ Thanh Phong]\\
+Cho dãy số $(u_n)$ với $u_n=\sqrt{n^2+an+5}-\sqrt{n^2+1}$, trong đó $a$ là tham số thực. Tìm $a$ đề $\lim u_n=-1$.
+\choice
+{$2$}
+{\True $-2$}
+{$3$}
+{$-3$}
+\loigiai{
+$\lim \left(\sqrt{n^2+an+5}-\sqrt{n^2+1}\right)=\lim \dfrac{n^2+an+5-n^2-1}{\sqrt{n^2+an+5}+\sqrt{n^2+1}}\\=\lim \dfrac{a+\dfrac{4}{n}}{\sqrt{1+\dfrac{a}{n}+\dfrac{5}{n^2}}+\sqrt{1+\dfrac{1}{n^2}}}=\dfrac{a}{2}$.\\
+Khi đó $\lim u_n=-1$ khi và chỉ khi $a=-2$.
+}
+\end{ex}
+\begin{ex}%[1D4K1-4][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Võ Thanh Phong]\\
+Tính $L=\lim \left[n\left(\sqrt{n^2+n+1}-\sqrt{n^2+n-6}\right)\right]$.
+\choice
+{\True $\dfrac{7}{2}$}
+{$\dfrac{15}{4}$}
+{$\dfrac{70}{19}$}
+{$3$}
+\loigiai{
+$L=\lim \left[n\left(\sqrt{n^2+n+1}-\sqrt{n^2+n-6}\right)\right]=\lim \dfrac{n\left(n^2+n+1-n^2-n+6\right)}{\left(\sqrt{n^2+n+1}+\sqrt{n^2+n-6}\right)}\\=\lim \dfrac{7}{\left(\sqrt{1+\dfrac{1}{n}+\dfrac{1}{n^2}}+\sqrt{1+\dfrac{1}{n}-\dfrac{6}{n^2}}\right)}=\dfrac{7}{2}$.
+}
+\end{ex}
+	\dang{Cấp số nhân lùi vô hạn}
+\begin{ex}%[Đề cương HK2, THPT Chu Văn An, HN, 2017-2018][1D4B1-5][Dương Phước Sang]\\
+	Tính tổng vô hạn $S=9+3+1+\dfrac{1}{3}+\cdots +\dfrac{1}{3^{n-3}}+\cdots $
+	\choice
+	{$S=14$}
+	{$S=15$}
+	{\True $S=\dfrac{27}{2}$}
+	{$S=16$}
+	\loigiai{
+		Dãy số $(u_n):9;3;1;\dfrac{1}{3};\cdots;\dfrac{1}{3^{n-3}};\cdots $ là một cấp số nhân lùi vô hạn với số hạng đầu $u_1=9$, công bội $q=\dfrac{1}{3}$. \\
+		Do đó tổng của dãy là $S=9+3+1+\dfrac{1}{3}+\cdots +\dfrac{1}{3^{n-3}}+\cdots =\dfrac{u_1}{1-q}=\dfrac{9}{1-\dfrac{1}{3}}=\dfrac{27}{2}$.}
+\end{ex}
+\begin{ex}%[1D4K1-5][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Đỗ Đức Thảo]\\
+	Số thập phân vô hạn tuần hoàn $0{,}511\ldots$ được biểu diễn bởi phân số tối giản $\dfrac{a}{b}$.\\ Tính tổng $T=a+b$.
+	\choice
+	{$133$}
+	{$17$}
+	{\True $68$}
+	{$137$}
+	\loigiai{
+	Ta có ngay $0{,}511\ldots=0{,}5+10^{-2}+10^{-3}+\cdots+10^{-n}+\cdots$\\
+	Tính $10^{-2}+10^{-3}+\cdots+10^{-n}=\dfrac{10^{-2}-10^{-n-1}}{1-10^{-1}}$(cấp số nhân lùi vô hạn với công bội là $10^{-1}$).\\ Do đó $\lim 10^{-2}+10^{-3}+\cdots+10^{-n}=\dfrac{10^{-2}}{1-\dfrac{1}{10}}=\dfrac{1}{90}$.\\ Từ đây suy ra
+	$0{,}511\ldots=0{,}5+10^{-2}+10^{-3}+\cdots+10^{-n}+\cdots=0{,}5+\dfrac{1}{90}=\dfrac{23}{45}$.\\ Vậy $T=23+45=68$.
+}
+\end{ex}
+\begin{ex}%[Đề cương HK2, THPT Chu Văn An, HN, 2017-2018][1D4K1-5][Dương Phước Sang]\\
+	Cho $m$, $n$ là các số thực thuộc khoảng $(-1;1)$ và các biểu thức \\
+	$M=1+m+m^2+m^3+\cdots $ \\
+	$N=1+n+n^2+n^3+\cdots $ \\
+	$P=1+mn+m^2n^2+m^3n^3+\cdots $ \\
+	Khẳng định nào dưới đây là mệnh đề đúng?
+	\choice
+	{$P=\dfrac{MN}{M+N+1}$}
+	{\True $P=\dfrac{MN}{M+N-1}$}
+	{$P=\dfrac{1}{M}+\dfrac{1}{N}-\dfrac{1}{MN}$}
+	{$P=\dfrac{1}{M}+\dfrac{1}{N}+\dfrac{1}{MN}$}
+	\loigiai{
+		Do $m,n\in (-1;1)$ nên $mn\in (-1;1)$. Từ đó ta có \\
+		$M=1+m+m^2+m^3+\cdots =\dfrac{1}{1-m} \Rightarrow m=\dfrac{M-1}{M}$. \\
+		$N=1+n+n^2+n^3+\cdots =\dfrac{1}{1-n} \Rightarrow n=\dfrac{N-1}{N}$. \\
+		Và $P=1+mn+m^2n^2+m^3n^3+\cdots =\dfrac{1}{1-mn}=\dfrac{1}{1-\dfrac{(M-1)(N-1)}{MN}}=\dfrac{MN}{M+N-1}$.}
+\end{ex}
+	\dang{Toán thực tế, liên môn liên quan đến giới hạn dãy số}
+ \begin{ex}%[1D4G1-6][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Đào Anh Dương]\\
+	Tính $L=\lim \left(2^n \cdot \underbrace{\sqrt{2-\sqrt{2+\sqrt{2+ \ldots +\sqrt{2}}}}}_{\text{n dấu căn}}\right)$.
+	\choice
+	{\True $L=\pi $}
+	{$L=3$}
+	{$L=\dfrac{3\pi}{4}$}
+	{Đáp án khác}
+	\loigiai{
+		Ta chứng minh $\underbrace{\sqrt{2+\sqrt{2+\sqrt{2+ \ldots +\sqrt{2}}}}}_{\text{n dấu căn}}=2\cos \dfrac{\pi}{{2}^{n+1}}$.\\
+		Với $n=1$: $\text{VT}=\sqrt{2}$, $\text{VP}=2\cos \dfrac{\pi}{4}=\sqrt{2}$.\\
+		Giả sử đẳng thức đúng với $n=k\ge 1$, tức là
+		$\underbrace{\sqrt{2+\sqrt{2+\sqrt{2+ \ldots +\sqrt{2}}}}}_{\text{k dấu căn}}=2\cos \dfrac{\pi}{2^{k+1}}$.\\
+		Ta chứng minh đẳng thức đúng với $n=k+1$, tức là
+		$\underbrace{\sqrt{2+\sqrt{2+\sqrt{2+ \ldots +\sqrt{2}}}}}_{\text{k+1 dấu căn}}=2\cos \dfrac{\pi}{2^{k+2}}$. (2)\\
+		Thật vậy
+		\begin{align*}
+		\text{VT2}&=\sqrt{2+\underbrace{\sqrt{2+\sqrt{2}+ \ldots +\sqrt{2}}}_{\text{k dấu căn}}}=\sqrt{2+2\cos \dfrac{\pi}{2^{k+1}}}\\
+		&=\sqrt{2\left(1+\cos \dfrac{\pi}{{2}^{k+1}}\right)}=\sqrt{4\cos^2\dfrac{\pi}{{2}^{k+2}}}
+		=2\cos \dfrac{\pi}{2^{k+2}}=\text{VP2}.
+		\end{align*}
+		Do đó, theo nguyên lý quy nạp ta có $\underbrace{\sqrt{2+\sqrt{2+\sqrt{2+ \ldots +\sqrt{2}}}}}_{\text{n dấu căn}}
+		=2\cos \dfrac{\pi}{2^{n+1}}$.\\
+		Bây giờ ta tính giới hạn 
+		\begin{align*}
+		L&=\lim \left(2^n \cdot \underbrace{\sqrt{2-\sqrt{2+\sqrt{2+ \ldots +\sqrt{2}}}}}_{\text{n dấu căn}}\right) =\lim \left(2^n \cdot \sqrt{2-2\cos \dfrac{\pi}{2^n}}\right)\\
+		&=\lim \left[2^n \cdot \sqrt{2\left(1-\cos \dfrac{\pi}{2^n}\right)}\right] =\lim \left(2^n \cdot \sqrt{4\sin^2\dfrac{\pi}{{2}^{n+1}}}\right)\\
+		&=\lim \left(2^{n+1} \cdot \sin \dfrac{\pi}{2^{n+1}}\right) =\lim \left(\pi \cdot \dfrac{\sin \dfrac{\pi}{2^{n+1}}}{\dfrac{\pi}{2^{n+1}}}\right)\\
+		&=\pi \cdot \lim \dfrac{\sin \dfrac{\pi}{2^{n+1}}}{\dfrac{\pi}{2^{n+1}}} =\pi \cdot 1=\pi .
+		\end{align*}
+	}
+	
+\end{ex}
+\section{Giới hạn của hàm số}
+	\dang{Câu hỏi lý thuyết}
+\begin{ex}%	[Đề cương HK  2, THPT Chu Văn An, HN, 2017-2018][1D4K2-1][MyNguyen]\\
+	Trong các khẳng định dưới đây, khẳng định nào là đúng?
+	\choice
+	{$\lim\limits_{x \to 0} \cos \dfrac{1}{x}=1$}
+	{\True $\lim\limits_{x \to 0} \cos \dfrac{1}{x}$ không tồn tại}
+	{$\lim\limits_{x \to 0} \cos \dfrac{1}{x}=0$}
+	{$\lim\limits_{x \to 0} \cos \dfrac{1}{x}=-1$}
+	\loigiai{Đặt $f(x)=\cos \dfrac{1}{x}$. Xét hai dãy số $(u_n)$ và $(v_n)$, với $u_n =\dfrac{1}{2n\pi}; v_n =\dfrac{1}{\pi +2n\pi}$ với mọi $n \in \mathbb{N^*}$. \\
+		Ta có $\lim u_n =\lim v_n =0$ và
+		$$\lim f(u_n) =\lim \cos (2n\pi) =1; \lim f(v_n) =\cos (\pi +2n\pi)=-1 \Rightarrow \lim f(u_n) \ne \lim f(v_n).$$
+		Từ đó suy ra không tồn tại giới hạn $\lim\limits_{x \to 0} \cos \dfrac{1}{x}$.
+		}
+\end{ex}
+	\dang{Thay số trực tiếp}
+\begin{ex}%[1D4Y2-2][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Lê Thanh Nin]\\
+	Tính  $ \lim\limits_{x \to -1}\dfrac{x^2-3}{x^3+2} $.
+	\choice
+	{$ -\dfrac{3}{2} $}
+	{$ 1 $}
+	{\True $ -2 $}
+	{$ 2 $}
+	\loigiai{
+		Ta có $ \lim\limits_{x \to -1}\dfrac{x^2-3}{x^3+2}=\dfrac{(-1)^2-3}{(-1)^3+2}=\dfrac{1-3}{-1+2}=-2 $.
+	} 
+\end{ex}
+\begin{ex}%[1D4B2-2][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Đào Anh Dương]\\
+Tìm tất cả các giá trị của tham số thực $m$ để $B>7$ với $B=\lim\limits_{x \to 1} (x^3+3x+m^2-2m)$.
+\choice
+{\True $\hoac{&m<1 \\&m>3}$}
+{$\hoac{&m<-1 \\&m>3}$}
+{$-1<m<3$}
+{$1<m<3$}
+\loigiai{
+Ta có $B=\lim\limits_{x \to 1} (x^3+3x+m^2-2m) = m^2-2m+4$.\\
+Khi đó $B>7 \Leftrightarrow m^2-2m-3>0 \Leftrightarrow \hoac{&m<-1 \\&m>3}$.
+
+}
+\end{ex}
+\begin{ex}%[1D4K2-2][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Đào Anh Dương]\\
+Cho $a$, $b$ là các số thực khác $0$. Nếu $\lim\limits_{x \to 2} \dfrac{x^2+ax+b}{x-2} = -1$ thì $a+b$ bằng
+\choice
+{$8$}
+{$-4$}
+{$2$}
+{\True $1$}
+\loigiai{
+Để $\lim\limits_{x \to 2} \dfrac{x^2+ax+b}{x-2} = -1$ thì $x^2+ax+b = (x-2)(x-3) = x^2-5x+6$.\\
+Từ đó suy ra $a=-5$ và $b=6$ nên $a+b=1$.
+}
+
+\end{ex}
+	\dang{Dạng 0/0, 0 nhân vô cùng}
+\begin{ex}%[1D4B2-3][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Lê Thanh Nin]\\
+	Cho $ 2a+b=2 $ và $ \lim\limits_{x \to 2} \dfrac{ax^2+bx-4}{x-2}=5$. Khẳng định nào sau đây là đúng?
+	\choice
+	{$ a=-1,b=4 $}
+	{$ a=1,b=0 $}
+	{\True $ a=\dfrac{3}{2},b=-1 $}
+	{$ a=-2,b=6 $}
+	
+	\loigiai{
+		Ta có $ 2a+b=2 \Leftrightarrow  b=2-2a $.\\
+		Vậy  $ \lim\limits_{x \to 2} \dfrac{ax^2+bx-4}{x-2}=5 \Leftrightarrow  \lim\limits_{x \to 2} \dfrac{ax^2+(2-2a)x-4}{x-2}=5\Leftrightarrow  \lim\limits_{x \to 2} \dfrac{(ax+2)(x-2)}{x-2}=5\\
+		\Leftrightarrow  \lim\limits_{x \to 2} (ax+2)=5\Leftrightarrow 2a+2=5\Leftrightarrow a=\dfrac{3}{2}\Rightarrow b=-1$.
+	} 
+\end{ex}	
+\begin{ex}%[Đề cương HK  2, THPT Chu Văn An, HN, 2017-2018][1D4B2-3][MyNguyen]\\
+	Cho $a$ là số thực khác $0$. Tính $\lim\limits_{ x\to a} \dfrac{x^4  -a^4}{x-a}$.
+	\choice
+	{$a^3$}
+	{\True $4a^3$}
+	{$2a^3$}
+	{$3a^3$}
+	\loigiai{
+		Ta có $\lim\limits_{ x\to a} \dfrac{x^4  -a^4}{x-a}= \lim\limits_{x \to a} \dfrac{(x-a)(x+a)(x^2+a^2)}{x-a} =\lim\limits_{x\to a} \left( (x^2+a^2)(x+a)\right) =2a^2\cdot 2a=4a^3$.
+	}
+\end{ex}
+\begin{ex}%[1D4K2-3][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Lê Hoàng Lâm]\\	
+	Tính $\lim\limits_{x\rightarrow \frac{\pi}{4}}\left(\tan2x.\tan\left(\dfrac{\pi}{4}-x\right)\right)$	
+\choice
+	{\True $\dfrac{1}{2}$}
+	{$0$}
+	{$2$}
+	{$\dfrac{1}{4}$}
+\loigiai{
+	Đặt $t=\dfrac{\pi}{4}-x\Rightarrow x=\dfrac{\pi}{4}-t$. Khi đó ta có:\\
+	$\lim\limits_{x\rightarrow \frac{\pi}{4}}\left(\tan2x.\tan\left(\dfrac{\pi}{4}-x\right)\right)=\lim\limits_{t\rightarrow 0}\left(\tan\left(\dfrac{\pi}{2}-2t\right).\tan t\right)=\lim\limits_{t\rightarrow 0}\dfrac{\cos2t.\sin t}{\cos t.\sin2t}=\lim\limits_{t\rightarrow 0}\dfrac{\cos2t}{2\cos t.\cos t}=\dfrac{1}{2}$	
+		}
+\end{ex}
+\begin{ex}%[Đề cương khối 11 HK2, Chu Văn An, Hà Nội,2018][1D4G2-3][Cao Thành Thái]\\
+ Biết $\lim\limits_{x \to 2}\dfrac{\sqrt[3]{8x+11} - \sqrt{x+7}}{x^2-3x+2}=\dfrac{m}{n}$, trong đó $\dfrac{m}{n}$ là phân số tối giản, $m$ và $n$ là các số nguyên dương. Tính tổng $2m+n$.
+ \choice
+  {$2m+n=71$}
+  {$2m+n=69$}
+  {$2m+n=70$}
+  {\True $2m+n=68$}
+ \loigiai
+  {
+  ta có
+  \begin{eqnarray*}
+   \dfrac{\sqrt[3]{8x+11} - \sqrt{x+7}}{x^2-3x+2} &=& \dfrac{\sqrt[3]{8x+11} - 3}{x^2-3x+2} + \dfrac{3 - \sqrt{x+7}}{x^2-3x+2}\\
+   &=& \dfrac{8x-16}{(x^2-3x+2)\left[\sqrt[3]{(8x+11)^2} + 3\sqrt[3]{8x+11} + 9 \right]} - \dfrac{x-2}{(x^2-3x+2)\left(3+\sqrt{x+7} \right)}\\
+   &=& \dfrac{8}{(x-1)\left[\sqrt[3]{(8x+11)^2} + 3\sqrt[3]{8x+11} + 9 \right]} - \dfrac{1}{(x-1)\left(3+\sqrt{x+7} \right)}.
+  \end{eqnarray*}
+  Vậy
+  \begin{eqnarray*}
+   \lim\limits_{x \to 2}\dfrac{\sqrt[3]{8x+11} - \sqrt{x+7}}{x^2-3x+2} &=& \lim\limits_{x \to 2} \left[ \dfrac{8}{(x-1)\left[\sqrt[3]{(8x+11)^2} + 3\sqrt[3]{8x+11} + 9 \right]} - \dfrac{1}{(x-1)\left(3+\sqrt{x+7} \right)} \right] \\
+   &=& \dfrac{8}{27} - \dfrac{1}{6} = \dfrac{7}{54}.
+  \end{eqnarray*}
+  Khi đó $\dfrac{m}{n} = \dfrac{7}{54}$. Vậy $2m+n=68$.
+  }
+\end{ex}
+	\dang{Giới hạn một bên}
+\begin{ex}%[Đề cương khối 11 HK2, Chu Văn An, Hà Nội,2018][1D4K2-5][Cao Thành Thái]\\
+ Tính $I = \lim\limits_{x \to -2}\dfrac{|3x+6|}{x+2}$.
+ \choice
+  {$I = 3$}
+  {$I = 0$}
+  {\True Không tồn tại}
+  {$I = -3$}
+ \loigiai
+  {
+  Ta có
+  \allowdisplaybreaks
+  \begin{eqnarray*}
+   & & \lim\limits_{x \to -2^-} f(x) = \lim\limits_{x \to -2^-}\dfrac{|3x+6|}{x+2} = \lim\limits_{x \to -2^-}\dfrac{-3x-6}{x+2} = \lim\limits_{x \to -2^-}\dfrac{-3(x+2)}{x+2} = \lim\limits_{x \to -2^-}(-3) = -3.\\
+   & & \lim\limits_{x \to -2^+} f(x) = \lim\limits_{x \to -2^+}\dfrac{|3x+6|}{x+2} = \lim\limits_{x \to -2^+}\dfrac{3x+6}{x+2} = \lim\limits_{x \to -2^-}\dfrac{3(x+2)}{x+2} = \lim\limits_{x \to -2^-}3 = 3.
+  \end{eqnarray*}
+  Vì $\lim\limits_{x \to -2^-} f(x) \neq \lim\limits_{x \to -2^+} f(x)$ nên $\lim\limits_{x \to -2} f(x)$ không tồn tại.
+  }
+\end{ex}
+	\dang{Giới hạn bằng vô cùng}
+\begin{ex}%[1D4B2-6][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Lê Thanh Nin]\\
+	Giới hạn $ \lim\limits_{x \to -\infty} \left(\sqrt{x^2-3x+5}+ax\right)=+\infty$ nếu
+	\choice
+	{$ a\geq 1 $}
+	{$ a \leq 1$}
+	{$ a>1 $}
+	{\True $ a<1 $}
+	\loigiai{	
+		$ \bullet $ Nếu $ a=1 $. Khi đó ta có \\
+		$ \lim\limits_{x \to -\infty} \left(\sqrt{x^2-3x+5}+x\right)
+		= \lim\limits_{x \to -\infty} \dfrac{-3x+5}{\sqrt{x^2-3x+5}-x}
+		=\lim\limits_{x \to -\infty} \dfrac{-3x+5}{-x\sqrt{1-\dfrac{3}{x}+\dfrac{5}{x^2}}-x}\\
+		=\lim\limits_{x \to -\infty} \dfrac{-3+\dfrac{5}{x}}{-\sqrt{1-\dfrac{3}{x}+\dfrac{5}{x^2}}-1}=\dfrac{3}{2} $. Vậy $ a=1 $ không thỏa mãn.\\
+		$ \bullet $ Nếu $ a\ne 1 $\\		
+		$\lim\limits_{x \to -\infty} \left(\sqrt{x^2-3x+5}+ax\right)
+		=\lim\limits_{x \to -\infty} \left(-x\sqrt{1-\dfrac{3}{x}+\dfrac{5}{x^2}}+ax\right)
+		=\lim\limits_{x \to -\infty} \left[x\left(a-\sqrt{1-\dfrac{3}{x}+\dfrac{5}{x^2}}\right)\right].
+		$\\	
+		Lại có $ \lim\limits_{x \to -\infty} x=-\infty $ và $ \lim\limits_{x \to -\infty} \left(-x\sqrt{1-\dfrac{3}{x}+\dfrac{5}{x^2}}+ax\right)=a-1 $.\\	
+			Vậy để $ \lim\limits_{x \to -\infty} \left(\sqrt{x^2-3x+5}+ax\right)=+\infty\Leftrightarrow a-1<0\Leftrightarrow a<1$.					
+	} 
+\end{ex}
+\begin{ex}%[1D4B2-6][Đề cương Toán 11, Hk2, Chu Văn An, Hà Nội][Nguyễn Thành Sơn]\\
+	Trong các giới hạn sau, giới hạn nào bằng $+\infty$?
+	\choice
+	{$\displaystyle \lim \limits_{x \to -1^-} \dfrac{\sqrt{1-2x}}{5+5x}$}
+	{\True $\displaystyle \lim \limits_{x \to -2} \dfrac{5 - 3x^3}{(x-2)^4}$}
+	{$\displaystyle \lim \limits_{x \to -3^+}\dfrac{6-x^2}{9+3x}$}
+	{$\displaystyle \lim \limits_{x \to -1} \dfrac{2x^3 - 4}{(x+1)^2}$}
+	\loigiai{
+	$\bullet$ $\displaystyle \lim \limits_{x \to -1^-} \dfrac{\sqrt{1-2x}}{5+5x} = -\infty$.\\
+	$\bullet$ $\displaystyle \lim \limits_{x \to -2} \dfrac{5 - 3x^3}{(x-2)^4} = +\infty$ vì $\heva{& \lim \limits_{x \to - 2} \left(5-3x^3 \right) = 29 \\ & \lim \limits_{x \to - 2} \left(x-2\right)^4 = 0}$. \\
+	$\bullet$ $\lim \limits_{x \to -3^+} \dfrac{6-x^2}{9+3x} = -\infty$ vì $\heva{& \lim \limits_{x \to -3^+} \left(6-x^2 \right) = -3\\ & \lim \limits_{x \to -3^+}(9+3x) = 0 \\ & 9 + 3x > 0, \ \forall x > -3}$.\\
+	$\bullet$ $\displaystyle \lim \limits_{x \to -1} \dfrac{2x^3 - 4}{(x+1)^2} = - \infty$ vì $\heva{& \lim \limits_{x \to -1} \left(2x^3-4 \right) = -6 \\& \lim \limits_{x \to -1}(x+1)^2 = 0}$.
+	}
+\end{ex}
+\begin{ex}%	[Đề cương HK  2, THPT Chu Văn An, HN, 2017-2018][1D4B2-6][MyNguyen]\\
+	Cho $a,b,c$ là các số thực khác $0$. Tìm hệ thức liên hệ giữa $a,b,c$ để $$\lim\limits_{x \to - \infty} \dfrac{ax - b\sqrt{9x^2+2}}{cx+1}=5.$$
+ 	\choice
+	{$\dfrac{a+3b}{c}=-5$}
+	{$\dfrac{a-3b}{c}=-5$}
+	{$\dfrac{a-3b}{c}=5$}
+	{\True $\dfrac{a+3b}{c}=5$}
+	\loigiai{Ta có
+	$\lim\limits_{x \to - \infty} \dfrac{ax - b\sqrt{9x^2+2}}{cx+1}=\lim\limits_{x \to - \infty} \dfrac{a + b\sqrt{9+\frac{2}{x^2}}}{c+\frac{1}{x}}=\dfrac{a+3b}{c}$. Từ đó suy ra $\dfrac{a+3b}{c}=5$.
+	}
+\end{ex}
+\begin{ex}%[1D4K2-6][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Đào Anh Dương]\\
+	Trong các hàm số sau, hàm số nào có giới hạn tại điểm $x=1$.
+	\choice
+	{$f(x)=\dfrac{1}{\sqrt{1-x}}$}
+	{$f(x)=\dfrac{1}{\sqrt{x-1}}$}
+	{$f(x)=\dfrac{1}{x-1}$}
+	{\True $f(x)=\dfrac{1}{|x-1|}$}
+	\loigiai{
+		Hàm số $f(x)=\dfrac{1}{\sqrt{1-x}}$ có tập xác định là $(-\infty;1)$ và hàm số $f(x)=\dfrac{1}{\sqrt{x-1}}$ có tập xác định là $(1;+\infty)$ nên không có giới hạn tại điểm $x=1$.\\
+		Hàm số $f(x)=\dfrac{1}{x-1}$ có $\lim\limits_{x\to 1^-}f(x)=-\infty$ và $\lim \limits_{x\to 1^+}f(x)=+\infty$, suy ra không tồn tại giới hạn tại $x=1$.\\
+		Hàm số $f(x)=\dfrac{1}{|x-1|}$ có $\lim\limits_{x\to 1^-}f(x)=+\infty$ và $\lim \limits_{x\to 1^+}f(x)=+\infty$, suy ra $\lim\limits_{x\to 1}f(x)=+\infty$.
+	}
+\end{ex}
+	\dang{Dạng vô cùng chia vô cùng}
+\begin{ex}%[Đề cương khối 11 HK2, Chu Văn An, Hà Nội,2018][1D4B2-7][Cao Thành Thái]\\
+ Tính $\lim\limits_{x \to -\infty}\dfrac{-3x^5+7x^3-11}{x^5+x^4-3x}$.
+ \choice
+  {\True $-3$}
+  {$-\infty$}
+  {$0$}
+  {$3$}
+ \loigiai
+  {
+  Ta có
+  \begin{eqnarray*}
+   \lim\limits_{x \to -\infty}\dfrac{-3x^5+7x^3-11}{x^5+x^4-3x} = \lim\limits_{x \to -\infty}\dfrac{x^5\left( -3+\dfrac{7}{x^2}-\dfrac{11}{x^5} \right)}{x^5\left( 1+\dfrac{1}{x}-\dfrac{3}{x^4} \right)} = \lim\limits_{x \to -\infty}\dfrac{-3+\dfrac{7}{x^2}-\dfrac{11}{x^5}}{1+\dfrac{1}{x}-\dfrac{3}{x^4}}=-3.
+  \end{eqnarray*}
+  }
+\end{ex}
+\begin{ex}%[1D4B2-7][Đề cương Toán 11, Hk2, Chu Văn An, Hà Nội][Nguyễn Thành Sơn]\\
+	Tìm giới hạn nhỏ nhất trong các giới hạn sau.
+	\choice
+	{\True $\displaystyle \lim \limits_{x \to - \infty} \sqrt[3]{\dfrac{2x-x^2}{8x^2-x+3}}$}
+	{$\displaystyle \lim \limits_{x \to - \infty} \dfrac{2 \left|x \right|+3}{\sqrt{x^2+x+5}}$}
+	{$\displaystyle \lim \limits_{x \to + \infty} =\dfrac{x\sqrt{x}}{x^2-x+2}$}
+	{$\displaystyle \lim \limits_{x \to - \infty} \dfrac{\sqrt{x^6+2}}{3x^3-1}$}
+	\loigiai{
+	$\bullet$ $\displaystyle \lim \limits_{x \to - \infty} \sqrt[3]{\dfrac{2x-x^2}{8x^2-x+3}} = \displaystyle \lim \limits_{x \to - \infty} \sqrt[3]{\dfrac{\dfrac{2}{x}-1}{8 - \dfrac{1}{x} + \dfrac{3}{x^2}}} = -\dfrac{1}{2}$.\\
+	$\bullet$ $\displaystyle \lim \limits_{x \to - \infty} \dfrac{2 \left|x \right|+3}{\sqrt{x^2+x+5}} = \displaystyle \lim \limits_{x \to - \infty} \dfrac{-2 +\dfrac{3}{x}}{-\sqrt{1 + \dfrac{1}{x} + \dfrac{5}{x^2}}} = 2$. \\
+	$\bullet$ $\displaystyle \lim \limits_{x \to + \infty} =\dfrac{x\sqrt{x}}{x^2-x+2} = 0$.\\
+	$\bullet$ $\displaystyle \lim \limits_{x \to - \infty} \dfrac{-\sqrt{1 + \dfrac{2}{x^6}}}{3-\dfrac{1}{x^3}} =  -\dfrac{1}{3}$.
+	}
+\end{ex}
+\begin{ex}%	[Đề cương HK  2, THPT Chu Văn An, HN, 2017-2018][1D4B2-7][MyNguyen]\\
+	Trong bốn giới hạn sau đây, giới hạn nào bằng $-1$?
+	\choice
+	{$\lim\limits_{x\to -\infty}\dfrac{x^2-1}{x-1}$}
+	{$\lim\limits_{x\to +\infty}\dfrac{2x^2+x-1}{3x+x^2}$}
+	{\True $\lim\limits_{x\to +\infty}\dfrac{x^3-x^2+3}{5x^2-x^3}$}
+	{$\lim\limits_{x\to -\infty}\dfrac{2x+3}{x^2-5x}$}
+	\loigiai{Ta có
+	$\lim\limits_{x\to +\infty}\dfrac{x^3-x^2+3}{5x^2-x^3}=\lim\limits_{x\to +\infty}\dfrac{1-\frac{1}{x}+\frac{3}{x^3}}{\frac{5}{x}-1}=-1$.\\
+	$\lim\limits_{x\to -\infty}\dfrac{x^2-1}{x-1}=-\infty$.\\
+	$\lim\limits_{x\to +\infty}\dfrac{2x^2+x-1}{3x+x^2}=\lim\limits_{x\to +\infty}\dfrac{2+\frac{1}{x}-\frac{1}{x^2}}{\frac{3}{x}+1}=1$.\\
+	$\lim\limits_{x\to -\infty}\dfrac{2x+3}{x^2-5x}=\lim\limits_{x\to -\infty}\dfrac{2+\frac{3}{x}}{1-\frac{5}{x}}=2$.
+	}
+\end{ex}
+\begin{ex}%[1D4K2-7][Đề cương Toán 11, Hk2, Chu Văn An, Hà Nội][Nguyễn Thành Sơn]\\
+	Tính $I = \displaystyle \lim \limits_{x \to +\infty} \dfrac{2x^2 - 3}{x^6 + 5x^5}$.
+	\choice
+	{$-\dfrac{3}{5}$}
+	{$2$}
+	{\True $0$}
+	{$-3$}
+	\loigiai{
+	$I = \displaystyle \lim \limits_{x \to +\infty} \dfrac{2x^2 - 3}{x^6 + 5x^5} = \displaystyle \lim \limits_{x \to +\infty} \dfrac{2 - \dfrac{3}{x^2}}{x^4 + 5x^3} = 0$.
+	}
+\end{ex}
+\section{Hàm số liên tục}
+	\dang{Câu hỏi lý thuyết}
+\begin{ex}%[1D4B3-1][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Lê Hoàng Lâm]\\
+	
+	Cho hàm số $f(x)$ xác định trên đoạn $\left[a;b\right]$. Trong các khẳng định sau, khẳng định nào đúng?
+	
+\choice
+	{Nếu phương trình $f(x)=0$ có nghiệm trong khoảng $\left(a;b\right)$ thì hàm số $y=f(x)$ phải liên tục trên khoảng $\left(a;b\right)$}
+	{Nếu $f(a).f(b)<0$ thì phương trình $f(x)=0$ có ít nhất một nghiệm trên khoảng $\left(a;b\right)$}
+	{\True Nếu hàm số $y=f(x)$ liên tục, tăng trên đoạn $\left[a;b\right]$ và $f(a).f(b)>0$ thì phương trình $f(x)=0$ không thể có nghiệm trong khoảng $\left(a;b\right)$}
+	{Nếu hàm số $y=f(x)$ liên tục trên đoạn $\left[a;b\right]$ và $f(a).f(b)>0$ thì phương trình $f(x)=0$ không có nghiệm trong khoảng $\left(a;b\right)$}
+\loigiai{
+	Áp dụng Định lý giá trị trung gian ta được áp đúng là C.
+		}
+\end{ex} 
+	\dang{Xét tính liên tục bằng đồ thị}
+\begin{ex}%[1D4K3-2][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Đào Anh Dương]\\
+Hàm số $y=f(x)$ có đồ thị dưới đây gián đoạn tại điểm có hoành độ bằng bao nhiêu?
+\begin{center}
+\begin{tikzpicture}[scale=1,>=stealth,font=\footnotesize]
+\tkzInit[xmin=-2.5,xmax=4,ymin=-.5,ymax=4.7]
+\tkzClip
+\draw[->,line width = 1pt] (-2.3,0)--(3.5,0) node[below]{$x$};
+\draw[->,line width = 1pt] (0,-1.5) --(0,4.5) node[right]{$y$};
+\draw (1,0) node[below]{$1$} circle (1pt);
+\draw (2,0) node[below]{$2$} circle (1pt);
+\draw (0,1) node[left]{$1$} circle (1pt);
+\draw (0,3) node[left]{$3$} circle (1pt);
+\draw [thick, domain=-2:1, samples=100] plot (\x, {2*(\x)^2+1});
+\draw [thick, domain=1:5, samples=100] plot (\x, {\x-1});
+\draw [dashed] (1,0)--(1,3)--(0,3) (0,1)--(2,1)--(2,0);
+\end{tikzpicture}
+\end{center}
+\choice
+{$1$}
+{$2$}
+{\True $3$}
+{$0$}
+\loigiai{
+Dựa vào đồ thị ta có $\lim\limits_{x \to 1^-} f(x) = 3$ và $\lim\limits_{x \to 1^+} f(x) = 0$ nên hàm số không liên tục tại $x=1$.\\
+Vậy, đồ thị của hàm số gián đoạn tại điểm $x=1$.
+}
+
+\end{ex}
+	\dang{Hàm số liên tục trên khoảng, đoạn}
+\begin{ex}%[Đề cương khối 11 HK2, Chu Văn An, Hà Nội,2018][1D4B3-4][Cao Thành Thái]\\
+ Cho hàm số $f(x) = \dfrac{x-2}{x^2-3x+2}$. Chọn khẳng định đúng trong các khẳng định sau.
+ \choice
+  {\True $f(x)$ liên tục trên các khoảng $(-\infty;1)$ và $(2;+\infty)$}
+  {$f(x)$ liên tục trên các khoảng $(-\infty;1)$ và $(1;+\infty)$}
+  {$f(x)$ liên tục trên các khoảng $(-\infty;2)$ và $(2;+\infty)$}
+  {$f(x)$ liên tục trên $\mathbb{R}$}
+ \loigiai
+  {
+  Tập xác định của hàm số $\mathscr{D} = \mathbb{R} \setminus \{1;2\}$.\\
+  Vì $f(x)$ là hàm số phân thức hữu tỉ nên nó liên tục trên các khoảng $(-\infty;1)$, $(1;2)$, $(2;+\infty)$.\\
+  Hàm số $f(x)$ gián đoạn tại các điểm $x=1$, $x=2$ vì $f(1)$, $f(2)$ không tồn tại.
+  }
+\end{ex}
+\begin{ex}%[1D4B3-4][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Lê Hoàng Lâm]\\
+	
+	Cho hàm số $f(x)=\heva{&3x+2\ \ \text{khi}\ \ x<-1&\\
+	&x^2-1 \ \ \text{khi} \ \ x\geq -1&}$. Chọn khẳng định đúng trong các khẳng định sau.
+
+\choice
+	{$f(x)$ liên tục trên $\mathbb{R}$}
+	{\True $f(x)$ liên tục trên $\left[-1;+\infty\right]$}
+	{$f(x)$ liên tục trên $\left(-\infty;-1\right]$}
+	{$f(x)$ liên tục tại $x=-1$}
+\loigiai{
+	Ta có $f(-1)=(-1)^2-1=0, \lim\limits_{x\rightarrow -1^+}f(x)=\lim\limits_{x\rightarrow -1^+}(x^2-1)=0, \lim\limits_{x\rightarrow -1^-}f(x)=\lim\limits_{x\rightarrow -1^-}(3x+2)=-1$\\
+	Suy ra $\heva{&f(-1)=\lim\limits_{x\rightarrow -1^+}f(-1)&\\
+	&f(-1)\ne\lim\limits_{x\rightarrow -1^-}f(-1)&}$. Vậy $f(x)$ không liên tục tại $x=-1$, chỉ liên tục phải của $-1$.\\
+	Mặt khác với $x>-1$ ta có $f(x)=x^2-1$ là hàm số sơ cấp nên nó liên tục trên $(-1;+\infty)$.\\
+	Kết luận $f(x)$ liên tục trên $\left[-1;+\infty\right)$.
+		}
+\end{ex}
+\begin{ex}%[1D4B3-4][Đề cương Toán 11, Hk2, Chu Văn An, Hà Nội][Nguyễn Thành Sơn]\\
+	Cho hàm số $f(x) = \heva{&3x + a - 1 &\text{ khi } x \leq 0 \\ &\dfrac{\sqrt{2x+1}-1}{x} &\text{ khi } x >0}$. Tìm tất cả các giá trị thực của $a$ để hàm số đã cho liên tục trên $\mathbb{R}$.
+	\choice
+	{\True $a=2$}
+	{$a=3$}
+	{$a=1$}
+	{$a=4$}
+	\loigiai{
+	$\bullet$ Xét $x<0$: $f(x) = 3x + a - 1$ là hàm đa thức nên liên tục trên $(-\infty;0)$. \\
+	$\bullet$ Xét $x>0$: $f(x)=\dfrac{\sqrt{2x+1}-1}{x}$ là hàm phân thức hữu tỉ nên liên tục trên $(0;+\infty)$.\\
+	$\bullet$ Xét tính liên tục tại $x = 0$. \\
+	Ta có $\displaystyle \lim \limits_{x \to 0^+} f(x) = \displaystyle \lim \limits_{x \to 0^+} \left(3x + a - 1 \right) = a- 1$. \\
+	$\displaystyle \lim \limits_{x \to 0^-} f(x) = \displaystyle \lim \limits_{x \to 0^-}\dfrac{\sqrt{2x+1}-1}{x} =\displaystyle \lim \limits_{x \to 0^-}  \dfrac{2x}{x \sqrt{2x+1}+1} = \displaystyle \lim \limits_{x \to 0^-} \dfrac{2}{\sqrt{2x+1}+1}=1$.\\
+	$f(0) = a - 1$.\\
+	Để hàm số $f(x)$ liên tục tại $x =0$ thì $\displaystyle \lim \limits_{x \to 0^-} f(x) = \displaystyle \lim \limits_{x \to 0^+} f(x) \Leftrightarrow a - 1 = 1 \Leftrightarrow a = 2$.
+	}
+\end{ex}
+	\dang{Bài toán chứa tham số}
+\begin{ex}%[1D4B3-5][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Lê Thanh Nin]\\
+		Cho $ a $ và $ b $ là các số thực khác $ 0 $. Tìm hệ thức liên hệ giữa $ a $ và $ b $ để hàm số $ f(x)=\heva{&\dfrac{\sqrt{ax+1}-1}{x} &\textrm{khi}\; x\ne 0\\&4x^2+5b&\textrm{khi}\; x= 0} $ liên tục tại $ x=0 $.
+		\choice
+		{\True$  a=10b $}
+		{$ a=5b $}
+		{$ a=b $}
+		{$ a=2b $}
+		\loigiai{
+		$ \lim\limits_{x \to 0}f(x)=\lim\limits_{x \to 0}\dfrac{\sqrt{ax+1}-1}{x}=\lim\limits_{x \to 0}\dfrac{ax}{x\left(\sqrt{ax+1}+1\right)}=\lim\limits_{x \to 0}\dfrac{a}{\left(\sqrt{ax+1}+1\right)} =\dfrac{a}{2}$.\\
+		Lại có $ f(0)=5b $. Vậy để hàm số liên tục tại $ x=0 $ thì $ \dfrac{a}{2}=5b\Leftrightarrow a=10b. $
+		} 
+	\end{ex}
+	\dang{Chứng minh phương trình có nghiệm}
+\begin{ex}%[1D4K3-6][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Lê Thanh Nin]\\
+		Cho phương trình $ ax^2+bx+c=0 $ thỏa mãn $ a\ne 0 $ và $ 2a+6b+19c=0 $, 
+		với điều kiện đó phương trình có nghiệm $ x_0 $. Hỏi khẳng định nào sau đây đúng? 
+		\choice
+		{\True $ x_0 \in \left[0;\dfrac{1}{3}\right] $}
+		{$ x_0 \in \left[-\dfrac{1}{3};-\dfrac{1}{2}\right] $}
+		{$ x_0 \in \left[\dfrac{2}{3};1\right] $}
+		{$ x_0 \in \left[1;2\right] $}
+		\loigiai{
+		Ta có  $ 2a+6b+19c=0 \Leftrightarrow 2a+6b=-19c \Leftrightarrow a+3b=\dfrac{-19c}{2}$.\\
+		Lại có $f(0)f\left(\dfrac{1}{3}\right)=\dfrac{1}{9}c(a+3b+9c)=\dfrac{1}{9}c\dfrac{-1}{2}c=\dfrac{-1}{18}c^2\leq 0$.\\
+		Vậy phương trình luôn có nghiệm $ x_0 \in \left[0;\dfrac{1}{3}\right]$.
+		} 
+	\end{ex}
+\begin{ex}%[1D4K3-6][Đề cương Toán 11, Hk2, Chu Văn An, Hà Nội][Nguyễn Thành Sơn]\\
+	Trong các khẳng định sau đây, khẳng định nào đúng. Trên khoảng $(-2;2)$ phương trình $2x^3 - 6x + 1 = 0$
+	\choice
+	{vô nghiệm}
+	{có đúng $2$ nghiệm}
+	{có đúng $1$ nghiệm}
+	{\True có đúng $3$ nghiệm}
+	\loigiai{
+		Xét hàm số $f(x) = 2x^3 - 6x + 1$ là hàm đa thức nên liên tục trên $\mathbb{R}$.\\
+		Suy ra: hàm số liên tục trên $\left[-2;2 \right]$.\\
+		Ta có: $\bullet$ $\heva{&f \left(-\dfrac{19}{10}\right) = - \dfrac{659}{500} \\& f \left(-\dfrac{18}{10}\right) = \dfrac{17}{125}} \Rightarrow f \left(-\dfrac{19}{10}\right) \cdot f \left(-\dfrac{18}{10}\right) <0 \Rightarrow \exists x_1 \in \left(-\dfrac{19}{10}; -\dfrac{18}{10} \right): f(x_1) = 0$. \hfill(1) \\
+		$\bullet$ $\heva{&f(0) = 1 \\&f\left(\dfrac{1}{2} \right)  = -\dfrac{1}{2}} \Rightarrow f(0) \cdot f\left(\dfrac{1}{2}\right) < 0 \Rightarrow \exists x_2 \in \left(0; \dfrac{1}{2} \right): f(x_2) = 0$. \hfill(2) \\
+		$\bullet$ $\heva{&f(1) = -3 \\& f\left(\dfrac{18}{10}\right) = \dfrac{233}{125}} \Rightarrow f(1) \cdot f\left(\dfrac{18}{10}\right) < 0 \Rightarrow \exists x_3 \in \left(1; \dfrac{18}{10}\right): f(x_3) = 0$. \hfill(3)\\
+		Từ (1),(2),(3) suy ra phương trình $2x^3 - 6x + 1 = 0$ có $3$ nghiệm trên $(-2;2)$.
+	}
+\end{ex}
+\begin{ex}%	[Đề cương HK  2, THPT Chu Văn An, HN, 2017-2018][1D4K3-6][MyNguyen]\\
+	Tìm tất cả giá trị thực của tham số $m$ để phương trình $(m^2-3m+2)x^3-3x+1=0$ có nghiệm?
+	\choice
+	{\True $m \in \mathbb{R}$}
+	{$m \in \{1;2\}$}
+	{$m \in \mathbb{R} \setminus \{1;2\}$}
+	{$m \in \varnothing$}
+	\loigiai{
+	Trường hợp 1. Với $m=1$ hoặc $m=2$ thì phương trình có nghiệm là $x=\dfrac{1}{3}$. \\
+	Trường hợp 2. Với $m^2-3m+2\ne 0$. Đặt $f(x)= (m^2-3m+2)x^3-3x+1$ là hàm đa thức nên liên tục trên $\mathbb{R} \quad (1)$. Khi đó $\lim\limits_{x\to -\infty}f(x)=-\infty$ hoặc $\lim\limits_{x\to +\infty} f(x)=-\infty$. Từ đó, tồn tại $A<0$ và $x_0 \in \mathbb{R}$ sao cho $f(x_0) =A<0$.\\
+	Mặt khác  $f(0)=1$ nên $f(0)\cdot f(x_0) <0 \quad (2)$. Từ $(1)$ và $(2)$ suy ra phương trình $f(x)=0$ luôn có nghiệm nằm giữa $0$ và $x_0$.\\
+	Từ hai trường hợp trên suy ra phương trình luôn có nghiệm với mọi $m \in \mathbb{R}$.
+	}
+\end{ex}
+\begin{ex}%[1D4G3-6][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Lê Hoàng Lâm]\\
+	Cho phương trình $x^{12}+1=4x^4.\sqrt{x^n-1}$, ($n\in \mathbb{Z^{+}}$). Tìm số $n$ nhỏ nhất để phương trình có nghiệm.	
+\choice
+	{$n=3$}
+	{\True $n=5$}
+	{$n=\dfrac{1}{2}$}
+	{$n=10$}
+\loigiai{
+	Với $n$ chẵn thì ta có $|x|\geq 1$, nếu $x_0$ là nghiệm của phương trình thì $-x_0$ cũng là nghiệm của phương trình.\\ Với $n$ lẻ thì ta có $x\geq 1$. Lại có $x=1$ không là nghiệm của phương trình nên ta chỉ cần xét $x>1$.\\
+	Áp dụng bất đẳng thức AM-GM ta có:
+	$$x^4+1\geq 2x^2$$
+	$$x^8-x^4+1=\left(x^4-1\right)^2+x^4\geq 2x^2\sqrt{x^4-1}$$
+	Suy ra: $x^{12}+1\geq 4x^4\sqrt{x^4-1}$.\\
+	Dấu bằng không xảy ra nên ta có: $x^{12}+1>4x^4\sqrt{x^4-1}\geq 4x^4\sqrt{x^n-1}$ với mọi $n\leq 4$.\\
+	Với $n=5$ ta xét hàm số $f(x)=x^{12}+1-4x^4\sqrt{x^5-1}$.\\
+	Ta có: $f(1)=2,f(\sqrt[5]{2})=1+4\sqrt[5]{4}-4\sqrt[5]{16}<0$ nên phương trình $f(x)=0$ có nghiệm thuộc $\left(1;\sqrt[5]{2}\right)$.\\
+	Vậy $n=5$ là giá trị cần tìm.
+		}
+\end{ex} 
+\begin{ex}%[1D4G3-6][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Lê Hoàng Lâm]\\
+	
+	Cho phương trình $ax^2+bx+c=0$ ($a\ne 0$) thỏa mãn $\dfrac{a}{m+2}+\dfrac{b}{m+1}+\dfrac{c}{m}=0$, với $m>0$. Chọn câu khẳng định đúng trong các câu sau.
+	
+\choice
+	{Phương trình luôn có nghiệm $x\in \left(-2;-1\right)$}
+	{Phương trình luôn có nghiệm $x\in \left(1;2\right)$}
+	{Phương trình luôn có nghiệm $x\in \left(2;3\right)$}
+	{\True Phương trình luôn có nghiệm $x\in \left(0;1\right)$}
+\loigiai{
+	Xét $f(x)=\dfrac{a.x^{m+2}}{m+2}+\dfrac{b.x^{Ơm+1}}{m+1}+\dfrac{c.x^m}{m}$. Ta thấy $f(x)$ liên tục và có đạo hàm trên $\left[0;1\right]$. Theo định lý Lagrange thì tồn tại $x_0 \in \left[0;1\right]$ sao cho: $f'(x_0)=\dfrac{f(1)-f(0)}{1-0}=\dfrac{a}{m+1}+\dfrac{b}{m+1}+\dfrac{c}{m}=0$\\
+	Suy ra $$f'(x_0)=0\Leftrightarrow a.x^{m+1}+b.x^m+c.x^{m-1}=0 \Leftrightarrow x^{m-1}\left(ax_{0}^2+bx_0+c\right)=0\Leftrightarrow ax_{0}^2+bx_{0}+c=0$$
+	Vậy phương trình $ax^2+bx+c=0$ có nghiệm $x_{0}\in \left(0;1\right)$.
+		}
+\end{ex} 
+\chapter{Chương 5. Đạo hàm}
+\maCH{5}
+\section{Đạo hàm và ý nghĩa của đạo hàm}
+	\dang{Tính đạo hàm bằng định nghĩa}
+\begin{ex}%[1D5K1-1][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Phan Tấn Phú]\\
+Cho hàm số $y=f(x)=\left\{\begin{array}{lll}
+\dfrac{3-\sqrt{4-x}}{4}&\text{nếu}& x \ne 0\\
+\dfrac{1}{4} &\text{nếu}& x=0.
+\end{array}\right.$
+Tính $f'(0)$.
+\choice
+{$f'(0)=\dfrac{1}{4}$}
+{$f'(0)=\dfrac{1}{32}$}
+{\True $f'(0)=\dfrac{1}{16}$}
+{Không tồn tại}
+\loigiai{
+Ta có
+$$
+\begin{aligned}
+&\mathop{\lim}\limits_{x\to 0}\dfrac{f(x)-f(0)}{x-0}=\mathop{\lim}\limits_{x\to 0}\dfrac{\dfrac{3-\sqrt{4-x}}{4}-\dfrac{1}{4}}{x}\\
+=&\mathop{\lim}\limits_{x\to 0}\dfrac{2-\sqrt{4-x}}{4x}
+=\mathop{\lim}\limits_{x\to 0} \dfrac{4-(4-x)}{4x\left(2+\sqrt{4-x}\right)}\\
+=&\mathop{\lim}\limits_{x\to 0}\dfrac{1}{4\left(2+\sqrt{4-x}\right)}=\dfrac{1}{16}.
+\end{aligned}
+$$
+Vậy $f'(0)=\dfrac{1}{16}$.
+}
+\end{ex}
+\section{Quy tắc tính đạo hàm}
+	\dang{Tính đạo hàm và bài toán liên quan}
+\begin{ex}%[1D5Y2-1][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Nguyễn Hữu Nhanh Tiến]\\
+	Cho hàm số $y=3x^3+x^2+1$. Tìm tập hợp các giá trị $x$ thỏa mãn $y'\leq 0$.
+	\choice
+	{$\left(-\infty;-\dfrac{9}{2} \right] \cup \left[0;+\infty\right)$}
+	{$\left(-\infty;-\dfrac{2}{9} \right] \cup \left[0;+\infty\right)$}
+	{$\left[-\dfrac{9}{2};0\right]$}
+	{\True $\left[-\dfrac{2}{9};0\right]$}
+	\loigiai{
+	Ta có $y'=9x^2+2x$\\
+	$y'\leq 0 \Leftrightarrow 9x^2+2x\leq 0 \Leftrightarrow x\left(9x+2\right) \leq 0 \Leftrightarrow -\dfrac{2}{9}\leq x \leq 0$.
+}
+	\end{ex}
+  \begin{ex}%[1D5B2-1][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][BanNt]\\
+ Tính đạo hàm của hàm số $y=\dfrac{x^2+2x-3}{x+2}$.
+ \choice
+ {$y'=\dfrac{x^2+4x+5}{(x+2)^2} $}
+ {\True $y'=1+\dfrac{3}{(x+2)^2} $}
+ {$y'=\dfrac{x^2+6x+7}{(x+2)^2} $}
+ {$y'=\dfrac{x^2+8x+1}{(x+2)^2} $}
+ \loigiai{
+ Có $y'=\dfrac{(2x+2)(x+2)-(x^2+2x-3)}{(x+2)^2}=\dfrac{x^2 +4x +7}{(x+2)^2}$.
+ }
+ \end{ex}
+  \begin{ex}%[1D5B2-1][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][BanNt]\\
+ Cho hàm số $f(x)=\dfrac{x^3}{x-1}$. Phương trình $f'(x)=0$ có tập nghiệm $S$ là
+ \choice
+ {$S=\left\{ 0; \dfrac{2}{3}\right \}$}
+ {$S=\left\{ -\dfrac{3}{2}; 0\right \} $}
+ {\True $ S= \left\{0; \dfrac{3}{2}\right \}$}
+ {$S= \left\{ - \dfrac{2}{3}; 0 \right \}$}
+ \loigiai{
+ Điều kiện $x \ne 1$.\\
+ Ta có $f'(x)=\dfrac{3x^2(x-1)-x^3}{(x-1)^2}=\dfrac{2x^3-3x^2}{(x-1)^2}$.\\
+ $f'(x)=0 \Leftrightarrow 2x^3-3x^2 =0 \Leftrightarrow \hoac{&x=0\\&x=\dfrac{3}{2}}$.\\
+ Vậy $S= \left\{ 0; \dfrac{3}{2}\right \}$.
+ }
+ \end{ex}
+\begin{ex}%[1D5B2-1][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Đỗ Vũ Minh Thắng]\\
+Tính đạo hàm của hàm số $y=x\sqrt{x^2-2x}$.
+\choice{\True $y'=\dfrac{2x^2-3x}{\sqrt{x^2-2x}} $}
+{$y'=\dfrac{2x^2-2x-1}{\sqrt{x^2-2x}} $}
+{$y'=\dfrac{3x^2-4x}{\sqrt{x^2-2x}} $}
+{$y'=\dfrac{2x-2}{\sqrt{x^2-2x}} $}
+\loigiai{
+\[
+y'=\sqrt{x^2-2x}+x\cdot \dfrac{2x-2}{2\sqrt{x^2-2x}}=\dfrac{x^2-2x+x(x-1)}{\sqrt{x^2-2x}}=\dfrac{2x^2-3x}{\sqrt{x^2-2x}}.
+\]
+}
+\end{ex}
+\begin{ex}%[1D5B2-1][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Đỗ Vũ Minh Thắng]\\
+Cho hàm số $f(x)=\dfrac{1-3x+x^2}{x-1}$. Tập nghiệm của bất phương trình $f'(x)>0$ là
+\choice{$S=\mathbb{R}$}
+{$S=(1;+\infty )$}
+{\True $S=\mathbb{R}\setminus \{1\}$}
+{$S=\varnothing$}
+\loigiai{
+Điều kiện xác định $x\ne 1$.\\
+$f'(x)=\dfrac{x^2-2x+2}{(x-1)^2}>0 \Rightarrow x^2-2x+2>0\Rightarrow x\in \mathbb{R}.$\\
+Kết hợp với điều kiện, suy ra $S=\mathbb{R}\setminus \{1\}$.
+}
+\end{ex}
+\begin{ex}%[1D5B2-1][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Dương BùiĐức]\\
+	Tính đạo hàm của hàm số $y=(x^{2}-2)(2x-1)$.
+	\choice
+	{$y'=4x$}
+	{\True $y'=6x^{2}-2x-4$}
+	{$y'=3x^{2}-6x+2$}
+	{$y'=2x^{2}-2x+4$}
+	\loigiai{
+		Ta có $y'=2x(2x-1)+2(x^{2}-2)=6x^{2}-2x-4$.
+	}
+\end{ex}
+\begin{ex}%[1D5B2-1][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Phan Tấn Phú]\\
+Cho hàm số $y=(2x^2+1)^3$. Tìm tập hợp tất cả nghiệm của bất phương trình $y'\ge 0$.
+\choice
+{$\mathbb{R}$}
+{$(-\infty;0]$}
+{$\varnothing$}
+{\True $[0;+\infty)$}
+\loigiai{
+Ta có $y'=3(2x^2+1)^2\cdot (2x^2+1)'=12x(2x^2+1)^2$. Ta có
+$$y'\ge 0 \Leftrightarrow 12x(2x^2+1)^2 \ge 0 \Leftrightarrow x\ge 0$$
+}
+\end{ex}
+  \begin{ex}%[1D5K2-1][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][BanNt]\\
+ Cho hàm số $f(x)=\heva{&ax^2+bx+1,\, x\geq 0 \\& ax-b-1, \, x<0}$. Biết hàm số $f(x)$ có đạo hàm tại $x=0$. Tính $T=a+2b$.
+ \choice
+ {\True $T=-6 $}
+ {$T=0 $}
+ {$ T=-4$}
+ {$ T=4$}
+ \loigiai{
+ Hàm số $f(x)$ có đạo hàm tại $x=0$ suy ra hàm số liên tục tại $x=0$\\
+  $\Leftrightarrow \lim \limits _{x\to 0^+}f(x)=\lim \limits _{x\to 0^-}f(x) \Leftrightarrow 1=-b-1 \Leftrightarrow b=-2$.\\
+Mặt khác $f'(x)=\heva{&2ax+b, \, x\geq 0\\& a, \, x<0}$. Hàm số có đạo hàm tại $x=0$ suy ra $f'(0^+)=f'(0^-)\Leftrightarrow b=a$.\\
+Khi đó $a=b=-2\Rightarrow T=-6$.
+ }
+ \end{ex}
+\begin{ex}%[1D5K2-1][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Dương BùiĐức]\\
+	Cho hàm số $f(x)=\sqrt{x^{2}-2x}$. Bất phương trình $f'(x)\geq f(x)$ có bao nhiêu nghiệm nguyên?
+	\choice
+	{$2$}
+	{\True $0$}
+	{$3$}
+	{$1$}
+	\loigiai{
+		Tập xác định $\mathscr{D}=(-\infty;0]\cup [2;+\infty)$.\\
+		Ta có $f'(x)=\dfrac{x-1}{\sqrt{x^{2}-2x}}$.\\
+		Xét bất phương trình $f'(x)\geq f(x)\Leftrightarrow\dfrac{x-2}{\sqrt{x^2-2x}}\geq \sqrt{x^{2}-2x}$ (điều kiện $x\in (-\infty;0)\cup (2;+\infty)$).\\
+		Ta có $x-1\geq x^{2}-2x\Leftrightarrow x^{2}-3x+1\leq 0\Leftrightarrow \dfrac{3-\sqrt{5}}{2}\leq x\leq \dfrac{3+\sqrt{5}}{2}$.\\
+		Kết hợp với điều kiện xác định của bất phương trình thì không có giá trị nguyên của $x$ thỏa mãn đề bài.
+	}
+\end{ex}
+\begin{ex}%[1D5K2-1][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Dương BùiĐức]\\
+	Cho hàm số $y=\dfrac{1}{3}x^3-(2m+1)x^2-mx-4$. Tìm tất cả các giá trị của $m$ để $y'\geq 0$ với $\forall x\in \mathbb{R}$.
+	\choice
+	{$m\in \left(-1;-\dfrac{1}{4}\right)$}
+	{\True $m\in \left[-1;-\dfrac{1}{4}\right]$}
+	{$m\in \left[-1;\dfrac{1}{4}\right]$}
+	{$m\in (-\infty;-1]\cup \left[-\dfrac{1}{4};+\infty\right)$}
+	\loigiai{
+Ta có $y'=x^2-2(2m+1)x-m\geq 0,\ \forall x\in \mathbb{R}$\\
+$\Leftrightarrow \triangle'\leq 0\Leftrightarrow (4m^2+4m+1)+m\leq 0\Leftrightarrow 4m^2+5m+1\leq 0\Leftrightarrow -1\leq m\leq -\dfrac{1}{4}$.
+}
+\end{ex}
+	\dang{Tiếp tuyến tại điểm}
+\begin{ex}%[1D5B2-2][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Nguyễn Hữu Nhanh Tiến]\\
+	Tính đạo hàm của hàm số $f\left(x\right)=-x^4+4x^3-3x^2+2x+1$ tại điểm $x=-1$.
+	\choice
+	{$f'\left(1\right)=15$}
+	{$f'\left(1\right)=4$}
+	{$f'\left(1\right)=14$}
+	{\True $f'\left(1\right)=24$}
+\loigiai{ $f\left(x\right)=-x^4+4x^3-3x^2+2x+1 \Rightarrow f'\left(x\right)=-4x^3+12x^2-6x+2$.\\
+	Vậy $f'\left(-1\right)=24$.
+	}
+	\end{ex}
+\begin{ex}%[1D5B2-2][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Nguyễn Hữu Nhanh Tiến]\\
+	Cho hàm số $y=x^3-3x^2+2x+1$ có đồ thị $\left(C\right)$. Gọi $A\left(a;y\left(a\right)\right), B\left(;y\left(b\right)\right)$ là hai điểm phân biệt thuộc $\left(C\right)$ sao cho tiếp tuyến của $\left(C\right)$ tại $A, B$ có cùng hệ số góc. Mệnh đề nào sau đây đúng?
+	\choice
+	{\True $a+b=2$}
+	{$a+b=3$}
+	{$a+b=0$}
+	{$a+b=1$}
+	\loigiai{Hàm số $y=x^3-3x^2+2x+1 \Rightarrow y'=3x^2-6x+2$.\\
+	 Gọi $A\left(a;y\left(a\right)\right), B\left(;y\left(b\right)\right)$ là hai điểm phân biệt thuộc $\left(C\right)$ sao cho tiếp tuyến của $\left(C\right)$ tại $A, B$ có cùng hệ số góc.\\
+	  $\Rightarrow y'\left(a\right)=y'\left(b\right) \Leftrightarrow 3a^2-6a+2=3b^2-6b+2 \Leftrightarrow \left(a-b\right)\left[ 3\left(a+b\right)-6\right]=0 \Rightarrow a+b=2$.
+	}
+	\end{ex}
+  \begin{ex}%[1D5B2-2][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][BanNt]\\
+ Viết phương trình tiếp tuyến của đồ thị hàm số $y=-x^2+5$ tại điểm có tung độ bằng $-1$ và hoành độ âm.
+ \choice
+ {$y=2\sqrt{6}(x-\sqrt{6})+1 $}
+ {$y=2\sqrt{6}(x-\sqrt{6})-1 $}
+ {\True $y=2\sqrt{6}(x+\sqrt{6})-1  $}
+ {$y=-2\sqrt{6}(x+\sqrt{6})-1  $}
+ \loigiai{
+ Có $-1=-x^2+5 \Leftrightarrow x^2=6 \Leftrightarrow \hoac{&x=\sqrt{6}\\& x=-\sqrt{6}}$.\\ Suy ra tiếp điểm có tung độ $-1$ và hoành độ âm là $M(-\sqrt{6}, -1)$.\\
+ Lại có $y'=-2x \Rightarrow y'(-\sqrt{6})=2\sqrt{6}$. \\
+ Khi đó tiếp tuyến cần tìm là $y=2\sqrt{6}(x+\sqrt{6})-1$.
+ }
+ \end{ex}
+\begin{ex}%[1D5B2-2][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Đỗ Vũ Minh Thắng]\\
+Viết phương trình tiếp tuyến của đồ thị hàm số $y=\dfrac{4}{x-1}$ tại điểm có hoành độ bằng $-1$.
+\choice{\True $y=-x-3$}{$y=-x+2$}{$y=x-1$}{$y=x+2$}
+\loigiai{
+Tại điểm có hoành độ $x=-1$ thì tung độ $y=\dfrac{4}{-1-1}=-2$.\\
+Ta có $y'=-\dfrac{4}{(x-1)^2}$. Phương trình tiếp tuyến của đồ thị hàm số $y=\dfrac{4}{x-1}$ tại $(-1;-2)$ là $$y=-\dfrac{4}{(-1-1)^2}(x+1)-2 \Rightarrow y=-x-3.$$
+}
+\end{ex}
+	\dang{Tiếp tuyến cho sẵn hệ số góc, song song - vuông góc}
+\begin{ex}%[1D5B2-3][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Nguyễn Hữu Nhanh Tiến]\\
+ Biết tiếp tuyến của đồ thị hàm số $y=\dfrac{ax+2}{bx+3}$ tại điểm $M\left(-2;-4\right)$ song song với đường thẳng $d: 7x-y+5=0$. Mệnh đề nào sau đây đúng?
+	\choice
+	{$a-2b=0$}
+	{$b-3a=0$}
+	{$b-2a=0$}
+	{\True $a-3b=0$}
+	\loigiai{ Ta có $M\left(-2;-4\right) $ thuộc đồ thị hàm số $y=\dfrac{ax+2}{bx+3}$ suy ra $\dfrac{-2a+2}{-2b+3}=-4 \, (1)$.\\
+	Tiếp tuyến của đồ thị hàm số tại $M$ song song với đường thẳng $d: y=7x+5 \Rightarrow y'\left(-2\right)=\dfrac{3a-2b}{\left(-2b+3\right)^2}=7 \, (2)$.\\
+	Từ $\left(1\right),\left(2\right) \Rightarrow \heva{&\dfrac{-2a+2}{-2b+3}=-4\\&\dfrac{3a-2b}{\left(-2b+3\right)^2}=7}\Rightarrow \heva{&a=3\\&B=1}$. 
+	}
+\end{ex}
+\begin{ex}%[1D5B2-3][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Đỗ Vũ Minh Thắng]\\
+Viết phương trình tiếp tuyến của đồ thị hàm số $y=x^4+x$, biết tiếp tuyến vuông góc với đường thẳng $d$: $x+5y=0$.
+\choice{$y=5x-2$}{\True $y=5x-3$}{$y=5x+3$}{$y=5x+2$}
+\loigiai{
+Tiếp tuyến vuông góc với $d\colon x+5y=0$ nên tiếp tuyến phải có hệ số góc là $k=5$.
+$$k=f'(x_0)=4x_0^3+1=5\Leftrightarrow x_0^3=1 \Leftrightarrow x_0=1.$$
+Tại $x_0=1$ thì tiếp tuyến có hệ số góc là $5$, suy ra $y_0=2$. Phương trình tiếp tuyến tại $(1;2)$ của đồ thị hàm số $y=x^4+x$ là
+\[
+y=5(x-1)+2\Rightarrow y=5x-3.
+\]
+}
+\end{ex}
+\begin{ex}%[1D5B2-3][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Phan Tấn Phú]\\
+Viết phương trình tiếp tuyến của đồ thị hàm số $y=x^3$, biết tiếp tuyến có hệ số góc bằng $12$.
+\choice
+{$y=12x\pm 8$}
+{\True 
+	$y=12x\pm 16$}
+{$y=12x\pm 4$}
+{$y=12x\pm 2$}
+\loigiai{
+Ta có $y'=3x^2$. Gọi $M(x_0;y_0)$ là tiếp điểm. Vì tiếp tuyến có hệ số góc bằng $12$ nên
+$$y'(x_0)=12 \Leftrightarrow 3x_0^2=12 \Leftrightarrow x_0=\pm 2$$
+Với $x_0=2$ ta được $y_0=8$. Ta thu được phương trình tiếp tuyến là $$y-8=12(x-2) \Leftrightarrow y=12x-16.$$
+Với $x_0=-2$ ta được $y_0=-8$. Ta thu được phương trình tiếp tuyến là $$y+8=12(x+2) \Leftrightarrow y=12x+16.$$
+}
+\end{ex}
+\begin{ex}%[1D5K2-3][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Dương BùiĐức]\\
+	Gọi $d$ là tiếp tuyến có hệ số góc nhỏ nhất của đồ thị hàm số $y=\dfrac{2}{3}x^3-4x^2+9x-11$. Hỏi đường thẳng $d$ đi qua điểm nào dưới đây?
+	\choice
+	{$M\left(-5;\dfrac{2}{3}\right)$}
+	{$M\left(5;-\dfrac{2}{3}\right)$}
+	{\True $M\left(2;-\dfrac{5}{3}\right)$}
+	{$M\left(-2;\dfrac{5}{3}\right)$}
+	\loigiai{
+Ta có $y'=2x^{2}-8x+9=2(x^{2}-4x+4)+1=2(x-2)^{2}+1\geq 1$.\\
+Dấu bằng xảy ra khi $x=2\Rightarrow y(2)=-\dfrac{5}{3}$. Phương trình tiếp tuyến có hệ số góc nhỏ nhất là $d\colon y=(x-2)-\dfrac{5}{3}$.\\
+Nhận xét: ta thấy $M\left(2;-\dfrac{5}{3}\right)$ nằm trên $d$.
+}
+\end{ex}
+	\dang{Tiếp tuyến đi qua một điểm}
+\begin{ex}%[1D5B2-4][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Nguyễn Hữu Nhanh Tiến]\\
+	Viết phương trình tiếp tuyến của đồ thị hàm số $y=4x^3-6x^2+1$, biết tiếp tuyến đi qua điểm $M\left(-1;-9\right)$.
+	\choice
+	{$y=24x+15$}
+	{$y=\dfrac{15}{4}x+\dfrac{21}{4}$}
+	{\True $y=24x+15; y=\dfrac{15}{4}x-\dfrac{21}{4}$}
+	{$y=24x+33$}
+\loigiai{$y'=12x^2-12x$.\\
+	Gọi $A\left(x_o;y_o\right)$ là tiếp điểm và phương trình tiếp tại $A$ có dạng $y=y'\left(x_o\right)\left(x-x_o\right)+y_o$\\
+	 Suy ra $\heva{&k=y'\left(x_o\right) = 12{x_0}^2+12x_0\\&y_0=4{x_o}^3-6{x_o}^2+1}.$\\
+	 Mặt khác tiếp tuyến đi qua điểm $M\left(-1;-9\right) \Rightarrow -9=\left(12{x_o}^2-12x_o\right)\left(-1-x_o\right)+4{x_o}^3-6{x_o}^2+1 \Leftrightarrow \hoac{&x_o=-\dfrac{5}{4}\\&x_o=-1} \Rightarrow \hoac{&y_o=-\dfrac{9}{16}\\&y_o=-9}$.\\
+	 Vậy phương trình tiếp tuyên là $y=24x+15; y=\dfrac{15}{4}x-\dfrac{21}{4}$.
+	}
+	\end{ex}
+\begin{ex}%[1D5B2-4][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Dương BùiĐức]\\
+	Viết phương trình tiếp tuyến của đồ thị hàm số $y=\dfrac{x^{2}}{4}-x+1$, biết tiếp tuyến đi qua điểm $A(2;-1)$.
+	\choice
+	{\True $y=-x+1$, $y=x-3$}
+	{$y=-x+3$, $y=x+1$}
+	{$y=-x-3$, $y=x-1$}
+	{$y=-x-1$, $y=x+3$}
+	\loigiai{
+		Ta có $y'=\dfrac{x}{2}-1$. Gọi tọa độ tiếp điểm là $\left( x_{0};\dfrac{x_{0}^{2}}{4}-x_{0}+1\right)$, ta có phương trình tiếp tuyến tại điểm $\left( x_{0};\dfrac{x_{0}^{2}}{4}-x_{0}+1\right)$ là $y=\left(\dfrac{x_{0}}{2}-1\right)(x-x_{0})+\dfrac{x_{0}^{2}}{4}-x_{0}+1$.\\
+		Vì tiếp tuyến đi qua $A(2;-1)$ nên ta có
+		\[ -1=\left(\dfrac{x_{0}}{2}-1\right)(2-x_{0})+\dfrac{x_{0}^{2}}{4}-x_{0}+1\Leftrightarrow x_{0}^{2}-4x_{0}=0\Leftrightarrow\hoac{&x_{0}=0\\ &x_{0}=4.} \]
+		\begin{itemize}
+			\item Với $x_{0}=0$ ta được $y_{0}=1$. Phương trình tiếp tuyến là $y=-x+1$.
+			\item Với $x_{0}=4$ ta được $y_{0}=1$. Phương trình tiếp tuyến là $y=x-3$.
+		\end{itemize}
+	}
+\end{ex}
+\begin{ex}%[1D5K2-4][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Phan Tấn Phú]\\
+Cho hàm số $y=\dfrac{2x+1}{x-1}$ có đồ thị $(C)$. Gọi $d$ là tiếp tuyến của $(C)$, biết $d$ đi qua điểm $A(4;-1)$. Gọi $M$ là tiếp điểm của $d$ và $(C)$. Toạ độ của điểm $M$ là
+\choice
+{\True $M(2;5)$, $M(-2;1)$}
+{$M(2;5)$, $M(0;-1)$}
+{$M(0;-1)$, $M(-2;1)$}
+{$M(-1;\frac{3}{2})$, $M(-2;1)$}
+\loigiai{
+Ta có $y'=\dfrac{-3}{(x-1)^2}$. Gọi $M(x_0;y_0)$ là tiếp điểm, trong đó $y_0=\dfrac{2x_0+1}{x_0-1}$. Ta có $y'(x_0)=\dfrac{-3}{(x_0-1)^2}$. Phương trình tiếp tuyến $d$ của $(C)$ tại $M$ là
+$$
+\begin{aligned}
+&y-y_0=y'(x_0)\cdot (x-x_0) \\
+\Leftrightarrow & y=\dfrac{-3}{(x_0-1)^2}\cdot (x-x_0)+\dfrac{2x_0+1}{x_0-1}
+\end{aligned}
+$$
+Vì $d$ qua điểm $A(4;-1)$ nên ta có
+$$
+\begin{aligned}
+&\dfrac{-3}{(x_0-1)^2}\cdot (4-x_0)+\dfrac{2x_0+1}{x_0-1}=-1\\
+\Leftrightarrow & -3(4-x_0)+(2x_0+1)(x_0-1)=-(x_0-1)^2\\
+\Leftrightarrow &  -12+3x_0+2x_0^2-x_0-1=-x_0^2+2x_0-1\\
+\Leftrightarrow & 3x_0^2-12=0\\
+\Leftrightarrow & x_0=\pm 2
+\end{aligned}
+$$
+Vậy ta có hai tiếp điểm là $M(2;5)$, $M(-2;1)$
+}
+\end{ex}
+	\dang{Tổng hợp về tiếp tuyến và các kiến thức liên quan}
+ \begin{ex}%[1D5B2-5][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][BanNt]\\
+ Cho hàm số $y=2x^3 +3x^2-4x+5$ có đồ thị $(C)$. Trong số các tiếp tuyến của $(C)$, có một tiếp tuyến có hệ số góc nhỏ nhất. Hệ số góc của tiếp tuyến này bằng
+ \choice
+ {$-7{,}5 $}
+ {$ -9{,}5$}
+ {$ -3{,}5$}
+ {\True $ -{5,5}$}
+ \loigiai{
+ Ta có $y'=6x^2+6x-4$, $\Delta =132$.\\
+ Giả sử tiếp tuyến của $(C)$ có hệ số góc là $k$. Khi đó $\min k=\min y'=\dfrac{-\Delta}{4a}=-5{,}5$.
+ }
+ \end{ex}
+\begin{ex}%[1D5G2-5][Đề cương khối 11 HK2, Chu Văn An, HN, 2018][Phan Tấn Phú]\\
+Cho hàm số $y=x^3-3x+1$	có đồ thị $(C)$. Gọi $A(x_A;y_A)$, $B(x_B;y_B)$ với $x_A>x_B$ là các điểm thuộc $(C)$ sao cho các tiếp tuyến tại $A, B$ song song với nhau và $AB=6\sqrt{37}$. Tính $S=2x_A-3x_B$.
+\choice
+{\True $S=15$}
+{$S=90$}
+{$S=-15$}
+{$S=-90$}
+\loigiai{
+Ta có $y'=3x^2-3$. Vì tiếp tuyến tại $A$ và $B$ song song với nhau nên
+$$y'(x_A)=y'(x_B) \Leftrightarrow 3x_A^2-3=3x_B^2-3 \Leftrightarrow (x_A-x_B)(x_A+x_B)=0 \Leftrightarrow x_A=\pm x_B.$$
+Vì $x_A>x_B$ nên chỉ được $x_A=-x_B$. Vì $AB=6\sqrt{37}$ nên
+$$
+\begin{aligned}
+&\sqrt{(x_B-x_A)^2+(y_B-y_A)^2}=6\sqrt{37}\\
+\Leftrightarrow &(x_B-x_A)^2 + \left[(x_B^3-3x_B+1)-(x_A^3-3x_A+1)\right]^2 = 1332\\
+\Leftrightarrow &(x_B-x_A)^2+\left[(x_B^3-x_A^3)-3(x_B-x_A)\right]^2 = 1332\\
+\Leftrightarrow & (2x_B)^2+\left(2x_B^3-6x_B\right)^2=1332\\
+\Leftrightarrow & x_B^2+\left[x_B\cdot (x_B^2-3)\right]^2=333
+\end{aligned}
+$$
+Đặt $t=x_B^2$ ta được
+$$
+\begin{aligned}
+&t+t(t-3)^2=333\\
+\Leftrightarrow & (t-9)(t^2+3t+37)=0\\
+\Leftrightarrow & t=9.
+\end{aligned}
+$$
+Ta được $x_B^2=9 \Leftrightarrow x_B=\pm 3$.\\
+Khi $x_B=3$ thì $x_A=-3$ (loại vì $x_A>x_B$).\\
+Khi $x_B=-3$ thì $x_A=3$ (nhận).\\
+Vậy $2x_A-3x_B=15$.
+}
+\end{ex}
+	\dang{Bài toán quãng đường, vận tốc, gia tốc}
+\begin{ex}%[1D5B2-6][Đề cương khối 11 Hk2, Chu Văn An, HN, 2018][Đỗ Vũ Minh Thắng]\\
+Một chất điểm chuyển động theo phương trình $s(t)=t^2$, trong đó $t$ tính bằng giây và $s(t)$ tính bằng mét. Tính vận tốc của chất điểm tại thời điểm $t=2$ giây.
+\choice{$3$m/s}{$2$m/s}{\True $4$m/s}{$5$m/s}
+\loigiai{
+$v(t)=s'(t)=2t$.\\
+Vận tốc của chất điểm tại thời điểm $t=2$ giây là $2\cdot 2=4$ m/s.
+}
+\end{ex}
+\section{Đạo hàm của các hàm số lượng giác}
+	\dang{Giới hạn hàm số lượng giác}
+\begin{ex}%[Đề cương khối 11 HK2, Chu Văn An, Hà Nội,2018][1D5G3-2][Cao Thành Thái]\\
+ Cho $a$ và $b$ là các số thực khác $0$. Tính $\lim\limits_{x \to 0} \dfrac{1-\sqrt{ax+1}}{\sin bx}$.
+ \choice
+  {$-\dfrac{2a}{b}$}
+  {$\dfrac{a}{2b}$}
+  {\True $-\dfrac{a}{2b}$}
+  {$\dfrac{2a}{b}$}
+ \loigiai
+  {
+  Với $a \neq 0$, $b \neq 0$, $x \neq 0$ ta có
+  \begin{eqnarray*}
+   \dfrac{1-\sqrt{ax+1}}{\sin bx} &=& \dfrac{-ax}{\left(1+\sqrt{ax+1}\right)\sin bx} = \dfrac{-a}{b\left(1+\sqrt{ax+1}\right)} \cdot \dfrac{bx}{\sin bx}
+   = \dfrac{-a}{b\left(1+\sqrt{ax+1}\right)} \cdot \dfrac{1}{\dfrac{\sin bx}{bx}}.
+  \end{eqnarray*}
+  Vậy $\lim\limits_{x \to 0} \dfrac{1-\sqrt{ax+1}}{\sin bx} = \lim\limits_{x \to 0} \left[ \dfrac{-a}{b\left(1+\sqrt{ax+1}\right)} \cdot \dfrac{1}{\dfrac{\sin bx}{bx}} \right] = -\dfrac{a}{2b} \cdot 1 = -\dfrac{a}{2b}$.
+  }
+\end{ex}

@@ -1,0 +1,437 @@
+\chapter{Tổ hợp - Xác suất}
+\section{Đại số tổ hợp}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Quy tắc cộng}
+
+\begin{dl}
+	Giả sử một công việc được hoàn thành bởi một trong hai trường hợp. Trường hợp 1 có $m$ cách thực hiện. Trường hợp 2 có $n$ cách thực hiện sao cho không có cách nào trùng với một trong $m$ cách ở trường hợp 1. Khi đó, số cách hoàn thành công việc là $m+n$.
+\end{dl}
+\subsubsection{Quy tắc nhân}
+\begin{dl}
+	Giả sử một công việc được hoàn thành bởi hai giai đoạn liên tiếp nhau. Giai đoạn 1 có $m$ cách thực hiện. Giai đoạn 2 có $n$ cách thực hiện. Khi đó, số cách hoàn thành công việc là $m\cdot n$.
+\end{dl}
+\subsubsection{Hoán vị}
+\begin{dn}
+	Cho tập hợp $A$ có $n$ phần tử,  $n\in \Bbb N^*$. Mỗi cách sắp xếp có thứ tự $n$ phần tử đó được gọi là một hoán vị của $n$ phần tử.
+\end{dn}
+\begin{dl}
+	Số hoán vị của $n$ phần tử được tính theo công thức $\mathrm{P}_n = n!$.
+\end{dl}
+\subsubsection{Chỉnh hợp}
+\begin{dn}
+	Cho tập hợp $A$ có $n$ phần tử,  $n\in \Bbb N^*$. Mỗi cách sắp xếp có thứ tự $k$ phần tử ($0< k \le n$) trong số $n$ phần tử đó được gọi là một chỉnh hợp chập $k$ của $n$ phần tử.
+\end{dn}
+\begin{dl}
+	Số chỉnh hợp chập $k$ của $n$ phần tử được tính theo công thức $\mathrm{A}^k_n = \dfrac{n!}{(n-k)!}$.
+\end{dl}
+\subsubsection{Tổ hợp}
+\begin{dn}
+	Cho tập hợp $A$ có $n$ phần tử,  $n\in \Bbb N$. Mỗi tập con có $k$ phần tử ($0\le k \le n$) của $A$ được gọi là một tổ hợp chập $k$ của $n$ phần tử.
+\end{dn}
+\begin{dl}
+	Số tổ hợp chập $k$ của $n$ phần tử được tính theo công thức $\mathrm{C}^k_n = \dfrac{n!}{k!(n-k)!}$.
+\end{dl}
+
+\begin{dl}
+	Hai tính chất cơ bản của tổ hợp.
+	\begin{itemize}
+	\item Cho $k,n$ là các số tự nhiên thỏa mãn $0\le k \le n, n \ge 1$. Khi đó $\mathrm{C}^k_n =\mathrm{C}^{n-k}_n $.
+	\item Cho $k,n$ là các số tự nhiên thỏa mãn $1\le k \le n$. Khi đó $\mathrm{C}^k_{n+1}=\mathrm{C}^k_n + \mathrm{C}^{k-1}_n$.
+	\end{itemize}
+\end{dl}
+
+\subsection{Các dạng toán và công thức giải nhanh}
+
+\begin{dang}{Đếm số ước nguyên dương (hoặc nguyên) của một số tự nhiên}
+\textbf{Bài toán:} Tìm số các ước nguyên hoặc số các ước nguyên dương của một số tự nhiên $n$.\\
+\textbf{Phương pháp giải:}\\
+Phân tích $n$ ra thừa số nguyên tố được $n=A^a B^b C^c\cdots Z^z$, trong đó $A,B,C,\ldots , Z$ là các số nguyên tố, $a,b,c,\ldots ,z$ là các số tự nhiên.\\
+Gọi $m=A^{a_1} B^{b_1} C^{c_1}\cdots Z^{z_1}$ là một ước nguyên dương của $n$.\\
+Suy ra $\heva{& 0\le a_1 \le a\\ & 0\le b_1 \le b\\& \ldots \ldots\ldots \\& 0\le z_1\le z}$ suy ra có $a+1$ cách chọn $a_1$; $b+1$ các chọn $b_1$; $\ldots$; $z+1$ cách chọn $z_1$.\\
+Vậy số các ước nguyên dương của $n$ được tính theo công thức $$T=(a+1)(b+1)\cdots (z+1).$$\\
+\begin{note}
+Nếu $m$ là một ước nguyên dương của $n$ thì $-m$ cũng là một ước của $n$ nên số các ước số nguyên của $n$ luôn gấp đôi số các ước nguyên dương của $n$ và được tính theo công thức $$T=2(a+1)(b+1)\cdots (z+1).$$
+\end{note}
+\end{dang}
+\begin{vd}%[Nguyễn Hiếu-Dự án EX-CTGN]%[1D2K1-2]
+Tìm số các ước số nguyên dương của số $A=2^3\cdot 3^4 \cdot 5^7 \cdot 7^6$.
+\choice
+{2240}
+{504}
+{\True 1120}
+{1008}
+\loigiai{
+Số các ước nguyên dương của $A$ bằng $(3+1)(4+1)(7+1)(6+1)=1120$.
+}
+\end{vd}
+\begin{vd}%[Nguyễn Hiếu-Dự án EX-CTGN]%[1D2K1-2]
+Số $A=35\, 280$ có bao nhiêu ước số nguyên?
+\choice
+{\True 180}
+{90}
+{45}
+{32}
+\loigiai{
+Ta có $35\, 280 = 2^4\cdot 3^2 \cdot 7^2\cdot 5^1$.\\
+Số các ước số nguyên của $A$ là $2(4+1)(2+1)(2+1)(1+1)=180$.
+}
+\end{vd}
+
+\begin{dang}{Sắp xếp các phần tử đứng cạnh nhau}
+\textbf{Bài toán:} Có bao nhiêu cách sắp xếp có thứ tự $m_1$ phần tử $a_1$ khác nhau, $m_2$ phần tử $a_2$ khác nhau,..., $m_k$ phần tử $a_k$ khác nhau sao cho các phần tử cùng lại $a_i, i=1,2,\ldots,k$ đứng cạnh nhau. \\
+\textbf{Phương pháp giải:}\\
+Với mỗi $i=1,2,\ldots, k$ ta coi $m_i$ phần tử $a_i$ như một phần tử $b_i$ thì ta có $m_i !$ cách tạo ra các phần tử $b_i$.\\
+Xếp $k$ phần tử $b_1, b_2, \ldots, b_k$ với nhau ta có $k!$ cách xếp.\\
+Vậy theo quy tắc nhân thì số các xếp sao cho các phần tử cùng loại $a_i, i=1,2,\ldots,k$ đứng cạnh nhau là $m_1 ! m_2 ! \cdots m_k ! k!$.
+\end{dang}
+\begin{vd}%[Nguyễn Hiếu-Dự án EX-CTGN]%[1D2K2-1]
+Có bao nhiêu cách xếp 4 bạn nữ và 6 bạn nam vào một dãy gồm 10 ghế sao cho các bạn nữ đứng cạnh nhau?
+\choice
+{\True $120\,960$}
+{$17\,280$}
+{$3\,628\,800$}
+{$5\,050$}
+\loigiai{
+Số cách xếp thỏa mãn yêu cầu bài toán là $4!\times 7! = 120\,960$.
+}
+\end{vd}
+\begin{vd}%[Nguyễn Hiếu-Dự án EX-CTGN]%[1D2K2-1]
+Một nhóm gồm 21 bạn học sinh trong đó có 6 bạn học sinh lớp 11A1, 7 bạn lớp 11A2, 8 bạn lớp 11A3 xếp thành một hàng dọc để mua vé tham quan du lịch. Hỏi có bao nhiêu cách xếp sao cho các em học sinh ở cùng một lớp đứng cạnh nhau?
+\choice
+{\True $3!\times 6! \times 7!\times 8!$}
+{$21!$}
+{$6! \times 7!\times 8!$}
+{$3\times 6! \times 7!\times 8!$}
+\loigiai{
+Số cách xếp thỏa mãn yêu cầu bài toán là $3!\times 6! \times 7!\times 8!$.
+}
+\end{vd}
+
+\begin{dang}{Hoán vị lặp}
+\textbf{Bài toán:} Cho $m_i$ phần tử $a_i$ giống nhau, trong đó $i=1,2,\ldots k$ và $m_1+m_2+\cdots + m_k =n$. Có bao nhiêu cách xếp có thứ tự $n$ phần tử trên.  \\
+\textbf{Phương pháp giải:}\\
+Giả sử $n$ phần tử là khác nhau thì ta có $n!$ cách xếp. Tuy nhiên, các phần tử $a_i$ giống nhau nên khi hoán vị các phần tử $a_i$ với nhau ta được $m_i !$ cách xếp giống nhau. Vì vậy số cách xếp thỏa mãn là
+$$\dfrac{n!}{m_1 ! m_2 ! \cdots m_k !}.$$
+\end{dang}
+\begin{vd}%[Nguyễn Hiếu-Dự án EX-CTGN]%[1D2K2-5]
+Từ các chữ số 1, 2, 3 có thể lập được bao nhiêu số tự nhiên có 6 chữ số sao cho số $k$ xuất hiện đúng $k$ lần, với $k=1,2,3$?
+\choice
+{\True $60$}
+{$720$}
+{$120$}
+{$30$}
+\loigiai{
+Số các số thỏa mãn yêu cầu bài toán là $\dfrac{6!}{2!\times 3!}=60$.
+}
+\end{vd}
+\begin{vd}%[Nguyễn Hiếu-Dự án EX-CTGN]%[1D2K2-5]
+Từ các chữ số 1, 2, 3, 4 có thể lập được bao nhiêu số tự nhiên chẵn có 10 chữ số sao cho số $k$ xuất hiện đúng $k$ lần, với $k=1,2,3,4$?
+\choice
+{$720$}
+{$120$}
+{\True $60$}
+{$30$}
+\loigiai{
+Nếu số cuối cùng là số 2 thì số các số thỏa mãn là $\dfrac{9!}{3!\times 4!}=2520$.\\
+Nếu số cuối cùng là số 4 thì số các số thỏa mãn là $\dfrac{9!}{2!\times 3! \times 3!}=5040$.\\
+Vậy theo quy tắc cộng ta có $2520 + 5040 = 7560$ số thỏa mãn yêu cầu bài toán.
+}
+\end{vd}
+
+\begin{dang}{Tính tổng các số được thành lập}
+\textbf{Bài toán:} Từ các chữ số 1, 2, ..., 9 lập được bao nhiêu số có $k$ chữ số đôi một khác nhau ($1\le k \le 9$). Tính tổng các số được thành lập.\\
+\textbf{Phương pháp giải:}\\
+Có $\mathrm{A}^k_9$ số được thành lập, và ta gọi tập hợp các số được thành lập là $X$.\\
+Với mỗi số $\overline{a_1a_2\ldots a_k} \in X$ luôn tồn tại duy nhất 1 số $\overline{b_1b_2\ldots b_k} \in X$ sao cho $\overline{a_1a_2\ldots a_k} + \overline{b_1b_2\ldots b_k}= \underbrace{11\ldots 1}_{k \text{ chữ số } 1}0$.\\
+Do đó tổng các số cần lập là 
+$\dfrac{1}{2}\mathrm{A}^k_9\times \underbrace{11\ldots 1}_{k \text{ chữ số } 1}0$.
+\end{dang}
+\begin{vd}%[Nguyễn Hiếu-Dự án EX-CTGN]%[1D2G2-2]
+Gọi $X$ là tập hợp các số tự nhiên có 4 chữ số đôi một khác nhau được thành lập từ các chữ số 1, 2, 3,...,9. Tính tổng các số của $X$.
+\choice
+{$33\,596\,640$}
+{$8\,399\,160$}
+{$4\,199\,580$}
+{\True $16\, 798\,320$}
+\loigiai{
+Áp dụng công thức ta có tổng các số là $\dfrac{1}{2}\mathrm{A}^4_9\times 11110=16\, 798\,320$.
+}
+\end{vd}
+
+\section{Nhị thức Niu-tơn}
+\subsection{Tóm tắt lí thuyết}
+\begin{dn}
+	Công thức Nhị thức Niu-tơn:
+	$$ (a+b)^n=a^n+\mathrm{C}_n^1a^{n-1}b+\cdots+\mathrm{C}_n^{n-1}ab^{n-1}+b^n $$
+	\centering Hay $ (a+b)^n=\sum\limits_{k=0}^n \mathrm{C}_n^ka^{n-k}b^k $
+\end{dn}
+
+\subsection{Các dạng toán và công thức giải nhanh}
+
+\begin{dang}{Một số khai triển Nhị thức Niu-tơn đặc biệt}
+	$$\mathrm{C}_n^0+\mathrm{C}_n^1+\cdots+\mathrm{C}_n^n=2^n  \qquad (1)$$
+	$$\mathrm{C}_n^0-\mathrm{C}_n^1+\cdots+(-1)^n\mathrm{C}_n^n=0 \qquad (2)$$
+\end{dang}
+\begin{vd}%[Ngô Thị Loan, dự án EX-CTGN]%[1D2B3-3]
+	Tổng $\mathrm{C}_{2018}^1+\mathrm{C}_{2018}^2+\cdots+\mathrm{C}_{2018}^{2018}$ bằng
+	\choice
+	{$ 2^{2018} $}
+	{\True $ 2^{2018}-1 $}
+	{$ 4^{2018} $}
+	{$ 2^{2018}+1 $}
+	\loigiai{Theo CT (1), ta có $\mathrm{C}_{2018}^1+\mathrm{C}_{2018}^2+\cdots+\mathrm{C}_{2018}^{2018}=2^{2018}-\mathrm{C}_{2018}^0=2^{2018}-1$. }
+\end{vd}
+\begin{vd}%[Ngô Thị Loan, dự án EX-CTGN]%[1D2K3-3]
+	Tìm số nguyên dương $ n $ thỏa mãn hệ thức
+	$$\mathrm{C}_{2n}^1+\mathrm{C}_{2n}^3+\cdots+\mathrm{C}_{2n}^{2n-1}=2048.$$
+	\choice
+	{\True $6$}
+	{$7$}
+	{$8$}
+	{$9$}
+	\loigiai{Ta có: 
+		$$\mathrm{C}_{2n}^0+\mathrm{C}_{2n}^1+\cdots+\mathrm{C}_{2n}^{2n}=2^{2n};$$
+		$$\mathrm{C}_{2n}^0-\mathrm{C}_{2n}^1+\cdots+(-1)^{2n}\mathrm{C}_{2n}^{2n}=0.$$
+		Trừ vế theo vế ta được	$2\left(\mathrm{C}_{2n}^1+\mathrm{C}_{2n}^3+\cdots+\mathrm{C}_{2n}^{2n-1}\right)=2^{2n}$.
+		\\ Suy ra $ 2^{2n}=2\cdot 2048=2^{12} \Leftrightarrow n=6  $. }
+\end{vd}
+\begin{dang}{Hệ số của $ x^t $ trong khai triển $ (ax+b)^n $}
+	Theo công thức nhị thức Niu-tơn, ta có
+	 $$ (ax+b)^n=\sum\limits_{k=0}^n \mathrm{C}_n^kb^{n-k}(ax)^k .$$
+	\\ Do đó, hệ số của $ x^t $ trong khai triển trên là $ \mathrm{C}_n^ta^tb^{n-t} $, với $t\in \Bbb N, 0\le t \le n$.
+\end{dang}
+\begin{vd}%[Ngô Thị Loan, dự án EX-CTGN]%[1D2B3-2]
+	Tìm hệ số của $ x^7 $ trong khai triển của $ f(x)=(2x-3)^{10} $.
+	\choice
+	{$-2099520$}
+	{$2099520$}
+	{\True $-414720$}
+	{$414720$}	
+	\loigiai{
+		Áp dụng công thức trên, ta có hệ số của $ x^7 $ trong khai triển trên là $ \mathrm{C}_{10}^7\cdot 2^7(-3)^{10-7}=-414720 $.
+	}
+\end{vd}
+\begin{vd}%[Ngô Thị Loan, dự án EX-CTGN]%[1D2B3-2]
+	Tổng của số hạng thứ 4 trong khai triển $ (5a-1)^5 $ và số hạng thứ 5 trong khai triển $ (2a-3)^6 $ là
+	\choice
+	{$4160a^2$}
+	{$-4610a^2 $}
+	{$ - 4160a^2 $}
+	{\True $4610a^2 $}
+	\loigiai{
+		Số hạng thứ 4 trong khai triển $ (5a-1)^5 $ là số hạng chứa $ a^2 $ với hệ số $ \mathrm{C}_5^2 \cdot 5^2(-1)^3= -250$.
+		\\	Số hạng thứ 5 trong khai triển $ (2a-3)^6 $ là số hạng chứa $ a^2 $ với hệ số $ \mathrm{C}_6^2 \cdot 2^2(-3)^4= 4860$.
+		\\	Vậy đáp số là $ (-250+4860)\cdot a^2=4610a^2 $.}
+\end{vd} 
+
+\begin{dang}{Tìm hệ số trong khai triển lũy thừa của một đa thức}
+	Hệ số của $ x^m $ trong khai triển $ f(x)=\left(a_tx^t+a_{t-1}x^{t-1}+\cdots+a_1x+a_0\right)^n $ là
+	$$ \sum\dfrac{n!}{k_t!k_{t-1}!\cdots k_0!}\cdot a_t^{k_t}a_{t-1}^{k_{t-1}}\cdots a_0^{k_0}. $$
+	Với $ k_0, \ldots, k_{t-1}, k_t \in \mathbf{N} $ thỏa mãn
+	$ \heva{&k_0+k_1+\cdots+k_{t-1}+k_t=n\\ & k_1+2k_2+\cdots+tk_t=m.} $
+\end{dang}
+
+\begin{vd}%[Ngô Thị Loan, dự án EX-CTGN]%[1D2B3-2]
+	Tìm hệ số của $ x^7 $ trong khai triển của $ f(x)=(2x-3)^{10} $.
+	\choice
+	{$ -2099520 $}
+	{$ 2099520 $}
+	{\True $ -414720 $}
+	{$ 414720 $}
+	\loigiai{
+		Áp dụng công thức trên, ta cần tìm $ k_0, k_1 \in \mathbf{N} $ thỏa mãn
+		$$\heva{&k_0+k_1=10\\& k_1=7} \Leftrightarrow \heva{&k_0=3\\ &k_1=7.}$$
+		Vậy hệ số của $ x^7 $ trong khai triển trên là
+		$$\dfrac{10!}{3!7!}\cdot 2^7\cdot (-3)^3=-414720.$$
+		So sánh với bài giải VD3, ta thấy kết quả là hoàn toàn giống nhau, tuy nhiên cách làm vừa rồi có vẻ phức tạp hơn đối với đa thức 2 hạng tử. Thử xét xem nó có thực sự hữu dụng trong trường hợp đa thức nhiều hạng tử hơn, mời bạn đọc xem ví dụ tiếp theo.}
+\end{vd}
+
+\begin{vd}%[Ngô Thị Loan, dự án EX-CTGN]%[1D2K3-2]
+	Tìm hệ số của $ x^6 $ trong khai triển của $ f(x)=\left(3x^2-2x-1\right)^9 $.
+	\choice
+	{\True $ -84 $}
+	{$ -89 $}
+	{$ 105 $}
+	{$ -184 $}
+	\loigiai{
+		\begin{enumerate}
+			\item \textit{Cách 1}: Ta cần tìm các bộ số tự nhiên $ (k_2,k_1,k_0) $ thỏa mãn 
+				$$\heva{&k_0+k_1+k_2=9\\&k_1+2k_2=6.}$$
+				Bằng cách thử lần lượt, ta tìm được $ (k_2, k_1, k_0)\in \{(0;6;3), (1;4;4), (2;2;5), (3;0;6)\}. $
+				\\ Do đó hệ số của $ x^6 $ trong khai triển là
+				$$\dfrac{9!}{0!6!3!}\cdot 3^0(-2)^6(-1)^3
+				+\dfrac{9!}{1!4!4!}\cdot 3^1(-2)^4(-1)^4
+				+\dfrac{9!}{2!2!5!}\cdot 3^2(-2)^2(-1)^5
+				+\dfrac{9!}{3!0!6!}\cdot 3^3(-2)^0(-1)^6=-84.$$ 
+			\item \textit{Cách 2}: 	Thử làm bài toán này theo cách truyền thống:
+			\begin{eqnarray*}
+				&(3x^2-2x-1)^9 & =\sum\limits_{k=0}^9\mathrm{C}_9^k(3x^2)^{9-k}(-2x-1)^k\\
+				& & =\sum\limits_{k=0}^9\mathrm{C}_k^9 3^{9-k}x^{18-2k}\sum\limits_{t=0}^k\mathrm{C}_k^t (-2x)^t(-1)^{k-t}\\
+				& & =\sum\limits_{k=0}^9\sum\limits_{t=0}^k\mathrm{C}_9^k \mathrm{C}_k^t 3^{9-k}2^t(-1)^kx^{18-2k+t}.\\
+			\end{eqnarray*}
+			Ta cần tìm các số tự nhiên $ k $, $ t $ thỏa mãn \\
+			$$\heva{&t\le k\le 9\\ &18-2k+t=6}\Leftrightarrow (k,t)\in \{(6;0),(7;2), (8;4), (9;6) \} . $$
+			Vậy hệ số của $ x^6 $ trong khai triển là 
+			$$\mathrm{C}_9^9\mathrm{C}_9^6 3^0 2^6 (-1)^9
+			+\mathrm{C}_9^8\mathrm{C}_8^4 3^1 2^4 (-1)^8
+			+\mathrm{C}_9^7\mathrm{C}_7^2 3^2 2^2 (-1)^7
+			+\mathrm{C}_9^6\mathrm{C}_6^0 3^3 2^0 (-1)^6
+			=-84.$$
+			Rõ ràng công thức tính nhanh đã rút ngắn thời gian làm bài.
+		\end{enumerate}
+	}
+\end{vd}
+\begin{vd}%[Ngô Thị Loan, dự án EX-CTGN]%[1D2B3-2]
+	Tìm hệ số của $ x^3 $ trong khai triển $ f(x)=\left(x-\dfrac{2}{x^2}\right) $.
+	\choice
+	{$ -4608 $}
+	{\True $ 144 $}
+	{$ -288 $}
+	{$ 72 $}
+	\loigiai{Công thức tính nhanh vẫn đúng trong trường hợp này.
+		\\Ta cần tìm các số tự nhiên $ k_{-2} $, $ k_1 $ thỏa mãn
+		$$\heva{&k_{-2}+k_1=9\\ &-2k_{-2}+k_1=3 }\Leftrightarrow \heva{&k_{-2}=2\\ &k_1=7.}$$
+			Do đó hệ số của $ x^3 $ trong khai triển là $ \dfrac{9!}{7!2!}\cdot (-2)^2=144 $. }
+	\end{vd}
+
+\section{Xác suất của biến cố}
+\subsection{Tóm tắt lí thuyết}
+\begin{dn}
+	\textbf{Phép thử ngẫu nhiên} (gọi tắt là phép thử) là một thí nghiệm hay một hành động mà kết quả của nó không đoán trước được và có thể xác định được tập hợp các kết quả có thể xảy ra của phép thử đó. Phép thử thường được kí hiệu bởi chữ $T$. 
+	
+\end{dn}
+
+\begin{dn}
+	Tập hợp tất cả các kết quả có thể xảy của phép thử được gọi là \textbf{không gian mẫu} của phép thử, và được kí hiệu là $\Omega$ (đọc là ô--mê--ga).
+\end{dn}
+
+\subsubsection{Biến cố}
+\begin{dn}
+	Biến cố $A$ liên quan đến phép thử $T$ là biến cố mà xảy ra hay không xảy ra của $A$ tùy thuộc vào kết quả của $T$. Mỗi kết quả của phép thử $T$ làm cho $A$ xảy ra, được gọi là một \textbf{kết quả thuận lợi cho $A$}. Tập hợp các kết quả thuận lợi cho $A$ được kí hiệu là $\Omega_A$. Khi đó ta nói biến cố $A$ được mô tả bởi $\Omega_A$.
+	
+\end{dn}
+
+\begin{dn}
+	\textbf{Biến cố chắc chắn} là biến cố luôn xảy ra khi thực hiện phép thử $T$. Biến cố chắc chắn được mô tả bởi tập $\Omega$ và kí hiệu là $\Omega$.
+\end{dn}
+
+\begin{dn}
+	\textbf{Biến cố không thể xảy ra} là biến cố không bao giờ xảy ra khi phép thử $T$ được thực hiện. Biến cố không thể xảy ra được mô tả bởi tập $\varnothing$.
+	
+\end{dn}
+\subsubsection{Định nghĩa cổ điển của xác suất}
+\begin{dn}
+	Giả sử phép thử $T$ có không gian mẫu $\Omega$ là một tập hữu hạn và kết quả của $T$ là đồng khả năng. Nếu $A$ là một biến cố liên quan đến phép thử $T$ và $\Omega_A$ là tập hợp các kết quả thuận lợi cho $A$ thì xác suất của $A$ là một số, kí hiệu là $\mathrm{P}(A)$, được xác định bởi công thức
+	$$\mathrm{P}(A) = \frac{\vert \Omega_A \vert}{\vert \Omega \vert}.$$
+	Như vậy ta có
+	\begin{itemize}
+		\item $0 \leq \vert \Omega_A \vert \leq 1$.
+		\item $\mathrm{P}(\Omega) = 1$ và $\mathrm{P}(\varnothing) = 0$.
+	\end{itemize}
+		
+	\[\]
+\end{dn}
+
+\subsubsection{Quy tắc cộng xác suất}
+\begin{dn}
+	Cho 2 biến cố $A$ và $B$. Biến cố $A$ hoặc $B$ xảy ra, kí hiệu là $A \cup B$, được gọi là \textbf{hợp của hai biến cố}. Nếu $\Omega_A$ và $\Omega_B$ lần lượt là tập hợp các kết quả thuận lợi cho $A$ và $B$ thì tập hợp các kết quả thuận lợi của $A\cup B$ là $\Omega_A \cup \Omega_B$. 
+\end{dn}
+
+\begin{dn}
+	Cho hai biến cố $A$ và $B$. Hai biến $A$ và $B$ gọi là \textbf{xung khắc} nếu biến cố này xảy ra thì biến cố kia không xảy ra. Hai biến cố $A$ và $B$ là hai biến cố xung khắc nếu và chỉ nếu $\Omega_A \cap \Omega_B = \varnothing$.
+\end{dn}
+
+\begin{dl}
+	Nếu hai biến cố $A$ và $B$ xung khắc thì xác suất để $A$ và $B$ xảy ra là
+	\[\mathrm{P}(A \cup B) = \mathrm{P}(A) + \mathrm{P}(B).\]
+\end{dl}
+
+\begin{dl}
+	Cho $A$ là một biến cố. Khi đó biến cố \textit{không xảy ra $A$}, kí hiệu là $\overline{A}$, được gọi là \textbf{biến cố đối} của $A$. Xác suất của biến cố đối $\overline{A}$ là
+	\[\mathrm{P}(\overline{A}) = 1 - \mathrm{P}(A).\]
+\end{dl}
+
+\subsubsection{Quy tắc nhân xác suất}
+\begin{dn}
+	Cho hai biến cố $A$ và $B$. Biến cố cả $A$ và $B$ cùng xảy ra, kí hiệu là $AB$, được gọi là \textbf{giao của hai biến cố} $A$ và $B$. Nếu $\Omega_A$ và $\Omega_B$ lần lượt là tập hợp các kết quả thuận lợi cho $A$ và $B$ thì tập hợp các kết quả thuận lợi cho $AB$ là $\Omega_A \cap \Omega_B$.
+\end{dn}
+
+\begin{dn}
+	Hai biến cố $A$ và $B$ được gọi là \textbf{độc lập} với nhau nếu việc xảy ra hay không xảy ra của biến cố này không làm ảnh hưởng tới xác suất xảy ra của biến cố kia. 
+\end{dn}
+
+\begin{dl}
+	Nếu hai biến cố $A$ và $B$ độc lập với nhau thì
+	$\mathrm{P}(AB) = \mathrm{P}(A)\cdot \mathrm{P}(B)$.
+\end{dl}
+
+\subsection{Các dạng toán và công thức giải nhanh}
+
+\begin{dang}{Tính xác suất}
+	\begin{itemize}
+		\item Để xác định không gian mẫu của phép thử $T$ ta liệt kê tất cả các kết quả có thể xảy của $T$. 
+		\item Để tính số phần tử của một biến cố $A$ ta dùng các quy tắc đếm cơ bản, công thức hoán vị, chỉnh hợp, và tổ hợp. 
+		\item Để tính xác suất $\mathrm{P}(A)$ của một biến cố $A$ ta thực hiện các bước sau:
+		\begin{itemize}
+			\item \textit{Bước 1:} Đếm số phần tử của không gian mẫu.
+			\item \textit{Bước 2:} Đếm số phần tử của tập $A$.
+			\item \textit{Bước 3:} Tính $\mathrm{P}(A)$ theo công thức
+			\[\mathrm{P}(A) = \frac{|\Omega_A|}{|\Omega|}.\]
+		\end{itemize}
+	\end{itemize}
+
+\end{dang}
+
+\begin{vd}%[Giang Nguyễn, dự án EX-CTGN]%[1D2B5-2]
+	Một bình đựng có 5 viên bi, trong đó có 3 viên bi xanh và 2 viên bi đỏ. Lấy ngẫu nhiên ra hai viên bi. Tính xác suất để được 2 viên bi xanh. 
+	\choice
+	{\True $\dfrac{3}{10}$}
+	{$\dfrac{3}{5}$}
+	{$\dfrac{2}{5}$}
+	{$\dfrac{2}{3}$}
+	\loigiai {Ta có $\mathrm{C_{5}^2 = 10}$ cách chọn 2 viên bi trong 10 viên bi. Không gian mẫu gồm 10 phần tử.\\
+	 Có $\mathrm{C_{3}^2 = 10}$ cách chọn 2 viên bi trong 3 viên bi xanh. Đây là số phần tử của biến cố đang xét. \\
+	 Do đó xác suất để lấy được 2 viên bi xanh là $\dfrac{3}{10}$.}
+	
+	
+\end{vd}
+
+\begin{dang}{Tính xác suất dựa vào công thức cộng}
+Áp dụng trực tiếp quy tắc cộng xác suất.
+\end{dang}
+\begin{vd}%[Giang Nguyễn, dự án EX-CTGN]%[1D2B5-3]
+	Trong bình đựng có 10 viên bi, trong đó có 4 viên bi đỏ. Lấy ngẫu nhiên 3 viên bi. Tính xác suất để trong 3 viên bi lấy được 1 hoặc 2 viên bi đỏ.
+	\choice
+	{$\dfrac{3}{10}$}
+	{\True $\dfrac{4}{5}$}
+	{$\dfrac{1}{5}$}
+	{$\dfrac{1}{2}$}
+	\loigiai{
+	Đặt $A_1$ là biến cố ``trong 3 viên lấy ra được đúng 1 viên bi đỏ'' và $A_2$ là biến cố ``trong 3 viên lấy ra có đúng 2 viên bi đỏ''.\\
+	 Ta phải tính xác suất của biến cố $A$ là biến cố trong 3 viên lấy ra một hoặc hai viên bi đỏ. Các biến cố $A_1$ và $A_2$ là xung khắc. Do đó
+\[\mathrm{P}(A_1 + A_2) = \mathrm{P}(A_1) + \mathrm{P}(A_2)\]  
+\[\mathrm{P}(A_1) = \frac{\mathrm{C_{4}^1} \mathrm{C_{6}^2}}{\mathrm{C_{10}^3}} = \frac{1}{2}\]
+\[\mathrm{P}(A_2) = \frac{\mathrm{C_{4}^2} \mathrm{C_{6}^1}}{\mathrm{C_{10}^3}} = \frac{3}{10}\]
+Vậy
+\[\mathrm{P}(A) = \frac{1}{2} + \frac{3}{10} = \frac{4}{5}.\]
+}
+
+\end{vd}
+\begin{dang}{Tính xác suất dựa vào công thức nhân}
+Áp dụng trực tiếp quy tắc nhân xác suất.
+\end{dang}
+\begin{vd}%[Giang Nguyễn, dự án EX-CTGN]%[1D2K5-4]
+	Hai người bạn X và Y cùng đi câu cá. Xác suất để bạn X câu được ít nhất một con cá là $0{,}1$. Xác suất để bạn Y câu được ít nhất một con cá là $0{,}15$. Tính xác suất để hai bạn X và Y không trở về tay không.
+	\choice
+	{$0{,}765$}
+	{\True $0{,}235$}
+	{$0{,}9$}
+	{$0{,}85$}
+	\loigiai{
+	Xác suất để X trở về tay không là  $\mathrm{P}(A) = 1 - 0{,}1 = 0{,}9$.\\
+Xác suất để Y trở về tay không là  $\mathrm{P}(B) = 1 - 0{,}15 = 0{,}85$.\\
+Các biến cố $A$ và $B$ độc lập. Vậy xác suất để $A$ và $B$ trở về tay không là 
+$\mathrm{P}(AB) = \mathrm{P}(A) \mathrm{P}(B) = 0{,}9 \cdot 0{,}85 = 0{,}765$.
+Vậy sau buổi câu cá, xác suất để hai bạn không trở về tay không là 
+$1 - \mathrm{P}(AB) = 1 - 0{,}765 = 0{,}235$.}
+\end{vd}	

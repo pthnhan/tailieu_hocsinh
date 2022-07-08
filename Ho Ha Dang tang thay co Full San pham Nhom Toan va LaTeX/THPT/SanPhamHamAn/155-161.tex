@@ -1,0 +1,207 @@
+\begin{ex}%[WTT-218cau-ham-an-2D1, Phạm Doãn Lê Bình]%[2D1K5-3]
+\immini{	
+	Cho hàm số $y=f(x)=ax^3+bx^2+cx+d$ $(a\neq 0)$ có đồ thị như hình vẽ. Phương trình $f(f(x))=0$ có bao nhiêu nghiệm thực?
+	\choice
+	{$3$}
+	{$7$}
+	{\True $9$}
+	{$5$}
+}{
+\begin{tikzpicture}[scale=0.7,line join=round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\draw[->] (-2.3,0)--(3.1,0) node[below left] {\tiny $x$};
+\draw[->] (0,-2.3)--(0,3.1) node[below left] {\tiny $y$};
+\draw[dashed] (0,2)--(-1,2);
+\draw[dashed] (0,-2)--(1,-2);
+\draw (0,0) node [below left] {\tiny $O$};
+\foreach \x in {-2,-1,1,2}
+	\draw[thin] (\x,1pt)--(\x,-1pt) node [below] {\tiny $\x$};
+\foreach \y in {-2,2}
+	\draw[thin] (1pt,\y)--(-1pt,\y) node [left] {\tiny $\y$};
+\begin{scope}
+\clip (-2.2,-2.2) rectangle (3,3);
+\draw[samples=200,domain=-2:2,smooth,variable=\x] plot (\x,{1*((\x)^3)+0*((\x)^2)+-3*(\x)+0});
+\end{scope}
+\end{tikzpicture}
+}
+	\loigiai{
+		Đặt $t=f(x)$, phương trình $f(f(x))=0$ trở thành $f(t)=0(*)$ (số nghiệm phương trình $(*)$ là số giao điểm của đồ thị hàm số $y=f(x)$ với trục $Ox$). Nhìn vào đồ thị ta thấy phương trình $(*)$ có 3 nghiệm $t$ thuộc khoảng $(-2;2)$, với mỗi giá trị $t$ như vậy phương trình $f(x)=t$ có 3 nghiệm phân biệt. Vậy phương trình $f(f(x))=0$ có 9 nghiệm.\\
+		Lưu ý: khi $t$ có 3 giá trị thuộc $(-2;2)$ thì nghiệm phương trình $f(x)=t$ là giao điểm của đồ thị hàm số $y=f(x)$ và đường thẳng $y=t$, $t\in (-2;2)$ (là hàm hằng song song trục $Ox$).}
+\end{ex}
+
+\begin{ex}%[WTT-218cau-ham-an-2D1, Phạm Doãn Lê Bình]%[2D1K5-3]
+\immini{	
+	Cho hàm số $y=f(x)$ có đồ thị như hình vẽ. Hỏi có bao nhiêu điểm trên đường tròn lượng giác biểu diễn nghiệm của phương trình $f\left(f\left(\cos 2x\right)\right)=0$ ?
+	\choice
+	{$3$}
+	{\True $4$}
+	{$2$}
+	{$1$}
+}{
+	\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\draw[->] (-2.5,0)--(2.5,0) node[below left] {\tiny $x$};
+\draw[->] (0,-1.1)--(0,1.6) node[below left] {\tiny $y$};
+\draw (0,0) node [below left] {\tiny $O$};
+\draw[dashed] (-1,0)--(-1,1)--(1,1)--(1,0);
+\foreach \x in {-2,-1,1,2}
+	\draw[thin] (\x,1pt)--(\x,-1pt) node [below] {\tiny $\x$};
+\foreach \y in {1}
+	\draw[thin] (1pt,\y)--(-1pt,\y) node [left] {\tiny $\y$};
+\begin{scope}
+\clip (-3,-1) rectangle (3,2);
+\draw[samples=200,domain=-2:2,smooth,variable=\x] plot (\x,{-1*((\x)^4)+0*((\x)^3)+2*((\x)^2)+0*(\x)});
+\end{scope}
+\end{tikzpicture}
+}
+	\loigiai{
+		Từ đồ thị ta có $f(x)\leqslant 1,\forall x\in \mathbb{R}$ và suy ra được $f\left(\cos 2x\right)=\pm a\left(a>1\right)$ hoặc $f\left(\cos 2x\right)=0$ \\
+		TH1: Nếu $f\left(\cos 2x\right)=a>1$ thì phương trình này vô nghiệm.\\
+		TH2: Nếu $f\left(\cos 2x\right)=-a<-1$ thì $\left|\cos 2x\right|>1$, phương trình này vô nghiệm.\\
+		TH3: Nếu $f\left(\cos 2x\right)=0 \Leftrightarrow \cos 2x=\pm a$ (vô nghiệm) và $\cos 2x=0$ có 4 điểm trên vòng tròn lượng giác.\\
+		Vậy có $4$ điểm.}
+\end{ex}
+
+\begin{ex}%[WTT-218cau-ham-an-2D1, Phạm Doãn Lê Bình]%[2D1K5-3]
+Cho hàm số $f(x) = x^3-3x^2$. Có bao nhiêu giá trị nguyên của $m$ để đồ thị hàm số $g(x) = f \left( |x| \right) + m$ cắt trục hoành tại $4$ điểm phân biệt?
+\choice
+{\True $3$}
+{$4$}
+{$2$}
+{$0$}
+\loigiai{
+ $f'(x) = 3x^2 -6x$; $f'(x) = 0 \Rightarrow \hoac{& x= 0 \\ & x = 2}$. Bảng biến thiên của hàm số $y=f(x)$
+ 	\begin{center}
+	\begin{tikzpicture}[scale=0.8]
+\tkzTabInit[nocadre=false,lgt=1.2,espcl=2.5,deltacl=0.6] %phần bắt buộc
+{$x$ /0.6,$f’(x)$ /0.6,$f(x)$ /2} %phần bắt buộc
+{$-\infty$ , $0$ ,$2$ , $+\infty$} 
+\tkzTabLine{,+,0,-,0,+,} 
+\tkzTabVar{-/ $-\infty$ ,+/$0$,-/$-4$,+/$+\infty$}
+\end{tikzpicture}
+	\end{center}
+Bảng biến thiên của hàm số $y=f\left(|x| \right)$
+	\begin{center}
+	\begin{tikzpicture}[scale=0.8]
+\tkzTabInit[nocadre=false,lgt=1.5,espcl=2.5,deltacl=0.6] %phần bắt buộc
+{$x$ /0.6,$f’(x)$ /0.6,$f\left(|x|\right)$ /2} %phần bắt buộc
+{$-\infty$ ,$-2$, $0$ ,$2$ , $+\infty$} 
+\tkzTabLine{,-,0,+,0,-,0,+,} 
+\tkzTabVar{+/ $+\infty$,-/$-4$ ,+/$0$,-/$-4$,+/$+\infty$}
+\end{tikzpicture}
+	\end{center}
+
+Đồ thị hàm số $g(x)=f \left(|x|\right)$ cắt trục hoành tại $4$ điểm phân biệt\\
+$\Leftrightarrow$ phương trình $g(x)=0$ có $4$ nghiệm phân biệt\\
+$\Leftrightarrow$ phương trình $f\left(|x| \right)=-m$ có $4$ nghiệm phân biệt\\
+$\Leftrightarrow$ đường thẳng $d: y=-m$ cắt đồ thị hàm số $f \left( |x| \right)$ tại $4$ điểm phân biệt.\\
+Dựa vào bảng biến thiên của đồ thị hàm số $f\left( |x| \right)$. Điều kiện là $-4 < -m <0 \Leftrightarrow 0<m<4$.
+Do $m \in \mathbb{Z} \Rightarrow m \in \{1;2;3\}$ nên $m$ có $3$ giá trị.}
+\end{ex}
+
+\begin{ex}%[WTT-218cau-ham-an-2D1, Phạm Doãn Lê Bình]%[2D1K5-3]
+\immini{
+Cho hàm số $y=f(x)$  có bảng biến thiên như hình bên.
+Với các giá trị thực của tham số $m$, phương trình $f \left( |x| +m \right) = 0$  có nhiều nhất bao nhiêu nghiệm?
+\choice
+{$4$}
+{$5$}
+{\True $6$}
+{$3$}
+}{
+	\begin{tikzpicture}
+\tkzTabInit[nocadre=false,lgt=1.2,espcl=2.5,deltacl=0.6] %phần bắt buộc
+{$x$ /0.6,$f’(x)$ /0.6,$f(x)$ /2} %phần bắt buộc
+{$-\infty$ , $0$ ,$1$ , $+\infty$} 
+\tkzTabLine{,,d,,,,} 
+\tkzTabVar{-/ $-\infty$ ,+D-/$+\infty$ /$-\infty$,+/$3$,-/$-\infty$}
+\end{tikzpicture}
+}
+\loigiai{
+{\bf Phân tích:} Vì hàm số  $y=f \left( |x| +m \right)$ là hàm chẵn nên đồ thị đối xứng nhau qua trục  $Oy$ và đồ thị hàm số $y=f \left( x +m \right)$  có được bằng cách tịnh tiến đồ thị hàm số $y=f \left( x \right)$  qua trái hay qua phải $|m|$ đơn vị. Do đó, ta chỉ cần chọn giá trị tham số $m$  để phương trình $f \left(x+m\right) = 0$ có số nghiệm $x>0$ nhiều nhất.\\
+{\bf Áp dụng:} Phương trình $f(x)=0$ có ba nghiệm phân biệt nên phương trình $f(x+m)=0$ có tối đa ba nghiệm phân biệt lớn hơn $0$. Do đó phương trình $f(|x|+m)=0$ có nhiều nhất là $6$ nghiệm phân biệt.\\
+Giả sử phương trình $f(x)=0$ có ba nghiệm phân biệt $x_1<0<x_2<1<x_3$. Ta chỉ cần chọn $m<x_1<0$. Khi đó hàm số $y=f(x+m)$ có bảng biến thiên 
+	\begin{center}
+	\begin{tikzpicture}[scale=0.8]
+	\tkzTabInit[nocadre=false,lgt=2.2,espcl=2.5,deltacl=0.6] %phần bắt buộc
+	{$x$ /0.6,$f\left(x+m\right)$ /2} %phần bắt buộc
+	{$-\infty$ ,$0$ ,$x_1-m$,$-m$, $x_2-m$,$1-m$, $x_3-m$ , $+\infty$}  
+	\tkzTabVar{-/ $-\infty$,R,R,+D-/$+\infty$ /$-\infty$,R,+/$3$,R,-/$-\infty$}
+	%\tkzTabVal{1}{3}{0.5}{$0$}{$1$}
+\end{tikzpicture}
+	\end{center}
+	Dựa vào bảng biến thiên ta thấy phương trình $f(x+m)=0$ có $3$ nghiệm phân biệt lớn hơn $0$ và do đó phương trình $f(|x|+m)=0$ có $6$ nghiệm phân biệt.
+}
+\end{ex}
+
+\begin{ex}%[WTT-218cau-ham-an-2D1, Phạm Doãn Lê Bình]%[2D1K5-3]
+Cho hàm số $f(x)=\dfrac{x+1}{x-2}$. Có bao nhiêu giá trị nguyên của $m$ để đồ thị hàm số $g(x)=f(|x|)+m$ cắt trục hoành tại $4$ điểm phân biệt?
+\choice
+{\True $0$}
+{$2$}
+{$4$}
+{$6$}
+\loigiai{
+TXĐ:  $\mathscr{D}=\mathbb{R}\setminus \{2\}$;  $f'(x)=-\dfrac{3}{(x-2)^2}<0$, $\forall x\in \mathscr{D}$.\\
+Bảng biến thiên hàm số $f(x)$
+	\begin{center}
+	\begin{tikzpicture}
+\tkzTabInit[nocadre=false,lgt=1.2,espcl=2.5,deltacl=0.6] %phần bắt buộc
+{$x$ /0.6,$f’(x)$ /0.6,$f(x)$ /2} %phần bắt buộc
+{$-\infty$ ,$2$ , $+\infty$} 
+\tkzTabLine{,-,d,-,} 
+\tkzTabVar{+/$1$,-D+/ $-\infty$/$+\infty$,-/$1$}
+\end{tikzpicture}
+	\end{center}
+Bảng biến thiên của hàm số $f(|x|)$
+	\begin{center}
+	\begin{tikzpicture}
+\tkzTabInit[nocadre=false,lgt=1.2,espcl=2.5,deltacl=0.6] %phần bắt buộc
+{$x$ /0.6,$f’(x)$ /0.6,$f(|x|)$ /2} %phần bắt buộc
+{$-\infty$ , $-2$, $0$, $2$ , $+\infty$} 
+\tkzTabLine{,+,d,+,d,-,d,-,} 
+\tkzTabVar{-/$1$,+D-/$+\infty$/$-\infty$,+/$-1$,-D+/ $-\infty$/$+\infty$,-/$1$}
+\end{tikzpicture}
+	\end{center}
+Đồ thị hàm số $g(x)=f(|x|)+m$ cắt trục hoành tại $4$ điểm phân biệt\\
+$\Leftrightarrow$ phương trình $g(x)=0$ có $4$ nghiệm phân biệt\\
+$\Leftrightarrow$ phương trình $f(|x|)=-m$ có $4$ nghiệm phân biệt\\
+$\Leftrightarrow$ đường thẳng $d:y=-m$  cắt đồ thị hàm số $f(|x|)$ tại $4$ điểm phân biệt.\\
+Dựa vào bảng biến thiên của đồ thị hàm số $f(|x|)$ thì không tồn tại giá trị nào của $m$ thỏa mãn.}
+\end{ex}
+
+\begin{ex}%[WTT-218cau-ham-an-2D1, Phạm Doãn Lê Bình]%[2D1K5-3]
+Cho hàm số $f(x)=\dfrac{x+1}{x-2}$. Có bao nhiêu giá trị nguyên của $m$  để đồ thị hàm số $g(x)=f(|x|)+m$ cắt trục hoành tại $2$ điểm phân biệt có hoành độ thuộc đoạn $\left[ -\dfrac{3}{2};\dfrac{3}{2}\right]$?
+\choice
+{$0$}
+{$2$}
+{\True $4$}
+{$6$}
+\loigiai{
+TXĐ:  $\mathscr{D}=\mathbb{R}\setminus \{2\}$;  $f'(x)=-\dfrac{3}{(x-2)^2}<0$, $\forall x\in \mathscr{D}$.\\
+Bảng biến thiên hàm số $f(x)$
+	\begin{center}
+	\begin{tikzpicture}
+\tkzTabInit[nocadre=false,lgt=1.2,espcl=2.5,deltacl=0.6] %phần bắt buộc
+{$x$ /0.6,$f’(x)$ /0.6,$f(x)$ /2} %phần bắt buộc
+{$-\infty$ ,$2$ , $+\infty$} 
+\tkzTabLine{,-,d,-,} 
+\tkzTabVar{+/$1$,-D+/ $-\infty$/$+\infty$,-/$1$}
+\end{tikzpicture}
+	\end{center}
+Bảng biến thiên của hàm số $f(|x|)$
+	\begin{center}
+	\begin{tikzpicture}
+\tkzTabInit[nocadre=false,lgt=1.2,espcl=2.5,deltacl=0.6] %phần bắt buộc
+{$x$ /0.6,$f’(x)$ /0.6,$f(|x|)$ /2} %phần bắt buộc
+{$-\infty$ , $-2$,$-\frac{3}{2}$, $0$, $\frac{3}{2}$, $2$ , $+\infty$} 
+\tkzTabLine{,+,d,+,,+,d,-,,-,d,-,} 
+\tkzTabVar{-/$1$,+D-/$+\infty$/$-\infty$,R,+/$-1$,R,-D+/ $-\infty$/$+\infty$,-/$1$}
+\end{tikzpicture}
+	\end{center}
+Đồ thị hàm số $g(x)=f(|x|)+m$  cắt trục hoành tại $2$ điểm phân biệt có hoành độ thuộc đoạn $\left[-\dfrac{3}{2};\dfrac{3}{2}\right]$ $\Leftrightarrow$  phương trình $g(x)=0$ có $2$  nghiệm phân biệt thuộc đoạn  $\left[-\dfrac{3}{2};\dfrac{3}{2}\right]$\\
+$\Leftrightarrow$ phương trình $f(|x|)=-m$ có $2$  nghiệm phân biệt thuộc đoạn  $\left[-\dfrac{3}{2};\dfrac{3}{2}\right]$\\
+$\Leftrightarrow$ đường thẳng $d:y=-m$ cắt đồ thị hàm số $f(|x|)$ tại $2$ điểm phân biệt có hoành độ thuộc đoạn  $\left[-\dfrac{3}{2};\dfrac{3}{2}\right]$.\\
+Dựa vào bảng biến thiên của đồ thị hàm số $f(|x|)$. Điều kiện là  $-5\le m< -1 \Leftrightarrow 1<m\le 5$.\\
+Do $m\in \mathbb{Z}$ nên $m\in\{2;3;4;5\}$. Vậy có $4$ giá trị nguyên của $m$ thỏa yêu cầu bài toán.}
+\end{ex}

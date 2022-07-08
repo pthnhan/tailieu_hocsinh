@@ -1,0 +1,619 @@
+\section{Phép chiếu song song. Hình biểu diễn của một hình không gian}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Phép chiếu song song}
+\begin{dn}
+	\immini{Cho mặt phẳng $(\alpha)$ và đường thẳng $\Delta$ cắt $(\alpha)$. Với mỗi điểm $M$ trong không gian, đường thẳng đi qua $M$ và song song hoặc trùng với $\Delta$ sẽ cắt $(\alpha)$ tại điểm $M'$ xác định. Điểm $M'$ gọi là \emph{hình chiếu song song} của điểm $M$ trên mặt phẳng $(\alpha)$ theo phương $\Delta$. Ta gọi $(\alpha)$ là \emph{mặt phẳng chiếu}, phương $\Delta$ là \emph{phương chiếu}. Phép đặt mỗi điểm $M$ với hình chiếu $M'$ của nó trên mặt phẳng $(\alpha)$ gọi là \emph{phép chiếu song song lên $(\alpha)$ theo phương $\Delta$}.}{\begin{tikzpicture}[scale=0.9]
+		\tkzInit[xmin=-3.5,xmax=5,ymin=-3, ymax=4] \tkzClip[space=.1]
+		\tkzDefPoints{-3/0/A, 3/0/B, 4/2/C, -2/2/D, 0/1/Q, -1/2/P, 0/4/M, 3/1/x}
+		%\tkzDrawCircle(O,A)
+		\tkzDefLine[parallel=through M,K=1](P,Q)\tkzGetPoint{N}
+		\tkzInterLL(M,N)(Q,x) \tkzGetPoint{M'}
+		\tkzInterLL(A,D)(P,Q) \tkzGetPoint{y}
+		\tkzInterLL(A,B)(P,Q) \tkzGetPoint{y'}
+		\tkzInterLL(M,M')(B,C) \tkzGetPoint{t}
+		\tkzDefLine[parallel=through y',K=1](P,Q)\tkzGetPoint{z}
+		\tkzDefLine[parallel=through t,K=1](P,Q)\tkzGetPoint{t'}
+		%\tkzInterLC(C,M)(O,A) \tkzGetPoints{E}{C}
+		%\tkzInterLC(A,B)(A,C) \tkzGetPoints{y}{P}
+		%\tkzInterLC(C,P)(O,A) \tkzGetPoints{C}{Q}
+		%\tkzTangent[at=Q](O) \tkzGetPoint{x}
+		\tkzDrawSegments(A,B B,C C,D D,A P,Q M,N P,y N,M' y',z t,t')
+		\tkzDrawSegments[dashed](Q,y' M',t)
+		%\tkzDrawLine[add = 1 and 1](Q,x)
+		\tkzDrawPoints[fill=white](M,M')
+		\tkzLabelSegment[above right](P,y){$\Delta$}
+		%\tkzLabelPoints[above](C)
+		%\tkzLabelPoint[left](M)
+		\tkzLabelPoints[below left](M,M')
+		\tkzMarkAngle[size=0.6cm,opacity=.5](B,A,D)
+		\tkzLabelAngle[pos =0.4](D,A,B){$\alpha$}
+		%\tkzLabelPoints[below left](O,P)
+		\end{tikzpicture}}
+\end{dn}
+\begin{note}
+	Nếu một đường thẳng có phương trùng với phương chiếu thì hình chiếu của đường thẳng đó là một điểm.
+\end{note}
+\subsubsection{Các tính chất của phép chiếu song song}
+Sau đây ta chỉ xét các hình chiếu của những đường thẳng có phương không trùng với phương chiếu.
+\begin{tc}Phép chiếu song song biến ba điểm thẳng hàng thành ba điểm thẳng hàng và không làm thay đổi thứ tự ba điểm đó.
+\end{tc}
+\begin{tc}
+	Phép chiếu song song biến đường thẳng thành đường thẳng, biến tia thành tia, biến đoạn thẳng thành đoạn thẳng.
+\end{tc}
+\begin{tc}
+	Phép chiếu song song biến hai đường thẳng song song thành hai đường thẳng song song hoặc trùng nhau.
+\end{tc}
+\begin{tc}
+	Phép chiếu song song không làm thay đổi tỉ số độ dài của hai đoạn thẳng nằm trên hai đường thẳng song song hoặc cùng nằm trên một đường thẳng.
+\end{tc}
+\subsubsection{Hình biểu diễn của một số hình không gian trên mặt phẳng}
+Hình biểu diễn của một hình $\mathscr{H}$ trong không gian là hình chiếu song song của hình $\mathscr{H}$ trên một mặt phẳng theo một phương chiếu nào đó hoặc hình đồng dạng với hình chiếu đó.
+\begin{enumerate}
+	\item Một tam giác bất kì bao giờ cũng có thể coi là hình biểu diễn của một tam giác tùy ý cho trước (có thể là tam giác đều, tam giác cân, tam giác vuông, \ldots)
+	\item Một hình bình hành bất kì bao giờ cũng có thể coi là hình biểu diễn của một hình bình hành tùy ý cho trước (có thể là hình bình hành, hình vuông, hình chữ nhật, hình thoi, \ldots)
+	\item Một hình thang bất kì bao giờ cũng có thể coi là hình biểu diễn của một
+	hình thang tùy ý cho trước, miễn là tỉ số độ dài hai đáy của hình biểu diễn
+	phải bằng tỉ số độ dài hai đáy của hình đã cho.
+	\item Người ta thường dùng hình elip để biểu diễn hình tròn.
+\end{enumerate}
+\subsection{Các dạng toán}
+\begin{dang}{Vẽ hình biểu diễn của một hình cho trước}
+	{\bf Phương pháp giải}
+	\begin{enumerate}
+		\item Xác định các yếu tố song song của hình.
+		\item Xác định tỉ số điểm chia đoạn thẳng.
+		\item Hình biểu diễn phải thỏa mãn
+		\begin{itemize}
+			\item Bảo đảm tính song song trên hình cho trước;
+			\item Bảo đảm tỉ số của điểm chia đoạn thẳng
+		\end{itemize}
+	\end{enumerate}
+\end{dang}
+\begin{vd}%[Phan Chiến Thắng]%[1H2B5]
+	Trong không gian, cho tam giác $ABC$. Biết rằng, tam giác $A'B'C'$ có các đỉnh $A'$, $B'$, $C'$ tương ứng là hình chiếu song song của các điểm $A$, $B$, $C$. Chứng minh rằng trung điểm các cạnh của tam giác $A'B'C'$ là hình chiếu song song của trung điểm các cạnh tam giác $ABC$. 
+	\loigiai{\immini{Xét tam giác $ABC$. Gọi $M$ là trung điểm cạnh $AB$. Vì  $A'B'$ là hình chiếu song song của $AB$ nên hình chiếu song song của $M$, kí  hiệu $M'$, thuộc $A'B'$. Ta có: $\dfrac{MA}{MB}=1$ suy ra $\dfrac{M'A'}{M'B'}=\dfrac{MA}{MB}=1$ do đó $M'$ là trung điểm $A'B'$. Tương tự cho các trung điểm còn lại.}{Hình}
+	}
+\end{vd}
+\begin{vd}%[Phan Chiến Thắng]%[1H2B5]
+	Hình thang có thể là hình biểu diễn của hình bình hành không?
+	\loigiai{
+		Hình thang không thể là hình biểu diễn của hình bình hành vì hai cạnh bên của hình thang không song song trong khi đó cặp cạnh đối của hình bình hành thì song song.
+	}
+\end{vd}
+\begin{vd}%[Phan Chiến Thắng]%[1H2K5]
+	Vẽ hình biểu diễn của ngũ giác đều.
+	\loigiai{\immini{Giả sử ta có ngũ giác đều $ABCDE$ với các đường chéo $AC$ và $BD$ cắt nhau tại $M$. Xét tam giác $ABC$ và tam giác $BMC$ là hai tam giác cân và có chung góc ở đáy nên đồng dạng. Ta có: $\dfrac{AC}{BC}=\dfrac{BC}{MC}$ suy ra $\dfrac{MC}{AM}=\dfrac{2}{3}$, $\dfrac{MB}{MD}=\dfrac{2}{3}$. Để xác định hình biểu diễn, ta vẽ một hình bình hành $PQST$ bất kì làm hình biểu diễn hình thoi $AMDE$. Sau đó kéo dài các cạnh cho đúng tỉ lệ $\frac{2}{3}$}{
+			\begin{tikzpicture}[scale=1]
+			\tkzInit[xmin=-2.5,xmax=5,ymin=-0.5, ymax=3] \tkzClip[space=.1]
+			\tkzDefPoints{-2/0/P, 2/0/Q, 3/2/S, -1/2/T}
+			\tkzDefPointWith[linear,K=1.5](Q,S)\tkzGetPoint{Q'}
+			\tkzDefPointWith[linear,K=1.5](T,S)\tkzGetPoint{T'}
+			\tkzDrawSegments(P,Q Q,S S,T T,P S,Q' S,T' Q',T' T,Q' Q,T')
+			\tkzLabelPoints[above](T',Q',T,P,Q,S)
+			\end{tikzpicture}}
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Phan Chiến Thắng]%[1H2B5]
+	Vẽ hình biểu diễn của một hình lục giác đều.
+	\loigiai{
+		\immini{ Giả sử ta có hình lục giác đều $ABCDEF$. Gọi $O$ là giao điểm $AD$ và $BE$. Nhận thấy, tứ giác $OABC$ vừa là hình bình hành vừa là hình thoi. Các điểm $A,B,C$ đối xứng với $D,E,F$ qua $O$. Vậy, chỉ cần dựng hình bình hành $PQRT$ rồi lấy đối xứng qua $S$}{	\begin{tikzpicture}[scale=1]
+			\tkzInit[xmin=-1,xmax=5,ymin=-0.5, ymax=5] \tkzClip[space=.1]
+			\tkzDefPoints{-1/0/P, 1/0/Q, 2/2/S, 0/2/T}
+			\tkzDefPointWith[linear,K=2](Q,S)\tkzGetPoint{Q'}
+			\tkzDefPointWith[linear,K=2](T,S)\tkzGetPoint{T'}
+			\tkzDefPointWith[linear,K=2](P,S)\tkzGetPoint{P'}
+			\tkzDrawSegments(P,Q Q,S S,T T,P S,Q' S,T' T,Q' Q,T' P,P' Q',P' P',T')
+			\tkzLabelPoints[above](Q',T,S)
+			\tkzLabelPoints[right](T')
+			\tkzLabelPoints[below](P,Q)
+			\end{tikzpicture}}
+	}
+\end{bt}
+\begin{bt}%[Phan Chiến Thắng]%[1H2K5]
+	Hãy vẽ các dạng hình biểu diễn có thể của một tứ diện.
+	\loigiai{Nội dung}
+\end{bt}
+\begin{bt}%[Phan Chiến Thắng]%[1H2G5]
+	Vẽ hình chiếu của một tứ diện theo phương là đường thẳng nối trung điểm hai cạnh đối diện.
+	\loigiai{\immini{Hình biểu diễn của tứ diện theo phương là đường thẳng nối trung điểm hai cạnh đối của tứ diện là hình bình hành như hình vẽ bên}{\begin{tikzpicture}[scale=1]
+			\tkzInit[xmin=-2.5,xmax=5,ymin=-0.5, ymax=3] \tkzClip[space=.1]
+			\tkzDefPoints{-2/0/A', 2/0/B', 3/2/C', -1/2/D'}
+			%\tkzInterLL(D',B')(A',C')\tkzGetPoint{O'}
+			%\tkzDefPointWith[linear,K=0.5](O',C')\tkzGetPoint{H'}
+			%\tkzDefPointWith[linear,K=2](T,S)\tkzGetPoint{T'}
+			%\tkzDefPointWith[linear,K=2](P,S)\tkzGetPoint{P'}
+			\tkzDrawSegments(A',B' B',C' C',D' D',A' A',C')
+			\tkzLabelPoints[above](C',D')
+			\tkzLabelPoints[below](A',B')
+			\end{tikzpicture}}}
+\end{bt}
+\begin{bt}%[Phan Chiến Thắng]%[1H2G5]
+	Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình chữ nhật. Gọi $O$ là giao điểm của $AC$ và $BD$. Biết hình chiếu vuông góc của đỉnh $S$ lên mặt phẳng đáy trùng với trung điểm $H$ của đoạn $OC$. Hãy vẽ hình biểu diễn của hình chóp $S.ABCD$ theo phương chiếu là đường thẳng chứa cạnh $SA$.
+	\loigiai{ 
+		\immini{ Hình biểu diễn của hình chóp $S.ABCD$ là hình bình hành $A'B'C'D'$ như hình vẽ bên}{
+			\begin{tikzpicture}[scale=1]
+			\tkzInit[xmin=-2.5,xmax=5,ymin=-0.5, ymax=3] \tkzClip[space=.1]
+			\tkzDefPoints{-2/0/A', 2/0/B', 3/2/C', -1/2/D'}
+			\tkzInterLL(D',B')(A',C')\tkzGetPoint{O'}
+			\tkzDefPointWith[linear,K=0.5](O',C')\tkzGetPoint{H'}
+			%\tkzDefPointWith[linear,K=2](T,S)\tkzGetPoint{T'}
+			%\tkzDefPointWith[linear,K=2](P,S)\tkzGetPoint{P'}
+			\tkzDrawSegments(A',B' B',C' C',D' D',A' A',C')
+			\tkzLabelPoints[above](C',D',O',H')
+			\tkzLabelPoints[below](A',B')
+			\end{tikzpicture}
+		}}
+		
+	\end{bt}
+	\begin{bt}%[Phan Chiến Thắng]%[1H2B5]
+		Vẽ hình biểu diễn một tam giác vuông nội tiếp một đường tròn.
+		\loigiai{\immini{Vẽ elip tâm O là hình biểu diễn của đường tròn đã cho. Lấy 2 điểm B và C thuộc elip sao cho $B$, $O$, $C$ thẳng hàng. Lấy điểm $A$ thuộc elip sao cho $A$ khác $B$ và $C$. Khi đó tam giác $ABC$ là hình biểu diễn của 1 tam giác vuông nội tiếp trong 1 đường tròn.}{\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm]
+				\draw [rotate around={0:(3.,1.)},line width=1pt] (3.,1.) ellipse (2.28cm and 1.11cm);
+				\draw [line width=1pt] (2,2)-- (1.1,0.39);
+				\draw [line width=1pt] (1.1,0.39)-- (4.91,1.6);
+				\draw [line width=1pt] (2.,2.)-- (4.9,1.6);
+				\begin{scriptsize}
+				\draw(3,1) circle (2pt);
+				\draw(3.14,1.33) node {$O$};
+				\draw(4.9,1.6) circle (1.5pt);
+				\draw(5.06,1.97) node {$B$};
+				\draw(2.,2.) circle (1.5pt);
+				\draw(2.14,2.37) node {$A$};
+				\draw(1.08,0.39) circle (1.0pt);
+				\draw(0.82,0.29) node {$C$};
+				\end{scriptsize}
+				\end{tikzpicture}}}
+	\end{bt}
+	\begin{bt}%[Phan Chiến Thắng]%[1H2K5]
+		Vẽ hình biểu diễn hình thang $ABCD$ vuông tại $A$ và $D$, $AB=2AD=2DC$.
+		\loigiai{\immini{Hình biểu diễn của hình thang $ABCD$ vuông tại $A$ và $D$ phải thoả mãn các yêu cầu sau: $AB\parallel CD$ và $AB = 2CD$. Lưu ý rằng: Các góc $A$ và $D$ có thể vẽ không cần bằng nhau mặc dù trong hình thực chúng đều là những góc vuông}{\begin{tikzpicture}[scale=1]
+				\tkzInit[xmin=-2.5,xmax=5,ymin=-0.5, ymax=3] \tkzClip[space=.1]
+				\tkzDefPoints{-2/0/D, 2/0/C', 3/2/B, -1/2/A}
+				%\tkzInterLL(D',B')(A',C')\tkzGetPoint{O}
+				\tkzDefPointWith[linear,K=0.5](C',D)\tkzGetPoint{C}
+				%\tkzDefPointWith[linear,K=2](T,S)\tkzGetPoint{T'}
+				%\tkzDefPointWith[linear,K=2](P,S)\tkzGetPoint{P'}
+				\tkzDrawSegments(A,B B,C C,D D,A)
+				\tkzLabelPoints[above](A,B,C,D)
+				\end{tikzpicture}}}
+	\end{bt}
+	\begin{bt}%[Phan Chiến Thắng]%[1H2K5]
+		Vẽ hình biểu diễn của hình hộp $ABCD.A'B'C'D'$ theo phương chiếu song song với $BD'$.
+		\loigiai{\immini{Hình vẽ bên}{\begin{tikzpicture}[scale=1]
+				\tkzInit[xmin=-1.5,xmax=6,ymin=-0.5, ymax=5] \tkzClip[space=.1]
+				\tkzDefPoints{-1/0/D', 1/0/C', 2/2/D, 0/2/A'}
+				\tkzDefPointWith[linear,K=2](C',D)\tkzGetPoint{A}
+				\tkzDefPointWith[linear,K=2](A',D)\tkzGetPoint{C}
+				\tkzDefPointWith[linear,K=2](D',D)\tkzGetPoint{B}
+				\tkzDrawSegments(A,B B,C C,D A,A' A,D D,D' A',D' D',C' C,C')
+				\tkzDrawSegments[dashed](D,B D,A' D,C')
+				\tkzLabelPoints[above](C,A,A',D',C',D,B)
+				\end{tikzpicture}}}
+	\end{bt}
+	%Nguyễn Thế Anh
+	\begin{dang}{Sử dụng phép chiếu song song để chứng minh song song}
+		Chứng minh minh đường thẳng song song với đường thẳng, đường thẳng song song với mặt phẳng và mặt phẳng song song với mặt phẳng, hoặc các vấn đề liên quan đến song song như: chứng minh một tứ giác là hình bình hành, hình thang, tính chất của hình.
+		Chú ý:\\
+		Khi chứng minh các yếu tố song song ta có thể sử dụng tính chất hoặc định của phép  chiếu song song.\\
+		Đôi khi sẽ thuận lợi hoặc gặp khó khăn nhiều hơn song với cách chứng minh trực tiếp.
+	\end{dang}
+	\begin{vd}%[Nguyễn Thế Anh]%[0HYB5]
+		Cho tứ diện diện $ABCD$. Gọi $M,N,K$ lần lượt là trung điểm của $AB,AD,MN$ và $L$ là một điểm nằm trên đoạn $BD$ sao cho $BL=\dfrac{1}{4}BD$. Chứng minh $KL\parallel AB$.
+		\loigiai{
+			\begin{center}
+				\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+				\clip(-2.5,-2) rectangle (2.5,3.5);
+				\draw (-0.64,-1.39)-- (-2.,0.);
+				\draw (-0.64,-1.39)-- (2.16,-0.41);
+				\draw [dash pattern=on 5pt off 5pt] (-2.,0.)-- (2.16,-0.41);
+				\draw (2.16,-0.41)-- (0.,2.87);
+				\draw (0.,2.87)-- (-2.,0.);
+				\draw (0.,2.87)-- (-0.64,-1.39);
+				\draw [dash pattern=on 5pt off 5pt] (-1.,1.435)-- (1.08,1.23);
+				\draw [dash pattern=on 5pt off 5pt] (1.08,1.23)-- (0.08,-0.205);
+				\draw [dash pattern=on 5pt off 5pt] (0.04,1.3325)-- (-0.96,-0.1025);
+				\begin{scriptsize}
+				\draw (-0.64,-1.39) circle (1.0pt);
+				\draw (-0.78,-1.5) node {$C$};
+				\draw (-2.,0.) circle (1.0pt);
+				\draw (-2.26,0.22) node {$B$};
+				\draw (2.16,-0.41) circle (1.0pt);
+				\draw(2.3,-0.16) node {$D$};
+				\draw (0.,2.87) circle (1.0pt);
+				\draw(0.14,3.12) node {$A$};
+				\draw (-1.,1.435) circle (1.0pt);
+				\draw(-1.22,1.66) node {$M$};
+				\draw (1.08,1.23) circle (1.0pt);
+				\draw(1.38,1.4) node {$N$};
+				\draw (0.08,-0.205) circle (1.0pt);
+				\draw(0.2,-0.46) node {$Q$};
+				\draw (-0.96,-0.1025) circle (1.0pt);
+				\draw(-1.18,-0.14) node {$L$};
+				\draw (0.04,1.3325) circle (1.0pt);
+				\draw(0.18,1.58) node {$K$};
+				\end{scriptsize}
+				\end{tikzpicture}
+			\end{center}
+			Gọi $Q$ là trung điểm $BD$.\\
+			Qua phép chiếu song song theo phương $AB$ lên mặt phẳng $BCD$ biến:\\
+			$A$ thành $B$.\\
+			$M$ thành $Q$.\\
+			Vì $BL=\dfrac{1}{4}BD=\dfrac{1}{2}BQ$ suy ra $L$ là trung điểm $BQ$.\\
+			Do đó phép chiếu song song theo phương $AB$ lên $(BCD)$ biến $K$ thành $L$.\\
+			Vậy $KL\parallel AB$.
+		}
+	\end{vd}
+	\begin{vd}%[Nguyễn Thế Anh]%[1H2Y5]%[1H2B5]%[1H2K5]
+		Cho hình lăng trụ $ABC.A'B'C'$. Gọi $M,N,M',N'$ lần lượt là trung điểm của $AC,BC,A'C',B'C'$.
+		\begin{enumerate}
+			\item Chứng minh rằng: $(MNN'M')\parallel (AA'B'B)$.
+			\item Gọi $G,G'$ lần lượt là trọng tâm của tam giác $ABC$ và $A'B'C'$. Chứng minh rằng:$GG'\parallel (MNN'M')$
+			\item Gọi $I,I'$ lần lượt là trung điểm của  $AN'$ và $AN$. Chứng minh rằng:$II'\parallel GG'$.
+		\end{enumerate}
+		\loigiai{
+			\begin{center}
+				\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+				\clip(-3.5,-1.5) rectangle (2.5,4);
+				\draw [line width=0.8pt,dash pattern=on 6pt off 6pt] (-2.,0.)-- (2.,0.);
+				\draw (-2.,0.)-- (-1.,-1.);
+				\draw (-1.,-1.)-- (2.,0.);
+				\draw (-2.,0.)-- (-3.,3.);
+				\draw (-3.,3.)-- (-2.,2.);
+				\draw (-2.,2.)-- (1.,3.);
+				\draw (-3.,3.)-- (1.,3.);
+				\draw (1.,3.)-- (2.,0.);
+				\draw (-2.,2.)-- (-1.,-1.);
+				\draw (-3.,3.)-- (-0.5,2.5);
+				\draw (-1.,3.)-- (-2.,2.);
+				\draw [dash pattern=on 6pt off 6pt] (-2.,0.)-- (0.5,-0.5);
+				\draw [dash pattern=on 6pt off 6pt] (0.,0.)-- (-1.,-1.);
+				\draw (-0.5,2.5)-- (0.5,-0.5);
+				\draw [dash pattern=on 6pt off 6pt] (-1.,3.)-- (0.,0.);
+				\draw [dash pattern=on 6pt off 6pt] (-2.,0.)-- (-0.5,2.5);
+				\draw [dash pattern=on 6pt off 6pt] (-1.25,1.25)-- (-0.75,-0.25);
+				\draw [dash pattern=on 3pt off 3pt] (-1.33333,2.6666)-- (-0.3333,-0.333);
+				\begin{scriptsize}
+				\draw (-2.,0.) circle (1.0pt);
+				\draw (-2.328,0.2440) node {$A$};
+				\draw (2.,0.) circle (1.0pt);
+				\draw(2.26077,0.073124) node {$C$};
+				\draw (-1.,-1.) circle (1.0pt);
+				\draw(-1.10825,-1.24518) node {$B$};
+				\draw  (-3.,3.) circle (1.0pt);
+				\draw(-3.2321,3.2468) node {$A'$};
+				\draw (-2.,2.) circle (1.0pt);
+				\draw (-2.3533,2.05059) node {$B'$};
+				\draw (1.,3.) circle (1.0pt);
+				\draw(1.406309,3.07594) node {$C'$};
+				\draw (-1.,3.) circle (0.5pt);
+				\draw (-0.9617,3.49097) node {$M'$};
+				\draw (-0.5,2.5) circle (0.5pt);
+				\draw(-0.10730,2.46561) node {$N'$};
+				\draw (0.5,-0.5) circle (0.5pt);
+				\draw(0.86921,-0.5127) node {$N$};
+				\draw (0.,0.) circle (0.5pt);
+				\draw (0.03917,0.31725) node {$M$};
+				\draw(-0.75,-0.25) circle (0.5pt);
+				\draw(-0.20496,-0.43955) node {$G'$};
+				\draw (-1.25,1.25) circle (0.5pt);
+				\draw(-1.364589,1.62336) node {$I'_1$};
+				\draw  (-1.3333,2.66666) circle (0.5pt);
+				\draw(-1.413415,2.8) node {$G'_1$};
+				\draw (-0.3333,-0.3333) circle (0.5pt);
+				\draw(-0.76646,-0.31748) node {$I'$};
+				\end{scriptsize}
+				\end{tikzpicture}
+			\end{center}
+			\begin{enumerate}
+				\item  Qua phép chiếu song song theo phương $AA'$ lên mặt phẳng $(ABC)$ biến:\\
+				$M'$ thành $M$.\\
+				$N'$ thành $M$.\\
+				$A'$ thành $A$.\\
+				$B'$ thành $B$.\\
+				Do đó $(MNN'M')\parallel (ABB'A')$.
+				\item Qua phép chiếu song song theo phương $AA'$ lên mặt phẳng $(ABC)$ biến:\\
+				$A'$ thành $A$,$B'$ thành $B$,$C'$ thành $C$\\
+				Suy ra tam giác $ABC$ là ảnh của $A'B'C'$.\\
+				Do đó $G'$ biến thành $G$.
+				Mặt khác $M'$ biến thành $M$.\\
+				Vậy $GG'\parallel (MNN'M')$.
+				\item Qua phép chiếu song song theo phương $AA'$ lên mặt phẳng $ABC$ biến:\\
+				$N'$ thành $N$.\\
+				$A$ thành $A$.\\
+				Suy ra $I$ là ảnh của $I$.
+				Mặt khác theo câu $b$ thì $G$ là ảnh của $G'$ qua phép chiếu song song theo phương $AA'$.\\
+				Vậy $II'\parallel GG'$.
+			\end{enumerate}
+		}
+	\end{vd}
+	\begin{vd}%[Nguyễn Thế Anh]%[1H2K5]
+		Cho hai điểm $A$ và $B$ ở ngoài mặt phằng $(P)$. Gọi $A'$ và $B'$ lần lượt là hình chiếu song song của $A$ và $B$ trên $(P)$ theo phương của đường thẳng $d$ cho trước. Chứng minh nếu $AB$ song song với $(P)$ thì $A'B'=AB$. Phần ngược lại có đúng không?.
+		\loigiai{
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzDefPoints{4/1/M,8/1/K} % Định nghĩa các toạ đô dịnh cơ sở
+				\tkzDefPointBy[rotation = center M angle 40](K) % Lấy các điểm qua phép quay phép tịnh tiến để tìm các điểm cho hình
+				\tkzGetPoint{P1}
+				\tkzDefPointBy[homothety = center M ratio 0.5](P1)
+				\tkzGetPoint{P}
+				\tkzDefPointBy[rotation = center M angle 90](K)
+				\tkzGetPoint{M'}
+				\tkzDefPointBy[translation = from M to K](P)
+				\tkzGetPoint{Q}
+				\tkzDefPointBy[translation = from M to P](M')
+				\tkzGetPoint{P'}
+				\tkzDefPointsBy[translation = from M to K](M',P'){K',Q'}
+				\tkzDefPointBy[homothety = center P' ratio 0.3](K')
+				\tkzGetPoint{A}
+				\tkzDefPointBy[homothety = center P' ratio 0.8](K')
+				\tkzGetPoint{B}
+				\tkzDefPointBy[homothety = center P ratio 0.3](K)
+				\tkzGetPoint{A'}
+				\tkzDefPointBy[homothety = center P ratio 0.8](K)
+				\tkzGetPoint{B'}
+				\tkzMarkSegments[mark=|](A,B A',B')
+				%\tkzLabelPoints[right](M,H,N)
+				\tkzLabelSegment[left](Q,Q'){ $d$}
+				\tkzLabelPoints[left](A',B')
+				\tkzLabelPoints[above](A,B)
+				%\tkzLabelPoints[above](A',B',C',D',E)
+				%\tkzDrawSegments(A,A' A',B' B',C' A',D' D',C' C,C' D',D D,C A,D N,H C,H)
+				\tkzDrawSegments[dashed](A,A' B,B')
+				\tkzDrawSegments(M,K K,Q A,B A',B' Q,Q' M,P P,Q)
+				\end{tikzpicture}
+			\end{center}
+			Ta có: $AB\parallel ( P )$ và $A'B'=( A'B'BA)\cap (P ).$\\
+			Do đó $AB\parallel A'B'$.\\
+			Ta có: $AA\parallel B'B'\parallel d$.\\
+			Vậy $A'B'BA$  là hình bình hành.\\
+			Suy ra $A'B'=AB$.\\
+			Phần đảo sai vì nếu lấy điểm $C$ trên đường thẳng
+			$B'B$  với $AC=AB$ thì hình chiếu của $AC$ vẫn là $A'B'=AC$ nhưng $AC$  không song song với mp $(P)$.
+		}
+	\end{vd}
+	
+	\begin{center}
+		\textbf{BÀI TẬP TỰ LUYỆN}
+	\end{center}
+\setcounter{bt}{0}
+	\begin{bt}%[Nguyễn Thế Anh]%[1H2B5]
+		Cho hai hình bình hành $ABCD$ và  $BCC'B'$ nằm trong hai mặt phẳng phân biệt. Tìm điểm $M$ trên đoạn $DB'$, và điểm $N$ trên đường chéo $AC$ sao cho $MN\parallel BC'$.
+		\loigiai{
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzDefPoints{-2/0/B,2/0/C} %Định nghĩa các toạ đô dịnh cơ sở
+				\tkzDefPointBy[rotation = center B angle 120](C)
+				\tkzGetPoint{B1}
+				\tkzDefPointsBy[homothety=center B ratio 0.6](B1){B'}
+				\tkzDefPointBy[rotation = center B angle -140](C)
+				\tkzGetPoint{A1}
+				\tkzDefPointsBy[homothety=center B ratio 0.5](A1){A}
+				\tkzDefPointBy[translation = from B to C](A)
+				\tkzGetPoint{D}
+				\tkzDefPointBy[translation = from B to C](B')
+				\tkzGetPoint{C'}
+				\tkzDefPointBy[translation = from C' to B](B')
+				\tkzGetPoint{B''}
+				\tkzInterLL(A,C)(D,B'')
+				\tkzGetPoint{N}
+				\tkzDefPointBy[translation = from B to C'](N)
+				\tkzGetPoint{M1}
+				\tkzInterLL(N,M1)(D,B')
+				\tkzGetPoint{M}
+				\tkzInterLL(A,B)(N,B'')
+				\tkzGetPoint{K}
+				\tkzLabelPoints[above](B',C')
+				\tkzLabelPoints[left](B'')
+				\tkzLabelPoints[right](M)
+				\tkzLabelPoints[below](A,D,C,N,B)
+				\tkzDrawSegments[dashed](B'',B B,B' B,C B,C' N,C B,K)
+				\tkzDrawSegments(B'',D A,N A,K B',D D,C C,C' C',B' B',K A,D B'',B' M,N)
+				\end{tikzpicture}
+			\end{center}
+			Giả sử đã tìm được $M\in DB'$ và $N\in AC$ sao cho $MN\parallel BC'$.\\
+			Xét phép chiếu song song  theo phương $BC'$ lên mặt phẳng $( ABCD)$.\\
+			Khi đó qua phép chiếu này, hình chiếu của các điểm $D,M,B'$ lần lượt là $D,N,B''$.\\
+			Vì $D,M,B'$ thẳng hàng nên $D,N,B''$cũng thẳng hàng.\\
+			Do đó $N$ là giao điểm của $DB''~ \text{và}~AC$ . Từ đó, ta có cách dựng như sau:\\
+			Cách dựng:
+			\begin{itemize}	
+				\item Dựng $B''$ là hình chiếu của $B'$ qua phép chiếu theo
+				phương $BC'$ lên mặt phẳng $( ABCD)$
+				\item Dựng $N$ là giao điểm của $DB" ~\text{và}~AC$.
+				\item Trong mặt phẳng $( DB'B'')$ , ta kẻ $MN\parallel B'B''$ cắt
+				$DB'$ tại $M$.
+			\end{itemize}
+			Vậy $M,N$ là các điểm cần tìm.
+		}
+	\end{bt}
+	\begin{bt}%[Nguyễn Thế Anh]%[1H2B5]%[1H2G5]
+		Cho hình hộp $ABCD.A’B’C’D’$. Gọi $M, N$ lần lượt là trung điểm của $CD$ và $CC’$.
+		\begin{enumerate}
+			\item Xác định đường thẳng $d$ qua $M$ cắt $AN$ và cắt $A’B$
+			\item Gọi $E, F$ lần lượt là giao điểm của $d$ với $AN$ và $A’B$. Tính   $\dfrac{EM}{EF}$
+		\end{enumerate}
+		\loigiai{
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzDefPoints{-2/1/A,2/1/D} % Định nghĩa các toạ đô dịnh cơ sở
+				\tkzDefPointBy[rotation = center A angle 40](D) % Lấy các điểm qua phép quay phép tịnh tiến để tìm các điểm cho hình
+				\tkzGetPoint{B1}
+				\tkzDefPointBy[homothety = center A ratio 0.5](B1)
+				\tkzGetPoint{B}
+				\tkzDefPointBy[rotation = center A angle 90](D)
+				\tkzGetPoint{A'}
+				\tkzDefPointBy[translation = from A to D](B)
+				\tkzGetPoint{C}
+				\tkzDefPointBy[translation = from A to B](A')
+				\tkzGetPoint{B'}
+				\tkzDefPointsBy[translation = from A to D](A',B'){D',C'}
+				%\tkzLabelPoints[left](N)
+				%\tkzLabelPoints[right](M,F)
+				\tkzDefMidPoint(D,C)
+				\tkzGetPoint{M}
+				\tkzDefMidPoint(C',C)
+				\tkzGetPoint{N}
+				\tkzDefPointBy[homothety = center B ratio 0.6](A')
+				\tkzGetPoint{F}
+				\tkzDefPointsBy[translation = from A' to B](N){N1}
+				\tkzInterLL(C,D)(N,N1)
+				\tkzGetPoint{H}
+				\tkzInterLL(B,M)(A,H)
+				\tkzGetPoint{G}
+				\tkzInterLL(F,M)(A,N)
+				\tkzGetPoint{E}
+				\tkzLabelPoints[right](M,H,N)
+				\tkzLabelPoints[left](B,F)
+				\tkzLabelPoints[below](A,C,D,G)
+				\tkzLabelPoints[above](A',B',C',D',E)
+				\tkzDrawSegments(A,A' A',B' B',C' A',D' D',C' C,C' D',D D,C A,D N,H C,H)
+				\tkzDrawSegments[dashed](A',D' D',C' A,B B,C B,B' A',B M,F A,H B,M A,N)
+				%\tkzDrawSegments[dashed](N,E N,J N,I N,M E,J E,I E,F F,J F,I M,I M,F M,J)
+				\end{tikzpicture}
+			\end{center}
+			\begin{enumerate}
+				\item  Phân tích: Giả sử ta dựng được đường thẳng $d$ thoả mãn yêu cầu bài toán tức là $d\cap AN = E$, $d \cap  A’B = F$ và $d$ đi qua $M$.\\
+				Xét phép chiếu song song lên mặt phẳng $(ABCD)$ theo phương $A’B$.\\
+				Khi đó $3$ điểm $M, E, F$ lần lượt có hình chiếu là $M, G, B$ suy ra $M, G, B$ thẳng hàng.
+				Gọi $H$ là hình chiếu của $N$ suy ra $AH$ là hình chiếu của $AN$.\\
+				Vì $E \in  AN$ nên $G \in  AH$ suy ra $G = AH \cap BM$.\\	
+				Lưu ý rằng $A’B \parallel D’C \parallel NH$ suy ra $H \in DC$\\
+				Cách dựng:
+				\begin{itemize}
+					\item  Kẻ $NH\parallel D’C$, cắt $DC$ tại $H$.
+					\item  Dựng $G = AH\cap BM$.
+					\item  Trong mặt phẳng $(ANH)$ kẻ $GE \parallel HN$, $E\in  AN$.
+					\item  Vẽ đường thẳng $ME$, đó là đường thẳng d cần tìm. Dễ thấy $d$ cắt $A’B$.
+				\end{itemize}
+				\item Gọi $E, F$ lần lượt là giao điểm của $d$ với $AN$ và $A’B$. Tính$\dfrac{EM}{EF}$.
+				\begin{itemize}
+					\item Ta có $CM = CH$   $MH = CD = AB$  suy ra $ABHM $là hình bình hành suy ra  $G$ là trung điểm của $BM$.
+					\item Mà $GE\parallel BF$  suy ra  $E$ là trung điểm của $MF$.
+				\end{itemize}
+				Vậy  $\dfrac{EM}{EI}=1$
+			\end{enumerate}
+		}
+	\end{bt}
+	\begin{center}
+		\textbf{BÀI TẬP TỔNG HỢP}
+	\end{center}
+\setcounter{bt}{0}
+	\begin{bt}%[Nguyễn Thế Anh]%[1H2K5]%[1H2K5]
+		Cho hình lăng trụ tứ giác $ABCD.A'B'C'D'$.
+		\begin{enumerate}
+			\item Chứng minh rằng hai đường chéo $AC'$ và $A'C$ cắt nhau, hai đường chéo $BD'$ à $B'D$ cắt nhau tại trung điểm $M,N$ của mỗi đường.
+			\item Gọi $E$ và $F$ lần lượt là trung điểm của hai đường chéo $AC$ và $BD$. Chứng minh $MN=EF$.
+		\end{enumerate}
+		\loigiai{
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzDefPoints{-2/0/A,2/0/D} %Định nghĩa các toạ đô dịnh cơ sở
+				\tkzDefPointBy[rotation = center A angle 90](D)
+				\tkzGetPoint{A1}
+				\tkzDefPointsBy[homothety=center A ratio 0.8](A1){A'}
+				\tkzDefPointBy[rotation = center A angle -30](D)
+				\tkzGetPoint{C1}
+				\tkzDefPointsBy[homothety=center A ratio 0.9](C1){C}
+				\tkzDefPointBy[rotation = center A angle -70](D)
+				\tkzGetPoint{B1}
+				\tkzDefPointsBy[homothety=center A ratio 0.5](B1){B}
+				\tkzDefPointBy[translation = from A to A'](B)
+				\tkzGetPoint{B'}
+				\tkzDefPointBy[translation = from A to A'](C)
+				\tkzGetPoint{C'}
+				\tkzDefPointBy[translation = from A to A'](D)
+				\tkzGetPoint{D'}
+				\tkzInterLL(A',C)(A,C')
+				\tkzGetPoint{M}
+				\tkzInterLL(B,D')(B',D)
+				\tkzGetPoint{N}
+				\tkzDefMidPoint(A,C)
+				\tkzGetPoint{E}
+				\tkzDefMidPoint(B,D)
+				\tkzGetPoint{F}
+				\tkzLabelPoints[above](A',D')
+				%\tkzLabelPoints[left](N,M)
+				\tkzLabelPoints[above left](M,N,E,F)
+				\tkzLabelPoints[below](B,C)
+				%\tkzLabelPoints[right](A,B,C,D,N,M,P)
+				\tkzLabelPoints[left](A,B')
+				\tkzLabelPoints[right](C',D)
+				\tkzDrawSegments[dashed](A,C' A',C B',D A,C A,D B,D D,A' D',B M,N E,F M,E N,F)
+				\tkzDrawSegments(A,A' B,B' C,C' D,D' A',B' B',C' C',D' D',A' A,B B,C C,D)
+				\end{tikzpicture}
+			\end{center}
+			\begin{enumerate}
+				\item Hình bình hành $ACC'A'$ có hai đường chéo $AC'$ và $A'C$ cắt nhau tại trung điểm $M$ của mỗi đường.\\
+				Tương tự, hai đường chéo $BD'$ à $B'D$ cắt nhau tại trung điểm $N$ của mỗi đường.
+				\item Phép chiếu theo phương $AA'$. \\
+				Trung điểm $E$ của $AC$ là hình chiếu của trung điểm $M$ của $AC'$.\\
+				Tương tự, trung điểm $F$ là hình chiếu trung điểm $N$ của đường chéo $BD'$ trên $BD$.\\
+				Ta có $EM//CC'$ và $EM=\dfrac{CC'}{2}$\\
+				Mà $FN//DD'$ và $FN=\dfrac{DD'}{2}$ nên tứ giác $MNFE$ là hình bình hành và $MN=EF$.
+			\end{enumerate}
+		}
+	\end{bt}
+	\begin{bt}%[Nguyễn Thế Anh]%[1H2B5]%[1H2K5]
+		Cho hình chóp $S.ABCD$. Gọi $M,N,P,R,Q,L$ lần lượt là trung điểm $SD,SB$, $DC,BC$, $AD,AB$. Chứng minh rằng:
+		\begin{enumerate}
+			\item $MP\parallel (NLR)$.
+			\item $(NLR)\parallel(MQP)$.
+		\end{enumerate}
+		\loigiai{
+			\begin{center}
+				\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+				\clip(-2.8,-2) rectangle (2,3.5);
+				\draw (-2.2,0.41)-- (-1.52,-0.89);
+				\draw (-1.52,-0.89)-- (1.,-1.47);
+				\draw (1.,-1.47)-- (1.44,1.03);
+				\draw [dash pattern=on 5pt off 5pt] (1.44,1.03)-- (-2.2,0.41);
+				\draw  (-0.66,2.81)-- (-2.2,0.41);
+				\draw (-0.66,2.81)-- (-1.52,-0.89);
+				\draw  (-0.66,2.81)-- (1.,-1.47);
+				\draw  (-0.66,2.81)-- (1.44,1.03);
+				\draw (-1.86,-0.24)-- (-1.09,0.96);
+				\draw  (-1.09,0.96)-- (-0.26,-1.18);
+				\draw [dash pattern=on 5pt off 5pt] (-0.26,-1.18)-- (-1.86,-0.24);
+				\draw (0.39,1.92)-- (1.22,-0.22);
+				\draw [dash pattern=on 5pt off 5pt] (0.39,1.92)-- (-0.38,0.72);
+				\draw [dash pattern=on 5pt off 5pt] (-0.38,0.72)-- (1.22,-0.22);
+				\begin{scriptsize}
+				\draw (-2.2,0.41) circle (1.0pt);
+				\draw(-2.52,0.62) node {$A$};
+				\draw (-1.52,-0.89) circle (1.0pt);
+				\draw (-1.72,-1.04) node {$B$};
+				\draw (1.,-1.47) circle (1.0pt);
+				\draw(1.16,-1.48) node {$C$};
+				\draw (1.44,1.03) circle (1.0pt);
+				\draw(1.66,1.18) node {$D$};
+				\draw (-0.66,2.81) circle (1.0pt);
+				\draw(-0.96,3.) node {$S$};
+				\draw (-0.38,0.72) circle (1.0pt);
+				\draw(-0.58,1.04) node {$Q$};
+				\draw (1.22,-0.22) circle (1.0pt);
+				\draw(1.36,0.02) node {$P$};
+				\draw (-1.86,-0.24) circle (1.0pt);
+				\draw (-2.07,-0.11) node {$L$};
+				\draw (-0.26,-1.18) circle (1.0pt);
+				\draw(-0.36,-1.32) node {$R$};
+				\draw (-1.09,0.96) circle (1.0pt);
+				\draw(-1.2,1.2) node {$N$};
+				\draw (0.39,1.92) circle (1.0pt);
+				\draw(0.54,2.16) node {$M$};
+				\end{scriptsize}
+				\end{tikzpicture}
+			\end{center}
+			\begin{enumerate}
+				\item  Qua phép chiếu song song theo phương $SC$ lên mặt phẳng $(ABCD)$ biến:\\
+				$M$ thành $P$.\\
+				$N$ thành $R$.\\
+				Do đó $MP\parallel NR\rightarrow MP \parallel (NLR)$.
+				\item Qua phép chiếu song song theo phương $SA$ lên mặt phẳng $(ABCD)$ biến:\\
+				$N$ thành $L$,$R$ thành $R$,$M$ thành $Q$,$P$ thành $P$,$L$ thành $L$,$Q$ thành $Q$.\\
+				Vậy $(NLR)\parallel (MQP)$.
+			\end{enumerate}
+		}
+	\end{bt}

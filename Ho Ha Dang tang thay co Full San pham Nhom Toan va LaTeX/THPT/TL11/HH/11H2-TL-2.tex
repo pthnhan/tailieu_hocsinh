@@ -1,0 +1,2098 @@
+\section{Hai đường thẳng chéo nhau và hai đường thẳng song song}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Vị trí tương đối của hai đường thẳng trong không gian}
+Cho hai đường thẳng $a$ và $b$ trong không gian.\\
+\textit{Trường hợp 1.} Có một mặt phẳng chứa $a$ và $b$ ($a$ và $b$ đồng phẳng).\\
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 5/0/B, 6/3/C}
+\coordinate (D) at ($(A)+(C)-(B)$);
+\tkzDrawPolygon(A,B,C,D)
+\tkzMarkAngle[size=.65](B,A,D)
+\draw (A) node[above right]{$\alpha$};
+\tkzDefPoints{1/2/E, 4.5/0.5/F, 0.8/1.5/G, 5/2.5/H}
+\draw (E)--(F) (G)--(H);
+\tkzInterLL(E,F)(G,H) \tkzGetPoint{M}
+\tkzLabelPoints[above](M)
+\draw (F) node[above]{$a$};
+\draw (H) node[below]{$b$};
+\end{tikzpicture}\\
+$a \cap b = \{M\}$
+\end{center}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 5/0/B, 6/3/C}
+\coordinate (D) at ($(A)+(C)-(B)$);
+\tkzDrawPolygon(A,B,C,D)
+\tkzMarkAngle[size=.65](B,A,D)
+\draw (A) node[above right]{$\alpha$};
+\tkzDefPoints{0.8/1.5/G, 5/2.5/H, 1/0.5/I}
+\coordinate (K) at ($(H)+(I)-(G)$);
+\draw (G)--(H) (I)--(K);
+\draw ($(G)!0.8!(H)$) node[above]{$a$};
+\draw ($(I)!0.8!(K)$) node[above]{$b$};
+\end{tikzpicture}\\
+$a \parallel b$
+\end{center}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 5/0/B, 6/3/C}
+\coordinate (D) at ($(A)+(C)-(B)$);
+\tkzDrawPolygon(A,B,C,D)
+\tkzMarkAngle[size=.65](B,A,D)
+\draw (A) node[above right]{$\alpha$};
+\tkzDefPoints{0.5/0.8/G, 5/2.5/H}
+\draw (G)--(H);
+\draw ($(G)!0.2!(H)$) node[above]{$a$};
+\draw ($(G)!0.2!(H)$) node[below]{$b$};
+\end{tikzpicture}\\
+$a \equiv b$
+\end{center}
+\end{minipage}
+\begin{center}
+Hình 1
+\end{center}
+\begin{enumerate}[i)]
+\item $a$ và $b$ có điểm chung duy nhất $M$, ta nói $a$ và $b$ cắt nhau tại $M$ và kí hiệu là $a\cap b=\{M\}$ hay $a\cap b=M$.
+\item $a$ và $b$ khôn có điểm chung. Ta nói $a$ và $b$ song song với nhau, kí hiệu là $a\parallel b$.
+\item $a$ trùng $b$, kí hiệu $a\equiv b$.
+\end{enumerate}
+\begin{note}
+Hai đường thẳng song song là hai đường thẳng cùng nằm trong một mặt phẳng và không có điểm chung.
+\end{note}
+\textit{Trường hợp 2.} Không có mặt phẳng nào chứa cả $a$ và $b$, ta nói $a$ và $b$ chéo nhau hay $a$ chéo với $b$ (hình 2).\\
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 5/0/B, 6/3/C}
+\coordinate (D) at ($(A)+(C)-(B)$);
+\tkzDrawPolygon(A,B,C,D)
+\tkzMarkAngle[size=.65](B,A,D)
+\draw (A) node[above right]{$\alpha$};
+\tkzDefPoints{0.8/0.5/G, 4.5/1.5/H, 2/4/E, 2.5/-0.5/F}
+\tkzInterLL(A,B)(E,F) \tkzGetPoint{K}
+\coordinate (I) at ($(E)!0.4!(F)$);
+\draw (G)--(H) (E)--(I) (K)--(F);
+\draw[dashed] (I)--(K);
+\draw ($(E)!0.1!(F)$) node[right]{$a$};
+\draw ($(G)!0.9!(H)$) node[above]{$b$};
+\draw [fill=black] (I) circle(1pt);
+\tkzLabelPoints[left](I)
+\end{tikzpicture}\\
+\text{}\\
+Hình 2
+\end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B, 1.5/-1/C, 5/0/D, 1.5/3/A}
+\draw (A)--(B)--(C)--(D)--(A)--(C);
+\draw[dashed] (B)--(D);
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[below](C)
+\tkzLabelPoints[right](D)
+\end{tikzpicture}\\
+Hình 3
+\end{center}
+\end{minipage}\\
+Tứ diện $ABCD$ (hình 3) có các cặp đường thẳng chéo nhau là $AB$ và $CD$; $BC$ và $AD$; $AC$ và $BD$.
+\subsubsection{Tính chất}
+\begin{dl}
+Trong không gian, qua một điểm nằm trên đường thẳng cho trước, có một và chỉ một đường thẳng song song với đường thẳng đã cho.
+\end{dl}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 5/0/B, 1/2.5/D}
+\tkzDefPointBy[translation = from A to B](D)
+\tkzGetPoint{C}
+\coordinate (P) at ($(D)!.33!(A)$);
+\coordinate (Q) at ($(D)!.67!(A)$);
+\tkzDefPointBy[translation = from A to B](P)
+\tkzGetPoint{P'}
+\tkzDefPointBy[translation = from A to B](Q)
+\tkzGetPoint{Q'}
+\coordinate (P1) at ($(P)!.2!(P')$);
+\coordinate (P2) at ($(P')!.2!(P)$);
+\coordinate (Q1) at ($(Q)!.2!(Q')$);
+\coordinate (Q2) at ($(Q')!.2!(Q)$);
+\coordinate (M) at ($(P)!.4!(P')$);
+\tkzDrawSegments(P1,P2 Q1,Q2)
+\tkzDrawPolygon(A,B,C,D)
+\tkzLabelPoints[above](M)
+\tkzDrawPoints(M)
+\tkzMarkAngle[size=0.7](B,A,D)
+\tkzLabelAngle[pos=.35](B,A,D){$\alpha$}
+\tkzLabelSegments[above,pos=.9](P1,P2){$d'$}
+\tkzLabelSegments[above,pos=.9](Q1,Q2){$d$}
+\end{tikzpicture}\\
+Hình 4
+\end{center}
+\begin{note}
+Hai đường thẳng song song $a$ và $b$ xác định một mặt phẳng, kí hiệu là mp $(a,b)$ hay $(a,b)$.
+\end{note}
+\begin{dl}[Về giao tuyến của ba mặt phẳng]
+Nếu ba mặt phẳng đôi một cắt nhau theo ba giao tuyến phân biệt thì ba giao tuyến ấy hoặc đồng quy hoặc đôi một song song với nhau (hình 5 và hình 6).
+\end{dl}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 2.5/1.5/B, 5/1/C, 0/4.5/x}
+\coordinate (D) at ($(A)+(x)$);
+\coordinate (E) at ($(B)+(x)$);
+\coordinate (F) at ($(C)+(x)$);
+\coordinate (M) at ($(A)!.35!(B)$);
+\coordinate (N) at ($(C)!.4!(B)$);
+\coordinate (I) at ($(E)!.3!(B)$);
+\tkzDrawPolygon(A,D,E,F,C,N,M)
+\tkzDrawSegments(M,I N,I E,I)
+\tkzDrawSegments[dashed](I,B B,M B,N)
+\tkzLabelSegment[left](I,E){$c$}
+\tkzLabelSegment[left](I,M){$a$}
+\tkzLabelSegment[left](I,N){$b$}
+\tkzMarkAngles[size=.6](N,M,I A,D,E E,F,C)
+\tkzLabelAngle[pos=.35](N,M,I){$\gamma$}
+\tkzLabelAngle[pos=.35](A,D,E){$\alpha$}
+\tkzLabelAngle[pos=-.35](E,F,C){$\beta$}
+\end{tikzpicture}\\
+Hình 5
+\end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 2.5/1.5/B, 5/1/C, 0/4.5/x}
+\coordinate (D) at ($(A)+(x)$);
+\coordinate (E) at ($(B)+(x)$);
+\coordinate (F) at ($(C)+(x)$);
+\coordinate (M) at ($(A)!.35!(B)$);
+\coordinate (N) at ($(C)!.4!(B)$);
+\coordinate (M') at ($(M)+(x)$);
+\coordinate (N') at ($(N)+(x)$);
+\tkzInterLL(B,E)(M',N') \tkzGetPoint{I}
+\tkzDrawPolygon(A,D,E,F,C,N,M)
+\tkzDrawSegments(M,M' M',N' N',N E,I)
+\tkzDrawSegments[dashed](I,B B,M B,N)
+\tkzLabelSegment[left](M,M'){$c$}
+\tkzLabelSegment[left](E,B){$a$}
+\tkzLabelSegment[left](N,N'){$b$}
+\tkzMarkAngles[size=.6](M',N',N A,D,E E,F,C)
+\tkzLabelAngle[pos=.4](M',N',N){$\gamma$}
+\tkzLabelAngle[pos=.35](A,D,E){$\alpha$}
+\tkzLabelAngle[pos=-.35](E,F,C){$\beta$}
+\end{tikzpicture}\\
+Hình 6
+\end{center}
+\end{minipage}
+\begin{hq}
+Nếu hai mặt phẳng phân biệt lần lượt chứa hai đường thẳng song song thì giao tuyến của chúng (nếu có) cũng song song với hai đường thẳng đó hoặc trùng với một trong hai đường thẳng đó (hình 7).
+\end{hq}
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 2.5/1.5/B, 5/1/C, 0/4.5/x}
+\coordinate (D) at ($(A)+(x)$);
+\coordinate (E) at ($(B)+(x)$);
+\coordinate (F) at ($(C)+(x)$);
+\tkzDefMidPoint(A,B) \tkzGetPoint{M}
+\tkzDefMidPoint(B,C) \tkzGetPoint{N}
+\coordinate (M') at ($(M)+(x)$);
+\coordinate (N') at ($(N)+(x)$);
+\coordinate (P) at ($(M)!.2!(M')$);
+\coordinate (P') at ($(M')!.2!(M)$);
+\coordinate (Q) at ($(N)!.2!(N')$);
+\coordinate (Q') at ($(N')!.2!(N)$);
+\tkzDrawSegments(P,P' Q,Q' E,B)
+\tkzLabelSegment[left](P,P'){$d_1$}
+\tkzLabelSegment[right](Q,Q'){$d_2$}
+\tkzLabelSegment[left, pos=.2](E,B){$d$}
+\tkzDrawPolygon(A,B,C,F,E,D)
+\tkzMarkAngles[size=.6](A,D,E E,F,C)
+\tkzLabelAngle[pos=.35](A,D,E){$\alpha$}
+\tkzLabelAngle[pos=-.35](E,F,C){$\beta$}
+\end{tikzpicture}\\
+a)
+\end{center}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 2.5/1.5/B, 5/1/C, 0/4.5/x}
+\coordinate (D) at ($(A)+(x)$);
+\coordinate (E) at ($(B)+(x)$);
+\coordinate (F) at ($(C)+(x)$);
+\tkzDefMidPoint(A,B) \tkzGetPoint{M}
+\tkzDefMidPoint(B,C) \tkzGetPoint{N}
+\coordinate (M') at ($(M)+(x)$);
+\coordinate (N') at ($(N)+(x)$);
+\coordinate (Q) at ($(N)!.2!(N')$);
+\coordinate (Q') at ($(N')!.2!(N)$);
+\tkzDrawSegments(Q,Q' E,B)
+\tkzLabelSegment[right](E,B){$d_1$}
+\tkzLabelSegment[right](Q,Q'){$d_2$}
+\tkzLabelSegment[left, pos=.2](E,B){$d$}
+\tkzDrawPolygon(A,B,C,F,E,D)
+\tkzMarkAngles[size=.6](A,D,E E,F,C)
+\tkzLabelAngle[pos=.35](A,D,E){$\alpha$}
+\tkzLabelAngle[pos=-.35](E,F,C){$\beta$}
+\end{tikzpicture}\\
+b)
+\end{center}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 2.5/1.5/B, 5/1/C, 0/4.5/x}
+\coordinate (D) at ($(A)+(x)$);
+\coordinate (E) at ($(B)+(x)$);
+\coordinate (F) at ($(C)+(x)$);
+\tkzDefMidPoint(A,B) \tkzGetPoint{M}
+\tkzDefMidPoint(B,C) \tkzGetPoint{N}
+\coordinate (M') at ($(M)+(x)$);
+\coordinate (N') at ($(N)+(x)$);
+\coordinate (P) at ($(M)!.2!(M')$);
+\coordinate (P') at ($(M')!.2!(M)$);
+\tkzDrawSegments(P,P' E,B)
+\tkzLabelSegment[left](P,P'){$d_1$}
+\tkzLabelSegment[right](E,B){$d_2$}
+\tkzLabelSegment[left,pos=.2](E,B){$d$}
+\tkzDrawPolygon(A,B,C,F,E,D)
+\tkzMarkAngles[size=.6](A,D,E E,F,C)
+\tkzLabelAngle[pos=.35](A,D,E){$\alpha$}
+\tkzLabelAngle[pos=-.35](E,F,C){$\beta$}
+\end{tikzpicture}\\
+c)
+\end{center}
+\end{minipage}
+\begin{center}
+Hình 7
+\end{center}
+\begin{dl}
+Hai đường thẳng phân biệt cùng song song với đường thẳng thứ ba thì song song với nhau.
+\end{dl}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 3/1/B, 6/0/C, 0/5/x}
+\coordinate (D) at ($(A)+(x)$);
+\coordinate (E) at ($(B)+(x)$);
+\coordinate (F) at ($(C)+(x)$);
+\coordinate (M) at ($(A)!.35!(B)$);
+\coordinate (N) at ($(C)!.4!(B)$);
+\tkzDefPointBy[translation = from A to D](M)
+\tkzGetPoint{M'}
+\tkzDefPointBy[translation = from C to F](N)
+\tkzGetPoint{N'}
+\tkzInterLL(B,E)(M',N') \tkzGetPoint{I}
+\tkzDrawPolygon(A,D,E,F,C,N,M)
+\tkzDrawSegments(M,M' M',N' N',N E,I)
+\tkzDrawSegments[dashed](I,B B,M B,N)
+\tkzLabelSegment[left](M,M'){$a$}
+\tkzLabelSegment[left](E,B){$b$}
+\tkzLabelSegment[left](N,N'){$c$}
+\tkzMarkAngles[size=.7](N,M,M' B,A,D F,C,B)
+\tkzLabelAngle[pos=.35](N,M,M'){$\gamma$}
+\tkzLabelAngle[pos=.35](B,A,D){$\alpha$}
+\tkzLabelAngle[pos=.38](F,C,B){$\beta$}
+\end{tikzpicture}\\
+Hình 8
+\end{center}
+
+\subsection{Các dạng toán}
+\begin{dang}{Chứng minh hai đường thẳng song song}
+Cơ sở của phương pháp cần thực hiện hai bước cơ bản cho định nghĩa $a \parallel b \Leftrightarrow \heva{& a,b \subset (\alpha )\\ & a \cap b=\varnothing}$
+\begin{itemize}
+\item Bước 1: Kiểm tra hai đường thẳng ở trong cùng một mặt phẳng hay hiểu rằng điều đó hiển nhiên xảy ra nếu chúng cùng nằm trong một hình phẳng nào đó.
+\item Bước 2: Dùng định lý Thales, tam giác đồng dạng, tính chất bắc cầu (hai đường thẳng cùng song song với đường thẳng thứ ba), là hai đáy của hình thang, hai cạnh đối của hình bình hành… để khẳng định hai đường thẳng đó không có điểm chung.
+Suy ra điều phải chứng minh.
+\end{itemize}
+\end{dang}
+\begin{vd}%[Nguyễn Thế Anh]%[1H2Y2]
+Cho tứ diện $ABCD$ có $I$, $J$ lần lượt là trọng tâm của các tam giác $ABC$, $ABD$. Chứng minh $IJ$ song song với $CD$.
+\loigiai{
+\immini{
+Gọi $M,N$ lần lượt là trung điểm của $CB$ và $BD$ suy ra $MN \parallel CD$.\\
+Mặt khác: $\dfrac{AI}{AM}=\dfrac{AJ}{AN}=\dfrac{2}{3}\Rightarrow IJ \parallel MN$.\\
+Vậy $IJ \parallel CD$.}
+{\begin{tikzpicture}%[scale=1]
+%\tkzInit[xmin=-5,ymin=-1.5,xmax=3,ymax=2]
+%\tkzClip
+\tkzDefPoints{-2/0/C,2/0/D,-1/3/A} % Định nghĩa các toạ đô dịnh cơ sở
+\tkzDefPointsBy[homothety=center C ratio 0.6](D){B1}
+\tkzDefPointBy[rotation = center C angle -30](B1)
+\tkzGetPoint{B}
+\tkzDefMidPoint(C,B)
+\tkzGetPoint{M}
+\tkzDefMidPoint(D,B)
+\tkzGetPoint{N}
+\tkzDefPointsBy[homothety=center A ratio 0.666](M){I}
+\tkzDefPointsBy[homothety=center A ratio 0.666](N){J}
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[above right](J)
+\tkzLabelPoints[above left](I)
+\tkzLabelPoints[right](N,D)
+\tkzLabelPoints[left](M,B,C)
+\tkzDrawSegments[dashed](C,D M,N I,J)
+\tkzDrawSegments(A,B A,C A,D A,M A,N B,C B,D)
+\end{tikzpicture}}
+}
+\end{vd}
+\begin{vd} %[Nguyễn Thế Anh]%[1H2B2]
+Cho tứ diện $ABCD$. Gọi $M, N$ theo thứ tự là trung điểm của $AB, BC$ và $Q$ là một điểm nằm trên cạnh $AD$ ($QA\neq QD$) và $P$ là giao điểm của $CD$ với mặt phẳng $(MNQ)$. Chứng minh rằng $PQ\parallel MN$ và $PQ\parallel AC$.
+\loigiai{
+\immini{
+Vì $QA\neq QD$ nên gọi $K=QM\cap BD$ suy ra $KN \cap CD=P$.\\
+Theo định lý về giao tuyến ba mặt phẳng\\
+Ta xét ba mặt phẳng $(ABC)$ $(ACD)$ và $(MNQ)$.\\
+Ta có: $\heva{&(ABC)\cap (ACD)=AC\\&(ABC)\cap (MNQ)=MN\\&(ACD)\cap (MNQ)=QP}$.\\
+Vậy $AC \parallel MN $ nên $AC\parallel QP\parallel NM$.}
+{\begin{tikzpicture}%[scale=1]
+%\tkzInit[xmin=-5,ymin=-1.5,xmax=3,ymax=2]
+%\tkzClip
+\tkzDefPoints{-3/0/B,2/0/D,-1/3/A} % Định nghĩa các toạ đô dịnh cơ sở
+\tkzDefPointsBy[homothety=center B ratio 0.6](D){B1}
+\tkzDefPointBy[rotation = center B angle -30](B1)
+\tkzGetPoint{C}
+\tkzDefMidPoint(A,B)
+\tkzGetPoint{M}
+\tkzDefMidPoint(C,B)
+\tkzGetPoint{N}
+\tkzDefPointsBy[homothety=center A ratio 0.3](D){Q}
+\tkzInterLL(M,Q)(B,D)
+\tkzGetPoint{K}
+\tkzInterLL(K,N)(C,D)
+\tkzGetPoint{P}
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[above right](Q)
+\tkzLabelPoints[above left](K,B,M)
+\tkzLabelPoints[right](D,P)
+\tkzLabelPoints[below](C,N)
+\tkzDrawSegments[dashed](B,D M,Q M,B B,N B,K N,P)
+\tkzDrawSegments(A,M A,C A,D A,M Q,P C,D N,C M,K N,K M,N)
+\end{tikzpicture}}
+}
+\end{vd}
+\begin{vd}%[Nguyễn Thế Anh]%[1H2K2]
+Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình bình hành. Gọi $M$, $N$, $P$, $Q$ lần lượt là các điểm nằm trên các cạnh $BC$, $SC$, $SD$, $AD$ sao cho $MN\parallel BS$, $NP\parallel CD$, $MQ\parallel CD$ .Chứng mình: $PQ\parallel SA$.
+\loigiai{
+\immini{
+Ta có: $\heva{&MN\parallel BS\\&MQ\parallel CD\Rightarrow MQ\parallel AB}$\\
+$\Rightarrow (MNQP)\parallel(SAB)$.\\
+Mặt khác: $\heva{&(MNQQ)\cap (SAD)=MQ\\&(SAB)\cap (SAD)=SA}\\
+\Rightarrow MQ\parallel SA$.}
+{\begin{tikzpicture}
+\tkzDefPoints{2/5/S,-3/0/B,3/0/C} %Định nghĩa các toạ đô dịnh cơ sở
+\tkzDefPointBy[rotation = center B angle 60](C)
+\tkzGetPoint{A1}
+\tkzDefPointsBy[homothety=center B ratio 0.3](A1){A}
+\tkzDefPointBy[translation = from B to A](C)
+\tkzGetPoint{D}
+\tkzDefPointsBy[homothety=center B ratio 0.3](C){M}
+\tkzDefPointBy[translation = from B to S](M)
+\tkzGetPoint{N1}
+\tkzInterLL(S,C)(M,N1)
+\tkzGetPoint{N}
+\tkzDefPointBy[translation = from C to D](N)
+\tkzGetPoint{P1}
+\tkzInterLL(N,P1)(S,D)
+\tkzGetPoint{P}
+\tkzDefPointBy[translation = from S to A](P)
+\tkzGetPoint{Q1}
+\tkzInterLL(A,D)(P,Q1)
+\tkzGetPoint{Q}
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[right](N)
+\tkzLabelPoints[above left](Q,A,B)
+%\tkzLabelPoints[right](A,B,C,D,N,M,P)
+\tkzLabelPoints[right](D,P)
+\tkzLabelPoints[below](C,M)
+\tkzDrawSegments[dashed](A,D Q,P M,Q)
+\tkzDrawSegments(S,A S,B S,C S,D A,B B,C C,D N,M N,P)
+\end{tikzpicture}}
+}
+\end{vd}
+\begin{vd}%[Nguyễn Thế Anh]%[1H2K2]
+Cho hình chóp $S.ABCD$ với đáy $ABCD$ là hình bình hành. Gọi $A’,B,C',D’$ lần lượt là trung điểm các cạnh $SA,SB,SC,SD$.
+Chứng minh $A’B’C’D’$ là hình bình hành.
+\end{vd}
+\loigiai{
+\begin{center}
+\begin{tikzpicture}
+\tkzDefPoints{-1/5/S,-3/0/B,3/0/C} %Định nghĩa các toạ đô dịnh cơ sở
+\tkzDefPointBy[rotation = center B angle 30](C)
+\tkzGetPoint{A1}
+\tkzDefPointsBy[homothety=center B ratio 0.5](A1){A}
+\tkzDefPointBy[translation = from B to A](C)
+\tkzGetPoint{D}
+\tkzDefMidPoint(S,B)
+\tkzGetPoint{B'}
+\tkzDefMidPoint(S,A)
+\tkzGetPoint{A'}
+\tkzDefMidPoint(S,C)
+\tkzGetPoint{C'}
+\tkzDefMidPoint(S,D)
+\tkzGetPoint{D'}
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[right](D,C',D')
+\tkzLabelPoints[above left](A,A',B')
+\tkzLabelPoints[below](B,C)
+\tkzDrawSegments[dashed](S,A A,B A,D A',B' A',D')
+\tkzDrawSegments(S,B S,C S,D B',C' B,C C,D D',C')
+\end{tikzpicture}
+\end{center}
+Trong $(SAB)$ có $A'B'$ là đường trung bình của $\Delta SAB$$\Rightarrow A'B'\parallel AB,A'B'=\dfrac{1}{2}AB$. $(1)$\\
+Trong $(SCD)$ có $C'D'$ là đường trung bình của $\Delta SCD$$\Rightarrow C'D'\parallel CD,C'D'=\dfrac{1}{2}CD$. $(2)$\\
+Mà $AB\parallel CD,AB=CD$. $(3)$\\
+Từ $(1)$, $(2)$ và $(3)$ $\Rightarrow A'B'\parallel C'D'$ và $A'B'=C'D'$.\\
+Vậy $ A'B'C'D'$ là hình bình hành.
+}
+\begin{center}
+\textbf{BÀI TẬP TỰ LUYỆN (Cho mỗi dạng)}
+\end{center}
+\begin{bt}%[Nguyễn Thế Anh]%[1H2B2]
+Cho hình chóp tứ $S.ABCD$. Gọi $M$ và $N$ lần lượt là trọng tâm tam giác $SAB$ và $SAD$; $E$ là trung điểm của cạnh $BC$.
+Chứng minh: $MN\parallel BD$
+\loigiai{
+\immini{Gọi $I$ là trung điểm của $SA$.\\
+Trong $(SAB)$ có:
+$M$ là trọng tâm tam giác $SAB$$\Rightarrow \heva{
+& M\in BI \\ & \dfrac{IM}{IB}=\dfrac{1}{3}}$.\\
+Trong $(SAD)$ có:
+$N$ là trọng tâm tam giác $SAD$$\Rightarrow \heva{
+& M\in DI \\& \dfrac{IN}{ID}=\dfrac{1}{3}}$.\\
+Xét tam giác $IBD$ có: $\dfrac{IM}{IB}=\dfrac{IN}{ID}=\dfrac{1}{3}\Rightarrow MN\parallel BD$.}
+{\begin{tikzpicture}[scale=1]
+\tkzInit[xmin=-6,ymin=-1.5,xmax=4,ymax=3.5]
+\tkzClip
+\tkzDefPoints{-1/3/S,-2/0/A,2/0/D} %Định nghĩa các toạ đô dịnh cơ sở
+\tkzDefPointBy[rotation = center A angle -60](D)
+\tkzGetPoint{C1}
+\tkzDefPointsBy[homothety=center A ratio 0.3](C1){C}
+\tkzDefPointBy[rotation = center A angle -160](D)
+\tkzGetPoint{B1}
+\tkzDefPointsBy[homothety=center A ratio 0.5](B1){B}
+\tkzDefMidPoint(S,A)
+\tkzGetPoint{I}
+\tkzDefPointsBy[homothety=center I ratio 0.333](B){M}
+\tkzDefPointsBy[homothety=center I ratio 0.333](D){N}
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[left](M,I)
+\tkzLabelPoints[above left](A)
+\tkzLabelPoints[right](N,D)
+\tkzLabelPoints[below](C,B)
+\tkzDrawSegments[dashed](S,A I,B A,B A,D I,D B,D N,M)
+\tkzDrawSegments(S,B S,C S,D S,D B,C C,D)
+\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Nguyễn Thế Anh]%[1H2B2]%[1H2K]
+Cho hình chóp $S.ABCD$ có đáy là hình bình hành. Gọi $M,N,P,Q$ lần lượt là trung điểm $BC,CD,SB,SD$.
+\begin{enumerate}
+\item Chứng minh rằng $MN\parallel PQ$.
+\item  Gọi $I$ là trọng tâm của tam giác $ABC$, $J$ thuộc $SA$ sao cho $\dfrac{JS}{JA}=\dfrac{1}{2}$. Chứng minh $IJ\parallel SM$.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Chứng minh $MN\parallel PQ$.\\
+Ta có: $MN\parallel BD$ ($MN$ là đường trung bình của $\Delta BCD$).\\
+và $PQ\parallel BD$ ($PQ$ là đường trung bình của $\Delta SBD$).\\
+Suy ra $MN\parallel PQ$
+\item \immini{Chứng minh $IJ\parallel SM$.\\
+$\dfrac{AJ}{AS}=\dfrac{2}{3}$.\\
+$ \dfrac{JS}{JA}=\dfrac{1}{2}$.\\
+$\dfrac{AI}{AM}=\dfrac{2}{3}$ ($I$ là trọng tâm của $\Delta ABC$).\\
+Suy ra $\dfrac{AJ}{AS}=\dfrac{AI}{AM}$.\\
+Theo định lí Viet đảo ta có $IJ\parallel SM$.}{\begin{tikzpicture}
+\tkzDefPoints{-1/4/S,-2/0/B,2/0/C} %Định nghĩa các toạ đô dịnh cơ sở
+\tkzDefPointBy[rotation = center B angle 60](C)
+\tkzGetPoint{A1}
+\tkzDefPointsBy[homothety=center B ratio 0.5](A1){A}
+\tkzDefPointBy[translation = from B to A](C)
+\tkzGetPoint{D}
+\tkzDefMidPoint(S,B)
+\tkzGetPoint{P}
+\tkzDefMidPoint(C,B)
+\tkzGetPoint{M}
+\tkzDefMidPoint(C,D)
+\tkzGetPoint{N}
+\tkzDefMidPoint(S,D)
+\tkzGetPoint{Q}
+\tkzDefPointsBy[homothety=center S ratio 0.3333](A){J}
+\tkzInterLL(A,M)(B,D)
+\tkzGetPoint{I}
+\tkzLabelPoints[left](P)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[right](N,Q,J)
+\tkzLabelPoints[above left](A,B)
+\tkzLabelPoints[above](I)
+%\tkzLabelPoints[right](A,B,C,D,N,M,P)
+\tkzLabelPoints[right](D)
+\tkzLabelPoints[below](C,M)
+\tkzDrawSegments[dashed](A,B S,A A,D Q,P A,C D,B I,J A,M M,N)
+\tkzDrawSegments(S,B S,C S,D S,M B,C C,D)
+\end{tikzpicture}}
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}%[Nguyễn Thế Anh]%[1H2B2]%[1H2K2]%[1H2G2]
+. Cho hình chóp tứ giác $S.ABCD$ có đáy là một tứ giác lồi. Gọi $M, N, E, F $ lần lượt là trung điểm của các cạnh bên $SA, SB, SC$ và $SD$. Chứng minh rằng:
+\begin{enumerate}
+\item $ME\parallel AC$, $NF\parallel BD$.
+\item  Ba đường thẳng $ME, NF$ và $SO$ ( $O$ là giao điểm của $AC$ và $BD$) đồng quy.
+\item  Bốn điểm $M, N, E, F$ đồng phẳng.
+\end{enumerate}
+\loigiai{
+\begin{center}
+\begin{tikzpicture}
+\tkzInit[xmin=-2.5,ymin=-3,xmax=2.5,ymax=5]	
+\tkzClip
+\tkzDefPoints{-1/4/S,-2/0/A,2/0/D} %Định nghĩa các toạ đô dịnh cơ sở
+\tkzDefPointBy[rotation = center A angle -20](D)
+\tkzGetPoint{C1}
+\tkzDefPointsBy[homothety=center A ratio 0.8](C1){C}
+\tkzDefPointBy[rotation = center A angle -60](D)
+\tkzGetPoint{B1}
+\tkzDefPointsBy[homothety=center A ratio 0.5](B1){B}
+\tkzDefMidPoint(S,A)
+\tkzGetPoint{M}
+\tkzDefMidPoint(S,B)
+\tkzGetPoint{N}
+\tkzDefMidPoint(S,C)
+\tkzGetPoint{E}
+\tkzDefMidPoint(S,D)
+\tkzGetPoint{F}
+\tkzInterLL(N,F)(M,E)
+\tkzGetPoint{I}
+\tkzInterLL(A,C)(B,D)
+\tkzGetPoint{O}
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[left](N,M)
+\tkzLabelPoints[above left](A)
+\tkzLabelPoints[below](I)
+%\tkzLabelPoints[right](A,B,C,D,N,M,P)
+\tkzLabelPoints[right](D,E,F)
+\tkzLabelPoints[below](C,B,O)
+\tkzDrawSegments[dashed](A,D A,C D,B M,E N,F S,O)
+\tkzDrawSegments(S,A S,B S,C S,D S,D B,C C,D A,B)
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+\item + Ta có: $ME$ là đường trung bình của $\Delta SAC$$\Rightarrow ME\parallel AC$.\\
++ Ta có: $NF$ là đường trung bình của $\Delta SBD$$\Rightarrow NF\parallel BD$.\\
+\item Chứng minh $ME,NF,SO$ đồng quy.\\
+Gọi $I=NF\cap SO$. Do $NF//BD$ nên $\dfrac{SI}{SO}=\dfrac{1}{2}$.\\
+Do $ME//AC$ nên $\dfrac{SM}{SA}=\dfrac{SE}{SC}=\dfrac{1}{2}$. Suy ra $\dfrac{SI}{SO}=\dfrac{SM}{SA}=\dfrac{SE}{SC}$.\\
+Do đó $M,I,E$ thẳng hàng. Vậy $ME,NF,SO$ đồng quy.\\
+\item Chứng minh $M,N,E,F$ đồng phẳng.\\
+Theo câu $(2)$, $ME\cap NF=I$.\\
+Vậy $M,N,E,F$ đồng phẳng.
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}%[Nguyễn Thế Anh]%[1H2B2]
+Cho hình chóp $S.ABCD$, có đáy là hình bình hành. Gọi $M,N,P,Q$ là các điểm lần lượt nằm trên $BC,SC,SD,AD$ sao cho $MN\parallel BS,NP\parallel CD,MQ\parallel CD$.
+Gọi $K$ là giao điểm của $MN$ và $PQ$. Chứng minh: $SK\parallel AD\parallel BC$.
+\loigiai{
+\immini{Chứng minh $SK \parallel AD \parallel BC$.\\
+$\heva{&S\in {(SAB)\cap (SCD)}\\& K \in {(SAB)\cap (SCD)}}\\
+\Rightarrow SK=(SAB)\cap (SCD)$.\\
+Vì $ABCD$ là hình bình hành nên $AD\parallel BC$.\\
+Suy ra hai mặt phẳng $(SBC)$ và $(SAD)$ cắt nhau theo giao tuyến $SK$ và lần lượt chứa hai đường thẳng song song $AD\parallel BC$ nên $SK\parallel AD\parallel BC$.}
+{\begin{tikzpicture}
+	\tkzDefPoints{-1.5/3/S,-2/0/B,2/0/C} %Định nghĩa các toạ đô dịnh cơ sở
+	\tkzDefPointBy[rotation = center B angle 50](C)
+	\tkzGetPoint{A1}
+	\tkzDefPointsBy[homothety=center B ratio 0.3](A1){A}
+	\tkzDefPointBy[translation = from B to A](C)
+	\tkzGetPoint{D}
+	\tkzDefPointsBy[homothety=center B ratio 0.55](C){M}
+	\tkzDefPointBy[translation = from B to S](M)
+	\tkzGetPoint{N1}
+	\tkzInterLL(S,C)(M,N1)
+	\tkzGetPoint{N}
+	\tkzDefPointBy[translation = from C to D](N)
+	\tkzGetPoint{P1}
+	\tkzInterLL(N,P1)(S,D)
+	\tkzGetPoint{P}
+	\tkzDefPointBy[translation = from S to A](P)
+	\tkzGetPoint{Q1}
+	\tkzInterLL(A,D)(P,Q1)
+	\tkzGetPoint{Q}
+	\tkzInterLL(M,N)(Q,P)
+	\tkzGetPoint{K}
+	%\tkzInterLL(C,D)(Q,B)
+	%\tkzGetPoint{I}
+	%\tkzInterLL(C,Q)(A,B)
+	%\tkzGetPoint{E}
+	\tkzLabelPoints[left](N)
+	\tkzLabelPoints[above](S,K)
+	\tkzLabelPoints[above](Q)
+	\tkzLabelPoints[above left](A,B)
+	\tkzLabelPoints[right](D,P)
+	\tkzLabelPoints[below](C,M)
+	\tkzDrawSegments[dashed](S,A A,B A,D Q,P M,Q N,P)
+	\tkzDrawSegments(S,B S,C S,D B,C C,D N,M N,K P,K S,K)
+	\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Nguyễn Thế Anh]%[1H2B2]%[1H2K2]
+Cho hai hình vuông $ABCD$ và $ABEF$ có chung hai cạnh $AB$ và không cùng nằm trên một mặt phẳng. $M$ trên đường chéo $AC$ và $N$ trên đường chéo $BF$ với $\dfrac{AM}{AC}=\dfrac{BN}{BF}=\dfrac{1}{3}$.
+\begin{enumerate}
+\item Chứng minh $DM, AB$ và $EN$ đồng quy tại trung điểm $I$ của $AB$
+\item Chứng minh $MN$ song song với $DE$.
+\end{enumerate}
+\loigiai{
+\begin{center}
+\begin{tikzpicture}
+\tkzDefPoints{-2/0/F,2/0/E} %Định nghĩa các toạ đô dịnh cơ sở
+\tkzDefPointBy[rotation = center F angle 120](E)
+\tkzGetPoint{A1}
+\tkzDefPointsBy[homothety=center F ratio 0.4](A1){A}
+\tkzDefPointBy[rotation = center F angle 100](E)
+\tkzGetPoint{D1}
+\tkzDefPointsBy[homothety=center F ratio 0.8](D1){D}
+\tkzDefPointBy[translation = from F to E](A)
+\tkzGetPoint{B}
+\tkzDefPointBy[translation = from F to E](D)
+\tkzGetPoint{C}
+\tkzDefMidPoint(B,A)
+\tkzGetPoint{I}
+\tkzInterLL(A,E)(F,B)
+\tkzGetPoint{J}
+\tkzInterLL(I,E)(F,B)
+\tkzGetPoint{N}
+\tkzInterLL(D,B)(A,C)
+\tkzGetPoint{K}
+\tkzInterLL(A,C)(D,I)
+\tkzGetPoint{M}
+\tkzLabelPoints[above](K,D,C)
+\tkzLabelPoints[right](N)
+\tkzLabelPoints[above left](A,B)
+\tkzLabelPoints[above](I,J)
+\tkzLabelPoints[below](M,F,E)
+\tkzDrawSegments[dashed](A,B A,E F,B I,E D,I A,C B,C B,E D,B)
+\tkzDrawSegments(A,F F,E E,C D,E A,D D,E D,C D,F)
+\end{tikzpicture}
+\end{center}
+%\immini{
+\begin{enumerate}
+\item Gọi K, J là tâm hình vuông $ABCD$ và $ABEF$.\\
+Ta có: $\dfrac{AM}{AC}=\dfrac{1}{3}\Leftrightarrow AM=\dfrac{1}{3}AC=\dfrac{1}{3}.2AK=\dfrac{2}{3}AK$, mà $AK$ là trung tuyến $\Delta ABD$ nên $M$ là trọng tâm $\Delta ABD$ suy ra DM cũng là trung tuyến $\Delta ABD$,
+suy ra DM cắt AB tại trung điểm I của đoạn AB $(1)$\\
+Ta có: $\dfrac{BN}{BF}=\dfrac{1}{3}\Leftrightarrow BN=\dfrac{1}{3}BF=\dfrac{1}{3}2BJ=\dfrac{2}{3}BJ$, mà $BJ$ là trung tuyến $\Delta ABE$ nên $N$ là trọng tâm $\Delta ABE$ suy ra EN cũng là trung tuyến $\Delta ABE$,
+suy ra EN cắt AB tại trung điểm I của đoạn AB $(2)$\\
+\item Từ $(1)$ và $(2)$ suy ra $DM, AB, EN$ đồng quy tại trung điểm $I$ của $AB$.\\
+Xét $\Delta DIE$.\\
+Ta có: $\dfrac{DM}{DI}=\dfrac{2}{3}$  hay $\dfrac{IM}{ID}=\dfrac{1}{3}$(3) (M là trọng tâm $\Delta ABD$.\\
+Xét $\Delta DIE$.\\
+Ta có: $\dfrac{EN}{EI}=\dfrac{2}{3}$ hay $\dfrac{IN}{IE}=\dfrac{1}{3}$ (4)(N là trọng tâm $\Delta ABE$).\\
+Từ (3), (4) suy ra $\dfrac{IM}{ID}=\dfrac{IN}{IE}=\dfrac{1}{3}$ suy ra $MN$ song song $DE$.
+\end{enumerate}
+}
+\end{bt}
+\begin{center}
+\textbf{BÀI TẬP TỔNG HỢP}
+\end{center}
+\begin{bt}%[Nguyễn Thế Anh]%[1H2B2]%[1H2K2]%[1H2G2]
+Cho hình chóp $S.ABCD$, có đáy là hình thang với đáy lớn $AB$. Gọi $M,N$ lần lượt là trung điểm của $SA$ và $SB$.
+\begin{enumerate}
+\item Chứng minh: $MN\parallel CD$.
+\item Tìm giao điểm $P$ của $SC$ với $(ADN)$.
+\item Kéo dài $AN$ và $DP$ cắt nhau tại $I$. Chứng minh $SI\parallel AB\parallel CD$. Tứ giác $SABI$ là hình gì?
+\end{enumerate}
+\loigiai{
+\begin{center}
+\begin{tikzpicture}
+\tkzInit[xmin=-2.5,ymin=-2,xmax=5,ymax=4]	
+\tkzClip
+\tkzDefPoints{-2/0/A,2/0/B} %Định nghĩa các toạ đô dịnh cơ sở
+\tkzDefPointBy[rotation = center A angle -50](B)
+\tkzGetPoint{E1}
+\tkzDefPointsBy[homothety=center A ratio 0.4](E1){E}
+\tkzDefPointsBy[homothety=center A ratio 0.6](E){D}
+\tkzDefPointsBy[homothety=center B ratio 0.6](E){C}
+\tkzDefPointBy[rotation = center A angle 70](B)
+\tkzGetPoint{S1}
+\tkzDefPointsBy[homothety=center A ratio 0.8](S1){S}
+\tkzDefPointBy[translation = from A to B](S)
+\tkzGetPoint{I}
+\tkzDefMidPoint(S,A)
+\tkzGetPoint{M}
+\tkzInterLL(S,B)(A,I)
+\tkzGetPoint{N}
+\tkzInterLL(E,N)(D,I)
+\tkzGetPoint{P}
+\tkzLabelPoints[above](S,I,N)
+\tkzLabelPoints[right](C,B)
+\tkzLabelPoints[left](A,D,M)
+\tkzLabelPoints[below](E)
+\tkzDrawSegments[dashed](A,I M,N E,N D,I D,C A,B S,B)
+\tkzDrawSegments(S,A S,C S,D A,E E,B S,E S,I I,B)
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+\item Xét $\Delta SAB$ ta có M, N lần lượt là trung điểm của SA và SB nên MN là đường trung bình
+$\Delta SAB$ suy ra $MN\parallel AB$ mà $AB\parallel CD$ (ABCD là hình thang) suy ra $MN\parallel CD$.\\
+\item Gọi $E$ là giao điểm $AD$ và $BC$. Ta tìm giao tuyến hai mặt phẳng $( SBC)$ và $(ADN)$.
+Ta có: $\heva{
+& N\in( ADN) \\
+& N\in SB\subset ( SBC)\Rightarrow N\in ( SBC) \\
+}\\
+\Rightarrow $ $N$ là điểm chung thứ nhất của hai mặt phẳng $(SBC)$ và $(ADN)$.\\
+Ta có: $\heva{
+& E\in AD\subset( ADN)\Rightarrow E\in (ADN) \\
+& E\in BC\subset(SBC)\Rightarrow E\in ( SBC) \\
+}\\
+\Rightarrow $ $E$ là điểm chung thứ hai của hai mặt phẳng $( SBC)$ và $(ADN).$\\
+Suy ra $NE$ là giao tuyến hai mặt phẳng $(SBC)$ và $(ADN)$.\\
+Gọi $P=NE\cap SC\Rightarrow \heva{
+& P\in SC \\
+& P\in NE\subset \left( ADN \right) \\
+}\Rightarrow P=SC\cap( ADN)$\\
+\item Vận dụng hệ quả: Nếu hai mặt phẳng phân biệt lần lượt chứa hai đường thẳng song song thì giao tuyến thì giao tuyến của chúng(nếu có) cũng song song hoặc trùng với một trong hai đường thẳng đó.
+Tìm giao tuyến hai mặt phẳng $(SAB)$ và $(SCD)$
+Ta có: S là điểm chung thứ nhất.
+$\heva{
+& I\in AN\subset \left( SAB \right)\Rightarrow I\in \left( SAB \right) \\
+& I\in DP\subset \left( SCD \right)\Rightarrow I\in \left( SCD \right) \\
+}$\\
+suy ra $I$ là điểm chung thứ hai.\\
+$( SAB)\cap (SCD)=SI$
+Mà $AB\subset ( SAB),CD\subset ( SCD),AB\parallel CD$
+Suy ra $SI\parallel AB\parallel CD$
+Khi đó tứ giác $SABI$ là hình bình hành. Vì hai tam giác $SNI$ và $BNA$ có 3 góc bằng nhau nên hai tam giác này đồng tỉ số đồng dạng là
+$\dfrac{SN}{BN}=1$  suy ra hai tam giác này bằng nhau, suy ra $NI$ bằng $NA$.
+Vậy tứ giác $SABI$ có hai đường chéo cắt nhau tại trung điểm mỗi đường nên tứ giác SABI là hình bình hành.
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}%[Nguyễn Thế Anh]%[1H2B2]%[1H2K2]
+Cho tứ diện $ABCD$. Gọi $M,N,P,Q,R,S$ lần lượt là trung điểm của $AB,CD$, $BC,AD$, $AC,BD$.
+\begin{enumerate}
+\item Chứng minh $MNPQ$ là hình bình hành.
+\item Từ đó suy ra ba đoạn $MN,PQ,RS$ cắt nhau tại trung điểm của mỗi đoạn.
+\end{enumerate}
+\loigiai{
+\begin{center}
+\begin{tikzpicture}
+\tkzDefPoints{-2/0/B,2/0/D} %Định nghĩa các toạ đô dịnh cơ sở
+\tkzDefPointBy[rotation = center B angle -30](D)
+\tkzGetPoint{C1}
+\tkzDefPointsBy[homothety=center B ratio 0.8](C1){C}
+\tkzDefPointBy[rotation = center B angle 60](D)
+\tkzGetPoint{A1}
+\tkzDefPointsBy[homothety=center A ratio 0.9](A1){A}
+\tkzDefMidPoint(A,B)
+\tkzGetPoint{M}
+\tkzDefMidPoint(B,C)
+\tkzGetPoint{P}
+\tkzDefMidPoint(A,D)
+\tkzGetPoint{Q}
+\tkzDefMidPoint(B,D)
+\tkzGetPoint{S}
+\tkzDefMidPoint(C,D)
+\tkzGetPoint{N}
+\tkzDefMidPoint(A,C)
+\tkzGetPoint{R}
+\tkzInterLL(M,N)(P,Q)
+\tkzGetPoint{G}
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](M,B,G)
+\tkzLabelPoints[right](Q,D,N,R)
+\tkzLabelPoints[below](C,P,S)
+\tkzDrawSegments[dashed](M,Q M,N P,Q B,D P,N R,S)
+\tkzDrawSegments(A,B A,C A,D B,C C,D M,P Q,N)
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+\item Ta có $MP$ là đường trung bình $\Delta ABC$ , $NQ$ là đường trung bình $\Delta ADC$
+Nên $MP\parallel AC;MP=\dfrac{1}{2}AC$ và $NQ\parallel AC;NQ=\dfrac{1}{2}AC$\\
+suy ra $\heva{& MP\parallel NQ \\& MP=NQ}$\\
+suy ra tứ giác MPNQ là hình bình hành.\\
+\item $MPNQ$ là hình bình hành nên $MN, PQ$ cắt nhau tại trung điểm mỗi đường $(1)$\\
+Tương tự ta có MS là đường trung bình $\Delta ABD$, NR là đường trung bình $\Delta ACD$\\
+Nên $MS\parallel AD;MS=\dfrac{1}{2}AD$ và $NR\parallel AD;NR=\dfrac{1}{2}AD$ suy ra $\heva{
+& MS//NR \\& MS=NR}.$\\
+suy ra tứ giác $MSNR$ là hình bình hành. nên $MN, RS$ cắt nhau tại trung điểm mỗi đường $(2)$.
+Từ $(1)$ $(2)$ suy ra ba đoạn MN, PQ, RS cắt nhau tại trung điểm mỗi đường.
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}%[Lê Đình Mẫn]%[1H2B2]
+Cho bốn điểm $A$, $B$, $C$ và $D$ không đồng phẳng. Gọi $M$, $N$ lần lượt là trung điểm của các đoạn thẳng $AB$ và $CD$. Chứng minh rằng $MN$ và $AD$ chéo nhau.
+\loigiai{
+\immini{Giả sử $MN$ và $CD$ không chéo nhau. Như vậy có một mặt phẳng $(\alpha)$ chứa cả $MN$ và $AD$. Khi đó ta có $AM$ và $DN$ cùng nằm trên $(\alpha)$. Từ đó suy ra $B$, $C$ cũng thuộc $(\alpha)$. Điều này mâu thuẫn với giả thiết $A$, $B$, $C$ và $D$ không đồng phẳng. Vậy $MN$ và $AD$ chéo nhau.}{\begin{tikzpicture}[line cap=round,line join=round]
+\tkzInit[xmin=-1,ymin=-2.5,xmax=5,ymax=3]
+\tkzClip
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](75:2.5){D}
+\tkzDefShiftPoint[A](0:4){C}
+\tkzDefShiftPoint[A](-70:2){B}
+\tkzDefPointBy[homothety=center A ratio 0.5](B) \tkzGetPoint{M}
+\tkzDefPointBy[homothety=center C ratio 0.5](D) \tkzGetPoint{N}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawSegments(B,D)
+\tkzDrawSegments[dashed](A,C M,N)
+\tkzLabelPoints[below](B)
+\tkzLabelPoints[right](C,N)
+\tkzLabelPoints[above](D)
+\tkzLabelPoints[left](A,M)
+\end{tikzpicture}}
+}
+\end{bt}
+\begin{dang}{Tìm giao điểm của đường thẳng và mặt phẳng}
+\immini{Để tìm giao điểm của đường thẳng $ d $ với mặt phẳng $ (\alpha) $ ta thực hiện các bước:
+\begin{enumerate}[Bước 1.]
+\item Tìm mặt phẳng $ (\beta)  \supset d.$
+\item Tìm giao tuyến $ \Delta =(\alpha) \cap (\beta). $
+\item Tìm giao điểm $ M= d \cap \Delta. $
+\end{enumerate}}{
+\tikzset{every node/.style={font=\scriptsize}}
+\begin{tikzpicture}[scale=.6]
+\tkzInit[xmin=-0.5,ymin=-2.5,xmax=10,ymax=5]
+
+\tkzClip	
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:6){B}
+\tkzDefShiftPoint[A](30:3){D}
+\tkzDefPointBy[translation=from A to B](D) \tkzGetPoint{C}
+\tkzDefPointBy[homothety=center A ratio .6](B) \tkzGetPoint{I}
+\tkzDefShiftPoint[I](100:3){N}
+\tkzDefShiftPoint[I](-80:2){M}
+\tkzDefShiftPoint[I](70:3){K1}
+\tkzDefShiftPoint[I](10:1.5){K2}
+\tkzDefPointBy[translation = from B to C](N) \tkzGetPoint{P}
+\tkzDefPointBy[translation = from N to P](M) \tkzGetPoint{Q}
+\tkzInterLL(P,Q)(C,D) \tkzGetPoint{J}
+\tkzInterLL(M,N)(C,D) \tkzGetPoint{J2}
+\tkzInterLL(P,Q)(C,B) \tkzGetPoint{J3}
+\tkzInterLL(K1,K2)(I,J) \tkzGetPoint{K}
+\tkzMarkAngle[size=1.2](B,A,D)
+\tkzMarkAngle[size=1](Q,M,N)
+\tkzDrawSegments[thin](A,B M,N C,J D,J2 P,J J3,Q Q,M B,C N,P A,D I,J K1,K2)
+\tkzDrawSegments[dashed,thin](J,J2 J,J3)		
+\tkzDrawPoints[fill=white,color=black,size=8pt](K)	
+\node at ($(A)+(12:8mm)$){\footnotesize $\alpha$};
+\node at ($(M)+(60:5mm)$){\footnotesize $\beta$};
+\node at ($(K)+(-30:5mm)$){\footnotesize $M$};
+\node at ($(I)+(60:6mm)$){\footnotesize $\Delta$};
+\node at ($(K1)+(-30:3mm)$){\footnotesize $d$};
+
+\end{tikzpicture}}
+\end{dang}
+\setcounter{vd}{0}
+\begin{vd}%[Nguyễn Quang Hiệp]%[1H2Y2]
+Cho tứ diện $ ABCD. $ Lấy $ N $ và $ P $ lần lượt là các điểm nằm trên $ AC, AD $ sao cho $ AN:AC = 2:5,AP:AD=3:4. $  Tìm giao điểm của $ PN $ với $ (BCD). $	
+\loigiai{\immini{Ta có $ \heva{\dfrac{AN}{AC}=\dfrac{2}{5}\\\dfrac{AP}{AD}=\dfrac{3}{4}} \Rightarrow PN  $ không song song với $ DC. $  \smallskip\\		
+$ K = NP \cap DC $ suy ra:\smallskip \\
+$ \heva{&K \in NP \\&K \in CD \subset (BCD) \\ &NP \not \subset (BCD)} \Rightarrow PN \cap (BCD) =K$}
+{\begin{tikzpicture}[scale=.6]
+\tkzInit[xmin=-0.5,ymin=-3.5,xmax=6,ymax=5]	
+\tkzClip	
+\tkzDefPoint(0.3,0){A}
+\tkzDefShiftPoint[A](-65:3){B}
+\tkzDefShiftPoint[A](70:4){D}		
+\tkzDefShiftPoint[A](0:5){C}
+\tkzDefPointBy[homothety=center A ratio 0.4](C) \tkzGetPoint{N}
+\tkzDefPointBy[homothety=center A ratio 0.75](D) \tkzGetPoint{P}
+\tkzInterLL(N,P)(C,D) 							\tkzGetPoint{K}			
+\tkzDrawSegments(A,B B,C A,D B,D C,D P,K C,K)
+\tkzDrawSegments[dashed](A,C N,P)		
+\tkzDrawPoints[fill=white,color=black,size=8pt](A,B,C,D,N,P,K)		
+\node at ($(A)+(190:4mm)$){\footnotesize $A$};
+\node at ($(B)+(250:4mm)$){\footnotesize $B$};
+\node at ($(C)+(-50:4mm)$){\footnotesize $C$};
+\node at ($(D)+(40:4mm)$){\footnotesize $D$};
+\node at ($(N)+(50:4mm)$){\footnotesize $N$};
+\node at ($(P)+(190:4mm)$){\footnotesize $P$};
+\node at ($(K)+(190:4mm)$){\footnotesize $K$};		
+\end{tikzpicture}}
+}
+\end{vd}
+
+\begin{vd}%[Nguyễn Quang Hiệp]%1H2B2]
+Cho hình chóp $ S.ABCD $ có đáy $ ABCD $ là hình bình hành. Gọi $ M $ là điểm thuộc cạnh $ SA $ ($ M \neq A,M \neq S $). Tìm giao điểm $ K $ của $ BM $ với mặt phẳng $ (SCD). $
+\loigiai{
+\immini{
+Qua điểm $ M $ kẻ đường thẳng $ Mx \parallel AD $.\\
+Gọi $ N $ là giao điểm của $ Mx $ với $ SD. $\\
+$ \Rightarrow MN = (BMC) \cap (SAD). $\\
+Mà $ AB \parallel BC \Rightarrow MN \parallel AD \parallel BC. $\\
+Mặt khác $ M \neq A, M\neq S $\\
+$\Rightarrow MN < AD =BC $ do đó tứ giác $ MNCB $ là hình thang.\\
+$ \heva{&K= BM \cap CN\\ &CN \subset (SCD)} \Rightarrow K = BN \cap (SCD).
+$
+}{\begin{tikzpicture}{scale=0.8}
+\tkzInit[xmin=-0.5,ymin=-1,xmax=6,ymax=5.5]	
+\tkzClip	
+\tkzDefPoint(1,0){A}
+\tkzDefShiftPoint[A](0:3){B}
+\tkzDefShiftPoint[A](35:2){D}
+\tkzDefPointBy[translation=from A to D](B) \tkzGetPoint{C}
+\tkzDefShiftPoint[A](80:5){S}
+\tkzDefPointBy[homothety=center A ratio 0.6](S) \tkzGetPoint{M}
+\tkzDefLine[parallel=through M](A,D) \tkzGetPoint{t}
+\tkzInterLL(M,t)(S,D)				\tkzGetPoint{N}
+\tkzInterLL(B,M)(C,N)				\tkzGetPoint{K}
+\tkzInterLL(C,K)(S,A)				\tkzGetPoint{t}
+\tkzDrawSegments(A,B B,C A,S S,B S,C K,t K,B)
+\tkzDrawSegments[dashed](A,D D,C S,D M,N t,C)		
+\tkzDrawPoints[fill=white,color=black,size=8pt](S,A,B,C,D,M,N,K)		
+\node at ($(A)+(190:3mm)$){\footnotesize $A$};
+\node at ($(B)+(250:3mm)$){\footnotesize $B$};
+\node at ($(C)+(-50:3mm)$){\footnotesize $C$};
+\node at ($(D)+(160:3mm)$){\footnotesize $D$};
+\node at ($(S)+(170:2mm)$){\footnotesize $S$};
+\node at ($(M)+(190:3mm)$){\footnotesize $M$};
+\node at ($(N)+(-110:3mm)$){\footnotesize $N$};
+\node at ($(K)+(250:3mm)$){\footnotesize $K$};		
+\end{tikzpicture}}
+}
+\end{vd}
+\begin{vd}%[Nguyễn Quang Hiệp]%[1H2B2]
+Cho hình chóp $ S.ABCD $ có đáy là hình bình hành. Trên cạnh $ BC,AD, SD $ lần lượt lấy các điểm $ I,J,K $ sao cho $ \dfrac{BI}{BC}=\dfrac{AJ}{AD}=\dfrac{SK}{SD}. $ Tìm giao điểm của $ SC $ với mặt phẳng $ (IJK). $
+
+\loigiai{
+\immini{
+Theo giả thiết ta có: $ \dfrac{BI}{BC}=\dfrac{AJ}{AD}=\dfrac{SK}{SD} \Rightarrow \heva{&JK \parallel SA \\&IJ \parallel CD.} $\\
+$ \heva{&P=(IJK) \cap (SCD)\\&(IJK) \supset IJ \parallel CD \subset (SCD)}$\\ $\Rightarrow  (IJK) \cap (SCD) = d \parallel CD$ ($ K \in d $).\\
+Gọi $ P =d \cap SC, $ suy ra:
+$ \heva{&P \in SC \\&P \in Kd \subset (IJK)\\&SC \not \subset (IJK)} \Rightarrow P =SC \cap (IJK).$
+}{
+\begin{tikzpicture}
+\tkzInit[xmin=-0.5,ymin=-1,xmax=5,ymax=5]
+\tkzClip
+\tkzDefPoint(0,-0.5){A}
+\tkzDefShiftPoint[A](0:3){B}
+\tkzDefShiftPoint[A](35:2){D}
+\tkzDefPointBy[translation=from A to D](B) \tkzGetPoint{C}
+\tkzDefShiftPoint[A](80:5){S}
+\tkzDefPointBy[homothety=center B ratio 0.6](C) \tkzGetPoint{I}
+\tkzDefPointBy[homothety=center A ratio 0.6](D) \tkzGetPoint{J}
+\tkzDefPointBy[homothety=center S ratio 0.6](D) \tkzGetPoint{K}
+\tkzDefLine[parallel=through K](I,J)	\tkzGetPoint{d}
+\tkzInterLL(K,d)(S,C)					\tkzGetPoint{P}
+\tkzDrawSegments(A,B B,C A,S S,B S,C I,P)
+\tkzDrawSegments[dashed](A,D D,C S,D J,K I,J K,P I,K)
+\tkzDrawPolygon[fill=gray!20,opacity=.3](I,J,K)	
+\tkzDrawPoints[fill=white,color=black,size=8pt](S,A,B,C,D,I,J,K,P)	
+\node at ($(A)+(190:3mm)$){\footnotesize $A$};
+\node at ($(B)+(250:3mm)$){\footnotesize $B$};
+\node at ($(C)+(-50:3mm)$){\footnotesize $C$};
+\node at ($(D)+(160:3mm)$){\footnotesize $D$};
+\node at ($(S)+(170:2mm)$){\footnotesize $S$};
+\node at ($(I)+(-10:3mm)$){\footnotesize $I$};
+\node at ($(J)+(180:3mm)$){\footnotesize $J$};
+\node at ($(K)+(170:3mm)$){\footnotesize $K$};
+\node at ($(P)+(20:3mm)$){\footnotesize $P$};					
+\end{tikzpicture}
+}	
+}
+\end{vd}
+
+\begin{center}
+\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\setcounter{bt}{0}
+\begin{bt}%[Nguyễn Quang Hiệp]%[1H2B2]
+Cho hình chóp $ S.ABCD $ có đáy $ ABCD $ là hình bình hành. Gọi $ M, N, P, Q $ lần lượt là các điểm nằm trên $ BC, SC, SD ,AD $ sao cho $ MN \parallel BS, PQ \parallel SA, MQ \parallel CD.$ Tìm giao điểm $ I $ của $ MN $ với $ (SAD). $ Từ đó suy ra $ SI \parallel BC \parallel AD. $
+\loigiai{
+\immini{
+$ \heva{&MN \parallel BS\\&PQ \parallel SA \\&MQ \parallel CD}
+\Rightarrow \heva{
+&\dfrac{CM}{CB}=\dfrac{CN}{CS}\\
+&\dfrac{DP}{DS}=\dfrac{DQ}{DA}\\
+&\dfrac{CM}{CB}=\dfrac{DQ}{DA}			
+}
+\Rightarrow \dfrac{DP}{DS}=\dfrac{CN}{CS} \Rightarrow NP \parallel CD.
+$\\
+Do đó: $ QP \cap MN = I,$ khi đó:\\
+$ \heva{
+&I \in MN \\
+&I \in QP \subset (SAD)\\
+&MN \not \subset (SAD).	
+}
+\Rightarrow I = MN \cap (SAD).
+$\\
+Từ đó ta có: $ (SAD) \cap (SBC) =SI. $\\
+Mặt khác: $ \heva{
+&AD \parallel BC\\
+&AD \subset (SAD)\\
+&BC \subset (SBC)	
+}
+\Rightarrow SI \parallel BC \parallel AD.
+$
+}{
+\begin{tikzpicture}
+\tkzInit[xmin=-0.5,ymin=-1,xmax=5,ymax=5]
+\tkzClip
+\tkzDefPoint(0,-0.5){A}
+\tkzDefShiftPoint[A](0:3){D}
+\tkzDefShiftPoint[A](35:2){B}
+\tkzDefPointBy[translation=from A to D](B) \tkzGetPoint{C}
+\tkzDefShiftPoint[A](80:5){S}
+\tkzDefPointBy[homothety=center C ratio 0.4](S) \tkzGetPoint{N}
+\tkzDefPointBy[homothety=center C ratio 0.4](B) \tkzGetPoint{M}
+\tkzDefPointBy[homothety=center D ratio 0.4](S) \tkzGetPoint{P}
+\tkzDefPointBy[homothety=center D ratio 0.4](A) \tkzGetPoint{Q}
+\tkzInterLL(Q,P)(M,N)					\tkzGetPoint{I}
+\tkzDrawSegments(A,D D,C A,S S,D N,C Q,I S,I N,I)
+\tkzDrawSegments[dashed](A,B B,C S,B P,N M,N S,N M,Q)
+\tkzDrawPoints[fill=white,color=black,size=8pt](S,A,B,C,D,M,N,P,Q,I)	
+\node at ($(A)+(190:3mm)$){\footnotesize $A$};
+\node at ($(B)+(180:3mm)$){\footnotesize $B$};
+\node at ($(C)+(-50:3mm)$){\footnotesize $C$};
+\node at ($(D)+(-10:3mm)$){\footnotesize $D$};
+\node at ($(S)+(170:2mm)$){\footnotesize $S$};
+\node at ($(I)+(-10:3mm)$){\footnotesize $I$};
+\node at ($(M)+(40:3mm)$){\footnotesize $M$};
+\node at ($(N)+(10:3mm)$){\footnotesize $N$};
+\node at ($(P)+(180:3mm)$){\footnotesize $P$};
+\node at ($(Q)+(-90:3mm)$){\footnotesize $Q$};	
+\end{tikzpicture}
+}
+}
+\end{bt}
+\begin{bt}%[Nguyễn Quang Hiệp]%[1H2K2]
+Cho hình chóp $ S.ABCD $ có đáy là hình thang $ ABCD \quad (AB \parallel CD, AB>CD). $ Gọi $ I,K $ lần lượt là trung điểm của $ SA,SB. $
+\begin{enumerate}[a) ]
+\item Tìm giao điểm $ Q $ của $ SC $ với $ (ADK). $
+\item Cho $ M=AK \cap DQ. $ Chứng minh rẳng $ SM \parallel AB \parallel CD. $ Tứ giác $ SABM $ là hình gì?
+\end{enumerate}
+\loigiai{
+\immini{
+\begin{enumerate}
+\item Gọi $ O=AC \cap BD \Rightarrow SO,DK \subset (SBD). $\\
+Khi đó: $ SO \cap DK = J \Rightarrow J \in DK \subset (ADK).$\\
+Do đó: $ AJ, SC \subset (SAC) \Rightarrow AJ \cap SC = Q $\\
+$\Rightarrow Q \in AJ \subset (ADK). $\\
+Từ đó ta có: $ \heva{&Q \in (ADK)\\&Q \in SC \\&SC \not \subset (ADK)} \Rightarrow Q = SC \cap (ADK). $
+\item Ta có: $ AK \cap DQ = M \Rightarrow SM = (SAB) \cap (SCD) $\\
+mà $ \heva{&AB\subset (SAB)\\&CD \subset (SCD)\\&AB \parallel CD.} \Rightarrow SM \parallel AB \parallel CD.$ 	\\
+$ IK $ là đường trung bình của $ \triangle SAB $ do đó:\\
+$ \heva{&IK \parallel AB\\&IK = \dfrac{1}{2}AB}. \hfill (1)$ \\
+\end{enumerate}}
+{
+\begin{tikzpicture}
+\tkzInit[xmin=-0.5,ymin=-1.8,xmax=7,ymax=5.5]
+\tkzClip
+\tkzDefPoint(0,1.5){A}
+\tkzDefShiftPoint[A](0:5){B}
+\tkzDefShiftPoint[A](-75:3){D}
+\tkzDefLine[parallel=through D](A,B) \tkzGetPoint{x}
+\tkzDefShiftPoint[B](-120:4){y}
+\tkzInterLL(D,x)(B,y)					 \tkzGetPoint{C}
+\tkzDefShiftPoint[A](65:4){S}
+\tkzDefMidPoint(S,A)					\tkzGetPoint{I}
+\tkzDefMidPoint(S,B)					\tkzGetPoint{K}
+\tkzInterLL(A,C)(B,D)					\tkzGetPoint{O}	
+\tkzInterLL(S,O)(D,K)					\tkzGetPoint{J}
+\tkzInterLL(A,J)(S,C)					\tkzGetPoint{Q}
+\tkzInterLL(A,K)(D,Q) 					\tkzGetPoint{M}
+\tkzInterLL(D,M)(S,B)					\tkzGetPoint{t}
+\tkzDrawSegments(S,A S,C S,D A,D D,C C,B D,M t,B S,M)
+\tkzDrawSegments[dashed](A,B A,C B,D A,K D,K S,O A,Q K,t  S,K K,M)
+\tkzDrawPoints[fill=white,color=black,size=8pt](S,A,B,C,D,I,K,O,J,Q,M)
+\node at ($(A)+(190:3mm)$){\footnotesize $A$};
+\node at ($(B)+(20:3mm)$){\footnotesize $B$};
+\node at ($(C)+(-50:3mm)$){\footnotesize $C$};
+\node at ($(D)+(180:3mm)$){\footnotesize $D$};
+\node at ($(S)+(170:3mm)$){\footnotesize $S$};
+\node at ($(I)+(190:3mm)$){\footnotesize $I$};
+\node at ($(J)+(-60:3mm)$){\footnotesize $J$};
+\node at ($(K)+(70:3mm)$){\footnotesize $K$};
+\node at ($(O)+(-90:3mm)$){\footnotesize $O$};
+\node at ($(Q)+(-10:3mm)$){\footnotesize $Q$};
+\node at ($(M)+(100:3mm)$){\footnotesize $M$};
+\end{tikzpicture}
+}
+Mặt khác $ \heva{&I \text{ là trung điểm của SA} \\&IK \parallel AB\\&SM \parallel AB} \Rightarrow \heva{&IK \parallel SM\\&IK = \dfrac{1}{2}SM.} \hfill (2) $\\
+Từ $ (1) $ và $ (2) $ suy ra tứ giác $ SABM $ là hình bình hành.}
+\end{bt}
+
+\begin{bt}%[Nguyễn Quang Hiệp]%[1H2B2]
+Cho tứ diện đều $ ABCD. $ Các điểm $ M,N $ lần lượt là trung điểm của $ AC,BC. $ $ P \in BD $ với $ PB =\dfrac{1}{4}BD. $ Xác định giao điểm của $ AD $ với mặt phẳng $(MNP) .$
+\loigiai{
+\immini{
+Ta có $ MN  $ là đường trung bình của $ \triangle ABC. $\\
+Khi đó $ MN \parallel AB. $\\
+mà $ \heva{
+&MN \subset (MNP)\\
+&AB \subset (ABD)\\
+&(MNP) \cap (ABD) =Px.
+} 				
+$\\
+$\Rightarrow Px \parallel MN \parallel AB. $\\
+Gọi $ K = Px \cap AD, $ ta có:\\
+$ \heva{
+& K \in AD\\
+& K \in Px \subset (MNP)\\
+& AD \not \subset (MNP).			 		
+} \Rightarrow AD \cap (MNP) = K.$
+
+}{
+\begin{tikzpicture}
+\tkzInit[xmin=-0.5,ymin=-3,xmax=6,ymax=5]		
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](-65:3){B}
+\tkzDefShiftPoint[A](70:4){D}		
+\tkzDefShiftPoint[A](0:5){C}
+\tkzDefPointBy[homothety=center B ratio 0.25](D) \tkzGetPoint{P}
+\tkzDefPointBy[homothety=center A ratio 0.5](C) \tkzGetPoint{M}
+\tkzDefPointBy[homothety=center B ratio 0.5](C) \tkzGetPoint{N}
+\tkzDefLine[parallel=through P](M,N)			\tkzGetPoint{d}
+\tkzInterLL(A,D)(P,d) 							\tkzGetPoint{K}			
+\tkzDrawSegments(A,B B,C A,D B,D C,D P,K N,P)
+\tkzDrawSegments[dashed](A,C M,P M,K M,N)		
+\tkzDrawPoints[fill=white,color=black,size=8pt](A,B,C,D,N,P,M,K)		
+\node at ($(A)+(190:3mm)$){\footnotesize $A$};
+\node at ($(B)+(250:3mm)$){\footnotesize $B$};
+\node at ($(C)+(-50:3mm)$){\footnotesize $C$};
+\node at ($(D)+(90:3mm)$){\footnotesize $D$};
+\node at ($(N)+(-50:3mm)$){\footnotesize $N$};
+\node at ($(P)+(190:3mm)$){\footnotesize $P$};
+\node at ($(M)+(90:3mm)$){\footnotesize $M$};	
+\node at ($(K)+(190:3mm)$){\footnotesize $K$};	
+\end{tikzpicture}
+}
+}
+\end{bt}
+\begin{dang}{Tìm thiết diện bằng cách kẻ song song}
+Thiết diện được xác định bởi một mặt phẳng cắt các cạnh của một khối đa diện, biết rằng mặt phẳng đó song song với một đường thẳng cho trước.
+\end{dang}
+\setcounter{vd}{0}
+\begin{vd}%[Nguyễn Quang Hiệp]%[1H2B2]
+Cho hình chóp $ S.ABCD, $ đáy là hình thang với các cạnh đáy là $ AB $ và $ CD. $ Gọi $ M, N $ lần lượt là trung điểm của $ AD $ và $ BC $ và $ P $ là điểm thuộc  $ SA \quad (P \neq S, P \neq A). $ Xác định giao tuyến của của $ (SAB) $ với $ (MNP) $ từ đó tìm thiết diện của hình chóp với mặt phẳng $ (MNP). $
+\loigiai{
+\immini{
+Ta có:\\ $ \heva{
+&P =(SAB) \cap (MNP)\\
+&MN \subset (MNP)\\
+&AB \subset (SAB)\\
+&MN \parallel AB	
+} $\\
+$\Rightarrow (SAB) \cap (MNP) = PQ $ với $ Px \parallel AB \parallel MN, Q \in SB. $\\
+Nối $ MP, NQ. $ Các đoạn thẳng $ MN, MP, PQ, QN $ là các đoạn giao tuyến của mặt phẳng $ (MNP) $ với các mặt phẳng $ (ABCD), (SAD), (SAB), (SBC). $\\
+Do đó thiết diện của hình chóp với mặt phẳng $ (MNP) $ là hình thang $ MNQP. $
+}{
+\begin{tikzpicture}
+\tkzInit[xmin=-.5,ymin=-1,xmax=4.8,ymax=5.8]
+\tkzClip
+\tkzDefPoint(0,1.5){A}
+\tkzDefShiftPoint[A](0:3.5){B}
+\tkzDefShiftPoint[A](-45:2.5){D}
+\tkzDefLine[parallel=through D](A,B) 	    \tkzGetPoint{x}
+\tkzDefShiftPoint[B](-100:4){y}
+\tkzInterLL(D,x)(B,y)						\tkzGetPoint{C}
+\tkzDefShiftPoint[A](75:4){S}
+\tkzDefMidPoint(A,D)						\tkzGetPoint{M}
+\tkzDefMidPoint(C,B)						\tkzGetPoint{N}		
+\tkzDefPointBy[homothety=center A ratio 0.4](S)	\tkzGetPoint{P}
+\tkzDefPointBy[translation =from A to B](P) \tkzGetPoint{P'}
+\tkzInterLL(S,B)(P,P')						\tkzGetPoint{Q}
+\fill[gray,opacity=.4] (M)--(N)--(Q)--(P)--cycle;
+\tkzDrawSegments(S,A S,C S,D A,D C,B S,B A,P M,P N,Q C,D)
+\tkzDrawSegments[dashed](A,B P,Q M,N)
+\tkzDrawPoints[fill=white,color=black,size=8pt](S,A,B,C,D,M,N,P,Q)
+
+\node at ($(A)+(190:3mm)$){\footnotesize $A$};
+\node at ($(B)+(20:3mm)$) {\footnotesize $B$};
+\node at ($(C)+(-10:3mm)$){\footnotesize $C$};
+\node at ($(D)+(200:3mm)$){\footnotesize $D$};
+\node at ($(S)+(120:3mm)$){\footnotesize $S$};
+\node at ($(M)+(190:3mm)$) {\footnotesize $M$};
+\node at ($(N)+(30:3mm)$){\footnotesize $N$};
+\node at ($(P)+(170:3mm)$){\footnotesize $P$};
+\node at ($(Q)+(-10:3mm)$){\footnotesize $Q$};
+\end{tikzpicture}
+}
+}	
+\end{vd}
+\begin{vd}%[Nguyễn Quang Hiệp]%[1H2B2]
+Cho hình chóp $ S.ABCD$ có đáy là hình bình hành $ ABCD. $ Lấy $ M \in CD \quad (M \neq C, M \neq D). $ ($ \alpha $) là mặt phẳng đi qua $ M $ và song song với $ SC $ và $ AC. $ Tìm thiết diện của hình chóp với mặt phẳng ($ \alpha $).
+\loigiai{
+\immini{
+Ta có: \\
+$ \heva{
+&(\alpha) \cap (ABCD) =M\\
+&(\alpha) \parallel AC\\
+&AC \subset (ABCD)				
+}$\\
+$\Rightarrow (\alpha) \cap (ABCD) = Mx \parallel AC$ và $ Mx \cap AD = N. $\\
+Tương tự ta cũng có $ (\alpha) \cap (SDC) = MP \parallel SC. $\\
+Khi đó $ (\alpha) \cap (SAD) = NP $\\
+$\Rightarrow  $ Thiết diện của $ (\alpha) $ với hình chóp là tam giác $ MNP. $
+}{
+\begin{tikzpicture}
+\tkzInit[xmin=-0.5,ymin=-2,xmax=7.5,ymax=4]	
+\tkzClip	
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:4.5){B}
+\tkzDefShiftPoint[A](-25:3){D}		
+\tkzDefPointBy[translation=from A to D](B) \tkzGetPoint{C}
+\tkzDefShiftPoint[A](70:4){S}		
+\tkzDefPointBy[homothety=center D ratio 0.55](C) \tkzGetPoint{M}
+\tkzDefLine[parallel=through M](A,C)			\tkzGetPoint{x}
+\tkzInterLL(A,D)(M,x) 							\tkzGetPoint{N}
+\tkzDefLine[parallel=through M](S,C)			\tkzGetPoint{y}
+\tkzInterLL(S,D)(M,y) 							\tkzGetPoint{P}	
+\tkzFillPolygon[color=gray!20](M,N,P)
+\tkzDrawSegments(A,D C,D S,A S,C S,D P,M P,N)
+\tkzDrawSegments[dashed](A,B B,C C,A S,B M,N)		
+\tkzDrawPoints[fill=white,color=black,size=8pt](A,B,C,D,S,M,N,P)		
+\node at ($(A)+(190:3mm)$){\footnotesize $A$};
+\node at ($(B)+(20:3mm)$){\footnotesize $B$};
+\node at ($(C)+(-50:3mm)$){\footnotesize $C$};
+\node at ($(D)+(-90:3mm)$){\footnotesize $D$};
+\node at ($(N)+(-80:3mm)$){\footnotesize $N$};
+\node at ($(P)+(190:3mm)$){\footnotesize $P$};
+\node at ($(M)+(-90:3mm)$){\footnotesize $M$};	
+\node at ($(S)+(190:3mm)$){\footnotesize $S$};	
+\end{tikzpicture}}
+}
+\end{vd}
+\begin{vd}%[Nguyễn Quang Hiệp]%[1H2K2]
+Cho hình lăng trụ tam giác $ ABC.A'B'C'. $ Gọi $ M,N,P $ lần lượt là trọng tâm của các tam giác $ ABC, A'B'C', A'CC'. $ Xác định thiết diện của lăng trụ với mặt phẳng $ (MNP). $
+\loigiai{
+\immini{
+Gọi $ R, S $ lần lượt là trung điểm của $ B'C' $ và $ BC. $\\ Do đó:
+$ RS \parallel BB' \parallel AA'. $\\
+Mặt khác ta lại có $ M $ và $ N $ là trọng tâm của $\triangle ANC $ và $ \triangle A'B'C' $ nên \\ $ \heva{
+&NS =\dfrac{1}{3}A'S\\
+&MR=\dfrac{1}{3}AR\\
+&A'S = AR										
+} \Rightarrow \dfrac{NS}{A'S}=\dfrac{MR}{AR}=\dfrac{1}{3}$\\
+
+$ \Rightarrow MM \parallel SR \subset (BCC'B') \Rightarrow MN \parallel (BCC'B') \hfill (1)$\\
+
+Trong tam giác $ A'GS $ có $ \dfrac{NS}{A'S} =\dfrac{PG}{A'G}=\dfrac{1}{3}$ ($ N,P $ là trọng tâm của $ \triangle A'B'C'$ và $ \triangle A'CC'$)\\			
+}{
+\begin{tikzpicture}
+\tkzInit[xmin=-0.5,ymin=-2.5,xmax=5.5,ymax=4]	
+\tkzClip	
+\tkzDefPoint(0,-0.5){A}
+\tkzDefShiftPoint[A](0:4.5){B}
+\tkzDefShiftPoint[A](-30:3){C}				
+\tkzDefShiftPoint[A](90:4){A'}
+\tkzDefPointBy[translation=from A to B](A') \tkzGetPoint{B'}
+\tkzDefPointBy[translation=from A to C](A') \tkzGetPoint{C'}
+\tkzCentroid(A,B,C)							\tkzGetPoint{M}
+\tkzCentroid(A',B',C')							\tkzGetPoint{N}
+\tkzCentroid(A',C,C')							\tkzGetPoint{P}	
+\tkzDefLine[parallel =through P](A,A')			\tkzGetPoint{d}
+\tkzInterLL(P,d)(A',C')							\tkzGetPoint{J}	
+\tkzInterLL(P,d)(A,C)							\tkzGetPoint{I}
+\tkzInterLL(J,N)(A',B')							\tkzGetPoint{K}
+\tkzInterLL(I,M)(A,B)							\tkzGetPoint{L}
+\tkzDefMidPoint(B,C)							\tkzGetPoint{R}
+\tkzDefMidPoint(B',C')							\tkzGetPoint{S}
+\tkzDefMidPoint(C,C')							\tkzGetPoint{G}
+\tkzFillPolygon[color=gray!20](I,J,K,L)
+\tkzDrawSegments(A,C C,B A',B' A',C A',C' C',B' A,A' B,B' C,C' A',S I,J J,K S,R B',C S,G A',G)
+\tkzDrawSegments[dashed](A,B B,C M,N M,P N,P K,L A,R I,L)		
+\tkzDrawPoints[fill=white,color=black,size=8pt](A,B,C,A',B',C',M,N,P,I,J,K,L,R,S,G)			
+\node at ($(A)+(190:3mm)$){\footnotesize $A$};
+\node at ($(B)+(20:3mm)$){\footnotesize $B$};
+\node at ($(C)+(-50:3mm)$){\footnotesize $C$};
+\node at ($(A')+(90:3mm)$){\footnotesize $A'$};
+\node at ($(B')+(80:3mm)$){\footnotesize $B'$};
+\node at ($(C')+(-10:3mm)$){\footnotesize $C'$};
+\node at ($(M)+(-100:3mm)$){\footnotesize $M$};	
+\node at ($(N)+(90:2mm)$){\footnotesize $N$};
+\node at ($(P)+(190:3mm)$){\footnotesize $P$};
+\node at ($(I)+(180:3mm)$){\footnotesize $I$};
+\node at ($(J)+(240:3mm)$){\footnotesize $J$};	
+\node at ($(K)+(90:2mm)$){\footnotesize $K$};
+\node at ($(L)+(-60:3mm)$){\footnotesize $L$};	
+\node at ($(R)+(-20:3mm)$){\footnotesize $R$};
+\node at ($(S)+(-10:3mm)$){\footnotesize $S$};	
+\node at ($(G)+(-10:2mm)$){\footnotesize $G$};					
+\end{tikzpicture}}
+$ \Rightarrow PN \parallel SG \subset (BCC'B') \Rightarrow PN \parallel (BCB'C') \hfill (2) $\\
+Từ $ (1) $ và $ (2) $ suy ra $ (MNP) \parallel (BCC'B'). $\\
+Mà $ \heva{&BCC'B' \cap (A'B'C') =B'C'\\&N \in (A'B'C')} $\\
+Do đó giao tuyến của $ (MNP) $ với $ (A'B'C') $ là đường thẳng đi qua $ N $ và song song với $ B'C' $ cắt $ A'C' $ tại $ J, $ cắt $ A'B' $ tại $ K. $\\
+Tương tự ta cũng có giao tuyến của $ (MNP) $ với $ (ABC) $ là đường thẳng đi qua $ M $ song song với $ BC $ cắt $ AB,AC $ lần lượt tại $ L,I. $\\
+Khi đó giao tuyến của mặt phẳng $ (MNP) $ với hình lăng trụ là tứ giác $ IJKL. $
+}
+\end{vd}
+
+\begin{center}
+\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\setcounter{bt}{0}
+\begin{bt}%[Nguyễn Quang Hiệp]%[1H2K2]
+Cho hình chóp $ S.ABCD, $ đáy là hình bình hành $ ABCD. $ Lấy $ I \in SC \quad (I \neq C,S).$ $ (\alpha) $ là mặt phẳng chứa đường thẳng $ AI $ và $ (\alpha) \parallel BD. $ Xác định thiết diện tạo bởi mặt phẳng $ (\alpha) $ với hình chóp $ S.ABCD. $
+\loigiai{
+\immini{
+Gọi $ O = AC \cap BC, $ khi đó ta có hai đường thẳng $ AI $ và $ SO $ cùng thuộc mặt phẳng $ SAC.$\\
+Do đó $ SO \cap AI = H, $ nên\\
+$ \heva{
+&H \in AI \subset (\alpha)\\
+&H \in BD \subset (SBD)\\
+} \Rightarrow (\alpha) \cap (SBD) = H.$\\
+Mặt khác ta lại có $ (\alpha) \parallel (BD), $ suy ra\\
+$ (\alpha) $ và $ (SBD) $ cắt nhau theo giao tuyến đi qua $ H $ song song với BD và cắt $ SD, SB $ lần lượt tại $ M,N. $\\
+Khi đó ta có $ \heva{
+&(\alpha) \cap (SAD) =AM\\
+&(\alpha) \cap (SDC) =MI\\
+&(\alpha) \cap (SCB) =IN\\
+&(\alpha) \cap (SBA) =NA.
+} $\\		
+}{
+\begin{tikzpicture}
+\tkzInit[xmin=-0.5,ymin=-2,xmax=7.5,ymax=4]	
+\tkzClip	
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:4.5){B}
+\tkzDefShiftPoint[A](-25:3){D}		
+\tkzDefPointBy[translation=from A to D](B) \tkzGetPoint{C}
+\tkzDefShiftPoint[A](70:4){S}		
+\tkzDefPointBy[homothety=center S ratio 0.65](C) \tkzGetPoint{I}
+\tkzInterLL(A,C)(B,D)							\tkzGetPoint{O}
+\tkzInterLL(S,O)(A,I)							\tkzGetPoint{H}
+\tkzDefLine[parallel=through H](B,D)			\tkzGetPoint{d}
+\tkzInterLL(H,d)(S,D) 							\tkzGetPoint{M}	
+\tkzInterLL(S,B)(H,d) 							\tkzGetPoint{N}
+\tkzFillPolygon[color=gray!20](A,M,I,N)
+\tkzDrawSegments(A,D C,D S,A S,C S,D A,M M,I)
+\tkzDrawSegments[dashed](A,B B,C C,A S,B B,D S,O A,I M,N A,N N,I)		
+\tkzDrawPoints[fill=white,color=black,size=8pt](A,B,C,D,S,I,O,H,M,N)		
+\node at ($(A)+(190:3mm)$){\footnotesize $A$};
+\node at ($(B)+(20:3mm)$){\footnotesize $B$};
+\node at ($(C)+(-50:3mm)$){\footnotesize $C$};
+\node at ($(D)+(-90:3mm)$){\footnotesize $D$};
+\node at ($(O)+(-80:3mm)$){\footnotesize $O$};
+\node at ($(I)+(10:3mm)$){\footnotesize $I$};
+\node at ($(S)+(190:3mm)$){\footnotesize $S$};
+\node at ($(M)+(240:3mm)$){\footnotesize $M$};	
+\node at ($(N)+(20:3mm)$){\footnotesize $N$};
+\node at ($(H)+(160:4mm)$){\footnotesize $H$};	
+\end{tikzpicture}}
+Vậy thiết diện tạo bởi mặt phẳng  $ (\alpha) $ và hình chóp $ S.ABCD $ là tứ giá $ AMIN. $
+}
+\end{bt}
+\begin{bt}%[Nguyễn Quang Hiệp]%[1H2G2]
+Cho hình chóp $ S.ABC, $ đáy là tam giác $ ABC $ vuông tại $ A, \widehat{B}=60^0, AB=SB=a.$ Gọi I là trung điểm của $ BC, SB \perp AI.$ $ M \in AB $ sao cho $ BM = x \quad (0<x<a). $ $ (\alpha) $ là mặt phẳng đi qua $ M $ và song song với $ SB, AI. $
+\begin{enumerate}
+\item Xác định thiết diện tạo bởi $ (\alpha) $ và hình chóp $ S.ABC. $
+\item Tính theo $ a $ và $ x $ diện tích của thiết diện. Xác định $ x $ để diện tích thiết diện lớn nhất.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Ta có: $ \heva{
+&(\alpha) \cap (ABC)=M\\
+&(\alpha) \parallel AI \\
+&AI \subset (ABC).	
+} $	\\
+Do đó giao tuyến của $ (\alpha) $ với $ (ABC) $	là đường thẳng đi qua $ M $ và song song với $ AI $ cắt $ BC $ tại $ N. $\\
+Tương tự $ (\alpha) \cap (SAB) = MQ \parallel SB \quad (M \in SA);$\\
+$ (\alpha) \cap (SBC) = NP \parallel SB \quad (P \in SC). $\\
+Vậy giao tuyến của $ (\alpha) $ với hình chóp $ S.ABC $ là tứ giác $ MNPQ. $
+\item \immini{Ta có: $ \heva{
+&SB \perp AI\\
+&NP \parallel BS\\
+&MN \parallel AI
+} \Rightarrow MN \perp NP. \hfill (1)$\\
+Mà $ \heva{
+&MQ \parallel SB\\
+&NP \parallel SB
+} \Rightarrow MQ \parallel NP. \hfill (2)$\\
+Từ $ (1) $ và $ (2) $ suy ra tứ giác $ MNPQ $ là hình thang vuông, đường cao $ MN. $\\
+Ta có:	$ S_{MNPQ} =\dfrac{1}{2}(MQ+NP).MN. \hfill (3)$\\
+$ \triangle ABC $ có $ \widehat{A}=90^{\circ}, \widehat{B}=60^{\circ} \Rightarrow \triangle ABC$ là nữa tam giác đều.\\
+Do đó $ BC =2AB=2a. $\\
+Mặt khác $I$ là trung điểm của $ BC \Rightarrow AI = IB =\dfrac{BC}{2}=a$ \\
+$ \Rightarrow \triangle ABI $ đều.}
+{\begin{tikzpicture}
+	\tkzInit[xmin=-0.5,ymin=-2,xmax=7,ymax=5.5]
+	\tkzClip
+	\tkzDefPoint(0,1){B}
+	\tkzDefShiftPoint[B](0:5){C}
+	\tkzDefShiftPoint[B](90:4){S}
+	\tkzDefShiftPoint[B](-70:2){A}
+	\tkzDefMidPoint(B,C) \tkzGetPoint{I}
+	\tkzDefPointBy[homothety=center A ratio 0.54](B) \tkzGetPoint{M}
+	\tkzDefLine[parallel=through M](A,I) \tkzGetPoint{d}
+	\tkzInterLL(B,C)(M,d)				\tkzGetPoint{N}
+	\tkzDefLine[parallel=through M](S,B) \tkzGetPoint{d1}
+	\tkzInterLL(S,A)(M,d1)				\tkzGetPoint{Q}
+	\tkzDefLine[parallel =through N](S,B) \tkzGetPoint{d2}
+	\tkzInterLL(S,C)(N,d2)				\tkzGetPoint{P}
+	\tkzMarkRightAngle(C,A,B)
+	\tkzMarkRightAngle(C,B,S)
+	\tkzFillPolygon[color=gray!20](M,N,P,Q)
+	\tkzDrawSegments(S,A S,C A,B A,C S,B P,Q Q,M)
+	\tkzDrawSegments[dashed](B,C A,I M,N N,P)
+	\tkzDrawPoints[fill=white,color=black,size=8pt](S,A,B,C,I,M,N,P,Q)
+	\node at ($(A)+(190:3mm)$){\footnotesize $A$};
+	\node at ($(B)+(200:3mm)$){\footnotesize $B$};
+	\node at ($(C)+(-50:3mm)$){\footnotesize $C$};
+	\node at ($(I)+(80:3mm)$){\footnotesize $I$};
+	\node at ($(S)+(170:3mm)$){\footnotesize $S$};
+	\node at ($(M)+(170:3mm)$){\footnotesize $M$};
+	\node at ($(N)+(10:3mm)$){\footnotesize $N$};
+	\node at ($(P)+(40:3mm)$){\footnotesize $P$};
+	\node at ($(Q)+(180:3mm)$){\footnotesize $Q$};
+	\end{tikzpicture}}
+Mà $ MN \parallel AI \Rightarrow \triangle BMN$ đều.\\
+$ \Rightarrow MN = BN =BM =x. $
+Ta lại có $ MQ \parallel SB \Rightarrow \dfrac{MQ}{SB}=\dfrac{AM}{AB} $\\
+$ \Rightarrow MQ=\dfrac{MA}{AB}.SB=\dfrac{a-x}{a}.a = a-x. $\\
+Tương tự ta cũng có $ NP = \dfrac{2a-x}{2} $\\
+Kết quả tìm được thay vào $ (3) $ ta được:
+$ S_{MNP}= \dfrac{1}{4}(2a-2x+2a-x).x=\dfrac{1}{4}(4a-3x).x$\\
+Ta thấy $ (4a-3x).x=\dfrac{1}{3}(4a-3x).3x \leq  \left(\dfrac{4a-3x+3x}{2}\right)^2=\dfrac{4a^2}{3}. $\\
+$ \Rightarrow S_{MNPQ} \leq \dfrac{1}{4}.\dfrac{4a^2}{3}=\dfrac{a^2}{3}. $\\
+$ Max S_{MNPQ}=\dfrac{a^2}{3} $ khi $ 4a-3x=3x \Leftrightarrow  x=\dfrac{2a}{3}.$
+\end{enumerate}}
+\end{bt}
+\begin{bt}%[Nguyễn Quang Hiệp]%[1H2K2]
+Cho hình chóp $ S.ABCD, $ có đáy $ ABCD $ là hình bình hành. Gọi $ I $ là trung điểm của $ SC, M$ là điểm di động trên cạnh $ SA. $ Mặt phẳng $ (P) $ di động luôn đi qua $ IM $ và song song với $ BC. $ Xác định thiết diện mà $ (P) $ cắt hình chóp $ S.ABCD. $ Xác định vị trí điểm $ M  $ để thiết diện là hình bình hành.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzInit[xmin=-0.5,ymin=-1,xmax=5,ymax=5]
+			\tkzClip
+			\tkzDefPoint(0,-0.5){A}
+			\tkzDefShiftPoint[A](0:3){D}
+			\tkzDefShiftPoint[A](35:2){B}
+			\tkzDefPointBy[translation=from A to D](B) \tkzGetPoint{C}
+			\tkzDefShiftPoint[A](80:5){S}
+			\tkzDefMidPoint(S,C) 						\tkzGetPoint{I}
+			\tkzDefPointBy[homothety=center A ratio 0.2](S) \tkzGetPoint{M}
+			\tkzDefLine[parallel=through M](B,C) 			\tkzGetPoint{d1}
+			\tkzInterLL(S,D)(M,d1)							\tkzGetPoint{N}
+			\tkzDefLine[parallel=through I](B,C) 			\tkzGetPoint{d2}
+			\tkzInterLL(S,B)(I,d2)							\tkzGetPoint{K}
+			\tkzFillPolygon[color=gray!10](M,N,I,K)
+			\tkzDrawSegments(A,D D,C A,S S,D S,C M,N N,I)
+			\tkzDrawSegments[dashed](A,B B,C S,B I,K K,M)
+			\tkzDrawPoints[fill=white,color=black,size=8pt](S,A,B,C,D,I,M,N,K)	
+			\node at ($(A)+(190:3mm)$){\footnotesize $A$};
+			\node at ($(B)+(180:3mm)$){\footnotesize $B$};
+			\node at ($(C)+(-50:3mm)$){\footnotesize $C$};
+			\node at ($(D)+(-10:3mm)$){\footnotesize $D$};
+			\node at ($(S)+(170:2mm)$){\footnotesize $S$};
+			\node at ($(I)+(-10:3mm)$){\footnotesize $I$};
+			\node at ($(M)+(200:3mm)$){\footnotesize $M$};
+			\node at ($(N)+(10:3mm)$){\footnotesize $N$};
+			\node at ($(K)+(180:3mm)$){\footnotesize $K$};
+			\end{tikzpicture}
+		\end{center}
+		Theo giả thiết ta có $ M \in (P) \cap (SAD), $ mà\\
+		$ \heva{
+			&AD \parallel BC \parallel (P)\\
+			&AD \not \subset (P)
+		} \Rightarrow AD \parallel (P).$\\
+		Do đó $ (P) $ cắt $ (SAD) $ theo giao tuyến song song với $ AD, $ giao tuyến này đi qua $ M $ và cắt $ SD $ tại $ N. $\\
+		Tương tự ta cũng có $ (P) $ cắt $ (SBC) $ theo giao tuyến song song với $ BC, $ giao tuyến này đi qua $ I $ và cắt $ SB $ tại $ K. $\\
+		Khi đó $ (P) $ cắt các mặt phẳng $(SAB),(SCD)  $ theo các giao tuyến $ MK,NI.$\\
+		Vậy thiết diện tạo bởi mặt phẳng $ (P) $ và hình chóp $ S.ABCD $ là tứ giác $ MNIK. $\\
+		Mặt khác $ MI \parallel BC \parallel IK \Rightarrow  $ tứ giác $ MNIK $ là hình thang.\\
+		Để tứ giác $ MNIK $ là hình bình hành thì $ MN = IK =\dfrac{BC}{2}=\dfrac{AD}{2}. $ \\
+		Suy ra $ M $ phải là trung điểm của của $ SA. $
+		}
+\end{bt}
+
+\begin{bt}%[Nguyễn Quang Hiệp]%[1H2K2]
+Cho hình chóp $ S.ABCD $ đáy là hình chữ nhật tâm $ O $  có $ AC=BD=a. $ Tam giác $ SBD $ là tam giác đều. Một mặt phẳng $ (P) $ di động song song với mặt phẳng $ (SBD) $ và qua điểm $ I $ trên đoạn $ AO $ sao cho $ AI = x. $
+\begin{enumerate}
+\item Xác định thiết diện của hình chóp với mặt phẳng $ (P). $
+\item Tính diện tích thiết diện theo $ a $ và $ x. $
+\end{enumerate}
+\loigiai{
+\hfill
+\begin{enumerate}			
+	\item \immini{Ta có $ \heva{
+		&(P) \parallel (SBD)\\
+		&(ABD) \cap (SBD) = BD\\
+		&I \in (P) \cap (ABD).
+	} $ \\
+	$\Rightarrow (P) \cap (ABD) = MN,$	với $ \heva{
+		&I \in MN\\
+		&MN \parallel BD.
+	} $\\
+	Tương tự $ (P) $ cắt $ (SAB) $ theo giao tuyến $ MP \parallel SB$ và cắt $ (SAD) $ theo giao tuyến $ NP \parallel SD. $\\
+	Vậy thiết diện tạo bởi $ (P) $ và hình chóp $ S.ABCD $ là tam giác $ MNP $ có các cạnh song song với các cạnh của tam giác $ SBD $ nên đồng dạng với tam giác đều $ SBD. $}{\begin{tikzpicture}
+	\tkzInit[xmin=-0.5,ymin=-1,xmax=5,ymax=5]
+	\tkzClip
+	\tkzDefPoint(0,-0.5){A}
+	\tkzDefShiftPoint[A](0:3){D}
+	\tkzDefShiftPoint[A](35:2){B}
+	\tkzDefPointBy[translation=from A to D](B) 		\tkzGetPoint{C}
+	\tkzDefShiftPoint[A](70:5){S}
+	\tkzInterLL(A,C)(B,D)							\tkzGetPoint{O}
+	\tkzDefPointBy[homothety=center A ratio 0.6](O)\tkzGetPoint{I}
+	\tkzDefLine[parallel=through I](B,D)			\tkzGetPoint{d1}
+	\tkzInterLL(I,d1)(A,B)							\tkzGetPoint{M}
+	\tkzInterLL(I,d1)(A,D)							\tkzGetPoint{N}
+	\tkzDefLine[parallel=through M](S,B)			\tkzGetPoint{d2}
+	\tkzInterLL(M,d2)(S,A)							\tkzGetPoint{P}
+	\tkzFillPolygon[color=gray!10](M,N,P)		
+	\tkzDrawSegments(A,D D,C A,S S,D S,C N,P)
+	\tkzDrawSegments[dashed](A,B B,C S,B A,C B,D M,P M,N S,O)
+	\tkzDrawPoints[fill=white,color=black,size=8pt](S,A,B,C,D,O,I,M,N,P)	
+	\node at ($(A)+(190:3mm)$){\footnotesize $A$};
+	\node at ($(B)+(40:3mm)$){\footnotesize $B$};
+	\node at ($(C)+(-50:3mm)$){\footnotesize $C$};
+	\node at ($(D)+(-10:3mm)$){\footnotesize $D$};
+	\node at ($(S)+(170:2mm)$){\footnotesize $S$};
+	\node at ($(I)+(-120:3mm)$){\footnotesize $I$};
+	\node at ($(M)+(170:3mm)$){\footnotesize $M$};
+	\node at ($(N)+(-90:3mm)$){\footnotesize $N$};
+	\node at ($(P)+(180:3mm)$){\footnotesize $P$};
+	\node at ($(O)+(-90:3mm)$){\footnotesize $O$};
+	\end{tikzpicture}}
+	\item Ta có $ \triangle SBD $ đều, do đó $ S_{SBD}=\dfrac{1}{2}BD.SO=\dfrac{BD^2.\sqrt{3}}{4} =\dfrac{a^2\sqrt{3}}{4}$\\
+Ta lại có $ MN \parallel BD \Rightarrow \dfrac{MN}{BD} =\dfrac{AI}{AO}=\dfrac{2x}{a}.$\\
+Mặt khác $ \triangle MNP \backsim \triangle SBD \Rightarrow \dfrac{S_{MNP}}{S_{SBD}}= \left( \dfrac{MN}{BD}\right)^2 $\\
+$\Rightarrow S_{MNP} =S_{SBD}.\left(\dfrac{MN}{BD}\right)^2=\dfrac{a^2\sqrt{3}}{4}.\dfrac{4x^2}{a^2}=x^2\sqrt{3}.$
+\end{enumerate}		
+}
+\end{bt}
+\begin{center}
+\textbf{BÀI TẬP TỔNG HỢP}
+\end{center}
+\begin{bt}%[Trần Xuân Thiện]%[1H2K2]
+Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình bình hành. $N$ là trọng tâm tam giác $SCD$. Xác định thiết diện tạo bởi hình chóp và mặt phẳng $(P)$ qua $A, N$ và song song với $BD$.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-4.5,-2.2) rectangle (3.5,5);
+\draw [dash pattern=on 5pt off 5pt] (-2.01,0.43)-- (-2.83,-1.55);
+\draw  (-2.83,-1.55)-- (1.23,-1.43);
+\draw (-1.37,4.45)-- (1.23,-1.43);
+\draw [dash pattern=on 2pt off 2pt] (-1.37,4.45)-- (-2.83,-1.55);
+\draw [dash pattern=on 2pt off 2pt] (-1.37,4.45)-- (-2.01,0.43);
+\draw  (-1.37,4.45)-- (2.05,0.55);
+\draw (-1.37,4.45)-- (1.64,-0.44);
+\draw [dash pattern=on 5pt off 5pt] (-2.83,-1.55)-- (2.05,0.55);
+\draw [dash pattern=on 5pt off 5pt] (-3.83,-1.49)-- (-2.01,0.43);
+\draw  (-3.83,-1.49)-- (2.87,2.53);
+\draw  (2.87,2.53)-- (1.23,-1.43);
+\draw [dash pattern=on 5pt off 5pt] (-2.01,0.43)-- (2.05,0.55);
+\draw  (-1.37,4.45)-- (-3.83,-1.49);
+\draw  (-2.6419437939110075,-0.7771662763466035)-- (-2.83,-1.55);
+\draw [dash pattern=on 5pt off 5pt] (-2.01,0.43)-- (1.195,1.525);
+\draw [dash pattern=on 5pt off 5pt] (-2.465,-0.05)-- (0.19,0.922);
+\draw [dash pattern=on 2pt off 2pt] (-2.01,0.43)-- (2.87,2.53);
+\draw (1.014058594644084,1.7313366903181509)-- (2.87,2.53);
+\begin{scriptsize}
+\draw(-2.01,0.43) circle (1.0pt);
+\draw(-1.75,0.92) node {$A$};
+\draw(-2.83,-1.55) circle (1.0pt);
+\draw(-2.81,-1.68) node {$B$};
+\draw (1.23,-1.43) circle (1.0pt);
+\draw(1.39,-1.56) node {$C$};
+\draw (2.05,0.55) circle (1.0pt);
+\draw(2.29,0.64) node {$D$};
+\draw (-1.37,4.45) circle (1.0pt);
+\draw (-1.23,4.7) node {$S$};
+\draw  (0.6366666666666668,1.19) circle (1.0pt);
+\draw(0.97,1.1) node {$N$};
+\draw (2.87,2.53) circle (1.0pt);
+\draw(2.53,2.88) node {$E$};
+\draw  (0.19,0.922) circle (1.0pt);
+\draw(0.43,0.88) node {$Q$};
+\draw (-3.83,-1.49) circle (1.0pt);
+\draw(-4.09,-1.32) node {$T$};
+\draw  (1.195,1.525) circle (1.0pt);
+\draw(1.21,1.26) node {$M$};
+\draw (-2.465,-0.05) circle (1.0pt);
+\draw(-2.81,0.1) node {$R$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+Qua $A$ kẻ $AE \parallel BD$ với $E \in CD$.\\
+Qua $S$ kẻ đường $St \parallel AB,  St \parallel CD$.\\
+Gọi $M = NE \cap SD, Q = NE \cap SC, T = NE \cap St, \\
+R = AT \cap SB$.\\
+Khi đó thiết diện tạo bởi hình chóp $S.ABCD$ và $(P)$ là tứ giác $AMQR$.
+}
+\end{bt}
+
+%Câu 2
+\begin{bt}%[Trần Xuân Thiện]%[1H2K2]
+Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình bình hành. $O$ là giao điểm của  $AC$ và $BD$, $M$ là trung điểm $SA$. Gọi $(\alpha)$ là mặt phẳng qua $M$ và song song với $SC, AD$. Xác định thiết diện tạo bởi hình chóp và mặt phẳng $(\alpha)$.
+\loigiai{
+\immini{Do $(\alpha) \parallel AD$ nên cắt $(SAD), (ABCD)$ theo hai giao tuyến song song với $AD$.\\
+Tương tự $(\alpha) \parallel SC$ nên cắt $(SAC), (SCD)$ theo hai giao tuyến song song với $SC$.\\
+Do $O = AC \cap BD \Rightarrow MO \parallel SC$.\\
+Gọi $Mx \parallel AD \Rightarrow Mx \cap SD =N$.\\
+Tương tự $Oy \parallel AD \Rightarrow Oy \cap CD = P, Oy \cap AB = Q$.
+Vậy thiết diện tạo bởi hình chớp và $(\alpha)$ là hình thang $MNPQ$.}
+{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2,-1.5) rectangle (3,4);
+\draw [dash pattern=on 2pt off 2pt] (-0.79,1.03)-- (-1.63,-0.97);
+\draw (-1.63,-0.97)-- (1.67,-1.01);
+\draw (-0.95,3.51)-- (1.67,-1.01);
+\draw  (-0.95,3.51)-- (-1.63,-0.97);
+\draw [dash pattern=on 2pt off 2pt] (-0.95,3.51)-- (-0.79,1.03);
+\draw  (-0.95,3.51)-- (2.51,0.99);
+\draw [dash pattern=on 2pt off 2pt] (-1.63,-0.97)-- (2.51,0.99);
+\draw [dash pattern=on 2pt off 2pt] (-0.79,1.03)-- (2.51,0.99);
+\draw (1.67,-1.01)-- (2.51,0.99);
+\draw [dash pattern=on 2pt off 2pt] (-0.79,1.03)-- (1.67,-1.01);
+\draw [dash pattern=on 2pt off 2pt] (-1.29,1.27)-- (-0.87,2.27);
+\draw  (-1.29,1.27)-- (0.02,-0.99);
+\draw [dash pattern=on 2pt off 2pt] (-0.87,2.27)-- (0.86,1.01);
+\draw [,dash pattern=on 2pt off 2pt] (0.86,1.01)-- (0.02,-0.99);
+\draw [dash pattern=on 2pt off 2pt] (-0.87,2.27)-- (0.44,0.01);
+\begin{scriptsize}
+\draw (-0.79,1.03) circle (1.0pt);
+\draw (-0.77,0.8) node {$A$};
+\draw  (-1.63,-0.97) circle (1.0pt);
+\draw (-1.61,-1.1) node {$D$};
+\draw(1.67,-1.01) circle (1.0pt);
+\draw(1.83,-1.14) node {$C$};
+\draw (2.51,0.99) circle (1.0pt);
+\draw(2.75,1.08) node {$B$};
+\draw (-0.95,3.51) circle (1.0pt);
+\draw(-0.81,3.76) node {$S$};
+\draw (-0.87,2.27) circle (1.0pt);
+\draw(-0.69,2.46) node {$M$};
+\draw (-1.29,1.27) circle (1.0pt);
+\draw(-1.61,1.5) node {$N$};
+\draw (0.44,0.01) circle (1.0pt);
+\draw(0.53,-0.28) node {$O$};
+\draw (0.02,-0.99) circle (1.0pt);
+\draw(-0.01,-1.2) node {$P$};
+\draw (0.86,1.01) circle (1.0pt);
+\draw(1.01,1.26) node {$Q$};
+\end{scriptsize}
+\end{tikzpicture}}
+}
+\end{bt}
+
+%Câu 3
+\begin{bt}%[Trần Xuân Thiện]%[1H2K2]
+Cho hình chóp $S.ABCD$, $M, N$ là hai điểm trên $AB, CD$. $(\alpha)$ là mặt phẳng qua $MN$ và song song $SA$.
+\begin{enumerate}
+\item Tìm giao tuyến của $(\alpha)$ với các mặt phẳng $(SAB), (SAC)$.
+\item Xác định thiết diện của hình chóp và $(\alpha)$.
+\item Tìm điều kiện để $MN$ là hình thang.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Giao tuyến của $(\alpha)$ với các mặt phẳng $(SAB)$.\\
+Ta có $ \left\{ \begin{array}{l}
+M \in \left( \alpha  \right) \cap \left( {SAB} \right)\\
+\left( \alpha  \right)\parallel SA\\
+SA \subset \left( {SAB} \right)
+\end{array} \right. \Rightarrow \left( \alpha  \right) \cap \left( {SAB} \right) = MP$ với $MP \parallel SA$.
+\item Giao tuyến của $(\alpha)$ với các mặt phẳng $(SAC)$.\\
+Gọi $R = MN \cap AC$. Ta có $\left\{ \begin{array}{l}
+R \in \left( \alpha  \right) \cap \left( {SAC} \right)\\
+\left( \alpha  \right)\parallel SA\\
+SA \subset \left( {SAC} \right)
+\end{array} \right. \Rightarrow \left( \alpha  \right) \cap \left( {SAC} \right) = RQ$ với $RQ \parallel SA$.\\
+Thiết diện là tứ giác $MPQN$.
+\item \immini{Tứ giác $MNPQ$ là hình thang $\Rightarrow \left[ \begin{array}{l}
+MN\parallel QN (1)\\
+MN\parallel PQ (2)
+\end{array} \right.$.\\
+Trường hợp (1) ta có $\left\{ \begin{array}{l}
+SA\parallel MP\\
+MP\parallel QN
+\end{array} \right. \Rightarrow SA\parallel QN$\\
+Do đó $\left\{ \begin{array}{l}
+SA\parallel QN\\
+QN \subset \left( {SC{\rm{D}}} \right)
+\end{array} \right. \Rightarrow SA\parallel \left( {SC{\rm{D}}} \right)$ ( Vô lý ).\\
+Trường hợp (2) ta có $\left\{ \begin{array}{l}
+BC = \left( {ABC{\rm{D}}} \right) \cap \left( {SBC} \right)\\
+MN \subset \left( {ABC{\rm{D}}} \right)\\
+PQ \subset \left( {SBC} \right)
+\end{array} \right. \\ \Rightarrow MN\parallel BC$.\\
+Ngược lại nếu $MN \parallel BC$ thì $\left\{ \begin{array}{l}
+PQ = \left( \alpha  \right) \cap \left( {SBC} \right)\\
+MB \subset \left( \alpha  \right)\\
+BC \subset \left( {SBC} \right)
+\end{array} \right. \\ \Rightarrow MN\parallel PQ$\\
+Vậy tứ giác $MNPQ$ là hình thang khi $MN \parallel BC$.}
+{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2.5,-1.5) rectangle (2.5,4.3);
+\draw [dash pattern=on 2pt off 2pt] (-2.,1.)-- (2.08,1.02);
+\draw  (-2.,1.)-- (-0.86,-1.02);
+\draw (-0.86,-1.02)-- (1.36,-0.8);
+\draw  (1.36,-0.8)-- (2.08,1.02);
+\draw (-2.,1.)-- (-0.72,3.96);
+\draw (-0.72,3.96)-- (-0.86,-1.02);
+\draw  (-0.72,3.96)-- (1.36,-0.8);
+\draw  (-0.72,3.96)-- (2.08,1.02);
+\draw [dash pattern=on 2pt off 2pt] (-1.51,0.13)-- (1.74,0.17);
+\draw [dash pattern=on 2pt off 2pt] (-2.,1.)-- (1.36,-0.8);
+\draw (-1.51,0.13)-- (-0.78,1.81);
+\draw (-0.79,1.81)-- (0.27,1.69);
+\draw [dash pattern=on 2pt off 2pt] (0.27,1.69)-- (-0.4,0.14);
+\draw (0.27,1.69)-- (1.74,0.17);
+\begin{scriptsize}
+\draw  (-2.,1.) circle (1.0pt);
+\draw (-2.32,1.15) node {$A$};
+\draw (2.08,1.02) circle (1.0pt);
+\draw(2.22,0.95) node {$D$};
+\draw (-0.86,-1.02) circle (1.0pt);
+\draw(-0.94,-1.17) node {$B$};
+\draw (1.36,-0.8) circle (1.0pt);
+\draw(1.56,-0.93) node {$C$};
+\draw  (-0.72,3.96) circle (1.0pt);
+\draw(-0.58,4.21) node {$S$};
+\draw (-1.50752,0.12736) circle (1.0pt);
+\draw(-1.7,0.17) node {$M$};
+\draw (1.74,0.17) circle (1.0pt);
+\draw(1.92,0.11) node {$N$};
+\draw (-0.4,0.14) circle (1.0pt);
+\draw (-0.34,-0.19) node {$R$};
+\draw (0.27,1.69) circle (1.0pt);
+\draw(0.6,1.71) node {$Q$};
+\draw (-0.78,1.81) circle (1.0pt);
+\draw(-1.14,1.89) node {$P$};
+\end{scriptsize}
+\end{tikzpicture}}
+\end{enumerate}
+}
+\end{bt}
+
+%Câu 4
+\begin{bt}%[Trần Xuân Thiện]%[1H2K2]
+Cho hình chóp $S.ABCD$, với đáy $ABCD$ là hình bình hành. Gọi $A', B', C', D'$ lần lượt là trung điểm các cạnh $SA, SB, SC, SD$.
+\begin{enumerate}
+\item Tứ giác $A', B', C', D'$ là hình gì?.
+\item Gọi $M$ là điểm bất kỳ nằm trên $BC$. Xác định thiết diện của hình chóp và $(A'B'M)$.
+\end{enumerate}
+\loigiai{
+\immini{\begin{enumerate}
+\item Tứ giác $A'B'C'D'$ là hình bình hành.\\
+Thật vậy:\\
+Trong tam giác $SAB$ ta có $A'B' \parallel AB$, $A'B'=\dfrac{1}{2}AB$.\\
+trong tam giác $SCD$ ta có $C'D' \parallel CD$, $C'D'=\dfrac{1}{2}CD$.\\
+Vậy tứ giác $A'B'C'D'$ là hình bình hành.
+\item  Ta có $AB \parallel A'B'$ và $M \in (A'B'M), (ABCD)$.\\
+Do đó giao tuyến của $(A'B'M)$ và $(ABCD)$ là $Mx$ song song với $AB, A'B'$.\\
+Gọi $N = Mx \cap AD$.\\
+Vậy thiết diện là hình thang $A'B'MN$.
+\end{enumerate}}
+{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+	\clip(-3,-1.5) rectangle (3,4);
+	\draw [dash pattern=on 5pt off 5pt] (-1.41,0.21)-- (-2.61,-1.23);
+	\draw (-2.61,-1.23)-- (1.27,-1.17);
+	\draw (-0.85,3.65)-- (1.27,-1.17);
+	\draw (-0.85,3.65)-- (-2.61,-1.23);
+	\draw [dash pattern=on 2pt off 2pt] (-0.85,3.65)-- (-1.41,0.21);
+	\draw  (-0.85,3.65)-- (2.47,0.27);
+	\draw [dash pattern=on 5pt off 5pt] (-1.41,0.21)-- (2.47,0.27);
+	\draw  (2.47,0.27)-- (1.27,-1.17);
+	\draw [dash pattern=on 2pt off 2pt] (-1.13,1.93)-- (0.81,1.96);
+	\draw (0.81,1.96)-- (0.21,1.24);
+	\draw  (0.21,1.24)-- (-1.73,1.21);
+	\draw [dash pattern=on 2pt off 2pt] (-1.73,1.21)-- (-1.13,1.93);
+	\draw (1.6726259343516414,-0.6868488787780304)-- (0.21,1.24);
+	\draw [dash pattern=on 2pt off 2pt] (-2.207374065648359,-0.7468488787780304)-- (1.6726259343516414,-0.6868488787780304);
+	\draw [dash pattern=on 2pt off 2pt] (-1.73,1.21)-- (-2.207374065648359,-0.7468488787780304);
+	\begin{scriptsize}
+	\draw (-1.41,0.21) circle (1.0pt);
+	\draw(-1.29,0.04) node {$D$};
+	\draw (-2.61,-1.23) circle (1.0pt);
+	\draw(-2.77,-1.32) node {$A$};
+	\draw (1.27,-1.17) circle (1.0pt);
+	\draw(1.43,-1.3) node {$B$};
+	\draw (2.47,0.27) circle (1.0pt);
+	\draw (2.71,0.36) node {$C$};
+	\draw  (-0.85,3.65) circle (1.0pt);
+	\draw (-0.71,3.9) node {$S$};
+	\draw (-1.73,1.21) circle (1.0pt);
+	\draw(-1.95,1.38) node {$A'$};
+	\draw (0.21,1.24) circle (1.0pt);
+	\draw(0.57,1.3) node {$B'$};
+	\draw (0.81,1.96) circle (1.0pt);
+	\draw(1.01,2.22) node {$C'$};
+	\draw (-1.13,1.93) circle (1.0pt);
+	\draw(-0.93,2.18) node {$D'$};
+	\draw (1.6726259343516414,-0.6868488787780304) circle (1.0pt);
+	\draw(1.83,-0.86) node {$M$};
+	\draw (-2.207374065648359,-0.7468488787780304) circle (1.0pt);
+	\draw(-1.9,-0.86) node {$N$};
+	\end{scriptsize}
+	\end{tikzpicture}}
+}
+\end{bt}
+\begin{dang}{Chứng minh 3 điểm thẳng hàng và các yếu tố cố định}
+\begin{itemize}
+\item -	Để chứng minh ba điểm ( hay nhiều điểm) thẳng hàng ta chứng minh chúng là điểm chung của hai mặt phẳng phân biệt.
+\item -   Khi chúng nằm trên đường thẳng giao tuyến của hai mặt phẳng.
+\end{itemize}
+\end{dang}
+\setcounter{vd}{0}
+\begin{vd}%[Trần Xuân Thiện]%[1H2G2]
+Cho tứ diện $S.ABC$. Trên $SA$, $SB$ và $SC$ lần lượt lấy các điểm $D$, $E$ và $F$ sao cho $DE$ cắt $AB$ tại $E$, $EF$ cắt $BC$ tại $J$, $FD$ cắt $CA$ tại $K$.Chứng minh ba điểm $I, J, K$ thẳng hàng.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+\tkzDefPoints{0/0/A, 1/-3/B, 5/0/C}
+\coordinate (S) at ($(A)+(2,5)$);
+\coordinate (D) at ($(A)!.67!(S)$);
+\coordinate (E) at ($(B)!.27!(S)$);
+\coordinate (F) at ($(C)!.47!(S)$);
+\tkzInterLL(A,B)(D,E)
+\tkzGetPoint{I}
+\tkzInterLL(C,B)(F,E)
+\tkzGetPoint{J}
+\tkzInterLL(C,A)(D,F)
+\tkzGetPoint{K}
+\tkzInterLL(B,A)(J,F)
+\tkzGetPoint{X}
+\tkzDrawPoints(A,B,C,S,D,E,F,I,J,K)
+\tkzLabelPoints[below left](A)
+\tkzLabelPoints[above](S,D,F)
+\tkzLabelPoints(B,C,E,I,J,K)
+\tkzDrawSegments(S,A A,X B,C S,C S,B B,I D,E E,I B,J E,J E,F C,K F,K)
+\tkzDrawSegments[dashed](A,C F,D B,X)
+\end{tikzpicture}
+\end{center}
+Ta có $I = DE \cap AB,DE \subset \left( {DEF} \right) \Rightarrow I \in \left( {DEF} \right)$.
+Mà $AB \subset \left( {ABC} \right) \Rightarrow I \in \left( {ABC} \right){\rm{  }}\left( 1 \right)$.\\
+Tương tự \\
+$J = EF \cap BC$ $\Rightarrow \left\{ \begin{array}{l}J \in EF \in \left( {DEF} \right)\\
+J \in BC \subset \left( {ABC} \right)
+\end{array} \right.{\rm{  }}\left( 2 \right)$ và $K = DF \cap AC \Rightarrow \left\{ \begin{array}{l}
+K \in DF \subset \left( {DEF} \right)\\
+K \in AC \subset \left( {ABC} \right)
+\end{array} \right.{\rm{  }}\left( 3 \right)$.\\
+Từ $(1), (2), (3)$ ta có $I, J, K$ là điểm chung của $(ABC)$ và $(DEF)$ nên chúng thẳng hàng.
+}
+\end{vd}
+
+\begin{vd}%[Trần Xuân Thiện]%[1H2G2]
+Cho hình chóp $S.ABCD$ với đáy là hình bình hành. $M, N$ lần lượt là trung điểm $AB, SC$.
+\begin{enumerate}
+\item Xác định giao điểm $I$ của đường thẳng $AN$ và mặt phẳng $(SBD)$.
+\item Xác định giao điểm $J$ của đường thẳng $MN$ và mặt phẳng $(SBD)$.
+\item Chứng minh $I, J, B$ thẳng hàng.
+\end{enumerate}
+\loigiai{
+\immini{\begin{enumerate}
+\item Ta có $AN \subset \left( {SAC} \right)$.\\
+Gọi $AC \cap B{\rm{D}} = \left\{ O \right\} \Rightarrow (SAC) \cap (SBD)=SO$.\\
+Trong $(SAC)$ gọi $ \left\{ I \right\}=AN \cap SO \\ \Rightarrow I \in AN, I \in SO$.\\
+Mà $SO \subset (SBD) \Rightarrow I \in (SBD)$.\\
+Vậy $I=AN \cap (SBD)$.
+\item Ta có $MN \subset (SMC)$.\\
+Ta có $S \in (SMC), (SBD)$. \\
+Gọi $E = MC \cap BD \Rightarrow (SMC) \cap (SBD) = SE$.\\
+Trong mặt phẳng $(SMC)$ gọi $J = MN \cap SE \\
+\Rightarrow J \in MN, J \in SE$.\\
+Mà $SE \in (SBD) \Rightarrow J \in (SBD)$.\\
+Vậy $J = MN \cap (SBD)$.
+\item Chứng minh $I, J, B$ thẳng hàng.\\
+Ta có $B \in (ANB) , (SBD)$ (1).\\
+Mặt khác
+$I \in SO$ mà $SO \subset (SBD) \\
+\Rightarrow I \in (SBD)$.\\
+$I \in AN$ mà $AN \subset (ANB) \Rightarrow I \in (ANB)$.\\
+$\Rightarrow I$ là điểm chung của $(SBD), (SAN)$ (2).\\
+Tương tự ta có $J \in (SBD), (ANB)$ (3).\\
+Từ $(1), (2), (3)$ ta có: $I, J, B$ thuộc giao tuyến của $(SBD), (ANB)$ nên chúng thẳng hàng.
+\end{enumerate}}
+{\begin{tikzpicture}[scale=.8]
+\tkzDefPoints{1/4/A, -2/-2/B, 3/-5/C}
+\coordinate (D) at ($(A)+(C)-(B)$);
+\coordinate (S) at ($(A)+(0,5)$);
+\coordinate (M) at ($(A)!0.5!(B)$);
+\coordinate (N) at ($(S)!0.5!(C)$);
+\tkzInterLL(A,C)(B,D)
+\tkzGetPoint{O}
+\tkzInterLL(A,N)(S,O)
+\tkzGetPoint{I}
+\tkzInterLL(M,C)(B,D)
+\tkzGetPoint{E}
+\tkzInterLL(M,N)(S,E)
+\tkzGetPoint{J}
+\tkzDrawPoints(M,N,O,I,E,J)
+\tkzLabelPoints(M,N,O,I,E,J)
+\tkzDrawSegments[dashed](S,A A,B A,D A,C B,D S,O A,N S,M M,C M,N S,M M,C S,E)
+\tkzDrawPolygon(S,C,D)
+\tkzDrawSegments(S,B B,C)
+\tkzLabelPoints[left](A,B)
+\tkzLabelPoints[right](C,D)
+\tkzLabelPoints[above](S)
+\end{tikzpicture}}
+}
+\end{vd}
+
+\begin{vd}%[Lê Đình Mẫn]%[1H2G2]
+Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình bình hành. $E$ là một điểm di động trên đoạn $AB$ ($E$ khác $A$ và $B$). Một mặt phẳng $(\alpha)$ đi qua $E$ đồng thời song song với $SA$ và $BC$. Biết rằng $(\alpha)$ cắt $SB$, $SC$, $CD$ lần lượt tại $F$, $G$ và $H$.
+\begin{enumerate}
+\item Tứ giác $EFGH$ là hình gì?
+\item Gọi $K$ là giao điểm của $EF$ và $GH$. Tìm quỹ tích điểm $K$ khi $E$ di động trên đoạn $AB$.
+\end{enumerate}
+\loigiai{
+\immini{\begin{enumerate}
+\item Ta có $\heva{&(\alpha)\parallel SA\\ &E\in (SAB)\\ &SA\subset(SAB)}\Rightarrow \heva{&(\alpha)\cap (SAB)=EF\\ &EF\parallel SA}$.\\
+$\heva{&(\alpha)\parallel BC\\ &F\in (SBC)\\ &BC\subset(SBC)}\Rightarrow \heva{&(\alpha)\cap (SBC)=FG\\ &FG\parallel BC}$.\\
+Lại có $\heva{&(\alpha)\cap (SBC)=BC\\ &(\alpha)\cap (ABCD)=EH\\ &(ABCD)\cap (SBC)=BC\\ &FG\parallel BC}\Rightarrow EH\parallel FG\parallel BC$.\\
+Do đó, $EFGH$ là hình thang.
+\item Ta có $\heva{&(\alpha)\cap (SAB)=EF\\ &(\alpha)\cap (SCD)=GH}\Rightarrow (SAB)\cap (SCD)=SK$. Mặt khác, $AB\parallel CD, AB\subset (SAB), CD\subset (SCD)\Rightarrow SK\parallel AB$.\\
+Vậy, điểm $K$ luôn thuộc đường thẳng cố định qua $S$ và song song với $AB$ khi $E$ thay đổi trên $AB$.
+\end{enumerate}}{
+\begin{tikzpicture}[line cap=round,line join=round]
+\coordinate (A) at (0,0);
+\path(A)++(-120:2)coordinate(B);
+\path(A)++(0:3)coordinate(D);
+\path(A)++(85:3.5)coordinate(S);
+\coordinate (C) at ($(D)-(A)+(B)$);
+\coordinate (E) at ($(A)!.45!(B)$);
+\coordinate (F) at ($(S)!.45!(B)$);
+\coordinate (G) at ($(S)!.45!(C)$);
+\coordinate (H) at ($(D)!.45!(C)$);
+\tkzInterLL(E,F)(H,G)	\tkzGetPoint{K}
+\tkzDrawSegments(F,B S,C S,D B,C C,D F,G H,K S,K F,K)
+\tkzDrawSegments[dashed](S,F S,A B,A A,D E,F E,H)
+\draw (A)node[below]{$A$} (B)node[below]{$B$} (F)node[left]{$F$} (E)node[below]{$E$} (S)node[left]{$S$} (D)node[right]{$D$} (G)node[right]{$G$} (H)node[right]{$H$} (C)node[below]{$C$} (K)node[left]{$K$};
+\end{tikzpicture}}
+}
+\end{vd}
+\begin{center}
+\textbf{BÀI TẬP TỔNG HỢP}
+\end{center}
+\setcounter{bt}{0}
+\begin{bt}%[Trần Xuân Thiện]%[1H2G2]
+Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình bình hành. Gọi $M, N, P, Q$ lần lượt là các điểm nằm trên các cạnh $BC, SC, SD, AD$ sao cho
+$MN \parallel BS, NP \parallel CD, MQ \parallel CD$.
+\begin{enumerate}
+\item Chứng minh $PQ \parallel SA$.
+\item Gọi $K$ là giao điểm của $MN$ và $PQ$. Chứng minh $K$ nằm trên đường thẳng cố định khi $M$ di động trên $BC$.
+\end{enumerate}
+\loigiai{
+\immini{\begin{enumerate}
+\item Xét $\Delta SCD$:\\
+Ta có $NP \parallel CD \Rightarrow \dfrac{NP}{DS}=\dfrac{CN}{CS} (1)$.\\
+Tương tự : $MN \parallel SB \Rightarrow \dfrac{CN}{CS}=\dfrac{CM}{CB} (2)$.\\
+$MQ \parallel CD \Rightarrow \dfrac{CM}{CB}=\dfrac{DQ}{DA} (3)$.\\
+Từ (1), (2) và (3) ta có $\dfrac{DP}{DS}=\dfrac{DQ}{DA}$.\\
+Vậy $PQ \parallel SA$.
+\item Ta có $\heva{&BC \parallel CD\\ &BC \subset (SBC)\\ &AD \subset (SAD)\\ &S \in (SBC) \cap (SCD)}$.
+$\Rightarrow$ giao tuyến là đường thẳng $St$ qua $S$ cố định và song song với $BC$ và $AD$.\\
+Mà $K \in (SBC) \cap (SCD) \Rightarrow K \in St$.\\
+Vậy $K \in St$ cố định khi $M$ di động trên $BC$.
+\end{enumerate}}{
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3,-2) rectangle (3,4.2);
+\draw (-2.19,-1.03)-- (2.,-1.);
+\draw (-2.19,-1.03)-- (-1.77,1.35);
+\draw (-1.77,1.35)-- (-0.27,3.55);
+\draw (-0.27,3.55)-- (2.,-1.);
+\draw (-0.27,3.55)-- (2.42,1.38);
+\draw (-0.27,3.55)-- (-2.19,-1.03);
+\draw [dash pattern=on 2pt off 2pt] (-0.27,1.36)-- (0.69,2.77);
+\draw  (2.42,1.38)-- (2.,-1.);
+\draw [dash pattern=on 2pt off 2pt] (-0.27,1.36)-- (-0.69,-1.02);
+\draw[dashed] (-0.69,-1.02)-- (0.54,1.92);
+\draw[dashed] (0.54,1.92)-- (0.69,2.77);
+\draw [dash pattern=on 2pt off 2pt] (-1.77,1.35)-- (2.42,1.38);
+\draw(-0.27,3.55)-- (2.35,3.57);
+\draw[dashed] (0.54,1.92)-- (1.23,3.56);
+\draw (1.22,3.56)-- (0.69,2.77);
+\begin{scriptsize}
+\draw(-2.19,-1.03) circle (1.0pt);
+\draw(-2.47,-1.34) node {$B$};
+\draw (2.,-1.) circle (1.0pt);
+\draw(2.37,-1.04) node {$C$};
+\draw(-1.77,1.35) circle (1.0pt);
+\draw(-2.13,1.42) node {$A$};
+\draw(2.42,1.38) circle (1.0pt);
+\draw(2.61,1.34) node {$D$};
+\draw(-0.27,3.55) circle (1.0pt);
+\draw(-0.13,3.8) node {$S$};
+\draw(-0.69,-1.02) circle (1.0pt);
+\draw(-0.45,-1.3) node {$M$};
+\draw (0.54,1.92) circle (1.0pt);
+\draw(0.83,1.96) node {$N$};
+\draw(0.69,2.77) circle (1.0pt);
+\draw(0.73,3.26) node {$P$};
+\draw(-0.27,1.36) circle (1.0pt);
+\draw(-0.37,1.64) node {$Q$};
+\draw (1.227925,3.56) circle (1.0pt);
+\draw(1.37,3.82) node {$K$};
+\draw (2.35,3.57) circle (0.5pt);
+\draw(2.49,3.78) node {$t$};
+\end{scriptsize}
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[Trần Xuân Thiện]%[1H2G2]
+Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình bình hành. Gọi $M$ là điểm trên cạnh $SC$ sao cho $SC=3SM$. Giả sử $(P)$ là mặt phẳng qua $A, M$
+và luôn cắt cạnh $SB, SD$ lần lượt tại $N, P$ sao cho $N$ khác $B$, $P$ khác $D$.
+\begin{enumerate}
+\item Nêu cách xây dựng điểm $N, P$ và tính gía trị $\dfrac{SB}{SN}+\dfrac{SD}{SP}$.
+\item Xác định vị trí $(P)$ sao cho $\Delta SNP$ có diện tích nhỏ nhất.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item \immini{Gọi $O= AC \cap BD$.\\
+Trong $(SAC)$ ta có $SO \cap AM = I$.\\
+Qua $I$ dựng đường thẳng $\Delta$ sao cho $\Delta$ luôn cắt $SB, SD$ lần lượt tại $N, P$ sao cho $N$ khác $B$, $P$ khác $D$.\\
+Áp dụng công thức tính tỷ số diện tích tam giác:\\
+$\dfrac{S_{\Delta SNI}}{S_{\Delta SBO}}=\dfrac{SN}{SB}.\dfrac{SI}{SO} (1)$\\
+$\dfrac{S_{\Delta SPI}}{S_{\Delta SDO}}=\dfrac{SP}{SD}.\dfrac{SI}{SO} (2)$\\
+$S_{\Delta SBO}=S_{\Delta SDO}=\dfrac{1}{2}S_{\Delta SBD} (3)$.\\
+Từ (1), (2) và (3) suy ra:\\
+ $\dfrac{2S_{\Delta SNP}}{S_{\Delta SBD}}=\dfrac{SI}{SO}\left(\dfrac{SN}{SB}+\dfrac{SP}{SD}\right) \Leftrightarrow 
+\dfrac{2SO}{SI}=\dfrac{SB}{SN}+\dfrac{SD}{SP}$ (4).}
+{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3,-2) rectangle (6,5);
+\draw (-2.,-1.)-- (3.68,-0.98);
+\draw [dash pattern=on 2pt off 2pt] (-2.,-1.)-- (-0.46,1.9);
+\draw [dash pattern=on 2pt off 2pt] (-0.46,1.9)-- (-0.4,4.32);
+\draw (-0.4,4.32)-- (3.68,-0.98);
+\draw (-0.4,4.32)-- (5.22,1.92);
+\draw (-0.4,4.32)-- (-2.,-1.);
+\draw [dash pattern=on 2pt off 2pt] (-2.,-1.)-- (1.47,3.52);
+\draw [dash pattern=on 2pt off 2pt] (-0.46,1.9)-- (3.68,-0.98);
+\draw [dash pattern=on 2pt off 2pt] (5.22,1.92)-- (-2.,-1.);
+\draw [dash pattern=on 2pt off 2pt] (-0.4,4.32)-- (1.61,0.46);
+\draw (5.22,1.92)-- (3.68,-0.98);
+\draw [dash pattern=on 2pt off 2pt] (-0.46,1.9)-- (5.22,1.92);
+\draw [dash pattern=on 2pt off 2pt] (-0.43,3.19)-- (1.73,1.55);
+\draw(-2.,-1.)-- (1.73,1.55);
+\draw (1.73,1.55)-- (1.47,3.52);
+\draw [dash pattern=on 2pt off 2pt] (1.47,3.52)-- (-0.43,3.19);
+\draw [dash pattern=on 2pt off 2pt] (-0.43,3.19)-- (-2.,-1.);
+\begin{scriptsize}
+\draw (-2.,-1.) circle (1.0pt);
+\draw(-2.24,-1.13) node {$A$};
+\draw (3.68,-0.98) circle (1.0pt);
+\draw(3.8,-1.13) node {$D$};
+\draw (-0.46,1.9) circle (1.0pt);
+\draw(-0.32,2.15) node {$B$};
+\draw (5.22,1.92) circle (1.0pt);
+\draw(5.46,1.95) node {C};
+\draw (-0.4,4.32) circle (1.0pt);
+\draw(-0.58,4.71) node {$S$};
+\draw (1.47,3.52) circle (1.0pt);
+\draw(1.62,3.77) node {$M$};
+\draw (1.61,0.46) circle (1.0pt);
+\draw(1.54,0.23) node {$O$};
+\draw (0.605,2.39) circle (1.0pt);
+\draw(0.26,2.45) node {$I$};
+\draw (-0.43,3.19) circle (1.0pt);
+\draw(-0.28,3.45) node {$N$};
+\draw (1.73,1.55) circle (1.0pt);
+\draw(1.88,1.81) node {$P$};
+\end{scriptsize}
+\end{tikzpicture}}
+Tương tự $\dfrac{2SO}{SI}=\dfrac{SA}{SA}+\dfrac{SC}{SM}$ (5).\\
+Từ (4), (5) ta có: $\dfrac{SB}{SN}+\dfrac{SD}{SP}=\dfrac{SA}{SA}+\dfrac{SC}{SM}$ vì $SC = 3SM$.\\
+\item Từ $\dfrac{SB}{SN}+\dfrac{SD}{SP}=4 \Rightarrow \dfrac{SB}{SN}.\dfrac{SD}{SP} \le 4$, mà $\dfrac{S_{\Delta SBD}}{S_{\Delta SNP}}=\dfrac{SB}{SN}.\dfrac{SD}{SP} \Rightarrow \dfrac{S_{\Delta SBD}}{S_{\Delta SNP}} \le 4$ hay $S_{\Delta SNP} \ge \dfrac{1}{4}S_{\Delta SBD}$.\\
+Dấu $"="$ xảy ra khi và chỉ khi $\dfrac{SB}{SN}=\dfrac{SD}{SP} \Rightarrow NP \parallel BD$.\\
+Vậy $\Delta SNP$ nhỏ nhất khi $(P)$ qua $A, M$ và song song $BD$.
+\end{enumerate}
+}
+\end{bt}

@@ -1,0 +1,1313 @@
+\section{BẤT PHƯƠNG TRÌNH BẬC NHẤT HAI ẨN}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Bất phương trình bậc nhất hai ẩn}
+\begin{dn}
+	\textbf{Bất phương trình bậc nhất hai ẩn} $x$, $y$ có dạng tổng quát là
+	$$a x + b y \le c  \quad \quad \quad (1)$$ 
+	$$(a x + b y < c; a x + b y \ge c; a x + b y > c)$$
+	trong đó $a,b,c$ là những số thực đã cho, $a$ và $b$ không đồng thời bằng $0$, $x$ và $y$ là các ẩn.
+\end{dn}
+
+%\textbf{Biểu diễn tập nghiệm của bất phương trình bậc nhất hai ẩn}\\
+Trong mặt phẳng tọa độ $Oxy$, tập hợp các điểm có tọa độ là nghiệm bất phương trình (1) được gọi là \textbf{miền nghiệm} của nó.
+
+\begin{note}
+	Trong mặt phẳng tọa độ $Oxy$, đường thẳng $ax + by = c$ chia mặt phẳng thành hai nửa mặt phẳng, một trong hai mặt phẳng đó là miền nghiệm của bất phương trình $ax + by \le c$, nửa mặt phẳng kia là miền nghiệm của bất phương trình $ax + by \ge c$.
+\end{note}
+
+\subsubsection{Hệ bất phương trình bậc nhất 2 ẩn}
+\begin{dn}
+	\emph{Hệ bất phương trình bậc nhất hai ẩn} gồm một số bất phương trình bậc nhất 2 ẩn $x,y$ mà ta phải tìm các nghiệm chung của chúng. Mỗi nghiệm chung đó được gọi là một nghiệm của hệ bất phương trình đã cho.
+	
+	Cũng như bất phương trình bậc nhất hai ẩn, ta có thể \emph{biểu diễn hình học tập nghiệm} của hệ bất phương trình bậc nhất hai ẩn.
+\end{dn}
+\subsection{Các dạng toán}
+
+\begin{dang}
+{Biểu diễn tập nghiệm bất phương trình bậc nhất hai ẩn}	
+
+\textbf{Quy tắc biểu diễn hình học tập nghiệm (hay biểu diễn miền nghiệm) của bất phương trình} $ax + by \le c$ như sau:
+\begin{itemize}
+	\item[Bước 1.] Trên mặt phẳng tọa độ $Oxy$, vẽ đường thẳng $\Delta$: $ax + by = c$.
+	\item[Bước 2.] Lấy một điểm $M_0(x_0;y_0)$ \textbf{không} thuộc $\Delta$ (lấy tọa độ có nhiều số $0$ nhất có thể)
+	\item[Bước 3.] Tính $ax_0 + by_0$ và so sánh với $c$.
+	\item[Bước 4.] Kết luận\\
+	Nếu $ax_0 + by_0 <c$ thì nửa mặt phẳng kể cả bờ $\Delta$ chứa $M_0$ là miền nghiệm của $ax + by \le c$.\\
+	Nếu $ax_0 + by_0 >c$ thì nửa mặt phẳng kể cả bờ $\Delta$ \textbf{không} chứa $M_0$ là miền nghiệm của $ax + by \le c$.
+\end{itemize}
+\begin{note}
+	Miền nghiệm của bất phương trình $ax + by \le c$ bỏ đi đường thẳng $ax + by =c$ là miền nghiệm của phương trình $ax + by < c$.
+\end{note}
+\end{dang}
+\begin{vd}%[Mai Hà Lan]%[0D4B4]
+	Biểu diễn hình học tập nghiệm của bất phương trình bậc nhất hai ẩn $3x + y \ge 3$.
+	\loigiai{
+		\immini{
+			Vẽ đường thẳng $d: 3x + y = 3 $.\\
+			Thay tọa độ điểm $O(0;0)$ vào vế trái phương trình đường thẳng $(d)$, ta được: $0 < 3$.\\
+			Vậy miền nghiệm của bất phương trình là nửa mặt phẳng không chứa điểm $O$, kể cả bờ $(d)$. (Trên hình là nửa mặt phẳng không bị gạch bỏ).
+		}{
+			\begin{tikzpicture}[scale=.7]
+			%---------- vẽ hệ trục tọa độ
+			\draw[->] (-3.25,0)--(3.25,0) node[below right] {$x$};
+			\draw[->] (0,-1.75)--(0,4.75) node[right] {$y$};
+			\node (0,0) [below left] {$ O $};
+			%---------- đoạn chắn trên trục
+			\foreach \x in {-3,-2,-1,1,2,3}
+			\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+			\node at (1.2,.5) {$1$};
+			\foreach \y in {-1,1,2,3,4}
+			\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+			\node at (.5,2.8) {$-2$};
+			
+			%---------- vẽ hàm
+			\draw [thick, domain=-.5:1.5, samples=100] plot (\x, {-3*\x + 3});
+			\node at (2,-1) {$(d)$};
+			
+			%---------- vẽ miền nghiệm
+			\tkzDefPoints{-.5/4.5/A, -3/4.5/B, -3/-1.5/C,1.5/-1.5/D}
+			\tkzDrawPolygon[ pattern=north east lines,opacity=.3](A,B,C,D)
+			\end{tikzpicture}
+	}}
+\end{vd}
+
+\begin{vd}%[Mai Hà Lan]%[0D4B4]
+	Biểu diễn hình học tập nghiệm của bất phương trình bậc nhất hai ẩn $2x - 4y < 8$.
+	\loigiai{
+		\immini{
+			Vẽ đường thẳng $d: 2x - 4y =8$.\\
+			Thay tọa độ điểm $O(0;0)$ vào vế trái phương trình đường thẳng $(d)$, ta được: $0 < 8$.\\
+			Vậy miền nghiệm của bất phương trình là nửa mặt phẳng chứa điểm $O$. (Trên hình là nửa mặt phẳng không bị gạch bỏ).
+		}{
+			\begin{tikzpicture}[scale=.7]
+			%----------------- Vẽ hệ trục tọa độ
+			\draw[->] (-2.25,0)--(8.25,0) node[below right] {$x$};
+			\draw[->] (0,-3.25)--(0,1.25) node[right] {$y$};
+			\node (0,0) [below left] {$ O $};
+			%----------------- Vẽ đoạn chắn trên trục
+			\foreach \x in {-2,-1,1,2,3,4,5,6,7,8}
+			\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+			\node at (3.8,0.5) {$4$};
+			\foreach \y in {-3,-2,-1,1}
+			\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+			\node at (-0.5,-1.8) {$-2$};
+			
+			%------------- Vẽ hàm
+			\draw [thick, domain=-2:6, samples=100] plot (\x, {(1/2)*\x - 2});
+			\node at (4.5,.75) {$(d)$};
+			
+			%---------------- Vẽ miền nghiệm
+			\tkzDefPoints{6/1/A, -2/-3/B, 8/-3/C, 8/1/D}
+			\tkzDrawPolygon[ pattern=north east lines,opacity=.3](A,B,C,D)
+			\end{tikzpicture}
+	}}
+\end{vd}
+
+\begin{vd}%[Mai Hà Lan]%[0D4B4]
+	a) Biểu diễn hình học tập nghiệm của bất phương trình bậc nhất hai ẩn 
+	\begin{center}
+		$-2x + 3y > 0.$
+	\end{center}
+	b) Cho hai điểm $A(2;1)$ và $B(3; 3)$, hỏi hai điểm này cùng phía hay khác phía đối với bờ $(d)$.
+	\loigiai{
+		\immini{
+			\begin{itemize}
+				\item[a)] Vẽ đường thẳng $d: -2x + 3y = 0$.\\
+				Thay tọa độ điểm $M(1;0)$ vào vế trái phương trình đường thẳng $(d)$, ta được: $-2 < 0$.\\
+				Vậy miền nghiệm của bất phương trình là nửa mặt phẳng không chứa điểm $M$. (Trên hình là nửa mặt phẳng không bị gạch bỏ).
+				\item[b)] Thế tọa độ điểm $A$ vào vế trái của phương trình đường thẳng $(d)$ ta được $-2 \cdot 2 + 3 \cdot 1 = -1 < 0$.\hfill $(1)$\\
+				Thế tọa độ điểm $B$ vào vế trái của phương trình đường thẳng $(d)$ ta được $-2 \cdot 3 + 3 \cdot 3 = 3 > 0$. \hfill $(2)$ \\
+				Từ $(1)$ và $(2)$ suy ra hai điểm nằm ở hai phía đối với bời $(d)$.
+			\end{itemize}
+		}{
+			\begin{tikzpicture}
+			%---------------------- Vẽ hệ trục tọa độ
+			\draw[->] (-2.25,0)--(4.25,0) node[below right] {$x$};
+			\draw[->] (0,-0.755)--(0,2.25) node[right] {$y$};
+			\node (0,0) [below right]{$ O $};
+			%----------------------- Vẽ đoạn chắn trên trục
+			\foreach \x in {-2,-1,1,2,3,4}
+			\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+			%\node at (3.8,0.5) {$4$};
+			\foreach \y in {1,2}
+			\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+			%\node at (-0.5,-1.8) {$-2$};
+			
+			%--------------------- Vẽ hàm
+			\draw [thick, domain=-1:3, samples=100] plot (\x, {(2/3) * \x});
+			\node at (2,1.75) {$(d)$};
+			
+			%---------------------- Điểm M
+			\fill (1,0) circle (2pt) node[below right]{$M(1;0)$};
+			
+			%----------------------Vẽ miền nghiệm
+			\tkzDefPoints{-1/-.66/A, 4/-.66/B, 4/2/C, 3/2/D}
+			\tkzDrawPolygon[ pattern=north east lines,opacity=.3](A,B,C,D)
+			\end{tikzpicture}
+	}}
+\end{vd}
+
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN (Cho mỗi dạng)}
+\end{center}
+\begin{bt}%[Mai Hà Lan]%[0D4B4]
+	Biểu diễn hình học tập nghiệm của bất phương trình bậc nhất hai ẩn $x + \dfrac{3}{2}y \ge 1 - x + \dfrac{1}{2} y$.
+	\loigiai{
+		\immini{
+			$x + \dfrac{3}{2}y \ge 1 - x + \dfrac{1}{2} y \Leftrightarrow 2x + y  \ge 1$\\
+			Vẽ đường thẳng $d: 2x + y = 1 $.\\
+			Thay tọa độ điểm $O(0;0)$ vào vế trái phương trình đường thẳng $(d)$, ta được: $0 < 1$.\\
+			Vậy miền nghiệm của bất phương trình là nửa mặt phẳng không chứa điểm $O$, kể cả bờ $(d)$. (Trên hình là nửa mặt phẳng không bị gạch bỏ).
+		}{
+			\begin{tikzpicture}
+			%---------------------- Vẽ hệ trục tọa độ
+			\draw[->] (-2.25,0)--(2.25,0) node[below right] {$x$};
+			\draw[->] (0,-2.25)--(0,2.25) node[right] {$y$};
+			\node (0,0) [below left]{$ O $};
+			%----------------------- Vẽ đoạn chắn trên trục
+			\foreach \x in {-2,-1,.5,1,2}
+			\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+			\node at (.7,0.4) {$\frac{1}{2}$};
+			\foreach \y in {-2,-1,1,2}
+			\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+			\node at (0.25,1) {$1$};
+			
+			%--------------------- Vẽ hàm
+			\draw [thick, domain=-.5:1.5, samples=100] plot (\x, {-2*\x+1});
+			\node at (1.75,-1.5) {$(d)$};
+			
+			%----------------------Vẽ miền nghiệm
+			\tkzDefPoints{-.5/2/A, -2/2/B, -2/-2/C, 1.5/-2/D}
+			\tkzDrawPolygon[pattern=north east lines,opacity=.3](A,B,C,D)
+			\end{tikzpicture}
+	}}
+\end{bt}
+
+\begin{bt}%[Mai Hà Lan]%[0D4B4]
+	Biểu diễn hình học tập nghiệm của bất phương trình bậc nhất hai ẩn $$-2017x -2018y \le  2016y.$$
+	\loigiai{
+		\immini{
+			$-2017x -2018y \le 2016y \Leftrightarrow -x - 2y \le 0 $\\
+			Vẽ đường thẳng $d: -x - 2y = 0 $.\\
+			Thay tọa độ điểm $M(1;0)$ vào vế trái phương trình đường thẳng $(d)$, ta được: $-1 < 0$.\\
+			Vậy miền nghiệm của bất phương trình là nửa mặt phẳng chứa điểm $M$, kể cả bờ $(d)$. (Trên hình là nửa mặt phẳng không bị gạch bỏ).
+		}{
+			\begin{tikzpicture}
+			%---------------------- Vẽ hệ trục tọa độ
+			\draw[->] (-3.25,0)--(3.25,0) node[below right] {$x$};
+			\draw[->] (0,-1.75)--(0,1.75) node[right] {$y$};
+			\node (0,0) [above right]{$ O $};
+			%----------------------- Vẽ đoạn chắn trên trục
+			\foreach \x in {-3,-2,-1,1,2,3}
+			\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+			%\node at (3.8,0.5) {$4$};
+			\foreach \y in {-1.5,-1,1,1.5}
+			\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+			%\node at (-0.5,-1.8) {$-2$};
+			
+			%--------------------- Vẽ hàm
+			\draw [thick, domain=-3:3, samples=100] plot (\x, {-(1/2)*\x});
+			\node at (-2,1.5) {$(d)$};
+			
+			%---------------------- Điểm M
+			\fill (1,0) circle (2pt) node[below right]{$M(1;0)$};
+			
+			%----------------------Vẽ miền nghiệm
+			\tkzDefPoints{-3/1.5/A, -3/-1.5/B, 3/-1.5/C}
+			\tkzDrawPolygon[ pattern=north east lines,opacity=.3](A,B,C)
+			\end{tikzpicture}
+	}}
+\end{bt}
+
+
+\begin{bt}%[Mai Hà Lan]%[0D4K4]
+	a) Biểu diễn hình học tập nghiệm của bất phương trình bậc nhất hai ẩn $\dfrac{x}{3} + \dfrac{y}{6} < 1$.\\
+	b) Tìm điểm $A$ thuộc miền nghiệm của bất phương trình trên. Biết rằng điểm $A$ là giao điểm của parabol $(P)$ có dạng $y = x^2 - 5x +4$ và trục hoành. 
+	\loigiai{
+		\immini{
+			\begin{itemize}
+				\item[a)] $\dfrac{x}{3} + \dfrac{y}{6} < 1 \Leftrightarrow 2x + y  <6$\\
+				Vẽ đường thẳng $d: 2x + y = 6$.\\
+				Thay tọa độ điểm $O(0;0)$ vào vế trái phương trình đường thẳng $(d)$, ta được: $0 < 6$.\\
+				Vậy miền nghiệm của bất phương trình là nửa mặt phẳng chứa điểm $O$. (Trên hình là nửa mặt phẳng không bị gạch bỏ).
+				\item[b)] Điểm $A$ nằm trên parabol $(P)$ có dạng $y = x^2 - 5x +4$ và trục hoành nên hoành độ của $A$ là nghiệm của phương trình $x^2 - 5x + 4 = 0 \Leftrightarrow \hoac{& x = 1\\ & x = 4.}$ \\
+				Suy ra ta được hai điểm $(1;0)$ và $(4;0)$. Lần lượt thế tọa độ từng điểm vào vế trái của phương trình đường thẳng $(d)$, do $A$ thuộc miền nghiệm của bất phương trình đã cho nên ta được $A$ có tọa độ là $(1;0)$.
+			\end{itemize}
+		}{
+			\begin{tikzpicture}[scale=.6]
+			%---------------------- Vẽ hệ trục tọa độ
+			\draw[->] (-2.25,0)--(6.25,0) node[below right] {$x$};
+			\draw[->] (0,-3.25)--(0,8.25) node[right] {$y$};
+			\node (0,0) [below left]{$ O $};
+			%----------------------- Vẽ đoạn chắn trên trục
+			\foreach \x in {-2,-1,1,2,3,4,5,6}
+			\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+			\node at (2.75,-0.4) {$3$};
+			\node at (.75,-0.4) {$1$};
+			\node at (4.25,-0.4) {$4$};
+			\foreach \y in {-3,-2,-1,1,2,3,4,5,6,7,8}
+			\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+			\node at (0.5,6.25) {$6$};
+			
+			%--------------------- Vẽ hàm
+			\draw [thick, domain=-1:4.5, samples=100] plot (\x, {-2*\x + 6});
+			\node at (3.5,-2.75) {$(d)$};
+			
+			%---------------------- Vẽ (P)
+			\draw [thick, domain=-.7:5.7, samples=100] plot (\x, {(\x)^2 - 5*\x + 4});
+			\node at (1,-2) {$(P)$};
+			
+			%----------------------Vẽ miền nghiệm
+			\tkzDefPoints{-1/8/A, 6/8/B, 6/-3/C, 4.5/-3/D}
+			\tkzDrawPolygon[pattern=north east lines,opacity=.3](A,B,C,D)
+			\end{tikzpicture}
+	}}
+\end{bt}
+
+\begin{dang}{Biểu diễn hình học tập nghiệm của hệ bất phương trình bậc nhất hai ẩn.}
+	\begin{itemize}
+		\item Viết các bất phương trình trong hệ dưới dạng phương trình đường thẳng (thay dấu lớn, bé bởi dấu bằng).
+		\item Vẽ các đường thẳng trên cùng một hệ trục tọa độ.
+		\item Xác định một điểm $M$ thỏa các bất phương trình trong hệ.
+		\item Lần lượt tô đậm các nửa mặt phẳng không chứa $M$ và có bờ là các đường thẳng đã vẽ. Ta được miền nghiệm của hệ. 
+	\end{itemize}
+\end{dang}
+\begin{vd}%%[Lâm Hữu Phước]%[0D4B4]
+	Biểu diễn hình học tập nghiệm của hệ bất phương trình bậc nhất hai ẩn sau
+	$$\left\{\begin{aligned}
+	x+y &> 1\\
+	x-y &<2 \\
+	\end{aligned}\right.$$
+	\loigiai
+	{\immini{
+			Vẽ các đường thẳng\\
+			$d_1: x+y=1$;\\
+			$d_2: x-y=2$.
+			
+			Vì điểm $M(0,2)$ có tọa độ thỏa mãn các bất phương trình trong hệ nên ta tô đậm các nửa mặt phẳng bờ $d_1,d_2$ không chứa $M$. 
+			
+			Miền không bị tô đậm trong hình vẽ và không chứa các tia giới hạn miền là miền nghiệm của hệ đã cho.
+		}{\begin{tikzpicture}[>=stealth]
+			\draw[color=white,fill=black!10] (-2,-2) rectangle (4,3);
+			\draw[fill=white,color=white] (-2,3) -- (1.5,-.5) -- (4,2) -- (4,3) -- cycle;
+			\draw[->] (0,-2) -- (0,3) node[left]{\scriptsize $y$};
+			\draw[->] (-2,0) -- (4,0) node[above]{\scriptsize $x$};
+			\draw (0.15,0.1) node[below left]{\scriptsize $O$};
+			\draw (-2,3) -- (3,-2) node[right]{\scriptsize $d_1$};
+			\draw (0,-2) -- (4,2) node[right]{\scriptsize $d_2$};
+			\draw[dashed] (0,-0.5)node[left]{\scriptsize $-\dfrac{1}{2}$} -- (1.5,-.5) node[right]{\scriptsize $I$} -- (1.5,0) node[above]{\scriptsize $\dfrac{3}{2}$};
+			\draw (0,2) node[right]{\scriptsize $M$} (0,2) node[left]{\scriptsize $2$} (-0.05,2) -- (0.05,2);
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{vd}%%[Lâm Hữu Phước]%[0D4B4]
+	Biểu diễn hình học tập nghiệm của hệ bất phương trình bậc nhất hai ẩn sau
+	$$\left\{\begin{aligned}
+	x+y &< 2\\
+	x-y &>1 \\
+	y &>-1
+	\end{aligned}\right.$$
+	\loigiai
+	{\immini{
+			Vẽ các đường thẳng\\
+			$d_1: x+y=2$,\\
+			$d_2: x-y=1$,\\
+			$d_3: y=-1$.
+			
+			Vì điểm $M\biggl(\dfrac{3}{2},0\biggr)$ có tọa độ thỏa mãn các bất phương trình trong hệ nên ta tô đậm các nửa mặt phẳng bờ $d_1,d_2,d_3$ không chứa $M$. Miền không bị tô đậm trong hình vẽ, không bao gồm các đoạn giới hạn miền là miền nghiệm của hệ đã cho.
+		}{\begin{tikzpicture}[>=stealth]
+			\draw[color=white,fill=black!10] (-2,-2) rectangle (5,3);
+			\path (-1,3) coordinate (A1);
+			\path (4,-2) coordinate (B1);
+			\path (-1,-2) coordinate (A2);
+			\path (4,3) coordinate (B2);
+			\path (-2,-1) coordinate (A3);
+			\path (5,-1) coordinate (B3);
+			\path (intersection of A1--B1 and A2--B2) coordinate (A);
+			\path (intersection of A1--B1 and A3--B3) coordinate (B);
+			\path (intersection of A2--B2 and A3--B3) coordinate (C);
+			\draw[fill=white] (A) -- (B) -- (C) -- cycle;
+			\draw[->] (0,-2) -- (0,3) node[right]{\scriptsize $y$};
+			\draw[->] (-2,0) -- (5,0) node[above]{\scriptsize $x$};
+			\draw (0.15,0.1) node[below left]{\scriptsize $O$};
+			\draw (A1) -- (B1) node[right]{\scriptsize $d_1$} (A2) -- (B2)node[right]{\scriptsize $d_2$} (A3) -- (B3)node[right]{\scriptsize $d_3$};
+			\draw[dashed] (B)node[below]{\scriptsize $B$} -- (B |- 0,0) node[above]{\scriptsize $3$}
+			(A-| 0,0)node[left]{\scriptsize $\dfrac{3}{2}$} -- (A)node[above]{\scriptsize $A$} -- (A|- 0,0)node[below]{\scriptsize $\dfrac{3}{2}$};
+			\draw (1.5,0)node[above right]{\scriptsize $M$} (C) node[below right]{\scriptsize $C$} (C) node[above left]{\scriptsize $-1$};
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{vd}%%[Lâm Hữu Phước]%[0D4B4]
+	Biểu diễn hình học tập nghiệm của hệ bất phương trình bậc nhất hai ẩn sau
+	$$\left\{\begin{aligned}
+	2x+5y &> 2\\
+	x-3y &\geq 1 \\
+	x+y &<3
+	\end{aligned}\right.$$
+	\loigiai
+	{\immini{
+			Vẽ các đường thẳng\\
+			$d_1: 2x+5y=2$,\\
+			$d_2: x-3y=1$,\\
+			$d_3: x+y=3$.
+			
+			Vì điểm $M(2,0)$ có tọa độ thỏa mãn các bất phương trình trong hệ nên ta tô đậm các nửa mặt phẳng bờ $d_1,d_2,d_3$ không chứa $M$. 
+			
+			Miền không bị tô đậm trong hình vẽ có chứa đoạn $AC$ và không chứa các điểm $A,C$, không chứa các đoạn $AB,BC$ là miền nghiệm của hệ đã cho.
+		}{\begin{tikzpicture}[>=stealth]
+			\draw[color=white,fill=black!10] (-1,-2) rectangle (6,3.2);
+			\path (-1,0.8) coordinate (A1);
+			\path (6,-2) coordinate (B1);
+			\path (-1,-2/3) coordinate (A2);
+			\path (6,5/3) coordinate (B2);
+			\path (-0.2,3.2) coordinate (A3);
+			\path (5,-2) coordinate (B3);
+			\path (intersection of A1--B1 and A2--B2) coordinate (A);
+			\path (intersection of A1--B1 and A3--B3) coordinate (B);
+			\path (intersection of A2--B2 and A3--B3) coordinate (C);
+			\draw[fill=white] (A) -- (B) -- (C) -- cycle;
+			\draw[->] (0,-2) -- (0,3.2) node[right]{\scriptsize $y$};
+			\draw[->] (-1,0) -- (6,0) node[above]{\scriptsize $x$};
+			\draw (0.15,0.1) node[below left]{\scriptsize $O$};
+			\draw (A1) -- (B1) node[right]{\scriptsize $d_1$} (A2) -- (B2)node[right]{\scriptsize $d_2$} (A3) -- (B3)node[right]{\scriptsize $d_3$};
+			\draw[dashed] (B -| 0,0) node[left]{\scriptsize $-\dfrac{4}{3}$}--(B)node[below]{\scriptsize $B$} -- (B |- 0,0) node[above]{\scriptsize $\dfrac{13}{3}$}
+			(C-| 0,0) node[left]{\scriptsize $\dfrac{1}{2}$} -- (C)node[above]{\scriptsize $C$} -- (C|- 0,0)node[below]{\scriptsize $\dfrac{5}{2}$};
+			\draw (2,0)node[above]{\scriptsize $2$} (2,0.05)  -- (2,-0.05) node[below]{\scriptsize $M$} (A) node[below]{\scriptsize $A$} (A) node[above]{\scriptsize $1$};	
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{vd}%%[Lâm Hữu Phước]%[0D4B4]
+	Biểu diễn hình học tập nghiệm của hệ bất phương trình bậc nhất hai ẩn sau
+	$$\left\{\begin{aligned}
+	2x+y &\geq 2\\
+	x-2y &\leq 1 \\
+	y &\leq 2\\
+	x &\leq 3
+	\end{aligned}\right.$$
+	\loigiai
+	{\immini{
+			Vẽ các đường thẳng\\
+			$d_1: 2x+y=2$,\\
+			$d_2: x-2y=1$,\\
+			$d_3: y=2$,
+			$d_4: x=3$.
+			
+			Vì điểm $M(2,1)$ có tọa độ thỏa mãn các bất phương trình trong hệ nên ta tô đậm các nửa mặt phẳng bờ $d_1,d_2,d_3,d_4$ không chứa $M$. Miền không bị tô đậm trong hình vẽ là miền nghiệm của hệ đã cho bao gồm các đoạn thẳng xác định miền.
+		}{\begin{tikzpicture}[>=stealth]
+			\draw[color=white,fill=black!10] (-2,-2) rectangle (5,3);
+			\path (-1/2,3) coordinate (A1);
+			\path (2,-2) coordinate (B1);
+			\path (-2,-3/2) coordinate (A2);
+			\path (5,2) coordinate (B2);
+			\path (-2,2) coordinate (A3);
+			\path (5,2) coordinate (B3);
+			\path (3,-2) coordinate (A4);
+			\path (3,3) coordinate (B4);
+			\path (intersection of A1--B1 and A2--B2) coordinate (A);
+			\path (intersection of A1--B1 and A3--B3) coordinate (B);
+			\path (intersection of A3--B3 and A4--B4) coordinate (C);
+			\path (intersection of A2--B2 and A4--B4) coordinate (D);
+			\draw[fill=white] (A) -- (B) -- (C) -- (D) -- cycle;
+			\draw[->] (0,-2) -- (0,3) node[right]{\scriptsize $y$};
+			\draw[->] (-2,0) -- (5,0) node[above]{\scriptsize $x$};
+			\draw (0.15,0.1) node[below left]{\scriptsize $O$};
+			\draw (A1) -- (B1) node[right]{\scriptsize $d_1$} (A2)node[left]{\scriptsize $d_2$} -- (B2) (A3)node[left]{\scriptsize $d_3$} -- (B3) (A4) -- (B4) node[right]{\scriptsize $d_4$};
+			\draw[dashed] (A) node[above]{\scriptsize $1$} (A) node[below]{\scriptsize $A$} (B) node[below left]{\scriptsize $2$} (B) node[above right]{\scriptsize $B$} (C) node[above right]{\scriptsize $C$} (C|- 0,0) node[below right]{\scriptsize $3$} (D) node[below right]{\scriptsize $D$} -- (D-| 0,0) node[left]{\scriptsize $1$} (2,1) node[above]{\scriptsize $M$} -- (2,0)node[below]{\scriptsize $2$};
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Lâm Hữu Phước]%[0D4B4]
+	Biểu diễn hình học tập nghiệm của hệ bất phương trình bậc nhất hai ẩn sau
+	$$\left\{\begin{aligned}
+	x+2y &\geq 1\\
+	3x-y & \leq 2 \\
+	\end{aligned}\right.$$
+\end{bt}
+\begin{bt}%[Lâm Hữu Phước]%[0D4B4]
+	Biểu diễn hình học tập nghiệm của hệ bất phương trình bậc nhất hai ẩn sau
+	$$\left\{\begin{aligned}
+	x-2y &< 1\\
+	x+3y &>-2 \\
+	-x+y &<2
+	\end{aligned}\right.$$
+\end{bt}
+\begin{bt}%[Lâm Hữu Phước]%[0D4B4]
+	Biểu diễn hình học tập nghiệm của hệ bất phương trình bậc nhất hai ẩn sau
+	$$\left\{\begin{aligned}
+	3x+y & \leq 5\\
+	x+y & \leq 4 \\
+	x &\geq 0\\
+	y &\geq 0
+	\end{aligned}\right.$$
+\end{bt}
+\begin{bt}%[Lâm Hữu Phước]%[0D4B4]
+	Biểu diễn hình học tập nghiệm của hệ bất phương trình bậc nhất hai ẩn sau
+	$$\left\{\begin{aligned}
+	3x+y &\geq 9\\
+	x &> y-2 \\
+	3y &\geq 4-x\\
+	y &\leq 5
+	\end{aligned}\right.$$
+\end{bt}
+\begin{bt}%[Lâm Hữu Phước]%[0D4B4]
+	Biểu diễn hình học tập nghiệm của hệ bất phương trình bậc nhất hai ẩn sau
+	$$\left\{\begin{aligned}
+	\dfrac{x}{3}+\dfrac{y}{2}-1 &< 0\\
+	x-\dfrac{2y}{3}&\leq 2\\
+	x &\geq 0
+	\end{aligned}\right.$$
+\end{bt}
+
+\begin{bt}%[Lâm Hữu Phước]%[0D4K4]
+	Xác định hình tính của đa giác biểu diễn hình học tập nghiệm của hệ bất phương trình bậc nhất hai ẩn sau
+	$$\left\{\begin{aligned}
+	2x+y &\geq 1\\
+	x-2y &\geq -2 \\
+	2x+y &\leq 5\\
+	x &\leq 3
+	\end{aligned}\right.$$
+	\loigiai
+	{Hướng dẫn: đa giác biểu diễn miền nghiệm là hình thang vuông.
+	}
+\end{bt}
+\begin{bt}%[Lâm Hữu Phước]%[0D4K4]
+	Xác định hình tính của đa giác biểu diễn hình học tập nghiệm của hệ bất phương trình bậc nhất hai ẩn sau
+	$$\left\{\begin{aligned}
+	x+4y &\geq 9\\
+	x+4y &\leq 17\\
+	x-4y &\geq -7\\
+	x-4y &\leq 1
+	\end{aligned}\right.$$
+	\loigiai
+	{Hướng dẫn: Đa giác biểu diễn miền nghiệm là hình bình hành.
+	}
+\end{bt}
+
+\begin{dang}{Các bài toán thực tiễn}
+\end{dang}
+\begin{vd}%%[Trần Nhân Kiệt]%[0D4G4]
+	Trong một cuộc thi pha chế, mỗi đội chơi được sử dụng tối đa $ 24 g $ hương liệu, $ 9 $ lít nước và $ 210 g $ đường để pha chế nước cam và nước táo. Để pha chế $ 1 $ lít nước cam cần $ 30 g $ đường, $ 1 $ lít nước và $ 1 g $ hương liệu; pha chế $ 1 $ lít nước táo cần $ 10 g $ đường, $ 1 $ lít nước và $ 4 g $ hương liệu. Mỗi lít nước cam nhận được $ 60 $ điểm thưởng, mỗi lít nước táo nhận được $ 80 $ điển thưởng.
+	Hỏi cần pha chế bao nhiêu lít nước trái cây mỗi loại để được số điểm thưởng là lớn nhất.
+	\loigiai{
+		\begin{itemize}
+			\item Gọi $ x, y $ lần lượt là số lít nước cam và táo của một đội pha chế $ (x, y\ge 0). $
+			\item Số điểm thưởng của đội chơi này là $ f(x;y)=60x+80y. $
+			\item Số gam đường cần dùng là $ 30x+10y. $
+			\item Số lít nước cần dùng là $ x+y. $
+			\item Số gam hương liệu cần dùng là $ x+4y $
+			\item Vì trong cuộc thi pha chế, mỗi đội chơi sử dụng tối đa $ 24 g $ hương liệu, $ 9 $ lít nước và $ 210 g $ đường nên ta có hệ bất phương trình $ \heva{&30x+10y\le 210\\&x+y\le 9\\ &x+4y\le 24\\&x, y\ge 0}\Leftrightarrow   \heva{&3x+y\le 21\\&x+y\le 9\\ &x+4y\le 24\\&x, y\ge 0} (*).$
+			\item Bài toán trở thành tìm giá trị lớn nhất của hàm số $ f(x;y) $ trên miền nghiệm của hệ bất phương
+			trình $ (*). $
+			\item Miền nghiệm của hệ bất phương trình$  (*) $ là ngũ giác $ OABCD $ (kể cả biên).
+			Hàm số $ f(x;y)=60x+80y $ sẽ đạt giá trị lớn nhất trên miền nghiệm của hệ bất phương trình $ (*) $ khi $ (x;y) $ là toạ độ của một trong các đỉnh $ O(0;0), A(7;0), B(6;3), C(4;5), D(0;6). $
+			\item Ta có: $ f(0;0)=0; f(7;0)=420; f(6;3)=600; f(4;5)=640; f(0;6)=480. $\\
+			Suy ra $ f(4;5) $ là giá trị lớn nhất của hàm số $ f(x;y) $ trên miền nghiệm của hệ $ (*).  $\\
+			Như vậy để được số điểm thưởng là lớn nhất cần pha chế $ 6 $ lít nước cam và $ 5 $ lít nước táo.
+			
+		\end{itemize}
+		\begin{center}
+			\begin{tikzpicture}[line width=1pt,>=stealth,x=1cm,y=1cm,scale=0.6]
+			\draw[->] (-1,0)--(10.3,0)
+			node[below]{\footnotesize $ x $};
+			\draw[->] (0,-1)--(0,10.3)
+			node[right]{\footnotesize $ y $};
+			\draw (0,0) node[below left]{\footnotesize $ O$};
+			\clip (-1,-1) rectangle (10,10);
+			\draw[smooth,domain=-5:24] plot (\x,{-3*\x+21});
+			\draw[smooth,domain=-5:24] plot (\x,{-\x+9});
+			\draw[smooth,domain=-5:24] plot (\x,{-0.25*\x+6});
+			\fill[pattern=north west lines]
+			(-1,-1)--(-1,22)--(0,22)--(0,-1)--cycle;
+			\fill[pattern=north west lines]
+			(-1,-1)--(-1,0)--(25,0)--(25,-1)--cycle;
+			\fill[pattern=north west lines]
+			(-0.3,22)--(7.3,-1)--(25,-1)--(25,22)--cycle;
+			\fill[pattern=north west lines]
+			(0,6)--(0,21)--(5.5,4.7)--cycle;
+			\fill[pattern=north west lines]
+			(6,3)--(0,8)--(0,21)--cycle;
+			\draw (7,0) node[above left]{\footnotesize$A$};
+			\draw (7,0) node[below]{\footnotesize$7$};
+			\draw (6,3) node[right]{\footnotesize$B$};
+			\draw[dashed] (0,3)--(6,3);
+			\draw (0,3) node[left]{\footnotesize$3$};
+			\draw[dashed] (6,0)--(6,3);
+			\draw (6,0) node[below]{\footnotesize$6$};
+			\draw (4,5) node[below left]{\footnotesize$C$};
+			\draw[dashed] (0,5)--(4,5);
+			\draw (0,5) node[left]{\footnotesize$5$};
+			\draw[dashed] (4,0)--(4,5);
+			\draw (4,0) node[below]{\footnotesize$4$};
+			\draw (0,6) node[below right]{\footnotesize$D$};
+			\draw (0,6) node[above right]{\footnotesize$6$};
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+
+\begin{vd}%%[Trần Nhân Kiệt]%[0D4G4]
+	Một công ty kinh doanh thương mại chuẩn bị cho một đợt khuyến mại nhằm thu hút khách hàng bằng cách tiến hành quảng cáo sản phẩm của công ty trên hệ thống phát thanh và truyền hình. Chi phí cho $ 1 $ phút quảng cáo trên sóng phát thanh là $ 800.000 $ đồng, trên sóng truyền hình là $ 4.000.000 $ đồng. Đài phát thanh chỉ nhận phát các chương trình quảng cáo dài ít nhất là $ 5 $ phút. Do nhu cầu quảng cáo trên truyền hình lớn nên đài truyền hình chỉ nhận phát các chương trình dài tối đa là $ 4 $ phút. Theo các phân tích, cùng thời lượng một phút quảng cáo, trên truyền hình sẽ có hiệu quả gấp $ 6 $ lần trên sóng phát thanh. Công ty dự định chi tối đa $ 16.000.000 $ đồng cho quảng cáo. Công ty cần đặt thời lượng quảng cáo trên sóng phát thanh và truyền hình như thế nào để hiệu quả nhất?
+	\loigiai{
+		Gọi thời lượng công ty đặt quảng cáo trên sóng phát thanh là  $ x $ (phút), trên truyền hình là $ y $  (phút). Chi phí cho việc này là:  $ 800.000 x+4.000.000 y $   (đồng).\\
+		Mức chi này không được phép vượt qúa mức chi tối đa, tức $ 800.000 x+4.000.000 y\le 16.000.000 $ hay $ x+5y-20\le 0. $\\
+		Do các điều kiện đài phát thanh, truyền hình đưa ra, ta có $ x\ge 5, y\le 4. $\\
+		Đồng thời do $ x, y $ là thời lượng nên $ x\ge 0, y\ge 0. $\\
+		Hiệu quả chung của quảng cáo là $ x+6y. $\\
+		Bài toán trở thành: Tìm $ x, y $ sao cho $ f(x;y)=x+6y $ đạt giá trị lớn nhất với các điều kiện $$ \heva{&x+5y-20\le 0\\&x\ge 5\\&0\le y\le 4} (*).$$\\
+		Hàm số $ f(x;y)=x+6y $ sẽ đạt giá trị lớn nhất trên miền nghiệm của hệ bất phương trình $ (*) $ khi $ (x;y) $ là tọa độ của một trong các đỉnh $ A(5;0) $, $ B(5;3) $, $ C(20;0) . $\\
+		Ta có $ f(5;3)=23, f(5;0)=5, f(20,0)=20 $.\\
+		Suy ra giá trị lớn nhất của $ M(x;y) $ bằng $ 23 $ tại $ (5;3) $ tức là nếu đặt thời lượng quảng cáo trên sóng phát thanh là $ 5 $ phút và trên truyền hình là $ 3 $ phút thì sẽ đạt hiệu quả nhất?
+		\begin{center}
+			\begin{tikzpicture}[line width=1pt,>=stealth,x=1cm,y=1cm,scale=0.5]
+			\draw[->] (-1,0)--(21.2,0)
+			node[below]{\footnotesize $ x $};
+			\draw[->] (0,-1)--(0,5.2)
+			node[right]{\footnotesize $ y $};
+			\draw (0,0) node[below left]{\footnotesize $O$};
+			\clip (-1,-1) rectangle (21,5);
+			\draw[smooth,domain=-1:21] plot (\x,{-0.2*\x+4});
+			\draw[-] (5,-1) -- (5,5);
+			\draw[-] (-1,4) -- (21,4);
+			\fill[pattern=north west lines]
+			(-1,-1)--(-1,5)--(5,5)--(5,-1)--cycle;
+			\fill[pattern=north west lines]
+			(-1,-1)--(-1,0)--(21,0)--(21,-1)--cycle;
+			\fill[pattern=north west lines]
+			(-1,4)--(-1,5)--(21,5)--(21,4)--cycle;
+			\fill[pattern=north west lines]
+			(-1,4.2)--(-1,5)--(21,5)--(21,-0.2)--cycle;
+			\draw (5,0) node[above right]{$A(5;0)$};
+			\draw (5,3) node[below right]{ $B(5;3)$};
+			\draw (18.5,0.3) node[left]{ $C(20;0)$};
+			%\draw (2.5,9) node[below]{ $D$};
+			\end{tikzpicture}
+		\end{center}
+		
+	}
+\end{vd}
+\begin{vd}%%[Trần Nhân Kiệt]%[0D4G4]
+	Trong một cuộc thi gói bánh vào dịp năm mới, mỗi đội chơi được sử dụng tối đa $ 20 $ kg gạo nếp,
+	$ 2 $ kg thịt ba chỉ, $ 5 $ kg đậu xanh để gói bánh chưng và bánh ống. Để gói một cái bánh chưng cần $ 0,4 $ kg gạo nếp, $ 0,05 $ kg thịt và $ 0,1 $ kg đậu xanh; để gói một cái bánh ống cần $ 0,6 $ kg gạo nếp, $ 0,075 $ kg thịt và $ 0,15 $ kg đậu xanh. Mỗi cái bánh chưng nhận được 5 điểm thưởng, mỗi cái bánh ống nhận được $ 7 $ điểm thưởng. Hỏi cần phải gói mấy cái bánh mỗi loại để được nhiều điểm thưởng nhất?
+	\loigiai{
+		\begin{itemize}
+			\item Gọi số bánh chưng gói được là $ x $, số bánh ống gói được là $ y $. Khi đó số điểm thưởng là $ f(x;y)=5x+7y. $
+			\item Số kg gạo nếp cần dùng là $ 0,4 x+0,6 y. $
+			\item Số kg thịt ba chỉ cần dùng là $ 0,05 x+0,075 y. $
+			\item Số kg đậu xanh cần dùng là $ 0,1 x+0,15 y. $
+			\item Vì trong cuộc thi này chỉ được sử dụng tối đa $ 20 $ kg gạo nếp, $  2 $ kg thịt ba chỉ và $ 5 $ kg đậu xanh nên ta có hệ bất phương trình
+			$$ \heva{&0,4 x+0,6 y\le 201\\&0,05 x+0,075 y\le 2\\&0,1 x+0,15 y\le 5\\&0,1 x+0,15 y\le 5\\& x, y\ge 0} \Leftrightarrow \heva{&2x+3y\le 100\\&2x+3y\le 80\\&2x+3y\le 100\\&x, y\ge 0}\Leftrightarrow \heva{&2x+3y\le 80\\& x,y\ge 0} (*).$$
+			\item Bài toán trở thành tìm giá trị lớn nhất của hàm số $ f(x;y) $ trên miền nghiệm của hệ bất phương trình $ (*) $.
+			\item Miền nghiệm của hệ bất phương trình $ (*) $ là tam giác $ OAB $ (kể cả biên).
+			\item Hàm số $ f(x;y)=5x+5y $sẽ đạt giá trị lớn nhất
+			trên miền nghiệm của hệ bất phương trình $ (*) $ khi $ (x;y) $ là toạ độ một trong các đỉnh $ O(0;0), A(40;0), B\left(0;\dfrac{80}{3}\right) $.
+			\item Ta có: $ f(0;0)=0, f(40;0)=200, f\left(0;\dfrac{80}{3}\right)=\dfrac{560}{3}. $
+			\item Suy ra $ f(x;y) $ lớn nhất khi $ (x;y) =(40;0)$.  Do đó cần phải gói $ 40 $ cái bánh chưng để nhận được
+			số điểm thưởng là lớn nhất.
+		\end{itemize}
+		\begin{center}
+			\begin{tikzpicture}[line width=1pt,>=stealth,x=1cm,y=1cm,scale=0.9]
+			\draw[->] (-1,0)--(5.2,0)
+			node[below]{\footnotesize $ x $};
+			\draw[->] (0,-1)--(0,4.2)
+			node[right]{\footnotesize $ y $};
+			\draw (0,0) node[below left]{\footnotesize $ O$};
+			\clip (-1,-1) rectangle (5,4);
+			\draw[smooth,domain=-1:6] plot (\x,{-0.5*\x+2});
+			\fill[pattern=north west lines]
+			(-1,-1)--(-1,6)--(0,6)--(0,-1)--cycle;
+			\fill[pattern=north west lines]
+			(-1,-1)--(-1,0)--(6,0)--(6,-1)--cycle;
+			\fill[pattern=north west lines]
+			(-1,2.5)--(-1,6)--(6,6)--(6,-1)--cycle;
+			\draw (4,0) node[above]{\footnotesize$A(40;0)$};
+			\draw (0,1.5) node[above right]{\footnotesize$B\left(\dfrac{80}{3};0\right)$};
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Trần Nhân Kiệt]%[0D4G4]
+	Một gia đình cần ít nhất $ 900 $ đơn vị protein và $ 400 $ đơn vị lipit trong thức ăn mỗi ngày. Mỗi kg
+	thịt bò chứa $ 800 $ đơn vị protein và $ 200 $ đơn vị lipit. Mỗi kg thịt lợn chứa $ 600 $ đơn vị protein và $ 400 $ đơn vị lipit. Biết rằng gia đình này chỉ mua tối đa $ 1,6 $ kg thịt bò và $ 1,1 $ kg thịt lợn; giá tiền $ 1 $ kg thịt bò là $ 45 $ nghìn đồng, $ 1 $ kg thịt lợn là $ 35 $ nghìn đồng. Hỏi gia đình đó phải mua bao nhiêu kg thịt mỗi loại để số tiền bỏ ra là ít nhất?
+	\loigiai{
+		\begin{itemize}
+			\item Gọi $ x $ và $ y $ lần lượt là số kg thịt bò và thịt lợn mà gia đình đó mua mỗi ngày $ (0\le x\le 1,6; 0\le y\le 1,1) .$
+			\item Khi đó chi phí để mua số thịt trên là $ f(x;y)=45x+35y $ nghìn đồng.
+			\item Trong $ x $ kg thịt bò chứa $ 800x $ đơn vị protein và $ 200x $ đơn vị lipit.
+			\item Trong $ y $ kg thịt lợn chứa $ 600x $ đơn vị protein và $ 400y $ đơn vị lipit.
+			\item Suy ra số đơn vị protein và số đơn lipit lần lượt là $ 800x+600y $ đơn vị và $ 200x+400y $ đơn vị.
+			\item Do gia đình này cần ít nhất $ 900 $ đơn vị protein và $ 400 $ đơn vị lipit trong thức ăn mỗi ngày nên ta có hệ bất phương trình sau $ \heva{&800x+600y\ge 900\\&200x+400y\ge 400\\&0\le x\le 1,6\\& 0\le y\le 1,1} \Leftrightarrow\heva{&8x+6y\ge 9\\& x+2y\ge 2\\&0\le x\le 1,6\\&0\le y\le 1,1} (*)$
+			\item Bài toán trở thành tìm giá trị nhỏ nhất của hàm số $ f(x;y) $ trên miền nghiệm của hệ bất phương trình $ (*) $.
+			\item Miền nghiệm của hệ bất phương trình $ (*) $ là tứ giác $ ABCD $ (kể cả biên).
+			\item Hàm số $ f(x;y)=45x+35y $ sẽ đạt giá trị nhỏ nhất khi $ (x;y) $ là tọa độ của một trong các đỉnh $ A(1,6; 1,1) $, $ B(1,6 ; 0,2) $, $ C(0,6;0,7) $, $ D(0,3;1,1). $
+			\item Ta có: $ f(1,6;1,1)=110,5$; $ f(1,6;0,2)=79$; $ f(0,6;0,7)=51,5 $; $ f(0,3;1,1) =52$.
+			\item Suy ra $ f(x;y) $ nhỏ nhất khi $ (x;y)=(0,6;0,7) $. Do đó gia đình này cần phải mua $ 0,6 $ kg thịt bò và
+			$ 0,7 $ kg thịt lợn để số tiền bỏ ra là ít nhất. 
+		\end{itemize}
+		
+		\begin{center}
+			\begin{tikzpicture}[line width=1pt,>=stealth,x=1cm,y=1cm,scale=1.5]
+			\draw[->] (-1,0)--(3.1,0)
+			node[below]{\footnotesize $ x $};
+			\draw[->] (0,-1)--(0,3.1)
+			node[right]{\footnotesize $ y $};
+			\draw (0,0) node[below left]{\footnotesize $ O$};
+			\clip (-1,-1) rectangle (3,3);
+			\draw[smooth,domain=-4:4] plot (\x,{-1.4*\x+1.5});
+			\draw[smooth,domain=-4:4] plot (\x,{-0.5*\x+1});
+			\draw[smooth,domain=-4:4] plot (\x,{1.1});
+			\draw[-] (1.6,-4) -- (1.6,4);
+			\fill[pattern=north west lines]
+			(-3,2.5)--(3,-0.5)--(3,-3)--(-3,-3)--cycle;
+			\fill[pattern=north west lines]
+			(1.6,-4)--(1.6,4)--(3,4)--(3,-4)--cycle;
+			\fill[pattern=north west lines]
+			(-3,1.1)--(-3,3)--(3,3)--(3,1.1)--cycle;
+			\fill[pattern=north west lines]
+			(-3,3)--(-1.1,3)--(3,-2.6)--(-3,-3)--cycle;
+			\draw (1.5,1.3) node[right]{$A$};
+			\draw (1.6,0.2) node[right]{ $B$};
+			\draw (0.5,0.8) node[right]{ $C$};
+			\draw[dashed] (0.6,0)--(0.6,0.7);
+			\draw (0.6,0) node[below right]{\footnotesize$0,6$};
+			\draw (1.6,0) node[below right]{\footnotesize$1,6$};
+			\draw[dashed] (0,0.7)--(0.6,0.7);
+			\draw (0,0.7) node[left]{\footnotesize$0,7$};
+			\draw (0,1.1) node[above left]{\footnotesize$1,1$};
+			\draw (0.4,1.1) node[above]{$D$};
+			\draw (0.3,0) node[below]{\footnotesize$0,3$};
+			\draw[dashed] (0.3,0)--(0.3,1.1);
+			\draw (0,0.2) node[left]{\footnotesize$0,2$};
+			\draw[dashed] (0,0.2)--(1.6,0.2);
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+\begin{bt}%[Trần Nhân Kiệt]%[0D4G4]
+	Một gia đình định trồng cà phê và ca cao trên diện tích $ 10 $ ha. Nếu trồng cà phê thì cần $ 20 $ công và thu về $ 10.000.000 $ đồng trên diện tích mỗi ha, nếu trồng cà thì cần $ 30 $ công và thu $ 12.000.000 $
+	đồng trên diện tích mỗi ha. Hỏi cần trồng mỗi loại cây trên với diện tích là bao nhiêu để thu được
+	nhiều tiền nhất. Biết rằng cà phê do các thành viên trong gia đình tự chăm sóc và số công không
+	vượt quá $ 80 $, còn ca cao gia đình thuê người làm với giá $  100.000 $ đồng cho mỗi công?
+	\loigiai{
+		Gọi $ x $ và $ y $ lần lượt là số ha cà phê và ca cao mà hộ nông dân này trồng $ (x, y\ge 0). $\\
+		Số tiền cần bỏ ra để thuê người trồng ca cao là $ 30y . 100000=3000000 y $ (trồng).\\
+		Lợi nhuận thu được là $ f(x;y)=1000000x+12000000-3000000y$ \\
+		$\Rightarrow f(x;y)=10000000x+9000000y $ (đồng).\\
+		Vì số công để trồng cà phê không vượt qua $ 80 $ nên $ 20x\le 80\Leftrightarrow x\le 4. $\\
+		Ta có hệ bất phương trình sau $ \heva{&x+y\le 10\\&0\le x\le 4\\& y\ge 0} (*). $\\
+		Ta cần tìm giá trị lớn nhất của $ f(x;y) $ trên miền nghiệm của hệ $ (*). $\\
+		Miền nghiệm của hệ $  (*) $ là tứ giác $ OABC $ (kể cả biên). Hàm số $ f(x;y) $ sẽ đạt giá trị lớn nhất khi $ (x;y) $ là toạ độ của một trong các đỉnh $ O(0;0) $, $ A(4;0) $, $ B(4;6) $, $ C(0;10) $.
+		Suy ra $ f(x;y) $ lớn nhất khi $ (x;y)=(4;6) $. Như vậy cần phải trồng $  4 $ ha cà phê và $ 6 $ ha ca cao để thu
+		về lợi nhuận lớn nhất
+		\begin{center}
+			\begin{tikzpicture}[line width=1pt,>=stealth,x=1cm,y=1cm,scale=0.6]
+			\draw[->] (-1,0)--(5.2,0)
+			node[below]{\footnotesize $ x $};
+			\draw[->] (0,-1)--(0,11.2)
+			node[right]{\footnotesize $ y $};
+			\draw (0,0) node[below left]{\footnotesize $ O$};
+			\clip (-1,-1) rectangle (5,11);
+			\draw[smooth,domain=-1:11] plot (\x,{-\x+10});
+			\draw[-] (4,-1) -- (4,11);
+			\fill[pattern=north west lines]
+			(-1,11)--(0,11)--(0,-1)--(-1,-1)--cycle;
+			\fill[pattern=north west lines]
+			(-1,0)--(11,0)--(11,-1)--(-1,-1)--cycle;
+			\fill[pattern=north west lines]
+			(4,-1)--(4,11)--(11,11)--(11,-1)--cycle;
+			\fill[pattern=north west lines]
+			(-1,11)--(11,11)--(11,-1)--cycle;
+			\draw (4,0) node[above left]{\footnotesize$A$};
+			\draw (4,0) node[below left]{\footnotesize$4$};
+			\draw (4,6) node[below left]{\footnotesize $B$};
+			\draw (-0.2,9.6) node[below right]{\footnotesize $C$};
+			\draw (0,10) node[right]{\footnotesize $10$};
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+\begin{bt}%[Trần Nhân Kiệt]%[0D4G4]
+	Một hộ nông dân định trồng đậu và cà trên diện tích $8$ ha. Nếu trồng đậu thì cần $20$ công và thu $3000000$ đồng trên diện tích mỗi ha, nếu trồng cà thì cần $30$ công và thu $4000000$ đồng trên diện tích mỗi ha. Hỏi cần trồng mỗi loại cây trên với diện tích là bao nhiêu để thu được nhiều tiền nhất biết rằng tổng số công không quá $180$?
+	\loigiai{
+		Gọi số ha đậu và cà mà hộ nông dân này trồng lần lượt là $x$ và $y (x,y\ge 0).$\\
+		Lợi nhuận thu được là $f(x;y)=3000000x+4000000y$ (đồng).\\
+		Tổng số công dùng để trông $x$ ha đậu và $y$ ha cà là $20x+30y.$\\
+		Ta có hệ bất phương trình sau $\heva{&x+y\le 8\\&20x+30y\le 180\\&x, y\ge 0}\Leftrightarrow \heva{&x+y\le 8\\&2x+3y\le 18\\&x, y\ge 0}.$\\
+		Bài toán trở thành tìm giá trị lớn nhất của hàm số $f(x;y)$ trên miền nghiệm của hệ bất phương trình $(*)$. Miền nghiệm của hệ bất phương trình $(*)$ là tứ giác $OABC$ (kể cả biên).\\
+		Hàm số $f(x;y)$ sẽ đạt giá trị lớn nhất khi $(x;y)$ là tọa độ của một trong các đỉnh $O(0;0)$,  $ A(8;0)$,  $ B(6;2)$,  $ C(0;6)$.\\
+		Ta có: $f(0;0)=0, f(8;0)=24000000, f(6;2)=26000000, f(0;6)=2400000.$\\
+		Suy ra $f(x;y)$ lớn nhất khi $(x;y)=(6;2)$ tức là hộ nông dân này cần phải tròng $6$ ha đậu và $2$ ha cà thì sẽ thu về lợi nhuận lớn nhất. 
+		\begin{center}
+			\begin{tikzpicture}[line width=1pt,>=stealth,x=1cm,y=1cm,scale=0.5]
+			\draw[->] (-1,0)--(10.2,0)
+			node[below]{\footnotesize $ x $};
+			\draw[->] (0,-1)--(0,10.2)
+			node[right]{\footnotesize $ y $};
+			\draw (0,0) node[below left]{\footnotesize $O$};
+			\clip (-1,-1) rectangle (10,10);
+			\draw[smooth,domain=-1:10] plot (\x,{-\x+8});
+			\draw[smooth,domain=-1:10] plot (\x,{-0.67*\x+6});
+			%\draw[-] (4,-1) -- (4,10);
+			\fill[pattern=north west lines]
+			(-6,10)--(10,10)--(10,-0.6)--cycle;
+			\fill[pattern=north west lines]
+			(-1,0)--(10,0)--(10,-1)--(-1,-1)--cycle;
+			\fill[pattern=north west lines]
+			(-1,-1)--(-1,10)--(0,10)--(0,-1)--cycle;
+			\fill[pattern=north west lines]
+			(-2,10)--(10,10)--(10,-2)--cycle;
+			\draw (8,0) node[above]{\footnotesize$A$};
+			\draw (8,0) node[below left]{\footnotesize$8$};
+			\draw (6,2) node[right]{\footnotesize$B$};
+			\draw (6,0) node[below]{\footnotesize$6$};
+			\draw[dashed] (0,2)--(6,2);
+			\draw (0,2) node[left]{\footnotesize$2$};
+			\draw[dashed] (6,0)--(6,2);
+			\draw (0,6) node[right]{\footnotesize $C$};
+			\draw (0,6) node[left]{\footnotesize $6$};
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+\begin{bt}%[Trần Nhân Kiệt]%[0D4G4]
+	Một phân xưởng có hai máy đặc chủng $M_1, M_2$ sản xuất hai loại sản phẩm kí hiệu là $A$ và $B$. Một tấn sản phẩm loại $A$ lãi $2$ triệu đồng, một tấn sản phẩm loại $B$ lãi $1,6$ triệu đồng. Muốn sản xuất một tấn sản phẩm loại $A$ phải dùng máy $M_1$ trong $3$ giờ và máy $M_2$ trong $1$ giờ. Muốn sản xuất một tấn sản phẩm loại $B$ phải dùng máy $M_1$ trong $1$ giờ và máy $M_2$ trong $1$ giờ. Một máy không thể dùng để sản xuất đồng thời hai loại sản phẩm. Máy $M_1$ làm việc không quá $6$ giờ một ngày, máy $M_2$ làm việc không quá $4$ giờ một ngày. Hỏi số tiền lãi lớn nhất mà phân xưởng này có thể thu được trong một ngày là bao nhiêu?
+	\loigiai{
+		Gọi $ x, y $ lần lượt là số tấn sản phẩm loại $ A, B $ mà phân xưởng này sản xuất trong một ngày $ (x, y>0). $\\
+		Khi đó số tiền lãi một ngày của phân xưởng này là $ f(x;y)=2x+1,6y $ (triệu đồng); số giờ làm việc trong ngày của máy $ M_1  $ là $ 3x+y $ và số giờ làm việc trong ngày của máy $ M_2 $ là $ x+y. $\\
+		Vì mỗi ngày máy $ M_1 $ làm việc không quá $ 6 $ giờ và máy $ M_2 $ làm việc không quá $ 4 $ giờ nên ta có hệ bất phương trình $ \heva{&3x+y\le 6\\&x+y\le 4\\&x, y\ge 0} (*). $\\
+		Bài toán trở thành tìm giá trị lớn nhất của hàm số $ f(x;y) $ trên miền nghiệm của hệ bất phương trình $ (*) $.\\
+		Miền nghiệm của hệ bất phương trình $ (*) $ là tứ giác $ OABC $ (kể cả biên).\\
+		Hàm số $ f(x;y) $ sẽ đạt giá trị lớn nhất trên miền nghiệm của hệ bất phương trình $ (*) $ khi $ (x;y) $ là toạ độ một
+		trong các đỉnh $ O(0;0) $, $ A(2;0)$, $ B(1;3) $, $ C(0;4) $.\\
+		Ta có $ f(0;0)=0; f(2;0)=4; f(1;3)=6,8; f(0;4)=6,4. $\\
+		Suy ra $ \max f(x;y)=6,8 $ khi $ (x;y)=(1;3) .$
+		\begin{center}
+			\begin{tikzpicture}[line width=1pt,>=stealth,x=1cm,y=1cm,scale=0.7]
+			\draw[->] (-1,0)--(7.2,0)
+			node[below]{\footnotesize $ x $};
+			\draw[->] (0,-1)--(0,7.2)
+			node[right]{\footnotesize $ y $};
+			\draw (0,0) node[below left]{\footnotesize $O$};
+			\clip (-1,-1) rectangle (7,7);
+			\draw[smooth,domain=-1:11] plot (\x,{-3*\x+6});
+			\draw[smooth,domain=-1:11] plot (\x,{-\x+4});
+			%\draw[-] (4,-1) -- (4,11);
+			\fill[pattern=north west lines]
+			(0,-1)--(0,7)--(-1,7)--(-1,-1)--cycle;
+			\fill[pattern=north west lines]
+			(-1,0)--(7,0)--(7,-1)--(-1,-1)--cycle;
+			\fill[pattern=north west lines]
+			(-3,7)--(7,7)--(7,-3)--cycle;
+			\fill[pattern=north west lines]
+			(-0.3,7)--(7,7)--(7,-15)--cycle;
+			\draw (2,0) node[above right]{$A$};
+			\draw (2,0) node[below]{\footnotesize$2$};
+			\draw (1,3) node[right]{ $B$};
+			\draw (0,4) node[right]{ $C$};
+			\draw (1,0) node[below]{\footnotesize$1$};
+			\draw[dashed] (1,0)--(1,3);
+			\draw (0,3) node[left]{\footnotesize$3$};
+			\draw[dashed] (0,3)--(1,3);
+			\draw (0,4) node[left]{\footnotesize$4$};
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+
+\begin{bt}%[Trần Nhân Kiệt]%[0D4G4]
+	Một công ty cần thuê xe để chở $ 140 $ người và $ 9 $ tấn hàng. Nơi thuê xe có hai loại xe $ A $ và $ B $, trong
+	đó loại xe $ A $ có $ 10 $ chiếc và loại xe $ B $ có $ 9 $ chiếc. Một chiếc xe loại $ A $ cho thuê với giá $ 4 $ triệu
+	đồng, một chiếc xe loại $ B $ cho thuê với giá $ 3 $ triệu. Biết rằng mỗi xe loại $ A $ có thể chở tối đa $ 20 $ người và $ 0,6 $ tấn hàng; mỗi xe loại $ B $ có thể chở tối đa $ 10 $ người và $ 1,5 $ tấn hàng. Hỏi phải thuê bao nhiêu xe mỗi loại để chi phí bỏ ra là ít nhất?
+	\loigiai{
+		Gọi $ x, y $ lần lượt  là số xe loại $ A $ và $ B $. Khi đó số tiền cần bỏ ra để thuê xe là $ f(x;y)=4x+3y. $
+		Ta có $ x $ xe loại $ A $ sẽ chở được $ 20x $ người và $ 0,6x $ tấn hàng; $ y $ xe loại $ B $ sẽ chở được $ 10y $ người và
+		$ 1,5y $ tấn hàng. Suy ra $ x $ xe loại $ A $ và $ y $ xe loại $ B $ se chở được $ 20x+10y $ người và $ 0,6x+1,5y $ tấn hàng.\\
+		Ta có hệ bất phương trình sau 
+		$ \heva{&20x+10\ge 40\\&0,6x+1,5y\ge 9\\&0\le x\le 10\\& 0\le y\le 9}\Leftrightarrow \heva{&2x+y\ge 14\\&2x+5y\ge 30\\&0\le x\le 10\\& 0\le y\le 9} (*)$\\
+		Bài toán trở thành tìm giá trị nhỏ nhất của hàm số $ f(x;y) $ trên miền nghiệm của hệ $ (*) $. Miền nghiệm của
+		hệ $ (*) $ là tứ giác $ ABCD $ (kể cả biên). Hàm số $ f(x;y)=4x+3y $ sẽ đạt giá trị nhỏ nhất trên miền nghiệm của hệ bất phương trình $ (*) $ khi $ (x;y) $ là tọa độ của một trong các đỉnh $ A(5;4) $, $B(10;2)  $, $ C(10;9) $, $ D\left(\dfrac{5}{2};9\right). $\\
+		Ta có: $ f(5;4)=32; f(10;2)=46; f(10;9)=67; f\left(\dfrac{5}{2};9\right)=37. $\\
+		Suy ra $ f(x;y) $ nhỏ nhất khi $ (x;y)=(5;4). $ Như vậy để chi phí vận chuyển thấp nhất cần thuê $ 5 $ xe loại $ A $ và $ 4 $ xe loại $ B. $
+		\begin{center}
+			\begin{tikzpicture}[line width=1pt,>=stealth,x=1cm,y=1cm,scale=0.5]
+			\draw[->] (-1,0)--(12.2,0)
+			node[below]{\footnotesize $ x $};
+			\draw[->] (0,-1)--(0,12.2)
+			node[right]{\footnotesize $ y $};
+			\draw (0,0) node[below left]{\footnotesize $O$};
+			\clip (-1,-1) rectangle (12,12);
+			\draw[smooth,domain=-1:12] plot (\x,{-0.4*\x+6});
+			\draw[smooth,domain=-1:12] plot (\x,{-2*\x+14});
+			\draw[-] (10,-1) -- (10,16);
+			\draw[-] (-1,9) -- (16,9);
+			\fill[pattern=north west lines]
+			(10,-1)--(10,16)--(16,16)--(16,-1)--cycle;
+			\fill[pattern=north west lines]
+			(-1,9)--(-1,16)--(16,16)--(16,9)--cycle;
+			\fill[pattern=north west lines]
+			(-1,16)--(-1,-1)--(7.5,-1)--cycle;
+			\fill[pattern=north west lines]
+			(-1,6.4)--(-1,-1)--(17.5,-1)--cycle;
+			\draw (5,4) node[above right]{$A$};
+			\draw (5,0) node[below]{\footnotesize$5$};
+			\draw[dashed] (5,0)--(5,4);
+			\draw (0,4) node[left]{\footnotesize$4$};
+			\draw[dashed] (0,4)--(5,4);
+			\draw (10,2) node[above right]{ $B$};
+			\draw (0,2) node[left]{\footnotesize$2$};
+			\draw[dashed] (0,2)--(10,2);
+			\draw (10,0) node[below right]{\footnotesize$10$};
+			\draw (0,9) node[above left]{\footnotesize$9$};
+			\draw (10,9) node[above right]{ $C$};
+			\draw (2.5,9) node[above right]{ $D$};
+			\draw (2.5,0) node[above left]{\footnotesize$\dfrac{5}{2}$};
+			\draw[dashed] (2.5,0)--(2.5,9);
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+
+
+\begin{center}
+\textbf{BÀI TẬP TỔNG HỢP}
+\end{center}
+
+\begin{bt}%[Mai Hà Lan]%[0D4B4]
+	Biểu diễn hình học tập nghiệm của bất phương trình bậc nhất hai ẩn $x - y > 1 -3x$.
+	\loigiai{
+		\immini{
+			$x - y > 1 -3x \Leftrightarrow 2x - y > 1$\\
+			Vẽ đường thẳng $d: 2x - y =1 $.\\
+			Thay tọa độ điểm $O(0;0)$ vào vế trái phương trình đường thẳng $(d)$, ta được: $0 < 1$.\\
+			Vậy miền nghiệm của bất phương trình là nửa mặt phẳng không chứa điểm $O$. (Trên hình là nửa mặt phẳng không bị gạch bỏ).
+		}{
+			\begin{tikzpicture}
+			%---------------------- Vẽ hệ trục tọa độ
+			\draw[->] (-2.25,0)--(2.25,0) node[below right] {$x$};
+			\draw[->] (0,-2.25)--(0,2.25) node[right] {$y$};
+			\node (0,0) [above left]{$ O $};
+			%----------------------- Vẽ đoạn chắn trên trục
+			\foreach \x in {-2,-1,.5,1,2}
+			\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+			\node at (.7,-0.4) {$\frac{1}{2}$};
+			\foreach \y in {-2,-1,1,2}
+			\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+			\node at (0.35,-1.25) {$-1$};
+			
+			%--------------------- Vẽ hàm
+			\draw [thick, domain=-.5:1.5, samples=100] plot (\x, {2*\x-1});
+			\node at (1.75,1.5) {$(d)$};
+			
+			%----------------------Vẽ miền nghiệm
+			\tkzDefPoints{1.5/2/A, -2/2/B, -2/-2/C, -.5/-2/D}
+			\tkzDrawPolygon[pattern=north east lines,opacity=.3](A,B,C,D)
+			\end{tikzpicture}
+	}}
+\end{bt}
+
+
+\begin{bt}%[Mai Hà Lan]%[0D4B4]
+	Biểu diễn hình học tập nghiệm của bất phương trình bậc nhất hai ẩn $3x - y \le 0$.
+	\loigiai{
+		\immini{
+			Vẽ đường thẳng $d: 3x - y = 0 $.\\
+			Thay tọa độ điểm $M(0;2)$ vào vế trái phương trình đường thẳng $(d)$, ta được: $-2 < 0$.\\
+			Vậy miền nghiệm của bất phương trình là nửa mặt phẳng không chứa điểm $M$, kể cả bờ $(d)$. (Trên hình là nửa mặt phẳng không bị gạch bỏ).
+		}{
+			\begin{tikzpicture}
+			%---------------------- Vẽ hệ trục tọa độ
+			\draw[->] (-2.25,0)--(2.25,0) node[below right] {$x$};
+			\draw[->] (0,-1.25)--(0,3.25) node[right] {$y$};
+			\node (0,0) [above right]{$ O $};
+			%----------------------- Vẽ đoạn chắn trên trục
+			\foreach \x in {-2,-1,1}
+			\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+			%\node at (3.8,0.5) {$4$};
+			\foreach \y in {-1,1,2,3}
+			\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+			%\node at (-0.5,-1.8) {$-2$};
+			
+			%--------------------- Vẽ hàm
+			\draw [thick, domain=-.33:1, samples=100] plot (\x, {3*\x});
+			\node at (.5,2.5) {$(d)$};
+			
+			%---------------------- Điểm M
+			\fill (0,2) circle (2pt) node[left]{$M(0;2)$};
+			
+			%----------------------Vẽ miền nghiệm
+			\tkzDefPoints{-.33/-.99/A, 2/-1/B, 2/3/C, 1/3/D}
+			\tkzDrawPolygon[ pattern=north east lines,opacity=.3](A,B,C,D)
+			\end{tikzpicture}
+	}}
+\end{bt}
+
+\begin{bt}%[Mai Hà Lan]%[0D4G4]
+	a) Biểu diễn hình học tập nghiệm của bất phương trình bậc nhất hai ẩn $x + y -3 < 0$.\\
+	b) Tìm điều kiện của $m$ và $n$ để mọi điểm thuộc đường thẳng $(d')$: $ (m^2-2)x - y + m + n= 0 $ đều là nghiệm của bất phương trình trên.
+	\loigiai{
+		\immini{
+			\begin{itemize}
+				\item[a)] Vẽ đường thẳng $d: x + y = 3 $.\\
+				Thay tọa độ điểm $O(0;0)$ vào vế trái phương trình đường thẳng $(d)$, ta được: $0< 3$.\\
+				Vậy miền nghiệm của bất phương trình là nửa mặt phẳng chứa điểm $O$. (Trên hình là nửa mặt phẳng không bị gạch bỏ).
+				\item[b)] Để mọi điểm thuộc đường thẳng  $(d')$ đều là nghiệm của bất phương trình thì điều kiện cần là $(d')$ phải song song với $(d)$. Ta có $d:  y = -x + 3$ và $d': y = (m^2-2)x +  m + n$. Để $(d)$ song song $(d')$ thì $\heva{& m^2 - 2 = -1 \\& m + n \ne 3} \Leftrightarrow \hoac{&\heva{&m=1\\&n\ne 2}\\&\heva{&m=-1\\&n\ne 4}}$\\
+				Với $\heva{&m=1\\&n\ne 2}$ thì ta được $d': y = - x + n + 1$. Để thỏa yêu cầu bài toán thì điều kiện đủ là đường thẳng $(d')$ là đồ thị của đường thẳng $(d)$ khi $(d)$ tịnh tiến xuống dưới theo trục $Oy$. Tức $n + 1 < 3 \Leftrightarrow n < 2$.
+			\end{itemize}
+		}{
+			\begin{tikzpicture}[scale=.8]
+			%---------------------- Vẽ hệ trục tọa độ
+			\draw[->] (-2.25,0)--(4.25,0) node[below right] {$x$};
+			\draw[->] (0,-1.25)--(0,4.25) node[right] {$y$};
+			\node (0,0) [below left]{$ O $};
+			%----------------------- Vẽ đoạn chắn trên trục
+			\foreach \x in {-2,-1,1,2,3,4}
+			\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+			\node at (2.75,-0.4) {$3$};
+			\foreach \y in {-1,1,2,3,4}
+			\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+			\node at (-0.35,2.75) {$3$};
+			
+			%--------------------- Vẽ hàm
+			\draw [thick, domain=-1:4, samples=100] plot (\x, {3-\x});
+			\node at (1.2,1.2) {$(d)$};
+			
+			%----------------------Vẽ miền nghiệm
+			\tkzDefPoints{-1/4/A, 4/4/B, 4/-1/C}
+			\tkzDrawPolygon[pattern=north east lines,opacity=.3](A,B,C)
+			\end{tikzpicture}
+	}}
+\end{bt}
+
+
+\begin{bt}%[Lê Xuân Dũng]%[0D4B4]%[0D4K4]
+	Cho bất phương trình $2x+y-1 \le 0$.
+	
+	a) Biểu diễn miền nghiệm của bất phương trình đã cho trong mặt phẳng tọa độ $Oxy.$
+	
+	b) Tìm tất cả giá trị  tham số $m$ để điểm $M(m,1)$ nằm trong miền nghiệm của bất phương trình đã và biểu diễn tập
+	hợp $M$ tìm được trong cùng hệ trục tọa độ $Oxy$ ở câu a).
+	\loigiai{
+		\immini{a) Đường thẳng $(d){:} \, 2x+y-1=0$ có đồ thị như hình vẽ bên.
+			Ta có $2.0+0-1 <0.$ Do đó, miền nghiệm là đường thẳng $(d)$ và miền không gạch chéo như hình vẽ bên (Miền chứa gốc tọa độ).
+			
+			b) Để $M$ là một nghiệm thì $2m+1-1 \le 0\Leftrightarrow m\le 0.$ 
+			Vì $M$ nằm trên đường thẳng $(\Delta): y = 1.$ Do đó, tập hợp tất cả điểm $M$
+			là nghiệm của bất phương trình trình đã cho là tia $At$ như hình vẽ.
+		}{\begin{tikzpicture}[scale=0.7,thick,>=stealth']
+				\draw[->] (-1.3,0) -- (3.3,0)node[above]{$x$};
+				\foreach \x in {}
+				\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+				\draw[->,color=black] (0,-2) -- (0,3.3)node[right]{$y$};
+				\foreach \y in {}
+				\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+				\node[below left] at (0,0) {$O$};
+				\node[below left] at (0,1) {$A$};
+				\node[below] at (1,-1.3) {$d$};
+				\node[above right] at (0,1) {$1$};
+				\node[below] at (0.5,0) {$\frac{1}{2}$};
+				\clip(-1.3,-2) rectangle (3,3);
+				\node[below] at (-1.2,1) {$t$};
+				%	\fill[pattern=north east lines] (-1,2.66667) -- (-1,4) -- (4,4) -- (4,-0.6667) -- (3,0) -- cycle;
+				%\draw[line width=1.2pt,smooth,samples=100,domain=-1:4] plot(\x,{2-0.666667*(\x)});
+				\fill[pattern=north east lines,pattern color=blue!30] (-1,3)--(0,1)--(0.5,0)--(1.5,-2)--(3,-2)--(3,0)--(3,3)-- cycle;
+				\draw[line width=1.2pt,smooth,samples=100,domain=-3:3] plot(\x,{1-2*(\x)});
+				\draw[line width=1.2pt][-] (0,1)--(-1.3,1);
+				\end{tikzpicture}}
+	}
+\end{bt}
+
+\begin{bt}%[Lê Xuân Dũng]%[0D4B4]%[0D4K4]
+	Cho bất phương trình $x-2y+4m > 0.$
+	
+	a) Tùy theo giá trị tham số $m,$ hãy biểu diễn tập nghiệm của bất phương trình đã cho
+	trong hệ trục tọa độ $Oxy.$
+	
+	b) Gọi $A,B$ lần lượt  là giao của đường thẳng $x-2y+4m=0$ với trục hoành và trục tung. 
+	Tìm tất cả các giá trị của tham số $m$ để tập nghiệm của bất phương trình đã cho chứa điểm $C(2;1)$ 
+	sao cho diện tích tam giác $ABC$ bằng $4.$
+	\loigiai{
+		\immini{a) Xét đường thẳng  $(d_m){:} \, x-2y+4m=0$ có đồ thị như hình vẽ bên.
+			Ta có $0-2.0+4m = 4m.$ Do đó, với mọi $m \ne 0$ miền nghiệm luôn chứa gốc tọa độ.
+			Nếu $m=0$ thì miền nghiệm chứa điểm $(1;0).$ Vậy với mọi $m$ miền nghiệm
+			là miền không gạch chéo như hình vẽ bên.
+			
+			b) Để $C$ là một nghiệm của bất phương trình đã cho thì $2-2+4m > 0\Leftrightarrow m> 0.$ 
+			Khi đó, $OC \parallel (d_m),$ suy ra $S_{\Delta ABC}=S_{\Delta ABO} = 4m^2.$
+			Theo giả thiết, ta có $4m^2 = 4 \Leftrightarrow m=1.$
+		}{\begin{tikzpicture}[scale=0.6,thick,>=stealth']
+				\draw[->] (-5.0,0) -- (4.3,0)node[above]{$x$};
+				\foreach \x in {1,2}
+				\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+				\draw[->,color=black] (0,-1) -- (0,3.3)node[right]{$y$};
+				\foreach \y in {}
+				\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+				\node[below right] at (0,0) {$O$};
+				\node[below ] at (-4,0) {$A$};
+				\node[above left] at (-4,0) {$-4m$};
+				\node[right=0.3] at (0,2) {$B$};
+				\node[above left] at (0,2) {$2m$};
+				\node[above] at (2,1) {$C$}; 
+				\node at (-0.3,1) {$1$}; 
+				\draw[fill]  (2,1) circle (1.5pt) (-4,0) circle (1.5pt) (0,2) circle (1.5pt) (2,1) circle (1.5pt);
+				\draw  (-4,0)--(2,1)--(0,2);
+				\draw[dashed] (2,1)--(2,0) (2,1)--(0,1);
+				\clip(-5.0,-2) rectangle (4.3,3.0);	
+				\fill[pattern=north east lines,pattern color=blue!30] (-5,3)--(-5,0)--(-5,-0.5)--(-4,0)--(0,2)--(2,3)-- cycle;
+				\draw[line width=1.2pt,smooth,samples=100,domain=-5.0:4.3] plot(\x,{2+0.5*(\x)});
+				\draw[line width=1.2pt,smooth,samples=100,domain=-2.0:4.3] plot(\x,{0.5*(\x)});
+				\end{tikzpicture}}
+	}
+\end{bt}
+
+
+\begin{bt}%[Lê Xuân Dũng]%[0D4K4]%[0D4K4]
+	Cho hệ bất phương trình
+	$ \left\{ \begin{aligned}
+	y &\ge 0 \\
+	x-y &\ge 0  \\
+	x+y-4 &\le 0
+	\end{aligned} \right..$ 
+	
+	a) Biểu diễn tập nghiệm của hệ đã trong mặt phẳng tọa độ $Oxy.$
+	
+	b) Tính diện tích miền nghiệm đó.
+	\loigiai{
+		\immini{ a) Vẽ các đường thẳng $x-y =0$ và $x+y-4 =0$
+			trên cùng hệ trục tọa độ. Chọn điểm $(2,1)$ để xác định miền nghiệm.
+			Khi đó ta được miền nghiệm như hình vẽ bên. 
+			
+			b) Từ hình vẽ bên ta có $OA = 4$ và độ dài đường cao của tam giác $OAB$ hạ từ $B$ bằng $2.$ Vậy $S_{\Delta OAB} = 4.$
+		}{\begin{tikzpicture}[scale=0.7,thick,>=stealth']
+			\draw[->] (-1,0) -- (4.5,0) node[above]{$x$};
+			\foreach \x in {2,4}
+			\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+			\draw[->,color=black] (0,-1) -- (0,3.3)node[right]{$y$};
+			\foreach \y in {1}
+			\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+			\node[below right] at (0,0) {$O$};
+			\node[above ] at (4,0) {$A$};	
+			\node[right=0.3] at (2,2) {$B$};	
+			\node at (-0.3,2) {$2$};	
+			\draw[fill]  (4,0) circle (1.5pt) (0,0) circle (1.5pt) (2,2) circle (1.5pt) (2,1) circle (1.5pt);
+			\clip(-1.0,-1) rectangle (4.3,3.0);		
+			\draw[line width=1.2pt,smooth,samples=100,domain=-5.0:4.3] plot(\x,{4-(\x)});
+			\draw[line width=1.2pt,smooth,samples=100,domain=-1.0:4.3] plot(\x,{(\x)});
+			\fill[pattern=north east lines,pattern color=blue!30] (-1,-1) -- (-1,3) -- (5,3) -- (5,-1) -- cycle;
+			\fill[white] (0,0) -- (2,2) -- (4,0) -- cycle;   
+			\draw[dashed] (0,2)--(2,2) (2,2)--(2,0) (0,1)--(2,1);
+			\draw (0,0) -- (2,2) -- (4,0) -- cycle; 
+			\draw[fill]  (2,1) circle (1.5pt);
+			\end{tikzpicture}}
+	}
+\end{bt}
+
+
+
+\begin{bt}%[Lê Xuân Dũng]%[0D4G4]
+	Tìm $m$ đề hệ bất phương trình 
+	\begin{center}
+		$\left\{ \begin{aligned}
+		x & \ge 0\\ 
+		x-y & \le 0 \\
+		y-mx -2 & \le 0
+		\end{aligned}\right.. $
+	\end{center}
+	có tập nghiệm được biểu diễn trên mặt phẳng tọa độ là một hình tam giác.
+	\loigiai{
+		Nhận xét: Họ đường thẳng $(d_m): y-mx-2=0$ luôn đi qua điểm $A(0;2),$ hay nói cách khác các đường thẳng $(d_m)$ xoay quanh $A$. Mặt khác, ta có $1-m.0-2 \le 0$ đúng với mọi  $m$, nên miền nghiệm của bất phương trình $y-mx -2  \le 0$ luôn chứa điểm $(0;1)$. Do đó ta có $3$ khả năng sau:
+		
+		\begin{center}
+			\begin{tabular}{ccc}
+				\begin{tikzpicture}[scale=0.9,thick,>=stealth']
+				\draw[->] (-1,0) -- (4.5,0) node[above]{$x$};
+				\foreach \x in {1,2,3,4}
+				\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+				\draw[->,color=black] (0,-1) -- (0,3.3)node[right]{$y$};
+				\foreach \y in {1}
+				\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+				\node[below right] at (0,0) {$O$};
+				%\node[above ] at (4,0) {$A$};	
+				%\node[right=0.3] at (2,2) {$B$};	
+				\node at (-0.3,2) {$2$};	
+				\clip(-1.0,-1) rectangle (4.3,3.0);		
+				\draw[line width=1.2pt,smooth,samples=100,domain=-5.0:4.3] plot(\x,{2-(\x)});
+				\draw[line width=1.2pt,smooth,samples=100,domain=-1.0:4.3] plot(\x,{(\x)});
+				\fill[pattern=north east lines,pattern color=blue!30] (-1,-1) -- (-1,3) -- (5,3) -- (5,-1) -- cycle;
+				\fill[white] (0,0) -- (0,2) -- (1,1) -- cycle;   
+				%\draw[dashed] (0,2)--(2,2) (2,2)--(2,0);
+				\draw (0,0) -- (0,2) -- (1,1) -- cycle; 
+				\draw[fill]   (0,1) circle (1.5pt);
+				\end{tikzpicture}&
+				\begin{tikzpicture}[scale=0.9,thick,>=stealth']
+				\draw[->] (-1,0) -- (4.5,0) node[above]{$x$};
+				\foreach \x in {1,2,3,4}
+				\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+				\draw[->,color=black] (0,-1) -- (0,3.3)node[right]{$y$};
+				\foreach \y in {1}
+				\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+				\node[below right] at (0,0) {$O$};
+				%\node[above ] at (4,0) {$A$};	
+				%\node[right=0.3] at (2,2) {$B$};	
+				\node at (-0.3,2) {$2$};	
+				\clip(-1.0,-1) rectangle (4.3,3.0);		
+				\draw[line width=1.2pt,smooth,samples=100,domain=-1.0:4.3] plot(\x,{2+2*(\x)});
+				\draw[line width=1.2pt,smooth,samples=100,domain=-1.0:4.3] plot(\x,{(\x)});
+				\fill[pattern=north east lines,pattern color=blue!30] (-1,-1) -- (-1,3) -- (5,3) -- (5,-1) -- cycle;
+				\fill[white] (0,0) -- (0,2) -- (0.5,3)--(3,3) -- cycle;   
+				%\draw[dashed] (0,2)--(2,2) (2,2)--(2,0);
+				\draw (3,3)--(0,0) -- (0,2) -- (0.5,3); 
+				\draw[fill]   (0,1) circle (1.5pt);
+				\end{tikzpicture}&
+				\begin{tikzpicture}[scale=0.9,thick,>=stealth']
+				\draw[->] (-1,0) -- (4.5,0) node[above]{$x$};
+				\foreach \x in {1,2,3,4}
+				\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+				\draw[->,color=black] (0,-1) -- (0,3.3)node[right]{$y$};
+				\foreach \y in {1}
+				\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+				\node[below right] at (0,0) {$O$};
+				%\node[above ] at (4,0) {$A$};	
+				%\node[right=0.3] at (2,2) {$B$};	
+				\node at (-0.3,2) {$2$};	
+				\clip(-1.0,-1) rectangle (4.3,3.0);		
+				\draw[line width=1.2pt,smooth,samples=100,domain=-1.0:4.3] plot(\x,{2+(\x)});
+				\draw[line width=1.2pt,smooth,samples=100,domain=-1.0:4.3] plot(\x,{(\x)});
+				\fill[pattern=north east lines,pattern color=blue!30] (-1,-1) -- (-1,3) -- (5,3) -- (5,-1) -- cycle;
+				\fill[white] (0,0) -- (0,2) -- (1,3)--(3,3) -- cycle;   
+				%\draw[dashed] (0,2)--(2,2) (2,2)--(2,0);
+				\draw (3,3)--(0,0) -- (0,2) -- (1,3); 
+				\draw[fill]   (0,1) circle (1.5pt);
+				\end{tikzpicture}\\
+				$m<0$&$m>0$& $m=0$
+			\end{tabular}
+		\end{center}
+		Vậy $m <0.$
+	}
+\end{bt}
+
+
+
+\begin{bt}%[Lê Xuân Dũng]%[0D4G4]
+	Một xưởng sản xuất gỗ cưa các khúc gỗ thành
+	các tấm ván. Có hai loại ván: ván thành phẩm và ván sử dụng trong xây
+	dựng. Giả sử, đối với:
+	
+	Ván thành phẩm cần $1$ giờ để cưa và $3$ giờ để bào $10$m ván.
+	
+	Ván xây dựng cần $2$ giờ để cưa và $2$ giờ để bào $10$m ván.
+	
+	Máy cưa làm việc tối đa $3$ giờ trong ngày, và máy bào làm việc tối đa $5$ giờ
+	trong ngày. Nếu lợi nhuận của $10$m ván thành phẩm là $100$ (ngàn đồng) và
+	lợi nhuận của $10$m ván xây dựng là $80$ (ngàn đồng). Trong ngày, xưởng sản xuất 
+	phải cưa bao nhiêu ván mỗi loại để lợi nhuận lớn nhất?
+	\loigiai{
+		\immini{Gọi $x,y$ lần lượt là chiều dài ván thành phẩm và ván xây dựng hoàn thành trong một ngày. Đơn vị $10$m. Do đó bài toán trở thành tìm giá trị lớn nhất của $T=10x+8y$ (ngàn đồng), biết $x,y$ thỏa mãn hệ bất phương trình sau
+			\begin{center}
+				$\left\{ \begin{aligned}
+				x+2y &\le 3 \\ 
+				3x+2y & \le 5 \\
+				x& \ge 0\\ 
+				y &\ge 0
+				\end{aligned} \right..$
+			\end{center}
+			Miền nghiệm của hệ là tứ giác $OBAC$, trong đó
+			$A(1;1),B\left(0;\dfrac{3}{2}\right), C\left(\dfrac{5}{3};0\right).$
+			Do đó, giá trị lớn nhất của $T$ là $18$ khi $x=y=1.$
+		}{\begin{tikzpicture}[scale=0.9,thick,>=stealth']
+			\draw[->] (-1,0) -- (4.5,0) node[above]{$x$};
+			\foreach \x in {1,3}
+			\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+			\draw[->,color=black] (0,-1) -- (0,3.3)node[right]{$y$};
+			\foreach \y in {1}
+			\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+			\node[below right] at (0,0) {$O$};
+			\node[below ] at (1.667,0) {$\frac{5}{3}$};	
+			\node[right=0.3] at (1,1) {$A$};	
+			\node at (-0.3,2.) {$\frac{3}{2}$};
+			\node[below ] at (-0.3,1.7) {$B$};	
+			\node[below ] at (-0.3,1.2) {$1$};	
+			\node[above ] at (1.8,0) {$C$};			
+			%\draw[fill]  (4,0) circle (1.5pt) (0,0) circle (1.5pt) (2,2) circle (1.5pt);
+			\clip(-1.0,-1) rectangle (4.3,3.0);		
+			\draw[line width=1.2pt,smooth,samples=100,domain=-1.0:4.3] plot(\x,{1.5-
+				0.5*(\x)});
+			\draw[line width=1.2pt,smooth,samples=100,domain=-1.0:4.3] plot(\x,{2.5-1.5*(\x)});
+			\fill[pattern=north east lines,pattern color=blue!30] (-1,-1) -- (-1,3) -- (5,3) -- (5,-1) -- cycle;
+			\fill[white] (0,0) -- (0,1.5) -- (1,1)--(1.667,0) -- cycle;   
+			\draw[dashed] (0,1)--(1,1) (1,1)--(1,0);
+			\draw (0,1.5)--(0,0) -- (1.667,0) -- (1,1)--(0,1.5); 
+			\end{tikzpicture}}
+	}
+\end{bt}
+
+
+
+\begin{bt}%[Lê Xuân Dũng]%[0D4G4]
+	Chuyên gia dinh dưỡng định thành lập
+	một thực đơn gồm $2$ loại thực phẩm chính $A$ và $B$. Cứ một trăm gram:
+	
+	Thực phẩm $A$ chứa $2$ đơn vị chất béo, $3$ đơn vị carbohydrate và $4$ đơn
+	vị protein.
+	
+	Thực phẩm B chứa $1$ đơn vị chất béo, $1$ đơn vị carbohydrate và $1$ đơn
+	vị protein.
+	
+	Nếu một trăm gram thực phẩm A giá $10$ ngàn đồng và một trăm gram
+	thực phẩm B giá $15$ ngàn đồng. Nhà dinh dưỡng muốn thức ăn phải cung
+	cấp nhiều nhất $5$ đơn vị chất béo, $7$ đơn vị protein và ít nhất  $4$ đơn vị carbohydrate.
+	Cần bao nhiêu trăm gram thực phẩm mỗi loại để có giá thành nhỏ nhất nhưng vẫn
+	cung cấp đủ dinh dưỡng?
+	\loigiai{
+		\immini{Gọi $x,y$ lần lượt là khối lượng thực  phẩm  $A$ và  $B$. Đơn vị trăm gam. Do đó bài toán trở thành tìm giá trị nhỏ nhất của $T=10x+15y$ (ngàn đồng), biết $x,y$ thỏa mãn hệ bất phương trình sau
+			\begin{center}
+				$\left\{ \begin{aligned}
+				2x+y &\le 5 \\ 
+				3x+y & \ge 4 \\
+				4x+y & \le 7 \\
+				x& \ge 0\\ 
+				y &\ge 0
+				\end{aligned} \right..$
+			\end{center}
+			Miền nghiệm của hệ là đa giác $ABCDE$, trong đó
+			$A\left(\dfrac{4}{3};0\right),B\left(\dfrac{7}{4};0\right), C(1;3),D(0;5),E(0;4).$
+			Do đó, giá trị nhỏ nhất của $T$ là $\dfrac{4000}{3}$ gam khi $x=\dfrac{4}{3}$ và $y=0.$
+		}{\begin{tikzpicture}[scale=0.9,thick,>=stealth']
+			\draw[->] (-1,0) -- (3.3,0) node[above]{$x$};
+			\foreach \x in {1}
+			\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+			\draw[->,color=black] (0,-1) -- (0,7.3)node[right]{$y$};
+			\foreach \y in {}
+			\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+			\node[below right] at (0,0) {$O$};
+			\node[below ] at (1.667,0) {$\frac{7}{4}$};	
+			\node[below ] at (1.333,0) {$\frac{4}{3}$};	
+			\node[below ] at (-0.3,3) {$3$};	
+			\node[above ] at (1.8,0) {$B$};	
+			
+			\node[right] at (1,3) {$C$};	
+			\node[] at (0.3,5) {$D$};	
+			
+			%\draw[fill]  (4,0) circle (1.5pt) (0,0) circle (1.5pt) (2,2) circle (1.5pt);
+			\clip(-1.0,-1) rectangle (4.3,7.0);		
+			\draw[line width=1.2pt,smooth,samples=100,domain=-1.0:4.3] plot(\x,{5-
+				2*(\x)});
+			\draw[line width=1.2pt,smooth,samples=100,domain=-1.0:4.3] plot(\x,{4-3*(\x)});
+			\draw[line width=1.2pt,smooth,samples=100,domain=-1.0:4.3] plot(\x,{7-4*(\x)});
+			\fill[pattern=north east lines,pattern color=blue!30] (-1,-1) -- (-1,7) -- (3,7) -- (3,-1) -- cycle;
+			\fill[white] (0,4) -- (0,5) -- (1,3)--(1.75,0) --(1.33,0)-- cycle;   
+			\draw[dashed] (0,3)--(1,3) (1,3)--(1,0);
+			\draw (0,4) -- (0,5) -- (1,3)--(1.75,0) --(1.33,0)-- cycle; 
+			\node[above] at (1.33,0) {$A$};	
+			\node[] at (0.3,4) {$E$};	
+			\end{tikzpicture}}
+	}
+\end{bt}

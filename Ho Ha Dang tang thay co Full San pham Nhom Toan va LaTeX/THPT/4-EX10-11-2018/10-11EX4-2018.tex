@@ -1,0 +1,241 @@
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{tikz,tkz-tab,tkz-linknodes}
+\usepackage{tkz-euclide}
+\usepackage{tikz-3dplot}
+\usepackage[most]{tcolorbox}
+\usepackage[tikz]{bclogo}
+\usetkzobj{all}
+\usetikzlibrary{arrows,calc,intersections,angles,quotes,shapes.geometric}
+\usetikzlibrary{snakes}
+\usepackage{tabvar}
+\usepackage{venndiagram}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+\pgfplotsset{compat=1.9}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=1.5cm] {geometry}
+%\usepackage[unicode, bookmarks=false]{hyperref}
+\usepackage[hidelinks,unicode]{hyperref}
+
+\usepackage{currfile}
+%\usepackage{ex_test} 
+\usepackage[loigiai]{ex_test}
+%\usepackage[color]{ex_test}
+\renewcommand{\TrueEX}{\stepcounter{dapan}
+	{\small\circled{%\color{MainRed}
+			\textbf{\Alph{dapan}}}} \ignorespaces}
+\renewcommand{\FalseEX}{\stepcounter{dapan}
+	{\small\circled{\textbf{\Alph{dapan}}}} \ignorespaces}
+\def\colorEX{\color{blue}}
+%\renewtheorem{ex}{\color{violet}Câu}
+\newtheorem{bt}{Bài}
+\usepackage{esvect}
+\def\vec{\vv}
+\def\overrightarrow{\vv}
+%Lệnh của gói mathrsfs
+%\DeclareSymbolFont{rsfs}{U}{rsfs}{m}{n}
+%\DeclareSymbolFontAlphabet{\mathscr}{rsfs}
+%Lệnh cung
+\DeclareSymbolFont{largesymbols}{OMX}{yhex}{m}{n}
+\DeclareMathAccent{\wideparen}{\mathord}{largesymbols}{"F3}
+%Lệnh song song
+%\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+%\DeclareMathSymbol{\varparallel}{\mathrel}{symbolsC}{9}
+%\DeclareMathSymbol{\parallel}{\mathrel}{symbolsC}{9}
+%Hệ hoặc, hệ và
+\newcommand{\hoac}[1]{ 
+	\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{
+	\left\{\begin{aligned}#1\end{aligned}\right.}
+\renewcommand{\baselinestretch}{1.4}
+\makeatletter
+\renewcommand{\labelenumi}{\alph{enumi})}
+\renewcommand \thesection {\@arabic\c@section}
+\newenvironment{name}[2]{\begin{bclogo}[logo =\bccrayon, noborder =false, marge =2, arrondi =0.2, couleur = red!20]
+		{\textcolor{blue}{\LaTeX\ hóa:  \textbf{#1}}}\vspace*{-3pt}%
+		\section{#2}
+\end{bclogo}}
+
+\begin{document}
+	\begin{titlepage}
+	\begin{tcolorbox}[width=.99\textwidth,height=.99\textheight,arc = 2mm, arc is angular]
+		\begin{center}
+			\begin{tikzpicture}[scale=.5]
+			\definecolor{xanhnhat1}{RGB}{120,250,255}
+			\definecolor{xanhnhat}{RGB}{0,150,205}
+			\definecolor{xanhdam}{RGB}{0,50,155}
+			\definecolor{xanhdam1}{RGB}{25,78,255}
+			\definecolor{dosam}{RGB}{205,0,0}
+			\definecolor{vangsam}{RGB}{255,215,0}
+			\definecolor{vangsam1}{RGB}{255,155,0}
+			\def\r{2}
+			\foreach \x in {1,2,...,7}{
+				\begin{scope}[rotate around={\x*360/7:(0,0)}]
+				\foreach \i in {1,2}{
+					\coordinate (A\i) at (\i*360/7:\r);
+					\coordinate (B\i) at (\i*360/7:\r*1.1);
+					\coordinate (C\i) at (\i*360/7+180/7:\r*1.3);
+					\coordinate (D\i) at (\i*360/7+180/7:\r*1.7);
+					\coordinate (E\i) at (\i*360/7+180/7:\r*1.84);
+					\coordinate (F\i) at (\i*360/7+42.5:\r*1.94);
+					\coordinate (G\i) at (\i*360/7+36.5:\r*2.08);}
+				
+				\path[name path=a1c1] (A1) to[bend right=10] (C1);
+				\path[name path=bb] (0,0)circle(\r*1.1);
+				\path[name path=bbb] (0,0)circle(\r*1.13);
+				\path[name path=bbbb] (0,0)circle(\r*1.21);
+				\path[name path=bbbbb] (0,0)circle(\r*1.24);
+				\path[name intersections={of=a1c1 and bb,by=B11}];
+				\path[name intersections={of=a1c1 and bbb,by=B111}];
+				\path[name intersections={of=a1c1 and bbbb,by=B1111}];
+				\path[name intersections={of=a1c1 and bbbbb,by=B11111}];
+				\shade[left color=vangsam1,right color=vangsam] (A1) to[bend right=10] (B2) to[bend left=10] (B11)to[bend left=10] (A1) (B111) to[bend right=10] (B2) to[bend left=10] (B1111)to[bend left=10] (B111) (B11111) to[bend right=10] (B2) to[bend left=10] (C1)to[bend left=10] (B11111);
+				
+				\path[name path=a1b2] (A1) to[bend right=10] (B2);
+				\path[name path=oc1] (0,0)--(C1);
+				\path[name intersections={of=a1b2 and oc1,by=C11}];
+				\path[name path=b2c1] (B2) to[bend left=10] (C1);
+				\path[name path=cc] (0,0)circle(\r*1.22);
+				\path[name intersections={of=b2c1 and cc,by=C111}];
+				\fill[dosam,opacity=0.8] (C11) to[bend right=5] (B2) to[bend left=5] (C111)to[bend right=10] (C11);
+				
+				\path[name path=e1g1] (E1) to[bend right=10] (G1);
+				\path[name path=ee] (0,0)circle(\r*1.96);
+				\path[name path=eee] (0,0)circle(\r*1.98);
+				\path[name intersections={of=e1g1 and ee,by=E11}];
+				\path[name intersections={of=e1g1 and eee,by=E111}];
+				\shade[left color=xanhnhat1,right color=xanhnhat] (E1) to[bend left=40] (D2) to[bend right=40] (E11)to[bend left=10] (E1);
+				\shade[left color=xanhdam1,right color=xanhdam] (E111) to[bend left=40] (D2) to[bend right=40] (G1)to[bend left=10] (E111);
+				
+				\path[name path=e2f1] (D2) to[bend right=40] (F1);
+				\path[name path=ff] (0,0)circle(\r*1.84);
+				\path[name intersections={of=e2f1 and ff,by=F11}];
+				\fill[xanhnhat] (F11) to[bend right=55] (E2) to[bend left=55] (F1)to[bend left=10] (F11);
+				\end{scope}}
+			%\node[color=xanhdam] at (0,-6) {\fontsize{45}{0}\selectfont{\textbf{}}};
+			\node[color=dosam] at (0,7.5) {\fontsize{20}{0}\selectfont{\textbf{NHÓM TOÁN \& \LaTeX}}};
+			\node[color=xanhdam] at (0,9.2) {\fontsize{15}{0}\selectfont{\textbf{CHÚC MỪNG NĂM MỚI 2018}}};
+			\end{tikzpicture}
+		\end{center}
+		
+		\vspace{1cm}
+		
+		\textbf{\fontfamily{anttlc}\fontsize{18}{3pt}\selectfont TUYỂN TẬP ĐỀ THI THỬ \& KIỂM TRA HỌC KỲ 1}
+		\vspace{1cm}
+		
+		\begin{flushright}
+			\begin{tikzpicture}[scale=1]
+			\draw[color=blue] (-11,0.1)node{\bf\fontfamily{anttlc}\fontsize{40}{3pt}\selectfont{ MÔN TOÁN}};
+			\draw[color=blue] (-4,0)node{\bf\fontfamily{anttlc}\fontsize{40}{3pt}\selectfont{\circled{10+11}}};
+			\end{tikzpicture}
+		\end{flushright}
+		
+		
+		\vspace{5cm}
+		\begin{center}
+			\fontsize{17}{0}\selectfont\textbf{DỰ ÁN 10-11-EX-2018-4}
+			\\\textbf{THÁNG 1 - 2018}
+		\end{center}
+	\end{tcolorbox}
+\end{titlepage}
+
+	\pagestyle{empty}
+	\renewcommand{\headrulewidth}{0.4pt}
+	
+	\renewcommand{\baselinestretch}{1.3}
+	
+	
+	\pagestyle{fancy}
+	\lhead{Facebook ``Nhóm Toán và LaTeX''}
+	\chead{\empty}
+	\rhead{\currfilename}
+	\lfoot{\empty}
+	\tableofcontents
+		\chapter*{Mở đầu}
+	Kính chào các Thầy/Cô.
+	
+	\vspace{0.6cm}
+	
+	\noindent Trên tay các Thầy/Cô đang là một trong những tài liệu môn Toán được soạn thảo theo chuẩn \LaTeX{} bởi tập thể các giáo viên của ``Nhóm Toán và LaTeX''.\footnote{Tại địa chỉ https://www.facebook.com/groups/toanvalatex/}
+	
+	\vspace{0.6cm}
+	
+	\noindent Mục tiêu của nhóm: 
+	\begin{enumerate}
+		\item Hỗ trợ các giáo viên Toán tiếp cận với \LaTeX{} trong soạn thảo tài liệu Toán nói chung và đề thi trắc nghiệm bằng \LaTeX{} nói riêng với cấu trúc gói đề thi trắc nghiệm là \texttt{ex\_test} của tác giả Trần Anh Tuấn, Đại học Thương Mại.
+		\item Các thành viên trong nhóm sẽ được chia sẻ miễn phí bản pdf  các chuyên đề của nhóm.
+		\item Các thành viên trong nhóm có đóng góp trong các dự án. Chẳng hạn như đóng góp 1,2,... đề bằng \LaTeX{} trong mỗi dự án sẽ nhận được file tổng hợp bằng \LaTeX{} các đề từ các thành viên khác.
+		\item Hướng đến việc chia sẻ chuyên đề, viết sách,... bằng \LaTeX,...
+	\end{enumerate}
+
+\chapter{NHÓM 1. THẦY THẮNG}
+\input{NHOM1/0-HK1-1-ChuyenAmsterdam-HaNoi-18}
+\newpage\input{NHOM1/0-HK1-2-ChuyenTranPhu-HaiPhong-18}
+\newpage\input{NHOM1/0-HK1-3-HauLoc4-ThanhHoa}
+\newpage\input{NHOM1/0-HK1-4-LuongTheVinh-HaNoi-18}
+\newpage\input{NHOM1/0-HK1-5-ThachThanh1-ThanhHoa-18}
+\newpage\input{NHOM1/0-HK1-6-PhanBoiChau-Daklak-18}
+\newpage\input{NHOM1/0-HK1-7-THPTTranPhuHaNoi-18}
+\newpage\input{NHOM1/0-HK1-8-LeQuyDon-HaiPhong-18}
+\newpage\input{NHOM1/0-HK1-9-DHSP-HaNoi-18}
+\newpage\input{NHOM1/0-HK1-10-LeVanHuu-ThanhHoa}
+\newpage\input{NHOM1/0-HK1-11-DienChau2-NgheAn-18}
+\newpage\input{NHOM1/0-HK1-12-KimLien-HaNoi-18}
+\newpage\input{NHOM1/0-HK1-13-PhuocThanh-TienGiang-18}
+\chapter{NHÓM 2. THẦY PHÚ}
+\input{NHOM2/1-HK1-1-ChuyenHaNoi-Amsterdam-18}
+\newpage\input{NHOM2/1-HK1-2-DanPhuong-HN-18}
+\newpage\input{NHOM2/1-HK1-3-DiAn-BinhDuong-18}
+\newpage\input{NHOM2/1-HK1-4-NguyenTrungNgan-HungYen-18}
+\newpage\input{NHOM2/1-HK1-5-ChuyenTranPhu-HaiPhong-18}
+\newpage\input{NHOM2/1-HK1-6-SoVungTau-18}%Sai
+\newpage\input{NHOM2/0-HK1-14-PhuocVinh-BinhDuong-18}
+\newpage\input{NHOM2/0-HK1-15-LacLongQuan-KhanhHoa-18}
+\newpage\input{NHOM2/0-HK1-16-ChuyenQuocHoc-Hue-18}
+\newpage\input{NHOM2/0-HK1-17-SoGDDT-BacGiang-18}
+\newpage\input{NHOM2/0-HK1-18-ChuyenNguyenBinhKhiem-2018}
+\newpage\input{NHOM2/0-HK1-19-Tranquoctuan-Gialai-18}
+\newpage\input{NHOM2/0-HK1-20-MarieCurie-TPHCM-18}
+\newpage\input{NHOM2/0-HK1-21-NguyenVietDung-CanTho-18}
+\chapter{NHÓM 3. THẦY THÙY}	
+\input{NHOM3/1-HK1-9-ChuyenHaLong-Quang-Ninh-18}
+\newpage\input{NHOM3/1-HK1-10-LuongTheVinh-DongNai-18}
+\newpage\input{NHOM3/1-HK1-12-HoaiDucA-HaNoi-18}
+\newpage\input{NHOM3/1-HK1-13-KimLien-HaNoi-18}
+\newpage\input{NHOM3/1-HK1-14-LyThanhTong-HaNoi-18}
+\newpage\input{NHOM3/1-HK1-15-NguyenTrai-HaNoi-18}
+\newpage\input{NHOM3/1-HK1-16-PhuocThanh-TienGiang-18}
+\newpage\input{NHOM3/1-HK1-17-PhanBoiChau-DakLak-18}
+\newpage\input{NHOM3/1-HK1-31-PhuNhuan-HoChiMinh-18}
+\newpage\input{NHOM3/1-HK1-35-LeQuyDon-TPHCM-18}
+\chapter{NHÓM 4. THẦY LỢI}
+\input{NHOM4/1-HK1-18-SGD-BinhPhuoc-18TN-TL}
+\newpage\input{NHOM4/1-HK1-19-ChuyenSPHN-18TN-TL}
+\newpage\input{NHOM4/1-HK1-20-ThachThanh1-ThanhHoa-18TN-TL}
+\newpage\input{NHOM4/1-HK1-21-NguyenSySach-NgheAn-18TN-TL}
+\newpage\input{NHOM4/1-HK1-22-YenMy-HungYen-18TN-TL}
+\newpage\input{NHOM4/1-HK1-23-PhuocVinh-BinhDuong-18TN-TL}
+\newpage\input{NHOM4/1-HK1-24-PhoThongNangKhieu-HCM-18TL}
+\newpage\input{NHOM4/1-HK1-25-NguyenTruongTo-18TL}
+\newpage\input{NHOM4/1-HK1-26-BBinhLuc-HaNam-18TN-TL}
+\newpage\input{NHOM4/1-HK1-27-ChuyenHungVuong-BinhDuong-18TN-TL}
+\newpage\input{NHOM4/1-HK1-28--SGD-BacNinh-18TL}
+\chapter{NHÓM 5. THẦY ĐẶNG}
+\input{NHOM5/1-HK1-7-SoNamDinh}
+\newpage\input{NHOM5/1-HK1-8-AnThi-HungYen}
+\newpage\input{NHOM5/1-HK1-29-BacGiang-18}
+\newpage\input{NHOM5/1-HK1-30-LongThanh-DongNai-18}
+\newpage\input{NHOM5/1-HK1-32-ChuVanAn-AnGiang-18}
+\newpage\input{NHOM5/1-HK1-33-MarieCurie-TPHCM-18}
+\newpage\input{NHOM5/1-HK1-34-THSP-HCM-18}
+\newpage\input{NHOM5/1-HK1-37-THPTGiaDinh-TP-HCM-18}%Fixed
+\newpage\input{NHOM5/1-HK1-38-TranBien-DongNai-18}
+\newpage\input{NHOM5/1-HK1-39-ChuyenLuongVanTuy-NinhBinh-18}
+\newpage\input{NHOM5/1-HK1-40-HaHuyGiap-CanTho}
+\newpage\input{NHOM5/1-HK1-41-LeKhiet-QuangNgai-18}%Fixed
+\newpage\input{NHOM5/1-HK1-42-VoThanhTrinh-AnGiang-18}
+\end{document}

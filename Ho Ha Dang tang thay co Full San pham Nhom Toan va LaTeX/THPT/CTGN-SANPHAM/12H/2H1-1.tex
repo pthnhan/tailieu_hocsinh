@@ -1,0 +1,2072 @@
+\chapter{Khối đa diện và thể tích khối đa diện}
+\section{Thể tích khối chóp và tỉ số thể tích trong chóp}
+\subsection{Công thức thể tích khối chóp và các công thức tỉ số khối chóp}
+\begin{dang}{Thể tích khối chóp dạng tổng quát}
+	\immini{
+		Ta có thể tích khối chóp bằng một phần ba diện tích đáy nhân với đường cao hình chóp.\\
+		\begin{center}
+			\fbox{$V_{\text{chóp}}=\dfrac{1}{3}\cdot S_{\text{đáy}}\cdot h$}
+		\end{center}
+		Trong đó 
+		\begin{itemize}
+			\item $S_{\text{đáy}}$ là diện tích mặt đáy của khối chóp.
+			\item $h$ là chiều cao của khối chóp.
+		\end{itemize}
+	}{
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round]
+		\tkzDefPoints{0/0/A,-1.3/-1.6/B,2.5/-2/C, 1/-0.4/H, 3/.2/D}
+		\coordinate (S) at ($(H)+(0,3)$);
+		\tkzDrawPolygon(S,B,C,D)
+		\tkzDrawSegments(S,C)
+		\tkzDrawSegments[dashed](A,S A,B A,D S,H)
+		\tkzDrawPoints(D,C,A,B,S,H)
+		\tkzLabelPoints[above](S)
+		\tkzLabelPoints[below](A,B,C,H)
+		\tkzLabelPoints[right](D)
+		\tkzMarkRightAngles(S,H,B S,H,C)
+		\end{tikzpicture}
+	}
+\end{dang}
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1Y3-2]
+	Cho hình chóp tứ giác $S.ABCD$ có đáy là hình vuông cạnh $a,$ cạnh bên $SA$ vuông góc với đáy và $SA=a\sqrt{3}.$ Tính thể tích $V$ của khối chóp $S.ABCD.$
+	\choice
+	{\True $V=\dfrac{a^3\sqrt{3}}{3}$}
+	{$V=\dfrac{a^3\sqrt{3}}{2}$}
+	{$V=a^3\sqrt{3}$}
+	{$V=\dfrac{a^3}{3}$}
+	\loigiai{
+		\immini{Ta có $S_{ABCD}=a^2$, đường cao $SA=a\sqrt{3}$.\\
+			Suy ra $V_{S.ABCD}=\dfrac{1}{3}\cdot a^2 \cdot a\sqrt{3}=\dfrac{a^3\sqrt{3}}{3}$.}{\begin{tikzpicture}[line join = round, line cap = round]
+			
+			\tkzDefPoints{0/0/D,3/0/C,1/1/A}
+			\coordinate (B) at ($(A)+(C)-(D)$);
+			\coordinate (S) at ($(A)+(0,2)$);
+			\tkzDrawPolygon(S,B,C,D)
+			\tkzDrawSegments(S,C)
+			\tkzDrawSegments[dashed](A,S A,B A,D)
+			\tkzDrawPoints(D,C,A,B,S)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[left](A,D)
+			\tkzLabelPoints[right](B,C)
+			\tkzMarkRightAngles(S,A,B S,A,D B,A,D)
+			\end{tikzpicture}}
+		
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1B3-2]
+	Cho khối chóp $S.ABC$ có đáy $ABC$ là tam giác vuông cân tại $B$, độ dài cạnh $AB = BC = a,$ cạnh bên $SA$ vuông góc với đáy và $SA=2a.$  Tính thể tích $V$ của khối chóp $S.ABC$.
+	\choice
+	{\True $V=\dfrac{a^3}{3}$} 
+	{$V=\dfrac{a^3}{2}$} 
+	{$V=a^3$} 
+	{$V=\dfrac{a^3}{6}$}
+	\loigiai{
+		\immini{Ta có $S_{ABC}=\dfrac{a^2}{2}$, đường cao $SA=2a$.\\ Suy ra $V_{S.ABC}=\dfrac{1}{3}\cdot 2a \cdot \dfrac{a^2}{2}=\dfrac{a^3}{3}$.}{\begin{tikzpicture}[scale=1, line join = round, line cap = round]
+			\tkzDefPoints{0/0/A,3/0/C,1/-1/B}
+			\coordinate (S) at ($(A)+(0,2)$);
+			\tkzDrawPolygon(S,A,B,C)
+			\tkzDrawSegments(S,B)
+			\tkzDrawSegments[dashed](A,C)
+			\tkzDrawPoints(S,A,C,B)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](C)
+			\tkzMarkRightAngles(S,A,B S,A,C A,B,C)
+			\end{tikzpicture}}
+	} 
+\end{vd} 
+\begin{dang}{Ứng dụng thể tích để tính khoảng cách}
+	\immini{Ta có $V_{A.BCD}=\dfrac{1}{3}\cdot S_{\triangle BCD}\cdot \mathrm{d}(A,(BCD))$\\
+		Suy ra \fbox{$\mathrm{d}(A,(BCD)) = \dfrac{3\cdot V_{A.BCD}}{S_{\triangle BCD}}.$}
+	}{
+		\begin{tikzpicture}[scale=1, line join = round, line cap = round]
+		\tkzDefPoints{0/0/B,4/0/C,1/-1/D}
+		\tkzCentroid(D,B,C)\tkzGetPoint{H}
+		\coordinate (A) at ($(H)+(0,3)$);
+		\tkzDrawPolygon(A,B,D,C)
+		\tkzDrawSegments(A,D)
+		\tkzDrawSegments[dashed](B,C A,H)
+		\tkzDrawPoints(A,B,C,D,H)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[below](D,H)
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](C)
+		\tkzMarkRightAngles(A,H,D A,H,C)
+		\end{tikzpicture}
+	}
+\end{dang}
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1Y3-4]
+	Cho khối chóp $S.ABC$ có thể tích bằng $\dfrac{a^3}{2}$, tam giác $SAC$ đều cạnh $2a$. Tính khoảng cách $h$ từ $B$ đến mặt phẳng $(SAC)$.
+	\choice
+	{$h=\dfrac{2}{\sqrt{3}}a$}
+	{$h=2a\sqrt{3}$}
+	{\True $h=\dfrac{a\sqrt{3}}{2}$}
+	{$h=\dfrac{a}{2\sqrt{3}}$}
+	\loigiai{
+		\immini[0.2]{
+			Ta có $ V_{S.ABC}=\dfrac{1}{3}\cdot S_{\triangle SAC}\cdot \mathrm{d}(B,(SAC))$\\
+			$\Rightarrow \mathrm{d}(B,(SAC))=\dfrac{3V_{S.ABC}}{S_{\triangle SAC}}=\dfrac{3\cdot \dfrac{a^3}{2}}{a^2\sqrt{3}}=\dfrac{a\sqrt{3}}{2}$.}{\begin{tikzpicture}[scale=0.6, line join = round, line cap = round]
+			\tkzDefPoints{0/0/B,7/0/C,2/-3/A,3/5/S}
+			\tkzDrawPolygon(S,B,A,C)
+			\tkzDrawSegments(S,A)
+			\tkzDrawSegments[dashed](B,C)
+			\tkzDrawPoints(S,B,C,A)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](A)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}}
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1B3-4]
+	Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình vuông cạnh $a$, hình chiếu vuông góc của $S$ lên mặt phẳng đáy là trung điểm của $AD$, $SD=\dfrac{a\sqrt{30}}{2}$. Tính khoảng cách từ $A$ đến mặt phẳng $(SBD)$.
+	\choice
+	{$\dfrac{10a\sqrt{201}}{201}$}
+	{$\dfrac{a\sqrt{1711}}{29}$}
+	{\True $\dfrac{a\sqrt{1711}}{59}$}
+	{$\dfrac{5a\sqrt{204}}{204}$}
+	\loigiai{
+		\immini{
+			Ta có $V_{S.ADB}=\dfrac{1}{3}\cdot SH \cdot S_{\triangle ABD}$\\
+			với $SH=\sqrt{SD^2-DH^2}=\dfrac{a\sqrt{29}}{2}$.\\
+			Suy ra $ V_{S.ADB}=\dfrac{a^3\sqrt{29}}{12}$.\\
+			Dùng công thức Hê-ron ta tính được $S_{\triangle SBD}=\dfrac{\sqrt{59}}{4}a^2$.\\
+			Suy ra $ \mathrm{d}(A,(SBD))=\dfrac{3V_{S.ABD}}{S_{\triangle SBD}}= \dfrac{3\cdot \dfrac{a^3\sqrt{29}}{12}}{\dfrac{\sqrt{59}}{4}a^2}=\dfrac{a\sqrt{1711}}{59}$.}{\begin{tikzpicture}[scale=1, line join = round, line cap = round]
+			\tkzDefPoints{0/0/D,4/0/C,1.5/1.5/A}
+			\coordinate (B) at ($(A)+(C)-(D)$);
+			\coordinate (H) at ($(A)!0.5!(D)$);
+			\coordinate (S) at ($(H)+(0,4)$);
+			\tkzDrawPolygon(S,B,C,D)
+			\tkzDrawSegments(S,C)
+			\tkzDrawSegments[dashed](A,S A,B A,D S,H B,D H,B)
+			\tkzDrawPoints(D,C,A,B,S,H)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[left](A,D)
+			\tkzLabelPoints[right](B,C)
+			\tkzLabelPoints[below](H)
+			\tkzMarkRightAngles(S,H,D A,D,C S,H,B)
+			\end{tikzpicture}}
+	}
+	
+\end{vd}
+\begin{dang}{Tỉ số thể tích khối chóp tam giác}
+	\immini{
+		Cho hình chóp tam giác $ S.ABC$, trên các tia $SA$, $SB$, $SC$ lấy các điểm $ A'$, $ B'$, $ C'$ không trùng với điểm $S$ khi đó ta có công thức sau
+		\begin{center}
+			\fbox{$\dfrac{V_{S.A'B'C'}}{V_{S.ABC}}=\dfrac{SA'}{SA}\cdot \dfrac{SB'}{SB} \cdot \dfrac{SC'}{SC}.$}	
+	\end{center}}
+	{\begin{tikzpicture}[scale=1, line join = round, line cap = round]
+		
+		\tkzDefPoints{0/0/A,5/0/B,2/-2/C,1.4/-0.5/H}
+		\coordinate (S) at ($(H)+(0,4)$);
+		\coordinate (A') at ($(A)!0.6!(S)$);
+		\coordinate (B') at ($(B)!0.4!(S)$);
+		\coordinate (C') at ($(C)!0.45!(S)$);
+		\tkzDrawSegments(S,A S,B S,C A,C B,C A',C' C',B')
+		\tkzDrawSegments[dashed](A,B A',B')
+		\tkzDrawPoints(A,B,C,S,A',B',C')
+		\tkzLabelPoints[above](S)
+		\tkzLabelPoints[below](C)
+		\tkzLabelPoints[left](A,A',C')
+		\tkzLabelPoints[right](B,B')
+		\end{tikzpicture}}
+	\textbf{Chứng minh}
+	\immini{
+		Gọi $H$ và $H'$ lần lượt là hình chiếu vuông góc của đỉnh $A$ và $ A'$ trên mặt phẳng $ (SBC)$.\\
+		Ta có $AH \parallel A'H'\Rightarrow \dfrac{SA'}{SA}=\dfrac{A'H'}{AH}$, $S_{\triangle BSC}=\dfrac{1}{2}\cdot SB\cdot SC \cdot \sin \widehat{BSC}$, tương tự \break $S_{\triangle B'SC'}=\dfrac{1}{2}\cdot SB'\cdot SC' \cdot \sin \widehat{B'SC'}$.\\
+		Suy ra $\dfrac{V_{S.A'B'C'}}{V_{S.ABC}}=\dfrac{A'H'\cdot S_{\triangle SB'C'}}{AH\cdot S_{\triangle SBC}}$\\
+		$=\dfrac{SA'}{SA}\cdot \dfrac{SB'}{SB} \cdot \dfrac{SC'}{SC}.$}{\begin{tikzpicture}[scale=1, line join = round, line cap = round]
+		\tkzDefPoints{0/0/A,6/0/B,2/-2/C,1.8/-0.5/O}
+		\coordinate (S) at ($(O)+(0,5)$);
+		\coordinate (A') at ($(A)!0.6!(S)$);
+		\coordinate (B') at ($(B)!0.4!(S)$);
+		\coordinate (C') at ($(C)!0.45!(S)$);
+		\coordinate (K) at ($(B)!0.6!(C)$);
+		\coordinate (H) at ($(S)!0.7!(K)$);
+		\tkzDefLine[parallel=through A'](A,H) \tkzGetPoint{a'}
+		\tkzInterLL(A',a')(S,K)    \tkzGetPoint{H'}
+		\tkzDrawSegments(S,A S,B S,C A,C B,C A',C' C',B' S,K)
+		\tkzDrawSegments[dashed](A,B A',B' A,K A,H A',H')
+		\tkzDrawPoints(A,B,C,S,A',B',C',K,H,H')
+		\tkzLabelPoints[above](S)
+		\tkzLabelPoints[below](C)
+		\tkzLabelPoints[left](A,A',C')
+		\tkzLabelPoints[right](B,B',H,H')
+		\tkzMarkRightAngles(A,H,S A',H',S)
+		\end{tikzpicture}}
+\end{dang}
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1B3-3]
+	Cho tứ diện $MNPQ$. Gọi $I$; $J$; $K$ lần lượt là trung điểm của các cạnh $MN$; $MP$; $MQ$.Gọi $V_1$ là thể tích của $MJIK$ và $V_2$ là thể tích của $MNPQ$. Tính tỉ số $\dfrac{V_1}{V_2}$. 
+	\choice
+	{\True $\dfrac{1}{8}$}
+	{$\dfrac{1}{4}$}
+	{$\dfrac{1}{6}$}
+	{$\dfrac{1}{3}$}
+	\loigiai{\immini{Ta có $\dfrac{V_1}{V_2}=\dfrac{MI}{MN}\cdot \dfrac{MJ}{MP}\cdot \dfrac{MK}{MQ}=\dfrac{1}{2}\cdot \dfrac{1}{2}\cdot \dfrac{1}{2}=\dfrac{1}{8}$.}{
+			\begin{tikzpicture}[scale=0.5,line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/N,7/0/Q,2/-3/P,3/5/M}
+			\coordinate (I) at ($(M)!0.5!(N)$);
+			\coordinate (J) at ($(M)!0.5!(P)$);
+			\coordinate (K) at ($(M)!0.5!(Q)$);
+			\tkzDrawPolygon(M,N,P,Q)
+			\tkzDrawSegments(M,P I,J J,K)
+			\tkzDrawSegments[dashed](N,Q I,K)
+			\tkzDrawPoints(M,N,P,Q,I,J,K)
+			\tkzLabelPoints[above](M)
+			\tkzLabelPoints[below](P)
+			\tkzLabelPoints[left](N,I)
+			\tkzLabelPoints[right](Q,K)\tkzLabelPoints[above right](J)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[H1B3-3]
+	\immini{Cho hình chóp $S.ABCD$ có $ABCD$ là hình vuông cạnh $a$, $SA\bot (ABCD)$, $SA=a$. Gọi $M$, $N$, $P$ lần lượt là trung điểm $SB$, $SC$, $SD$ (tham khảo hình vẽ bên). Tính thể tích $V$ của khối đa diện $SAMNP$.
+		\choice
+		{\True $V=\dfrac{a^3}{12}$}
+		{$V=\dfrac{a^3}{6}$}
+		{$V=\dfrac{a^3}{24}$}
+		{$V=\dfrac{a^3}{8}$}} {\begin{tikzpicture}[scale=1]
+		\tkzInit[ymin=-2,ymax=4.5,xmin=-2.7,xmax=5]
+		\tkzClip
+		\tkzDefPoints{0/0/A, 0/4/S, 5/0/D, -2.2/-1.5/B}
+		\tkzDefPointBy[translation = from A to B](D)    \tkzGetPoint{C}
+		\coordinate (M) at ($(B)!.5!(S)$);
+		\coordinate (N) at ($(S)!.5!(C)$);
+		\coordinate (P) at ($(S)!.5!(D)$); 
+		\tkzMarkRightAngle(S,A,B)
+		\tkzMarkRightAngle(S,A,D)  \tkzMarkRightAngle(B,A,D)
+		\tkzMarkRightAngle(A,B,C)
+		\tkzLabelPoints[below left](B,C,M)
+		\tkzLabelPoints[below](A,D)
+		\tkzLabelPoints[above](N)
+		\tkzLabelPoints[above](S,P)
+		\tkzDrawPoints(A,B,C,D,S)
+		\tkzDrawSegments(S,B S,C S,D D,C B,C M,N N,P)
+		\tkzDrawSegments[dashed](A,M A,N A,P A,B A,D A,S)
+		\end{tikzpicture}}
+	\loigiai{Ta có $V_{S.ABCD}=\dfrac{1}{3}a^3\Rightarrow V_{S.ABC}=V_{S.ACD}=\dfrac{a^3}{6}$.\\
+		Lại có $\dfrac{V_{S.AMN}}{V_{S.ABC}}=\dfrac{SA}{SA}\cdot \dfrac{SM}{SB}\cdot \dfrac{SN}{SC}=\dfrac{1}{4}\Rightarrow V_{S.AMN}=\dfrac{V_{S.ABC}}{4}=\dfrac{a^3}{24}$.\\
+		Tương tự $V_{S.APN}=\dfrac{a^3}{24}$.\\
+		Vậy $V_{SAMNP}=V_{S.AMN}+V_{S.ANP}=\dfrac{a^3}{12}$.}	
+\end{vd}
+%\begin{dang}{Thể tích hình chóp cụt}
+%	\immini{Cho hình chóp cụt $A_1A_2\cdots A_n.A'_1A'_2\cdots A'_n$. Khi đó thể tích hình chóp cụt $$V_{A_1A_2\cdots A_n.A'_1A'_2\cdots A'_n}=\dfrac{h}{3}\left(B+B'+\sqrt{BB'}\right).$$
+%		Trong đó 
+%		\begin{itemize}
+%			\item $B=S_{A_1A_2\cdots A_n}$ và $B'=S_{A'_1A'_2\cdots A'_n}$.
+%			\item $h$ là khoảng cách giữa hai đáy.
+%	\end{itemize}}{
+%	\begin{tikzpicture}[scale=0.8, line join = round, line cap = round]
+%		\tikzset{label style/.style={font=\footnotesize}}
+%		\tkzDefPoints{0/0/A,7/0/B,2/-3/C,1.4/-0.5/H}
+%		\coordinate (S) at ($(H)+(0,5)$);
+%		\coordinate (A') at ($(A)!0.6!(S)$);
+%		\coordinate (B') at ($(B)!0.6!(S)$);
+%		\coordinate (C') at ($(C)!0.6!(S)$);
+%		\tkzDrawSegments(A,A' C,C' B,B' A,C C,B A',B' B',C' C',A')
+%		\tkzDrawSegments[dashed](A,B A',B')
+%		\tkzDrawPoints(A,B,C,A',B',C')
+%		%\tkzLabelPoints[above](S)
+%		\tkzLabelPoints[below](C)
+%		\tkzLabelPoints[left](A,A',C')
+%		\tkzLabelPoints[right](B,B')
+%		\end{tikzpicture}}	
+%\end{dang}
+\begin{dang}{Tỉ số thể tích khối chóp đáy hình bình hành}
+	\immini{Cho hình chóp $S.ABCD$ có đáy là hình bình hành. Một mặt phẳng $ (\alpha)$ cắt các cạnh bên $ SA$, $SB$, $SC$, $SD$ của hình chóp lần lượt tại các điểm $A'$, $B'$, $C'$, $D'$. Đặt $\dfrac{SA'}{SA}=x$, $\dfrac{SB'}{SB}=y$, $\dfrac{SC'}{SC}=z$,  $\dfrac{SD'}{SD}=t$.
+		Khi đó
+		\begin{itemize}
+			\item \fbox{$ \dfrac{1}{x}+\dfrac{1}{z}=\dfrac{1}{y}+\dfrac{1}{t}$.}
+			\item \fbox{$ \dfrac{V_{S.A'B'C'D'}}{V_{S.ABCD}}=\dfrac{xyzt}{4}\left(\dfrac{1}{x}+\dfrac{1}{y}+\dfrac{1}{z}+\dfrac{1}{t}\right)$.}
+	\end{itemize}}{\begin{tikzpicture}[scale=0.7, line join = round, line cap = round]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{0/0/D,7/0/C,3/3/A,3.5/2/H}
+		\coordinate (B) at ($(A)+(C)-(D)$);
+		\coordinate (S) at ($(H)+(0,6)$);
+		\coordinate (A') at ($(A)!0.3!(S)$);
+		\coordinate (C') at ($(C)!0.4!(S)$);
+		\coordinate (B') at ($(B)!0.2!(S)$);
+		\coordinate (O) at ($(D)!0.5!(B)$);
+		\tkzInterLL(A',C')(S,O)    \tkzGetPoint{I}
+		\tkzInterLL(B',I)(S,D)    \tkzGetPoint{D'}
+		\tkzDrawPolygon(S,B,C,D)
+		\tkzDrawSegments(S,C D',C' C',B')
+		\tkzDrawSegments[dashed](A,S A,B A,D A',D' A',B' A',C' B',D' A,C B,D S,O)
+		\tkzDrawPoints(D,C,A,B,S,A',B',C',D',O,I)
+		\tkzLabelPoints[above](S)
+		\tkzLabelPoints[above right](I)
+		\tkzLabelPoints[left](A,D,A',D')
+		\tkzLabelPoints[right](B,C,B')
+		\tkzLabelPoints[below](O)
+		\tkzLabelPoints[below left](C')
+		\end{tikzpicture}}
+	\textbf{Chứng minh}
+	\immini{
+		Kẻ $AM\parallel A’C’$ , $CN\parallel A’C’$.\\
+		Ta có $\dfrac{1}{x}+\dfrac{1}{z}=\dfrac{SA}{SA’}+\dfrac{SC}{SC’}=\dfrac{SM}{SI}+\dfrac{SN}{SI}$\\
+		$=\dfrac{SM+SN}{SI}=\dfrac{2SO}{SI}$.\\
+		Chứng minh tương tự $ \dfrac{1}{y}+\dfrac{1}{t}=\dfrac{2SO}{SI}$. Suy ra điều phải chứng minh.	
+	}{\begin{tikzpicture}
+		\coordinate (S) at (0,4);
+		\coordinate (A) at (-2,0);
+		\coordinate (C) at (3,0);
+		\coordinate (O) at ($(A)!0.5!(C)$);
+		\coordinate (A') at ($(A)!0.6!(S)$);
+		\coordinate (C') at ($(S)!0.6!(C)$);
+		\tkzInterLL(A',C')(S,O)    \tkzGetPoint{I}
+		\tkzDefLine[parallel=through C](A',C') \tkzGetPoint{c}
+		\tkzInterLL(C,c)(S,O)    \tkzGetPoint{N}
+		\tkzDefLine[parallel=through A](A',C') \tkzGetPoint{a}
+		\tkzInterLL(A,a)(S,O)    \tkzGetPoint{M}
+		\tkzDrawSegments(S,A S,C A,C A',C' C,N A,M S,M)
+		\tkzLabelPoints[above](S)
+		\tkzLabelPoints[left](A,A',N)
+		\tkzLabelPoints[right](C,C',M)
+		\tkzLabelPoints[above left](O,I)
+		\tkzDrawPoints(S,A,C,O,A',C',I,N,M)
+		\end{tikzpicture}}
+	\begin{itemize}
+		\item Ta có  $V_{S.A'B'C'D'}=V_{S.A'B'C'}+V_{S.A'D'C'}$.\\
+		Mặt khác 	 
+		$\dfrac{V_{S.A'B'C'}}{V_{SABC}}=x\cdot z\cdot y \Rightarrow V_{S.A'B'C'}=\dfrac{1}{2}xzy\cdot V_{S.ABCD}$.\\
+		\item Chứng minh tương tự ta có $ V_{S.A'D'C'}=\dfrac{1}{2}xzt\cdot V_{S.ABCD}$.\\
+		Suy ra  $V_{S.A'B'C'D'}=\dfrac{1}{2}xz(y+t)$.  (1)
+		\item Tương tự ta có $V_{S.A'B'C'D'}=\dfrac{1}{2}yt(x+z)$.  (2)\\
+		\item Từ (1) và (2) ta được $ V_{S.A'B'C'D'}=\dfrac{xyzt}{4}\left(\dfrac{x+z}{xz}+\dfrac{y+t}{yt}\right) =\dfrac{xyzt}{4}\left(\dfrac{1}{x}+\dfrac{1}{y}+\dfrac{1}{z}+\dfrac{1}{t}\right)$.
+	\end{itemize}	
+\end{dang}
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1K3-3]
+	Cho hình chóp tứ giác $S.ABCD$ có đáy $ABCD$ là hình vuông cạnh bằng $a$, $SA$ vuông góc với mặt đáy và $SA=a\sqrt{2}$. Một mặt phẳng đi qua $A$ và vuông góc với $SC$ cắt $SB,SC,SD$ tại $B',C',D'$. Thể tích khối chóp $S.AB'C'D'$ bằng
+	\choice
+	{$\dfrac{a^3\sqrt{2}}{3}$}
+	{$\dfrac{a^3\sqrt{6}}{3}$}
+	{$\dfrac{a^3\sqrt{2}}{6}$}
+	{\True $\dfrac{a^3\sqrt{2}}{9}$}
+	\loigiai{
+		\immini{
+			Tam giác $SAC$ vuông cân nên $C'$ là trung điểm của $SC$ và $K$ là trọng tâm giác $SAC$, $B'D' \parallel BD$ nên $\dfrac{SB'}{SB} = \dfrac{SD'}{SD}=\dfrac{2}{3}$.\\
+			Suy ra $\dfrac{SA'}{SA}=1$, $\dfrac{SB'}{SB}=\dfrac{2}{3}$, $\dfrac{SC'}{SC}=\dfrac{1}{2}$,  $\dfrac{SD'}{SD}=\dfrac{2}{3}$.\\
+			Do đó $ \dfrac{V_{S.A'B'C'D'}}{V_{S.ABCD}}=\dfrac{xyzt}{4}\left(\dfrac{1}{x}+\dfrac{1}{y}+\dfrac{1}{z}+\dfrac{1}{t}\right)$\\
+			$=\dfrac{1}{3}\Rightarrow V_{S.A'B'C'D'}=\dfrac{a^3\sqrt{2}}{9}.$}{	\begin{tikzpicture}
+			\tkzDefPoints{2/6/S,2/2/A,0/0/B,5/0/C}
+			\tkzDefBarycentricPoint(S=2,C=1) \tkzGetPoint{C'}
+			\tkzDefPointBy[translation=from B to C](A) \tkzGetPoint{D}
+			\tkzDefMidPoint(A,C) \tkzGetPoint{O}
+			\tkzInterLL(S,O)(A,C') \tkzGetPoint{K}
+			\tkzDefPointBy[translation=from O to B](K) \tkzGetPoint{K'}
+			\tkzInterLL(K,K')(S,B) \tkzGetPoint{B'}
+			\tkzInterLL(K,K')(S,D) \tkzGetPoint{D'}
+			\tkzDrawSegments(S,B S,C S,D B,C C,D B',C' D',C')
+			\tkzDrawSegments[dashed](S,A A,B A,D A,C B,D S,O B',D' A,C' A,B' A,D') 
+			\tkzLabelPoints[below](A,B,C,O)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[right](D)
+			\tkzLabelPoints[above right](C',D')
+			\tkzLabelPoints[above left](B')
+			\tkzLabelPoints[below right](K)
+			\tkzDrawPoints[fill,size=6](A,B,C,D,S,K,B',C',D',O)
+			\end{tikzpicture}}
+		
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1G3-4]
+	Cho hình chóp $S.ABCD$ có đáy là hình bình hành. Góc tạo bởi mặt bên $(SAB)$ với mặt đáy bằng $\alpha$. Tỉ số diện tích của tam giác $SAB$ và hình bình hành $ABCD$ bằng $k$. Mặt phẳng $(P)$ đi qua $AB$ và chia hình chóp $S.ABCD$ thành hai phần có thể tích bằng nhau. Gọi $\beta$ là góc tạo bởi mặt phẳng $(P)$ và mặt đáy. Tính $\cot \beta$ theo $k$ và $\alpha$.
+	\choice
+	{\True $\cot \beta =\cot \alpha +\dfrac{\sqrt{5}+1}{4k\sin \alpha} $}
+	{$\cot \beta =\tan \alpha +\dfrac{\sqrt{5}+1}{4k\sin \alpha} $}
+	{$\cot \beta =\cot \alpha +\dfrac{\sqrt{5}-1}{4k\sin \alpha} $}
+	{$\cot \beta =\tan \alpha +\dfrac{\sqrt{5}-1}{4k\sin \alpha} $}
+	\loigiai{
+		\immini{Đặt $\dfrac{SM}{SD}=\dfrac{SN}{SC}=m>0$.\\
+			Ta có $\dfrac{V_{S.AMNB}}{V_{S.ADCB}}=\dfrac{m^2}{4}\cdot \left(2+\dfrac{2}{m}\right)=\dfrac{1}{2} $.\\
+			
+			Suy ra $m^2+m=1\Rightarrow m=\dfrac{\sqrt{5}-1}{2}$.
+			Ta có $$\dfrac{V_{S.ABM}}{V_{M.ABD}}=\dfrac{\mathrm{d}(M,(SAB))\cdot S_{SAB}}{\mathrm{d}(M,(ABD))\cdot S_{ABD}}=\dfrac{S_{SAB}\cdot \sin (\alpha-\beta)}{S_{ABD}\cdot \sin \beta}=\dfrac{2k\cdot \sin (\alpha-\beta)}{\sin \beta}.$$
+		}{\begin{tikzpicture}[scale=.5]
+			\tkzDefPoints{0/0/D, -2/-2/C, 3/-2/B}
+			\coordinate (A) at ($(D)+(B)-(C)$);
+			\coordinate (S) at ($(D)+(-1,5)$);
+			\coordinate (M) at ($(S)!2/3!(D)$);
+			\coordinate (N) at ($(S)!2/3!(C)$);
+			\tkzDrawSegments[dashed](S,D D,B D,C M,N M,B D,A M,A)
+			\tkzDrawPolygon(S,A,B)
+			\tkzDrawSegments(S,C C,B N,B)
+			\tkzLabelPoints[left](C,D,M,N)
+			\tkzLabelPoints[right](A,B)
+			\tkzLabelPoints[above](S)
+			\tkzDrawPoints(A,B,C,D,S,M,N)
+			\end{tikzpicture}}
+		Suy ra \begin{eqnarray*}
+			&&\dfrac{V_{S.ABM}}{V_{M.ABD}}=\dfrac{V_{S.ABM}}{\dfrac{V_{S.ABCD}}{2}-V_{S.ABM}}=2k(\sin \alpha \cot \beta -\cos \alpha).\\
+			&\Rightarrow &\dfrac{m\cdot \dfrac{ V_{S.ABCD}}{2}}{\dfrac{V_{S.ABCD}}{2}-m\cdot \dfrac{ V_{S.ABCD}}{2}}=2k(\sin \alpha \cot \beta -\cos \alpha).\\
+			&\Rightarrow &\dfrac{m}{1-m}=2k\sin \alpha \cot \beta-2k\cos \alpha\\
+			&\Rightarrow &\dfrac{1+\sqrt{5}}{2}=2k\sin \alpha \cot \beta-2k\cos \alpha\\
+			&\Rightarrow &\cot \beta=\cot \alpha +\dfrac{1+\sqrt{5}}{4k\sin \alpha}.
+		\end{eqnarray*}
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1G3-3]
+	Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình bình hành và có thể tích $V$. Gọi $M$ là điểm trên cạnh $SC$ sao cho $MC=2MS$. Gọi $(\alpha)$ là mặt phẳng chứa đường thẳng $AM$ và song song với đường thẳng $BD$, $(\alpha)$ cắt hai cạnh $SB$, $SD$ lần lượt tại hai điểm $N$, $P$. Tính theo $V$ thể tích khối chóp $S.APMN$.
+	\choice
+	{\True $\dfrac{V}{6}$}
+	{$\dfrac{V}{27}$}
+	{$\dfrac{V}{9}$}
+	{$\dfrac{V}{12}$}
+	\loigiai{\immini{Gọi $O$ là giao điểm của $AC$ và $BD$,
+			$I$ là giao điểm của $SO$ với $AM$.
+			\\ Khi đó, đường thẳng qua $I$ song song với $BD$ cắt $SB$, $SD$ tại $N$ và $P$.\\
+			Do tính chất $ \dfrac{1}{x}+\dfrac{1}{z}=\dfrac{1}{y}+\dfrac{1}{t}\Rightarrow 1+3=2\dfrac{SB}{SN}$\\
+			$ \Rightarrow \dfrac{SN}{SB}=\dfrac{SP}{SD}=\dfrac{1}{2}$.\\
+			Ta có $ \dfrac{V_{S.ANMP}}{V_{S.ABCD}}=\dfrac{1}{48}\left(1+2+2+3\right)=\dfrac{1}{6}$.\\
+		}{\begin{tikzpicture}[scale=0.6]
+			\clip(-4,-4) rectangle (7,7);
+			\tkzDefPoints{0/0/A, 6/0/B,-3/-3/D, 0/6/S} 
+			\tkzDefLine[parallel=through B](A,D) \tkzGetPoint{x}
+			\tkzDefLine[parallel=through D](A,B) \tkzGetPoint{y}
+			\tkzInterLL(B,x)(D,y) \tkzGetPoint{C}
+			\tkzDrawPoints(A,B,C,D,S) 
+			\tkzLabelPoints[below](A,B,C,D)
+			\tkzLabelPoints[above](S)
+			\tkzDefMidPoint(A,C)\tkzGetPoint{O} 
+			\coordinate(M) at ($(S) !0.35! (C)$);
+			\tkzDrawSegments (S,B S,C S,D D,C C,B P,M M,N)
+			\tkzDrawSegments[dashed](D,A A,B S,A A,C B,D A,M S,O)
+			\tkzInterLL(A,M)(S,O) \tkzGetPoint{I} 
+			\tkzDefLine[parallel=through I](D,B) \tkzGetPoint{c}
+			\tkzInterLL(I,c)(S,B) \tkzGetPoint{N}
+			\tkzInterLL(I,c)(S,D) \tkzGetPoint{P}
+			%\tkzDefLine[parallel=through O](S,C) \tkzGetPoint{e}
+			%	\tkzInterLL(O,e)(A,M) \tkzGetPoint{Q}
+			\tkzDrawSegments[dashed](P,N A,P A,N)
+			\tkzDrawPoints(M,O,I,N,P)
+			\tkzLabelPoints[below](O)
+			\tkzLabelPoints[above right](N,M)
+			\tkzLabelPoints[left](P,I)
+			\end{tikzpicture} }
+	}
+\end{vd}
+\subsection{Công thức tính nhanh thể tích khối chóp tam giác}
+\begin{dang}{Khối tứ diện vuông biết diện tích ba mặt vuông}
+	\immini[.2]{
+		Cho hình chóp $S.ABC$ với các mặt phẳng $\left(SAB\right)$, $\left(SBC\right)$, $\left(SAC\right)$ vuông góc với nhau từng đôi một, diện tích các tam giác $SAB$, $SBC$, $SAC$ lần lượt là $S_1$, $S_2$, $S_3$. Khi đó \fbox{$V_{S.ABC}=\dfrac{\sqrt{2S_{1}S_{2}S_{3}}}{3}$.}}{
+		\begin{tikzpicture}[scale=1, line join = round, line cap = round]
+		\tkzDefPoints{0/0/S,3.5/0/C,1/-1/B}
+		\coordinate (A) at ($(S)+(0,2.5)$);
+		\tkzDrawSegments(S,B B,C A,C A,B S,A)
+		\tkzDrawSegments[dashed](S,C)
+		\tkzDrawPoints(S,A,C,B)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[below](B)
+		\tkzLabelPoints[left](S)
+		\tkzLabelPoints[right](C)
+		\tkzMarkRightAngles(A,S,C B,S,C A,S,B)
+		\end{tikzpicture}}
+	\begin{itemize}
+		
+		
+		\item \textbf{Chứng minh công thức}\\
+		Ta có: các mặt phẳng $\left(SAB\right)$, $\left(SBC\right)$, $\left(SAC\right)$ vuông góc với nhau từng đôi một nên $SA$, $SB$, $SC$ cũng đôi một vuông góc.\\
+		+ Khi đó: $V_{SABC}=\dfrac{1}{6}SA\cdot SB \cdot SC$.\\
+		+ Xét ba tam giác vuông $SAB$, $SAC$, $SBC$ ta có: $S_{1}=\dfrac{SA\cdot SB}{2}$\\ $\Rightarrow SA\cdot SB=2S_1 \quad (1)$ \\
+		+ Tương tự: 
+		$SC \cdot SB=2S_2 \quad (2)$ và $ SA \cdot SC=2S_3 \quad (3)$\\
+		+ Từ $(1)$, $(2)$ và $(3)$  suy ra $ SA \cdot SB \cdot SC=2\sqrt{2S_{1}S_{2}S_{3}}$, do đó  $V=\dfrac{1}{3}\sqrt{2S_{1}S_{2}S_{3}}$ (đpcm).
+	\end{itemize}
+\end{dang}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1B3-2] 
+	Cho hình chóp $S.ABC$ với các mặt phẳng $\left(SAB\right)$, $\left(SBC\right)$, $\left(SAC\right)$ vuông góc với nhau từng đôi một, diện tích các tam giác $SAB$, $SBC$, $SAC$ lần lượt là $60$  cm$^{2}$, $120$ cm$^{2}$, $36$ cm$^{2}$. Thể tích khối chóp bằng
+	\choice
+	{$43200$ cm$^{3}$}
+	{\True $240$ cm$^{3}$}
+	{$21600$ cm$^{3}$}
+	{$480$ cm$^{3}$}
+	
+	\loigiai{
+		\immini{Thể tích khối chóp là $V=\dfrac{\sqrt{2 \cdot 60 \cdot 120 \cdot 120}}{3}=240$ cm$^3$.}
+		{\begin{tikzpicture}[scale=1, line join = round, line cap = round]
+			\tkzDefPoints{0/0/S,3.5/0/C,1/-1/B}
+			\coordinate (A) at ($(S)+(0,2.5)$);
+			\tkzDrawSegments(S,B B,C A,C A,B S,A)
+			\tkzDrawSegments[dashed](S,C)
+			\tkzDrawPoints(S,A,C,B)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[left](S)
+			\tkzLabelPoints[right](C)
+			\tkzMarkRightAngles(A,S,C B,S,C A,S,B)
+			\end{tikzpicture}
+	}}
+\end{vd}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1K3-2] 
+	Cho hình chóp $S.ABC$ thỏa mãn $SA$, $SB$, $SC$ đôi một vuông góc với nhau, diện tích các tam giác $SAB$, $SAC$, $ABC$ lần lượt là $9a^2$, $12a^2$, $3\sqrt{29}a^2$ và góc giữa hai mặt phẳng $\left(ABC\right)$ và đáy là $\alpha$ thỏa mãn $\cos \alpha=\dfrac{2}{\sqrt{29}}$. Thể tích khối chóp theo $a$ bằng
+	\choice
+	{$36a^3$}
+	{\True $12a^3$}
+	{$6a^3$}
+	{$24a^3$}
+	\loigiai{
+		\immini{ Ta có tam giác $SBC$ là hình chiếu vuông góc của tam giác $ABC$ nên ta có $S_{SBC}=S_{ABC} \cdot \cos \alpha=3\sqrt{29}a^2 \cdot \dfrac{2}{\sqrt{29}}=6a^2$.\\
+			Thể tích khối chóp là $V=\dfrac{\sqrt{2 \cdot 9a^2 \cdot 12a^2 \cdot 6a^2}}{3}=12a^3$.}
+		{\begin{tikzpicture}[scale=1, line join = round, line cap = round]
+			\tkzDefPoints{0/0/S,3.5/0/C,1/-1/B}
+			\coordinate (A) at ($(S)+(0,2.5)$);
+			\tkzDrawSegments(S,B B,C A,C A,B S,A)
+			\tkzDrawSegments[dashed](S,C)
+			\tkzDrawPoints(S,A,C,B)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[left](S)
+			\tkzLabelPoints[right](C)
+			\tkzMarkRightAngles(A,S,C B,S,C A,S,B)
+			\end{tikzpicture}
+	}}
+\end{vd}
+
+\begin{dang}{Khối chóp tam giác có cạnh bên vuông góc mặt đáy}
+	\immini{\textbf{Bài toán}: Cho hình chóp $S.ABC$ có $SA$ vuông góc với $\left(ABC\right)$, hai mặt phẳng $\left(SAB\right)$, $\left(SBC\right)$ vuông góc với nhau và $\widehat{BSC}=\beta$, $\widehat{ASB}=\alpha$. Khi đó \fbox{$V_{S.ABC}=\dfrac{SB^{3}\sin 2\alpha \tan \beta}{12}$.}}{\begin{tikzpicture}[scale=1, line join = round, line cap = round]
+		\tkzDefPoints{0/0/A,5/0/C,1/-2/B}
+		\coordinate (S) at ($(A)+(0,3)$);
+		\tkzDrawSegments(S,B B,C S,C A,B S,A)
+		\tkzDrawSegments[dashed](A,C)
+		\tkzDrawPoints(S,A,C,B)
+		\tkzLabelPoints[above](S)
+		\tkzLabelPoints[below](B)
+		\tkzLabelPoints[left](A)
+		\tkzLabelPoints[right](C)
+		\tkzMarkRightAngles(S,A,B S,A,C A,B,C S,B,C)
+		\tkzLabelAngles[pos=1.5,rotate=10](A,S,B){$\alpha$}
+		\tkzLabelAngles[pos=1.5,rotate=10](B,S,C){$\beta$}
+		\tkzMarkAngles[size=1cm,arc=ll](A,S,B)
+		\tkzMarkAngles[size=1cm,arc=ll](B,S,C)
+		\end{tikzpicture}}
+	\textbf{Chứng minh công thức}\\
+	+ Dễ dàng chỉ ra các tam giác $SBC$, $ABC$ vuông tại $B$.\\
+	+ Ta có $V_{S.ABC}=\dfrac{1}{6} SA \cdot AB \cdot BC=\dfrac{1}{6}\cdot SB^{3} \cdot \dfrac{SA}{SB} \cdot \dfrac{AB}{SB} \cdot \dfrac{BC}{SB} =\dfrac{1}{6} \cdot SB^{3} \cdot \cos \alpha \cdot \sin \alpha \cdot \tan \beta$\\$=\dfrac{SB^{3}\sin 2\alpha \tan \beta}{12}$ (đpcm).
+\end{dang}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1B3-2] 
+	Cho hình chóp $S.ABC$ có cạnh đáy $SA$ vuông góc với đáy và hai mặt phẳng $\left(SAB\right)$, $\left(SBC\right)$ vuông góc với nhau. Biết cạnh $SB=a$, góc $\widehat {ASB}=60^\circ$ , $\widehat {BSC}=45^\circ$. Thể tích khối chóp theo $a$ bằng
+	\choice
+	{\True $\dfrac{a^3\sqrt{3}}{24} $}
+	{$\dfrac{a^3\sqrt{3}}{12}$}
+	{$\dfrac{a^3}{6} $}
+	{$ \dfrac{a^3\sqrt{3}}{4} $}
+	\loigiai{
+		\immini{Thể tích khối chóp là $V=\dfrac{SB^{3} \cdot \sin \widehat {ASB} \cdot \tan \widehat {BSC}}{12}$\\$=\dfrac{a^{3}\sin 120^\circ \tan 45^\circ}{12}=\dfrac{a^3\sqrt{3}}{24}$.}{	\begin{tikzpicture}[line join=round, line cap=round, >=stealth, scale=0.9]
+			%\draw[cyan,dashed] (-5,-5) grid (5,5);
+			\def\h{4} \def\r{4.5} \def\y{2} \def\x{1.5}
+			\coordinate[label={below left}:$A$] (A) at (-3,-2);
+			\coordinate[label={below}:$B$] (B) at ($(A)+(\x,-\y)$);
+			\coordinate[label={below right}:$C$] (C) at ($(A)+(\r,0)$);
+			\coordinate[label={above left}:$S$] (S) at ($(A)+(0,\h)$);
+			\draw (S)--(A)--(B)--(C)--(S)--(B);
+			\draw[dashed] (A)--(C);
+			\tkzMarkRightAngles(S,A,C A,B,C S,A,B S,B,C)
+			\tkzLabelAngles[pos=1.5,rotate=13](A,S,B){$60^\circ$}
+			\tkzLabelAngles[pos=1.5,rotate=10](B,S,C){$45^\circ$}
+			\tkzMarkAngles[size=0.8cm,arc=ll](A,S,B)
+			\tkzMarkAngles[size=1cm,arc=ll](B,S,C)
+			\end{tikzpicture}}	}
+\end{vd}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1K3-2] 
+	Cho hình chóp $SABC$ có đáy $ABC$ là tam giác vuông tại $B$, cạnh $SA$ vuông góc với đáy. Biết $AB=a$, $\widehat {ASB}=30^\circ$, góc giữa cạnh $SC$ và mặt phẳng $\left(SAB\right)$ là $\alpha$ thỏa mãn $\tan \alpha=\dfrac{1}{2}$. Thể tích khối chóp theo $a$ bằng
+	\choice
+	{$\dfrac{a^3\sqrt{3}}{4} $}
+	{$\dfrac{a^3\sqrt{3}}{12}  $}
+	{\True $\dfrac{a^3\sqrt{3}}{6}$}
+	{$\dfrac{2a^3\sqrt{3}}{14} $}
+	\loigiai{
+		\immini{Ta có $BC \perp \left(SAB\right)$ nên $\widehat{\left(SC, \left(SAB\right) \right)}=\widehat {CSB}$ hay \break $\tan \widehat {CSB}=\dfrac{1}{2}$.\\
+			Ta có $SB=2a$ ( đối diện góc $30^\circ$ bằng $\dfrac{1}{2}$ cạnh huyền).\\
+			Thể tích khối chóp là $V=\dfrac{(2a)^{3} \cdot \sin 60^\circ \cdot \dfrac{1}{2}}{12}=\dfrac{a^3\sqrt{3}}{6}.$}{\begin{tikzpicture}[scale=1, line join = round, line cap = round]
+			\tkzDefPoints{0/0/A,5/0/C,1/-2/B}
+			\coordinate (S) at ($(A)+(0,3)$);
+			\tkzDrawSegments(S,B B,C S,C A,B S,A)
+			\tkzDrawSegments[dashed](A,C)
+			\tkzDrawPoints(S,A,C,B)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](C)
+			\tkzLabelAngles[pos=1.5,rotate=10](A,S,B){$30^\circ$}
+			\tkzLabelAngles[pos=1,rotate=10](B,S,C){$\alpha$}
+			\tkzMarkAngles[size=1.1cm,arc=ll](A,S,B)
+			\tkzMarkAngles[size=1cm,arc=ll](B,S,C)
+			\tkzMarkRightAngles(S,A,B S,A,C A,B,C S,B,C)
+			\end{tikzpicture}}
+	}
+\end{vd}
+
+\begin{dang}{Tính thể tích khối chóp tam giác đều khi biết cạnh đáy và cạnh bên}
+	Cho hình chóp đều $S.ABC$ có cạnh đáy bằng $a$, cạnh bên bằng $b.$ Khi đó,
+	$$ V_{S.ABC}=\frac{a^2\sqrt{3b^2-a^2}}{12}. $$
+	\loigiai{
+		\immini{Gọi $G$ là tâm của đường tròn ngoại tiếp tam giác $ABC$. Ta có 
+			\begin{itemize}
+				\item $ S_{\triangle ABC}=\dfrac{a^2\sqrt{3}}{4}.$
+				\item $ AG=\dfrac{a \sqrt{3}}{3}.$ 
+				\item $	SG=\sqrt{SA^2-AG^2} = \sqrt{b^2- \dfrac{a^2}{3}}.$
+			\end{itemize}
+			Suy ra  $$V =\dfrac{1}{3}S_{\triangle ABC} \cdot SG
+			= \frac{a^2\sqrt{3b^2-a^2}}{12}.$$
+		}
+		{ 
+			\begin{tikzpicture}[scale=0.8]
+			\tkzDefPoints{0/0/A, 5/0/C, 3.5/-2/B}
+			\tkzDefPointBy[homothety = center C ratio 0.5](B)\tkzGetPoint{M}
+			\tkzDefPointBy[homothety = center A ratio 0.667](M)\tkzGetPoint{G}
+			\tkzDefPointBy[projection= onto A--C](G)\tkzGetPoint{H}
+			\tkzDefPointBy[homothety = center G ratio 6](H)\tkzGetPoint{S}
+			\tkzDrawPoints(A,C,B,M,G,S)
+			\tkzLabelPoints(C,B,M)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[below](G)
+			\tkzDrawSegments[thick](C,B B,A S,A S,C S,B)
+			\tkzDrawSegments[thick,dashed](A,C S,G A,M)
+			\tkzMarkRightAngles(S,G,A A,M,B)
+			\end{tikzpicture}}
+	}
+\end{dang}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1B3-2]
+	Thể tích $V$ của khối tứ diện đều cạnh $a$ là
+	\choice
+	{$V = \dfrac{a^3}{8}$}
+	{$V = \dfrac{a^3\sqrt{6}}{9}$}
+	{$V = \dfrac{a^3\sqrt{2}}{4}$}
+	{\True $V = \dfrac{a^3\sqrt{2}}{12}$}
+	\loigiai{
+		\immini{
+			Áp dụng công thức trên, ta có
+			$$V = \frac{a^2 \sqrt{3 a^2-a^2}}{12}
+			= \dfrac{a^3\sqrt{2}}{12}.$$}
+		{   \begin{tikzpicture}[scale=.6]
+			\tkzDefPoints{0/0/B, 7/0/D, 2/-3/C, 3/5/A}		
+			\tkzCentroid(B,C,D) \tkzGetPoint{G}		 
+			\tkzDefMidPoint(C,D) \tkzGetPoint{M}		 
+			\tkzDrawPoints[fill=red](A,B,C,D,G,M)
+			\tkzDrawSegments(A,B B,C C,D D,A A,C)
+			\tkzDrawSegments[dashed](B,D A,G B,M)		 
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](C,G)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](D)
+			\tkzLabelPoints(M)	 
+			\tkzMarkRightAngles(A,G,B B,M,C)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1B3-2]
+	Cho hình chóp đều $S.ABC$ có đáy là tam giác đều cạnh $a$, cạnh bên gấp hai lần cạnh đáy. Thể tích khối chóp bằng
+	\choice
+	{$\dfrac{a^3 \sqrt{3}}{12}$}
+	{\True $\dfrac{a^3 \sqrt{11}}{12}$}
+	{$\dfrac{a^3 \sqrt{3}}{6}$}
+	{$\dfrac{a^3 \sqrt{11}}{4}$}
+	\loigiai{
+		\immini{
+			Áp dụng công thức trên, ta có
+			$$V = \frac{a^2\sqrt{3 \cdot (2a)^2-a^2}}{12}
+			= \dfrac{a^3 \sqrt{11}}{12}.$$	} 
+		{ 	\begin{tikzpicture}[scale=0.8]
+			\tkzDefPoints{0/0/A, 5/0/C, 3.5/-2/B}
+			\tkzDefPointBy[homothety = center C ratio 0.5](B)\tkzGetPoint{M}
+			\tkzDefPointBy[homothety = center A ratio 0.667](M)\tkzGetPoint{G}
+			\tkzDefPointBy[projection= onto A--C](G)\tkzGetPoint{H}
+			\tkzDefPointBy[homothety = center G ratio 6](H)\tkzGetPoint{S}
+			\tkzDrawPoints(A,C,B,M,G,S)
+			\tkzLabelPoints(C,B,M)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[below](G)
+			\tkzDrawSegments[thick](C,B B,A S,A S,C S,B)
+			\tkzDrawSegments[thick,dashed](A,C S,G A,M)
+			\tkzMarkRightAngles(S,G,A A,M,B)
+			\end{tikzpicture}}
+	}
+\end{vd}
+
+\begin{dang}{Tính thể tích khối chóp tam giác đều khi biết cạnh đáy và góc giữa mặt bên với mặt đáy}
+	Cho hình chóp tam giác đều $S.ABC$ có cạnh đáy bằng $a$ và mặt bên tạo với mặt  đáy một góc $\alpha$. Khi đó,
+	$$ V_{S.ABC}=\frac{a^3 \tan \alpha }{24}. $$
+	\loigiai{
+		\immini
+		{Gọi $M$ là trung điểm của $BC$ và $G$ là tâm của đường tròn ngoại tiếp tam giác $ABC$. Ta có 
+			\begin{itemize}
+				\item $ \left((SBC),(ABC) \right)= \left( SM,GM\right) =\widehat {SMG}= \alpha.$
+				\item $ S_{\triangle ABC}=\dfrac{a^2\sqrt{3}}{4}.$
+				\item $ GM=\dfrac{a \sqrt{3}}{6}.$ 
+				\item $	SG=GM.\tan\alpha=\dfrac{a \sqrt{3}\tan\alpha}{6}.$
+			\end{itemize}
+			Suy ra  $$V =\dfrac{1}{3}S_{\triangle ABC} \cdot SG
+			= \frac{a^3 \tan \alpha }{24}.$$
+		}
+		{	\begin{tikzpicture}[scale=0.8]
+			\tkzDefPoints{0/0/A, 5/0/C, 3.5/-2/B}
+			\tkzDefPointBy[homothety = center C ratio 0.5](B)\tkzGetPoint{M}
+			\tkzDefPointBy[homothety = center A ratio 0.667](M)\tkzGetPoint{G}
+			\tkzDefPointBy[projection= onto A--C](G)\tkzGetPoint{H}
+			\tkzDefPointBy[homothety = center G ratio 6](H)\tkzGetPoint{S}
+			\tkzDrawPoints(A,C,B,M,G,S)
+			\tkzLabelPoints(C,B,M)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[below](G)
+			\tkzDrawSegments[thick](C,B B,A S,A S,C S,B S,M)
+			\tkzDrawSegments[thick,dashed](A,C S,G A,M)
+			\tkzMarkAngles[size=0.7](S,M,G)
+			\tkzLabelAngle[pos=0.45,rotate=25](S,M,G){\footnotesize $\alpha$}
+			\tkzMarkRightAngles(S,G,A A,M,B S,M,C)
+			\end{tikzpicture}}
+	}
+\end{dang}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1B3-2]	
+	Cho hình chóp đều $S.ABC$ có đáy là tam giác đều cạnh $a$, mặt bên hợp với đáy một góc $30^\circ$. Thể tích khối chóp bằng
+	\choice
+	{$a^3 \sqrt{3}$}
+	{$\dfrac{a^3 \sqrt{3}}{12}$}
+	{\True $\dfrac{a^3 \sqrt{3}}{36}$}
+	{$\dfrac{a^3 \sqrt{3}}{3}$}
+	\loigiai{
+		\immini{
+			Áp dụng công thức trên, ta có
+			$$V = \frac{a^3 \tan 30^\circ }{24} 
+			=\dfrac{a^3 \sqrt{3}}{36}.$$	
+		}
+		{ 
+			\begin{tikzpicture}[scale=0.8]
+			\tkzDefPoints{0/0/A, 5/0/C, 3.5/-2/B}
+			\tkzDefPointBy[homothety = center C ratio 0.5](B)\tkzGetPoint{M}
+			\tkzDefPointBy[homothety = center A ratio 0.667](M)\tkzGetPoint{G}
+			\tkzDefPointBy[projection= onto A--C](G)\tkzGetPoint{H}
+			\tkzDefPointBy[homothety = center G ratio 6](H)\tkzGetPoint{S}
+			\tkzDrawPoints(A,C,B,M,G,S)
+			\tkzLabelPoints(C,B,M)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[below](G)
+			\tkzDrawSegments[thick](C,B B,A S,A S,C S,B S,M)
+			\tkzDrawSegments[thick,dashed](A,C S,G A,M)
+			\tkzMarkAngles[size=0.7](S,M,G)
+			\tkzLabelAngle[pos=0.45,rotate=25](S,M,G){\footnotesize $30^\circ$}
+			\tkzMarkRightAngles(S,G,A A,M,B S,M,C)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1B3-2]
+	Cho hình chóp đều $S.ABC$ có cạnh đáy là $4$ và góc giữa mặt bên và mặt phẳng đáy $(ABC)$ bằng $60^\circ$. Thể tích $V$ của khối chóp $S.ABC$ bằng
+	\choice
+	{\True $V=\dfrac{8\sqrt{3}}{3}$}
+	{$V=\dfrac{5\sqrt{7}}{3}$}
+	{$V=\dfrac{10\sqrt{7}}{3}$}
+	{$V=\dfrac{5\sqrt{3}}{2}$}
+	\loigiai{
+		\immini{
+			Ta có $\alpha =60^\circ$, cạnh đáy $a=4$. Khi đó 
+			$$V = \frac{4^3 \tan 60^\circ }{24} 
+			=\dfrac{8\sqrt{3}}{3} .$$
+		}
+		{	\begin{tikzpicture}[scale=0.8]
+			\tkzDefPoints{0/0/A, 5/0/C, 3.5/-2/B}
+			\tkzDefPointBy[homothety = center C ratio 0.5](B)\tkzGetPoint{M}
+			\tkzDefPointBy[homothety = center A ratio 0.667](M)\tkzGetPoint{G}
+			\tkzDefPointBy[projection= onto A--C](G)\tkzGetPoint{H}
+			\tkzDefPointBy[homothety = center G ratio 6](H)\tkzGetPoint{S}
+			\tkzDrawPoints(A,C,B,M,G,S)
+			\tkzLabelPoints(C,B,M)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[below](G)
+			\tkzDrawSegments[thick](C,B B,A S,A S,C S,B S,M)
+			\tkzDrawSegments[thick,dashed](A,C S,G A,M)
+			\tkzMarkAngles[size=0.7](S,M,G)
+			\tkzLabelAngle[pos=0.45,rotate=25](S,M,G){\footnotesize $60^\circ$}
+			\tkzMarkRightAngles(S,G,A A,M,B S,M,C)
+			\end{tikzpicture}}
+	}
+\end{vd}
+
+\begin{dang}{Khối chóp tam giác đều có độ dài cạnh bên và góc giữa cạnh bên hợp đáy}
+\immini{\textbf{Bài toán}: Cho hình chóp tam giác đều $S.ABC$ có các cạnh bên bằng $b$ và cạnh bên tạo với mặt đáy góc $\beta$. Khi đó \fbox{$V=\dfrac{\sqrt{3}\cdot b^3\cdot \sin\beta\cdot \cos^2\beta}{4}$.}}{\begin{tikzpicture}[scale=.6, line join = round, line cap = round]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/A,7/0/B,2/-3/C}
+	\tkzCentroid(A,B,C)    \tkzGetPoint{G}
+	\coordinate (S) at ($(G)+(0,5)$);
+	\coordinate (M) at ($(B)!0.5!(C)$);
+	%\tkzDrawPolygon(S,A,B,C)
+	\tkzDrawSegments(S,A S,B S,C A,C B,C)
+	\tkzDrawSegments[dashed](A,B S,G A,M)
+	\tkzDrawPoints(S,A,B,C,G,M)
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[below](C)
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoints[right](B,M)
+	\tkzLabelPoints[below](G)
+	\tkzLabelSegment[above](S,A){$b$}
+	\tkzMarkAngles[size=1cm,arc=ll](M,A,S)
+	\tkzMarkRightAngles[size=0.2,fill=gray!50](S,G,A)
+	\tkzLabelAngles[pos=0.5,rotate=30](M,A,S){$\beta$}
+	\end{tikzpicture}}
+\textbf{Chứng minh công thức}\\
+\begin{itemize}
+\item Xét $\triangle SGA$ vuông tại $G$ nên $SG=b\sin\beta,\ AG=b\cos\beta$ $\Rightarrow AM=\dfrac{3}{2}AG \quad (1)$.
+\item  Gọi độ dài cạnh đáy là $x$ suy ra $S_{\triangle ABC}=\dfrac{x^2\sqrt{3}}{3}$ và $AM=\dfrac{x\sqrt{3}}{2}\quad (2)$.
+\item  Từ $(1),\ (2)$ suy ra $x=b\sqrt{3}\cos\beta$, do đó $S_{\triangle ABC}=\dfrac{3\sqrt{3}b^2\cos^2\beta}{4}$.
+\item  Vậy thể tích khối chóp là $V=\dfrac{1}{3}\cdot SG\cdot S_{\triangle ABC}=\dfrac{\sqrt{3}\cdot b^3\cdot \sin\beta\cdot \cos^2\beta}{4}$.
+\end{itemize}
+\end{dang}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1K3-2] 
+	Cho hình chóp tam giác đều $S.ABC$ có cạnh bên bằng $a$. Góc giữa cạnh bên với mặt đáy là $30^\circ$. Thể tích khối chóp theo $a$ bằng
+	\choice
+	{\True $\dfrac{a^33\sqrt{3}}{32} $}
+	{$\dfrac{a^3\sqrt{3}}{12}  $}
+	{$\dfrac{a^33\sqrt{3}}{16}  $}
+	{$ \dfrac{a^3\sqrt{3}}{4} $}
+	
+	\loigiai{
+		\immini{Thể tích khối chóp là $V=\dfrac{\sqrt{3}\cdot a^3\cdot \sin30^\circ\cdot \cos^2 30^\circ}{4}=\dfrac{3a^3\sqrt{3}}{32}$.}{\begin{tikzpicture}[scale=.6, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/A,7/0/B,2/-3/C}
+			\tkzCentroid(A,B,C)    \tkzGetPoint{G}
+			\coordinate (S) at ($(G)+(0,5)$);
+			\coordinate (M) at ($(B)!0.5!(C)$);
+			\tkzDrawSegments(S,A S,B S,C A,C B,C)
+			\tkzDrawSegments[dashed](A,B S,G A,M)
+			\tkzDrawPoints(S,A,B,C,G,M)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](C)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](B,M)
+			\tkzLabelPoints[below](G)
+			\tkzLabelSegment[above](S,A){$a$}
+			\tkzMarkAngles[size=1cm,arc=ll](M,A,S)
+			\tkzMarkRightAngles[size=0.2,fill=gray!50](S,G,A)
+			\tkzLabelAngles[pos=1.6,rotate=10](M,A,S){$30^\circ$}
+			\end{tikzpicture}}
+	}
+\end{vd}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1K3-2] 
+	Cho hình chóp tam giác đều $S.ABC$ có cạnh bên bằng $2a$. Góc giữa cạnh bên với mặt đáy là $45^\circ$. Thể tích khối chóp theo $a$ bằng
+	\choice
+	{$\dfrac{a^33\sqrt{6}}{8} $}
+	{$\dfrac{a^3\sqrt{3}}{12}  $}
+	{$\dfrac{a^3\sqrt{3}}{2}  $}
+	{\True $ \dfrac{a^3\sqrt{6}}{2} $}
+	
+	\loigiai{
+		\immini{Thể tích khối chóp là $V=\dfrac{\sqrt{3}\cdot (2a)^3\cdot \sin45^\circ\cdot \cos^2 45^\circ}{4}=\dfrac{a^3\sqrt{6}}{2} $.}
+		{\begin{tikzpicture}[scale=.6, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/A,7/0/B,2/-3/C}
+			\tkzCentroid(A,B,C)    \tkzGetPoint{G}
+			\coordinate (S) at ($(G)+(0,5)$);
+			\coordinate (M) at ($(B)!0.5!(C)$);
+			\tkzDrawSegments(S,A S,B S,C A,C B,C)
+			\tkzDrawSegments[dashed](A,B S,G A,M)
+			\tkzDrawPoints(S,A,B,C,G,M)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](C)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](B,M)
+			\tkzLabelPoints[below](G)
+			\tkzLabelSegment[above](S,A){$2a$}
+			\tkzMarkAngles[size=1cm,arc=ll](M,A,S)
+			\tkzMarkRightAngles[size=0.2,fill=gray!50](S,G,A)
+			\tkzLabelAngles[pos=1.6,rotate=10](M,A,S){$45^\circ$}
+			\end{tikzpicture}}
+	}
+\end{vd}
+
+\begin{dang}{Khối chóp tam giác đều có độ dài cạnh đáy và góc giữa cạnh bên hợp đáy}
+\immini{\textbf{Bài toán}: Cho hình chóp tam giác đều $S.ABC$ có các cạnh đáy bằng $a$ và cạnh bên tạo với mặt đáy góc $\alpha$. Khi đó \fbox{$V=\dfrac{a^3\cdot \tan\alpha}{12}$.}}{\begin{tikzpicture}[scale=.6, line join = round, line cap = round]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/A,7/0/B,2/-3/C}
+	\tkzCentroid(A,B,C)    \tkzGetPoint{G}
+	\coordinate (S) at ($(G)+(0,5)$);
+	\coordinate (M) at ($(B)!0.5!(C)$);
+	%\tkzDrawPolygon(S,A,B,C)
+	\tkzDrawSegments(S,A S,B S,C A,C B,C)
+	\tkzDrawSegments[dashed](A,B S,G A,M)
+	\tkzDrawPoints(S,A,B,C,G,M)
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[below](C)
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoints[right](B,M)
+	\tkzLabelPoints[below](G)
+	\tkzLabelSegment[left](A,C){$a$}
+	\tkzMarkAngles[size=1cm,arc=ll](M,A,S)
+	\tkzMarkRightAngles[size=0.3,fill=gray!50](S,G,A)
+	
+	\tkzLabelAngles[pos=0.5,rotate=30](M,A,S){$\alpha$}
+	\end{tikzpicture}}
+		
+\textbf{Chứng minh công thức}\\
+\begin{itemize}
+\item Ta có diện tích tam giác $ABC$ là $S_{\triangle ABC}=\dfrac{a^2\sqrt{3}}{4}$.
+\item Xét $\triangle SGA$ vuông tại $G$ nên $SG=\dfrac{a\sqrt{3}\tan\alpha}{3}$.
+\item Vậy thể tích khối chóp là $V=\dfrac{1}{3}\cdot SG\cdot S_{\triangle ABC}=\dfrac{a^3\tan\alpha}{12}$.
+\end{itemize}
+\end{dang}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1K3-2] 
+	Cho hình chóp tam giác đều $S.ABC$ có cạnh đáy bằng $a$. Góc giữa cạnh bên với mặt đáy là $60^\circ$. Thể tích khối chóp theo $a$ bằng
+	\choice
+	{$\dfrac{a^3\sqrt{2}}{3} $}
+	{\True $\dfrac{a^3\sqrt{3}}{12}  $}
+	{$\dfrac{a^3}{6}  $}
+	{$ \dfrac{a^3\sqrt{3}}{4} $}
+	\loigiai{
+		\immini{Thể tích khối chóp là $V=\dfrac{a^3 \tan 60^\circ}{12}=\dfrac{a^3\sqrt{3}}{12}$.}{\begin{tikzpicture}[scale=.6, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/A,7/0/B,2/-3/C}
+			\tkzCentroid(A,B,C)    \tkzGetPoint{G}
+			\coordinate (S) at ($(G)+(0,5)$);
+			\coordinate (M) at ($(B)!0.5!(C)$);
+			\tkzDrawSegments(S,A S,B S,C A,C B,C)
+			\tkzDrawSegments[dashed](A,B S,G A,M)
+			\tkzDrawPoints(S,A,B,C,G,M)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](C)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](B,M)
+			\tkzLabelPoints[below](G)
+			\tkzLabelSegment[above](A,C){$a$}
+			\tkzMarkAngles[size=1cm,arc=ll](M,A,S)
+			\tkzMarkRightAngles[size=0.1,fill=gray!50](S,G,A)
+			\tkzLabelAngles[pos=1.5,rotate=10](M,A,S){$60^\circ$}
+			\end{tikzpicture}}	}
+\end{vd}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1K3-2] 
+	Cho hình chóp tam giác đều $S.ABC$ có cạnh bên bằng $2a$. Góc giữa cạnh bên với mặt đáy là $30^\circ$. Thể tích khối chóp theo $a$ bằng
+	\choice
+	{$\dfrac{a^3\sqrt{3}}{4} $}
+	{$\dfrac{2a^3\sqrt{6}}{3}  $}
+	{\True $\dfrac{2a^3\sqrt{3}}{3}  $}
+	{$ \dfrac{a^3\sqrt{3}}{3} $}
+	
+	\loigiai{
+		\immini{Thể tích khối chóp là $V=\dfrac{(2a)^3\tan 30^\circ}{4}=\dfrac{2a^3\sqrt{3}}{3} $.}{\begin{tikzpicture}[scale=.6, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/A,7/0/B,2/-3/C}
+			\tkzCentroid(A,B,C)    \tkzGetPoint{G}
+			\coordinate (S) at ($(G)+(0,5)$);
+			\coordinate (M) at ($(B)!0.5!(C)$);
+			\tkzDrawSegments(S,A S,B S,C A,C B,C)
+			\tkzDrawSegments[dashed](A,B S,G A,M)
+			\tkzDrawPoints(S,A,B,C,G,M)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](C)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](B,M)
+			\tkzLabelPoints[below](G)
+			\tkzLabelSegment[above](A,C){$2a$}
+			\tkzMarkAngles[size=1cm,arc=ll](M,A,S)
+			\tkzMarkRightAngles[size=0.1,fill=gray!50](S,G,A)
+			\tkzLabelAngles[pos=1.5,rotate=10](M,A,S){$30^\circ$}
+			\end{tikzpicture}}
+	}
+\end{vd}
+
+\begin{dang}{\protect{Thể tích chóp tam giác đều biết cạnh đáy và góc tạo bởi mặt phẳng $(P)$ với đáy, $(P)$ vuông góc mặt bên}}
+\immini{Cho hình chóp tam giác đều $S.ABC$ có cạnh đáy bằng $a$. Gọi $(P)$ là mặt phẳng đi qua $A$ song song với $BC$ và vuông góc với $ (SBC) $, góc giữa $(P)$  với mặt phẳng đáy là $ \alpha $. Khi đó \fbox{$V_{S.ABC}=\dfrac{a^3\cot \alpha}{24}$}.}{\begin{tikzpicture}[scale=.8]
+	\tkzDefPoints{0/0/A, 4/-2/B, 6/0/C}
+	\coordinate (M) at ($(B)!.5!(C)$);   % M là trung điểm BC
+	\coordinate (H) at ($(A)!.67!(M)$);
+	\coordinate (S) at ($(H)+(0,5)$);
+	\coordinate (E) at ($(S)!.5!(B)$);
+	\coordinate (F) at ($(S)!.45!(C)$);
+	\tkzInterLL(S,M)(E,F) \tkzGetPoint{N}
+	\tkzDefPointBy[translation= from C to B](A)\tkzGetPoint{x}
+	\coordinate (y) at ($(A)!-1!(x)$);
+	\coordinate (x) at ($(A)!0.6!(x)$);
+	
+	\tkzDrawSegments[dashed](A,C S,H A,M A,F A,N A,y)
+	\tkzDrawPolygon(S,B,C)
+	\tkzDrawSegments(S,A A,B S,M E,F A,E A,x)
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoints[right](C, M,F)
+	\tkzLabelPoints[below](B,H,x)
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[below right](E,N)
+	\tkzMarkRightAngle(M,H,S)
+	\tkzMarkRightAngle(A,N,M)
+	\tkzMarkRightAngle(B,M,A)
+	\tkzMarkAngle(H,S,M)
+	\tkzMarkSegments[mark=|](B,M M,C)
+	\end{tikzpicture}}
+\textbf{Chứng minh}
+	\begin{itemize}
+		\item Góc giữa $ (P) $ và $ (SBC) $ bằng góc giữa hai đường thẳng lần lượt vuông góc với hai mặt phẳng đó, và bằng góc $ (\widehat{SH,SM})=\alpha $.
+		\item Ta có chiều cao $ SH=HM\cot \alpha=\dfrac{a\sqrt{3}}{6} $ và diện tích đáy $ S_{ABC}=\dfrac{\sqrt{3}a^2}{4} $.
+		\item Do đó thể tích là $ V_{S.ABC}=\dfrac{a^3\cot \alpha}{24} $.
+	\end{itemize}
+\end{dang}
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1K3-2]
+	Cho hình chóp tam giác đều $ S.ABC $ có thể tích là $ V=\dfrac{\sqrt{3}a^3}{24} $. Gọi $ (P) $ là mặt phẳng đi qua $ A $ song song với $ BC $, và vuông góc với $ (SBC) $. Tính góc $ \alpha $ giữa $ (P) $ và mặt đáy $ (ABC) $.
+	\choice
+	{$ 90^\circ $}
+	{$ 60^\circ $}
+	{\True $ 30^\circ $}
+	{$ 45^\circ $}
+	\loigiai{
+		Áp dụng công thức $ V=\dfrac{a^3\cot \alpha}{24} $, suy ra $ \cot \alpha= \dfrac{24V}{a^3}=\sqrt{3}$.\\
+		Vậy $ \alpha=30^\circ $.
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1K3-2]
+	Cho hình chóp tam giác đều $ S.ABC $ có cạnh đáy $ a $, trên $ SB $, $ SC $ lần lượt lấy $ E $, $ F $ sao cho $ EF\parallel BC $ và $ EF $ vuông góc với đường cao tam giác $ SBC $. Góc giữa $ (ABC) $ và $ (AEF) $ bằng $ 60^\circ $. Tính thể tích khối chóp $ S.ABC $
+	\choice
+	{\True $ V=\dfrac{\sqrt{3}a^3}{72} $}
+	{$ V=\dfrac{\sqrt{3}a^3}{24} $}
+	{$ V=\dfrac{a^3}{24} $}
+	{$ V=\dfrac{\sqrt{3}a^3}{12} $}
+	\loigiai{
+		Áp dụng công thức $ V=\dfrac{a^3\cot \alpha}{24} $, suy ra $ V=\dfrac{\sqrt{3}a^3}{72} $.
+	}
+\end{vd}
+
+\subsection{Công thức tính nhanh thể tích khối chóp tứ giác đều}
+
+\begin{dang}{Tính thể tích khối chóp tứ giác đều khi biết cạnh đáy và cạnh bên}
+	Cho hình chóp tứ giác đều $S.ABCD$ có cạnh đáy bằng $a$, cạnh bên bằng $b.$ Khi đó,
+	$$ V_{S.ABCD}=\frac{a^2\sqrt{4b^2-2a^2}}{6}. $$
+	\loigiai{
+		\immini{Gọi $O$ là tâm hình vuông $ABCD$. Ta có $$SO=\sqrt{SA^2-OA^2} = \sqrt{b^2- \dfrac{a^2}{2}}.$$ Suy ra  $$V=\dfrac{1}{3}SO.S_{ABCD} = \frac{a^2\sqrt{4b^2-2a^2}}{6}.$$}
+		{\begin{tikzpicture}
+			\tkzDefPoints{-1/1/A, -3/-1/B, 0/4/S, 0/0/O}
+			\tkzDefPointBy[symmetry=center O](A) \tkzGetPoint{C}
+			\tkzDefPointBy[symmetry=center O](B) \tkzGetPoint{D}
+			\tkzDrawSegments(S,B B,C C,S S,D D,C)
+			\tkzDrawSegments[dashed](S,A A,B A,D A,C B,D S,O)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[left](A,B)
+			\tkzLabelPoints[right](D,C)
+			\tkzLabelPoints[below](O)
+			\tkzMarkRightAngle(B,O,S)
+			\tkzMarkRightAngle(S,O,C)
+			\end{tikzpicture}}
+	}
+\end{dang}
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1B3-2]
+	Cho hình chóp tứ giác đều $S.ABCD$ có tất cả các cạnh bằng $a$. Thể tích của khối chóp $S.ABCD$ bằng
+	\choice
+	{$\dfrac{a^3\sqrt{3}}{2}$}
+	{$\dfrac{a^3\sqrt{3}}{4}$}
+	{$\dfrac{a^3}{3}$}
+	{\True $\dfrac{a^3\sqrt{2}}{6}$}
+	\loigiai{
+		\immini{
+			Gọi $O$ là giao điểm hai đường chéo hình vuông $ABCD$, ta có $SO$ là đường cao hình chóp. \\
+			$SO=\sqrt{SA^2 - AO^2}=\sqrt{a^2 - \left(\dfrac{a\sqrt{2}}{2}\right)^2}=\dfrac{a\sqrt{2}}{2}$. \\
+			$S_{ABCD}=a^2$. \\
+			Vậy thể tích cần tìm là $V=\dfrac{1}{3}\cdot S_{ABCD}\cdot SO=\dfrac{1}{3}a^2\cdot \dfrac{a\sqrt{2}}{2}=\dfrac{a^3\sqrt{2}}{6}$. 
+		}
+		{
+			\begin{tikzpicture}[scale=0.6]
+			\tkzDefPoints{0/0/A, 6/0/B, 4/1.5/O}
+			\tkzDefPointBy[symmetry = center O](A)
+			\tkzGetPoint{C}
+			\tkzDefPointBy[symmetry = center O](B)
+			\tkzGetPoint{D}
+			\tkzDefShiftPoint[O](90:7){S}
+			\tkzDrawPoints(S,A,B,C,D,O)
+			\tkzDrawSegments(S,A S,C  S,B A,B B,C)
+			\tkzDrawSegments[dashed](S,O A,C B,D A,D D,C S,D) 
+			\tkzMarkRightAngles(C,O,S)
+			\tkzLabelPoints[below](O, A, B, D)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1B3-2]
+	Cho khối chóp tứ giác đều có cạnh đáy bằng $a$, cạnh bên bằng $2a$. Tính thể tích $V$ của khối chóp đã cho.
+	\choice
+	{$V=\dfrac{\sqrt{2}a^3}{6}$}
+	{$V=\dfrac{\sqrt{11}a^3}{12}$}
+	{$V=\dfrac{\sqrt{14}a^3}{2}$}
+	{\True $V=\dfrac{\sqrt{14}a^3}{6}$}
+	\loigiai{
+		\immini{Ta có $$SO=\sqrt{SA^2-OA^2} = \sqrt{4a^2- \dfrac{a^2}{2}} = \dfrac{a\sqrt{14}}{2}.$$ Suy ra  $$V=\dfrac{1}{3}SO.S_{ABCD} = \dfrac{\sqrt{14}a^3}{6}.$$}
+		{\begin{tikzpicture}
+			\tkzDefPoints{-1/1/A, -3/-1/B, 0/4/S, 0/0/O}
+			\tkzDefPointBy[symmetry=center O](A) \tkzGetPoint{C}
+			\tkzDefPointBy[symmetry=center O](B) \tkzGetPoint{D}
+			\tkzDrawSegments(S,B B,C C,S S,D D,C)
+			\tkzDrawSegments[dashed](S,A A,B A,D A,C B,D S,O)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[left](A,B)
+			\tkzLabelPoints[right](D,C)
+			\tkzLabelPoints[below](O)
+			\tkzMarkRightAngle(B,O,S)
+			\tkzMarkRightAngle(S,O,C)
+			\end{tikzpicture}}
+	}
+\end{vd}
+
+\begin{dang}{Tính thể tích khối chóp tứ giác đều khi biết cạnh đáy và góc giữa mặt bên với mặt đáy}
+	Cho hình chóp tứ giác đều $S.ABCD$ có cạnh đáy bằng $a$ và mặt bên tạo với mặt  đáy một góc $\alpha$. Khi đó,
+	$$ V_{S.ABCD}=\frac{a^3 \tan \alpha }{6}. $$
+	\loigiai{
+		\immini{
+			Gọi $M$ là trung điểm của $BC$, khi đó $\widehat{SMO}=\alpha$.\\
+			Ta có $OM=\dfrac{1}{2}AB=\dfrac{a}{2}$.\\
+			$\Rightarrow SO=OM.\tan\alpha=\dfrac{a\tan\alpha}{2}$.\\
+			$\Rightarrow V=\dfrac{1}{3}SO.S_{ABCD}=\dfrac{1}{3}\cdot\dfrac{a\tan\alpha}{2}\cdot a^2=\dfrac{a^3\tan\alpha}{6}.$
+		}{
+			\begin{tikzpicture}[scale=0.7]
+			\tkzSetUpPoint[fill=black,size=4]
+			\tkzDefPoints{0/0/A,5/0/B,7/1.7/C}
+			\tkzDefPointBy[translation = from B to A](C)
+			\tkzGetPoint{D}
+			\tkzDefMidPoint(A,C)\tkzGetPoint{O}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{i}
+			\tkzDefPointWith[orthogonal,K=1.7](O,i)
+			\tkzGetPoint{S}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+			\tkzDrawPoints(A,B,C,D,O,S)
+			\tkzDrawSegments[dashed](A,D D,C S,D A,C B,D O,M M,S)
+			\tkzDrawSegments(A,B B,C)
+			\tkzDrawSegments(S,A S,B S,C)
+			\tkzDrawSegments[dashed](S,O)
+			\tkzMarkRightAngles[size=0.16](S,O,A)
+			\tkzMarkAngles[size=0.5](S,M,O)
+			\tkzLabelPoint[below](A){\footnotesize $A$}
+			\tkzLabelPoint[below](B){\footnotesize $B$}
+			\tkzLabelPoint[right](C){\footnotesize $C$}
+			\tkzLabelPoint[above right](D){\footnotesize $D$}
+			\tkzLabelPoint[above](S){\footnotesize $S$}
+			\tkzLabelPoint[below](O){\footnotesize $O$}
+			\tkzLabelPoint[right](M){\footnotesize $M$}
+			\tkzLabelAngles[size=0.5,pos=0.3](S,M,O){$\alpha$}
+			\end{tikzpicture}
+		}
+	}
+\end{dang}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1B3-2]
+	Cho hình chóp tứ giác đều $S.ABCD$ có cạnh đáy bằng $a$, góc tạo bởi mặt bên và mặt  đáy là $45^\circ$. Thể tích khối chóp $S.ABCD$ là 
+	\choice
+	{$\dfrac{a^3}{2}$}
+	{$\dfrac{a^3}{3}$}
+	{\True $\dfrac{a^3}{6}$}
+	{$\dfrac{2a^3}{3}$}
+	\loigiai{
+		\immini{
+			Gọi $M$ là trung điểm của $BC$ khi đó $\widehat{SMO}=45^\circ$.\\
+			Khi đó $OM=\dfrac{1}{2}AB=\dfrac{a}{2}$.\\
+			$\Rightarrow SO=OM.\tan 45^\circ=\dfrac{a}{2}$.\\
+			$\Rightarrow V=\dfrac{1}{3}SO.S_{ABCD}=\dfrac{a^3}{6}.$
+		}{
+			\begin{tikzpicture}[scale=1]
+			\tkzSetUpPoint[fill=black,size=4]
+			\tkzDefPoints{0/0/A,5/0/B,7/1.7/C}
+			\tkzDefPointBy[translation = from B to A](C)
+			\tkzGetPoint{D}
+			\tkzDefMidPoint(A,C)\tkzGetPoint{O}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{i}
+			\tkzDefPointWith[orthogonal,K=1.7](O,i)
+			\tkzGetPoint{S}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+			\tkzDrawPoints(A,B,C,D,O,S)
+			\tkzDrawSegments[dashed](A,D D,C S,D A,C B,D O,M M,S)
+			\tkzDrawSegments(A,B B,C)
+			\tkzDrawSegments(S,A S,B S,C)
+			\tkzDrawSegments[dashed](S,O)
+			\tkzMarkRightAngles[size=0.16](S,O,A)
+			\tkzMarkAngles[size=0.5](S,M,O)
+			\tkzLabelPoint[below](A){\footnotesize $A$}
+			\tkzLabelPoint[below](B){\footnotesize $B$}
+			\tkzLabelPoint[right](C){\footnotesize $C$}
+			\tkzLabelPoint[above right](D){\footnotesize $D$}
+			\tkzLabelPoint[above](S){\footnotesize $S$}
+			\tkzLabelPoint[below](O){\footnotesize $O$}
+			\tkzLabelPoint[right](M){\footnotesize $M$}
+			\tkzLabelAngles[size=0.5,pos=0.3](S,M,O){$\alpha$}
+			\end{tikzpicture}
+		}
+	} 
+\end{vd}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1B3-2] 
+	Tính thể tích $V$ của khối chóp tứ giác đều có cạnh đáy bằng $2a$, góc giữa mặt bên và mặt đáy bằng $60^\circ$.
+	\choice
+	{$V=\dfrac{4\sqrt{3}}{2}a^3$}
+	{\True $V=\dfrac{4\sqrt{3}}{3}a^3$}
+	{$V=\dfrac{2\sqrt{3}}{3}a^3$}
+	{$V=4\sqrt{3}a^3$}
+	\loigiai{
+		\immini
+		{Ta có $OM=a$, $\widehat{SOM}=60^\circ$ suy ra $SO=OM\tan 60^\circ=a\sqrt{3}$.\\
+			Thể tích khối chóp $V=\dfrac{1}{3}(2a)^2a\sqrt{3}=\dfrac{4a^3\sqrt{3}}{3}$.
+		}
+		{\begin{tikzpicture}[scale=0.5]
+			\tkzDefPoints{0/0/A, -4/-3/B, 10/0/D}
+			\coordinate (C) at ($(B)+(D)-(A)$);
+			\coordinate (M) at ($(A)!0.5!(B)$);
+			\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+			\coordinate (S) at ($(O)+(0,9)$);
+			\tkzMarkAngle[color=blue](O,M,S)
+			\tkzMarkRightAngle(S,O,M)
+			\tkzDrawSegments(S,B S,C S,D B,C C,D)
+			\tkzDrawSegments[dashed](S,A A,B A,D A,C B,D S,O O,M S,M)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[left](A,B,M)
+			\tkzLabelPoints[right](C,D)
+			\tkzLabelPoints[below](O)
+			\end{tikzpicture}}
+	}
+\end{vd}
+
+\begin{dang}{Khối chóp tứ giác đều có cạnh đáy và góc ở đáy của mặt bên}
+\immini{\textbf{Bài toán}: Cho hình chóp tứ giác đều $S.ABCD$ có cạnh đáy bằng $a$, $\widehat{SAB}=\alpha$, với $\alpha\in\left(\dfrac{\pi}{4};\dfrac{\pi}{2}\right)$. Khi đó  \fbox{$V_{S.ABCD}=\dfrac{a^3\cdot\sqrt{\tan^2\alpha -1}}{6}$}.}{	\begin{tikzpicture}[scale=.8]
+	\tkzDefPoints{0/0/D, -2/-2/C, 3/-2/B}
+	\coordinate (A) at ($(D)+(B)-(C)$);
+	\coordinate (O) at ($(A)!.5!(C)$);
+	\coordinate (M) at ($(A)!.5!(B)$);
+	\coordinate (S) at ($(O)+(0,5)$);
+	\tkzDrawSegments[dashed](A,D A,C B,D S,O S,D D,C O,M)
+	\tkzDrawPolygon(S,B,A)
+	\tkzDrawSegments(S,C C,B S,M)
+	\tkzLabelPoints[left](D,C)
+	\tkzLabelPoints[right](B,A,M)
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[below](O)
+	\tkzMarkRightAngle(S,M,A)(O,M,B)
+	\tkzMarkRightAngle(O,M,B)
+	\tkzLabelAngles[pos=-0.9,rotate=10](S,A,B){$\alpha$}
+	\tkzMarkAngles[size=0.5cm,arc=l](S,A,B)
+	\end{tikzpicture}}
+		
+\textbf{Chứng minh công thức}\\
+\begin{itemize}
+\item Trong tam giác vuông $\triangle SAM$, ta có : $\tan\alpha=\dfrac{SM}{AM}\Rightarrow SM=\dfrac{a}{2}\cdot \tan\alpha$.
+\item Trong tam giác vuông $\triangle SOM$, ta có : $SO=\sqrt{SM^2-OM^2}=\dfrac{a}{2}\cdot \sqrt{\tan^2\alpha -1}$.
+\item Khi đó: $V_{S.ABCD}=\dfrac{1}{3}SO\cdot S_{ABCD}=\dfrac{a^3\cdot\sqrt{\tan^2\alpha -1}}{6}$ (đpcm).
+\end{itemize}
+\end{dang}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1B3-2] 
+	Cho hình chóp tứ giác đều $S.ABCD$ có cạnh đáy bằng $a$, $\widehat{SAB}=60^\circ$. Tính thể tích $S.ABCD$ theo $a$.
+	\choice
+	{\True $\dfrac{a^3\sqrt 2}{6}$}
+	{$\dfrac{a^3\sqrt 2}{3}$}
+	{$\dfrac{a^3\sqrt 2}{18}$}
+	{$\dfrac{a^3\sqrt 2}{9}$}
+	\loigiai{
+		\immini{Áp dụng công thức tính nhanh, ta có:\\
+			$V_{S.ABCD}=\dfrac{a^3\cdot\sqrt{\tan^2 60^\circ -1}}{6}= \dfrac{a^3\sqrt 2}{6}$.}
+		{\begin{tikzpicture}[scale=.7]
+			\tkzDefPoints{0/0/D, -2/-2/C, 3/-2/B}
+			\coordinate (A) at ($(D)+(B)-(C)$);
+			\coordinate (O) at ($(A)!.5!(C)$);
+			\coordinate (M) at ($(A)!.5!(B)$);
+			\coordinate (S) at ($(O)+(0,5)$);
+			\tkzDrawSegments[dashed](A,D A,C B,D S,O S,D D,C O,M)
+			\tkzDrawPolygon(S,B,A)
+			\tkzDrawSegments(S,C C,B S,M)
+			\tkzLabelPoints[left](D,C)
+			\tkzLabelPoints[right](B,A,M)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](O)
+			\tkzMarkRightAngle(S,M,A)(O,M,B)
+			\tkzMarkRightAngle(O,M,B)
+			\tkzLabelAngles[pos=-0.9,rotate=10](S,A,B){$60^\circ$}
+			\tkzMarkAngles[size=0.5cm,arc=l](S,A,B)
+			\end{tikzpicture}
+	}}
+\end{vd}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1K3-2]  
+	Cho hình chóp tứ giác đều $S.ABCD$ có cạnh đáy bằng $a\sqrt 3$, $\widehat{SAB}=\alpha$ thỏa $\cos\alpha=\dfrac{\sqrt{11}}{11}$. Thể tích khối chóp theo $a$ bằng
+	\choice
+	{$\dfrac{a^3\sqrt 3}{2}$}
+	{\True $\dfrac{3a^3\sqrt 3}{2}$}
+	{$\dfrac{13a^3\sqrt 3}{2}$}
+	{$\dfrac{13a^3\sqrt 3}{6}$}
+	\loigiai{
+		\immini{ Ta có $1+\tan^2\alpha=\dfrac{1}{\cos^2\alpha}\Rightarrow \tan^2\alpha -1=\dfrac{1}{\cos^2\alpha}-2=9$.\\
+			Khi đó : $V_{S.ABCD}=\dfrac{\left(a\sqrt 3\right)^3\cdot\sqrt{\tan^2\alpha -1}}{6}=\dfrac{3a^3\sqrt 3}{2}$.}
+		{\begin{tikzpicture}[scale=.7]
+			\tkzDefPoints{0/0/D, -2/-2/C, 3/-2/B}
+			\coordinate (A) at ($(D)+(B)-(C)$);
+			\coordinate (O) at ($(A)!.5!(C)$);
+			\coordinate (M) at ($(A)!.5!(B)$);
+			\coordinate (S) at ($(O)+(0,5)$);
+			\tkzDrawSegments[dashed](A,D A,C B,D S,O S,D D,C O,M)
+			\tkzDrawPolygon(S,B,A)
+			\tkzDrawSegments(S,C C,B S,M)
+			\tkzLabelPoints[left](D,C)
+			\tkzLabelPoints[right](B,A,M)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](O)
+			\tkzMarkRightAngle(S,M,A)(O,M,B)
+			\tkzMarkRightAngle(O,M,B)
+			\tkzLabelAngles[pos=-0.9,rotate=10](S,A,B){$\alpha$}
+			\tkzMarkAngles[size=0.5cm,arc=l](S,A,B)
+			\end{tikzpicture}
+	}}
+\end{vd}
+
+\begin{dang}{Khối chóp tứ giác đều có độ dài cạnh bên và góc tạo bởi mặt bên với mặt đáy}
+\immini{\textbf{Bài toán}: Cho hình chóp tứ giác đều $S.ABCD$ có các cạnh bên bằng $a$, góc tạo bởi mặt bên và mặt đáy là $\alpha$, với $\alpha\in\left(0;\dfrac{\pi}{2}\right)$. Khi đó \fbox{$V_{S.ABCD}=\dfrac{4a^3\cdot\tan\alpha}{3\sqrt{\left(2+\tan^2\alpha\right)^3}}.$}}{\begin{tikzpicture}[scale=.8]
+	\tkzDefPoints{0/0/D, -2/-2/C, 3/-2/B}
+	\coordinate (A) at ($(D)+(B)-(C)$);
+	\coordinate (O) at ($(A)!.5!(C)$);
+	\coordinate (M) at ($(A)!.5!(B)$);
+	\coordinate (S) at ($(O)+(0,5)$);
+	\tkzDrawSegments[dashed](S,A A,B A,D A,C B,D S,O S,D D,C O,M)
+	\tkzDrawPolygon(S,B,A)
+	\tkzDrawSegments(S,C C,B S,M)
+	\tkzLabelPoints[left](D,C)
+	\tkzLabelPoints[right](B,A,M)
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[below](O)
+	\tkzMarkRightAngle(S,M,A)(O,M,B)
+	\tkzMarkRightAngle(O,M,B)
+	\tkzMarkAngle[size=0.5cm,arc=l](S,M,O)
+	\tkzLabelAngle[pos=0.7,rotate=4](S,M,O){\footnotesize $\alpha$}
+	\end{tikzpicture}}
+		\textbf{Chứng minh công thức}\\
+	\begin{itemize}
+		
+	\item Đặt $AB=x$, $(x>0)$.
+		Suy ra $MB=\dfrac{x}{2}\Rightarrow SM^2=SB^2-BM^2=a^2-\dfrac{x^2}{4}$.
+	\item  Trong tam giác vuông $\triangle SOM$, ta có : $\tan\alpha=\dfrac{SO}{OM}\Rightarrow SO=\dfrac{x}{2}\cdot \tan\alpha$.
+	\item Mặt khác  $SM^2=SO^2+OM^2\Leftrightarrow a^2-\dfrac{x^2}{4}=\dfrac{x^2}{4}\cdot \tan^2\alpha+\dfrac{x^2}{4}\Rightarrow x=\dfrac{2a}{\sqrt{2+\tan^2\alpha}}$.
+	\item 	Khi đó  $SO=\dfrac{a\cdot\tan\alpha}{\sqrt{2+\tan^2\alpha}}; S_{ABCD}=\dfrac{4a^2}{2+\tan^2\alpha}$.
+	\item 	Vậy $V_{S.ABCD}=\dfrac{1}{3}\cdot SO\cdot S_{ABCD}=\dfrac{4a^3\cdot\tan\alpha}{3\sqrt{\left(2+\tan^2\alpha\right)^3}}$, (đpcm).
+	\end{itemize}
+\end{dang}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1B3-2] 
+	Cho hình chóp tứ giác đều $S.ABCD$ có các cạnh bên đều bằng $a$. Góc giữa mặt bên với đáy $(ABCD)$ là $60^\circ$. Thể tích khối chóp  $S.ABCD$ theo $a$ bằng
+	\choice
+	{\True $\dfrac{4a^3\sqrt{15}}{75} $}
+	{$\dfrac{4a^3\sqrt{7}}{49}$}
+	{$\dfrac{4a^3\sqrt{15}}{25} $}
+	{$ \dfrac{4a^3\sqrt{15}}{15} $}
+	\loigiai{
+		\immini{
+			Áp dụng công thức tính nhanh, ta có:\\
+			$V_{S.ABCD}=\dfrac{4a^3\cdot\tan60^\circ}{3\sqrt{\left(2+\tan^2 60^\circ\right)^3}}=\dfrac{4a^3\sqrt{15}}{75} $.}
+		{\begin{tikzpicture}[scale=.6]
+			\tkzDefPoints{0/0/D, -2/-2/C, 3/-2/B}
+			\coordinate (A) at ($(D)+(B)-(C)$);
+			\coordinate (O) at ($(A)!.5!(C)$);
+			\coordinate (M) at ($(A)!.5!(B)$);
+			\coordinate (S) at ($(O)+(0,5)$);
+			\tkzDrawSegments[dashed](S,A A,B A,D A,C B,D S,O S,D D,C O,M)
+			\tkzDrawPolygon(S,B,A)
+			\tkzDrawSegments(S,C C,B S,M)
+			\tkzLabelPoints[left](D,C)
+			\tkzLabelPoints[right](B,A,M)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](O)
+			\tkzMarkRightAngle(S,M,A)(O,M,B)
+			\tkzMarkRightAngle(O,M,B)
+			\tkzMarkAngle[size=0.5cm,arc=l](S,M,O)
+			\tkzLabelAngle[pos=0.7,rotate=4](S,M,O){\footnotesize $60^\circ$}
+			\end{tikzpicture}}
+	}
+\end{vd}
+
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1K3-2]  
+	Cho hình chóp tứ giác đều $S.ABCD$ có các cạnh bên đều bằng $a\sqrt 2$. Góc giữa mặt bên với đáy $(ABCD)$ là $45^\circ$. Gọi $M,N,P$ lần lượt là trung điểm của $SA, SB,SC$. Thể tích khối chóp  $S.MNP$ theo $a$ bằng
+	\choice
+	{$\dfrac{a^3\sqrt{3}}{54} $}
+	{$\dfrac{2a^3\sqrt{3}}{27}  $}
+	{\True $\dfrac{a^3\sqrt{3}}{108}  $}
+	{$ \dfrac{4a^3\sqrt{3}}{27} $}
+	
+	\loigiai{
+		\immini{
+			Áp dụng công thức tính nhanh, ta có:\\
+			$V_{S.ABC}=\dfrac{1}{2}\cdot V_{S.ABCD}=\dfrac{1}{2}\cdot \dfrac{4a^3\cdot\tan 45^\circ}{3\sqrt{\left(2+\tan^2 45^\circ\right)^3}}=\dfrac{2a^3\sqrt{3}}{27} $.\\
+			Ta có: $\dfrac{V_{S.MNP}}{V_{S.ABC}}=\dfrac{SM}{SA}\cdot \dfrac{SN}{SB}\cdot \dfrac{SP}{SC}=\dfrac{1}{8}$.\\
+			Vậy $V_{S.MNP}=\dfrac{a^3\sqrt{3}}{108}$.
+		}
+		{	\begin{tikzpicture}[scale=.8]
+			\tkzDefPoints{0/0/D, -2/-2/C, 3/-2/B}
+			\coordinate (A) at ($(D)+(B)-(C)$);
+			\coordinate (O) at ($(A)!.5!(C)$);
+			\coordinate (I) at ($(A)!.5!(B)$);
+			\coordinate (S) at ($(O)+(0,5)$);
+			\coordinate (M) at ($(A)!.5!(S)$);
+			\coordinate (N) at ($(B)!.5!(S)$);
+			\coordinate (P) at ($(C)!.5!(S)$);
+			\tkzDrawSegments[dashed](A,D A,C B,D S,O S,D D,C O,I M,P)
+			\tkzDrawPolygon(S,B,A)
+			\tkzDrawSegments(S,C C,B S,I M,N N,P)
+			\tkzLabelPoints[left](D,C,P)
+			\tkzLabelPoints[right](B,A,I,M,N)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](O)
+			\tkzMarkRightAngle(S,M,A)(O,I,B)
+			\tkzMarkRightAngle(O,I,B)
+			\tkzMarkAngle[size =0.5,arc=ll,opacity=.2](S,I,O)
+			\tkzLabelAngle[pos=0.7,rotate=4](S,I,O){\footnotesize $45^\circ$}
+			\end{tikzpicture}}
+	}
+\end{vd}
+
+\begin{dang}{Bài toán thể tích khối bát diện đều nội tiếp khối lập phương}
+	Khối tám mặt đều có đỉnh là tâm các mặt của hình lập phương cạnh $ a $, có thể tích \fbox{$V=\dfrac{a^3}{6}$}.
+	\begin{center}		
+		\begin{tikzpicture}[line cap=round,line join=round]
+		\tkzDefPoints{4/1/A',8/1/B'} % Định nghĩa các toạ đô dịnh cơ sở
+		\tkzDefPointBy[rotation = center A' angle 40](B') % Lấy các điểm qua phép quay phép tịnh tiến để tìm các điểm cho hình
+		\tkzGetPoint{D1}
+		\tkzDefPointBy[rotation = center A' angle 90](B')
+		\tkzGetPoint{A}
+		\tkzDefPointBy[homothety = center A' ratio 0.5](D1)
+		\tkzGetPoint{D'}
+		\tkzDefPointBy[translation = from A' to B'](D')
+		\tkzGetPoint{C'}
+		\tkzDefPointBy[translation = from A' to D'](A)
+		\tkzGetPoint{D}
+		\tkzDefPointsBy[translation = from A' to B'](A,D){B,C}
+		\coordinate (N) at ($(A)!0.5!(D')$); % Lấy các trung điểm của các cạnh
+		\coordinate (M) at ($(C)!0.5!(D')$);
+		\coordinate (E) at ($(A)!0.5!(B')$);
+		\coordinate (F) at ($(C)!0.5!(B')$);
+		\coordinate (I) at ($(A)!0.5!(C)$);
+		\coordinate (J) at ($(B')!0.5!(D')$);
+		%\tkzLabelPoints[left](A',B',C',D',A,B,C,D)
+		\tkzDrawPoints[fill=black](N,M,I,J,E,F) % Vẽ các cạnh các điểm cần hiện ra
+		\tkzLabelPoints[left](N)
+		\tkzLabelPoints[right](M,F)
+		\tkzLabelPoints[above](A,B,C,D,I)
+		\tkzLabelPoints[below](A',B',C',D',J,E)
+		\tkzDrawSegments(A,A' A,D A,B' A',B' A,B A,C B,C B,B' B',C B',C' D,C C,C')
+		\tkzDrawSegments[dashed](A',D' D',C' D',B' A,D' D',D D',C)
+		\tkzDrawSegments[dashed](N,E N,J N,I N,M E,J E,I E,F F,J F,I M,I M,F M,J)
+		\end{tikzpicture}
+	\end{center}
+	\textbf{Chứng minh}
+	\begin{itemize}
+		\item Thể tích khối tám mặt đều $ IMNEFJ $ bằng tổng thể tích hai khối chóp tứ giác đều bằng nhau $ I.MNEF $ và $ J.MNEF $.
+		\item Khối chóp tứ giác đều $ I.MNEF $ có cạnh đáy $ MN=\dfrac{1}{2}AC=\dfrac{a\sqrt{2}}{2} $ và chiều cao $ \dfrac{a}{2} $. Do đó có $ V_{I.MNEF}=\dfrac{1}{3}\cdot  \dfrac{a^2}{2} \cdot \dfrac{a}{2}= \dfrac{a^3}{12}$.
+		\item Vậy $ V_{IMNEFJ}=2V_{I.MNEF}=\dfrac{a}{6} $.
+	\end{itemize}
+\end{dang}
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1B3-2]
+	Cho khối lập phương có thể tích là $ 8a^3 $. Tính thể tích khối tám mặt đều có đỉnh là tâm các mặt của hình lập phương.
+	\choice
+	{$ \dfrac{8a^3}{3} $}
+	{$ \dfrac{a^3}{6} $}
+	{$ \dfrac{a^3}{12} $}
+	{\True $ \dfrac{4a^3}{3} $}
+	\loigiai{
+		Khối lập phương có thể tích $ 8a^3 $ nên có độ dài cạnh là $ 2a $.\\
+		Áp dụng công thức $ V=\dfrac{(2a)^3}{6}=\dfrac{4a^3}{3} $.
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Bình Nguyên-EX-CTGN]%[2H1K3-2]
+	Thể tích khối tám mặt đều có đỉnh là tâm các mặt của hình lập phương có thể tích là $ V=\dfrac{\sqrt{3}a^3}{2} $. Tính độ dài cạnh của hình lập phương đó.
+	\choice
+	{$ a $}
+	{\True $ a\sqrt{3} $}
+	{$ a\sqrt{2}$}
+	{$ \dfrac{a}{2} $}
+	\loigiai{
+		Áp dụng công thức $V=\dfrac{a^3}{6}  $, suy ra $ a=\sqrt[3]{6V} =a\sqrt{3}$.
+	}
+\end{vd}
+
+\begin{dang}{Tứ diện đều}
+	\begin{center}
+		\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.7]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{0/0/B, 6/0/C, 5/-2/A, 3.8/6/D}
+		\tkzDefMidPoint(A,B) \tkzGetPoint{I}
+		\tkzDefMidPoint(A,C) \tkzGetPoint{J}
+		\tkzInterLL(C,I)(B,J) \tkzGetPoint{G}
+		%\tkzDefPointBy[translation=from A to A'](B) \tkzGetPoint{B'}
+		%\tkzDefPointBy[translation=from A to A'](C) \tkzGetPoint{C'}
+		\tkzLabelPoints[above right](G,D,C)
+		\tkzLabelPoints[below](B,I,J,A)
+		\tkzDrawPoints(A,B,C,G,D)
+		\tkzDrawSegments(A,B C,A D,A D,B D,C)
+		\tkzDrawSegments[dashed](B,C D,G C,I B,J)
+		%	\tkzMarkAngle(A',A,B) %[mark=s,arc=lll,size=2 cm,mkcolor=red]
+		\end{tikzpicture}
+	\end{center}
+	Tứ diện đều cạnh $a$ có thể tích $V=\dfrac{a^3\sqrt2}{12}$.
+	
+	\textbf{Chứng minh.}
+	Diện tích tam giác đều $ABC$ là $S=\dfrac{a^2\sqrt{3}}{4}$.\\
+	Đường cao tứ diện là $AG=\dfrac{a\sqrt{6}}{3}$.\\
+	Thể tích tứ diện là $V=\dfrac{1}{3}\cdot AG\cdot S_{\triangle ABC}=\dfrac{a^3\sqrt2}{12}$.
+	
+\end{dang}
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1B3-2]
+	Tính thể tích $V$ của khối tứ diện đều cạnh $2a$.
+	\choice
+	{$V=\dfrac{a^3\sqrt2}{12} $}
+	{$V=\dfrac{a^3\sqrt2}{6} $}
+	{$V=\dfrac{4a^3\sqrt2}{3} $}
+	{\True $V=\dfrac{2a^3\sqrt2}{3} $}
+	\loigiai{Áp dụng công thức tính nhanh, ta có $V=\dfrac{(2a)^3\sqrt2}{12}=\dfrac{2a^3\sqrt2}{3}$.}
+\end{vd}
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1K3-2]
+	Cho hình lăng trụ tam giác $ABC.A'B'C'$ có đáy là tam giác đều cạnh $a$; hình chiếu của $A'$ lên $(ABC)$ là trọng tâm tam giác $ABC$; góc giữa hai đường thẳng $CC'$ và $AB$ bằng $60^{\circ}$. Tính thể tích $A'ABC$.
+	\choice
+	{$\dfrac{a^3\sqrt2}{8} $}
+	{$\dfrac{2a^3\sqrt2}{3} $}
+	{$\dfrac{a^3\sqrt{3}}{12} $}
+	{\True $\dfrac{a^3\sqrt2}{12} $}
+	\loigiai{
+		\immini{Vì hình chiếu của $A'$ lên $(ABC)$ là trọng tâm tam giác đều $ABC$ nên $A'A=A'B=A'C$.\\
+			Mà $CC'\parallel AA'$ nên $60^{\circ}=(CC';AB)=(AA';AB)=\widehat{A'AB}$, suy ra $\triangle A'AB$ đều, do đó tứ diện là tứ diện $A'ABC$ đều cạnh $a$.\\
+			Vậy, áp dụng công thức tính nhanh ta có $V_{A'ABC}=\dfrac{a^3\sqrt2}{12}$.}{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.7]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/B, 6/0/C, 5/-2/A, 3.8/6/A'}
+			\tkzDefMidPoint(A,B) \tkzGetPoint{I}
+			\tkzDefMidPoint(A,C) \tkzGetPoint{J}
+			\tkzInterLL(C,I)(B,J) \tkzGetPoint{G}
+			\tkzDefPointBy[translation=from A to A'](B) \tkzGetPoint{B'}
+			\tkzDefPointBy[translation=from A to A'](C) \tkzGetPoint{C'}
+			\tkzLabelPoints[above right](G,A',B',C')
+			\tkzLabelPoints[below](B,I,J,A,C)
+			\tkzDrawPoints(A,B,C,G,A',B',C')
+			\tkzDrawSegments(A,B C,A A',B' B',C' C',A' A,A' B,B' C,C' A',B A',C)
+			\tkzDrawSegments[dashed](B,C A',G C,I B,J)
+			\tkzMarkAngle(A',A,B) %[mark=s,arc=lll,size=2 cm,mkcolor=red]
+			\end{tikzpicture}
+		}	
+		
+	}
+\end{vd}
+
+\begin{dang}{Tứ diện vuông}
+	\begin{center}
+		\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.5]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{0/0/O, 6/0/C, 5/-2/B, 0/6/A}
+		\tkzLabelPoints[above right](A,C)
+		\tkzLabelPoints[below left](O,B)
+		\tkzDrawSegments(O,A O,B A,B B,C C,A)
+		\tkzDrawSegments[dashed](O,C)
+		\tkzMarkRightAngles[size=0.3](A,O,B B,O,C C,O,A)
+		\end{tikzpicture}
+	\end{center}
+	Tứ diện $OABC$ có $OA=a$, $OB=b$, $OC=c$ và đôi một vuông góc nhau, có thể tích $$V=\dfrac{1}{6}abc.$$
+	\textbf{Chứng minh.}
+	Ta có $V_{OABC}=\dfrac{1}{3}\cdot OA \cdot S_{OBC}=\dfrac{1}{6}abc.$
+\end{dang}
+
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1B3-2]
+	Tính thể tích $V$ của khối chóp $S.ABC$ có $SA=a$, $SB=2a$, $SC=3a$ và đôi một vuông góc với nhau.
+	\choice
+	{\True $V=a^3 $}
+	{$V=2a^3 $}
+	{$V=\dfrac{a^3}{3} $}
+	{$V=\dfrac{2a^3}{3} $}
+	\loigiai{Ta có $V=\dfrac{1}{6}SA\cdot SB\cdot SC=a^3$.}
+\end{vd}
+
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1G3-2]
+	Cho khối chóp $S.ABC$ có $SA=a$, $AB=2a$, $AC=3a$ và $SA$ vuông góc mặt phẳng $(ABC)$. Tính giá trị lớn nhất của khối chóp $S.ABC$.
+	\choice
+	{$2a^3 $}
+	{\True $a^3 $}
+	{$6a^3 $}
+	{$3a^3 $}
+	\loigiai{
+		Ta có $V_{S.ABC}=\dfrac{1}{6}\cdot SA\cdot AB\cdot AC\cdot \sin\widehat{BAC}\leq \dfrac{1}{3}\cdot SA\cdot AB\cdot AC=a^3$.\\
+		Đẳng thức xảy ra khi $AB\perp AC$ hay $SABC$ là tứ diện vuông tại $A$.
+	}
+\end{vd}
+
+\begin{dang}{Thể tích tứ diện gần đều}
+	Cho tứ diện $ABCD$ có $AB=CD=a$, $AC=BD=b$, $AD=BC=c$. Lúc đó $$V_{ABCD}=\dfrac{\sqrt2}{12}\sqrt{(-a^2+b^2+c^2)(a^2-b^2+c^2)(a^2+b^2-c^2)}.$$
+	\textbf{Chứng minh.}\\
+	\immini{Qua $B$, $C$, $D$ dựng các đường thẳng song song với $CD$, $DB$, $BC$. Các đường thẳng này cắt nhau tại $M$, $N$, $P$ (hình vẽ).
+		
+		Ta có $BCDM$ là hình bình hành nên $BC=MD$, tương tự $BC=DP$. Kết hợp với giả thiết $AD=BC=c$ ta có $AD=MD=DP$, suy ra tam giác $AMD$ vuông tại $A$, hay $AM\bot AP$. Hơn nữa $AM^2+AP^2=MP^2=c^2$.
+		
+		Tương tự ta có $AP\bot AN$, $AP^2+AN^2=NP^2=b^2$ và $AN\bot AM$, $AN^2+AM^2=MN^2=a^2$.\\
+		
+	}{	 \begin{tikzpicture}[scale=0.6,>=stealth, line cap=round, line join=round]
+		\tkzDefPoints{1/5/A, -3/0/M, 2.5/-1.5/N, 5/0/P}
+		\draw[dashed](M)--(P);
+		\draw (A)--(M)--(N)--(P)--(A)--(N);
+		%\tkzDrawPoints[fill=black,size=2pt](A,B,C,D,H)
+		\draw (A) node[above] {$A$} (M) node[left] {$M$} (N) node[below] {$N$} (P) node[right] {$P$};
+		\coordinate (B) at ($(M)!1/2!(N)$);
+		\coordinate (C) at ($(N)!1/2!(P)$);
+		\coordinate (D) at ($(P)!1/2!(M)$);
+		\draw (B) node[below] {$B$} (C) node[below right] {$C$} (D) node[below] {$D$};
+		\draw[dashed](B)--(C)--(D)--(B);
+		\draw[dashed](A)--(D);
+		\draw (B)--(A)--(C);
+		\end{tikzpicture}
+	}
+	Ta có hệ 
+	
+	$\begin{cases}
+	AM^2+AP^2=4c^2 \\
+	AP^2+AN^2=4b^2\\
+	AN^2+AM^2=4a^2
+	\end{cases}$ $\Leftrightarrow$ $\begin{cases}
+	AM=\sqrt2\cdot\sqrt{c^2+a^2-b^2} \\
+	AP=\sqrt2\cdot\sqrt{b^2+c^2-a^2}\\
+	AN=\sqrt2\cdot\sqrt{a^2+b^2-c^2}
+	\end{cases}$.\\
+	Suy ra $$V_{ABCD}=\dfrac{1}{4}V_{AMNP}=\dfrac{1}{4}\cdot\dfrac{1}{6}\cdot AM\cdot AN\cdot AP=\dfrac{\sqrt2}{12}\sqrt{(-a^2+b^2+c^2)(a^2-b^2+c^2)(a^2+b^2-c^2)}.$$
+\end{dang}
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1G3-2]
+	Cho tứ diện $ABCD$ có các cạnh $AD=BC=3$; $AC=BD=4$; $AB=CD=2\sqrt{3}$. Thể tích tứ diện $ABCD$ bằng    
+	\choice
+	{ $\dfrac{\sqrt{2047}}{12}$}
+	{\True $\dfrac{\sqrt{2470}}{12}$}
+	{$\dfrac{\sqrt{2074}}{12}$ }
+	{$\dfrac{\sqrt{2740}}{12}$}
+	\loigiai{
+		Áp dụng công thức tính nhanh ở trên, ta dễ dàng tìm được $V_{ABCD}=\dfrac{\sqrt{2470}}{12}$.	
+	}
+\end{vd}
+
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1G3-2]
+	Cho tứ diện $ABCD$ có các cạnh $AD$, $BC$, $AC$, $BD$ không đổi và cùng bằng $a$, hai cạnh $AD$, $BC$ thay đổi và cùng bằng $x$. Tìm $x$ để thể tích khối tứ diện $ABCD$ đạt giá trị lớn nhất.
+	\choice
+	{$x=\dfrac{2a}{\sqrt{6}} $}
+	{$x=\dfrac{a}{2} $}
+	{\True $x=\dfrac{2a}{\sqrt{3}} $}
+	{$x=\dfrac{a}{2\sqrt{3}} $}
+	\loigiai{
+		Áp dụng công thức giải nhanh, ta có
+		\begin{eqnarray*}
+			V_{ABCD}&=&\dfrac{\sqrt2}{12}\sqrt{x^2\cdot x^2\cdot (2a^2-x^2)}=\dfrac{1}{12}\sqrt{x^2\cdot x^2\cdot (4a^2-2x^2)}\\
+			&\leq& \dfrac{1}{12}\sqrt{\left(\dfrac{x^2+x^2+4a^2-2x^2}{3}\right)^3}=\dfrac{2a^3\sqrt{3}}{27}.
+		\end{eqnarray*} 
+		Đẳng thức xảy ra khi $x^2=4a^2-2x^2 \Leftrightarrow x=\dfrac{2a}{\sqrt{3}}$.
+	}
+\end{vd}
+
+
+\begin{dang}{Thể tích tứ diện khi biết ba cạnh và ba góc ở đỉnh}
+	%\begin{center}
+	%	\begin{tikzpicture}[scale=0.7]
+	%	\tkzDefPoints{0/0/A, 6/0/C, 2/-2/B, 2/4/S}
+	%	\coordinate(B') at ($(S)!0.8!(B)$);
+	%	\coordinate(C') at ($(S)!0.7!(C)$);
+	%	\tkzDrawSegments[dashed](A,C)
+	%	\tkzDrawSegments(S,A S,B S,C A,B B,C)
+	%	\tkzLabelPoints[above](S)
+	%	\tkzLabelPoints[left](A)
+	%	\tkzLabelPoints[right](C)
+	%	\tkzLabelPoints[below](B)
+	%	\tkzMarkSegments[](S,A S,B S,C)
+	%	\tkzDrawPoints(A,B,C,S)
+	%	\end{tikzpicture}
+	%\end{center}
+	
+	Cho hình chóp $S.ABC$ có $SA=a$, $SB=b$, $SC=c$, $\widehat{BSC}=\alpha$, $\widehat{CSA}=\beta$, $\widehat{ASB}=\gamma$. Lúc đó thể tích khối chóp là $$V_{S.ABC}=\dfrac{abc}{6}\sqrt{1-\cos^2\alpha-\cos^2\beta-\cos^2\gamma+2\cos\alpha\cos\beta\cos\gamma}.$$
+	\textbf{Chứng minh.}\\
+	\begin{center}
+		\begin{tikzpicture}[scale=1.2]
+		\tkzDefPoints{0/0/A, 6/0/C, 2/-2/B, 3/4/S}
+		\coordinate(B') at ($(S)!0.8!(B)$);
+		\coordinate(C') at ($(S)!0.7!(C)$);
+		\tkzDefPointBy[homothety = center S ratio 0.4](A)\tkzGetPoint{I}
+		\tkzDefPointBy[homothety = center S ratio 0.8](B)\tkzGetPoint{I'}
+		\tkzDefPointBy[homothety = center S ratio 0.45](B)\tkzGetPoint{J}
+		\tkzDefPointBy[homothety = center S ratio 0.88](A)\tkzGetPoint{J'}
+		\tkzInterLL(I,I')(J,J') \tkzGetPoint{H}
+		\tkzDrawSegments[dashed](A,C I,C C,H)
+		\tkzDrawSegments(S,A S,B S,C A,B B,C J',J J,C I,I')
+		\tkzLabelPoints[above](S,I,J')
+		\tkzLabelPoints[left](A,I')
+		\tkzLabelPoints[above right](C,J)
+		\tkzLabelPoints[below left](B,H)
+		\tkzMarkSegments[](S,A S,B S,C)
+		\tkzMarkRightAngles[](A,I,I' B,J,J')
+		\tkzDrawPoints(A,B,C,S,I,I',J,J',H)
+		\end{tikzpicture}
+	\end{center}
+	Theo định lí về góc tam diện thì ít nhất hai trong 3 góc trên không tù, chẳng hạn $\alpha, \beta\leq 90^{\circ}$. Khi đó, lấy trên tia $SA, SB$ các điểm $I$ và $J$.\\
+	Qua $C$ kẻ mặt phẳng $(P)$ vuông góc $SA$ tại $I$, cắt $(SAB)$ theo giao tuyến $m$.\\
+	Qua $C$ kẻ mặt phẳng $(Q)$ vuông góc $SB$ tại $J$, cắt $(SAB)$ theo giao tuyến $n$.\\
+	Gọi $H=m\cap n$. Ta có $HI$ vuông góc với $IS$ và $HJ$ vuông góc với $JS$.\\
+	Đường tròn ngoại tiếp tứ giác $SIHJ$ có đường kính $SH$.\\
+	Ta có $SI=c\cdot \cos \beta; SJ=c\cdot \cos \alpha$, $IJ^2=SI^2+SJ^2-2SI\cdot SJ \cdot \cos \gamma$, suy ra $$SH=\dfrac{IJ}{\sin \gamma}=\dfrac{c \sqrt{\cos^2 \alpha + \cos ^2 \beta -2 \cos \alpha \cos \beta \cos \gamma}}{\sin \gamma}.$$
+	Trong tam giác vuông $SCH$, ta có 
+	$$CH^2=SC^2-SH^2=\dfrac{c^2(1+2 \cos \alpha \cos \beta \cos \gamma -\cos^2 \alpha - \cos^2 \beta - \cos^2 \gamma)}{\sin^2 \gamma}.$$
+	Mà diện tích tam giác $SAB$ là $S=\dfrac{1}2 ab \sin \gamma$. \\
+	Mặt khác, hai mặt phẳng $(P)$ và $(Q)$ cùng vuông góc $(SAB)$ nên $CH\perp (SAB)$ hay $CH$ là đường cao hình chóp $C.SAB$.\\
+	Từ đó suy ra $$V_{S.ABC}=V_{C.SAB}=\dfrac{abc}{6} \sqrt{1-\cos^2 \alpha -\cos ^2 \beta - \cos^2 \gamma + 2 \cos \alpha \cos \beta \cos \gamma}.$$
+\end{dang}
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1K3-2]
+	Cho hình chóp $S.ABC$ có $\widehat{ASB}=\widehat{CSB}=60^\circ$, $\widehat{ASC}=90^\circ$, $SA=SB=a, SC=3a$. Tính thể tích của khối chóp $S.ABC$.
+	\choice
+	{$\dfrac{a^3\sqrt{6}}{6}$}
+	{\True $\dfrac{a^3\sqrt2}{4}$}
+	{$\dfrac{a^3\sqrt2}{12}$}
+	{$\dfrac{a^3\sqrt{6}}{18}$}
+	\loigiai{
+		Áp dụng công thức tính nhanh ở trên, ta được $V=\dfrac{a^3\sqrt2}{4}$.
+	}
+\end{vd}
+
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1G3-2]
+	Cho hình chóp $S.ABC$ có $SA=SB=2$, $SC=3$, $\widehat{ASB}=\widehat{BSC}=60^{\circ}$, $\widehat{CSA}=x$, với $x>0$. Khi $x$ thay đổi, tính giá trị nhỏ nhất $V_{\min}$ của thể tích khối chóp $S.ABC$.
+	\choice
+	{\True $V_{\min}= \dfrac{\sqrt{7}}2$}
+	{$V_{\min}= \dfrac{\sqrt{3}}2$}
+	{$V_{\min}=\dfrac{\sqrt{13}}2 $}
+	{$V_{\min}= \dfrac{3\sqrt2}2$}
+	\loigiai{
+		Áp dụng công thức giải nhanh, ta có $$V_{S.ABC}=\dfrac{2\cdot 2\cdot 3}{6}\sqrt{\dfrac{1}2+\dfrac{1}2\cos x-\cos^2x}=2\sqrt{\dfrac{7}{16}+\left(\dfrac{1}{4}-\cos x\right)^2}.$$
+		Từ đó suy ra $V\geq \dfrac{\sqrt{7}}2$, đẳng thức xảy ra khi $x=\arccos\dfrac{1}{4}$.
+	}
+	
+\end{vd}
+
+
+\begin{dang}{Thể tích tứ diện khi biết độ dài; khoảng cách và góc của một cặp cạnh đối}
+	Cho tứ diện $ABCD$ có $AB=a$, $CD=b$, khoảng cách giữa $AB$ và $CD$ bằng $d$, đồng thời góc giữa $AB$ và $CD$ bằng $\alpha$. Lúc đó $$V_{ABCD}=\dfrac{1}{6}abd\sin\alpha.$$
+	\textbf{Chứng minh.}\\
+	Dựng hình lăng trụ $AEF.BCD\Rightarrow EC=AB=a$.\\
+	$\left(EC,CD\right)=\left(AB,CD\right)=\alpha$.\\
+	$\mathrm{\,d}\left(AB,CD\right)=d=\mathrm{\,d}\left(AB,(CDEF)\right)=\mathrm{\,d}\left(A,(CDEF)\right)=d$.\\
+	\immini{	Suy ra 
+		\begin{eqnarray*}
+			V_{A.CDFE}&=&\dfrac{1}{3}AH\cdot S_{CDFE}\\
+			&=&\dfrac{1}{3}\cdot d\cdot EC\cdot CD\cdot \sin\left(EC,CD\right)\\
+			&=&\dfrac{1}{3}\cdot d\cdot a\cdot b \cdot \sin \alpha.
+		\end{eqnarray*}
+		
+		Ta có 
+		\begin{eqnarray*}
+			V_{ABCD}&=&\dfrac{1}{3}\cdot AH\cdot S_{\triangle BCD}=\dfrac{1}{3}V_{AEF.BCD},\\ V_{ABCD}+V_{A.CDFE}&=&V_{AEF.BCD}\Rightarrow V_{ABCD}=\dfrac{1}2V_{A.CDFE}=\dfrac{1}{6}abd\sin\alpha.
+		\end{eqnarray*}
+		
+	}{\begin{tikzpicture}[>=stealth, line join=round, line cap = round,scale=0.8]
+		\def \nx{-1}%độ nghiêng
+		\def \ny{4}% chiều dài cạnh bên
+		\tkzDefPoints{0/0/D, 5/0/C, 2.8/-1.5/B}
+		\coordinate (A) at ($(B)+(\nx,\ny)$);
+		\coordinate (E) at ($(A)-(B)+(C)$);
+		\coordinate (F) at ($(A)-(B)+(D)$);
+		\coordinate (H) at ($(A)-(0,\ny-1)$);
+		\tkzDrawSegments(D,B B,C F,A A,E E,F D,F B,A C,E A,D A,C)
+		\tkzDrawSegments[dashed](D,C A,H)
+		\tkzDrawPoints(D,B,C,F,A,E,H)
+		\tkzLabelPoints[left](D)
+		\tkzMarkRightAngle(A,H,B)
+		\tkzLabelPoint[left](H){\footnotesize $H$}
+		\tkzLabelPoints[below](B)
+		\tkzLabelPoints[right](C)
+		\tkzLabelPoints[above left](F,A,E)
+		\end{tikzpicture}}
+\end{dang}
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1K3-2]
+	Cho tứ diện $ABCD$, có $AB=CD=6$ (cm), khoảng cách giữa $AB$ và $CD$ bằng $12$ (cm), góc giữa hai đường thẳng $AB$ và $CD$ bằng $30^\circ$. Tính thể tích khối tứ diện $ABCD$.
+	\choice
+	{\True $36$ (cm$^3$)}
+	{$25$ (cm$^3$)}
+	{$60$ (cm$^3$)}
+	{$32$ (cm$^3$)}
+	\loigiai{Áp dụng công thức tính nhanh ở trên, ta được $V_{ABCD}=36$ (cm$^3$).
+	}
+\end{vd}
+
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1G3-2]
+	Cho tứ diện $ABCD$ có $AB=a$, $CD=2a$, khoảng cách giữa hai đường thẳng $AB$ và $CD$ bằng $a\sqrt{3}$. Gọi $\alpha$ là góc giữa hai đường thẳng $AB$ và $CD$. Khi $\alpha$ thay đổi, thể tích khối tứ diện $ABCD$ đạt giá trị lớn nhất bằng bao nhiêu?
+	\choice
+	{$\dfrac{a^3\sqrt2}{3} $}
+	{\True $\dfrac{a^3\sqrt{3}}{3} $}
+	{$\dfrac{2a^3}{3} $}
+	{$\dfrac{a^3\sqrt{6}}{3} $}
+	\loigiai{
+		Áp dụng công thức giải nhanh, ta có $V=\dfrac{a\cdot 2a\cdot a\sqrt{3}}{6}\sin\alpha=\dfrac{a^3\sqrt{3}}{3}\sin\alpha\leq \dfrac{a^3\sqrt{3}}{3}$.\\
+		Đẳng thức xảy ra khi $\sin\alpha=1$ hay $\alpha=90^{\circ}$.
+	}
+	
+\end{vd}
+
+
+\begin{dang}{Thể tích tứ diện khi biết một cạnh; diện tích và góc giữa hai mặt kề hoặc biết $3$ cạnh; $2$ góc ở đỉnh và $1$ góc nhị diện}
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+		\tkzDefPoints{0/0/A, 6/0/C, 2/-2/B, 3/4/S}
+		\coordinate(B') at ($(S)!0.8!(B)$);
+		\coordinate(C') at ($(S)!0.7!(C)$);
+		\tkzDefPointBy[homothety = center S ratio 0.4](A)\tkzGetPoint{I}
+		\tkzDefPointBy[homothety = center S ratio 0.8](B)\tkzGetPoint{K}
+		\tkzDefPointBy[homothety = center S ratio 0.45](C)\tkzGetPoint{J}
+		\tkzDrawSegments[dashed](A,C I,J)
+		\tkzDrawSegments(S,A S,B S,C A,B B,C I,K)
+		\tkzLabelPoints[above](S,I)
+		\tkzLabelPoints[left](A)
+		\tkzLabelPoints[above right](C,K,J)
+		\tkzLabelPoints[below left](B)
+		\tkzMarkAngle[size=0.2](K,I,J)
+		\tkzDrawPoints(A,B,C,S,I,K,J)
+		\end{tikzpicture}
+	\end{center}
+	Cho hình chóp $S.ABC$ có $S_{\triangle SAB}=S_1$, $S_{\triangle SAC}=S_2$, $SA=a$ và $\left((SAB);(SAC)\right)=\alpha$. Lúc đó $$V_{S.ABC}=\dfrac{2S_1S_2\sin\alpha}{3a}.$$
+	
+	Cho hình chóp $S.ABC$ có $SA=a$, $SB=b$, $SC=c$, $\left((SAB);(SAC)\right)=\alpha$, $\widehat{ASB}=\beta$, $\widehat{ASC}=\gamma$. Lúc đó $$V_{S.ABC}=\dfrac{abc}{6}\sin\alpha\sin\beta\sin\gamma.$$
+\end{dang}
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1K3-2]
+	Cho hình chóp $S.ABC$ có các mặt bên $SAB$ và $SAC$ là các tam giác đều cạnh $2a$, góc giữa $(SAB)$ và $(SAC)$ bằng $30^{\circ}$. Tính thể tích khối chóp $S.ABC$.
+	\choice
+	{$\dfrac{a^3}{16} $}
+	{$\dfrac{a^3}{8} $}
+	{$\dfrac{a^3}{4} $}
+	{\True $\dfrac{a^3}2 $}
+	\loigiai{Áp dụng công thức tính nhanh ở trên, ta có $V_{S.ABC}=\dfrac{a^3}2$.
+	}
+\end{vd}
+
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1G3-2]
+	Cho hình chóp $S.ABC$ có $SA$ vuông góc $SB$, $SA=a$, $SB=3a$, $\triangle SAC$ có diện tích không đổi $S_0$ và $((SAB);(SAC))=60^{\circ}$. Trên các tia $SA$, $BS$ lần lượt lấy các điểm $M, N$ sao cho $SM=BN=x$, với $0<x<3a$. Khi $x$ thay đổi, tìm giá trị lớn nhất của $V_{S.MNC}$.
+	\choice
+	{$2aS_0 $}
+	{\True $\dfrac{aS_0\sqrt{3}}{8} $}
+	{$\dfrac{aS_0\sqrt{3}}{4} $}
+	{$\dfrac{aS_0\sqrt{3}}{6} $}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{0/0/A, 6/0/C, 2/-2/B, 3/4/S}
+			\coordinate(B') at ($(S)!0.8!(B)$);
+			\coordinate(C') at ($(S)!0.7!(C)$);
+			\tkzDefPointBy[homothety = center S ratio 0.4](A)\tkzGetPoint{M}
+			\tkzDefPointBy[homothety = center S ratio 0.8](B)\tkzGetPoint{N}
+			%\tkzDefPointBy[homothety = center S ratio 0.45](C)\tkzGetPoint{J}
+			\tkzDrawSegments[dashed](A,C M,C)
+			\tkzDrawSegments(S,A S,B S,C A,B B,C N,C M,N)
+			\tkzLabelPoints[above](S,M)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[above right](C,N)
+			\tkzLabelPoints[below left](B)
+			%\tkzMarkAngle[size=0.2](K,I,J)
+			\tkzDrawPoints(A,B,C,S,M,N)
+			\end{tikzpicture}
+		\end{center}
+		Đặt $S=S_{\triangle SAC}$.
+		Ta có $SM=x$ và $SN=3a-x$ nên $S_{SMN}=\dfrac{1}2x(3a-x)$.\\
+		Áp dụng công thức giải nhanh cho khối chóp $S.MNC$, ta có $$V_{S.MNC}=\dfrac{Sx(3a-x)\sin60^{\circ}}{3a}\leq \dfrac{\sqrt{3}S}{6a}\left(\dfrac{x+3a-x}2\right)^2=\dfrac{aS\sqrt{3}}{8}.$$
+		Đẳng thức xẩy ra khi $x=3a-x \Leftrightarrow x=\dfrac{3a}2$.
+	}
+	
+\end{vd}
+
+\begin{dang}{Liên hệ giữa thể tích khối tứ diện và khối hộp}
+	Cho khối hộp $ABCD.A'B'C'D'$ có thể tích $V$.
+	\begin{center}
+		\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.7]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{0/0/A,2/2/B,4/0/C,6/2/D,-1/4/A'}
+		\coordinate (B') at ($(B) + (A')$);
+		\coordinate (C') at ($(C) + (A')$);
+		\coordinate (D') at ($(D) + (A')$);
+		\tkzDrawPoints(A,B,C,D,A',B',C',D')
+		\tkzLabelPoints[above right](B',D')
+		\tkzLabelPoints[above left](A',C')
+		\tkzLabelPoints[above right](B,D)
+		\tkzLabelPoints[below right](A,C)
+		\tkzDrawSegments(A,A' A,C C,D D,D' D',B' B',A' A',C' C',D' C,C' A',D' A',C C,D')
+		\tkzDrawSegments[dashed](B,B' A,B B,D A',B B,C B,D')
+		\end{tikzpicture}
+	\end{center}
+	Khi đó 
+	\begin{itemize}
+		\item Khối tứ diện $A'ABC$ có thể tích là $\dfrac{1}{6}V$.
+		\item Khối tứ diện $A'BCD'$ có thể tích là $\dfrac{1}{3}V$.
+	\end{itemize}
+	\textbf{Chứng minh.} 
+	\begin{itemize}
+		\item Khối chóp $A'.ABC$ có diện tích đáy $ABC$ bằng một nửa diện tích đáy $ABCD$ và có chiều cao bằng chiều cao khối hộp nên nó có thể tích bằng $\dfrac{1}{6}V$.
+		\item Tương tự $V_{A.A'B'D'}=V_{C.C'B'D'}=V_{B'.ABC}=V_{D'.ACD}=\dfrac{1}{6}V$.
+	\end{itemize}
+	Suy ra $$V_{A'BCD'}=V-(V_{A.A'B'D'}+V_{C.C'B'D'}+V_{B'.ABC}+V_{D'.ACD})=V-4\cdot \dfrac{1}{6}V=\dfrac{1}{3}V.$$
+\end{dang}
+
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1G3-2]
+	Cho hình hộp $ABCD.A'B'C'D'$ có thể tích bằng $a^3$. Tính thể tích khối tứ diện $A'.ABC$.
+	\choice
+	{\True $\dfrac{a^3}{6} $}
+	{$\dfrac{2a^3}{3} $}
+	{$\dfrac{a^3}{3} $}
+	{$\dfrac{a^3}{4} $}
+	\loigiai{Áp dụng công thức tính nhanh, ta có $V_{A'.ABC}=\dfrac{1}{6}a^3$.
+		
+	}
+\end{vd}
+
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1G3-2]
+	Cho hình hộp $ABCD.A'B'C'D'$ có thể tích bằng $6a^3$. Tam giác $BCD'$ có diện tích bằng $a^3$. Tính khoảng cách từ $D$ đến mặt phẳng $(BCD')$.
+	\choice
+	{\True $ 3a$}
+	{$a$}
+	{$ \dfrac{a\sqrt{3}}{3}$}
+	{$ \dfrac{a\sqrt{3}}{2}$}
+	\loigiai{
+		Áp dụng công thức tính nhanh, ta có $V_{D'BCD}=\dfrac{1}{6}V{ABCD.A'B'C'D'}=a^3$ nên $$\mathrm{\,d}(D;(BCD'))=\dfrac{3V_{D'BCD}}{S_{\triangle BCD'}}=3a.$$
+	}
+\end{vd}
+
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1K3-2]
+	Cho khối hộp $ABCD.A'B'C'D'$ có $S_{\triangle ABC}=a^2$, khoảng cách giữa hai mặt phẳng $(ABCD)$ và $(A'B'C'D')$ bằng $2a$. Tính thể tích khối tứ diện $A'BCD'$.
+	\choice
+	{\True $V_{A'BCD'}=\dfrac{4}{3}a^3 $}
+	{$V_{A'BCD'}=\dfrac2{3}a^3 $}
+	{$V_{A'BCD'}=2a^3 $}
+	{$V_{A'BCD'}=\dfrac{a^3}{3} $}
+	\loigiai{Khối hộp $ABCD.A'B'C'D'$ có diện tích đáy $ABCD$ là $S=2S_{\triangle ABC}=2a^2$ và chiều cao $h=\mathrm{\,d}((ABCD);(A'B'C'D'))=2a$, suy ra $V_{ABCD.A'B'C'D'}=Sh=4a^3$.\\
+		Áp dụng công thức tính nhanh ta có $V_{A'BCD'}=\dfrac{1}{3}V_{ABCD.A'B'C'D'}=\dfrac{4}{3}a^3$.
+		
+	}
+\end{vd}
+
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1K3-2]
+	Tính thể tích $V$ của hình hộp $ABCD.A'B'C'D'$ có $A'B=A'C=A'D'=BC=BD=CD'=2a$.
+	\choice
+	{\True $V=2a^3\sqrt{2}$}
+	{$V=a^3\sqrt{2}$}
+	{$V=4a^3\sqrt{2}$}
+	{$V=3a^3\sqrt{2}$}
+	\loigiai{
+		Theo giả thiết, $A'B=A'C=A'D'=BC=BD=CD'=2a$ nên $A'BCD'$ là tứ diện đều cạnh $2a$. \\
+		Do đó $V_{A'BCD'}=\dfrac{(2a)^3\sqrt2}{12}=\dfrac{2a^3\sqrt2}{3}$. Suy ra $V=3V_{A'BCD'}=2a^3\sqrt{2}$.
+	}
+\end{vd}
+
+\begin{dang}{Liên hệ giữa thể tích khối tứ diện và thể tích khối lăng trụ tam giác}
+	\immini{Cho khối lăng trụ tam giác $ABC.A'B'C'$ có thể tích $V$. Lúc đó $V_{A'ABC}=\dfrac{1}{3}V$.\\
+		\textbf{Chứng minh.}\\
+		Ta có $V_{A'ABC}=\dfrac{1}{3}\mathrm{\,d}(A';(ABC))\cdot S_{\triangle ABC}=\dfrac{1}{3}V$.}{\begin{tikzpicture}[>=stealth, line join=round, line cap = round,scale=0.8]
+		\def \nx{-1}%độ nghiêng
+		\def \ny{4}% chiều dài cạnh bên
+		\tkzDefPoints{0/0/B, 5/0/C, 2.8/-1.5/A}
+		\coordinate (A') at ($(A)+(\nx,\ny)$);
+		\coordinate (C') at ($(A')-(A)+(C)$);
+		\coordinate (B') at ($(A')-(A)+(B)$);
+		%\coordinate (H) at ($(A)-(0,\ny-1)$);
+		\tkzDrawSegments(A',B' B',C' C',A' A,A' B,B' C,C' A,B A,C A',B A',C)
+		\tkzDrawSegments[dashed](B,C)
+		\tkzDrawPoints(A,B,C,A,B',C')
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[below](A)
+		\tkzLabelPoints[right](C)
+		\tkzLabelPoints[above left](B')
+		\tkzLabelPoints[above](A')
+		\tkzLabelPoints[above left](C')
+		\end{tikzpicture}}
+\end{dang}
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1B3-2]
+	Cho khối lăng trụ tam giác $ABC.A'B'C'$ có thể tích $3a^3$. Tính thể tích khối chóp $A'.ABC$.
+	\choice
+	{\True $a^3 $}
+	{$\dfrac{a^3}{3} $}
+	{$\dfrac{a^3}{6} $}
+	{$\dfrac{2a^3}{3} $}
+	\loigiai{
+		Ta có $V_{A'.ABC}=\dfrac{1}{3}V=a^3$.
+	}
+\end{vd}
+
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1B3-2]
+	Cho khối lăng trụ tam giác $ABC.A'B'C'$ có thể tích $V$. Tính thể tích khối $A'BCC'B'$.
+	\choice
+	{$\dfrac{1}{3}V $}
+	{$ \dfrac{1}{4}V$}
+	{\True $ \dfrac{2}{3}V$}
+	{$\dfrac{3}{4}V $}
+	\loigiai{
+		Ta có $V_{A'ABC}=\dfrac{1}{3}V$ nên $V_{A'BCB'C'}=V-V_{A'ABC}=\dfrac{2}{3}V$.
+	}
+\end{vd}
+
+\begin{dang}{Khối lập phương nội tiếp khối bát diện đều}
+	\immini{Khối lập phương có các đỉnh là tâm các mặt khối khối bát diện đều cạnh $a$, có thể tích là $V=\dfrac{2a^3\sqrt{2}}{27}$.\\
+		%	\textbf{Chứng minh.}\\
+		%Xét các trung điểm $M, N$ và tâm các mặt là $C, D$ như hình vẽ.\\
+		%Ta có cạnh của khối lập phương là $CD=\dfrac{2}{3}HK=\dfrac{1}{3}a\sqrt{2}$.\\
+		%Do đó thể tích khối lập phương là $V=\dfrac{2a^3\sqrt{2}}{27}$.
+	}{\begin{tikzpicture}[scale=7]
+		\coordinate (A1) at (0,0);
+		\coordinate (A2) at (0.6,0.17);
+		\coordinate (A3) at (1,0);
+		\coordinate (A4) at (0.4,-0.17);
+		\coordinate (B1) at (0.5,0.48);
+		\coordinate (B2) at (0.5,-0.48);
+		
+		\begin{scope}[dashed,opacity=0.6]
+		\draw (A1) -- (A2) -- (A3);
+		\draw (B1) -- (A2) -- (B2);
+		\end{scope}
+		\draw (A1) -- (A4) -- (B1);
+		\draw (A1) -- (A4) -- (B2);
+		\draw (A3) -- (A4) -- (B1);
+		\draw (A3) -- (A4) -- (B2);
+		\draw (B1) -- (A1) -- (B2) -- (A3) --cycle;
+		\tkzCentroid(B1,A2,A3)\tkzGetPoint{B}
+		\tkzCentroid(B1,A1,A2)\tkzGetPoint{A}
+		\tkzCentroid(B1,A3,A4)\tkzGetPoint{C}
+		\tkzCentroid(B1,A4,A1)\tkzGetPoint{D}
+		\tkzCentroid(B2,A2,A3)\tkzGetPoint{B'}
+		\tkzCentroid(B2,A1,A2)\tkzGetPoint{A'}
+		\tkzCentroid(B2,A3,A4)\tkzGetPoint{C'}
+		\tkzCentroid(B2,A4,A1)\tkzGetPoint{D'}
+		\tkzDefMidPoint(A1,A4) \tkzGetPoint{M}
+		\tkzDefMidPoint(A3,A4) \tkzGetPoint{N}
+		\tkzDrawPoints(A,B,C,D,A',B',C',D', A1,A2,A3,A4,B1,B2)
+		\tkzDrawSegments[dashed](A,B B,C C,D D,A A',B' B',C' C',D' D',A' A,A' B,B' C,C' D,D')
+		%\tkzDrawSegments(B1,M B1,N)
+		%\tkzLabelPoints(C)
+		%\tkzLabelPoints[above left](D)
+		%\tkzLabelPoints[below](M,N)
+		\end{tikzpicture}} 
+\end{dang}
+
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1K3-2]
+	Một chiếc lồng đèn có hình bát diện đều với độ dài các cạnh bằng $4$ cm. Người ta đặt vào bên trong chiếc lồng đèn đó một chiếc hộp thủy tinh hình lập phương sao cho các đỉnh của hình lập phương này trùng với tâm các mặt hình bát diện đều. Tính thể tích khối lập phương đó.
+	\choice
+	{$\dfrac{64\sqrt{2}}{27}$ (cm)$^3$}
+	{\True $\dfrac{128\sqrt{2}}{27}$ (cm)$^3$}
+	{$\dfrac{2\sqrt{2}}{27}$ (cm)$^3$}
+	{$\dfrac{4\sqrt{2}}{27}$ (cm)$^3$}
+	\loigiai{
+		Thể tích khối lập phương là $V=\dfrac{2\cdot 4^3\cdot \sqrt{2}}{27}=\dfrac{128\sqrt{2}}{27}$ (cm)$^3$.
+	}
+\end{vd}
+
+\begin{vd}%[Trần Quang Thạnh-Ex-CTGN]%[2H1B3-2]
+	Cho khối bát diện đều và khối lập phương có đỉnh là tâm các mặt khối bát diện đều. Biết rằng thể tích khối lập phương là $2a^3\sqrt{2}$. Tính độ dài cạnh khối bát diện đều.
+	\choice
+	{$a$}
+	{$2a$}
+	{\True $3a$}
+	{$\dfrac{a}{3}$}
+	\loigiai{Giả sử bát diện đều có cạnh là $x>0$.\\
+		Thể tích khối lập phương là $\dfrac{2x^3\sqrt{2}}{27}=2a^3\sqrt{2} \Rightarrow x=3a$.}
+\end{vd}
+
+\begin{dang}{Thể tích tứ diện khi biết độ dài $6$ cạnh}
+	Tứ diện $ABCD$ có $BC=a$, $CA=b$, $AB=c$, $AD=d$, $BD=e$, $CD=f$ ta có công thức tính thể tích của tứ diện theo sáu cạnh như sau \[V=\frac{1}{12}\sqrt{M+N+P-Q},\] trong đó 
+	\begin{align*}  M&={a^2}{d^2}({b^2}+{e^2}+{c^2}+{f^2}-{a^2}-{d^2}) \\  N&={b^2}{e^2}({a^2}+{d^2}+{c^2}+{f^2}-{b^2}-{e^2}) \\  P&={c^2}{f^2}({a^2}+{d^2}+{b^2}+{e^2}-{c^2}-{f^2}) \\  
+	Q&={{(abc)}^2}+{{(aef)}^2}+{{(bdf)}^2}+{{(cde)}^2}.
+	\end{align*}
+\end{dang}

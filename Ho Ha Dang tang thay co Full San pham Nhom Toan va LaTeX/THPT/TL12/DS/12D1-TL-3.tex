@@ -1,0 +1,2031 @@
+\section{GTLN VÀ GTNN CỦA HÀM SỐ}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Định nghĩa}
+\begin{dn}
+	Cho hàm số $y = f(x)$ xác định trên tập $\mathscr{D}$.
+	\begin{enumerate}
+		\item Số $M$ được gọi là giá trị lớn nhất của hàm số $y = f(x)$ trên tập $\mathscr{D}$ nếu
+		\begin{enumerate}[i)]
+			\item $\forall x \in \mathscr{D}: f(x) \leq M$;
+			\item $\exists x_0 \in \mathscr{D}: f(x_0) = M$.
+		\end{enumerate}
+		Kí hiệu $M = \max\limits_{\mathscr{D}} f(x)$.
+		\item Số $m$ được gọi là giá trị nhỏ nhất của hàm số $y = f(x)$ trên tập $\mathscr{D}$ nếu
+		\begin{enumerate}[i)]
+			\item $\forall x \in \mathscr{D}: f(x) \geq m$;
+			\item $\exists x_0 \in \mathscr{D}: f(x_0) = m$.
+		\end{enumerate}
+		Kí hiệu $m = \min\limits_{\mathscr{D}} f(x)$.
+	\end{enumerate}
+\end{dn}
+
+\setcounter{vd}{0}
+\begin{vd}%[Cao Thành Thái]%[2D1B3]
+	Tìm giá trị nhỏ nhất và giá trị lớn nhất của hàm số $y = x - 5 + \dfrac{1}{x}$ trên khoảng $(0;+\infty)$.
+	\loigiai
+	{
+		Trên khoảng $(0; +\infty)$, ta có $y' = 1 - \dfrac{1}{x^2} = \dfrac{x^2 - 1}{x^2}$;
+		$$y' = 0 \Leftrightarrow x^2 - 1 = 0 \Leftrightarrow x = 1.$$
+		Bảng biến thiên
+		\begin{center}
+			\begin{tikzpicture}[scale=1]
+			\tkzTabInit[nocadre=false,lgt=1.2,espcl=3]
+			{$x$ /0.6,$y'$ /0.6,$y$ /1.6}
+			{$0$,$1$,$+\infty$}%
+			\tkzTabLine{ , - ,0,+, }
+			\tkzTabVar{+/ $+\infty$  , -/ $-3$, +/ $+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Dựa vào bảng biến thiên ta thấy trên khoảng $(0;+\infty)$ hàm số có giá trị cực tiểu duy nhất, đó cũng là giá trị nhỏ nhất của hàm số.\\
+		Vậy $\min\limits_{(0;+\infty)} f(x) = -3$ tại $x = 1$. Không có giá trị lớn nhất của $f(x)$ trên khoảng $(0;+\infty)$.
+	}
+\end{vd}
+%\begin{dl}
+%Nội dung định lí
+%\end{dl}
+%\begin{hq}
+%Nội dung hệ quả
+%\end{hq}
+%\begin{note}
+%Nội dung chú ý
+%\end{note}
+%\begin{kn}
+%Nội dung khái niệm
+%\end{kn}
+\subsubsection{Cách tính giá trị lớn nhất và giá trị nhỏ nhất của hàm số trên một đoạn}
+\begin{dl}
+	Mọi hàm số liên tục trên một đoạn đều có giá trị lớn nhất và giá trị nhỏ nhất trên đoạn đó.
+\end{dl}
+\textbf{Quy tắc tìm giá trị lớn nhất, giá trị nhỏ nhất của hàm số liên tục trên một đoạn}\\
+\textbf{\textit{Nhận xét.}}   Nếu hàm số $y = f(x)$ có đạo hàm $f'(x)$ giữ nguyên dấu trên đoạn $[a;b]$ thì hàm số đồng biến hoặc nghịch biến trên cả đoạn. Do đó, $f(x)$ đạt được giá trị lớn nhất và giá trị nhỏ nhất tại các đầu mút của đoạn.\\
+\textbf{Quy tắc} Để tìm giá trị lớn nhất, giá trị nhỏ nhất của hàm số $y = f(x)$ trên đoạn $[a;b]$ ta làm như sau:
+\begin{itemize}
+	\item Tìm $f'(x)$ và tìm các điểm $x_1, x_2, \ldots , x_n$ trên khoảng $[a;b]$ mà tại đó $f'(x) = 0$ hoặc $f'(x)$ không xác định.
+	\item Tính $f(x_1), f(x_2), \ldots , f(x_n), f(a), f(b)$.
+	\item Tìm số lớn nhất $M$ và số nhỏ nhất $m$ trong các số trên. Khi đó
+	$$M = \max\limits_{[a;b]} f(x); m = \min\limits_{[a;b]} f(x).$$
+\end{itemize}
+
+
+\begin{vd}[Cao Thành Thái][2D1B3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số $y = 2x^3 + 3x^2 - 12x + 2$ trên đoạn $[-1;2]$.
+	\loigiai
+	{
+		Ta có: $y' = 6x^2 + 6x - 12$.
+		$$y' = 0 \Leftrightarrow 6x^2 + 6x - 12 = 0 \Leftrightarrow \left[\begin{array}{ll} x &= 1 \\ x &= -2. \end{array}  \right.$$
+		Trên đoạn $[-1;2]$ ta có: $y(-1) = 15; \, y(1) = -5; \, y(2) = 6$.\\
+		Vậy $\max\limits_{[-1;2]} y = 15$ tại $x = -1$ và $\min\limits_{[-1;2]} y = -5$ tại $x = 1$.
+	}
+\end{vd}
+
+\begin{note}
+	Hàm số liên tục trên một khoảng có thể không có giá trị lớn nhất và giá trị nhỏ nhất trên khoảng đó.
+\end{note}
+
+\begin{vd}%[Cao Thành Thái]%[2D1B3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số $f(x) = \dfrac{1}{x}$ trên khoảng $(0;1)$.
+	\loigiai
+	{
+		Trên khoảng $(0; 1)$, ta có $f'(x) = - \dfrac{1}{x^2} < 0$.\\
+		Bảng biến thiên
+		\begin{center}
+			\begin{tikzpicture}[scale=1]
+			\tkzTabInit[nocadre=false,lgt=1.2,espcl=3]
+			{$x$ /0.6,$f'(x)$ /0.6,$f(x)$ /1.6}
+			{$0$,$1$}%
+			\tkzTabLine{ , - , }
+			\tkzTabVar{+/ $+\infty$  , -/ $1$}
+			\end{tikzpicture}
+		\end{center}
+		Dựa vào bảng biến thiên ta thấy trên khoảng $(0;1)$ hàm số không có giá trị lớn nhất, cũng không có giá trị nhỏ nhất.
+	}
+\end{vd}
+
+\textbf{Một số phương pháp khác tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số}\\
+Cho hàm số $y = f(x)$.
+\begin{enumerate}
+	\item Phương pháp miền giá trị
+	\begin{itemize}
+		\item Xem $y = f(x)$ là phương trình đối với ẩn số $x$ và $y$ là tham số;
+		\item Tìm điều kiện của $y$ để phương trình $y = f(x)$ có nghiệm;
+		\item Từ điều kiện trên, biến đổi đưa đến dạng $m \leq y \leq M$. Xét dấu ``='' xảy ra và kết luận.
+	\end{itemize}
+	\item Phương pháp đạo hàm
+	\begin{itemize}
+		\item Khảo sát sự biến thiên của hàm số $y = f(x)$;
+		\item Dựa vào bảng biến thiên để kết luận.
+	\end{itemize}
+	\item Phương pháp dùng bất đẳng thức
+	\begin{itemize}
+		\item Dùng các bất đẳng thức quen thuộc để chứng minh $f(x) \leq M$ hoặc $f(x) \geq m$.
+		\item Phải chỉ ra tồn tại $x_1, x_2 \in \mathscr{D}$ sao cho $f(x_1) = M$, $f(x_2) = m$. Khi đó
+		$$M = \max\limits_{\mathscr{D}} f(x); m = \min\limits_{\mathscr{D}} f(x).$$
+	\end{itemize}
+\end{enumerate}
+\subsubsection{Các ví dụ áp dụng}
+
+\begin{vd}%[Cao Thành Thái]%[2D1B3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số $f(x) = x^4 - 18x^2 + 2$ trên đoạn $[-1;4]$.
+	\loigiai
+	{
+		Ta có: $f'(x) = 4x^3 - 36x$.
+		$$f'(x) = 0 \Leftrightarrow 4x^3 - 36x = 0 \Leftrightarrow 4x(x^2 - 9) = 0 \Leftrightarrow \left[\begin{array}{ll} x &= 0 \\ x &= \pm 3. \end{array}  \right.$$
+		Trên đoạn $[-1;4]$ ta có: $f(-1) = -15; \, f(3) = -79; \, f(4) = -30$.\\
+		Vậy $\max\limits_{[-1;4]} f(x) = -15$ tại $x = -1$ và $\min\limits_{[-1;4]} f(x) = -79$ tại $x = 3$.
+	}
+\end{vd}
+
+
+\begin{vd}%[Cao Thành Thái]%[2D1B3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số $y = x^6 - 3x^4 + \dfrac{9}{4}x^2 + \dfrac{1}{4}$ trên đoạn $[-1;1]$.
+	\loigiai
+	{
+		Ta có: $y' = 6x^5 - 12x^3 + \dfrac{9}{2}x$.
+		$$y' = 0 \Leftrightarrow 6x^5 - 12x^3 + \dfrac{9}{2}x = 0 \Leftrightarrow x(12x^4 - 24x^2 + 9) = 0 \Leftrightarrow \left[ \begin{array}{ll} x & = 0 \\ x^2 & = \dfrac{3}{2} \\ x^2 & = \dfrac{1}{2} \end{array}   \right. \Leftrightarrow \left[ \begin{array}{ll} x & = 0 \\ x & = \pm \dfrac{\sqrt{6}}{2} \\ x & = \pm \dfrac{\sqrt{2}}{2}. \end{array}   \right.$$
+		Trên đoạn $[-1;1]$ ta có: $y(-1) = \dfrac{1}{2}$; $y \left(-\dfrac{\sqrt{2}}{2} \right) = \dfrac{3}{4}$; $ y(0) = \dfrac{1}{4}$; $y \left(\dfrac{\sqrt{2}}{2} \right) = \dfrac{3}{4}$; $y(1) = \dfrac{1}{2}$.\\
+		Vậy $\max\limits_{[-1;1]} y = \dfrac{3}{4}$ tại $x = \pm \dfrac{\sqrt{2}}{2}$ và $\min\limits_{[-1;1]} y = \dfrac{1}{4}$ tại $x = 0$.
+	}
+\end{vd}
+
+
+\begin{vd}%[Cao Thành Thái]%[2D1B3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số $y = x + \dfrac{1}{x}$ trên đoạn $\left[ \dfrac{1}{2};2 \right]$.
+	\loigiai
+	{
+		Với $x \neq 0$ ta có: $y' = 1 - \dfrac{1}{x^2} = \dfrac{x^2 - 1}{x^2}$.
+		$$y' = 0 \Leftrightarrow \dfrac{x^2 - 1}{x^2} = 0 \Leftrightarrow x^2 - 1 = 0 \Leftrightarrow x = \pm 1.$$
+		Trên đoạn $\left[ \dfrac{1}{2};2 \right]$ ta có: $y\left( \dfrac{1}{2} \right) = \dfrac{5}{2}; \, y(1) = 2; \, y(2) = \dfrac{5}{2}$.\\
+		Vậy $\max\limits_{\left[ \frac{1}{2};2 \right]} y = \dfrac{5}{2}$ tại $x = \dfrac{1}{2}$ hoặc $x = 2$ và $\min\limits_{\left[ \frac{1}{2};2 \right]} y = 2$ tại $x = 1$.
+	}
+\end{vd}
+
+
+\begin{vd}%[Cao Thành Thái]%[2D1B3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số $f(x) = \sqrt{x^2 - 4x + 5}$ trên đoạn $[-2;3]$.
+	\loigiai
+	{
+		Ta có: $f'(x) = \dfrac{x-2}{\sqrt{x^2 - 4x + 5}}$.
+		$$f'(x) = 0 \Leftrightarrow \dfrac{x-2}{\sqrt{x^2 - 4x + 5}} = 0 \Leftrightarrow x - 2 = 0 \Leftrightarrow x = 2.$$
+		Trên đoạn $[-2;3]$ ta có: $f(-2) = \sqrt{17}; \, f(2) = 1; \, f(3) = \sqrt{2}$.\\
+		Vậy $\max\limits_{[-2;3]} f(x) = \sqrt{17}$ tại $x = -2$ và $\min\limits_{[-2;3]} f(x) = 1$ tại $x = 2$.
+	}
+\end{vd}
+
+
+\begin{vd}%[Cao Thành Thái]%[2D1B3]
+	Tìm giá trị lớn nhất của hàm số $y=\dfrac{x+1}{\sqrt{x^2+1}}$ trên khoảng $\left( {-\infty;+\infty} \right)$.
+	\loigiai{
+		Ta có $y'=0 \Leftrightarrow \dfrac{1-x}{\left( {x^2+1} \right)\sqrt{x^2+1}}=0 \Leftrightarrow x=1$.
+		\\Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit
+			[lgt=1.2,espcl=3] % tùy chọn
+			{$x$/0.8, $y'$/0.8, $y$/2} % cột đầu tiên
+			{$-\infty$, $1$, $+\infty$} % hàng 1 cột 2
+			\tkzTabLine{,+,0,-,} % hàng 2 cột 2
+			\tkzTabVar{-/ $-1$, +/ $\sqrt{2}$ , -/ $1$} % hàng 3 cột 2
+			\end{tikzpicture}
+		\end{center}
+		Dựa vào bảng biến thiên ta thấy giá trị lớn nhất của hàm số là $\sqrt{2}$.}
+\end{vd}
+
+
+\begin{vd}%[Cao Thành Thái]%[2D1K3]
+	Cho bất phương trình $(x+2)(x+4)(x^2+6x+10) \geq m$, với $m$ là tham số. Tìm các giá trị của $m$ để bất phương trình nghiệm đúng với mọi $x \in \mathbb{R}$.
+	\loigiai
+	{
+		Xét hàm số $f(x) = (x+2)(x+4)(x^2+6x+10) = (x^2+6x+8)(x^2+6x+10)$.\\
+		Tập xác định của hàm số $f(x)$ là $\mathscr{D} = \mathbb{R}$.\\
+		Ta có: $f'(x) = (2x+6)(2x^2+12x+18)=4(x+3)^3$.
+		$$f'(x) = 0 \Leftrightarrow 4(x+3)^3 = 0 \Leftrightarrow x = -3.$$
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit
+			[lgt=1.2,espcl=3] % tùy chọn
+			{$x$/0.8, $f'(x)$/0.8, $f(x)$/2} % cột đầu tiên
+			{$-\infty$, $-3$, $+\infty$} % hàng 1 cột 2
+			\tkzTabLine{,-,0,+,} % hàng 2 cột 2
+			\tkzTabVar{+/ $+\infty$, -/ $-1$ , +/ $+\infty$} % hàng 3 cột 2
+			\end{tikzpicture}
+		\end{center}
+		Bất phương trình đã cho nghiệm đúng với mọi $x$ thuộc $\mathbb{R}$ khi $\min\limits_{\mathbb{R}} f(x) \geq m \Leftrightarrow m \leq -1$.
+	}
+\end{vd}
+
+
+\begin{vd}%[Cao Thành Thái]%[2D1K3]
+	Cho một tấm nhôm hình vuông có chu vi là $36$ $\mathrm{cm}$. Người ta cắt ở bốn góc của tấm nhôm đó bốn hình vuông bằng nhau, rồi gập tấm nhôm lại như hình vẽ dưới đây để được một cái hộp không nắp. Khi đó, khối hộp nhận được có thể tích lớn nhất bằng bao nhiêu?
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7,>=stealth]
+		\tkzDefPoints{0/0/A,3/0/B,3/-3/C,0/-3/D,0/1.2/M,-1.2/1.2/N,-1.2/0/P,3/1.2/I,4.2/1.2/J,4.2/0/K,4.2/-3/E,4.2/-4.2/F,3/-4.2/G,0/-4.2/S,-1.2/-4.2/Q,-1.2/-3/R}
+		\tkzDrawSegments(N,J J,F F,Q Q,N M,S I,G P,K E,R)
+		\tkzDrawPolygon[fill=blue!30](A,M,N,P)
+		\tkzDrawPolygon[fill=blue!30](B,I,J,K)
+		\tkzDrawPolygon[fill=blue!30](C,E,F,G)
+		\tkzDrawPolygon[fill=blue!30](D,S,Q,R)
+		
+		\tkzDefPoints{6/-4.2/H,6/-3/L,10.5/-3/O,10.5/-4.2/T,7.2/-2.2/H'}
+		\tkzDefPointBy[translation = from H to H'](L) \tkzGetPoint{L'}
+		\tkzDefPointBy[translation = from H to H'](O) \tkzGetPoint{O'}
+		\tkzDefPointBy[translation = from H to H'](T) \tkzGetPoint{T'}
+		\tkzInterLL(H,H')(L,O) \tkzGetPoint{X}
+		\tkzInterLL(H',T')(O,O') \tkzGetPoint{Y}
+		\tkzDrawSegments(H,L L,O O,T T,H L,L' L',O' O',O O',T' T',T L',H' H',X H',Y)
+		\tkzDrawSegments[dashed](H,X Y,T')
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Gọi $x \,\mathrm{(cm)}$ là độ dài cạnh hình vuông bị cắt $(0 < x < \dfrac{9}{2})$.\\
+		Khi đó, thể tích khối hộp nhận được là $V(x) = \left(9 - 2x\right)^2 x = 4x^3 - 36x^2 + 81x$.\\
+		Ta có $V'(x) = 12x^2 - 72x + 81$; $V'(x) = 0 \Leftrightarrow $\\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit [lgt=3,espcl=5]
+			{$x$/1, $V’(x)$/1, $V(x)$/2.5}
+			{$0$, $\dfrac{3}{2}$, $\dfrac{9}{2}$}
+			\tkzTabLine{,+,0,-,}
+			\tkzTabVar{-/ , +/ $27$ , -/ }
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+
+\subsection{Các dạng toán}
+\begin{dang}{Tìm giá trị lớn nhất - giá trị nhỏ nhất của hàm số trên một đoạn}
+	Để tìm giá trị lớn nhất (GTLN), giá trị nhỏ nhất (GTNN) của hàm số $y=f(x)$ trên đoạn $\left[a;b\right]$ ta thực hiện như sau:
+	\begin{itemize}
+		\item Tìm các điểm $x_i\in (a;b)$ mà tại đó $f^\prime (x)$ bằng 0 hoặc không xác định.
+		\item Tính các giá trị $f(a), f(x_i), f(b)$.
+		\item Tìm số lớn nhất $M$, số nhỏ nhất $m$ trong các số trên.\\ Khi đó $M=\max\limits_{\left[a;b\right]}f(x), m=\min\limits_{\left[a;b\right]}f(x)$. 
+	\end{itemize}
+\end{dang}
+\begin{vd}%[Thọ Bùi]%[2D1B3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số $y=2x^3+3x^2-12x+2$ trên đoạn $[-1;2]$.
+	\loigiai{
+		Hàm số đã cho liên tục trên đoạn $[-1;2]$.\\Đạo hàm: $y'=6x^2+6x-12; y'=0\Leftrightarrow 6x^2+6x-12=0\Leftrightarrow\hoac{&x=1\in(-1;2)\\&x=-2\notin(-1;2).}$\\Ta có $y(-1)=15, y(1)=5, y(2)=6$.\\Vậy $\max\limits_{\left[-1;2\right]}y=15=y(-1), \min\limits_{\left[-1;2\right]}y=5=y(1)$.
+	}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[2D1B3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số $y=x^4-2x^2$ trên đoạn $[-2;3]$.
+	\loigiai{
+		Hàm số đã cho liên tục trên đoạn $[-2;3]$.\\Đạo hàm: $y'=4x^3-4x; y'=0\Leftrightarrow 4x^3-4x=0\Leftrightarrow\hoac{&x=0\in(-2;3)\\&x=\pm 1\in(-2;3).}$\\Ta có $y(-2)=8, y(3)=63, y(0)=0, y(\pm 1)=-1$.\\Vậy $\max\limits_{\left[-2;3\right]}y=63=y(3), \min\limits_{\left[-2;3\right]}=-1=y(\pm 1)$.
+	}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[2D1B3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số $y=\dfrac{x^2-2x-2}{x+1}$ trên đoạn $\left[-\frac{1}{2};4\right]$.
+	\loigiai{
+		Hàm số đã cho liên tục trên đoạn $\left[-\frac{1}{2};4\right]$.\\Đạo hàm: $y'=\dfrac{x^2+2x}{(x+1)^2}; y'=0\Leftrightarrow \hoac{&x=-2\\&x=0}$.\\Ta có $y\left(-\frac{1}{2}\right)=-\frac{3}{2}, y(0)=-2, y(4)=\frac{6}{5}$.\\Vậy $\max\limits_{\left[-\frac{1}{2};4\right]}y=\frac{6}{5}=y(4), \min\limits_{\left[-\frac{1}{2};4\right]}=-2=y(0)$.
+	}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[2D1K3]
+	Cho hàm số $y=\dfrac{x+m}{x+1}$ với $m$ là tham số thực. Tìm $m$ để $\max\limits_{\left[1;2\right]}y+\min\limits_{\left[1;2\right]}y=\dfrac{16}{3}$.
+	\loigiai
+	{
+		Tập xác định: $\mathscr{D}=\mathbb{R}\setminus\left\{-1\right\}$.\\Đạo hàm $y'=\dfrac{1-m}{(x+1)^2}$.\\Do hàm số đã cho liên tục và đơn điệu trên $\left[1;2\right]$ nên $\max\limits_{\left[1;2\right]}y+\min\limits_{\left[1;2\right]}y=\dfrac{16}{3}\Leftrightarrow\dfrac{1+m}{2}+\dfrac{2+m}{3}=\dfrac{16}{3}\Leftrightarrow m=5$.
+	}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[2D1K3]
+	Tìm giá trị lớn nhất, giá trị nhỏ nhất của hàm số $y=\dfrac{x+1}{\sqrt{x^2+1}}$ trên đoạn $\left[-1;2\right]$.
+	\loigiai
+	{
+		Hàm số $y=\dfrac{x+1}{\sqrt{x^2+1}}$ liên tục trên đoạn $\left[-1;2\right]$.\\Đạo hàm: $y'=\dfrac{1-x}{\left(x^2+1\right)\sqrt{x^2+1}}; y'=0\Leftrightarrow x=1$.\\Ta có $y(-1)=0, y(1)=\sqrt{2}, y(2)=\dfrac{3\sqrt{5}}{5}$.\\Vậy $\max\limits_{\left[-1;2\right]}y=\sqrt{2}=y(1), \min\limits_{\left[-1;2\right]}y=0=y(1)$.
+	}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[2D1K3]
+	Tìm giá trị lớn nhất, giá trị nhỏ nhất của hàm số $y=\sin x+\sqrt{2-\sin^2x}$.
+	\loigiai{Tập xác định: $\mathscr{D}=\mathbb{R}$.\\Đặt $t=\sin x, -1\leq t\leq 1$. Bài toán quy về tìm giá trị lớn nhất, giá trị nhỏ nhất của hàm số $y=t+\sqrt{2-t^2}$ trên đoạn $\left[-1;1\right]$.\\Đạo hàm: $y'=1-\dfrac{t}{\sqrt{2-t^2}}=\dfrac{\sqrt{2-t^2}-t}{\sqrt{2-t^2}}; y'=0\Leftrightarrow\sqrt{2-t^2}=t\Leftrightarrow\heva{&t\geq 0\\&2-t^2=t^2}\Leftrightarrow t=1$.\\Ta có $y(-1)=0, y(1)=2$.\\Vậy giá trị lớn nhất của hàm số bằng $2$, giá trị nhỏ nhất bằng $0$.}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[2D1G3]
+	Cho hàm số $f(x)=4x^2-4ax+a^2-2a$ với $a$ là tham số thực. Tìm $a$ để $\min\limits_{[-2;0]}f(x)=2$.
+	\loigiai
+	{Đạo hàm: $f'(x)=8x-4a; f'(x)=0\Leftrightarrow x=\dfrac{a}{2}$. Xét các trường hợp sau:\\TH1: Nếu $\dfrac{a}{2}>0\Leftrightarrow a>0$ thì $\min\limits_{[-2;0]}f(x)=f(0)=a^2-2a$.\\Theo đề ta có $a^2-2a=2\Leftrightarrow a=1\pm\sqrt{3}$. Vì $a>0$ nên chọn $a=1+\sqrt{3}$.\\TH2: Nếu $\dfrac{a}{2}<-2\Leftrightarrow a<-4$ thì $\min\limits_{[-2;0]}f(x)=f(-2)=a^2-6a+16$.\\Theo đề ta có $a^2-6a+16=0\Leftrightarrow a^2-6a+14=0$ (vô nghiệm).\\TH3: Nếu $0\leq\dfrac{a}{2}\leq 0\Leftrightarrow -4\leq a\leq 0$ thì $\min\limits_{[-2;0]}f(x)=f\left(\dfrac{a}{2}\right)=-2a$.\\Theo đề ta có $-2a=2\Leftrightarrow a=-1$ thỏa $-4\leq a\leq 0$.\\Vậy $\min\limits_{[-2;0]}f(x)=2$ khi $a=1+\sqrt{3}$ và $a=-1$.}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Thọ Bùi]%[2D1B3]
+	Tìm giá trị lớn nhất, giá trị nhỏ nhất của hàm số $y=x^3-3x+1$ trên đoạn $[-1;2]$.
+	\loigiai{
+		Ta có $\max\limits_{[-1;2]}y=3=y(2), \min\limits_{[-1;2]}y=-1=y(1)$.
+	}
+\end{bt}
+\begin{bt}%[Thọ Bùi]%[2D1K3]
+	Tìm giá trị lớn nhất, giá trị nhỏ nhất của hàm số $f(x)=x+\sqrt{4-x^2}$ trên tập xác định $\mathscr{D}$ của nó.
+	\loigiai{
+		Tập xác định của hàm số: $\mathscr{D}=[-2;2]$.\\
+		Ta có $\max\limits_{[-2;2]}f(x)=2\sqrt{2}, \min\limits_{[-2;2]}f(x)=-2$.
+	}
+\end{bt}
+
+\begin{bt}%[Thọ Bùi]%[2D1K3]
+	Tìm giá trị lớn nhất, giá trị nhỏ nhất của hàm số $f(x)=x^6+4\left(1-x^2\right)^3$ trên đoạn $[-1;1]$.
+	\loigiai{Đặt $t=x^2, 0\leq t\leq 1$ ta đưa về bài toán tìm giá trị lớn nhất, giá trị nhỏ nhất của hàm số $g(t)=t^3+4(1-t)^3$ trên đoạn $[0;1]$.\\Đáp số: Giá trị lớn nhất bằng $4$ và giá trị nhỏ nhất bằng $\dfrac{4}{9}$.}
+\end{bt}
+
+\begin{bt}%[Thọ Bùi]%[2D1K3]
+	Tìm giá trị lớn nhất, giá trị nhỏ nhất của hàm số $y=\dfrac{2\left(\cos x-1\right)}{\cos 2x+2\cos x+5}$.
+	\loigiai{Biến đổi hàm số đã cho thành $y=\dfrac{\cos x-1}{\cos^2x+\cos x+2}$.\\Đặt $t=\cos x, -1\leq t\leq 1$, ta đưa về bài toán tìm giá trị lớn nhất, giá trị nhỏ nhất của hàm số $y=\dfrac{t-1}{t^2+t+2}, -1\leq t\leq 1$.\\Đáp số: Giá trị lớn nhất bằng $0$ và giá trị nhỏ nhất bằng $-1$.}
+\end{bt}
+
+\begin{bt}%[Thọ Bùi]%[2D1K3]
+	Tìm giá trị lớn nhất, giá trị nhỏ nhất của hàm số $f(x)=2\sin^6x+\dfrac{3}
+	{4}\cos 2x$.
+	\loigiai{Đưa hàm số về dạng $f(x)=2\sin^6x+\dfrac{3}{4}\left(1-2\sin^2x\right)=2\sin^6x-\dfrac{3}{2}\sin^2x+\dfrac{3}{4}$.\\Đặt $t=\sin^2x, 0\leq t\leq 1$ ta được hàm số $g(t)=2t^3-\dfrac{3}{2}t+\dfrac{3}{4}$.\\Từ đó tìm được giá trị lớn nhất bằng $\dfrac{5}{4}$ và giá trị nhỏ nhất bằng $\dfrac{1}{4}$.}
+\end{bt}
+
+\begin{bt}%[Thọ Bùi]%[2D1G3]
+	Cho $x\geq 0, y\geq 0$ thỏa $x+y=1$. Tìm giá trị lớn nhất và giá trị nhỏ nhất của biểu thức $$ P=\dfrac{x}{y+1}+\dfrac{y}{x+1} $$
+	\loigiai{Ta có $P=\dfrac{x^2+x+y^2+y}{xy+x+y+1}=\dfrac{(x+y)^2-2xy+x+y}{x+y+1+xy}=\dfrac{2-2xy}{2+xy}$.\\Đặt $t=xy$, vì $0\leq xy\leq\dfrac{(x+y)^2}{4}=\dfrac{1}{4}$ nên $0\leq t\leq\dfrac{1}{4}$.\\Xét hàm số $f(t)=\dfrac{2-2t}{2+t}$ với $0\leq t\leq\dfrac{1}{4}$. Ta có $f'(t)=\dfrac{-6}{(2+t)^2}<0, \forall t\in0\leq t\leq\dfrac{1}{4}$.\\Suy ra $\max P=\max\limits_{\left[0;\frac{1}{4}\right]}f(t)=1, \min P=\min\limits_{\left[0;\frac{1}{4}\right]}f(t)=\dfrac{2}{3}$.}
+\end{bt}
+\begin{dang}{Tìm giá trị lớn nhất - giá trị nhỏ nhất của hàm số trên một khoảng}
+	Để tìm giá trị lớn nhất, giá trị nhỏ nhất của hàm số $y=f(x)$ trên khoảng $\left(a;b\right)$ ta lập bảng biến thiên của hàm số $f(x)$ trên khoảng $(a;b)$.
+\end{dang}
+
+\begin{vd}%[Thọ Bùi]%[2D1B3]
+	Tìm giá trị lớn nhất của hàm số $f(x)=x^3-2x^2+x-6$ trên khoảng $(-1;1)$.
+	\loigiai
+	{Tập xác định: $\mathscr{D}=\mathbb{R}$, ta chỉ xét trên khoảng $(-1;1)$.\\Đạo hàm: $y'=3x^2-4x+1; y'=0\Leftrightarrow\hoac{&x=1\\&x=\frac{1}{3}}$.\\Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[lgt=1.5,espcl=2.5,deltacl=.5]
+			{$x$ /.7, $y’$ /.7,$y$ /2}
+			{$-1$ , $\frac{1}{3}$, $1$}
+			\tkzTabLine{,+,0,-,}
+			\tkzTabVar{-/$-10$ ,+/ $-\frac{158}{27}$ ,-/$-6$}
+			\end{tikzpicture}
+		\end{center}
+		Từ bảng biến thiên ta có $\max\limits_{(-1;1)}y=-\dfrac{158}{27}=y\left(\dfrac{1}{3}\right)$.}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[2D1B3]
+	Tìm giá trị lớn nhất, giá trị nhỏ nhất của hàm số $f(x)=x^3(1-x)^2$ trên nửa khoảng $\left[\dfrac{1}{2};+\infty\right)$.
+	\loigiai{
+		Tập xác định: $\mathscr{D}=\mathbb{R}$, ta chỉ xét trên nửa khoảng $\left[\dfrac{1}{2};+\infty\right)$.\\Đạo hàm: $f'(x)=x^2(1-x)(3-5x); f'(x)=0\Leftrightarrow x=0, x=1, x=\dfrac{3}{5}$.\\Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[lgt=1.5,espcl=2.5,deltacl=.5]
+			{$x$ /.7, $f’(x)$ /.7,$f(x)$ /2}
+			{$\frac{1}{2}$ , $\frac{3}{5}$ , $1$ , $+\infty$}
+			\tkzTabLine{,+,0,-,0,+,}
+			\tkzTabVar{-/$\frac{1}{32}$ ,+/ $\frac{108}{3215}$ ,-/$0$, +/$+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Từ bảng biến thiên cho ta:\\ $\min\limits_{\left[\frac{1}{2};+\infty\right)}f(x)=f(1)=0$ và $\max\limits_{\left[\frac{1}{2};+\infty\right)}f(x)$ không tồn tại vì $\lim\limits_{x\to +\infty}f(x)=+\infty$.
+	}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[2D1B3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số $f(x)=\dfrac{x}{4+x^2}$ trên $\mathbb{R}$.
+	\loigiai
+	{Tập xác định: $\mathscr{D}=\mathbb{R}$.\\Đạo hàm: $f'(x)=\dfrac{4-x^2}{\left(4+x^2\right)^2}; f'(x)=0\Leftrightarrow x=\pm 2$.\\Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[lgt=1.5,espcl=2.5,deltacl=.5]
+			{$x$ /.7, $f'(x)$ /.7,$f(x)$ /2}
+			{$-\infty$ , $-2$ , $2$ , $+\infty$}
+			\tkzTabLine{,-,z,+,z,-,}
+			\tkzTabVar{+/$0$ ,-/ $-\frac{1}{4}$ ,+/$\frac{1}{4}$, -/$0$}
+			\end{tikzpicture}
+		\end{center}
+		Vậy $\min\limits_{\mathbb{R}}f(x)=f(-2)=-\dfrac{1}{4}$ và $\max\limits_{\mathbb{R}}f(x)=f(2)=\dfrac{1}{4}$.
+	}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[2D1B3]
+	Tìm giá trị nhỏ nhất của hàm số $f(x)=2\sqrt{x+1}-\sqrt{x-2}$ trên tập xác định của nó.
+	\loigiai
+	{
+		Tập xác định: $\mathscr{D}=\left[2;+\infty\right)$.\\Đạo hàm: $f'(x)=\dfrac{1}{\sqrt{x+1}}-\dfrac{1}{2\sqrt{x-2}}=\dfrac{2\sqrt{x-2}-\sqrt{x-1}}{2\sqrt{x+1}\cdot\sqrt{x-2}}, x>2$.\\Ta có $f'(x)=0\Leftrightarrow 2\sqrt{x-2}-\sqrt{x-1}\Leftrightarrow 2\sqrt{x-2}=\sqrt{x+1}\Leftrightarrow 4(x-2)=x+1\Leftrightarrow x=3>2$.\\Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[lgt=1.5,espcl=2.5,deltacl=.5]
+			{$x$ /.7, $y’$ /.7,$y$ /2}
+			{$2$ , $3$, $+\infty$}
+			\tkzTabLine{,-,0,+,}
+			\tkzTabVar{+/ ,-/ $3$ ,+/}
+			\end{tikzpicture}
+		\end{center}
+		Vậy $\min\limits_{\left[2;+\infty\right)}f(x)=f(3)=3$.
+	}
+\end{vd}
+
+\begin{vd}%[Thọ Bùi]%[2D1K3]
+	Cho các số thực dương $x, y, z$ thỏa mãn $xyz=1$. Tính giá trị nhỏ nhất của biểu thức $T=x^2+y^2+6z^3$.
+	\loigiai{
+		Theo bất đẳng thức Cauchy ta có $x^2+y^2\geq 2xy=\dfrac{2}{z}$. Khi đó $T\geq \dfrac{2}{z}+6z^3$.\\Xét hàm số $f(z)=\dfrac{2}{z}+6z^3$ với $z>0$.\\Đạo hàm $f'(z)=-\dfrac{2}{z^2}+18z^2; f'(z)=0\Leftrightarrow 18z^2=\dfrac{2}{z^2}\Leftrightarrow z^4=\dfrac{1}{9}\Rightarrow z=\dfrac{1}{\sqrt{3}}$ (vì $z>0$).\\Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[lgt=1.5,espcl=2.5,deltacl=.5]
+			{$x$ /.7, $f'(z)$ /.7,$f(z)$ /2}
+			{$0$ , $\frac{1}{\sqrt{3}}$, $+\infty$}
+			\tkzTabLine{,-,0,+,}
+			\tkzTabVar{+/ ,-/ $\frac{8\sqrt{3}}{3}$ ,+/}
+			\end{tikzpicture}
+		\end{center}
+		Từ bảng biến thiên suy ra $f(z)\geq f\left(\sqrt{3}\right)=\dfrac{8\sqrt{3}}{3}$ nên $T\geq\dfrac{8\sqrt{3}}{3}\Rightarrow\min T=\dfrac{8\sqrt{3}}{3}$.\\Dấu ``$=$'' xảy ra khi $z=\dfrac{1}{\sqrt{3}}$ hay $x=y=\sqrt[4]{3}$.
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Thọ Bùi]%[2D1B3]
+	Tìm giá trị nhỏ nhất của hàm số $y=3x^4-4x^3+1$ trên tập xác định của nó.
+	\loigiai
+	{Đáp số: $\min\limits_{\mathbb{R}}y=y(1)=0$.}
+\end{bt}
+\begin{bt}%[Thọ Bùi]%[2D1B3]
+	Tìm giá trị nhỏ nhất của hàm số $f(x)=x^2+\dfrac{2}{x}$ trên khoảng $\left(0;+\infty\right)$.
+	\loigiai{
+		Đáp số: $\max\limits_{\left(0;+\infty\right)}f(x)=3$.
+	}
+\end{bt}
+\begin{bt}%[Thọ Bùi]%[2D1B3]
+	Tìm giá trị nhỏ nhất của hàm số $f(x)=\dfrac{6x-1}{\sqrt{x^2+1}}$ trên nửa khoảng $\left[2;+\infty\right)$.
+	\loigiai{
+		Đạo hàm: $f'(x)=\dfrac{x+6}{\left(x^2+1\right)\sqrt{x^2+1}}$.\\Đáp số: $\min\limits_{\left[2;+\infty\right)}f(x)=\dfrac{11\sqrt{5}}{5}=f(2)$.
+	}
+\end{bt}
+
+\begin{bt}%[Thọ Bùi]%[2D1G3]
+	Cho các số thực  $x, y$  thỏa mãn $x^2+2xy+3y^2=4.$  Tìm giá trị lớn nhất của biểu thức $P=\left(x-y\right)^2.$
+	\loigiai{TH1: nếu $x=0, y=0$ (loại). \\
+		TH2: nếu $x\ne 0, y=0$ thì $P=4.$ \\
+		TH3: nếu $y\ne 0$ thì $P=\dfrac{4\left(x-y\right)^2}{x^2+2xy+3y^2}=\dfrac{4\left(\dfrac{x}{y}-1\right)^2}{\left(\dfrac{x}{y}\right)^2+\dfrac{2x}{y}+3}.$ \\
+		Đặt $t=\dfrac{x}{y},$ ta có $P=\dfrac{4(t-1)^2}{t^2+2t+3}.$ Suy ra $\max P=12.$
+	}
+\end{bt}
+
+
+\begin{dang}{Sử dụng GTLN, GTNN để giải phương trình, bất phương trình, hệ phương trình}
+	Cho hàm số $y = f(x)$ xác định và liên tục trên khoảng $(a;b)$. Khi đó:
+	\begin{enumerate}[1.]
+		\item Phương trình $f(x) = m$ có nghiệm thuộc đoạn $[a;b] \Leftrightarrow \displaystyle \min_{[a;b]}{f(x)} \le m \le \displaystyle \max_{[a;b]}{f(x)}$.
+		\item Bất phương trình $f(x) \ge m$ có nghiệm thuộc đoạn $[a;b] \Leftrightarrow \displaystyle \max_{[a;b]}{f(x)} \ge m$.
+		\item Bất phương trình $f(x) \le m$ có nghiệm thuộc đoạn $[a;b] \Leftrightarrow \displaystyle \min_{[a;b]}{f(x)} \le m$.
+		\item Bất phương trình $f(x) \ge m$ nghiệm đúng với mọi $x \in [a;b] \Leftrightarrow \displaystyle \min_{[a;b]}{f(x)} \ge m$.
+		\item Bất phương trình $f(x) \le m$ nghiệm đúng với mọi $x \in [a;b] \Leftrightarrow \displaystyle \max_{[a;b]}{f(x)} \le m$.
+	\end{enumerate}
+\end{dang}
+\begin{vd}%[Hđ Sinh]%[2D1B3]
+	Giải phương trình $\sqrt[4]{x-2} + \sqrt[4]{4-x} = 2$.
+	\loigiai 
+	{
+		Đặt $f(x) = \sqrt[4]{x-2} + \sqrt[4]{4-x}$ với $2 \le x \le 4$ \\
+		$\Rightarrow f'(x) = \dfrac{1}{4} \left[\dfrac{1}{\sqrt[4]{(x-2)^3}} - \dfrac{1}{\sqrt[4]{(4-x)^3}}\right] = 0 \Leftrightarrow x-2 = 4-x \Leftrightarrow x=3$. \\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.2,espcl=3]
+			{$x$/1,$f’(x)$/1,$f(x)$/2.5}
+			{$2$,$3$,$4$}
+			\tkzTabLine{ ,+,z,-, }
+			\tkzTabVar{-/$f(2)$,+/$2$,-/$f(4)$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn bảng biến thiên suy ra $f(x) \le f(3) = 2, \forall x \in [2;4]$ \\
+		$\Rightarrow$ phương trình $\sqrt[4]{x-2} + \sqrt[4]{4-x} = 2$ có nghiệm duy nhất $x=3$.
+	}
+\end{vd}
+
+\begin{vd}%[Hđ Sinh]%[2D1B3]
+	\begin{enumerate}[a)]
+		\item Tìm $m$ để phương trình $x+\sqrt{2x^2+1} = m$ có nghiệm.
+		\item Tìm $m$ để $x + \sqrt{2x^2+1}>m, \forall x \in \mathbb{R}$.
+	\end{enumerate}
+	\loigiai 
+	{
+		Đặt $f(x) = x+\sqrt{2x^2+1} \Rightarrow f'(x) = 1+\dfrac{2x}{\sqrt{2x^2+1}}$ \\
+		Ta có $f'(x) = 0 \Leftrightarrow \sqrt{2x^2+1} = -2x \Leftrightarrow x = -\dfrac{1}{\sqrt{2}}$. \\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.2,espcl=3]
+			{$x$/1,$f’(x)$/1,$f(x)$/2.5}
+			{$-\infty$,$-\dfrac{1}{\sqrt{2}}$,$+\infty$}
+			\tkzTabLine{ ,-,z,+, }
+			\tkzTabVar{+/$+\infty$,-/$\dfrac{1}{\sqrt{2}}$,+/$+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}[a)]
+			\item Nhìn bảng biến thiên suy ra phương trình $f(x) = m$ có nghiệm $\Leftrightarrow m \ge f\left(-\dfrac{1}{\sqrt{2}}\right) = \dfrac{1}{\sqrt{2}}$.
+			\item $f(x) = x+\sqrt{2x^2+1} > m, \forall x \in \mathbb{R} \Leftrightarrow m < \min{f(x)} \Leftrightarrow m < f\left(-\dfrac{1}{\sqrt{2}}\right) = \dfrac{1}{\sqrt{2}}$.
+		\end{enumerate}
+	}
+\end{vd}
+\begin{vd}%[Hđ Sinh]%[2D1K3]
+	Tìm nghiệm $x \in \left(0;\dfrac{\pi}{2}\right)$ của phương trình $\pi^2x - \dfrac{16}{3}x^3 = \dfrac{\pi^2}{6 \sin 2x}$.
+	\loigiai 
+	{
+		Đặt $f(x) = \pi^2x - \dfrac{16}{3}x^3$ và $g(x) = \dfrac{\pi^2}{6 \sin 2x}$ với $x \in \left(0;\dfrac{\pi}{2}\right)$. \\
+		Ta có $f'(x) = \pi^2 - 16x^2=0 \Leftrightarrow x = \dfrac{\pi}{4} \in \left(0;\dfrac{\pi}{2}\right)$. \\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.7,lgt=1.2,espcl=3]
+			{$x$/1,$f’(x)$/1,$f(x)$/2.5}
+			{$0$,$\dfrac{\pi}{4}$,$\dfrac{\pi}{2}$}
+			\tkzTabLine{ ,+,z,-, }
+			\tkzTabVar{-/$f(0)$,+/$\dfrac{\pi^3}{6}$,-/$f\left(\dfrac{\pi}{2}\right)$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn bảng biến thiên suy ra $\max{f(x)} = f\left(\dfrac{\pi}{4}\right) = \dfrac{\pi^3}{6}$. \\
+		Mặt khác $g(x) = \dfrac{\pi^2}{6 \sin 2x} \ge \dfrac{\pi^3}{6}, \forall x \in \left(0;\dfrac{\pi}{2}\right) \Rightarrow f(x) \le \dfrac{\pi^3}{6} \le g(x)$ \\
+		$\Rightarrow$ phương trình $f(x) = g(x)$ có đúng $1$ nghiệm $x = \dfrac{\pi}{4}$.
+	}
+\end{vd}
+\begin{vd}%[Hđ Sinh]%[2D1K3]
+	Tìm $m$ để bất phương trình $m\sqrt{2x^2+9}<x+m$ nghiệm đúng $\forall x \in \mathbb{R}$.
+	\loigiai 
+	{
+		$m\sqrt{2x^2+9}<x+m \Leftrightarrow m \left(\sqrt{2x^2+9}-1\right)<x \Leftrightarrow m < f(x) = \dfrac{x}{\sqrt{2x^2+9}-1}$ \\
+		Ta có $f'(x) = \dfrac{9 - \sqrt{2x^2+9}}{\sqrt{2x^2+9} \left(\sqrt{2x^2+9}-1\right)}$
+		\immini
+		{
+			$f'(x) = 0 \Leftrightarrow \sqrt{2x^2 + 9} = 9 \Leftrightarrow x = \pm 6$. \\
+			$\underset{x\to+\infty}{\mathop{\lim}}f(x)=\underset{x\to+\infty}{\mathop{\lim}}\dfrac{1}{\sqrt{2+\dfrac{9}{x^2}}-\dfrac{1}{x}}=\dfrac{1}{\sqrt{2}}$. \\
+			$\underset{x\to-\infty}{\mathop{\lim}}f(x)=\underset{x\to-\infty}{\mathop{\lim}}\dfrac{-1}{\sqrt{2+\dfrac{9}{x^2}}-\dfrac{1}{x}}=\dfrac{-1}{\sqrt{2}}$.
+		}
+		{
+			\begin{tikzpicture}[>=stealth,scale=0.7]
+			\tkzTabInit[deltacl=.9,lgt=1.8,espcl=3]
+			{$x$/1.2, $f’(x)$/1.2, $f(x)$/3}
+			{$-\infty$,$-6$,$6$,$+\infty$}
+			\tkzTabLine{ ,-,z,+,z,-, }
+			\tkzTabVar{+/$-\dfrac{1}{\sqrt{2}}$,-/$-\dfrac{3}{4}$,+/$\dfrac{3}{4}$,-/$\dfrac{1}{\sqrt{2}}$}
+			\end{tikzpicture}
+		}
+		Nhìn bảng biến thiên suy ra $\min{f(x)} = f(-6) = -\dfrac{3}{4}$. \\
+		Để $f(x) > m, \forall x \in \mathbb{R}$ thì $\underset{x\in \mathbb{R}}{\mathop{\min}}f(x)>m\Leftrightarrow m<-\dfrac{3}{4}$.
+	}
+\end{vd}
+\begin{vd}%[Hđ Sinh]%[2D1G3]
+	Tìm $m$ để phương trình $2+2\sin 2x=m{\left(1+\cos x\right)}^2~(1)$ có nghiệm $x \in \left[-\dfrac{\pi}{2};\dfrac{\pi}{2}\right]$.
+	\loigiai 
+	{
+		Do $x\in \left[-\dfrac{\pi}{2};\dfrac{\pi}{2}\right]\Rightarrow \dfrac{x}{2}\in \left[-\dfrac{\pi}{4};\dfrac{\pi}{4}\right]$ nên đặt $\tan \dfrac{x}{2}=t\in [-1;1]$ \\
+		$\Rightarrow \cos x=\dfrac{1-t^2}{1+t^2};\sin x=\dfrac{2t}{1+t^2}$. Khi đó $(1) \Leftrightarrow 2{\left(\sin x+\cos x\right)}^2={\left(1+\cos x\right)}^2 \\
+		\Leftrightarrow 2{\left(\dfrac{2t+1-t^2}{1+t^2}\right)}^2=m{\left(1+\dfrac{1-t^2}{1+t^2}\right)}^2\Leftrightarrow f(t)={\left(2t+1-t^2\right)}^2=2m~(2)$ \\
+		Ta có $f'(t)=2\left(2t+1-t^2\right)\left(2-2t\right)=0\Leftrightarrow \hoac{& t=1 \\ & t=1-\sqrt{2}.}$ \\
+		Bảng biến thiên: \\
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.2,espcl=3]
+			{$x$/1,$f’(x)$/1,$f(x)$/2}
+			{$-1$,$1-\sqrt{2}$,$1$}
+			\tkzTabLine{ ,-,z,+, }
+			\tkzTabVar{+/$4$,-/$0$,+/$4$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn bảng biến thiên suy ra: Để $(2)$ có nghiệm $t\in [-1;1]$ thì $\underset{t\in [-1;1]}{\mathop{\min}}f(t)\le 2m\le \underset{t\in [-1;1]}{\mathop{\max}}f(t)\Leftrightarrow 0\le 2m\le 4\Leftrightarrow 0\le m\le 2$. \\
+		Vậy để $(1)$ có nghiệm $x\in \left[-\dfrac{\pi}{2};\dfrac{\pi}{2}\right]$ thì $m \in [0;2]$.
+	}
+\end{vd}
+\begin{vd}%[Hđ Sinh]%[2D1G3]
+	Tìm $m \ge 0$ để hệ $\heva{& \sin x\cos y=m^3-m^2-6m+\dfrac{35}{4} \\ & \cos x\sin y=m^2-6m+\dfrac{33}{4}}~~(1)$ có nghiệm.
+	\loigiai 
+	{
+		$(1) \Leftrightarrow \heva{& \sin x\cos y+\cos x\sin y=m^3-12m+17 \\ & \sin x\cos y-\cos x\sin y=m^3-2m^2+\dfrac{1}{2}} \Leftrightarrow \heva{& \sin (x+y)=m^3-12m+17 \\ & \sin (x-y)=m^3-2m^2+\dfrac{1}{2}}~(2)$ \\
+		Xét $f(m)=m^3-12m+17$. Ta có: $f'(m) = 3m^2-12=0 \Leftrightarrow m=2>0$. \\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.5,espcl=3]
+			{$m$/1,$f’(m)$/1,$f(m)$/2}
+			{$0$,$2$,$+\infty$}
+			\tkzTabLine{ ,-,z,+, }
+			\tkzTabVar{+/$17$,-/$1$,+/$+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn bảng biến thiên suy ra $f(m) \ge f(2) = 1, \forall m \ge 0$. Mặt khác do $\sin (x+y) \le 1$ nên để hệ $(2)$ có nghiệm thì $m=2$, khi đó $(2) \Leftrightarrow \heva{& \sin (x+y)=1 \\ & \sin (x-y)=\dfrac{1}{2}}~(3)$. \\
+		Ta thấy hệ $(3)$ nhận $\heva{& x=\dfrac{\pi}{3} \\ & y=\dfrac{\pi}{6}}$ làm nghiệm. Vậy $(1)$ có nghiệm khi $m=2$.
+	}
+\end{vd}
+
+\begin{vd}%[Hđ Sinh]%[2D1G3]
+	Tìm $m$ để hệ bất phương trình $\heva{& x^2-3x\le 0 \\ & x^3-2x\left| x-2\right|-m^2+4m\ge 0}~(1)$ có nghiệm.
+	\loigiai 
+	{
+		$(1) \Leftrightarrow \heva{& 0\le x\le 3 \\ & f(x)=x^3-2x\left| x-2\right|\ge m^2-4m}~(2)$ \\
+		Ta có $f'(x)=\heva{& 3x^2+4x-4~, \forall x\in [0;2) \\ &3x^2-4x+4~, \forall x\in (2;3]}$; $f'(x)=0 \Leftrightarrow x=\dfrac{2}{3}$. \\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.5,espcl=3]
+			{$x$/1.2, $f’(x)$/1.2, $f(x)$/2.5}
+			{$0$,$\dfrac{2}{3}$,$2$,$3$}
+			\tkzTabLine{ ,-,z,+,d,+, }
+			\tkzTabVar{+/$0$,-/$CT$,R,+/$21$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn bảng biến thiên suy ra $\underset{x\in [0;3]}{\mathop{\max}}f(x)=f(3)=21$. \\
+		Để $(2)$ có nghiệm thì $\underset{x\in [0;3]}{\mathop{\max}}f(x)\ge m^2-4m\Leftrightarrow m^2-4m\le 21\Leftrightarrow-3\le m\le 7.$
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Hđ Sinh]%[2D1B3]
+	Tìm $m$ để phương trình $4x-2+ 3\sqrt{21-4x-x^2} = m$:
+	\begin{enumerate}[a)]
+		\item Có nghiệm.
+		\item Có đúng $1$ nghiệm.
+		\item Có $2$ nghiệm phân biệt.
+	\end{enumerate}
+	\loigiai 
+	{
+		TXĐ: $\mathscr{D} = [-7;3]$. Xét hàm số $f(x)=4x-2+3\sqrt{21-4x-x^2}$, ta có $f'(x)=4-\dfrac{3(2+x)}{\sqrt{21-4x-x^2}}=0\Leftrightarrow \hoac{& x=-6\\ & x=2.}$ \\
+		Bảng biến thiên: 
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.5,espcl=3]
+			{$x$/1.2, $f’(x)$/1.2, $f(x)$/2.5}
+			{$-7$,$-6$,$2$,$3$}
+			\tkzTabLine{d,+,z,+,z,-,d}
+			\tkzTabVar{-/$-30$,R,+/$15$,-/$10$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn bảng biến thiên của hàm số $f(x)$, ta suy ra:
+		\begin{enumerate}[a)]
+			\item Phương trình đã cho có nghiệm khi $\underset{x\in [-7;3]}{\mathop{\min}}f(x)\le m\le \underset{x\in [-7;3]}{\mathop{\max}}f(x)\Leftrightarrow-30\le m\le 15$.
+			\item Phương trình có đúng $1$  nghiệm khi $\hoac{&-30\le m<10 \\ & m=15.}$
+			\item Phương trình có $2$ nghiệm phân biệt khi $10 \le m < 15$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Hđ Sinh]%[2D1K3]
+	Tìm $m$ để phương trình $4\left(\sin^4x+\cos^4x\right)+(5-2m)\cos 2x+9-3m=0$ :
+	\begin{enumerate}[a)]
+		\item Có nghiệm.
+		\item Có đúng $2$ nghiệm thuộc đoạn $\left[0;\dfrac{\pi}{3}\right]$.
+	\end{enumerate}
+	\loigiai 
+	{
+		Đặt $t=\cos 2x$ với $-1\le t\le 1$. Phương trình trở thành $\dfrac{2t^2+5t+11}{2t+3}=m$. \\
+		Xét hàm số $f(t)=\dfrac{2t^2+5t+11}{2t+3}, -1 \le t \le 1$. Ta có $f'(t)=\dfrac{4t^2+12t-7}{(2t+3)^2}=0\Leftrightarrow \hoac{& t=-\dfrac{7}{2}~\text{(loại)} \\ & t=\dfrac{1}{2}}$. \\
+		Bảng biến thiên: 
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.5,espcl=3]
+			{$t$/1,$f’(t)$/1,$f(t)$/2.5}
+			{$-1$,$\dfrac{1}{2}$,$1$}
+			\tkzTabLine{ ,-,z,+, }
+			\tkzTabVar{+/$8$,-/$\dfrac{7}{2}$,+/$\dfrac{18}{5}$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn bảng biến thiên ta suy ra:
+		\begin{enumerate}[a)]
+			\item Phương trình có nghiệm khi $\underset{t\in [-1;1]}{\mathop{\min}}f(t)\le m\le \underset{t\in [-1;1]}{\mathop{\max}}f(t)\Leftrightarrow \dfrac{7}{2}\le m\le 8$.
+			\item Khi $x\in \left[0;\dfrac{\pi}{3}\right]$ thì $2x\in \left[0;\dfrac{2\pi}{3}\right]$ hay $-\dfrac{1}{2}\le t\le 1$. Phương trình có hai nghiệm thuộc đoạn $\left[0;\dfrac{\pi}{3}\right]$ khi phương trình ẩn $t$ có $2$ nghiệm $t$ thuộc đoạn $\left[-\dfrac{1}{2};1\right]$ hay $\dfrac{7}{2}<m\le \dfrac{18}{5}$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Hđ Sinh]%[2D1K3]
+	Tìm $m$ để bất phương trình: $-x^3+3mx-2<\dfrac{-1}{x^3}$ nghiệm đúng $\forall x\ge 1$.
+	\loigiai 
+	{
+		BPT $\Leftrightarrow 3mx<x^3-\dfrac{1}{x^3}+2,\forall x\ge 1\Leftrightarrow 3m<x^2-\dfrac{1}{x^4}+\dfrac{2}{x}=f(x),\forall x\ge 1$. \\
+		Ta có $f'(x)=2x+\dfrac{4}{x^5}-\dfrac{2}{x^2}\ge 2\sqrt{2x\left(\dfrac{4}{x^5}\right)}-\dfrac{2}{x^2}=\dfrac{4\sqrt{2}-2}{x^2}>0,\forall x\ne 0$. \\
+		Suy ra $f(x)$ đồng biến trên khoảng $(1;+\infty)$. \\
+		Ycbt $\Leftrightarrow f(x)>3m,\forall x\ge 1\Leftrightarrow \underset{x\ge 1}{\mathop{\min}}f(x)=f(1)=2>3m\Leftrightarrow m<\dfrac{2}{3}$.
+	}
+\end{bt}
+\begin{bt}%[Hđ Sinh]%[2D1G3]
+	Tìm $m$ để phương trình $x\sqrt{x}+\sqrt{x+12}=m\left(\sqrt{5-x}+\sqrt{4-x}\right)$ có nghiệm.
+	\loigiai 
+	{
+		Đối với bài toán này, nếu ta tính $f'(x)$ rồi xét dấu thì thao tác rất phức tạp, dễ dẫn đến sai sót. Để đơn giản, ta làm như sau: \\
+		TXĐ: $\mathscr{D} = [0;4]$. \\
+		Đặt $g(x)=x\sqrt{x}+\sqrt{x+12}>0\Rightarrow g'(x)=\dfrac{3}{2}\sqrt{x}+\dfrac{1}{2\sqrt{x+12}}>0$, \\
+		$h(x)=\sqrt{5-x}+\sqrt{4-x}>0\Rightarrow h'(x)=\dfrac{-1}{2\sqrt{5-x}}-\dfrac{1}{2\sqrt{4-x}}<0$. \\
+		Suy ra $g(x)>0$ và tăng còn $h(x)>0$ và giảm hay $\dfrac{1}{h(x)}>0$ và tăng \\
+		$\Rightarrow f(x)=\dfrac{g(x)}{h(x)}$ tăng $\Rightarrow f(x)=m$ có nghiệm $\Leftrightarrow \underset{x\in [0;4]}{\mathop{\min}}f(x)\le m\le \underset{x\in [0;4]}{\mathop{\max}}f(x)\Leftrightarrow f(0)\le m\le f(4)\Leftrightarrow 2\left(\sqrt{15}-\sqrt{12}\right)\le m\le 12$.
+	}
+\end{bt}
+\begin{bt}%[Hđ Sinh]%[2D1G3]
+	Tìm $m$ để hệ phương trình sau có nghiệm: $\heva{& x+\dfrac{1}{x}+y+\dfrac{1}{y}=5 \\ &x^3+\dfrac{1}{x^3}+y^3+\dfrac{1}{y^3}=15m-10.}$
+	\loigiai 
+	{
+		Đặt $\heva{
+			& x+\dfrac{1}{x}=u \\ 
+			& y+\dfrac{1}{y}=v \\}$. Ta có $x^3+\dfrac{1}{x^3}={\left(x+\dfrac{1}{x}\right)}^3-3x\cdot \dfrac{1}{x}\left(x+\dfrac{1}{x}\right)=u^3-3u$ \\
+		và $\left| u\right|=\left| x+\dfrac{1}{x}\right|=\left| x\right|+\left| \dfrac{1}{x}\right|\ge 2\sqrt{\left| x\right|\cdot \left| \dfrac{1}{x}\right|}=2$, $\left| v\right|=\left| y+\dfrac{1}{y}\right|=\left| y\right|+\left| \dfrac{1}{y}\right|\ge 2\sqrt{\left| y\right|\cdot \left| \dfrac{1}{y}\right|}=2$. \\
+		Khi đó hệ đã cho trở thành $\heva{& u+v=5 \\ &u^3+v^3-3(u+v)=15m-10}\Leftrightarrow \heva{& u+v=5 \\ & uv=8-m}\Leftrightarrow u,v$ là nghiệm của phương trình bậc hai $f(t)=t^2-5t+8=m$. \\
+		Hệ có nghiệm $\Leftrightarrow f(t)=m$ có $2$ nghiệm $t_1,t_2$ thỏa mãn $\heva{& \left| t_1\right|\ge 2 \\ & \left| t_2\right|\ge 2.}$\\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.5,espcl=3]
+			{$t$/1,$f’(t)$/1,$f(t)$/3}
+			{$-\infty$,$-2$,$2$,$\dfrac{5}{2}$,$+\infty$}
+			\tkzTabLine{,-,,h,,-,z,+,}
+			\tkzTabVar{+/$+\infty$,-H/$22$,+/$2$,-/$\dfrac{7}{4}$,+/$+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn bảng biến thiên ta suy ra: Hệ đã cho có nghiệm $\Leftrightarrow \hoac{& \dfrac{7}{4}\le m\le 2 \\ & m\ge 22.}$
+	}
+\end{bt}
+
+\begin{dang}{Sử dụng GTLN, GTNN để chứng minh bất đẳng thức}
+	Kiến thức lý thuyết sử dụng trong dạng này tương tự như trong phần sử dụng GTLN, GTNN để giải phương trình, bất phương trình, hệ phương trình.
+\end{dang}
+\begin{vd}%[Hđ Sinh]%[2D5G1]
+	Cho $\heva{& a,b,c>0 \\ & a^2+b^2+c^2=1}$. Chứng minh rằng: $\dfrac{a}{b^2+c^2}+\dfrac{b}{c^2+a^2}+\dfrac{c}{a^2+b^2}\ge \dfrac{3\sqrt{3}}{2}$.
+	\loigiai 
+	{
+		Ta có $T=\dfrac{a}{1-a^2}+\dfrac{b}{1-b^2}+\dfrac{c}{1-c^2}=\dfrac{a^2}{a\left(1-a^2\right)}+\dfrac{b^2}{b\left(1-b^2\right)}+\dfrac{c^2}{c\left(1-c^2\right)}$. \\
+		Xét hàm số $f(x)=x\left(1-x^2\right)$ với $x>0.$ \\
+		Ta có $f'(x)=1-3x^2=0\Leftrightarrow x=\dfrac{1}{\sqrt{3}}>0$. \\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.2,espcl=3]
+			{$x$/1,$f’(x)$/1,$f(x)$/2.5}
+			{$0$,$\dfrac{1}{\sqrt{3}}$,$+\infty$}
+			\tkzTabLine{ ,+,z,-, }
+			\tkzTabVar{-/$0$,+/$\dfrac{2}{3\sqrt{3}}$,-/$-\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn bảng biến thiên suy ra $f(x)\le \dfrac{2}{3\sqrt{3}},\forall x>0$. \\
+		Khi đó ta có $T=\dfrac{a^2}{f(a)}+\dfrac{b^2}{f(b)}+\dfrac{c^2}{f(c)}\ge \dfrac{3\sqrt{3}}{2}\left(a^2+b^2+c^2\right)=\dfrac{3\sqrt{3}}{2}$.
+	}
+\end{vd}
+
+\begin{vd}%[Hđ Sinh]%[2D5G1]
+	Cho $\heva{& 2y\ge x^2 \\ & y\le-2x^2+3x}$. Chứng minh rằng $x^2+y^2 \le 2$.
+	\loigiai 
+	{
+		$\heva{& 2y\ge x^2 \\ & y\le-2x^2+3x \\}\Rightarrow \heva{& y\ge 0 \\ & \dfrac{x^2}{2}\le-2x^2+3x \\}\Leftrightarrow \heva{& y\ge 0 \\ & 5x^2-6x\le 0 \\}\Leftrightarrow \heva{& y\ge 0 \\ & 0\le x\le \dfrac{6}{5}. \\}$ \\
+		Ta có $x^2+y^2\le f(x)=x^2+{\left(-2x^2+3x\right)}^2$. Ta sẽ chứng minh $f(2)\le 2$. Thật vậy, biến đổi $f(x)=4x^4-12x^3+10x^2 \Rightarrow f'(x)=4x(x-1)(x-5) = 0 \Leftrightarrow \hoac{&x=1 \\ &x=5~\text{(loại).}}$ \\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.7,lgt=1.2,espcl=3]
+			{$x$/1,$f’(x)$/1,$f(x)$/2.5}
+			{$0$,$1$,$\dfrac{6}{5}$}
+			\tkzTabLine{ ,+,z,-, }
+			\tkzTabVar{-/$f(0)$,+/$2$,-/$f\left(\dfrac{6}{5}\right)$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn bảng biến thiên suy ra $\max f(x)=f(1)=2 \Rightarrow x^2+y^2\le 2$. Dấu ``$=$’’ xảy ra $\Leftrightarrow x=y=1$.
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Hđ Sinh]%[2D5G1]
+	Cho $x,y,z \in (0;4]$, $x\le y;x\le z$ và thỏa mãn $xyz=1$. Tìm GTNN của biểu thức $$P=x^2+y^2+z^2+x+y+z-2(xy+yz+zx)$$
+	\loigiai 
+	{
+		Xét $P=f(x,y,z)=x^2+y^2+z^2+x+y+z-2(xy+yz+zx)$. \\
+		Ta có $f(x,y,z)-f\left(x,\sqrt{yz},\sqrt{yz}\right)=y^2+z^2+y+z-2(yz+xy+zx)-2\sqrt{yz}+4x\sqrt{yz}=(y-z)^2+{\left(\sqrt{y}-\sqrt{z}\right)}^2-2x{\left(\sqrt{y}-\sqrt{z}\right)}^2={\left(\sqrt{y}-\sqrt{z}\right)}^2\left(y+z-2x+1+2\sqrt{yz}\right)\ge 0$, vì $x\le y;x\le z$. \\
+		Đặt $t=\sqrt{yz}\Rightarrow x=\dfrac{1}{t^2},t=\dfrac{1}{\sqrt{x}}\ge \dfrac{1}{2}$. Khi đó $f\left(x,\sqrt{yz},\sqrt{yz}\right)=f\left(\dfrac{1}{t^2},t,t\right)=\dfrac{1}{t^4}+\dfrac{1}{t^2}+2t-\dfrac{4}{t}=g(t)$. \\
+		Ta có $g'(t)=\left(2+\dfrac{4}{t^2}\right)\left(1-\dfrac{1}{t^3}\right)=0\Leftrightarrow t=1$. \\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.2,espcl=3]
+			{$t$/1,$g’(t)$/1,$g(t)$/2.5}
+			{$0$,$1$,$+\infty$}
+			\tkzTabLine{d,-,z,+,}
+			\tkzTabVar{D+/$+\infty$,-/$0$,+/$+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Từ bảng biến thiên suy ra $\min P=\min g(t)=g(1)=0$ xảy ra khi $x=y=z=1$.
+	}
+\end{bt}
+
+\begin{bt}%[Hđ Sinh]%[2D5G1]
+	Cho $x,y,z$ là các số thực không âm thỏa $x+y+z=3$. Chứng minh rằng \[P=x^2+y^2+z^2+xyz \ge 4\]
+	\loigiai 
+	{
+		Không mất tính tổng quát ta giả sử $x = \min (x,y,z) \Rightarrow 3x \le x+y+z=3 \Rightarrow x \le 1$. \\
+		Khi đó ta có $P-4=x^2+(y+z)^2-2yz+xyz-4=(x-2)yz+x^2+(3-x)^2-4=f(t)=(x-2)t+2x^2-6x+5; 0 \le t=yz \le {\left(\dfrac{y+z}{2}\right)}^2={\left(\dfrac{3-x}{2}\right)}^2$. \\
+		Vậy ta tìm GTNN của $f(t)$ trên đoạn $\left[0;{\left(\dfrac{3-x}{2}\right)}^2\right]$, ta có $f(t)$ là hàm số nghịch biến do $x-2<0$. \\
+		Vậy $P-4=f(t)\ge f\left[{\left(\dfrac{3-x}{2}\right)}^2\right]=\dfrac{1}{4}(x-1)^2(x+2)\ge 0\Rightarrow P\ge 4$. Đẳng thức xảy ra khi và chỉ khi $x=y=z=1$.
+	}
+\end{bt}
+
+\begin{bt}%[Hđ Sinh]%[2D5G1]
+	Cho các số thực $a,b,c$ thỏa mãn $a \ge b \ge c$ và $a^2+b^2+c^2=5$. Chứng minh rằng $$(a-b)(b-c)(c-a)(ab+bc+ca) \ge-4$$
+	\loigiai 
+	{
+		Bất đẳng thức cần chứng minh tương đương với $(a-b)(b-c)(a-c)(ab+bc+ca)\le 4~(*)$. \\
+		Đặt vế trái của BĐT $(*)$ là $P$. \\
+		Nếu $ab+bc+ca<0$ thì $P\le 0$, ta có điều phải chứng minh. \\
+		Xét $ab+bc+ca\ge 0$, đặt $x=ab+bc+ca$. \\
+		Ta có: $(a-b)(b-c)\le {\left(\dfrac{a-b+b-c}{2}\right)}^2={\left(\dfrac{a-c}{2}\right)}^2\Rightarrow (a-b)(b-c)(a-c)\le \dfrac{1}{4}(a-c)^3$. \\
+		Mặt khác ta có: $a^2+b^2+c^2-ab-bc-ca=\dfrac{1}{2}(a-b)^2+\dfrac{1}{2}(b-c)^2+\dfrac{1}{2}(a-c)^2\ge \dfrac{1}{2}(a-c)^2+\dfrac{1}{4}(a-b+b-c)^2$. \\
+		Suy ra $5-x\ge \dfrac{3}{4}(a-c)^2\Rightarrow a-c\le \sqrt{\dfrac{4}{3}(5-x)}~;~0\le x\le 5$. \\
+		Suy ra $P\le \dfrac{1}{4}x{\left(\sqrt{\dfrac{4}{3}(5-x)}\right)}^3=\dfrac{2\sqrt{3}}{9}x\sqrt{(5-x)^3}$. \\
+		Xét hàm số $f(x)=\dfrac{2\sqrt{3}}{9}x\sqrt{(5-x)^3}$ trên đoạn $ [0;5]$ \\
+		Ta có $f'(x) = \dfrac{\sqrt{3}}{3} \cdot \sqrt{5-x} \cdot \left(\dfrac{10}{3} - \dfrac{5}{3}x\right) = 0 \Leftrightarrow \hoac{&x=5 \\ &x=2.}$ \\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.2,espcl=3]
+			{$x$/1,$f’(x)$/1,$f(x)$/2.5}
+			{$0$,$2$,$5$}
+			\tkzTabLine{ ,+,z,-,z}
+			\tkzTabVar{-/$0$,+/$4$,-/$0$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn bảng biến thiên ta suy ra $\underset{x\in [0;5]}{\mathop{\max}}f(x)=f(2)=4$. Đẳng thức xảy ra khi và chỉ khi $\heva{& a=2 \\ & b=1 \\ & c=0}$.
+	}
+\end{bt}
+
+\begin{dang}{Ứng dụng giá trị lớn nhất, giá trị nhỏ nhất của hàm số vào bài toán thực tế}
+	Để giải quyết được các bài toán ở dạng này, ta cần thực hiện các bước sau:
+	\begin{enumerate}[\bfseries Bước 1:]
+		\item Phân tích giả thiết và gọi biến (chẳng hạn $x$) có liên quan.
+		\item Tìm điều kiện của $x$.
+		\item Lập hàm $f(x)$ theo giả thiết.
+		\item Tìm $\max, \min$ của $f(x)$ và kết luận.
+	\end{enumerate}
+\end{dang}
+\begin{vd}%[Hđ Sinh]%[2D1T3]
+	Cho một tấm nhôm hình vuông cạnh $12$ cm. Người ta cắt ở bốn góc của tấm nhôm đó bốn hình vuông bằng nhau, mỗi hình vuông có cạnh bằng $x$ (cm), rồi gập tấm nhôm lại như hình vẽ dưới đây để được một cái hộp không nắp. Tìm $x$ để hộp nhận được thể tích lớn nhất.
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7]
+		\tkzDefPoints{-3/0/A, -3/6/D, -2/0/A1, -2/6/D1, 2/0/B1, 2/6/C1, 3/0/B, 3/6/C, -3/1/A2, -2/1/A3, -3/5/D2, -2/5/D3, 2/1/B3, 3/1/B2, 2/5/C3, 3/5/C2}
+		\tkzFillPolygon[color=red, fill opacity=.5](D2,D3,D1,D)
+		\tkzFillPolygon[color=red, fill opacity=.5](A2,A3,A1,A)
+		\tkzFillPolygon[color=red, fill opacity=.5](B2,B3,B1,B)
+		\tkzFillPolygon[color=red, fill opacity=.5](C2,C3,C1,C)
+		%\tkzLabelPoints(A1,B1,C1,D1,A2,B2,C2,D2,A3,B3,C3,D3)
+		\tkzDrawSegments(A,B B,C C,D D,A A1,D1 D2,C2 C1,B1 A2,B2)
+		\end{tikzpicture}
+		\begin{tikzpicture}[scale=1]
+		\tkzDefPoints{-2/0/A, -2/1/D, 2/0/B, 2/1/C,-1/0.5/A1}
+		\tkzDefPointBy[translation = from A to A1](B)
+		\tkzGetPoint{B1}
+		\tkzDefPointBy[translation = from A to A1](C)
+		\tkzGetPoint{C1}
+		\tkzDefPointBy[translation = from A to A1](D)
+		\tkzGetPoint{D1}
+		\tkzDrawSegments(A,B B,C C,D D,A D,D1 D1,C1 C1,B1 B,B1 C,C1)
+		\tkzDrawSegments[dashed](A,A1 A1,B1 A1,D1)
+		\end{tikzpicture}
+	\end{center}
+	\loigiai
+	{
+		Khi gập tấm nhôm lại lại như hình vẽ ta được một cái hộp không nắp có đáy là hình vuông cạnh $12-2x \left(0<x<6 \right)$. Khi đó, thể tích hình hộp nhận được là:
+		\[V=x\left(12-2x\right)\left(12-2x\right)=x{\left(12-2x\right)}^2, \forall x\in \left(0;6\right)\]
+		Xét hàm $f(x)=x \left(12-2x\right)^2, \forall x \in \left(0;6\right)$. \\
+		Ta có: $f'(x)= \left(12-2x\right)^2 - 4x \left(12-2x\right) = \left(12-2x \right) \left(12-6x\right)$. \\
+		Xét $f'(x) = 0 \Leftrightarrow \hoac{& x=2 \in \left(0;6\right) \\ & x=6 \notin \left(0;6\right).}$\\
+		Bảng biến thiên: 
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.2,espcl=3]
+			{$x$/1.2, $f'(x)$/1.2, $f(x)$/2.5}
+			{$-\infty$,$2$,$6$}
+			\tkzTabLine{ ,+,z,-,z }
+			\tkzTabVar{-/$-\infty$,+/$128$,-/$f(6)$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn bảng biến thiên ta suy ra $V_{\max} = 128$ cm$^3$ khi $x=2$.
+	}
+\end{vd}
+
+\begin{vd}%[Hđ Sinh]%[2D1T3]
+	Khi xây dựng nhà, chủ nhà cần làm một bể nước bằng gạch có dạng hình hộp có đáy là hình chữ nhật chiều dài $d$ (m) và chiều rộng $r$ (m) với $d=2r$. Chiều cao bể nước là $h$ (m) và thể tích bể là $2$ m$^3$. Hỏi chiều cao bể nước như thế nào thì chi phí xây dựng là thấp nhất?
+	\loigiai
+	{
+		Gọi $x \left(x>0\right)$ là chiều rộng của đáy. Suy ra thể tích bể nước bằng 
+		\[V=2x^2 \cdot h = 2 \Leftrightarrow h = \dfrac{1}{x^2}\]
+		Diện tích xung quanh hồ và đáy bể là
+		$S=6x \cdot h + 2x^2 = \dfrac{6}{x} + 2x^2 \left(x>0\right)$ \\
+		Xét hàm số $f(x) = \dfrac{6}{x} + 2x^2$ với $x>0$. \\
+		Ta có $f'(x) = \dfrac{-6}{x^2} + 4x = \dfrac{-6+4x^3}{x^2} = 0 \Leftrightarrow x = \sqrt[3]{\dfrac{3}{2}}$. \\
+		Bảng biến thiên: 
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.5,espcl=3]
+			{$x$/1,$f’(x)$/1,$f(x)$/2.5}
+			{$0$,$\sqrt[3]{\dfrac{3}{2}}$,$+\infty$}
+			\tkzTabLine{ ,-,z,+, }
+			\tkzTabVar{+/$+\infty$,-/$f\left(\sqrt[3]{\dfrac{3}{2}}\right)$,+/$+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn bảng biến thiên ta suy ra hàm số đạt giá trị nhỏ nhất tại $x = \sqrt[3]{\dfrac{3}{2}}$.
+		Vậy chiều cao cần xây là 
+		\[h = \dfrac{1}{x^2} = \dfrac{1}{\sqrt[3]{\left(\dfrac{3}{2}\right)^2}}=\dfrac{2}{3}\sqrt{\dfrac{2}{3}}~(\text{m})\]
+	}
+\end{vd}
+
+\begin{vd}%[Hđ Sinh]%[2D1T3]
+	Một đại lý xăng dầu cần xây một bồn chứa dầu hình trụ có đáy hình tròn bằng thép có thể tích $49 \pi$ (m$^3$) và giá mỗi mét vuông thép là $500$ ngàn đồng. Hỏi giá tiền thấp nhất mà đại lý phải trả gần đúng với số tiền nào nhất?
+	\loigiai 
+	{
+		Gọi bán kính đáy là $x$ (m) $(x>0)$, chiều cao bồn chứa là $h$ (m). \\ 
+		Khi đó thể tích chứa của bồn là $V = \pi x^2 \cdot h = 49 \pi \Leftrightarrow h = \dfrac{49}{x^2}$ (m). \\ 
+		Do là bồn chứa dầu nên phải có nắp nên diện tích cần xây của bồn chứa là:
+		\[2\pi x^2+2\pi x \cdot h=2\pi x^2+\dfrac{98\pi}{x}~(\text{m}^2)\]
+		Để chi phí xây dựng thấp nhất thì diện tích xây cũng phải thấp nhất. \\
+		Xét hàm số $f(x) = 2 \pi x^2 + \dfrac{98\pi}{x} \left(x>0\right)$. \\
+		Ta có $f'(x) = 4 \pi x - \dfrac{98 \pi}{x^2} = \dfrac{4 \pi x^3 - 98 \pi}{x^2} = 0 \Leftrightarrow x = \sqrt[3]{\dfrac{49}{2}}$. \\
+		Bảng biến thiên: 
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.5,espcl=3]
+			{$x$/1,$f’(x)$/1,$f(x)$/2.5}
+			{$0$,$\sqrt[3]{\dfrac{49}{2}}$,$+\infty$}
+			\tkzTabLine{ ,-,z,+, }
+			\tkzTabVar{+/$+\infty$,-/$f\left(\sqrt[3]{\dfrac{49}{2}}\right)$,+/$+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn bảng biến thiên ta suy ra GTNN của $f(x)$ là $f \left(\sqrt[3]{\dfrac{49}{2}}\right) \approx 159{,}005$ (m$^2$).
+	}
+\end{vd}
+
+\begin{vd}%[Hđ Sinh]%[2D1T3]
+	Một khách sạn có $50$ phòng. Hiện tại mỗi phòng cho thuê với giá $400$ ngàn đồng một ngày thì toàn bộ phòng được thuê hết. Biết rằng cứ mỗi lần tăng giá thêm $20$ ngàn đồng thì có thêm $2$ phòng trống. Giám đốc phải chọn giá phòng mới là bao nhiêu để thu nhập của khách sạn trong ngày là lớn nhất?
+	\loigiai 
+	{
+		Gọi $x$ (ngàn đồng) là giá phòng khách sạn cần đặt ra, $x>400$ (đơn vị: ngàn đồng). \\
+		Giá chênh lệch sau khi tăng là $x-400$. \\
+		Số phòng cho thuê giảm với giá $x$ là: $\dfrac{\left(x-400\right) \cdot 2}{20}=\dfrac{x-400}{10}$ (phòng). \\
+		Số phòng cho thuê với giá $x$ là $50-\dfrac{x-400}{10}=90-\dfrac{x}{10}$ (phòng). \\
+		Tổng doanh thu trong ngày là: $f(x)=x \left(90-\dfrac{x}{10}\right) = -\dfrac{x^2}{10}+90x$ (ngàn đồng). \\
+		Ta có: $f'(x)= -\dfrac{x}{5}+90 \Rightarrow f'(x)=0 \Leftrightarrow x=450$. \\
+		Bảng biến thiên: 
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.7,lgt=1.2,espcl=3]
+			{$x$/1.2, $f'(x)$/1.2, $f(x)$/2.5}
+			{$400$,$450$,$+\infty$}
+			\tkzTabLine{ ,+,z,-, }
+			\tkzTabVar{-/$f(400)$,+/$20250$,-/$-\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Dựa vào bảng biến thiên ta thấy $f(x)$ đạt giá trị lớn nhất khi $x=450$.
+		Vậy nếu cho thuê với giá $450$ ngàn đồng thì sẽ có doanh thu cao nhất trong ngày là $20.250.000$ đồng.
+	}
+\end{vd}
+
+\begin{vd}%[Hđ Sinh]%[2D1T3]
+	Một doanh nghiệp bán xe gắn máy trong đó có loại xe $A$ bán ế nhất với giá mua vào mỗi chiếc xe là $26$ triệu VNĐ và bán ra $30$ triệu VNĐ, với giá bán này thì số lượng bán một năm là $600$ chiếc. Cửa hàng cần đẩy mạnh việc bán được loại xe này nên đã đưa ra chiến lược kinh doanh giảm giá bán và theo tính toán của CEO nếu giảm $1$ triệu VNĐ mỗi chiếc thì số lượng xe bán ra trong một năm sẽ tăng thêm $200$ chiếc. Hỏi cửa hàng định giá bán loại xe đó bao nhiêu thì doanh thu loại xe đó của cửa hàng đạt lớn nhất?
+	\loigiai 
+	{
+		Gọi $x$ (triệu VNĐ) là số tiền cần giảm cho mỗi chiếc xe $\left(0 \le x \le 4\right)$. \\
+		Số lượng xe bán ra được trong một năm sau khi giảm giá là: $200x + 600$ (chiếc). \\
+		Số lợi nhuận thu được từ việc bán xe trong một năm sau khi giảm giá là: \[\left(200x + 600\right) \left(4-x\right)\]
+		Xét hàm số $f(x) = \left(200x + 600\right) \left(4 - x\right) = 200 \left(-x^2+x+12\right) \left(0 \le x \le 4\right)$. \\
+		Ta có $f'(x) = 200(-2x+1) = 0 \Leftrightarrow x = \dfrac{1}{2}$. \\
+		Bảng biến thiên: 
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.2,espcl=3]
+			{$x$/1.2, $f'(x)$/1.2, $f(x)$/2.5}
+			{$0$,$\dfrac{1}{2}$,$4$}
+			\tkzTabLine{ ,+,z,-, }
+			\tkzTabVar{-/$f(0)$,+/$2450$,-/$f(4)$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn bảng biến thiên ta suy ra $f(x)$ đạt giá trị lớn nhất là $2450$ khi $x = \dfrac{1}{2}$.
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Hđ Sinh]%[2D1T3]
+	Công ty du lịch Ban Mê dự định tổ chức một tua xuyên Việt. Công ty dự định nếu giá tua là $2$ triệu đồng thì sẽ có khoảng $150$ người tham gia. Để kích thích mọi người tham gia, công ty quyết định giảm giá và cứ mỗi lần giảm giá tua $100$ ngàn đồng thì sẽ có thêm $20$ người tham gia. Hỏi công ty phải bán giá tua là bao nhiêu để doanh thu từ tua xuyên Việt là lớn nhất?
+	\loigiai 
+	{
+		Gọi $x$ (triệu đồng) là giá tua. Điều kiện: $0<x<2$. \\
+		Giá đã giảm so với ban đầu là $2-x$. \\
+		Số người tham gia tăng thêm nếu bán với giá $x$ là: $\dfrac{\left(2-x\right)20}{0{,}1}=400-200x$. \\
+		Số người sẽ tham gia nếu bán giá $x$ là: $150+\left(400-200x\right)=550-220x$. \\
+		Tổng doanh thu là: $f(x)=x\left(550-200x\right)=-200x^2+550x$. \\
+		Ta có: $f'(x)=-400x+550 \Rightarrow f'(x)=0 \Leftrightarrow x=\dfrac{11}{8}$. \\
+		Bảng biến thiên: 
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.2,espcl=3]
+			{$x$/1.2, $f'(x)$/1.2, $f(x)$/2.5}
+			{$0$,$\dfrac{11}{8}$,$2$}
+			\tkzTabLine{ ,+,z,-, }
+			\tkzTabVar{-/$0$,+/$378{,}125$,-/$f(2)$}
+			\end{tikzpicture}
+		\end{center}
+		Dựa vào bảng biến thiên ta thấy $f(x)$ đạt giá trị lớn nhất khi $x=\dfrac{11}{8}=1{,}375$. \\
+		Vậy công ty cần đặt giá tua $1.375.000$ đồng thì tổng doanh thu sẽ cao nhất là $378.125.000$ đồng.
+	}
+\end{bt}
+\begin{bt}%[Hđ Sinh]%[2D1T3]
+	Ông $A$ muốn mua một mảnh đất hình chữ nhật có diện tích $384$ m$^2$ để xây nhà. Nhưng vợ ông muốn có khuôn viên sân vườn đẹp nên ông mua thêm về hai phía chiều dài mỗi chiều $3$ m và về hai phía chiều rộng mỗi chiều $2$ m. Vậy, để ông $A$ mua được mảnh đất có diện tích nhỏ nhất (tiết kiệm chi phí) thì mảnh đất đó chu vi là bao nhiêu?
+	\loigiai 
+	{
+		Gọi $x,y$ là chiều dài, chiều rộng phần đất xây nhà. Ta có \[\heva{
+			& S=(x+6)(y+4) \\ 
+			& x \cdot y=384} \Leftrightarrow \heva{
+			& S=(x+6) \left(\dfrac{384}{x}+4\right) \\ 
+			& y=\dfrac{384}{x}}\]
+		Xét hàm số $S(x) = (x+6) \left(\dfrac{384}{x} + 4\right) \text{ với } x>0$. \\
+		Ta có $S'(x) = \dfrac{384}{x} + 4 - \dfrac{384}{x^2}(x+6) = \dfrac{384x + 4x^2 - 384x - 2304}{x^2} = \dfrac{4x^2 - 2304}{x^2} = 0 \Leftrightarrow x = 24$. \\
+		Bảng biến thiên: 
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.5,espcl=3]
+			{$x$/1,$S’(x)$/1,$S(x)$/2.5}
+			{$0$,$24$,$+\infty$}
+			\tkzTabLine{ ,-,z,+, }
+			\tkzTabVar{+/$+\infty$,-/$600$,+/$+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn vào bảng biến thiên ta suy ra $S(x)$ nhỏ nhất bằng $600$ khi $x = 24 \Rightarrow y = 16$. \\
+		Vậy mảnh đất cần mua có chiều dài là: $24+6=30$ (m). \\
+		Chiều rộng là: $16+4=20$ (m). \\
+		Khi đó chu vi mảnh đất là $100$ (m).
+	}
+\end{bt}
+
+\begin{bt}%[Hđ Sinh]%[2D1T3]
+	Một đĩa tròn bằng thép trắng có bán kính bằng $R$. Người ta phải cắt đĩa theo một hình quạt, sau đó gấp lại thành hình nón để làm một cái phễu. Cung tròn của hình quạt bị cắt đi phải bằng bao nhiêu độ để thể tích cái phễu lớn nhất?
+	\loigiai 
+	{
+		Gọi $0<x<2\pi R$ là độ dài đường tròn đáy của cái phễu (bằng chu vi đĩa tròn trừ đi độ dài cung hình quạt bị cắt đi) $\Rightarrow x=2\pi r \Rightarrow r=\dfrac{x}{2\pi}$ ($r$ là bán kính đường tròn đáy hình nón). \\  
+		Đường sinh của hình nón chính bằng bán kính đĩa là $R$. \\
+		Đường cao hình nón: $h=\sqrt{R^2-r^2}=\sqrt{R^2-\dfrac{x^2}{4\pi^2}}$ \\
+		$\Rightarrow V=\dfrac{1}{3}\pi r^2 \cdot h=\dfrac{1}{3}\pi \dfrac{x^2}{4\pi^2} \cdot \sqrt{R^2-\dfrac{x^2}{4\pi^2}} = \dfrac{x^2}{24\pi^2}\sqrt{4\pi^2R^2-x^2}$. \\
+		$V'(x) = \dfrac{-3x^3+8\pi^2R^2x}{24\pi^2\sqrt{4\pi^2R^2-x^2}}$, $V'(x) = 0 \Leftrightarrow \hoac{&x=0~\text{(loại)} \\ &x = \dfrac{2\sqrt{6}\pi R}{3}}$. \\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.2,espcl=3]
+			{$x$/1.2, $V'(x)$/1.2, $V(x)$/2.5}
+			{$0$,$\dfrac{2\sqrt{6}\pi R}{3}$,$2 \pi R$}
+			\tkzTabLine{ z,+,z,-, }
+			\tkzTabVar{-/$0$,+/$V\left(\dfrac{2\sqrt{6}\pi R}{3}\right)$,-/$0$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn vào bảng biến thiên ta thấy $V$ đạt GTLN khi $x=\dfrac{2\sqrt{6} \pi R}{3}$. \\
+		Suy ra, độ dài cung hình quạt bị cắt là: $2\pi R-\dfrac{2\sqrt{6}\pi R}{3}\Rightarrow \alpha =\dfrac{2\pi R-\dfrac{2\sqrt{6}\pi R}{3}}{2\pi R} \cdot 360^\circ \approx 66^\circ$.
+	}
+\end{bt}
+
+\begin{bt}%[Hđ Sinh]%[2D1T3]
+	Chi phí về nhiên liệu của một tàu được chia làm hai phần. Trong đó phần  thứ nhất không phụ thuộc vào vận tốc và bằng $480$ ngàn đồng/giờ. Phần thứ hai tỷ lệ thuận với lập phương của vận tốc, khi $v = 10$ (km/h) thì phần thứ hai bằng $30$ ngàn đồng/giờ. Hãy xác định vận tốc của tàu để tổng chi phí nguyên liệu trên $1$ km đường là nhỏ nhất?
+	\loigiai 
+	{
+		Gọi $x$ (km/h) là vận tốc của tàu $\Rightarrow$ thời gian tàu đi $1$ km là $\dfrac{1}{x}$ giờ. \\
+		Phần chi phí thứ nhất là: $480 \cdot \dfrac{1}{x}=\dfrac{480}{x}$ (ngàn). \\
+		Giả sử phần chi phí thứ $2$ kí hiệu là $y$ thì $y=kx^3 \Rightarrow k=\dfrac{y}{x^3}$. \\
+		Với $x=10 \Rightarrow y=\dfrac{1}{10} \cdot 30=3$ (ngàn) $\Rightarrow k=\dfrac{3}{1000}=0{,}003 \Rightarrow y=0{,}003x^3$. \\
+		Do đó, tổng chi phí là $T=\dfrac{480}{x}+0{,}003x^3$. \\
+		Ta có $T'(x) = \dfrac{-480+0{,}009x^4}{x^2} = 0 \Leftrightarrow x = \sqrt[4]{\dfrac{160000}{3}}$. \\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.5,espcl=3]
+			{$x$/1,$T’(x)$/1,$T(x)$/2.5}
+			{$0$,$\sqrt[4]{\frac{160000}{3}}$,$+\infty$}
+			\tkzTabLine{ ,-,z,+, }
+			\tkzTabVar{+/$+\infty$,-/$T\left(\sqrt[4]{\frac{160000}{3}}\right)$,+/$+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn vào bảng biến thiên ta ta thấy $T$ đạt GTNN khi $x = \sqrt[4]{\dfrac{160000}{3}} \approx 15$ (km/h).
+	}
+\end{bt}
+
+\begin{bt}%[Hđ Sinh]%[2D1T3]
+	Cho chuyển động thẳng xác định bởi phương trình $S(t) = \dfrac{-1}{4}t^4+3t^2-2t-4$, trong đó $t$ tính bằng giây $(s)$ và $S$ tính bằng mét (m). Tại thời điểm nào, vận tốc của chuyển động đạt giá trị lớn nhất?
+	\loigiai 
+	{
+		Ta có vận tốc $v(t) = S'(t) = -t^3 + 6t -2 \Rightarrow v'(t) = -3t^2+6=0 \Leftrightarrow \hoac{
+			& t=\sqrt{2} \\ 
+			& t=-\sqrt{2}<0~\text{(loại).}}$ \\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.2,espcl=3]
+			{$t$/1.2, $v'(t)$/1.2, $v(t)$/2.5}
+			{$0$,$\sqrt{2}$,$+\infty$}
+			\tkzTabLine{ ,+,z,-, }
+			\tkzTabVar{-/$v(0)$,+/$v\left(\sqrt{2}\right)$,-/$-\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn vào bảng biến thiên ta có $v(t)$ đạt giá trị lớn nhất khi $t=\sqrt{2}$.
+	}
+\end{bt}
+
+\begin{bt}%[Hđ Sinh]%[2D1T3]
+	Một tấm thiếc hình chữ nhật dài $45$ (cm), rộng $24$ (cm) được làm thành một cái hộp không nắp bằng cách cắt bốn hình vuông bằng nhau từ mỗi góc và gấp mép lên. Hỏi các hình vuông được cắt ra có cạnh là bao nhiêu để hộp nhận được có thể tích lớn nhất?
+	\loigiai 
+	{
+		Gọi $x$ (cm) $\left(0<x<12\right)$ là cạnh của các hình vuông bị cắt rời ra. Khi đó, chiều cao của hộp là $x$, chiều dài là $45-2x$ và chiều rộng là $24-2x$. \\
+		Thể tích $V(x) = x \left(45-2x\right) \left(24-2x\right) = 4x^3-138x^2+1080x$. \\
+		Suy ra $V'(x)=12x^2-276x+1080$. \\
+		Cho $V'(x) = 0$, suy ra được giá trị $x$ cần tìm là $x=5$. \\
+		$V''(x) = 24x-276 \Rightarrow V''(5) = -156<0$. Do đó $x=5$ là điểm cực đại. Vậy các hình vuông được cắt ra có cạnh bằng $5$ cm thì hộp nhận được có thể tích lớn nhất.
+	}
+\end{bt}
+
+\begin{bt}%[Hđ Sinh]%[2D1T3]
+	Một sợi dây có chiều dài $28$ (m) được cắt thành hai đoạn để làm thành một hình vuông và một hình tròn. Tính chiều dài của đoạn dây làm thành hình vuông được cắt ra sao cho tổng diện của hình vuông và hình tròn là tối thiểu?
+	\loigiai 
+	{
+		Gọi $l~\left(0<l<28\right)$ là chiều dài đoạn dây làm thành hình vuông. Khi đó đoạn dây làm thành hình tròn có chiều dài là $28-l$. \\
+		Cạnh hình vuông là $\dfrac{l}{4}$, bán kính hình tròn là $\dfrac{1}{2 \pi} \left(28-l\right)$. \\
+		Tổng diện tích $S(l)=\dfrac{l^2}{16}+\dfrac{1}{4\pi}{\left(28-l\right)}^2$, suy ra $S'(l)=\dfrac{l}{8}-\dfrac{1}{2 \pi} \left(28-l\right)$. \\
+		Cho $S'(l)=0$, ta được $l=\dfrac{112}{4+\pi}$, suy ra chiều dài đoạn dây còn lại là $\dfrac{28\pi}{4+\pi}$. \\
+		Kiểm tra lại bằng đạo hàm cấp $2$, $S''\left(\dfrac{112}{\pi+4}\right)>0$. \\
+		Vậy $S$ đạt giá trị nhỏ nhất bằng $\dfrac{196}{4+\pi}$ khi $l=\dfrac{112}{4+\pi}$.
+	}
+\end{bt}
+
+\begin{bt}%[Hđ Sinh]%[2D1T3]
+	Một hãng dược phẩm cần một số lọ đựng thuốc dạng hình trụ với dung tích $16 \pi$ (cm$^3$). Tính bán kính đáy $R$ của lọ để ít tốn nguyên liệu sản xuất lọ nhất?
+	\loigiai 
+	{
+		Ta có $V = \pi R^2h = 16\pi \Rightarrow h=\dfrac{16}{R^2}$ (cm$^2$). \\
+		Để ít tốn nguyên liệu nhất thì diện tích toàn phần của lọ phải nhỏ nhất. Do đó ta có:
+		\[S_{tp}=2\pi R^2+2\pi Rh=2\pi R^2+\dfrac{32\pi}{R^2}\]
+		Xét hàm số $S(R) =2\pi R^2+\dfrac{32\pi}{R^2}$ với $R>0$. \\
+		Ta có $S'(R) = \dfrac{4\pi x^4 - 64\pi}{x^3} = 0 \Leftrightarrow R = 2$. \\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.5,espcl=3]
+			{$R$/1,$S’(R)$/1,$S(R)$/2}
+			{$0$,$2$,$+\infty$}
+			\tkzTabLine{ ,-,z,+, }
+			\tkzTabVar{+/$+\infty$,-/$16\pi$,+/$+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn vào bảng biến thiên ta suy ra $S(R)$ nhỏ nhất bằng $16 \pi \approx 50{,}24$ (cm$^2$) khi $R = 2$.
+	}
+\end{bt}
+\begin{bt}%[Hđ Sinh]%[2D1T3]
+	\immini 
+	{
+		Ông An cần sản xuất một cái thang để trèo qua một bức tường nhà. Ông muốn cái thang phải luôn được đặt qua vị trí $C$, biết rằng điểm $C$ cao $2$ m so với nền nhà và điểm $C$ cách tường nhà $1$ m (như hình vẽ bên). Giả sử kinh phí để sản xuất thang là $300.000$ đồng/1 mét dài. Hỏi ông An cần ít nhất bao nhiêu tiền để sản xuất thang? (Kết quả làm tròn đến hàng nghìn đồng).
+	}
+	{
+		\begin{tikzpicture}[scale=1.5]
+		\tkzDefPoints{0/0/A, 3/0/D, 1/0/F, 0/2/E,1/2/C}
+		\tkzInterLL(A,E)(D,C)
+		\tkzGetPoint{B}
+		\tkzLabelSegment[above](E,C){$1~\text{m}$}
+		\tkzLabelSegment[right](F,C){$2~\text{m}$}
+		\tkzLabelSegment[below](A,D){$\text{nền nhà}$}
+		\path (B)--(D) node[above,midway,sloped]{$\text{cái thang}$};
+		\path (A)--(B) node[above,midway,sloped]{$\text{tường nhà}$};
+		\tkzDrawSegments[dashed](E,C C,F)
+		\tkzDrawSegments(A,D D,B)
+		\tkzDrawSegments[ultra thick](A,B)
+		\tkzDrawPoints(C)
+		\tkzLabelPoints[above](C)
+		\end{tikzpicture}
+	}
+	\loigiai 
+	{
+		\begin{center}
+			\begin{tikzpicture}[scale=1.5]
+			\tkzDefPoints{0/0/A, 3/0/D, 1/0/F, 0/2/E,1/2/C}
+			\tkzInterLL(A,E)(D,C)
+			\tkzGetPoint{B}
+			\tkzLabelSegment[above](E,C){$1~\text{m}$}
+			\tkzLabelSegment[right](F,C){$2~\text{m}$}
+			\tkzDrawSegments[dashed](E,C C,F)
+			\tkzDrawSegments(A,D D,B B,A)
+			\tkzLabelPoints[below](A,D,F)
+			\tkzLabelPoints[left](E)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above](B)
+			\end{tikzpicture}
+		\end{center}
+		Đặt $BC=x$. \\
+		Ta có $\triangle BCE \backsim \triangle CDF \Rightarrow \dfrac{BC}{CD}=\dfrac{CE}{DF} \Leftrightarrow \dfrac{x}{CD}=\dfrac{1}{\sqrt{CD^2-4}} \Leftrightarrow x^2\left(CD^2-4\right)=CD^2 \Leftrightarrow CD^2=\dfrac{4x^2}{x^2-1}\Leftrightarrow CD=\dfrac{2x}{\sqrt{x^2-1}}$. \\
+		Vậy chi phí sản xuất thang là 
+		$f(x)=\left(x+\dfrac{2x}{\sqrt{x^2-1}}\right){.{3.10}^5}$ với $x>1$. \\
+		Ta có $f'(x) = {3 \cdot 10}^5\left(1+\dfrac{2\sqrt{x^2-1}-\dfrac{2x^2}{\sqrt{x^2-1}}}{x^2-1}\right)={3 \cdot 10}^5\left(1+\dfrac{-2}{{\left(\sqrt{x^2-1}\right)}^3}\right)$. \\
+		$f'(x) = 0 \Leftrightarrow \sqrt{{\left(x^2-1\right)}^3} = 2 \Leftrightarrow \left(x^2-1\right)^3 = 4 \Leftrightarrow x^2 = \sqrt[3]{4}+1 \Leftrightarrow x = \sqrt{\sqrt[3]{4}+1}$. \\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.2,espcl=3]
+			{$x$/1,$f’(x)$/1,$f(x)$/2.5}
+			{$1$,$\sqrt{\sqrt[3]{4}+1}$,$+\infty$}
+			\tkzTabLine{ ,-,z,+, }
+			\tkzTabVar{+/$+\infty$,-/$f\left[\sqrt{\sqrt[3]{4}+1}\right]$,+/$+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Nhìn vào bảng biến thiên ta suy ra chi phí thấp nhất để sản xuất thang là $f\left[\sqrt{\sqrt[3]{4}+1}\right] \approx 1.249.000$ đồng.
+	}
+\end{bt}
+
+\begin{bt}%[Hđ Sinh]%[2D1T3]
+	Cho hàm số $y=x^4-2x^2$. Gọi $\Delta$ là đường thẳng đi qua điểm cực đại của đồ thị hàm số đã cho và có hệ số góc $m$. Hãy tìm tập hợp tất cả các giá trị của tham số thực $m$ sao cho tổng các khoảng cách từ hai điểm cực tiểu của đồ thị hàm số đã cho đến $\Delta$ là nhỏ nhất.
+	\loigiai 
+	{
+		$y=x^4-2x^2$. TXĐ: $\mathscr{D} =\mathbb{R}$.
+		\[y'=4x^3-4x=4x\left(x^2-1\right); y'=0 \Leftrightarrow \hoac{
+			& x=0 \\ 
+			& x=-1 \\ 
+			& x=1}\]
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.5,lgt=1.2,espcl=3]
+			{$x$/1.2,$f’(x)$/1.2,$f(x)$/2.5}
+			{$-\infty$,$-1$,$0$,$1$,$+\infty$}
+			\tkzTabLine{ ,-,z,+,z,-,z,+, }
+			\tkzTabVar{+/$+\infty$,-/$-1$,+/$0$,-/$-1$,+/$+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Vậy điểm cực đại của đồ thị hàm số là gốc tọa độ $O\left(0;0\right)$. Các điểm cực tiểu là $A\left(-1;-1\right)$ và $B\left(1;-1\right)$. \\
+		Phương trình đường thẳng $\Delta $ thỏa đề bài có dạng $y=mx$, hay $mx-y=0$. \\
+		$S=d\left[A;\left(\Delta \right)\right]+d\left[B;\left(\Delta \right)\right]=\dfrac{\left|-m+1\right|}{\sqrt{m^2+1}}+\dfrac{\left| m+1\right|}{\sqrt{m^2+1}}=\dfrac{\left|-m+1\right|+\left| m+1\right|}{\sqrt{m^2+1}}$. \\
+		$S^2=\dfrac{2\left(m^2+1\right)+2\left|-m^2+1\right|}{m^2+1}=2+2.\dfrac{\left|-m^2+1\right|}{m^2+1}\ge 2+2.\dfrac{0}{m^2+1}=2$. \\
+		Vậy $S^2$ đạt giá trị nhỏ nhất bằng $2$ khi $-m^2+1=0$ hay $m=\pm 1$. Vì $S>0$ nên ta kết luận $S$ đạt giá trị bé nhất là $\sqrt{2}$ khi $m=\pm 1$.
+	}
+\end{bt}
+
+\begin{bt}%[Hđ Sinh]%[2D1T3]
+	Một vùng đất hình chữ nhật $ABCD$ có $AB=25$ km, $BC=20$ km và $M$, $N$ lần lượt là trung điểm của $AD$, $BC$. Một người cưỡi ngựa xuất phát từ $A$ đi đến $C$ bằng cách đi thẳng từ $A$ đến một điểm $X$ thuộc đoạn $MN$ rồi lại đi thẳng từ $X$ đến $C$. Vận tốc của ngựa khi đi trên phần $ABNM$ là $15$ km/h, vận tốc của ngựa khi đi trên phần $MNCD$ là $30$ km/h. Thời gian ít nhất để ngựa di chuyển từ $A$ đến $C$ là mấy giờ?
+	\loigiai 
+	{
+		\immini 
+		{
+			Gọi $MX=x$ (km) với $0 \le x \le 25$. \\
+			Quãng đường $AX=\sqrt{x^2+10^2} \Rightarrow$ thời gian tương ứng $\dfrac{\sqrt{x^2+100}}{15}$ h. \\
+			Quảng đường $CX=\sqrt{{\left(25-x\right)}^2+10^2} \Rightarrow$ thời gian tương ứng $\dfrac{\sqrt{x^2-50x+725}}{30}$ h. \\
+			Tổng thời gian $f(x)=\dfrac{\sqrt{x^2+100}}{15}+\dfrac{\sqrt{x^2-50x+725}}{30}$ với $x\in \left[0;25\right]$, ta tìm giá trị nhỏ nhất của $f(x)$:
+			Ta có
+			$f'(x)=\dfrac{x}{15\sqrt{x^2+100}}+\dfrac{x-25}{30\sqrt{x^2-50x+725}}$, $f'(x)=0 \Leftrightarrow x=5$. \\
+		}
+		{
+			\begin{tikzpicture}[scale=1.2]
+			\tkzDefPoints{0/0/D, 0/4/A, 0/2/M, 1/2/X, 5/0/C, 5/4/B, 5/2/N}
+			\tkzLabelSegment[below](M,X){$x$}
+			\draw(2.5,3) node{$15\,\text{km/h}$};
+			\draw(1.5,0.8) node{$30\,\text{km/h}$};
+			\tkzLabelSegment[above](A,B){$25\,\text{km}$}
+			\path (N)--(B) node[below,midway,sloped]{$20\,\text{km}$};
+			\tkzFillPolygon[color=black,fill opacity=0.1](D,C,N,M)
+			\tkzFillPolygon[color=red,fill opacity=0.1](A,M,N,B)
+			\tkzDrawSegments(A,D D,C C,B B,A M,N A,X X,C)
+			\tkzLabelPoints[below](D,C)
+			\tkzLabelPoints[left](M)
+			\tkzLabelPoints[right](N)
+			\tkzLabelPoints[above right](X)
+			\tkzLabelPoints[above](A,B)
+			\tkzDrawPoints(A,B,N,X,M,D,C)
+			\end{tikzpicture}
+		}
+		Tính các giá trị $f(0)=\dfrac{4+\sqrt{29}}{6} \approx 1{,}56$; $f\left(25\right)=\dfrac{1+\sqrt{29}}{3} \approx 2{,}13$; $f(5)=\dfrac{2\sqrt{5}}{3}\approx 1{,}49$. \\
+		Vậy hàm số đạt GTNN bằng $\dfrac{2\sqrt{5}}{3}$ tại $x=5$.
+	}
+\end{bt}
+
+\begin{bt}%[Hđ Sinh]%[2D1T3]
+	Một xe buýt của hãng xe $A$ có sức chứa tối đa là $50$ hành khách. Nếu một chuyến xe buýt chở $x$ hành khách thì giá tiền cho mỗi hành khách là $20 \left(3-\dfrac{x}{40}\right)^2$ (nghìn đồng). Hỏi một chuyến xe buýt thu được lợi nhuận cao nhất là bao nhiêu?
+	\loigiai 
+	{
+		Số tiền của chuyến xe buýt chở $x$ hành khách là \\
+		\[f(x)=20x \cdot {\left(3-\dfrac{x}{40}\right)}^2=20\left(9x-\dfrac{3x^2}{20}+\dfrac{x^3}{1600}\right)~(0<x \le 50)\]
+		Ta có
+		\[f'(x)=20\left(9-\dfrac{3x}{10}+\dfrac{3x^2}{1600}\right) \Leftrightarrow f'(x) = 0 \Leftrightarrow \hoac{&x=40 \\ &x=120.}\]
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1]
+			\tkzTabInit[deltacl=.7,lgt=1.2,espcl=3]
+			{$x$/1,$f’(x)$/1,$f(x)$/2.5}
+			{$0$,$40$,$50$}
+			\tkzTabLine{ ,+,z,-, }
+			\tkzTabVar{-/$f(0)$,+/$3200$,-/$f(50)$}
+			\end{tikzpicture}
+		\end{center}
+		Vậy một chuyến xe buýt thu được lợi nhuận cao nhất là $3.200.000$ (đồng).
+	}
+\end{bt}
+
+
+\begin{center}
+	\textbf{BÀI TẬP TỔNG HỢP}
+\end{center}
+
+\setcounter{bt}{0}
+\begin{bt}%[Cao Thành Thái]%[2D1B3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số $y = x^5 - 5x^4 + 5x^3 + 2$ trên đoạn $[-1;1]$.
+	\loigiai
+	{
+		Ta có: $y' = 5x^4 - 20x^3 + 15x^2$.
+		$$y' = 0 \Leftrightarrow 5x^4 - 20x^3 + 15x^2 = 0 \Leftrightarrow 5x^2(x^2 - 4x + 3) = 0 \Leftrightarrow \left[ \begin{array}{ll} x &= 0 \\ x &= 1 \\ x &= 3. \end{array} \right.$$
+		Trên đoạn $[-1;1]$ ta có: $y(-1) = -9; \, y(0) = 2; \, y(1) = 3$.\\
+		Vậy $\max\limits_{[-1;1]} y = 3$ tại $x = 1$ và $\min\limits_{[-1;1]} y = -9$ tại $x = -1$.
+	}
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1B3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số $y = x + \dfrac{1}{x-1}$ trên đoạn $\left[ \dfrac{3}{2};3 \right]$.
+	\loigiai
+	{
+		Với $x \neq 1$ ta có: $y' = 1 - \dfrac{1}{(x-1)^2} = \dfrac{x^2 - 2x}{(x-1)^2}$.
+		$$y' = 0 \Leftrightarrow \dfrac{x^2 - 2x}{(x-1)^2} = 0 \Leftrightarrow x^2 - 2x = 0 \Leftrightarrow \left[ \begin{array}{ll} x &= 0 \\ x &= 2. \end{array} \right.$$
+		Trên đoạn $\left[ \dfrac{3}{2};3 \right]$ ta có: $y\left( \dfrac{3}{2} \right) = \dfrac{7}{2}; \, y(2) = 3; \, y(3) = \dfrac{7}{2}$.\\
+		Vậy $\max\limits_{\left[ \frac{3}{2};3 \right]} y = \dfrac{7}{2}$ tại $x = \dfrac{3}{2}$ hoặc $x = 3$ và $\min\limits_{\left[ \frac{3}{2};3 \right]} y = 3$ tại $x = 2$.
+	}
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1B3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số $y = 2x + 1 + \dfrac{1}{2x+1}$ trên đoạn $\left[ 1;2 \right]$.
+	\loigiai
+	{
+		Với $x \neq -\dfrac{1}{2}$ ta có: $y' = 2 - \dfrac{2}{(2x+1)^2} = \dfrac{8x^2 + 8x}{(2x+1)^2}$.
+		$$y' = 0 \Leftrightarrow \dfrac{8x^2 + 8x}{(2x+1)^2} = 0 \Leftrightarrow 8x^2 + 8x = 0 \Leftrightarrow \left[ \begin{array}{ll} x &= 0 \\ x &= -1. \end{array} \right.$$
+		Trên đoạn $\left[ 1;2 \right]$ ta có: $y\left( 1 \right) = \dfrac{10}{3}; \, y(2) = \dfrac{26}{5}$.\\
+		Vậy $\max\limits_{\left[ 1;2 \right]} y = \dfrac{26}{5}$ tại $x = 2$ và $\min\limits_{\left[ 1;2 \right]} y = \dfrac{10}{3}$ tại $x = 1$.
+	}
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1K3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số $f(x) = \sqrt{-x^2 + 5x + 6}$.
+	\loigiai
+	{
+		Tập xác định của hàm số: $\mathscr{D} = [-1;6]$.\\
+		Với $-1 < x < 6$ ta có: $f'(x) = \dfrac{-2x + 5}{2\sqrt{-x^2 + 5x + 6}}$.\\
+		$$f'(x) = 0 \Leftrightarrow \dfrac{-2x + 5}{2\sqrt{-x^2 + 5x + 6}} \Leftrightarrow -2x + 5 = 0 \Leftrightarrow x = \dfrac{5}{2}.$$
+		Trên đoạn $[-1;6]$ ta có: $f(-1) = 0; \, f\left( \dfrac{5}{2} \right) = \dfrac{7}{2}; \, f(6) = 0$.\\
+		Vậy $\max\limits_{[-1;6]} f(x) = \dfrac{6}{2}$ tại $x = \dfrac{5}{2}$ và $\min\limits_{[-2;3]} f(x) = 0$ tại $x = -1$ hoặc $x = 6$.
+	}
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1B3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số $y = \dfrac{1}{\sqrt{-x^2 + x + 6}}$ trên đoạn $[0;1]$.
+	\loigiai
+	{
+		Hàm số đã cho luôn xác định trên đoạn $[0;1]$.\\
+		Ta có: $y' = -\dfrac{\left( \sqrt{-x^2 + x + 6} \right)'}{-x^2 + x + 6} = \dfrac{2x - 1}{2(-x^2 + x+ 6) \sqrt{-x^2 + x + 6}}$.
+		$$y' = 0 \Leftrightarrow \dfrac{2x - 1}{2(-x^2 + x+ 6) \sqrt{-x^2 + x + 6}} = 0 \Leftrightarrow 2x - 1= 0 \Leftrightarrow x = \dfrac{1}{2}.$$
+		Trên đoạn $[0;1]$ ta có: $y(0) = \dfrac{\sqrt{6}}{6}; \, y \left( \dfrac{1}{2} \right) = \dfrac{2}{5}; \, y(1) = \dfrac{\sqrt{6}}{6}$.\\
+		Vậy $\max\limits_{[0;1]} y = \dfrac{\sqrt{6}}{6}$ tại $x = 0$ hoặc $x = 1$ và $\min\limits_{[0;1]} y = \dfrac{2}{5}$ tại $x = \dfrac{1}{2}$.
+	}
+\end{bt}
+
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1K3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất của hàm số $y = x + \sqrt{4 - x^2}$.
+	\loigiai
+	{
+		Tập xác định của hàm số: $\mathscr{D} = [-2;2]$.\\
+		Với $-2 < x < 2$ ta có: $y' = 1 - \dfrac{x}{\sqrt{4 - x^2}} = \dfrac{\sqrt{4 - x^2} - x}{\sqrt{4 - x^2}}$.
+		$$y' = 0 \Leftrightarrow \dfrac{\sqrt{4 - x^2} - x}{\sqrt{4 - x^2}} = 0 \Leftrightarrow \sqrt{4 - x^2} = x \Leftrightarrow \begin{cases} x \geq 0 \\ 2x^2 - 4 = 0  \end{cases} \Leftrightarrow x = \sqrt{2}.$$
+		Trên đoạn $[-2;2]$ ta có: $y(-2) = -2; \, y \left( \sqrt{2} \right) = 2 \sqrt{2}; \, y(2) = 2$.\\
+		Vậy $\max\limits_{[-2;2]} y = 2 \sqrt{2}$ tại $x = \sqrt{2}$ và $\min\limits_{[-2;2]} y = -2$ tại $x = -2$.
+	}
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1K3]
+	Tính tổng giá trị lớn nhất và giá trị nhỏ nhất của hàm số $y=\sqrt{2-x^2}-x$.
+	\loigiai
+	{
+		Tập xác định của hàm số: $\mathscr{D}=\left[-\sqrt{2}; \sqrt{2}\right]$.\\
+		Với điều kiện $-\sqrt{2}<x<\sqrt{2}$, ta có: $y'=-\dfrac{x}{\sqrt{2-x^2}}-1$.
+		$$y'=0 \Leftrightarrow -\dfrac{x}{\sqrt{2-x^2}}-1 = 0 \Leftrightarrow \sqrt{2 - x^2} = -x \Leftrightarrow \begin{cases} x \leq 0 \\ 2x^2 - 2 = 0 \end{cases} \Leftrightarrow x=-1.$$
+		Trên đoạn $\left[-\sqrt{2}; \sqrt{2}\right]$ ta có:  $y(-\sqrt{2}) = \sqrt{2}$; $y(-1) = 2$;
+		$y(\sqrt{2}) = -\sqrt{2}$.\\
+		Vậy $\max\limits_{\mathscr{D}} y = 2$ tại $x = -1$ và $\min\limits_{\mathscr{D}} y = -\sqrt{2}$ tại $x = \sqrt{2}$.\\
+		Do đó, tổng giá trị lớn nhất và giá trị nhỏ nhất của hàm số bằng $2-\sqrt{2}$.
+	}
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1B3]
+	Tìm giá trị lớn nhất của hàm số $ y = x + \sqrt{5 - x^2} $ trên đoạn $ \left[-\sqrt{5}; \sqrt{5}\right]$.	
+	\loigiai
+	{
+		Tập xác định của hàm số: $ \mathscr{D} = \left[- \sqrt{5}; \sqrt{5}\right]$.\\
+		Với điều kiện $-\sqrt{5} < x < \sqrt{5}$ ta có: $ y' = 1 - \dfrac{x}{\sqrt{5-x^2}}$.\\
+		$$ y' = 0 \Leftrightarrow 1 - \dfrac{x}{\sqrt{5-x^2}} = 0 \Leftrightarrow \sqrt{5 - x^2} = x \Leftrightarrow \begin{cases} x \geq 0 \\ 2x^2 - 5 = 0  \end{cases} \Leftrightarrow x = \sqrt{\dfrac{5}{2}}.$$
+		Trên đoạn $ \left[-\sqrt{5}; \sqrt{5}\right]$ ta có: $ y \left(-\sqrt{5} \right) = -\sqrt{5}$; 
+		$y \left(\sqrt{5} \right) =\sqrt{5}$; $y \left(\sqrt{\dfrac{5}{2}} \right) = \sqrt{10}$.\\
+		Vậy $\max\limits_{\left[-\sqrt{5}; \sqrt{5}\right]} y = \sqrt{10}$ tại $x = \sqrt{\dfrac{5}{2}}$.
+	}
+\end{bt}	
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1B3]
+	Tìm giá trị lớn nhất của hàm số $y=x+ \sin^2 x$ trên đoạn $\left[ 0; \pi \right]$.
+	\loigiai
+	{
+		Ta có: $y'=1+ \sin 2x$.
+		$$y'=0 \Leftrightarrow \sin 2x =-1 \Leftrightarrow x=-\dfrac{\pi}{4} + k \pi (k \in \mathbb{Z}).$$
+		Vì $x \in \left[ 0; \pi \right]$ nên $x = \dfrac{3 \pi}{4}$.\\
+		Trên đoạn $\left[ 0; \pi \right]$ ta có: $y(0)=0$; $y \left( \dfrac{3 \pi}{4} \right) = \dfrac{3 \pi}{4} + \dfrac{1}{2}$; $y(\pi)= \pi $.\\
+		Vậy $\displaystyle \max_{\left[ 0; \pi \right]} y = \pi$ tại $x = \pi$.
+	}
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1B3]
+	Tìm giá trị lớn nhất của hàm số $y = \dfrac{x + \sqrt{1 + 9x^2}}{8x^2 + 1}$, với $x > 0$.
+	\loigiai
+	{
+		Hàm số đã cho xác định và liên tục trên khoảng $(0; +\infty)$.
+		$$y = \dfrac{x + \sqrt{1 + 9x^2}}{8x^2 + 1} = \dfrac{9x^2 + 1 - x^2}{(8x^2 + 1)\left( \sqrt{9x^2 + 1} - x \right)} = \dfrac{1}{\sqrt{9x^2 + 1} - x}.$$
+		Hàm số đã cho đạt giá trị lớn nhất trên khoảng $(0;+\infty)$ khi hàm số $f(x) = \sqrt{9x^2 + 1} - x$ đạt giá trị nhỏ nhất trên khoảng $(0; +\infty)$.\\
+		Ta có: $f'(x) = \dfrac{9x}{\sqrt{9x^2 + 1}} - 1$.
+		$$f'(x) = 0 \Leftrightarrow \sqrt{9x^2 + 1} = 9x \Leftrightarrow \begin{cases} x > 0 \\ 72x^2 = 1  \end{cases} \Leftrightarrow x = \dfrac{1}{6\sqrt{2}}.$$
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit
+			[lgt=1.2,espcl=3] % tùy chọn
+			{$x$/1, $f'(x)$/0.8, $f(x)$/2} % cột đầu tiên
+			{$0$, $\dfrac{1}{6\sqrt{2}}$, $+\infty$} % hàng 1 cột 2
+			\tkzTabLine{,-,0,+,} % hàng 2 cột 2
+			\tkzTabVar{+/ $1$, -/ $\dfrac{2\sqrt{2}}{3}$ , +/ $+\infty$} % hàng 3 cột 2
+			\end{tikzpicture}
+		\end{center}
+		Dựa vào bảng biến thiên ta thấy $\min\limits{(0;+\infty)} f(x) = \dfrac{2\sqrt{2}}{3}$ tại $x = \dfrac{1}{6\sqrt{2}}$. Do đó hàm số đã cho có giá trị lớn nhất là $\max\limits_{(0;+\infty)} y = \dfrac{3\sqrt{2}}{4}$ tại $x = \dfrac{1}{6\sqrt{2}}$.
+	}
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1K3]
+	Tìm giá trị lớn nhất và giá trị nhỏ nhất $y = \left| x^3 - 3x^2 + 1 \right|$ trên đoạn $[-2;1]$.
+	\loigiai
+	{
+		Hàm số đã cho xác định và liên tục trên đoạn $[-2;1]$.\\
+		Đặt $g(x) = x^3 - 3x^2 + 1$, với $x \in [-2;1]$.\\
+		Ta có: $g'(x) = 3x^2 - 6x$.
+		$$g'(x) = 0 \Leftrightarrow 3x^2 - 6x = 0 \Leftrightarrow \left[ \begin{array}{ll} x & = 0 \\ x & = 2.\end{array}   \right.$$
+		Trên đoạn $[-2;1]$ ta có: $g(-2) = -19$; $g(0) = 1$; $g(1) = -1$.\\
+		Vậy $\max\limits_{[-2;1]} g(x) = 1$ tại $x = 0$ và $\min\limits_{[-2;1]} g(x) = -19$ tại $x = -2$.\\
+		Như vậy với $x \in [-2;1]$ thì $g(x) \in [-19;1]$. Suy ra $y = \left| g(x) \right| \in [0;19]$.\\
+		Do đó $\max\limits_{[-2;1]} y = 19$ và $\min\limits_{[-2;1]} y = 0$.
+	}
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1K3]
+	Cho hàm số $y=\dfrac{mx-1}{x+m}$ (với $m$ là số thực). Tìm $m$ để hàm số đạt giá trị lớn nhất trên đoạn $[1;4]$ bằng  $1$.
+	\loigiai
+	{
+		Tập xác định của hàm số: $\mathscr{D} = \mathbb{R} \setminus\{-m\}$.\\
+		Ta có: $y'=\dfrac{m^2+1}{(x+m)^2} > 0, \forall x \in \mathscr{D}$ nên hàm số luôn đồng biến trên từng khoảng xác định của nó.\\
+		Do đó hàm số đạt giá trị lớn nhất (nếu có) tại $x = 4$, tức là
+		$$\dfrac{4m - 1}{4 + m} = 1 \Leftrightarrow 4m - 1 = 4 + m \Leftrightarrow m = \dfrac{5}{3}.$$
+		Thử lại ta thấy $m=\dfrac{5}{3}$ là giá trị thỏa mãn yêu cầu bài toán.
+	}
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1K3]
+	Tìm $m$ để hàm số $y=x^3-6x^2+9x+m$ có giá trị nhỏ nhất trên đoạn $[0;2]$ bằng $-4$.
+	\loigiai
+	{
+		Ta có: $y' = 3x^2- 12x + 9$.
+		$$y' = 0 \Leftrightarrow 3x^2 - 12x + 9 = 0 \Leftrightarrow \left[ \begin{array}{ll} x & = 1 \\ x & = 3.\end{array}	 \right.$$
+		Trên đoạn $[0;2]$ ta có: $f(0)=m$, $f(1)=4+m$, $f(2)=2+m$. \\
+		Vì $m < m+2 < m+4$ (với mọi số thực $m$) nên giá trị nhỏ nhất của hàm số trên đoạn $[0;2]$ là $m$.\\
+		Theo bài ta có $m=-4$. 
+	}
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1K3]
+	Tìm $a$ để giá trị lớn nhất của hàm số $y = \left| x^2 + 2x + a - 4 \right|$ trên đoạn $[-2;1]$ đạt giá trị nhỏ nhất.
+	\loigiai
+	{
+		Hàm số đã cho xác định và liên tục trên đoạn $[-2;1]$.
+		$$y = \left| x^2 + 2x + a - 4 \right| = \left| (x+1)^2 + a - 5 \right|.$$
+		Đặt $t = (x+1)^2$. Với $x \in [-2;1]$ thì $t \in [0;4]$.\\
+		Xét hàm số $f(t) = |t + a - 5|$ trên đoạn $[0;4]$.
+		Vì $f(t) \geq 0, \forall t \in [0;4]$ nên ta có:
+		$$\max\limits_{x \in [-2;1]} y = \max\limits_{t \in [0;4]} f(t) = \max\limits_{t \in [0;4]} \left\{ f(0), f(4) \right\} = \max\limits_{t \in [0;4]} \left\{ |a - 5|, |a - 1| \right\}.$$
+		\begin{itemize}
+			\item $|a - 5| \geq |a - 1| \Leftrightarrow a \leq 3$ thì $\max\limits_{t \in [0;4]} f(t) = |a - 5| = 5 - a.$
+			\item $|a - 5| \leq |a - 1| \Leftrightarrow a \geq 3$ thì $\max\limits_{t \in [0;4]} f(t) = |a - 1| = a - 1.$
+		\end{itemize}
+		Mặt khác
+		$$\begin{cases} 5 - a \geq 5 - 3 = 2, \forall a \leq 3 \\ a - 1 \geq 3 - 1 = 2, \forall a \geq 3 \end{cases} \Rightarrow \max\limits_{t \in [0;4]} f(t) \geq 2, \forall a \in \mathbb{R}.$$
+		Vậy giá trị nhỏ nhất của $\max\limits_{t \in [0;4]} f(t)$ bằng $2$ khi $a = 3$.
+	}
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1K3]
+	Tìm giá trị nhỏ nhất của hàm số  $y=2\cos \dfrac{x}{2}+\sin x+1 $.
+	\loigiai
+	{
+		Vì hàm số $y=2\cos \dfrac{x}{2}+\sin x+1$ tuần hoàn với chu kì $4\pi $ nên ta chỉ cần xét hàm số trên đoạn $\left[0;4\pi \right]$.\\
+		Ta có: $y'=-\sin \dfrac{x}{2}+\cos x$.
+		$$y'=0\Leftrightarrow-\sin \dfrac{x}{2}+1-2\sin^2\dfrac{x}{2}=0 \Leftrightarrow \left[ \begin{aligned} &\sin\dfrac{x}{2}  = -1 \\ &\sin\dfrac{x}{2}   = \dfrac{1}{2} \end{aligned} \right. \Leftrightarrow \left[ \begin{aligned} &x  = -\pi + k4\pi, k \in \mathbb{Z} \\& x  = \dfrac{\pi}{3} + k4\pi, k\in\mathbb{Z} \\ &x  = \dfrac{5\pi}{3} + k4\pi, k\in\mathbb{Z}. \end{aligned} \right. $$
+		Vì $x \in \left[ 0; 4 \pi \right]$ nên $x\in \left\{\dfrac{\pi}{3};\dfrac{5\pi}{3};3\pi \right\}$.\\
+		Trên đoạn $\left[ 0; 4 \pi \right]$ ta có: $y\left( 0\right) =3$; $y\left(\dfrac{\pi}{3}\right)=\dfrac{2+3\sqrt{3}}{2}$; $y\left(\dfrac{5\pi}{3}\right)=\dfrac{2-3\sqrt{3}}{2}$; $y\left(3\pi \right)=1$;  $y\left(4\pi \right)=3$.\\
+		Vậy $\min y=\dfrac{2-3\sqrt{3}}{2}$.
+	}
+	
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1K3]
+	Tìm tất cả các giá trị của $m$ để giá trị nhỏ nhất của hàm số $f(x)=\dfrac{2x+m-1}{x+1}$ trên đoạn $[1;2]$ bằng $1$.
+	\loigiai
+	{
+		Ta có $f'(x)=\dfrac{3-m}{(x+1)^2}$.\\
+		Nếu $m=3$ thì $f(x)=2$, $\forall x\in [1;2]$ (không thỏa bài toán).\\
+		Nếu $m<3$ thì $f'(x)>0$, $\forall x\in [1;2]$. Do đó $\displaystyle \min_{[1;2]}{f(x)}=f(1)=\dfrac{m+1}{2}=1 \Rightarrow m=1$ (nhận).\\
+		Nếu $m>3$ thì $f'(x)<0$, $\forall x\in [1;2]$. Do đó $\displaystyle \min_{[1;2]}{f(x)}=f(2)=\dfrac{m+3}{3}=1 \Rightarrow m=0$ (loại).\\
+		Vậy $m=1$.
+	}
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1G3]
+	Cho bất phương trình $(x-1)(x+1)(x+3)(x+5) > m$, với $m$ là tham số. Tìm các giá trị của $m$ để bất phương trình nghiệm đúng với mọi $x > -1$.
+	\loigiai
+	{
+		\begin{align*}
+			& (x-1)(x+1)(x+3)(x+5) > m \\
+			\Leftrightarrow & (x^2 + 4x - 5)(x^2 + 4x + 3) > m \hspace*{0.5cm} (1).
+		\end{align*}
+		Đặt $t = x^2 + 4x - 5 \Rightarrow x^2 + 4x + 3 = t + 8$, ta được bất phương trình
+		$$t(t+8) > m \Leftrightarrow t^2 + 8t > m \hspace*{0.5cm} (2).$$
+		Ta có: $t = x^2 + 4x - 5$ nên $t' = 2x + 4 = 0 \Leftrightarrow x = -2$.
+		$$t' = 0 \Leftrightarrow 2x + 4 = 0 \Leftrightarrow x = -2.$$
+		Bảng biến thiên
+		\begin{center}
+			\begin{tikzpicture}[scale=1]
+			\tkzTabInit[nocadre=false,lgt=1.2,espcl=3]
+			{$x$ /0.6,$t'$ /0.6,$t$ /1.6}
+			{$-1$,$+\infty$}%
+			\tkzTabLine{ , + , }
+			\tkzTabVar{-/ $-8$, +/ $+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Với $x > -1$ thì $t > -8$, do đó (1) đúng với mọi $x > -1$ khi và và chỉ khi (2) đúng với mọi $t > -8$.\\
+		Xét $f(t) = t^2 + 8t$.\\
+		Ta có: $f'(t) = 2t + 8$.
+		$$f'(t) = 0 \Leftrightarrow 2t + 8 = 0 \Leftrightarrow t = - 4.$$
+		Bảng biến thiên
+		\begin{center}
+			\begin{tikzpicture}[scale=1]
+			\tkzTabInit[nocadre=false,lgt=1.2,espcl=3]
+			{$x$ /0.6,$t'$ /0.6,$t$ /1.6}
+			{$-8$,$-4$,$+\infty$}%
+			\tkzTabLine{ , - , 0 , + , }
+			\tkzTabVar{+/ $0$, -/ $-16$, +/ $+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Dựa vào bảng biến thiên ta thấy bất phương trình (2) nghiệm đúng với mọi $t > -8$ khi $\min\limits_{t \in (-8;+\infty)} f(t) > m \Leftrightarrow m < - 16$.\\
+		Vậy $m < -16$ là các giá trị thỏa mãn yêu cầu bài toán.
+	}
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1G3]
+	\immini{Cần bắc một chiếc thang tựa vào tường tại vị trí C và mặt đất tại vị trí A thông qua 
+		một cột đỡ có đỉnh là vị trí B. Cột đỡ có chiều cao $ 3\sqrt{3} $ m và khoảng cách từ tường đến cột đỡ bằng $ 1 $ m, như hình vẽ bên.\\ Hỏi chiều dài ngắn nhất có thể có của chiếc thang là bao nhiêu?
+	}
+	{
+		\begin{tikzpicture}[scale=0.6]
+		\tkzInit[xmin=-1,ymin=-1,xmax=7,ymax=7]
+		\tkzClip
+		\tkzSetUpPoint[fill=black,size=2]
+		\tkzDefPoints{0/0/O,7/0/X,0/7/Y,1/5/B,6/0/A,0/6/C,1/0/H,0/5/K}
+		\tkzDrawPoints(A,B,C,H,K)
+		\tkzDrawSegments(A,C B,H B,K O,Y O,X)
+		\tkzLabelPoint[below](A){\footnotesize $A$}
+		\tkzLabelPoint[right](B){\footnotesize $B$}
+		\tkzLabelPoint[left](C){\footnotesize $C$}
+		\tkzLabelPoint[left](K){\footnotesize $K$}
+		\tkzLabelPoint[below](H){\footnotesize $H$}
+		\draw (1,2.5) node[right]{\footnotesize $3\sqrt{3}$};
+		\draw (0.1,4.5) node[right]{\footnotesize $1$};
+		\end{tikzpicture}}
+	\loigiai{
+		Gọi $ CK=x>0$, $ AH=y>0\Rightarrow AC^2=(x+3\sqrt{3})^2+(y+1)^2 .$\\
+		Mặt khác: $ \dfrac{x}{3\sqrt{3}}=\dfrac{1}{y}\Rightarrow y=\dfrac{3\sqrt{3}}{x}\Rightarrow AC^2=(x+3\sqrt{3})^2+\left(\dfrac{3\sqrt{3}}{x}+1\right)^2. $\\
+		Đặt $ f(x)= (x+3\sqrt{3})^2+\left(\dfrac{3\sqrt{3}}{x}+1\right)^2$ \\
+		$\Rightarrow f'(x)=2(x+3\sqrt{3})+2\left(\dfrac{3\sqrt{3}}{x}+1\right).\left(-\dfrac{3\sqrt{3}}{x^2}\right)=2(x+3\sqrt{3})\left(1-\dfrac{3\sqrt{3}}{x^3}\right)$\\
+		$f'(x)=0\Leftrightarrow x=\sqrt{3}. $ Lập bảng biến thiên suy ra $ f(x) $ có giá trị nhỏ nhất bằng $ 64 $ tại $ x=\sqrt{3}. $ 
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[nocadre=false,lgt=1,espcl=3]
+			{$x$ /1,$y'$ /1,$y$ /2}
+			{$0$,$\sqrt{3}$,$+\infty$}
+			\tkzTabLine{,-,$0$,+, }
+			\tkzTabVar{+/ $+\infty$,-/$64$,+/ $+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Vậy $ AC $ nhỏ nhất bằng $ 8. $
+	}
+\end{bt}
+
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1T3]
+	Một người đàn ông muốn chèo thuyền từ vị trí $X$ đến vị trí $Z$ về phía hạ lưu bờ đối diện càng nhanh càng tốt, trên một dòng sông thẳng rộng $3\, \text{km}$ (như hình vẽ). Anh có thể chèo thuyền trực tiếp qua sông để đến $H$ rồi sau đó chạy đến $Z$, hay có thể chèo thuyền trực tiếp đến $Z$, hoặc anh ta có thể chèo thuyền từ một điểm $Y$ giữa $H$ và $Z$ và sau đó chạy đến $Z$. Biết anh ấy chèo thuyền với vận tốc $6\, \text{km/h}$, chạy với vận tốc $8\, \text{km/h}$, quãng đường $HZ=8\, \text{km}$ và tốc độ của dòng nước là không đáng kể so với tốc độ chèo thuyền của người đàn ông. Tìm khoảng thời gian ngắn nhất (đơn vị: giờ) để người đàn ông đó đến $Z$.
+	\begin{center}
+		\begin{tikzpicture}[scale=1.2]
+		\tkzDefPoints{0/0/A, 2/0/X, 0/-3/B, 2/-3/H, 5/-3/Y, 8/-3/Z, 10/-3/K, 10/0/K1}
+		\tkzDrawSegments(A,K1 B,K X,H X,Y X,Z)
+		\tkzLabelSegment[left](X,H){ $3\, \text{km}$}
+		\tkzLabelSegment[below left](Z,H){$8\, \text{km}$}
+		\foreach \v/\position in {X/above, H/below, Y/below, Z/below}
+		{\draw[draw=black, fill=black] (\v) circle (1.0pt) node[\position=0.25mm]{ $\v$};}
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		\immini{
+			Độ dài $XZ=\sqrt{XH^2+HZ^2}=\sqrt{73}$. \\
+			Đặt $a=XY$.
+			Với $3\leq a\leq \sqrt{73}$.\\
+			Thời gian để người đó đi từ $X$ đến $Y$ là: $\dfrac{a}{6}$ (giờ).\\
+			
+		}{\begin{tikzpicture}[scale=0.8]
+			\tkzDefPoints{0/0/A, 2/0/X, 0/-3/B, 2/-3/H, 5/-3/Y, 8/-3/Z, 10/-3/K, 10/0/K1}
+			\tkzDrawSegments(A,K1 B,K X,H X,Y X,Z)
+			\tkzLabelSegment[left](X,H){\tiny $3\, \text{km}$}
+			\tkzLabelSegment[below left](Z,H){\tiny $8\, \text{km}$}
+			\tkzLabelSegment[right](X,Y){\tiny $a$}
+			\tkzLabelSegment[above](H,Y){\tiny $\sqrt{a^2-3^2}$}
+			%\tkzLabelSegment[right](C,D){\tiny $30\, \text{cm}$}
+			%\tkzLabelSegment[below](B,C){\tiny $30\, \text{cm}$}
+			\foreach \v/\position in {X/above, H/below, Y/below, Z/below}
+			{\draw[draw=black, fill=black] (\v) circle (1.0pt) node[\position=0.25mm]{\tiny $\v$};}
+			\end{tikzpicture}
+		}
+		Thời gian để người đó đi từ $Y$ đến $Z$ là $\dfrac{8-\sqrt{a^2-3^2}}{8}$ (giờ).\\
+		Thời gian để người đó đi tới $Z$ được tính theo hàm số\\ $f(a)=\dfrac{a}{6}+\dfrac{8-\sqrt{a^2-3^2}}{8}$.\\
+		$f'(a)=\dfrac{1}{6}-\dfrac{a}{8\sqrt{a^2-3^2}}$.\\
+		$f'(a)=0\Leftrightarrow \dfrac{1}{6}-\dfrac{a}{8\sqrt{a^2-3^2}}=0\Leftrightarrow 8\sqrt{a^2-9}=6a\Leftrightarrow a=\dfrac{12\sqrt{7}}{7}$.\\
+		Ta có $f(3)=\dfrac{3}{2}, f(3\sqrt{2})=1+\dfrac{\sqrt{7}}{8}, f(\sqrt{73})=\dfrac{\sqrt{73}}{6}.\\ $
+		Vậy thời gian ngắn nhất đề người đó đi tới Z là $1+\dfrac{\sqrt{7}}{8}$ giờ.
+	}
+\end{bt}
+
+\begin{bt}%[Cao Thành Thái]%[2D1G3]
+	Cho các số thực dương $x,y$. Tìm giá trị lớn nhất của biểu thức $P=\dfrac{4xy^2}{\left(x+\sqrt{x^2+4y^2}\right)^3}$.
+	\loigiai{
+		Ta có $P=\dfrac{4xy^2}{\left(x+\sqrt{x^2+4y^2}\right)^3}=\dfrac{4\left(\dfrac{y}{x}\right)^2}{\left(1+\sqrt{1+4\left(\dfrac{y}{x}\right)^2}\right)^3}$.\\
+		Đặt $t=\sqrt{1+4\left(\dfrac{y}{x}\right)^2}, t\geq 1$ thì $4\left(\dfrac{y}{x}\right)^2=t^2-1$. Khi đó, $P=\dfrac{t^2-1}{(1+t)^3}=\dfrac{t-1}{(t+1)^2}$ \\
+		Xét hàm số $f(t)=\dfrac{t-1}{(t+1)^2}, t\geq 1$.\\
+		Ta có $f'(t)=\dfrac{-t^2+2t+3}{(t+1)^4}$, $f'(t)=0\Leftrightarrow \left[ \begin{array}{ll}
+		t & -1 \text{ (loại)} \\ t & = 3.
+		\end{array} \right.$
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[nocadre,lgt=1.5,espcl=2.5,deltacl=.5]
+			{$t$ /.7, $f'(t)$ /.7,$f(t)$ /2}
+			{$1$ , $3$ , $+\infty$}
+			\tkzTabLine{,+,0,-,}
+			\tkzTabVar{-/$0$ ,+/ $\dfrac{1}{8}$ ,-/$0$}
+			\end{tikzpicture}
+		\end{center}
+		Vậy $\max P=\displaystyle\max_{t\in[1;+\infty)} f(t)=\dfrac{1}{8}$.
+	}
+\end{bt}
+
+\begin{bt}%[Cao Thành Thái]%[2D1T3]
+	\immini{Một đoàn cứu trợ lũ lụt đang ở vị trí $A$ của một tỉnh miền trung muốn đến xã $C$ để tiếp tế lương thực và thuốc men, phải đi theo con đường từ $A$ đến $B$ và từ $B$ đến $C$ (như hình vẽ). Tuy nhiên, do nước ngập con đường từ $A$ đến $B$ nên đoàn cứu trợ không thể đến $C$ bằng xe, nhưng đoàn cứu trợ có thể chèo thuyền từ $A$ đến vị trí $D$ với vận tốc $4${km/h}, rồi đi bộ đến $C$ với vận tốc $6${km/h}.}{\begin{tikzpicture}
+		\draw[thick] (-1,0)-- (0,0) node[below]{\scriptsize $B$} -- (4.2,0) node[below]{\scriptsize $C$};
+		\draw (0,0) circle (2pt)
+		(4.2,0) circle (2pt)
+		(1.5,0) node[below]{\scriptsize $D$} circle (2pt)
+		(0,3) circle (2pt);
+		\draw[thick] (0,0) -- (0,3) node[above]{\scriptsize $A$} -- (1.5,0);
+		\draw[<->] (0,-.5) -- (4.2,-.5);
+		\draw (0,1.4) node[left]{\scriptsize $5${km}}
+		(2,-.5) node[below]{\scriptsize $7${km}};		
+		\end{tikzpicture}}
+	Biết $A$ cách $B$ một khoảng $5${km}, $B$ cách $C$ một khoảng $7${km}. Hỏi vị trí điểm $D$ cách $A$ bao xa để đoàn cứu trợ đi đến xã $C$ nhanh nhất?
+	\loigiai{
+		Gọi $x$ (đơn vị km) là độ dài đoạn $BD$. Khi đó thời gian $y$ (đơn vị giờ) để đoàn cứu trợ đi theo lộ trình từ $A$ qua $D$ đến $C$ là $y=\dfrac{\sqrt{25+x^2}}{4}+\dfrac{(7-x)}{6}$ với $x\in [0;7]$.\\
+		Ta có $y'=\dfrac{x}{4\sqrt{25+x^2}}-\dfrac{1}{6}$.
+		$$y'=0\Leftrightarrow x=2\sqrt{5}.$$
+		Thay các giá trị vào kiểm tra ta được thời gian ngắn nhất khi $x=2\sqrt{5}$ tức là $AD=3\sqrt{5}$.
+	}
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1T3]
+	Một vật chuyển động theo quy luật $s = - \dfrac{1}{2}t^3 + 6t^2$ với $t$ (giây) là khoảng thời gian tính từ khi vật bắt đầu chuyển động và $s$ (mét) là quãng đường vật di chuyển được trong khoảng thời gian đó. Hỏi trong khoảng thời gian $6$ giây, kể từ khi bắt đầu chuyển động, vận tốc lớn nhất của vật đạt được bằng bao nhiêu? 
+	\loigiai{
+		Ta có: $v=s'=-\dfrac{3}{2}t^2+12t$, $t\in \left[0;6\right]$.\\
+		Đạo hàm: $v'(t)=-3t+12\Rightarrow v'(t)=0\Leftrightarrow t=4$. \\
+		Ta có: $\Rightarrow \max\limits_{[0;6]} v = 24$.
+		
+	}
+\end{bt}
+
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1K3]
+	Cho hàm số $y = \dfrac{x + m}{x - 1}$. Tìm $m$ để $ 
+	\min\limits_{[2; 4]} y=4$.
+	\loigiai{
+		TXĐ: $\mathscr{D} =  \mathbb{R}\backslash \left\{1\right\}$.\\
+		Ta có $y'  =  \dfrac{ -  1  -  m}{(x  -  1)^2}$.
+		Xét các trường hợp
+		\begin{itemize}
+			\item Xét $-1 - m = 0 \Leftrightarrow m = -1$ thì $y = 1$ (không thỏa mãn YCBT).
+			\item Xét $  -  1  -  m  >  0\Leftrightarrow m  <   -  1\Rightarrow \min\limits_{[2; 4]} y  =  4\Leftrightarrow y(2)  =  4\Leftrightarrow 2  +  m  =  4\Leftrightarrow m  =  2$(Loại).
+			\item Xét $  -  1  -  m  <  0\Leftrightarrow m  >   -  1\Rightarrow \min\limits_{[2; 4]} y  =  4\Leftrightarrow y(4)  =  4\Leftrightarrow \dfrac{4  +  m}{3}  =  4\Leftrightarrow m  =  8$ (Thỏa mãn).
+		\end{itemize} 
+		Vậy để thỏa mãn bài ra thì $m  =  8$. 
+		
+	}
+\end{bt}
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1K3]
+	Tìm $m$ để bất phương trình $x-\sqrt{x-1}<m$ có nghiệm.
+	\loigiai{
+		Xét $f(x)=x-\sqrt{x-1}$ với $x\ge 1$\\
+		$f'(x)=1-\dfrac{1}{2\sqrt{x-1}}\\
+		f'(x)=0\Leftrightarrow x=\dfrac{5}{4}$\\
+		Bất phương trình có nghiệm\\ $\Leftrightarrow m>\min f(x) \Leftrightarrow m>f\left(\dfrac{5}{4}\right)\Leftrightarrow m>\dfrac{3}{4}$.
+	}
+\end{bt}
+
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1G3]
+	Biết rằng các  số thực $a$, $b$ thay đổi sao cho hàm số $f(x) =-x^3 +(x+a)^3 +(x+b)^3$ luôn đồng biến trên khoảng $(-\infty;+\infty)$. Tìm giá trị nhỏ nhất của biểu thức $P= a^2+b^2 -4a-4b+2$.
+	\loigiai
+	{
+		Ta có
+		\begin{align*}
+			f'(x)=&3x^2+3(x+a)^2+3(x+b)^2\\
+			=& 3(x^2+2(a+b)x +a^2+b^2).
+		\end{align*}
+		Hàm số đã cho đồng biến trên $\mathbb{R}\Leftrightarrow \Delta '\le 0 \Leftrightarrow ab\le 0$.\\
+		Không mất tính tổng quát giả sử $a\ge 0, b\le 0$.\\
+		Khi đó $b(b-4)\ge 0$, nên
+		\begin{align*}
+			P=&(a-2)^2 +b(b-4)-2\\
+			\ge & -2.
+		\end{align*}
+		Đẳng thức xảy ra khi $a=2,b=0.$\\
+		Vậy giá trị nhỏ nhất của $P$ là $-2$.
+	}
+\end{bt}
+
+
+
+\begin{bt}%[TT, chuyên Lam Sơn, Thanh Hóa, 2018]%[2D1G3]
+	Cho $x,y$ là các số thực dương thỏa mãn $5^{x+2y}+\dfrac{3}{3^{xy}}+x+1=\dfrac{5^{xy}}{5}+3^{-x-2y}+y(x-2)$. Tìm giá trị nhỏ nhất của biểu thức $T=x+2y$.
+	\loigiai{
+		Ta có 
+		\begin{eqnarray*}
+			&& 5^{x+2y}+\dfrac{3}{3^{xy}}+x+1=\dfrac{5^{xy}}{5}+3^{-x-2y}+y(x-2)\\
+			& \Leftrightarrow & 5^{x+2y}+\dfrac{3}{3^{xy}}+x+1=5^{xy-1}+\dfrac{1}{3^{x+2y}}+xy-2y\\
+			&\Leftrightarrow & 5^{x+2y}-\dfrac{1}{3^{x+2y}}+x+2y=5^{xy-1}-\dfrac{1}{3^{xy-1}}+xy-1 \quad (*)
+		\end{eqnarray*}
+		Xét hàm số $f(t)=5^t-\dfrac{1}{3^t}+t$ với $t\in \mathbb{R}$ có $f'(t)=5^t.\ln 5+3^{-t}.\ln 3 +1 >0,\; \forall t \in \mathbb{R}$.\\
+		Suy ra $f(t)$ đồng biến trên $\mathbb{R}$.\\
+		Do đó $(*)\Leftrightarrow f(x+2y)=f(xy-1)\Leftrightarrow x+2y=xy-1\Leftrightarrow x(y-1)=2y+1\Leftrightarrow x= \dfrac{2y+1}{y-1}$\\
+		với $x>0\Rightarrow y>1$. Khi đó 
+		$T=x+2y=\dfrac{1+2y^2}{y-1}$.\\
+		Xét hàm số $f(y)=\dfrac{1+2y^2}{y-1}$ trên khoảng $(1;+\infty )$, ta có \\
+		$f'(y)=\dfrac{2y^2-4y-1}{(y-1)^2}=0\Leftrightarrow x=\dfrac{2+\sqrt{6}}{2}$
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[nocadre=false, lgt=1, espcl=3]{$y$ /1,$f'$ /1,$f$ /2}{$1$,$\dfrac{2+\sqrt{6}}{2}$,$+\infty$}
+			\tkzTabLine{,-,0,+,}
+			\tkzTabVar{+/$+\infty$  / ,-/$4+2\sqrt{6}$, +/$+\infty$ /}
+			\end{tikzpicture}
+		\end{center}
+		Vậy $\min T = 4+2\sqrt{6}$.
+	}
+\end{bt}
+
+
+
+\begin{bt}%[Cao Thành Thái]%[2D1K3]
+	Cho hàm số $y = x^3 - 3mx^2 + 6$. Giá trị nhỏ nhất của hàm số trên $[0;3]$ bằng $2$ khi
+	\loigiai{
+		Tập xác định $\mathscr{D} = \mathbb{R}$. \\
+		$y' = 3x^2 - 6mx$. \\
+		$y' = 0 \Leftrightarrow \left[ \begin{array}{ll}
+		x & = 0 \\ x & = 2m
+		\end{array} \right.$. Các giá trị cực trị tương ứng là $6$ và $-4m^3 + 6$.\\
+		Trường hợp 1: $m \ge \dfrac{3}{2}$.\\
+		Khi đó, hàm số nghịch biến trên  $[0;3]$, do đó GTNN đạt được khi $x = 3$, và là $33-27m$.\\
+		Giải phương trình $33 - 27m = 2$, ta thu được $m = \dfrac{31}{27}$ (loại).\\
+		Trường hợp 2: $m \le 0$. Khi đó, hàm số đồng biến trên $[0;3]$, suy ra GTNN đạt được khi $x = 0$, và là $6$ (loại).\\
+		Trường hợp 3: $0 < m < \dfrac{3}{2}$. Hàm số khi đó đạt cực đại tại $x = 0$, đạt cực tiểu tại $x = 2m$.\\
+		Ta có $f(0) = 6$, $f(3)=33-27m$, $f(2m)=-4m^3+6$.\\
+		Khi $0 < m < \dfrac{3}{2}$ thì $-4m^3+6 < 33 - 27m < 6$. Do đó GTNN đạt được là $-4m^3 + 6$. Giải phương trình $-4m^3 + 6 = 2$, ta thu được $m = 1$ (thỏa).
+		
+	}
+	
+\end{bt}
+
+\begin{center}
+	BÀI TẬP TỔNG HỢP DẠNG ĐƠN ĐIỆU, CỰC TRỊ VÀ GTLN, GTNN
+\end{center}
+
+\begin{dang}{Một số ứng dụng sự biến thiên của hàm số} 
+	Ứng dụng sự biến thiên của hàm số ta có thể xác định số nghiệm của phương trình trong một số trường hợp, hỗ trợ giải phương trình, bất phương trình và chứng minh bất đẳng thức.
+	\begin{enumerate}
+		\item Xác định số nghiệm của phương trình: trước hết ta đưa phương trình về dạng $f(x)=c$ với $c$ là hằng số; sau đó lập bảng biến thiên, để ý các giá trị cực trị của hàm số trong khoảng cho trước để xác định số nghiệm phương trình.
+		\item Giải phương trình: trước hết ta cần đoán được các nghiệm của phương trình; sau đó dùng tính chất biến thiên để xác nhận đủ nghiệm đối với phương trình đã cho.
+		\item Giải bất phương trình: trước hết ta cũng đưa về dạng $f(x)>c$ (tương tự với các dấu bất phương trình khác) với $c$ là hằng số; sau đó dựa vào bảng biến thiên để đánh giá và lấy tập nghiệm của bất phương trình.
+		\item Chứng minh bất đẳng thức: chẳng hạn $f(x)>0$, ứng dụng cách làm bài giá trị lớn nhất, nhỏ nhất để xác định giá trị nhỏ nhất của $f(x)$ trên khoảng đã cho và chứng tỏ giá trị nhỏ nhất đó lớn hơn 0.
+	\end{enumerate}
+\end{dang}
+\begin{vd}%[Lâm Hữu Phước]%[2D1B2]
+	Tìm $m$ để phương trình $x^3-6x^2-4m=0$ có 3 nghiệm phân biệt.
+	\loigiai{
+		Phương trình đã cho tương đương với $x^3-6x^2=4m$, là phương trình hoành độ giao điểm của hàm số $y=f(x)=x^3-6x^2$ và $y=4m$. 
+		
+		Ta có $f'(x)=3x^2-12x=0\Leftrightarrow \left[\begin{aligned}
+		x&=0\\
+		x&=4
+		\end{aligned}\right.$, $f(0)=0,\ f(4)=-32$. 
+		
+		Ta có bảng biến thiên
+		\begin{center}
+			\begin{tikzpicture}[>=stealth]
+			\tkzTabInit{$x$/0.8,$y'$/0.8,$y$/2}{$-\infty$,$0$,$4$,$+\infty$}
+			\tkzTabLine{,+,0,-,0,+}
+			\tkzTabVar{-/$-\infty$,+/$0$,-/$-32$,+/$+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		
+		Mặt khác $y=4m$ là đường thẳng song song với trục hoành cắt trục tung tại điểm có tung độ $4m$. 
+		
+		Từ bảng biến thiên ta suy ra để phương trình $f(x)=4m$ có 3 nghiệm thì $-32<4m<0\Leftrightarrow -8<m<0$.
+	}
+\end{vd}
+
+\begin{vd}%[Lâm Hữu Phước]%[2D1K3]
+	Giải phương trình $x=\sin x$.
+	\loigiai{
+		Với $x\leq -1$ hoặc $x\geq 1$ thì phương trình vô nghiệm. Ta xét phương trình đã cho trên $(-1;1)$. Ta có $x=\sin x\Leftrightarrow x-\sin x=0$. 
+		
+		Nhận xét $x=0$ là nghiệm của phương trình. 
+		
+		Đặt $f(x)=x-\sin x$, ta có $f'(x)=1-\cos x\geq 0$, $f'(x)=0\Leftrightarrow x=k2\pi\ (k\in \mathbb{Z}$. Với $x\in(-1;1)$ thì phương trình $f'(x)=0$ có duy nhất 1 nghiệm $x=0$. 
+		
+		Do đó $f(x)$ là hàm số đồng biến trên $(-1;1)$ vì thế có duy nhất 1 nghiệm trên $(-1;1)$ là $x=0$. 
+	}
+\end{vd}
+\begin{vd}%[Lâm Hữu Phước]%[2D1K3]
+	Giải bất phương trình $2x+\cos^2 x\geq 1$
+	\loigiai{
+		Đặt $f(x)=2x+\cos^2 x$, ta có $f'(x)=2-\sin 2x>0\ \forall x\in\mathbb{R}$ nên $f(x)$ luôn đồng biến trên $\mathbb{R}$, lại có $f(0)=1$, do đó $f(x)\geq 1\Leftrightarrow x\geq 0$.
+	}
+\end{vd}
+\begin{vd}%[Lâm Hữu Phước]%[2D1K3]
+	Chứng minh bất đẳng thức $\cos x>1-\dfrac{x^2}{2}\ (x\neq 0)$.
+	\loigiai{
+		Bất đẳng thức đã cho tương đương với $\cos x+\dfrac{x^2}{2}-1>0$. Đặt $f(x)$ bằng vế trái. Ta có $f'(x)=-\sin x+x=0\Leftrightarrow x=0$ (xem ví dụ trên). Khi đó ta có bảng biến thiên
+		\begin{center}
+			\begin{tikzpicture}[>=stealth]
+			\tkzTabInit{$x$/0.8,$f'(x)$/0.8,$f(x)$/2}
+			{$-\infty$,0,$+\infty$}
+			\tkzTabLine{ ,-,0,+}
+			\tkzTabVar{+/$+\infty$,-/$0$,+/$+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Từ đó suy ra $f(x)>0$ với mọi $x\neq 0$.
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Lâm Hữu Phước]%[2D1B3]
+	Cho hàm số $y=f(x)$ xác định, liên tục trên $\mathbb{R}$ và có bảng biến thiên như hình bên. Tìm tập hợp tất cả các giá trị thực của tham số $m$ sao cho phương trình $f(x)=m-1$ có ba nghiệm thực phân biệt.
+	\begin{center}
+		\begin{tikzpicture}[thick,>=stealth']
+		\tkzTabInit[nocadre]
+		{$x$ /0.8, $y'$ /0.8,$y$ /2}
+		{$-\infty$,$-2$,$0$,$+\infty$}
+		\tkzTabLine{ ,+,$0$,-,$0$,+ }
+		\tkzTabVar{ - / $-\infty$ ,+ /$0$/, -/ $-4$, +/ $+\infty$ }
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Dựa vào bảng biến thiên, để phương trình $f(x)=m-1$ có 3 nghiệm phân biệt thì $-4<m-1<0\Leftrightarrow -3<m<1$.
+	}
+\end{bt}
+\begin{bt}%[Lâm Hữu Phước]%[2D1B2]
+	Tìm tất cả các giá trị của $m$ để đường thẳng $y=m$ không cắt đồ thị hàm số $y=f(x)=-2x^4+4x^2+2$.
+	\loigiai{
+		Ta có $f'(x)=-8x^3+8x=0\Leftrightarrow \left[\begin{aligned}
+		x &= 0\\
+		x &= \pm 1
+		\end{aligned}\right.$, $f(0)=2,\ f(1)=f(-1)=4$. Ta có bảng biến thiên sau:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth]
+			\tkzTabInit[nocadre]
+			{$x$/0.8, $y'$/0.8,$y$/2}
+			{$-\infty$,$-1$,$0$,$1$,$+\infty$}
+			\tkzTabLine{ ,+,$0$,-,$0$,+,$0$,-}
+			\tkzTabVar{-/$-\infty$,+/$4$,-/$0$,+/$4$,-/$-\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Dựa vào bảng biến thiên ta suy ra được để $y=m$ không cắt đồ thị hàm số $y=f(x)$ thì $m>4$.
+	}
+\end{bt}
+\begin{bt}%[Lâm Hữu Phước]%[2D1K2]
+	Xác định tất cả các giá trị của tham số $m$ để bất phương trình sau có nghiệm $$x^3+3x^2-1\leq m\bigl(\sqrt{x}-\sqrt{x-1}\bigr)^3$$
+	\loigiai{
+		$x^3+3x^2-m\leq m\bigl(\sqrt{x}-\sqrt{x-1}\bigr)^3\Leftrightarrow \bigl(\sqrt{x}+\sqrt{x-1}\bigr)^3.\bigl(x^3+3x^2-1\bigr)\leq m$, khi $x\geq 1$ hàm số $f(x)=\bigl(\sqrt{x}+\sqrt{x-1}\bigr)^3.\bigl(x^3+3x^2-1\bigr)$ đồng biến nên bất phương trình có nghiệm khi $m\geq f(1)=3$.}
+\end{bt}
+\begin{bt}%[Lâm Hữu Phước]%[2D1K3]
+	Giải phương trình $\tan x =x$ với $x\in \biggl(-\dfrac{\pi}{2};\dfrac{\pi}{2}\biggr)$.
+	\loigiai{
+		Phương trình đã cho tương đương với $\tan x-x=0$
+		
+		Đặt vế trái bằng $f(x)$.
+		
+		Ta có $f'(x)=\tan^2 x+1-1=\tan^2 x\geq 0\ \forall x\in \biggl(-\dfrac{\pi}{2};\dfrac{\pi}{2}\biggr)$, $f'(x)=0\Leftrightarrow x=0$. 
+		
+		Do đó, $f(x)$ là hàm số luôn tăng trên $\biggl(-\dfrac{\pi}{2};\dfrac{\pi}{2}\biggr)$ mà ta có $x=0$ thỏa mãn phương trình nên $x=0$ là nghiệm duy nhất của phương trình.
+	}
+\end{bt}
+\begin{bt}%[Lâm Hữu Phước]%[2D1K3]
+	Giải bất phương trình $\cos 2x-3x\geq 1$.
+	\loigiai{
+		Đặt vế trái của bất phương trình là $f(x)$.
+		
+		Ta có $f'(x)=-2\sin 2x-3<0\ \forall x\in \mathbb{R}$ nên $f(x)$ là hàm số nghịch biến trên $\mathbb{R}$.
+		
+		Mặt khác $f(0)=1$ nên $f(x)\geq 1\Leftrightarrow f(x)\geq f(0)\Leftrightarrow x\leq 0$.
+	}
+\end{bt}
+\begin{bt}%[Lâm Hữu Phước]%[2D1K3]
+	Chứng minh rằng với mọi $x\in (-2;2)$ thì ta luôn có $x+\sqrt{4-x^2}\leq 2\sqrt{2}$.
+	\loigiai{
+		Xét hàm số $f(x)=x+\sqrt{4-x^2}$, ta có $f'(x)=1-\dfrac{x}{\sqrt{4-x^2}}=0\Leftrightarrow x=\pm\sqrt{2}$. Ta có bảng biến thiên sau:
+		\begin{center}
+			\begin{tikzpicture}[>=stealth]
+			\tkzTabInit[nocadre]
+			{$x$/0.8, $f'(x)$ /0.8, $f(x)$/2}
+			{$-2$,$-\sqrt{2}$, $\sqrt{2}$,$2$}
+			\tkzTabLine{ ,-,$0$,+,$0$, -}
+			\tkzTabVar{+/$2$,-/$0$,+/$2\sqrt{2}$,-/$2$}
+			\end{tikzpicture}
+		\end{center}
+		Từ bảng biến thiên, suy ra điều phải chứng minh.
+	}
+\end{bt}
+\begin{bt}%[Lâm Hữu Phước]%[2D1K3]
+	Chứng minh rằng với mọi $x\in \biggl(0;\dfrac{1}{9}\biggr]$, ta luôn có $9x+\dfrac{9}{x}\geq 82$.
+	\loigiai{
+		Đặt $f(x)=9x+\dfrac{9}{x}$.
+		
+		Ta có $f'(x)=9-\dfrac{9}{x^2}<0\ \forall x\in\biggl(0;\dfrac{1}{9}\biggr]$ tức là $f(x)$ giảm trên $\biggl(0;\dfrac{1}{9}\biggr]$, suy ra $f(x)\geq f\biggl(\dfrac{1}{9}\biggr)=82$.
+	}
+\end{bt}
+\begin{bt}%[Lâm Hữu Phước]%[2D1G3]
+	Phương trình $\sqrt{2-x}-\sqrt{2+x}-\sqrt{4-x^{2}}=m$ có hai nghiệm phân biệt khi
+	\loigiai{
+		Điều kiện: $-2\leq x\leq 2$.\\
+		Đặt $t=\sqrt{2-x}-\sqrt{2+x}\Rightarrow t'=-\dfrac{1}{2\sqrt{2-x}}-\dfrac{1}{2\sqrt{2+x}}<0$ với $-2<x<2\Rightarrow -2\leq t\leq 2$ và $\sqrt{4-x^{2}}=\dfrac{4-t^{2}}{2}$.\\
+		Xét $f(t)=\dfrac{t^{2}}{2}+t-2$ trên đoạn $[-2;2]$, có\\
+		$f'(t)=t+1=0\Rightarrow t=-1$. Ta có bảng biến thiên
+		\begin{center}
+			\begin{tikzpicture}[>=stealth]
+			\tkzTabInit[nocadre]
+			{$x$ /0.8,$f'(t)$ /0.8,$f(t)$ /2}{$-2$,$-1$,$2$}
+			\tkzTabLine{,-,$0$,+,}
+			\tkzTabVar{+/ $-2$ ,-/$-\dfrac{5}{2}$,+/$2$}
+			\end{tikzpicture}
+		\end{center}
+		Để phương trình có hai nghiệm phân biệt thì $-\dfrac{5}{2}<m<-2$.
+	}
+\end{bt}
+\begin{bt}%[Lâm Hữu Phước]%[2D1G3]
+	Tìm $m$ để hàm số $y=f(x)=\cos^3 x+\cos^2 x-m\cos x-4$ đồng biến trên khoảng $\biggl(0;\dfrac{\pi}{2}\biggr)$.
+	\loigiai{
+		Đặt $t=\cos x$, $x\in \biggl(0;\dfrac{\pi}{2}\biggr)\Rightarrow t\in (0;1)$. 
+		
+		Ta có hàm $\cos x$ nghịch biến trên $\biggl(0;\dfrac{\pi}{2}\biggr)$ nên để $y=f(x)$ đồng biến trên $x\in \biggl(0;\dfrac{\pi}{2}\biggr)$ tức là $x_1<x_2\Rightarrow f(x_1)<f(x_2)$ thì hàm số $g(t)=t^3+t^2-mt-4$ phải nghịch biến trên $(0;1)$. Ta có $g'(t)=3t^2+2t-m$. 
+		
+		Đặt $h(t)=3t^2+2t$ xét trên $(0;1)$. Ta có $h'(t)=6t+2=0\Leftrightarrow t=-\dfrac{1}{3}$, $h\biggl(-\dfrac{1}{3}\biggr)=-\dfrac{1}{3}$, $h(0)=0,\ h(1)=5$. Ta được bảng biến thiên
+		\begin{center}
+			\begin{tikzpicture}[>=stealth]
+			\tkzTabInit[nocadre]
+			{$x$/0.8,$y'$/0.8,$y$/2}
+			{$0$,$\dfrac{1}{3}$,$1$}
+			\tkzTabLine{,-,$0$,+}
+			\tkzTabVar{+/$0$,-/$-\dfrac{1}{3}$,+/$5$}
+			\end{tikzpicture}
+		\end{center}
+		$g(t)$ nghịch biến trên $(0;1)$ tương đương với $g'(t)<0$ trên $(0;1)$, tức là $h(t)<m$ trên $(0;1)$, dựa vào bảng biến thiên suy ra $m\geq 5$.
+	}
+\end{bt}

@@ -1,0 +1,979 @@
+\begin{name}
+{Lê Phước Thật \& Lê Quốc Hiệp}
+{Đề thi học kì 1, 2017-2018, Trường THPT Sóc Sơn, Kiên Giang}
+\end{name}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/ans-2-HK1-8-SocSon-KienGiang-18]
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2H2K2]
+Cho mặt cầu tâm $O$. Đường thẳng $d$ cắt mặt cầu này tại hai điểm $M, N$. Biết rằng $MN=24$ và khoảng cách từ $O$ đến $d$ bằng $5$. Tính diện tích $S$ của mặt cầu đã cho.
+\choice
+{$S=100 \pi$}
+{$S=48 \pi$}
+{$S=52 \pi$}
+{\True $S=676 \pi$}
+\loigiai{\immini{Gọi $H$ là trung điểm $MN$. Suy ra $OH \perp MN$.\\
+Do đó $OH$ là khoảng cách từ $O$ đến $d$ nên $OH=5$.\\
+Bán kính hình cầu $R=OM=\sqrt{OH^2+MH^2}=13$.\\
+Diện tích mặt cầu $S=4 \pi R^2 = 676 \pi$.}{\begin{tikzpicture}[line cap=round,line join=round]
+\def\R{2}
+\def\b{0.4*\R}
+%Định nghĩa các điểm
+\coordinate[label=above:{$O$}] (O) at (0,0);
+\coordinate(A) at ($(O)-(2*\R,0.7*\R)$);
+\coordinate(B) at ($(O)+(-1.5*\R,0.6*\R)$);
+\coordinate(C) at ($(A)+(3.5*\R,0)$);
+\coordinate(D) at ($(B)+(C)-(A)$);
+\coordinate[label=below:{$M$}] (M) at (-110:\R cm and \b cm);
+\coordinate[label=below:{$N$}] (N) at (-30:\R cm and \b cm);
+\coordinate[label=above right:{$H$}] (H) at ($(M)!0.5!(N)$);
+%Xác định các giao điểm
+\draw[draw=none,name path=DTRON] (O) circle (\R cm);
+\draw[draw=none,name path=BD] (B)--(D);
+
+%Xác định các giao điểm dưới
+\draw[draw=none,name path=AC] (A)--(C);
+\draw[name intersections={of=DTRON and AC, by={U,V}}];
+\coordinate(M1) at ($(O)+(\R,0)$);
+%Xác định các góc và vẽ 2 cung nét đứt.
+\tkzFindAngle (M1,O,V) \tkzGetAngle{ana}
+\draw(M1) arc (0:\ana:\R cm);
+\coordinate(M2) at ($(O)-(\R,0)$);
+\draw(M2) arc (-180:-180-\ana:\R cm);
+%Vẽ \Delta
+\coordinate(S) at ($(N)!2!(M)$);
+\coordinate(T) at ($(M)!1.5!(N)$);
+\draw (S)node[above]{$d$}--(M) (N)--(T);
+\tkzMarkRightAngle(T,H,O)
+%Vẽ cung nét liền ở gữa
+\draw(V) arc (\ana:-180-\ana:\R cm);
+%Vẽ các yếu tố còn thiếu
+\draw(M1) arc (0:180:\R cm);
+\draw[dashed] (O)--(H) (M)--(N) (O)--(M);
+\draw[dashed] (O)--(M) node[pos=0.5,left]{$R$};
+\draw[dashed] (M1) arc (0:180:\R cm and \b cm);
+\draw (M1) arc (0:-180:\R cm and \b cm);
+%Vẽ các điểm, ký hiệu góc
+\tkzDrawPoints[fill=black](H,O,M,N)
+\end{tikzpicture}}}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D1B5]
+Số giao điểm của đồ thị hàm số $y=\dfrac{x+6}{x+2}$ và đường thẳng $y=x$ là
+\choice
+{\True $2$}
+{$0$}
+{$3$}
+{$1$}
+\loigiai{
+Phương trình hoành độ giao điểm: $\dfrac{x+6}{x+2}=x \Leftrightarrow \heva{&x+6=x^2+2x\\&x \neq -2} \Leftrightarrow \hoac{&x=2\\&x=-3}$.\\
+Vậy có $2$ giao điểm.
+}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D1B5]
+\immini{Đường cong ở hình bên là  đồ thị của một trong các hàm số được cho ở bên dưới. Đó là hàm số nào?
+\choice
+{$y=x^3-3x+2$}
+{$y=x^3-2$}
+{\True $y=-x^3+2x+1$}
+{$y=x^3+x+2$}
+}{
+\begin{tikzpicture}[>=stealth,x=1.0cm,y=1.0cm,scale=1]
+	\draw[->] (-3,0) -- (3,0) node[below] {\footnotesize $x$};
+	\draw[->] (0,-1) -- (0,3) node[left] {\footnotesize $y$};
+	\draw (0,0) node[below left] {\footnotesize $O$};
+	\draw (0,1) node[left] {\footnotesize $1$} circle (1pt);
+	\draw (-1,0) node[below left] {\footnotesize $-1$} circle (1pt);
+	\draw[line width=0.4pt,smooth,samples=200,domain=-1.7:1.7] plot(\x,{-(\x)^3+2*(\x)+1});
+	\end{tikzpicture}}
+\loigiai{
+Đồ thị hàm số có dạng $y=ax^3+bx^2+cx+d$.\\
+Đồ thị hàm số đi qua điểm $(0;1)$ nên $d=1$.\\
+Dựa vào đồ thị ta thấy $\displaystyle \lim_{x \to +\infty} y = - \infty, \lim_{x \to -\infty} y = + \infty$ nên $a<0$.\\
+Vậy ta chọn hàm số $y=-x^3+2x+1$.
+}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[1D5B1]
+Tiếp tuyến $\Delta $ của đồ thị hàm số $y=\dfrac{3x-2}{x+2}$ tại điểm có hoành độ $x_0=-3$. Khi đó $\Delta $ có hệ số góc $k$ là
+\choice
+{$k=9$}
+{$k=10$}
+{$k=11$}
+{\True $k=8$}
+\loigiai{$y'=\dfrac{8}{(x+2)^2}$ nên hệ số góc là $k=y'(-3)=8$.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D1B5]
+Tâm đối xứng của đồ thị hàm số $y=\dfrac{3x-3}{x+1}$ là điểm $I$ có tọa độ là
+\choice
+{$I(3;-1)$}
+{$I(1;-1)$}
+{\True $I(-1;3)$}
+{$I(-1;-3)$}
+\loigiai{Tiệm cận đứng là $x=-1$, tiệm cận ngang là $y=3$ nên tâm đối xứng là $I(-1;3)$.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2H2K1]
+Cho hình hộp chữ nhật $ABCD.A'B'C'D'$ có $A'C=13$, $AC=5$. Tính diện tích xung quanh $S_{\textit{xq}}$ của hình trụ có hai đường tròn đáy là hai đường tròn ngoại tiếp hai hình chữ nhật $ABCD$ và ${A}'{B}'{C}'{D}'$.
+\choice
+{$S_{\textit{xq}}=120 \pi $}
+{$S_{\textit{xq}}=130 \pi $ }
+{$S_{\textit{xq}}=30 \pi $}
+{\True $S_{\textit{xq}}=60 \pi $}
+\loigiai{\immini{Tam giác $ACA'$ vuông tại $A$ nên \\
+$AA'=\sqrt{A'C^2-AC^2}=12$.\\
+Hình trụ có bán kính đáy là $R=\dfrac{AC}{2}=\dfrac{5}{2}$ và chiều cao là $h=AA''=12$.\\
+Khi đó $S_{xq}=2 \pi Rh= 60 \pi$.}{\begin{tikzpicture}[line cap=round,line join=round,scale=1.3]
+%Định nghĩa độ dài trục lớn, trục nhỏ của ellip và độ dài trục hình trụ
+%Thay đổi a, b, c để thay đổi hình
+\def\a{3}
+\def\b{1}
+\def\c{2.2}
+%Định nghĩa các điểm
+\coordinate[label=above:{$I$}] (I) at (0,0);
+\coordinate[label=below:{$H$}] (H) at ($(I)-(0,\c)$);
+\coordinate[label=above left:{$A$}] (A) at (220:\a cm and \b cm);%Lấy A thuộc ellip
+\coordinate[label=above:{$B$}] (B) at (130:\a cm and \b cm);%Lấy B thuộc ellip
+\tkzDefPointBy[rotation = center I angle 180](A)
+\tkzGetPoint{C}%C đối xứng với A qua O
+\tkzDefPointBy[rotation = center I angle 180](B)
+\tkzGetPoint{D}%D đối xứng với B qua O
+\coordinate[label=below:{$A'$}] (A') at ($(A)-(0,\c)$);
+\coordinate[label=above right:{$C'$}] (C') at ($(C)-(0,\c)$);
+\coordinate[label=below right:{$B'$}] (B') at ($(B)-(0,\c)$);
+\coordinate[label=below:{$D'$}] (D') at ($(D)-(0,\c)$);
+%Vẽ ellip và các đường nối
+\draw (I) ellipse (\a cm and \b cm);
+\draw[dashed] (I)--(H) (B)--(B') (C)--(C') (A')--(B')--(C')--(D')--(A') ($(H)-(\a,0)$) arc (180:0:\a cm and \b cm) (A')--(C);
+\draw($(I)+(\a,0)$)--($(H)+(\a,0)$) ($(I)-(\a,0)$)--($(H)-(\a,0)$) (A)--(B)--(C)--(D)--(D') (A')--(A)--(D) ($(H)-(\a,0)$) arc (180:360:\a cm and \b cm) (A)--(C);
+%Vẽ các góc và điểm
+\tkzDrawPoints(I,H)
+\tkzLabelPoints[above](C)
+\tkzLabelPoints[above left](D)
+\tkzMarkRightAngles[size=0.2](A',A,C)
+\end{tikzpicture}}}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2H2K2]
+Cho hình chóp $S.ABC$ có đáy là tam giác vuông tại $B$, $AC=6a$. $SA$ vuông góc với đáy và $SA=8a$. Tính bán kính $R$ của mặt cầu ngoại tiếp hình chóp $S.ABC$.
+\choice
+{$R=10a$}
+{$R=12a$}
+{\True $R=5a$}
+{$R=2a$}
+\loigiai{\immini{$SA \perp (ABC) \Rightarrow SA \perp BC$.\\
+Mà $BC \perp AB$ nên $BC \perp (SAB)$. Do đó $BC \perp SB$.\\
+Gọi $I$ là trung điểm $SC$.\\
+Các tam giác $SAB, SBC$ lần lượt vuông tại $A, B$ nên \break $SI=BI=AI=CI=\dfrac{SC}{2}$.\\
+Suy ra $I$ là tâm mặt cầu ngoại tiếp hình chóp $S.ABC$ bán kính $R=\dfrac{SC}{2}=\dfrac{1}{2} \sqrt{SA^2+AC^2}=5a$.}{\begin{tikzpicture}[line cap=round,line join=round,scale=1.5]
+\tkzDefPoints{0/0/A, 1/-1/B, 3.5/-0.25/C, 0/2/S}
+\tkzDefMidPoint(S,C)
+\tkzGetPoint{I}
+
+\tkzDrawPoints(I)
+\draw [dashed](A) -- (C) (A)--(I);
+\tkzDrawPolygon(A,B,C,S)
+\draw (A)-- (B) (B)--(I);
+\draw (B) -- (S);
+
+
+\tkzLabelPoints(B,C)
+\tkzLabelPoints[left](A,S)
+\tkzLabelPoints[above](I)
+\tkzMarkRightAngle(S,A,B)
+\tkzMarkRightAngle[dashed](S,A,C)
+\tkzMarkRightAngle(A,B,C)
+\end{tikzpicture}}}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2K3]
+Cho $a,b,c$ là các số thực dương khác $1$. Biết $\log_a c=2, \log_b c=3$. Tính $P=\log_c (ab)$.
+\choice
+{\True $P=\dfrac{5}{6}$}
+{$P=1$}
+{$P=\dfrac{2}{3}$}
+{$P=\dfrac{1}{2}$}
+\loigiai{Ta có $\log_c (ab) = \log_c a + \log_c b = \dfrac{1}{\log_a c} + \dfrac{1}{\log_b c} = \dfrac{1}{2} + \dfrac{1}{3} = \dfrac{5}{6}$.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D1K5]
+Cho hàm số $y=-\dfrac{1}{4} x^4+2x^2-1$ có đồ thị $(C)$. Khẳng định nào sau đây \textbf{sai}?
+\choice
+{Đồ thị $(C)$ có trục đối xứng là trục $Oy$}
+{Đồ thị $(C)$ không có tiệm cận}
+{\True Đồ thị $(C)$ có trục đối xứng là trục $Ox$}
+{Đồ thị $(C)$ có $3$ điểm cực trị}
+\loigiai{Hàm số $y=-\dfrac{1}{4} x^4+2x^2-1$ là hàm số chẵn nên $(C)$ đối xứng qua trục $Oy$.\\
+Đạo hàm $y'=-x^3+4x$ có ba nghiệm phân biệt nên $(C)$ có $3$ điểm cực trị.\\
+Hàm số $y=-\dfrac{1}{4} x^4+2x^2-1$ là hàm đa thức nên $(C)$ không có tiệm cận.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D1B2]
+Cho hàm số $y=\dfrac{1}{3}x^3+4x-3$ có đồ thị $(C)$. Khẳng định nào sau đây đúng?
+\choice
+{Đồ thị $(C)$ có $3$ điểm cực trị}
+{Đồ thị $(C)$ có $2$ điểm cực trị}
+{\True Đồ thị $(C)$ không có điểm cực trị}
+{Đồ thị $(C)$ có $1$ điểm cực trị}
+\loigiai{Đạo hàm $y'=x^2+4 >0$, $\forall x$ nên đồ thị $(C)$ không có điểm cực trị.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2Y1]
+Cho $a, b$ là hai số thực dương và $m, n$ là hai số thực tùy ý. Khẳng định nào sau đây \textbf{sai}?
+\choice
+{$\dfrac{a^m}{b^m}=\left(\dfrac{a}{b}\right) ^m$}
+{\True $a^m \cdot a^n=a^{mn}$}
+{$\left( a^m\right)^n=a^{mn}$}
+{$\left(\dfrac{1}{b}\right)^{-n}=b^n$}
+\loigiai{$a^m \cdot a^n = a^{m+n}$ nên khẳng định $a^m \cdot a^n=a^{mn}$ sai.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2H1B1]
+Cho khối tứ diện $ABCD$. Hai điểm $M, N$ lần lượt là trung điểm của $BC$ và $BD$. Mặt phẳng $(AMN)$ chia khối tứ diện $ABCD$ thành
+\choice
+{\True Một khối tứ diện và một khối chóp tứ giác}
+{Hai khối tứ diện}
+{Hai khối tứ diện và một khối chóp tứ giác}
+{Hai khối chóp tứ giác}
+\loigiai{\immini{Mặt phẳng $(AMN)$ chia khối tứ diện $ABCD$ thành một khối tứ diện $ABMN$ và một khối chóp tứ giác $A.DCMN$.}{\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 1/-1/B, 3.5/-0.25/C, 2/2/D}
+\tkzDefMidPoint(B,C)
+\tkzGetPoint{M}
+\tkzDefMidPoint(B,D)
+\tkzGetPoint{N}
+
+\tkzDrawPoints(M,N)
+\draw [dashed](A) -- (C) (A)--(M);
+\tkzDrawPolygon(A,B,C,D)
+\draw (A)-- (B) (A)--(N)--(M);
+\draw (B) -- (D);
+
+
+\tkzLabelPoints(B,C,M)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](D,N)
+\end{tikzpicture}}}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[1D5K1]
+Cho hàm số $y=x^3-2x^2+3x-6$. Viết phương trình tiếp tuyến của đồ thị hàm số tại giao điểm của đồ thị hàm số với trục hoành.
+\choice
+{\True $y=7x-14$}
+{$y=7x+14$}
+{$y=7x+2$}
+{$y=7x$}
+\loigiai{Giải phương trình $x^3-2x^2+3x-6=0 \Leftrightarrow x=2$ nên đồ thị hàm số cắt trục hoành tại điểm $(2;0)$.\\
+Đạo hàm $y'=3x^2-4x+3$ nên $y'(2)=7$.\\
+Phương trình tiếp tuyến: $y=7(x-2)=7x-14$.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2K2]
+Đạo hàm của hàm số $y=(1+3x)^{\tfrac{1}{3}}$  là
+\choice
+{$y'=\dfrac{1}{3 \sqrt[3]{(1+3x)^2}}$}
+{$y'=-\dfrac{1}{\sqrt[3]{(1+3x)^2}}$}
+{\True $y'=\dfrac{1}{\sqrt[3]{(1+3x)^2}}$}
+{$y'=\dfrac{3}{\sqrt[3]{(1+3x)^2}}$}
+\loigiai{$y'=\dfrac{1}{3}(1+3x)^{-\tfrac{2}{3}} \cdot (1+3x)'=(1+3x)^{-\tfrac{2}{3}}= \dfrac{1}{(1+3x)^{\tfrac{2}{3}}} = \dfrac{1}{\sqrt[3]{(1+3x)^2}}$.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2H1K3]
+Cho hình chóp $S.ABCD$ có đáy là hình vuông cạnh $a$. $SA$ vuông góc với đáy. Góc giữa cạnh bên $SB$ và mặt đáy bằng $60^\circ$. Gọi $M, N$ lần lượt là trung điểm của $SC$ và $SD$. Tính thể tích của khối chóp $S.AMN$.
+\choice
+{$V_{S.AMN}=\dfrac{a^3 \sqrt{3}}{12}$}
+{\True $V_{S.AMN}=\dfrac{a^3\sqrt{3}}{24}$}
+{$V_{S.AMN}=\dfrac{a^3\sqrt{3}}{3}$}
+{$V_{S.AMN}=\dfrac{a^3\sqrt{3}}{6}$}
+\loigiai{\immini{$AB$ là hình chiếu của $SB$ lên mặt phẳng $(ABCD)$ nên $(SB,(ABCD))=(SB,AB)=\widehat{SBA}=60^\circ$.\\
+Tam giác $SAB$ vuông tại $A$ nên $SA=AB \tan 60^\circ =a\sqrt{3}$.\\
+$V_{S.ACD}=\dfrac{1}{3} \cdot SA \cdot S_{ACD} = a^3 \dfrac{\sqrt{3}}{6}$.\\
+Ta có $\dfrac{V_{S.AMN}}{V_{S.ACD}} = \dfrac{SA \cdot SM \cdot SN}{SA \cdot SC \cdot SD} = \dfrac{1}{4}$.\\
+Suy ra $V_{S.AMN}=a^3 \dfrac{\sqrt{3}}{24}$.}{\begin{tikzpicture}[line cap=round, line join=round,scale=0.7]
+\tkzDefPoints{0/0/A, 5/0/B,  2/2/D, 0/6/S}
+% C là điểm sao cho ABCD là hình thoi
+\tkzDefPointsBy[translation= from A to B](D){C}
+\tkzDefMidPoint(S,C)
+\tkzGetPoint{M}
+\tkzDefMidPoint(S,D)
+\tkzGetPoint{N}
+
+\tkzDrawPoints(M,N)
+\tkzDrawPolygon(S,A,B)
+\tkzDrawSegments[dashed](S,D C,D A,D A,N N,M M,A A,C)
+\tkzDrawSegments(S,C B,C)
+
+\tkzLabelPoints[below](A,B)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[left](N)
+\tkzLabelPoints[above right](D)
+\tkzLabelPoints[above](S,M)
+\tkzMarkRightAngle(S,A,B)
+\tkzMarkRightAngle(S,A,D)
+\tkzMarkAngle(S,B,A)
+\end{tikzpicture}}}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2B1]
+Rút gọn biểu thức $P=\dfrac{a^{2-\sqrt{2}}\cdot (ab)^2}{a^{1-\sqrt{2}} \cdot b^{-1}}$.
+\choice
+{$P=a^3-b^3$}
+{\True $P=a^3 \cdot b^3$}
+{$P=\dfrac{a^3}{b^3}$}
+{$P=a^3+b^3$}
+\loigiai{$P=\dfrac{a^{2-\sqrt{2}}\cdot (ab)^2}{a^{1-\sqrt{2}} \cdot b^{-1}} = \dfrac{a^{2-\sqrt{2}}\cdot a^2 b^2}{a^{1-\sqrt{2}} \cdot b^{-1}} = a^{2-\sqrt{2}+2-1+\sqrt{2}}\cdot b^{2-(-1)} = a^3 \cdot b^3$.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2H2B2]
+Thể tích của khối cầu có bán kính $r=\dfrac{1}{\sqrt{2}}$ là 
+\choice
+{\True $V=\dfrac{\pi \sqrt{2}}{3}$}
+{$V=\dfrac{\pi \sqrt{2}}{4}$}
+{$V=\pi \sqrt{2}$ }
+{$V=\dfrac{\pi \sqrt{2}}{2}$}
+\loigiai{$V=\dfrac{4}{3} \pi r^3 = \dfrac{4}{3} \pi \left( \dfrac{1}{\sqrt{2}} \right)^3 = \dfrac{\pi \sqrt{2}}{3}$.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2B3]
+Đạo hàm của hàm số $y=\log(2x)$ là
+\choice
+{$y'=\dfrac{2}{x\ln 10}$}
+{\True $y'=\dfrac{1}{x\ln 10}$}
+{$y'=\dfrac{2x}{\ln 10}$}
+{$y'=\dfrac{x}{2\ln 10}$}
+\loigiai{$y'=\dfrac{1}{2x \ln 10} \cdot (2x)'= \dfrac{1}{x \ln 10}$.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2K5]
+Tập nghiệm của phương trình $\log_3 (x+4)+2\log_9 (14-x)=4$ là 
+\choice
+{\True $S=\{ 5 \}$}
+{$S=\{ 2 \}$}
+{$S=\{ 3 \}$}
+{$S=\{ 4 \}$}
+\loigiai{
+Điều kiện: $-4 < x <14$.\\
+$\begin{aligned}
+&\log_3 (x+4)+2\log_9 (14-x)=4\\
+\Leftrightarrow &\log_3 (x+4)+\log_3 (14-x)=4\\
+\Leftrightarrow &\log_3 (x+4)(14-x) =4\\
+\Leftrightarrow &-x^2+10x+56=3^4\\
+\Leftrightarrow &x=5.
+\end{aligned}$\\
+So điều kiện ta được $S=\{5\}$.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2T5]
+Một người gửi $15$ triệu đồng với lãi suất $8.4 \%$/năm và lãi hàng năm được nhập vào vốn. Hỏi theo cách đó thì bao nhiêu năm người đó thu được tổng số tiền $28$ triệu đồng (biết rằng lãi suất không thay đổi).
+\choice
+{$10$ năm}
+{\True $8$ năm}
+{$9$ năm}
+{$7$ năm}
+\loigiai{Số tiền có được sau $n$ năm là $P_n=15(1+0.084)^n = 15(1.084)^n$ (triệu đồng).\\
+Để thu được tổng số tiền là $28$ triệu đồng thì $15(1.084)^n=28 \Leftrightarrow n= \log_{1.084}  \left(\dfrac{28}{15} \right) \approx 7$,$7$.\\
+Vì $n$ là số tự nhiên nên ta chọn $n=8$.
+}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D1K2]
+\immini{Cho hàm số $y=f(x)$ liên tục trên $\mathbb{R}$ có đạo hàm $f'(x)$. Hàm số $f'(x)$ là hàm bậc ba có đồ thị như hình vẽ bên. Tìm số điểm cực trị của đồ thị hàm số $y=f(x)$?
+\choice
+{$3$}
+{\True $1$}
+{$0$}
+{$2$}
+}{
+\begin{tikzpicture}[>=stealth,scale=0.5]
+	\draw[->] (-2,0) -- (6,0) node[below] {\footnotesize $x$};
+	\draw[->] (0,-2) -- (0,5) node[left] {\footnotesize $y$};
+	\draw (0,0) node[below left] {\footnotesize $O$};
+	\draw (0,4) node[left] {\footnotesize $4$} circle (2pt);
+	\draw (1,0) node[below left] {\footnotesize $1$} circle (2pt);
+	\draw (4,0) node[below] {\footnotesize $4$} circle (2pt);
+	\draw (2,0) node[below] {\footnotesize $2$} circle (2pt);
+	\draw [dashed] (0,4)--(2,4)--(2,0);
+	\draw[line width=0.4pt,smooth,samples=200,domain=0.8:5.1] plot(\x,{(\x)^3-9*(\x)^2+24*(\x)-16});
+	\end{tikzpicture}}
+\loigiai{Dựa vào đồ thị ta thấy $f'(x)=0 \Leftrightarrow \hoac{&x=1\\&x=4}$ nhưng $f'(x)$ chỉ  đổi dấu khi qua $x=1$ nên hàm số $y=f(x)$ có một cực trị.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D1K5]
+Tìm tất cả các giá trị thực của tham số $m$ để phương trình $-x^3+3x-4m+6=0$ có ba nghiệm phân biệt.
+\choice
+{$0<m<3$}
+{$m<2$}
+{\True $1<m<2$}
+{$-2<m<-1$}
+\loigiai{\immini{$-x^3+3x-4m+6=0 \Leftrightarrow x^3-3x-6=-4m$.\\
+Số nghiệm của phương trình bằng số giao điểm của $y=x^3-3x-6$ và $y=-4m$.\\
+Xét hàm số $y=x^3-3x-6$ có bảng biến thiên như hình bên.\\
+Dựa vào bảng biến thiên ta thấy phương trình có $3$ nghiệm phân biệt khi\\
+$-8 < -4m <-4 \Leftrightarrow 1<m<2$.}{
+\begin{tikzpicture}
+\tkzTab
+[lgt=2,espcl=2] % tùy chọn
+{$x$/1, $y'$/0.8, $y$/2} % cột đầu tiên
+{$-\infty$, $-1$, $1$, $+\infty$} % hàng 1 cột 2
+{,+,0,-,0,+} % hàng 2 cột 2
+{-/ $- \infty$, +/ $-4$ , -/ $-8$, +/ $+\infty$} % hàng 3 cột 2
+\end{tikzpicture}}
+}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2K4]
+\immini{Cho đồ thị hàm số $y=a^x, y= \log_b x$ (như hình vẽ). Khẳng định nào sau đây đúng?
+\choice
+{$0<b<1<a$}
+{\True $0<a<1<b$}
+{$a, b >1$}
+{$0<a, b<1$}
+}{
+\begin{tikzpicture}[>=stealth,scale=0.6]
+	\draw[->] (-3,0) -- (5,0) node[below] {\footnotesize $x$};
+	\draw[->] (0,-3) -- (0,5) node[left] {\footnotesize $y$};
+	\draw (0,0) node[below left] {\footnotesize $O$};
+	\draw (0,1) node[below left] {\footnotesize $1$} circle (2pt);
+	\draw (1,0) node[below left] {\footnotesize $1$} circle (2pt);
+	\draw[line width=0.4pt,smooth,samples=200,domain=-3:4] plot(\x,{pow(0.7,\x)});
+	\draw (-1.5,3) node {\footnotesize $y=a^x$};
+	\draw[line width=0.4pt,smooth,samples=200,domain=0.4:4] plot(\x,{ln(\x)/ln(1.5)});
+	\draw (4,2) node {\footnotesize $y= \log_b x$};
+	\end{tikzpicture}}
+\loigiai{Đồ thị hàm số $y=a^x$ đi xuống nên $y=a^x$ nghịch biến. Suy ra $0<a<1$.\\
+Đồ thị hàm số $y= \log_b x$ đi lên nên $y= \log_b x$ đồng biến. Suy ra $b>1$.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D1B4]
+Tiệm cận đứng của đồ thị hàm số $y=\dfrac{2x+4}{x-1}$ là
+\choice
+{$x=2$}
+{$x=-2$}
+{$x=-1$}
+{\True $x=1$}
+\loigiai{$\displaystyle \lim_{x \to 1^+} y = + \infty$ nên tiệm cận đứng là $x=1$.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2H1B3]
+Cho hình chóp $S.ABC$ có đáy là tam giác vuông tại $B$, $AB=a$, $BC=2a$. $SA$ vuông góc với đáy. Thể tích của khối chóp $S.ABC$ bằng ${{a}^{3}}\sqrt{2}$. Tính chiều cao $h$ của khối chóp đã cho.
+\choice
+{\True $h=3a\sqrt{2}$}
+{$h=a\sqrt{2}$}
+{$h=\dfrac{a}{2}$}
+{$h=2a\sqrt{3}$}
+\loigiai{\immini{Ta có $V=\dfrac{1}{3}\cdot h \cdot S_{ABC} \Leftrightarrow a^3 \sqrt{2} = \dfrac{1}{3} \cdot h \cdot a^2 \Leftrightarrow h = 3a\sqrt{2}$.}{\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{0/0/A, 1/-1/B, 3.5/-0.25/C, 0/2/S}
+\tkzLabelPoints(B,C)
+\tkzLabelPoints[left](A,S)
+\draw [dashed](A) -- (C);
+\tkzDrawPolygon(A,B,C,S)
+\draw (A)-- (B);
+\draw (B) -- (S);
+\tkzMarkRightAngle(A,B,C)
+\end{tikzpicture}}}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2B3]
+	Cho $a$ là số thực dương và $a \neq 1$. Tính giá trị của biểu thức $Q=\log_a {\dfrac{a^3 \cdot \sqrt[3]{a^2}}{\sqrt{a}}}$.
+	\choice
+	{$Q=\dfrac{19}{5}$}
+	{$Q=\dfrac{19}{7}$}
+	{$Q=\dfrac{19}{4}$}
+	{\True $Q=\dfrac{19}{6}$}
+	\loigiai{
+	$Q=\log_a {\dfrac{a^3 \cdot \sqrt[3]{a^2}}{\sqrt{a}}}=\log_a a^{3+\tfrac{2}{3}-\tfrac{1}{2}}=\log_a a^{\tfrac{19}{6}}=\dfrac{19}{6}$.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2H2B1]
+	Cho khối nón có độ dài đường sinh bằng đường kính đáy. Gọi $r$ là bán kính đáy, tính thể tích $V$ của khối nón đã cho theo $r$.
+	\choice
+	{\True $V=\dfrac{\pi r^3 \sqrt{3}}{3}$}
+	{$V=\dfrac{\pi r^3 \sqrt{3}}{2}$}
+	{$V=\dfrac{\pi r^3 \sqrt{3}}{4}$}
+	{$V=\pi r^3 \sqrt{3}$}
+	\loigiai{
+	$V=\dfrac{1}{3}\pi r^2h=\dfrac{1}{3}\pi r^2 \cdot \sqrt{4r^2-r^2}=\dfrac{\pi r^3 \sqrt{3}}{3}$.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2H1K3]
+	Cho khối chóp tứ giác đều $S.ABCD$ có cạnh đáy bằng $a$. Góc giữa mặt bên và mặt đáy bằng $60^{\circ}$. Tính thể tích $V$ của khối chóp đã cho. 
+	\choice
+	{$V=\dfrac{a^3 \sqrt{6}}{6}$}
+	{\True $V=\dfrac{a^3 \sqrt{3}}{6}$}
+	{$V=\dfrac{a^3 \sqrt{3}}{2}$}
+	{$V=\dfrac{a^3 \sqrt{3}}{18}$}
+	\loigiai{
+	\immini
+	{Ta có $S_{ABCD}=a^2$. Gọi $O$ là tâm hình vuông $ABCD$ và $M$ là trung điểm $DC$.\\
+	Ta có $(\widehat{(SCD),(ABCD)})=(\widehat{SM,OM})=\widehat{SMO}=60^\circ$.\\
+	Xét $\triangle OSM{,}$ $ SO=OM\cdot\tan60^\circ=\dfrac{a\sqrt{3}}{2}$.\\
+	Vậy $V=\dfrac{1}{3}S_{ABCD}\cdot SO=\dfrac{1}{3}a^2\cdot \dfrac{a\sqrt{3}}{2}=\dfrac{a^3 \sqrt{3}}{6}$.
+	}
+	{\begin{tikzpicture}[line cap=round,line join=round,scale=1]   
+		\tkzDefPoints{2/2/B, 6/2/C,4/0/D,0/0/A,3/4/S}
+		\tkzDefMidPoint(S,B)
+		\coordinate (O) at ($(A)!0.5!(C)$);
+		\coordinate (M) at ($(C)!0.5!(D)$);
+		\tkzDrawSegments[](S,M)
+		\tkzDrawSegments[dashed](S,B A,B B,C S,O O,M A,C B,D)
+		\tkzDrawPolygon(S,A,D) \tkzDrawPolygon(S,C,D)
+		\tkzMarkRightAngles[size=0.2](S,O,C)
+		\tkzMarkRightAngles[size=0.2](S,M,C)
+		\tkzMarkRightAngles[size=0.2](D,M,O)
+		\tkzLabelPoints(A,C,D,M)
+		\tkzLabelPoints[above](S)
+		\tkzLabelPoints[below](O,B)
+		\tkzDrawPoints[fill=white](A,B,C,D,S,O,M)
+		\tkzMarkAngle[size=.6](S,M,O)
+		\draw (5.25,0.8) node [left,label=128:\tiny $60^{\circ}$] {};
+		\end{tikzpicture}}}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2B4]
+	Tìm tập xác định $\mathscr{D}$ của hàm số $y=\log_{\tfrac{1}{2}} {\left(\dfrac{x}{2-x}\right)}$.
+	\choice
+	{$\mathscr{D}=\left[0;2\right)$}
+	{\True $\mathscr{D}=\left(0;2\right)$}
+	{$\mathscr{D}=\left(-\infty;0\right) \cup \left(2;+ \infty\right)$}
+	{$\mathscr{D}=\mathbb{R} \setminus \{2\}$}
+	\loigiai{
+	Điều kiện: $\dfrac{x}{2-x}>0 \Leftrightarrow 0<x<2$.\\
+	Vậy $\mathscr{D}=\left(0;2\right)$.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2H2Y1]
+	Cho hình nón có bán kính đáy $r=\sqrt{2}$ và độ dài đường sinh $l=3$. Tính diện tích xung quanh $S_{xq}$ của hình nón đã cho.
+	\choice
+	{$S_{xq}=6\pi\sqrt{2}$}
+	{\True $S_{xq}=3\pi\sqrt{2}$}
+	{$S_{xq}=6\pi$}
+	{$S_{xq}=2\pi$}
+	\loigiai{
+	$S_{xq}=\pi rl=\pi \cdot \sqrt{2} \cdot 3=3\pi\sqrt{2}$.}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2K2]
+	Trong các hàm số được cho dưới đây, hàm số nào có tập xác định $\mathscr{D}=(-\infty;1)$?
+	\choice
+	{$y=(1-x)^2$}
+	{\True $y=(1-x)^\mathrm{e}$}
+	{$y=1-x$}
+	{$y=(1-x)^{-2}$}
+	\loigiai{
+		Điều kiện xác định của hàm số $y=(1-x)^2$ là $\forall x \in \mathbb{R}$.\\
+		Điều kiện xác định của hàm số $y=(1-x)^\mathrm{e}$ là $1-x>0$.\\
+		Điều kiện xác định của hàm số $y=1-x$ là $\forall x \in \mathbb{R}$.\\
+		Điều kiện xác định của hàm số $y=(1-x)^{-2}$ là $1-x \neq 0$.\\
+		Vậy hàm số  $y=(1-x)^e$ có tập xác định $\mathscr{D}=(-\infty;1)$.
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D1K5]
+	\immini
+	{Cho hàm số $y=\dfrac{2x-1}{cx+d}$ có đồ thị như hình vẽ bên. Tìm khẳng định \textbf{đúng} trong các khẳng định sau.
+		\choice
+		{$c=d<0$}
+		{\True $c=d>0$}
+		{$0<c<d$}
+		{$0<d<c$}}
+	{\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm,>=stealth,scale=0.85]
+		\draw[->,color=black,line width=1.0pt,smooth,samples=100] (-4.5,0.) -- (3,0.) node[below] {\footnotesize $x$};%vẽ trục Ox
+		\foreach \x in {-2,-1,1,2} 
+		\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+		\draw[->,color=black,line width=1.0pt,smooth,samples=100] (0.,-2.5) -- (0.,4) node[left] {\footnotesize $y$};;%vẽ trục Oy
+		\foreach \y in {-2,-1,1,2,3}
+		\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+		\draw[line width=1.0pt,smooth,samples=100,domain=-4.5:-1.5] plot(\x,{(2*(\x)-1)/(2*(\x)+2)});
+		\draw[line width=1.0pt,smooth,samples=100,domain=-0.58:3] plot(\x,{(2*(\x)-1)/(2*(\x)+2)});  
+		\draw[line width=.5pt,smooth,samples=100] (-4.5,1)--(3,1) node[above,pos=0.62] {$1$};
+		\draw[line width=.5pt,smooth,samples=100] (-1,-2.5)--(-1,4) node[left,pos=0.35] {$-1$};  
+		\draw (-3pt,5pt) node[right] {\footnotesize $O$};
+		\end{tikzpicture}}
+	\loigiai{
+	Đồ thị hàm số $y=\dfrac{2x-1}{cx+d}$ có tiệm cận đứng là $x=-\dfrac{d}{c}$.\\
+	Dựa vào đồ thị ta có $-\dfrac{d}{c}=-1\Leftrightarrow d=c$.\\
+	Đồ thị hàm số $y=\dfrac{2x-1}{cx+d}$ có tiệm cận ngang là $y=\dfrac{2}{c}$.\\
+	Dựa vào đồ thị ta có $\dfrac{2}{c}=1 \Leftrightarrow c=2$.\\
+	Vậy $c=d=2>0$.
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2B4]
+	Tính đạo hàm của hàm số $y=3^{\mathrm{e}^{x}}$.
+	\choice
+	{$y'=3^{\mathrm{e}^{x}}\cdot\ln3$}
+	{$y'=\mathrm{e}^{x}\cdot\ln3$}
+	{\True $y'=\mathrm{e}^x\cdot3^{e^{x}}\cdot\ln3$}
+	{$y'=\mathrm{e}^x\cdot3^{\mathrm{e}^{x}}$}
+	\loigiai{
+	$y'=(\mathrm{e}^x)'\cdot3^{\mathrm{e}^{x}} \cdot \ln3=\mathrm{e}^x\cdot3^{\mathrm{e}^{x}}\cdot\ln3$.
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2H1B3]
+	Cho khối chóp $S.ABC$ có đáy là tam giác đều cạnh bằng $\sqrt{2}$, $SA$ vuông góc với đáy và $SA=\sqrt{3}$. Tính thể tích $V$ của khối chóp $S.ABC$.
+	\choice
+	{$V=3$}
+	{$V=\dfrac{3}{2}$}
+	{$V=\dfrac{3\sqrt{2}}{4}$}
+	{\True $V=\dfrac{1}{2}$}
+	\loigiai{
+	\immini
+	{Ta có $S_{ABC}=\sqrt{2}^2\cdot\dfrac{\sqrt{3}}{4}=\dfrac{\sqrt{3}}{2}$.\\
+	$V=\dfrac{1}{3}S_{ABC}\cdot SA=\dfrac{1}{3}\cdot \dfrac{\sqrt{3}}{2} \cdot \sqrt{3}=\dfrac{1}{2}$.
+	}
+	{\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm,>=stealth,scale=1]
+		\tkzDefPoints{3/-2/C, 5/0/B, 0/0/A, 0/4/S}
+		\tkzDrawSegments[dashed](A,B)
+		\tkzMarkRightAngles[size=0.2](S,A,C)
+		\tkzMarkRightAngles[size=0.2](S,A,B)
+		\tkzLabelPoints[above](S)\tkzLabelPoints[right](B)
+		\tkzLabelPoints[below](C)
+		\tkzLabelPoints[left](A)
+		\tkzDrawPolygon(S,C,B) \tkzDrawPolygon(S,A,C)
+		\end{tikzpicture}}
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D1B2]
+	Hàm số $y=-x^4+8x^2-3$ đạt cực đại tại điểm nào dưới đây?
+	\choice
+	{$x=-3$}
+	{$x=13$}
+	{$x=0$}
+	{\True $x=\pm2$}
+	\loigiai{
+	\immini
+	{Ta có $y'=-4x^3+16x.$\\
+		$y'=0\Leftrightarrow \hoac{&x=0\\&x=\pm2}$.\\
+		Bảng biến thiên (như hình bên).\\
+		Vậy hàm số đạt cực đại tại $x=\pm2$.}
+	{\begin{tikzpicture}
+		\tkzTabInit[nocadre,lgt=1,espcl=2.0]{$x$/.6, $y'$ /.6, $y$ /1.8}{$-\infty$,$-2$,$0$,$2$,$+\infty$}
+		\tkzTabLine{,+,$0$,-,$0$,+,$0$,-,}
+		\tkzTabVar{-/$-\infty$,+/$13$,-/$-3$,+/$13$,-/$-\infty$}
+		\end{tikzpicture}}
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2K5]
+	Cho phương trình $4^{x+1}-12\cdot2^{x-2}-7=0$. Khi đặt $t=2^x$, ta được phương trình nào dưới đây?
+	\choice
+	{$t^2-3t-7=0$}
+	{$4t^2-12t-7=0$}
+	{\True $4t^2-3t-7=0$}
+	{$t^2-12t-7=0$}
+	\loigiai{
+	Phương trình $4^{x+1}-12\cdot2^{x-2}-7=0 \Leftrightarrow 4\cdot4^x-3\cdot2^x-7=0.$\\
+	 Khi đặt $t=2^x$, ta được phương trình $4t^2-3t-7=0$.
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D1B1]
+	Hàm số $y=\dfrac{1}{3}x^3-2x^2+3x-2$ đồng biến trên khoảng nào dưới đây?
+	\choice
+	{$(1;+\infty)$}
+	{\True $(-\infty;1) \text{ và } (3;+\infty)$}
+	{$(-\infty;-3)$}
+	{$(1;3)$}
+	\loigiai{
+	Ta có $y'=x^2-4x+3$.
+	Để $y$ đồng biến thì $y' \geq 0 \Leftrightarrow x^2-4x+3 \geq 0 \Leftrightarrow \hoac{&x \leq1\\&x \geq3}$.\\
+	Vậy hàm số $y=\dfrac{1}{3}x^3-2x^2+3x-2$ đồng biến trên khoảng $(-\infty;1) \text{ và } (3;+\infty)$.
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2H2K2]
+	Trong một chiếc hộp hình trụ, người ta bỏ vào ba quả bóng tenis. Biết đáy của hình trụ bằng hình tròn lớn của quả bóng và chiều cao của hình trụ bằng ba lần đường kính của quả bóng. Gọi $S_1$ là tổng diện tích của ba quả bóng và $S_2$ là diện tích xung quanh của hình trụ. Tính tỉ số $\dfrac{S_1}{S_2}$.
+	\choice
+	{$\dfrac{S_1}{S_2}=2$}
+	{$\dfrac{S_1}{S_2}=4$}
+	{\True $\dfrac{S_1}{S_2}=1$}
+	{$\dfrac{S_1}{S_2}=3$}
+	\loigiai{
+	\immini
+	{Gọi bán kính của quả bóng là $a$ ($a>0$).\\
+	Ta có $S_1=3\times 4\pi a^2=12\pi a^2$.\\
+	Ta có $S_2=2\pi rl =2\pi a \cdot OO' =2\pi a\cdot6a=12\pi a^2$.\\
+	Vậy $\dfrac{S_1}{S_2}=\dfrac{12\pi a^2}{12\pi a^2}=1$.
+	}
+	{\begin{tikzpicture}[line cap=round,line join=round,scale=0.5]
+		\clip(-3.5,-1.5) rectangle (3.7,19); 
+		\tkzDefPoints{0/0/A, 3/0/B}
+		\coordinate (C) at ($(A)!1!180:(B)$);
+		\coordinate (A') at ($(A)!6!90:(B)$);
+		\coordinate (B') at ($(B)!6!-90:(A)$);
+		\coordinate (C') at ($(A')!1!180:(B')$);
+		\coordinate (T1) at ($(A)!1!90:(B)$);
+		\coordinate (T2) at ($(A)!3!90:(B)$);
+		\coordinate (T3) at ($(A)!5!90:(B)$);
+		\draw (B) arc (0:-180:3cm and 1cm);
+		\draw[dashed] (B) arc (0:180:3cm and 1cm);
+		\draw (A') ellipse (3cm and 1cm);
+		\draw [dashed] (T1) circle [radius=3cm];
+		\draw [dashed] (T2) circle [radius=3cm];
+		\draw [dashed] (T3) circle [radius=3cm];
+		\tkzInterLC[R](B,B')(T1,3 cm)
+		\tkzGetPoints{}{x1}
+		\tkzInterLC[R](B,B')(T2,3 cm)
+		\tkzGetPoints{}{x2}
+		\tkzInterLC[R](B,B')(T3,3 cm)
+		\tkzGetPoints{}{x3}
+		\draw (x1) arc (0:-180:3cm and 1cm);
+		\draw[dashed] (x1) arc (0:180:3cm and 1cm);
+		\draw (x2) arc (0:-180:3cm and 1cm);
+		\draw[dashed] (x2) arc (0:180:3cm and 1cm);
+		\draw (x3) arc (0:-180:3cm and 1cm);
+		\draw[dashed] (x3) arc (0:180:3cm and 1cm);
+		\draw[dashed] (A)--(A');\draw[dashed] (A)--(B);
+		\draw[dashed] (T1)--(x1) node[above,pos=0.5] {\scriptsize $r=a$};
+		\draw (A) node[below]{$O$};
+		\draw (A') node[above]{$O'$};
+		\tkzDrawSegments(C,C' B,B')
+		\tkzDrawPoints[fill,size=6pt](A,A')
+		%\tkzLabelPoints(A,B,C,A',B',C',T1,T2,T3,x1,x2,x3) 
+		\end{tikzpicture}}
+	
+}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2K5]
+	Phương trình $\log_2^2x+4\log_{\tfrac{1}{4}}x-1=0$ có hai nghiệm $x_1{,}x_2$. Tính giá trị của biểu thức $K=2x_1x_2-3$.
+	\choice
+	{$K=4$}
+	{\True $K=5$}
+	{$K=6$}
+	{$K=7$}
+	\loigiai{
+	Ta có: $\log_2^2x+4\log_{\tfrac{1}{4}}x-1=0 \Leftrightarrow \log_2^2x-2\log_2 x-1=0 \Leftrightarrow \hoac{&\log_2 x=1+\sqrt{2}\\&\log_2 x=1-\sqrt{2}} \Leftrightarrow \hoac{&x=2^{1+\sqrt{2}}\\&x=2^{1-\sqrt{2}}.}$\\
+	Giả sử $x_1=2^{1+\sqrt{2}}$ và $x_2=2^{1-\sqrt{2}}$.\\
+	Khi đó $K=2x_1x_2-3=2\cdot2^{1+\sqrt{2}}\cdot2^{1-\sqrt{2}}-3=2^3-3=5$.
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D1B3]
+	Tìm giá trị nhỏ nhất $m$ của hàm số $y=x^3+6x^2-3$ trên đoạn $[-2;2]$.
+	\choice
+	{$m=29$}
+	{$m=13$}
+	{\True $m=-3$}
+	{$m=-4$}
+	\loigiai{
+	Ta có $y'=3x^2+12x$.\\
+	$y'=0\Leftrightarrow \hoac{&x=0 \in [-2;2]\\&x=-4 \not\in[-2;2]}$.\\
+	Ta có $y(-2)=13$; $y(0)=-3$; $y(2)=29$.\\
+	Vậy $m=-3$.
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D1B5]
+	\immini
+	{Đồ thị ở hình bên là của một trong bốn hàm số dưới đây. Hàm số đó là hàm số nào?
+		\choice
+		{$y=x^4-2x^2-1$}
+		{$y=x^4-2x^2+1$}
+		{$y=-x^4+2x^2$}
+		{\True $y=x^4-2x^2$}}
+	{\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm,>=stealth,scale=1]
+		\draw[->,color=black,line width=1.0pt,smooth,samples=100] (-2.5,0.) -- (2.5,0.) node[below] {\footnotesize $x$};%vẽ trục Ox
+		\foreach \x in {-2,-1,1,2} 
+		\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[above] {\footnotesize $\x$};
+		\draw[->,color=black,line width=1.0pt,smooth,samples=100] (0.,-1.5) -- (0.,2) node[left] {\footnotesize $y$};%vẽ trục Oy
+		\foreach \y in {-1,1}
+		\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[right] {\footnotesize $\y$};;
+		\draw[line width=1.0pt,smooth,samples=100,domain=-1.65:1.65] plot(\x,{((\x)^4-2*(\x)^2});
+		\draw (-3pt,5pt) node[right] {\footnotesize $O$};
+		\draw[dashed] (-1,0)--(-1,-1)--(1,-1)--(1,0);
+		\end{tikzpicture}}
+	\loigiai{
+	Xét hàm số $y=ax^4+bx^2+c$.\\
+	Dựa vào đồ thị ta suy ra:
+	\begin{itemize}
+		\item $a>0.$
+		\item $c=0.$
+	\end{itemize}
+	Trong các đáp án đã cho, ta chọn hàm số $y=x^4-2x^2$. 
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2H1B3]
+	Cho khối lăng trụ đứng $ABC.A'B'C'$ có đáy là tam giác vuông cân tại $C$, $BC=2a$ và $CC'=\dfrac{a\sqrt{3}}{2}$. Tính thể tích $V$ của khối lăng trụ đã cho.
+	\choice
+	{$V=2a^3\sqrt{3}$}
+	{\True $V=a^3\sqrt{3}$}
+	{$V=a^3\sqrt{2}$}
+	{$V=\dfrac{a^3\sqrt{3}}{2}$}
+	\loigiai{
+	\immini
+	{Ta có $S_{ABC}=\dfrac{1}{2}BC^2=2a^2$.\\
+	Vậy $V=S_{ABC}\cdot CC'=2a^2 \cdot \dfrac{a\sqrt{3}}{2}=a^3\sqrt{3}$.
+	}
+	{\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm,>=stealth,scale=0.5]
+		\tkzDefPoints{3/-2/C, 5/0/B, 0/0/A}
+		\coordinate (A') at ($(A)!1!90:(B)$);
+		\coordinate (B') at ($(B)!1!-90:(A)$);
+		\coordinate (C') at ($(C)-(A)+(A')$);
+		\tkzDrawSegments[dashed](A,B)
+		\tkzMarkRightAngles[size=0.2](A,C,B)
+		\tkzLabelPoints[above](A')\tkzLabelPoints[right](B,B',C')
+		\tkzLabelPoints[below](C)
+		\tkzLabelPoints[left](A)
+		\tkzDrawPolygon(A',C',B') \tkzDrawPolygon(A',A,C,C') \tkzDrawPolygon(C',C,B,B')
+		\end{tikzpicture}}
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D1K3]
+	Cho hàm số $y=-\dfrac{1}{3}x^3+x^2-3x+m$ ($m$ là tham số thực) thỏa mãn giá trị lớn nhất của hàm số trên đoạn $[0;3]$ bằng $-7$. Mệnh đề nào dưới đây \textbf{đúng?}
+	\choice
+	{$m>5$}
+	{\True $m<-5$}
+	{$m=2$}
+	{$-4<m\leq4$}
+	\loigiai{
+	Ta có $y'=-x^2+2x-3<0$  $\forall x \in \mathbb{R}$ nên hàm số đã cho nghịch biến trên $\mathbb{R}$.\\
+	Suy ra $\underset{\left[0;3\right]}{\max}y=y(0)=m$.\\
+	Theo đề bài ta có $m=-7$ nên mệnh đề \textbf{đúng} là $m<-5$.
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[1H3K5]
+	Cho hình chóp $S.ABC$ có đáy là tam giác vuông cân tại $B$, $AB=2a$ và $SB=3a$. Hình chiếu vuông góc của $S$ trên mặt phẳng đáy là trung điểm $H$ của $AB$. Tính khoảng cách $d$ từ điểm $H$ đến mặt phẳng $(SBC)$. 
+	\choice
+	{$d=\dfrac{a\sqrt{2}}{3}$}
+	{\True $d=\dfrac{2a\sqrt{2}}{3}$}
+	{$d=\dfrac{4a\sqrt{2}}{3}$}
+	{$d=a\sqrt{2}$}
+	\loigiai{
+	\immini
+	{Gọi $K$ là hình chiếu vuông góc của $H$ lên $SB$.\\
+	Ta có: $\heva{&HK \perp SB\\&HK \perp BC \text{ (do } BC \perp (SAB)).}$\\
+	Suy ra $HK \perp (SBC)$ và $d=HK$.\\
+	Xét $\triangle SHB$:\\ $SH=\sqrt{SB^2-HB^2}=\sqrt{9a^2-a^2}=2a\sqrt{2}$;\\
+	$HK\cdot SB=HB \cdot SH \Rightarrow HK=\dfrac{HB \cdot SH}{SB}=\dfrac{a\cdot2a\sqrt{2}}{3a}=\dfrac{2a\sqrt{2}}{3}$.
+	}
+	{\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm,>=stealth,scale=1]
+		\tkzDefPoints{3/-2/B, 5/0/C, 0/0/A}
+		\coordinate (H) at ($(A)!0.5!(B)$);
+		\coordinate (x) at ($(B)!0.5!(C)$);
+		\coordinate (S) at ($(H)!1.75!90:(x)$);
+		\coordinate (K) at ($(S)!0.75!(B)$);
+		\tkzDrawSegments[dashed](A,C)
+		\tkzDrawSegments(S,H H,K)
+		\tkzMarkRightAngles[size=0.2](S,H,A)
+		\tkzMarkRightAngles[size=0.2](H,K,B)
+		\tkzMarkRightAngles[size=0.2](A,B,C)
+		\tkzLabelPoints[above](S)\tkzLabelPoints[right](B,K)
+		\tkzLabelPoints[below](C,H)
+		\tkzLabelPoints[left](A)
+		\tkzDrawPolygon(A,S,B) \tkzDrawPolygon(S,B,C) 
+		\end{tikzpicture}}
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D1K4]
+	Đồ thị của hàm số nào trong các hàm số được cho bên dưới có tiệm cận đứng?
+	\choice
+	{$y=\dfrac{x^2-4}{x-2}$}
+	{$y=\dfrac{2}{x^2-2x+2}$}
+	{\True $y=\dfrac{2}{x}$}
+	{$y=\dfrac{2}{x^2+2}$}
+	\loigiai{
+	Ta có:
+	\begin{itemize}
+		\item $y=\dfrac{x^2-4}{x-2}$ có tập xác định $\mathscr{D}=\mathbb{R} \setminus \{2\}$ và $\underset{x\rightarrow2^+}{\lim}y=\underset{x\rightarrow2^{-}}{\lim}y=4 \Rightarrow $ đồ thị hàm số không có tiệm cận đứng.
+		\item $y=\dfrac{2}{x^2-2x+2}$ có tập xác định $\mathscr{D}=\mathbb{R}\Rightarrow $ đồ thị hàm số không có tiệm cận đứng.
+		\item $y=\dfrac{2}{x^2+2}$ có tập xác định $\mathscr{D}=\mathbb{R}\Rightarrow $ đồ thị hàm số không có tiệm cận đứng.
+		\item $y=\dfrac{2}{x}$ có tập xác định $\mathscr{D}=\mathbb{R} \setminus \{0\}$ và $\underset{x\rightarrow0^+}{\lim}y=+\infty \Rightarrow $ đồ thị hàm số có tiệm cận đứng $x=0$. 
+	\end{itemize}
+	}
+\end{ex} 
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D1B1]
+	Cho hàm số $f(x)$ liên tục trên $\mathbb{R}$ và có bảng xét dấu đạo hàm như bên dưới.
+	\begin{center}
+		\begin{tikzpicture}
+		\tkzTabInit[lgt=2,espcl=2]
+		{$x$ /.7,$f'(x)$ /.7}{$-\infty$,$-3$,$0$,$3$,$+\infty$}
+		\tkzTabLine{,+,$0$,-,$0$,+,$0$,-,}
+		\end{tikzpicture}
+	\end{center}
+	Khẳng định nào sau đây \textbf{đúng?}
+	\choice
+	{Hàm số nghịch biến trên khoảng $(-\infty;-3)$}
+	{\True Hàm số đồng biến trên khoảng $(0;3)$}
+	{Hàm số đồng biến trên khoảng $(3;+\infty)$}
+	{Hàm số nghịch biến trên khoảng $(0;3)$}
+	\loigiai{
+	$f'(x)>0$, $\forall x \in (0;3)$ nên hàm số $f(x)$ đồng biến trên khoảng $(0;3)$.
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2K5]
+	Phương trình $9^{x+\log_3 2}-2=3^{x+\log_3 2}$ có bao nhiêu nghiệm?
+	\choice
+	{$0$}
+	{\True $1$}
+	{$2$}
+	{$3$}
+	\loigiai{
+	Đặt $t=3^{x+\log_3 2}$, $t>0$. Phương trình đã cho trở thành phương trình $t^2-t-2=0 \Leftrightarrow \hoac{&t=-1 \text{ (loại)}\\&t=2 \text{ (nhận).}}$\\
+	Với $t=2 \Leftrightarrow 3^{x+\log_3 2}=2 \Leftrightarrow x=0$.\\
+	Vậy phương trình đã cho có một nghiệm.	
+	
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2K5]
+	Tìm tất cả nghiệm của phương trình $2^{x^2-x+2}=\left(\dfrac{1}{4}\right)^{2x-1}$.
+	\choice
+	{$x=-4$}
+	{\True $x=0;x=-3$}
+	{$x=0;x=3$}
+	{$x=0$}
+	\loigiai{
+	Ta có $2^{x^2-x+2}=\left(\dfrac{1}{4}\right)^{2x-1} \Leftrightarrow 2^{x^2-x+2}=2^{2-4x} \Leftrightarrow x^2-x+2=2-4x \Leftrightarrow x^2+3x=0 \Leftrightarrow \hoac{&x=0\\&x=-3}$.
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2D2K5]
+	Cho $a$ là số thực dương khác $1$ thỏa mãn $\log_a x=\dfrac{1}{2}\log_a 25 +\log_a 3 -2\log_a 2$, mệnh đề nào sau đây \textbf{đúng?} 
+	\choice
+	{$x=27$}
+	{$x=30$}
+	{$x=\dfrac{45}{2}$}
+	{\True $x=\dfrac{15}{4}$}
+	\loigiai{
+	Ta có: \\
+	$
+	\begin{aligned}
+	&\log_a x=\dfrac{1}{2}\log_a 25 +\log_a 3 -2\log_a 2\\
+	&\Leftrightarrow \log_a x=\log_a 5 +\log_a 3 -\log_a 4\\
+	&\Leftrightarrow \log_a x=\log_a {\left(\dfrac{5\cdot3}{4}\right)}\\
+	&\Leftrightarrow x=\dfrac{15}{4}.
+	\end{aligned}
+	$
+	}
+\end{ex}
+
+\begin{ex}%[HK1, Sóc Sơn, Kiên Giang, 2018]%[2H2B1]
+	Một khối trụ có bán kính đáy $r=2a$ và chiều cao $h=\dfrac{a}{3}$. Tính thể tích $V$ của khối trụ đã cho.
+	\choice
+	{$V=\dfrac{\pi a^3}{3}$}
+	{$V=\dfrac{5\pi a^3}{3}$}
+	{$V=\dfrac{2\pi a^3}{3}$}
+	{\True $V=\dfrac{4\pi a^3}{3}$}
+	\loigiai{
+	Ta có $V=\pi r^2h=\pi \cdot (2a)^2 \cdot \dfrac{a}{3}=\dfrac{4\pi a^3}{3}$.
+	}
+\end{ex}
+\Closesolutionfile{ans}
+\newpage
+\begin{center}
+	\textbf{ĐÁP ÁN}
+\end{center}
+\begin{multicols}{10}
+	\input{ans/ans-2-HK1-8-SocSon-KienGiang-18} 
+\end{multicols}
+

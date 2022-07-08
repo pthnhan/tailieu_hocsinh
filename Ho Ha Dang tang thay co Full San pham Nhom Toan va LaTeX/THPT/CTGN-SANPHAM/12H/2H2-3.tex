@@ -1,0 +1,1812 @@
+\section{Mặt cầu và khối cầu}
+
+\vspace*{1.5cm}
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+\shade[ball color = gray!40, opacity = 0.4] (0,0) circle (2cm);
+\draw (0,0) circle (2cm);
+\draw (-2,0) arc (180:360:2 and 0.6);
+\draw[dashed] (2,0) arc (0:180:2 and 0.6);
+\fill[fill=black] (0,0) circle (1pt);
+\draw[dashed] (0,0 ) -- node[above]{$r$} (2,0);
+\end{tikzpicture}
+\end{center}
+
+\subsection{Tóm tắt lý thuyết}
+
+\begin{itemize}
+\item Bán kính đường tròn ngoại tiếp tam giác đều cạnh $a$: $r=\dfrac{a\sqrt{3}}{3}$.
+\item Bán kính đường tròn ngoại tiếp hình vuông cạnh $a$: $r=\dfrac{a\sqrt{2}}{2}$.
+\item Diện tích của mặt cầu có bán kính $R$: $S=4\pi R^2$.
+\item Thể tích của khối cầu có bán kính $R$: $V=\dfrac{4}{3}\pi R^3$.
+\end{itemize}
+
+
+\newpage
+\subsection{Tính bán kính của mặt cầu ngoại tiếp hình chóp}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+\def\R{5} % bán kính hình cầu
+\def\a{4.5} % bán trục lớn ellip
+\def\b{.75} % bán trục nhỏ ellip 
+\coordinate (H) at (0,0);
+\pgfmathsetmacro{\h}{sqrt(\R*\R-\a*\a)}
+\coordinate (O) at (0,\h);
+\filldraw[cyan!50, opacity=0.5] (O) circle(\R);
+\coordinate (A) at ($(H)+(155:\a cm and \b cm)$);
+\coordinate (B) at ($(H)+(45:\a cm and \b cm)$);
+\coordinate (C) at ($(H)+(-70:\a cm and \b cm)$);
+\coordinate (D) at (0,\R+\h);
+\draw[dashed,cyan] (\a,0) arc (0:180:\a cm and \b cm);
+\draw[cyan] (-\a,0) arc (180:360:\a cm and \b cm);
+\draw[dashed] (A)--(B)--(C)--cycle 
+(D)--(A) (D)--(B) (D)--(C); 
+\draw[dashed] (D)--(H);
+\foreach \p/\pos in {A/above left,B/above right,C/below,D/above,O/left,H/left}
+\fill (\p) circle(1.5pt)node[\pos]{\p};
+\tkzDrawPoints(A,B,C,D,H,O)
+\end{tikzpicture}
+\end{center}
+
+\begin{dang}{Tính bán kính của mặt cầu ngoại tiếp hình chóp có các đỉnh nhìn đoạn thẳng nối hai đỉnh còn lại dưới một góc vuông}
+\immini{
+Gọi $d$ là độ dài đoạn thẳng mà tất cả các đỉnh còn lại nhìn nó dưới một góc vuông. Khi đó, bán kính mặt cầu ngoại tiếp hình chóp là $R=\dfrac{d}{2}.$
+}{
+\begin{tikzpicture}[scale=0.5]
+\tkzDefPoints{0/0/A,-3/-2/B,4/-2/C,7/0/D,0/5/S}
+\coordinate (I) at ($(S)!0.5!(C)$);
+\draw[dashed] (A) node[above left] {$A$}--(B) node[left] {$B$} (S) node[above left] {$S$}--(A)--(D) node[right] {$D$} (A)--(C) (B)--(D);
+\draw[red] (S)--(C);
+\tkzDrawPoints(A,B,C,D,S)
+\draw (S)--(B)--(C) node[below right] {$C$}--(D)--(S);
+\node[above right] at (I) {$d$};
+\tkzMarkRightAngle[size=0.6](C,B,S)
+\tkzMarkRightAngle[size=0.6](C,A,S)
+\tkzMarkRightAngle[size=0.6](C,D,S)
+\end{tikzpicture}
+}
+\end{dang}
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2B2-2]
+\immini{
+Cho hình chóp $S.ABC$ có đáy $ABC$ là tam giác vuông tại $B$, $SA\perp (ABC)$ và $SC=2a$ (tham khảo hình vẽ bên). Bán kính của mặt cầu ngoại tiếp hình chóp đã cho bằng
+\motcot
+{$2a$}
+{\True $a$}
+{$a\sqrt{2}$}
+{$\dfrac{a\sqrt{2}}{2}$}
+}{
+\begin{tikzpicture}[scale=0.6]
+\tkzDefPoints{0/0/A, 2/-2/B,7/0/C,0/4/S}
+\draw (S)--(A)--(B)--(C)--(S)--(B);
+\draw[dashed] (A)--(C);
+\tkzDrawPoints(S,A,B,C)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[below](B)
+\tkzLabelPoints[below left](A)
+\tkzLabelPoints[below right](C)
+\tkzMarkRightAngle[size=0.4](C,B,A)
+\end{tikzpicture}
+}
+\loigiai{
+\immini{
+Ta cóc $\triangle SAC$ vuông tại $A$, $\triangle SBC$ vuông tại $B$. Như vậy hai đỉnh $A$ và $B$ cùng nhìn cạnh $SC$ dưới một góc vuông. Từ đó bán kính mặt cầu ngoại tiếp hình chóp là 
+$$R=\dfrac{SC}{2}=\dfrac{2a}{2}=a.$$
+}{
+\begin{tikzpicture}[scale=0.6]
+\tkzDefPoints{0/0/A, 2/-2/B,7/0/C,0/4/S}
+\draw (S)--(A)--(B)--(C) (S)--(B);
+\draw[red] (S)--(C);
+\draw[dashed] (A)--(C);
+\tkzDrawPoints(S,A,B,C)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[below](B)
+\tkzLabelPoints[below left](A)
+\tkzLabelPoints[below right](C)
+\tkzMarkRightAngle[size=0.4](C,A,S)
+\tkzMarkRightAngle[size=0.4](C,B,S)
+\end{tikzpicture}
+}}
+\end{vd}
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2B2-2]
+\immini{
+Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình vuông, $SA$ vuông góc với mặt phẳng $(ABCD)$ và $SC=a\sqrt{2}$ (tham khảo hình vẽ bên). Diện tích của mặt cầu ngoại tiếp hình chóp đã cho bằng
+\haicot
+{$\pi a^2\sqrt{2}$}
+{$2\pi a^2\sqrt{2}$}
+{\True $2\pi a^2$}
+{$\pi a^2$}
+}{
+\begin{tikzpicture}[scale=0.45]
+\tkzDefPoints{0/0/A,-3/-2/B,4/-2/C,7/0/D,0/5/S}
+\draw[dashed] (A) node[above left] {$A$}--(B) node[left] {$B$} (S) node[above left] {$S$}--(A)--(D) node[right] {$D$};
+\tkzDrawPoints(A,B,C,D,S)
+\draw (S)--(B)--(C) node[below right] {$C$}--(D)--(S)--(C);
+\end{tikzpicture}
+}
+\loigiai{
+\immini{
+Ta có các đỉnh $A,\ B,\ D$ cùng nhìn cạnh $SC$ dưới một góc vuông. Do đó bán kính của mặt cầu ngoại tiếp hình chóp bằng $R=\dfrac{SC}{2}=\dfrac{a\sqrt{2}}{2}$.\\
+Vậy diện tích của mặt cầu là $$S=4\pi R^2=2\pi a^2.$$
+}{
+\begin{tikzpicture}[scale=0.45]
+\tkzDefPoints{0/0/A,-3/-2/B,4/-2/C,7/0/D,0/5/S}
+\coordinate (I) at ($(S)!0.5!(C)$);
+\draw[dashed] (A) node[above left] {$A$}--(B) node[left] {$B$} (S) node[above left] {$S$}--(A)--(D) node[right] {$D$} (A)--(C);
+\draw[red] (S)--(C);
+\tkzDrawPoints(A,B,C,D,S)
+\draw (S)--(B)--(C) node[below right] {$C$}--(D)--(S);
+\node[above right] at (I) {$d$};
+\tkzMarkRightAngle[size=0.6](C,B,S)
+\tkzMarkRightAngle[size=0.6](C,A,S)
+\tkzMarkRightAngle[size=0.6](C,D,S)
+\end{tikzpicture}
+}}
+\end{vd}
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2B2-2]
+\immini{
+Cho hình chóp $S.ABC$ có đáy $ABC$ là tam giác vuông tại $B$, $AB=a$, $BC=a\sqrt{3}$, $SA=a\sqrt{5}$ và $SA\perp (ABC)$ (tham khảo hình minh họa). Thể tích khối cầu ngoại tiếp hình chóp $S.ABC$ bằng
+\haicot
+{$\dfrac{27\pi a^3}{2}$}
+{$\dfrac{3\pi a^3}{2}$}
+{\True $\dfrac{9\pi a^3}{2}$}
+{$36\pi a^3$}
+}{
+\begin{tikzpicture}[scale=0.6]
+\tkzDefPoints{0/0/A, 2/-2/B,7/0/C,0/4/S}
+\draw (S)--(A)--(B)--(C)--(S)--(B);
+\draw[dashed] (A)--(C);
+\tkzDrawPoints(S,A,B,C)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[below](B)
+\tkzLabelPoints[below left](A)
+\tkzLabelPoints[below right](C)
+\tkzMarkRightAngle[size=0.4](C,B,A)
+\end{tikzpicture}
+}
+\loigiai{
+\immini{
+Vì hai đỉnh $A$ và $B$ cùng nhìn cạnh $SC$ dưới một góc vuông nên bán kính mặt cầu ngoại tiếp bằng $R=\dfrac{SC}{2}$.\\
+Ta có\\
+
+$\begin{aligned}
+SC^2=\ & SA^2+AC^2=SA^2+AB^2+BC^2\\
+=\ &\left(a\sqrt{5}\right)^2+a^2+\left(a\sqrt{3}\right)^2=9a^2\\
+\Rightarrow SC=\ &3a\Rightarrow R=\dfrac{3a}{2}. 
+\end{aligned}$\\
+}{
+\begin{tikzpicture}[scale=0.6]
+\tkzDefPoints{0/0/A, 2/-2/B,7/0/C,0/4/S}
+\draw (S)--(A)--(B)--(C)--(S)--(B);
+\draw[dashed] (A)--(C);
+\tkzDrawPoints(S,A,B,C)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[below](B)
+\tkzLabelPoints[below left](A)
+\tkzLabelPoints[below right](C)
+\tkzMarkRightAngle[size=0.4](C,A,S)
+\tkzMarkRightAngle[size=0.4](C,B,S)
+\end{tikzpicture}
+}
+Vậy thể tích của mặt cầu cần tính bằng $V=\dfrac{4}{3}\pi R^3=\dfrac{4}{3}\pi\left(\dfrac{3a}{2}\right)^3=\dfrac{9\pi a^3}{2}$.
+}
+\end{vd}
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2B2-2]
+\immini{
+Cho hình chóp $S.ABC$ có đáy $ABC$ là tam giác vuông tại $A$, $AB=SC=a$, $AC=SB=a\sqrt{3}$ (tham khảo hình vẽ bên). Thể tích của khối cầu ngoại tiếp hình chóp là
+\haicot
+{$\dfrac{4\pi a^3\sqrt{3}}{3}$}
+{\True $\dfrac{4\pi a^3}{3}$}
+{$\dfrac{4\pi a^3\sqrt{2}}{3}$}
+{$2\pi a^3$}
+}{
+\begin{tikzpicture}[scale=0.6]
+\tkzDefPoints{0/0/A, -2/-2/B, 5/0/C,-1/3.5/S}
+\draw (S)--(B)--(C)--(S);
+\draw[dashed] (S)--(A)--(B) (A)--(C);
+\tkzDrawPoints(S,A,B,C)
+\tkzLabelPoints[below](B)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[above right](A)
+\tkzLabelPoints[above](S)
+\tkzMarkRightAngle[size=0.4](B,A,C)
+\tkzMarkSegments[mark=||](A,B S,C)
+\tkzMarkSegments[mark=|](A,C S,B)
+\end{tikzpicture}
+}
+\loigiai{
+\immini{
+Ta có $\triangle SBC=\triangle ABC\ (c-c-c)$ nên $\triangle SBC$ vuông tại $S$. Như vậy hai đỉnh $A$ và $S$ cùng nhìn cạnh $BC$ dưới một góc vuông, suy ra bán kính của mặt cầu ngoại tiếp hình chóp là\\
+$R=\dfrac{BC}{2}=\dfrac{\sqrt{AB^2+AC^2}}{2}=\dfrac{\sqrt{a^2+\left(a\sqrt{3}\right)^2}}{2}=a$.\\
+Vậy thể tích cần tìm là $V=\dfrac{4}{3}\pi R^3=\dfrac{4\pi a^3}{3}$.
+}{
+\begin{tikzpicture}[scale=0.6]
+\tkzDefPoints{0/0/A, -2/-2/B, 5/0/C,-1/3.5/S}
+\draw (S)--(B)--(C)--(S);
+\draw[dashed] (S)--(A)--(B) (A)--(C);
+\tkzDrawPoints(S,A,B,C)
+\tkzLabelPoints[below](B)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[above right](A)
+\tkzLabelPoints[above](S)
+\tkzMarkRightAngle[size=0.4](B,A,C)
+\tkzMarkRightAngle[size=0.4](B,S,C)
+\tkzMarkSegments[mark=||](A,B S,C)
+\tkzMarkSegments[mark=|](A,C S,B)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2B2-2]
+\immini{
+Cho hình chóp $S.ABC$ có đáy $ABC$ là tam giác vuông tại $B$, $AC=a\sqrt{2}$ , $SA\perp (ABC)$, $SC$ tạo với đáy một góc $45^\circ$. Bán kính mặt cầu ngoại tiếp hình chóp bằng
+\motcot
+{$R=a\sqrt{2}$}
+{$R=\dfrac{a\sqrt{2}}{2}$}
+{$R=2a\sqrt{2}$}
+{\True $R=a$}
+}{
+\begin{tikzpicture}[scale=0.6]
+\tkzDefPoints{0/0/A, 2/-2/B,7/0/C,0/4/S}
+\draw (S)--(A)--(B)--(C)--(S)--(B);
+\draw[dashed] (A)--(C);
+\tkzDrawPoints(S,A,B,C)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[below](B)
+\tkzLabelPoints[below left](A)
+\tkzLabelPoints[below right](C)
+\tkzMarkRightAngle[size=0.4](C,B,A)
+\tkzMarkAngle(S,C,A)
+\end{tikzpicture}
+}
+\loigiai{
+\immini{
+Vì hai đỉnh $A$ và $B$ cùng nhìn cạnh $SC$ dưới một góc vuông nên bán kính của mặt cầu ngoại tiếp hình chóp là $R=\dfrac{SC}{2}$.\\
+Tam giác $SAC$ vuông tại $A$, có góc $\widehat{C}=45^\circ$ nên là tam giác vuông cân. Vậy
+$$R=\dfrac{SC}{2}=\dfrac{AC\sqrt{2}}{2}=\dfrac{a\sqrt{2}\sqrt{2}}{2}=a.$$
+}{
+\begin{tikzpicture}[scale=0.6]
+\tkzDefPoints{0/0/A, 2/-2/B,7/0/C,0/4/S}
+\draw (S)--(A)--(B)--(C)--(S)--(B);
+\draw[dashed] (A)--(C);
+\tkzDrawPoints(S,A,B,C)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[below](B)
+\tkzLabelPoints[below left](A)
+\tkzLabelPoints[below right](C)
+\tkzMarkRightAngle[size=0.4](C,A,S)
+\tkzMarkRightAngle[size=0.4](C,B,S)
+\tkzMarkAngle(S,C,A)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2K2-2]
+Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình chữ nhật, $AB=2a$, $AD=5a$, $SA\perp (ABCD)$ và $SA=a$. Trên $BC$ lấy điểm $E$ sao cho $CE=a$. Tính theo $a$ bán kính của mặt cầu ngoại tiếp tứ diện $SADE$.
+\choice
+{\True $\dfrac{a\sqrt{26}}{2}$}
+{$\dfrac{a\sqrt{26}}{3}$}
+{$\dfrac{2a\sqrt{26}}{3}$}
+{$\dfrac{a\sqrt{26}}{4}$}
+\loigiai{
+\immini{
+Ta có\\
+
+$\begin{aligned}
+AE^2=\ &AB^2+BE^2=(2a)^2+(4a)^2=20a^2.\\
+DE^2=\ &DC^2+CE^2=(2a)^2+a^2=5a^2.\\
+\Rightarrow AD^2=\ & AE^2+DE^2
+\end{aligned}$\\
+nên $\triangle ADE$ vuông tại $E$.\\
+Hai đỉnh $A$ và $E$ cùng nhìn cạnh $SD$ dưới một góc vuông nên bán kính của mặt cầu ngoại tiếp tứ diện $SADE$ bằng $R=\dfrac{SD}{2}=\dfrac{\sqrt{SA^2+AD^2}}{2}=\dfrac{a\sqrt{26}}{2}$.
+}{
+\begin{tikzpicture}[scale=0.6]
+\tkzDefPoints{0/0/A,-3/-2/B,4/-2/C,7/0/D,0/5/S}
+\coordinate (E) at ($(C)!0.2!(B)$);
+\draw[dashed] (A) node[left] {$A$}--(B) node[left] {$B$} (S) node[above left] {$S$}--(A)--(D) node[right] {$D$} (A)--(E)--(D);
+\draw (S)--(B)--(C) node[below right] {$C$}--(D)--(S)--(C) (S)--(E);
+\tkzDrawPoints(S,A,B,C,D,E)
+\tkzLabelPoints[below](E)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+
+
+\begin{dang}{Tính bán kính của mặt cầu ngoại tiếp hình chóp đều}
+\immini{
+Gọi $h$ là độ cao của hình chóp và $k$ là chiều dài cạnh bên. Khi đó, bán kính của mặt cầu ngoại tiếp hình chóp được tính theo công thức $$R=\dfrac{k^2}{2h}.$$
+}{
+\begin{tikzpicture}[scale=0.5]
+\tkzDefPoints{0/0/A,-3/-2/B,4/-2/C,7/0/D}
+\coordinate (O) at ($(A)!0.5!(C)$);
+\coordinate (S) at (2,5);
+\coordinate (h) at ($(S)!0.5!(O)$);
+\coordinate (k) at ($(S)!0.5!(D)$);
+\draw[dashed] (A) node[above left] {$A$}--(B) node[left] {$B$} (S) node[above left] {$S$}--
+(A)--(D) node[right] {$D$} (S)--(O) (A)--(C) (B)--(D);
+\draw (S)--(B)--(C) node[below right] {$C$}--(D)--(S)--(C);
+\node[below] at (O) {$O$};
+\node[below right] at (h) {$h$};
+\node[above right] at (k) {$k$};
+\end{tikzpicture}
+}
+\end{dang}
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2B2-2]
+Thể tích khối cầu ngoại tiếp hình chóp tứ giác đều có tất cả các cạnh đều bằng $a$ là
+\choice
+{\True $\dfrac{\pi a^3\sqrt{2}}{3}$}
+{$\dfrac{\pi a^3\sqrt{2}}{12}$}
+{$\dfrac{4\pi a^3}{3}$}
+{$\dfrac{\pi a^3}{6}$}
+\loigiai{
+\immini{
+Ta có $h=\sqrt{SD^2-OD^2}=\sqrt{a^2-\left(\dfrac{a\sqrt{2}}{2}\right)^2}=\dfrac{a\sqrt{2}}{2}$.\\
+Bán kính mặt cầu ngoại tiếp hình chóp\\
+$R=\dfrac{k^2}{2h}=\dfrac{a^2}{a\sqrt{2}}=\dfrac{a\sqrt{2}}{2}$.\\
+Vậy thể tích khối cầu cần tìm là\\
+$V=\dfrac{4}{3}\pi R^3=\dfrac{4}{3}\pi\left(\dfrac{a\sqrt{2}}{2}\right)^3=\dfrac{\pi a^3\sqrt{2}}{3}$.
+}{
+\begin{tikzpicture}[scale=0.5]
+\tkzDefPoints{0/0/A,-3/-2/B,4/-2/C,7/0/D}
+\coordinate (O) at ($(A)!0.5!(C)$);
+\coordinate (S) at (2,5);
+\coordinate (h) at ($(S)!0.5!(O)$);
+\coordinate (k) at ($(S)!0.5!(D)$);
+\draw[dashed] (A) node[above left] {$A$}--(B) node[left] {$B$} (S) node[above left] {$S$}--
+(A)--(D) node[right] {$D$} (S)--(O) (A)--(C) (B)--(D);
+\draw (S)--(B)--(C) node[below right] {$C$}--(D)--(S)--(C);
+\node[below] at (O) {$O$};
+\node[below right] at (h) {$h$};
+\node[above right] at (k) {$k$};
+\end{tikzpicture}
+}
+\noindent
+{\color{red}{\bf Chú ý:} Đây là một công thức cần ghi nhớ.}
+}
+\end{vd}
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2B2-2]
+Thể tích khối cầu ngoại tiếp hình tứ diện đều có cạnh bằng $a$ là
+\choice
+{$\dfrac{\pi a^3\sqrt{2}}{12}$}
+{$\dfrac{\pi a^3\sqrt{6}}{4}$}
+{$\dfrac{\pi a^3\sqrt{3}}{4}$}
+{\True $\dfrac{\pi a^3\sqrt{6}}{8}$}
+\loigiai{
+\immini{
+Ta có $h=\sqrt{SA^2-AG^2}=\sqrt{a^2-\left(\dfrac{a\sqrt{3}}{3}\right)^2}=\dfrac{a\sqrt{6}}{3}$.\\
+Bán kính của khối cầu ngoại tiếp tứ diện\\
+$R=\dfrac{k^2}{2h}=a^2\div \dfrac{2a\sqrt{6}}{3}=\dfrac{a\sqrt{6}}{4}$.\\
+Vậy thể tích của khối cầu cần tìm là\\
+$V=\dfrac{4}{3}\pi R^3=\dfrac{4}{3}\pi\left(\dfrac{a\sqrt{6}}{4}\right)^3=\dfrac{\pi a^3\sqrt{6}}{8}$.
+}{
+\begin{tikzpicture}[scale=0.6]
+\tkzDefPoints{0/0/A, 2/-2/B, 7/0/C}
+\coordinate (M) at ($(B)!0.5!(C)$);
+\coordinate (G) at ($(A)!0.66!(M)$);
+\coordinate (S) at ($(G)+(0,5)$);
+\draw[dashed] (A) node[left] {$A$}--(C) node[right] {$C$};
+\draw (S)--(A)--(B) node[below] {$B$}--(C)--(S) node[above left] {$S$}--(B);
+\draw[dashed] (S)--(G) (A)--(M);
+\tkzDrawPoints(S,A,B,C,G,M)
+\tkzLabelPoints[below](G)
+\tkzLabelPoints[below right](M)
+\end{tikzpicture}
+}
+\noindent
+{\color{red}{\bf Chú ý:} Đây là một công thức cần ghi nhớ.}
+}
+\end{vd}
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2B2-2]
+Cho hình chóp tam giác đều $S.ABC$ có cạnh đáy $AB=a$ và cạnh bên $SA=2a$. Diện tích mặt cầu ngoại tiếp hình chóp đã cho bằng
+\choice
+{$\dfrac{12\pi a^2}{11}$}
+{$\dfrac{16\pi a^2}{11}$}
+{\True $\dfrac{48\pi a^2}{11}$}
+{$\dfrac{4\pi a^2}{11}$}
+\loigiai{
+\immini{
+Ta có $h=\sqrt{SA^2-AG^2}=\sqrt{(2a)^2-\left(\dfrac{a\sqrt{3}}{3}\right)^2}=\dfrac{a\sqrt{33}}{3}$.\\
+Bán kính mặt cầu ngoại tiếp hình chóp\\
+$R=\dfrac{k^2}{2h}=(2a)^2\div \dfrac{2a\sqrt{33}}{3}=\dfrac{2a\sqrt{33}}{11}.$\\
+Vậy diện tích của mặt cầu cần tìm là\\
+$S=4\pi R^2=4\pi\left(\dfrac{2a\sqrt{33}}{11}\right)^2=\dfrac{48\pi a^2}{11}$.
+}{
+\begin{tikzpicture}[scale=0.6]
+\tkzDefPoints{0/0/A, 2/-2/B, 7/0/C}
+\coordinate (M) at ($(B)!0.5!(C)$);
+\coordinate (G) at ($(A)!0.66!(M)$);
+\coordinate (S) at ($(G)+(0,5)$);
+\draw[dashed] (A) node[left] {$A$}--(C) node[right] {$C$};
+\draw (S)--(A)--(B) node[below] {$B$}--(C)--(S) node[above left] {$S$}--(B);
+\draw[dashed] (S)--(G) (A)--(M);
+\tkzDrawPoints(S,A,B,C,G,M)
+\tkzLabelPoints[below](G)
+\tkzLabelPoints[below right](M)
+\end{tikzpicture}
+}}
+\end{vd}
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2B2-2]
+Cho hình chóp tứ giác đều $S.ABCD$ có cạnh đáy $AB=a$ và cạnh bên $SA=2a$. tính diện tích và thể tích mặt cầu ngoại tiếp hình chóp đã cho.
+\choice
+{$\dfrac{a\sqrt{14}}{7}$}
+{\True $\dfrac{2a\sqrt{14}}{7}$}
+{$\dfrac{a\sqrt{7}}{7}$}
+{$\dfrac{2a\sqrt{7}}{7}$}
+\loigiai{
+\immini{
+Ta có $h=\sqrt{SD^2-OD^2}=\sqrt{(2a)^2-\left(\dfrac{a\sqrt{2}}{2}\right)^2}=\dfrac{a\sqrt{14}}{2}$.\\
+Vậy bán kính của mặt cầu ngoại tiếp hình chóp đã cho là\\
+$R=\dfrac{k^2}{2h}=(2a)^2\div \dfrac{2a\sqrt{14}}{2}=\dfrac{2a\sqrt{14}}{7}.$
+}{
+\begin{tikzpicture}[scale=0.4]
+\tkzDefPoints{0/0/A,-3/-2/B,4/-2/C,7/0/D}
+\coordinate (O) at ($(A)!0.5!(C)$);
+\coordinate (S) at (2,5);
+\coordinate (h) at ($(S)!0.5!(O)$);
+\coordinate (k) at ($(S)!0.5!(D)$);
+\draw[dashed] (A) node[above left] {$A$}--(B) node[left] {$B$} (S) node[above left] {$S$}--
+(A)--(D) node[right] {$D$} (S)--(O) (A)--(C) (B)--(D);
+\draw (S)--(B)--(C) node[below right] {$C$}--(D)--(S)--(C);
+\node[below] at (O) {$O$};
+\node[below right] at (h) {$h$};
+\node[above right] at (k) {$k$};
+\end{tikzpicture}
+}}
+\end{vd}
+
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2K2-2]
+Cho tứ diện đều $ABCD$ cạnh bằng $a$. Mặt cầu tiếp xúc với $6$ cạnh tứ diện đều $ABCD$ có bán kính bằng
+\choice
+{$\dfrac{3a\sqrt{2}}{4}$}
+{$\dfrac{3a\sqrt{2}}{2}$}
+{$\dfrac{3a\sqrt{2}}{6}$}
+{\True $\dfrac{a\sqrt{2}}{4}$}
+\loigiai{
+\immini{
+Do tứ diện $ABCD$ đều nên tâm mặt cầu tiếp xúc với $6$ cạnh trùng với tâm $I$ của mặt cầu ngoại tiếp tứ diện.\\
+Gọi $K$ là trung điểm của $AD$ thì $IK$ là bán kính cần tìm.\\
+Ta có\\ 
+$\begin{aligned}
+h=\ &\sqrt{AD^2-AG^2}=\sqrt{a^2-\left(\dfrac{a\sqrt{3}}{3}\right)^2}=\dfrac{a\sqrt{6}}{3}\\
+\Rightarrow ID=\ &\dfrac{k^2}{2h}=a^2\div \dfrac{2a\sqrt{6}}{3}=\dfrac{a\sqrt{6}}{4}.
+\end{aligned}$
+}{
+\begin{tikzpicture}[scale=0.6]
+\tkzDefPoints{0/0/A, 2/-2/B, 7/0/C}
+\coordinate (M) at ($(B)!0.5!(C)$);
+\coordinate (G) at ($(A)!0.66!(M)$);
+\coordinate (D) at ($(G)+(0,5)$);
+\coordinate (K) at ($(D)!0.5!(A)$);
+\coordinate (I) at ($(D)!0.65!(G)$);
+\draw[dashed] (A) node[left] {$A$}--(C) node[right] {$C$};
+\draw (D)--(A)--(B) node[below] {$B$}--(C)--(D) node[above] {$D$}--(B);
+\draw[dashed] (D)--(G) (A)--(M) (K)--(I);
+\tkzDrawPoints(D,A,B,C,G,M,K,I)
+\tkzLabelPoints[below](G)
+\tkzLabelPoints[below right](M)
+\tkzLabelPoints[right](I)
+\tkzLabelPoints[above left](K)
+\tkzMarkRightAngle[size=0.4](A,K,I)
+\end{tikzpicture}
+}
+Vậy bán kính cần tìm là $IK=\sqrt{ID^2-KD^2}=\sqrt{\left(\dfrac{a\sqrt{6}}{4}\right)^2-\left(\dfrac{a}{2}\right)^2}=\dfrac{a\sqrt{2}}{4}$.
+}
+\end{vd}
+
+
+\begin{dang}{Tính bán kính của mặt cầu ngoại tiếp hình chóp có cạnh bên vuông góc mặt đáy}
+\immini{
+Gọi $h$ là chiều cao hình chóp và $R_d$ là bán kính của đường tròn ngoại tiếp mặt đáy. Khi đó, bán kính mặt cầu ngoại tiếp hình chóp được tính theo công thức
+$$R=\sqrt{R_d^2+\left(\dfrac{h}{2}\right)^2}.$$
+}{
+\begin{tikzpicture}[scale=0.45]
+\tkzDefPoints{0/0/A,-3/-2/B,4/-2/C,7/0/D,0/5/S}
+\draw[dashed] (A) node[above left] {$A$}--(B) node[left] {$B$} (S) node[above left] {$S$}--(A)--(D) node[right] {$D$} (A)--(C) (B)--(D);
+\draw[red] (S)--(C);
+\tkzDrawPoints(A,B,C,D,S)
+\draw (S)--(B)--(C) node[below right] {$C$}--(D)--(S)--(C);
+\end{tikzpicture}
+}
+\end{dang}
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2B2-2]
+Cho hình chóp $S.ABCD$ có cạnh $SA$ vuông góc với mặt đáy, $ABCD$ là hình chữ nhật có đường chéo dài $a\sqrt{5}$, $SA=2a$. Bán kính của mặt cầu ngoại tiếp hình chóp $S.ABCD$ bằng
+\choice
+{$\dfrac{a\sqrt{21}}{2}$}
+{\True $\dfrac{3a}{2}$}
+{$\dfrac{a\sqrt{5}}{2}$}
+{$\dfrac{2a\sqrt{5}}{2}$}
+\loigiai{
+\immini{
+Ta có $R_d=\dfrac{AC}{2}=\dfrac{a\sqrt{5}}{2}$, $h=SA=2a$.\\
+Vậy bán kính của mặt cầu cần tìm là\\
+
+$R=\sqrt{\left(R_d\right)^2+\left(\dfrac{h}{2}\right)^2}=\sqrt{\left(\dfrac{a\sqrt{5}}{2}\right)^2+\left(\dfrac{2a}{2}\right)^2}=\dfrac{3a}{2}.$
+}{
+\begin{tikzpicture}[scale=0.4]
+\tkzDefPoints{0/0/A,-3/-2/B,4/-2/C,7/0/D,0/5/S}
+\draw[dashed] (A) node[left] {$A$}--(B) node[left] {$B$} (S) node[above left] {$S$}--(A)--(D) node[right] {$D$} (A)--(C);
+\draw (S)--(B)--(C) node[below right] {$C$}--(D)--(S)--(C);
+\end{tikzpicture}
+}}
+\end{vd}
+
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2B2-2]
+Cho hình chóp $S.ABC$ có cạnh $SA$ vuông góc với mặt đáy, $ABC$ là tam giác đều cạnh $a$, $SA=2a$. Diện tích của mặt cầu ngoại tiếp hình chóp $S.ABC$ bằng
+\choice
+{$\dfrac{4\pi a^2}{3}$}
+{$4\pi a^2$}
+{$\dfrac{8\pi a^2}{3}$}
+{\True $\dfrac{16\pi a^2}{3}$}
+\loigiai{
+\immini{
+Ta có $R_d=GA=\dfrac{a\sqrt{3}}{3}$ và $h=SA=2a$.\\
+Suy ra bán kính của mặt cầu bằng\\
+
+$R=\sqrt{R_d^2+\left(\dfrac{h}{2}\right)^2}=\sqrt{\left(\dfrac{a\sqrt{3}}{3}\right)^2+a^2}=\dfrac{2a\sqrt{3}}{3}.$\\
+Vậy diện tích của mặt cầu cần tìm là\\
+
+$S=4\pi R^2=4\pi\left(\dfrac{2a\sqrt{3}}{3}\right)^2=\dfrac{16\pi a^2}{3}$.
+}{
+\begin{tikzpicture}[scale=0.6]
+\tkzDefPoints{0/0/A,4/-2/B,7/0/C,0/5/S}
+\coordinate (M) at ($(B)!0.5!(C)$);
+\coordinate (G) at ($(A)!0.66!(M)$);
+\draw[dashed] (A) node[left] {$A$}--(C) node[right] {$C$} (A)--(M);
+\draw (S)--(A)--(B) node[below] {$B$}--(C)--(S) node[above left] {$S$}--(B) ;
+\tkzDrawPoints(S,A,B,C,G,M)
+\tkzLabelPoints[above right](G)
+\end{tikzpicture}
+}}
+\end{vd}
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2B2-2]
+Cho hình chóp $S.ABC$ có cạnh $SA$ vuông góc với mặt đáy, $ABC$ là tam giác vuông tại $A$ và $BC=2a$, $SA=2a$. Thể tích khối cầu ngoại tiếp hình chóp $S.ABC$ bằng
+\choice
+{$\dfrac{4\pi a^3\sqrt{3}}{3}$}
+{$\dfrac{5\pi a^3\sqrt{2}}{2}$}
+{\True $\dfrac{8\pi a^3\sqrt{2}}{3}$}
+{$\dfrac{3\pi a^3\sqrt{3}}{2}$}
+\loigiai{
+\immini{
+Mặt đáy $ABC$ là tam giác vuông tại $A$ nên $R_d=\dfrac{BC}{2}=a$.\\
+Bán kính của mặt cầu ngoại tiếp là\\
+
+$R=\sqrt{R_d^2+\left(\dfrac{SA}{2}\right)^2}=\sqrt{a^2+a^2}=a\sqrt{2}.$\\
+Vậy thể tích cần tìm của khối cầu là\\
+
+$V=\dfrac{4}{3}\pi R^3=\dfrac{4}{3}\pi\left(a\sqrt{2}\right)^3=\dfrac{8\pi a^3\sqrt{2}}{3}$.
+}{
+\begin{tikzpicture}[scale=0.6]
+\tkzDefPoints{0/0/A,-2/-2/B,7/0/C,0/5/S}
+\coordinate (M) at ($(B)!0.5!(C)$);
+%\coordinate (G) at ($(A)!0.66!(M)$);
+\draw[dashed] (A) node[left] {$A$}--(C) node[right] {$C$} (S)--(A)--(B);
+\draw (S)--(B) node[below] {$B$}--(C)--(S) node[above left] {$S$};
+\tkzDrawPoints(S,A,B,C,M)
+\tkzLabelPoints[below right](M)
+\tkzMarkRightAngle[size=0.4](B,A,C)
+\end{tikzpicture}
+}}
+\end{vd}
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2K2-2]
+Cho hình chóp $S.ABC$ có đáy $ABC$ là tam giác cân tại $B$, $AB=BC=2a$ và $\widehat{ABC}=120^\circ$. Cạnh bên $SA$ vuông góc với mặt đáy và $SA=a$. Tính theo $a$ bán kính mặt cầu ngoại tiếp hình chóp $S.ABC$.
+\choice
+{$R=\dfrac{a\sqrt{17}}{5}$}
+{\True $R=\dfrac{a\sqrt{17}}{2}$}
+{$R=\dfrac{a\sqrt{17}}{3}$}
+{$R=\dfrac{a\sqrt{17}}{4}$}
+\loigiai{
+\immini{
+Gọi $I$ là tâm của đường tròn ngoại tiếp $\triangle ABC$. Khi đó $\triangle IAB$ có $IB=IA$ và $\widehat{IBA}=60^\circ$ nên là tam giác đều. Suy ra $R_d=AB=2a$.\\
+Vậy bán kính mặt cầu ngoại tiếp hình chóp là\\
+
+$R=\sqrt{R_d^2+\left(\dfrac{SA}{2}\right)^2}=\sqrt{(2a)^2+\left(\dfrac{a}{2}\right)^2}=\dfrac{a\sqrt{17}}{2}$.
+}{
+\begin{tikzpicture}[scale=0.5]
+\tkzDefPoints{0/0/A,3/-2/B,7/0/C,0/5/S}
+\coordinate (M) at ($(B)!0.5!(C)$);
+\coordinate (G) at ($(A)!0.66!(M)$);
+\coordinate (I) at ($(B)!2!(G)$);
+\draw[dashed] (A) node[left] {$A$}--(C) node[right] {$C$} (B)--(I)--(A) (I)--(C);
+\draw (S)--(A)--(B) node[below] {$B$}--(C)--(S) node[above] {$S$}--(B) ;
+\tkzDrawPoints(S,A,B,C,I)
+\tkzLabelPoints[above right](I)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2K2-2]
+Cho ba tia $Ox$, $Oy$, $Oz$ đôi một vuông góc nhau. Gọi $C$ là điểm cố định trên $Oz$ thỏa mãn $OC=1$; các điểm $A$, $B$ thay đổi trên $Ox$, $Oy$ sao cho $OA+OB=OC$. Tìm giá trị nhỏ nhất của bán kính mặt cầu ngoại tiếp tứ diện $OABC$.
+\choice
+{$\dfrac{\sqrt{6}}{3}$}
+{$\sqrt{6}$}
+{\True $\dfrac{\sqrt{6}}{4}$}
+{$\dfrac{\sqrt{6}}{2}$}
+\loigiai{
+\immini{
+Mặt đáy $OAB$ là tam giác vuông tại $O$ nên $R_d=\dfrac{AB}{2}$.\\
+Bán kính của mặt cầu ngoại tiếp là\\
+
+$\begin{aligned}
+R=\ &\sqrt{R_d^2+\left(\dfrac{OC}{2}\right)^2}=\sqrt{\dfrac{AB^2}{4}+\dfrac{OC^2}{4}}\\
+=\ &\sqrt{\dfrac{OA^2+OB^2+OC^2}{4}}=\dfrac{1}{2}\sqrt{OA^2+OB^2+1}\\
+\geq\ & \dfrac{1}{2}\sqrt{\dfrac{1}{2}\left(OA+OB\right)^2+1}=\dfrac{\sqrt{6}}{4}.
+\end{aligned}$\\
+}{
+\begin{tikzpicture}[scale=0.6]
+\tkzDefPoints{0/0/O,-2/-2/A,6/0/B,0/5/C}
+\draw (A)--(B)--(C)--(A);
+\draw[dashed] (C)--(O)--(A) (O)--(B);
+\tkzDrawPoints(O,A,B,C)
+\tkzLabelPoints[above](C)
+\tkzLabelPoints[left](O,A)
+\tkzLabelPoints[right](B)
+%\tkzLabelPoints[above](C)
+\end{tikzpicture}
+}
+Vậy $R_{\min}=\dfrac{\sqrt{6}}{4}\Leftrightarrow OA=OB=\dfrac{1}{2}$.
+}
+\end{vd}
+
+
+
+\begin{dang}{Tính bán kính của mặt cầu ngoại tiếp hình chóp có mặt bên vuông góc mặt đáy}
+\immini{
+Gọi $h$ là chiều cao hình chóp; $R_b$ và $R_d$ lần lượt là bán kính của đường tròn ngoại tiếp mặt bên, mặt đáy; $d$ là độ dài giao tuyến của mặt bên và đáy. Khi đó, bán kính mặt cầu ngoại tiếp hình chóp được tính theo công thức
+$$R=\sqrt{R_b^2+R_d^2-\dfrac{d^2}{4}}.$$
+{\bf Chú ý:} Mặt bên được đề cập ở trên là mặt bên vuông góc mặt đáy.
+}{
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/A,2/-2/B, 7/0/C,4/4/S,4/0/H}
+\draw (S)--(A)--(B)--(C)--(S)--(B);
+\draw[dashed] (S)--(H);
+\draw[red,dashed] (A)--(C);
+\tkzDrawPoints(S,A,B,C,H)
+\node[above] at ($(H)!0.5!(C)$) {$d$};
+\tkzLabelPoints[below](B,H)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](C)
+\tkzMarkRightAngle[size=0.3](C,H,S)
+\end{tikzpicture}
+}
+\end{dang}
+
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2K2-2]
+Cho hình chóp $S.ABC$ có đáy $ABC$ là tam giác vuông cân tại $A$ , $AB = a$. Tam giác $SAB$ là tam giác đều và nằm trong mặt phẳng vuông góc với mặt đáy. Bán kính mặt cầu ngoại tiếp hình chóp $S.ABC$ bằng
+\choice
+{\True $\dfrac{a\sqrt{21}}{6}$}
+{$\dfrac{a\sqrt{21}}{4}$}
+{$\dfrac{a\sqrt{11}}{4}$}
+{$\dfrac{a\sqrt{11}}{6}$}
+\loigiai{
+\immini{
+Do mặt bên $SAB$ là tam giác đều cạnh $a$ nên $R_b=\dfrac{a\sqrt{3}}{3}$.\\
+Do mặt đáy $ABC$ là tam giác vuông cân tại $A$ nên $R_d=\dfrac{BC}{2}=\dfrac{a\sqrt{2}}{2}$.\\
+Vậy bán kính của mặt cầu ngoại tiếp hình chóp là\\
+
+$\begin{aligned}
+R=\ &\sqrt{R_b^2+R_d^2-\dfrac{d^2}{4}}=\sqrt{\left(\dfrac{a\sqrt{3}}{3}\right)^2+\left(\dfrac{a\sqrt{2}}{2}\right)^2-\dfrac{a^2}{4}}\\
+=\ &\dfrac{a\sqrt{21}}{6}. 
+\end{aligned}$
+}{
+\begin{tikzpicture}[scale=0.75]
+\tkzDefPoints{0/0/A,1.5/-2/C, 7/0/B}
+\coordinate (H) at ($(A)!0.5!(B)$);
+\coordinate (S) at ($(H)+(0,4)$);
+\draw (S)--(A)--(C)--(B)--(S)--(C);
+\draw[dashed] (S)--(H);
+\draw[red,dashed] (A)--(B);
+\tkzDrawPoints(S,A,B,C,H)
+\node[above] at ($(H)!0.5!(B)$) {$a$};
+\tkzLabelPoints[below](C,H)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\tkzMarkRightAngle[size=0.3](B,H,S)
+\tkzMarkRightAngle[size=0.3](C,A,B)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2K2-2]
+Cho tứ diện $ABCD$ có $ABC$ và $ABD$ là các tam giác đều cạnh $a$ và nằm trong hai mặt phẳng vuông góc với nhau. Diện tích mặt cầu ngoại tiếp tứ diện $ABCD$ bằng
+\choice
+{\True $\dfrac{5\pi a^2}{3}$}
+{$\dfrac{11\pi a^2}{3}$}
+{$2\pi a^2$}
+{$\dfrac{4\pi a^2}{3}$}
+\loigiai{
+\immini{
+Do hai mặt $ABD$ và $ABC$ đều là tam giác đều cạnh $a$ và nằm trong hai mặt phẳng vuông góc nhau nên\\
+$R_b=R_d=\dfrac{a\sqrt{3}}{3}$.\\
+Vậy bán kính và diện tích của mặt cầu ngoại tiếp hình chóp lần lượt là\\
+
+$R=\sqrt{R_b^2+R_d^2-\dfrac{d^2}{4}}=\sqrt{2\left(\dfrac{a\sqrt{3}}{3}\right)^2-\dfrac{a^2}{4}}=\dfrac{a\sqrt{15}}{6}$.\\
+$S=4\pi R^2=4\pi\left(\dfrac{a\sqrt{15}}{6}\right)^2=\dfrac{5\pi a^2}{3}$.
+}{
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/A,1.5/-2/C, 7/0/B}
+\coordinate (H) at ($(A)!0.5!(B)$);
+\coordinate (D) at ($(H)+(0,4)$);
+\draw (D)--(A)--(C)--(B)--(D)--(C);
+\draw[dashed] (D)--(H);
+\draw[red,dashed] (A)--(B);
+\tkzDrawPoints(D,A,B,C,H)
+\node[above] at ($(H)!0.5!(B)$) {$a$};
+\tkzLabelPoints[below](C,H)
+\tkzLabelPoints[above](D)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\tkzMarkRightAngle[size=0.3](B,H,D)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2K2-2]
+Cho tứ diện $ABCD$ có mặt bên $ABD$ là tam giác đều cạnh $a$ và nằm trong mặt phẳng vuông góc với mặt đáy $(ABC)$, $CD=a$. Bán kính mặt cầu ngoại tiếp tứ diện $ABCD$ tính theo $a$ bằng
+\choice
+{$\dfrac{a\sqrt{3}}{6}$}
+{$\dfrac{a}{2}$}
+{$\dfrac{2a}{\sqrt{3}}$}
+{\True $\dfrac{a}{\sqrt{3}}$}
+\loigiai{
+\immini{
+Mặt bên $ABD$ là tam giác đều cạnh $a$ nên $R_b=\dfrac{a\sqrt{3}}{3}$.\\
+Gọi $H$ là trung điểm của $AB$ thì $DH\perp (ABC)$.\\
+Do $DA=DB=DC=a$ nên $HA=HB=HC$. Suy ra $H$ là tâm của đường tròn ngoại tiếp mặt đáy $ABC$. Do đó $R_d=\dfrac{AB}{2}=\dfrac{a}{2}$.\\
+Vậy bán kính cần tìm của mặt cầu là\\
+
+$R=\sqrt{R_b^2+R_d^2-\dfrac{d^2}{4}}=\sqrt{\left(\dfrac{a\sqrt{3}}{3}\right)^2+\left(\dfrac{a}{2}\right)^2-\dfrac{a^2}{4}}=\dfrac{a\sqrt{3}}{3}$.
+}{
+\begin{tikzpicture}[scale=0.7]
+\tkzDefPoints{0/0/A,1.5/-2/C, 7/0/B}
+\coordinate (H) at ($(A)!0.5!(B)$);
+\coordinate (D) at ($(H)+(0,4)$);
+\draw (D)--(A)--(C)--(B)--(D)--(C);
+\draw[dashed] (D)--(H);
+\draw[red,dashed] (A)--(B);
+\tkzDrawPoints(D,A,B,C,H)
+\tkzLabelPoints[below](C,H)
+\tkzLabelPoints[above](D)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\tkzMarkRightAngle[size=0.3](B,H,D)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+
+
+\begin{vd}%[Trần Bá Huy, dự án EX-CTGN]%[2H2K2-2]
+Cho hình chóp $S.ABCD$ đáy $ABCD$ là hình vuông cạnh $a$, mặt bên $SAB$ là tam giác đều và nằm trong mặt phẳng vuông góc với mặt đáy $(ABCD)$. Bán kính mặt cầu ngoại tiếp hình chóp bằng
+\choice
+{\True $\dfrac{a\sqrt{21}}{6}$}
+{$\dfrac{a\sqrt{5}}{2}$}
+{$\dfrac{a\sqrt{30}}{6}$}
+{$\dfrac{a\sqrt{30}}{3}$}
+\loigiai{
+\immini{
+Ta có $R_b=\dfrac{a\sqrt{3}}{3}$, $R_d=\dfrac{a\sqrt{2}}{2}$.\\
+Bán kính mặt cầu ngoại tiếp bằng\\
+
+$R=\sqrt{\left(\dfrac{a\sqrt{3}}{3}\right)^2+\left(\dfrac{a\sqrt{2}}{2}\right)^2-\dfrac{a^2}{4}}=\dfrac{a\sqrt{21}}{6}$.
+}{
+\begin{tikzpicture}[scale=0.4]
+\tkzDefPoints{0/0/A,-3/-2/B,5/-2/C,8/0/D}
+\coordinate (H) at ($(A)!0.5!(B)$);
+\coordinate (S) at ($(H)+(0,6.5)$);
+\draw (S)--(B)--(C)--(D)--(S)--(C);
+\draw[dashed] (S)--(A)--(B) (A)--(D) (S)--(H);
+\tkzDrawPoints(S,A,B,C,D,H)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[below](A,B,C)
+\tkzLabelPoints[right](D)
+\tkzLabelPoints[below](H)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+%==============================
+\subsection{Tính bán kính của mặt cầu ngoại tiếp lăng trụ}
+\setcounter{\tcbcounter}{0}
+\setcounter{vd}{0}
+
+\begin{center}
+\tdplotsetmaincoords{60}{-30}
+\begin{tikzpicture}[scale=1.5]
+\def\R{sqrt(3)}
+\coordinate (O) at (0,0,0);
+\fill[ball color=white!10, opacity=1.0] (O) circle (\R); % 3D lighting effect
+\begin{scope}[tdplot_main_coords, shift={(0,0)}, rotate=0]
+%\draw[-latex, opacity=0.2] (O)--(3.5,0,0) node[anchor=east] {$X$};
+%\draw[-latex, opacity=0.2] (O)-- (0,2.8,0) node[anchor=south] {$Y$};
+%\draw[-latex, opacity=0.2] (O)--(0,0,2.5) node[anchor=south] {$Z$};
+%\draw[fill=blue]  coordinate (O) circle (1pt) node[anchor=south  east] {$O$};
+\draw[opacity=0.8,gray!50]
+(1,-1,1)   coordinate (A) --
+(-1,-1,1)  coordinate (B) --
+(-1,1,1)   coordinate (C) --
+(1,1,1)    coordinate (D) -- cycle
+(1,1,-1)   coordinate (E) --
+(-1,1,-1)  coordinate (F) --
+(-1,-1,-1) coordinate (G) --
+(1,-1,-1)  coordinate (H) -- cycle
+(A)--(H) (B)--(G) (D)--(E) (C)--(F);
+\foreach \l in {A,B,C,D,E,F,G,H}
+\draw[fill=black] (\l) circle (1pt);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\begin{dang}{Tính bán kính của mặt cầu ngoại tiếp hình hộp chữ nhật}
+\immini[0.1]{
+Cho hình hộp chữ nhật có ba chiều là $a$, $b$ và $c$. Khi đó, bán kính của mặt cầu ngoại tiếp hình hộp được tính theo công thức
+$$R=\dfrac{\sqrt{a^2+b^2+c^2}}{2}.$$
+}{
+\begin{tikzpicture}[scale=0.8]
+\def \goc {30}
+\def \rx {0.55}
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(3,0){I}
+\tkzDefShiftPoint[O](\goc:3 cm){A1}
+\tkzDefShiftPoint[O](-\goc:3 cm){B1}
+\tkzDefShiftPoint[O](-180+\goc:3 cm){C1}
+\tkzDefShiftPoint[O](180-\goc:3 cm){D1}
+\tkzDefMidPoint(A1,D1) \tkzGetPoint{J}
+\tkzDefMidPoint(C1,B1) \tkzGetPoint{E}
+\tkzDefMidPoint(A1,B1) \tkzGetPoint{F}
+\filldraw[cyan!50,opacity=0.5] (I) arc (0:360:3);
+%\draw[dashed] (I) arc (0:180:4 and 0.9);
+%\draw (I) arc (0:-180:4 and 0.9);
+\tkzDefCircle[radius](A1,J) 
+\tkzGetLength{rAJpt}
+\tkzpttocm(\rAJpt){r} 
+
+\draw[dashed,cyan] (A1) arc (0:180:\r cm and \rx cm);
+\draw[cyan] (A1) arc (0:-180:\r cm and \rx cm);
+\draw[dashed,cyan] (B1) arc (0:180:\r cm and \rx cm);
+\draw[cyan] (B1) arc (0:-180:\r cm and \rx cm);
+%\draw[dashed] (F) arc (0:360:\r cm and \rx cm);
+
+\coordinate (A') at ($(J)+ (140:\r cm and \rx cm) $);
+\coordinate (B') at ($(J)+ (-100:\r cm and \rx cm) $);
+\coordinate (C') at ($(J)+ (-40:\r cm and \rx cm) $);
+\coordinate (D') at ($(J)+ (80:\r cm and \rx cm) $);
+\coordinate (A) at ($(E)+ (140:\r cm and \rx cm) $);
+\coordinate (B) at ($(E)+ (-100:\r cm and \rx cm) $);
+\coordinate (C) at ($(E)+ (-40:\r cm and \rx cm) $);
+\coordinate (D) at ($(E)+ (80:\r cm and \rx cm) $);
+\tkzDrawSegments[dashed,gray](A',B' B',C' C',D' D',A' B,B' C,C' D,D')
+\tkzDrawSegments[dashed,gray](B,C D,C)
+\draw[dashed, red] (A)--(B) (A)--(D) (A)--(A');
+\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D')
+\node[red,left=0.2] at ($(A)!0.5!(B)$) {$a$};
+\node[red,above] at ($(A)!0.5!(D)$) {$b$};
+\node[red,left] at ($(A)!0.5!(A')$) {$c$};
+\end{tikzpicture}
+}
+\end{dang}
+
+
+\begin{vd}%[Đề thi thử THPT Cẩm Xuyên, Hà Tĩnh, lần 2, 2017-2018]%[Nguyễn Bình Nguyên-EX9]%[2H2G2-3]
+Cho hình hộp chữ nhật cạnh đáy là $a$ và $2a$, cạnh bên là $2a$. Bán kính khối cầu ngoại tiếp lăng trụ là
+\choice
+{$\dfrac{a}{2}$}
+{$a$}
+{\True $\dfrac{3a}{2}$}
+{$2a$}
+\loigiai{
+Áp dụng công thức nhanh ta có bán kính khối cầu nội tiếp lăng trụ là
+$$R=\dfrac{\sqrt{a^2+(2a)^2+(2a^2)}}{2}=\dfrac{3a}{2}.$$
+} 
+\end{vd}
+
+\begin{vd}%[Lê Văn Thiện-CTGN]%[2H2B2-2]
+Hình hộp chữ nhật có ba kích thước là $ 3, 4, 12 $. Diện tích mặt cầu ngoại tiếp của hình hộp chữ nhật bằng	
+\choice
+{$169\pi$}
+{$\dfrac{169}{2}\pi$}
+{\True $ \dfrac{169}{3}\pi $}
+{$ \dfrac{169}{4}\pi $}
+\loigiai{
+Bán kính của mặt cầu bằng $R=\dfrac{\sqrt{3^2+4^2+12^2}}{2}=\dfrac{13}{2}$.\\
+Diện tích mặt cầu là $S=4\cdot\pi\cdot R^2=169\pi$.
+}
+\end{vd}
+
+\begin{vd}%[KSCL, Sở GD Cần Thơ, 2018 - mã đề 232]%[Dương Phước Sang, Ex-10-2018]%[2H2K2-2]
+Cho tứ diện $ABCD$ có $AD$ vuông góc với mặt phẳng $(ABC)$, tam giác $ABC$ vuông cân tại $A$, $AD=2a$, $AB=a$. Bán kính mặt cầu ngoại tiếp tứ diện $ABCD$ bằng
+\choice
+{$\dfrac{a\sqrt{6}}{3}$}
+{\True $\dfrac{a\sqrt{6}}{2}$}
+{$\dfrac{a\sqrt{6}}{4}$}
+{$\dfrac{a\sqrt{2}}{2}$}
+\loigiai{
+\immini{Dựng hình hộp chữ nhật $(H)$ nhận $AB,\,AC,\,AD$ làm $3$ cạnh.\\
+Khi đó mặt cầu ngoại tiếp của $(H)$ cũng là mặt cầu ngoại tiếp tứ diện $ABCD$.\\
+Chính vì vậy bán kính mặt cầu ngoại tiếp tứ diện $ABCD$ là\\
+$R=\dfrac{1}{2}\sqrt{a^2+a^2+(2a)^2}=\dfrac{a\sqrt{6}}{2}$.}
+{\begin{tikzpicture}[line cap=round,line join=round,>=stealth,scale=1]
+\coordinate[label=below:{$A$}] (A) at (0,0);
+\coordinate[label=below left:{$B$}] (B) at (-1.1,-1);
+\coordinate[label=right:{$C$}] (C) at ($(A)+(3,0)$);
+\coordinate[label={$D$}] (D) at ($(A)+(0,2.5)$);
+\coordinate (x) at ($(B)+(C)-(A)$);
+\coordinate (y) at ($(B)+(D)-(A)$);
+\coordinate (z) at ($(D)+(C)-(A)$);
+\coordinate (e) at ($(x)+(D)-(A)$);
+\coordinate[label={$I$}] (I) at ($(A)!1/2!(e)$);
+\draw (z)--(D)--(y)--(B)--(x)--(C)--(z)--(e)--(x) (y)--(e);
+\draw[dashed] (B)--(A)--(C) (e)--(A)--(D)--(B)--(C)--(D);
+\tkzDrawPoints(A,B,C,D,I)
+\end{tikzpicture}}}
+\end{vd}
+
+\begin{vd}%[2_TT_96_THPTQuangTri lan 1 2018]%[Đào Trung Kiên, dự án(12EX-10)]%[2H2K2-2]
+Cho hình chóp tam giác $S.ABC$ có $SA=1$, $SB=2$, $SC=2$ đồng thời các đường thẳng $SA$, $SB$, $SC$ đôi một vuông góc. Thể tích của khối cầu ngoại tiếp hình chóp $S.ABC$ bằng
+\choice
+{\True $\dfrac{9\pi}{2}$}
+{$9\pi$}
+{$\dfrac{27\pi}{2}$}
+{$27\pi$}
+\loigiai{\immini{Ta dựng hình hộp chữ nhật $AMNP.SCQB$. 
+
+Khối cầu ngoại tiếp  hình hộp chữ nhật $AMNP.SCQB$ chính là khối cầu ngoại tiếp hình chóp $S.ABC$.
+
+Mà khối cầu ngoại tiếp hình hộp chữ nhật $AMNP.SCQB$ có bán kính $R=\dfrac{\sqrt{1^2+2^2+2^2}}{2}=\dfrac{3}{2}$.
+
+Thể tích của khối cầu đó bằng $V=\dfrac{4}{3}\pi R^3=\dfrac{9\pi}{2}$.}{\begin{tikzpicture}[scale=.6]
+\tkzDefPoints{5/0/x, 1/2/y, 0/4/z, 0/0/S}
+\coordinate (C) at ($(S)+(x)$);
+\coordinate (Q) at ($(C)+(y)$);
+\coordinate (B) at ($(S)+(y)$);
+\coordinate (A) at ($(S)+(z)$);
+\coordinate (M) at ($(C)+(z)$);
+\coordinate (N) at ($(Q)+(z)$);
+\coordinate (P) at ($(B)+(z)$);
+\tkzDrawSegments[dashed](A,B B,S B,Q B,P B,C)
+\tkzDrawSegments(A,S S,C C,Q Q,N N,P P,A A,C C,M M,A M,N)
+\tkzLabelPoints[left](A,S,B,P)
+\tkzLabelPoints[right](M,C,Q,N)
+\tkzDrawPoints(A,B,C,S,M,N,P,Q)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+
+\begin{vd}%[Lê Văn Thiện-CTGN]%[2H2G2-2]
+Một hình hộp chữ nhật $(P)$ nội tiếp trong một hình cầu có bán kính $R$. Tổng diện tích các mặt của $(P)$ là $384$ và tổng độ dài các cạnh của $(P)$ là $112$. Bán kính $R$ của hình cầu là
+\choice
+{$8$}
+{\True $10$}
+{$12$}
+{$14$}
+\loigiai{
+Gọi chiều dài, rộng, cao của hình hộp chữ nhật lần lượt là $a,b,c$.\\
+Đường chéo hình hộp chữ nhật bằng: $\sqrt{a^2+b^2+c^2}$.\\
+Tổng diện tích các mặt của $P$ là $384$ nên $2ab+2ac+2bc=384$.\\
+Tổng độ dài các cạnh của $P$ là $112$ nên $4a+4b+4c=112\Rightarrow a+b+c=28$.\\
+Khi đó $\sqrt{a^2+b^2+c^2}=\sqrt{{\left( a+b+c \right)^2}-2\left( ab+ac+bc \right)}=\sqrt{{28^2}-384}=20$.\\
+Vậy bán kính $R=\dfrac{\sqrt{a^2+b^2+c^2}}{2}=10$.
+}
+\end{vd}
+
+
+
+\begin{dang}{Tính bán kính của mặt cầu ngoại tiếp hình lập phương}
+\immini[0.1]{
+Bán kính của mặt cầu ngoại tiếp hình lập phương có cạnh bằng $a$ là $$R=\dfrac{a\sqrt{3}}{2}.$$
+}{
+\begin{tikzpicture}[scale=0.8]
+\def \goc {30}
+\def \rx {0.55}
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(3,0){I}
+\tkzDefShiftPoint[O](\goc:3 cm){A1}
+\tkzDefShiftPoint[O](-\goc:3 cm){B1}
+\tkzDefShiftPoint[O](-180+\goc:3 cm){C1}
+\tkzDefShiftPoint[O](180-\goc:3 cm){D1}
+\tkzDefMidPoint(A1,D1) \tkzGetPoint{J}
+\tkzDefMidPoint(C1,B1) \tkzGetPoint{E}
+\tkzDefMidPoint(A1,B1) \tkzGetPoint{F}
+\filldraw[magenta!50,opacity=0.5] (I) arc (0:360:3);
+%\draw[dashed] (I) arc (0:180:4 and 0.9);
+%\draw (I) arc (0:-180:4 and 0.9);
+\tkzDefCircle[radius](A1,J) 
+\tkzGetLength{rAJpt}
+\tkzpttocm(\rAJpt){r} 
+
+\draw[dashed,magenta] (A1) arc (0:180:\r cm and \rx cm);
+\draw[magenta] (A1) arc (0:-180:\r cm and \rx cm);
+\draw[dashed,magenta] (B1) arc (0:180:\r cm and \rx cm);
+\draw[magenta] (B1) arc (0:-180:\r cm and \rx cm);
+%\draw[dashed] (F) arc (0:360:\r cm and \rx cm);
+
+\coordinate (A') at ($(J)+ (140:\r cm and \rx cm) $);
+\coordinate (B') at ($(J)+ (-100:\r cm and \rx cm) $);
+\coordinate (C') at ($(J)+ (-40:\r cm and \rx cm) $);
+\coordinate (D') at ($(J)+ (80:\r cm and \rx cm) $);
+\coordinate (A) at ($(E)+ (140:\r cm and \rx cm) $);
+\coordinate (B) at ($(E)+ (-100:\r cm and \rx cm) $);
+\coordinate (C) at ($(E)+ (-40:\r cm and \rx cm) $);
+\coordinate (D) at ($(E)+ (80:\r cm and \rx cm) $);
+\tkzDrawSegments[dashed,gray](A',B' B',C' C',D' D',A' B,B' C,C' D,D')
+\tkzDrawSegments[dashed,gray](B,C D,C)
+\draw[dashed, blue] (A)--(B) (A)--(D) (A)--(A');
+\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D')
+\node[blue,left=0.2] at ($(A)!0.5!(B)$) {$a$};
+\node[blue,above] at ($(A)!0.5!(D)$) {$a$};
+\node[blue,left] at ($(A)!0.5!(A')$) {$a$};
+\end{tikzpicture}
+}
+\end{dang}
+
+\begin{vd}%[Thi thử L1, Chuyên Võ Nguyên Giáp, Quảng Bình, 2018]%[Vinh Vo, Dự án (12EX-9)]%[2H2B2-2]
+Cho hình lập phương có cạnh bằng $ 2 $. Thể tích của khối cầu ngoại tiếp hình lập phương đó bằng	
+\choice
+{$ 6\pi $}
+{\True $ 4\sqrt{3}\pi $}
+{$ 8\sqrt{3}\pi $}
+{ $ 12\pi $}
+\loigiai{
+Bán kính của khối cầu ngoại tiếp hình lặp phương $R=\dfrac{2\sqrt{3}}{2}=\sqrt{3}$.\\
+Thể tích của khối cầu $V=\dfrac{4}{3}\pi\left(\sqrt{3}\right)^3=4\sqrt{3}\pi$.
+}
+\end{vd}
+
+\begin{vd}%[TT Cụm 5 Trường Chuyên ĐB Sông Hồng, 2018]%[2H2K2-2]%[Lê Minh An, 12Ex-8]
+Cho hai mặt phẳng $(P)$, $(Q)$ vuông góc với nhau theo giao tuyến $\Delta$. Trên đường $\Delta$ lấy hai điểm $A$, $B$ với $AB=a$. Trong mặt phẳng $(P)$ lấy điểm $C$ và trong mặt phẳng $(Q)$ lấy điểm $D$ sao cho $AC$, $BD$ cùng vuông góc với $\Delta$ và $AC=BD=AB$. Bán kính mặt cầu ngoại tiếp tứ diện $ABCD$ là
+\choice{$\dfrac{a\sqrt{3}}{3}$}
+{\True $\dfrac{a\sqrt{3}}{2}$}
+{$a\sqrt{3}$}
+{$\dfrac{2a\sqrt{3}}{3}$}
+\loigiai{
+\immini{
+Dựng hình bình hành $ABDE$, $AEHC$, $ACFB$, $CFGH$ như hình vẽ ta được $ABDE$ và $ACBF$ là hình vuông. Do $(P)\perp (Q)$ nên $ACHE$ là hình vuông. Do đó ta được hình lập phương $ABDE.ACFG$.\\
+Bán kính mặt cầu ngoại tiếp tứ diện $ABCD$ chính là bán kính mặt cầu ngoại tiếp hình lập phương và bằng $\dfrac{a\sqrt{3}}{2}$.}
+{
+\begin{tikzpicture}[scale=0.7]
+\tkzDefPoints{0/0/A, 2.5/2/B, 4/0/E}
+\clip (-0.7,-0.7) rectangle (7.2,6.7);
+\tkzDefLine[perpendicular=through A](A,E)\tkzGetPoint{a}
+\tkzInterLC(A,a)(A,E)\tkzGetPoint{C}{c}
+\tkzDefLine[parallel=through C](A,E)\tkzGetPoint{c}
+\tkzDefLine[parallel=through C](A,B)\tkzGetPoint{c'}
+\tkzDefLine[parallel=through B](A,E)\tkzGetPoint{b'}
+\tkzDefLine[parallel=through B](A,C)\tkzGetPoint{b}
+\tkzDefLine[parallel=through E](A,C)\tkzGetPoint{e}
+\tkzDefLine[parallel=through E](A,B)\tkzGetPoint{e'}
+\tkzInterLL(b',B)(e',E)\tkzGetPoint{D}
+\tkzInterLL(C,c)(E,e)\tkzGetPoint{H}
+\tkzInterLL(C,c')(B,b)\tkzGetPoint{F}
+\tkzDefLine[parallel=through F](A,E)\tkzGetPoint{f}
+\tkzDefLine[parallel=through D](A,C)\tkzGetPoint{d}
+\tkzInterLL(F,f)(D,d)\tkzGetPoint{G}
+\tkzDrawPoints[size=8](A,B,C,E,D,F,G,H)
+\tkzDrawSegments(A,E E,D E,H A,C C,H C,F F,G H,G D,G)
+\tkzDrawSegments[dashed](A,B B,D B,F)
+\tkzLabelPoints[above](H,F)
+\tkzLabelPoints[above left](C,B)
+\tkzLabelPoints[above right](G)
+\tkzLabelPoints[below](A,E,D)
+\end{tikzpicture}
+}  
+}
+\end{vd}
+
+
+
+\begin{dang}{Tính bán kính của mặt cầu ngoại tiếp hình lăng trụ đứng có đáy là tam giác vuông}
+\immini[0.1]{
+Cho hình lăng trụ đứng có đáy là tam giác vuông, với hai cạnh góc vuông của đáy là $a$ và $b$, đường cao lăng trụ là $c$. Khi đó, bán kính mặt cầu ngoại tiếp lăng trụ là $$R=\dfrac{\sqrt{a^2+b^2+c^2}}{2}.$$
+}{
+\begin{tikzpicture}[scale=0.8]
+\def \goc {30}
+\def \rx {0.55}
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(3,0){I}
+\tkzDefShiftPoint[O](\goc:3 cm){A1}
+\tkzDefShiftPoint[O](-\goc:3 cm){B1}
+\tkzDefShiftPoint[O](-180+\goc:3 cm){C1}
+\tkzDefShiftPoint[O](180-\goc:3 cm){D1}
+\tkzDefMidPoint(A1,D1) \tkzGetPoint{J}
+\tkzDefMidPoint(C1,B1) \tkzGetPoint{E}
+\tkzDefMidPoint(A1,B1) \tkzGetPoint{F}
+\filldraw[cyan!50,opacity=0.5] (I) arc (0:360:3);
+%\draw[dashed] (I) arc (0:180:4 and 0.9);
+%\draw (I) arc (0:-180:4 and 0.9);
+\tkzDefCircle[radius](A1,J) 
+\tkzGetLength{rAJpt}
+\tkzpttocm(\rAJpt){r} 
+
+\draw[dashed,cyan] (A1) arc (0:180:\r cm and \rx cm);
+\draw[cyan] (A1) arc (0:-180:\r cm and \rx cm);
+\draw[dashed,cyan] (B1) arc (0:180:\r cm and \rx cm);
+\draw[cyan] (B1) arc (0:-180:\r cm and \rx cm);
+%\draw[dashed] (F) arc (0:360:\r cm and \rx cm);
+
+\coordinate (A') at ($(J)+ (140:\r cm and \rx cm) $);
+\coordinate (B') at ($(J)+ (-100:\r cm and \rx cm) $);
+\coordinate (C') at ($(J)+ (-40:\r cm and \rx cm) $);
+\coordinate (D') at ($(J)+ (50:\r cm and \rx cm) $);
+\coordinate (A) at ($(E)+ (140:\r cm and \rx cm) $);
+\coordinate (B) at ($(E)+ (-100:\r cm and \rx cm) $);
+\coordinate (C) at ($(E)+ (-40:\r cm and \rx cm) $);
+\coordinate (D) at ($(E)+ (50:\r cm and \rx cm) $);
+\tkzDrawSegments[dashed,gray](A',B' D',A' B,B' D,D' B,D B',D')
+\draw[dashed, red] (A)--(B) (A)--(D) (A)--(A');
+\tkzDrawPoints[fill=black](A,B,D,A',B',D')
+\node[red,left=0.2] at ($(A)!0.5!(B)$) {$a$};
+\node[red,above] at ($(A)!0.5!(D)$) {$b$};
+\node[red,left] at ($(A)!0.5!(A')$) {$c$};
+\tkzMarkRightAngle[size=0.3](B,A,D)
+\end{tikzpicture}
+}
+\end{dang}	
+
+
+\begin{vd}%[Lê Văn Thiện-CTGN]%[2H2B2-2]
+Cho hình lăng trụ đứng có đáy là tam giác vuông cân, cạnh góc vuông của đáy và cạnh bên đều bằng $a$. Bán kính mặt cầu ngoại tiếp ngoại tiếp hình lăng trụ là
+\choice
+{$\dfrac{a}{2}$}
+{$a$}
+{\True $\dfrac{3a}{2}$}
+{$2a$}
+\loigiai{
+Áp dụng công thức nhanh ta có bán kính khối cầu nội tiếp lăng trụ là
+$$R=\dfrac{\sqrt{a^2+(2a)^2+(2a^2)}}{2}=\dfrac{3a}{2}.$$
+} 
+\end{vd}	
+
+
+\begin{vd}%[Thi thử L2, Chuyên Đại học Vinh, Nghệ An]%[Nguyễn Đắc Giáp, 12EX-9]%[2H2K2-2]
+\immini[0.1]{Cho hình lăng trụ đứng $ABC.A'B'C'$ có đáy $ABC$ là tam giác vuông tại $A$, $AB=a\sqrt{3},BC=2a$, đường thẳng $AC'$ tạo với mặt phẳng $\left(BCC'B'\right)$ một góc $30^{\circ}$ (tham khảo hình vẽ bên). Diện tích của mặt cầu ngoại tiếp hình lăng trụ đã cho bằng
+\choice
+{$24\pi a^2$}
+{\True $6\pi a^2$}
+{$4\pi a^2$}
+{$3\pi a^2$}
+}
+{
+\begin{tikzpicture}[scale=.5]
+\tkzDefPoints{0/0/A', 2/-2/C', 5/0/B', 0/5/z}
+\coordinate (A) at ($(A')+(z)$);
+\coordinate (C) at ($(C')+(z)$);
+\coordinate (B) at ($(B')+(z)$);
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegments(A',A A,B B,C B,B' C,C' B',C' A',C' A,C')
+\tkzDrawSegments[dashed](A',B')
+\tkzLabelPoints[below right](B', C', B, C)
+\tkzLabelPoints[left](A', A)
+\tkzMarkRightAngle(B,A,C)
+\tkzMarkRightAngle(B',A',C')
+\tkzDrawPoints(A,B,C,A',B',C')
+\end{tikzpicture}
+}
+\loigiai{
+\immini{Gọi $H$ là hình chiếu của $A$ lên $BC \Rightarrow AH\perp BC$, ta chứng minh được $AH\perp \left(BCC'B'\right)$. \\
+Suy ra góc giữa đường thẳng $AC'$ và mặt phẳng $\left(BCC'B'\right)$ là góc $\widehat{AC'H}=30^{\circ}$. \\
+Xét $\triangle ABC$ có $AC=a,AH=\dfrac{AB\cdot AC}{BC}=\dfrac{a\sqrt{3}\cdot a}{2a}=\dfrac{\sqrt{3}a}{2}$. \\
+Xét $ \Delta AC'H$ có $AC'=\dfrac{AH}{\sin 30^{\circ}}=a\sqrt{3}$.\\
+Suy ra $CC'=\sqrt{AC'^2-AC^2}=\sqrt{(a\sqrt{3})^2-a^2}=a\sqrt{2}$.\\
+Khi đó bán kính mặt cầu ngoại tiếp lăng trụ là $$R=\dfrac{\sqrt{AC^2+AB^2+AA'^2}}{2}=\dfrac{\sqrt{a^2+(a\sqrt{3})^2+(a\sqrt{2})^2}}{2}=\dfrac{a\sqrt{6}}{2}.$$}
+{
+\begin{tikzpicture}[scale=.7]
+\tkzDefPoints{0/0/A', 2/-2/C', 5/0/B', 0/5/z}
+\coordinate (A) at ($(A')+(z)$);
+\coordinate (C) at ($(C')+(z)$);
+\coordinate (B) at ($(B')+(z)$);
+\coordinate (H) at ($(C)!.33!(B)$);
+
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegments(A',A A,B B,C B,B' C,C' B',C' A',C' A,C' A,H C',H)
+\tkzDrawSegments[dashed](A',B')
+\tkzLabelPoints[below right](C, C')
+\tkzLabelPoints[right](B,B')
+\tkzLabelPoints[left](A',A)
+\tkzLabelPoints[above](H)
+\tkzMarkRightAngle(B,A,C)
+\tkzMarkRightAngle(A,H,C)
+\tkzMarkRightAngle(B',A',C')
+\tkzDrawPoints(A,B,C,A',B',C',H)
+\end{tikzpicture}
+}
+\noindent Vậy diện tích của mặt cầu ngoại tiếp hình lăng trụ đã cho là $S_{\text{mc}}=4\pi R^2=4\pi \left(\dfrac{a\sqrt{6}}{2}\right)^2=6\pi a^2.$
+}
+\end{vd}
+
+
+
+\begin{dang}{Tính bán kính của mặt cầu ngoại tiếp hình lăng trụ đứng tam giác}
+\immini[0.1]{
+Gọi $R_d$ là bán kính của đường tròn ngoại tiếp mặt đáy và $h$ là chiều cao của lăng trụ. Khi đó, bán kính mặt cầu ngoại tiếp hình lăng trụ được tính theo công thức
+$$R=\sqrt{R_d^2+ \left(\dfrac{h}{2}\right)^2}.$$
+}{
+\begin{tikzpicture}[scale=0.8]
+\def \goc {30}
+\def \rx {0.55}
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(3,0){I}
+\tkzDefShiftPoint[O](\goc:3 cm){A1}
+\tkzDefShiftPoint[O](-\goc:3 cm){B1}
+\tkzDefShiftPoint[O](-180+\goc:3 cm){C1}
+\tkzDefShiftPoint[O](180-\goc:3 cm){D1}
+\tkzDefMidPoint(A1,D1) \tkzGetPoint{J}
+\tkzDefMidPoint(C1,B1) \tkzGetPoint{E}
+\tkzDefMidPoint(A1,B1) \tkzGetPoint{F}
+\filldraw[cyan!50,opacity=0.5] (I) arc (0:360:3);
+%\draw[dashed] (I) arc (0:180:4 and 0.9);
+%\draw (I) arc (0:-180:4 and 0.9);
+\tkzDefCircle[radius](A1,J) 
+\tkzGetLength{rAJpt}
+\tkzpttocm(\rAJpt){r} 
+
+\draw[dashed,cyan] (A1) arc (0:180:\r cm and \rx cm);
+\draw[cyan] (A1) arc (0:-180:\r cm and \rx cm);
+\draw[dashed,cyan] (B1) arc (0:180:\r cm and \rx cm);
+\draw[cyan] (B1) arc (0:-180:\r cm and \rx cm);
+%\draw[dashed] (F) arc (0:360:\r cm and \rx cm);
+
+\coordinate (A') at ($(J)+ (140:\r cm and \rx cm) $);
+\coordinate (B') at ($(J)+ (-100:\r cm and \rx cm) $);
+\coordinate (C') at ($(J)+ (-40:\r cm and \rx cm) $);
+\coordinate (D') at ($(J)+ (30:\r cm and \rx cm) $);
+\coordinate (A) at ($(E)+ (140:\r cm and \rx cm) $);
+\coordinate (B) at ($(E)+ (-100:\r cm and \rx cm) $);
+\coordinate (C) at ($(E)+ (-40:\r cm and \rx cm) $);
+\coordinate (D) at ($(E)+ (30:\r cm and \rx cm) $);
+\tkzDrawSegments[dashed,gray](A',B' D',A' B,B' D,D' B,D B',D' A,D A,B)
+\draw[dashed, red] (A)--(A');
+\tkzDrawPoints[fill=black](A,B,D,A',B',D')
+%\node[red,left=0.2] at ($(A)!0.5!(B)$) {$a$};
+\node[red,left] at ($(A)!0.5!(A')$) {$h$};
+%\tkzMarkSegments[mark=||](A,B B,D A,D)
+\end{tikzpicture}
+}
+\end{dang}
+
+
+\begin{vd}%[Lê Văn Thiện-CTGN]%[2H2B2-2]
+Cho hình lăng trụ tam giác đều có tất cả các cạnh là $a$. Bán kính mặt cầu ngoại tiếp hình lăng trụ là
+\choice
+{$\dfrac{5}{12}a$}
+{$\dfrac{1}{2}a$}
+{\True $\dfrac{7}{12}a$}
+{$\dfrac{3}{4}a$}
+\loigiai{
+Bán kính mặt cầu ngoại tiếp lăng trụ là $R=\sqrt{\left(\dfrac{a\sqrt{3}}{3}\right)^2+ \left(\dfrac{a}{2}\right)^2}=\dfrac{7}{12}a$.
+}
+\end{vd}
+
+
+\begin{vd}%[TT, THPT Chuyên KHTN, Hà Nội]%[Bùi Quốc Hoàn, dự án EX10]%[2H2B2-2]
+Cho khối lăng trụ tam giác đều có cạnh đáy bằng $a$. Góc giữa đường chéo của mặt bên và đáy của lăng trụ là $60^{\circ}$. Tính diện tích mặt cầu ngoại tiếp lăng trụ đó.
+\choice
+{\True $\dfrac{13}{3}\pi a^2$}
+{$\dfrac{5}{3}\pi a^2$}
+{$\dfrac{13}{9}\pi a^2$}
+{$\dfrac{5}{9}\pi a^2$}
+\loigiai{
+\immini{
+Giả sử khối lăng trụ tam giác đều $ABC.A'B'C'$.\\
+ Do giả thiết $CC'\perp\left(ABC\right)$ và $\widehat{\left(C'B, \left(ABC\right)\right)} =  \widehat{\left(C'B, BC\right)} = \widehat{C'BC}$.\\ Suy ra $\widehat{C'BC} = 60^{\circ}$.\\
+ Ta có $\tan\widehat{C'BC}=\dfrac{CC'}{BC}\Rightarrow CC'=a\sqrt{3}\Rightarrow h=a\sqrt{3}$.\\
+ Tam giác đều $ABC$ có bán kính đường tròn ngoại tiếp là $R_d=\dfrac{a\sqrt{3}}{3}$.\\
+Do đó $R = \sqrt{\left(\dfrac{a\sqrt{3}}{2}\right)^2 + \left(\dfrac{a\sqrt{3}}{3}\right)^2} = a\sqrt{\dfrac{13}{12}}$. \\
+Gọi $S$ là diện tích mặt cầu nên $S = 4\pi R^2 = \dfrac{13a^2}{3}\pi$.
+}{\begin{tikzpicture}[scale=.6]
+\tkzDefPoints{0/0/A', 2/-2/C', 5/0/B', 0/5/z}
+\coordinate (A) at ($(A')+(z)$);
+\coordinate (C) at ($(C')+(z)$);
+\coordinate (B) at ($(B')+(z)$);
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegments(A',A A,B B,C B,B' C,C' B',C' A',C' B,C')
+\tkzDrawSegments[dashed](A',B')
+\tkzLabelPoints[below right](B', C', B, C)
+\tkzLabelPoints[left](A', A)
+%\tkzMarkAngle(B,C',C)
+\tkzDrawPoints(A,B,C,A',B',C')
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+%======================
+
+\subsection{Tính bán kính của mặt cầu nội tiếp}
+\setcounter{\tcbcounter}{0}
+\setcounter{vd}{0}
+
+\begin{center}
+\tdplotsetmaincoords{60}{-30}
+\tdplotsetrotatedcoords{0}{90}{90}%
+\begin{tikzpicture}
+[tdplot_rotated_coords,
+>=stealth,
+scale=5,
+cube/.style={color=gray!50,thick,draw=gray, fill opacity=0.5,line join=round},
+mds/.style={ball color=cyan, red, opacity=.8},
+helplines/.style={gray,line cap=round},
+length/.style={<->,thick,line cap=round},
+textlabel/.style={fill opacity=.7,text opacity=1,fill=white,rounded corners}]
+\def\d{1}
+\def\r{\d*.45}
+\def\af{\d*.5}
+\fill[cube] (0,0,\d) -- (0,\d,\d) -- (\d,\d,\d) -- (\d,0,\d) -- cycle;
+\fill[cube] (0,0,0) -- (0,0,\d) -- (\d,0,\d) -- (\d,0,0) -- cycle;
+\fill[cube] (\d,0,0) -- (\d,0,\d) -- (\d,\d,\d) -- (\d,\d,0) -- cycle;
+\foreach \t in {0,12,...,348}
+\draw[helplines] ({cos(\t   )*\r+\d/2}, \d/2, {sin(\t   )*\r+\d/2})
+-- ({cos(\t+12)*\r+\d/2}, \d/2, {sin(\t+12)*\r+\d/2});
+\draw[helplines] (\d/2,\d/2-\r,\d/2) -- (\d/2,\d/2+\r,\d/2);
+\shade[mds] (\d/2,\d/2,\d/2) circle (\r cm);
+\fill[cube,fill=none] (0,0,0) -- (0,\d,0) -- (\d,\d,0) -- (\d,0,0) -- cycle;
+\fill[cube,fill=none] (0,\d,0) -- (0,\d,\d) -- (\d,\d,\d) -- (\d,\d,0) -- cycle;
+\fill[cube,fill=none] (0,0,0) -- (0,0,\d) -- (0,\d,\d) -- (0,\d,0) -- cycle;
+\draw[mds,length,draw] (\d/2,\d/2,\d/2) -- (\d/2,\d/2,\d/2+\r) node[textlabel,pos=0.5, auto=above]{$r$};
+\end{tikzpicture}
+\end{center}
+
+\begin{dang}{Tính bán kính của mặt cầu nội tiếp khối đa diện}
+Gọi $V$ là thể tích khối đa diện và $S_{tp}$ là diện tích toàn phần của đa diện. Khi đó, bán kính mặt cầu nội tiếp khối đa diện là $r=\dfrac{3V}{S_{tp}}$.
+\end{dang}
+
+
+\begin{vd}%[Đề thi thử THPT Cẩm Xuyên, Hà Tĩnh, lần 2, 2017-2018]%[Nguyễn Bình Nguyên-EX9]%[2H2G2-3]
+Cho hình chóp tứ giác đều $S.ABCD$, có cạnh đáy bằng $a$ và có thể tích $V=\dfrac{a^3\sqrt{3}}{6}$. Gọi $J$ là điểm cách đều tất cả các mặt của hình chóp. Tính khoảng cách $d$ từ $J$ đến mặt phẳng $(ABCD)$. 
+\choice
+{$d=\dfrac{a\sqrt{3}}{3}$}
+{$d=\dfrac{a\sqrt{3}}{2}$}
+{\True $d=\dfrac{a\sqrt{3}}{6}$}
+{$d=\dfrac{a\sqrt{3}}{4}$}
+\loigiai{
+\immini{Với hình chóp có mặt cầu nội tiếp ta có công thức sau:
+$$ V=\frac{1}{3}S_{tp}\cdot r, $$ trong đó $S_{tp}$ là diện tích toàn phần và $r$ là bán kính mặt cầu nội tiếp hình chóp đó.\\
+Ta thấy $J$ chính là tâm mặt cầu nội tiếp hình chóp $S.ABCD$ và $d$ là bán kính mặt cầu này.  
+}
+{\begin{tikzpicture}
+\tkzDefPoints{0/0/A, -2/-2/B, 2/-2/C, 0/3/a}
+\coordinate (D) at ($(A)+(C)-(B)$);
+\coordinate (O) at ($(A)!.5!(C)$);
+\coordinate (S) at ($(O)+(a)$);
+\coordinate (J) at ($(S)!.7!(O)$);
+\tkzDrawPolygon(S,B,C)
+\tkzDrawPolygon(S,C,D)
+\coordinate (H) at ($(A)!.3!(B)$);
+\coordinate (K) at ($(S)!.7!(H)$);
+\tkzDrawSegments[dashed](B,D A,C S,O A,B A,D S,A)
+\tkzDrawPoints(A,B,C,D,S,J,O)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[below](B,C,D,O)
+\tkzLabelPoints[left](A,J)
+\end{tikzpicture}}
+Gọi $O$ là tâm hình vuông $ABCD, M$ là trung điểm $BC$ ta có
+$$ V=\frac{1}{3}SO\cdot a^2=\dfrac{a^3\sqrt{3}}{6} \Rightarrow SO=\frac{a\sqrt{3}}{2}.$$
+Từ đó $$ SM=\sqrt{SO^2+OM^2}=a\Rightarrow \mathrm{S}_{\triangle SBC}=\frac{1}{2}SM\cdot BC=\frac{a^2}{2}$$ nên diện tích toàn phần của hình chóp $S.ABCD$ bằng $$ \mathrm{S}_{tp}=4\mathrm{S}_{\triangle SBC}+a^2=3a^2.$$
+Lại có $$V=\dfrac{1}{3}S_{tp}\cdot d $$ nên $d=\dfrac{3V}{S_{tp}}=\dfrac{a\sqrt{3}}{6}.$
+}
+\end{vd}
+
+
+\begin{dang}{Tính bán kính của mặt cầu nội tiếp tứ diện đều}
+Mặt cầu nội tiếp tứ diện đều cạnh $a$ có bán kính $r=\dfrac{a \sqrt{6}}{12}$.
+\end{dang}
+
+\begin{vd}%[Hà Lê]%[2H2K2-3]
+Thể tích khối cầu nội tiếp tứ diện đều cạnh bằng $\sqrt{2}$ là
+\choice
+{$\dfrac{\pi \sqrt{6}}{216}$}
+{$\dfrac{\pi \sqrt{3}}{216}$}
+{$\dfrac{\pi \sqrt{6}}{108}$}
+{\True $\dfrac{\pi \sqrt{3}}{54}$}
+\loigiai{
+Áp dụng công thức ta có bán kính mặt cầu nội tiếp là $r=\dfrac{\sqrt{2} \cdot \sqrt{6}}{12}=\dfrac{1}{\sqrt{12}}$.\\
+Thể tích khối cầu là $V=\dfrac{4}{3} \pi \left(\dfrac{1}{\sqrt{12}}\right)^3=\dfrac{\pi \sqrt{3}}{54}$.
+}
+\end{vd}
+
+\begin{vd}%[Hà Lê]%[2H2B2-3]
+Cho hình lập phương $ABCD.A'B'C'D'$ có bán kính mặt cầu nội tiếp tứ diện $ACB'D'$ là $a$. Tính thể tích $V$ của khối lập phương.
+\choice
+{\True $V=12\sqrt{12} a^3$}
+{$4\sqrt{12}a^3$}
+{$48\sqrt{6} a^3$}
+{$16\sqrt{6}a^3$}
+\loigiai{ 
+\immini{Gọi cạnh hình lập phương là $b$.\\
+Ta có	$A.CB'D'$ là tứ diện đều do có tất cả các cạnh bằng nhau và bằng $b \sqrt{2}$.\\
+Suy ra bán kính mặt cầu nội tiếp tứ diện này là $r=a=\dfrac{b \sqrt{2} \cdot \sqrt{6}}{12}$.\\
+Suy ra $b=a\sqrt{12}$.\\
+Vậy thể tích khối lập phương là \\
+$V=\left(a \sqrt{12}\right)^3=12\sqrt{12}a^3$.	
+}
+{\begin{tikzpicture}[scale = 1.5]
+\tkzInit[xmin=-1,xmax=4,ymin=-0.5,ymax=3] 
+\tkzClip
+\tkzDefPoints{0/0/A', 0/2/A, 2/0/B', 2/2/B, 3/0.5/C', 3/2.5/C, 1/0.5/D', 1/2.5/D}
+\tkzDrawSegments(A,B A,D B,C C,D C',B' A,A' C,C' B,B' A',B' A,C A,B' C,B')
+\tkzDrawSegments[dashed](D,D' C',D' A',D' A,D' C,D' B',D')
+\tkzDrawPoints(A,B,C,D, A',B',C',D')
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[below right](B,C')
+\tkzLabelPoints[above](C)
+\tkzLabelPoints[above ](D)
+\tkzLabelPoints[left](A')
+\tkzLabelPoints[below](B')
+\tkzLabelPoints[above left](D')
+\end{tikzpicture}}
+}
+\end{vd}	
+
+\begin{dang}{Tính bán kính của mặt cầu nội tiếp tứ diện có các cặp cạnh đối bằng nhau}
+Cho tứ diện $ABCD$ có $AB=CD=a$, $BC=DA=b$, $BD=CA=c$. Khi đó bán kính mặt cầu nội tiếp tứ diện là $r = \dfrac{1}{4}\sqrt {\dfrac{{2( {b^2} + {c^2}- {a^2}  )({a^2} - {b^2} + {c^2})({a^2} + {b^2} - {c^2})}}{{(a + b + c)(a + b - c)(a - b + c)( - a + b + c)}}} $.
+\end{dang}
+
+	
+\begin{vd}%[Hà Lê]%[2H2G2-3]
+Cho tứ diện $ABCD$ có $AB=CD=a$, các cạnh còn lại bằng $2a$. Tính bán kính mặt cầu nội tiếp tứ diện $ABCD$.
+\choice
+{$\dfrac{a \sqrt{21}}{6}$}
+{$\dfrac{a\sqrt{210}}{15}$}
+{\True $\dfrac{a \sqrt{210}}{60}$}
+{$a \sqrt{3}$}
+\loigiai{
+Ta có $AB=CD=a; BC=DA=2a; BD=AC=2a$. Áp dụng công thức ta có bán kính mặt cầu nội tiếp là 
+$$r=\dfrac{1}{4}\sqrt{\dfrac{2\left(4a^2+4a^2-a^2\right) \left(a^2+4a^2-4a^2\right)\left(a^2+4a^2-4a^2\right)}{\left(a+2a+2a\right)\left(a+2a-2a\right)\left(a+2a-2a\right)\left(2a+2a-a\right)}}=\dfrac{a \sqrt{210}}{60}.$$	
+
+}
+\end{vd}	
+
+\begin{dang}{Tính bán kính của mặt cầu tiếp xúc với tất cả các cạnh của tứ diện đều}
+Mặt cầu tiếp xúc với tất cả các cạnh của tứ diện đều cạnh $a$ có bán kính $r=\dfrac{a \sqrt{2}}{4}$.
+\end{dang}
+
+
+\begin{dang}{Tính bán kính của mặt cầu nội tiếp hình chóp tứ giác đều}
+Mặt cầu nội tiếp hình chóp tứ giác đều có cạnh đáy bằng $a$ và chiều cao bằng $b$ có bán kính là $r=\dfrac{ab}{\sqrt{a^2+4b^2}+a}$.
+\end{dang}
+
+
+\begin{vd}%[Đề KSCL lần 2, Lê Hoàn, Thanh Hóa, 18]%[2H2K2-3]%[Trần Quang Thạnh (12EX-8)]
+Cho hình chóp tứ giác đều $ S.ABCD $ có tất cả các cạnh bằng $ 1 $. Tính bán kính mặt cầu nội tiếp hình chóp đều đó.	
+\choice
+{$ \dfrac{\sqrt{2}}{2} $}
+{\True $  \dfrac{\sqrt 2}{2(1+\sqrt 3)}$}
+{$ \dfrac{\sqrt 3}{2(1+\sqrt 3)}$}
+{$ \dfrac{\sqrt 3}{4(1+\sqrt 3)}$}
+\loigiai{\immini{Gọi $ M $ là trung điểm cạnh $BC $, suy ra $ SM=\dfrac{\sqrt 3}{2} $. Gọi $ I $ là tâm mặt cầu nội tiếp hình chóp $ S.ABCD $, suy ra $ I $ nằm trên đường thẳng $ SH $ với $ SH=\dfrac{1}{\sqrt 2} $ và $ \mathrm{\,d}(I;(ABCD))=\mathrm{\,d}(I;(SBC)) $.\\
+Gọi $ K $ là hình chiếu vuông góc của $ I $ trên $ SM $, suy ra $ IK \perp (SBC) $. \\
+Do đó, đặt $ IH=IK=x\geq 0$.\\ 
+Ta có $ \dfrac{IK}{HM}=\dfrac{SI}{SM} \Leftrightarrow \dfrac{x}{\dfrac{1}{2}}=\dfrac{\tfrac{1}{\sqrt 2}-x}{\dfrac{\sqrt3 }{2}} \Leftrightarrow x=\dfrac{\sqrt 2}{2(\sqrt 3+1)} $.
+}
+{\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/A, -2/-2/D, 3/-2/C}
+\coordinate (B) at ($(A)+(C)-(D)$);
+\coordinate (H) at ($(A)!.5!(C)$);
+\coordinate (S) at ($(H)+(0,5)$);
+\tkzDefMidPoint(B,C)
+\tkzGetPoint{M}
+\tkzDrawSegments[dashed](S,A A,B A,D A,C B,D S,H H,M)
+\tkzDrawPolygon(S,C,D)
+\tkzDrawSegments(S,B B,C S,M)
+\tkzLabelPoints[left](A,D)
+\tkzLabelPoints[right](C,B,M)
+\tkzLabelPoints[above right](S)
+\tkzLabelPoints[below](H)
+\tkzLabelSegments[below](C,D){$1$}
+\tkzMarkRightAngle(S,H,D)
+\tkzMarkRightAngle(S,H,C)
+\tkzDefPointBy[homothety=center S ratio 0.5](M)\tkzGetPoint{K}
+\tkzDrawPoints(K)
+\tkzLabelPoints[right](K)
+\tkzDefPointBy[homothety=center S ratio 0.7](H)\tkzGetPoint{I}
+\tkzDrawPoints(I)
+\tkzLabelPoints[left](I)
+\tkzDrawSegments[dashed](I,K) 
+\tkzMarkRightAngle(I,K,M)
+\tkzDrawPoints(S,A,B,C,D,H,M)
+\end{tikzpicture}}
+}
+\end{vd}
+
+\begin{vd}%[Hà Lê]%[2H2K2-3]
+Cho hình chóp tứ giác đều $S.ABCD$ có cạnh đáy bằng $1$, chiều cao $h=\dfrac{\sqrt{3}}{2}$. Tính bán kính mặt cầu nội tiếp hình chóp $S.ABCD$.
+\choice
+{$\sqrt{3}$}
+{$\dfrac{\sqrt{3}}{2}$}
+{$\dfrac{\sqrt{3}}{4}$}
+{\True $\dfrac{\sqrt{3}}{6}$}
+\loigiai{Bán kính mặt cầu nội tiếp là $$r=\dfrac{1 \cdot \dfrac{\sqrt{3}}{2}}{\sqrt{1^2+4\cdot \dfrac{3}{4}}+1}=\dfrac{\sqrt{3}}{6}.$$}
+\end{vd}
+
+\begin{vd}%[Đề thi thử THPT Cẩm Xuyên, Hà Tĩnh, lần 2, 2017-2018]
+Cho hình chóp tứ giác đều $S.ABCD$, có cạnh đáy bằng $a$ và có thể tích $V=\dfrac{a^3\sqrt{3}}{6}$. Gọi $J$ là điểm cách đều tất cả các mặt của hình chóp. Tính khoảng cách $d$ từ $J$ đến mặt phẳng $(ABCD)$. 
+\choice
+{$d=\dfrac{a\sqrt{3}}{3}$}
+{$d=\dfrac{a\sqrt{3}}{2}$}
+{\True $d=\dfrac{a\sqrt{3}}{6}$}
+{$d=\dfrac{a\sqrt{3}}{4}$}
+\loigiai{
+\immini	{
+Gọi $O$ là tâm hình vuông $ABCD$, ta có \\
+$ V=\dfrac{1}{3}SO\cdot a^2=\dfrac{a^3\sqrt{3}}{6} \Rightarrow SO=\dfrac{a\sqrt{3}}{2}.$\\
+Ta thấy $J$ chính là tâm mặt cầu nội tiếp hình chóp $S.ABCD$ và $d$ là bán kính mặt cầu này.\\
+Khoảng cách 
+$ d=r=\dfrac{a \cdot \dfrac{a\sqrt{3}}{2}}{\sqrt{a^2+4\cdot \dfrac{3a^2}{4}}+a}=\dfrac{a \sqrt{3}}{6}$.
+}{\begin{tikzpicture}
+\tkzDefPoints{0/0/A, -2/-2/B, 2/-2/C, 0/3/a}
+\coordinate (D) at ($(A)+(C)-(B)$);
+\coordinate (O) at ($(A)!.5!(C)$);
+\coordinate (S) at ($(O)+(a)$);
+\coordinate (J) at ($(S)!.7!(O)$);
+\tkzDrawPolygon(S,B,C)
+\tkzDrawPolygon(S,C,D)
+\coordinate (H) at ($(A)!.3!(B)$);
+\coordinate (K) at ($(S)!.7!(H)$);
+\tkzDrawSegments[dashed](B,D A,C S,O A,B A,D S,A)
+\tkzDrawPoints(A,B,C,D,S,J,O)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[below](B,C,D,O)
+\tkzLabelPoints[left](A,J)
+\end{tikzpicture}}
+
+}
+\end{vd}
+
+\begin{dang}{Tính bán kính của mặt cầu nội tiếp hình nón}
+Một hình nón có chiều cao $h$ và bán kính đáy bằng $R$. Khi đó, bán kính mặt cầu nội tiếp hình nón đó là $r=\dfrac{Rh}{R+\sqrt{h^2+R^2}}$.
+\end{dang}
+
+\begin{vd}%[Hà Lê]%[2H2K2-3]
+Đường cao của hình nón gấp $2$ lần bán kính đáy của nó. Tính tỉ số $k$ giữa thể tích hình cầu ngoại tiếp và nội tiếp hình nón đó.
+\choice
+{\True $k=\dfrac{125 \left(\sqrt{5} +1\right)^3}{512}$}
+{$k=\dfrac{\left(\sqrt{5} +1\right)^3}{512}$}
+{$k=\dfrac{\left(\sqrt{5} -1\right)^3}{512}$}
+{$k=\dfrac{125 \left(\sqrt{5} -1\right)^3}{512}$}
+\loigiai{
+Gọi chiều cao của nón là $2a$ thì bán kính đáy là $a$.\\
+Bán kính mặt cầu ngoại tiếp khối nón là $R_1=\dfrac{4a^2+a^2}{4a}=\dfrac{5a}{4}$.\\
+Bán kính mặt cầu nội tiếp khối nón là $R_2=\dfrac{2a \cdot a}{a+\sqrt{4a^2+a^2}}=\dfrac{2a}{\left(\sqrt{5}+1\right)}$ .\\
+Tỉ số $k=\left(\dfrac{R_1}{R_2}\right)^3=\left(\dfrac{5 \left(\sqrt{5}+1\right)}{8}\right)^3=\dfrac{125 \left(\sqrt{5} +1\right)^3}{512}$.	
+}
+\end{vd}
+
+\begin{vd}%[Hà Lê]%%[2H2K2-3]
+Cho tam giác đều $ABC$ có cạnh bằng $1$. $(P)$ là mặt phẳng qua $BC$ và vuông góc với mặt phẳng $(ABC)$. Trong $(P)$ xét đường tròn $(T)$ đường kính $BC$. Tính diện tích mặt cầu nội tiếp hình nón có đáy là $(T)$, đỉnh là $A$.
+\choice
+{$\dfrac{\pi}{2}$}
+{\True $\dfrac{\pi}{3}$}
+{$\pi$}
+{$2 \pi$}
+\loigiai{
+\immini{Gọi $O$ là trung điểm $BC$. Do $(P) \perp (ABC)$ nên $AO \perp (P)$.\\
+Tam giác $ABC$ đều có cạnh bằng $1$ nên $AO=\dfrac{\sqrt{3}}{2}$.\\
+Như vậy hình chóp có $R=OB=\dfrac{1}{2}; h=AO=\dfrac{\sqrt{3}}{2}$.\\
+Bán kính mặt cầu nội tiếp khối chóp là $r=\dfrac{Rh}{R+\sqrt{h^2+R^2}}=\dfrac{\sqrt{3}}{6}$.\\
+Diện tích mặt cầu nội tiếp là $S=\dfrac{\pi}{3}$.
+}
+{	\begin{tikzpicture}[scale=.7]
+
+\tkzDefPoint(0,0){O}
+\pgfmathsetmacro{\a}{3}
+\pgfmathsetmacro{\b}{1.3}
+\tkzDefPoint(\a,0){E}
+\draw[smooth,dashed,samples=200,variable=\t,domain=30:150] plot({\a*cos (\t)},{\b*sin(\t)});
+\draw[smooth,samples=200,variable=\t,domain=150:390] plot({\a*cos (\t)},{\b*sin(\t)});
+\tkzDefPointWith[orthogonal,K=1.5](O,E)
+\tkzGetPoint{S}
+\tkzDefPoint({\a*cos(0)},{\b*sin(0)}){A}
+\tkzDefPointBy[symmetry =center O](A)
+\tkzGetPoint{A1}
+\tkzDefPoint({\a*cos(0)},{\b*sin(0)}){A2}
+\tkzDefPoint({\a*cos(-120*pi/180)},{\b*sin(-120*pi/180)}){B}
+\tkzDrawSegments(S,A S,A1)
+\tkzDrawSegments[dashed](A,A1 S,O)
+%\tkzDrawPoints(O,S,A,A1,A2,B,M)
+\tkzLabelPoint[below](O){\footnotesize $O$}
+\tkzLabelPoint[below right](A){\footnotesize $B$}
+\tkzLabelPoint[above](S){\footnotesize $A$}
+
+%\tkzLabelPoint[below left](B){\footnotesize $C$}
+\tkzLabelPoint[below left](A1){\footnotesize $C$}
+
+\tkzMarkRightAngle(S,O,A)
+\end{tikzpicture}}	
+}
+\end{vd}
+
+\begin{dang}{Tính bán kính của mặt cầu nội tiếp hình lập phương}
+Bán kính mặt cầu nội tiếp hình lập phương cạnh $a$ là $r=\dfrac{a}{2}$.
+\end{dang}
+
+\begin{vd}%[Hà Lê]%[2H2B2-3]
+Hình cầu đường kính $2\sqrt{3}$ nội tiếp hình lập phương $ABCD.A'B'C'D'$. Tính thể tích hình lập phương.
+\choice
+{$V=\dfrac{3 \sqrt{6}}{4}$}
+{\True $V=6 \sqrt{6}$}
+{$V=27$}
+{$V=2 \sqrt{6}$}
+\loigiai{
+Hình cầu nội tiếp có bán kính là $r=\sqrt{3}$.\\
+Gọi cạnh hình lập phương là $a$, ta có $r=\dfrac{a}{\sqrt{2}}=\sqrt{3} \Rightarrow a=\sqrt{6}$.\\
+Thể tích hình lập phương là $V=\left(\sqrt{6}\right)^3=6 \sqrt{6}$.	
+}
+\end{vd}
+
+
+\begin{vd}%[Thi thử L2 -THPT-TranPhu-HaTinh]%[2H2B2-3]%[Nguyễn Tài Tuệ,Dự án EX8]
+Cho hình lập phương có thể tích bằng  $64a^3 $. Tính thể tích của khối cầu nội tiếp của hình lập phương đó.
+\choice
+{$ V=\dfrac{16\pi a^3}{3} $}
+{$ V=\dfrac{64a^3\pi}{3} $}
+{\True $ V=\dfrac{32a^3\pi}{3} $}
+{$ V=\dfrac{8a^3\pi}{3} $}
+\loigiai{
+\immini{
+Thể tích khối lập phương bằng $ 64a^3 $ nên cạnh hình lập phương $ 4a.$\\
+Bán kình mặt cầu nội tiếp hình lập phương $ R=\dfrac{4a}{2}=2a. $\\
+Vậy thể tích khối cầu nội tiếp hình lập phương. $ V=\dfrac{4}{3}\pi(2a)^3=\dfrac{32}{3}\pi a^3. $
+
+}{
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{0/0/A, 2/1/B, 4/0/D, 0/4/z}
+\coordinate (C) at ($(B)+(D)-(A)$);
+\coordinate (D') at ($(D)+(z)$);
+\coordinate (A') at ($(A)+(z)$);
+\coordinate (B') at ($(B)+(z)$);
+\coordinate (C') at ($(C)+(z)$);
+\coordinate (O)  at ($(B)!.5!(D)$);
+\coordinate (O')  at ($(B')!.5!(D')$);
+\coordinate (H)  at ($(B')!.5!(A)$);
+\coordinate (I)  at ($(O')!.5!(O)$);
+\tkzDrawSegments(A,D D,C C',C D,D' A',A A',B' B',C' C',D' D',A' B',D' A',C')
+\tkzDrawSegments[dashed](A,C B,D A,B' B,B' A,B B,C  O,O' I,H B',D)
+\tkzLabelPoints[left](A,B,A',B',H)
+\tkzLabelPoints[right](C',D',C,I)
+\tkzLabelPoints[above](O')
+\tkzLabelPoints[below](O,D)
+\tkzDrawPoints(A,B,C,D,A',B',C',D',O',O,I,H)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+
+\begin{dang}{Tính bán kính của mặt cầu tiếp xúc với tất cả các cạnh của hình lập phương}
+Mặt cầu tiếp xúc với tất cả các cạnh của hình lập phương cạnh $a$ có bán kính $r=\dfrac{a}{\sqrt{2}}$.
+\end{dang}
+
+\begin{vd}%[Hà Lê]%[2H2K2-3]
+Cho hình lập phương cạnh $a$. Gọi $R_1, R_2, R_3$ lần lượt là bán kính mặt cầu ngoại tiếp hình lập phương, bán kính mặt cầu nội tiếp hình lập phương và bán kính mặt cầu tiếp xúc với tất cả các cạnh của hình lập phương. Khẳng định nào sau đây là đúng?
+\choice
+{$R_2^2=R_1\cdot R_3$}
+{$R_2^2=R_1^2+R_3^2$}
+{\True $R_1^2=R_2^2+R_3^2$}
+{$R_3^2=R_1 \cdot R_2$}
+\loigiai{
+Theo công thức ta có $R_1=\dfrac{a\sqrt{3}}{2}, R_2=\dfrac{a}{2}, R_3=\dfrac{a}{\sqrt{2}}$ suy ra $R_1^2=R_2^2+R_3^2$.	
+}
+\end{vd}
+
+\begin{vd}%[Hà Lê]%[2H2B2-3]
+Một quả bóng hình cầu đặt bên trong một hình lập phương sao cho quả bóng tiếp xúc với tất cả các cạnh của hình lập phương. Nếu diện tích quả bóng là $7\pi$ cm$^2$ thì diện tích toàn phần của hình lập phương là bao nhiêu?
+\choice
+{$84$}
+{\True $21$}
+{$14$}
+{$28$}
+\loigiai{Gọi bán kính của quả bóng là $r$. Diện tích quả bóng là 
+$$ 7\pi=4\pi r^2 \Rightarrow r=\dfrac{\sqrt{7}}{2}.$$	
+Gọi cạnh hình lập phương là $a$. Ta thấy hình cầu tiếp xúc với tất cả các cạnh của hình lập phương nên 
+$$r=\dfrac{a}{\sqrt{2}}=\dfrac{\sqrt{7}}{2}\Rightarrow a=\dfrac{\sqrt{14}}{2}. $$
+Diện tích toàn phần của hình lập phương là $S=6 \left(\dfrac{\sqrt{14}}{2}\right)^2=21$.
+}
+\end{vd}
+
+\begin{dang}{Tính bán kính của mặt cầu nội tiếp hình trụ}
+Mặt cầu nội tiếp hình trụ đường cao $h$ có bán kính là $r=\dfrac{h}{2}$.
+\end{dang}
+
+\begin{vd}%[Hà Lê]%[2H2K2-3]
+Hình trụ có thiết diện qua trục là hình vuông cạnh $2a$. Một mặt cầu tiếp xúc với các đường sinh của hình trụ và hai đáy của hình trụ. Tính tỉ số thể tích của khối trụ và khối cầu.
+\choice
+{\True $\dfrac{3}{2}$}
+{$\dfrac{4}{3}$}
+{$\dfrac{1}{2}$}
+{$2$}
+\loigiai{
+Do thiết diện đi qua trục của hình trụ là hình vuông cạnh $2a$ nên bán kính đáy, chiều cao của hình trụ lần lượt là $a$ và $2a$, mặt cầu nội tiếp khối trụ có bán kính là $a$.	\\
+Thể tích khối trụ là $V_1=\pi R^2 h  =2\pi a^3$.\\
+Thể tích khối cầu là $V_2=\dfrac{4}{3}\pi R^3=\dfrac{4}{3}\pi a^3$.\\
+Tỉ số thể tích là $\dfrac{V_1}{V_2}=\dfrac{3}{2}$.
+}
+\end{vd}
+
+\begin{dang}{Tính bán kính của mặt cầu nội tiếp bát diện đều}
+Mặt cầu nội tiếp bát diện đều cạnh bằng $a$ có bán kính $r=\dfrac{a \sqrt{6}}{6}$.
+\end{dang}
+
+
+
+\begin{vd}%[Hà Lê]%[2H2G2-3]
+Cho tứ diện đều $ABCD$ có cạnh bằng $2a$. Gọi $M,N,P,Q,R,S$ lần lượt là trung điểm của $AB, AC, AD, BC, BD, CD$. Tính bán kính mặt cầu nội tiếp khối đa diện $MNPQRS$.
+\choice
+{$a\sqrt{3}$}
+{$a$}
+{$\dfrac{a\sqrt{6}}{3}$}
+{\True $\dfrac{a \sqrt{6}}{6}$}
+\loigiai{
+\immini{$MNPQRS$ là khối bát diện đều có cạnh bằng $a$. Suy ra bán kính mặt cầu nội tiếp là $r=\dfrac{a\sqrt{6}}{6}$.}
+{\begin{tikzpicture}[>=stealth,scale=0.8]
+\tkzDefPoint(0,0){B}
+\tkzDefShiftPoint[B](0:5){D}
+\tkzDefShiftPoint[B](-60:2){C}
+\tkzDefShiftPoint[B](60:4){A}
+\tkzDefMidPoint(A,B) \tkzGetPoint{M}
+\tkzDefMidPoint(A,D) \tkzGetPoint{P}
+\tkzDefMidPoint(A,C) \tkzGetPoint{N}
+\tkzDefMidPoint(B,C) \tkzGetPoint{Q}
+\tkzDefMidPoint(B,D) \tkzGetPoint{R}
+\tkzDefMidPoint(C,D) \tkzGetPoint{S}
+\tkzDrawSegments(A,B A,C A,D B,C C,D M,N N,P M,Q P,S N,Q N,S)
+\tkzDrawSegments[dashed](B,D M,P P,R R,S Q,S M,R R,Q)
+\tkzLabelPoint[above](A){\footnotesize $A$}
+\tkzLabelPoint[left](B){\footnotesize $B$}
+\tkzLabelPoint[left](C){\footnotesize $C$}
+\tkzLabelPoint[right](D){\footnotesize $D$}
+\tkzLabelPoint[right](P){\footnotesize $P$}
+\tkzLabelPoint[left](M){\footnotesize $M$}
+\tkzLabelPoint[above right](N){\footnotesize $N$}
+\tkzLabelPoint[below left](Q){\footnotesize $Q$}
+\tkzLabelPoint[above right](R){\footnotesize $R$}
+\tkzLabelPoint[below right](S){\footnotesize $S$}
+\tkzDrawPoints(A,B,C,D,M,N,P,Q,R,S)
+\end{tikzpicture}}
+}
+\end{vd}

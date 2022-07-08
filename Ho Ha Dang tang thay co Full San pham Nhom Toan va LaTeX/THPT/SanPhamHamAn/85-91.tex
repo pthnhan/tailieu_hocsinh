@@ -1,0 +1,386 @@
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Duong Xuan Loi]%[2D1G5-5]
+	\immini{
+		Cho hàm số $y=f(x)$. Đồ thị của hàm số $y=f'(x)$ như hình bên. Đặt $g(x)=f(x)-x$. Mệnh đề nào dưới đây đúng?
+		\choice
+		{$g(-1)<g(1)<g(2)$}
+		{\True $g(2)<g(1)<g(-1)$}
+		{$g(2)<g(-1)<g(1)$}
+		{$g(1)<g(-1)<g(2)$}
+	}{
+		\begin{tikzpicture}[>=stealth,scale=1, line join=round, line cap=round]
+		\def\xt{-2} \def\xp{3} \def\yt{3} \def\yd{-2}
+		\draw[line width=0.1pt,dashed] (\xt,\yd) grid (\xp,\yt); % Lưới toạ độ
+		\draw[->] (\xt,0)--(\xp,0) node [below]{$x$};
+		\draw[->] (0,\yd)--(0,\yt) node [left]{$y$};
+		\node at (0,0) [below left]{$O$};
+		\clip (\xt-0.1,\yd+0.1) rectangle (\xp-0.1,\yt-0.1);
+		\draw[smooth,samples=300,domain=-1.15:2.4] plot(\x,{0.85*(\x)^4-2.66*(\x)^3+1.09*(\x)^2+2.63*(\x)-0.95});
+		\node at (0,-1) [right]{$-1$};
+		\node at (-1,0) [below left]{$-1$};
+		\node at (1,0) [below]{$1$};
+		\node at (2,0) [below]{$2$};
+		\node at (0,1) [above left]{$1$};
+		\fill (0,0) circle (2pt) (0,1) circle (2pt) (-1,0) circle (2pt) (0,-0.98) circle (2pt) (1,0) circle (2pt) (2,0) circle (2pt) (-1,1) circle (2pt) (2,1) circle (2pt) (1,0.98) circle (2pt);
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\immini{
+			Ta có: $g'(x)=f'(x)-1$; $g'(x)=0 \Leftrightarrow f'(x)=1$.\\
+			Dựa vào đồ thị ta thấy đường thẳng $y=1$ cắt đồ thị hàm số $y=f'(x)$ tại $3$ điểm là $x=-1$; $x=1$ và $x=2$. Vậy $g'(x)=0 \Leftrightarrow \left[\begin{aligned}&x=2\\	&x=1\\	&x=-1.
+			\end{aligned}\right. $
+		}{
+			\begin{tikzpicture}[>=stealth,scale=1, line join=round, line cap=round]
+			\def\xt{-2} \def\xp{3} \def\yt{3} \def\yd{-2}
+			\draw[line width=0.1pt,dashed] (\xt,\yd) grid (\xp,\yt); % Lưới toạ độ
+			\draw[->] (\xt,0)--(\xp,0) node [below]{$x$};
+			\draw[->] (0,\yd)--(0,\yt) node [left]{$y$};
+			\node at (0,0) [below left]{$O$};
+			\clip (\xt-0.1,\yd+0.1) rectangle (\xp-0.1,\yt-0.1);
+			\draw[smooth,samples=300,domain=-1.15:2.4] plot(\x,{0.85*(\x)^4-2.66*(\x)^3+1.09*(\x)^2+2.63*(\x)-0.95});
+			\draw[smooth,samples=300,domain=-1.5:2.8] plot(\x,{1});
+			\node at (0,-1) [right]{$-1$};
+			\node at (-1,0) [below left]{$-1$};
+			\node at (1,0) [below]{$1$};
+			\node at (2,0) [below]{$2$};
+			\node at (0,1) [above left]{$1$};
+			\fill (0,0) circle (2pt) (0,1) circle (2pt) (-1,0) circle (2pt) (0,-0.98) circle (2pt) (1,0) circle (2pt) (2,0) circle (2pt) (-1,1) circle (2pt) (2,1) circle (2pt) (1,0.98) circle (2pt);
+			\end{tikzpicture}
+		}
+		\noindent Bảng biến thiên
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[nocadre=false,lgt=2,espcl=2.5]
+			{$x$ /0.8,$g'(x)$ /0.8,$g(x)$ /2.3}
+			{$-\infty$,$-1$,$1$,$2$,$+\infty$}
+			\tkzTabLine{,+,$0$,-,$0$,-,$0$,+,}
+			\tkzTabVar{-/$-\infty$, +/$g(-1)$,R/,-/$g(2)$,+/$+\infty$}
+			\tkzTabIma{2}{4}{3}{$g(1)$}
+			\end{tikzpicture}
+		\end{center}
+		Dựa vào bảng biến thiên ta thấy: $g(2)<g(1)<g(-1)$.
+	}
+\end{ex}
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Duong Xuan Loi]%[2D1G5-5]
+	\immini{
+		Cho hàm số $y=f(x)$ có đạo hàm trên $\mathbb{R}$. Đồ thị của hàm số $y=f'(x)$ như hình vẽ. Tìm các khoảng đơn điệu của hàm số $g(x)=2f(x)-x^2+2x+2017$.\\
+		Mệnh đề nào dưới đây đúng?
+		\choice
+		{Hàm số $g(x)$ nghịch biến trên $(1;3)$}
+		{Hàm số $g(x)$ có 2 điểm cực trị}
+		{\True Hàm số $g(x)$ đồng biến trên $(-1;1)$}
+		{Hàm số $g(x)$ nghịch biến trên $(3;+\infty)$}
+	}{
+		\begin{tikzpicture}[>=stealth,scale=0.8, line join=round, line cap=round]
+		\def\a{0.87} \def\b{-2.6} \def\c{0.13} \def\d{1.6} % Hệ số
+		\def\xt{-2} \def\xp{3.8} \def\yt{3} \def\yd{-2.5} % x_trái, x_phải, y_trên, y_dưới (giới hạn)
+		%\draw[line width=0.1pt,dashed] (\xt,\yd) grid (\xp,\yt); % Lưới toạ độ
+		\draw[->] (\xt,0)--(\xp,0) node [below]{$x$};
+		\draw[->] (0,\yd)--(0,\yt) node [left]{$y$};
+		\node at (0,0) [below left]{$O$};
+		\clip (\xt-0.1,\yd+0.1) rectangle (\xp-0.1,\yt-0.1);
+		\draw[smooth,samples=300] plot(\x,{\a*(\x)^3+\b*(\x)^2+\c*(\x)+\d});
+		\draw[dashed] (-1,0)--(-1,-2) -- (0,-2);
+		\draw[dashed] (0,2)--(3,2) -- (3,0);
+		\node at (-1,0) [above]{$-1$};
+		\node at (0,-2) [right]{$-2$};
+		\node at (0,2) [left]{$2$};
+		\node at (3,0) [below]{$3$};
+		\node at (1,0) [below]{$1$};
+		\fill (0,0) circle (1pt) (-1,0) circle (1pt) (1,0) circle (1pt) (3,0) circle (1pt) (0,-2) circle (1pt) (0,2) circle (1pt) (-1,-2) circle (1pt) (3,2) circle (1pt);
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\immini{
+			Ta có $g'(x)=2f'(x)-2x+2=2[f'(x)-(x-1)]$.\\
+			Dựa vào hình vẽ ta thấy đường thẳng $y=x-1$ cắt đồ thị hàm số $y=f'(x)$ tại 3 điểm: $(-1;-2), (1;0), (3;2)$.\\
+			Dựa vào đồ thị ta có\\
+			$g'(x)=0 \Leftrightarrow 2[f'(x)-(x-1)]=0 
+			\Leftrightarrow \left[\begin{aligned}&x=-1\\&x=1\\&x=3.\end{aligned}\right. $			
+		}{
+			\begin{tikzpicture}[>=stealth,scale=0.8, line join=round, line cap=round]
+			\def\a{0.87} \def\b{-2.6} \def\c{0.13} \def\d{1.6} % Hệ số
+			\def\xt{-2} \def\xp{3.8} \def\yt{3} \def\yd{-2.5} % x_trái, x_phải, y_trên, y_dưới (giới hạn)
+			%\draw[line width=0.1pt,dashed] (\xt,\yd) grid (\xp,\yt); % Lưới toạ độ
+			\draw[->] (\xt,0)--(\xp,0) node [below]{$x$};
+			\draw[->] (0,\yd)--(0,\yt) node [left]{$y$};
+			\node at (0,0) [below left]{$O$};
+			\clip (\xt-0.1,\yd+0.1) rectangle (\xp-0.1,\yt-0.1);
+			\draw[smooth,samples=300] plot(\x,{\a*(\x)^3+\b*(\x)^2+\c*(\x)+\d});
+			\draw[smooth,samples=300] plot(\x,{(\x)-1});
+			\draw[dashed] (-1,0)--(-1,-2) -- (0,-2);
+			\draw[dashed] (0,2)--(3,2) -- (3,0);
+			\node at (-1,0) [above]{$-1$};
+			\node at (0,-2) [right]{$-2$};
+			\node at (0,2) [left]{$2$};
+			\node at (3,0) [below]{$3$};
+			\node at (1,0) [below]{$1$};
+			\fill (0,0) circle (1pt) (-1,0) circle (1pt) (1,0) circle (1pt) (3,0) circle (1pt) (0,-2) circle (1pt) (0,2) circle (1pt) (-1,-2) circle (1pt) (3,2) circle (1pt);
+			\end{tikzpicture}
+		}
+		\noindent Bảng xét dấu
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[nocadre=false,lgt=1.3,espcl=2.1]
+			{$x$ /0.6,$g'(x)$ /0.6}
+			{$-\infty$,$-1$,$1$,$3$,$+\infty$}
+			\tkzTabLine{,-,$0$,+,$0$,-,$0$,+,}			
+			\end{tikzpicture}
+		\end{center}		
+		Vậy hàm số $y=g(x)$ đồng biến trên các khoảng $(-1;1)$.
+	}
+\end{ex}
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Duong Xuan Loi]%[2D1G5-5]
+	\immini{
+		Cho hàm số $y=f(x)$ xác định, liên tục trên $\mathbb{R}$ và có $f(-2)<0$ và đồ thị hàm số $f'(x)$ như hình vẽ bên. Khẳng định nào sau đây là khẳng định \textbf{sai}?
+		\choice
+		{Hàm số $y=\left|f\left(1-x^{2018}\right)\right|$ nghịch biến trên khoảng $(-\infty;-2)$}
+		{Hàm số $y=\left|f\left(1-x^{2018}\right)\right|$ có hai cực tiểu}
+		{\True Hàm số $y=\left|f\left(1-x^{2018}\right)\right|$ có hai cực đại và một cực tiểu}
+		{Hàm số $y=\left|f\left(1-x^{2018}\right)\right|$ đồng biến trên khoảng $(2;+\infty)$}
+	}{
+		\begin{tikzpicture}[>=stealth,scale=0.8, line join=round, line cap=round]
+		\def\a{-0.03} \def\b{-0.02} \def\c{0.53} \def\d{0.27} \def\e{-1.3} \def\f{-0.8} \def\g{-1.23}% Hệ số
+		\def\xt{-2.5} \def\xp{3} \def\yt{3} \def\yd{-3} % x_trái, x_phải, y_trên, y_dưới (giới hạn)
+		\draw[->] (\xt,0)--(\xp,0) node [below]{$x$};
+		\draw[->] (0,\yd)--(0,\yt) node [left]{$y$};
+		\node at (0,0) [below left]{$O$};
+		\clip (\xt-0.1,\yd+0.1) rectangle (\xp-0.1,\yt-0.1);
+		\draw[smooth,samples=300,domain=-2.5:2.5] plot(\x,{\a*(\x)^6+\b*(\x)^5+\c*(\x)^4+\d*(\x)^3+\e*(\x)^2+\f*(\x)+\g});
+		\node at (2,0) [below right]{$2$};
+		\node at (-2,0) [below left]{$-2$};
+		\fill (0,0) circle (1pt) (-1.96,0) circle (1pt) (2,0) circle (1pt);
+		\end{tikzpicture}
+	}
+	\loigiai{
+		Từ đồ thị của $f'(x)$ ta có bảng biến thiên sau:
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[nocadre=false,lgt=1.3,espcl=2.1]
+			{$x$ /0.6,$f'(x)$ /0.6,$f(x)$ /2}
+			{$-\infty$,$-2$,$1$,$2$,$+\infty$}
+			\tkzTabLine{,+,$0$,,-,,$0$,+,}
+			\tkzTabVar{-/$-\infty$, +/$f(-2)$,R/,-/$f(2)$,+/$+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Từ giả thiết $f(-2)<0$ và $1-x^{2018}\leqslant 1 \Rightarrow f\left(1-x^{2018}\right)<0$ với mọi $x$.\\
+		Đặt $t=1-x^{2018}$, ta có $\left\{\begin{aligned}
+		&f'_t(t)<0\text{ khi }t\in (-2;1) \Leftrightarrow x\in \left(-\sqrt[2018]{3};\sqrt[2018]{3}\right)\\
+		&f'_t(t)>0\text{ khi }t\in (-\infty;-2)\cup (2;+\infty) \Leftrightarrow x\in \left(-\infty;-\sqrt[2018]{3}\right)\cup \left(\sqrt[2018]{3};+\infty \right).\\
+		\end{aligned}\right. $ \\
+		Đặt $g(x)=\left|f\left(1-x^{2018}\right)\right|$, ta có $g'(x)=-\dfrac{2018\cdot x^{2017}\cdot f'_t(t)\cdot f(t)}{2\sqrt{f^2(t)}}$ \\
+		Do đó, ta có bảng biến thiên của $y=g(x)$ như sau:
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[nocadre=false,lgt=1.3,espcl=2.1]
+			{$x$ /0.6,$g'(x)$ /0.6,$g(x)$ /2}
+			{$-\infty$,$-\sqrt[2018]{3}$,$0$,$\sqrt[2018]{3}$,$+\infty$}
+			\tkzTabLine{,-,$0$,+,$0$,-,$0$,+,}
+			\tkzTabVar{+/$+\infty$, -/,+/,-/,+/$+\infty$}
+			\end{tikzpicture}
+		\end{center}
+		Từ bảng biến thiên, ta có \lq\lq hàm số $y=\left|f\left(1-x^{2018}\right)\right|$ có hai cực đại và một cực tiểu\rq\rq.
+	}
+\end{ex}
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Duong Xuan Loi]%[2D1G5-5]
+	\immini{
+		Cho hàm số $y=f(x)$ xác định và liên tục trên $[-2;2]$, có đồ thị của hàm số $y=f'(x)$ như hình bên. Tìm giá trị $x_0$ để hàm số $y=f(x)$ đạt giá trị lớn nhất trên $[-2;2]$.
+		\choice
+		{$x_0=2$}
+		{$x_0=-1$}
+		{$x_0=-2$}
+		{\True $x_0=1$}
+	}{
+		\begin{tikzpicture}[>=stealth,scale=1, line join=round, line cap=round]
+		\def\a{-1} \def\b{-1} \def\c{1} \def\d{1} % Hệ số
+		\def\xt{-2.5} \def\xp{3} \def\yt{2} \def\yd{-3} % x_trái, x_phải, y_trên, y_dưới (giới hạn)
+		%\draw[line width=0.1pt,dashed] (\xt,\yd) grid (\xp,\yt); % Lưới toạ độ
+		\draw[->] (\xt,0)--(\xp,0) node [below]{$x$};
+		\draw[->] (0,\yd)--(0,\yt) node [left]{$y$};
+		\node at (0,0) [below left]{$O$};
+		\clip (\xt-0.1,\yd+0.1) rectangle (\xp-0.1,\yt-0.1);
+		\draw[smooth,samples=300] plot(\x,{0.3*(\a*(\x)^3+\b*(\x)^2+\c*(\x)+\d)});
+		\draw[dashed] (-2,0)--(-2,0.92) (2,0) -- (2,-2.8);
+		\node at (2,0) [above]{$2$};
+		\node at (-2,0) [below]{$-2$};
+		\node at (-1,0) [below]{$-1$};
+		\node at (1,0) [below]{$1$};
+		\fill (0,0) circle (1pt) (-1,0) circle (1pt) (2,0) circle (1pt) (1,0) circle (1pt) (-2,0) circle (1pt);
+		\end{tikzpicture}
+	}
+	\loigiai{
+		Từ đồ thị ta có $f'(x)=0 \Leftrightarrow \left[\begin{aligned}
+		&x=-1\text{ (nghiệm kép)}\\
+		&x=1
+		\end{aligned}\right. $.\\
+		Bảng biến thiên:
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[nocadre=false,lgt=0.7,espcl=2.1]
+			{$x$ /0.6,$y'$ /0.6,$y$ /2}
+			{$-2$,$-1$,$1$,$2$}
+			\tkzTabLine{,+,$0$,+,$0$,-,}
+			\tkzTabVar{-/, R/,+/$f(1)$,-/}
+			\end{tikzpicture}
+		\end{center}
+		Từ bảng biến thiên, ta có $x_0=1$.
+	}
+\end{ex}
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Duong Xuan Loi]%[2D1G5-2]
+	\immini{
+		Cho hàm số $y=f(x)$ có đồ thị như hình vẽ. Gọi $M$, $m$ lần lượt là giá trị lớn nhất và giá trị nhỏ nhất của hàm số $y=\dfrac{3}{2}f\left(\dfrac{x}{2}\right)$ trên đoạn $[0;2]$. Khi đó $M+m$ là
+		\choice
+		{\True $3$}
+		{$1$}
+		{$2$}
+		{$0$}
+	}{
+		\begin{tikzpicture}[>=stealth,scale=0.7, line join=round, line cap=round]
+		\def\a{1} \def\b{-3} \def\c{0} \def\d{2} % Hệ số
+		\def\xt{-1.3} \def\xp{4} \def\yt{3.1} \def\yd{-2.5} % x_trái, x_phải, y_trên, y_dưới (giới hạn)		
+		\draw[->] (\xt,0)--(\xp,0) node [below]{$x$};
+		\draw[->] (0,\yd)--(0,\yt) node [right]{$y$};
+		\node at (0,0) [below left]{$O$};
+		\clip (\xt-0.1,\yd+0.1) rectangle (\xp-0.1,\yt-0.1);
+		\draw[smooth,samples=300] plot(\x,{\a*(\x)^3+\b*(\x)^2+\c*(\x)+\d});
+		\draw[dashed] (2,0)--(2,-2) -- (0,-2);
+		\node at (0,2) [above left]{$2$};
+		\node at (0,-2) [left]{$-2$};
+		\node at (2,0) [above]{$2$};
+		\node at (1,0) [above right]{$1$};
+		\fill (0,0) circle (1pt) (1,0) circle (1pt) (0,2) circle (1pt) (2,0) circle (1pt) (0,-2) circle (1pt);
+		\end{tikzpicture}
+	}
+	\loigiai{
+		Cách 1: Thực hiện các phép biến đổi đồ thị:\\
+		Ta suy ra đồ thị hàm số $y=3f\left(\dfrac{x}{2}\right)$ từ đồ thị hàm số $y=f(x)$ bằng cách thực hiện phép dãn theo trục hoành với hệ số dãn $2$. Sau đó thực hiện phép dãn theo trục tung với hệ số dãn $\dfrac{3}{2}$. \\
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=0.9, line join=round, line cap=round]
+			\def\a{1} \def\b{-3} \def\c{0} \def\d{2} % Hệ số
+			\def\xt{-2.3} \def\xp{5} \def\yt{3.5} \def\yd{-2.5} % x_trái, x_phải, y_trên, y_dưới (giới hạn)		
+			\draw[->] (\xt,0)--(\xp,0) node [below]{$x$};
+			\draw[->] (0,\yd)--(0,\yt) node [right]{$y$};
+			\node at (0,0) [below left]{$O$};
+			\clip (\xt-0.1,\yd+0.1) rectangle (\xp-0.1,\yt-0.1);
+			\draw[smooth,samples=300,dashed] plot(\x,{\a*(\x)^3+\b*(\x)^2+\c*(\x)+\d});
+			\draw[smooth,samples=300,domain=-1.9:3.1] plot(\x,{\a*(\x/2)^3+\b*(\x/2)^2+\c*(\x/2)+\d});
+			\draw[dashed] (2,0)--(2,-2) -- (0,-2);
+			\node at (0,2) [above left]{$2$};
+			\node at (0,-2) [left]{$-2$};
+			\node at (2,0) [above right]{$2$};
+			\node at (1,0) [above right]{$1$};
+			\node at (3,1.2) [right]{$y=f(x)$};
+			\node at (0.7,1.9) [right]{$y=f\left(\dfrac{x}{2}\right)$};
+			\fill (0,0) circle (1pt) (1,0) circle (1pt) (0,2) circle (1pt) (2,0) circle (1pt) (0,-2) circle (1pt);
+			\end{tikzpicture}
+			\begin{tikzpicture}[>=stealth,scale=0.9, line join=round, line cap=round]
+			\def\a{1} \def\b{-3} \def\c{0} \def\d{2} % Hệ số
+			\def\xt{-2.3} \def\xp{5.5} \def\yt{3.8} \def\yd{-2.5} % x_trái, x_phải, y_trên, y_dưới (giới hạn)		
+			\draw[->] (\xt,0)--(\xp,0) node [below]{$x$};
+			\draw[->] (0,\yd)--(0,\yt) node [right]{$y$};
+			\node at (0,0) [below left]{$O$};
+			\clip (\xt-0.1,\yd+0.1) rectangle (\xp-0.1,\yt-0.1);
+			\draw[smooth,samples=300,dashed] plot(\x,{\a*(\x)^3+\b*(\x)^2+\c*(\x)+\d});
+			\draw[smooth,samples=300,dashed,domain=-1.9:3.1] plot(\x,{\a*(\x/2)^3+\b*(\x/2)^2+\c*(\x/2)+\d});
+			\draw[smooth,samples=300,domain=-1.9:3.1] plot(\x,{1.5*(\a*(\x/2)^3+\b*(\x/2)^2+\c*(\x/2)+\d)});
+			\draw[dashed] (2,0)--(2,-2) -- (0,-2);
+			\node at (0,2) [above left]{$2$};
+			\node at (0,-2) [left]{$-2$};
+			\node at (2,0) [above right]{$2$};
+			\node at (0,3) [above left]{$3$};
+			\node at (1,0) [above right]{$1$};
+			\node at (3,1.2) [right]{$y=f(x)$};
+			\node at (3,-1.2) [right]{$y=f\left(\dfrac{x}{2}\right)$};
+			\node at (0.5,3) [right]{$y=\dfrac{3}{2}f\left(\dfrac{x}{2}\right)$};
+			\fill (0,0) circle (1pt) (1,0) circle (1pt) (0,2) circle (1pt) (2,0) circle (1pt) (0,-2) circle (1pt) (0,3) circle (1pt);
+			\end{tikzpicture}
+		\end{center}%\draw[smooth,samples=300] plot(\x,{1.5*(\a*(\x/2)^3+\b*(\x/2)^2+\c*(\x/2)+\d)});
+		Vậy $M=3,m=0 \Rightarrow M+m=3$.\\
+		Cách khác: Ta có $g'(x)=\dfrac{3}{4}f'\left(\dfrac{x}{2}\right)$, $g'(x)=0 \Leftrightarrow f'\left(\dfrac{x}{2}\right)=0 \Leftrightarrow \left[\begin{aligned}
+		&x=0\\
+		&x=4\\
+		\end{aligned}\right. $. Từ đó lập bảng biến thiên của hàm số $g(x)$.}
+\end{ex}
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Duong Xuan Loi]%[1D5K2-6]
+	\immini{
+		Người ta khảo sát gia tốc $a(t)$ của một vật thể chuyển động ($t$ là khoảng thời gian tính bằng giây từ lúc vật thể chuyển động) từ giây thứ nhất đến giây thứ 3 và ghi nhận được $a(t)$ là một hàm số liên tục có đồ thị như hình bên dưới. Hỏi trong thời gian từ giây thứ nhất đến giây thứ 3 được khảo sát đó, thời điểm nào vật thể có vận tốc lớn nhất?
+		\choice
+		{\True giây thứ $2$}
+		{giây thứ nhất}
+		{giây thứ $1{,}5$}
+		{giây thứ $3$}
+	}{
+		\begin{tikzpicture}[>=stealth,scale=1, line join=round, line cap=round,x=1cm,y=0.4cm]
+		\def\a{-6} \def\b{12}% Hệ số
+		\def\xt{-1} \def\xp{4} \def\yt{7} \def\yd{-7} % x_trái, x_phải, y_trên, y_dưới (giới hạn)
+		%\draw[line width=0.1pt,dashed] (\xt,\yd) grid (\xp,\yt); % Lưới toạ độ
+		\draw[->] (\xt,0)--(\xp,0) node [below]{$x$};
+		\draw[->] (0,\yd)--(0,\yt) node [left]{$y$};
+		\node at (0,0) [below left]{$O$};
+		\clip (\xt-0.1,\yd+0.1) rectangle (\xp-0.1,\yt-0.1);
+		\draw[smooth,samples=300,domain=1:3] plot(\x,{\a*(\x)+\b});
+		\draw[dashed] (1,0)node [below]{$1$}--(1,6) -- (0,6)node [left]{$6$};
+		\draw[dashed] (0,-6)node [left]{$-6$}--(3,-6) -- (3,0)node [above]{$3$};
+		\draw[dashed] (1.5,0)node [below]{$1{,}5$}--(1.5,3) -- (0,3)node [left]{$3$};
+		\node at (2,0) [above right]{$2$};
+		\fill (0,0) circle (1pt) (1,0) circle (1pt) (3,0) circle (1pt) (0,6) circle (1pt) (0,-6) circle (1pt) (3,-6) circle (1pt) (1,6) circle (1pt) (2,0) circle (1pt) (1.5,0) circle (1pt) (1.5,3) circle (1pt);; 
+		\end{tikzpicture}
+	}
+	\loigiai{
+		Phương pháp: $a(t)=v'(t)$. Từ đồ thị ta có: $a(t)=0 \Rightarrow v'(t)=0 \Leftrightarrow t=2$.
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[nocadre=false,lgt=2.5,espcl=2.5]
+			{$t$ /1,$a(t)=v'(t)$ /1,$v(t)$ /2.5}
+			{$1$,$1{,}5$,$2$,$3$}
+			\tkzTabLine{,+,,+,$0$,-,}
+			\tkzTabVar{-/$v(1)$, R/,+/$v(2)$,-/$v(3)$}
+			\tkzTabIma{2}{4}{2}{$v(1{,}5)$}
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{ex}
+
+\begin{ex}%[WTT Bài toán hàm ẩn, Duong Xuan Loi]%[1D5K2-6]
+	Người ta khảo sát gia tốc $a(t)$ của một vật thể chuyển động ($t$ là khoảng thời gian tính bằng giây từ lúc vật thể chuyển động) từ giây thứ nhất đến giây thứ $10$ và ghi nhận được $a(t)$ là một hàm số liên tục có đồ thị như hình bên dưới. Hỏi trong thời gian từ giây thứ nhất đến giây thứ 10 được khảo sát đó, thời điểm nào vật thể có vận tốc lớn nhất?
+	\choice
+	{giây thứ $7$}
+	{giây thứ nhất}
+	{giây thứ $10$}
+	{\True giây thứ $3$}
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,scale=1, line join=round, line cap=round]		
+		\def\xt{-0.7} \def\xp{11.5} \def\yt{2} \def\yd{-2.3} % x_trái, x_phải, y_trên, y_dưới (giới hạn)
+		%\draw[line width=0.1pt,dashed] (\xt,\yd) grid (\xp,\yt); % Lưới toạ độ
+		\draw[->] (\xt,0)--(\xp,0) node [below]{$t$};
+		\draw[->] (0,\yd)--(0,\yt) node [left]{$a(t)$};
+		\node at (0,0) [below left]{$O$};
+		\clip (\xt-0.1,\yd+0.1) rectangle (\xp-0.1,\yt-0.1);
+		\draw plot[smooth,tension=0.65] coordinates{(1,1) (2,0.8) (3,0) (3.5,-0.4) (4,-1) (4.5,-1.7) (5,-2)};
+		\draw plot[smooth,tension=0.65] coordinates{(5,-2) (7,0) (10,-2)};	
+		\draw[dashed] (1,0)node [below]{$1$}--(1,1) -- (0,1)node [left]{$1$};
+		\draw[dashed] (0,-2)node [left]{$-2$}--(10,-2) -- (10,0)node [above]{$10$};
+		\node at (3,0) [above]{$3$};
+		\node at (7,0) [above]{$7$};
+		\fill (0,0) circle (1pt) (1,0) circle (1pt) (3,0) circle (1pt) (7,0) circle (1pt) (10,0) circle (1pt) (0,1) circle (1pt) (0,-2) circle (1pt) (5,-2) circle (1pt) (1,1) circle (1pt); 
+		\end{tikzpicture}
+	\end{center}	
+	\loigiai{
+		Phương pháp: $a(t)=v'(t)$. Từ đồ thị ta có bảng biến thiên sau:
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzTabInit[nocadre=false,lgt=2.5,espcl=2.5,deltacl=0.6]
+			{$t$ /1,$a(t)=v'(t)$ /1,$v(t)$ /2.5}
+			{$1$,$3$,$7$,$10$}
+			\tkzTabLine{,+,$0$,-,,-,}
+			\tkzTabVar{-/$v(1)$,+/$v(3)$,R/,-/$v(10)$}
+			\tkzTabIma{2}{4}{3}{$v(7)$}
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{ex}

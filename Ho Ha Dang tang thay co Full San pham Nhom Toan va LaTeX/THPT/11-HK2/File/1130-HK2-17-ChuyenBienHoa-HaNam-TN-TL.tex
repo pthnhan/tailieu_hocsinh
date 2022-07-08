@@ -1,0 +1,555 @@
+\begin{name}
+{Thầy Cao Thành Thái \& Phản biện: Thầy Nguyễn Khắc Hưởng}
+{1130 Đề HK2 (2016-2017), THPT Chuyên Biên Hòa, Hà Nam}
+    \end{name}
+\setcounter{ex}{0}\setcounter{bt}{0}
+\Opensolutionfile{ans}[ans/ans1130]
+\noindent\textbf{I. PHẦN TRẮC NGHIỆM}
+
+\begin{ex}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1H3B3-2]%[Cao Thành Thái]
+ Cho tứ diện đều $ABCD$. Gọi $G$ là trọng tâm tam giác $ABC$. Tìm khẳng định đúng trong các khẳng định sau.
+ \choice
+  {$DA \perp (ABC)$}
+  {$BG \perp (ACD)$}
+  {$AG \perp (BCD)$}
+  {\True $DG \perp (ABC)$}
+ \loigiai
+  {
+  \immini
+  {
+  Vì $ABCD$ là tứ diện đều nên các mặt của nó đều là tam giác đều. Khi đó $G$ cũng là tâm đường tròn ngoại tiếp tam giác $ABC$.
+  Theo tính chất của hình chóp đều thì $DG \perp (ABC)$.
+  }
+  {
+  \begin{tikzpicture}[scale=.6]
+	\tkzDefPoints{0/0/A, 4/-3/C, 5/0/B}
+	\tkzCentroid(A,B,C)\tkzGetPoint{G}
+	\tkzDefShiftPoint[G](90:6){D}
+	\tkzDrawPoints(A,B,C,D,G)
+	\tkzDrawSegments[dashed](A,B D,G)
+	\tkzDrawPolygon(D,C,A)
+	\tkzDrawSegments(D,B A,C B,C)
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoints[right](C,B)
+	\tkzLabelPoints[above](D)
+	\tkzLabelPoints[below](G)
+  \end{tikzpicture}
+  }
+  }
+\end{ex}
+
+
+\begin{ex}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1H3K5-2]%[Cao Thành Thái]
+ Cho hình chóp $S.ABC$ có $SA \perp (ABC)$, $SA = a\sqrt{2}$ và tam giác $ABC$ đều cạnh $a$. Tính khoảng cách từ $A$ đến mặt phẳng $(SBC)$.
+ \choice
+  {\True $\dfrac{a \sqrt{66}}{11}$}
+  {$\dfrac{a \sqrt{3}}{2}$}
+  {$\dfrac{a \sqrt{11}}{2}$}
+  {$\dfrac{a \sqrt{3}}{4}$}
+ \loigiai
+  {
+  \immini
+  {
+  Gọi $M$ là trung điểm của $BC$.\\
+  Ta có
+  \begin{align*}
+   \heva{& BC \perp AM \\& BC \perp SA} \Rightarrow BC \perp (SAM).
+  \end{align*}
+  Mà $BC \subset (SBC)$ nên $(SBC) \perp (SAM)$.
+  Kẻ $AH \perp SM$ tại $H$. Suy ra $AH \perp (SBC)$.\\
+  Vậy khoảng cách từ $A$ đến mặt phẳng $(SBC)$ là $AH$.\\
+  }
+  {
+  \begin{tikzpicture}[scale=.6]
+	\tkzDefPoints{0/0/A, 4/-3/C, 5/0/B}
+	\coordinate (S) at ($(A)+(0,5)$);
+	\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+	\tkzDefBarycentricPoint(S=2,M=3)\tkzGetPoint{H}
+	\tkzDrawPoints(A,B,C,S,M,H)
+	\tkzDrawSegments[dashed](A,B A,M A,H)
+	\tkzDrawPolygon(S,C,A)
+	\tkzDrawSegments(S,B B,C S,M)
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoints[right](C,B,M,H)
+	\tkzLabelPoints[above](S)
+	\tkzMarkRightAngles(A,M,C S,M,B A,H,M)
+	\tkzMarkSegments[mark=|](B,M C,M)
+  \end{tikzpicture}
+  }
+  \noindent
+  Ta lại có $AM = \dfrac{a \sqrt{3}}{2}$ (đường cao trong tam giác đều).\\
+  Khi đó
+  \begin{align*}
+   & \dfrac{1}{AH^2} = \dfrac{1}{SA^2} + \dfrac{1}{AM^2} = \dfrac{1}{2a^2} + \dfrac{4}{3a^2} = \dfrac{11}{6a^2}\\
+   \Rightarrow & AH = \dfrac{a \sqrt{66}}{11}.
+  \end{align*}
+  Vậy $d(A, (SBC)) = \dfrac{a \sqrt{66}}{11}$.
+  }
+\end{ex}
+
+
+\begin{ex}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1H3B4-3]%[Cao Thành Thái]
+ Cho lăng trụ đều $ABC.A'B'C'$ có cạnh đáy bằng $2a$, cạnh bên bằng $a$. Tính góc giữa mặt phẳng $(AB'C')$ và mặt phẳng $(A'B'C')$.
+ \choice
+  {\True $\dfrac{\pi}{6}$}
+  {$\arcsin \dfrac{\sqrt{3}}{4}$}
+  {$\dfrac{\pi}{3}$}
+  {$\arccos \dfrac{\sqrt{3}}{4}$}
+ \loigiai
+  {
+  \immini
+  {
+  Gọi $M$ là trung điểm của $B'C'$.\\
+  Ta có
+  \begin{align*}
+   \heva{& B'C' \perp A'M \\& B'C' \perp AA'} \Rightarrow B'C' \perp AM.
+  \end{align*}
+  Vậy góc giữa mặt phẳng $(AB'C')$ và mặt phẳng $(A'B'C')$ chính là góc giữa hai đường thẳng $A'M$ và $AM$ bằng $\widehat{AMA'}$.\\
+  Ta lại có $\tan \widehat{AMA'} = \dfrac{AA'}{A'M} = \dfrac{a}{\dfrac{2a \sqrt{3}}{2}} = \dfrac{1}{\sqrt{3}}$.\\
+  Suy ra $\widehat{AMA'} = \dfrac{\pi}{6}$.\\
+  Vậy góc giữa mặt phẳng $(AB'C')$ và mặt phẳng $(A'B'C')$ bằng $\dfrac{\pi}{6}$.
+  }
+  {
+  \begin{tikzpicture}[scale=.6]
+	\tkzDefPoints{0/0/A', 6/0/B', 4/-3/C'}
+	\tkzDefShiftPoint[A'](90:8){A}
+	\tkzDefPointBy[translation=from A' to A](B')\tkzGetPoint{B}
+	\tkzDefPointBy[translation=from A' to A](C')\tkzGetPoint{C}
+	\tkzDefMidPoint(B',C')\tkzGetPoint{M}
+	\tkzDrawPoints(A,B,C,A',B',C',M)
+	\tkzDrawSegments(A,B A,C B,C B',C' C',A' A,A' B,B' C,C')
+	\tkzDrawSegments[dashed](A',B' A',M A,M)
+	\tkzMarkRightAngles(A',M,C' A,M,B')
+	\tkzLabelPoints[left](A, A')
+	\tkzLabelPoints[below](C')
+	\tkzLabelPoints[right](B,B',M)
+	\tkzLabelPoints[above](C)
+  \end{tikzpicture}
+  }
+  }
+\end{ex}
+
+
+\begin{ex}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1D5B1-1]%[Cao Thành Thái]
+ Tính số gia $\Delta y$ của hàm số $y = x^3 - 2x$ theo số gia của đối số $\Delta x$ tại $x = 1$.
+ \choice
+  {$\Delta y = (\Delta x)^3 + 3 (\Delta x)^2 + 3 \Delta x + 1$}
+  {$\Delta y = (\Delta x)^3 - 3 (\Delta x)^2 + \Delta x$}
+  {\True $\Delta y = (\Delta x)^3 + 3 (\Delta x)^2 + \Delta x$}
+  {$\Delta y = (\Delta x)^3 - 3 (\Delta x)^2 + 3 \Delta x + 1$}
+ \loigiai
+  {
+  Ta có
+  \begin{align*}
+   \Delta y & = \left(1 + \Delta x \right)^3 - 2(1 + \Delta x) - (1^3 - 2 \cdot 1) \\
+            & = 1 + 3 \Delta x + 3 (\Delta x)^2 + (\Delta x)^3 - 2 - 2\Delta x + 1 \\
+            & = (\Delta x)^3 + 3 (\Delta x)^2 + \Delta x.
+  \end{align*}
+  }
+\end{ex}
+
+
+\begin{ex}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1D5K1-1]%[1D5K2-1]%[Cao Thành Thái]
+ Tính đạo hàm của hàm số $y = x(x - 1)(x - 2) \cdots (x - 2016)(x - 2017)$ tại $x = 0$.
+ \choice
+  {$y'(0) = 0$}
+  {$y'(0) = 2017$}
+  {$y'(0) = 2017!$}
+  {\True $y'(0) = -2017!$}
+ \loigiai
+  {
+  \textbf{Cách 1}. Dùng định nghĩa đạo hàm tại một điểm\\
+  Đặt $y = f(x) = x(x - 1)(x - 2) \cdots (x - 2016)(x - 2017)$.\\
+  Ta có 
+  \begin{align*}
+   y'(0) & = \lim\limits_{x \to 0} \dfrac{f(x) - f(0)}{x - 0} = \lim\limits_{x \to 0} \dfrac{x(x - 1)(x - 2) \cdots (x - 2016)(x - 2017)}{x}\\
+   		 & = \lim\limits_{x \to 0} \left[(x-1)(x-2)(x-3)\cdots(x-2016)(x-2017)\right]\\
+   		 & = (-1)(-2)\cdots(-2017) = -2017!.
+  \end{align*}
+  \noindent
+  \textbf{Cách 2}. Dùng quy tắc tính đạo hàm\\
+  Trước tiên ta chứng minh quy tắc sau: \textit{Nếu $y = f_1(x)f_2(x) \cdots f_n(x)$, với $n \in \mathbb{N^*}$, trong đó các hàm $f_1(x),f_2(x),\ldots,f_n(x)$ đều có đạo hàm, thì nó có đạo hàm $y' = f_1'(x)f_2(x)\cdots f_n(x) + f_1(x)f_2'(x)\cdots f_n(x) + \cdots + f_1(x)f_2(x)\cdots f_n'(x)$.}\hfill $(*)$\\
+  Thật vậy,\\
+  Với $n = 1$, ta có $y = f_1(x)$ thì $y'=f_1'(x)$ (đúng).\\
+  Giả sử $(*)$ đúng với $n = k$, tức là nếu $y = f_1(x)f_2(x) \cdots f_k(x)$ thì
+  \begin{align*}
+   y' = f_1'(x)f_2(x)\cdots f_k(x) + f_1(x)f_2'(x)\cdots f_k(x) + \cdots + f_1(x)f_2(x)\cdots f_k'(x).
+  \end{align*}
+  Ta cần chứng minh $(*)$ đúng với $n = k+1$. Thật vậy, ta có $y = f_1(x)f_2(x) \cdots f_k(x)f_{k+1}(x)$.\\
+  Khi đó
+  \begin{align*}
+   y' & = \left[f_1(x)f_2(x) \cdots f_k(x)\right]'f_{k+1}(x) + f_1(x)f_2(x) \cdots f_k(x)f_{k+1}'(x) \\
+      & = \left[f_1'(x)f_2(x)\cdots f_k(x) + f_1(x)f_2'(x)\cdots f_k(x) + \cdots + f_1(x)f_2(x)\cdots f_k'(x)\right]f_{k+1}(x)\\
+      & + f_1(x)f_2(x) \cdots f_k(x)f_{k+1}'(x) \\
+      & = f_1'(x)f_2(x) \cdots f_k(x)f_{k+1}(x) + f_1(x)f_2'(x) \cdots f_k(x)f_{k+1}'(x) + \cdots + f_1(x)f_2(x) \cdots f_k(x)f_{k+1}'(x).
+  \end{align*}
+  Vậy $(*)$ được chứng minh.\\
+  Áp dụng quy tắc trên vào bài toán này ta được
+  \begin{align*}
+   y' = (x-1)(x-2)\cdots(x-2017) + x(x-2)(x-3)\cdots(x-2017)\\ + \cdots + x(x-1)(x-2)\cdots(x-2016).
+  \end{align*}
+  Do đó
+  \begin{align*}
+   y'(0) & = (-1)(-2)\cdots(-2017) + 0 + \cdots + 0 = -2017!.
+  \end{align*}
+  }
+\end{ex}
+
+
+\begin{ex}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1D5K2-6]%[Cao Thành Thái]
+ Một vật chuyển động theo quy luật $s(t) = -\dfrac{1}{2} t^3 + 12t^2$, trong đó $t$(giây) là khoảng thời gian tính từ lúc vật bắt đầu chuyển động, $s$ (mét) là quãng đường vật chuyển động được trong $t$ giây. Tính vận tốc tức thời của vật tại thời điểm $t = 10$ giây.
+ \choice
+  {\True $90$ m/s}
+  {$80$ m/s}
+  {$70$ m/s}
+  {$100$ m/s}
+ \loigiai
+  {
+  Biểu thức vận tốc của vật là $v(t) = s'(t) = -\dfrac{3}{2}t^2 + 24 t$.\\
+  Vận tốc tức thời của vật tại thời điểm $t = 10$ giây là $v(10) = -\dfrac{3}{2} \cdot 10^2 + 24 \cdot 10 = 90 \textrm{ m/s}$.
+  }
+\end{ex}
+
+
+\begin{ex}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1D4B1-3]%[Cao Thành Thái]
+ Tính giới hạn $\lim \dfrac{n^3 - 2n + 1}{4n - 5n^3}$.
+ \choice
+  {\True $-\dfrac{1}{5}$}
+  {$\dfrac{1}{4}$}
+  {$+\infty$}
+  {$0$}
+ \loigiai
+  {
+  $\lim \dfrac{n^3 - 2n + 1}{4n - 5n^3} = \lim \dfrac{n^3 \left( 1 - \dfrac{2}{n^2} + \dfrac{1}{n^3} \right)}{n^3 \left( \dfrac{4}{n^2} - 5 \right)} = \lim \dfrac{1 - \dfrac{2}{n^2} + \dfrac{1}{n^3}}{\dfrac{4}{n^2} - 5} = -\dfrac{1}{5}$.
+  }
+\end{ex}
+
+
+\begin{ex}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1D4B1-5]%[Cao Thành Thái]
+ Tính tổng của cấp số nhân lùi vô hạn có số hạng đầu bằng $2$ và công bội bằng $\dfrac{1}{3}$.
+ \choice
+  {$2$}
+  {\True $3$}
+  {$+\infty$}
+  {$\dfrac{1}{100}$}
+ \loigiai
+  {
+  Gọi $(u_n)$ là cấp số nhân với công bội $q = \dfrac{1}{3}$.\\
+  Ta có $u_1 = 2$. Như vậy $u_n = u_1q^{n-1} = \dfrac{2}{3^{n-1}}$.\\
+  Tổng của $n$ số hạng đầu của cấp số nhân là $S_n = u_1\dfrac{1-q^n}{1-q} = 2\dfrac{1 - \left(\dfrac{1}{3}\right)^n}{1 - \dfrac{1}{3}} = 3\left[1 - \left(\dfrac{1}{3}\right)^n\right]$.\\
+  Khi đó tổng của cấp số nhân lùi vô hạn đã cho là
+  $$S = \lim S_n = \lim 3\left[1 - \left(\dfrac{1}{3}\right)^n\right] = 3.$$
+  }
+\end{ex}
+
+
+\begin{ex}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1D4B2-3]%[Cao Thành Thái]
+ Với giá trị nào của tham số $m$ thì $\lim\limits_{x \to 2}\dfrac{x^2-3x+m}{x-2} = 1$?
+ \choice
+  {$m=-1$}
+  {\True $m=2$}
+  {$m=-4$}
+  {Không có $m$ thỏa mãn}
+ \loigiai
+  {
+  Vì giới hạn đã cho là hữu hạn nên $x^2 - 3x + m$ phải có nhân tử $x-2$ hay phương trình $x^2 - 3x + m = 0$ có một nghiệm $x = 2$. Suy ra $m = 2$.\\
+  Thử lại ta nhận $m = 2$.
+  }
+\end{ex}
+
+
+\begin{ex}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1D4B2-6]%[Cao Thành Thái]
+ Trong các giới hạn sau, giới hạn nào là $-\infty$?
+ \choice
+  {\True $\lim\limits_{x\to +\infty}\left(-\sqrt{x^2-3x}-x\right)$}
+  {$\lim\limits_{x\to -\infty}\left(\sqrt{x^2-3x}-x\right)$}
+  {$\lim\limits_{x\to +\infty}\left(\sqrt{x^2-3x}-x\right)$}
+  {$\lim\limits_{x\to -\infty}\left(x+\sqrt{x^2-3x}\right)$}
+ \loigiai
+  {
+  Ta có $\lim\limits_{x\to +\infty}\left(-\sqrt{x^2-3x}-x\right) = \lim\limits_{x \to +\infty}\left(-x\sqrt{1 - \dfrac{3}{x}}-x \right) = \lim\limits_{x \to +\infty}\left[x\left(-\sqrt{1 - \dfrac{3}{x}} - 1\right) \right]$.\\
+  Lại có $\lim\limits_{x \to +\infty}x = +\infty$ và $\lim\limits_{x \to +\infty}\left(-\sqrt{1 - \dfrac{3}{x}} - 1\right) = -2$.\\
+  Vậy $\lim\limits_{x\to +\infty}\left(-\sqrt{x^2-3x}-x\right) = -\infty$.
+  }
+\end{ex}
+
+
+\begin{ex}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1D5B3-1]%[Cao Thành Thái]
+ Tìm đạo hàm $y'$ của hàm số $y=\cos^2 2x$.
+ \choice
+  {\True $y' = -2\sin 4x$}
+  {$y' = \sin4x$}
+  {$y' = \sin^2 2x$}
+  {$y' = -\sin4x$}
+ \loigiai
+  {
+  Hàm số $y = \cos^2 2x$ có đạo hàm là
+  \begin{align*}
+   y' = 2\cos2x(\cos2x)' = -2(2x)'\cos2x\sin2x = -4\sin2x\cos2x=-2\sin4x.
+  \end{align*}
+  }
+\end{ex}
+
+
+\begin{ex}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1D5K5-2]%[Cao Thành Thái]
+ Cho hàm số $y = \sqrt{2x - x^2}$ có đạo hàm cấp hai. Mệnh đề nào sau đây đúng?
+ \choice
+  {\True $y^3y''+1=0$}
+  {$y'=\dfrac{1}{2\sqrt{2x-x^2}}$}
+  {$y^2y''+y'=1$}
+  {$y^2+y'-y''=1$}
+ \loigiai
+  {
+  Với điều kiện $0<x<2$ ta có
+  \begin{align*}
+   &&y'=& \dfrac{(2x-x^2)'}{2\sqrt{2x-x^2}} = \dfrac{2-2x}{2\sqrt{2x-x^2}} = \dfrac{1-x}{\sqrt{2x-x^2}}.\\
+   &&y''=& \dfrac{(1-x)'\sqrt{2x-x^2} - (1-x)\left(\sqrt{2x-x^2}\right)'}{2x-x^2}=\dfrac{-\sqrt{2x-x^2}-(1-x)\dfrac{1-x}{\sqrt{2x-x^2}}}{2x-x^2}\\
+   &&=& \dfrac{-1}{(2x-x^2)\sqrt{2x-x^2}}\cdot
+  \end{align*}
+  Do đó
+  \begin{align*}
+   y^3y''+1 = \left(\sqrt{2x-x^2}\right)^3\dfrac{(-1)}{(2x-x^2)\sqrt{2x-x^2}}+1 = -1 + 1 = 0.
+  \end{align*}
+  }
+\end{ex}
+
+
+\begin{ex}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1D5K2-3]%[Cao Thành Thái]
+ Cho hàm số $y=\dfrac{x-3}{x+2}$. Biết tiếp tuyến đồ thị hàm số vuông góc với đường thẳng $y=-\dfrac{1}{5}x+2017$. Tìm tất cả các hoành độ tiếp điểm $x_0$.
+ \choice
+  {$x_0=-1$}
+  {$x_0=-1$; $x_0=2$}
+  {\True $x_0=-1$; $x_0=-3$}
+  {$x_0=3$}
+ \loigiai
+  {
+  Tập xác định của hàm số $\mathscr{D} = \mathbb{R}\setminus\{-2\}$.\\
+  Ta có $y' = \dfrac{5}{(x+2)^2}$.\\
+  Gọi $x_0$ là hoành độ tiếp điểm.\\
+  Vì tiếp tuyến của đồ thị hàm số vuông góc với đường thẳng $y=-\dfrac{1}{5}x+2017$ nên
+  \begin{align*}
+   \dfrac{5}{(x_0+2)^2} = 5 \Leftrightarrow\heva{& x_0+2 \neq 0 \\& (x_0+2)^2 = 1} \Leftrightarrow \heva{& x_0 \neq -2 \\& \hoac{& x_0=-1 \\& x_0=-3}} \Leftrightarrow \hoac{& x_0 = -1 \\& x_0 = -3.}
+  \end{align*}
+  }
+\end{ex}
+
+
+\begin{ex}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1H3K3-2]%[Cao Thành Thái]
+ Cho hình chóp $S.ABCD$ có đáy là hình vuông, $SA$ vuông góc với đáy. Gọi $H$ và $K$ lần lượt là hình chiếu của $A$ lên $SB$ và $SD$. Mệnh đề nào sau đây là \textbf{sai}?
+ \choice
+  {$SC \perp (AHK)$}
+  {\True $BC \perp (AHK)$}
+  {$\triangle SBC$ vuông}
+  {$AK \perp (SCD)$}
+ \loigiai
+  {
+  \immini
+  {
+  Ta có
+  \begin{align*}
+   \begin{cases} BC \perp AB \\ BC \perp SA \end{cases} \Rightarrow BC \perp (SAB) \Rightarrow BC \perp SB.
+  \end{align*}
+  Nên tam giác $SBC$ vuông tại $B$.\\
+  Chứng minh tương tự ta cũng có $CD \perp (SAD)$. Suy ra $CD \perp AK$. Lại có $AK \perp SD$. Cho nên $AK \perp (SCD)$. Từ đó suy ra $AK \perp SC$.\\
+  Tương tự $AH \perp (SBC)$. Suy ra $AH \perp SC$.\\
+  Vậy $SC \perp (AHK)$.
+  }
+  {
+  \begin{tikzpicture}[scale=.6]
+	\tkzDefPoints{0/0/A, 8/0/D, 5/-3/C}
+	\coordinate (B) at ($(A)+(C)-(D)$);
+	\coordinate (S) at ($(A)+(0,6)$);
+	\tkzDefBarycentricPoint(S=2,B=3)\tkzGetPoint{H}
+	\tkzDefBarycentricPoint(S=2,D=3)\tkzGetPoint{K}
+	\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+	\tkzInterLL(S,O)(H,K)\tkzGetPoint{a}
+	\tkzInterLL(A,a)(S,C)\tkzGetPoint{I}
+	\tkzDrawPoints(A,B,C,D,S,H,K,I)
+	\tkzDrawPolygon(S,B,C)
+	\tkzDrawSegments(S,D C,D)
+	\tkzDrawSegments[dashed](S,A A,B A,D A,C A,H A,K H,K B,D A,I)
+	\tkzMarkRightAngles(A,H,B A,K,D)
+	\tkzLabelPoints[above](S,I)
+	\tkzLabelPoints[left](A,H)
+	\tkzLabelPoints[right](C,K)
+	\tkzLabelPoints[below](B,D)
+  \end{tikzpicture}
+  }
+  }
+\end{ex}
+
+
+\begin{ex}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1D5K2-1]%[Cao Thành Thái]
+ Tìm tất cả các giá trị thực của tham số $m$ để bất phương trình $f'(x)\leq 0$ có tập nghiệm là $\mathbb{R}$, biết $f(x) = -\dfrac{mx^3}{3}+\dfrac{mx^2}{2}-(3-m)x+2$.
+ \choice
+  {$m \in (0;+\infty)$}
+  {$m \in \left[\dfrac{12}{5};+\infty\right)$}
+  {$m \in [0;+\infty)$}
+  {\True $m \in \left[0;\dfrac{12}{5}\right]$}
+ \loigiai
+  {
+  Ta có $f'(x) = -mx^2 + mx + m - 3$.\\
+  Với $f'(x) \leq 0$ ta được bất phương trình $-mx^2 + mx + m - 3 \leq 0$. \hfill $(*)$
+  \begin{itemize}
+   \item Khi $m = 0$, bất phương trình $(*)$ nghiệm đúng với mọi $x$ thuộc $\mathbb{R}$. Vậy $m = 0$ thỏa mãn yêu cầu bài toán.
+   \item Khi $m \neq 0$ thì bất phương trình $(*)$ là một bất phương trình trình bậc hai ẩn $x$. Do đó $(*)$ có tập nghiệm là $\mathbb{R}$ khi và chỉ khi
+   \begin{align*}
+    \heva{& -m<0 \\& m^2+4m(m-3)\leq 0}\Leftrightarrow \heva{& m>0 \\& 5m^2 - 12m \leq 0} \Leftrightarrow \heva{& m>0 \\& 0 \leq m \leq \dfrac{12}{5}} \Leftrightarrow 0<m \leq \dfrac{12}{5}.
+   \end{align*}
+  \end{itemize}
+  Kết hợp hai trường hợp ta được $m \in \left[0;\dfrac{12}{5}\right]$ là các giá trị thỏa mãn yêu cầu bài toán.
+  }
+\end{ex}
+
+
+
+\noindent\textbf{II. PHẦN TỰ LUẬN}
+
+\begin{bt}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1D4B1-3]%[1D4B2-5]%[Cao Thành Thái]
+ Tính các giới hạn sau:
+ \begin{multicols}{2}
+  \begin{enumerate}
+   \item $\lim \dfrac{6^{n+3}-2^{3n}}{5^{n-1}-4^n\cdot 2^{n+1}} \cdot$
+   \item $\lim\limits_{x\to 3^-}\dfrac{\sqrt{x^2-1}-x}{x-3} \cdot$
+  \end{enumerate}
+ \end{multicols}
+ \loigiai
+ {
+ \begin{enumerate}
+  \item $\lim \dfrac{6^{n+3}-2^{3n}}{5^{n-1}-4^n\cdot 2^{n+1}} = \lim \dfrac{216 \cdot 6^n - 8^n}{\dfrac{1}{5}\cdot 5^n - 2 \cdot 8^n} = \lim \dfrac{216\cdot \left( \dfrac{3}{4} \right)^n - 1}{\dfrac{1}{5}\cdot \left(\dfrac{5}{8}\right)^n - 2} = \dfrac{1}{2} \cdot$
+  \item Với $x < 3$ thì $x - 3 < 0$.\\
+  Mặt khác $\lim\limits_{x \to 3^-} \left( \sqrt{x^2 - 1} - x \right) = \sqrt{8} - 3 < 0$ và $\lim\limits_{x \to 3^-}(x - 3) = 0$.\\
+  Vậy $\lim\limits_{x\to 3^-}\dfrac{\sqrt{x^2-1}-x}{x-3} = +\infty$.
+ \end{enumerate}
+ }
+\end{bt}
+
+
+\begin{bt}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1D4K3-5]%[Cao Thành Thái]
+ Tìm tất cả các giá trị của tham số $m$ để hàm số $$y = f(x) = \begin{cases} \dfrac{\sqrt{x^2+3x}-2}{x-1} & \text{ khi } x>1 \\ \ \  mx+2 & \text{ khi } x\leq 1 \end{cases}$$
+ liên tục tại $x = 1$.
+ \loigiai
+ {
+ Tập xác định của hàm số là $\mathscr{D} = \mathbb{R}$.\\
+ Ta có
+ \allowdisplaybreaks
+ \begin{align*}
+  & \lim\limits_{x \to 1^-}f(x) = f(1) = m + 2. \\
+  & \lim\limits_{x \to 1^+}f(x) = \lim\limits_{x \to 1^+}\dfrac{\sqrt{x^2 + 3x} - 2}{x - 1} = \lim\limits_{x \to 1^+} \dfrac{x^2 + 3x - 4}{(x - 1)\left( \sqrt{x^2+3x}+2 \right)} = \lim\limits_{x \to 1^+}\dfrac{x+4}{\sqrt{x^2+3x}+2} = \dfrac{5}{4}\cdot
+ \end{align*}
+ Hàm số $y = f(x)$ liên tục tại điểm $x = 1$ khi
+ \begin{align*}
+  \lim\limits_{x \to 1^+}f(x) = \lim\limits_{x \to 1^-}f(x) = f(1) \Leftrightarrow m + 2 = \dfrac{5}{4} \Leftrightarrow m = -\dfrac{3}{4}\cdot
+ \end{align*}
+ Vậy $m = -\dfrac{3}{4}$ là giá trị thỏa mãn yêu cầu bài toán.
+ }
+\end{bt}
+
+
+\begin{bt}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1D5K2-3]%[Cao Thành Thái]
+ Viết phương trình tiếp tuyến với đồ thị hàm số $y = -x^3+3x^2-3x-2$ biết tiếp tuyến song song với đường thẳng $y = -3x-2$.
+ \loigiai
+ {
+ Ta có $y' = -3x^2 + 6x - 3$.\\
+ Gọi $x_0$ là hoành độ tiếp điểm.\\
+ Vì tiếp tuyến của đồ thị hàm số song song với đường thẳng $y = -3x-2$ nên
+ \begin{align*}
+  y'(x_0) = -3 \Leftrightarrow -3x_0^2 + 6x_0 - 3 = - 3 \Leftrightarrow -3x_0^2 + 6x_0 = 0 \Leftrightarrow \left[\begin{aligned}& x_0 = 0 \\& x_0 = 2. \end{aligned}\right.
+ \end{align*}
+ \begin{itemize}
+  \item Với $x_0 = 0$ thì $y_0 = -2$. Phương trình tiếp tuyến của đồ thị là $y = -3x-2$ (không thỏa mãn vì tiếp tuyến này trùng với đường thẳng đã cho).
+  \item Với $x_0 = 2$ thì $y_0 = -4$. Phương trình tiếp tuyến của đồ thị là $y = -3x+2$.
+ \end{itemize}
+ }
+\end{bt}
+
+
+\begin{bt}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1H3B4-2]%[1H3K3-3]%[1H3G5-4]%[Cao Thành Thái]
+ Cho hình chóp $S.ABCD$ có đáy là hình vuông cạnh $a$. Tam giác $SAB$ đều và tam giác $SCD$ vuông cân tại $S$. Gọi $I$, $K$ lần lượt là trung điểm của $AB$ và $CD$.
+ \begin{enumerate}
+  \item Chứng minh rằng $(SIK) \perp (ABCD)$.
+  \item Tính góc giữa $SD$ và mặt phẳng đáy $(ABCD)$.
+  \item Tính khoảng cách giữa $IK$ và $SA$.
+ \end{enumerate}
+ \loigiai
+ {
+ \begin{center}
+  \begin{tikzpicture}[scale=.8]
+	\tkzDefPoints{0/0/A, 8/0/D, 4/-3/C}
+	\coordinate (B) at ($(A)+(C)-(D)$);
+	\tkzDefMidPoint(A,B)\tkzGetPoint{I}
+	\tkzDefMidPoint(C,D)\tkzGetPoint{K}
+	\tkzDefBarycentricPoint(I=2,K=3)\tkzGetPoint{H}
+	\tkzDefShiftPoint[H](90:6){S}
+	\tkzDefLine[parallel=through H](C,D)\tkzGetPoint{h}
+	\tkzInterLL(H,h)(A,D)\tkzGetPoint{J}
+	\tkzDefBarycentricPoint(S=2,J=3)\tkzGetPoint{G}
+	\tkzDrawSegments[dashed](S,A A,B A,D I,K S,H S,I D,H S,J H,G H,J)
+	\tkzDrawPolygon(S,C,D)
+	\tkzDrawSegments(S,B B,C S,K)
+	\tkzDrawPoints(A,B,C,D,S,I,K,H,J,G)
+	\tkzMarkRightAngles(C,S,D S,H,K S,K,D S,I,A H,J,D S,G,H)
+	\tkzMarkSegments[mark=|](A,I B,I C,K D,K)
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoints[below](B,D,I,C,K,H)
+	\node at (4.7,-0.5) {$J$};
+	\node at (3.5,1.8) {$G$};
+  \end{tikzpicture}
+ \end{center}
+ \begin{enumerate}
+  \item Vì $SAB$ là tam giác đều và $I$ là trung điểm của $AB$ nên $SI \perp AB$ hay $SI \perp CD$.\\
+  Vì $SCD$ là tam giác vuông cân tại $S$ và $K$ là trung điểm của $CD$ nên $SK \perp CD$.\\
+  Cho nên $CD \perp (SIK)$.\\
+  Lại có $CD \subset (ABCD)$.
+  Vậy $(ABCD) \perp (SIK)$.
+  \item Trong tam giác $SIK$ kẻ đường cao $SH$ với $H \in IK$. Suy ra $SH \perp (ABCD)$. Cho nên $DH$ là hình chiếu vuông góc của $SD$ xuống mặt phẳng $(ABCD)$.\\
+  Vậy góc giữa $SD$ và $(ABCD)$ là góc giữa $SD$ và $DH$ chính bằng $\widehat{SDH}$.\\
+  Ta có $SI^2 + SK^2 = \left(\dfrac{a\sqrt{3}}{2}\right)^2 + \left(\dfrac{a}{2}\right)^2 = \dfrac{3a^2}{4} + \dfrac{a^2}{4} = a^2 = IK^2$. Nên tam giác $SIK$ vuông tại $S$. Khi đó
+  $$SH = \sqrt{\dfrac{SI^2 \cdot SK^2}{SI^2 + SK^2}} = \dfrac{a\sqrt{3}}{4}.$$
+  Trong tam giác vuông $SDH$ có
+  \begin{align*}
+   & \sin \widehat{SDH} = \dfrac{SH}{SD} = \dfrac{a\sqrt{3}}{4} : \dfrac{a\sqrt{2}}{2} = \dfrac{\sqrt{6}}{4}\cdot\\
+   \Rightarrow & \widehat{SDH} = \arcsin \dfrac{\sqrt{6}}{4}\cdot
+  \end{align*}
+  Vậy góc giữa $SD$ và mặt phẳng đáy $(ABCD)$ bằng $\arcsin \dfrac{\sqrt{6}}{4}\cdot$
+  \item Vì $IK \parallel AD$ nên $IK \parallel (SAD)$. Do đó $d(IK,SA) = d(IK,(SAD)) = d(H,(SAD))$.\\
+  Kẻ $HJ \perp AD$ tại $J$ và $HG \perp SJ$ tại $G$. Ta chứng minh $HG \perp (SAD)$. Thật vậy, ta có
+  \begin{align*}
+   \begin{cases} AD \perp HJ \\ AD \perp SH \end{cases} \Rightarrow AD \perp (SHJ) \Rightarrow AD \perp HG.
+  \end{align*}
+  Lại có $HG \perp SJ$. Cho nên $HG \perp (SAD)$.\\
+  Do đó $d(H,(SAD)) = HG = \sqrt{\dfrac{SH^2 \cdot HJ^2}{SH^2 + HJ^2}} = \dfrac{a\sqrt{21}}{14}\cdot$\\
+  Vậy $d(IK,SA) = \dfrac{a\sqrt{21}}{14}\cdot$
+ \end{enumerate}
+ }
+\end{bt}
+
+
+\begin{bt}%[Đề KSCL HK2 Toán 11 năm học 2016-2017, Chuyên Biên Hòa, Hà Nam]%[1D4G3-6]%[Cao Thành Thái]
+ Cho hàm số $y = f(x)$ xác định và liên tục trên đoạn $[a;b]$ và $f(a) \neq f(b)$. Hai số $c$, $d$ bất kì thỏa mãn $cd>0$. Chứng minh rằng tồn tại số $r$ thỏa mãn
+ $$cf(a) + df(b) - (c+d)f(r) = 0.$$
+ \loigiai
+ {
+ Đặt $g(x) = cf(a) + df(b) - (c+d)f(x)$.\\
+ Khi đó hàm số $g(x)$ xác định và liên tục trên đoạn $[a;b]$.\\
+ Ta có
+ \begin{align*}
+  			& g(a) = cf(a) + df(b) - (c+d)f(a) = d\left[f(b) - f(a)\right]. \\
+  \text{và }& g(b) = cf(a) + df(b) - (c+d)f(b) = c\left[f(a) - f(b)\right].
+ \end{align*}
+ Do đó
+ \begin{align*}
+  g(a)g(b) = -cd\left[f(a) - f(b) \right]^2 < 0.
+ \end{align*}
+ Cho nên tồn tại số $r \in (a;b)$ sao cho $g(r) = 0$ hay $cf(a) + df(b) - (c+d)f(r) = 0$.
+ }
+\end{bt}
+\Closesolutionfile{ans}
+\newpage
+\begin{center}
+	\textbf{ĐÁP ÁN}
+\end{center}
+\begin{multicols}{10}
+	\input{ans/ans1130} 
+\end{multicols}

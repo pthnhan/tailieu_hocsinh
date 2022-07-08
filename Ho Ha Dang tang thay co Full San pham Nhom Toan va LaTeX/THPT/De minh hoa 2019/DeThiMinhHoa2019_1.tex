@@ -1,0 +1,995 @@
+\documentclass[10pt,a4paper,twoside]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{mathrsfs} 
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{tkz-euclide}
+%\usetkzobj{all}
+\usepackage{tikz-3dplot}
+%\usetikzlibrary{arrows}
+\usetikzlibrary{shapes.geometric}
+
+\usepackage[tikz]{bclogo}
+\usetkzobj{all}
+\usepackage{tikz,tkz-tab,tkz-linknodes}
+\usetikzlibrary{snakes}
+\usepackage{tabvar}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+\pgfplotsset{compat=1.9}
+
+\usetikzlibrary{arrows,calc,intersections,angles}
+\usepackage[top=1.5cm, bottom=1.5cm, left=1cm, right=1.5cm] {geometry}
+%\usepackage[unicode, bookmarks=false]{hyperref}
+\usepackage[hidelinks,unicode]{hyperref}
+
+\usepackage{currfile}
+
+
+%\usepackage[dethi]{ex_test} 
+%\usepackage[loigiai]{ex_test}
+\usepackage[solcolor]{ex_test}
+\def\colorEX{\color{blue}}
+\renewcommand{\dapan}{\stepcounter{dapan}{\textbf{\color{blue}\Alph{dapan}.}}}
+%\renewtheorem{ex}{\color{violet}Câu}
+
+\usepackage{esvect}
+\def\vec{\vv}
+\def\overrightarrow{\vv}
+%Lệnh của gói mathrsfs
+%\DeclareSymbolFont{rsfs}{U}{rsfs}{m}{n}
+%\DeclareSymbolFontAlphabet{\mathscr}{rsfs}
+%Lệnh cung
+\DeclareSymbolFont{largesymbols}{OMX}{yhex}{m}{n}
+\DeclareMathAccent{\wideparen}{\mathord}{largesymbols}{"F3}
+%Lệnh song song
+%\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+%\DeclareMathSymbol{\varparallel}{\mathrel}{symbolsC}{9}
+%\DeclareMathSymbol{\parallel}{\mathrel}{symbolsC}{9}
+%Hệ hoặc, hệ và
+\newcommand{\hoac}[1]{ 
+	\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{
+	\left\{\begin{aligned}#1\end{aligned}\right.}
+\renewcommand{\baselinestretch}{1.4}
+\makeatletter
+\renewcommand{\labelenumi}{\alph{enumi})}
+\renewcommand \thesection {\@arabic\c@section}
+\newenvironment{name}[2]{\begin{bclogo}[logo =\bccrayon, noborder =false, marge =2, arrondi =0.2, couleur = red!20]
+		{\textcolor{blue}{\LaTeX\ hóa:  \textbf{#1}}}\vspace*{-3pt}%
+		\section{#2}
+\end{bclogo}}
+
+\begin{document}
+	\begin{name}
+		{Thầy Trịnh Văn Xuân - Trường THPT Chu Văn An - BP}
+		{Đề tham khảo THPTQG 2019}
+	\end{name}
+\Opensolutionfile{ans}[ans/ans-DeThiMinhHoa]
+%\dotlineans{5}{ex}
+\begin{ex}[Đề tham khảo 2019]%[2H1Y3-2]
+Thể tích khối lập phương cạnh $2a$ bằng
+\choice
+{\True $8a^3$}
+{$2a^3$}
+{$a^3$}
+{$6a^3$}
+\loigiai{
+Thể tích khối lập phương cạnh $2a$ là $V=(2a)^3=8a^3$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D1Y2-2]
+
+\immini{Cho hàm số $y=f(x)$ có bảng biến thiên như sau. Giá trị cực đại của hàm số bằng
+\choice
+{$1$.\hspace{.25\linewidth}}
+{$2$}
+{$0$}
+{\True $5$}
+}{\begin{tikzpicture}[scale=0.8]
+\tkzTabInit[nocadre=false,lgt=1,espcl=2.5]
+{$x$/.6,$y'$ /.6, $y$ /1.5}
+{$-\infty$ , $0$ , $2$ , $+\infty$}
+\tkzTabLine{ ,-, 0 ,+, 0 ,-, }
+\tkzTabVar{+/$+\infty$,-/$1$ ,+/$5$,-/$-\infty$}
+\end{tikzpicture}}
+
+\loigiai{
+Giá trị cực đại của hàm số bằng $5$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2H3Y1-1]
+Trong không gian $Oxyz$, Cho hai điểm $A(1;1;-1)$ và $B(2;3;2)$. Véctơ $\overrightarrow{AB}$ có tọa độ
+\choice
+{\True $(1;2;3)$}
+{$(-1;-2;3)$}
+{$(3;5;1)$}
+{$(3;4;1)$}
+\loigiai{
+$\overrightarrow{AB}=\left(2-1;3-1;2+1\right)=\left(1;2;3\right)$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D1B1-2]
+
+\immini{Cho hàm số $y=f(x)$ có đồ thị như hình vẽ bên. Hàm số đã cho đồng biến trên khoảng nào sau đây
+\choice
+{$(0;1)$.\hspace{.25\linewidth}}
+{$(-\infty;-1)$}
+{$(-1;1)$}
+{\True $(-1;0)$}
+}
+{\begin{tikzpicture}[>=latex,x=1cm,y=1cm,scale=0.6]
+\clip(-2.5,-2.5) rectangle (3.1,1.1);
+\draw[->,teal] (-2.5,0) -- (3,0) node[below]{\small $x$};
+\draw[->,teal] (0,-2.5) -- (0,1) node[left]{\small $y$};
+\draw [thin,densely dashed] (-1,0)|-(0,-2)-|(1,0);
+\draw[smooth,samples=100,domain=-2.1:3.1] plot(\x,{3/4*(\x)^4-7/4*(\x)^2-1});
+\draw [fill=white,draw=black] (0,0) circle (1pt)node[below left]{\footnotesize $O$}
+;
+\foreach \x in{-1,1}\draw(\x,0) circle (.5pt) node[shift={(90:5pt)}]{\scriptsize $\x$};
+\foreach \y in{-2,-1}\draw(0,\y) circle (.5pt) node[shift={(45:5pt)}]{\scriptsize $\y$};
+\end{tikzpicture}}
+
+\loigiai{
+Hàm số đồng biến trên các khoảng $(-1;0)$, $(1;+\infty)$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D2Y3-2]
+Với $a$ và $b$ là hai số thực dương tùy ý, $\log\left(ab^2\right)$ bằng
+\choice
+{$2\log a+\log b$}
+{\True $\log a+2\log b$}
+{$2\left(\log a+\log b\right)$}
+{$\log a+\frac12\log b$}
+\loigiai{
+$\log\left(ab^2\right)=\log a+\log b^2=\log a+2\log b$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D3B2-1]
+Cho $\displaystyle\int\limits_0^1 f(x)\mathrm{\,d}x=2$ và $\displaystyle\int\limits_0^1 g(x)\mathrm{\,d}x=5$, khi đó $\displaystyle\int\limits_0^1 \left[f(x)-2g(x)\right]\mathrm{\,d}x$ bằng
+\choice
+{$-3$}
+{$12$}
+{\True $-8$}
+{$1$}
+\loigiai{
+$\displaystyle\int\limits_0^1 \left[f(x)-2g(x)\right]\mathrm{\,d}x=\displaystyle\int\limits_0^1 f(x)\mathrm{\,d}x-2\displaystyle\int\limits_0^1 g(x)\mathrm{\,d}x=2-2.5=-8$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2H2B2-1]
+Thể tích khối cầu bán kính $a$ bằng
+\choice
+{\True $\frac{4\pi a^3}3$}
+{$4\pi a^3$}
+{$\frac{\pi a^3}3$}
+{$2\pi a^3$}
+\loigiai{
+Thể tích khối cầu bán kính $a$ là $V=\dfrac43\pi a^3=\dfrac{4\pi a^3}3$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D2B5-1]
+Tập nghiệm của phương trình $\log_2\left(x^2-x+2\right)=1$
+\choice
+{$\{0\}$}
+{\True $\{0;1\}$}
+{$\{-1;0\}$}
+{$\{1\}$}
+\loigiai{
+$\log_2\left(x^2-x+2\right)=1\iff x^2-x+2=2\iff x(x-1)=0\iff x=0 \text{ hay } x=1$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2H3B2-3]
+Trong không gian $Oxyz$, mặt phẳng $(Oxz)$ có phương trình là
+\choice
+{$z=0$}
+{$x+y+z=0$}
+{\True $y=0$}
+{$x=0$}
+\loigiai{
+mặt phẳng $(Oxz)$ có phương trình là $y=0$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D3B1-1]
+Họ nguyên hàm của hàm số $f(x)=\mathrm{e}^x+x$ là
+\choice
+{$\mathrm{e}^x+x^2+C$}
+{\True $\mathrm{e}^x+\dfrac12x^2+C$}
+{$\dfrac1{x+1}\mathrm{e}^x+\dfrac12x^2+C$}
+{$\mathrm{e}^x+1+C$}
+\loigiai{
+$\displaystyle\int\limits f(x)\mathrm{\,d}x=\displaystyle\int\limits \left(\mathrm{e}^x+x\right)\mathrm{\,d}x=\mathrm{e}^x+\frac12x^2+C$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2H3B3-3]
+Trong không gian $Oxyz$, đường thẳng $d:\dfrac{x-1}2=\dfrac{y-2}{-1}=\dfrac{z-3}2$ đi qua điểm nào dưới đây ?
+\choice
+{$Q(2;-1;2)$}
+{$M(-1;-2;-3)$}
+{\True $P(1;2;3)$}
+{$N(-2;1;-2)$}
+\loigiai{
+$\dfrac{1-1}2=\dfrac{2-2}{-1}=\dfrac{3-3}2$ nên $P(1;2;3)\in d$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[1D2Y2-1]
+Với $k$ và $n$ là hai số nguyên dương tùy ý thỏa mãn $k\le n$, mệnh đề nào dưới đây đúng ?
+\choice
+{\True $\mathrm{C}_n^k=\dfrac{n!}{k!(n-k)!}$}
+{$\mathrm{C}_n^k=\dfrac{n!}{k!}$}
+{$\mathrm{C}_n^k=\dfrac{n!}{(n-k)!}$}
+{$\mathrm{C}_n^k=\dfrac{k!(n-k)!}{n!}$}
+\loigiai{
+Số các tổ hợp chập $k$ của $n$ là $\mathrm{C}_n^k=\dfrac{n!}{k!(n-k)!}$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[1D3Y3-3]
+Cho cấp số cộng $\left(u_n\right)$ có số hạng đầu $u_1=2$ và công sai $d=5$ Giá trị của $u_4$ bằng
+\choice
+{$22$}
+{\True $17$}
+{$12$}
+{$250$}
+\loigiai{
+$u_4=u_1+3d=2+3.5=17$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D4Y1-2]
+
+\immini{Điểm nào trong hình vẽ bên là điểm biểu diễn số phức $z=-1+2i$
+\choice
+{$N$.\hspace{.25\linewidth}}
+{$P$}
+{$M$}
+{\True $Q$}
+}
+{\begin{tikzpicture}[scale=.6]
+\def\a{3}
+\draw[-stealth,very thin](-\a,0)--(\a,0)node[shift={(-115:5pt)}]{\scriptsize$x$};% Vẽ trục hoành
+\draw[-stealth,very thin](0,-\a+1.5)--(0,\a)node[shift={(-155:5pt)}]{\scriptsize$y$};%Vẽ trục tung
+\draw(0,.2)-|(.2,0);
+\foreach \x in{-2,-1,2}\draw(\x,0) circle (.5pt) node [shift={(-45:5pt)}]{\tiny$\x$};
+\foreach \y in{-1,1,2}\draw(0,\y) circle (.5pt) node [shift={(135:5pt)}]{\tiny$\y$};
+\coordinate (M) at (2,-1);\coordinate (N) at (2,1);\coordinate (P) at (-2,1);\coordinate (Q) at (-1,2);
+\draw[dashed](-2,0)|-(0,1)-|(2,0)|-(0,-1)(-1,0)|-(0,2);
+\foreach \p/\q in{P/135,Q/135,M/-45,N/45} \draw[fill=white] (\p) circle(1pt)node[shift={(\q:5pt)}]{\scriptsize$\p$};
+\end{tikzpicture}}
+
+\loigiai{
+số phức $z=-1+2i$ có phần thực $-1$, phần ảo $2$ nên có điểm biểu diễn tọa độ $(-1;2)$ chính là $Q$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D1B5-1]
+
+\immini{Đường cong trong hình vẽ bên là đồ thị của hàm số nào dưới đây ?
+	\choice
+	{$y=\dfrac{2x-1}{x-1}$.\hspace{.25\linewidth}}
+	{\True $y=\dfrac{x+1}{x-1}$}
+	{$y=x^4+x^2+1$}
+	{$y=x^3-3x-1$}
+}
+{\begin{tikzpicture}[line join=round, line cap=round,scale=.35]
+\def\xmin{-3}\def\xmax{5}\def\ymin{-3}\def\ymax{5}
+\draw[-stealth] (\xmin-0.2,0)--(\xmax+0.2,0) node[shift={(-90:5pt)}]{\footnotesize $x$};
+\draw[-stealth] (0,\ymin-0.2)--(0,\ymax+0.2) node[shift={(180:5pt)}]{\footnotesize $y$};
+\draw (0,0) node [shift={(-45:5pt)}]{\footnotesize $O$};
+\foreach \x in{1}\draw (\x,0) circle (.5pt) node [shift={(45:5pt)}]{\tiny $\x$};
+\foreach \y in{1}\draw (0,\y) circle (.5pt) node [shift={(-135:5pt)}]{\tiny $\y$};
+\clip (\xmin,\ymin) rectangle (\xmax,\ymax);
+\draw[dashed] (\xmin,1.0)--(\xmax,1.0);
+\draw[dashed] (1.0,\ymin)--(1.0,\ymax);
+\draw[smooth,samples=200,domain=\xmin:0.9] plot (\x,{((\x)+1)/((\x)+-1)});
+\draw[smooth,samples=200,domain=1.1:\xmax] plot (\x,{((\x)+1)/((\x)+-1)});
+\end{tikzpicture}}
+
+\loigiai{
+Đồ thị là của hàm số nhất biến có tiệm cân đứng $x=1$ và tiẹm cận ngang $y=1$ nên là hàm số $y=\dfrac{x+1}{x-1}$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D1B3-1]
+
+\immini{Cho hàm số $y=f(x)$ liên tục trên đoạn $[-1;3]$ và có đồ thị như hình vẽ bên. Gọi $M$ và $m$ là giá trị lớn nhất và nhỏ nhất của hàm số đã cho trên đoạn $[-1;3]$.
+Giá trị của $M-m$ bằng
+\choice
+{$0$.\hspace{.25\linewidth}}
+{$1$}
+{$4$}
+{\True $5$}
+}
+{\begin{tikzpicture}[>=stealth,x=1cm,y=1cm,scale=.45]
+\clip(-1.5,-2.5) rectangle (3.6,3.6);
+\draw[->,teal] (-1.5,0) -- (3.5,0) node[below]{\small $x$};
+\draw[->,teal] (0,-2.5) -- (0,3.5) node[left]{\small $y$};
+\draw [thin,densely dashed] (-1,0)|-(0,1)(3,0)|-(0,3)(2,0)|-(0,-2);
+\draw[smooth,samples=100,domain=-1:2] plot(\x,{2-(\x)^2});
+\draw[smooth,samples=100,domain=2:3] plot(\x,{(\x)^2-6});
+\draw [fill=white,draw=black] (0,0) circle (1pt)node[below left]{\footnotesize $O$}
+;
+\foreach \x in{-1,2,3}\draw(\x,0) circle (.5pt) node[shift={(135:5pt)}]{\scriptsize $\x$};
+\foreach \y in{-2,2,3}\draw(0,\y) circle (.5pt) node[shift={(135:5pt)}]{\scriptsize $\y$};
+\end{tikzpicture}}
+
+\loigiai{
+Dựa vào đồ thị hàm số ta được $M=3$, $m=-2$ nên $M-m=3+2=5$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D1B5-5]
+Cho hàm số $f(x)$ có đạo hàm $f'(x)=x(x-1)(x+2)^3,\forall x\in\mathbb{R}$. Số điểm cực trị của hàm số đã cho là
+\choice
+{\True $3$}
+{$2$}
+{$5$}
+{$1$}
+\loigiai{
+$f'(x)=x(x-1)(x+2)^3$ đổi dấu 3 lần khi $x$ qua $-2$, $0$, $1$ nên hàm số có 3 điểm cực trị.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D4B1-1]
+Tìm các số thực $a$ và $b$ thỏa mãn $2a+(b+i)i=1+2i$ với $i$ là đơn vị ảo.
+\choice
+{$a=0$, $b=2$}
+{$a=\frac12$, $b=1$}
+{$a=0$, $b=1$}
+{\True $a=1$, $b=2$}
+\loigiai{
+$2a+(b+i)i=1+2i\iff 2a-1+bi=1+2i\iff a=1, b=2$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2H3B1-3]
+Trong không gian $Oxyz$, cho hai điểm $I(1;1;1)$ và $A(1;2;3)$. Phương trình của mặt cầu có tâm $I$ và đi qua $A$ là
+\choice
+{$(x+1)^2+(y+1)^2+(z+1)^2=29$}
+{\True $(x-1)^2+(y-1)^2+(z-1)^2=5$}
+{$(x-1)^2+(y-1)^2+(z-1)^2=25$}
+{$(x+1)^2+(y+1)^2+(z+1)^2=5$}
+\loigiai{
+$IA^2=(1-1)^2+(2-1)^2+(3-1)^2=5$ nên phương trình của mặt cầu là $(x-1)^2+(y-1)^2+(z-1)^2=5$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D2B3-1]
+Đặt $\log_3 2=a$ khi đó $\log_{16}27$ bằng
+\choice
+{$\dfrac{3a}4$}
+{\True $\dfrac3{4a}$}
+{$\dfrac4{3a}$}
+{$\dfrac{4a}3$}
+\loigiai{
+$\log_{16}27=\log_{2^4}3^3=\dfrac34\log_2 3=\dfrac3{4\log_3 2}=\dfrac3{4a}$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D4B4-1]
+Kí hiệu $z_1$, $z_2$ là hai nghiệm phức của phương trình $z^2-3z+5=0$. Giá trị của $\left|z_1\right|+\left|z_2\right|$ bằng
+\choice
+{\True $2\sqrt5$}
+{$\sqrt5$}
+{$3$}
+{$10$}
+\loigiai{
+$z^2-3z+5=0\iff\left[\begin{array}{l}{z=\dfrac{3+\sqrt{11i}}{2}}\\{z=\dfrac{3-\sqrt{11i}}{2}}\end{array}\right.\Rightarrow\left|z_{1}\right|=\left|z_{2}\right|=\sqrt{5}\Rightarrow\left|z_{1}\right|+\left|z_{2}\right|=2\sqrt{5}$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2H3B2-6]
+Trong không gian $Oxyz$ khoảng cách giữa hai mặt phẳng $(P):x+2y+2z-10=0$ và $(Q):x+2y+2z-3=0$ bằng
+\choice
+{$\frac83$}
+{\True $\frac73$}
+{$3$}
+{$\frac43$}
+\loigiai{
+Dựa vào phương trình $(P)$, $(Q)$ có véctơ pháp tuyến là $\overrightarrow n=(1;2;2)$ nên $(P)\|(Q)$. $|\overrightarrow n|=\sqrt{1+2^2+2^2}=3$.\\
+$d(O,(P))=\dfrac{10}{3}$, $d(O,(Q))=\dfrac{3}{ 3}=1$ suy ra $d((P),(Q))=d(O,(P))-d(O,(Q))=\dfrac{7}{ 3}$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D2B6-1]
+Tập nghiệm của bất phương trình $3^{x^2-2x}<27$ là
+\choice
+{$(-\infty;-1)$}
+{$(3;+\infty)$}
+{\True $(-1;3)$}
+{$(-\infty;-1)\cup(3;+\infty)$}
+\loigiai{
+$3^{x^{2}-2x}<27\iff 3^{x^{2}-2x}<3^{3}\iff x^{2}-2x<3\iff x^{2}-2x-3<0\iff -1<x<3$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D3K3-1]
+
+\immini{Diện tích phần hình phẳng gạch chéo trong hình vẽ bên được tính theo công thức nào dưới đây ?
+\choice
+{$\displaystyle\int\limits_{-1}^2\left(2x^2-2x-4\right)\mathrm{\,d}x$}
+{$\displaystyle\int\limits_{-1}^2(-2x+2)\mathrm{\,d}x$}
+{$\displaystyle\int\limits_{-1}^2(2x-2)\mathrm{\,d}x$}
+{\True $\displaystyle\int\limits_{-1}^2\left(-2x^2+2x+4\right)\mathrm{\,d}x$}
+}
+{\begin{tikzpicture}[>=stealth,x=1cm,y=1cm,scale=.7]
+\draw[->] (-1.5,0) -- (3,0)node[below]{\footnotesize $x$};
+\draw (-1,0) circle (.5pt)node[below]{\tiny $-1$};
+\draw (2,0) circle (.5pt)node[above]{\tiny $2$};
+\draw[->,color=black] (0,-2.5) -- (0,3.5)node[below left]{\footnotesize $y$};
+\fill[pattern=north west lines] plot[smooth,samples=100,domain=-1:2] (\x,{(\x)^2-2*(\x)-1})--plot[smooth,samples=100,domain=2:-1] (\x,{-(\x)^2+3});
+\draw[green!50!black, thick,smooth,samples=100,domain=-1.5:2.2] plot(\x,{-(\x)^2+3});
+\draw[blue!50!black, thick,smooth,samples=100,domain=-1.2:3] plot(\x,{(\x)^2-2*(\x)-1});
+\draw[dashed] (2,0) -- (2,-1) (-1,0) -- (-1,2);
+\filldraw[fill=white] (0,0) circle (1pt)node[shift={(-45:6pt)}]{\footnotesize $O$};
+\draw (2,3) node[green!50!black]{\footnotesize $y=-x^2+3$};
+\draw (-1,-2) node[blue!50!black]{\footnotesize $y=x^2-2x-1$};
+\end{tikzpicture}}
+
+\loigiai{
+$S=\displaystyle\int\limits_{-1}^2\left[\left(-x^2+3\right)-\left(x^2-2x-1\right)\right]\mathrm{\,d}x=\displaystyle\int\limits_{-1}^2\left(-2x^2+2x+4\right)\mathrm{\,d}x$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2H2B1-1]
+Cho khối nón có độ dài đường sinh bằng $2a$ và bán kính đáy bằng $a$. Thể tích của khối nón đã cho bằng
+\choice
+{\True $\dfrac{\sqrt3\pi a^3}3$}
+{$\dfrac{\sqrt3\pi a^3}2$}
+{$\dfrac{2\pi a^3}3$}
+{$\dfrac{\pi a^3}3$}
+\loigiai{
+Chiều cao $h=\sqrt{(2a)^2-a^2}=a\sqrt3$. Thể tích $V=\dfrac13Bh=\dfrac13\pi a^2a\sqrt3=\dfrac{\sqrt3\pi a^3}3$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D1B4-1]
+
+\immini{Cho hàm số $y=f(x)$ có bảng biến thiên như sau. Tổng số tiệm cận ngang và tiệm cận đứng của đồ thị hàm số đã cho là
+\choice
+{$4$.\hspace{.25\linewidth}}
+{$1$}
+{\True $3$}
+{$2$}
+}
+{\begin{tikzpicture}[scale=0.8]
+\tikzset{double style/.append style ={draw=\tkzTabDefaultWritingColor,double=\tkzTabDefaultBackgroundColor,double distance=2pt}}
+\tikzset{h style/.style ={pattern=north west lines}}
+\tkzTabInit[nocadre=false,lgt=1,espcl=3.5]
+{$x$/.6,$ $/0,$f(x)$ /2}
+{$-\infty$,$1$,$+\infty$}
+\tkzTabLine{ , ,d, , }
+\tkzTabVar{-/$2$,+D-/$+\infty$/$3$,+/$5$ }
+\end{tikzpicture}}
+
+\loigiai{
+$\lim_{x\to-\infty}y=2\Rightarrow y=2$ là tiệm cận ngang\\
+$\lim_{x\to+\infty}y=5\Rightarrow y=5$ là tiệm cận ngang\\
+$\lim_{x\to1^+}y=+\infty\Rightarrow x=1$ là tiệm cận đứng\\
+Vậy tổng số tiệm cận ngang và tiệm cận đứng là $3$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2H1B3-2]
+Cho khối chóp tứ giác đều có tất cả các cạnh bằng $2a$. Thể tích của khối chóp đã cho bằng
+\choice
+{\True $\dfrac{4\sqrt2a^3}3$}
+{$\dfrac{8a^3}3$}
+{$\dfrac{8\sqrt2a^3}3$}
+{$\dfrac{2\sqrt2a^3}3$}
+\loigiai{
+Diện tích đáy $S_{ABCD}=(2a)^2=4a^2$.\\
+Đường chéo đáy $AC=2\sqrt2a$ nên $AO=a\sqrt2$ do đó chiều cao $SO=\sqrt{SA^2-AO^2}=\sqrt{4a^2-2a^2}=a\sqrt2$.\\
+Vậy thể tích là $V=\dfrac13 S_{ABCD}.SO=\dfrac134a^2a\sqrt2=\dfrac{4\sqrt2a^3}3$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D2B4-2]
+Hàm số $f(x)=\log_2\left(x^2-2x\right)$ có đạo hàm
+\choice
+{$f'(x)=\dfrac{\ln2}{x^2-2x}$}
+{$f'(x)=\dfrac1{\left(x^2-2x\right)\ln2}$}
+{$f'(x)=\dfrac{(2x-2)\ln2}{x^2-2x}$}
+{\True $f'(x)=\dfrac{2x-2}{\left(x^2-2x\right)\ln2}$}
+\loigiai{
+$f'(x)=\left(\log_2\left(x^2-2x\right)\right)'=\dfrac{\left(x^2-2x\right)}{\left(x^2-2x\right)\ln2}=\dfrac{2x-2}{\left(x^2-2x\right)\ln2}$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D1B5-3]
+	\immini{
+	Cho hàm số $y=f(x)$ có bảng biến thiên như hình bên. Số nghiệm thực của phương trình $2f(x)+3=0$ là
+	\choice
+	{\True $4$}
+	{$3$}
+	{$2$}
+	{$1$}	
+	}{
+	\begin{tikzpicture}[scale=0.8]
+	\tkzTabInit[nocadre=false,lgt=1.2,espcl=2.5]
+	{$x$ /.6,$f'(x)$ /.6,$f(x)$ /1.5}
+	{$-\infty$,$-2$,$0$,$2$,$+\infty$}
+	\tkzTabLine{,-,$0$,+,$0$,-,$0$,+,}
+	\tkzTabVar{+/ $+\infty$ ,-/$-2$,+/$1$,-/$-2$,+/$+\infty$}
+	\end{tikzpicture}	
+	}
+
+\loigiai{
+$2f(x)+3=0\iff f(x)=-\dfrac{3}{2}$.\\
+Số nghiệm của phương trình là số giao điểm của đồ thị hàm số $y=f(x)$ và đường thẳng $y=-\dfrac{3}{2}$.\\
+Mà $-2<-\dfrac{3}{2}<1$ nên số nghiệm thực của phương trình $2f(x)+3=0$ là $4$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[1H3B4-6]
+Cho hình lập phương $ABCD.A'B'C'D'$. Góc giữa hai mặt phẳng $(A'B'CD)$ và $(ABC'D')$ bằng
+\choice
+{$30^\circ$}
+{$60^\circ$}
+{$45^\circ$}
+{\True $90^\circ$}
+\loigiai{
+Ta có $CD\perp\left(BCC'B'\right)\Rightarrow CD\perp BC'$, $\left\{\begin{array}{l}{BC'\perp CD}\\{BC'\perp B'C}\end{array}\right.\Rightarrow BC'\perp\left(A'B'CD\right)\Rightarrow\left(ABC'D'\right)\perp\left(A'B'CD\right)$\\
+Vậy góc giữa $(A'B'CD)$ và $(ABC'D')$ là $90^\circ$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D2B5-1]
+Tổng tất cả các nghiệm của phương trình $\log_3\left(7-3^x\right)=2-x$
+\choice
+{\True $2$}
+{$1$}
+{$7$}
+{$3$}
+\loigiai{
+$\log_3\left(7-3^x\right)=2-x\iff 7-3^x=3^{2-x}\iff 7-3^x=\frac9{3^x}\iff \left(3^x\right)^2-7.3^x+9=0\quad(*)$\\
+Phương trình $(*)$ có 2 nghiệm phân biệt thỏa $3^{x_1}+3^{x_2}=7; 3^{x_1}.3^{x_2}=9$ suy ra $3^{x_1+x_2}=3^2\iff x_1+x_2=2$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2H1K3-2]
+
+\immini{Một khối đồ chơi gồm hai khối trụ $(H_1)$, $(H_2)$ xếp chồng lên nhau, lần lượt có bán kính đáy và chiều cao tương ứng là $r_1$, $h_1$, $r_2$, $h_2$ thỏa mãn $r_2=\dfrac{1}{2}r_1$, $h_2=2h_1$ (tham khảo hình vẽ). Biết rằng thể tích của toàn bộ khối đồ chơi bằng $30 \text{cm}^3$, thể tích khối trụ $(H_1)$ bằng
+\choice
+{$24 \text{cm}^3$.\hspace{.25\linewidth}}
+{$15 \text{cm}^3$}
+{\True $20 \text{cm}^3$}
+{$10 \text{cm}^3$}
+}
+{\begin{tikzpicture}[scale=.8]
+\draw (1,3)arc(0:-180:1 and .5);\draw (1,3)arc(0:180:1 and .5);
+\draw (2,-1)arc(0:-180:2 and 1);\draw[dashed] (2,-1)arc(0:180:2 and 1);
+\draw (2,0)arc(0:-240:2 and 1);\draw[dashed] (2,0)arc(0:120:2 and 1);
+\draw (2,0)arc(0:60:2 and 1);
+\draw (1,0)arc(0:-180:1 and .5);\draw[dashed] (1,0)arc(0:180:1 and .5);
+\draw (1,0)--(1,3)(-1,0)--(-1,3)(2,0)--(2,-1)(-2,0)--(-2,-1);
+\end{tikzpicture}}
+
+\loigiai{
+Ta có $V_2=h_2\pi r_2^2=2h_1\pi\dfrac{1}{4}r_1^2=\dfrac{1}{2}h_1\pi r_1^2=\dfrac{1}{2}V_1$.
+Mà $V_1+\dfrac{1}{2}V_1=30$ nên $V_1=20$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D3B1-3]
+Họ nguyên hàm của hàm số $f(x)=4x\left(1+\ln x\right)$ là
+\choice
+{$2x^2\ln x+3x^2$}
+{$2x^2\ln x+x^2$}
+{$2x^2\ln x+3x^2+C$}
+{\True $2x^2\ln x+x^2+C$}
+\loigiai{
+$\displaystyle\int 4x\left(1+\ln x\right)\mathrm{\,d}x=\displaystyle\int \left(1+\ln x\right)\mathrm{\,d}(2x^2)=2x^2(1+\ln x)-\displaystyle\int 2x^2\frac1x\mathrm{\,d}x=2x^2(1+\ln x)-x^2+C=2x^2\ln x+x^2+C$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[1H3K5-3]
+Cho hình chóp $S.ABCD$ có đáy là hình thoi cạnh $a$, $\widehat{BAD}=60^\circ$, $SA=a$ và $SA$ vuông góc với mặt phẳng đáy. Khoảng cách từ $B$ đến mặt phẳng $(SCD)$ bằng
+\choice
+{\True $\dfrac{\sqrt{21}a}7$}
+{$\dfrac{\sqrt{15}a}7$}
+{$\dfrac{\sqrt{21}a}3$}
+{$\dfrac{\sqrt{15}a}3$}
+\loigiai{
+Diện tích hình thoi $S=\dfrac{a^2\sqrt3}{2}$. Thể tích hình chóp $S.ABCD$: $V=\dfrac{a^3\sqrt3}{6}$.\\
+Ta có $SD=a\sqrt{2}$, $AC=a\sqrt{3}$, $SC=2a$. Nửa chu vi $\Delta SCD$ là ${p_{\Delta SCD}}=\dfrac{3a+a\sqrt2}{2}$.\\
+$S_{\Delta SCD}=\sqrt{p\left( p-a \right)\left( p-2a \right)\left( p-a\sqrt{2} \right)}=\dfrac{a^2\sqrt7}{4}$. \quad $d\left(B,\,\left(SCD\right)\right)=\dfrac{3V_{S.BCD}}{S_{\Delta SCD}}=\dfrac{3.\frac{1}{2}.\dfrac{a^3\sqrt3}6}{\dfrac{a^2\sqrt7}4}=\dfrac{a\sqrt{21}}7$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2H3K3-7]
+Trong không gian $Oxyz$, cho mặt phẳng $(P):x+y+z-3=0$ và đường thẳng $d:\dfrac{x}1=\dfrac{y+1}2=\dfrac{z-2}{-1}$. Hình chiếu vuông góc của $d$ trên $(P)$ có phương trình là
+\choice
+{$\dfrac{x+1}{-1}=\dfrac{y+1}{-4}=\dfrac{z+1}5$}
+{$\dfrac{x-1}3=\dfrac{y-1}{-2}=\dfrac{z-1}{-1}$}
+{\True $\dfrac{x-1}1=\dfrac{y-1}4=\dfrac{z-1}{-5}$}
+{$\dfrac{x-1}1=\dfrac{y-4}1=\dfrac{z+5}1$}
+\loigiai{
+	Gọi $A$ là giao điểm của $(P)$ và $d$ ta có tọa độ $A$ là nghiệm $\begin{cases}x+y+z-3=0\\ \dfrac{x}1=\dfrac{y+1}2=\dfrac{z-2}{-1} \end{cases}\iff A(1;1;1)$\\
+	$d$ có véctơ chỉ phương $\overrightarrow u=(1;2;-1)$, $(P)$ có véctơ pháp tuyến $\overrightarrow n=(1;1;1)$ nên mặt phẳng $(Q)$ qua $d$ vuông góc $(P)$ có véctơ pháp tuyến là $\left[\overrightarrow u,\overrightarrow n\right]=(3;-2;-1)=\overrightarrow m$\\
+	Hình chiếu vuông góc của $d$ trên $(P)$ là giao tuyến $\Delta$ của $(P)$ và $(Q)$, nên $\Delta$ qua $A$ và có véctơ chỉ phương là $\left[\overrightarrow n,\overrightarrow m\right]=(1;4;-5)$. Phương trình $\Delta$ là $\dfrac{x-1}1=\dfrac{y-1}4=\dfrac{z-1}{-5}$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D1K1-3]
+Tập hợp tất cả các giá trị thực của tham số $m$ để hàm số $y=-x^3-6x^2+(4m-9)x+4$ nghịch biến trên khoảng $(-\infty;-1)$ là
+\choice
+{$\bigg(-\infty;0\bigg]$}
+{$\left[-\dfrac{3}{4};+\infty\right)$}
+{\True $\left(-\infty;-\dfrac{3}{4}\right]$}
+{$\bigg[0;+\infty\bigg)$}
+\loigiai{
+	Theo đề $y'=-3x^2-12x+4m-9\le 0,~\forall x\in \left( -\infty ;\,-1 \right)\iff 4m\le 3{x^2}+12x+9,~\forall x\in \left( -\infty ;\,-1 \right)$\\
+	Đặt $g\left( x \right)=3{x^2}+12x+9\Rightarrow g'\left( x \right)=6x+12$, $\min_{(-\infty;-1]}g(x)=g(-2)=-3$.
+	Vậy $4m\le -3\iff m\le -\dfrac{3}{4}$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D4K1-1]
+Xét các số phức $z$ thỏa mãn $(z+2i)(\overline{z}+2)$ là số thuần ảo. Biết rằng tập hợp tất cả các điểm biểu diễn của $z$ là một đường tròn, tâm của đường tròn đó có tọa độ là
+\choice
+{$(1;-1)$}
+{$(1;1)$}
+{$(-1;1)$}
+{\True $(-1;-1)$}
+\loigiai{
+Giả sử $z=a+bi,(a,b\in\mathbb{R})$, ta được $(z+2i)(\overline{z}+2)=[a+(b+2)i][(a+2)-bi]=[a(a+2)+b(b+2)]+[(a+2)(b+2)-ab]i$\\ $(z+2i)(\overline{z}+2)$ là số thuần ảo $\iff a(a+2)+b(b+2)=0\iff (a+1)^2+(b+1)^2=2$ nên tập hợp tất cả các điểm biểu diễn của $z$ là một đường tròn phương trình $(x+1)^2+(y+1)^2=2$ có tâm $I(-1;-1)$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D3K2-1]
+Cho $\displaystyle\int\limits_0^1\dfrac{x\mathrm{\,d}x}{(x+2)^2}=a+b\ln2+c\ln3$ với $a$, $b$, $c$ là các số hữu tỷ. Giá trị của $3a+b+c$ bằng
+\choice
+{$-2$}
+{\True $-1$}
+{$2$}
+{$1$}
+\loigiai{
+	$\displaystyle\int\limits_0^1\dfrac{x\mathrm{\,d}x}{(x+2)^2}=\displaystyle\int\limits_0^1\dfrac{x+2-2}{(x+2)^2}\mathrm{\,d}x=\displaystyle\int\limits_0^1\dfrac{x+2}{(x+2)^2}\mathrm{\,d}x-\displaystyle\int\limits_0^1\dfrac2{(x+2)^2}\mathrm{\,d}x=\displaystyle\int\limits_0^1\dfrac1{x+2}\mathrm{\,d}x-\displaystyle\int\limits_0^1\dfrac2{(x+2)^2}\mathrm{\,d}x=$ \\$=\ln\left|x+2\right|\Bigg|_0^1+\dfrac2{x+2}\Bigg|_0^1=\ln3-\ln2-\dfrac13$ . Nên $a=-\dfrac13$, $b=-1$, $c=1$. Suy ra $3a+b+c=-1$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D2K6-1]
+	\immini{
+		Cho hàm số $y=f(x)$. Hàm số $y=f'(x)$ có bảng biến thiên như hình bên. Bất phương trình $f(x)<\mathrm{e}^x+m$ đúng với mọi $x\in(-1;1)$ khi và chỉ khi
+		\choice
+		{$m\ge f(1)-\mathrm{e}$}
+		{$m> f(-1)-\dfrac1{\mathrm{e}}$}
+		{\True $m\ge f(-1)-\dfrac1{\mathrm{e}}$}
+		{$m> f(1)-\mathrm{e}$}
+	}{
+	\begin{tikzpicture}[scale=0.8]
+	\tkzTabInit[nocadre=false,lgt=1.2,espcl=2.5]
+	{$x$/.6,$f'(x)$ /1.5}
+	{$-\infty$ , $-3$ , $1$ , $+\infty$}
+	\tkzTabVar{+/$+\infty$,-/$-3$ ,+/$0$,-/$-\infty$}
+	\end{tikzpicture}	
+	}
+
+\loigiai{
+$f\left( x \right)<\mathrm{e}^x+m\iff f\left( x \right)-\mathrm{e}^x<m$. Xét $h\left( x \right)=f\left( x \right)-\mathrm{e}^x,x\in \left( -1;1 \right)$.\\
+$h'\left( x \right)=f'\left( x \right)-\mathrm{e}^x<0,\forall x\in \left( -1;1 \right)$ (Vì $f'\left( x \right)<0,\forall x\in \left( -1;1 \right)$ và $\mathrm{e}^x>0,\forall x\in \left( -1;1 \right)$).\\
+$\Rightarrow h\left( x \right)$ nghịch biến trên $\left( -1;1 \right)$ $\Rightarrow h\left( -1 \right)>h\left( x \right)>h\left( 1 \right),\forall x\in \left( -1;1 \right)$.\\
+Để bất phương trình $f\left( x \right)<\mathrm{e}^x+m$ đúng với mọi $x\in \left( -1;1 \right)\iff m\ge h\left( -1 \right)\iff m\ge f\left( -1 \right)-\frac1{\mathrm{e}}$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[1D2K5-2]
+Có hai dãy ghế đối diện nhau, mỗi dãy có ba ghế. Xếp ngẫu nhiên 6 học sinh, gồm 3 nam và 3 nữ, ngồi vào hai dãy ghế đó sao cho mỗi ghế có đúng một học sinh ngồi. Xác suất để mỗi học sinh nam đều ngồi đối diện với một học sinh nữ bằng
+\choice
+{\True $\dfrac25$}
+{$\dfrac1{20}$}
+{$\dfrac35$}
+{$\dfrac1{10}$}
+\loigiai{
+Số phần tử không gian mẫu là $6!$\\
+Xếp HS nam thứ nhất có 6 cách, HS nam thứ nhì có 4 cách, HS nam thứ ba có 2 cách.\\
+Xếp 3 HS nữ vào 3 ghế còn lại có $3!$ cách\\
+Vậy xác suất là $\dfrac{6.4.2.3!}{6!}=\dfrac{288}{720}=\dfrac25$
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2H3K2-8]
+Trong không gian $Oxyz$, cho hai điểm $A(2;-2;4)$, $B(-3;3;-1)$ và mặt phẳng $(P):2x-y+2z-8=0$. Xét $M$ là điểm thay đổi thuộc $(P)$, giá trị nhỏ nhất của $2MA^2+3MB^2$ bằng
+\choice
+{\True $135$}
+{$105$}
+{$108$}
+{$145$}
+\loigiai{
+Gọi $I$ là điểm thỏa mãn $2\overrightarrow{IA}+3\overrightarrow{IB}=\overrightarrow{0}$\\
+$\Rightarrow \left\{ \begin{aligned}
+& 2\left( x_I-2 \right)+3\left( x_I+3 \right)=0 \\
+& 2\left( y_I+2 \right)+3\left( y_I-3 \right)=0 \\
+& 2\left( z_I-4 \right)+3\left( z_I+1 \right)=0 \\
+\end{aligned} \right.\Leftrightarrow \left\{ \begin{aligned}
+& 5x_1+5=0 \\
+& 5y_1-5=0 \\
+& 5z_1-5=0 \\
+\end{aligned} \right.\Leftrightarrow \left\{ \begin{aligned}
+& x_1=-1 \\
+& y_1=1 \\
+& z_1=1 \\
+\end{aligned} \right.$. Vậy $I\left( -1;1;1 \right)$ cố định.\\
+Khi đó $2MA^2+3MB^2=2\overrightarrow{MA}^2+3\overrightarrow{MB}^2=2\left( \overrightarrow{MI}+\overrightarrow{IA} \right)^2+3\left( \overrightarrow{MI}+\overrightarrow{IB} \right)^2=$\\
+$=5\overrightarrow{MI}^2+2\overrightarrow{MI}\left( 2\overrightarrow{IA}+3\overrightarrow{IB} \right)+2\overrightarrow{IA}^2+3\overrightarrow{IB}^2=5MI^2+2IA^2+3IB^2$.\\
+Vậy $2MA^2+3MB^2$ nhỏ nhất thì $5MI^2+2IA^2+3IB^2$ nhỏ nhất hay $M$ là hình chiếu của điểm $I$ trên mặt phẳng $\left( P \right)$\\ $\Rightarrow \overrightarrow{IM}=k\overrightarrow{n_{\left( P \right)}}\Rightarrow \left\{ \begin{aligned}
+& x_M=2k-1 \\
+& y_M=-k+1 \\
+& z_M=2k+1 \\
+\end{aligned} \right.$.
+Mà $M\in \left( P \right)\Rightarrow 2\left( 2k-1 \right)-\left( -k+1 \right)+2\left( 2k+1 \right)-8=0\Leftrightarrow 9k-9=0\Leftrightarrow k=1\Rightarrow M\left( 1;0;3 \right)$.\\
+Vậy giá trị nhỏ nhất của $2MA^2+3MB^2=5MI^2+2IA^2+3IB^2=135$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D4K1-1]
+Có bao nhiêu số phức $z$ thỏa mãn $|z|^2=2|z+\overline{z}|+4$ và $|z-1-i|=|z-3+3i|$ ?
+\choice
+{$4$}
+{\True $3$}
+{$1$}
+{$2$}
+\loigiai{
+Gọi $z=x+yi$ $\left( x;y\in \mathbb{R} \right)$.\\
+${{\left| z \right|}^2}=2\left| z+\overline{z} \right|+4\iff{x^2}+{y^2}=4\left| x \right|+4\iff \left[ \begin{aligned}
+&{x^2}+{y^2}-4x-4=0,\,x\ge 0\quad\left( 1 \right) \\
+&{x^2}+{y^2}+4x-4=0,\,x<0\quad\left( 2 \right) \\
+\end{aligned} \right.$.\\
+$\left| z-1-i \right|=\left| z-3+3i \right|\iff{{\left( x-1 \right)}^2}+{{\left( y-1 \right)}^2}={{\left( x-3 \right)}^2}+{{\left( y+3 \right)}^2}\iff 4x=8y+16\iff x=2y+4\quad\left( 3 \right)$.\\
++ Thay $\left( 3 \right)$ vào $\left( 1 \right)$ ta được:
+${{\left( 2y+4 \right)}^2}+{y^2}-4\left( 2y+4 \right)-4=0\iff 5{y^2}+8y-4=0\iff \left[ \begin{aligned}
+& y=\frac{2}{5}\Rightarrow x=\frac{24}{5}\left( \text{nhận} \right) \\
+& y=-2\Rightarrow x=0\left( \text{nhận} \right) \\
+\end{aligned} \right.$. \\
++ Thay $\left( 3 \right)$ vào $\left( 2 \right)$ ta được:
+${{\left( 2y+4 \right)}^2}+{y^2}+4\left( 2y+4 \right)-4=0\iff 5{y^2}+24y+28=0\iff \left[ \begin{aligned}
+& y=-2\Rightarrow x=0\left( \text{loại} \right) \\
+& y=-\frac{14}{5}\Rightarrow x=-\frac{8}{5}\left( \text{nhận} \right) \\
+\end{aligned} \right.$.\\
+Vậy có $3$ số phức thỏa điều kiện.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D1K5-3]
+
+\immini{Cho hàm số $y=f(x)$ liên tục trên $\mathbb R$ và có đồ thị như hình vẽ bên. Tập hợp tất cả các giá trị thực của tham số $m$ để phương trình $f(\sin x)=m$ có nghiệm thuộc khoảng $(0;\pi)$ là
+\choice
+{$[-1;3)$.\hspace{.25\linewidth}}
+{$(-1;1)$}
+{$(-1;3)$}
+{\True $[-1;1)$}
+}
+{\begin{tikzpicture}[>=stealth,x=1cm,y=1cm,scale=.6]
+\clip(-2.5,-1.5) rectangle (2.52,3.52);
+\draw[->,teal] (-2.5,0) -- (2.5,0) node[shift={(-135:6pt)}]{\small $x$};
+\draw[->,teal] (0,-1.5) -- (0,3.5) node[shift={(-135:6pt)}]{\small $y$};
+\draw[smooth,samples=100,domain=-2.2:2.2] plot(\x,{(\x)^3-3*(\x)+1});
+\draw [fill=white,draw=black] (0,0) circle (1pt)node[below left]{\footnotesize $O$};
+\draw[dashed](-1,0)|-(0,3)-|(2,0)(1,0)|-(0,-1);
+\foreach \x in{-1,1,2}\draw(\x,0) circle (.5pt) node[shift={(-135:5pt)}]{\scriptsize $\x$};
+\foreach \y in{-1,3}\draw(0,\y) circle (.5pt) node[shift={(-45:5pt)}]{\scriptsize $\y$};
+\end{tikzpicture}}
+
+\loigiai{
+Đặt $t=\sin x$. Với $x\in \left( 0;\pi \right)$ thì $t\in \left( 0;1 \right]$.\\
+Do đó phương trình $f\left( \sin x \right)=m$ có nghiệm thuộc khoảng $\left( 0;\pi \right)$ khi và chỉ khi phương trình $f\left( t \right)=m$ có nghiệm thuộc nửa khoảng $\left( 0;1 \right]$.\\
+Quan sát đồ thị ta suy ra điều kiện của tham số $m$ là $m\in \left[ -1;1 \right)$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D2G4-5]
+Ông A vay ngân hàng 100 triệu đồng với lãi suất 1 \%/tháng. Ông ta muốn hoàn nợ cho ngân hàng theo cách: Sau đúng một tháng kể từ ngày vay, ông bắt đầu hoàn nợ; hai lần hoàn nợ liên tiếp cách nhau đúng một tháng, số tiền hoàn nợ ở mỗi tháng là như nhau và ông A trả hết nợ sau đúng 5 năm kể từ ngày vay. Biết rằng mỗi tháng ngân hàng chỉ tính lãi trên số dư nợ thực tế của tháng đó. Hỏi số tiền mỗi tháng ông ta cần trả cho ngân hàng gần nhất với số tiền nào dưới đây ?
+\choice
+{\True $2{,}22$ triệu đồng}
+{$3{,}03$ triệu đồng}
+{$2{,}25$ triệu đồng}
+{$2{,}20$ triệu đồng}
+\loigiai{
+Gọi số tiền vay ban đầu là $M$, số tiền hoàn nợ mỗi tháng là $m$, lãi suất một tháng là $r$.\\
+Hết tháng thứ nhất, số tiền cả vốn lẫn lãi ông A nợ ngân hàng là $M+Mr=M\left( 1+r \right)$.\\
+Ngay sau đó ông A hoàn nợ số tiền $m$nên số tiền để tính lãi cho tháng thứ hai là $M\left( 1+r \right)-m$.\\
+Do đó hết tháng thứ hai, số tiền cả vốn lẫn lãi ông A nợ ngân hàng là
+$\left[ M\left( 1+r \right)-m \right]\left( 1+r \right)$$=M{{\left( 1+r \right)}^2}-m\left( 1+r \right)$.\\
+Ngay sau đó ông A lại hoàn nợ số tiền $m$ nên số tiền để tính lãi cho tháng thứ ba là
+$M{{\left( 1+r \right)}^2}-m\left( 1+r \right)-m$.\\
+Do đó hết tháng thứ ba, số tiền cả vốn lẫn lãi ông A nợ ngân hàng là
+$\left[ M{{\left( 1+r \right)}^2}-m\left( 1+r \right)-m \right]\left( 1+r \right)$$=M{{\left( 1+r \right)}^3}-m{{\left( 1+r \right)}^2}-m\left( 1+r \right)-m$.\\
+Cứ tiếp tục lập luận như vậy ta thấy sau tháng thứ $n$, $n\ge 2$, số tiền cả vốn lẫn lãi ông A nợ ngân hàng là
+$M{{\left( 1+r \right)}^n}-m{{\left( 1+r \right)}^{n-1}}-m{{\left( 1+r \right)}^{n-2}}-...-m\left( 1+r \right)-m$$=M{{\left( 1+r \right)}^n}-\dfrac{m\left[{{\left( 1+r \right)}^{n-1}}-1 \right]}{r}$.\\
+Sau tháng thứ $n$ trả hết nợ thì ta có
+$M{{\left( 1+r \right)}^n}-\dfrac{m\left[{{\left( 1+r \right)}^{n-1}}-1 \right]}{r}=0$$\Leftrightarrow m=\dfrac{M{{\left( 1+r \right)}^n}r}{{{\left( 1+r \right)}^n}-1}$.\\
+Thay số với $M=100.000.000$, $r=1\%$, $n=5\times 12=60$ ta được $m\approx 2,22$ (triệu đồng).
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2H3G3-7]
+Trong không gian $Oxyz$, cho điểm $E(2;1;3)$, mặt phẳng $(P):2x+2y-z-3=0$ và mặt cầu $(S):(x-3)^2+(y-2)^2+(z-5)^2=36$. Gọi $\Delta$ là đường thẳng đi qua $E$, nằm trong $(P)$ và cắt $(S)$ tại hai điểm có khoảng cách nhỏ nhất. Phương trình của $\Delta$ là
+\choice
+{$\left\{\begin{array}{l}{x=2+9t}\\{y=1+9t}\\{z=3+8t}\end{array}\right.$}
+{$\left\{\begin{array}{l}{x=2-5t}\\{y=1+3t}\\{z=3}\end{array}\right.$}
+{\True $\left\{\begin{array}{l}{x=2+t}\\{y=1-t}\\{z=3}\end{array}\right.$}
+{$\left\{\begin{array}{l}{x=2+4t}\\{y=1+3t}\\{z=3-3t}\end{array}\right.$}
+\loigiai{
+Mặt cầu $\left( S \right)$ có tâm $I\left( 3;2;5 \right)$ và bán kính $R=6$.
+$IE=\sqrt{{1^2}+{1^2}+{2^2}}=\sqrt{6}<R$$\Rightarrow$ điểm $E$ nằm trong mặt cầu $\left( S \right)$.\\
+Gọi $H$ là hình chiếu của $I$ trên mặt phẳng $\left( P \right)$, $A$ và $B$ là hai giao điểm của $\Delta$ với $\left( S \right)$.\\
+Khi đó, ${AB}$ nhỏ nhất $\Leftrightarrow AB\bot OE$, mà $AB\bot IH$ nên $AB\bot \left( HIE \right)$ $\Rightarrow AB\bot IE$.\\
+Suy ra: $\overrightarrow{{u_{\Delta }}}=\left[ \overrightarrow{{n_P}};\overrightarrow{EI} \right]=\left( 5;-5;0 \right)=5\left( 1;-1;0 \right)$.\\
+Vậy phương trình của $\Delta$ là $\left\{ \begin{aligned}
+& x=2+t \\
+& y=1-t \\
+& z=3 \\
+\end{aligned} \right.$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D3G3-2]
+
+\immini{Một biển quảng cáo có dạng hình elip với bốn đỉnh $A_1$, $A_2$, $B_1$, $B_2$ như hình vẽ bên. Biết chi phí để sơn phần tô đậm là $200.000$ đồng/m$^2$ và phần còn lại là $100.000$ đồng/m$^2$. Hỏi số tiền để sơn theo cách trên gần nhất với số tiền nào dưới đây, biết $A_1A_2=8$m, $B_1B_2=6$m và tứ giác $MNPQ$ là hình chữ nhật có $MQ=3$m ?
+\choice
+{\True $7.322.000$ đồng}
+{$7.213.000$ đồng}
+{$5.526.000$ đồng}
+{$5.782.000$ đồng}
+}
+{\begin{tikzpicture}[>=stealth,x=1cm,y=1cm,scale=1]
+\fill[pattern=north west lines] plot[smooth,samples=200,domain=-1.7:1.7] (\x,{3/4*sqrt(4-(\x)^2)})--plot[smooth,samples=200,domain=1.7:-1.7] (\x,{-3/4*sqrt(4-(\x)^2)});
+\draw[smooth,samples=200,domain=-2:2] plot(\x,{3/4*sqrt(4-(\x)^2)});
+\draw[smooth,samples=200,domain=-2:2] plot(\x,{-3/4*sqrt(4-(\x)^2)});
+\draw[dashed,blue] (30:2 and 1.5)coordinate (N) -- (150:2 and 1.5)coordinate (M) (-30:2 and 1.5)coordinate (P) -- (-150:2 and 1.5)coordinate (Q);
+\draw[blue](M)--(Q)(N)--(P);
+\coordinate (A_1) at (-2,0);\coordinate (A_2) at (2,0);\coordinate (B_1) at (0,-1.5);\coordinate (B_2) at (0,1.5);
+\foreach \p/\q in{M/150,N/30,P/-30,Q/-150,A_1/180,A_2/0,B_1/-90,B_2/90} \draw[blue,fill=white] (\p) circle(1pt)node[shift={(\q:5pt)}]{\color{black}\tiny$\p$};
+\end{tikzpicture}}
+
+\loigiai{
+Giả sử phương trình elip $\left( E \right):\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$.
+Theo giả thiết ta có $\left\{ \begin{aligned}
+&{A_1}{A_2}=8 \\
+&{B_1}{B_2}=6 \\
+\end{aligned} \right.\Leftrightarrow \left\{ \begin{aligned}
+& 2a=8 \\
+& 2b=6 \\
+\end{aligned} \right.\Leftrightarrow \left\{ \begin{aligned}
+& a=4 \\
+& a=3 \\
+\end{aligned} \right.$$\Rightarrow \left( E \right):\dfrac{x^2}{16}+\dfrac{y^2}{9}=1\Rightarrow y=\pm \dfrac{3}{4}\sqrt{16-{x^2}}$.\\
+Diện tích của elip $\left( E \right)$ là ${S_{\left( E \right)}}=\pi ab=12\pi$ $\left({m^2} \right)$.
+Ta có: $MQ=3$ $\Rightarrow \left\{ \begin{aligned}
+& M=d\cap \left( E \right) \\
+& N=d\cap \left( E \right) \\
+\end{aligned} \right.$ với $d:y=\dfrac{3}{2}$ $\Rightarrow M\left( -2\sqrt{3};\dfrac{3}{2} \right)$ và $N\left( 2\sqrt{3};\dfrac{3}{2} \right)$.\\
+Khi đó, diện tích phần không tô màu là $S=4\displaystyle\int\limits_{2\sqrt{3}}^4{\left( \dfrac{3}{4}\sqrt{16-{x^2}} \right)\text{d}x}=4\pi -6\sqrt{3}$$\left({m^2} \right)$.\\
+Diện tích phần tô màu là ${S}'={S_{\left( E \right)}}-S=8\pi +6\sqrt{3}$.\\
+Số tiền để sơn theo yêu cầu bài toán là
+$T=100.000\times \left( 4\pi -6\sqrt{3} \right)+200.000\times \left( 8\pi +6\sqrt{3} \right)\approx 7.322.000$ đồng.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2H1K3-2]
+Cho khối lăng trụ $ABC.A'B'C'$ có thể tích bằng 1. Gọi $M$, $N$ lần lượt là trung điểm của các đoạn thẳng $AA'$ và $BB'$. Đường thẳng $CM$ cắt đường thẳng $C'A'$ tại $P$, đường thẳng $CN$ cắt đường thẳng $C'B'$ tại $Q$. Thể tích của khối đa diện lồi $A'MPB'NQ$ bằng
+\choice
+{$1$}
+{$\dfrac13$}
+{$\dfrac12$}
+{\True $\dfrac23$}
+\loigiai{
+Gọi $I$ là trung điểm của $C{C}'$, $h$ là chiều cao của lăng trụ $ABC.{A}'{B}'{C}'$ \\
+Ta có ${V_{C.{C}'PQ}}=\dfrac{1}{3}.h.{S_{\Delta{C}'PQ}}=\dfrac{1}{3}.h.4{S_{\Delta{C}'{A}'{B}'}}=\dfrac{4}{3}{V_{ABC.{A}'{B}'{C}'}}=\dfrac{4}{3}$.\\
+${V_{MNI.{A}'{B}'{C}'}}=\dfrac{1}{2}{V_{ABC.{A}'{B}'{C}'}}=\dfrac{1}{2}$. \\
+${V_{C.MNI}}=\dfrac{1}{3}.\dfrac{h}{2}.{S_{MNI}}=\dfrac{1}{6}{V_{ABC.{A}'{B}'{C}'}}=\dfrac{1}{6}$.\\
+Suy ra ${V_{{A}'MP{B}'NQ}}={V_{C.{C}'PQ}}-\left({V_{MNI.{A}'{B}'{C}'}}+{V_{C.MNI}} \right)=\dfrac{2}{3}$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D1K1-2]
+Cho hàm số $f(x)$ có bảng xét dấu của đạo hàm như sau\\
+\centerline{\begin{tikzpicture}
+\tkzTabInit[nocadre=false,lgt=1.2,espcl=2.5] % tùy chọn
+{$x$/.7, $f'(x)$/.7} % cột đầu tiên
+{$-\infty$, $1$, $2$, $3$, $4$, $+\infty$} % hàng 1 cột 2
+\tkzTabLine{,-,0,+,0,+,0,-,0,+,} % hàng 2 cột 2
+\end{tikzpicture}}\\
+Hàm số $y=3f(x+2)-x^3+3x$ đồng biến trên khoảng nào dưới đây ?
+\choice
+{$(1;+\infty)$}
+{$(-\infty;-1)$}
+{\True $(-1;0)$}
+{$(0;2)$}
+\loigiai{
+Ta có ${y}'=3{f}'\left( x+2 \right)-3{x^2}+3$, ${y}'=0\Leftrightarrow{f}'\left( x+2 \right)-{x^2}+1=0\,\,\,\left( 1 \right)$ \\
+Đặt $t=x+2$, khi đó $\left( 1 \right)\Leftrightarrow{f}'\left( t \right)+\left( -{t^2}+4t-3 \right)=0$
+Để hàm số đồng biến thì ${y}'>0$ \\
+Ta chọn $t$ sao cho $\left\{ \begin{aligned}
+&{f}'\left( t \right)>0 \\
+& -{t^2}+4t-3>0 \\
+\end{aligned} \right.\Leftrightarrow \left\{ \begin{aligned}
+& 1<t<2\vee 2<t<3\vee t>4 \\
+& 1<t<3 \\
+\end{aligned} \right.\Leftrightarrow \left[ \begin{aligned}
+& 1<t<2 \\
+& 2<t<3 \\
+\end{aligned} \right.\Leftrightarrow \left[ \begin{aligned}
+& -1<x<0 \\
+& 0<x<1 \\
+\end{aligned} \right.$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D1G2-6]
+Gọi $S$ là tập hợp tất cả các giá trị của tham số $m$ để bất phương trình $m^2\left(x^4-1\right)+m\left(x^2-1\right)-\left(x-1\right)\ge0$ đúng với mọi $x\in\mathbb R$. Tổng giá trị của tất cả các phần tử thuộc $S$ bằng
+\choice
+{$-\dfrac32$}
+{$1$}
+{\True $-\dfrac12$}
+{$\dfrac12$}
+\loigiai{
+	Bất phương trình $m^2\left( x^4-1 \right)+m\left( x^2-1 \right)-6\left( x-1 \right)\ge 0\Leftrightarrow \left( x-1 \right)\left[ m^2\left( x^3+x^2+x+1 \right)+m\left( x+1 \right)-6 \right]\ge 0$ $\left( * \right)$\\
+	Ta thấy $x=1$ là một nghiệm của bất phương trình $\left( * \right)$, với mọi $m\in \mathbb{R}$.\\
+	Do đó, để bất phương trình $\left( * \right)$ nghiệm đúng với mọi $x\in \mathbb{R}$ thì ta phải có\\ $x=1$ là một nghiệm bội lẻ của $g\left( x \right)=m^2\left( x^3+x^2+x+1 \right)+m\left( x+1 \right)-6$.\\
+	Từ đó suy ra $\left\{ \begin{aligned}
+	& g\left( 1 \right)=0 \\
+	&{g}'\left( 1 \right)\ne 0 \\
+	\end{aligned} \right.\iff\left\{ \begin{aligned}
+	& 4{m^2}+2m-6=0 \\
+	& 6{m^2}+m\ne 0 \\
+	\end{aligned} \right.\iff m=1\vee m=-\dfrac{3}{2}$.\\
+	Thử lại ta thấy $m=1$ và $m=-\dfrac{3}{2}$ thỏa mãn yêu cầu bài toán. Vậy $S=\left\{ 1;-\dfrac{3}{2} \right\}$.
+}
+\end{ex}
+
+\begin{ex}[Đề tham khảo 2019]%[2D1G5-3]
+
+\immini{Cho hàm số $f(x)=mx^4+nx^3+px^2+qx+r$ $(m,n,p,q,r\in\mathbb R)$. Hàm số $y=f'(x)$ có đồ thị như hình vẽ bên. Tập nghiệm của phương trình $f(x)=r$ có số phần tử là
+\choice
+{$4$.\hspace{.25\linewidth}}
+{\True $3$}
+{$1$}
+{$2$}
+}
+{\begin{tikzpicture}[>=stealth,x=1cm,y=1cm,xscale=.6,yscale=.4]
+\clip(-1.5,-5.5) rectangle (3.52,3.52);
+\draw[->,teal] (-1.5,0) -- (3.5,0) node[shift={(-120:6pt)}]{\small $x$};
+\draw[->,teal] (0,-5.5) -- (0,3.5) node[shift={(-135:6pt)}]{\small $y$};
+\draw[smooth,samples=100,domain=-1.2:3.35] plot(\x,{-4/3*(\x)^3+13/3*(\x)^2+2/3*(\x)-5});
+\draw [fill=white,draw=black] (0,0) circle (1pt)node[shift={(-135:6pt)}]{\footnotesize $O$}
+;
+\foreach \x in{-1,3}\draw(\x,0) circle (.5pt) node[shift={(-135:6pt)}]{\scriptsize $\x$};
+\draw(5/4,0) circle (.5pt) node[shift={(-45:6pt)}]{\scriptsize $\tfrac54$};
+\end{tikzpicture}}
+
+\loigiai{
+Ta có $f'\left( x \right)=4mx^3+3nx^2+2px+q$ $\left( 1 \right)$ \\
+Dựa vào đồ thị $y=f'\left( x \right)$ ta thấy phương trình $f'\left( x \right)=0$ có ba nghiệm đơn là $-1$, $\dfrac54$, $3$.\\
+Do đó $f'\left( x \right)=m\left( x+1 \right)\left( 4x-5 \right)\left( x-3 \right)$ và $m\ne 0$. Hay $f'\left( x \right)=4mx^3-13mx^2-2mx+15m$ $\left( 2 \right)$.\\
+Từ $\left( 1 \right)$ và $\left( 2 \right)$ suy ra $n=-\dfrac{13}{3}m$, $p=-m$ và $q=15m$.\\
+Khi đó phương trình $f\left( x \right)=r\iff mx^4+nx^3+px^2+qx=0\iff m\left( x^4-\dfrac{13}{3}x^3-x^2+15x \right)=0$\\
+$\iff 3x^4-13x^3-3x^2+45x=0\iff x\left( 3x+5 \right)\left( x-3 \right)^2=0$\\
+Vậy tập nghiệm của phương trình $f\left( x \right)=r$ là $S=\left\{ -\dfrac{5}{3};0;3 \right\}$.
+}
+\end{ex}
+
+\Closesolutionfile{ans}
+%\newpage
+%\begin{center}
+%	\textbf{ĐÁP ÁN}
+%\end{center}
+%\begin{multicols}{10}
+%	\input{ans/ans-DeThiMinhHoa}
+%\end{multicols}
+
+
+\end{document}

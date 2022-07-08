@@ -1,0 +1,1260 @@
+\section{Nhị thức Newton}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Công thức nhị thức Newton}
+\begin{dn}
+Ta thừa nhận công thức khai triển biểu thức $\left(a+b\right)^n$ thành tổng các đơn thức như sau
+$$\left(a+b\right)^n = \mathrm{C}_n^0a^n+\mathrm{C}_n^1a^{n-1}b+\ldots+\mathrm{C}_n^ka^{n-k}b^k+\ldots+\mathrm{C}_n^{n-1}ab^{n-1}+\mathrm{C}_n^nb^n.\,\, (1)$$
+Công thức $(1)$ được gọi là \textbf{\textit{công thức nhị thức Newton.}}
+\end{dn}
+\begin{hq} \
+\begin{enumerate}
+    \item Với $a=b=1$, ta có $2^n=\mathrm{C}_n^0+\mathrm{C}_n^1+\ldots+\mathrm{C}_n^n$.
+    \item Với $a=1, b=-1$, ta có $0=\mathrm{C}_n^0-\mathrm{C}_n^1+\ldots+(-1)^k\mathrm{C}_n^k+\ldots+(-1)^n\mathrm{C}_n^n.$
+\end{enumerate}
+\end{hq}
+\begin{note}
+Trong biểu thức ở vế phải của công thức $(1)$:
+\begin{enumerate}
+\item Số các hạng tử là $n+1$.
+\item Các hạng tử có số mũ của $a$ giảm dần từ $n$ đến $0$, số mũ của $b$ tăng dần từ $0$ đến $n$, nhưng tổng các số mũ của $a$ và $b$ trong mỗi hạng tử luôn bằng $n$.
+\item Các hệ số của mỗi hạng tử cách đều hai hạng tử đầu và cuối thì bằng nhau.
+\item Số hạng tổng quát là \fbox{$T_{k+1}=\mathrm{C}_n^ka^{n-k}b^k$} (số hạng thứ $k+1$).
+\end{enumerate}
+\end{note}
+\subsubsection{Tam giác Pascal}
+Trong công thức nhị thức Newton, cho $n=0,1,\ldots$ và xếp các hệ số thành dòng, ta nhận được tam giác sau đây, gọi là \textbf{\textit{tam giác Pascal.}}
+\begin{center}
+    \begin{tabular}{llccccccccccccccc}
+       $n=0$&&&&&&&&&$\color{blue}\circled{1}$&&&&&&&\\
+       $n=1$&&&&&&&&$\color{red}\circled{1}$&&$\color{red}\circled{1}$&&&&&&\\
+       $n=2$&&&&&&&$\color{blue}\circled{1}$&&$\color{blue}\circled{2}$&&$\color{blue}\circled{1}$&&&&&\\
+       $n=3$&&&&&&$\color{red}\circled{1}$&&$\color{red}\circled{3}$&&$\color{red}\circled{3}$&&$\color{red}\circled{1}$&&&&\\
+       $n=4$&&&&&$\color{blue}\circled{1}$&&$\color{blue}\circled{4}\searrow$&&$\color{blue}\swarrow\circled{6}\searrow$&&$\color{blue}\swarrow\circled{4}$&&$\color{blue}\circled{1}$&&&\\
+       $n=5$&&&&$\color{red}\circled{1}$&&$\color{red}\circled{5}$&&$\color{red}\circled{10}$&&$\color{red}\circled{10}$&&$\color{red}\circled{5}$&&$\color{red}\circled{1}$&&\\
+       $n=6$&&&$\color{blue}\circled{1}$&&$\color{blue}\circled{6}$&&$\color{blue}\circled{15}$&&$\color{blue}\circled{20}$&&$\color{blue}\circled{15}$&&$\color{blue}\circled{6}$&&$\color{blue}\circled{1}$&\\
+       $n=7$&&$\color{red}\circled{1}$&&$\color{red}\circled{7}$&&$\color{red}\circled{21}$&&$\color{red}\circled{35}$&&$\color{red}\circled{35}$&&$\color{red}\circled{21}$&&$\color{red}\circled{7}$&&$\color{red}\circled{1}$\\
+    \end{tabular}
+\end{center}
+\begin{note}
+Từ công thức $\mathrm{C}_n^k=\mathrm{C}_{n-1}^{k-1}+\mathrm{C}_{n-1}^k$ suy ra cách tính các số ở mỗi dòng dựa vào các số ở dòng trước nó. Chẳng hạn $\mathrm{C}_5^2=\mathrm{C}_4^1+\mathrm{C}_4^2=4+6=10$.
+\end{note}
+\subsection{Các dạng toán}
+\begin{dang}{Khai triển nhị thức Newton.} %Dạng 1
+Áp dụng công thức nhị thức Newton để khai triển các biểu thức.
+\end{dang}
+\begin{vd}%[Hồ Sỹ Trường]%[1D2Y3]
+Khai triển biểu thức $\left(x+y\right)^6$.
+\loigiai{
+Theo công thức nhị thức Newton ta có
+\begin{align*}
+\left(x+y\right)^6&=\mathrm{C}_6^0x^6+\mathrm{C}_6^1x^5y+\mathrm{C}_6^2x^4y^2+\mathrm{C}_6^3x^3y^3+\mathrm{C}_6^4x^2y^4+\mathrm{C}_6^5xy^5+\mathrm{C}_6^6y^6\\
+&=x^6+6x^5y+15x^4y^2+20x^3y^3+15x^2y^4+6xy^5+y^6.
+\end{align*}
+}
+\end{vd}
+\begin{vd}%[Hồ Sỹ Trường]%[1D2Y3]
+Khai triển biểu thức $\left(2x-3\right)^4$.
+\loigiai{
+Theo công thức nhị thức Newton ta có
+\begin{align*}
+\left(2x-3\right)^4&=\mathrm{C}_4^0\left(2x\right)^4+\mathrm{C}_4^1\left(2x\right)^3\left(-3\right)+\mathrm{C}_4^2\left(2x\right)^2\left(-3\right)^2+\mathrm{C}_4^32x\left(-3\right)^3+\mathrm{C}_4^4\left(-3\right)^4\\
+&=16x^4-96x^3+216x^2-216x+81.
+\end{align*}
+}
+\end{vd}
+\begin{center}
+\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Hồ Sỹ Trường]%[1D2Y3]
+Khai triển biểu thức $\left(a+2b\right)^5$.
+\loigiai{
+Có $\left(a+2b\right)^5=a^5+10a^4b+40a^3b^2+80a^2b^3+80b^4+160a^5$.
+}
+\end{bt}
+\begin{bt}%[Hồ Sỹ Trường]%[1D2Y3]
+Khai triển biểu thức $\left(a-\sqrt{2}\right)^6$.
+\loigiai{
+$\left(a-\sqrt{2}\right)^6=a^6-6\sqrt{2}a^5+30a^4-40\sqrt{2}a^3+60a^2-24\sqrt{2}a+8$.
+}
+\end{bt}
+\begin{bt}%[Hồ Sỹ Trường]%[1D2Y3]
+    Khai triển biểu thức $\left(x-\dfrac{1}{x}\right)^{13}$.
+    \loigiai{
+      $\left(x-\dfrac{1}{x}\right)^{13}=x^{13}-13x^{11}+78x^9-\ldots - \dfrac{1}{x^{13}}$.
+    }
+\end{bt}
+
+\begin{dang}{Chứng minh các đẳng thức tổ hợp bằng cách sử dụng khai triển nhị thức Newton.} %Dạng 2
+    \begin{itemize}
+        \item \textbf{\textit{Phương pháp: }} Sử dụng biến đổi đại số và lựa chọn các giá trị thực phù hợp.
+        \item \textbf{\textit{Một số hệ thức thường gặp: }}
+        \begin{itemize}
+            \item[1.] $\mathrm{C}_n^0+\mathrm{C}_n^1+...+\mathrm{C}_n^k+...+\mathrm{C}_n^n=2^n$. 
+            \item[2.] $\mathrm{C}_n^0-\mathrm{C}_n^1+...+(-1)^k\mathrm{C}_n^k+...+(-1)^n\mathrm{C}_n^n=0$.
+            \item[3.] $\mathrm{C}_{2n}^0+\mathrm{C}_{2n}^2+\mathrm{C}_{2n}^4+..+\mathrm{C}_{2n}^{2n}=2^{2n-1}$.
+            \item[4.] $\mathrm{C}_{2n}^1+\mathrm{C}_{2n}^3+\mathrm{C}_{2n}^5+....+\mathrm{C}_{2n}^{2n-1}=2^{2n-1}$.
+        \end{itemize}
+        \item \textbf{\textit{Một số hướng tiếp cận: }}
+        \begin{itemize}
+            \item[1.] Thay thế.
+            \item[2.] Nhân thêm.
+            \item[3.] Gộp, tách tổng.
+            \item[4.] Đồng nhất thức.
+        \end{itemize}
+    \end{itemize}
+\end{dang}
+
+\begin{vd}
+    Với $n$ là số nguyên dương, chứng minh rằng: $1+4\mathrm{C}_n^1+4^2\mathrm{C}_n^2+...+4^n\mathrm{C}_n^n=5^n$.
+    \loigiai{
+        Áp dụng khai triển nhị thức ta có:\\ 
+        $VT=1+4\mathrm{C}_n^1+4^2\mathrm{C}_n^2+...+4^n\mathrm{C}_n^n=\mathrm{C}_n^0+4\mathrm{C}_n^1+4^2\mathrm{C}_n^2+...+4^n\mathrm{C}_n^n=(1+4)^n=5^n=VP$ \\$\Rightarrow $ điều phải chứng minh.
+    }
+\end{vd}
+\begin{vd}
+    Với $n$ là số nguyên dương, chứng minh rằng:\begin{center}
+        $4^n\mathrm{C}_n^0-4^{n-1}\mathrm{C}_n^1+4^{n-2}\mathrm{C}_n^2+...+(-1)^n\mathrm{C}_n^n=\mathrm{C}_n^0+2\mathrm{C}_n^1+2^2\mathrm{C}_n^2+...+2^n\mathrm{C}_n^n$.
+    \end{center}
+    \loigiai{
+        Trong khai triển nhị thức Newton:\\
+        $\circ$ Chọn $a=4,b=-1\Rightarrow $ $4^n\mathrm{C}_n^0-4^{n-1}\mathrm{C}_n^1+4^{n-2}\mathrm{C}_n^2+...+(-1)^n\mathrm{C}_n^n=3^n$.\\
+        $\circ$ Chọn $a=1,b=2\Rightarrow $ $\mathrm{C}_n^0+2\mathrm{C}_n^1+2^2\mathrm{C}_n^2+...+2^n\mathrm{C}_n^n=3^n$.\\
+        Từ đó ta có điều phải chứng minh.
+    }
+\end{vd}
+\begin{vd}
+    Với $p,a,b$ là các số nguyên dương và $p\le a,b$. Chứng minh:
+    \begin{center}
+        $\displaystyle\mathrm{C}_a^p+\mathrm{C}_a^{p-1}\mathrm{C}_b^1+\mathrm{C}_a^{p-2}\mathrm{C}_b^2+...+\mathrm{C}_a^{p-q}\mathrm{C}_b^q+...+\mathrm{C}_b^p=\mathrm{C}_{a+b}^p$.
+    \end{center}
+    \loigiai{
+        Xét hai khai triển:\\
+        $(1+x)^a=\mathrm{C}_a^0+\mathrm{C}_a^1x+\mathrm{C}_a^2x^2...+\mathrm{C}_a^ax^a$.\\
+        $(1+x)^b=\mathrm{C}_b^0+\mathrm{C}_b^1x+\mathrm{C}_b^2x^2...+\mathrm{C}_b^bx^b$.\\
+        $\Rightarrow (1+x)^{a+b}=M+\displaystyle\sum\limits\left(\mathrm{C}_a^p+\mathrm{C}_a^{p-1}\mathrm{C}_b^1+...+\mathrm{C}_a^{p-q}\mathrm{C}_b^q+...+\mathrm{C}_b^p\right)x^p\ (*)$.\\
+        Với $M$ là một đa thức không chứa $x^p$.\\
+        Mặt khác: $(1+x)^{a+b}=\mathrm{C}_{a+b}^0+\mathrm{C}_{a+b}^1x+\mathrm{C}_{a+b}^2x^2+...+\mathrm{C}_{a+b}^{p}x^p+...+\mathrm{C}_{a+b}^{a+b}x^{a+b}\ (**)$.\\
+        Đồng nhất hệ số ở $(*), (**)$.
+        Ta có điều phải chứng minh.
+    }
+\end{vd}
+\begin{center}
+    \textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}
+    Với $n$ là số nguyên dương, chứng minh rằng: $\left(\mathrm{C}_n^0\right)^2+\left(\mathrm{C}_n^1\right)^2+...+\left(\mathrm{C}_n^n\right)^2=\left(\mathrm{C}_{2n}^n\right)^2$.
+    \loigiai{
+        Áp dụng kết quả: $\displaystyle\mathrm{C}_a^p+\mathrm{C}_a^{p-1}\mathrm{C}_b^1+\mathrm{C}_a^{p-2}\mathrm{C}_b^2+...+\mathrm{C}_a^{p-q}\mathrm{C}_b^q+...+\mathrm{C}_b^p=\mathrm{C}_{a+b}^p$ với $p=a=b=n$. Ta có điều phải chứng minh.
+    }
+\end{bt}
+\begin{bt}
+    Với $n$ là số nguyên dương, chứng minh:
+    $\mathrm{C}_n^1+2\mathrm{C}_n^2+3\mathrm{C}_n^3+...+n\mathrm{C}_n^n=n.2^{n-1}$.
+    \loigiai{\\
+        Đặt $S=\mathrm{C}_n^1+2\mathrm{C}_n^2+3\mathrm{C}_n^3+...+n\mathrm{C}_n^n\ (*)$.
+        Áp dụng hệ thức: $\mathrm{C}_n^k=\mathrm{C}_n{n-k}$. Ta có:\\
+        $\mathrm{C}_n^1=\mathrm{C}_n^{n-1}$\\
+        $2\mathrm{C}_n^2=2\mathrm{C}_n^{n-2}$\\
+        $...$\\
+        $(n-1)\mathrm{C}_n^{n-1}=(n-1)\mathrm{C}_n^{1}$\\
+        $n\mathrm{C}_n^n=n\mathrm{C}_n^0$\\
+        Cộng vế với vế ta được: $S=\mathrm{C}_n^{n-1}+2\mathrm{C}_n^{n-2}+...+(n-1)\mathrm{C}_n^1+n\mathrm{C}_n^0\ (**)$.\\
+        Từ $(*), (**)$ ta có: $2S=n\left(\mathrm{C}_n^0+\mathrm{C}_n^1+...+\mathrm{C}_n^{n-1}+\mathrm{C}_n^n\right)$.\\
+        Xét khai triển: $(1+x)^n=\mathrm{C}_n^0+\mathrm{C}_n^1x+\mathrm{C}_n^2x^2...+\mathrm{C}_n^nx^n$.\\
+        Với $x=1$ ta có: $2S=n2^n$. Từ đó suy ra điều phải chứng minh.
+    }
+\end{bt}
+\begin{bt}
+    Chứng minh rằng: $\mathrm{C}_{2016}^0+2^2\mathrm{C}_{2016}^1+...+2^{2016}\mathrm{C}_{2016}^{2016}=\dfrac{3^{2016}+1}{2}$
+    \loigiai{
+        $(1+x)^{2016}=\displaystyle\sum\limits_{k=0}^{2016}{\mathrm{C}_{2016}^kx^k}$.\\
+        $(1-x)^{2016}=\displaystyle\sum\limits_{k=0}^{2016}{\mathrm{C}_{2016}^k(-x)^k}$.\\
+        Cộng vế với vế ta được: $(1+x)^{2016}+(1-x)^{2016}=2\left(\mathrm{C}_{2016}^0+\mathrm{C}_{2016}^2x^2+...+\mathrm{C}_{2016}^2016x^{2016}\right)$.\\
+        Chọn $x=2$ ta có: $\mathrm{C}_{2016}^0+2^2\mathrm{C}_{2016}^1+...+2^{2016}\mathrm{C}_{2016}^{2016}=\dfrac{3^{2016}+1}{2}$.
+    }
+\end{bt}
+
+\begin{dang}{Tính tổng bằng cách sử dụng khai triển nhị thức Newton.} %Dạng 3
+    Sử dụng biến đổi thích hợp để đưa các số hạng của tổng cần tính về dạng số hạng tổng quát trong khai triển nhị thức Newton. 
+    \begin{itemize}
+        \item \textbf{\textit{Dấu hiệu nhận biết:}}  Khi các số hạng của tổng đó có thể đưa về dạng $\mathrm{C}_n^k a^{n-k}b^k$.
+        \item \textbf{\textit{Phương pháp:}} Sử dụng trực tiếp nhị thức Newton: $\left(a+b\right)^n=
+        \displaystyle\sum\limits_{k=0}^{n}{\mathrm{C}_n^ka^{n-k}b^k}$ với $a$ và $b$ thích hợp.
+    \end{itemize}
+\end{dang}
+\begin{vd}
+    Tính tổng $S=2^{18}\mathrm{C}_{18}^0-2^{17}\mathrm{C}_{18}^1+2^{16}\mathrm{C}_{18}^2-...+\mathrm{C}_{18}^{18}$.
+    \loigiai{
+        Các số hạng của tổng đều có dạng: $\mathrm{C}_{18}^k 2^{18-k}(-1)^k$.\\ Do đó: 
+        $S=2^{18}\mathrm{C}_{18}^0-2^{17}\mathrm{C}_{18}^1+2^{16}\mathrm{C}_{18}^2-...+\mathrm{C}_{18}^{18}=\displaystyle\sum\limits_{k=0}^{18}{\mathrm{C}_{18}^k 2^{18-k}(-1)^k}=(2-1)^{18}=1$.
+    }
+\end{vd}
+\begin{vd}
+    Tính tổng $S=\mathrm{C}_{2018}^0+3^2\mathrm{C}_{2018}^2+3^4\mathrm{C}_{2018}^4+...+3^{2018}\mathrm{C}_{2018}^{2018}$.
+    \loigiai{
+        Vẫn sử dụng nhị thức với $a=1; b=3$ và $n=2018$.\\
+        Các số hạng của tổng đều có dạng: $\mathrm{C}_{2018}^k 1^{2018-k}3^k$ với $k$ chẵn. Do đó ta triệt tiêu số hạng "lẻ" bằng cách bổ sung nhị thức với $a=-1;b=3$ và $n=2018$. Khi đó:\\
+        $\circ$ $S_1=\mathrm{C}_{2018}^0+3^1\mathrm{C}_{2018}^1+3^2\mathrm{C}_{2018}^2+...+3^{2018}\mathrm{C}_{2018}^{2018}=4^{2018}$.\\
+        $\circ$ $S_1=\mathrm{C}_{2018}^0-3^1\mathrm{C}_{2018}^1+3^2\mathrm{C}_{2018}^2-...+3^{2018}\mathrm{C}_{2018}^{2018}=2^{2018}$.\\
+        $S=\dfrac{S_1+S_2}{2}=\dfrac{4^{2018}+2^{2018}}{2}$.\\
+        \textbf{Tổng quát: } Với $a\ne 0$.
+        \begin{itemize}
+            \item $S=\mathrm{C}_{2n}^0+a^2\mathrm{C}_{2n}^2+a^4\mathrm{C}_{2n}^4+...+a^{2n}\mathrm{C}_{2n}^{2n}=\dfrac{(a+1)^{2n}+(a-1)^{2n}}{2}$.
+            \item $S=a\mathrm{C}_{2n}^1+a^3\mathrm{C}_{2n}^3+a^5\mathrm{C}_{2n}^5+...+a^{2n-1}\mathrm{C}_{2n}^{2n-1}=\dfrac{(a+1)^{2n}-(a-1)^{2n}}{2}$.
+        \end{itemize}
+    }
+\end{vd}
+\begin{vd}
+    Tính tổng $S=\mathrm{C}_{10}^02^{11}3^1+\mathrm{C}_{10}^12^{10}3^2+\mathrm{C}_{10}^{2}2^93^3+...+\mathrm{C}_{10}^{9}2^23^{10}+\mathrm{C}_{10}^{10}2^13^{11}$.
+    \loigiai{
+        $S=6\left(\mathrm{C}_{10}^02^{10}+\mathrm{C}_{10}^12^{9}3+\mathrm{C}_{10}^{2}2^83^2+...+\mathrm{C}_{10}^{9}23^{9}+\mathrm{C}_{10}^{10}3^{10}\right)=6.(2+3)^{10}=6.5^{10}$.
+    }
+\end{vd}
+\begin{center}
+    \textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}
+    Tính tổng: $S=3^{2019}-\mathrm{C}_{2019}^13^{2018}.4+\mathrm{C}_{2019}^23^{2017}.4^2-...+\mathrm{C}_{2019}^{2018}3.4^{2018}-4^{2019}$
+    \loigiai{
+        $S=3^{2019}-\mathrm{C}_{2019}^13^{2018}.4+\mathrm{C}_{2019}^23^{2017}.4^2-...+\mathrm{C}_{2019}^{2018}3.4^{2018}-4^{2019}=(3-4)^{2019}=-1$.
+    }
+\end{bt}
+\begin{bt}
+    Tính tổng $S=\mathrm{C}_{15}^8+\mathrm{C}_{15}^9+\mathrm{C}_{15}^{10}+...+\mathrm{C}_{15}^{15}$.
+    \loigiai{
+        Sử dụng tính chất: $\mathrm{C}_n^k=\mathrm{C}_n^{n-k}$. Ta có:\\
+        $2S=\mathrm{C}_{15}^0+\mathrm{C}_{15}^1+\mathrm{C}_{15}^2+...+\mathrm{C}_{15}^{8}+...+\mathrm{C}_{15}^{15}=2^{15}\Rightarrow S=2^{14}$.
+    }
+\end{bt}
+\begin{bt}
+    Tính tổng $S=\mathrm{C}_{2004}^0+2^2\mathrm{C}_{2004}^1+...+2^{2005}\mathrm{C}_{2004}^{2004}$.
+    \loigiai{ Ta có:\\
+        $\begin{aligned}
+        S&=\mathrm{C}_{2004}^0+2^2\mathrm{C}_{2004}^1+...+2^{2005}\mathrm{C}_{2004}^{2004}\\&=2\left(\mathrm{C}_{2004}^0+2\mathrm{C}_{2004}^1+...+2^{2004}\mathrm{C}_{2004}^{2004}\right)-1=2.3^{2004}-1
+        \end{aligned}
+        $
+    }
+\end{bt}
+
+\begin{dang}{Tìm hệ số và tìm số hạng chứa $x^k$.} %Dạng 4
+    Xác định số hạng tổng quát $T_k=\mathrm{C}_n^ka^{n-k}b^k$ trong khai triển $\left(a+b\right)^n$ và kết hợp với yêu cầu của bài toán để thiết lập một phương trình, từ đó tìm ra kết quả mà bài toán yêu cầu. Lưu ý rằng $T_k$ là số hạng thức $k+1$ trong khai triển $\left(a+b\right)^n$ theo lũy thừa tăng dần của $b$.\\
+    Đối với các biểu thức dạng $(a+b+c)^k$ ta biến đổi $(a+b+c)^k=\left[a+(b+c)\right]^k$ rồi áp dụng khai triển nhị thức Newton 2 lần và tìm số hạng tổng quát.
+    
+\end{dang}
+\begin{vd}%[Vũ Văn Trường]%[1D2Y3]
+    Tìm hệ số của $x^{15}$ trong khai triển $\left(3x^2-2x\right)^{10}$.
+    \loigiai{Theo công thức ở trên, ta có số hạng tổng quát trong khai triển là $$T_k=\mathrm{C}_{10}^k(3x^2)^{10-k}(-2x)^k=\mathrm{C}_{10}^k3^{10-k}(-2)^kx^{20-k}$$
+        Số hạng chứa $x^{15}$ tương ứng với số hạng tổng quát có $k$ thỏa mãn $20-k=15\Leftrightarrow k=5$.\\
+        Vậy số hạng chứa $x^{15}$ trong khai triển là $T_5=\mathrm{C}_{10}^53^{5}(-2)^5x^{15}=-6^5\mathrm{C}_{10}^5x^{15}$
+    }
+\end{vd}
+\begin{vd}%[Vũ Văn Trường]%[1D2K3]
+    Tìm số hạng chứa $x^{13}$ trong các khai triển $\left(x^3+2xy\right)^{21}$.
+    \loigiai{Số hạng tổng quát trong khai triển $\left(x^3+xy\right)^{21}$ là $$T_k=\mathrm{C}_{21}^k\left(x^3\right)^{21-k}\left(2xy\right)^k=2^k\mathrm{C}_{21}^kx^{63-2k}y^k$$
+        Số hạng chứa $x^{13}$ tương ứng với số hạng có $k$ thỏa mãn $63-2k=13\Leftrightarrow k=25$.\\
+        Vậy số hạng chứa $x^{13}$ trong khai triển đã cho là $2^{25}\mathrm{C}_{12}^{25}x^{13}y^{25}.$
+    }
+\end{vd}
+\begin{vd}%[Vũ Văn Trường]%[1D2B3]
+    Tìm hệ số của $x^{12}$ trong khai triển $\left(x^2+1\right)^n$, biết tổng tất cả các hệ số trong khai triển đó bằng $1024$.
+    \loigiai{Ta có
+        $$\left(x^2+1\right)^n=\sum\limits_{k=0}^n\mathrm{C}_n^k(x^2)^k$$
+        Gọi $S$ là tổng tất cả các hệ số trong khai triển, khi đó $S=\sum\limits_{k=0}^n\mathrm{C}_n^k=(1+1)^2=2^n$.\\
+        Do đó $2^n=1024\Rightarrow n=10$.\\
+        Số hạng tổng quát trong khai triển $\left(x^2+1\right)^{10}$ là $T_k=\mathrm{C}_{10}^k(x^2)^k=\mathrm{C}_{10}^kx^{2k}$.\\
+        Số hạng chứa $x^{12}$ tương ứng với số hạng tổng quát có $k$ thỏa mãn $2k=12\Leftrightarrow k=6$.\\
+        Vậy hệ số của $x^{12}$ trong khai triển là $\mathrm{C}_{10}^6=210$.
+    }
+\end{vd}
+\begin{vd}%[Vũ Văn Trường]%[1D2K3]
+    Cho $x>0$ và $n$ là số tự nhiên thỏa mãn điều kiện $\mathrm{C}_{n+4}^{n+1}-\mathrm{C}_{n+3}^n=7(n+3)$. Tìm số hạng chứa $x^{19}$ trong khai triển $\left(\dfrac{1}{x^3}+\sqrt{x^5}\right)^n$.
+    \loigiai{Ta có
+        \begin{align*}
+        \mathrm{C}_{n+4}^{n+1}-\mathrm{C}_{n+3}^n=7(n+3)& \Leftrightarrow \dfrac{(n+4)(n+3)(n+2)}{3!}- \dfrac{(n+3)(n+2)(n+1)}{3!}=7(n+3)\\
+        & \Leftrightarrow (n+4)(n+2)-(n+2)(n+1)=42 \ (\text{do } n+3>0) \\
+        & \Leftrightarrow 3n=36 \\
+        & \Leftrightarrow n=12.
+        \end{align*}
+        Số hạng tổng quát trong khai triển $\left(\dfrac{1}{x^3}+\sqrt{x^5}\right)^n$ khi $n=12$ là $$T_k=\mathrm{C}_{12}^k\left(\dfrac{1}{x^3}\right)^{12-k}\left(\sqrt{x^5}\right)^k=\mathrm{C}_{12}^kx^{\frac{11k-72}{2}}$$
+        Số hạng chứa $x^{19}$ tương ứng với số hạng có $k$ thỏa mãn $\dfrac{11k-72}{2}=19\Leftrightarrow k=10$.\\
+        Vậy số hạng chứa $x^{19}$ trong khai triển đã cho là $\mathrm{C}_{12}^{10}x^{19}.$
+    }
+\end{vd}
+
+\begin{center}
+    \textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Vũ Văn Trường]%[1D2Y3]
+    Tìm hệ số của số hạng chứa $x^3$ trong khai triển biểu thức $\left(x^2+\dfrac{2}{x}\right)^{21}$.
+    \loigiai{Số hạng tổng quát trong khai triển $\left(x^2+\dfrac{2}{x}\right)^{21}$ là $T_k=\mathrm{C}_{21}^k2^kx^{42 - 3k} $.\\
+        Số hạng chứa $x^3$ tương ứng với số hạng chứa $k$ thỏa mãn $42-3k=3\Leftrightarrow k=13$. Từ đó suy ra hệ số của $x^3$ trong khai triển là $2^{13}\mathrm{C}_{21}^{13}$.
+        
+    }
+\end{bt}
+\begin{bt}%[Vũ Văn Trường]%[1D2B3]
+    Tìm hệ số của số hạng $x^{25}y^{10}$ trong khai triển $\left(x^3+xy\right)^{15}$.
+    \loigiai{
+        Số hạng tổng quát của khai triển là $T_k=\mathrm{C}_{15}^k(x^3)^{15-k}(xy)^k=\mathrm{C}_{15}^kx^{45-2k}y^k$.\\
+        Số hạng chứa $x^{25}y^{10}$ tương ứng với $k=10$, từ đó suy ra hệ số của $x^{25}y^{10}$ là $\mathrm{C}_{15}^{10}=3003.$
+    }
+\end{bt}
+\begin{bt}%[Vũ Văn Trường]%[1D2B3]
+    Biết tổng các hệ số của ba số hạng đầu trong khai triển $\left(x^3+\dfrac{1}{x^2}\right)^n$ bằng 11. Tìm hệ số của $x^7$ trong khai triển đó.
+    \loigiai{
+        Theo giải thiết, ta có $\mathrm{C}_{n}^0+\mathrm{C}_{n}^1+\mathrm{C}_{n}^2=11 \Rightarrow n=4$.\\
+        Số hạng tổng quát trong khai triển $\left(x^3+\dfrac{1}{x^2}\right)^4$ là $T_k=\mathrm{C}_{4}^k(x^3)^{4-k}(x^{-2})^k=\mathrm{C}_{4}^kx^{12-5k}$.\\
+        Từ đó suy ra hệ số của $x^7$ trong khai triển là $\mathrm{C}_{4}^1=4$.
+    }
+\end{bt}
+\begin{bt}%[Vũ Văn Trường]%[1D2K3]
+    Khai triển và rút gọn biểu thức $(1+x)^9+(1+x)^{10}+\cdots+(1+x)^{14}$ ta được đa thức:
+    $$Q(x)=a_0+a_1x+\cdots+a_{14}x^{14}$$
+    Hãy xác định $a_{10}$.
+    \loigiai{Trước hết ta thấy với $k\leq n$ thì hệ số của $x^k$ trong khai triển $(1+x)^n$ là $\mathrm{C}_n^k$. Từ đó suy ra hệ số của $x^{10}$ trong các khai triển $(1+x)^9,(1+x)^{10},\cdots,(1+x)^{14}$ lần lượt là $0, \mathrm{C}_{10}^{10},\cdots,\mathrm{C}_{14}^{10}$.\\
+        Từ đó suy ra $a_{10}=\mathrm{C}_{10}^{10}+\cdots+\mathrm{C}_{14}^{10}=1365$.
+    }
+\end{bt}
+\begin{bt}%[Vũ Văn Trường]%[1D2G3]
+    Tìm hệ số của $x^8$ trong khai triển thành đa thức của biểu thức $\left(1+ x^2-x^3\right)^8$.
+    \loigiai{Ta có
+        \begin{align*}
+        \left(1+ x^2-x^3\right)^8&=\left[1+x^2\left(1-x\right)\right]^8\\
+        &= \sum\limits_{k = 0}^8\mathrm{C}_8^k\left[x^2(1-x)\right]^k\\
+        &= \sum\limits_{k = 0}^8 \mathrm{C}_8^kx^{2k}(1 - x)^k\\
+        &= \sum\limits_{k = 0}^8 \mathrm{C}_8^kx^{2k}\left(\sum\limits_{i = 0}^k\mathrm{C}_k^i(-x)^i\right)\\
+        &= \sum\limits_{k = 0}^8 \sum\limits_{i = 0}^k \mathrm{C}_8^kx^{2k}\mathrm{C}_k^i(-1)^ix^i \\
+        &= \sum\limits_{k = 0}^8 \sum\limits_{i = 0}^k \mathrm{C}_8^k\mathrm{C}_k^i(- )^ix^{2k + i}
+        \end{align*}
+        Số hạng chứa $x^8$ tương ứng số hạng chứa $k$ và $i$ thỏa $2k+i=8$.\\
+        Vì $0\leq i\leq k\leq 8$ nên $2k + i = 8 \Leftrightarrow \heva{&k = 3\\&i = 2}$ hoặc $\heva{&k = 4\\&i = 0}$.\\
+        Vậy hệ số của số hạng chứa $x^8$ là $\mathrm{C}_8^3\mathrm{C}_3^2{( - 1)^2} + \mathrm{C}_8^4\mathrm{C}_4^0{( - 1)^0} = 238$.
+    }
+\end{bt}
+
+\begin{dang}{Tìm hệ số không chứa $x$.} %Dạng 5
+    Để tìm số hạng không chứa $x$ trong khai triển $P(x)$, ta tìm số hạng tổng quát trong khai triển. Sau đó, cho số mũ của $x$ bằng $0$ để tìm hằng số $k$, từ đó suy ra số hạng không chứa $x$. 
+\end{dang}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{vd}%01
+    Tìm số hạng không chứa $x$ trong khai triển $P(x) = \left(2x - \dfrac{1}{x^2}\right)^6$, với $x$ khác $0$. 
+    \loigiai{
+        Số hạng tổng quát trong khai triển là 
+        \begin{equation*}
+        \mathrm{C}^k_6 (2x)^{6-k} \left(- \dfrac{1}{x^2}\right)^k = \mathrm{C}^k_6 2^{6-k} (-1)^k x^{6-3k}. 
+        \end{equation*}
+        
+        Ta phải tìm $k$ sao cho $6-3k =0 \Leftrightarrow k=2$. 
+        
+        Vậy số hạng cần tìm là $\mathrm{C}^2_6 2^{6-2} (-1)^2 = 240$. 
+    }
+\end{vd}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{vd}%02
+    Tìm số hạng không chứa $x$ trong khai triển $P(x) = \left(x - \dfrac{2}{x^2}\right)^{21}$, với $x$ khác $0$. 
+    \loigiai{
+        Số hạng tổng quát trong khai triển là 
+        \begin{equation*}
+        \mathrm{C}^k_{21} (x)^{21-k} \left(- \dfrac{2}{x^2}\right)^k = \mathrm{C}^k_{21} (-2)^{k} x^{21-3k}. 
+        \end{equation*}
+        
+        Ta phải tìm $k$ sao cho $21-3k =0 \Leftrightarrow k=7$. 
+        
+        Vậy số hạng cần tìm là $\mathrm{C}^7_{21} (-2)^{7}$. 
+    }
+\end{vd}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{vd}%03
+    Tìm số hạng không chứa $x$ trong khai triển $P(x) = \left(x^2 + \dfrac{2}{x}\right)^{n}$ (với $x$ khác $0$) biết 
+    \begin{equation*}
+    \mathrm{C}^n_n + \mathrm{C}^{n-1}_n + \mathrm{C}^{n-2}_n = 79.  
+    \end{equation*}
+    \loigiai{
+        Ta có 
+        \begin{equation*}
+        \mathrm{C}^n_n + \mathrm{C}^{n-1}_n + \mathrm{C}^{n-2}_n = 79 \Leftrightarrow 1+n + \dfrac{n (n-1)}{2} = 79 \Leftrightarrow \left[ \begin{array}{l} 
+        n = -13 \\ 
+        n = 12
+        \end{array}
+        \right. 
+        \end{equation*}
+        
+        Do $n$ là số tự nhiên nên $n=12$. 
+        
+        Với $n = 12$, số hạng tổng quát trong khai triển là 
+        \begin{equation*}
+        \mathrm{C}^k_{12} (x^2)^{12-k} \left(\dfrac{2}{x}\right)^k = \mathrm{C}^k_{12} (2)^{k} x^{24-3k}. 
+        \end{equation*}
+        
+        Ta phải tìm $k$ sao cho $24-3k =0 \Leftrightarrow k=8$. 
+        
+        Vậy số hạng cần tìm là $\mathrm{C}^8_{12} (2)^{8}$. 
+    }
+\end{vd}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{vd}%04
+    Tìm số hạng không chứa $x$ trong khai triển $P(x) = \left(\dfrac{2}{x} - x^3 \right)^{n}$ (với $x$ khác $0$) biết 
+    \begin{equation*}
+    \mathrm{C}^{n-6}_{n-4} + n . \mathrm{A}^2_n = 454.  
+    \end{equation*}
+    \loigiai{
+        Điều kiện $\begin{cases}
+        n-6 \geq 0 \\ 
+        n \geq 2 \\ 
+        n \in \mathbb{N}
+        \end{cases} \Leftrightarrow n \geq 6, \ n \in \mathbb{N}$.
+        
+        Ta có 
+        \begin{align*}
+        \mathrm{C}^{n-6}_{n-4} + n . \mathrm{A}^2_n = 454 & \Leftrightarrow \dfrac{(n-4)!}{(n-6)!2!} + n . \dfrac{n!}{(n-2)!} = 454  \\ 
+        & \Leftrightarrow \dfrac{(n-5) (n-4)}{2} + n (n-1) n = 454 \Leftrightarrow 2 n^3 - n^2 - 9n - 888 =0 \Rightarrow n = 8.
+        \end{align*}
+        
+        Với $n=8$, số hạng tổng quát của khai triển là 
+        \begin{equation*}
+        \mathrm{C}^k_{8} \left(\dfrac{2}{x}\right)^{8-k} (-x^3)^{k} = \mathrm{C}^k_{8}  2^{8-k} (-1)^k x^{-8 + 4k}.
+        \end{equation*}
+        
+        Ta phải tìm $k$ sao cho $-8 + 4k =0 \Leftrightarrow k=2$. 
+        
+        Vậy số hạng cần tìm là $\mathrm{C}^2_{8} (2)^{6}$. 
+    }
+\end{vd}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%01
+    Tìm số hạng không chứa $x$ trong khai triển $P(x) = \left(2 x^2 + \dfrac{3}{x}\right)^6$ (với $x$ khác $0$). 
+    \loigiai{
+        Số hạng tổng quát của khai triển là 
+        \begin{equation*}
+        \mathrm{C}^k_{6} (2 x^2)^{6-k} \left(\dfrac{3}{x}\right)^k = \mathrm{C}^k_6 2^{6-k} 3^k x^{12-3k}. 
+        \end{equation*}
+        
+        Ta phải tìm $k$ sao cho $12 - 3k =0 \Leftrightarrow k=4$. 
+        
+        Vậy số hạng cần tìm là $\mathrm{C}^4_{6} (2)^{6-4} 3^4 = 4860$. 
+    }
+\end{bt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bt}%02
+    Tìm số hạng không chứa $x$ trong khai triển $P(x) = \left(x - \dfrac{1}{x} \right)^{n}$ (với $x$ khác $0$) biết $2 \mathrm{C}^2_n = \mathrm{C}^3_n$. 
+    \loigiai{
+        Điều kiện $n \geq 3$, $n \in \mathbb{N}$. 
+        
+        Ta có 
+        \begin{equation*}
+        2 \mathrm{C}^2_n = \mathrm{C}^3_n \Leftrightarrow 2. \dfrac{n!}{(n-2)! 2!} = \dfrac{n!}{(n-3)! 3!} \Leftrightarrow \dfrac{2}{n-2} = \dfrac{1}{3} \Leftrightarrow n = 8. 
+        \end{equation*}
+        
+        Với $n=8$, số hạng tổng quát của khai triển là 
+        \begin{equation*}
+        \mathrm{C}^k_{8} x^{8-k} (-1)^k  x^{-k} = \mathrm{C}^k_{8} x^{8 - 2k} (-1)^k.
+        \end{equation*}
+        
+        Ta phải tìm $k$ sao cho $8 - 2k =0 \Leftrightarrow k=4$. 
+        
+        Vậy số hạng cần tìm là $\mathrm{C}^4_{8} = 70$. 
+    }
+\end{bt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bt}%03
+    Cho khai triển $P(x) = \left(x + \dfrac{1}{3}\right)^n$. Tìm số hạng không chứa $x$ trong khai triển, biết số hạng thứ ba trong khai triển bằng $5$. 
+    \loigiai{
+        Số hạng tổng quát của khai triển là $\mathrm{C}^k_n x^{n-k} 3^{-k}$. 
+        
+        Số hạng thứ ba trong khai triển bằng $5$ nên $\dfrac{1}{9} \mathrm{C}^2_n = 5 \Leftrightarrow n = 9$. 
+        
+        Với $n = 9$, số hạng tổng quát của khai triển là $\mathrm{C}^k_9 x^{9-k} 3^{-k}$. 
+        
+        Ta tìm $k$ sao cho $9-k =0 \Leftrightarrow k=9$. 
+        
+        Vậy số hạng không chứa $x$ là $\mathrm{C}^9_9 3^{-9} = \dfrac{1}{19683}$. 
+    }
+\end{bt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bt}%04
+    Tìm số hạng không chứa $x$ trong khai triển $P(x) = \left(x + \dfrac{2}{x^2} \right)^{n}$ (với $x$ khác $0$) biết 
+    \begin{equation*}
+    \mathrm{C}^{6}_{n} + 3 \mathrm{C}^{7}_{n} + 3 \mathrm{C}^{8}_{n} + \mathrm{C}^{9}_{n} = 2 \mathrm{C}^{8}_{n+2}.  
+    \end{equation*}
+    \loigiai{
+        Điều kiện $n \geq 9$, $n \in \mathbb{N}$.
+        
+        Ta có 
+        \begin{align*}
+        & \mathrm{C}^{6}_{n} + 3 \mathrm{C}^{7}_{n} + 3 \mathrm{C}^{8}_{n} + \mathrm{C}^{9}_{n} = 2 \mathrm{C}^{8}_{n+2} \Leftrightarrow \mathrm{C}^{7}_{n+1} + 2 \mathrm{C}^{8}_{n+1} +  \mathrm{C}^{9}_{n+1} = 2 \mathrm{C}^{8}_{n+2} \\ 
+        & \Leftrightarrow 2 \mathrm{C}^{9}_{n+2}= 2 \mathrm{C}^{8}_{n+2} \Leftrightarrow \dfrac{(n+2)!}{(n-7)!9!} = \dfrac{(n+2)!}{(n-6)!8!} \Leftrightarrow \dfrac{1}{9} = \dfrac{1}{n-6} \Leftrightarrow n= 15. 
+        \end{align*}
+        
+        Với $n=15$, số hạng tổng quát của khai triển là 
+        \begin{equation*}
+        \mathrm{C}^k_{15} x^{15-k} 2^k x^{-2k} = \mathrm{C}^k_{15} x^{15-3k} 2^k.
+        \end{equation*}
+        
+        Ta phải tìm $k$ sao cho $15 - 3k =0 \Leftrightarrow k=5$. 
+        
+        Vậy số hạng cần tìm là $\mathrm{C}^5_{15} (2)^{5}$. 
+    }
+\end{bt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bt}%05
+    Tìm số hạng không chứa $x$ trong khai triển $P(x) = \left(x^2 - \dfrac{1}{x^2} \right)^{n}$ (với $x$ khác $0$) biết 
+    \begin{equation*}
+    2 \mathrm{A}^2_n = \mathrm{C}^2_{n-1} +\mathrm{C}^3_{n-1}. 
+    \end{equation*}
+    \loigiai{
+        Điều kiện $n \geq 4$, $n \in \mathbb{N}$.
+        
+        Ta có 
+        \begin{align*}
+        2 \mathrm{A}^2_n = \mathrm{C}^2_{n-1} +\mathrm{C}^3_{n-1} \Leftrightarrow 2 \mathrm{A}^2_n = \mathrm{C}^3_n \Leftrightarrow 2 . \dfrac{n!}{(n-2)!} = \dfrac{n!}{(n-3)! 3!} \Leftrightarrow \dfrac{2}{n-2} = \dfrac{1}{6} \Leftrightarrow n = 14. 
+        \end{align*}
+        
+        Với $n=14$, số hạng tổng quát của khai triển là 
+        \begin{equation*}
+        \mathrm{C}^k_{14} (x^2)^{14-k} (-1)^k x^{-2k} = \mathrm{C}^k_{14} x^{28-4k} (-1)^k.
+        \end{equation*}
+        
+        Ta phải tìm $k$ sao cho $28-4k =0 \Leftrightarrow k=7$. 
+        
+        Vậy số hạng cần tìm là $\mathrm{C}^7_{14} (-1)^{7} = -3432$. 
+    }
+\end{bt}
+
+\begin{dang}{Tìm số hạng hữu tỷ (nguyên) trong khai triển $(a+b)^n$.} %Dạng6
+    Xét khai triển $(a+b)^n$ có số hạng tổng quát là $\mathrm{C}^k_n a^{n-k} b^k = \mathrm{C}^k_n \alpha^{\frac{m}{p}} \beta^{\frac{r}{q}}$, với $\alpha$, $\beta$ là các số hữu tỷ. Số hữu tỷ cần tìm thỏa mãn hệ $\begin{cases}
+    \dfrac{m}{p} \in \mathbb{N} \\ \\
+    \dfrac{r}{q} \in \mathbb{N}
+    \end{cases} \ (k \in \mathbb{N}, \ 0 \leq k \leq n) \Rightarrow k_0 \Rightarrow \mathrm{C}^{k_0}_n a^{n-k_0} b^{k_0}$ là số hạng cần tìm. 
+\end{dang}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{vd}%01
+    Trong khai triển $\left(\sqrt[4]{5} + \sqrt{3} \right)^{12}$ có bao nhiêu số hạng hữu tỷ? 
+    \loigiai{
+        Ta có 
+        \begin{equation*}
+        \left(\sqrt[4]{5} + \sqrt{3} \right)^{12} = \sum\limits_{k=0}^{12} \mathrm{C}^k_{12} 5^{\frac{12-k}{4}} 3^{\frac{k}{2}}. 
+        \end{equation*}
+        
+        Ta tìm $k$ sao cho 
+        \begin{equation*}
+        \begin{cases}
+        \dfrac{12-k}{4} \in \mathbb{N} \\ \\ 
+        \dfrac{k}{2} \in \mathbb{N} \\ \\ 
+        0 \leq k \leq 12
+        \end{cases} \Leftrightarrow \begin{cases}
+        \dfrac{k}{4} \in \mathbb{N} \\ \\ 
+        \dfrac{k}{2} \in \mathbb{N} \\ \\ 
+        0 \leq k \leq 12
+        \end{cases} \Leftrightarrow k \in \{0; 4; 8; 12\}.
+        \end{equation*}
+        
+        Vậy có bốn số hạng hữu tỷ trong khai triển. 
+    }
+\end{vd}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{vd}%02
+    Cho $n$ là số nguyên dương thỏa mãn $\mathrm{C}^{n-1}_n + \mathrm{C}^{n-2}_n = 55$. Hãy tìm số hạng là số nguyên trong khai triển nhị thức $\left(\sqrt[7]{8} + \sqrt[3]{5} \right)^{n}$. 
+    \loigiai{
+        Điều kiện $n \geq 2$, $n \in \mathbb{N}$. 
+        
+        Ta có 
+        \begin{equation*}
+        \mathrm{C}^{n-1}_n + \mathrm{C}^{n-2}_n = 55 \Leftrightarrow \mathrm{C}^{n-1}_{n+1} = 55 \Leftrightarrow \dfrac{(n+1)n}{2} = 55 \Rightarrow n = 10. 
+        \end{equation*}
+        
+        Khi đó, ta có 
+        \begin{equation*}
+        \left(\sqrt[7]{8} + \sqrt[3]{5} \right)^{n} = \sum\limits_{k=0}^{10} \mathrm{C}^k_{10} 2^{\frac{3k}{7}} 5^{\frac{10-k}{3}}. 
+        \end{equation*}
+        
+        Số hạng $\mathrm{C}^k_{10} 2^{\frac{3k}{7}} 5^{\frac{10-k}{3}}$ là số nguyên khi $\begin{cases}
+        3k \ \vdots \ 7 \\ 
+        10-k \ \vdots \ 3
+        \end{cases} \Leftrightarrow k = 7$. 
+        
+        Vậy số hạng là số nguyên chính là $\mathrm{C}^7_{10} 2^3 5=4800$. 
+    }
+\end{vd}
+\begin{center}
+    \textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%01
+    Có bao nhiêu số hạng hữu tỷ trong khai triển $\left(\sqrt{10} + \sqrt[8]{3}\right)^{300}$? 
+    \loigiai{
+        Số hạng tổng quát của khai triển là 
+        \begin{equation*}
+        \mathrm{C}^{k}_{300} 10^{\frac{300-k}{2}} 3^{\frac{k}{8}}. 
+        \end{equation*}
+        
+        Để số hạng trên là số hạng hữu tỷ thì $\begin{cases}
+        (300 -k) \ \vdots \ 2 \\ 
+        k \ \vdots \ 8 
+        \end{cases} \Leftrightarrow k \ \vdots \ 8 \Leftrightarrow k = 8 t$, $t \in \mathbb{Z}$. 
+        
+        Do $0 \leq 8t \leq 300 \Rightarrow 0 \leq t \leq 37,5$. Vậy có $38$ giá trị của $t$, hay khai triển có $38$ số hạng hữu tỷ. 
+    }
+\end{bt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bt}%02
+    Tìm số hạng hữu tỷ trong khai triển $\left(\sqrt[3]{2} + \sqrt{7}\right)^{15}$. 
+    \loigiai{
+        Số hạng tổng quát của khai triển là 
+        \begin{equation*}
+        \mathrm{C}^{k}_{15} 2^{\frac{15-k}{3}} 7^{\frac{k}{2}}. 
+        \end{equation*}
+        
+        Để số hạng trên là số hạng hữu tỷ thì $\begin{cases}
+        (15 -k) \ \vdots \ 3 \\ 
+        k \ \vdots \ 2 
+        \end{cases} \Leftrightarrow k \in \{6; 12\}$.
+        
+        Vậy hai số hạng hữu tỷ trong khai triển là $\mathrm{C}^{6}_{15} . 2^3.  7^3 = 13733270$ và $\mathrm{C}^{12}_{15} . 2. 7^6 = 107 060 590$.
+    }
+\end{bt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bt}%03
+    Tìm số hạng hữu tỷ trong khai triển $\left(\dfrac{1}{\sqrt{2}} + \sqrt[3]{5}\right)^{10}$. 
+    \loigiai{
+        Ta có 
+        \begin{equation*}
+        \left(\dfrac{1}{\sqrt{2}} + \sqrt[3]{5}\right)^{10} = \left(\dfrac{1 + 2^{\frac{1}{2}}. 5^{\frac{1}{3}}}{\sqrt{2}}\right)^{10} = \dfrac{1}{32} \left(\dfrac{1 + 2^{\frac{1}{2}}. 5^{\frac{1}{3}}}{\sqrt{2}}\right)^{10}. 
+        \end{equation*}
+        
+        Số hạng tổng quát của khai triển là 
+        \begin{equation*}
+        \dfrac{1}{32} \mathrm{C}^{k}_{10} 2^{\frac{k}{2}} 5^{\frac{k}{3}}. 
+        \end{equation*}
+        
+        Để số hạng trên là số hạng hữu tỷ thì $\begin{cases}
+        k \ \vdots \ 3 \\ 
+        k \ \vdots \ 2 \\ 
+        0 \leq k \leq 10
+        \end{cases} \Leftrightarrow k \in \{0; 6\}$.
+        
+        Vậy hai số hạng hữu tỷ trong khai triển là $\dfrac{1}{32} \mathrm{C}^{0}_{10} = \dfrac{1}{32}$ và $\dfrac{1}{32} \mathrm{C}^{6}_{10} 2^{3} 5^{2} = \dfrac{2625}{2}$.
+    }
+\end{bt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bt}%04
+    Có bao nhiêu số hạng hữu tỷ trong khai triển $\left(\sqrt{6} - \sqrt[3]{4}\right)^{130}$? 
+    \loigiai{
+        Số hạng tổng quát của khai triển là 
+        \begin{equation*}
+        \mathrm{C}^{k}_{130} 2^{\frac{390 +k}{6}}. 3^{\frac{130-k}{2}}.
+        \end{equation*}
+        
+        Để số hạng trên là số hạng hữu tỷ thì $\begin{cases}
+        390 + k = 6n \\ 
+        130-k = 2m \\ 
+        0 \leq k \leq 130 \\ 
+        m, n \in \mathbb{Z}
+        \end{cases} \Rightarrow$ có $22$ giá trị của $k$.
+        
+        Vậy có $22$ số hạng hữu tỷ trong khai triển trên. 
+    }
+\end{bt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bt}%05
+    Tìm số hạng hữu tỷ của khai triển $\left(2 \sqrt[3]{x^4} - \dfrac{5}{\sqrt[4]{x^3}}\right)^n$ biết $\mathrm{A}^3_n +22 \mathrm{C}^1_{n+1} = 2 \left(19 \mathrm{C}^{n+1}_{n+3} + 4\right)$. 
+    \loigiai{
+        Điều kiện $n \geq 3$, $n \in \mathrm{N}$. 
+        
+        Ta có 
+        \begin{equation*}
+        \mathrm{A}^3_n +22 \mathrm{C}^1_{n+1} = 2 \left(19 \mathrm{C}^{n+1}_{n+3} + 4\right) \Leftrightarrow n^3 - 22 n^2 -71 n - 100 =0 \Leftrightarrow n = 25.
+        \end{equation*}
+        
+        Số hạng tổng quát của khai triển là 
+        \begin{equation*}
+        \mathrm{C}^{k}_{25} x^{\frac{100}{3} - \frac{25k}{12}} . 2^{25-k} . (-5)^k.  
+        \end{equation*}
+        
+        Để số hạng trên là số hạng hữu tỷ thì $\begin{cases}
+        \frac{100}{3} - \frac{25k}{12} \in \mathbb{N} \\  \\ 
+        k \in \mathbb{N} \\ 
+        0 \leq k \leq 25
+        \end{cases} \Leftrightarrow k \in \{4; 16\}$.
+        
+        Vậy hai số hạng hữu tỷ trong khai triển là $\mathrm{C}^{4}_{25} . 2^{21}.  5^4 . x^{25}$ và $\mathrm{C}^{16}_{25} . 2^9. 5^{16}$.
+    }
+\end{bt}
+
+
+\begin{dang}{Tìm số hạng có hệ số nhất trong khai triển biểu thức.}%Dạng 8
+Xét khai triển biểu thức $\left(a+bx\right)^n$ với $a,b>0$.\\
+Gọi $a_k=\mathrm{C}_n^ka^{n-k}b^k$ là hệ số của $x^k$.\\
+Để $a_k$ lớn nhất thì $\heva{&a_k\ge a_{k-1}\\&a_k\ge a_{k+1}}\Longleftrightarrow \heva{&\dfrac{a}{n-k}\ge \dfrac{b}{k+1}\\&\dfrac{b}{k}\ge \dfrac{a}{n-k+1}}\Longleftrightarrow \dfrac{(n+1)b}{a+b}-1\le k \le \dfrac{(n+1)b}{a+b}$.\\
+Lưu ý: $k \in \mathbb{N}$ và $0\le k \le n$.
+\end{dang}
+\begin{vd}%[Hồ Sỹ Trường]%[1D2B3]
+Cho khai triển nhị thức $\left(\dfrac{1}{3}  +  \dfrac{2}{3}x\right)^{10}=a_0+a_1x+a_2x^2+\ldots+a_{10}x^{10}$. Tìm hệ số lớn nhất trong các hệ số $a_0, a_1, \ldots, a_{10}$.
+\loigiai{
+Ta có $a=\dfrac{1}{3}, b=\dfrac{2}{3}, n=10$.\\
+Gọi $a_k$ là hệ số lớn nhất, khi đó ta có $\dfrac{19}{3}\le k \le \dfrac{22}{3}$. Do $n\in \mathbb{N}$ nên ta có $n=7$.\\
+Vậy hệ số lớn nhất là $a_7=\mathrm{C}_{10}^7\left(\dfrac{1}{3}\right)^3\left(\dfrac{2}{3}\right)^7=\dfrac{2^7}{3^{10}}\mathrm{C}_{10}^7=\dfrac{5120}{19683}$.
+}
+\end{vd}
+
+\begin{vd}%[Hồ Sỹ Trường]%[1D2B3]
+ Cho khai triển nhị thức $\left(5+3x\right)^{10}=a_0+a_1x+a_2x^2+\ldots+a_{10}x^{10}$. Tìm giá trị dương của $x$ để hệ số $a_4$ là hệ số lớn nhất trong các hệ số $a_0, a_1, \ldots, a_{10}$.
+ \loigiai{
+Ta có $a=5, b=3x$ và $n=10$. \\
+Theo giả thiết ta có $\dfrac{33x}{5+3x}-1\le 4 \le \dfrac{33x}{5+3x}$. Do $x>0$ nên ta được $\dfrac{20}{21}\le x \le\dfrac{25}{18}$. 
+}
+\end{vd}
+\begin{center}
+\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Hồ Sỹ Trường]%[1D2B3]
+Tìm hệ số lớn nhất trong khai triển nhị thức $\left(1+2x\right)^{12}$.
+\loigiai{
+    Ta có $\dfrac{23}{3}\le k \le \dfrac{23}{3}$. Vì $k\in \mathbb{N}$ nên ta có $a=8$\\
+    Do đó hệ số cần tìm là $a_8=\mathrm{C}_{12}^82^8=126720$.
+}
+\end{bt}
+\begin{bt}%[Hồ Sỹ Trường]%[1D2B3]
+Tìm hệ số lớn nhất trong khai triển $\left( \dfrac{1}{2} + \dfrac{1}{2}x \right)^{100}$.
+\loigiai{
+    Ta có $\dfrac{99}{2}\le k \le \dfrac{101}{2}$. Vì $k\in \mathbb{N}$ nên ta có $a=50$.\\
+    Hệ số cần tìm là $a_{50} = \mathrm{C}_{100}^{50}\left( \dfrac{1}{2}\right)^{100}$.
+}
+\end{bt}
+\begin{bt}%[Hồ Sỹ Trường]%[1D2B3]
+    Tìm hệ số lớn nhất trong khai triển $\left( \sqrt{5} + \sqrt{2} x\right)^{20}$.
+    \loigiai{
+        Ta có $-15+7\sqrt{10}\le k \le -14+7\sqrt{10}$. Vì $k\in \mathbb{N}$ nên ta có $a=8$.\\
+        Do đó hệ số cần tìm là $a_{8} = \mathrm{C}_{20}^{8}\left( \sqrt{5}\right)^{12}\left(\sqrt{2}\right)^8$.
+    }
+\end{bt}
+
+\begin{dang}{Sử dụng tính chất của số $\mathrm{C}_n^k$ để chứng minh đẳng thức và tính tổng.}%Dạng 7
+    \textbf{\textit{Phương pháp giải: Sử dụng các tính chất của số $\mathrm{C}_n^k$.
+    }}\\
+    Cho các số nguyên dương $n,k$ thỏa mãn: $1\le k\le n$. Khi đó ta có các tính chất sau
+    \begin{enumerate}[- Tính chất 1.]
+        \item $\mathrm{C}_n^k=\mathrm{C}_n^{n-k}.$
+        \item $\mathrm{C}_n^k=\mathrm{C}_{n-1}^k+\mathrm{C}_{n-1}^{k-1}.$
+        \item $k \mathrm{C}_n^k=n \mathrm{C}_{n-1}^{k-1}.$
+        \item $\dfrac1{k+1} \mathrm{C}_n^k=\dfrac1{n+1} \mathrm{C}_{n+1}^{k+1}.$
+    \end{enumerate}
+    \textbf{\textit{Một số kết quả hay sử dụng khi chứng minh đẳng thức, tính tổng có sử dụng công thức nhị thức Newton:}}
+    \begin{enumerate}[- Kết quả 1.]
+        \item $ \mathrm{C}_n^0+\mathrm{C}_n^1+\mathrm{C}_n^2+...+\mathrm{C}_n^n=2^n.$
+        \item $\mathrm{C}_n^0-\mathrm{C}_n^1+\mathrm{C}_n^2+...+\left(-1\right)^n\mathrm{C}_n^n=0.$
+        \item $\mathrm{C}_{2n}^0+\mathrm{C}_{2n}^2+\mathrm{C}_{2n}^{4}+...+\mathrm{C}_{2n}^{2n}=2^{2n-1}.$ 
+        \item $\mathrm{C}_{2n}^1+\mathrm{C}_{2n}^{3}+\mathrm{C}_{2n}^{5}+...+\mathrm{C}_{2n}^{2n-1}=2^{2n-1}.$ 
+    \end{enumerate}
+    \textit{\textbf{Bài toán 1.} Sử dụng tính chất $k \mathrm{C}_n^k=n \mathrm{C}_{n-1}^{k-1}$ trong một số bài toán nhị thức Newton.}\\
+    \textit{Dấu hiệu nhận biết:} Các hệ số đứng trước các số tổ hợp có dạng:
+    \begin{itemize}
+        \item Tăng dần từ $1$ đến $n$ hoặc giảm dần từ $n$ về $1$. Tức là các hệ số của khai triển có dạng $k \mathrm{C}_n^{k}$.
+        \item Là tích của hai số tự nhiên liên tiếp: $1.2, 2.3, 3.4,..., (n-1).n$. Tức là các hệ số có dạng
+        $k(k-1) \mathrm{C}_n^{k}$.
+        \item Hoặc các hệ số có thể biến đổi để dưa về các dạng trên. 
+    \end{itemize}
+    \textit{Các bước thực hiện:}
+    Áp dụng một lần hoặc nhiều lần đẳng thức $k \mathrm{C}_n^k=n \mathrm{C}_{n-1}^{k-1}$ để đưa tổng cần tính hoặc một vế của đẳng thức về dạng đơn giản hơn.\\
+    \textit{\textbf{Bài toán 2.} Sử dụng tính chất $\dfrac1{k+1}\mathrm{C}_n^k=\dfrac1{n+1}\mathrm{C}_{n+1}^{k+1}$ trong một số bài toán nhị thức Newton.}
+    \textit{Dấu hiệu nhận biết: }Khi hệ số đứng trước các số tổ hợp có dạng phân số, chẳng hạn: 
+    \begin{itemize}
+        \item $\dfrac12, \dfrac1{3}, \dfrac1{4},..., \dfrac1{n+1}$, tức là các hệ số của khai triển có dạng $\dfrac1{k+1}\mathrm{C}_n^{k}$.
+        \item $\dfrac1{2.1}, \dfrac1{2.3}, \dfrac1{3.4},...,\dfrac1{n(n+1)}$, tức là các hệ số của khai triển có dạng $\dfrac1{k(k+1)}\mathrm{C}_n^{k}$.
+        \item Hoặc các hệ số có thể biến đổi về các dạng trên.
+    \end{itemize}
+    \textit{Các bước thực hiện:} Áp dụng một lần hoặc nhiều lần đẳng thức $\dfrac1{k+1}\mathrm{C}_n^k=\dfrac1{n+1}\mathrm{C}_{n+1}^{k+1}$ để đưa tổng cần tính hoặc một vế của đẳng thức về dạng đơn giản hơn.\\
+\end{dang}
+
+\begin{vd}%[Nguyễn Đắc Giáp][1D2B3]%
+    Chứng minh đẳng thức $k \mathrm{C}_n^k=n \mathrm{C}_{n-1}^{k-1}$ với $k,n\in \mathbb{N},1\le k\le n$.
+    \loigiai{
+        Ta có: $k \mathrm{C}_n^k=k.\dfrac{n!}{k!(n-k)!}=\dfrac{n.(n-1)!}{(k-1)!\left[n-1-(k-1)\right]!}=n. \mathrm{C}_{n-1}^{k-1}$.
+    }
+\end{vd}
+\begin{vd}%[Nguyễn Đắc Giáp][1D2B3]%
+    Chứng minh đẳng thức $\dfrac{1}{k+1}\mathrm{C}_n^k=\dfrac{1}{n+1}\mathrm{C}_{n+1}^{k+1}$ với $k,n\in \mathbb{N},0\le k\le n,n > 0$.
+    \loigiai{
+        Ta có: $\dfrac{1}{k+1}\mathrm{C}_n^k=\dfrac{n!}{(k+1).k!(n-k)!}=\dfrac{(n+1)!}{(n+1)(k+1)![n+1-(k+1)]!}=\dfrac{1}{(n+1)}\mathrm{C}_{n+1}^{k+1}$
+    }
+\end{vd}
+\begin{vd}%[Nguyễn Đắc Giáp][1D2K3]%
+    Tính tổng
+    $S=1\mathrm{C}_n^1+2\mathrm{C}_n^2+3\mathrm{C}_n^3+...+(n-1)\mathrm{C}_n^{n-1}+n\mathrm{C}_n^n$ với $(n\in \mathbb{N}^*)$. 
+    \loigiai{
+        \begin{enumerate}[]
+            \item \textbf{Cách 1.} \\
+            Sử dụng công thức $\mathrm{C}_n^k=\mathrm{C}_n^{n-k}$ với $k=0,1,...,n,$ ta viết lại tổng đã cho như sau: \\
+            $S=n\mathrm{C}_n^0+(n-1)\mathrm{C}_n^1+(n-2)\mathrm{C}_n^2+...+1\mathrm{C}_n^{n-1}$. \\
+            Như vậy, ta có
+            \begin{align*}
+            & S=1\mathrm{C}_n^1+2\mathrm{C}_n^2+3\mathrm{C}_n^3+...+(n-1)\mathrm{C}_n^{n-1}+n\mathrm{C}_n^n \\
+            & S=n\mathrm{C}_n^0+(n-1)\mathrm{C}_n^1+(n-2)\mathrm{C}_n^2+...+1\mathrm{C}_n^{n-1}
+            \end{align*}
+            Cộng theo hai vế đẳng thức trên ta được
+            \begin{align*}
+            2S &= n\mathrm{C}_n^0+n\mathrm{C}_n^1+n\mathrm{C}_n^2+...+n\mathrm{C}_n^{n-1}+n\mathrm{C}_n^n \\ 
+            &=n\left(\mathrm{C}_n^0+\mathrm{C}_n^1+...+\mathrm{C}_n^n\right). 
+            \end{align*} 
+            Theo kết quả 1 ta suy ra
+            $2S=n2^n\Leftrightarrow S=n{{.2}^{n-1}}$. \\
+            Vậy $S=n2^{n-1}.$ 
+            \item \textbf{Cách 2.} Theo tính chất 3 ta có: $k\mathrm{C}_n^k=n\mathrm{C}_{n-1}^{k-1}$. \\
+            Suy ra
+            $S=n\left(\mathrm{C}_{n-1}^0+\mathrm{C}_{n-1}^1+\mathrm{C}_{n-1}^2+...+\mathrm{C}_{n-1}^{n-1}\right) $. \\
+            Theo kết quả 1 ta có: $\mathrm{C}_{n-1}^0+\mathrm{C}_{n-1}^1+\mathrm{C}_{n-1}^2+...+\mathrm{C}_{n-1}^{n-1}=2^{n-1}$. \\
+            Vậy $S=n2^{n-1}. $
+        \end{enumerate}
+    }
+\end{vd} 
+\begin{vd}%[Nguyễn Đắc Giáp][1D2K3]%
+    Chứng minh rằng với mọi số nguyên dương $n$, ta có:
+    $\mathrm{C}_n^1-2\mathrm{C}_n^2+3\mathrm{C}_n^3+...+\left(-1\right)^nn\mathrm{C}_n^n=0.$ 
+    \loigiai{
+        Các số hạng tổng quát ở vế trái của đẳng thức đều xuất hiện $k\mathrm{C}_n^k$.\\
+        Đặt $P=\mathrm{C}_n^1-2\mathrm{C}_n^2+3\mathrm{C}_n^3+...+\left(-1\right)^{n+1}n\mathrm{C}_n^{n}$, áp dụng tính chất 3, ta có:
+        \begin{align*}
+        P &= n\mathrm{C}_{n-1}^0-n\mathrm{C}_{n-1}^1+n\mathrm{C}_{n-1}^2+...+\left(-1\right)^{n-1}\mathrm{C}_{n-1}^{n-1} \\ 
+        &=n\left(\mathrm{C}_{n-1}^0-\mathrm{C}_{n-1}^1+\mathrm{C}_{n-1}^2+...+\left(-1\right)^{n-1}\mathrm{C}_{n-1}^{n-1}\right). 
+        \end{align*} 
+        Theo kết quả 2 ta có: $\mathrm{C}_{n-1}^0-\mathrm{C}_{n-1}^1+\mathrm{C}_{n-1}^2+...+\left(-1\right)^{n-1}\mathrm{C}_{n-1}^{n-1}=0$.\\
+        Vậy $\mathrm{C}_n^1-2\mathrm{C}_n^2+3\mathrm{C}_n^3+...+\left(-1\right)^nn\mathrm{C}_n^n=0$.
+    }
+\end{vd}
+\begin{vd}%[Nguyễn Đắc Giáp][1D2K3]%
+    Tính tổng $S=\mathrm{C}_{2018}^{1}+3\mathrm{C}_{2018}^{3}+5\mathrm{C}_{2018}^{5}+...+2017\mathrm{C}_{2018}^{2017}$. 
+    \loigiai{
+        Theo kết quả của ví dụ 3 và ví dụ 4 ta có:
+        \begin{align*}
+        & \mathrm{C}_{2018}^{1}+2\mathrm{C}_{2018}^{2}+3\mathrm{C}_{2018}^{3}+4\mathrm{C}_{2018}^{4}+5\mathrm{C}_{2018}^{5}+...+2017\mathrm{C}_{2018}^{2017}+2018\mathrm{C}_{2018}^{2018}={{2018.2}^{2017}}. \\ 
+        & \mathrm{C}_{2018}^{1}-2\mathrm{C}_{2018}^{2}+3\mathrm{C}_{2018}^{3}-4\mathrm{C}_{2018}^{4}+5\mathrm{C}_{2018}^{5}+...+2017\mathrm{C}_{2018}^{2017}-2018\mathrm{C}_{2018}^{2018}=0. 
+        \end{align*}
+        Cộng hai đẳng thức theo vế ta có:
+        \begin{align*}
+        & 2\left(\mathrm{C}_{2018}^{1}+3\mathrm{C}_{2018}^{3}+5\mathrm{C}_{2018}^{5}+...+2017\mathrm{C}_{2018}^{2017}\right)=2018.2^{2017} \\ 
+        \Leftrightarrow &2S=2018.2^{2017} \\ 
+        \Leftrightarrow &S=1009.2^{2017}. 
+        \end{align*} 
+        Vậy $S=1009.2^{2017}$. 
+    }
+\end{vd}
+\begin{vd}%[Nguyễn Đắc Giáp][1D2K3]%
+    Chứng minh rằng với mọi số nguyên dương $n$, ta có:
+    $\mathrm{C}_n^0+2\mathrm{C}_n^1+3\mathrm{C}_n^2+...+(n+1)\mathrm{C}_n^n=(n+2)2^{n-1}.$ 
+    \loigiai{
+        Số hạng tổng quát ở vế trái của đẳng thức là $(k+1)\mathrm{C}_n^k=k\mathrm{C}_n^k+\mathrm{C}_n^k$.\\
+        Đặt $P=\mathrm{C}_n^0+2\mathrm{C}_n^1+3\mathrm{C}_n^2+...+(n+1)\mathrm{C}_n^n$, ta có:
+        \begin{align*}
+        P &= \left(\mathrm{C}_n^1+2\mathrm{C}_n^2+...+n\mathrm{C}_n^n\right)+\left(\mathrm{C}_n^0+\mathrm{C}_n^1+\mathrm{C}_n^2...+\mathrm{C}_n^n\right) \\ 
+        &=n{{.2}^{n-1}}+2^n \\ 
+        &=(n+2).2^{n-1}. 
+        \end{align*} 
+        Vậy ta có: $\mathrm{C}_n^0+2\mathrm{C}_n^1+3\mathrm{C}_n^2+...+(n+1)\mathrm{C}_n^n=(n+2)2^{n-1}$.
+    }
+\end{vd}
+\begin{vd}
+    Chứng minh rằng với mọi số nguyên dương $n$, ta có:
+    $2\mathrm{C}_n^0+3\mathrm{C}_n^1+4\mathrm{C}_n^2+...+(n+2)\mathrm{C}_n^n=(n+4)2^{n-1}$.
+    \loigiai{
+        Số hạng tổng quát ở vế trái của đẳng thức là $(k+2)\mathrm{C}_n^k=k\mathrm{C}_n^k+2\mathrm{C}_n^k$.\\
+        Đặt $P=2\mathrm{C}_n^0+3\mathrm{C}_n^1+4\mathrm{C}_n^2+...+(n+2)\mathrm{C}_n^n$, ta có:\\
+        \begin{align*}
+        P &=\left(\mathrm{C}_n^1+2\mathrm{C}_n^2+...+n\mathrm{C}_n^n\right)+2\left(\mathrm{C}_n^0+\mathrm{C}_n^1+\mathrm{C}_n^2...+\mathrm{C}_n^n\right) \\ 
+        &=n.2^{n-1}+2.2^n\\ 
+        &=(n+4).2^{n-1}. 
+        \end{align*} 
+        Vậy ta có: $2\mathrm{C}_n^0+3\mathrm{C}_n^1+4\mathrm{C}_n^2+...+(n+2)\mathrm{C}_n^n=(n+4)2^{n-1}$.
+    }
+\end{vd}
+\begin{vd}%[Nguyễn Đắc Giáp][1D2G3]%
+    Tính tổng $S=1^2\mathrm{C}_n^1+2^2\mathrm{C}_n^2+...+n^2\mathrm{C}_n^n,$ với $n\in N,n\ge 2$.
+    \loigiai{
+        Số hạng tổng quát của tổng $S$ là $k^2\mathrm{C}_n^k,$ với $k=2,3,...,n,$ ta có:
+        $k^2 \mathrm{C}_n^k=(k-1)k\mathrm{C}_n^k+k\mathrm{C}_n^k=n(n-1)\mathrm{C}_{n-2}^{k-2}+n\mathrm{C}_{n-1}^{k-1}.$
+        Mặt khác ta có: $1^2\mathrm{C}_n^1=n\mathrm{C}_{n-1}^0$. \\
+        Như vậy ta được:
+        \begin{align*}
+        S &=1^2\mathrm{C}_n^1+2^2\mathrm{C}_n^2+...+n^2\mathrm{C}_n^n \\ 
+        &=n(n-1)(\mathrm{C}_{n-2}^0+\mathrm{C}_{n-2}^1+...+\mathrm{C}_{n-2}^{n-2})+n(\mathrm{C}_{n-1}^0+\mathrm{C}_{n-1}^1+\mathrm{C}_{n-1}^2+...+\mathrm{C}_{n-1}^{n-1}) \\ 
+        &=n(n-1)2^{n-2}+n2^{n-1} \\ 
+        &=n(n+1)2^{n-2}. 
+        \end{align*} 
+        Vậy $S=n(n+1)2^{n-2}.$
+    }
+\end{vd}
+\begin{vd}%[Nguyễn Đắc Giáp][1D2K3]%
+    Tính tổng $S=\dfrac{1}{1}\mathrm{C}_n^0+\dfrac{1}{2}\mathrm{C}_n^{1}+\dfrac{1}{3}\mathrm{C}_n^2+...+\dfrac{1}{n+1}\mathrm{C}_n^n(n\in \mathbb{N}^*)$. 
+    \loigiai{
+        Các số hạng tổng quát của tổng $S$ là: $\dfrac{1}{k+1} \mathrm{C}_n^k$. \\
+        Áp dụng tính chất 4 ta có: $\dfrac{1}{k+1} \mathrm{C}_n^k=\dfrac{1}{n+1} \mathrm{C}_{n+1}^{k+1}$.\\
+        Suy ra
+        \begin{align*}
+        S &=\dfrac{1}{n+1}\mathrm{C}_{n+1}^1+\dfrac{1}{n+1}\mathrm{C}_{n+1}^2+\dfrac{1}{n+1}\mathrm{C}_{n+1}^3+...+\dfrac{1}{n+1}\mathrm{C}_{n+1}^{n+1} \\ 
+        &=\dfrac{1}{n+1}\left(\mathrm{C}_{n+1}^1+\mathrm{C}_{n+1}^2+\mathrm{C}_{n+1}^3+...+\mathrm{C}_{n+1}^{n+1}\right) \\ 
+        &=\dfrac{1}{n+1}\left(\mathrm{C}_{n+1}^0+\mathrm{C}_{n+1}^1+\mathrm{C}_{n+1}^2+...+\mathrm{C}_{n+1}^{n+1}\right)-\dfrac{1}{n+1}\mathrm{C}_{n+1}^0 \\ 
+        &=\dfrac{2^{n+1}-1}{n+1}. 
+        \end{align*} 
+        Vậy $\dfrac{1}{1}\mathrm{C}_n^0+\dfrac{1}{2}\mathrm{C}_n^1+\dfrac{1}{3}\mathrm{C}_n^2+...+\dfrac{1}{n+1}\mathrm{C}_n^n=\dfrac{2^{n+1}-1}{n+1}$. 
+    }
+\end{vd}
+\begin{center}
+    \textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Nguyễn Đắc Giáp][1D2K3]%
+    Chứng minh rằng $ \mathrm{C}_{2n}^1+3 \mathrm{C}_{2n}^3+5 \mathrm{C}_{2n}^5+...+\left(2n-1\right) \mathrm{C}_{2n}^{2n-1}=n.2^{2n-1}$. 
+    \loigiai{
+        Theo kết quả ví dụ 3 và ví dụ 4, ta có:
+        \begin{align*}
+        & \mathrm{C}_{2n}^1+2 \mathrm{C}_{2n}^2+3 \mathrm{C}_{2n}^3+4 \mathrm{C}_{2n}^4+...+\left(2n-1\right) \mathrm{C}_{2n}^{2n-1}+2n \mathrm{C}_{2n}^{2n}=2n.2^{2n-1} \\ 
+        & \mathrm{C}_{2n}^1-2 \mathrm{C}_{2n}^2+3 \mathrm{C}_{2n}^3-4 \mathrm{C}_{2n}^4+...+\left(2n-1\right) \mathrm{C}_{2n}^{2n-1}-2n \mathrm{C}_{2n}^{2n}=0.
+        \end{align*}
+        Cộng hai đẳng thức trên theo vế, ta có:
+        \begin{align*}
+        & 2\left(\mathrm{C}_{2n}^1+3 \mathrm{C}_{2n}^3+5 \mathrm{C}_{2n}^5+...+\left(2n-1\right) \mathrm{C}_{2n}^{2n-1}\right)=2n.2^{2n-1} \\ 
+        \Leftrightarrow &\mathrm{C}_{2n}^1+3 \mathrm{C}_{2n}^3+5 \mathrm{C}_{2n}^5+...+\left(2n-1\right) \mathrm{C}_{2n}^{2n-1}=n.2^{2n-1}. 
+        \end{align*}
+        Vậy đẳng thức được chứng minh.
+    }
+\end{bt}
+\begin{bt}%[Nguyễn Đắc Giáp][1D2K3]%
+    Chứng minh rằng với mọi số nguyên dương $n$, ta có:
+    $\mathrm{C}_n^0-2\mathrm{C}_n^1+3\mathrm{C}_n^2+...+\left(-1\right)^n(n+1)\mathrm{C}_n^n=0.$
+    \loigiai{
+        Số hạng tổng quát ở vế trái của đẳng thức xuất hiện $(k+1)\mathrm{C}_n^k=k\mathrm{C}_n^k+\mathrm{C}_n^k$.\\
+        Đặt $P=\mathrm{C}_n^0-2\mathrm{C}_n^1+3\mathrm{C}_n^2+...+\left(-1\right)^{n}(n+1)\mathrm{C}_n^n$, ta có:
+        \begin{align*}
+        P &= \left(\mathrm{C}_n^1-2\mathrm{C}_n^2+...+\left(-1\right)^{n}n\mathrm{C}_n^n\right)+\left(\mathrm{C}_n^0-\mathrm{C}_n^1+\mathrm{C}_n^2+...+\left(-1\right)^n\mathrm{C}_n^n\right) \\ 
+        &=0+0=0. 
+        \end{align*} 
+        Vậy ta có: $\mathrm{C}_n^0-2\mathrm{C}_n^1+3\mathrm{C}_n^2+...+\left(-1\right)^n(n+1)\mathrm{C}_n^n=0$.
+    }
+\end{bt}
+\begin{bt}%[Nguyễn Đắc Giáp][1D2K3]%
+    Tính tổng $S=2.1.\mathrm{C}_n^2+3.2.\mathrm{C}_n^3+...+(n-1).n.\mathrm{C}_n^n$.
+    \loigiai{
+        Số hạng tổng quát trong tổng là $k(k-1).\mathrm{C}_n^k=(k-1)k.\mathrm{C}_n^k$.\\
+        Ta có: $(k-1)k.\mathrm{C}_n^k=(k-1).n.\mathrm{C}_{n-1}^{k-1}=n.(k-1).\mathrm{C}_{n-1}^{k-1}=n(n-1).\mathrm{C}_{n-2}^{k-2}, \left(2\le k\le n\right)$.\\
+        Suy ra
+        \begin{align*}
+        S &=n(n-1)\left(\mathrm{C}_{n-2}^0+\mathrm{C}_{n-2}^1+\mathrm{C}_{n-2}^2+...+\mathrm{C}_{n-2}^{n-2}\right) \\ 
+        &=n(n-1).(1+1)^{n-2} \\ 
+        &=n(n-1).2^{n-2}. 
+        \end{align*}
+        Vậy $S=n(n-1).2^{n-2}$.
+    }
+\end{bt}
+\begin{bt}%[Nguyễn Đắc Giáp][1D2G3]%
+    Tính tổng  $S=\dfrac{\mathrm{C}_{2017}^0}{1}+\dfrac{\mathrm{C}_{2017}^1}{2}+\dfrac{\mathrm{C}_{2017}^2}{3}+...+\dfrac{\mathrm{C}_{2017}^{2017}}{2017}$. 
+    \loigiai{
+        Áp dụng tính chất 4 ta có: $\dfrac{1}{k+1}\mathrm{C}_{2017}^k=\dfrac{1}{2018}\mathrm{C}_{2018}^{k+1}, \left(0\le k\le {2017}\right)$. 
+        \begin{align*}
+        S&=\dfrac{1}{2018}\left(\mathrm{C}_{2018}^1+\mathrm{C}_{2018}^2+\mathrm{C}_{2018}^3+...+\mathrm{C}_{2018}^{2018}\right) \\ 
+        &=\dfrac{1}{2018}\left[\left(\mathrm{C}_{2018}^0+\mathrm{C}_{2018}^1+\mathrm{C}_{2018}^2+\mathrm{C}_{2018}^3+...+\mathrm{C}_{2018}^{2018}\right)-\mathrm{C}_{2018}^0\right] \\ 
+        &=\dfrac{1}{2018}\left[{{(1+1)}^{2018}}-1\right]=\dfrac{2^{2018}-1}{2018}. 
+        \end{align*}
+        Vậy $S=\dfrac{2^{2018}-1}{2018}$. 
+    }
+\end{bt}
+\begin{bt}%[Nguyễn Đắc Giáp][1D2G3]%
+    Chứng minh rằng $\dfrac{1}{2} \mathrm{C}_{2n}^1+\dfrac{1}{4} \mathrm{C}_{2n}^3+\dfrac{1}{6} \mathrm{C}_{2n}^5+...+\dfrac{1}{2n} \mathrm{C}_{2n}^{2n-1}=\dfrac{2^{2n}-1}{2n+1}$ với $n\in \mathbb{N}^*$.
+    \loigiai{
+        Đặt $P=\dfrac{1}{2} \mathrm{C}_{2n}^1+\dfrac{1}{4} \mathrm{C}_{2n}^3+\dfrac{1}{6} \mathrm{C}_{2n}^5+...+\dfrac{1}{2n} \mathrm{C}_{2n}^{2n-1}$. \\
+        Áp dụng tính chất 4 ta có: $\dfrac{1}{k+1} \mathrm{C}_{2n}^k=\dfrac{1}{2n+1} \mathrm{C}_{2n+1}^{k+1}$. \\
+        Suy ra
+        \begin{align*}
+        P &=\dfrac{1}{2n+1}\left(\mathrm{C}_{2n+1}^2+\mathrm{C}_{2n+1}^4+...+\mathrm{C}_{2n+1}^{2n}\right) \\ 
+        &=\dfrac{1}{2n+1}\left(\mathrm{C}_{2n+1}^0+\mathrm{C}_{2n+1}^2+\mathrm{C}_{2n+1}^4+...+\mathrm{C}_{2n+1}^{2n}\right)-\dfrac{1}{2n+1} \mathrm{C}_{2n+1}^0 \\ 
+        &=\dfrac{2^{2n}-1}{2n+1}. 
+        \end{align*} 
+        Vậy $\dfrac{1}{2} \mathrm{C}_{2n}^{1}+\dfrac{1}{4} \mathrm{C}_{2n}^3+\dfrac{1}{6} \mathrm{C}_{2n}^5+...+\dfrac{1}{2n} \mathrm{C}_{2n}^{2n-1}=\dfrac{2^{2n}-1}{2n+1}$ với $n\in {{\mathbb{N}}^{*}}$.
+    }
+\end{bt}
+\begin{bt}%[Nguyễn Đắc Giáp][1D2G3]%
+    Tính tổng $S=\dfrac{1}{2}.\mathrm{C}_{2n}^0+\dfrac{1}{4}.\mathrm{C}_{2n}^2+\dfrac{1}{6}.\mathrm{C}_{2n}^4+...+\dfrac{1}{2n+2}\mathrm{C}_{2n}^{2n}$, với $n\in \mathbb{N}^*$. 
+    \loigiai{
+        Số hạng tổng quát trong tổng là $\dfrac{1}{2k+2}\mathrm{C}_{2n}^{2k}$.\\
+        Áp dụng tính chất 4 ta có: 
+        \begin{align*}
+        \dfrac{1}{2k+2}\mathrm{C}_{2n}^{2k} &=\dfrac{2k+1}{(2k+2)}.\dfrac{1}{2k+1}.\mathrm{C}_{2n}^{2k}=\dfrac{2k+1}{2k+2}.\dfrac{1}{2n+1}\mathrm{C}_{2n+1}^{2k+1}=\dfrac{2k+2-1}{2k+2}.\dfrac{1}{2n+1}\mathrm{C}_{2n+1}^{2k+1} \\ 
+        &=\dfrac{1}{2n+1}\left(\mathrm{C}_{2n+1}^{2k+1}-\dfrac{1}{2k+2}\mathrm{C}_{2n+1}^{2k+1}\right)=\dfrac{1}{2n+1}\left(\mathrm{C}_{2n+1}^{2k+1}-\dfrac{1}{2n+2}\mathrm{C}_{2n+2}^{2k+2}\right) \\ 
+        &=\dfrac{1}{2n+1}\mathrm{C}_{2n+1}^{2k+1}-\dfrac{1}{2n+1}.\dfrac{1}{2n+2}.\mathrm{C}_{2n+2}^{2k+2}, \left(0\le k\le n\right). 
+        \end{align*}
+        Suy ra
+        \begin{align*}
+        S &=\dfrac{1}{2n+1}\left(\mathrm{C}_{2n+1}^1+\mathrm{C}_{2n+1}^3+...+\mathrm{C}_{2n+1}^{2n+1}\right)-\dfrac{1}{(2n+1)(2n+2)}\left(\mathrm{C}_{2n+2}^2+\mathrm{C}_{2n+2}^4+...+\mathrm{C}_{2n+2}^{2n+2}\right) \\ 
+        &=\dfrac{1}{2n+1}\left(\mathrm{C}_{2n+1}^1+\mathrm{C}_{2n+1}^3+...+\mathrm{C}_{2n+1}^{2n+1}\right)-\dfrac{1}{(2n+1)(2n+2)}\left(\mathrm{C}_{2n+2}^0+\mathrm{C}_{2n+2}^2+...+\mathrm{C}_{2n+2}^{2n+2}-1\right) \\ 
+        &=\dfrac{1}{2n+1}.2^2n-\dfrac{1}{\left(2n+1\right)\left(2n+2\right)}\left(2^{2n+1}-1\right) \\ 
+        &=\dfrac{n.2^{2n+1}+1}{\left(2n+1\right)\left(2n+2\right)}. 
+        \end{align*}
+        Vậy $S=\dfrac{n.2^{2n+1}+1}{\left(2n+1\right)\left(2n+2\right)}$. 
+    }
+\end{bt}
+\begin{center}
+\textbf{BÀI TẬP TỔNG HỢP}
+\end{center}
+\begin{bt}
+    Tính tổng: $S=\mathrm{C}_n^0-\dfrac{1}{3}\mathrm{C}_n^1+\dfrac{1}{3^2}\mathrm{C}_n^2+...+(-1)^n\dfrac{1}{3^n}\mathrm{C}_n^n$.
+    \loigiai{
+        Áp dụng khai triển nhị thức với $a=1,b=-\dfrac{1}{3}$, ta được:\\
+        $S=\mathrm{C}_n^0-\dfrac{1}{3}\mathrm{C}_n^1+\dfrac{1}{3^2}\mathrm{C}_n^2+...+(-1)^n\dfrac{1}{3^n}\mathrm{C}_n^n=\dfrac{2^n}{3^n}$.
+    }
+\end{bt}
+\begin{bt}
+    Với $n,k$ là số nguyên dương và $1\le k\le n$, chứng minh rằng:
+    \begin{center}
+        $\mathrm{C}_n^0-\mathrm{C}_n^1\mathrm{C}_{n-1}^{k-1}+\mathrm{C}_n^2\mathrm{C}_{n-2}^{k-2}-...+(-1)^k\mathrm{C}_n^k\mathrm{C}_{n-k}^0=0$.
+    \end{center}
+    \loigiai{
+        $\mathrm{C}_n^k(1+x)^k=\mathrm{C}_k^0\mathrm{C}_n^k+\mathrm{C}_k^1\mathrm{C}_n^kx+...+\mathrm{C}_k^k\mathrm{C}_n^kx^k\ (1)$.\\
+        Sử dụng hệ thức $\displaystyle\mathrm{C}_k^m.\mathrm{C}_n^k=\mathrm{C}_n^m.\mathrm{C}_{n-m}^{k-m}$.\\
+        Do đó hệ thức $(1)$ có dạng: $\mathrm{C}_n^k(1+x)^k=\mathrm{C}_n^0\mathrm{C}_n^k+\mathrm{C}_n^1\mathrm{C}_{n-1}^{k-1}x+...+\mathrm{C}_n^k\mathrm{C}_{n-k}^0x^k\ (2)$.\\
+        Thay $x=-1$ vào $(2)$ ta được: $\mathrm{C}_n^0-\mathrm{C}_n^1\mathrm{C}_{n-1}{k-1}+\mathrm{C}_n^2\mathrm{C}_{n-2}^{k-2}-...+(-1)^k\mathrm{C}_n^k\mathrm{C}_{n-k}^0=0$\\
+        $\Rightarrow $ điều phải chứng minh.
+    }
+\end{bt}
+\begin{bt}
+    Tính tổng $S=\mathrm{C}_{20}^0+\dfrac{3}{2}\mathrm{C}_{20}^1+\dfrac{5}{4}\mathrm{C}_{20}^2...+\dfrac{2^{20}+1}{2^{20}}\mathrm{C}_{20}^{20}$.
+    \loigiai{Chọn $a=b=1\Rightarrow\mathrm{C}_n^0+\mathrm{C}_n^1+...+\mathrm{C}_n^k+...+\mathrm{C}_n^n=2^n$.\\
+        Chọn $a=1,b=\dfrac{1}{2}\Rightarrow \mathrm{C}_n^0+\dfrac{1}{2}\mathrm{C}_n^1+...+\dfrac{1}{2^k}\mathrm{C}_n^k+...+\dfrac{1}{2^n}\mathrm{C}_n^n=\left(\dfrac{3}{2}\right)^n$.\\
+        Cộng vế với vế và chọn $n=20$ ta được: $S=\dfrac{2^{40}+3^{20}}{2^{20}-1}$. 
+    }
+\end{bt}
+\begin{bt}
+    Từ khai triển biểu thức $\left(4x-5\right)^{2017}$ thành đa thức. Tính tổng các hệ số của đa thức nhận được.
+    \loigiai{Tổng các hệ số của đa thức $\left(4x-5\right)^{2017}$ là $(4.1-5)^{2017}=(-1)^{2017}=-1$. 
+    }
+\end{bt}
+\begin{bt}
+    Tính giá trị của biểu thức sau:\begin{center}
+        $S=\mathrm{C}_{2002}^0\mathrm{C}_{2002}^{2001}+\mathrm{C}_{2002}^1\mathrm{C}_{2002}^{2000}+...+\mathrm{C}_{2002}^{k}\mathrm{C}_{2002-k}^{2001-k}+...+\mathrm{C}_{2002}^{2001}\mathrm{C}_{1}^{0}$.
+    \end{center}
+    \loigiai{Ta có: $\mathrm{C}_{2002}^{k}\mathrm{C}_{2002-k}^{2001-k}=\dfrac{2002.2001!}{k!(2001-k)!}=2002.\mathrm{C}_{2001}^k$.\\
+        Từ đó $S$ được viết lại dưới dạng:\\
+        $S=2002\left(\mathrm{C}_{2001}^0+\mathrm{C}_{2001}^1+...+\mathrm{C}_{2001}^{2001}\right)=2002(1+1)^{2001}=1001.2^{2002}$. 
+    }
+\end{bt}
+
+\begin{bt}%[Vũ Văn Trường]%[1D2G3]
+    Tìm hệ số của $x^{15}$ trong khai triển $\left(\dfrac{1}{x^4}+x^7\right)^n$, biết $n$ là số tự nhiên thỏa mãn đẳng thức
+    $$\mathrm{C}_{2n+1}^1+\mathrm{C}_{2n+1}^2+\cdots+\mathrm{C}_{2n+1}^n=2^{20}-1$$
+    \loigiai{Với $0\leq k\leq 2n+1$, ta có $\mathrm{C}_{2n+1}^k=\mathrm{C}_{2n+1}^{2n+1-k}$. Từ đó suy ra:
+        \begin{align*}
+        \mathrm{C}_{2n+1}^0+\mathrm{C}_{2n+1}^1+\cdots+\mathrm{C}_{2n+1}^n+\mathrm{C}_{2n+1}^{n+1}+\cdots+\mathrm{C}_{2n+1}^{2n+1}& =2\left(\mathrm{C}_{2n+1}^0+\mathrm{C}_{2n+1}^1+\cdots+\mathrm{C}_{2n+1}^n\right)\\
+        & =2\left(1+2^{20}-1\right) \\
+        & =2^{21}\\
+        \Rightarrow 2^{2n+1}=2^{21} \Rightarrow n=10.
+        \end{align*}
+        Số hạng tổng quát trong khai triển $\left(\dfrac{1}{x^4}+x^7\right)^n$ khi $n=10$ là $$T_k=\mathrm{C}_{10}^k\left(\dfrac{1}{x^4}\right)^{10-k}\left(x^7\right)^k=\mathrm{C}_{10}^kx^{11k-40}$$
+        Số hạng chứa $x^{15}$ tương ứng với số hạng có $k$ thỏa mãn $11k-40=15\Leftrightarrow k=5$.\\
+        Vậy hệ số của $x^{15}$ trong khai triển đã cho là $\mathrm{C}_{10}^{5}=252.$
+    }
+\end{bt}
+\begin{bt}%[Vũ Văn Trường]%[1D2G3]
+    Tìm số hạng chứa $x^{5}$ trong khai triển $P=x(1-2x)^n+x^2(1+3x)^{2n}$, biết $n$ là số tự nhiên thỏa mãn đẳng thức $\mathrm{A}_{n}^2-\mathrm{C}_{n}^{n-1}=15$
+    \loigiai{Ta có
+        \begin{align*}
+        \mathrm{A}_{n}^2-\mathrm{C}_{n}^{n-1}=5&\Leftrightarrow\dfrac{n!}{(n-2)!}-\dfrac{n!}{(n-1)!.1!}=5\\
+        &\Leftrightarrow n(n-1)-n=15 \\
+        &\Leftrightarrow n=5.
+        \end{align*}
+        Ta có: $$x{\left({1-2x}\right)^5} + {x^2}{\left( {1+3x}\right)^{10}}= x\sum\limits_{k=0}^5\mathrm{C}_{5}^{k}{(-2x)^k}+x^2\sum\limits_{i = 0}^{10} \mathrm{C}_{10}^{i}(3x)^i= \sum\limits_{k=0}^5(-2)^k\mathrm{C}_{5}^{k} x^{k+1}+\sum\limits_{i = 0}^{10} 3^i\mathrm{C}_{10}^{i}x^{i+2}$$
+        Số hạng chứa $x^5$ tương ứng số hạng chứa $k$ và $i$ thỏa $\heva{&k+1=5\\&i+2=5}\Leftrightarrow \heva{&k=4\\&i=3}$.\\
+        Vậy số hạng chứa $x^5$ là $\left[( - 2)^4\mathrm{C}_5^4 + 3^3\mathrm{C}_{10}^3\right]x^5=3320x^5$.
+    }
+\end{bt}
+
+\begin{bt}%01
+    Tìm số hạng không chứa $x$ trong khai triển $\left(x^2 + \dfrac{1}{x}\right)^n$ (với $x$ khác $0$), biết rằng tổng các hệ số của số hạng thứ nhất, thứ hai và thứ ba bằng $46$. 
+    \loigiai{
+        Số hạng tổng quát của khai triển là $\mathrm{C}^k_{n} (x^2)^{n-k} (x^{-1})^k = \mathrm{C}^k_{n} x^{2n - 3k}$. 
+        
+        Tổng các hệ số của số hạng thứ nhất, thứ hai và thứ ba bằng $46$ nên ta có phương trình 
+        \begin{equation*}
+        \mathrm{C}^0_{n} + \mathrm{C}^1_{n} + \mathrm{C}^2_{n} = 46 \Leftrightarrow 1 + n + \dfrac{n (n-1)}{2} = 46 \Leftrightarrow n^2 +n - 90 =0 \Leftrightarrow n = 9.
+        \end{equation*}
+        
+        Với $n =9$, số hạng tổng quát của khai triển là $\mathrm{C}^k_{9} (x^2)^{9-k} (x^{-1})^k = \mathrm{C}^k_{9} x^{18 - 3k}$. 
+        
+        Ta tìm $k$ sao cho $18-3k=0 \Leftrightarrow k = 6$. 
+        
+        Vậy số hạng không chứa $x$ là $\mathrm{C}^6_{9} = 126$. 
+    }
+\end{bt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bt}%02
+    Tìm số hạng không chứa $x$ trong khai triển $\left(x-\dfrac{1}{x}\right)^n$ (với $x$ khác $0$) biết 
+    \begin{equation*}
+    \mathrm{C}_n^2 \mathrm{C}_n^{n-2}+2\mathrm{C}_n^2 \mathrm{C}_n^3+\mathrm{C}_n^3 \mathrm{C}_n^{n-3}=100.
+    \end{equation*}
+    \loigiai{
+        Ta có kết quả $\mathrm{C}_n^k=\mathrm{C}_n^{n-k}$, do đó $\mathrm{C}_n^{n-2}=\mathrm{C}_n^2, \mathrm{C}_n^{n-3}=\mathrm{C}_n^3$.
+        
+        Suy ra $\mathrm{C}_n^2\mathrm{C}_n^{n-2}+2\mathrm{C}_n^2\mathrm{C}_n^3+\mathrm{C}_n^3\mathrm{C}_n^{n-3}=100\Longleftrightarrow \mathrm{C}_n^2+\mathrm{C}_n^3=10\Longleftrightarrow n=4\Longrightarrow \left(x-\dfrac{1}{x}\right)^4$.
+        
+        Số hạng tổng quát trong khai triển trên là $T_{k+1}=\mathrm{C}_4^kx^{4-k}\left(-\dfrac{1}{x}\right)^k=\mathrm{C}_4^kx^{4-k}(-x)^{-k}$.
+        
+        Số hạng không chứa $x$ ứng với $4-k-k=0\Longleftrightarrow k=2$.
+        
+        Vậy số hạng không chứa $x$ là $T_3=\mathrm{C}_4^2=6$.
+    }
+\end{bt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bt}%03
+    Tìm số hạng không chứa $x$ trong khai triển $\left(3x - \dfrac{1}{x}\right)^{13} \cdot \dfrac{2}{x^3}$ (với $x$ khác $0$).
+    \loigiai{
+        Số hạng tổng quát của khai triển trên là $\mathrm{C}^k_{13} (3x)^{13-k} (x^{-1})^k \cdot \dfrac{2}{x^3} = 2 \mathrm{C}^k_{13} . 3^{13-k}. (-1)^k . x^{10 - 2k} $. 
+        
+        Ta tìm $k$ sao cho $10-2k=0 \Leftrightarrow k=5$. 
+        
+        Vậy số hạng không chứa $x$ trong khai triển là $2 \mathrm{C}^{8}_{13} . 3^{8} . (-1)^5 = - 168 880 14$. 
+    }
+\end{bt}
+
+\begin{bt}%[Nguyễn Đắc Giáp][1D2K3]%
+    Tính tổng $S=1.2.3.\mathrm{C}_n^3+2.3.4.\mathrm{C}_n^4+....+(n-2).(n-1)n.\mathrm{C}_n^n$ với $\left(3\le k\le n\right)$. 
+    \loigiai{
+        Số hạng tổng quát của các số hạng trong tổng là $k(k-1)(k-2).\mathrm{C}_n^k$.\\
+        Áp dụng tính chất 3 ba lần liên tiếp ta có:
+        \begin{align*}
+        (k-2).(k-1).k.\mathrm{C}_n^k &=n(k-2)\left[(k-1)\mathrm{C}_{n-1}^{k-1}\right] \\ 
+        &=n(n-1)\left[(k-2)\mathrm{C}_{n-2}^{k-2}\right] \\ 
+        &=n(n-1)(n-2)\mathrm{C}_{n-3}^{k-3}. 
+        \end{align*}
+        Khi đó
+        \begin{align*}
+        S &=n(n-1)(n-2)\left(\mathrm{C}_{n-3}^0+\mathrm{C}_{n-3}^1+...+\mathrm{C}_{n-3}^{n-3}\right) \\ 
+        &=n(n-1)(n-2){{(1+1)}^{n-3}} \\ 
+        &=n(n-1)(n-2){{.2}^{n-3}}.
+        \end{align*}
+        Vậy $S=n(n-1)(n-2){{.2}^{n-3}}$.
+    }
+\end{bt}
+\begin{bt}%[Nguyễn Đắc Giáp][1D2G3]%
+    Tìm số nguyên dương $n$ sao cho:
+    $\mathrm{C}_{2n+1}^1-2.2\mathrm{C}_{2n+1}^2+{{3.2}^2}.\mathrm{C}_{2n+1}^3-{{4.2}^3}\mathrm{C}_{2n+1}^4+...+(2n+1){{.2}^{2n}}.\mathrm{C}_{2n+1}^{2n+1}=2017$.
+    \loigiai{
+        Đặt $P=\mathrm{C}_{2n+1}^1-2.2\mathrm{C}_{2n+1}^2+{{3.2}^2}.\mathrm{C}_{2n+1}^3-{{4.2}^3}\mathrm{C}_{2n+1}^4+...+(2n+1){{.2}^{2n}}.\mathrm{C}_{2n+1}^{2n+1}$.\\
+        Sử dụng đẳng thức $k\mathrm{C}_{2n+1}^k=(2n+1).\mathrm{C}_{2n}^{k-1}$ với $(1\le k\le 2n+1)$, ta có:
+        \begin{align*}
+        P &=\left(2n+1\right)\left(\mathrm{C}_{2n+1}^1-2.\mathrm{C}_{2n+1}^2+2^2.\mathrm{C}_{2n+1}^3+...+2^{2n}\mathrm{C}_{2n+1}^{2n+1}\right) \\ 
+        &=\left(2n+1\right){{(1-2)}^{2n}} \\ 
+        &=2n+1 .
+        \end{align*} 
+        Theo giả thiết ta có: $P=2017\Leftrightarrow 2n+1=2017\Leftrightarrow n=1008$. \\
+        Vậy $n=1008$ là giá trị cần tìm.
+    }
+\end{bt}
+\begin{bt}%[Nguyễn Đắc Giáp][1D2G3]%
+    Tìm số nguyên dương $n,n > 4$ biết:
+    $2. \mathrm{C}_n^0+5. \mathrm{C}_n^1+8. \mathrm{C}_n^2+...+\left(3n+2\right). \mathrm{C}_n^n=1600.$
+    \loigiai{
+        Số hạng tổng quát của tổng ở vế trái là: $\left(3k+2\right) \mathrm{C}_n^k=3k. \mathrm{C}_n^k+2. \mathrm{C}_n^k,\left(0\le k\le n\right)$.\\
+        Đặt $P=2. \mathrm{C}_n^0+5. \mathrm{C}_n^1+8. \mathrm{C}_n^2+...+\left(3n+2\right). \mathrm{C}_n^n$, ta có:
+        $P=3\left(\mathrm{C}_n^1+2.\mathrm{C}_n^2+3.\mathrm{C}_n^3+...+n.\mathrm{C}_n^n\right)+2\left(\mathrm{C}_n^0+\mathrm{C}_n^1+\mathrm{C}_n^2+...+\mathrm{C}_n^n\right)$
+        Mặt khác ta có:
+        \begin{align*}
+        & \mathrm{C}_n^1+2.\mathrm{C}_n^2+3.\mathrm{C}_n^3+...+n.\mathrm{C}_n^n=n{{.2}^{n-1}},\\
+        & \mathrm{C}_n^0+\mathrm{C}_n^1+\mathrm{C}_n^2+...+\mathrm{C}_n^n=2^n. 
+        \end{align*}
+        Do đó $P=3n.2^{n-1}+2.2^n=\left(3n+4\right)2^{n-1}$. \\
+        Từ yêu cầu bài toán ta suy ra: $\left(3n+4\right)2^{n-1}=1600=25.2^6$. \\
+        $\Leftrightarrow \heva{
+            & (3n+4).2^{n-1}=25.2^6\\ 
+            & n\in N,n > 4 
+        }
+        \Rightarrow \heva{
+            & 3n+4=25 \\ 
+            & n-1=6 \\ 
+            & n\in N,n > 4 
+        }
+        \Leftrightarrow n=7$\\
+        Vậy $n=7$ thỏa mãn yêu cầu bài toán.
+    }
+\end{bt}
+\begin{bt}%[Nguyễn Đắc Giáp][1D2G3]%
+    Chứng minh rằng: $\left(\mathrm{C}_n^1\right)^2+2.\left(\mathrm{C}_n^2\right)^2+...+n\left(\mathrm{C}_n^n\right)^2=n\mathrm{C}_{2n-1}^n$, với $n\in {{\mathbb{N}}^{*}}$.
+    \loigiai{
+        Số hạng tổng quát ở vế trái là $k\left(\mathrm{C}_n^k\right)^2,1\le k\le n$.\\
+        Đặt $P=\left(\mathrm{C}_n^1\right)^2+2.\left(\mathrm{C}_n^2\right)^2+...+n\left(\mathrm{C}_n^n\right)^2$.\\
+        Áp dụng tính chất 4, ta có: $k.\left(\mathrm{C}_n^k\right)^2=k.\mathrm{C}_n^k.\mathrm{C}_n^k=n.\mathrm{C}_{n-1}^{k-1}.\mathrm{C}_n^k, 1\le k\le n$.
+        \begin{align*}
+        P &= n.\left(\mathrm{C}_{n-1}^0.\mathrm{C}_n^1+\mathrm{C}_{n-1}^1.\mathrm{C}_n^2+...+\mathrm{C}_{n-1}^{n-1}.\mathrm{C}_n^n\right) \\ 
+        &=n\left(\mathrm{C}_{n-1}^{n-1}.\mathrm{C}_n^1+\mathrm{C}_{n-1}^{n-2}.\mathrm{C}_n^2+...+\mathrm{C}_{n-1}^0.\mathrm{C}_n^n\right). 
+        \end{align*}
+        Do đó ta chỉ cần chứng minh: $\left(\mathrm{C}_{n-1}^{n-1}.\mathrm{C}_n^1+\mathrm{C}_{n-1}^{n-2}.\mathrm{C}_n^2+...+\mathrm{C}_{n-1}^0.\mathrm{C}_n^n\right)=\mathrm{C}_{2n-1}^n$ (*).\\
+        Thật vậy, xét khai triển: ${{(1+x)}^{n-1}}.{{(1+x)}^n}={{(1+x)}^{2n-1}}$.\\
+        Trong khai triển ${{(1+x)}^{n-1}}.{{(1+x)}^n}$, hệ số của $x^n$ là $\mathrm{C}_{n-1}^{n-1}.\mathrm{C}_n^1+\mathrm{C}_{n-1}^{n-2}.\mathrm{C}_n^2+...+\mathrm{C}_{n-1}^0.\mathrm{C}_n^n$ (1).\\
+        Trong khai triển ${{(1+x)}^{2n-1}}$, hệ số của $x^n$ là $\mathrm{C}_{2n-1}^n$ (2).\\
+        Từ (1) và (2) suy ra đẳng thức (*) được chứng minh.\\
+        Vậy $\left(\mathrm{C}_n^1\right)^2+2.\left(\mathrm{C}_n^2\right)^2+...+n\left(\mathrm{C}_n^n\right)^2=n\mathrm{C}_{2n-1}^n$, với $n\in {{\mathbb{N}}^{*}}$.
+    }
+\end{bt}
+\begin{bt}%[Nguyễn Đắc Giáp][1D2G3]%
+    Tính tổng $S=\dfrac{1}{2} \mathrm{C}_n^0+\dfrac{1}3 \mathrm{C}_n^1+\dfrac{1}{4} \mathrm{C}_n^2+...+\dfrac{1}{n+2} \mathrm{C}_n^n$ với $n\in {{\mathbb{N}}^{*}}$.
+    \loigiai{
+        Số hạng tổng quát của tổng là $\dfrac{1}{k+2} \mathrm{C}_n^k$.
+        Áp dụng tính chất 4 ta có:
+        \begin{align*}
+        \dfrac{1}{k+2} \mathrm{C}_n^k &=\dfrac{k+1}{k+2}.\left(\dfrac{1}{k+1} \mathrm{C}_n^k\right) \\ 
+        &=\left(1-\dfrac{1}{k+2}\right)\dfrac{1}{n+1} \mathrm{C}_{n+1}^{k+1}=\dfrac{1}{n+1}\left(\mathrm{C}_{n+1}^{k+1}-\dfrac{1}{k+2} \mathrm{C}_{n+1}^{k+1}\right) \\ 
+        &=\dfrac{1}{n+1}\left(\mathrm{C}_{n+1}^{k+1}-\dfrac{1}{n+2} \mathrm{C}_{n+2}^{k+2}\right).
+        \end{align*}
+        Do đó
+        $S=\dfrac{1}{n+1}\left(\mathrm{C}_{n+1}^1+\mathrm{C}_{n+1}^2+...+\mathrm{C}_{n+1}^{n+1}\right)-\dfrac{1}{(n+1)(n+2)}\left(\mathrm{C}_{n+2}^2+\mathrm{C}_{n+2}^3+...+\mathrm{C}_{n+2}^{n+2}\right)$.\\
+        Mặt khác ta có:
+        \begin{align*}
+        \mathrm{C}_{n+1}^1+\mathrm{C}_{n+1}^2+...+\mathrm{C}_{n+1}^{n+1} &=\left(\mathrm{C}_{n+1}^0+\mathrm{C}_{n+1}^1+\mathrm{C}_{n+1}^2+...+\mathrm{C}_{n+1}^{n+1}\right)-\mathrm{C}_{n+1}^0=2^{n+1}-1. \\ 
+        \mathrm{C}_{n+2}^2+\mathrm{C}_{n+2}^3+...+\mathrm{C}_{n+2}^{n+2} &=\left(\mathrm{C}_{n+2}^0+\mathrm{C}_{n+2}^1+\mathrm{C}_{n+2}^2+...+\mathrm{C}_{n+2}^{n+2}\right)-\left(\mathrm{C}_{n+2}^0+\mathrm{C}_{n+2}^1\right) \\ 
+        &=2^{n+2}-1-n-2. 
+        \end{align*}
+        Suy ra $S=\dfrac{2^{n+1}-1}{n+1}-\dfrac{2^{n+2}-1-n-2}{(n+1)(n+2)}=\dfrac{n.2^{n+1}+1}{(n+1)(n+2)}$. \\
+        Vậy tổng cần tính là $S=\dfrac{n.2^{n+1}+1}{(n+1)(n+2)}$. 
+    }
+\end{bt}
+\begin{bt}%[Nguyễn Đắc Giáp][1D2G3]%
+    Chứng minh rằng $\left(\dfrac{\mathrm{C}_n^0}{1}\right)^2+\left(\dfrac{\mathrm{C}_n^1}{2}\right)^2+...+\left(\dfrac{\mathrm{C}_n^n}{n+1}\right)^2=\dfrac{1}{{{(n+1)}^2}}\left(\mathrm{C}_{2n+2}^{n+1}-1\right)$.
+    \loigiai{
+        Số hạng tổng quát trong biểu thức vế trái là $\left(\dfrac{\mathrm{C}_n^k}{k+1}\right)^2$ với $0\le k\le n$.\\
+        Áp dụng tính chất 4 ta có: \\
+        $\left(\dfrac{\mathrm{C}_n^k}{k+1}\right)^2=\dfrac{1}{{{(n+1)}^2}}\left(\mathrm{C}_{n+1}^{k+1}\right)^2=\dfrac{1}{{{(n+1)}^2}}\mathrm{C}_{n+1}^{k+1}.\mathrm{C}_{n+1}^{n-k}$, với $0\le k\le n$.\\
+        Khi đó:\\
+        $\left(\dfrac{\mathrm{C}_n^0}{1}\right)^2+\left(\dfrac{\mathrm{C}_n^1}{2}\right)^2+...+\left(\dfrac{\mathrm{C}_n^n}{n+1}\right)^2=\dfrac{1}{{{(n+1)}^2}}\left(\mathrm{C}_{n+1}^1.\mathrm{C}_{n+1}^n+\mathrm{C}_{n+1}^2\mathrm{C}_{n+1}^{n-1}+...+\mathrm{C}_{n+1}^{n+1}.\mathrm{C}_{n+1}^0\right)$.\\
+        Xét khai triển: ${{(1+x)}^{n+1}}.{{(1+x)}^{n+1}}={{(1+x)}^{2n+2}}$.\\
+        Trong khai triển $(1+x)^{n+1}.(1+x)^{n+1}$, hệ số của $x^{n+1}$ là: \\
+        $\left(\mathrm{C}_{n+1}^0\mathrm{C}_{n+1}^{n+1}+\mathrm{C}_{n+1}^1.\mathrm{C}_{n+1}^n+...+\mathrm{C}_{n+1}^{n+1}.\mathrm{C}_{n+1}^0\right)=\left(1+\mathrm{C}_{n+1}^1.\mathrm{C}_{n+1}^n+...+\mathrm{C}_{n+1}^{n+1}.\mathrm{C}_{n+1}^0\right)$ (1).\\
+        Trong khai triển $(1+x)^{2n+2}$, hệ số của $x^{n+1}$ là $\mathrm{C}_{2n+2}^{n+1}$ (2).\\
+        Từ (1) và (2) suy ra: 
+        \begin{align*}
+        & 1+\mathrm{C}_{n+1}^1.\mathrm{C}_{n+1}^n+\mathrm{C}_{n+1}^2\mathrm{C}_{n+1}^{n-1}+...+\mathrm{C}_{n+1}^{n+1}.\mathrm{C}_{n+1}^0=\mathrm{C}_{2n+2}^{n+1} \\ 
+        \Leftrightarrow& \mathrm{C}_{n+1}^1.\mathrm{C}_{n+1}^n+\mathrm{C}_{n+1}^2\mathrm{C}_{n+1}^{n-1}+...+\mathrm{C}_{n+1}^{n+1}.\mathrm{C}_{n+1}^0=\mathrm{C}_{2n+2}^{n+1}-1 
+        \end{align*}
+        Vậy đẳng thức được chứng minh.
+    }
+\end{bt}
+
+\begin{bt}%[Hồ Sỹ Trường]%[1D2K3]
+Cho khai triển $\left( 1+2x \right)^n=a_0+a_1x+a_2x^2+\ldots+a_nx^n$ trong đó $n\in \mathbb{N}^*$ và các hệ số thỏa mãn hệ thức $a_0+\dfrac{a_1}{2}+\ldots+\dfrac{a_n}{2^n}=4096$. Tìm hệ số lớn nhất trong khai triển.
+\loigiai{
+Gọi $P(x)=\left(1+2x\right)^n=a_0+a_1x+a_2x^2+\ldots+a_nx^n$.\\
+Khi đó ta có $a_0+\dfrac{a_1}{2}+\ldots+\dfrac{a_n}{2^n}=P\left(\dfrac{1}{2}\right)$.\\
+Suy ra $2^n=4096$, do đó $n=12$.\\
+Vậy hệ số lớn nhất là $a_8=2^8\mathrm{C}_{12}^8=126730$.
+}
+\end{bt}
+\begin{bt}%[Hồ Sỹ Trường]%[1D2K3]
+Cho khai triển $\left( 2+x \right)^n$ trong đó $n\in \mathbb{N}^*$ và thỏa mãn hệ thức $3^n\mathrm{C}_n^0-3^{n-1}\mathrm{C}_n^1+3^{n-2}\mathrm{C}_n^2-3^{n-3}\mathrm{C}_n^3+\ldots+(-1)^n\mathrm{C}_n^n=2048$. Tìm hệ số lớn nhất trong khai triển.
+\loigiai{
+   Ta có $3^n\mathrm{C}_n^0-3^{n-1}\mathrm{C}_n^1+3^{n-2}\mathrm{C}_n^2-3^{n-3}\mathrm{C}_n^3+\ldots+(-1)^n\mathrm{C}_n^n=(3-1)^n=2^n$.\\
+    Suy ra $2^n=2048$, do đó $n=11$.\\
+    Vậy hệ số lớn nhất là $a_3=2^8\mathrm{C}_{11}^3=a_4=2^7\mathrm{C}_{11}^4=42240$.
+}
+\end{bt}
+\begin{bt}%[Hồ Sỹ Trường]%[1D2K3]
+    Cho khai triển $\left( \dfrac{nx^2}{14}+\dfrac{1}{x} \right)^n$ trong đó $n\in \mathbb{N}^*$ và thỏa mãn hệ thức $5\mathrm{C}_n^{n-1}=\mathrm{C}_n^3$. Tìm hệ số lớn nhất trong khai triển.
+    \loigiai{
+      Theo giả thiết ta có $5\mathrm{C}_n^{n-1}=\mathrm{C}_n^3\Longrightarrow 5n=\dfrac{n!}{3!(n-3)!}\Longrightarrow n^2-3n-28=0 \Longrightarrow n=7$.\\
+      Khi đó ta có $a=\dfrac{1}{2}, b= 1, n=7$, do đó $\dfrac{13}{3}\le k \le \dfrac{16}{3}$.\\
+      Vậy hệ số lớn nhất là $a_5=\mathrm{C}_7^5\left(\dfrac{1}{2}\right)^2=\dfrac{21}{4}$.
+    }
+\end{bt}

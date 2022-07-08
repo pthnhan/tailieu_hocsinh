@@ -1,0 +1,1709 @@
+\section{ỨNG DỤNG CỦA TÍCH PHÂN}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Hình phẳng giới hạn bởi đường cong $y=f(x)$ và trục hoành}
+
+\begin{dl}
+\immini{Cho $(\mathcal{H})$ là hình phẳng giới hạn bởi đồ thị hàm số $y=f(x)$ liên tục trên đoạn $[a,b]$, trục hoành và hai đường thẳng $x=a, x=b$.\\
+ Diện tích hình phẳng  $(\mathcal{H})$ được tính theo công thức $$S=  \displaystyle\int\limits_{a}^b |f(x)| \mathrm{d}x.$$}{\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm, scale=1.5]
+	\clip(-0.5,-0.5) rectangle (2.7,2.7);
+	\draw[line width=1.0pt, color=black, smooth, samples=100, domain=0.1:2.5] plot(\x,{1/(\x)});
+	\draw[line width = 1pt,->,color=black] (-0.5,0) -- (2.5,0) node[below] {$x$} ;
+	\draw[shift={(2,0)},color=black] (0pt,1pt) -- (0pt,-1pt) node[below] {\footnotesize $b$};
+	%\draw[shift={(1.35,0)},color=black] (0pt,1pt) -- (0pt,-1pt) node[below] {\footnotesize $k$};
+	\draw[shift={(0.5,0)},color=black] (0pt,1pt) -- (0pt,-1pt) node[below] {\footnotesize $a$};
+	\draw[color=black] (0pt,0) node[below right] {\footnotesize $O$};
+	\draw[line width = 1pt,->,color=black] (0,-0.5) -- (0,2.5) node[right] {$y$};
+	\filldraw[pattern = north east lines, pattern color = black]
+	plot [smooth, domain=0.5:2](\x,{1/(\x)})
+	-- (2,0) -- (0.5,0)
+	-- cycle;
+	\end{tikzpicture}}
+\end{dl}
+
+\subsubsection{Hình phẳng giới hạn bởi hai đường cong}
+
+\begin{dl}
+	\immini{Cho $(\mathcal{H})$ là hình phẳng giới hạn bởi đồ thị hai hàm số $y=f(x), y=g(x)$ liên tục trên đoạn $[a,b]$ và hai đường thẳng $x=a, x=b$.\\
+		Diện tích của  $(\mathcal{H})$ bằng $S=  \displaystyle\int\limits_{a}^b |f(x)-g(x)| \mathrm{d}x$.}{
+		\begin{tikzpicture}[>=stealth]
+		\draw[->] (-2.3,0)--(3,0) node[below] {$x$};
+		\draw[->] (0,-1.5)--(0,2.5) node[right] {$y$};
+		\draw[color=black,fill=black,pattern=north east lines,pattern color=black] {[smooth,samples=100,domain=-1.5:2.2] plot(\x,{0.25*(\x)^3-(\x)+1})} -- (2.2,1.462) {[smooth,samples=100,domain=2.2:-1.5] -- plot(\x,{0.25*(\x)^2-1})} -- (-1.5,1.65625) -- cycle;
+		%\draw[line width=1pt,color=black] (-1.571,0)--(-1.571,-1);
+		\draw (0.3,-0.3) node {$O$} (2.3,-0.3) node {$b$} (-1.7, -0.3) node {$a$};
+		
+		\end{tikzpicture}}
+\end{dl}
+
+\subsubsection{Thể tích vật thể}
+
+\begin{dl}
+	Cắt vật thể $\mathcal{V}$ bởi hai mặt phẳng $(P)$ và $(Q)$ vuông góc với trục $Ox$ lần lượt tại $x=a, x=b (a<b)$. Một mặt phẳng tuỳ ý vuông góc với $Ox$ tại điểm $x,(a\leq x\leq b)$ cắt $\mathcal{V}$ theo thiết diện có diện tích $S(x)$. Với $S(x)$ liên tục trên đoạn $\left[a; b\right]$.\\
+	\begin{center}
+	\begin{tikzpicture}[scale=0.7]
+	\draw[->] (9,-1.5)--(11,-1.5) node[below] {$x$};
+	\draw[dashed] (9,-1.5)--(8,-1.5); \draw[dashed] (5,-1.5)--(4,-1.5); \draw[dashed] (1,-1.5)--(0,-1.5);
+	\draw (-1,-1.5)--(0,-1.5); \draw (8,-1.5)--(5,-1.5);\draw (4,-1.5)--(1,-1.5);
+	\draw[smooth,samples=100,domain=1:4] plot(\x,{sin(\x/2 r)+2});
+	\draw[dashed,smooth,samples=100,domain=4:5] plot(\x,{sin(\x/2 r)+2});
+	
+	\draw[smooth,samples=100,domain=5:8] plot(\x,{sin(\x/2 r)+2});
+	\draw[dashed,smooth,samples=100,domain=8:9] plot(\x,{sin(\x/2 r)+2});
+	\draw[smooth,samples=100,domain=5:8] plot(\x,{(\x-1)*(\x-9)/16});
+	
+	\draw[dashed,smooth,samples=100,domain=4:5] plot(\x,{(\x-1)*(\x-9)/16});
+	\draw[smooth,samples=100,domain=1:4] plot(\x,{(\x-1)*(\x-9)/16});
+	\draw[dashed,smooth,samples=100,domain=8:9] plot(\x,{(\x-1)*(\x-9)/16});
+	\draw (2.5,3)--(2.5,4)--(0,3)--(0,-3)--(2.5,-2)--(2.5,-0.6); \draw[dashed] (2.5,3)--(2.5,-0.6);
+	\draw (6.5,1.9)--(6.5,4)--(4,3)--(4,-3)--(6.5,-2)--(6.5,-0.8); \draw[dashed] (6.5,1.9)--(6.5,-0.7);
+	\draw (10.5,4)--(8,3)--(8,-3)--(10.5,-2)--(10.5,4);
+	
+	\draw [thick] (1,2.5) to[out=190,in=160] (1,0);
+	\draw [dashed,thick] (1,2.5) to[out=-20,in=0] (1,0);
+	\draw [thick] (5,2.6) to[out=200,in=150] (5,-1);
+	\draw [dashed,thick] (5,2.6) to[out=-20,in=0] (5,-1);
+	
+	\draw [thick,] (9,1) to[out=190,in=160] (9,0);
+	\draw [thick] (9,1) to[out=-20,in=0] (9,0);
+	\draw[dashed] (1,0)--(1,-1.5) node[below] {$a$};
+	\draw[dashed] (9,0)--(9,-1.5) node[below] {$b$};
+	\draw[dashed] (5,-1)--(5,-1.5) node[below] {$x$};
+	\draw[fill=black,pattern=north east lines,pattern color=black] (5,2.6) to[out=200,in=150] (5,-1)
+	 to[out=0,in=-20] (5,2.6)--cycle;
+	\end{tikzpicture}
+	\end{center}
+		
+	Thể tích của vật thể $\mathcal{V}$ giới hạn bởi hai mặt phẳng $(P)$ và $(Q)$ tính bởi công thức $$V=\displaystyle\int\limits_{a}^b S(x)\mathrm{\,d}x.$$
+\end{dl}
+
+\subsubsection{Thể tích khối tròn xoay}
+
+\begin{dl}
+\immini{Hình thang cong giới hạn bởi đồ thị hàm số $y=f(x)$, trục $Ox$ và hai đường thẳng $x=a$ và $x=b$ $(a<b)$ quay quanh trục $Ox$ tạo thành khối tròn xoay.\\	
+	Thể tích của khối tròn xoay đó được tính bởi công thức: $$V=\pi\displaystyle\int\limits_{a}^b f^2(x)\mathrm{\,d}x.$$}{\begin{tikzpicture}[>=stealth]
+	\tkzInit[xmin=-0.5,ymin=-2.5,xmax=6.5,ymax=2.5] \tkzClip
+	\draw[->] (-0.5,0)--(5.3,0) node[below] {$x$} ;
+	\draw[->] (0,-2.3)--(0,2.3) node[right] {$y$} ;
+	\draw (0,0) node[below left] {$O$};
+	\draw (1,0) ellipse (0.16 and 1);
+	\draw (4,0) ellipse (0.25 and 1.73);
+	%Nhánh trên
+	\draw[domain=1:4] 
+	plot(\x,{0.31*(\x)^3-2.28*(\x)^2+5.14*(\x)-2.17}) ;
+	%Nhánh dưới
+	\draw[domain=1:4]
+	plot(\x,{-0.31*(\x)^3+2.28*(\x)^2-5.14*(\x)+2.17}) ;
+	%Tô màu
+	\draw[pattern = north east lines,opacity=.3, line width = 1.2pt,draw=none] (1,1) plot[domain=1:4] (\x,{0.31*(\x)^3-2.28*(\x)^2+5.14*(\x)-2.17})--(4,0)--(1,0)--cycle;
+	
+	%Các yếu tố khác
+	\draw (1,0) node[below] {$a$};
+	\draw (4,0) node[below] {$b$};
+	\draw[dashed] (1,0)--(1,1);
+	\draw[dashed] (4,0)--(4,1.72);
+	\draw (2.5,1.7) node {$y=f(x)$} ;
+	\draw[->] (5,0.25) arc (90:270:0.3);
+	\end{tikzpicture}}
+\end{dl}
+
+%dang 2
+\subsection{Các dạng toán}
+\begin{dang}{Diện tích hình giới hạn bởi: đồ thị hàm số - trục hoành và hai cận}
+	Tính diện tích hình giới hạn bởi: $(C): y=f(x)$, $Ox$, $x=a$, $x=b$ với $a<b$.\\
+	{\bf Bước 1.} Tìm tất cả các nghiệm của phương trình $f(x)=0$ trong khoảng $(a;b)$.\\
+	{\bf Bước 2.} Áp dụng công thức tính diện tích và tách ra thành nhiều đoạn thành phần để xét dấu phá trị tuyệt đối như sau
+	$$S=\displaystyle\int\limits_a^b\left| f(x)\right|\mathrm{\,d}x=\displaystyle\int\limits_a^{x_1}\left| f(x)\right|\mathrm{\,d}x+\displaystyle\int\limits_{x_1}^{x_2}\left| f(x)\right|\mathrm{\,d}x+\cdots+\displaystyle\int\limits_{x_{n-1}}^{x_n}\left| f(x)\right|\mathrm{\,d}x+\displaystyle\int\limits_{x_n}^b\left| f(x)\right|\mathrm{\,d}x=$$
+	$$=\left|\displaystyle\int\limits_a^{x_1} f(x)\mathrm{\,d}x\right|+\left|\displaystyle\int\limits_{x_1}^{x_2} f(x)\mathrm{\,d}x\right|+\cdots+\left|\displaystyle\int\limits_{x_{n-1}}^{x_n} f(x)\mathrm{\,d}x\right|+\left|\displaystyle\int\limits_{x_n}^b f(x)\mathrm{\,d}x\right|.$$
+	Ở đó $x_1<x_2<\cdots<x_{n-1}<x_n$ là các nghiệm của phương trình hoành độ giao điểm nằm trong khoảng $(a;b)$.\\
+	{\bf Bước 3.} Kết luận.
+\end{dang}
+\begin{vd}%[2D3B3]
+	Tính diện tích hình phẳng giới hạn bởi các đường: $y=x^3$, trục hoành, $x=0$ và $x=2$. 
+	\loigiai{
+		\immini{
+			Phương trình hoành độ giao điểm
+			$$x^3=0\Leftrightarrow x=0.$$
+			Diện tích hình giới hạn là
+			$$S=\displaystyle\int\limits_0^2\left|x^3\right|\mathrm{\,d}x=\left|\displaystyle\int\limits_0^2 x^3\mathrm{\,d}x\right|=\left|\dfrac{x^4}{4}\Big|_0^2\right|=4.$$
+		}{
+			\begin{tikzpicture}[yscale=0.4,>=stealth]
+			% ======= Vẽ hệ trục toạ =============================
+			\draw[thick][->](-1,0)--(3,0)node[right,below]{$x$};
+			\foreach \x in{2}\draw[xshift=\x cm,thick] (1pt,-1pt)--(0pt,1pt)node[below]{$\x$};
+			\draw[thick][->](0,-1)--(0,9.5)node[above,left]{$y$};
+			\foreach \y in {8}\draw[yshift=\y cm,thick] (-1pt,0pt)--(1pt,0pt)node[left]{$\y$};
+			% ======= Vẽ vùng giới ===============================
+			\fill [color=gray!200,pattern=north east lines,pattern color=blue,domain=0:2, variable=\x]
+			(0,0)--plot({\x},{(\x)^3})--(2,8)--(2,0)--(0,0);%
+			% ======= Vẽ hàm số và biên giới hạn =================
+			\draw [line width=1pt,smooth,domain=-1:2.1, variable=\x] plot ({\x}, {(\x)^3}) node[right]{$y=x^3$};
+			\draw[dashed](0,8)--(2,8);
+			\draw(2,0)--(2,8);
+			\draw(0,0) node[below left]{$O$};
+			\end{tikzpicture}
+	}}
+\end{vd}
+
+\begin{vd}%[2D3B3]
+	Tính diện tích hình phẳng giới hạn bởi các đường: $y=\cos x$, $Ox$, $x=-\dfrac{\pi}{2}$ và $x=\dfrac{\pi}{2}$. 
+	\loigiai{
+		\immini{
+			Ta có $\cos x=0\Leftrightarrow x=\dfrac{\pi}{2}+k\pi,\, k\in\mathbb{Z}$. Từ đó ta thấy phương trình hoành độ không có nghiệm nào thuộc khoảng $\left(-\dfrac{\pi}{2};\dfrac{\pi}{2}\right)$.\\
+			Diện tích hình giới hạn là
+			$$S=\displaystyle\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left|\cos x\right|\mathrm{\,d}x=\left|\displaystyle\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos x\mathrm{\,d}x\right|=\left|\left.\sin x\right|_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\right|=2.$$
+		}{
+			\begin{tikzpicture}[yscale=1.8,>=stealth]
+			% ======= Vẽ hệ trục toạ =============================
+			\draw[thick][->](-3.5,0)--(3.5,0)node[right,below]{$x$};
+			\draw[thick][->](0,-1)--(0,1.5)node[above,left]{$y$};
+			\foreach \y in {1}\draw[yshift=\y cm,thick] (-1pt,0pt)--(1pt,0pt)node[left,xshift=-3pt]{$\y$};
+			% ======= Vẽ vùng giới ===============================
+			%\fill [color=gray!200,pattern=north east lines,pattern color=blue,domain=0:2, variable=\x]	(0,0)--plot(\x,{cos((2*(\x))*180/pi)})--(2,0;%
+			% ======= Vẽ hàm số và biên giới hạn =================
+			\draw [line width=0pt,smooth,domain=-0.785:0.785, variable=\x,pattern=north east lines,pattern color=blue] plot(\x,{cos((2*(\x))*180/pi)});
+			\draw [line width=1pt,smooth,domain=-3:3, variable=\x] plot(\x,{cos((2*(\x))*180/pi)});
+			\draw[dashed];
+			\draw;
+			\draw(0,0) node[below left]{$O$};
+			\end{tikzpicture}
+	}}
+\end{vd}
+
+\begin{vd}%[2D3K3]
+	Tính diện tích hình phẳng giới hạn bởi các đường: $y=x^2-2x-3$, $y=0$, $x=-1$, $x=4$.
+	\loigiai{
+		\immini{
+			Ta có phương trình hoành độ giao điểm
+			$$x^2-2x-3=0\Leftrightarrow \hoac{x=-1\\ x=3.}$$
+			Diện tích hình giới hạn là\\
+			$$S=\displaystyle\int\limits_{-1}^4\left|x^2-2x-3\right|\mathrm{\,d}x=$$
+			$$=\displaystyle\int\limits_{-1}^3\left|x^2-2x-3\right|\mathrm{\,d}x+\displaystyle\int\limits_{3}^4\left|x^2-2x-3\right|\mathrm{\,d}x=$$
+			$$=\left|\displaystyle\int\limits_{-1}^3(x^2-2x-3)\mathrm{\,d}x\right|+\left|\displaystyle\int\limits_{3}^4(x^2-2x-3)\mathrm{\,d}x\right|=$$
+			$$=\left|\left.\left(\dfrac{x^3}{3}-x^2-3x\right)\right|_{-1}^3\right|+\left|\left.\left(\dfrac{x^3}{3}-x^2-3x\right)\right|_{3}^4\right|=13.$$
+		}{
+			\begin{tikzpicture}[xscale=0.8, yscale=0.4,>=stealth]
+			% ======= Vẽ hệ trục toạ =============================
+			\draw[thick][->](-2,0)--(5,0)node[right,below]{$x$};
+			\foreach \x in{-1,4}\draw[xshift=\x cm,thick] (1pt,-1pt)--(0pt,1pt)node[below,yshift=-6pt]{$\x$};
+			\draw[thick][->](0,-4)--(0,9.5)node[above,left]{$y$};
+			\foreach \y in {5}\draw[yshift=\y cm,thick] (-1pt,0pt)--(1pt,0pt)node[left]{$\y$};
+			% ======= Vẽ vùng giới ===============================
+			\fill [color=gray!200,pattern=north east lines,pattern color=blue,domain=0:2, variable=\x]
+			(-1,0)--plot({\x},{(\x)^2-2*\x-3})--(3,0)--(4,5)--(4,0)--(-1,0);%
+			% ======= Vẽ hàm số và biên giới hạn =================
+			\draw [line width=1pt,smooth,domain=-2:4.5, variable=\x] plot ({\x}, {(\x)^2-2*\x-3}) node[above]{$y=x^2-2x-3$};
+			\draw[dashed](0,5)--(4,5);
+			\draw(4,0)--(4,5);
+			\draw(0,0) node[above left]{$O$};
+			\end{tikzpicture}
+	}}
+\end{vd}
+
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[2D3K3]
+	Tính diện tích hình phẳng giới hạn bởi các đường: $x=-1$, $x=2$, $y=0$ và $y=x^2-2x$.
+	\loigiai{
+		Ta có $x^2-2x=0\Leftrightarrow\hoac{x&=0\\x&=2}$.\\
+		Diện tích hình giới hạn là
+		$$S=\displaystyle\int\limits_{-1}^2\left| x^2-2x\right|\mathrm{\,d}x=\displaystyle\int\limits_{-1}^0\left| x^2-2x\right|\mathrm{\,d}x + \displaystyle\int\limits_{0}^2\left| x^2-2x\right|\mathrm{\,d}x = \left|\displaystyle\int\limits_{-1}^0(x^2-2x)\mathrm{\,d}x\right| + \left|\displaystyle\int\limits_{0}^2(x^2-2x)\mathrm{\,d}x\right|=$$
+		$$=\left|\left.\left(\dfrac{x^3}{3}-x^2\right)\right|_{-1}^{0}\right|+\left|\left.\left(\dfrac{x^3}{3}-x^2\right)\right|_{0}^{2}\right|=\dfrac{8}{3}.$$
+	}
+\end{bt}
+
+\begin{bt}%[2D3K3]
+	Tính diện tích hình phẳng giới hạn bởi các đường: $y=x^2-x-2$, $y=0$, $x=-2$, $x=0$.
+	\loigiai{
+		Ta có phương trình
+		$$x^2-x-2=0\Leftrightarrow \hoac{x&=-1\\ x&=2}.$$
+		Diện tích hình giới hạn là
+		$$S=\displaystyle\int\limits_{-2}^0\left|x^2-x-2\right|\mathrm{\,d}x=\displaystyle\int\limits_{-2}^{-1}\left|x^2-x-2\right|\mathrm{\,d}x+\displaystyle\int\limits_{-1}^0\left|x^2-x-2\right|\mathrm{\,d}x=$$
+		$$=\left|\displaystyle\int\limits_{-2}^{-1}(x^2-x-2)\mathrm{\,d}x\right|+\left|\displaystyle\int\limits_{-1}^0(x^2-x-2)\mathrm{\,d}x\right|=\left|\left.\left(\dfrac{x^3}{3}-\dfrac{x^2}{2}-2x\right)\right|_{-2}^{-1}\right|+\left|\left.\left(\dfrac{x^3}{3}-\dfrac{x^2}{2}-2x\right)\right|_{-1}^{0}\right|=3.$$
+	}
+\end{bt}
+
+\begin{bt}%[2D3K3]
+	Tính diện tích hình phẳng giới hạn bởi các đường: $x=1$, $x=\mathrm{e}$, $y=0$, $y=\dfrac{\ln x}{2\sqrt{x}}$.
+	\loigiai{
+		Phương trình $\dfrac{\ln x}{2\sqrt{x}}=0$ vô nghiệm trong khoảng $(1;\mathrm{e})$.\\
+		Diện tích hình phẳng là
+		$$\displaystyle\int\limits_{1}^{\mathrm{e}}\left|\dfrac{\ln x}{2\sqrt{x}}\right|\mathrm{\,d}x=\left|\displaystyle\int\limits_{1}^{\mathrm{e}}\dfrac{\ln x}{2\sqrt{x}}\mathrm{\,d}x\right|=\left|\left.\sqrt{x}\ln x\right|_1^{\mathrm{e}}-\displaystyle\int\limits_1^{\mathrm{e}}\dfrac{1}{\sqrt{x}}\mathrm{\,d}x\right|=\left|\left.(\sqrt{x}\ln x-2\sqrt{x})\right|_1^{\mathrm{e}}\right|=2-\sqrt{\mathrm{e}}.$$
+	}
+\end{bt}
+
+\begin{bt}%[2D3K3]
+	Tính diện tích hình phẳng giới hạn bởi các đường: $y=\tan^3x$, $y=0$, $x=-\dfrac{\pi}{4}$, $x=\dfrac{\pi}{4}$.
+	\loigiai{
+		Nghiệm của phương trình $\tan^3x=0$ trong khoảng $\left(-\dfrac{\pi}{4};\dfrac{\pi}{4}\right)$ là $x=0$.\\
+		Diện tích hình phẳng là 
+		$$\displaystyle\int\limits_{-\frac{\pi}{4}}^{\frac{\pi}{4}}\left|\tan^3x\right|\mathrm{\,d}x=\displaystyle\int\limits_{-\frac{\pi}{4}}^{0}\left|\tan^3x\right|\mathrm{\,d}x+\displaystyle\int\limits_{0}^{\frac{\pi}{4}}\left|\tan^3x\right|\mathrm{\,d}x=\left|\displaystyle\int\limits_{-\frac{\pi}{4}}^{0}\tan^3x\mathrm{\,d}x\right|+\left|\displaystyle\int\limits_{0}^{\frac{\pi}{4}}\tan^3x\mathrm{\,d}x\right|=$$
+		$$=\left|\displaystyle\int\limits_{-\frac{\pi}{4}}^{0}\left(\tan x(1+\tan^2x)-\dfrac{\sin x}{\cos x}\right)\mathrm{\,d}x\right|+\left|\displaystyle\int\limits_{0}^{\frac{\pi}{4}}\left(\tan x(1+\tan^2x)-\dfrac{\sin x}{\cos x}\right)\mathrm{\,d}x\right|=$$
+		$$\left|\displaystyle\int\limits_{-\frac{\pi}{4}}^{0}\tan x\mathrm{\,d}(\tan x)+\displaystyle\int\limits_{-\frac{\pi}{4}}^{0}\dfrac{\mathrm{d}(\cos x)}{\cos x}\right|+\left|\displaystyle\int\limits_{0}^{\frac{\pi}{4}}\tan x\mathrm{\,d}(\tan x)+\displaystyle\int\limits_{0}^{\frac{\pi}{4}}\dfrac{\mathrm{d}(\cos x)}{\cos x}\right|=$$
+		$$=\left|\left.\left(\dfrac{\tan^2x}{2}+\ln|\cos x|\right)\right|_{-\frac{\pi}{4}}^{0}\right|+\left|\left.\left(\dfrac{\tan^2x}{2}+\ln|\cos x|\right)\right|_{0}^{\frac{\pi}{4}}\right|=1+2\ln\left(\dfrac{\sqrt{2}}{2}\right).$$
+	}
+\end{bt}
+
+\begin{bt}%[2D3K2]
+	Tính diện tích hình phẳng giới hạn bởi các đường: $y=\sin\left(\dfrac{x}{2}\right)\cos x$, $y=0$, $x=0$, $x=\dfrac{\pi}{2}$.
+	\loigiai{
+		Phương trình $\sin\left(\dfrac{x}{2}\right)\cos x=0$ vô nghiệm trong khoảng $(0;\dfrac{\pi}{2})$.\\
+		Diện tích hình phẳng là 
+		$$\displaystyle\int\limits_0^{\frac{\pi}{2}}\left|\sin\left(\dfrac{x}{2}\right)\cos x\right|\mathrm{\,d}x=\left|\displaystyle\int\limits_0^{\frac{\pi}{2}}\sin\left(\dfrac{x}{2}\right)\cos x\mathrm{\,d}x\right|=\dfrac{1}{2}\left|\displaystyle\int\limits_0^{\frac{\pi}{2}}\left(\sin\left(\dfrac{3x}{2}\right)-\sin\left(\dfrac{x}{2}\right)\right)\mathrm{\,d}x\right|=$$
+		$$\left|\left.\left(-\dfrac{\cos\left(\dfrac{3x}{2}\right)}{3}+\cos\left(\dfrac{x}{2}\right)\right)\right|_{0}^{\dfrac{\pi}{2}}\right|=\dfrac{2\sqrt{2}-2}{3}.$$
+	}
+\end{bt}
+
+\begin{bt}%[2D3K2]
+	Tính diện tích hình phẳng giới hạn bởi các đường: $x=1$, $x=\mathrm{e}$, $y=0$ và $y=\dfrac{\sqrt{1+\ln x}}{x}$.
+	\loigiai{
+		Phương trình $\dfrac{\sqrt{1+\ln x}}{x}=0$ vô nghiệm trong khoảng $(1;\mathrm{e})$.\\
+		Diện tích hình giới hạn là
+		$$\displaystyle\int\limits_1^{\mathrm{e}}\left|\dfrac{\sqrt{1+\ln x}}{x}\right|\mathrm{\,d}x=\left|\displaystyle\int\limits_1^{\mathrm{e}}\dfrac{\sqrt{1+\ln x}}{x}\mathrm{\,d}x\right|=\left|\displaystyle\int\limits_1^{\mathrm{e}}\left(1+\ln x\right)^{\frac{1}{2}}\mathrm{\,d}(1+\ln x)\right|=$$
+		$$\left|\left.\dfrac{2}{3}\sqrt{(1+\ln x)^3}\right|_{1}^{\mathrm{e}}\right|=\dfrac{4\sqrt{2}-2}{3}.$$
+	}
+\end{bt}
+
+\begin{bt}%[2D3K3]
+	Tính diện tích hình phẳng giới hạn bởi đường cong $y=\sin^2x\cos^3x$, trục $Ox$ và hai đường thẳng $x=0$ và $x=\dfrac{\pi}{2}$.
+	\loigiai{
+		Phương trình $\sin^2x\cos^3x=$ vô nghiệm trong khoảng $\left(0;\dfrac{\pi}{2}\right)$.\\
+		Diện tích hình giới hạn là
+		$$\displaystyle\int\limits_0^{\frac{\pi}{2}}\left|\sin^2x\cos^3x\right|\mathrm{\,d}x=\left|\displaystyle\int\limits_0^{\frac{\pi}{2}}\sin^2x\cos^3x\mathrm{\,d}x\right|=\left|\displaystyle\int\limits_{0}^{\frac{\pi}{2}}(\sin^2x-\sin^4x)\mathrm{\,d}(\sin x)\right|=$$
+		$$\left|\left.\left(\dfrac{\sin^3x}{3}-\dfrac{\sin^5x}{5}\right)\right|_{0}^{\frac{\pi}{2}}\right|=\dfrac{2}{15}.$$
+	}
+\end{bt}
+
+\begin{bt}%[2D3K3]
+	Tính diện tích hình phẳng giới hạn bởi các đường: $y=x\mathrm{e}^x$, $y=0$, $x=-1$ và $x=2$.
+	\loigiai{
+		Ta có phương trình hoành độ giao điểm 
+		$$x\mathrm{e}^x=0\Leftrightarrow x=0.$$
+		Diện tích hình giới hạn là
+		$$S=\displaystyle\int\limits_{-1}^2\left| x\mathrm{e}^x\right|\mathrm{\,d}x=\displaystyle\int\limits_{-1}^0\left| x\mathrm{e}^x\right|\mathrm{\,d}x+\displaystyle\int\limits_{0}^2\left| x\mathrm{e}^x\right|\mathrm{\,d}x=\left|\displaystyle\int\limits_{-1}^0 x\mathrm{e}^x\mathrm{\,d}x\right| +\left|\displaystyle\int\limits_{0}^2 x\mathrm{e}^x\mathrm{\,d}x\right|=$$
+		$$\left|\left.(x\mathrm{e}^x-\mathrm{e}^x)\right|_{-1}^{0}\right|+\left|\left.(x\mathrm{e}^x-\mathrm{e}^x)\right|_{0}^{2}\right|=\mathrm{e}^2+2-\dfrac{2}{\mathrm{e}}.$$
+	}
+\end{bt}
+%dang 3
+
+\begin{dang}{Tính diện tích hình phẳng giới hạn bởi hai đồ thị hàm số}
+	Muốn tính diện tích hình phẳng giới hạn bởi hai đồ thị hàm số $y=f(x)$ và $y=g(x)$ ta thực hiện theo các bước như sau:\\
+	\textit{Bước 1}: Xét phương trình $f(x) -g(x) = 0 \quad (1)$.\\
+	Phương trình $(1)$ có nghiệm $x_1<x_2<...<x_k$.\\
+	\textit{Bước 2}: Gọi $S$ là diện tích cần tính, ta có:\\
+	$\begin{array}{*{20}{l}}
+	S& = &\displaystyle \int \limits_{x_1}^{x_k} \left| f(x) - g(x)\right| \mathrm{\,d}x.\\
+	& = &\displaystyle \int \limits_{x_1}^{x_2} \left| f(x) - g(x)\right| \mathrm{\,d}x + \displaystyle \int \limits_{x_2}^{x_3} \left| f(x) - g(x)\right| \mathrm{\,d}x + ... + \displaystyle \int \limits_{x_{k-1}}^{x_k} \left| f(x) - g(x)\right| \mathrm{\,d}x.\\
+	&=&\left|\displaystyle \int \limits_{x_1}^{x_2} \left( f(x) - g(x) \right) \mathrm{\,d}x \right| + \left|\displaystyle \int \limits_{x_2}^{x_3} \left( f(x) - g(x) \right) \mathrm{\,d}x \right| + ... + \left| \displaystyle \int \limits_{x_{k-1}}^{x_k} \left( f(x) - g(x) \right) \mathrm{\,d}x \right|.
+	\end{array}$
+\end{dang}
+
+\begin{vd}%[Võ Thị Quỳnh Trang]%[2D3B3]
+	Tính diện tích hình phẳng giới hạn bởi: $y=x^2+2$ và $y=3x$.
+	\loigiai{
+		Xét phương trình hoành độ giao điểm ta có: 
+		$$x^2+2-3x=0 \Leftrightarrow x^2-3x+2=0 \Leftrightarrow \left[ \begin{array}{l}
+		x = 1\\
+		x = 2
+		\end{array} \right.$$
+		Diện tích hình phẳng cần tính là:\\
+		$$S=\displaystyle \int \limits_{1}^{2} \left| x^2+2-3x\right| \mathrm{\,d}x =\left| \displaystyle \int \limits_{1}^{2} (x^2-3x+2) \mathrm{\,d}x \right| = \left| \left. {\left(\dfrac{1}{3}{x^3} - \dfrac{3}{2}{x^2} + 2x\right)} \right|_1^2 \right| = \left| \dfrac{2}{3} - \dfrac{5}{6} \right| = \dfrac{1}{6} \text{ (đvdt)}.$$
+	}
+\end{vd}
+\begin{vd}%[Võ Thị Quỳnh Trang]%[2D3B3]
+	Tính diện tích hình phẳng giới hạn bởi: $y=x^2+2x$ và $y=\left| x \right|$.
+	\loigiai{
+		Xét phương trình hoành độ giao điểm ta có: 
+		$$x^2+2x=\left| x \right| \Leftrightarrow \left[ \begin{array}{l}
+		\left\{ \begin{array}{l}
+		x \ge 0\\
+		{x^2} + 2x = x
+		\end{array} \right.\\
+		\left\{ \begin{array}{l}
+		x < 0\\
+		{x^2} + 2x =  - x
+		\end{array} \right.
+		\end{array} \right. \Leftrightarrow \left[ \begin{array}{l}
+		x = 0\\
+		x =  - 3
+		\end{array} \right..$$
+		Diện tích hình phẳng cần tính là: 
+		$$S=\displaystyle \int \limits_{-3}^{0} \left| x^2+2x-\left|x \right| \right| \mathrm{\,d}x = \displaystyle \int \limits_{-3}^{0} \left| x^2+3x\right| \mathrm{\,d}x = \left| \left. {\left(\dfrac{1}{3}{x^3} + \dfrac{3}{2}{x^2}\right)} \right|_{-3}^0 \right| = \left| 0 -\dfrac{9}{2} \right| = \dfrac{9}{2} \text{ (đvdt)}.$$
+	}
+\end{vd}
+\textit{Nhận xét:} Nếu bài toán tính diện tích hình phẳng giới hạn bởi hai đường cong mà việc biểu diễn $y$ theo $x$ gặp khó khăn thì ta có thể chuyển về tính tích phân theo $\mathrm{\,d}y$.\\
+\begin{vd}%[Võ Thị Quỳnh Trang]%[2D3B3]
+	Tính diện tích hình phẳng giới hạn bởi: $y^2-3y+x=0$ và $x-y=0$.
+	\loigiai{
+		Xét phương trình tung độ giao điểm ta có: 
+		$$y^2-3y+y=0 \Leftrightarrow y^2-2y=0 \Leftrightarrow \left[ \begin{array}{l}
+		y = 0\\
+		y = 2
+		\end{array} \right.$$
+		Diện tích hình phẳng cần tính là: 
+		$$S= \displaystyle \int \limits_{0}^{2} \left| y^2-3y+y \right| \mathrm{\,d}y =\left| \displaystyle \int \limits_{0}^{2} (y^2-2y) \mathrm{\,d}y \right| = \left| \left. {\left(\dfrac{1}{3}{y^3} - y^2\right)} \right|_0^2 \right| = \left| \dfrac{-4}{3} - 0 \right| = \dfrac{4}{3} \text{ (đvdt)}.$$
+	}
+\end{vd}
+\begin{vd}%[Võ Thị Quỳnh Trang]%[2D3B3]
+	Tính diện tích hình phẳng giới hạn bởi parabol $ (P): y^2-2y+x=0 $ và đường thẳng $ d: x+y=0 $.
+	\loigiai{ Viết lại: $ (P): x=-y^2+2y $; $ d: x=-y $.
+		\\ Tọa độ giao điểm của $ (P) $ và $ d $ là nghiệm của hệ phương trình sau:
+		\\$ \heva{&x=-y^2+2y\\ & x=-y} \Leftrightarrow \heva{&-y^2+2y=-y\\ &x=-y} \Leftrightarrow \heva{&y^2-3y=0\\&x=-y} \Leftrightarrow \hoac{&y=0;x=0\\ &y=3;x=-3} $.
+		\\Diện tích cần tính là:
+		\\$\begin{aligned}
+		S&=\displaystyle\int\limits_0^3\left[(-y^2+2y)-(-y)\right] \mathrm{\,d}y=\displaystyle\int\limits_0^3(-y^2+3y)\mathrm{\,d}y
+		\\&=\left. \left(\cfrac{-y^3}{3}+\cfrac{3y^2}{2} \right) \right|^3_0 =-\cfrac{1}{3}.27+\cfrac{3}{2}.9=\cfrac{9}{2}  \text{ (đvdt). }
+		\end{aligned} 	$
+	}
+\end{vd}
+\begin{vd}%[Võ Thị Quỳnh Trang]%[2D3K3]
+	Tính diện tích hình phẳng giới hạn bởi parabol $ (P): y=\left|x^2-4x+3 \right| $ và đường thẳng $ d: y=x+3 $.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1,thick,>=stealth']
+			
+			\draw[->] (-3.5,0) -- (5.5,0)node[below]{$x$};
+			\draw[->] (0,-2) -- (0,8.5)node[left]{$y$};
+			\node[below left] at (0,0){$O$};
+			
+			\draw[smooth,samples=100,domain=-1:1] 
+			plot(\x,{(\x)^2-4*(\x)+3});
+			\draw[smooth,samples=100,domain=3:5.08] 
+			plot(\x,{(\x)^2-4*(\x)+3});
+			\draw[smooth,samples=100,domain=1:3] 
+			plot(\x,{-(\x)^2+4*(\x)-3});
+			\draw[smooth,samples=100,domain=-3.5:5.1] 
+			plot(\x,{\x+3});
+			\draw (-3,0)node[below]{$-3$}
+			(1,0)node[below]{$1$}
+			(3,0)node[below]{$3$}
+			(5,0)node[below]{$5$}
+			(0,3)node[left]{$3$}
+			(0,8)node[left]{$8$};
+			\draw[dashed] (1,0) -- (1,4);
+			\draw[dashed] (3,0) -- (3,6) ;
+			\draw[dashed] (5,0) -- (5,8) -- (0,8);
+			
+			\end{tikzpicture}
+		\end{center}Ta có: $ (P):y=\heva{&x^2-4x+3 \text{ nếu } x\le 1 \text{ hoặc } x\ge 3\\&-x^2+4x-3 \text{ nếu } 1<x<3} $
+		\\ Hoành độ giao điểm của $ (P) $ và $ d $: 
+		\\$\hoac{&x+3=x^2-4x+3\\ &x+3=-x^2+4x-3} \Leftrightarrow \hoac{&x^2-5x=0\\ &x^2-3x+6=0} \Leftrightarrow \hoac{&x=0\\&x=5}  $
+		\\Diện tích cần tính là:
+		\\$\begin{aligned}
+		S&=\displaystyle\int\limits_0^1\left[(x+3)-(x^2-4x+3)\right]\mathrm{\,d}x+\displaystyle\int\limits_1^3\left[(x+3)-(-x^2+4x-3)\right]\mathrm{\,d}x + \displaystyle\int\limits_3^5\left[(x+3)-(x^2-4x+3)\right]\mathrm{\,d}x
+		\\&=\displaystyle\int\limits_0^1(-x^2+5x)\mathrm{\,d}x+\displaystyle\int\limits_1^3(x^2-3x+6)\mathrm{\,d}x + \displaystyle\int\limits_3^5(-x^2+5x)\mathrm{\,d}x
+		\\&=\left. \left(-\cfrac{x^3}{3}+\cfrac{5x^2}{2}\right) \right|_0^1+\left. \left(\cfrac{x^3}{3}-\cfrac{3x^2}{2}+6x\right) \right|_1^3+\left. \left(-\cfrac{x^3}{3}+\cfrac{5x^2}{2}\right) \right|_3^5
+		\\&=\cfrac{109}{6}\text{ (đvdt). }
+		\end{aligned} $
+	}
+\end{vd}
+\begin{vd}%[Võ Thị Quỳnh Trang]%[2D3K3]
+	Cho đường tròn $ (C) $: $ x^2+y^2=8$ và parabol $ (P):y^2=2x $. $ (P) $ chia $ (C) $ thành 2 phần, tìm tỉ số diện tích hai phần đó.
+	\loigiai{Hoành độ giao điểm của $ (P) $ và $ (C) $ là:
+		$$2x=8-x^2 \Leftrightarrow \hoac{&x=2\\&x=-4 \text{(loại)}}$$
+		Xét giao điểm thuộc góc phần tư thứ nhất, với $ x=2 $ thì $ y=2 $.
+		\\Gọi $ S_2 $ là phần có diện tích nhỏ hơn, $ S_1 $ là phần còn lại.
+		\\ Ta có:
+		\\ $ 
+		S_2=2\displaystyle\int\limits_0^2\left[\sqrt{8-y^2}-\cfrac{y^2}{2}\right]\mathrm{\,d}y=2\displaystyle\int\limits_0^2\sqrt{8-y^2} \mathrm{\,d}y-\displaystyle\int\limits_0^2y^2\mathrm{\,d}y
+		=2I-\left. \cfrac{y^3}{3}\right|_0^2=2I-\cfrac{8}{3}
+		$.
+		\\ Đặt $ y=2\sqrt{2}\sin t \Rightarrow dy=2\sqrt{2}\cos tdt $.
+		\\ $ \begin{aligned} I&=\displaystyle\int\limits_0^2\sqrt{8-y^2}dy=\displaystyle\int\limits_0^{\cfrac{\pi}{4}}\sqrt{8-8\sin^2 t}.2\sqrt{2}\cos t dt=8\displaystyle\int\limits_0^{\cfrac{\pi}{4}}\sqrt{1-\sin^2 t}.\cos t dt \\&=8\displaystyle\int\limits_0^{\cfrac{\pi}{4}} \cos^2 tdt
+		=4\displaystyle\int\limits_0^{\cfrac{\pi}{4}}(1+\cos 2t)dt=4\left. \left[t+\cfrac{1}{2}\sin 2t\right] \right|_0^{\cfrac{\pi}{4}}=\pi+2
+		\end{aligned} $
+		\\ Do đó $ S_2=2\pi+\cfrac{4}{3} $.
+		\\Diện tích hình tròn $ S=\pi.(2\sqrt{2})^2=8\pi $.
+		\\ Suy ra $ S_1=8\pi-\left(2\pi+\cfrac{4}{3} \right)=6\pi-\cfrac{4}{3} $ (đvdt).
+		\\ Vậy $ \cfrac{S_1}{S_2}=\cfrac{6\pi-\cfrac{4}{3}}{2\pi+\cfrac{4}{3}}=\cfrac{9\pi -2}{3\pi +2} $.
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN (Cho mỗi dạng)}
+\end{center}
+\begin{bt}%[Võ Thị Quỳnh Trang]%[2D3B3]
+	Tính diện tích hình phẳng giới hạn bởi: $y=x^3-2x^2$ và $y=x-2$.
+	\loigiai{
+		Xét phương trình hoành độ giao điểm ta có:
+		$$x^3-2x^2=x-2 \Leftrightarrow x^3-2x^2-x+2=0 \Leftrightarrow \left[ \begin{array}{l}
+		x = -1\\
+		x = 1\\
+		x = 2
+		\end{array} \right..$$
+		Diện tích hình phẳng cần tính là:
+		$$S= \displaystyle \int \limits_{-1}^{2} \left| x^3 -2x^2-x+2 \right| \mathrm{\,d}x =\left| \displaystyle \int \limits_{-1}^{1} (x^3 -2x^2-x+2) \mathrm{\,d}x \right| + \left| \displaystyle \int \limits_{1}^{2} (x^3 -2x^2-x+2) \mathrm{\,d}x \right| $$ $$ \qquad \quad = \left| \left. {\left(\dfrac{1}{4}{x^4} - \dfrac{2}{3}x^3 -\dfrac{1}{2}x^2 + 2x \right)} \right|_{-1}^1 \right| +  \left| \left. {\left(\dfrac{1}{4}{x^4} - \dfrac{2}{3}x^3 -\dfrac{1}{2}x^2 + 2x \right)} \right|_{1}^2 \right|= \dfrac{8}{3}+\dfrac{5}{12} = \dfrac{37}{12} \text{ (đvdt)}.$$
+	}
+\end{bt}
+\begin{bt}%[Võ Thị Quỳnh Trang]%[2D3B3]
+	Tính diện tích hình phẳng giới hạn bởi: $y=x-3$ và $y=\dfrac{-2}{x}$.
+	\loigiai{
+		Xét phương trình hoành độ giao điểm ta có: 
+		$$x-3=\dfrac{-2}{x} \Leftrightarrow \left\{ \begin{array}{l}
+		x \ne 0\\
+		x(x - 3) =  - 2
+		\end{array} \right. \Leftrightarrow \left\{ \begin{array}{l}
+		x \ne 0\\
+		\left[ \begin{array}{l}
+		x = 1\\
+		x = 2
+		\end{array} \right.
+		\end{array} \right. \Leftrightarrow \left[ \begin{array}{l}
+		x = 1\\
+		x = 2
+		\end{array} \right..$$
+		Diện tích hình phẳng cần tính là: 
+		$$S=\displaystyle \int \limits_{1}^{2} \left| x-3+\dfrac{2}{x}\right| \mathrm{\,d}x
+		=\left|  \displaystyle \int\limits_1^2 {\left( x - 3 + \dfrac{2}{x} \right)} {\mathrm{\,d}}x \right| = \left| \left. {\left(\dfrac{1}{2}{x^2} - 3x +2\ln x \right)} \right|_1^2 \right| = \dfrac{3}{2}-2\ln 2 \text{ (đvdt)}.$$
+	}
+\end{bt}
+\begin{bt}%[Võ Thị Quỳnh Trang]%[2D3B3]
+	Tính diện tích hình phẳng giới hạn bởi: $y=\sqrt{x-1}$ và $y=x-1$.
+	\loigiai{
+		Xét phương trình hoành độ giao điểm ta có: 
+		$$\sqrt{x-1} = x-1 \Leftrightarrow \left\{ \begin{array}{l}
+		x \ge 1\\
+		{(x - 1)^2} = x - 1
+		\end{array} \right. \Leftrightarrow \left\{ \begin{array}{l}
+		x \ge 1\\
+		\left[ \begin{array}{l}
+		x = 1\\
+		x = 2
+		\end{array} \right.
+		\end{array} \right. \Leftrightarrow \left[ \begin{array}{l}
+		x = 1\\
+		x = 2
+		\end{array} \right..$$
+		Diện tích hình phẳng cần tính là:
+		$$S= \displaystyle \int \limits_{1}^2 \left| x-1 - \sqrt{x-1}\right| \mathrm{\,d}x = \left| \displaystyle \int \limits_{1}^2 \left(x-1 - \sqrt{x-1}\right) \right| \mathrm{\,d} x = \left| \left. {\left( \dfrac{1}{2}{x^2} - x - \dfrac{2}{3}\sqrt {{{(x - 1)}^3}}  \right)} \right|_1^2\right|  = \dfrac{1}{6} \text{ (đvdt)}.$$
+	}
+\end{bt}
+\begin{bt}%[Võ Thị Quỳnh Trang]%[2D3K3]
+	Tính diện tích hình phẳng giới hạn bởi: $y=2^x$ và $y=-x^2+5x-2$.
+	\loigiai{
+		Xét phương trình hoành độ giao điểm ta có: $$2^x =-x^2+5x-2 \Leftrightarrow 2^x+x^2-5x+2 = 0$$.\\
+		Xét $f(x) = 2^x+x^2-5x+2$ liên tục trên $\mathbb{R}$.\\
+		Ta có: $f'(x) = 2^x.\ln 2+2x-5 \Rightarrow f"(x) = 2^x.\ln^22+2 > 0 \quad \forall x \in \mathbb{R}$.\\
+		$\Rightarrow $ Phương trình $f(x) = 0$ có tối đa hai nghiệm trên $\mathbb{R}$.\\
+		Mà ta có: $f(1)=0; f(2)=0$.\\
+		Nên phương trình $f(x)=0$ có đúng hai nghiệm $x=1; x=2$.\\
+		Hay phương trình hoành độ giao điểm có đúng hai nghiệm $x=1; x=2$.\\
+		Diện tích hình phẳng cần tính là: $$S=\displaystyle \int \limits_{1}^2 \left| 2^x+x^2-5x+2 \mathrm{\,d} x \right| = \left| \int \limits_1^2 \left(2^x+x^2-5x+2\right) \mathrm{\,d}x \right| = \left| \left. \left( \dfrac{2^x}{\ln 2} + \dfrac{1}{3}{x^3} - \dfrac{5}{2}{x^2} + 2x \right) \right|_1^2 \right| = \dfrac{19}{6} - \dfrac{2}{\ln 2} \text{(đvdt)}.$$
+	}
+\end{bt}
+\begin{bt}%[Võ Thị Quỳnh Trang]%[2D3K3]
+	Tính diện tích hình phẳng giới hạn bởi: $x-\sqrt[3]{y} = 0$ và $x-y=0$.
+	\loigiai{
+		Xét phương trình tung độ giao điểm ta có:
+		$$y=\sqrt[3]{y} \Leftrightarrow y^3=y \Leftrightarrow \left[ \begin{array}{l}
+		y = 0\\
+		y =  - 1\\
+		y = 1
+		\end{array} \right..$$
+		Diện tích hình phẳng cần tính là:
+		$$\begin{array}{*{20}{l}}
+		S& = &\displaystyle \int\limits_{ - 1}^1 {\left| {y - \sqrt[3]{y}} \right|}  {\mathrm{\,d}}y \\\\
+		&=& \left| {\displaystyle \int\limits_{-1}^0 {\left( {y - \sqrt[3]{y}} \right)}{\mathrm{\,d}}y} \right| + \left| {\displaystyle \int\limits_0^1 {\left( {y - \sqrt[3]{y}} \right)} {\mathrm{\,d}}y} \right|\\\\
+		{}& = &{\left| {\left. {\left( {\dfrac{1}{2}{y^2} - \dfrac{3}{4}\sqrt[3]{{{y^4}}}} \right)} \right|_{ - 1}^0} \right| + \left| {\left. {\left( {\dfrac{1}{2}{y^2} - \dfrac{3}{4}\sqrt[3]{{{y^4}}}} \right)} \right|_0^1} \right| = \dfrac{1}{2}} \text{(đvdt)}
+		\end{array}$$
+	}
+\end{bt}
+\begin{bt}%[Võ Thị Quỳnh Trang]%[2D3G3]
+	Tính diện tích hình phẳng giới hạn bởi: $y=\left| 2x^2-4x\right|$ và $y= x+3$.
+	\loigiai{
+		Xét phương trình hoành độ giao điểm ta có:
+		$$\left| {2{x^2} - 4x } \right| =  x + 3 \Leftrightarrow \left[ \begin{array}{l}
+		\left\{ \begin{array}{l}
+		2{x^2} - 4x  \ge 0\\
+		2{x^2} - 4x =  x + 3
+		\end{array} \right.\\
+		\left\{ \begin{array}{l}
+		2{x^2} - 4x \le 0\\
+		- \left( {2{x^2} - 4x } \right) =  x + 3
+		\end{array} \right.
+		\end{array} \right. \Leftrightarrow \left[ \begin{array}{l}
+		x = -\dfrac{1}{2}\\
+		x = 3
+		\end{array} \right.$$
+		Diện tích hình phẳng cần tính là:
+		$$\begin{array}{*{20}{l}}
+		S& = &\displaystyle \int\limits_{-\frac{1}{2}}^3 {\left| {\left| {2{x^2} - 4x} \right| - x - 3} \right|} \mathrm{\,d}x \\\\
+		{}& = &{\left| {\displaystyle \int\limits_{-\frac{1}{2}}^0 {\left( {2{x^2} - 5x - 3} \right) \mathrm{\,d}x } } \right| + \left| {\displaystyle \int\limits_0^2 {\left( { - 2{x^2} + 3x - 3} \right) \mathrm{\,d}x} } \right| + \left| {\displaystyle \int\limits_2^3 {\left( {2{x^2} - 5x - 3} \right) \mathrm{\,d}x } } \right|}\\\\
+		{}& = &{\dfrac{{19}}{{24}} + \dfrac{{16}}{3} + \dfrac{{17}}{6} = \dfrac{{215}}{{24}}} \text{(đvdt)}.
+		\end{array}$$
+	}
+\end{bt}
+\begin{bt}%[Võ Thị Quỳnh Trang]%[2D3G3]
+	Tính diện tích hình phẳng giới hạn bởi: $y=\left|x^2-1 \right|$ và $y=\left| x \right|+1$.
+	\loigiai{
+		$$\begin{tikzpicture}[>=stealth,x=1.0cm,y=1.0cm]
+		\draw[->] (-2.4,0) -- (2.4,0) node[below] {\footnotesize $x$};
+		\draw[->] (0,-1) -- (0,5) node[left] {\footnotesize $y$};
+		\draw (0,0) node[below left] {\footnotesize O};
+		\draw (1,0) node[below left] {\footnotesize 1};
+		\draw (-1,0) node[below left] {\footnotesize -1};
+		\draw[line width=0.8pt,color=blue,smooth,domain=1:2.3] plot(\x,{(\x)^2-1});
+		\draw[line width=0.8pt,color=blue,smooth,domain=-2.3:-1] plot(\x,{(\x)^2-1});
+		\draw[line width=0.8pt,color=blue,smooth,domain=-1:1] plot(\x,{-(\x)^2+1});
+		\draw[line width=0.8pt,color=blue,smooth,domain=0:2.3] plot(\x,{(\x)+1});
+		\draw[line width=0.8pt,color=blue,smooth,domain=-2.3:0] plot(\x,{-(\x)+1});	
+		\end{tikzpicture}$$
+		Xét phương trình hoành độ giao điểm ta có:
+		$$\begin{array}{l}
+		\begin{array}{*{20}{l}}
+		{}&{\left| {{x^2} - 1} \right| = \left| x \right| + 1}\\
+		\Leftrightarrow &{{x^4} - 2{x^2} + 1 = {x^2} + 2\left| x \right| + 1}\\
+		\Leftrightarrow &{{x^4} - 3{x^2} - 2\left| x \right| = 0}
+		\end{array}\\
+		\begin{array}{*{20}{l}}
+		\Leftrightarrow &{\left[ \begin{array}{l}
+			\left\{ \begin{array}{l}
+			x \ge 0\\
+			{x^4} - 3{x^2} - 2x = 0
+			\end{array} \right.\\
+			\left\{ \begin{array}{l}
+			x \le 0\\
+			{x^4} - 3{x^2} + 2x = 0
+			\end{array} \right.
+			\end{array} \right.}
+		\end{array}\\
+		\begin{array}{*{20}{l}}
+		\Leftrightarrow &{\left[ \begin{array}{l}
+			x = 0\\
+			x = 2\\
+			x =  - 2
+			\end{array} \right.}
+		\end{array}
+		\end{array}.$$
+		Diện tích hình phẳng cần tính là:
+		$$
+		\begin{array}{*{20}{l}}
+		S& = & 2\displaystyle\int\limits_0^2 {\left| {\left| {{x^2} - 1} \right| - x - 1} \right|} \mathrm{\,d}x\\\\
+		&= &2\left| {\displaystyle\int\limits_0^1 {\left( { - {x^2} + 1 - x - 1} \right)}\mathrm{\,d}x } \right| + 2\left| {\displaystyle\int\limits_1^2 {\left( {{x^2} - 1 - x - 1} \right)} \mathrm{\,d}x } \right|\\\\
+		{}&=&{ 2\left| {\displaystyle\int\limits_0^1 {\left( { - {x^2} - x} \right)} } \right| + 2\left| {\displaystyle\int\limits_1^2 {\left( {{x^2} - x - 2} \right)} } \right|}\\\\
+		{}&=&{ 2\left| {\left. {\left( {\dfrac{{ - 1}}{3}{x^3} - \dfrac{1}{2}{x^2}} \right)} \right|_0^1} \right|}
+		+ 2\left| {\left. {\left( {\dfrac{1}{3}{x^3} - \dfrac{1}{2}{x^2} - 2x} \right)} \right|_1^2} \right|\\\\
+		{}&=&{2.\dfrac{5}{6} + 2.\dfrac{7}{6} = 4 \text{(đvdt)}}
+		\end{array}$$
+	}
+\end{bt}
+\begin{center}
+	\textbf{BÀI TẬP TỔNG HỢP}
+\end{center}
+\begin{ex}%[Võ Thị Quỳnh Trang]%[2D3K3]
+	Tính diện tích hình phẳng giới hạn bởi các đường $ y=\sqrt{-x^2+4}; y=\dfrac{x^2}{\sqrt{2}} $
+	\loigiai
+	{Xét phương trình hoành độ giao điểm:
+		\begin{align*}
+		&\sqrt{4-x^2}=\dfrac{x^2}{\sqrt{2}}\\
+		\Leftrightarrow &4-x^2=\dfrac{x^4}{2}\\
+		\Leftrightarrow &x^4+2x^2-8=0\\
+		\Leftrightarrow &x=\pm \sqrt{2}
+		\end{align*}
+		Xét $ x \in [-\sqrt{2};\sqrt{2}] $ ta có $ \sqrt{4-x^2}\geq \sqrt{2} $ và $ \dfrac{x^2}{\sqrt{2}}\leq \sqrt{2} $\\
+		\[ \Rightarrow \sqrt{4-x^2}\geq\dfrac{x^2}{\sqrt{2}}\quad \forall x \in [-\sqrt{2};\sqrt{2}] \]
+		\begin{align*}
+		\Rightarrow S&=\int\limits_{-\sqrt{2}}^{\sqrt{2}}\left(\sqrt{-x^2+4}-\dfrac{x^2}{\sqrt{2}}\right)\mathrm{\,d}x\\
+		&=\int\limits_{-\sqrt{2}}^{\sqrt{2}}\sqrt{4-x^2}\mathrm{\,d}x-\dfrac{1}{\sqrt{2}}\int\limits_{-\sqrt{2}}^{\sqrt{2}}x^2\mathrm{\,d}x\\
+		&=2\left(\int\limits_{0}^{\sqrt{2}}\sqrt{4-x^2}-\dfrac{1}{\sqrt{2}}\int\limits_{0}^{\sqrt{2}}x^2\mathrm{\,d}x\right)\\
+		&=2\left(1+\dfrac{\pi}{2}-\dfrac{2}{3}\right)\\
+		&=\pi +\dfrac{2}{3}
+		\end{align*}
+	}
+\end{ex}
+\begin{ex}%[Võ Thị Quỳnh Trang]%[2D3G3]
+	Tính diện tích hình phẳng giới hạn bởi $ y=\sin x; y=\dfrac{3}{5\pi}x $
+	\loigiai
+	{Xét phương trình hoành độ:
+		\[ \sin x-\dfrac{3}{5\pi}x=0\quad (*) \]
+		Ta thấy nếu $ x>\dfrac{5\pi}{3} $ thì $ \dfrac{3}{\pi.5}x>1 $
+		\[\Rightarrow\sin x-\dfrac{3}{5\pi}x<0 \quad \forall x>\dfrac{5\pi}{3}\qquad (1) \]
+		Hơn nữa $ x<\dfrac{-5\pi}{3} $ thì $ \dfrac{3}{\pi.5}x<-1 $
+		\[\Rightarrow\sin x-\dfrac{3}{5\pi}x>0 \quad \forall x<\dfrac{-5\pi}{3}\qquad (2) \]
+		Từ $ (1); (2) $ suy ra nếu x là nghiệm của $ (*) $ thì $ x \in [\dfrac{-5\pi}{3};\dfrac{5pi}{3}] $.\\
+		Lại có khi $ x \in [\dfrac{-5\pi}{3};-\pi] $ thì $ \sin x >0 $
+		\[\Rightarrow\sin x-\dfrac{3}{5\pi}x>0 \quad \forall x \in [\dfrac{-5\pi}{3};-\pi] \]
+		$ x \in [\pi;\dfrac{5\pi}{3}] $ thì $ \sin x <0 $
+		\[\Rightarrow\sin x-\dfrac{3}{5\pi}x<0 \quad \forall x \in [\pi;\dfrac{5\pi}{3}] \]
+		Vậy ta chỉ xét $ x 
+		\in (-\pi;\pi) $\\
+		Xét
+		\begin{align*}
+		&t(x)=\sin x-\dfrac{3}{5\pi}x \quad \forall x \in (-\pi;\pi)\\
+		&t'(x)=\cos x-\dfrac{3}{5\pi}\\
+		&	t''(x)=-\sin x.		
+		\end{align*}
+		Ta có $ t''(x)=0 $ trên $ (-\pi;\pi) \Leftrightarrow x=0$.\\
+		Theo định lí Rolle suy ra $ t'(x) $ có không quá 2 nghiệm trên $ (-\pi;\pi) $\\
+		Suy ra $ t(x) $ có không quá 3 nghiệm trên $ (-\pi;\pi) $.\\
+		Lại có $ x=0;x=\pm \dfrac{5\pi}{6} $ là nghiệm của $ t(x) $ trên $ (-\pi;\pi) $.\\
+		Suy ra $ t(x) $ có đúng 3 nghiệm $ x=\dfrac{-5\pi}{6};x=0;x=\dfrac{5\pi}{6} $ trên $ (-\pi;\pi) $.\\
+		Ta có 
+		\[S=\int\limits_{\frac{-5\pi}{6}}^{\frac{5\pi}{6}}|\sin x-\dfrac{3}{5\pi}x|\mathrm{\,d}x \]
+		Ta thấy rằng $ \sin \dfrac{\pi}{2}=1>\dfrac{3}{5\pi}.\dfrac{\pi}{2}=\dfrac{3}{10} $\\
+		\[\Rightarrow\sin \dfrac{\pi}{2}>\dfrac{\pi}{2}.\dfrac{3}{5\pi} \]
+		Giả sử tồn tại $ x_0 \in (0;\dfrac{5\pi}{6}) $ để $ \sin x_0<x_0.\dfrac{3}{5\pi} \Rightarrow t(x_0)<0$.\\
+		Lại có $ t(\dfrac{\pi}{2})>0 $.\\
+		Theo định lí giá trị trung bình thì tồn tại $ x_1\in (0;\dfrac{5\pi}{6}) $ để $ t(x_1)=0 $ (vô lí)\\
+		Suy ra $ t(x)\geq 0 \forall x \in [0;\dfrac{5\pi}{6}] $.\\
+		Tương tự ta có $ t(x)\leq 0 \forall x \in [\dfrac{-5\pi}{6};0] $.
+		\begin{align*}
+		\Rightarrow S&=\int\limits_{\frac{-5\pi}{6}}^{0}\left(\dfrac{3}{5\pi}x-\sin x\right)\mathrm{\,d}x+\int\limits_{0}^{\frac{5\pi}{6}}\left(\sin x-\dfrac{3}{5\pi}x\right)\mathrm{\,d}x\\
+		&=2.\int\limits_{0}^{\frac{5\pi}{6}}\left(\sin x-\dfrac{3}{5\pi}x\right)\mathrm{\,d}x\\
+		&=2.\left(-\cos x|_0^{\frac{5\pi}{6}}-\dfrac{3}{10\pi}x^2|_0^{\frac{5\pi}{6}} \right)\\
+		&=2\left(\dfrac{\sqrt{3}}{2}+1-\dfrac{5\pi}{24}\right)\\
+		&=\sqrt{3}+2-\dfrac{5\pi}{12}.
+		\end{align*}
+	}
+\end{ex}
+
+\begin{ex}%[Võ Thị Quỳnh Trang]%[2D3G3]
+	Tính diện tích hình phẳng giới hạn bởi các đường $ y=|x^2-4x+3|; y=-x^2+6x+3 $.
+	\loigiai
+	
+	{\begin{center} 
+			\begin{tikzpicture}[scale=0.7,thick,>=stealth']
+			
+			\draw[->] (-3.5,0) -- (5.5,0)node[below]{$x$};
+			\draw[->] (0,-2) -- (0,8.5)node[left]{$y$};
+			\node[below left] at (0,0){$O$};
+			
+			\draw[smooth,samples=100,domain=-1:1] 
+			plot(\x,{(\x)^2-4*(\x)+3});
+			\draw[smooth,samples=100,domain=3:5.08] 
+			plot(\x,{(\x)^2-4*(\x)+3});
+			\draw[smooth,samples=100,domain=1:3] 
+			plot(\x,{-(\x)^2+4*(\x)-3});
+			\draw[smooth,samples=100,domain=-0.8:5.1] 
+			plot(\x,{-(\x)^2+6*(\x)+3});
+			\draw (-3,0)node[below]{$-3$}
+			(1,0)node[below]{$1$}
+			(3,0)node[below]{$3$}
+			(5,0)node[below]{$5$}
+			(0,3)node[left]{$3$}
+			(0,8)node[left]{$8$};
+			\draw[dashed] (5,0) -- (5,8) -- (0,8);
+			
+			\end{tikzpicture}
+		\end{center}
+		
+		Quan sát hình vẽ ta thấy hàm $f(x)=|x^2-4x+3|$ và $g(x)=-x^2+6x+3$ có hoành độ giao điểm $A,B$ là nghiệm của phương trình :
+		\begin{align*}
+		&x^2-4x+3=-x^2+6x+3\\
+		\Leftrightarrow &x(x-5)=0\\
+		\Leftrightarrow &x=0;x=5\\
+		\end{align*}
+		Theo như hình vẽ 
+		\begin{align*}
+		\Rightarrow S&=\int\limits_{0}^{5}\left|-x^2+6x+3-|x^2-4x+3|\right|\mathrm{\,d}x\\
+		&=\int\limits_{0}^{1}\left[(-x^2+6x+3)-(x^2-4x+3)\right]\mathrm{\,d}x+\int\limits_{1}^{3}\left[(-x^2+6x+3)-(-x^2+4x-3)\right]\mathrm{\,d}x+\int\limits_{3}^{5}\left[(-x^2+6x+3)-(x^2-4x+3)\right]\mathrm{\,d}x\\
+		&=\int\limits_{0}^{1}\left(-2x^2+10x\right)\mathrm{\,d}x+\int\limits_{1}^{3}\left(2x+6\right)\mathrm{\,d}x+\int\limits_{3}^{5}\left(-2x^2+10x\right)\mathrm{\,d}x\\
+		&=39.\\
+		\end{align*}
+	}
+\end{ex}
+%dang 4
+\begin{dang}{Tính diện tích hình phẳng giới hạn bởi ba hàm số}
+	Muốn tính diện tích của hình $(H)$ được giới hạn bởi ba đồ thị của hàm số $y=f(x),y=g(x),y=h(x)$ ta làm như sau:\\
+	- Vẽ hình $(H)$.\\
+	- Tìm hoành độ giao điểm của các đồ thị trong hình $(H)$. Giả sử $x=a,x=b,x=c,...,x=e,x=f$, với $a<b<c<...<e<f$.\\
+	- Tính diện tích bằng công thức $S=\displaystyle\int\limits_a^b \vert f(x) -g(x) \vert \mathrm{d}x+\displaystyle\int\limits_b^c \vert f(x) -g(x) \vert \mathrm{d}x+...+\displaystyle\int\limits_e^f \vert g(x) -h(x) \vert \mathrm{d}x$ ( Tùy theo hình vẽ mà ta có biểu thức dưới dấu tích phân phù hợp).
+\end{dang}
+%
+
+\begin{vd}%[Võ Đông Phước]%[2D3B3]
+	Tính diện tích hình phẳng được giới hạn bởi các đường $(P):y=x^2-5x+4$, $(d_1):y=4$ và $(d_2):y=-2$.
+	\loigiai{
+		\begin{tikzpicture}[domain=-0.2:5.2]
+		\draw[->] (-1,0) -- (5.3,0) node[below] {$x$};
+		\draw[->] (0,-3) -- (0,5) node[left] {$y$};
+		\tkzDefPoints{0/0/O}
+		\tkzDrawPoints[fill=black](O)
+		\tkzLabelPoint[above right](O){$O$}
+		\draw[color=blue]   plot (\x,{(\x)^2-5*\x+4}) node[right]{$(P):y=x^2-5x+4$};
+		\draw[color=blue]   plot (\x,4) node[right]{$(d_1):y=4$};
+		\draw[color=blue]   plot (\x,-2) node[right]{$(d_2):y=-2$};
+		\draw (2,0) node[above]{$2$} circle (1pt);
+		\draw (3,0) node[above]{$3$} circle (1pt);
+		\draw (5,0) node[below]{$5$} circle (1pt);
+		\draw [dashed] (2,0)--(2,-2);
+		\draw [dashed](3,0)--(3,-2);
+		\draw [dashed] (5,0)--(5,4);
+		\draw [draw=none, pattern =  north west lines, pattern color=gray!100, domain=0:2, samples=100] plot (\x, {(\x)^2-5*\x+4})--(2,-2)--(3,-2)plot[domain=3:5] (\x, {(\x)^2-5*\x+4})--(5,4)--(0,4);
+		\end{tikzpicture}
+		%
+		\\
+		Phương trình hoành độ giao điểm của $(P)$ và $(d_1)$ là $x^2-5x+4=4\Leftrightarrow x=0$ hay $x=5$.\\
+		Phương trình hoành độ giao điểm của $(P)$ và $(d_2)$ là $x^2-5x+4=-2\Leftrightarrow x=2$ hay $x=3$.\\
+		Theo hình vẽ ta suy ra diện tích hình phẳng cần tìm là\\
+		$\begin{array}{ccl}
+		S& =&\displaystyle\int\limits_0^2 \left( 4-(x^2-5x+4)\right)\mathrm{d}x+\displaystyle\int\limits_2^3 (4+2)\mathrm{d}x+\displaystyle\int\limits_3^5 \left(4-(x^2-5x+4)\right)\mathrm{d}x\\
+		&= &\displaystyle\int\limits_0^2 \left(-x^2+5x)\right)\mathrm{d}x+\displaystyle\int\limits_2^3 6\mathrm{d}x+\displaystyle\int\limits_3^5 \left(-x^2+5x\right)\mathrm{d}x\\
+		&=& \left(-\dfrac{1}{3}x^3+\dfrac{5}{2}x^2\right)\Big\vert_0^2+6x\Big\vert_2^3+\left(-\dfrac{1}{3}x^3+\dfrac{5}{2}x^2\right)\Big\vert_3^5\\
+		&= &\dfrac{37}{2}.
+		\end{array}$
+	}
+\end{vd}
+%
+\begin{vd}%[Võ Đông Phước]%[2D3K3]
+	Tính diện tích hình phẳng được giới hạn bởi các đường $(P_1):y=x^2+x-2$, $(P_2):y=x^2$ và $(d):y=x+2$.
+	\loigiai{
+		\begin{tikzpicture}[domain=-3.1:2.1]
+		\draw[->] (-3.3,0) -- (2.3,0) node[below] {$x$};
+		\draw[->] (0,-3) -- (0,6) node[left] {$y$};
+		\tkzDefPoints{0/0/O}
+		\tkzDrawPoints[fill=black](O)
+		\tkzLabelPoint[above right](O){$O$}
+		\draw[color=blue]   plot (\x,{(\x)^2+\x-2}) node[right]{$(P_1):y=x^2+x-2$};
+		\draw[color=blue,domain=-2.3:2.3]   plot (\x,{(\x)^2}) node[right]{$(P_2):y=x^2$};
+		\draw[color=blue]   plot (\x,{\x+2}) node[right]{$(d):y=x+2$};
+		\draw (-2,0) node[below]{$-2$} circle (1pt);
+		\draw (-1,0) node[below]{$-1$} circle (1pt);
+		\draw (2,0) node[below]{$2$} circle (1pt);
+		\draw [dashed] (-1,0)--(-1,1);
+		\draw [dashed](2,0)--(2,4);
+		\draw [draw=none, pattern =  north west lines, pattern color=gray!100, samples=100] plot[domain=-2:2](\x, {(\x)^2+(\x)-2})--(1,0) --cycle;
+		\draw [draw=none, pattern =  north west lines, pattern color=gray!100, samples=100] plot[domain=-1:0](\x, {(\x)^2})--(-1,0) --cycle;
+		\draw [draw=none, pattern =  north west lines, pattern color=gray!100, samples=100](0,0) parabola (2,4)--(1,0)--cycle;
+		\draw [draw=none, pattern =  north west lines, pattern color=gray!100, samples=100] plot[domain=-2:-1](\x, {\x+2})--(-1,0)--cycle;
+		\end{tikzpicture}
+		%
+		\\
+		Phương trình hoành độ giao điểm của $(P_1)$ và $(P_2)$ là $x^2+x-2=x^2\Leftrightarrow x=2$.\\
+		Phương trình hoành độ giao điểm của $(P_2)$ và $(d)$ là $x^2=x+2\Leftrightarrow x=-1$ hay $x=2$.\\
+		Phương trình hoành độ giao điểm của $(d)$ và $(P_1)$ là $x+2=x^2+x-2\Leftrightarrow x=-2$ hay $x=2$.\\
+		Theo hình vẽ ta suy ra diện tích hình phẳng cần tìm là\\
+		$\begin{array}{ccl}
+		S& =&\displaystyle\int\limits_{-2}^{-1} \left( x+2-(x^2+x-2)\right)\mathrm{d}x+\displaystyle\int\limits_{-1}^{2} \left(x^2-(x^2+x-2)\right)\mathrm{d}x\\
+		&= &\displaystyle\int\limits_{-2}^{-1} \left( -x^2+4\right)\mathrm{d}x+\displaystyle\int\limits_{-1}^{2} \left(-x+2)\right)\mathrm{d}x\\
+		&=& \left(-\dfrac{1}{3}x^3+4x\right)\Big\vert_{-2}^{-1}+\left(-\dfrac{1}{2}x^2+2x\right)\Big\vert_{-1}^{2}\\
+		&= &\dfrac{37}{6}.
+		\end{array}$
+	}
+\end{vd}
+%
+\begin{vd}%[Võ Đông Phước]%[2D3B3]
+	Tính diện tích hình phẳng được giới hạn bởi các đường $(d_1):y=x-2, (d_2):y=-x$ và $(d_3):y=\dfrac{1}{2}x$.
+	\loigiai{
+		\begin{tikzpicture}[domain=-1:5]
+		\draw[->] (-1,0) -- (5,0) node[below] {$x$};
+		\draw[->] (0,-3) -- (0,3) node[left] {$y$};
+		\tkzDefPoints{0/0/O}
+		\tkzDrawPoints[fill=black](O)
+		\tkzLabelPoint[above right](O){$O$}
+		\draw[color=blue]    plot (\x,\x /2) node[right]{$(d_3):y=\dfrac{1}{2}x$};
+		\draw[color=blue]   plot (\x,{\x-2}) node[right]{$(d_1):y=x-2$};
+		\draw[color=blue, domain=-1:3]   plot (\x,{-\x}) node[below]{$(d_2):y=-x$};
+		\draw (1,0) node[above]{$1$} circle (1pt);
+		\draw (4,0) node[below]{$4$} circle (1pt);
+		\draw [dashed] (1,0)--(1,-1);
+		\draw [dashed](4,0)--(4,2);
+		\draw [draw=none, pattern =  north west lines, pattern color=gray!100, samples=100](0,0) --(1,-1) --(4,2)--(0,0)--cycle;
+		\end{tikzpicture}
+		%
+		\\
+		Phương trình hoành độ giao điểm của $(d_1)$ và $(d_2)$ là $x-2=-x\Leftrightarrow x=1$.\\
+		Phương trình hoành độ giao điểm của $(d_1)$ và $(d_3)$ là $x-2=\dfrac{1}{2}x\Leftrightarrow x=4$.\\
+		Phương trình hoành độ giao điểm của $(d_2)$ và $(d_3)$ là $-x=\dfrac{1}{2}x\Leftrightarrow x=0$.\\
+		Theo hình vẽ ta suy ra diện tích hình phẳng cần tìm là\\
+		$\begin{array}{ccl}
+		S& =&\displaystyle\int\limits_0^1 \left(\dfrac{1}{2}x+x)\right)\mathrm{d}x+\displaystyle\int\limits_1^4 \left(\dfrac{1}{2}x-x+2)\right)\mathrm{d}x\\
+		&= &\displaystyle\int\limits_0^1 \left(\dfrac{3}{2}x\right)\mathrm{d}x+\displaystyle\int\limits_1^4 \left(-\dfrac{1}{2}x+2)\right)\mathrm{d}x\\
+		&=& \left(\dfrac{3}{4}x^2\right)\Big\vert_0^1+\left(-\dfrac{1}{4}x^2+2x\right)\Big\vert_{-1}^{2}\\
+		&= &3.
+		\end{array}$
+	}
+\end{vd}
+%
+\begin{vd}%[Võ Đông Phước]%[2D3K3]
+	Tính diện tích hình phẳng được giới hạn bởi đồ thị $(P):y=x^2-1$ và hai tiếp tuyến của $(P)$ tại $A(-1;0)$ và $B(2;3)$.
+	\loigiai{
+		\begin{tikzpicture}
+		\draw[->] (-2.3,0) -- (2.3,0) node[below] {$x$};
+		\draw[->] (0,-4) -- (0,4) node[left] {$y$};
+		\tkzDefPoints{0/0/O}
+		\tkzDrawPoints[fill=black](O)
+		\tkzLabelPoint[above right](O){$O$}
+		\draw[color=blue,domain=-2.1:2.1]   plot (\x,{(\x)^2-1}) node[right]{$(P):y=x^2-1$};
+		\draw[color=blue, domain=0.1:2.3]   plot (\x,{4*\x -5}) node[right]{$(d_1):y=4x-5$};
+		\draw[color=blue,domain=-2.2:1]   plot (\x,{-2*\x-2}) node[right]{$(d_2):y=-2x-2$};
+		\draw (-1,0) node[below]{$-1$} circle (1pt);
+		\draw (0.5,0) node[above]{$\dfrac{1}{2}$} circle (1pt);
+		\draw (2,0) node[below]{$2$} circle (1pt);
+		\draw [dashed] (0.5,0)--(0.5,-3);
+		\draw [dashed](2,0)--(2,3);
+		\draw [draw=none, pattern = north west lines, pattern color=gray!100, samples=100] plot[domain=-1:2] (\x, {(\x)^2-1})--(2,3)--(0.5,-3)--(-1,0)--cycle;
+		\end{tikzpicture}
+		%
+		\\
+		Phương trình tiếp tuyến của $(P)$ tại $A(-1;0)$ là $(d_2):y=-2x-2$.\\
+		Phương trình tiếp tuyến của $(P)$ tại $B(2;3)$ là $(d_1):y=4x-5$.\\
+		Theo hình vẽ ta suy ra diện tích hình phẳng cần tìm là\\
+		$\begin{array}{ccl}
+		S& =&\displaystyle\int\limits_{-1}^{\frac{1}{2}} \left(x^2-1-(-2x-2)\right)\mathrm{d}x+\displaystyle\int\limits_{\frac{1}{2}}^{2} \left(x^2-1-(4x-5)\right)\mathrm{d}x\\
+		&= &\displaystyle\int\limits_{-1}^{\frac{1}{2}} \left(x^2+2x+1\right)\mathrm{d}x+\displaystyle\int\limits_{\frac{1}{2}}^{2} \left(x^2-4x+4\right)\mathrm{d}x\\
+		&=& \left(\dfrac{1}{3}x^3+x^2+x\right)\Big\vert_{-1}^{\frac{1}{2}}+\left(\dfrac{1}{3}x^3-2x^2+4x\right)\Big\vert_{\frac{1}{2}}^{2}\\
+		&= &\dfrac{9}{4}.
+		\end{array}$
+	}
+\end{vd}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN (Cho mỗi dạng)}
+\end{center}
+%
+\begin{bt}%[Võ Đông Phước]%[2D3B3]
+	Tính diện tích hình phẳng được giới hạn bởi các đường $(P):y=-x^2+x-2$, $(d_1):y=-2$ và $(d_2):y=-8$.
+	\loigiai{
+		\begin{tikzpicture}[domain=-2.2:3.2]
+		\draw[->] (-2.3,0) -- (3.3,0) node[below] {$x$};
+		\draw[->] (0,-9) -- (0,1) node[left] {$y$};
+		\tkzDefPoints{0/0/O}
+		\tkzDrawPoints[fill=black](O)
+		\tkzLabelPoint[above right](O){$O$}
+		\draw[color=blue]   plot (\x,{-(\x)^2+\x-2}) node[right]{$(P):y=-x^2+x-2$};
+		\draw[color=blue]   plot (\x,-2) node[right]{$(d_1):y=-2$};
+		\draw[color=blue]   plot (\x,-8) node[right]{$(d_2):y=-8$};
+		\draw (-2,0) node[above]{$-2$} circle (1pt);
+		\draw (1,0) node[above]{$1$} circle (1pt);
+		\draw (3,0) node[above]{$3$} circle (1pt);
+		\draw [dashed] (-2,0)--(-2,-8);
+		\draw [dashed](1,0)--(1,-2);
+		\draw [dashed] (3,0)--(3,-8);
+		\draw [draw=none, pattern = north west lines, pattern color=gray!100, samples=100](-2,-8) plot[domain=-2:0] (\x, {-(\x)^2+\x-2})--(0,-2)--(1,-2)plot[domain=1:3] (\x, {-(\x)^2+\x-2})--(3,-8)--(-2,-8);
+		\end{tikzpicture}
+		%
+		\\
+		Phương trình hoành độ giao điểm của $(P)$ và $(d_1)$ là $-x^2+x-2=-2\Leftrightarrow x=0$ hay $x=1$.\\
+		Phương trình hoành độ giao điểm của $(P)$ và $(d_2)$ là $-x^2+x-2=-8\Leftrightarrow x=-2$ hay $x=3$.\\
+		Theo hình vẽ ta suy ra diện tích hình phẳng cần tìm là\\
+		$\begin{array}{ccl}
+		S& =&\displaystyle\int\limits_{-2}^0 \left(-x^2+x-2+8)\right)\mathrm{d}x+\displaystyle\int\limits_0^1 (-2+8)\mathrm{d}x+\displaystyle\int\limits_1^3 \left(-x^2+x-2+8\right)\mathrm{d}x\\
+		&= &\displaystyle\int\limits_{-2}^0 \left(-x^2+x+6)\right)\mathrm{d}x+\displaystyle\int\limits_0^1 6\mathrm{d}x+\displaystyle\int\limits_1^3 \left(-x^2+x+6\right)\mathrm{d}x\\
+		&=& \left(-\dfrac{1}{3}x^3+\dfrac{1}{2}x^2+6x\right)\Big\vert_{-2}^0+6x\Big\vert_0^1+\left(-\dfrac{1}{3}x^3+\dfrac{1}{2}x^2+6x\right)\Big\vert_1^3\\
+		&= &\dfrac{62}{3}.
+		\end{array}$
+	}
+\end{bt}
+%%
+\begin{bt}%[Võ Đông Phước]%[2D3G3]
+	Tính diện tích hình phẳng được giới hạn bởi các đường $(P):y=x^2-2$ và $y=\vert x \vert$.
+	\loigiai{
+		\begin{tikzpicture}[domain=-2.2:2.2]
+		\draw[->] (-2.3,0) -- (2.3,0) node[below] {$x$};
+		\draw[->] (0,-3) -- (0,3) node[left] {$y$};
+		\tkzDefPoints{0/0/O}
+		\tkzDrawPoints[fill=black](O)
+		\tkzLabelPoint[below right](O){$O$}
+		\draw[color=blue]   plot (\x,{(\x)^2-2}) node[right]{$(P):y=x^2-2$};
+		\draw[color=blue,domain=0:2.2]   plot (\x,\x)  node[right]{$(C):y=\vert x \vert$} ;
+		\draw[color=blue,domain=-2.2:0]   plot (\x,-\x) ;
+		\draw (-2,0) node[below]{$-2$} circle (1pt);
+		\draw (2,0) node[below]{$2$} circle (1pt);
+		\draw [dashed] (-2,0)--(-2,2);
+		\draw [dashed](2,0)--(2,2);
+		\draw [draw=none, pattern = north west lines, pattern color=gray!100, samples=100] plot[domain=-2:0] (\x, {(\x)^2-2})(0,-2)--(0,0)--(-2,2)  plot[domain=0:2] (\x, {(\x)^2-2})--(2,2)--(0,0);
+		\end{tikzpicture}
+		%
+		\\
+		Phương trình hoành độ giao điểm của $(P)$ và $(C)$ là $x^2-2=\vert x \vert\Leftrightarrow x=-2$ hay $x=2$.\\
+		Theo hình vẽ ta suy ra diện tích hình phẳng cần tìm là\\
+		$\begin{array}{ccl}
+		S& =&2\displaystyle\int\limits_{0}^2 \left(x-x^2+2)\right)\mathrm{d}x\\
+		&=& 2\left(-\dfrac{1}{3}x^3+\dfrac{1}{2}x^2+2x\right)\Big\vert_{0}^2\\
+		&= &\dfrac{20}{3}.
+		\end{array}$
+	}
+\end{bt}
+%
+\begin{bt}%[Võ Đông Phước]%[2D3G3]
+	Tính diện tích hình phẳng được giới hạn bởi các đường $(C):y=\vert x^2-4x+3\vert$ và $(d):y=x+3$.
+	\loigiai{\begin{tikzpicture}
+		\draw[->] (-1,0) -- (6,0) node[below] {$x$};
+		\draw[->] (0,-1) -- (0,9.5) node[left] {$y$};
+		\tkzDefPoints{0/0/O}
+		\tkzDrawPoints[fill=black](O)
+		\tkzLabelPoint[below right](O){$O$}
+		\draw[color=blue, domain=-0.5:5.5]   plot (\x,{\x+3}) node[right]{$(d):y=x+3$};
+		\draw[color=blue,domain=-1.2:1]   plot (\x,{(\x)^2-4*\x+3})   ;
+		\draw[color=blue,domain=3:5.2]   plot (\x,{(\x)^2-4*\x+3}) node[right]{$(C):y=\vert x^2-4x+3\vert$};
+		\draw[color=blue,domain=1:3]   plot (\x,{-(\x)^2+4*\x-3}) ;
+		\draw (1,0) node[below]{$1$} circle (1pt);
+		\draw (3,0) node[below]{$3$} circle (1pt);
+		\draw (5,0) node[below]{$5$} circle (1pt);
+		\draw [dashed] (5,0)--(5,8);
+		\draw [draw=none, pattern = north west lines, pattern color=gray!100, samples=100] plot[domain=0:1] (\x, {(\x)^2-4*\x+3})(1,0)--(1,4)--(0,3)plot[domain=1:3] (\x, {-(\x)^2+4*\x-3})--(3,0)--(3,6)--(1,4)--(1,0)  plot[domain=3:5] (\x, {(\x)^2-4*\x+3})--(5,8)--(3,6)--(3,0);
+		\end{tikzpicture}
+		%
+		\\
+		Phương trình hoành độ giao điểm của $(C)$ và $(d)$ là $\vert x^2-4x+3\vert =x+3\Leftrightarrow x=0$ hay $x=5$.\\
+		Mặt khác $(C)$ cắt trục hoành tại hai điểm có hoành độ lần lượt là $x=1,x=3$.\\
+		Theo hình vẽ ta suy ra diện tích hình phẳng cần tìm là\\
+		$\begin{array}{ccl}
+		S& =&\displaystyle\int\limits_0^1 \left( x+3-(x^2-4x+3)\right)\mathrm{d}x+\displaystyle\int\limits_1^3 \left(x+3+x^2-4x+3\right)\mathrm{d}x+\displaystyle\int\limits_3^5 \left( x+3-(x^2-4x+3)\right)\mathrm{d}x \\
+		& =&\displaystyle\int\limits_0^1 \left( -x^2+5x\right)\mathrm{d}x+\displaystyle\int\limits_1^3 \left(x^2-3x+6\right)\mathrm{d}x+\displaystyle\int\limits_3^5 \left( -x^2+5x\right)\mathrm{d}x \\
+		&=& \left(-\dfrac{1}{3}x^3+\dfrac{5}{2}x^2\right)\Big\vert_{0}^{1}+\left(-\dfrac{1}{3}x^3-\dfrac{3}{2}x^2+6x \right)\Big\vert_{1}^{3}+ \left(-\dfrac{1}{3}x^3+\dfrac{5}{2}x^2\right)\Big\vert_{3}^{5}\\
+		&= &\dfrac{109}{6}.
+		\end{array}$
+	}
+\end{bt}
+%
+\begin{bt}%[Võ Đông Phước]%[2D3K3]
+	Tính diện tích hình phẳng được giới hạn bởi đồ thị $(P):y=x^2-4x+5$ và hai tiếp tuyến của $(P)$ tại $A(1;2)$ và $B(4;5)$.
+	\loigiai{
+		\begin{tikzpicture}
+		\draw[->] (-1,0) -- (5,0) node[below] {$x$};
+		\draw[->] (0,-2.5) -- (0,6) node[left] {$y$};
+		\tkzDefPoints{0/0/O}
+		\tkzDrawPoints[fill=black](O)
+		\tkzLabelPoint[above right](O){$O$}
+		\draw[color=blue,domain=-0.05:4.05]   plot (\x,{(\x)^2-4*\x+5}) node[right]{$(P):y=x^2-4x+5$};
+		\draw[color=blue, domain=-0.1:3]   plot (\x,{-2*\x+4}) node[right]{$(d_1):y=-2x+4$};
+		\draw[color=blue,domain=2.2:4.19]   plot (\x,{4*\x-11}) node[right]{$(d_2):y=4x-11$};
+		\draw (1,0) node[below]{$1$} circle (1pt);
+		\draw (4,0) node[below]{$4$} circle (1pt);
+		\draw (2.5,0) node[above]{$\dfrac{5}{2}$} circle (1pt);
+		\draw [dashed] (2.5,0)--(2.5,-1);
+		\draw [dashed](1,0)--(1,2);
+		\draw [dashed](4,0)--(4,5);
+		\draw [draw=none, pattern = north west lines, pattern color=gray!100, samples=100] plot[domain=1:4] (\x, {(\x)^2-4*\x+5})(4,5)--(2.5,-1)--(1,2);
+		\end{tikzpicture}
+		%
+		\\
+		Phương trình tiếp tuyến của $(P)$ tại $A(1;2)$ là $(d_1):y=-2x+4$.\\
+		Phương trình tiếp tuyến của $(P)$ tại $B(4;5)$ là $(d_2):y=4x-11$.\\
+		Phương trình hoành độ giao điểm của $(d_1)$ và $(d_2)$ là $-2x+4=4x-11\Leftrightarrow x=\dfrac{5}{2}$.\\
+		Theo hình vẽ ta suy ra diện tích hình phẳng cần tìm là\\
+		$\begin{array}{ccl}
+		S& =&\displaystyle\int\limits_{1}^{\frac{5}{2}} \left(x^2-4x+5+2x-4\right)\mathrm{d}x+\displaystyle\int\limits_{\frac{5}{2}}^{4} \left(x^2-4x+5-4x+11\right)\mathrm{d}x\\
+		&= &\displaystyle\int\limits_{1}^{\frac{5}{2}} \left(x^2-2x+1\right)\mathrm{d}x+\displaystyle\int\limits_{\frac{5}{2}}^{4} \left(x^2-8x+16\right)\mathrm{d}x\\
+		&=& \left(\dfrac{1}{3}x^3-x^2+x\right)\Big\vert_{1}^{\frac{5}{2}}+\left(\dfrac{1}{3}x^3-4x^2+16x\right)\Big\vert_{\frac{5}{2}}^{4}\\
+		&= &\dfrac{9}{4}.
+		\end{array}$
+	}
+\end{bt}
+%%
+\begin{bt}%[Võ Đông Phước]%[2D3G3]
+	Tính diện tích hình phẳng được giới hạn bởi các đường $(P_1):y=x^2$, $(P_2):y=\dfrac{x^2}{27}$ và $(C):y=\dfrac{27}{x}$.
+	\loigiai{
+		\begin{tikzpicture}
+		\draw[->] (-1,0) -- (10,0) node[below] {$x$};
+		\draw[->] (0,-1) -- (0,9.5) node[left] {$y$};
+		\tkzDefPoints{0/0/O}
+		\tkzDrawPoints[fill=black](O)
+		\tkzLabelPoint[above right](O){$O$}
+		\draw[color=blue,domain=-1:3.1]   plot (\x,{(\x)^2}) node[right]{$(P_1):y=x^2$};
+		\draw[color=blue,domain=-1:10]   plot (\x,{(\x)^2/27}) node[right]{$(P_2):y=\dfrac{x^2}{27}$};
+		\draw[color=blue, domain=2.9:10]   plot (\x,{27/\x}) node[right]{$(C):y=\dfrac{27}{x}$};
+		\draw (3,0) node[below]{$3$} circle (1pt);
+		\draw (9,0) node[below]{$9$} circle (1pt);
+		\draw [dashed] (3,0)--(3,9);
+		\draw [dashed](9,0)--(9,3);
+		\draw [draw=none, pattern = north west lines, pattern color=gray!100, samples=100] plot[domain=0:3] (\x, {(\x)^2})--(3,9)-- plot[domain=3:9] (\x, {27/\x})--(9,3) plot[domain=0:9] (\x, {(\x)^2/27})--cycle ;
+		\end{tikzpicture}
+		%
+		\\
+		Phương trình hoành độ giao điểm của $(P_1)$ và $(P_2)$ là $x^2=\dfrac{x^2}{27}\Leftrightarrow x=0$.\\
+		Phương trình hoành độ giao điểm của $(P_2)$ và $(C)$ là $\dfrac{x^2}{27}=\dfrac{27}{x}\Leftrightarrow x=9$.\\
+		Phương trình hoành độ giao điểm của $(C)$ và $(P_1)$ là $\dfrac{27}{x}=x^2\Leftrightarrow x=3$.\\
+		Theo hình vẽ ta suy ra diện tích hình phẳng cần tìm là\\
+		$\begin{array}{ccl}
+		S& =&\displaystyle\int\limits_0^3 \left( x^2-\dfrac{x^2}{27}\right)\mathrm{d}x+\displaystyle\int\limits_3^9 \left(\dfrac{27}{x}-\dfrac{x^2}{27}\right)\mathrm{d}x\\
+		&=& \left(\dfrac{26}{81}x^3\right)\Big\vert_{0}^{3}+\left(27\ln\vert x \vert -\dfrac{1}{81}x^3 \right)\Big\vert_{3}^{9}\\
+		&= &27\ln3.
+		\end{array}$
+	}
+\end{bt}
+%dang 5
+\begin{dang}{Thể tích khối tròn xoay}
+	\begin{itemize}
+		\item \textbf{Loại 1}
+		\immini{Vật thể tròn xoay sinh ra khi quanh quanh trục $Ox$ hình phẳng được giới hạn bởi các đường $y=f(x), y = 0, x = a, x = b$ với $f(x)$ liên tục trên đoạn $[a;b] $. \\
+			Áp dụng công thức: $\boxed{V=\pi \int\limits_a^b {f^2(x)} \mathrm{\, d} x} $}{\begin{tikzpicture}[>=stealth]
+			\tkzInit[xmin=-0.5,ymin=-2.5,xmax=6.5,ymax=2.5] \tkzClip
+			\draw[->] (-0.5,0)--(5.3,0) node[below] {$x$} ;
+			\draw[->] (0,-2.3)--(0,2.3) node[right] {$y$} ;
+			\draw (0,0) node[below left] {$O$};
+			\draw (1,0) ellipse (0.16 and 1);
+			\draw (4,0) ellipse (0.25 and 1.73);
+			%Nhánh trên
+			\draw[domain=1:4] 
+			plot(\x,{0.31*(\x)^3-2.28*(\x)^2+5.14*(\x)-2.17}) ;
+			%Nhánh dưới
+			\draw[domain=1:4]
+			plot(\x,{-0.31*(\x)^3+2.28*(\x)^2-5.14*(\x)+2.17}) ;
+			%Tô màu
+			\draw[pattern = north east lines,opacity=.3, line width = 1.2pt,draw=none] (1,1) plot[domain=1:4] (\x,{0.31*(\x)^3-2.28*(\x)^2+5.14*(\x)-2.17})--(4,0)--(1,0)--cycle;
+			
+			%Các yếu tố khác
+			\draw (1,0) node[below] {$a$};
+			\draw (4,0) node[below] {$b$};
+			\draw[dashed] (1,0)--(1,1);
+			\draw[dashed] (4,0)--(4,1.72);
+			\draw (2.5,1.7) node {$y=f(x)$} ;
+			\draw[->] (5,0.25) arc (90:270:0.3);
+			\end{tikzpicture}}
+		
+		
+		\item \textbf{Loại 2}
+		\immini{Vật thể tròn xoay sinh ra khi quanh quanh trục $Ox$ hình phẳng được giới hạn bởi các đường $y=f(x), y = g(x), x = a, x = b$ với $f(x), g(x)$ liên tục trên đoạn $[a;b]$ và $ 0 \le  g(x) \le f(x) \: \forall x \in [a;b] $.  \\
+			Áp dụng công thức:\\
+			$\boxed{V=\pi \int\limits_a^b {\left[ f^2(x)-g^2(x)\right] } \mathrm{\, d} x }$}{\begin{tikzpicture}[>=stealth]
+			\tkzInit[xmin=-0.5,ymin=-2.5,xmax=6.5,ymax=2.5] \tkzClip
+			\draw[->] (-0.5,0)--(5.3,0) node[below] {$x$} ;
+			\draw[->] (0,-2.3)--(0,2.3) node[right] {$y$} ;
+			\draw (0,0) node[below left] {$O$};
+			\draw (1,0) ellipse (0.16 and 1);
+			\draw (1,0) ellipse (0.1 and 0.6);
+			\draw (4,0) ellipse (0.25 and 1.73);
+			\draw (4,0) ellipse (0.15 and 1);
+			%Nhánh trên
+			\draw[domain=1:4] 
+			plot(\x,{0.31*(\x)^3-2.28*(\x)^2+5.14*(\x)-2.17}) ; %y=f(x)
+			\draw[domain=1:4] 
+			plot(\x,{0.1*(\x)^2-0.36*(\x)+0.86}) ; %y=g(x)
+			%Nhánh dưới
+			\draw[domain=1:4]
+			plot(\x,{-0.31*(\x)^3+2.28*(\x)^2-5.14*(\x)+2.17}) ;
+			\draw[domain=1:4] 
+			plot(\x,{-0.1*(\x)^2+0.36*(\x)-0.86}) ; 
+			
+			%Các yếu tố khác
+			\draw (1,0) node[below] {$a$};
+			\draw (4,0) node[below] {$b$};
+			\draw (2.5,1.7) node {$y=f(x)$} ;
+			\draw (2.5,0.3) node {$y=g(x)$} ;
+			\draw[->] (5,0.25) arc (90:270:0.3);
+			\draw[dashed] (1,0)--(1,1);
+			\draw[dashed] (4,0)--(4,1.72);
+			
+			%Tô màu
+			\draw[pattern = north east lines,opacity=.3, line width = 1.2pt,draw=none] (1,1) plot[domain=1:4] (\x,{0.31*(\x)^3-2.28*(\x)^2+5.14*(\x)-2.17})--(4,1);
+			\draw[pattern = north east lines,opacity=.3, line width = 1.2pt,draw=none]  (1,0.6) plot[domain=1:4] (\x,{0.1*(\x)^2-0.36*(\x)+0.86})--(4,1)--(1,1)-- cycle ;
+			\end{tikzpicture}}
+		
+		\item \textbf{Loại 3}\\
+		\immini{Vật thể tròn xoay sinh ra khi quanh quanh trục $Ox$ hình phẳng được giới hạn bởi các đường $y=f(x), y = g(x)$ với $f(x), g(x)$ liên tục trên đoạn $[a;b]$.\\
+			Bước 1: Giải phương trình $f(x)=g(x)$ để tìm hai cận $a,b$.\\
+			Bước 2: Giả sử $0 \le g(x) \le f(x) \: \forall x \in [a;b] $ và $ f(x),g(x) $ liên tục trên đoạn $[a;b] $.\\
+			Áp dụng công thức: 
+			$\boxed{V=\pi \int\limits_a^b {\left[ f^2(x)-g^2(x) \right] } \mathrm{\, d} x }$}{\begin{tikzpicture}[>=stealth]
+			\tkzInit[xmin=-0.5,ymin=-2,xmax=6.5,ymax=2.5] \tkzClip
+			\draw[->] (-0.5,0)--(4,0) node[below] {$x$} ;
+			\draw[->] (0,-2)--(0,2.3) node[right] {$y$} ;
+			\draw (0,0) node[below left] {$O$};
+			\draw (1,0) ellipse (0.16 and 1);
+			
+			\draw (3,0) ellipse (0.25 and 1.5);
+			%Nhánh trên
+			\draw[domain=1:3] 
+			plot(\x,{0.25*\x+0.75}) ; %y=f(x)
+			\draw[domain=1:3] 
+			plot(\x,{0.75*(\x)^2-2.75*(\x)+3}) ; %y=g(x)
+			%Nhánh dưới
+			\draw[domain=1:3]
+			plot(\x,{-0.25*\x-0.75}) ;
+			\draw[domain=1:3] 
+			plot(\x,{-0.75*(\x)^2+2.75*(\x)-3}) ; 
+			
+			%Các yếu tố khác
+			\draw (1,0) node[below] {$a$};
+			\draw (3,0) node[below] {$b$};
+			\draw (2,1.6) node {$y=f(x)$} ;
+			\draw (2,0.3) node {$y=g(x)$} ;
+			\draw[->] (3.7,0.25) arc (90:270:0.3);
+			\draw[dashed] (1,0)--(1,1);
+			\draw[dashed] (3,0)--(3,1.5);
+			
+			%Tô màu
+			\draw[pattern = north east lines,opacity=.3, line width = 1.2pt,draw=none] (1,1) plot[domain=1:3] (\x,{0.75*(\x)^2-2.75*(\x)+3})--(3,1.5);
+			\draw[pattern = north east lines,opacity=.3, line width = 1.2pt,draw=none]  (1,0.6) plot[domain=1:3] (\x,{0.25*\x+0.75})--(3,1.5)--(1,1)-- cycle ;
+			\end{tikzpicture}}
+		
+		\item \textbf{Loại 4}\\
+		Vật thể tròn xoay sinh ra khi quay hình phẳng quanh trục $Oy$ . \\Cách làm hoàn toàn tương tự \textbf{Loại 1,2,3}.
+	\end{itemize}
+	
+	\note
+	{Chú ý:} \textit{Nên vẽ hình để xác định công thức thể tích cho chính xác nhất}.
+\end{dang}
+\begin{vd}[Phạm Tiến Đạt]%[2D3Y3]
+	Tính thể tích khối tròn xoay do hình phẳng giới hạn bởi các đường $y=\sqrt{x},y=0, x=2$ và $x=4$ quay quanh trục $Ox$.
+	
+	\loigiai{Áp dụng công thức ta có: $V=\pi\displaystyle \int\limits_2^4(\sqrt{x})^2\mathrm{\,d}x=\pi\cdot\left.\dfrac{x^2}{2}\right|^4_2=6\pi$\textit{(đvtt).}
+	}
+\end{vd}
+\begin{vd}
+	Tính thể tích khối tròn xoay do hình phẳng  giới hạn bởi các đường $y  = x$; $y = 4x$; $x=1$; $x=2$  quay quanh trục $Ox$.
+	\loigiai{Áp dụng công thức ta có $ V=\pi \displaystyle\int\limits_{1}^2 \left[(4x)^2-x^2\right] \mathrm{\, d}x =\pi \displaystyle\int\limits_{1}^2 15x^2\mathrm{\, d}x =15\pi\cdot\left.\dfrac{x^3}{3}\right|^2_1=35\pi $ \textit{(đvtt)}.}
+\end{vd}
+
+\begin{vd}[Phạm Tiến Đạt]%[2D3Y3]
+	Tính thể tích khối tròn xoay do hình phẳng giới hạn bởi các đường $y  = 5 - x^2$ và $y = 1$ quay quanh trục $Ox$.
+	\loigiai{
+		Giao điểm của hai đường $y=5-x^2$ và $y=1$ có hoành độ thỏa mãn
+		$$ 5 - x^2 = 1.$$
+		Giải phương trình này, ta được hai nghiệm $x = 2, x = -2$.\\
+		Mặt khác, với $-2<x<2\Leftrightarrow x^2<4 \Leftrightarrow 5-x^2>1\Rightarrow (5-x^2)^2-1>0$. Khi đó, thể tích cần tìm là
+		\begin{align*}
+		V = \pi \displaystyle\int\limits_{-2}^2 [(5 - x^2)^2 - 1^2]  \mathrm{\,d}x &=\pi \displaystyle\int\limits_{-2}^2 \left(x^4-10x^2+24\right)\mathrm{\,d}x\\
+		&=\pi\cdot\left.\left(\dfrac{x^5}{5}-10\cdot\dfrac{x^3}{3}+24x\right)\right|^2_{-2}= \dfrac{832\pi}{15}\:\textit{(đvtt)}.
+		\end{align*}
+	}
+\end{vd}
+
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN (Cho mỗi dạng)}
+\end{center}
+
+
+\begin{bt}%[Phạm Tiến Đạt]%[2D3Y3]
+	Cho hình phẳng $(\mathcal{H})$ giới hạn bởi $y=x^3+2,y=0,x=0$ và $x=1$. Tính thể tích khối tròn xoay tạo thành khi quay $(\mathcal{H})$ quanh trục $Ox$.
+	\loigiai{Áp dụng công thức ta có: $V=\pi \displaystyle \int\limits_0^1(x^3+2)^2\mathrm{\,d}x=\dfrac{36\pi}{7}$\textit{(đvtt)}.
+	}
+\end{bt}
+\begin{bt}%[Phạm Tiến Đạt]%[2D3Y3]
+	Tính thể tích khối tròn xoay khi quay hình phẳng xác định bởi $y  = \sqrt{\dfrac{1}{x}}$ và ba đường thẳng $y = 0$, $x = 1$, $x = e$ quanh trục $Ox$.
+	\loigiai{
+		Thể tích cần tìm là
+		$$ V = \pi  \displaystyle\int\limits_1^e \left(\sqrt{\dfrac{1}{x}} \right)^2  \mathrm{\,d}x = \pi \displaystyle\int\limits_1^e \dfrac{1}{x}  \mathrm{\,d}x  = \pi \:\textit{(đvtt)}. $$
+	}
+\end{bt}
+\begin{bt}%[Phạm Tiến Đạt]%[2D3B3]
+	Cho hình phẳng $(\mathcal{D})$ giới hạn bởi các đường $y=\mathrm{e}^x $, $y=0$, $x=0$, $x=1$. Khối tròn xoay tạo thành khi quay $(\mathcal{D})$ quanh trục hoành có thể tích bằng bao nhiêu?
+	\loigiai{Gọi V là thể tích cần tìm.\\
+		$$V = \pi \displaystyle\int\limits_0^1 \left( \mathrm{e}^x \right)^2 \mathrm{\, d}x = \dfrac{\pi}{2}\cdot e^{2x} \Big |_{0}^{1}= \dfrac{\pi \left(\mathrm{e}^2 - 1\right)}{2}\: \textit{(đvtt).}$$
+	}
+\end{bt}
+\begin{bt}%[Phạm Tiến Đạt]%[2D3B3]
+	Cho hình phẳng $(\mathcal{D})$ giới hạn bởi các đường $y=x^2-2x$, $y=0$, $x=0$, $x=1$. Khối tròn xoay tạo thành khi quay $(\mathcal{D})$ quanh trục hoành có thể tích bằng bao nhiêu?
+	\loigiai{	Gọi V là thể tích cần tìm.\\
+		Ta có
+		$$V=\pi \displaystyle\int\limits_{0}^{1}(x^2-2x)^2 \mathrm{\,d}x
+		=\pi \displaystyle\int\limits_{0}^{1}(x^4-4x^3+4x^2)\mathrm{\,d}x
+		=\pi \left(\dfrac{x^5}{5}-x^4+\dfrac{4x^3}{3}\right) \Big|_{0}^{1}
+		=\dfrac{8\pi}{15}\: \textit{(đvtt)}.$$}
+\end{bt}
+
+\begin{bt}%[Phạm Tiến Đạt]%[2D3B3]
+	Tính thể tích khối tròn xoay khi quay hình phẳng giới hạn bởi hai đường $y = x^2$ và $x = y^2$ quanh trục $Ox$.
+	\loigiai{
+		\immini{Ta có đường $x = y^2$ là hợp của hai đường $y = \sqrt{x}$ và $y = -\sqrt{x}$ $(x \ge 0)$. Đường $y = -\sqrt{x}$ chỉ cắt $y = x^2$ tại gốc tọa độ. Còn đường $y = \sqrt{x}$ cắt $y = x^2$ tại hai điểm $(0;0)$ và $(1;1)$.
+			Do đó, thể tích cần tìm là
+			$$ V = \pi  \displaystyle\int\limits_0^1 |(x^2)^2 - (\sqrt{x})^2|  \mathrm{\,d}x = \pi  \displaystyle\int\limits_0^1 (x - x^4) = \dfrac{3\pi}{10}\:\textit{(đvtt)}.  $$}{\begin{tikzpicture}[line width=1.0pt]
+			\draw[-stealth] (-2.5,0)--(3,0) node[below]{$x$};
+			\node [below left] at (0,0) {\footnotesize $O$};
+			\foreach \x/\xtext in {1/1}
+			\draw[shift={(\x,0)}] (0pt,1pt)--(0pt,-1pt) node[below]{$\xtext$};
+			\draw[-stealth] (0,-2.5)--(0,3) node[below left]{$y$};
+			\foreach \y/\ytext in {1/1}
+			\draw[shift={(0,\y)}] (1pt,0pt)--(-1pt,0pt) node[left]{$\ytext$};
+			\fill [draw =none, color=gray](0, 0)-- plot [domain=0:1] ({\x}, {sqrt(\x)})-- (1,1)--plot [domain=1:0] ({\x},{\x*\x})-- cycle;
+			\draw[smooth,samples=100,domain=0:2] plot(\x,{sqrt(\x)});
+			\draw[smooth,samples=100,domain=0:2] plot(\x,{-sqrt(\x)});
+			\draw[smooth,samples=100,domain=-1.5:1.5] plot(\x,\x*\x);
+			\draw[dashed] (1,0)--(1,1)--(0,1);
+			\node at (2.2,-1.75){$x=y^2$}; \node at (2.1,2){$y=x^2$};
+			\end{tikzpicture}}
+	}
+\end{bt}
+\begin{bt}%[Phạm Tiến Đạt]%[2D3B3]
+	Gọi $ (\mathcal{H}) $ là hình phẳng giới hạn bởi nửa đường tròn tâm $O$, bán kính $1$ nằm phía trên trục hoành, đường thẳng $(\mathcal{D}): y = x$ và trục hoành. Tính thể tích khối tròn xoay tạo thành khi quay $ (\mathcal{H}) $ quanh trục hoành. 
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>= stealth]
+			\draw [->, line width = 1pt] (0,0) node [below right] {$O$}-- (2.5,0) node [below] {$x$};
+			\draw [->, line width = 1pt] (0,0)-- (0,2.5) node [right] {$y$};
+			\draw [line width = 1pt](-2.5,0)-- (0,0);
+			\draw [line width = 1pt](0,-2.5)-- (0,0);
+			\draw[line width = 1pt] (1,0) arc (0:180:1 and 1);
+			\draw[line width = 1pt] (0.707,0.707)--(0,0);
+			\draw (2,2)--(-2,-2);
+			\fill [draw = none, pattern = north east lines, opacity=0.5] (0.707,0.707)--(0.707,0.707)arc (45:180:1 and 1)-- (0,0)-- (0.707,0.707)-- cycle;
+			\draw (0,1) node [above left] {$1$} circle (1pt);
+			\draw (1,0) node [below] {$1$} circle (1pt);
+			\draw (-1,0) node [below] {$-1$} circle (1pt);	
+			\end{tikzpicture}
+		\end{center}
+		Nửa đường tròn tâm $O$, bán kính $1$ nằm phía trên trục hoành có phương trình $(C): y = \sqrt{1 - x^2}$ \\
+		Giao điểm của $(C)$ và  $d$ là $\left(\dfrac{\sqrt{2}}{2};\dfrac{\sqrt{2}}{2} \right)$ \\
+		Giao điểm của $d$ và trục hoành là $(0;0)$ \\
+		Giao điểm của  $(C)$ và trục hoành là $(1;0)$, $(-1;0)$.
+		
+		Như vậy, thể tích cần tính bằng
+		\begin{align*}
+		V &= \pi  \displaystyle\int\limits_{-1}^0  (\sqrt{1 - x^2})^2  \mathrm{\,d}x + \pi  \displaystyle\int\limits_0^{\frac{\sqrt{2}}{2}} |x^2 - (\sqrt{1 - x^2})^2|  \mathrm{\,d}x\\
+		&=\pi  \displaystyle\int\limits_{-1}^0 (1 - x^2)  \mathrm{\,d}x + \pi \cdot \displaystyle\int\limits_0^{\frac{\sqrt{2}}{2}} (1 - 2x^2)  \mathrm{\,d}x\\
+		&=\left(\dfrac{2}{3} +  \dfrac{\sqrt{2}}{3}\right)\pi\:\textit{(đvtt)}.
+		\end{align*}
+		
+	}
+	
+\end{bt}
+\begin{bt}%[Phạm Tiến Đạt]%[2D3K3]
+	Thể tích khối tròn xoay thu được khi quay hình phẳng giới hạn bởi các đường $y=x^2+1,x=0$ và tiếp tuyến của đồ thị $y=x^2+1$ tại điểm $A(1;2)$ xung quanh trục $Ox$.
+	\loigiai{Ta có: $y=f(x)=x^2+1\Rightarrow f'(x)=2x\Rightarrow f'(1)=2$.\\
+		Phương trình tiếp tuyến của $y=f(x)$ tại $A(1;2)$ là:
+		$y-y_0=f'(x_0)(x-x_0)\Leftrightarrow y=2x$.\\
+		Hoành độ giao điểm của tiếp tuyến với đồ thị là $x=1$ nên ta có
+		$$V=\pi \displaystyle \int\limits_0^1\left[(x^2+1)^2-(2x)^2\right]\mathrm{\,d}x=\pi \displaystyle \int\limits_0^1\left(x^4-2x^2+1\right)\mathrm{\,d}x=\dfrac{8\pi}{15}\textit{(đvtt)}.$$}
+\end{bt}
+\begin{bt}%[Phạm Tiến Đạt]%[2D3K3]
+	Gọi $ (\mathcal{H}) $ là hình phẳng xác định bởi $(C): y = |x^2 - 3x + 2|$, $(\mathcal{D}): y = x + 2$ và trục hoành. Tính thể tích khối tròn xoay khi quay hình $ (\mathcal{H}) $ quanh trục $Ox$.
+	\loigiai{\hfill 	
+		\immini{Tọa độ giao điểm của $(C)$ và trục hoành là $(1;0)$, $(2;0)$. \\
+			Tọa độ giao điểm của $(C)$ và $(\mathcal{D})$ là $(0;2)$ và $(4;6)$. \\
+			Dễ thấy, $x+2\geq |x^2-3x+2|\geq 0$ với mọi $0\leq x\leq 4$.\\ Vậy thể tích cần tìm là
+			\begin{align*}
+			V &= \pi \displaystyle\int\limits_0^4 \left[(x+2)^2-(x^2 - 3x + 2)^2\right]  \mathrm{\,d}x\\ 
+			&=\pi \displaystyle\int\limits_0^4 \left(-x^4+6x^3-12x^2+16x\right)\mathrm{\,d}x= \dfrac{256\pi}{5}\:\textit{(đvtt)}.
+			\end{align*}			
+		}{\begin{tikzpicture}[>= stealth,scale=0.8]
+			\draw [->, line width = 1pt] (0,0) node [below] {$O$}-- (7,0) node [below] {$x$};
+			\draw [->, line width = 1pt] (0,0)-- (0,7) node [right] {$y$};
+			\draw [domain=0:1, line width = 1pt] plot (\x, {(\x)^2 - 3*(\x) + 2}); \fill [draw = none, pattern = north east lines, opacity=0.5] (1,0)-- plot [domain=0:1] (\x, {(\x)^2 - 3*(\x) + 2})-- (0,2)-- (1,3)-- cycle;
+			\draw [domain=1:2, line width = 1pt] plot (\x, {-(\x)^2 + 3*(\x) - 2}); \fill [draw = none, pattern = north east lines, opacity=0.5] (1,0)-- plot [domain=1:2] (\x, {-(\x)^2 + 3*(\x) - 2})-- (2,0)-- (2,4)-- (1,3)-- cycle;
+			\draw [domain=2:4, line width = 1pt] plot (\x, {(\x)^2 - 3*(\x) + 2}); \fill [draw = none, pattern = north east lines, opacity=0.5] (2,0)-- plot [domain=2:4] (\x, {(\x)^2 - 3*(\x) + 2})-- (4,6)--(2,4)-- cycle;
+			\draw [domain=0:4, line width = 1pt] plot (\x, {\x + 2});
+			\draw (4,6) circle (1pt);
+			\draw (0,2) node [left] {$2$} circle (1pt);
+			\draw (1,0) node [below] {$1$} circle (1pt);
+			\draw (2,0) node [below] {$2$}  circle (1pt);
+			\draw (4,0) node [below] {$4$}  circle (1pt);
+			\draw (0,6) node [left] {$6$} circle (1pt);
+			\draw [dashed] (4,0)--(4,6)-- (0,6);
+			\end{tikzpicture}}
+	}
+	
+\end{bt}
+\begin{bt}%[Phạm Tiến Đạt]%[2D3K3]
+	Gọi $(\mathcal{H})$ là hình phẳng giới hạn bởi các đường $(P): y=x^2-1$, trục tung và tiếp tuyến của $(P)$ tại điểm $M(-1;0)$. Tính thể tích $V$ của khối tròn xoay thu được khi quay hình $(\mathcal{H})$ quanh trục $Ox$.
+	\loigiai{
+		\immini{Phương trình tiếp tuyến của $(P)$ tại $M(-1;0)$ là $y=-2x-2$.\\
+			Thể tích $V$ của khối tròn xoay thu được khi quay hình $(\mathcal{H})$ quanh trục $Ox$ là 
+			\begin{align*}
+			V&=\pi\displaystyle\int\limits_{-1}^0\left[(-2x-2)^2-(x^2-1)^2\right]\mathrm{\,d}x\\
+			&=\pi\displaystyle\int\limits_{-1}^0(-x^4+6x^2+8x+3) \mathrm{\,d}x\\
+			&=\left(-\dfrac{x^5}{5}+2x^3+4x^2+3x\right) \Big|_{-1}^{0}\\
+			&=\dfrac{4}{5}\pi \textit{ (đvtt).}\end{align*}}{\begin{tikzpicture}
+			\fill [pattern=north east lines, domain=-1:0, variable=\x]
+			(-1, 0) -- plot ({\x}, {\x*\x-1}) -- (0, -1) --(0,-2) -- cycle;
+			[thick,>=stealth,x=1cm,y=1cm,scale=1] 
+			\draw[-stealth] (-2,0) -- (2,0);\draw (1.9,0) node[below] {\small $x$};
+			\draw[-stealth] (0,-2.5) -- (0,2);\draw (0,1.9) node[right] {\small $y$};
+			\draw [fill=white,draw=black] (1,0) circle (1pt)node[above] {\footnotesize $1$};
+			\draw [fill=white,draw=black] (-1,0) circle (1pt)node[above] {\footnotesize $-1$};
+			\draw [fill=white,draw=black] (0,0) circle (1pt)node[below left] {\footnotesize $O$};
+			\draw [fill=white,draw=black] (0,-2) circle (1pt)node[below left] {\footnotesize $-2$};
+			\draw[thick,black,smooth,samples=100,domain=-1.6:1.6] plot(\x,{(\x)^2-1});
+			\draw[thick,black,smooth,samples=100,domain=-1.6:0.2] plot(\x,{-2*(\x)-2});
+			\end{tikzpicture}}
+	}
+\end{bt}
+\begin{bt}%[Phạm Tiến Đạt]%[2D3K3]
+	Cho hình $(\mathcal{H})$ được giới hạn bởi đồ thị hàm số $y=\sqrt{x}, y=x-2$ và trục hoành. Tính thể tích của vật thể sinh ra khi cho hình $(\mathcal{H})$ quay quanh trục hoành.	
+	\loigiai{	
+		\immini{Phương trình hoành độ giao điểm của hai đồ thị\\
+			$ \sqrt{x}=x-2 \Leftrightarrow \heva{&x \ge2\\&x=(x-2)^2 }\Leftrightarrow \heva{&x\ge 2\\&x^2-5x+4=0} \Leftrightarrow x=4. $ \\
+			Khi đó, thể tích cần tính là
+			\begin{align*}
+			V&=\pi\left[\displaystyle \int \limits_0^2 x\mathrm{\,d}x+\displaystyle \int \limits_2^4 \left[x-(x-2)^2\right]\mathrm{\,d}x\right]\\
+			&= \pi\left[\displaystyle \int \limits_0^2 x\mathrm{\,d}x+\displaystyle \int \limits_2^4 \left(-x^2+5x-4\right)\mathrm{\,d}x\right]=\dfrac{16}{3}\pi \: \textit{(đvtt)}.
+			\end{align*}}{\begin{tikzpicture}[line width=1.0pt, scale=0.8]
+			\draw[-stealth] (-1,0)--(6,0) node[below]{$x$};
+			\foreach \x/\xtext in {1/1,2/2, 4/4}
+			\draw[shift={(\x,0)}] (0pt,1pt)--(0pt,-1pt) node[below]{$\xtext$};
+			\draw[-stealth] (0,-2.5)--(0,3) node[below left]{$y$};
+			\foreach \y/\ytext in {-2/-2,2/2}
+			\draw[shift={(0,\y)}] (1pt,0pt)--(-1pt,0pt) node[left]{$\ytext$};
+			\fill [pattern=north east lines,line width = 0.2pt, samples=100, domain=0:4, variable=\x](0, 0)node[below left]{$O$}-- plot ({\x}, {sqrt(\x)})-- (4.,2) -- (2,0)-- cycle;
+			\draw[smooth,samples=100,domain=0:5.5] plot(\x,{sqrt(\x)});
+			\draw[domain=-0.4:4.6] plot(\x,{(\x)-2});
+			\draw[dashed] (4,0)--(4,2)--(0,2);
+			\node at (1.8,-1.5){$y=x-2$};\node at (5,1.9){$y=\sqrt{x}$};
+			\end{tikzpicture}}}
+\end{bt}
+
+
+
+\begin{bt}%[Phạm Tiến Đạt]%[2D3K3]
+	Cho hình phẳng $(\mathcal{D})$ giới hạn bởi các đường $y=\sqrt{\cos^4x+\sin^4x} $, $y=0$, $x=\dfrac{\pi}{2}$, $x=\pi$. Khối tròn xoay tạo thành khi quay $(\mathcal{D})$ quanh trục hoành có thể tích bằng bao nhiêu?
+	\loigiai{
+		Gọi V là thể tích cần tìm.
+		$$V=\pi \displaystyle\int\limits_{\frac{\pi}{2}}^{\pi}(\cos^4x+\sin^4x)\mathrm{\,d}x=\dfrac{\pi}{4} \displaystyle\int\limits_{\frac{\pi}{2}}^{\pi}(3+\cos 4x)\mathrm{\,d}x=\dfrac{\pi}{4} \left(3x+\dfrac{1}{4}\sin 4x\right) \Big|_\frac{\pi}{2}^{\pi}=\dfrac{\pi}{4}\left(3\pi -\dfrac{3\pi}{2}\right)=\dfrac{3\pi^2}{8} \: \textit{(đvtt)}.$$
+	}
+\end{bt}
+\begin{bt}%[Phạm Tiến Đạt]%[2D3K3]
+	Cho hình phẳng $(\mathcal{D})$ giới hạn bởi các đường $y=\sqrt{x-1}$, $y=0$,$y=2$, $x=0$. Khối tròn xoay tạo thành khi quay $D$ quanh trục tung có thể tích bằng bao nhiêu?
+	\loigiai{	Gọi V là thể tích cần tìm.\\
+		Ta có: $y=\sqrt{x-1} \Rightarrow x=y^2+1$ 
+		$$V=\pi \displaystyle\int\limits_{0}^{2}(y^2+1)^2 \mathrm{\,d}y=\pi \displaystyle\int\limits_{0}^{2}(y^4+2y^2+1)\mathrm{\,d}y=\pi \left(\dfrac{y^5}{5}+\dfrac{2y^3}{3}+y\right) \Big|_{0}^{2}=\dfrac{206\pi}{15}\:\textit{(đvtt)}.$$
+	}
+\end{bt}
+
+\begin{bt}%[Phạm Tiến Đạt]%[2D3G3]
+	Tính thể tích khối tròn xoay sinh ra do hình phẳng giới hạn bởi các đường $y=\sqrt{x}.\mathrm{e}^\frac{x}{2} $, $y=0$, $x=2$, khi nó quay quanh trục $Ox$.	
+	\loigiai{
+		Phương trình hoành độ giao điểm của $y=\sqrt{x}.\mathrm{e}^\frac{x}{2} $ và $y=0$ là
+		$$\sqrt{x}.\mathrm{e}^\frac{x}{2}=0  \Leftrightarrow \sqrt{x}=0 \; \text{(vì } \mathrm{e}^\frac{x}{2} >0) \Leftrightarrow x=0.$$
+		Gọi V là thể tích cần tìm.	
+		$$V=\pi \displaystyle\int\limits_{0}^{2}(\sqrt{x}.\mathrm{e}^\frac{x}{2})^2 \mathrm{\,d}x=\pi \displaystyle\int\limits_{0}^{2}(x.\mathrm{e}^x)\mathrm{\,d}x=\pi.I.$$
+		Bây giờ, ta tính $I=\displaystyle\int\limits_{0}^{2}(x.\mathrm{e}^x)\mathrm{\,d}x$.\\
+		Đặt $\heva{u&=x\\
+			dv&=\mathrm{e}^x\mathrm{\,d}x} \Rightarrow \heva{du&=\mathrm{\,d}x\\v&=\mathrm{e}^x.}$\\
+		Khi đó $$I=(x.\mathrm{e}^x) \Big|_0^2-\displaystyle\int\limits_{0}^{2}(\mathrm{e}^x)\mathrm{\,d}x=2\mathrm{e}^2-\mathrm{e}^x \Big|_0^2=2\mathrm{e}^2-\mathrm{e}^2+1=\mathrm{e}^2+1.$$
+		Vậy $V=\pi (\mathrm{e}^2+1) \: \textit{(đvtt)}$.
+	}
+\end{bt}
+%dang 6
+\begin{dang}{Bài toán thực tế}
+	Hiểu và vận dụng những kiến thức về tích phân để giải quyết các bài toán thực tế.
+\end{dang}
+\begin{vd}[TRẦN ĐÌNH PHƯƠNG]%[2D3T3]
+	Một vật bắt đầu chuyển động với vận tốc thay đổi theo thời gian được tính bởi công thức 
+	$v(t)=3t+2$ (m/s). Hãy tính quãng đường mà vật đi được trong khoảng thời gian $30$ giây kể từ lúc bắt đầu chyển động.
+	\loigiai{
+		Quãng đường mà vật đi được trong khoảng thời gian $30$ giây kể từ lúc bắt đầu chyển động là
+		$$s=\displaystyle\int\limits_0^{30} (3t+2) \mathrm{\,d}t = 1410\;(m)$$.
+	}
+\end{vd}
+\begin{vd}[TRẦN ĐÌNH PHƯƠNG]%[2D3T3]
+	Một vật đang chuyển động với vận tốc $5$ m/s thì tăng tốc với gia tốc $a(t)=2t+3t^2$ m/s$^2$. Hỏi trong khoảng thời gian 10 giây sau khi tăng tốc, quãng đường vật đi được là bao nhiêu?
+	\loigiai{
+		Vận tốc của vật $v(t)=\displaystyle\int a(t)\mathrm{\, d}t=\displaystyle\int\limits (2t+3t^2)\mathrm{\, d}t=t^2+t^3+C$.\\
+		Theo giả thiết: $v(0)=5$ nên $C=5$.\\
+		Vậy quãng đường vật đi được trong khoảng thời gian 10 giây sau khi tăng tốc là: $$s=\displaystyle \int\limits_0^{10} \left(t^2+t^3+5\right)\mathrm{\, d}t=\left(\dfrac{t^3}{3}+\dfrac{t^4}{4}+5t\right)\bigg|_0^{10}=\dfrac{8650}{3}\text{ (m)}$$.
+	}
+\end{vd}
+
+\begin{vd}[TRẦN ĐÌNH PHƯƠNG]%[2D3T3]
+	Một ôtô đang chuyển động đều với vận tốc $v_0$ m/s thì người lái xe đạp phanh. Từ thời điểm đó, ôtô  chuyển động chậm dần với vận tốc $v(t)=-6t+v_0$ m/s. Tính vận tốc ban đầu $v_0,$ biết từ lúc đạp phanh đến khi dừng hẳn ô tô đi được $27$ m.  
+	\loigiai{
+		Xe dừng hẳn ứng với $t$ thỏa $v(t)=0$. Hay $-6t+v_0=0\Leftrightarrow t=\dfrac{v_0}{6}.$\\
+		Quãng đường xe đi được từ lúc đạp phanh đến lúc dừng hẳn:\\
+		$27=\displaystyle\int\limits_0^{\frac{v_0}{6}}(-6t+v_0)\mathrm{\,d}t$.\\
+		Từ đây ta giải được $v_0=18$ (m/s).
+	}
+\end{vd}
+\begin{vd}[TRẦN ĐÌNH PHƯƠNG]%[2D3T3]
+	Một vật chuyển động chậm dần đều với vận tốc $v(t)=150-10t$ (m/s). Hỏi trong $4$ s trước khi dừng hẳn, vật di chuyển được bao nhiêu mét?
+	\loigiai{Khi vật dừng hẳn thì $v(t) = 0 \Leftrightarrow t = 15$.\\
+		Trong $4$ s trước khi dừng hẳn, vật di chuyển được quãng đường $$s = \displaystyle \int \limits_{11}^{15} v(t) \mathrm{\, d}t = \displaystyle \int \limits_{11}^{15} (150 - 10t) \mathrm{\, d}t = 80\text{ (m)}.$$}
+\end{vd}
+\begin{vd}[TRẦN ĐÌNH PHƯƠNG]%[2D3T3]
+	\immini{Một thửa đất có hình dạng như hình vẽ, phần đất tô màu đen có đường viền là một Parabol. Biết: $a=25$ m, $b=5$ m, $c=20$ m. Người ta trồng hoa hồng trên phần đất tô màu đen với mật độ $15\;\text{bông}/m^2$ và phần tam giác gạch chéo trồng hoa cúc với mật độ $20\;\text{bông}/m^2$. Nếu giá mỗi cây hoa hồng là $2000$ đồng/cây và hoa cúc là $1000$ đồng/cây thì số tiền trồng hoa trên diện tích kể trên là bao nhiêu?
+	}{\begin{tikzpicture}[>=stealth,x=1cm,y=1cm,thick,>=angle 45]
+		\coordinate (A) at (-2,0) ; \coordinate (B) at (2,0); \coordinate (C) at (0,-3.46) ;
+		\draw [line width=1pt, pattern = north west lines , pattern color = black](A)--(B)--(C)--cycle;
+		\draw [fill=black!40](B) arc (20.79:158.21:2.14)--(A);
+		\draw [<->,thin](-2.5,-3.46)--(-2.5,1.38); \draw (-2.7,-0.8) node[rotate=90,left]{$a$ m} ;
+		\draw [thin,<->](-2,-4)--(2,-4); \draw (0,-4) node[below]{$c$ m} ;
+		\draw [thin,<->](2.5,0)--(2.5,1.38); \draw (2.7,1.2) node[rotate=90,left]{$b$ m} ;
+		\end{tikzpicture}}
+	\loigiai{
+		\immini{
+			Diện tích phần tam giác trồng hoa cúc: $S_1=200\;\text{m}^2$.\\
+			Do đó số tiền trồng hoa cúc là $200\times 20\times 1000=4000000$ đồng.\\
+			Chọn hệ trục tọa độ như hình vẽ ta tìm được parabol có phương trình $y=-\dfrac{x^2}{20}+x$.\\
+			Phần diện tích trồng hoa hồng: $S_2=\displaystyle\int\limits_0^{20}\left|-\dfrac{x^2}{20}+x\right|\;\mathrm{d}x=\dfrac{200}{3}\;\text{m}^2$.\\
+			Số tiền để trồng hoa hồng là $\dfrac{200}{3}\times 15\times 2000=2000000$ đồng.\\
+			Vậy tổng số tiền để trồng bông hồng và bông cúc là $4000000+2000000=6000000$ đồng.
+		}{\begin{tikzpicture}[>=stealth,x=1cm,y=1cm,thick,>=angle 45]
+			\coordinate (A) at (-2,0) ; \coordinate (B) at (2,0); \coordinate (C) at (0,-3.46) ;
+			\draw [->, thick](-2,0) -- (3,0) node [below left]{$ x $};
+			\draw [->, thick](-2,0)node [below]{$O$} -- (-2,2) node [left]{$ y $};
+			\draw [line width=1pt, pattern = north west lines , pattern color = black](A)--(B)--(C)--cycle;
+			\draw [fill=black!40](B) arc (20.79:158.21:2.14)--(A);
+			\draw [<->,thin](-2.5,-3.46)--(-2.5,1.38); \draw (-2.7,-0.8) node[rotate=90,left]{$a$ m} ;
+			\draw [thin,<->](-2,-4)--(2,-4); \draw (0,-4) node[below]{$c$ m} ;
+			\draw [thin,<->](2.5,0)--(2.5,1.38); \draw (2.7,1.2) node[rotate=90,left]{$b$ m} ;
+			\end{tikzpicture}}
+	}
+\end{vd}
+\begin{vd}[TRẦN ĐÌNH PHƯƠNG]%[2D3T3]
+	Một nhà máy thủy điện xả lũ với tốc độ xả tại thời điểm $t$ giây là $v(t)= 2t+100${ (m$^3$/s)}. Hỏi sau 30 phút kể từ lúc bắt đầu xả, nhà máy xả được bao nhiêu mét khối nước?
+	\loigiai{
+		Số mét khối nước xả sau $30$ phút ($1800$ giây) là $\displaystyle\int\limits_0^{1800}(2t+100)dt=3.420.000$.
+	}
+\end{vd}
+\begin{vd}[TRẦN ĐÌNH PHƯƠNG]%[2D3T3]
+	\immini{Một chiếc phao bơi hình xuyến, khi bơm căng chiếc phao có bán kính đường tròn viền ngoài và viền trong lần lượt là $R_1=3,R_2=1$ như hình vẽ. Tính thể tích của chiếc phao.}
+	{\begin{tikzpicture}[>=stealth, scale=0.7]
+		\shade (0,0) circle [radius=2cm];
+		\fill[color=white] (0,0) circle (1cm);
+		\draw (1,0)--(0,0)--(0.707,0.707);
+		\draw[dashed] (1,0)--(2,0);
+		\draw (1.5,0.) node[above]{\scriptsize $3$} (0.4,0.2) node[above left]{\scriptsize $1$};
+		\draw[black] (-1,0)arc(0:-180:0.5 and 0.2);
+		\draw[dashed] (-1,0)arc(0:180:0.5 and 0.2);
+		\end{tikzpicture}}
+	\loigiai{
+		\immini{Gắn hệ trục tọa độ $Oxy$ như hình vẽ.\\
+			Khi đó, thể tích của chiếc phao bằng thể tích của vật tròn xoay tạo bởi khi xoay hình phẳng (hai nửa đường tròn tâm $(0;2)$ , bán kính bằng $1$) giới hạn bởi đồ thị hai hàm số $y= \sqrt{1-x^2}+2$ và $y=\sqrt{1-x^2}-2$  quanh trục $Ox$.
+			Vậy $V=\displaystyle\int\limits_{-1}^1\left[\left(\sqrt{1-x^2}+2\right)^2-\left(\sqrt{1-x^2}-2\right)^2\right]\mathrm{\,d}x=4\pi^2$ (đvtt).}{
+			\begin{tikzpicture}[>=stealth, scale=0.7]
+			\shade (0,0) circle [radius=2cm];
+			\fill[color=white] (0,0) circle (1cm);
+			\draw (1,0)--(0,0)--(0.707,0.707);
+			\draw[dashed] (1,0)--(2,0);
+			\draw (1.5,0.) node[above]{\scriptsize $3$} (0.4,0.2) node[above left]{\scriptsize $1$};
+			\draw[black] (-1,0)arc(0:-180:0.5 and 0.2);
+			\draw[dashed] (-1,0)arc(0:180:0.5 and 0.2);
+			\draw[dashed,color=red] (-2,0)--(-4.5,1.1);
+			\draw[dashed,color=red] (-1,0)--(-3.1,2.5);
+			\draw[->] (-5.5,0)--(-2.5,0) node[below]{\scriptsize $x$};
+			\draw[->] (-4,-0.5)--(-4,3.5) node[right]{\scriptsize $y$};
+			\draw (-4,0) node[below left]{\scriptsize $O$};
+			\draw[black] (-4,2) circle (1cm);
+			\draw[dashed] (-3,0)--(-3,2)--(-4,2);
+			\draw (-3,0) node[below]{\scriptsize $1$} (-4,2) node[left]{\scriptsize $2$};
+			
+			\end{tikzpicture}
+	}}
+\end{vd}
+\begin{vd}[TRẦN ĐÌNH PHƯƠNG]%[2D3T3]
+	Tốc độ tăng trưởng của bán kính thân cây (đơn vị: cm/năm) được cho bởi công thức $f(t)=1.5+\sin\left(\dfrac{\pi t}{5}\right)$, trong đó $t$ là thời gian khảo sát (tính theo năm), $t=0$ là thời điểm bắt đầu khảo sát; $F(t)$ là bán kính của thân cây tại thời điểm $t$ và $F'(t)=f(t)$. Tính bán kính của thân cây sau $10$ năm kể từ lúc bắt đầu khảo sát, biết rằng bán kính cây tại thời điểm bắt đầu khảo sát là $5$ cm.
+	\loigiai{
+		Ta có $F(t)=\displaystyle\int\left(1.5+\sin\dfrac{\pi t}{5}\right)\mathrm{d}t=\left(1.5t-\dfrac{5}{\pi}\cos\dfrac{\pi t}{5}\right)+C$.\\
+		Từ giả thiết $F(0)=5$ ta giải được $C=5+\dfrac{5}{\pi}$.\\
+		Do đó $F(t)=1.5t-\dfrac{5}{\pi}\cos\dfrac{\pi t}{5}+5+\dfrac{5}{\pi}$.\\
+		Sau $10$ năm bán kính thân cây bằng $F(10)=15-\dfrac{5}{\pi}\cos2\pi+5+\dfrac{5}{\pi}=20$ (cm).
+	}
+\end{vd}
+\begin{vd}[TRẦN ĐÌNH PHƯƠNG]%[2D3T3]
+	\immini{Một chiếc đồng hồ cát như hình vẽ bên, gồm hai phần đối xứng nhau qua mặt phẳng nằm ngang và đặt trong
+		một hình trụ. Thiết diện thẳng đứng qua trục của nó là hai parabol chung đỉnh và đối xứng nhau qua mặt phẳng nằm ngang.
+		Ban đầu lượng cát dồn hết ở phần trên của đồng hồ thì chiều cao $h$ của mực cát bằng $\dfrac{3}{4}$ chiều cao của phần bên đó. 
+		Cát chảy từ trên xuống dưới với lưu lượng không đổi $2,90$ cm$^3$/phút. Khi chiều cao của cát còn $4$ cm thì bề mặt trên
+		cùng của cát tạo thành một đường tròn chu vi $8\pi$ cm. Biết sau 30 phút thì cát chảy hết xuống phần bên dưới của đồng hồ.
+		Hỏi chiều cao của khối trụ bên ngoài là bao nhiêu cm (Kết quả làm tròn đến hàng đơn vị)?
+	}{
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
+		\clip(-2.43,-6.3) rectangle (2.65,5.91);
+		\draw [rotate around={0.:(0.,5.)}] (0.,5.) ellipse (2.13cm and 0.74cm);
+		\draw[line width=1pt,dash pattern=on 3pt off 3pt,smooth,samples=100,domain=-2.12:2.12] plot(\x,{5.02/2.13^(2.0)*(\x)^(2.0)});
+		\draw[line width=1pt,dash pattern=on 3pt off 3pt,smooth,samples=100,domain=-2.12:2.12] plot(\x,{0-5.02/2.13^(2.0)*(\x)^(2.0)});
+		\draw (-2.13,5.02)-- (-2.12,-5.09);
+		\draw (2.13,5.02)-- (2.13,-5.04);
+		\draw [line width=1pt,rotate around={-0.65:(0.,3.98)},dash pattern=on 3pt off 3pt] (0.,3.98) ellipse (1.88cm and 0.65cm);
+		\draw[line width=1pt,dash pattern=on 3pt off 3pt,smooth,samples=100,domain=-2.14:2.14] plot(\x,{sqrt(42.4/73.24-9.24/73.24*(\x)^(2.0))-5.02});
+		\draw [line width=1pt,dash pattern=on 3pt off 3pt] (-1.91,4.02)-- (1.9,4.01);
+		\draw [line width=1pt,dash pattern=on 3pt off 3pt] (-0.96,1.019)-- (0.96,1.019);
+		\draw[line width=1pt,smooth,samples=100,domain=-2.14:2.14] plot(\x,{0-sqrt(42.4/73.24-9.24/73.24*(\x)^(2.0))-5.02});
+		\draw (0.32,0.92)-- (0.32,0.);
+		\draw (0.,4.02)-- (0.,0.);
+		\draw [line width=1pt,rotate around={0.:(0.01,1.02)},dash pattern=on 3pt off 3pt] (0.01,1.02) ellipse (0.95cm and 0.37cm);
+		\draw (-0.64,0.75)-- (-1.36,0.014);
+		\begin{scriptsize}
+		\draw [fill,shift={(0.32,0.92)}] (0,0) ++(0 pt,1.5pt) -- ++(1.3pt,-2.25pt)--++(-2.6pt,0 pt) -- ++(1.3pt,2.25pt);
+		\draw [fill,shift={(0.32,0.06)},rotate=180] (0,0) ++(0 pt,1.5pt) -- ++(1.3pt,-2.25pt)--++(-2.6pt,0 pt) -- ++(1.3pt,2.25pt);
+		\draw (1.2,0.31) node {$4$ cm};
+		\draw (-0.3,2.2) node {$h$};
+		\draw [fill] (-1.36,0.01) circle (0.5pt);
+		\draw(-1.44,-0.41) node {$8\pi$};
+		\draw [fill,shift={(0.,3.9)}] (0,0) ++(0 pt,2.25pt) -- ++(1.954pt,-3.375pt)--++(-3.9pt,0 pt) -- ++(1.95pt,3.375pt);
+		\draw [fill,shift={(0.,0.1)},rotate=180] (0,0) ++(0 pt,2.25pt) -- ++(1.95pt,-3.375pt)--++(-3.9pt,0 pt) -- ++(1.95pt,3.375pt);
+		\end{scriptsize}
+		\end{tikzpicture}}
+	\loigiai{\immini{ Gọi $r$ là bán kính đường tròn tạo thành khi chiều cao cột cát bằng $4$ cm.\\
+			Khi đó, ta có $2r\pi = 8\pi \Leftrightarrow r=4$ (cm).\\
+			Vậy phương trình parabol của thiết diện là $y=\dfrac{1}{4}x^2.$\\
+			Thể tích $V$ của cột cát có chiều cao $h$ bằng thể tích khối tròn xoay của miền gạch chéo (hình vẽ bên) quay quanh $Oy$.\\
+			Suy ra $V =  \pi \displaystyle \int\limits_0^{h} \sqrt{4y}^2 \mathrm{\,d}y = 2\pi h^2.$\\
+			Do đó, $ 2\pi h^2 = 2,9.30 \Leftrightarrow h =\sqrt{\dfrac{2,9.15}{\pi}}.$\\
+			Vậy chiều cao của khối trụ bên ngoài là $2.\dfrac{4}{3}h \approx 9$ (cm). }{
+			
+			\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm,scale =0.4]
+			\draw[->] (-7,0.) -- (7.4,0.);
+			\foreach \x in {-4,4}
+			\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+			\draw[->] (0.,-2.2) -- (0.,10);
+			\foreach \y in {}
+			\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+			
+			\clip(-7,-1) rectangle (7.4,10);
+			\draw[line width=1pt,fill,pattern=north east lines,pattern] {[line width=1pt,smooth,samples=100,domain=0.0:5.66] plot(\x,{1.0/4.0*\x^(2.0)})} -- (5.66,8.) {[smooth,samples=100,domain=5.66:0.0] -- plot(\x,{8.0})} -- (0.,0.) -- cycle;
+			\draw[line width=1pt,smooth,samples=100,domain=-7:7.4] plot(\x,{1.0/4.0*(\x)^(2.0)});
+			\draw[line width=1pt,smooth,samples=100,domain=-5.66:5.66] plot(\x,{8.0});
+			\begin{scriptsize}
+			\draw (7.2,-0.5) node {$x$ };
+			\draw (-0.5,9.8) node {$y$};
+			\draw (-0.5,8.5) node {$h$};
+			\draw (0.4,-0.4) node {$O$};
+			\end{scriptsize}
+			\end{tikzpicture}}
+	}
+\end{vd}
+\begin{vd}[TRẦN ĐÌNH PHƯƠNG]%[2D3T3]
+	\immini{
+		Ông An muốn làm cửa rào sắt có hình dạng và kích thước như hình vẽ bên, biết đường cong phía trên là một Parabol. Giá $1(m^2)$ cửa rào sắt là $700.000$ đồng. Hỏi ông An phải trả bao nhiêu tiền để làm các cửa sắt như vậy (làm tròn đến hàng nghìn).
+	}{
+		\begin{tikzpicture}[>=stealth,x=1.0cm,y=2.0cm]
+		\clip(-2.98,-0.52) rectangle (4.8,2.24);
+		\draw[line width=1.6pt,smooth,samples=100,domain=-2.5:2.5] plot(\x,{0-2.0/25.0*(\x)^(2.0)+2.0});
+		\draw[line width=1.6pt,smooth,samples=100,domain=-2.5:2.5] plot(\x,{0-2.0/25.0*(\x)^(2.0)+1.8});
+		\draw [line width=1.6pt] (-2.5,1.5)-- (-2.5,0.) (-2.,1.68)-- (-2.,0.) (-1.5,1.82)-- (-1.5,0.) (-1.,1.92)-- (-1.,0.) (-0.5,1.98)-- (-0.5,0.);
+		\draw [line width=1.6pt] (-2.25,0.795) circle (0.25cm) (-1.75,0.955) circle (0.25cm) (-1.25,1.075) circle (0.25cm) (-0.75,1.155) circle (0.25cm) (-0.25,1.195) circle (0.25cm) (2.25,0.795) circle (0.25cm) (1.75,0.955) circle (0.25cm) (1.25,1.075) circle (0.25cm) (0.75,1.155) circle (0.25cm) (0.25,1.195) circle (0.25cm);
+		\draw [line width=1.6pt] (2.5,1.5)-- (2.5,0) (2,1.68)-- (2,0) (1.5,1.82)-- (1.5,0) (1,1.92)-- (1,0) (0.5,1.98)-- (0.5,0) (0,2)-- (0,0) (-2.5,0)-- (2.5,0);
+		\draw [->] (3,1) -- (2.98,1.49) ;
+		\draw [->] (3.02,0.67) -- (3,0);
+		\draw [->] (4.02,1.19) -- (4,2);
+		\draw [->] (4.04,0.82) -- (4,0);
+		\draw [->] (-0.42,-0.28) -- (-2.5,-0.28);
+		\draw [->] (0.58,-0.26) -- (2.52,-0.26);
+		\draw [dotted] (0,2)-- (4,2) (2.5,1.5)-- (2.98,1.49) (2.5,0)-- (4,0) (-2.5,0)-- (-2.5,-0.28) (2.5,0)-- (2.52,-0.26);
+		\draw (3.84,1.14) node[anchor=north west] {$2$ m};
+		\draw (2.7,0.95) node[anchor=north west] {$1,5$ m};
+		\draw (-0.4,-0.14) node[anchor=north west] {$5$ m};
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\immini{Chọn hệ trục tọa độ $Oxy$ như hình vẽ, trong đó $A(-2,5;0), B(2,5;0), C(0;2)$.\\
+			Giả sử đường cong phía trên là Parabol có dạng\\ $y=ax^2+bx+c$.\\
+			Do Parabol đi qua $A, B, C$ nên tìm được\\ $a=-\dfrac{2}{25},b=0,c=2$.
+		}{\begin{tikzpicture}[>=stealth]
+			\draw[->] (-3,0) -- (3.5,0);
+			\foreach \x in {-3,-2,-1,1,2}
+			\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+			\draw (3.4,0.1) node [anchor=south west] {$ x$};
+			\draw[->] (0,-1) -- (0,2.8);
+			\foreach \y in {-1,1,2}
+			\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[above left] {\footnotesize $\y$};
+			\draw (0.2,2.8) node [anchor=west] {$y$};
+			\draw (0pt,-10pt) node[right] {\footnotesize $O$};
+			\draw[thick,smooth,samples=100,domain=-3:3] plot(\x,{(-2/25)*(\x)^(2)+2});
+			\draw[dashed] (-2.5,0)--(-2.5,1.5) node[above]{$A$} (2.5,0)--(2.5,1.5) node[above]{$B$} (0,2) node[above right]{$C$};
+			\end{tikzpicture}}
+		Do đó Parabol có phương trình $y=-\dfrac{2}{25}x^2+2$.\\
+		Diện tích $S$ của cửa rào sắt là diện tích phần hình phẳng giới hạn bởi các đường $y=-\dfrac{2}{25}x^2+2$; $x=-2,5$; $x=2,5$; $y=0$.\\
+		Do đó, $S=\displaystyle\int\limits_{-2,5}^{2,5}{\left(-\dfrac{2}{25}x^2+2\right)\mathrm{\,d}x}=\dfrac{55}{6}$\\
+		Vậy ông An phải trả số tiền để làm cái cửa sắt là $S.700000=\dfrac{55}{6}.700000\approx 6.417.000$ đồng.}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN (Cho mỗi dạng)}
+\end{center}
+
+\begin{bt}%[TRẦN ĐÌNH PHƯƠNG]%[2D3T3]
+	Một vật đang chuyển động với vận tốc $10$ m/s thì tăng tốc với gia tốc $a(t)=3t+t^2$ m/s$^2$. Tính quãng đường vật đi được trong khoảng thời gian $10$ giây kể từ lúc bắt đầu tăng tốc.
+	\loigiai{
+		Vận tốc của vật $v(t)=\displaystyle\int\left(3t+t^2\right)\mathrm{\, d}x=\dfrac{t^3}{3}+\dfrac{3t^2}{2}+C$.\\
+		Với $v(0)=10$ nên $C=10$. Do đó, $v(t)=\dfrac{t^3}{3}+\dfrac{3t^2}{2}+10$.\\
+		Vậy, quãng đường vật đi được trong khoảng 10 giây kể từ lúc bắt đầu tăng tốc là:
+		$$S=\int\limits_0^{10} \biggl(\dfrac{t^3}{3}+\dfrac{3t^2}{2}+10\biggr)\mathrm{\, d}x=\biggl(\dfrac{t^4}{12}+\dfrac{t^3}{2}+10t\biggr)\Bigg|_0^{10}=\dfrac{4300}{3}\text{ (m)}$$
+	}
+\end{bt}
+
+\begin{bt}%[TRẦN ĐÌNH PHƯƠNG]%[2D3T3]
+	Giả sử một vật từ trạng thái nghỉ (khi $t=0$ s) chuyển động với vận tốc $v\left(t\right)=5t-t^2$ m/s. Tính quãng đường vật đi được cho tới khi nó dừng lại (kết quả được làm tròn đến chữ số thập phân thứ hai).
+	\loigiai{
+		- Thời điểm $t$ vật dừng lại thỏa: $v(t)=0\Leftrightarrow\hoac{t=0\\t=5}$. Hay $t=5$.\\
+		- Quãng đường vật đi được $s=\displaystyle\int\limits_0^5(5t-t^2)\mathrm{\,d}t\approx20,83$ (m).
+	}
+\end{bt}
+\begin{bt}%[TRẦN ĐÌNH PHƯƠNG]%[2D3T3]
+	\immini{
+		Một cái trống trường có bán kính đáy là 30cm, thiết diện vuông góc với trục và cách đều 2 đáy có diện tích là 1600$\pi$(cm$^2$), chiều dài của trống là 1m. Biết rằng mặt phẳng chứa trục cắt mặt xung quanh của trống là các đường parabol.
+		\choicew{0.5\textwidth}
+		Hỏi thể tích của trống là bao nhiêu?
+	}{
+		\begin{tikzpicture}[x=0.5cm,y=0.5cm,scale=0.8]
+		\draw[samples=100,domain=-5:5,thick] plot (\x,{(-1/25)*(\x)^2+4});
+		\draw[samples=100,domain=-5:5,thick] plot (\x,{(1/25)*(\x)^2-4});
+		\draw[thick] (-5,0) ellipse (0.5cm and 1.5cm);
+		\draw[dashed] (5,3) arc (90:270:0.5cm and 1.5cm);
+		\draw[thick] (5,-3) arc (-90:90:0.5cm and 1.5cm);
+		\draw[dashed] (0,0) -- (0,2) node[left]{\scriptsize 40 cm} -- (0,4);
+		\draw[dashed] (-5,3) -- (-5,1.5) node{\scriptsize 30 cm} -- (-5,0) -- (0,0) node[below]{\scriptsize 1 m} -- (5,0) -- (5,1.5) node{\scriptsize 30 cm} -- (5,3);
+		\draw[->] (-0.5,-3) node[above]{\scriptsize parabol} -- (0,-4);
+		\end{tikzpicture}
+	}
+	\loigiai{
+		Chọn trung điểm trục trống làm gốc tọa độ, trục  trống nằm trên trục hoành.\\
+		Thể tích của trống bằng thể tích của khối tròn xoay tạo bởi hình phẳng giới hạn bởi $(P):y=ax^2+bx+c$; $x=-5$; $c=5$; $y=0$.\\
+		Trong đó $(P)$ có đỉnh $(0;4)$ và đi qua điểm $(5;3)$.\\
+		Vậy, thể tích của trống là $\pi\displaystyle\int\limits_{-5}^5 \biggl(-\dfrac{1}{25}x^2+4\biggr)^2\mathrm{\, d}x\approx 425,2$ (dm$^3$).
+	}
+\end{bt}
+\begin{bt}%[TRẦN ĐÌNH PHƯƠNG]%[2D3T3]
+	Trong một đợt xả lũ, nhà máy thủy điện đã xả lũ trong vòng $40$ phút với tốc độ dòng nước tại thời điểm $t$ giây là $v(t) = 10t + 500$ m$^3$/s. Hỏi sau thời gian xả lũ trên thì hồ thoát nước của nhà máy đã thoát đi một lượng nước là bao nhiêu?
+	\loigiai{Lượng nước xả được trong thời gian $2400$ giây ($40$ phút) là $\displaystyle\int\limits_0^{2400} (10t+500)\mathrm{\,d}t=3.10^7\text{ m}^3$.}
+\end{bt}
+
+\begin{bt}%[TRẦN ĐÌNH PHƯƠNG]%[2D3T3]
+	Sân trường có một bồn hoa hình tròn có tâm $O$. Một nhóm học sinh lớp $12$ được giao thiết kế bồn hoa, nhóm này định chia bồn hoa thành bốn phần, bởi hai đường Parabol có cùng đỉnh $O$ và đối xứng nhau qua $O$.\vspace*{6pt}
+	\immini{
+		Hai đường Parabol này cắt đường tròn tại bốn điểm $A,B,C,D$ tạo thành một hình vuông có cạnh bằng $4\;{\rm m}$ (như hình vẽ). Phần diện tích $S_1, S_2$ dùng để trồng hoa, phần diện tích $S_3, S_4$ dùng để trồng cỏ (Diện tích làm tròn đến chữ số thập phân thứ hai). Biết kinh phí để trồng hoa là $150.000$ đồng $/1\;{\rm m}^2$, kinh phí để trồng cỏ là $100.000$ đồng $/1\;{\rm m}^2$. 
+		Hỏi nhà trường cần bao nhiêu tiền để trồng bồn hoa đó? (Số tiền làm tròn đến hàng chục nghìn).
+	}{\hspace*{1cm}
+		\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm,scale=0.9]
+		\draw(0.,0.) circle (2.cm);
+		\draw [samples=50,rotate around={0.:(0.,0.)},xshift=0.cm,yshift=0.cm,domain=-1.4189726628163433:1.4189726628163433)] plot (\x,{(\x)^2/2/0.7142857142857143});
+		\draw [samples=50,rotate around={-180.:(0.,0.)},xshift=0.cm,yshift=0.cm,domain=-1.4189726628163433:1.4189726628163433)] plot (\x,{(\x)^2/2/0.7142857142857143});
+		\draw  (1.4189726628163433,1.409438392474072) node[above right] {$B$};
+		\draw  (-1.4189726628163433,1.409438392474072) node[above left] {$A$};
+		\draw  (-1.4189726628163433,-1.409438392474072) node[below left] {$D$};
+		\draw  (1.4189726628163433,-1.409438392474072) node[below right] {$C$};
+		\draw  (-1.3,0.) node {$S_3$};
+		\draw  (0.,1.) node {$S_1$};
+		\draw  (1.3,0.) node {$S_4$};
+		\draw  (0.,-1.) node {$S_2$};
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\begin{minipage}[h]{10cm}
+			Chọn hệ trục tọa độ như hình vẽ  $O\left(0;0\right)$; $A\left(-2;2\right)$; $B\left(2;2\right)$.\\
+			Khi đó, phương trình Parabol phía trên có dạng là : $\left(P\right):y=ax^2$ trong đó $B\left(2;2\right)\in\left(P\right) \Rightarrow a=\dfrac{1}{2}$.\\
+			Suy ra $\left(P\right):y=\dfrac{x^2}{2}$.\\
+			Phương trình cung tròn nằm  phía trên trục $Ox$ là: $y=\sqrt{R^2-x^2}=\sqrt{OA^2-x^2}=\sqrt{8^2-x^2}$.\\
+			Khi đó: $S_1=\displaystyle\int\limits_{-2}^{2}\left(\sqrt{8-x^2}-\dfrac{x^2}{2}\right)dx$.\\
+			Diện tích hình tròn là: $S=\pi.R^2=\pi.OA^2=8\pi$.\\
+			Ta có: $T=150.2S_1+100.\left(S-2S_1\right)\approx 3.270$ nghìn đồng.
+		\end{minipage}
+		\hspace{1cm}
+		\begin{minipage}[h]{4cm}
+			\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm]
+			\draw[->,color=black] (-3.2,0.) -- (3.2,0.);
+			\draw[->,color=black] (0.,-3.2) -- (0.,3.2);
+			\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+			\clip(-3.2,-3.2) rectangle (3.2,3.2);
+			\draw [line width=1.0pt] (0.,0.) circle (2.828427125cm);
+			\draw [samples=50,rotate around={0.:(0.,0.)},xshift=0.cm,yshift=0.cm,line width=1.0pt,domain=-4.0:4.0)] plot (\x,{(\x)^2/2/1.0});
+			\draw [samples=50,rotate around={-180.:(0.,0.)},xshift=0.cm,yshift=0.cm,line width=1.0pt,domain=-4.0:4.0)] plot (\x,{(\x)^2/2/1.0});
+			\begin{scriptsize}
+			\draw  (-2,2) node[above left] {$A$};
+			\draw  (2,2) node[above right] {$B$};
+			\draw  (2,-2) node[below right] {$C$};
+			\draw  (-2,-2)  node[below left] {$D$};
+			\draw  (-2.,0.) node[above] {$S_3$};
+			\draw  (2.,0.) node[above] {$S_4$};
+			\draw  (0.,2.) node[right] {$S_1$};
+			\draw  (0.,-2.) node[right] {$S_2$};
+			\end{scriptsize}
+			\end{tikzpicture}
+		\end{minipage}
+	}
+\end{bt}
+\begin{bt}%[TRẦN ĐÌNH PHƯƠNG]%[2D3T3]
+	Trong chương trình nông thôn mới, tại một xã X có xây một cây cầu bằng bê tông như hình vẽ. Tính thể tích khối bê tông để đổ đủ cây cầu. (Đường cong trong hình là các đường Parabol).
+	\begin{center}
+		\begin{tikzpicture}[scale=1,thick,>=stealth']
+		\draw[black] (0,2)parabola(2,0)--(8,1.5)(-2,0)node[below right]{\footnotesize 0,5m}--(2,0)node[below left]{\footnotesize 0,5m} (0,0)node[below]{\footnotesize 19m}--(0,2);
+		\draw[black] (0,1)parabola(1,0)(0,1) parabola (-1,0);
+		\draw[black] (0,2)parabola(-2,0); 
+		\draw[dashed] (6,3.5)parabola(4,1.5)(-2,0)--(4,1.5)(1,0)--(7,1.5) (6,2.5) parabola (7,1.5) (6,2.5) parabola (5,1.5)--(-1,0)(6,2.5)--(0,1)(6,3.5)--(6,1.5)(4,1.5)--(8,1.5);
+		\draw[black] (0,2)--(6,3.5)parabola (8,1.5);
+		\node[right] at (6,2.9){\footnotesize 0,5m};\node[right] at (6,1.9){\footnotesize 2m};
+		\draw (5.2,0.6) node[right]{5 m};
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{\immini{Xét một mặt cắt theo phương thẳng đứng và vuông góc với bề dài khối bê tông.\\
+			Gắn hệ trục tọa độ $Oxy$ như hình vẽ bên.\\
+			Thiết lập phương trình hai parabol và tính được diện tích mặt cắt $S=\displaystyle\int\limits_{-10}^{10}\left(-\dfrac{x^2}{40}+2,5\right)\mathbb{\,d}x-\displaystyle\int\limits_{-9,5}^{9,5}\left(-\dfrac{8x^2}{361}+2\right)\mathrm{\,d}x=8$.\\
+			Vậy, thể tích khối bê tông cần tính là $V=\displaystyle\int\limits_{0}^{5}8\mathrm{\,d}x=40$ m$^3$.}{
+			\begin{tikzpicture}[scale=1,thick,>=stealth']
+			\draw[black] (0,2)parabola(2,0)--(1,0) (0,2)parabola(-2,0)--(-1,0) (0,1)parabola(1,0) (0,1)parabola(-1,0);
+			\filldraw[gray!50] (0,2)parabola(2,0)--(0,0)--(0,2) (0,2)parabola(-2,0)--(0,0)--(0,2);
+			\filldraw[white] (0,1)parabola(1,0)--(0,0)--(0,1) (0,1)parabola(-1,0)--(0,0)--(0,1);
+			\draw[->,blue] (-2.2,0)--(2.3,0)node[below]{\footnotesize $x$};
+			\draw[->,blue] (0,0) node[below]{\footnotesize $O$}--(0,2.3) node[right]{\footnotesize $y$};
+			\end{tikzpicture}}}
+\end{bt}

@@ -1,0 +1,139 @@
+\documentclass[12pt,a4paper,twoside]{book}
+\usepackage{amsmath,amssymb,yhmath,mathrsfs,fancyhdr,enumerate,tkz-euclide,tikz-3dplot}
+\usepackage{framed,tikz,tkz-tab,tkz-linknodes,tkz-euclide,tikz-3dplot,pgfplots,currfile,enumerate}
+\usetikzlibrary{shapes.geometric,arrows,calc,intersections,angles,patterns,snakes}
+\usetkzobj{all}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.9}
+\usepackage{venndiagram}
+\usepackage[top=2cm, bottom=2cm, left=3cm, right=1.5cm] {geometry}
+\usepackage[hidelinks,unicode,pdfencoding=unicode, psdextra]{hyperref}
+\usepackage[loigiai]{ex_test}
+%CÁC GÓI, LỆNH VIẾT TẮT CẦN THÊM
+%CẤU TRÚC TỰ LUẬN
+\usepackage[most]{tcolorbox}
+\newtheorem{bt}{Bài}
+\newtheorem{vd}{Ví dụ}
+\def\beginbox{\begin{tcolorbox}[drop fuzzy shadow southeast, enhanced, colback=red!5!white, colframe=red!75!black]}
+	\def\endbox{\end{tcolorbox}}
+\AtBeginEnvironment{vd}{
+	\beginbox
+	\renewcommand{\loigiai}[1]{
+		\renewcommand{\immini}[2]{
+			\setbox\imbox=\vbox{\hbox{##2}}
+			\widthimmini=\wd\imbox
+			\IMleftright{##1}{##2}
+		}
+		\endbox
+		\begin{onlysolution}
+			#1
+		\end{onlysolution}
+		\def\endbox{}
+	}
+}
+\AtEndEnvironment{vd}{
+	\endbox
+}
+\newtcolorbox[auto counter]{dang}[1]{
+	drop fuzzy shadow southeast, breakable, enhanced, colback=red!5!white, colframe=red!75!black,
+	title={\bf Dạng~\thetcbcounter.\ #1}
+	\addcontentsline{toc}{subsubsection}{Dạng~\thetcbcounter. #1}
+}
+\theorembodyfont{\it}
+\newtheorem{dl}{Định lí}
+\theoremseparator{.}
+\theorembodyfont{\rm}
+\newtheorem{hq}{Hệ quả}
+\newtheorem{tc}{Tính chất}
+\newtheorem{dn}{Định nghĩa}
+\theoremstyle{nonumberplain}
+\newtheorem{kn}{Khái niệm}
+\theoremseparator{}
+\theorembodyfont{\it}
+\usepackage{stackengine}
+\usepackage{scalerel}
+\newcommand\dangersign[1][2ex]{%
+	\renewcommand\stacktype{L}%
+	\scaleto{\stackon[1.3pt]{\color{red}$\triangle$}{\fontsize{4}{0}\selectfont !}}{#1}%
+}
+\newtheorem{note}{{\dangersign[3ex]}}
+%Tiêu đề chương
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\usepackage{titlesec}
+\makeatletter
+\renewcommand\thesection{\@arabic\c@section.}
+\renewcommand\thesubsection{\@Roman\c@subsection.}
+\renewcommand\thesubsubsection{\@arabic\c@subsubsection.}
+\makeatother
+\titleformat{\section}{\selectfont\color{red!50!blue}\centering\scshape\Large\bfseries}{\S\thesection}{0em}{
+	\setcounter{vd}{0}
+	\setcounter{ex}{0}
+	\setcounter{bt}{0}
+	\setcounter{dl}{0}
+	\setcounter{dn}{0}
+	\setcounter{hq}{0}
+	\setcounter{tc}{0}
+	\setcounter{\tcbcounter}{0}
+}
+%HẾT CẤU TRÚC TỰ LUẬN
+\renewcommand{\vec}[1]{\protect\overrightarrow{#1}}
+\newcommand{\hoac}[1]{\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{\left\{\begin{aligned}#1\end{aligned}\right.}
+\renewcommand{\labelenumi}{\alph{enumi})}
+\begin{document}
+
+\tableofcontents
+\chapter{MỆNH ĐỀ - TẬP HỢP}
+\setcounter{ex}{0}
+	\input{DS/10D1-TL-1}
+	\include{DS/10D1-TL-2}
+	\include{DS/10D1-TL-3}
+	\include{DS/10D1-TL-4}
+	\include{DS/10D1-TL-KT}
+
+
+\chapter{HÀM SỐ BẬC NHẤT VÀ BẬC HAI}
+\setcounter{ex}{0}
+	\input{DS/10D2-TL-1}
+	\include{DS/10D2-TL-2}
+	\include{DS/10D2-TL-3}
+	\include{DS/10D2-TL-KT}
+
+
+\chapter{PHƯƠNG TRÌNH VÀ HỆ PHƯƠNG TRÌNH}
+\setcounter{ex}{0}
+	\input{DS/10D3-TL-1}
+	\include{DS/10D3-TL-2}
+	\include{DS/10D3-TL-3}
+	\include{DS/10D3-TL-4}
+	\include{DS/10D3-TL-KT}
+
+
+\chapter{BẤT ĐẲNG THỨC VÀ BẤT PHƯƠNG TRÌNH}
+\setcounter{ex}{0}
+	\input{DS/10D4-TL-1}
+	\include{DS/10D4-TL-2}
+	\include{DS/10D4-TL-3}
+	\include{DS/10D4-TL-4}
+	\include{DS/10D4-TL-5}
+	\include{DS/10D4-TL-KT}
+
+
+\chapter{THỐNG KÊ}
+\setcounter{ex}{0}
+	\input{DS/10D5-TL-1}
+	\include{DS/10D5-TL-2}
+	\include{DS/10D5-TL-3}
+	\include{DS/10D5-TL-4}
+	\include{DS/10D5-TL-KT}
+
+
+\chapter{CUNG VÀ GÓC LƯỢNG GIÁC. CÔNG THỨC LƯỢNG GIÁC}
+\setcounter{ex}{0}
+	\input{DS/10D6-TL-1}
+	\include{DS/10D6-TL-2}
+	\include{DS/10D6-TL-3}
+	\include{DS/10D6-TL-KT}
+
+\end{document}

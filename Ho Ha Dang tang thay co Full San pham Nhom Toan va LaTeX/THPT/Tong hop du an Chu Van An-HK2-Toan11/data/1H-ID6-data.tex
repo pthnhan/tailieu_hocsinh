@@ -1,0 +1,4231 @@
+\chapter{Chương 2. Quan hệ song song trong không gian}
+\maCH{2}
+\section{Hai đường thẳng chéo nhau và hai đường thẳng song song}
+\dang{Tìm giao điểm của đường thẳng và mặt phẳng}
+\begin{ex}%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đoàn Thanh Phong]%[1H2K2-3]\\
+	Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình thang với $AB\parallel CD, AB=3 CD$. Gọi $M,N$ theo thứ tự là trung điểm của $SB, SC$ và $K$ là giao điểm của đường thẳng $SD$ với mặt phẳng $\left(AMN\right)$. Tính tỉ số $\dfrac{SK}{SD}$.
+	\choice
+	{\True $\dfrac{SK}{SD}=\dfrac{3}{5}$}
+	{$\dfrac{SK}{SD}=\dfrac{1}{2}$}
+	{$\dfrac{SK}{SD}=\dfrac{4}{7}$}
+	{$\dfrac{SK}{SD}=\dfrac{2}{3}$}
+	\loigiai{
+		\immini{
+			Trong mặt phẳng $(ABCD)$, gọi $E=AD\cap BC \Rightarrow (SAD)\cap (SBC)=SE$.\\
+			Trong mặt phẳng $(SBE)$, gọi $F=MN\cap SE\Rightarrow F\in (AMN)$.\\
+			Trong mặt phẳng $(SAE)$, gọi $K=AF\cap SD\Rightarrow K=SD\cap (AMN)$. \\
+			Ta có: $CD\parallel AB\Rightarrow \dfrac{ED}{EA}=\dfrac{CD}{AB}=\dfrac{1}{3}\Rightarrow AD=\dfrac{2}{3}AE$.\\
+			Mặt khác : $MF\parallel BC$, $M$ là trung điểm của $SB$ $\Rightarrow F$ là trung điểm của $SE$.\\
+			\textit{\underline{Cách 1:}} \\
+			Áp dụng định lý Menelaus trong tam giác $SDE$, ta có:\\
+			$\dfrac{FS}{FE}\cdot\dfrac{AE}{AD}\cdot\dfrac{KD}{KS}=1\Rightarrow \dfrac{KD}{KS}=\dfrac{2}{3}\Rightarrow \dfrac{SK}{SD}=\dfrac{3}{5}$.}
+		{	\begin{tikzpicture}[scale=1.0]
+			\tkzDefPoints{2/3/A, 3/1/D, 5/1/C}
+			\coordinate (B) at ($(A)+(C)-(D)+(3,0)$);
+			\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+			\coordinate (S) at ($(O)+(0.6,5)$);
+			\coordinate (M) at ($(B)!0.5!(S)$);
+			\coordinate (N) at ($(C)!0.5!(S)$);
+			\tkzInterLL(A,D)(B,C)\tkzGetPoint{E}
+			\tkzInterLL(M,N)(S,E)\tkzGetPoint{F}
+			\tkzInterLL(A,F)(S,D)\tkzGetPoint{K}
+			\tkzDrawSegments[dashed](A,B A,M A,N C,D)
+			\tkzDrawPolygon(S,C,B)
+			\tkzDrawSegments(S,A A,D S,E M,F A,F D,E C,E S,D)
+			\tkzLabelPoints[left](A,D)
+			\tkzLabelPoints[right](C,B,E,M,N,F)
+			\tkzLabelPoints[below left](K)
+			\tkzLabelPoints[above](S)
+			\end{tikzpicture}}
+		\textit{\underline{Cách 2:}}
+		\immini{
+			Gọi $H$ là trung điểm của $AD$; $I=AF\cap SH$.\\
+			Ta có : $\left. \begin{gathered}
+			FD=\dfrac{1}{2} SH\hfill \\
+			FD=2IH \hfill \\ 
+			\end{gathered}  \right\}\Rightarrow \dfrac{SH}{IH}=4$.\\
+			Ta lại có $\dfrac{KS}{KD}=\dfrac{SI}{FD}=\dfrac{\dfrac{3}{4}SH}{\dfrac{1}{2}SH}=\dfrac{3}{2}$.\\
+			Suy ra $\dfrac{SK}{SD}=\dfrac{3}{5}$.}
+		{	\begin{tikzpicture}[scale=0.8]
+			\tkzDefPoints{3/4/S, 1/1/A, 7/1/E}
+			\coordinate (F) at ($(E)!0.5!(S)$);
+			\coordinate (D) at ($(E)!0.3!(A)$);
+			\coordinate (H) at ($(A)!0.3!(E)$);
+			\tkzInterLL(S,H)(A,F)\tkzGetPoint{I}
+			\tkzInterLL(S,D)(A,F)\tkzGetPoint{K}
+			\tkzDrawPolygon(S,A,E)
+			\tkzDrawSegments(S,A A,E S,E A,F S,D S,H)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](E,F)
+			\tkzLabelPoints[below left](I)
+			\tkzLabelPoints[above](S,K)
+			\tkzLabelPoints[below](H,D)
+			\end{tikzpicture}}
+	}
+\end{ex}
+\section{Đường thẳng và mặt phẳng song song}
+\dang{Câu hỏi lý thuyết}
+\begin{ex}%[1H2Y3-1]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đoàn Nhật Thiện]\\
+	Trong không gian cho đường thẳng $\Delta$ và điểm $I$. Có bao nhiêu mặt phẳng chứa điểm $I$ và vuông góc với đường thẳng $\Delta$ đã cho?
+	\choice
+	{$2$}
+	{Vô số}
+	{Không có}
+	{\True $1$}
+	\loigiai{
+		Theo tính chất 1, SGK cơ bản, trang 100 nêu rõ \lq\lq Có duy nhất một mặt phẳng đi qua một điểm cho trước và vuông góc với một đường thẳng\rq\rq.
+	}
+\end{ex}
+\dang{Xác định thiết diện}
+\begin{ex}%[1H2B3-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Trần Hoàng Trọng Ân]\\
+	Cho hình lăng trụ $ ABC.A'B'C' $ Gọi $ M,N $ theo thứ tự là trọng tâm của các tam giác $ ABC $
+	và $ A'B'C' $. Thiết diện tạo bởi mặt phẳng $ \left(AMN\right)$ với hình lăng trụ đã cho là
+	\choice
+	{\True Hình bình hành}
+	{Hình tam giác vuông}
+	{Hình thang}
+	{Hình tam giác cân}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+			\path (0,0) coordinate (A);
+			\path (5,0) coordinate (B);
+			\path (2,-1) coordinate (C);
+			\tkzCentroid(A,B,C) \tkzGetPoint{M}
+			\path (A)++(0.5,4) coordinate (A');
+			\path (B)++(0.5,4) coordinate (B');
+			\path (C)++(0.5,4) coordinate (C');
+			\tkzCentroid(A',B',C') \tkzGetPoint{N}
+			\draw[dashed] (M) node[below]{$M$} -- (N) node[above][right]{$N$};
+			\draw[dashed] (A) node[left]{$A$} -- (B) node[right]{$B$};
+			\draw (A) -- (C) node[below]{$C$} -- (B)
+			(A) -- (A') node[left]{$A'$}
+			(B) -- (B') node[right]{$B'$}
+			(C) -- (C') node[above][left]{$C'$}
+			(A') -- (B') -- (C') -- cycle;
+			\path (B)++(1,0) coordinate (B1);
+			\path (C)++(-1,0) coordinate (C1);
+			\path (intersection of B--C and B1--C1) coordinate (M);
+			\path (B')++(1,0) coordinate (B2);
+			\path (C')++(-1,0) coordinate (C2);
+			\path (intersection of B'--C' and B2--C2) coordinate (M');
+			\draw[dashed] (A) -- (M) node[below right]{$I$};
+			\draw (A') -- (M') node[below right]{$I'$};
+			\draw (M) -- (M') ;
+			\draw[dashed] (A) -- (N);
+			\tkzDrawPoints(A,B,C,A',B',C',M,N)
+			\end{tikzpicture}
+			
+		\end{center}
+		
+		
+		Ta có $ N \in A'I'$ và $ M \in AI $ ($ A'I' $ là trung tuyến của $ \Delta A'B'C' $ và $ AI$ là trung tuyến của $ \Delta ABC $).\\
+		Do đó mp $ (AMN) $ cũng chính là mp $ (A'I'IA) $.
+		Ta có:
+		\begin{itemize}
+			\item $ (AA'I'I) \cap (A'B'C') = A'I'$
+			\item $ (AA'I'I) \cap (ABC) = AI$
+			\item $ (AA'I'I) \cap (BCC'B') = II'$
+		\end{itemize}
+		Vậy thiết diện tạo với  mp $ (A'I'IA) $ và hình lăng trụ $ ABC.A'B'C' $ là tứ giác $ AA'I'I $.\\
+		Ta có :
+		\begin{itemize}
+			\item $ II' \parallel CC' $ (đường trung bình trong hình bình hành $ CC'B'B $)  và $ CC' \parallel AA' $ (t/c hình lăng trụ).  Do đó $ II' \parallel AA' $.
+			\item $ II' = CC' $ (đường trung bình trong hình bình hành $ CC'B'B $)  và $ CC' =AA' $ (t/c hình lăng trụ).  Do đó $ II' = AA' $.
+			
+		\end{itemize}
+		Vậy tứ giác $ AA'I'I $ là hình bình hành.
+	}
+\end{ex}
+\begin{ex}%[1H2B3-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đoàn Nhật Thiện]\\
+	Cho hình lập phương $ABCD.A'B'C'D'$ có cạnh bằng $a$. Khi cắt hình lập phương bởi mặt phẳng trung trực của đoạn thẳng $BD'$ thì thiết diện tạo thành có diện tích là
+	\choice
+	{$\dfrac{a^2\sqrt{3}}{2} $}
+	{$\dfrac{3a^2\sqrt{3}}{2} $}
+	{$\dfrac{3a^2\sqrt{3}}{4} $}
+	{$\dfrac{a^2\sqrt{3}}{4} $}
+	\loigiai{
+		\immini{Gọi $M$ là trung điểm $CD$, ta có $MB=\sqrt{MC^2+BC^2}=\sqrt{\left(\dfrac{a}{2}\right)^2+a^2}=\dfrac{a\sqrt{5}}{2}$, $MD'=\sqrt{MD^2+DD'^2}=\dfrac{a\sqrt{5}}{2}$.\\ Do đó $MB=MD'=\dfrac{a\sqrt{5}}{2}$ hay điểm $M$ thuộc mặt phẳng trung trực của đoạn $BD'$.\\
+			Tương tự gọi $N$, $P$, $Q$, $R$, $S$ lần lượt là trung điểm $CC'$, $B'C'$, $A'B'$, $AA'$, $AD$. Ta có $N$, $P$, $Q$, $R$, $S$ thuộc mặt phẳng trung trực đoạn $BD'$. \\
+			Vậy thiết diện của hình lập phương bị cắt bởi mặt phẳng trung trực đoạn $BD'$ là $MNPQRS$.}{\begin{tikzpicture}[scale=0.7,>=stealth]
+			\tkzDefPoints{0/0/A, -2/-3/B, 5/0/D, 0/4/A'}
+			\coordinate (C) at ($(B)+(D)-(A)$);
+			\tkzDefPointsBy[translation= from A to A'](B,C,D){}
+			% Mặc định X thành X'. Muốn thành X thành E thì thêm {E}
+			\tkzDefMidPoint(C,D)\tkzGetPoint{M}
+			\tkzDefMidPoint(C,C')\tkzGetPoint{N}
+			\tkzDefMidPoint(B',C')\tkzGetPoint{P}
+			\tkzDefMidPoint(B',A')\tkzGetPoint{Q}
+			\tkzDefMidPoint(A',A)\tkzGetPoint{R}
+			\tkzDefMidPoint(D,A)\tkzGetPoint{S}
+			\tkzDrawPoints(A,B,C,D,A',B',C',D',M,N,P,Q,R,S)
+			\tkzDrawSegments[dashed](A,B A,D A,A' B,D' C,A Q,R R,S S,M)
+			\tkzDrawPolygon(A',B',C',D')
+			\tkzDrawSegments(B,C C,D B,B' C,C' D,D' M,N N,P P,Q)
+			\tkzLabelPoints[right](C, C', D', D,M,R)
+			\tkzLabelPoints[left](A, B, A', B',Q,N)
+			\tkzLabelPoints[above](S)\tkzLabelPoints[below](P)
+			\end{tikzpicture}}
+		Diện tích lục giác đều $MNPQRS$ là $$S=6\cdot \dfrac{MN^2\cdot \sqrt{3}}{4}=\dfrac{3}{2}\cdot \left( \dfrac{C'D}{2} \right)^2 \sqrt{3}=\dfrac{3}{2}\cdot \left( \dfrac{a\sqrt{2}}{2} \right)^2 \cdot \sqrt{3}=\dfrac{3a\sqrt{3}}{4}.$$
+	}
+\end{ex}
+\section{Hai mặt phẳng song song}
+\dang{Câu hỏi lý thuyết}
+\begin{ex}%[1H2Y4-1]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Bùi Mạnh Tiến]\\
+	Trong hình hộp (hoặc lăng trụ, hoặc hình chóp cụt) đoạn thẳng nối hai đỉnh mà hai đỉnh đó không cùng nằm trên một mặt nào của hình hộp (hoặc lăng trụ, hoặc hình chóp cụt), được gọi là đường chéo của nó. Tìm mệnh đề đúng.
+	\choice
+	{Hình lăng trụ tứ giác có các đường chéo đồng quy}
+	{Hình lăng trụ có các đường chéo đồng quy}
+	{Hình chóp cụt có các đường chéo đồng quy}
+	{\True Hình hộp có các đường chéo đồng quy}
+	\loigiai{
+		\immini{
+			Xét hình hộp $ABCD.A'B'C'D'$. Dễ thấy $ACC'A', ABC'D'$ và $BDD'B'$ là các hình bình hành nên các đường chéo $AC',A'C, BD', DB'$ cắt nhau tại trung điểm của mỗi đường. Suy ra các đường chéo đồng quy tại điểm $O$ là trung điểm của $AC'$
+		}
+		{
+			\begin{tikzpicture}[scale = 0.7]
+			\tkzDefPoints{3/5/A, 0/2/B,6/2/C, 9/5/D, 2/-1/A', -1/-4/B',5/-4/C', 8/-1/D'}
+			\tkzDrawSegments(A,B B,C C,D D,A B,B' C,C' D,D' B',C' C',D' B,D A,C)
+			\tkzDrawSegments[dashed](A,A' A',B' A',D' B',D' A',C' A,C' A',C B,D')
+			\tkzInterLL(A,C')(A',C)\tkzGetPoint{O}
+			\tkzDrawPoints(A,B,C,D,A',B',C',D')
+			\draw (A) node[above] {$A$} (B) node[left] {$B$} (C) node[right] {$C$} (D) node[right] {$D$} (A') node[left] {$A'$} (B') node[below] {$B'$} (C') node[below] {$C'$} (D') node[right] {$D'$} ($(O)+(0.2,0.2)$) node[above] {$O$};
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đoàn Thanh Phong]%[1H2Y4-1]\\
+	Chọn khẳng định đúng?
+	\choice
+	{ Qua một điểm có vô số mặt phẳng song song với một mặt phẳng cho trước}
+	{ Qua một điểm nằm ngoài một mặt phẳng, có vô số mặt phẳng song song với mặt phẳng đã cho}
+	{\True Qua một điểm nằm ngoài một mặt phẳng, tồn tại duy nhất một mặt phẳng song song với mặt phẳng đã cho}
+	{Qua một điểm tồn tại duy nhất một mặt phẳng song song với một mặt phẳng cho trước}
+	\loigiai{
+		Qua một điểm nằm ngoài một mặt phẳng, có một và chỉ một mặt phẳng song song với mặt phẳng đó.
+	}
+\end{ex}
+\begin{ex}%[1H2B4-1]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Nguyễn Tài Tuệ]\\
+	Cho các mệnh đề sau:\\
+	\textbf{1.} Hai mặt phẳng phân biệt cùng song song với một đường thẳng thì chúng song song với nhau.\\
+	\textbf{2.} Hai mặt phẳng cùng song song với một mặt phẳng thứ ba thì chúng song song với nhau.\\
+	\textbf{3.} Bất kì đường thẳng nào cắt một trong hai mặt phẳng song song thì nó cũng cắt mặt phẳng còn lại.\\
+	Số mệnh đề \textbf{sai} là
+	\choice
+	{0}
+	{1}
+	{3}
+	{\True 2}
+	\loigiai{
+		\begin{enumerate}[+]
+			\item Mệnh đề 	`` Hai mặt phẳng phân biệt cùng song song với một đường thẳng thì chúng song song với nhau.'' là một khẳng định sai vì chúng có thể cắt nhau.
+			\item Mệnh đề ``Hai mặt phẳng cùng song song với một mặt phẳng thứ ba thì chúng song song với nhau." là một mệnh đề sai vì hai mặt này có thể trùng nhau.
+			\item Mệnh đề ``Bất kì đường thẳng nào cắt một trong hai mặt phẳng song song thì nó cũng cắt mặt phẳng còn lại." là một mệnh đề đúng.
+		\end{enumerate}
+	}
+\end{ex}
+\begin{ex}%[1H2B4-1]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đoàn Nhật Thiện]\\
+	Trong các mệnh đề dưới đây, mệnh đề nào đúng?
+	\choice
+	{\True Nếu hai mặt phẳng $(\alpha)$ và $(\beta)$ song song với nhau thì mọi đường thẳng nằm trong $(\alpha)$ đều song song với $(\beta)$}
+	{Nếu hai mặt phẳng $(\alpha)$ và $(\beta)$ song song với nhau thì bất kì đường thẳng nào nằm trong $(\alpha)$ cũng song song với bất kì đường thẳng nào nằm trong $(\beta)$}
+	{Nếu hai đường thẳng phân biệt $a$ và $b$ song song lần lượt nằm trong hai mặt phẳng $(\alpha)$ và $(\beta)$ phân biệt thì $(\alpha)\parallel (\beta) $}
+	{Nếu đường thẳng $d $ song song với mặt phẳng $(\alpha)$ thì nó song song với mọi đường thẳng nằm trong $(\alpha)$}
+	\loigiai{
+		\begin{enumerate}
+			\item Xét mệnh đề \lq\lq Nếu hai mặt phẳng $(\alpha)$ và $(\beta)$ song song với nhau thì mọi đường thẳng nằm trong $(\alpha)$ đều song song với $(\beta)$ \rq\rq. Mệnh đề đúng. Thật vậy, giả sử có đường thẳng nằm trong $(\alpha)$ cắt $(\beta)$ khi đó $(\alpha)$ và $(\beta)$ có điểm chung. Mâu thuẫn giả thiết $(\alpha)\parallel (\beta)$.
+			\item Xét mệnh đề \lq\lq Nếu hai mặt phẳng $(\alpha)$ và $(\beta)$ song song với nhau thì bất kì đường thẳng nào nằm trong $(\alpha)$ cũng song song với bất kì đường thẳng nào nằm trong $(\beta)$ \rq\rq. Mệnh đề sai. Vì đường thẳng song song với mặt phẳng thì nó song song với một đường nào đó trong mặt phẳng.
+			\item Xét mệnh đề \lq\lq Nếu hai đường thẳng phân biệt $a$ và $b$ song song lần lượt nằm trong hai mặt phẳng $(\alpha)$ và $(\beta)$ phân biệt thì $(\alpha)\parallel (\beta) $ \rq\rq. Mệnh đề sai vì hai mặt phẳng có thể cắt nhau.
+			\item Xét mệnh đề \lq\lq Nếu đường thẳng $d $ song song với mặt phẳng $(\alpha)$ thì nó song song với mọi đường thẳng nằm trong $(\alpha)$ \rq\rq. Mệnh đề sai vì đường thẳng $d$ chỉ song song với một đường thẳng nào đó trong mặt phẳng.
+		\end{enumerate}
+	}
+\end{ex}
+\begin{ex}%[1H2B4-1]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đỗ Đường Hiếu]\\
+	
+	Cho đường thẳng $a\subset mp(P)$ và đường thẳng $b\subset mp(Q)$. Mệnh đề nào sau đây đúng?
+	\choice
+	{$a$ và $b$ chéo nhau}
+	{$a\parallel b \Rightarrow (P)\parallel (Q)$}
+	{$(P)\parallel (Q)\Rightarrow a\parallel b $}
+	{\True $(P)\parallel (Q)\Rightarrow a\parallel (Q)$ và $b\parallel (P)$}
+	\loigiai{
+		Nếu $(P)\parallel (Q)$ thì $a$ và $(Q)$ không có điểm chung; $b$ và $(P)$ không có điểm chung nên $a\parallel (Q)$ và $b\parallel (P)$. Bởi vậy, mệnh đề: ``$(P)\parallel (Q)\Rightarrow a\parallel (Q)$ và $b\parallel (P)$'' là mệnh đề đúng.
+	}
+\end{ex}
+\begin{ex}%[1H2B4-1]%[Đề cương khối 11 HK2, Chu Văn An, HN, 2018]%[Vũ Văn Trường]\\
+	Đặc điểm nào sau đây là đúng với hình lăng trụ?
+	\choice
+	{Hình lăng trụ có tất cả các mặt bên bằng nhau}
+	{Đáy của hình lăng trụ là hình bình hành}
+	{\True Hình lăng trụ có tất cả các mặt bên là hình bình hành}
+	{Hình lăng trụ có tất cả các mặt là hình bình hành}
+	\loigiai{
+		Hình lăng trụ là một đa diện có hai mặt đáy là các đa giác bằng nhau và những mặt bên là các hình bình hành.
+	}
+\end{ex}
+\begin{ex}%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đoàn Thanh Phong]%[1H2B4-1]\\
+	Trong các điều kiện sau, điều kiện nào kết luận mp $\left(\alpha\right)$ $\parallel$ mp $\left(\beta\right)$ ?
+	\choice
+	{\True $\left(\alpha\right)\parallel a$ và $\left(\alpha\right)\parallel b$ với $a, b$ là hai đường thẳng cắt nhau thuộc $\left(\beta\right)$}
+	{$\left(\alpha\right)\parallel a$ và $\left(\alpha\right)\parallel b$ với $a, b$ là hai đường thẳng phân biệt thuộc $\left(\beta\right)$}
+	{$\left(\alpha\right)\parallel a$ và $\left(\alpha\right)\parallel b$ với $a, b$ là hai đường thẳng phân biệt cùng song song với $\left(\beta\right)$}
+	{$\left(\alpha\right)\parallel \gamma$ và $\left(\beta\right)\parallel \gamma$ ($\left(\gamma\right)$ là mặt phẳng nào đó)}
+	\loigiai{
+		\begin{itemize}
+			\item $\left(\alpha\right)\parallel a$ và $\left(\alpha\right)\parallel b$ với $a, b$ là hai đường thẳng phân biệt thuộc $\left(\beta\right)$ $\Rightarrow \left(\alpha\right) $ và $\left(\beta\right)$ có thể cắt nhau. $\Rightarrow$ loại.
+			\item $\left(\alpha\right)\parallel a$ và $\left(\alpha\right)\parallel b$ với $a, b$ là hai đường thẳng phân biệt cùng song song với $\left(\beta\right)$ $\Rightarrow \left(\alpha\right) $ và $\left(\beta\right)$ có thể cắt nhau. $\Rightarrow$ loại.
+			\item $\left(\alpha\right)\parallel \gamma$ và $\left(\beta\right)\parallel \gamma$ ($\left(\gamma\right)$ là mặt phẳng nào đó) $\Rightarrow \left(\alpha\right) $ và $\left(\beta\right)$ có thể trùng nhau. $\Rightarrow$ loại.
+		\end{itemize}
+	}
+\end{ex}
+\dang{Xác định hai mặt phẳng song song}
+\begin{ex}%[Đề cương ôn hk2 - k11 - Chu Văn An - Hà Nội - 2018]%[1H2B4-2]%[Trịnh Văn Xuân]\\
+	Cho hình tứ diện $ABCD$. Gọi $I$, $J$, $K$ lần lượt là trọng tâm của các tam giác $ABC$, $ACD$, $ABD$ và $M$, $N$ lần lượt là trung điểm của các cạnh $BD$, $CD$. Khẳng định nào sau đây là \textbf{đúng}?
+	\choice
+	{$(DJK) \parallel (ABC)$}
+	{\True $(IJK)\parallel (BCD)$}
+	{$(KMN)\parallel (ABC)$}
+	{$(IJK) \parallel (AMD)$}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/D,1.5/-1.5/B,4/0/C}
+			\tkzDefShiftPoint[D](60:3){A}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{O}
+			\tkzDefMidPoint(B,D)\tkzGetPoint{M}
+			\tkzDefMidPoint(C,D)\tkzGetPoint{N}
+			(I) at ($(O)+(M)-(A)$);
+			\coordinate (I) at ($(A)!0.666!(O)$);
+			\coordinate (J) at ($(A)!0.666!(N)$);
+			\coordinate (K) at ($(A)!0.666!(M)$);
+			
+			
+			
+			\tkzDrawPoints(D,B,C,A,O,M,N,I,J,K)
+			\tkzDrawSegments(D,B B,C A,D A,B A,C A,M A,O)
+			\tkzDrawSegments[dashed](D,C A,N)
+			\tkzDrawPolygon[dashed](I,J,K)
+			\tkzFillPolygon[fill opacity=.3](I,J,K)
+			\tkzLabelPoints[left](D,J,K)
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[right](C,I)
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[below right](O,N)
+			right](I)
+			\tkzLabelPoints[left](M)
+			S,A,B S,A,C I,O,A)
+			\end{tikzpicture}
+		\end{center}
+		Ta có $AI = \dfrac{2}{3}AO; AJ=\dfrac{2}{3}AN; AK =\dfrac{2}{3}AM\Rightarrow IJ\parallel NO$, $MN\parallel JK\Rightarrow (IJK)\parallel (BCD)$.
+	}
+\end{ex}
+\begin{ex}%[1H2B4-2]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đoàn Nhật Thiện]\\
+	Cho hình hộp $ABCD.A'B'C'D'$ (các đỉnh lấy theo thứ tự đó), $AC$ cắt $BD$ tại $O$ còn $A'C'$ cắt $B'D'$ tại $O'$. Khi đó $(AB'D')$ sẽ song song mặt phẳng nào dưới đây?
+	\choice
+	{$(A'OC') $}
+	{$(BDA') $}
+	{\True $(BDC') $}
+	{$(BCD) $}
+	\loigiai{
+		\immini{Ta có $\left\{ \begin{aligned} &B'D'\parallel BD\\&AB'\parallel DC'\\&B'D',AB'\subset (AB'D')\\ &DC',BD\subset (BDC') \end{aligned}\right. \Rightarrow (AB'D')\parallel (BDC').$
+		}{\begin{tikzpicture}[scale=0.5,>=stealth]
+			\clip (-4,-4) rectangle (9,7);
+			\tkzDefPoints{0/0/A,-3/-3/B,7/0/D}
+			\coordinate (C) at ($(B)+(D)-(A)$);
+			\coordinate (A') at ($(A)+(1,6)$);
+			\coordinate (B') at ($(A')+(B)-(A)$);
+			\coordinate (C') at ($(A')+(C)-(A)$);
+			\coordinate (D') at ($(A')+(D)-(A)$);
+			\tkzDrawPoints(A,B,C,D,A',B',C',D')
+			\tkzDrawSegments(A',B' B',C' C',D' D',A' D,D' B',D' C,C' B,B' B,C C,D C',B C',D)
+			\tkzDrawSegments[dashed](A,A' A,B A,D A,B' A,D' B,D)
+			\tkzLabelPoints[above left](A',B',B)\tkzLabelPoints[below right](C,D,D')\tkzLabelPoints[left](A)\tkzLabelPoints[right](C')
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[1H2B4-2]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đỗ Đường Hiếu]\\
+	
+	Cho hình chóp $S.ABCD$ có đáy là hình thang ($AB \parallel CD$) và $AB=2CD$. Gọi $I$, $J$ lần lượt là trung điểm của $SB$ và $AB$. Mặt phẳng nào song song với mặt phẳng $(SAD)$?
+	\choice
+	{$(BCI)$}
+	{$(BIJ)$}
+	{\True $(CIJ)$}
+	{$(SJC)$}
+	\loigiai{
+		\immini{
+			Vì $I$, $J$ lần lượt là trung điểm của $SB$ và $AB$ nên $IJ\parallel SA$ suy ra $IJ\parallel (SAD)$.\\
+			Do $J$ là trung điểm $AB$ và $AB=2CD$ nên suy ra $AJ=CD$, do đó $AJCD$ là hình bình hành. Bởi vậy $CJ\parallel AD$ $\Rightarrow CJ\parallel (SAD)$.\\ 
+			Mà $IJ\subset (CIJ)$ và $CJ\subset (CIJ)$ nên $(CIJ)\parallel (SAD)$.
+		}{
+			\begin{tikzpicture}[line cap=round,line join=round, >=stealth,scale=1]
+			\def \xa{-1} 
+			\def \xb{-1.5}
+			\def \y{4}
+			\def \z{3}
+			
+			\coordinate (A) at (0,0);
+			\coordinate (D) at ($(A)+(\xa,\xb)$);
+			\coordinate (B) at ($(A)+(\y,0)$);
+			\coordinate (C) at ($ 1/2*(B)-1/2*(A)+(D)$);
+			\coordinate (S) at ($ (A)+(0,\z) $);
+			\coordinate (I) at ($ (S)!.5!(B) $);
+			\coordinate (J) at ($ (A)!.5!(B) $);
+			\draw [dashed] (B)--(A)--(D) (A)--(S) (I)--(J);
+			\draw (S)--(B)--(C)--(D)--(S)--(C);
+			\tkzDrawPoints(S,A,B,C,D,I,J)
+			\tkzLabelPoints[right](I)
+			\tkzLabelPoints[below right](C,J)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](B,D,A)
+			\end{tikzpicture}
+			
+		}
+	}
+\end{ex}
+\dang{Xác định thiết diện}
+\begin{ex}%[1H2B4-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Nguyễn Tài Tuệ]\\
+	
+	Cho hình chóp $ S.ABCD $ có đáy $ ABCD $ là hình bình hành tâm $ O $. Gọi $ M  $ là điểm bất kì trên đoạn thẳng $ SO $. Mặt phẳng $ (\alpha) $  qua $ M $ và song song với $ (ABCD) $. Thiết diện của hình chóp $ S.ABCD $ cắt bởi mặt phẳng $ (\alpha) $ là hình gì?	
+	\choice
+	{\True Hình bình hành}
+	{Hình ngũ giác}
+	{Hình tam giác}
+	{Hình thang cân}
+	\loigiai{
+		\immini{
+			Xét mặt phẳng $ (SAC) $ và mặt phẳng $ (\alpha) $, có $ M $ là điểm chung và $ AC \parallel  (\alpha) $ nên giao tuyến là đường thẳng đi qua $ M  $ và song song với $ AC $ cắt $ SA,SC $ lần lượt tại $ E,Q $.
+			
+			Tương tự $ (\alpha) $ cắt $ SB,SD $ lần lượt tại $ F,H $.
+			
+			Khi đó thiết diện cần tìm là tứ giác $ EFGH. $
+			
+			Ta có $ EF \parallel GH $ và $ FG\parallel EH $ nên thiết diện là hình bình hành.
+		}{	
+			\begin{tikzpicture}[line cap=round,line join=round, >=stealth,scale=1]
+			\def \xa{-2}
+			\def \xb{-1}
+			\def \y{4}
+			\def \z{3}
+			
+			\coordinate (A) at (0,0);
+			\coordinate (B) at ($(A)+(\xa,\xb)$);
+			\coordinate (D) at ($(A)+(\y,0)$);
+			\coordinate (C) at ($ (B)+(D)-(A) $);
+			\coordinate (S) at ($ (A)+(0,\z) $);
+			\coordinate (O) at ($(C)!1/2!(A) $);
+			
+			\draw [dashed] (B)--(A)--(D)--(B) (C)--(A)--(S)--(O);
+			\draw (S)--(B)--(C)--(D)--(S)--(C);
+			\tkzDefPointBy[homothety = center S ratio 0.6](O)\tkzGetPoint{M}
+			\tkzDefPointBy[homothety = center S ratio 0.6](A)\tkzGetPoint{E}
+			\tkzDefPointBy[homothety = center S ratio 0.6](B)\tkzGetPoint{F}
+			\tkzDefPointBy[homothety = center S ratio 0.6](C)\tkzGetPoint{G}
+			\tkzDefPointBy[homothety = center S ratio 0.6](D)\tkzGetPoint{H}
+			\tkzDrawPoints(S,A,B,C,D,M,E,F,G,H,O)
+			\tkzLabelPoints[right](D,O,G,H)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[above left](A,E,F,M)
+			\tkzLabelPoints[below left](B)
+			\tkzDrawSegments[dashed](S,O E,F E,H E,G F,H)
+			\tkzDrawSegments(F,G G,H)
+			
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[1H2B4-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đoàn Nhật Thiện]\\
+	Cho hình chóp $S.ABC$ có đáy là tam giác $ABC$ thỏa mãn $AB=AC=4$, $\widehat{BAC}=30^\circ$. Mặt phẳng $(P)$ song song với $(ABC)$ cắt đoạn $SA$ tại $M$ sao cho $SM=2MA$. Diện tích thiết diện của $(P)$ và hình chóp $S.ABC$ bằng bao nhiêu?
+	\choice
+	{\True $\dfrac{16}{9}$}
+	{$\dfrac{25}{9}$}
+	{$\dfrac{14}{9}$}
+	{$1$}
+	\loigiai{
+		\immini{Ta có $\left\{ \begin{aligned} &(P)\parallel (ABC)\\ &(SAB)\cap (ABC)=AB\\&M\in (P)\cap (SAB) \end{aligned} \right.\\
+			\Rightarrow (P)\cap (SAB)=Mx\parallel AB$, $Mx\cap SB=N$.\\
+			Ta có $\left\{ \begin{aligned} &(P)\parallel (ABC)\\ &(SBC)\cap (ABC)=BC\\&N\in (P)\cap (SBC) \end{aligned} \right.\\
+			\Rightarrow (P)\cap (SBC)=Ny\parallel BC$, $Ny\cap BC=K$. Khi đó $(P)\equiv (MNK)$.\\
+			Ta có $MN\parallel AB\Rightarrow \dfrac{SM}{SA}=\dfrac{MN}{AB}=\dfrac{2}{3}\Rightarrow MN=\dfrac{2}{3}AB$.\\
+			Tương tự ta có $MK\parallel AC\Rightarrow \dfrac{SM}{SA}=\dfrac{MK}{AC}\Rightarrow MK=\dfrac{2}{3}AC$.\\
+			Ta có $S_{MNK}=\dfrac{1}{2}MN\cdot MK\cdot \sin \widehat{MHK}=\dfrac{1}{2}\cdot \dfrac{2}{3}AB\cdot \dfrac{2}{3}AC \cdot \sin 30^\circ=\dfrac{16}{9}$.
+		}{\begin{tikzpicture}[scale=0.7,>=stealth]
+			\tkzDefPoints{0/0/A,3/-3/B,7/0/C}
+			\coordinate (S) at ($(A)+(2,7)$);
+			\coordinate (M) at ($(S)!2/3!(A)$);
+			\tkzDefLine[parallel=through M](A,B)\tkzGetPoint{m}
+			\tkzInterLL(M,m)(S,B)\tkzGetPoint{N}
+			\tkzDefLine[parallel=through M](A,C)\tkzGetPoint{n}
+			\tkzInterLL(M,n)(S,C)\tkzGetPoint{K}
+			\tkzDrawPoints(A,B,C,S,M,N,K)
+			\tkzDrawSegments(S,A S,B S,C A,B B,C M,N N,K)
+			\tkzDrawSegments[dashed](A,C M,K)
+			\tkzLabelPoints[above left](S,M,A)\tkzLabelPoints[above right](K,C)\tkzLabelPoints[left](N,B)
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[1H2B4-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Phan Quốc Trí]\\
+	Cho hình lập phương $ABCD.A'B'C'D'$. Gọi $I$ là trung điểm của $A'B'$. Mặt phẳng $(IBD)$ cắt hình hộp theo thiết diện là hình gì?
+	\choice
+	{Hình chữ nhật}
+	{\True Hình thang}
+	{Hình bình hành}
+	{Tam giác}
+	\loigiai{
+		\immini{
+			Gọi $J=A'D' \cap (IBD)$. Ta có thiết diện của mặt phẳng $(IBD)$ và hình hộp là tứ giác $IJDB$.\\
+			Mặt khác
+			\begin{equation*}
+			\heva{&(ABCD)\parallel (A'B'C'D')\\ &(IBD) \cap (A'B'C'D')=IJ\\ & (IBD) \cap (ABCD) = BD}
+			\end{equation*}
+			$\Rightarrow IJ \parallel BD \Rightarrow IJDB$ là hình thang.
+		}{
+			\begin{tikzpicture}[scale=1, line width=1.2pt]%1
+			\tkzDefPoints{0/0/B, 5/0/C, -2/-1.5/A, 0/5/E}
+			\tkzDefPointBy[translation=from B to C](A)\tkzGetPoint{D}
+			\tkzDefPointBy[translation=from B to E](B)\tkzGetPoint{B'}
+			\tkzDefPointBy[translation=from B to E](C)\tkzGetPoint{C'}
+			\tkzDefPointBy[translation=from B to E](D)\tkzGetPoint{D'}
+			\tkzDefPointBy[translation=from B to E](A)\tkzGetPoint{A'}
+			\tkzDefMidPoint(A',B') \tkzGetPoint{I}
+			\tkzDefMidPoint(A',D') \tkzGetPoint{J}
+			\tkzDrawSegments(A,D D,C A',D' A',B' B',C' C',D' A',A D',D C',C B',D' I,J J,D)
+			\tkzDrawSegments[dashed](A,B B,C B,B'  I,B J,D B,D I,D)
+			\tkzLabelPoints(C,D,C',D')
+			\tkzLabelPoints[left](A',A,B',I, B)
+			\tkzLabelPoints[above](J)
+			\tkzDrawPoints[size=3pt](A,B,C,D,A',B',C',D',I,J)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[1H2B4-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Phan Quốc Trí]\\
+	Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình bình hành tâm $O$. Tam giác $SBD$ đều. Một mặt phẳng $(P)$ song song với $(SBD)$ và qua điểm $I$ thuộc cạnh $AC$ ( không trùng với $A$ hoặc $C$). Thiết diện của $(P)$ và hình chóp là hình gì?
+	\choice
+	{Hình bình hành}
+	{Tam giác cân không đều}
+	{tam giác vuông}
+	{\True Tam giác đều}
+	\loigiai{
+		\immini{
+			{\bf TH1:} Điểm  $I$ thuộc đoạn $OC$. Gọi $M,N,E$ lần lượt là giao điểm của $(P)$ với các đường thẳng $CD,BC,SC$. Ta có thiết diện của $(P)$ và hình chóp là tam giác $EMN$.\\
+			$
+			\heva{&(P) \parallel (SBD)\\& (ABCD) \cap (SBD) = BD \\ & (P) \cap (ABCD)=MN } \quad \Rightarrow MN \parallel BD\\
+			\Rightarrow \dfrac{MN}{BD}=\dfrac{CM}{CD}=t \Rightarrow MN = t\cdot BD
+			$
+			$\heva{&(P) \parallel (SBD)\\& (SCD) \cap (SBD) = SD \\ & (P) \cap (SCD)=ME } \quad \Rightarrow ME \parallel SD\\
+			\Rightarrow \dfrac{ME}{SD}=\dfrac{CM}{CD} = t\Rightarrow ME = t\cdot SD
+			$\\
+			Tương tự $EN \parallel SB$ và $EN = t \cdot SB$
+		}{
+			\begin{tikzpicture}[scale=1, line width=1.2pt]%1
+			\tkzDefPoints{0/0/B, 5/0/C, -2/-1.5/A, 0/5/E}
+			\tkzDefPointBy[translation=from B to C](A) \tkzGetPoint{D}
+			\tkzDefMidPoint(A,C) \tkzGetPoint{O}
+			\tkzDefPointBy[homothety=center A ratio 0.65](C) \tkzGetPoint{H}
+			\tkzDefPointBy[homothety=center A ratio 0.75](C) \tkzGetPoint{I}
+			\tkzDefPointBy[translation=from B to E](H) \tkzGetPoint{S}
+			\tkzDefLine[parallel=through I](D,B) \tkzGetPoint{d}
+			\tkzDefLine[parallel=through I](O,S) \tkzGetPoint{d1}
+			\tkzInterLL(I,d)(C,B) \tkzGetPoint{N}
+			\tkzInterLL(I,d)(C,D) \tkzGetPoint{M}
+			\tkzInterLL(I,d1)(C,S) \tkzGetPoint{E}
+			\tkzDrawSegments[dashed](C,B A,B S,B B,D A,C S,O M,N N,E E,M I,E)
+			\tkzDrawSegments(A,D D,C S,A S,D S,C)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](E)
+			\tkzLabelPoints[above left](N)
+			\tkzLabelPoints[below](O)
+			\tkzLabelPoints(A,D,C,I,M)
+			\tkzDrawPoints[size=3pt](S,A,B,C,D,M,N,E,I,O)
+			\end{tikzpicture}
+		}
+		\noindent Mà $SB=BD=SD\Rightarrow MN=EM=EN$, suy ra tam giác $MNE$ là tam giác đều.\\
+		{\bf TH2:} Điểm $I$ thuộc $OA$. Tương tự thiết diện của $(P)$ và hình chóp cũng là một tam giác đều.
+	}
+\end{ex}
+\begin{ex}%[1H2B4-4]%[Đề cương khối 11 HK2, Chu Văn An, HN, 2018]%[Vũ Văn Trường]\\
+	Cho hình vuông $ABCD$ và tam giác đều $SAB$ nằm trong hai mặt phẳng khác nhau. Gọi $M$ là điểm di động trên đoạn $AB$. Mặt phẳng $(\alpha)$ qua $M$ song song với $(SBC)$ cắt hình chóp $S.ABCD$ theo thiết diện là
+	\choice
+	{Hình bình hành}
+	{Hình vuông}
+	{Hình tam giác}
+	{\True Hình thang}
+	\loigiai{
+		\immini{Do $(\alpha)\parallel (SBC)$ nên $(\alpha)$ cắt mặt phẳng $(ABCD)$ theo giao tuyến $MN\parallel BC,\  (N\in CD)$.\\
+			Hoàn toàn tương tự, ta có $(\alpha)$ cắt các mặt phẳng $(SAB)$ và $(SCD)$ theo các giao tuyến $MQ, NP$ ở đó $Q\in SA$ và $MQ\parallel SB$; $P\in SD$ và $NP\parallel SC$.\\
+			Mặt phẳng $(\alpha)$ cắt hình chóp $S.ABCD$ theo thiết diện là tứ giác $MNPQ$.\\
+			Dễ thấy $PQ\parallel AD, PQ\neq AD$ từ đó suy ra $MNPQ$ là hình thang.
+		}
+		{
+			\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{0/0/A, -2/-3/B, 5/0/D}
+			\coordinate (C) at ($(B)+(D)-(A)$);
+			\coordinate (H) at ($(A)!0.5!(B)$);
+			\coordinate (S) at ($(H)+(0,5)$);
+			\coordinate (M) at ($(A)!0.4!(B)$);
+			\coordinate (N) at ($(D)!0.4!(C)$);
+			\coordinate (P) at ($(D)!0.4!(S)$);
+			\coordinate (Q) at ($(A)!0.4!(S)$);
+			\tkzDrawSegments(S,B S,C S,D N,P B,C C,D)
+			\tkzDrawSegments[dashed](S,A A,B A,C P,Q Q,M A,D M,N)
+			\tkzFillPolygon[color=red, fill opacity=.2](M,N,P,Q)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[left](A,M,Q)
+			\tkzLabelPoints[right](N,D)
+			\tkzLabelPoints[above right=-0.1](P)
+			\tkzLabelPoints[below](B,C)
+			\tkzDrawPoints(S,A,B,C,D, M,N,P,Q)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[Đề cương ôn hk2 - k11 - Chu Văn An - Hà Nội - 2018]%[1H2B4-4]%[Trịnh Văn Xuân]\\
+	Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình bình hành tâm $O$, $AB = 8$, $SA= SB = 6$. Gọi $(P)$ là mặt phẳng đi qua $O$ và song song với $(SAB)$. Tính diện tích của thiết diện của $(P)$ và hình chóp $S.ABCD$.
+	\choice
+	{$12$}
+	{\True $6\sqrt{5}$}
+	{$5\sqrt{5}$}
+	{$13$}
+	\loigiai{
+		\immini{
+			Qua $O$ dựng đường thẳng $PQ\parallel AB$. Vậy $P$, $Q$ lần lượt là trung điểm của $AD$ và $BC$. \\
+			Qua $P$ dựng đường thẳng $PN\parallel SA$. Vậy $N$ là trung điểm của $SD$.\\
+			Qua $Q$ dựng đường thẳng $QM\parallel SB$. Vậy $M$ là trung điểm của $SC$.\\
+			Nối $M$ và $N$ $\Rightarrow$ thiết diện của $(P)$ và hình chóp $S.ABCD$ là tứ giác $MNPQ$.\\
+			Vì $PQ\parallel CD, MN\parallel CD\Rightarrow PQ\parallel MN$. Vậy tứ giác $MNPQ$ là hình thang.\\
+			Ta có $PQ = AB = 8$, $MN = \dfrac{1}{2}AB =4, MQ = NP =\dfrac{1}{2}SA=3$. Vậy $MNPQ$ là hình thang cân.\\
+			Gọi $H$ là chân đường cao hạ từ đỉnh $M$ của hình thang $MNPQ$. Khi đó ta có $HQ = \dfrac{1}{4}PQ = 2\Rightarrow MH = \sqrt{MQ^2 - HQ^2}=\sqrt{5}$. Vậy diện tích của thiết diện cần tìm là $$S=\dfrac{(MN + PQ)\cdot MH}{2}=6\sqrt{5}.$$
+		}{
+			\begin{tikzpicture}[scale=1.1]
+			\tkzDefPoints{0/0/A}
+			\tkzDefShiftPoint[A](0:4){D}
+			\tkzDefShiftPoint[A](-135:2){B}
+			\coordinate (C) at ($(B)+(D)-(A)$);
+			\coordinate (T) at ($(B)!0.7!(A)$);
+			\tkzDefShiftPoint[T](90:3){S}
+			\coordinate (M) at ($(S)!0.5!(C)$);
+			\coordinate (N) at ($(S)!0.5!(D)$);
+			\coordinate (Q) at ($(B)!0.5!(C)$);
+			\coordinate (P) at ($(A)!0.5!(D)$);
+			\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+			\coordinate (H) at ($(Q)!0.5!(O)$);
+			
+			\tkzDrawPoints(A,B,C,D,S,M,N,P,Q,O,H)
+			\tkzDrawSegments(S,B S,C S,D B,C C,D Q,M M,N)
+			\tkzDrawSegments[dashed](S,A B,A A,D A,C B,D N,P Q,P M,H)
+			S,H,C B,C,D S,C,D)
+			
+			\tkzLabelPoints[below right](O,C)
+			\tkzLabelPoints[below left](B,M)
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[above right](D,P)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[right](N)
+			\tkzLabelPoints[below](Q,H)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[1H2K4-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Bùi Mạnh Tiến]\\
+	Cho hình chóp $S.ABC$ có $M$ là điểm di động trên cạnh $SA$ sao cho $\dfrac{SM}{SA}=k(k\in \mathbb{R},0<k<1)$. Gọi $(\alpha)$ là mặt phẳng đi qua điểm $M$ và song song với mặt phẳng $(ABC)$. Tìm $k$ để mặt phẳng $(\alpha)$ cắt hình chóp $S.ABC$ theo một thiết diện có diện tích bằng nửa diện tích của tam giác $ABC$.
+	\choice
+	{\True $k=\dfrac{\sqrt{2}}{2}$}
+	{$k=\dfrac{1}{3}$}
+	{$k=\dfrac{\sqrt{3}}{2}$}
+	{$k=\dfrac{1}{2}$}
+	\loigiai{
+		\immini{
+			Từ $\heva{&(\alpha)\parallel (ABC)\\&(SAB)\cap (ABC)=AB\\&M\in (SAB)\cap (\alpha)}\Rightarrow (SAB)\cap (\alpha)=Mx\parallel AB$.\\
+			$Mx$ cắt $SB$ tại $N$.\\
+			Từ $\heva{&(\alpha)\parallel (ABC)\\&(SAC)\cap (ABC)=AC\\&M\in (SAC)\cap (\alpha)}\Rightarrow (SAC)\cap (\alpha)=My\parallel AB$.\\
+			$My$ cắt $SC$ tại $P$.\\
+			Thiết diện cần tìm là $MNP$.\\
+			Vì $MN\parallel AB, MP\parallel AC$ nên theo định lí Talet ta có:\\
+			$k=\dfrac{SM}{SA}=\dfrac{MN}{AB}=\dfrac{MP}{AC}=\dfrac{SN}{SB}=\dfrac{SP}{SC}=\dfrac{NP}{BC}$.\\
+			$\Rightarrow \triangle MNP\backsim \triangle ABC$ với tỉ số đồng dạng $k$.\\
+			Ta có $\dfrac{1}{2}=\dfrac{S_{MNP}}{S_{ABC}}=k^2\Rightarrow k=\dfrac{\sqrt{2}}{2}$.
+		}
+		{
+			\begin{tikzpicture}
+			\tkzDefPoints{1/3/S, 0/-1/A, 2/-3/B, 5/-1/C}
+			\tkzDefPointWith[linear,K=0.6](S,A)\tkzGetPoint{M}
+			\tkzDefPointWith[linear,K=0.6](S,B)\tkzGetPoint{N}
+			\tkzDefPointWith[linear,K=0.6](S,C)\tkzGetPoint{P}
+			\tkzDrawSegments(S,A S,B S,C M,N N,P A,B B,C)
+			\tkzDrawSegments[dashed](M,P A,C)
+			\draw (S) node[above] {$S$} (A) node[left] {$A$} (B) node[below] {$B$} (C) node[right] {$C$} (M) node[left] {$M$} (N) node[right] {$N$} (P) node[right] {$P$};
+			\tkzDrawPoints(S,A,B,C,M,N,P) 
+			\end{tikzpicture}
+		}
+	}	
+\end{ex}
+\begin{ex}%[1H2K4-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Bùi Mạnh Tiến]\\
+	Cho hình chóp tứ giác đều $S.ABCD$ có cạnh đáy bằng $10$. Gọi $M$ là điểm trên $SA$ sao cho $\dfrac{SM}{SA}=\dfrac{2}{3}$. Một mặt phẳng $(\alpha)$ đi qua $M$ song song với $AB$ và $AD$, cắt hình chóp theo một tứ giác có diện tích là? 
+	\choice
+	{\True $\dfrac{400}{9}$}
+	{$\dfrac{20}{3}$}
+	{$\dfrac{4}{9}$}
+	{$\dfrac{16}{9}$}
+	\loigiai{
+		\immini{
+			Từ $\heva{&AB\parallel (\alpha)\\&AB \subset (SAB)\\&M\in (SAB)\cap (\alpha)}\Rightarrow (\alpha) \cap (SAB)=Mx\parallel AB$.\\
+			Từ $\heva{&AD\parallel (\alpha)\\&AD \subset (SAD)\\&M\in (SAD)\cap (\alpha)}\Rightarrow (\alpha) \cap (SAD)=My\parallel AD$.\\
+			$Mx,My$ cắt $SB,SD$ lần lượt tại $N,Q$.\\
+			Từ $\heva{&CD\parallel (\alpha)\\&CD \subset (SCD)\\&Q\in (SCD)\cap (\alpha)}\Rightarrow (\alpha) \cap (SCD)=Qz\parallel CD$.\\
+			$Qz$ cắt $SC$ tại $P$.\\
+			Thiết diện cần tìm là tứ giác $MNPQ$.\\
+			Dễ thấy $\dfrac{2}{3}=\dfrac{SM}{SA}=\dfrac{MN}{AB}=\dfrac{NP}{BC}=\dfrac{PQ}{CD}=\dfrac{QM}{DA}$.\\
+			$\Rightarrow MN=NP=PQ=QM=\dfrac{20}{3}$.\\
+			Mặt khác $MN \parallel AB, NP\parallel BC\Rightarrow \widehat{(MN,NP)}=\widehat{\left(AB,BC\right)}=90^\circ$
+			$\Rightarrow MNPQ$ là hình vuông với cạnh $\dfrac{20}{3}\Rightarrow S_{MNPQ}=\left(\dfrac{20}{3}\right)^2=\dfrac{400}{9}$
+		}	
+		{
+			\begin{tikzpicture}
+			\tkzDefPoints{4.5/6/S, 3/1/A, 1/-1/B, 6/-1/C, 8/1/D}
+			\tkzDefPointWith[linear,K=0.6666](S,A)\tkzGetPoint{M}
+			\tkzDefPointWith[linear,K=0.6666](S,B)\tkzGetPoint{N}
+			\tkzDefPointWith[linear,K=0.6666](S,C)\tkzGetPoint{P}
+			\tkzDefPointWith[linear,K=0.6666](S,D)\tkzGetPoint{Q}
+			\tkzDrawSegments(S,B S,C S,D B,C C,D N,P P,Q)
+			\tkzDrawSegments[dashed](M,N Q,M S,A A,B A,D)
+			\draw (S) node[above] {$S$} (A) node[below] {$A$} (B) node[below] {$B$} (C) node[below] {$C$} (D) node[right] {$D$} (M) node[above right] {$M$} (N) node[left] {$N$} (P) node[right] {$P$} (Q) node[right] {$Q$};
+			\tkzDrawPoints(S,A,B,C,D,M,N,P,Q)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\dang{Xác định giao điểm}
+\begin{ex}%[Đề cương ôn hk2 - k11 - Chu Văn An - Hà Nội - 2018]%[1H2B4-5]%[Trịnh Văn Xuân]\\
+	tôi câu này: ID: [1H2B4-6]
+	Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình bình hành tâm $O$. Gọi $M$, $N$, $P$ lần lượt là trung điểm của $SA$, $SD$ và $AB$. Khẳng định nào sau đây là \textbf{sai}?
+	\choice
+	{$(NOM)$ cắt $(OPM)$}
+	{$(MON)\parallel (SBC)$}
+	{\True $(MNP)\parallel (SBD)$}
+	{$(PON)\cap (MNP) = NP$}
+	\loigiai{
+		\immini{
+			Ta có:\\ $MN\parallel AD$ (tính chất đường trung bình của tam giác $SAD$).\\
+			$PO\parallel AD$ (tính chất đường trung bình của tam giác $BAD$).\\
+			Vậy $MN\parallel PO$ nên $M$, $N$, $P$, $O$ đồng phẳng, hay $O \in (MNP)\Rightarrow (MNP)\cap (SBD) = NO$.\\
+			\textbf{Cách khác:} $N$ là điểm chung của hai $mp(MNP)$ và $mp(SBD)$ nên ta suy ra $(MNP)\parallel (SBD)$ là \textbf{sai}.
+		}{
+			\begin{tikzpicture}[scale=0.9]
+			\tkzDefPoints{0/0/C}
+			\tkzDefShiftPoint[C](0:4){D}
+			\tkzDefShiftPoint[C](-135:2){B}
+			\coordinate (A) at ($(B)+(D)-(C)$);
+			\coordinate (H) at ($(B)!0.7!(C)$);
+			\tkzDefShiftPoint[H](90:3){S}
+			\coordinate (M) at ($(S)!0.5!(A)$);
+			\coordinate (N) at ($(S)!0.5!(D)$);
+			\coordinate (P) at ($(B)!0.5!(A)$);
+			\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+			\tkzDrawPoints(A,B,C,D,S,M,N,P,O)
+			\tkzDrawSegments(S,B S,A S,D B,A A,D P,M M,N)
+			\tkzDrawSegments[dashed](S,C B,C C,D A,C B,D N,O O,P)
+			\tkzDrawPolygon[dashed](M,N,O,P)
+			\tkzFillPolygon[fill opacity=.3](M,N,O,P)
+			S,H,C B,C,D S,C,D)
+			
+			\tkzLabelPoints[below right](A)
+			\tkzLabelPoints[below left](B,M)
+			\tkzLabelPoints[above left](C)
+			\tkzLabelPoints[above right](D)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[right](N)
+			\tkzLabelPoints[below](O,P)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\dang{Các bài toán tổng hợp}
+\begin{ex}%[1H2B4-6]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Phan Quốc Trí]\\
+	Cho hình bình hành $ABCD$. Gọi $Bx,Cy,Dz$ là các tia song song với nhau, cùng nằm về một phía và không nằm trong mặt phẳng $(ABCD)$. Một mặt phẳng $(\alpha)$ đi qua $A$ và cắt $Bx, Cy, Dz$ lần lượt tại $B_0, C_0, D_0$ với $BB_0=2,DD_0=4$. Tính độ dài đoạn $CC_0$
+	\choice
+	{$CC_0=4$}
+	{\True $CC_0=6$}
+	{$CC_0=5$}
+	{$CC_0=3$ }
+	\loigiai{
+		\immini{
+			Ta có $\left(Bx,Cy\right) \parallel \left(A,Dz \right) \Rightarrow B_0C_0 \parallel AD_0$.\\
+			Tương tự $\left(A,Bx\right) \parallel \left( Dz,Cy \right) \Rightarrow AB_0 \parallel D_0C_0$.\\
+			Suy ra $AB_0C_0D_0$ là hình bình hành. Gọi $O$ và $O'$ lần lượt là tâm các hình bình hành $ABCD$ và $AB_0C_0D_0$. Ta có \\
+			\begin{equation*}
+			OO'=\dfrac{BB_0+DD_0}{2}=3.
+			\end{equation*}
+			Suy ra $CC_0= 2OO' = 6$.
+		}{
+			\begin{tikzpicture}[scale=0.7, line width=1.2pt]%1
+			\tkzDefPoints{0/0/B, 7/0/C, -1/-2/A, 0/8/E}
+			\tkzDefMidPoint(A,C) \tkzGetPoint{O}		\tkzDefPointBy[translation=from B to C](A)\tkzGetPoint{D}
+			\tkzDefPointBy[translation=from B to E](B)\tkzGetPoint{x}
+			\tkzDefPointBy[translation=from B to E](C)\tkzGetPoint{y}
+			\tkzDefPointBy[translation=from B to E](D)\tkzGetPoint{z}
+			\tkzDefPointBy[translation=from B to E](O)\tkzGetPoint{t}	
+			\tkzDefPointBy[homothety = center B ratio 0.3](x)\tkzGetPoint{B0} 
+			\node[left] at (B0){$B_0$};
+			\tkzDefPointBy[homothety = center D ratio 0.4](z)\tkzGetPoint{D0} 
+			\node[right] at (D0){$D_0$};
+			\tkzInterLL(B0,D0)(O,t) \tkzGetPoint{O'}
+			\tkzInterLL(A,O')(C,y) \tkzGetPoint{C0}	
+			\node[right] at (C0){$C_0$};	\tkzDrawSegments(A,D C,D C,C0 D,D0 A,B0 A,D0 B0,C0 D0,C0 A,C0 B0,D0 B0,x C0,y D0,z)
+			\tkzDrawSegments[dashed](A,B B,C B,B0)
+			\tkzDrawSegments[dashed](A,C B,D O,O')
+			\tkzLabelPoints(A,C,D,x,y,z)
+			\tkzLabelPoints[above](O')
+			\tkzLabelPoints[below](O)
+			\tkzLabelPoints[above right](B)
+			\tkzDrawPoints[size=3pt](A,B0,O',B,O,D,C,C0,D0)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[1H2K4-6]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Nguyễn Tài Tuệ]\\
+	Cho hình chóp $ S.ABCD $ có đáy $ ABCD $ là hình bình hành tâm $ O $ có $ AC=a, BD=b $. Tam giác $ SBD $ là tam giác đều. Một mặt phẳng $ (\alpha) $ di động song song với mặt phẳng $ (SBD) $ và đi qua điểm $ I $ trên đoạn $ OA $ và $ AI =x$ $ (0<x<a)$.Tính diện tích thiết diện theo $ a,b $ và $ x $.
+	\choice
+	{$ \dfrac{2bx^2\sqrt{3}}{a^2} $}
+	{\True $ \dfrac{b^2x^2\sqrt{3} }{a^2} $}
+	{$ \dfrac{3bx^2\sqrt{2} }{a^2} $}
+	{$ \dfrac{b^2x^2\sqrt{2} }{a^2} $}
+	\loigiai{
+		
+		\immini{
+			Trong mặt phẳng $ (ABCD) $,  $ I $ dựng đường thẳng song song với $ BD $ lần lượt cắt $ AB,AD $ tại $ M,N $.\\
+			Trong mặt phẳng $ (SAC) $, dựng đường thẳng qua $ I $ song song với $ SO $ cắt $ SA $ tại $ P $. Khi đó thiết diện cần tìm là tam giác $ MNP$.
+			
+			Xét tam giác $ABC$, ta có $ \dfrac{AI}{AO}=\dfrac{MN}{BD}$\\
+			$\Rightarrow MN =\dfrac{AI}{AO}\cdot BD=\dfrac{2bx}{a} .$
+			
+			Tam giác $ SBD $ là tam giác đều nên\\
+			$ SO\perp BD, SO=\dfrac{b\sqrt{3}}{2}. $
+			
+			Lại có $ \heva{&PI\parallel SO\\&MN\parallel BD}\Rightarrow PI\perp MN.$
+			
+			Có $ \dfrac{PI}{SO}=\dfrac{AI}{AO} \Rightarrow PI =\dfrac{bx\sqrt{3}}{a}.$
+			
+			Do đó diện tích tam giác $ MNP  $ là $$ S_{MNP} =\dfrac{1}{2}MN\cdot PI =\dfrac{b^2x^2\sqrt{3} }{a^2}. $$
+			
+		}{
+			
+			\begin{tikzpicture}[line cap=round,line join=round, >=stealth,scale=1]
+			\def \xa{-2}
+			\def \xb{-1}
+			\def \y{4}
+			\def \z{3}
+			
+			\coordinate (A) at (0,0);
+			\coordinate (B) at ($(A)+(\xa,\xb)$);
+			\coordinate (D) at ($(A)+(\y,0)$);
+			\coordinate (C) at ($ (B)+(D)-(A) $);
+			\coordinate (S) at ($ (A)+(0,\z) $);
+			\coordinate (O) at ($(C)!1/2!(A) $);
+			\tkzDefPointBy[homothety = center A ratio 0.5](O)\tkzGetPoint{I}
+			\tkzDefPointBy[homothety = center A ratio 0.5](B)\tkzGetPoint{M}
+			\tkzDefPointBy[homothety = center A ratio 0.5](D)\tkzGetPoint{N}
+			\tkzDefPointBy[homothety = center A ratio 0.5](S)\tkzGetPoint{P}
+			\draw [dashed] (B)--(A)--(D)--(B) (C)--(A)--(S)--(O);
+			\draw (S)--(B)--(C)--(D)--(S)--(C);
+			\tkzDrawPoints(S,A,B,C,D,M,N,P,I)
+			\tkzLabelPoints[right](D,O)
+			\tkzLabelPoints[below right](C,N)
+			\tkzLabelPoints[above](S,I)
+			\tkzLabelPoints[above left](A,M,P)
+			\tkzLabelPoints[below left](B)
+			\tkzDrawSegments[dashed](M,N N,P P,M I,P)
+			\tkzMarkRightAngle(D,O,S)
+			\tkzMarkRightAngle(S,I,M)
+			\end{tikzpicture}
+			
+		}
+	}
+\end{ex}
+\begin{ex}%[1H2K4-6]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đỗ Đường Hiếu]\\
+	
+	Cho hình chóp cụt tam giác $ABC.A'B'C'$ có $2$ đáy là $2$ tam giác vuông tại $A$ và $A'$ và có $\dfrac{AB}{A'B'}=\dfrac{1}{2}$. Khi đó tỉ số diện tích $\dfrac{S_{\triangle ABC}}{S_{\triangle A'B'C'}}$ bằng
+	\choice
+	{$4$}
+	{$2$}
+	{$\dfrac{1}{2}$}
+	{\True $\dfrac{1}{4}$}
+	\loigiai{
+		\immini{
+			Gọi $S$ là giao điểm của các đường thẳng $AA'$, $BB'$, $CC'$. Khi đó:
+			$$\dfrac{AC}{A'C'}=\dfrac{SA}{SA'}=\dfrac{AB}{A'B'}=\dfrac{1}{2}.$$
+			Nên:
+			$$\dfrac{S_{\triangle ABC}}{S_{\triangle A'B'C'}}=\dfrac{\dfrac{1}{2}\cdot AB\cdot AC}{\dfrac{1}{2}\cdot A'B'\cdot A'C'}=\dfrac{AB}{A'B'}\cdot\dfrac{AC}{A'C'}=\dfrac{1}{2}\cdot \dfrac{1}{2}=\dfrac{1}{4}.$$
+		}
+		{
+			\begin{tikzpicture}[line cap=round,line join=round, >=stealth,scale=1]
+			\def \xa{2} 
+			\def \xb{-2}
+			\def \y{4}
+			\def \z{4}
+			
+			\coordinate (A') at (0,0);
+			\coordinate (B') at ($(A')+(\xa,\xb)$);
+			\coordinate (C') at ($(A')+(\y,0)$);
+			\coordinate (S) at ($ (A')+(1,\z) $);
+			\coordinate (A) at ($ (S)!.5!(A') $);
+			\coordinate (B) at ($ (S)!.5!(B') $);
+			\coordinate (C) at ($ (S)!.5!(C') $);
+			\draw [dashed] (A')--(C') (A)--(C);
+			\draw (S)--(A')--(B')--(C')--(S)--(B') (A)--(B)--(C);
+			\tkzDrawPoints(S,A',B',C',A, B,C)
+			\tkzLabelPoints[below left](A',A,B)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](B',C',C)
+			\tkzMarkRightAngle(B,A,C)
+			\tkzMarkRightAngle(B',A',C')
+			\end{tikzpicture}
+			
+		}
+	}
+\end{ex}
+\begin{ex}%[1H2K4-6]%[Đề cương khối 11 HK2, Chu Văn An, HN, 2018]%[Vũ Văn Trường]\\
+	Cho hình hộp $ABCD.A'B'C'D'$ có tất cả các mặt là các hình vuông cạnh $a$. Các điểm $M, N$ lần lượt trên $AD', BD$ sao cho $AM=DN=x$, $(0<x<a\sqrt{2})$. Khi đó với mọi giá trị $x$ thì đường thẳng $MN$ luôn song song với đường thẳng nào sau đây?
+	\choice
+	{$(AD'C'B)$}
+	{$(A'DC'B)$}
+	{\True $(A'D'CB)$}
+	{$(ADC'B')$}
+	\loigiai{
+		\immini{Ta có $AD'=DB=a\sqrt{2}$, từ đó suy ra $\dfrac{AM}{AD'}=\dfrac{DN}{DB}=\dfrac{x}{a\sqrt{2}}$.\\
+			Đặt $k=\dfrac{x}{a\sqrt{2}}\ (0<k<1)$, trên các cạnh $DC$ và $DD'$ lần lượt lấy các điểm $I, J$ sao cho $\dfrac{DI}{DC}=\dfrac{DJ}{DD'}=k$. Khi đó ta có $\heva{&NI\parallel BC\\&MJ\parallel AD}$ và $IJ\parallel CD'$.\\
+			Do đó $(MNIJ)\parallel (A'D'CB) \Rightarrow MN\parallel (A'D'CB)$.
+		}
+		{\begin{tikzpicture}[scale=0.5,>=stealth]
+			\tkzDefPoints{0/0/A, -3.5/-3/D, 7/0/B}
+			\coordinate (C) at ($(B)+(D)-(A)$);
+			\coordinate (A') at ($(A)+(0,7)$);
+			\coordinate (B') at ($(A')+(B)-(A)$);
+			\coordinate (C') at ($(A')+(C)-(A)$);
+			\coordinate (D') at ($(A')+(D)-(A)$);
+			\coordinate (M) at ($(A)!0.35!(D')$);
+			\coordinate (N) at ($(D)!0.35!(B)$);
+			\coordinate (J) at ($(D)!0.35!(D')$);
+			\coordinate (I) at ($(D)!0.35!(C)$);
+			\tkzDrawSegments(B,B' C,C' D,D' A',B' B',C' C',D' A',D' B,C C,D I,J D',C)
+			\tkzDrawSegments[dashed](A,A' A,B A,D A,D' B,D M,N N,I J,M A',B)
+			\tkzLabelPoints[above right](A,B)
+			\tkzLabelPoints[above right=-0.2](M)
+			\tkzLabelPoints[left](D',J)
+			\tkzLabelPoints[right](B')
+			\tkzLabelPoints[below](C,N,I,D)
+			\tkzLabelPoints[below left](C')
+			\tkzLabelPoints[above left](A')
+			\tkzDrawPoints(A,B,C,D, A',B',C',D',M,N,I,J)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\section{Phép chiếu song song. Hình biểu diễn của một hình không gian}
+\dang{Câu hỏi lý thuyết}
+\begin{ex}%[1H2Y5-1]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Trần Hoàng Trọng Ân]\\
+	Phát biểu nào dưới đây là định lý Thales trong không gian
+	\choice
+	{Ba mặt phẳng song song chắn trên hai cát tuyết song song các đoạn thẳng tương ứng tỉ lệ}
+	{ Ba mặt phẳng song song chắn trên hai cát tuyết bất kỳ các đoạn thẳng tương ứng bằng nhau}
+	{\True Ba mặt phẳng song song chắn trên hai cát tuyết bất kỳ các đoạn thẳng tương ứng tỉ lệ}
+	{Ba mặt phẳng song song chắn trên hai cát tuyết song song các đoạn thẳng tương ứng bằng nhau}
+	\loigiai{
+		\immini{Ba mặt phẳng đôi một song song chắn trên hai cát tuyến bất kì những đoạn thẳng tương ứng tỉ lệ.}
+		{	\begin{tikzpicture}[font=\footnotesize]
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (4.2,0);
+			\coordinate (C) at (5,1.2);
+			\coordinate (A1) at (0.3,2);
+			\coordinate (M) at (1.8,6);
+			\coordinate (Q) at (2.3,6);
+			\coordinate (N) at (1,-0.5);
+			\coordinate (P) at (4,-0.5);
+			\coordinate (D) at ($(C)-(B)+(A)$);
+			\coordinate (B1) at ($0.85*(B)-0.85*(A)+(A1)$);
+			\coordinate (C1) at ($0.95*(D)-0.95*(A)+(B1)$);
+			\coordinate (D1) at ($(A1)-(B1)+(C1)$);
+			\coordinate (X) at ($(M)!0.83!(N)$);
+			\coordinate (Y) at ($(M)!0.55!(N)$);
+			\coordinate (Z) at ($(M)!0.23!(N)$);
+			\coordinate (X1) at ($(Q)!0.85!(P)$);
+			\coordinate (Y1) at ($(Q)!0.5!(P)$);
+			\coordinate (Z1) at ($(Q)!0.2!(P)$);
+			\foreach \x in {A,B,C,D}
+			\coordinate (\x2) at ($(\x)!2!(\x1)$); % Tạo các điểm A2, B2, C2, D2 bằng phép vị tự tâm A, B, C, D tỉ số 2.
+			\path[name path=mn] (M)--(N); 
+			\path[name path=pq] (P)--(Q);
+			\path[name path=ab] (A)--(B); 
+			\path[name path=a1b1] (A1)--(B1);
+			\path[name path=a2b2] (A2)--(B2);
+			\path[name intersections={of=mn and ab,by=E}];
+			\path[name intersections={of=mn and a1b1,by=F}];
+			\path[name intersections={of=mn and a2b2,by=G}];
+			\path[name intersections={of=pq and ab,by=E1}];
+			\path[name intersections={of=pq and a1b1,by=F1}];
+			\path[name intersections={of=pq and a2b2,by=G1}];
+			\draw (A)--(B)--(C)--(D)--cycle (A1)--(B1)--(C1)--(D1)--cycle (A2)--(B2)--(C2)--(D2)--cycle (N)--(E) (E1)--(P) (F)--(X)node[left]{$C$}--(X1)node[right]{$C'$}--(F1) (G)--(Y)node[left]{$B$}--(Y1)node[right]{$B'$}--(G1) (M)node[left]{$d$}--(Z)node[left]{$A$}--(Z1)node[right]{$A'$}--(Q)node[right]{$d'$};
+			\draw[dashed] (E)--(X) (E1)--(X1) (F)--(Y) (F1)--(Y1) (G)--(Z) (G1)--(Z1);
+			\draw pic[draw,"$R$"]{angle=B--A--D} pic[draw,"$Q$"]{angle=B1--A1--D1} pic[draw,"$P$"]{angle=B2--A2--D2};
+			\end{tikzpicture}
+		}
+	}
+	
+\end{ex}
+\begin{ex}%[1H2B5-1]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Trần Hoàng Trọng Ân]\\
+	Trong các mệnh đề sau, mệnh đề nào \textbf{đúng}?
+	\choice
+	{\True Hình chiếu song song của hai đường thẳng chéo nhau có thể song song với nhau}
+	{Hình chiếu song song của hai đường thẳng chéo nhau thì song song với nhau}
+	{Hình chiếu song song của hai đường thẳng song song thì song song với nhau}
+	{Hình chiếu song song của hai đường thẳng cắt nhau có thể song song với nhau}
+	\loigiai{
+		Ta có
+		\begin{itemize}
+			\item Hình chiếu song song của hai đường thẳng chéo nhau thì song song với nhau. \textbf{Sai} vì có thể cắt nhau.
+			\item Hình chiếu song song của hai đường thẳng song song thì song song với nhau. \textbf{Sai} vì có thể trùng nhau.
+			\item Hình chiếu song song của hai đường thẳng cắt nhau có thể song song với nhau. \textbf{Sai} chỉ có thể cắt nhau
+		\end{itemize}
+	}
+\end{ex}
+\chapter{Chương 3. Véc-tơ trong không gian. Quan hệ vuông góc trong không gian}
+\maCH{3}
+\section{Véc-tơ trong không gian}
+\dang{Câu hỏi lý thuyết}
+\begin{ex}%[1H3Y1-1]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[QK Trương]\\	
+	Cho vectơ $\overrightarrow{n}\ne \overrightarrow{0}$ và hai vectơ không cùng phương $\overrightarrow{a}, \overrightarrow{b}$. Nếu vectơ $\overrightarrow{n}$ vuông góc với cả hai vectơ $\overrightarrow{a}, \overrightarrow{b}$ thì ba vectơ $\overrightarrow{n}, \overrightarrow{a}, \overrightarrow{b}$ 
+	\choice
+	{\True không đồng phẳng}
+	{đồng phẳng}
+	{có thể không đồng phẳng}
+	{có thể đồng phẳng}
+	\loigiai{
+		Khi vectơ $\overrightarrow{n}$ vuông góc với cả hai vectơ $\overrightarrow{a}, \overrightarrow{b}$ thì giá của chúng sẽ không cùng song song với một mặt phẳng. Vậy ba vectơ $\overrightarrow{n}, \overrightarrow{a}, \overrightarrow{b}$không đồng phẳng}
+\end{ex}
+\begin{ex}%[1H3Y1-1]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Mai Sương]\\
+	Ba vectơ $\overrightarrow{a}, \overrightarrow{b}, \overrightarrow{c}$ đều khác vectơ $\overrightarrow{0}$. Khi đó, $\overrightarrow{a}, \overrightarrow{b}, \overrightarrow{c}$ \textbf{không} đồng phẳng nếu
+	\choice
+	{Ba đường thẳng chứa chúng cùng song song với một mặt phẳng}
+	{\True Ba đường thẳng chứa chúng không cùng song song với một mặt phẳng}
+	{Ba đường thẳng chứa chúng không cùng thuộc một mặt phẳng}
+	{Ba đường thẳng chứa chúng thuộc một mặt phẳng}
+	\loigiai{
+		\textbf{Định nghĩa:} Trong không gian, ba vectơ được gọi là đồng phẳng nếu các giá của chúng cùng song song với một mặt phẳng.
+	}
+\end{ex}
+\begin{ex}%[1H3B1-1]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Bùi Mạnh Tiến]\\
+	Cho ba vec-tơ $\vec{n},\vec{a},\vec{b}$ đều khác vec-tơ $\vec{0}$. Nếu vec-tơ $\vec{n}$ vuông góc với cả hai vec-tơ $\vec{a},\vec{b}$ thì ba vec-tơ $\vec{n},\vec{a},\vec{b}$
+	\choice
+	{Đồng phẳng}
+	{Không đồng phẳng}
+	{\True Có thể đồng phẳng}
+	{Có giá vuông góc với nhau từng đôi một}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth]
+			\tkzDefPoints{2/2/A, 0/0/B, 5/0/C, 8/1/E, 12/1/F, 10/0.6/G, 10/3/H}
+			\tkzDefPointBy[translation=from B to C](A)\tkzGetPoint{D}
+			\tkzInterLL(E,F)(G,H)\tkzGetPoint{O}
+			\draw[->] (2,1) -- (4,0.2);
+			\draw[->] (2,0.4) -- (5,1.4);
+			\draw[->] (3,1.2) -- (3,3);
+			\draw[->] (E) -- (F);
+			\draw[->] (G) -- (H);
+			\draw[<-] (9,0) -- (12,0);
+			\draw (5,1.4) node[above] {$\vec{a}$} (4,0.2) node[above] {$\vec{b}$} (3,3) node[right] {$\vec{n}$} ($(B)+(0.3,0)$) node[above right] {$P$} (9,0) node[above] {$\vec{a}$} (F) node[above] {$\vec{b}$} (H) node[right] {$\vec{n}$} (3,-0.5) node {\text{Hình 1}} (10,-0.5) node {\text{Hình 2}};
+			\tkzDrawSegments(A,B B,C C,D D,A)
+			\tkzMarkAngle(C,B,A)
+			\tkzMarkRightAngles(H,O,F)
+			\end{tikzpicture}
+		\end{center}
+		\begin{itemize}
+			\item 	\textcolor{red}{Trường hợp 1 }: Hai vec-tơ $\vec{a},\vec{b}$ không cùng phương (tham khảo Hình 1).\\
+			Gọi $(P)$ là mặt phẳng cùng song song với hai giá của $\vec{a},\vec{b}$.\\
+			Vì $\vec{a},\vec{b}$ là hai vec-tơ không cùng phương nên suy ra $\vec{n}$ có giá vuông góc với mặt phẳng $(P)$.\\
+			Trong trường hợp này $\vec{n},\vec{a},\vec{b}$ không đồng phẳng.
+			\item \textcolor{red}{Trường hợp 2 }: Hai vec-tơ $\vec{a},\vec{b}$ cùng phương (tham khảo Hình 2).\\
+			Ta thấy trong trường hợp này $\vec{n}$ mặc dù vuông góc với cả hai vec-tơ $\vec{a},\vec{b}$ nhưng $\vec{n}$ có thể đồng phẳng với cả hai vec-tơ $\vec{a},\vec{b}$.
+		\end{itemize}
+	}
+\end{ex}
+\begin{ex}%[1H3G1-1]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Nguyễn Tài Tuệ]\\
+	Cho tứ diện có hai cặp cạnh đối diện vuông góc. Trong các mệnh đề sau đây, mệnh đề nào đúng?
+	\choice
+	{Tứ diện có ít nhất hai mặt là tam giác nhọn}
+	{\True Tứ diện có ít nhất một mặt là tam giác nhọn}
+	{Tứ diện có ít nhất ba mặt là tam giác nhọn}
+	{Tứ diện có cả bốn mặt là tam giác nhọn}
+	\loigiai{
+		\immini{
+			Không mất tính tổng quát ta có thể giả sử (AB,CD) và (AC,BD) là hai cặp cạnh vuông góc với nhau. $\Rightarrow  \overrightarrow{AB} \cdot \overrightarrow{CD} = 0, \overrightarrow{AC} \cdot \overrightarrow{BD} = 0$.\\
+			Ta có : $\overrightarrow{AD}\cdot \overrightarrow{BC}=\left(\overrightarrow{CD}-\overrightarrow{CA}\right)\left(\overrightarrow{AD}-\overrightarrow{AC}\right)$
+			
+			$\begin{aligned}
+			\overrightarrow{AD}\cdot \overrightarrow{BC}&=\left(\overrightarrow{CD}-\overrightarrow{CA}\right)\left(\overrightarrow{AC}-\overrightarrow{AB}\right)\\
+			&=\overrightarrow{CD}\cdot \overrightarrow{AC}-\overrightarrow{CD} \cdot \overrightarrow{AB}-\overrightarrow{CA}\cdot \overrightarrow{AC}-\overrightarrow{CA}\cdot \overrightarrow{AB}\\
+			&=\overrightarrow{CD}\cdot \overrightarrow{AC}+\overrightarrow{AC} \cdot \overrightarrow{AC}-\overrightarrow{AC}\cdot \overrightarrow{AB}\\
+			&=\overrightarrow{AC}\left(\overrightarrow{CD}+\overrightarrow{AC}-\overrightarrow{AB}\right)\\
+			&=\overrightarrow{AC}\cdot \overrightarrow{BD}=0  
+			\end{aligned}$\\
+			Suy ra $AD\perp BC$.}
+		{\begin{tikzpicture}
+			\tkzDefPoints{0/0/B, 3/4/A, 2/-2/C, 6/0/D}
+			\tkzDrawSegments(A,B B,C C,D D,A A,C)
+			\tkzDrawSegments[dashed](B,D)
+			\draw (A) node[above] {$A$} (B) node[left] {$B$} (C) node[below] {$C$} (D) node[right] {$D$};
+			\tkzDrawPoints(A,B,C,D)
+			\end{tikzpicture}
+		}
+		
+		\immini{Dựng hình hộp như hình vẽ.\\
+			Ta có $AB^2+CD^2 =AB^2+C_1D_1^2=4(AK^2+BK^2)=4AD_1^2$\\
+			$AD^2+BC^2=AD^2+A_1D_1^2 =4(AH^2+HD_1^2) =4AD_1^2$\\
+			$\Rightarrow AB^2 +CD^2 =AD^2+BC^2\Leftrightarrow AB^2 +AC^2 -BC^2 =AD^2 +AC^2 -CD^2.$\\
+			Do đó $\cos \widehat{BAC}, \cos \widehat{DAC}$ cùng dấu  \hfill (1)\\
+			Chứng minh tương tự $\cos \widehat{BAD}, \cos \widehat{CAD}$ cùng dấu. \hfill (2)\\
+			Từ $(1)$ và $(2)$ suy ra $\cos \widehat{BAC},\cos \widehat{DAC},\cos \widehat{BAD}$ cùng dấu.\\
+			Do đó $\widehat{BAC}, \widehat{DAC}, \widehat{BAD}$ cùng nhọn hoặc cùng tù hoặc cùng vuông góc. \\
+			Chứng minh tương tự thì các góc tại đỉnh $B,C,D$ cùng nhọn hoặc cùng tù hoặc cùng vuông.}
+		{
+			\begin{tikzpicture}[scale=.7]
+			\tkzDefPoints{0/0/A, 6/0/C1, -1.5/-2/D1}
+			\coordinate (B) at ($(D1)+(C1)-(A)$);
+			\coordinate (A1) at ($(A)+(0.0,5)$);
+			\coordinate (B1) at ($(B)+(0.0,5)$);
+			\coordinate (C) at ($(C1)+(0.0,5)$);
+			\coordinate (D) at ($(D1)+(0.0,5)$);
+			\tkzDefMidPoint(A,B)
+			\tkzGetPoint{K}
+			\tkzDefMidPoint(A,D)
+			\tkzGetPoint{H}
+			\tkzDrawSegments(A1,D D,B1 B1,C C,A1 D1,D D1,B  B1,B B,C B,D B,C1 C1,C  C,D A1,B1)
+			\tkzDrawSegments[dashed](A,C1 A,A1 A,D D1,A A1,D1 A,B C1,D1)
+			
+			\tkzLabelPoints[above left](A1,A,D1,D,H)
+			\tkzLabelPoints[below](K)
+			\tkzLabelPoints[right](C,B1,B,C1)
+			\tkzDrawPoints(A,B,C,D,A1,B1,C1,D1,H,K)	
+			\tkzMarkRightAngle(A,K,D1)
+			\tkzMarkRightAngle(D1,H,A)
+			\end{tikzpicture}
+		}
+		
+		
+		Xét các trường hợp\\
+		\textbf{Trường hợp 1.} Nếu các góc tại $4$ đỉnh cùng nhọn, suy ra cả $4$ mặt đều là tam giác nhọn.\\
+		\textbf{Trường hợp 2.} Nếu tồn tại một đỉnh có các góc tù hoặc vuông.\\ Không mất tính tổng quát giả sử vuông tại A, thì ba đỉnh còn lại phải là góc nhọn.\\
+		Thật vậy
+		Nếu $\widehat{BAC}\ge 90^\circ$.\\
+		$\overrightarrow{AB}\cdot \overrightarrow{CD}=0\Leftrightarrow \overrightarrow{AB}\cdot \left(\overrightarrow{AD}-\overrightarrow{AC}\right)=0\Leftrightarrow \overrightarrow{AB}\cdot \overrightarrow{AD}=\overrightarrow{AB} \cdot \overrightarrow{AC}$.\\
+		Tương tự : $\overrightarrow{AB}\cdot \overrightarrow{AD}=\overrightarrow{AC} \cdot \overrightarrow{AD}$.\\
+		Do $\widehat{BAC}\ge 90^\circ\Rightarrow \overrightarrow{AB}\cdot \overrightarrow{AD}=\overrightarrow{AC} \cdot \overrightarrow{AD}=\overrightarrow{AB} \cdot \overrightarrow{AC}\le 0$\\
+		$CB^2+CD^2-BD^2=\left(\overrightarrow{AB}-\overrightarrow{AC}\right)^2+\left(\overrightarrow{AD}-\overrightarrow{AC}\right)^2-\left(\overrightarrow{AB}-\overrightarrow{AD}\right)^2=2AC^2-2\overrightarrow{AB}\cdot \overrightarrow{AC} \ge 0\Rightarrow \widehat{BCD}<90^\circ$.\\
+		Do đó $\widehat{CBD}<90^\circ,\widehat{CDB}<90^\circ$.\\
+		Vậy tam giác $BCD$ nhọn.\\
+		Vậy không tồn tại lớn hơn hoặc bằng 2 đỉnh cùng tù hoặc cùng vuông.\\
+		Hay tứ diện có ít nhất một mặt là tam giác nhọn.
+		
+	}
+\end{ex}
+\begin{ex}%[1H3G1-1]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Nguyễn Tài Tuệ]
+	Cho tứ diện có hai cặp cạnh đối diện vuông góc. Trong các mệnh đề sau đây, mệnh đề nào đúng?
+	\choice
+	{Tứ diện có ít nhất hai mặt là tam giác nhọn}
+	{\True Tứ diện có ít nhất một mặt là tam giác nhọn}
+	{Tứ diện có ít nhất ba mặt là tam giác nhọn}
+	{Tứ diện có cả bốn mặt là tam giác nhọn}
+	\loigiai{
+		\immini{
+			Không mất tính tổng quát ta có thể giả sử (AB,CD) và (AC,BD) là hai cặp cạnh vuông góc với nhau. $\Rightarrow  \overrightarrow{AB} \cdot \overrightarrow{CD} = 0, \overrightarrow{AC} \cdot \overrightarrow{BD} = 0$.\\
+			Ta có : $\overrightarrow{AD}\cdot \overrightarrow{BC}=\left(\overrightarrow{CD}-\overrightarrow{CA}\right)\left(\overrightarrow{AD}-\overrightarrow{AC}\right)$
+			
+			$\begin{aligned}
+			\overrightarrow{AD}\cdot \overrightarrow{BC}&=\left(\overrightarrow{CD}-\overrightarrow{CA}\right)\left(\overrightarrow{AC}-\overrightarrow{AB}\right)\\
+			&=\overrightarrow{CD}\cdot \overrightarrow{AC}-\overrightarrow{CD} \cdot \overrightarrow{AB}-\overrightarrow{CA}\cdot \overrightarrow{AC}-\overrightarrow{CA}\cdot \overrightarrow{AB}\\
+			&=\overrightarrow{CD}\cdot \overrightarrow{AC}+\overrightarrow{AC} \cdot \overrightarrow{AC}-\overrightarrow{AC}\cdot \overrightarrow{AB}\\
+			&=\overrightarrow{AC}\left(\overrightarrow{CD}+\overrightarrow{AC}-\overrightarrow{AB}\right)\\
+			&=\overrightarrow{AC}\cdot \overrightarrow{BD}=0  
+			\end{aligned}$\\
+			Suy ra $AD\perp BC$.
+			
+			
+			
+		}
+		{
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/B, 3/4/A, 2/-2/C, 6/0/D}
+			\tkzDrawSegments(A,B B,C C,D D,A A,C)
+			\tkzDrawSegments[dashed](B,D)
+			\draw (A) node[above] {$A$} (B) node[left] {$B$} (C) node[below] {$C$} (D) node[right] {$D$};
+			\tkzDrawPoints(A,B,C,D)
+			\end{tikzpicture}
+		}
+		
+		\immini{Dựng hình hộp như hình vẽ.\\
+			Ta có $AB^2+CD^2 =AB^2+C_1D_1^2=4(AK^2+BK^2)=4AD_1^2$\\
+			$AD^2+BC^2=AD^2+A_1D_1^2 =4(AH^2+HD_1^2) =4AD_1^2$\\
+			$\Rightarrow AB^2 +CD^2 =AD^2+BC^2\Leftrightarrow AB^2 +AC^2 -BC^2 =AD^2 +AC^2 -CD^2.$\\
+			Do đó $\cos \widehat{BAC}, \cos \widehat{DAC}$ cùng dấu  \hfill (1)\\
+			Chứng minh tương tự $\cos \widehat{BAD}, \cos \widehat{CAD}$ cùng dấu. \hfill (2)\\
+			Từ $(1)$ và $(2)$ suy ra $\cos \widehat{BAC},\cos \widehat{DAC},\cos \widehat{BAD}$ cùng dấu.\\
+			Do đó $\widehat{BAC}, \widehat{DAC}, \widehat{BAD}$ cùng nhọn hoặc cùng tù hoặc cùng vuông góc. \\
+			Chứng minh tương tự thì các góc tại đỉnh $B,C,D$ cùng nhọn hoặc cùng tù hoặc cùng vuông.}
+		{
+			\begin{tikzpicture}[scale=.7]
+			\tkzDefPoints{0/0/A, 6/0/C_1, -1.5/-2/D_1}
+			\coordinate (B) at ($(D_1)+(C_1)-(A)$);
+			\coordinate (A_1) at ($(A)+(0.0,5)$);
+			\coordinate (B_1) at ($(B)+(0.0,5)$);
+			\coordinate (C) at ($(C_1)+(0.0,5)$);
+			\coordinate (D) at ($(D_1)+(0.0,5)$);
+			\tkzDefMidPoint(A,B)
+			\tkzGetPoint{K}
+			\tkzDefMidPoint(A,D)
+			\tkzGetPoint{H}
+			\tkzDrawSegments(A_1,D D,B_1 B_1,C C,A_1 D_1,D D_1,B  B_1,B B,C B,D B,C_1 C_1,C  C,D A_1,B_1)
+			\tkzDrawSegments[dashed](A,C_1 A,A_1 A,D D_1,A A_1,D_1 A,B C_1,D_1)
+			
+			\tkzLabelPoints[above left](A_1,A,D_1,D,H)
+			\tkzLabelPoints[below](K)
+			\tkzLabelPoints[right](C,B_1,B,C_1)
+			\tkzDrawPoints(A,B,C,D,A_1,B_1,C_1,D_1,H,K)	
+			\tkzMarkRightAngle(A,K,D_1)
+			\tkzMarkRightAngle(D_1,H,A)
+			\end{tikzpicture}
+		}
+		
+		
+		Xét các trường hợp\\
+		\textbf{Trường hợp 1.} Nếu các góc tại $4$ đỉnh cùng nhọn, suy ra cả $4$ mặt đều là tam giác nhọn.\\
+		\textbf{Trường hợp 2.} Nếu tồn tại một đỉnh có các góc tù hoặc vuông.\\ Không mất tính tổng quát giả sử vuông tại A, thì ba đỉnh còn lại phải là góc nhọn.\\
+		Thật vậy
+		Nếu $\widehat{BAC}\ge 90^\circ$.\\
+		$\overrightarrow{AB}\cdot \overrightarrow{CD}=0\Leftrightarrow \overrightarrow{AB}\cdot \left(\overrightarrow{AD}-\overrightarrow{AC}\right)=0\Leftrightarrow \overrightarrow{AB}\cdot \overrightarrow{AD}=\overrightarrow{AB} \cdot \overrightarrow{AC}$.\\
+		Tương tự : $\overrightarrow{AB}\cdot \overrightarrow{AD}=\overrightarrow{AC} \cdot \overrightarrow{AD}$.\\
+		Do $\widehat{BAC}\ge 90^\circ\Rightarrow \overrightarrow{AB}\cdot \overrightarrow{AD}=\overrightarrow{AC} \cdot \overrightarrow{AD}=\overrightarrow{AB} \cdot \overrightarrow{AC}\le 0$\\
+		$CB^2+CD^2-BD^2=\left(\overrightarrow{AB}-\overrightarrow{AC}\right)^2+\left(\overrightarrow{AD}-\overrightarrow{AC}\right)^2-\left(\overrightarrow{AB}-\overrightarrow{AD}\right)^2=2AC^2-2\overrightarrow{AB}\cdot \overrightarrow{AC} \ge 0\Rightarrow \widehat{BCD}<90^\circ$.\\
+		Do đó $\widehat{CBD}<90^\circ,\widehat{CDB}<90^\circ$.\\
+		Vậy tam giác $BCD$ nhọn.\\
+		Vậy không tồn tại lớn hơn hoặc bằng 2 đỉnh cùng tù hoặc cùng vuông.\\
+		Hay tứ diện có ít nhất một mặt là tam giác nhọn.
+		
+	}
+\end{ex}
+\dang{Đẳng thức véc-tơ}
+\begin{ex}%[1H3Y1-2]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Mai Sương]\\
+	Cho tứ diện $ABCD$. Gọi $M,N,P,Q,I,J$ lần lượt là trung điểm của $AB,BC,CD,DA,AC,BD$. Các véc-tơ bằng nhau là		
+	\choice
+	{$\overrightarrow{MI}, \overrightarrow{IQ}, \overrightarrow{QM}$}
+	{$\overrightarrow{MN}, \overrightarrow{CI}, \overrightarrow{QP}$}
+	{\True $\overrightarrow{MQ}, \overrightarrow{NP}, \dfrac{1}{2}\left( \overrightarrow{CD}- \overrightarrow{CB} \right)$}
+	{$\overrightarrow{MQ}, \overrightarrow{NP}, \dfrac{1}{2}\left( \overrightarrow{CB}- \overrightarrow{CD} \right)$}
+	\loigiai{
+		\immini{
+			\begin{itemize}
+				\item $\overrightarrow{MI} \ne \overrightarrow{IQ}$.
+				\item $\overrightarrow{MN} = -\overrightarrow{CI}$. 
+				\item $\overrightarrow{MQ}= \overrightarrow{NP} = \dfrac{\overrightarrow{BD}}{2}=\dfrac{1}{2}\left(\overrightarrow{CD}-\overrightarrow{CB}\right)$.
+			\end{itemize}
+		}
+		{\begin{tikzpicture}[>=stealth, line join=round, line cap = round]%hình chóp đáy hình vuông
+			\tkzDefPoints{2.5/4/A, 0/0/B, 6/0/D, 2/-2.5/C}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{N}
+			\tkzDefMidPoint(C,D)\tkzGetPoint{P}
+			\tkzDefMidPoint(D,A)\tkzGetPoint{Q}
+			\tkzDefMidPoint(A,C)\tkzGetPoint{I}
+			\tkzDefMidPoint(B,D)\tkzGetPoint{J}
+			
+			\tkzDrawSegments(A,B B,C C,D D,A A,C)
+			\tkzDrawSegments[dashed](B,D)
+			
+			\tkzDrawPoints(A,B,C,D,M,N,P,Q,I,J)
+			
+			\tkzLabelPoints[below](C,N,P)
+			\tkzLabelPoints[above](A,J)
+			\tkzLabelPoints[left](M,I,B)
+			\tkzLabelPoints[right](Q,D)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[1H3B1-2]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đoàn Nhật Thiện]\\
+	Cho tứ diện $ABCD$. Gọi $E$, $F$ lần lượt là trung điểm của $AB$, $CD$. Cho $AB=2a$, $CD=2b$, $EF=2c$. Với $M$ là một điểm tùy ý, tổng $MA^2+MB^2$ bằng
+	\choice
+	{$2MF^2+2b^2 $}
+	{\True $2ME^2+2a^2 $}
+	{$2MF^2+2a^2 $}
+	{$2ME^2+2b^2 $}
+	\loigiai{
+		\immini{Ta có $MA^2+MB^2=\vec{MA}^2+\vec{MB}^2=\left( \vec{ME}+\vec{EA} \right)^2+\left( \vec{ME}+\vec{EB}\right)^2\\
+			=2\vec{ME}^2+2\vec{ME}\left(\vec{EA}+\vec{EB}\right)+\vec{EA}^2+\vec{EB}^2=2\vec{ME}^2+2a^2$ (vì $E$ là trung điểm $AB$).}{\begin{tikzpicture}[scale=0.7,>=stealth]
+			\tkzDefPoints{0/0/A, 3/-3/B, 7/0/C, 2/5/D}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{E}
+			\tkzDefMidPoint(C,D)\tkzGetPoint{F}
+			\tkzDrawPoints(A,B,C,D,E,F)
+			\tkzDrawSegments(A,B B,C D,C D,B D,A)
+			\tkzDrawSegments[dashed](A,C)
+			\tkzLabelPoints[above](D)\tkzLabelPoints[left](A)\tkzLabelPoints[right](C)\tkzLabelPoints[below](B)\tkzLabelPoints[above right](F)\tkzLabelPoints[below left](E)
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[1H3B1-2]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Nguyễn Tài Tuệ]
+	Cho hình tứ diện $ SABC $ có $ SA=SB=SC=AB=AC =a $,$ BC=a\sqrt{2} $. Tích vô hướng $ \overrightarrow{SA}\cdot \overrightarrow{AB} $ bằng
+	\choice
+	{ $ a^2$}
+	{\True $ -\dfrac{a^2}{2} $}
+	{$ \dfrac{a^2}{2} $}
+	{$ -a^2 $}
+	\loigiai{
+		\immini{Vì $ \Delta SAB $ là tam giác đều nên\\
+			$ \overrightarrow{SA}\cdot \overrightarrow{AB}=-\overrightarrow{AS}\cdot \overrightarrow{AB} =-|\overrightarrow{AS}|\cdot |\overrightarrow{AB}|\cdot\cos \widehat{SAB}=-a\cdot a \cdot \cos 60^\circ =-\dfrac{a^2}{2}.
+			$}{
+			
+			
+			\begin{tikzpicture}[scale=0.7]
+			\tkzDefPoints{0/0/C,  7/0/A, 2/-2/B, 0/5/E}
+			\tkzDefMidPoint(B,C) \tkzGetPoint{H}
+			\tkzDefMidPoint(B,A) \tkzGetPoint{M}
+			\tkzDefPointBy[translation=from C to E](H) \tkzGetPoint{S}
+			\tkzDrawSegments(S,C S,B S,A  C,B A,B)
+			\tkzDrawSegments[dashed](A,C)
+			\tkzLabelPoints(A,B)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[left](C)
+			opacity=0.25](S,M,H)
+			
+			\tkzDrawPoints[](S,C,B,A)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[Đề cương HKII, Toán 11, Chu Văn An, Hà Nội]%[BanNt]%[1H3K1-2]\\
+	Cho tứ diện $ABCD$. Gọi $E,F$ lần lượt là trung điểm của $AB, CD$. Cho $AB=2a$, $CD=2b$, $EF=2c$. Với $M$ là một điểm tùy ý, tổng $MC^2+MD^2$ bằng
+	\choice
+	{$ 2ME^2+2a^2$}
+	{$ 2ME^2+2b^2$}
+	{$2MF^2+2a^2 $}
+	{\True $ 2MF^2+2b^2$}
+	\loigiai{
+		\immini{
+			Do $F$ là trung điểm của $CD$, khi đó với $M$ bất kì ta có 
+			\begin{align*}
+			MC^2+MD^2&=(\overrightarrow{MC}+\overrightarrow{MD})^2-2\overrightarrow{MC}\overrightarrow{MD}\\
+			&=4\overrightarrow{MF}^2-2(\overrightarrow{MF}+\overrightarrow{FC})(\overrightarrow{MF}+\overrightarrow{FD})\\
+			&=4\overrightarrow{MF}^2-2\overrightarrow{MF}^2-2\overrightarrow{MF}(\overrightarrow{FC}+\overrightarrow{FD})-2\overrightarrow{FC}\overrightarrow{FD}\\
+			&=2MF^2+2CF^2\hspace{0.2cm} (\text {vì}\,\overrightarrow{FC}=-\overrightarrow{FD})\\
+			&=2MF^2+2b^2. 
+			\end{align*}
+		}{
+			\begin{tikzpicture}[scale=0.8]
+			\tkzInit[ymin=-3,ymax=5,xmin=-1,xmax=7] \tkzClip
+			\tkzDefPoints{0/0/A,2/-2/C,6/0/D,2/4/B} điểm
+			\tkzDefMidPoint(A,B)
+			\tkzGetPoint{E}
+			\tkzDefMidPoint(C,D)
+			\tkzGetPoint{F}
+			\tkzDefMidPoint(E,F)
+			\tkzGetPoint{G}
+			\tkzDrawPoints(A,B,C,D,E,F,G) điểm
+			\tkzLabelPoints[below](A,D,C,F) của điểm
+			\tkzLabelPoints[above](B,G) của điểm
+			\tkzLabelPoints[left](E)
+			\tkzDrawSegments(A,C B,C B,A D,B D,C)% Đoạn thẳng
+			\tkzDrawSegments[dashed](A,D E,F)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[1H3G1-2]%[Đề cương khối 11 HK2, Chu Văn An, HN, 2018]%[Trần Nhân Kiệt]\\
+	Cho tứ diện $ABCD$. Gọi $E,$ $F$ lần lượt là trung điểm của $AB,$ $CD$ và $G$ là trọng tâm của tứ diện $ABCD.$ Cho $AB=2a,$ $CD=2b,$ $EF=2c.$ Với $M$ là một điểm tùy ý, tổng $MA^2+MB^2+MC^2+MD^2$ bằng
+	\choice
+	{$4MG^2+2c^2$}
+	{$4MG^2+2a^2$}
+	{$4MG^2+2b^2$}
+	{\True $4MG^2+2(a^2+b^2)+4c^2$}
+	\loigiai{
+		\immini
+		{
+			Vì $G$ là trọng tâm tứ diện nên $G$ là trung điểm của $EF$
+			$\Rightarrow \vv{GE}+\vv{GF}=\vv{0}.$\\
+			Ta có $\vv{GA}+\vv{GB}=2\vv{GE}$ và $\vv{GC}+\vv{GD}=2\vv{GF}.$\\
+			Suy ra $\vv{GA}+\vv{GB}+\vv{GC}+\vv{GD}=\vv{0}.$ \\
+			Đặt $P=MA^2+MB^2+MC^2+MD^2.$
+			\begin{align*}
+			P&=\vv{MA}^2+\vv{MB}^2+\vv{MC}^2+\vv{MD}^2\\
+			&=\left(\vv{MG}+\vv{GA}\right)^2+\left(\vv{MG}+\vv{GB}\right)^2+\left(\vv{MG}+\vv{GC}\right)^2+\left(\vv{MG}+\vv{GD}\right)^2\\
+			&=4MG^2+2\vv{MG}\left(\vv{GA}+\vv{GB}+\vv{GC}+\vv{GD}\right)+GA^2+GB^2+GC^2+GD^2\\
+			&=4MG^2+GA^2+GB^2+GC^2+GD^2.
+			\end{align*}
+		}
+		{\begin{tikzpicture}[scale=0.7,>=stealth, line join=round, line cap = round]
+			\tkzDefPoints{0/0/I, 3/0/D, -3/0/B, 0/5/A, -1/-2/C}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{E}
+			\tkzDefMidPoint(C,D)\tkzGetPoint{F}
+			\tkzDefMidPoint(E,F)\tkzGetPoint{G}
+			\tkzDrawSegments(B,C C,D A,D A,B A,C)
+			\tkzDrawSegments[dashed](D,B A,D E,F G,A G,B G,C G,D)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[above left](E)
+			\tkzLabelPoints[above right](G)
+			\tkzLabelPoints[below right](F)
+			\tkzLabelPoints[below](C)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[right](D)
+			\tkzDrawPoints(A,B,C,D,F,E,G)
+			\end{tikzpicture}
+		}
+		\noindent Xét tam giác $ABG$ có $GE$ là đường trung tuyến\\
+		$\Rightarrow GA^2+GB^2=2GE^2+\dfrac{AB^2}{2}=2c^2+\dfrac{(2a)^2}{2}=2c^2+2a^2$\\
+		Xét tam giác $CDG$ có $GF$ là đường trung tuyến\\
+		$\Rightarrow GC^2+GD^2=2GF^2+\dfrac{CD^2}{2}=2c^2+\dfrac{(2b)^2}{4}=2c^2+2b^2$\\
+		Suy ra $P=4MG^2+2(a^2+b^2)+4c^2.$
+	}
+\end{ex}
+\dang{Phân tích véc-tơ theo các véc-tơ cho trước}
+\begin{ex}%[1H3B1-3]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]\\
+	Cho ba véc-tơ $\overrightarrow{a}, \overrightarrow{b}, \overrightarrow{c}$. Điều kiện nào sau đây \textbf{không} kết luận được ba véc-tơ đó đồng phẳng?
+	\choice
+	{Có một véc-tơ bằng $\overrightarrow{0}$}
+	{\True Có một véc-tơ không cùng phương với hai véc tơ còn lại}
+	{Có hai trong ba véc-tơ đó cùng phương}
+	{Có hai trong ba véc-tơ đó cùng hướng}
+	\loigiai{Dựa vào định lý: Điều kiện ba véc-tơ
+	}
+\end{ex}
+\begin{ex}%[1H3B1-3]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Mai Sương]\\
+	Cho tứ diện $ABCD$. Đặt $\overrightarrow{AB}= \overrightarrow{a}, \overrightarrow{AD}=\overrightarrow{c}$. Gọi $M,N,P,Q$ lần lượt là trung điểm của $AB,BC,CD,DA$. Véc-tơ $\overrightarrow{MQ}$ bằng
+	\choice
+	{$\dfrac{1}{2}\left(\overrightarrow{a}-\overrightarrow{c}\right)$}
+	{\True $\dfrac{1}{2}\left(\overrightarrow{c}-\overrightarrow{a}\right)$}
+	{$\dfrac{1}{2}\left(\overrightarrow{c}+\overrightarrow{a}\right)$}
+	{$\dfrac{1}{4}\left(\overrightarrow{c}+\overrightarrow{a}\right)$}
+	\loigiai{
+		\immini{
+			Ta có $\overrightarrow{MQ}=\dfrac{1}{2} \overrightarrow{BD} =\dfrac{1}{2}\left(\overrightarrow{AD}-\overrightarrow{AB}\right)=\dfrac{1}{2}\left(\overrightarrow{c}-\overrightarrow{a}\right)$
+		}
+		{\begin{tikzpicture}[>=stealth, line join=round, line cap = round]%tứ diện
+			\tkzDefPoints{2.5/4/A, 0/0/B, 6/0/D, 2/-2.5/C}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{N}
+			\tkzDefMidPoint(C,D)\tkzGetPoint{P}
+			\tkzDefMidPoint(D,A)\tkzGetPoint{Q}
+			
+			\tkzDrawSegments(A,B B,C C,D D,A A,C)
+			\tkzDrawSegments[dashed](B,D M,Q)
+			
+			\tkzDrawPoints(A,B,C,D,M,N,P,Q)
+			
+			\tkzLabelPoints[below](C,N,P)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[left](M,B)
+			\tkzLabelPoints[right](Q,D)
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[1H3B1-3]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Nguyễn Tài Tuệ]\\
+	Cho lăng trụ $ ABC.A'B'C' $ có $ G $ là trọng tâm của tam giác $ A'B'C' $. Đặt $ \overrightarrow{AA'}=\overrightarrow{a},\overrightarrow{AB}=\overrightarrow{b},\overrightarrow{AC}=\overrightarrow{c} $. Véc-tơ $ \overrightarrow{AG}$ bằng
+	\choice
+	{$ \overrightarrow{a} +\dfrac{1}{4}\left(\overrightarrow{b}+\overrightarrow{c}\right) $}
+	{$ \overrightarrow{a} +\dfrac{1}{6}\left(\overrightarrow{b}+\overrightarrow{c}\right) $}
+	{\True $ \overrightarrow{a} +\dfrac{1}{3}\left(\overrightarrow{b}+\overrightarrow{c}\right) $}
+	{$ \overrightarrow{a} +\dfrac{1}{2}\left(\overrightarrow{b}+\overrightarrow{c}\right) $}
+	
+	\loigiai{
+		\immini{
+			Gọi $ M $ là trung điểm của $ B'C'$. Khi đó ta có\\
+			\begin{align*}
+			\overrightarrow{AG} =&\overrightarrow{AA'}+\vec{A'G}\\
+			=&\overrightarrow{a}+\dfrac{2}{3}\overrightarrow{AM}\\
+			=& \overrightarrow{a}+\dfrac{2}{3}\cdot\dfrac{1}{2} \left(\overrightarrow{A'B'}+\overrightarrow{A'C'}\right)\\
+			=&\overrightarrow{a}+\dfrac{1}{3}\left( \overrightarrow{b}+\overrightarrow{c}\right).\\
+			\end{align*}
+			
+		}{
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/A, 2/-2/B, 5/0/C}
+			\coordinate (A') at ($(A)+(0,4)$);
+			\tkzDefPointBy[translation = from A to B](A')
+			\tkzGetPoint{B'}
+			\tkzDefPointBy[translation = from A to C](A')
+			\tkzGetPoint{C'}
+			\tkzDefBarycentricPoint(A'=1,B'=1,C'=1)\tkzGetPoint{G}
+			\tkzDefMidPoint(B', C')\tkzGetPoint{M} 
+			\tkzDrawSegments[dashed](A,C A,G)
+			\tkzDrawPolygon(A,B,C,C',B',A')
+			\tkzDrawSegments(A',C' B,B' A',M)
+			\tkzLabelPoints[right](C,B',C',M)
+			\tkzLabelPoints[left](A,A')
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[above](G) 
+			\tkzMarkRightAngles(A',A,B);
+			\tkzMarkRightAngles(A',A,C);
+			\tkzDrawPoints(A,B,C,A',B',C',G,M)
+			\tkzLabelLine[pos=0.35, right](A,B){$\overrightarrow{b}$}
+			\tkzLabelLine[pos=0.35, right](A,A'){$\overrightarrow{a}$}
+			\tkzLabelLine[pos=0.5, right,above](A,C){$\overrightarrow{c}$}
+			
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[1H3B1-3]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Nguyễn Tài Tuệ]
+	Cho lăng trụ $ ABC.A'B'C' $ có $ G $ là trọng tâm của tam giác $ A'B'C' $. Đặt $ \overrightarrow{AA'}=\overrightarrow{a},\overrightarrow{AB}=\overrightarrow{b},\overrightarrow{AC}=\overrightarrow{c} $. Véc-tơ $ \overrightarrow{AG} $ bằng
+	\choice
+	{$ \overrightarrow{a} +\dfrac{1}{4}\left(\overrightarrow{b}+\overrightarrow{c}\right) $}
+	{$ \overrightarrow{a} +\dfrac{1}{6}\left(\overrightarrow{b}+\overrightarrow{c}\right) $}
+	{\True$ \overrightarrow{a} +\dfrac{1}{3}\left(\overrightarrow{b}+\overrightarrow{c}\right) $}
+	{$ \overrightarrow{a} +\dfrac{1}{2}\left(\overrightarrow{b}+\overrightarrow{c}\right) $}
+	
+	\loigiai{
+		\immini{
+			Gọi $ M $ là trung điểm của $ B'C'$. Khi đó ta có\\
+			\begin{align*}
+			\overrightarrow{AG} =&\overrightarrow{AA'}+\vec{A'G}\\
+			=&\overrightarrow{a}+\dfrac{2}{3}\overrightarrow{AM}\\
+			=& \overrightarrow{a}+\dfrac{2}{3}\cdot\dfrac{1}{2} \left(\overrightarrow{A'B'}+\overrightarrow{A'C'}\right)\\
+			=&\overrightarrow{a}+\dfrac{1}{3}\left( \overrightarrow{b}+\overrightarrow{c}\right).\\
+			\end{align*}
+			
+		}{
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/A, 2/-2/B, 5/0/C}
+			\coordinate (A') at ($(A)+(0,4)$);
+			\tkzDefPointBy[translation = from A to B](A')
+			\tkzGetPoint{B'}
+			\tkzDefPointBy[translation = from A to C](A')
+			\tkzGetPoint{C'}
+			\tkzDefBarycentricPoint(A'=1,B'=1,C'=1)\tkzGetPoint{G}
+			\tkzDefMidPoint(B', C')\tkzGetPoint{M} 
+			\tkzDrawSegments[dashed](A,C A,G)
+			\tkzDrawPolygon(A,B,C,C',B',A')
+			\tkzDrawSegments(A',C' B,B' A',M)
+			\tkzLabelPoints[right](C,B',C',M)
+			\tkzLabelPoints[left](A,A')
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[above](G) 
+			\tkzMarkRightAngles(A',A,B);
+			\tkzMarkRightAngles(A',A,C);
+			\tkzDrawPoints(A,B,C,A',B',C',G,M)
+			\tkzLabelLine[pos=0.35, right](A,B){$\overrightarrow{b}$}
+			\tkzLabelLine[pos=0.35, right](A,A'){$\overrightarrow{a}$}
+			\tkzLabelLine[pos=0.5, right,above](A,C){$\overrightarrow{c}$}
+			
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\dang{Điều kiện đồng phẳng của ba véc-tơ}
+\begin{ex}%[1H3B1-4]%[Đề cương khối 11 HK2, Chu Văn An, HN, 2018]%[Trần Nhân Kiệt]\\
+	Cho tứ diện $ABCD$. Đặt $\vv{AB}=\vv{a},$ $\vv{AC}=\vv{b},$ $\vv{AD}=\vv{c}.$ Gọi $M,$ $N,$ $P,$ $Q$ lần lượt là trung điểm của $AB,$ $BC,$ $CD,$ $DA.$ Véc-tơ $\vv{MQ}$ bằng
+	\choice
+	{$\dfrac{1}{2}\left(\vv{a}-\vv{c}\right)$}
+	{\True $\dfrac{1}{2}\left(\vv{c}-\vv{a}\right)$}
+	{$\dfrac{1}{2}\left(\vv{c}+\vv{a}\right)$}
+	{$\dfrac{1}{4}\left(\vv{c}+\vv{a}\right)$}
+	\loigiai{
+		\immini
+		{
+			\begin{align*}
+			\vv{MQ}&=\vv{MA}+\vv{AQ}\\
+			&=-\dfrac{1}{2}\vv{AB}+\dfrac{1}{2}\vv{AD}\\
+			&=-\dfrac{1}{2}\vv{a}+\dfrac{1}{2}\vv{c}\\
+			&=\dfrac{1}{2}(\vv{c}-\vv{a}).
+			\end{align*}
+			
+		}
+		{
+			\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\tkzDefPoints{0/0/I, 3/0/D, -3/0/B, 0/3/A, -1/-2/C}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{N}
+			\tkzDefMidPoint(C,D)\tkzGetPoint{P}
+			\tkzDefMidPoint(D,A)\tkzGetPoint{Q}
+			\tkzDrawSegments(B,C C,D A,D A,B A,C M,N P,Q)
+			\tkzDrawSegments[dashed](D,B A,D M,Q N,P)
+			\tkzLabelPoints[left](N,M,B)
+			\tkzLabelPoints[below](C)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below right](P)
+			\tkzLabelPoints[right](D,Q)
+			\tkzDrawPoints(A,B,C,D,N,M,P,Q)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[1H3B1-4]%[Đề cương khối 11 HK2, Chu Văn An, HN, 2018]%[Trần Nhân Kiệt]\\
+	Nếu ba véc-tơ $\vv{a},$ $\vv{b},$ $\vv{c}$ cùng vuông góc với $\vv{n}\neq 0$ thì chúng
+	\choice
+	{có thể dồng phẳng}
+	{không đồng phẳng}
+	{\True đồng phẳng}
+	{có thể không đồng phẳng}
+	\loigiai{
+		\begin{itemize}
+			\item Nếu  ba véc-tơ $\vv{a}, \vv{b}, \vv{c}$ cùng phương thì $\vv{a},$  $\vv{b},$  $\vv{c}$  đồng phẳng.
+			\item Nếu có ít nhất $2$ trong ba véc-to không cùng phương thì giả sử $\vv{a},$  $\vv{b}$ không cùng phương.
+			\immini
+			{
+				Gọi $(P)$ là mặt phẳng chứa giá $\vv{a}$ và song song với giá của $\vv{b}.$ \\
+				Vì $\vv{n}\perp \vv{a}$ và $\vv{n}\perp \vv{b}\Rightarrow$ giá của $\vv{n}$ vuông góc với $(P)\,\, (1).$\\
+				Mặt khác $\vv{n}\perp \vv{c}\Rightarrow $  giá của $\vv{n}$ vuông góc với $\vv{c}\,\, (2).$\\
+				Từ $(1)$ và $(2)$ suy ra giá của $\vv{c}$ song song hoặc nằm trong $(P).$\\
+				Vậy ba véc-tơ $\vv{a}, \vv{b}, \vv{c}$ đồng phẳng.
+			}
+			{
+				\begin{tikzpicture}
+				\tkzDefPoints{0/0/A, 5/0/B, 1/2/C, 1/3/E,1/0.5/M,4/1.5/N,1/-1/H,4/-1.5/K}
+				\tkzDefPointBy[translation=from A to B](C)\tkzGetPoint{D}
+				\tkzDefPointBy[translation=from A to B](E)\tkzGetPoint{F}
+				\tkzMarkAngle[size=0.8](B,A,C)
+				\draw ($(A)!0.07!(C)$)node[right]{\footnotesize $(P)$};
+				\tkzDrawSegments(A,B B,D D,C C,A M,N E,F H,K)
+				\tkzDrawVectors(M,N E,F)
+				\draw($(E)!0.5!(F)$)node[above right]{$\vv{b}$};
+				\draw($(M)!0.5!(N)$)node[above right]{$\vv{a}$};
+				\draw($(H)!0.5!(K)$)node[above right]{$\vv{c}$};
+				\end{tikzpicture}
+			}
+		\end{itemize}
+	}
+\end{ex}
+\begin{ex}%[1H3B1-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Dương BùiĐức]\\
+	Cho ba mệnh đề:
+	\begin{enumerate}[(I)]
+		\item Nếu ba véc-tơ $ \vec{a} $, $ \vec{b} $, $ \vec{c} $ đồng phẳng thì chúng cùng nằm trên một mặt phẳng.
+		\item Nếu ba véc-tơ $ \vec{a} $, $ \vec{b} $, $ \vec{c} $ đồng phẳng thì tồn tại duy nhất cặp số thực $ (m;n) $ để $ \vec{a} = m\vec{b} +n \vec{c} $.
+		\item Ba véc-tơ $ \vec{a} $, $ \vec{b} $, $ \vec{c} $ không đồng phẳng nếu mọi bộ ba số $ (m;n;p) $ thỏa mãn $ m\vec{a} +n\vec{b} + p\vec{c}=\vec{0} $, thì đều suy ra $ m=n=p=0 $.
+	\end{enumerate}
+	Khẳng định nào sau đây đúng?
+	\choice
+	{Mệnh đề (I) đúng}
+	{Mệnh đề (II) đúng}
+	{\True Mệnh đề (III) đúng}
+	{Cả ba mệnh đề đều sai}
+	\loigiai{
+		\begin{enumerate}[(I)]
+			\item Mệnh đề (I) sai do nếu ba véc-tơ $ \vec{a} $, $ \vec{b} $, $ \vec{c} $ đồng phẳng thì chúng cùng nằm trên một mặt phẳng hoặc các mặt phẳng song song.
+			\item Mệnh đề (II) sai do nếu ba véc-tơ $ \vec{a} $, $ \vec{b} $, $ \vec{c} $ đồng phẳng thì có thể một trong ba véc-tơ trên bằng véc-tơ $ \vec{0} $ nên sẽ tồn tại vô số cặp số thực $ (m;n) $ để $ \vec{a} = m\vec{b} +n \vec{c} $.
+			\item Mệnh đề (III) đúng vì ba véc-tơ $ \vec{a} $, $ \vec{b} $, $ \vec{c} $ không đồng phẳng nếu mọi bộ ba số $ (m;n;p) $ thỏa mãn $ m\vec{a} +n\vec{b} + p\vec{c}=\vec{0} $, thì đều suy ra $ m=n=p=0 $.
+		\end{enumerate}
+	}
+\end{ex}
+\begin{ex}%[1H3B1-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Dương BùiĐức]\\
+	Cho ba véc-tơ $ \vec{a} $, $ \vec{b} $, $ \vec{n} $ đều khác véc-tơ $ \vec{0} $. Nếu $ \vec{n} $ vuông góc với cả hai véc-tơ $ \vec{a} $, $ \vec{b} $ thì ba véc-tơ $ \vec{a} $, $ \vec{b} $, $ \vec{n} $
+	\choice
+	{không đồng phẳng}
+	{\True có thể đồng phẳng}
+	{có giá vuông góc với nhau từng đôi một}
+	{đồng phẳng}
+	\loigiai{
+		Vì $ \vec{a} $, $ \vec{b} $, $ \vec{n} $ đều khác véc-tơ $ \vec{0} $ và $ \vec{n} $ vuông góc với cả hai véc-tơ $ \vec{a} $, $ \vec{b} $ nên
+		\begin{enumerate}[-]
+			\item nếu $ \vec{a} $, $ \vec{b} $ không cùng phương thì $ \vec{n} $ sẽ vuông góc với mặt phẳng song song với giá của các véc-tơ $ \vec{a} $ và $ \vec{b} $.
+			\item nếu $ \vec{a} $, $ \vec{b} $ cùng phương thì $ \vec{a} $, $ \vec{b} $, $ \vec{n} $ có thể cùng nằm trên một mặt phẳng.
+		\end{enumerate}
+	}
+\end{ex}
+\begin{ex}%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đoàn Thanh Phong]%[1H3B1-4]\\
+	Cho tứ diện $ABCD$. Gọi $M,N,P,Q$ lần lượt là trung điểm của $AB,BC,CD,DA$. Bốn điểm $M,N,P,Q$ đồng phẳng vì
+	\choice
+	{$\vec{MP}=\dfrac{1}{2}\left(\vec{MN}+\vec{MQ}\right)$}
+	{$\vec{MP}=\dfrac{1}{2}\left(\vec{AC}+\vec{AD}-\vec{AB}\right)$}
+	{\True $\vec{MP}=\vec{MN}+\vec{MQ}$}
+	{$\vec{MP}=\vec{MB}+\vec{BP}$}
+	\loigiai{
+		\immini{
+			Ta có : $\vec{NP}=\vec{MQ}=\dfrac{1}{2}\vec{BD}$.\\
+			Suy ra $\vec{MP}= \vec{MN}+\vec{NP}=\vec{MN}+\vec{MQ}$. \\
+			Vậy 3 vectơ $\vec{MN},\vec{MP},\vec{MQ}$ đồng phẳng hay 4 điểm $M,N,P,Q$ đồng phẳng.
+		}
+		{\begin{tikzpicture}[scale=.7]
+			\tkzDefPoints{1/3/A, 0/-1/B, 2/-3/C, 5/-1/D}
+			\coordinate (M) at ($(A)!.5!(B)$);
+			\coordinate (N) at ($(C)!.5!(B)$);
+			\coordinate (P) at ($(C)!.5!(D)$);
+			\coordinate (Q) at ($(A)!.5!(D)$);
+			\tkzDrawSegments(A,B A,C A,D M,N P,Q B,C C,D)
+			\tkzDrawSegments[dashed](B,D N,P M,Q)
+			\tkzLabelPoints[left](B,C,N,M)
+			\tkzLabelPoints[right](P,D,Q)
+			\tkzLabelPoints[above](A)
+			\tkzDrawPoints(D,A,B,C,M,N,P,Q) 
+			\end{tikzpicture}}
+	} 
+\end{ex}
+\section{Hai đường thẳng vuông góc}
+\dang{Câu hỏi lí thuyết}
+\begin{ex}%[1H3Y2-1]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[QK Trương]\\ 
+	Khẳng định nào sau đây đúng?
+	\choice
+	{\True Hai đường thẳng phân biệt cùng song song với đường thẳng thứ ba thì song song với nhau}
+	{Hai đường thẳng phân biệt cùng vuông góc với đường thẳng thứ ba thì song song với nhau}
+	{Hai đường thẳng phân biệt cùng vuông góc với đường thẳng thứ ba thì vuông góc với nhau}
+	{Hai đường thẳng phân biệt cùng song song với đường thẳng thứ ba thì vuông góc với nhau}
+	\loigiai{
+		Theo lý thuyết.}
+\end{ex}
+\begin{ex}%[1H3Y2-1]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Bùi Mạnh Tiến]\\
+	Cho ba mệnh đề:\\
+	(I): Góc giữa hai đường thẳng bằng góc giữa hai vec-tơ chỉ phương của hai đường thẳng đó.\\
+	(II): Góc giữa hai đường thẳng là góc nhọn.\\
+	(III): Nếu hai đường thẳng $a,b$ song song với nhau thì góc giữa hai đường thẳng $a,c$ bằng góc giữa hai đường thẳng $b,c$.\\
+	Khẳng định nào sau đây \textbf{đúng}?
+	\choice
+	{Mệnh đều (II) đúng}
+	{\True Mệnh đề (III) đúng}
+	{Cả ba mệnh đề đều sai}
+	{Mệnh đề (I) đúng}
+	\loigiai{
+		\textcolor{red}{Mệnh đề (I)}: Góc giữa hai đường thẳng là góc nhỏ hơn hoặc bằng $90^\circ$ mà góc giữa hai vec-tơ thì có thể nhỏ hơn hoặc lớn hơn hoặc bằng $90^\circ$. Mệnh đề (I) sai.\\
+		\textcolor{red}{Mệnh đề (II)}: Góc giữa hai đường thẳng có thể bằng $90^\circ$ nên mệnh đề (II) cũng sai.\\
+		\textcolor{red}{Mệnh đề (III)}: Nếu $a\parallel b\Rightarrow \widehat{(a,c)}=\widehat{(b,c)}$
+		
+	}
+\end{ex}
+\dang{Xác định góc giữa hai véc-tơ (dùng định nghĩa)}
+\begin{ex}%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Lê Hoàng Lâm]%[1H3B2-2]\\
+	Cho hình chóp tứ giác đều $S.ABCD$ có tất cả các cạnh bằng $a$. Gọi $M$ là điểm bất kì trên cạnh $AC$. Số đo góc giữa hai vectơ $\vec{MS},\vec{BD}$ bằng $90^{\circ}$ khi
+	
+	\choice
+	{$M$ là trung điểm của $AC$}
+	{$M\equiv C$}
+	{$M\equiv A$}
+	{\True $M$ là điểm bất kì trên cạnh $AC$}
+	\loigiai{
+		\immini
+		{Gọi $O$ là giao điểm của hai đường chéo $AC$ và $BD$.\\
+			Ta có $\heva{& BD \bot AC \ \text{(do $ABCD$ là hình vuông)}  &\\
+				& BD \bot SO \ \text{(vì $SO$ vuông góc đáy)} &}$\\
+			$\Rightarrow BD \bot (SAC)$\\
+			$\Rightarrow BD \bot MS$ (vì $MS\subset (SAC))$.\\
+			Vậy góc giữa hai vectơ $\vec{MS}$ và $\vec{BD}$ luôn bằng $90^{\circ}$ với $M$ là điểm bất kì trên cạnh $AC$.}
+		{\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\tkzDefPoints{0/0/A, 4/0/D, -2/-2/B}
+			\tkzDefPointBy[translation=from A to D](B)\tkzGetPoint{C}
+			\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+			\tkzDefLine[perpendicular=through O](A,D)\tkzGetPoint{S}
+			\tkzDefBarycentricPoint(A=2,O=1)
+			\tkzGetPoint{M}
+			\tkzDrawPoints(M)
+			\tkzDrawSegments(B,C C,D S,B S,C S,D)
+			\tkzDrawSegments[dashed](A,B S,A A,C B,D A,D O,S)
+			\tkzDrawVectors[dashed](M,S)
+			\tkzDrawVectors[dashed](B,D)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[below](B,O)
+			\tkzLabelPoints[right](C,D)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below left](M)
+			\tkzMarkRightAngle(S,O,B)
+			\end{tikzpicture}}
+	} 
+\end{ex} 
+\begin{ex}%[1H3K2-2]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]\\
+	Cho hình chóp tứ giác đều $S.ABCD$ có tất cả các cạnh đều bằng $a$. Số đo góc giữa hai vectơ $\overrightarrow{BC}, \overrightarrow{SA}$ bằng
+	\choice
+	{$60^\circ$}
+	{$90^\circ$}
+	{$30^\circ$}
+	{\True $120^\circ$}
+	\loigiai{Ta có $AC = a\sqrt{2} \to SA^2 + SC^2 = AC^2 = 2a^2 \to \Delta SAC$ vuông tại $S$ \\
+		Ta có $\overrightarrow{BC}.\overrightarrow{SA} = \overrightarrow{SA}\left(\overrightarrow{SC} - \overrightarrow{SB}\right) = \overrightarrow{SA}.\overrightarrow{SC} - \overrightarrow{SA}.\overrightarrow{SB} = 0 - SA.SA.\cos \overrightarrow{ASB} = - \dfrac{a^2}{2}$ \\
+		Khi đó $\cos \left(\overrightarrow{BC},\overrightarrow{SA}\right) = \dfrac{\overrightarrow{BC}.\overrightarrow{SA}}{BC.SA} = - \dfrac{1}{2} \to \left(\overrightarrow{BC},\overrightarrow{SA}\right) = 120^\circ$
+	}
+\end{ex}
+\begin{ex}%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Lê Hoàng Lâm]%[1H3G2-2]\\
+	Cho tứ diện $OABC$ có $OA,OB,OC$ đôi một vuông góc và có độ dài $1$. Gọi $M$ là trung điểm của $AB$. Góc giữa hai vectơ $\vec{OM},\vec{BC}$ bằng
+	
+	\choice
+	{\True $120^{\circ}$}
+	{$45^{\circ}$}
+	{$60^{\circ}$}
+	{$90^{\circ}$}
+	\loigiai{
+		\immini
+		{Gọi $\alpha$ là góc giữa hai vectơ $\vec{OM}$ và $\vec{BC}$. Dễ thấy $\triangle ABC$ là tam giác đều và $OA\bot (OBC)$ nên $OA\bot BC$. Như vậy ta có: \\
+			$\vec{OM}.\vec{BC}=(\vec{OA}+\vec{AM}).\vec{BC}=\vec{OA}.\vec{BC}+\vec{AM}.\vec{BC}=\vec{AM}.\vec{BC}$.\\		
+			$\Rightarrow\vec{OM}.\vec{BC}=\dfrac{1}{2}.AB.BC.\cos120^{\circ}=\dfrac{1}{2}.\sqrt{2}.\sqrt{2}.\left(-\dfrac{1}{2}\right)=-\dfrac{1}{2}$\\
+			Mặt khác $\cos \alpha=\dfrac{\vec{OM}.\vec{BC}}{|\vec{OM}|.|\vec{BC}|}=\dfrac{-\dfrac{1}{2}}{\dfrac{\sqrt{2}}{2}.\sqrt{2}}=-\dfrac{1}{2}$. Vậy $\alpha =120^{\circ}$.}
+		{\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\tkzDefPoints{0/0/O,0/3/A,-2/-2/B,3/0/C}
+			\tkzDefMidPoint(A,B)
+			\tkzGetPoint{M}
+			\tkzDrawVectors[dashed](O,M)
+			\tkzDrawVectors(B,C)
+			\tkzDrawSegments(A,B C,A)
+			\tkzDrawSegment[dashed](O,A)
+			\tkzDrawSegment[dashed](O,B)
+			\tkzDrawSegment[dashed](O,C)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[below](O)
+			\tkzLabelPoints[above left](M)
+			\tkzMarkSegments[mark=|, color=black](O,A O,B O,C)
+			\tkzMarkSegments[mark=x, color=black](M,A M,B)
+			\end{tikzpicture}}
+	}
+\end{ex} 
+\dang{Xác định góc giữa hai đường thẳng (dùng định nghĩa)}
+\begin{ex}%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đoàn Thanh Phong]%[1H3Y2-3]\\
+	Cho hình chóp tứ giác đều $S.ABCD$ có tất cả các cạnh đều bằng $a$. Gọi $M$ là điểm bất kì trên đường thẳng $AC$. Số đo góc giữa hai đường thẳng $BD,SM$ bằng
+	\choice
+	{\True $90^\circ$}
+	{$120^\circ$}
+	{$60^\circ$}
+	{$45^\circ$}
+	\loigiai{
+		\immini{
+			Ta có: $\left. \begin{gathered}
+			BD \perp AC \hfill \\
+			BD \perp SO \hfill \\ 
+			\end{gathered}  \right\}$
+			$\Rightarrow BD \perp \left(SAC\right)\supset SM $\\
+			$\Rightarrow BD \perp SM$ hay $\widehat{\left(BD,SM\right)}=90^\circ$. }
+		{\begin{tikzpicture}[scale=.6]
+			\tkzDefPoints{0/0/A, -2/-2/B, 3/-2/C}
+			\coordinate (D) at ($(A)+(C)-(B)$);
+			\coordinate (O) at ($(A)!.5!(C)$);
+			\coordinate (S) at ($(O)+(0,5)$);
+			\coordinate (M) at ($(S)!.4!(C)$);
+			\tkzDrawSegments[dashed](S,A A,B A,D A,C B,D S,O)
+			\tkzDrawPolygon(S,C,D)
+			\tkzDrawSegments(S,B B,C)
+			\tkzLabelPoints[left](A,B)
+			\tkzLabelPoints[right](C,D,M)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](O)
+			\tkzDrawPoints(S,A,B,C,D,M)
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đoàn Thanh Phong]%[1H3Y2-3]\\
+	Cho hình lập phương $ABCD.A'B'C'D'$. Góc giữa hai đường thẳng $AC$ và $C'D'$ bằng
+	\choice
+	{\True $45^\circ$}
+	{$60^\circ$}
+	{$90^\circ$}
+	{$0^\circ$}
+	\loigiai{
+		\immini{
+			Ta có $C'D' \parallel CD \Rightarrow \widehat{\left(AC,C'D'\right)}=\widehat{\left(AC,CD\right)}=\widehat{ACD}=45^\circ$.}
+		{\begin{tikzpicture}[scale=.5]
+			\tkzDefPoints{0/0/A,-2/-2/B, 3/-2/C, 0/5/A'}
+			\coordinate (D) at ($(A)+(C)-(B)$);
+			\tkzDefPointsBy[translation= from A to A'](B,C,D){}
+			\tkzDrawSegments[dashed](A,B A,D A,A' A,C)
+			\tkzDrawSegments(B,C C,D C',D' A',D' A',B' B',C' B,B' C,C' D,D')
+			\tkzMarkAngle[size =0.5,fill=blue,opacity=.2](D,C,A)
+			\tkzLabelPoints[left](A,B,B')
+			\tkzLabelPoints[right](C,D,C',D')
+			\tkzLabelPoints[above](A')
+			\tkzDrawPoints(A,B,C,D,A',B',C',D')
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[1H3B2-3]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Phan Quốc Trí]\\
+	Cho hình chóp $S.ABCD$ có đáy là hình vuông cạnh $a$, cạnh bên $SA$ vuông góc với mặt đáy, $SA=a$, gọi $M$ là trung điểm $SB$. Góc giữa $AM$ và $BD$ bằng
+	\choice
+	{$30^{\circ}$}
+	{$45^{\circ}$}
+	{$90^{\circ}$}
+	{\True $60^{\circ}$}
+	\loigiai{
+		\immini{
+			Gọi $O,I,H,N$ lần lượt là trung điểm $AC, AD, AO, SC$. Ta có \\
+			$MN = AI = \dfrac{1}{2} BC \Rightarrow AMNI$ là hình bình hành.\\
+			$\heva{&AM \parallel IN \\&BD  \parallel IH} \Rightarrow \left( AM,BD \right) = \left( IN,IH \right) = \widehat{NIH}$.\\
+			$\heva{&IH\perp SA \\ &IH \perp AC} \Rightarrow IH \perp (SAC) \Rightarrow IH \perp HN$.\\
+			Ta có $IH=\dfrac{1}{4}BD = \dfrac{a\sqrt{2}}{4}$ và $IN=AM=\dfrac{1}{2}SB=\dfrac{a\sqrt{2}}{2}$.\\
+			$\Rightarrow \cos NIH =\dfrac{IH}{IN}=\dfrac{1}{2}\Rightarrow \widehat{ NIH}= 60^{\circ} $
+		}{
+			\begin{tikzpicture}[scale=1, line width=1.2pt]%1
+			\tkzDefPoints{0/0/A, 5/0/B, -1/-1.5/D, 0/4/S}
+			\tkzDefPointBy[translation=from A to D](B) \tkzGetPoint{C}
+			\tkzDefMidPoint(S,B) \tkzGetPoint{M}
+			\tkzDefMidPoint(A,D) \tkzGetPoint{I}
+			\tkzDefMidPoint(S,C) \tkzGetPoint{N}
+			\tkzDefMidPoint(A,C) \tkzGetPoint{O}
+			\tkzDefMidPoint(A,O) \tkzGetPoint{H}
+			\tkzDrawSegments(B,C S,B S,C S,D C,D M,N)
+			\tkzDrawSegments[dashed](A,D A,C B,D A,B S,A A,M I,N I,H N,H)
+			\tkzLabelPoints(C,B,D)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[left](A,I)
+			\tkzLabelPoints[right](M,N)
+			\tkzLabelPoints[below](H,O)
+			\tkzMarkRightAngle[opacity=0.5](I,H,N)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[1H3B2-3]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Bùi Mạnh Tiến]\\
+	Cho hình chóp tứ giác đều $S.ABCD$ có tất cả các cạnh đều bằng $a$. Số đo góc giữa hai đường thẳng $BC,SA$ bằng?
+	\choice
+	{$45^\circ$}
+	{$120^\circ$}
+	{$90^\circ$}
+	{\True $60^\circ$}
+	\loigiai{
+		\immini{
+			Vì $S.ABCD$ là hình chóp đều nên $ABCD$ là hình vuông.\\ 
+			Suy ra $AD\parallel BC\Rightarrow \widehat{(SA,BC)} = \widehat{(SA,AD)}$.\\
+			Vì tất cả các cạnh của $S.ABCD$ đều bằng $a$ nên $\triangle SAD$ đều.\\
+			Suy ra $\widehat{(SA,BC)} = \widehat{(SA,AD)} = \widehat{SAD}=60^\circ$.
+		}
+		{
+			\begin{tikzpicture}[scale = 0.8]
+			\tkzDefPoints{2/2/A, 0/0/B, 5/0/C}
+			\tkzDefMidPoint(A,C)\tkzGetPoint{O}
+			\tkzDefPointBy[translation=from B to C](A)\tkzGetPoint{D}
+			\tkzDefPointBy[translation=from B to C](O)\tkzGetPoint{E}
+			\tkzDefPointBy[rotation=center O angle 90](E)\tkzGetPoint{S}
+			\tkzDrawSegments(B,C C,D S,B S,C S,D)
+			\tkzDrawSegments[dashed](S,A A,D A,B)
+			\tkzMarkAngles[size = 0.6cm,fill=blue,
+			opacity=.2](D,A,S);
+			\tkzDrawPoints(S,A,B,C,D)
+			\draw (A) node[below] {$A$} (B) node[below] {$B$} (S) node[above] {$S$} (C) node[below] {$C$} (D) node[right] {$D$};
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Lê Hoàng Lâm]%[1H3G2-3]\\
+	Cho tứ diện $SABC$ có $SA=SB=SC=AB=AC=a,BC=a\sqrt{2}$. Góc giữa hai đường thẳng $AB,SC$ bằng
+	
+	\choice
+	{$0^{\circ}$}
+	{$120^{\circ}$}
+	{\True $60^{\circ}$}
+	{$90^{\circ}$}
+	\loigiai{
+		\immini
+		{Gọi $\alpha$ là góc giữa hai đường thẳng $AB$ và $SC$. Ta có $BC^2=AB^2+AC^2$ nên $\triangle ABC$ là tam giác vuông cân tại $A$. Vì $SA=SB=SC$ nên ta có $SH\bot (ABC)$ tại $H$ với $H$ là tâm đường tròn ngoại tiếp $\triangle ABC$. Do $\triangle ABC$ vuông tại $A$ nên suy ra $H$ là trung điểm $BC$. Ta có:
+			\begin{align*}
+			\vec{AB}.\vec{SC}&=\vec{AB}.\vec{SH}+\vec{AB}.\vec{HC}=\vec{AB}.\vec{HC}=AB.HC.\cos 135^{\circ}\\
+			&=a.\dfrac{a\sqrt{2}}{2}.\left(-\dfrac{\sqrt{2}}{2}\right)=-\dfrac{a^2}{2}
+			\end{align*}
+			Mặt khác $\cos \alpha =\dfrac{|\vec{AB}.\vec{SC}|}{|\vec{AB}|.|\vec{SC}|}=\dfrac{\dfrac{a^2}{2}}{a.a}=\dfrac{1}{2}$.Vậy $\alpha=60^{\circ}$.}
+		{\begin{tikzpicture}[line cap=round,line join=round, >=stealth,scale=1.2]
+			\def \a{1} \def \b{-1} \def \c{4} \def \d{3} \def \i{.5}
+			\tkzDefPoint(\i,\i){A}
+			\tkzDefPoint(\i+\a,\i+\b){B}
+			\tkzDefPoint(\i+\c,\i){C}
+			\tkzDefMidPoint(A,B) \tkzGetPoint{H}
+			\coordinate (S) at ($(H)+(0,\i+\d)$);
+			\draw [dashed] (A)--(C)--(H);
+			\draw [thick](H)--(S)--(A)--(B)--(S)--(C)--(B);
+			\tkzMarkRightAngles(S,H,C)
+			\tkzMarkRightAngle(B,C,A)
+			\tkzMarkSegments[mark=|, color=black](S,A S,B S,C C,A C,B)
+			\tkzMarkSegments[mark=x, color=black](H,A H,B)
+			\draw [fill=white] 
+			(S) node[above]{$S$}
+			(H) node[below left ]{$H$}
+			(A) node[left]{$C$}
+			(B) node[below]{$B$}
+			(C) node[right]{$A$};
+			\end{tikzpicture}}	
+	}
+\end{ex} 
+\dang{Ứng dụng tích vô hướng của hai véc-tơ}
+\begin{ex}%[1H3B2-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[QK Trương]\\
+	Cho tứ diện đều $ABCD$. Góc giữa hai đường thẳng $AB, CD$ bằng
+	\choice
+	{\True $90^ {\circ}$}
+	{$45^ {\circ}$}
+	{$60^ {\circ}$}
+	{$30^ {\circ}$}
+	\loigiai{
+		\immini{\textbf{Cách 1:} $\overrightarrow{AB}.\overrightarrow{CD}=\overrightarrow{AB}.\left( \overrightarrow{BD}-\overrightarrow{BC} \right)=-\overrightarrow{BA}.\overrightarrow{BD}+\overrightarrow{BA}.\overrightarrow{BC}=-BA.BD.\cos{60^ {\circ}}+BA.BC. \cos{60^ {\circ}}=0$. \\ 
+			Vậy $AB \perp CD$.\\ 
+			\textbf{Cách 2}: Gọi $M$ là trung điểm của $CD$. Khi đó $AM, BM$ lần lượt là hai đường cao hai tam giác đều $ACD$ và $BCD$ nên $CD$ vuông góc với $AM$ và $BM$, ta suy ra $CD$ vuông góc $mp(ABM)$. Vậy $AB \perp CD$.}
+		{
+			\begin{tikzpicture}[scale=0.7]
+			\clip(-0.3,-3.3) rectangle (7.3,5.9);
+			\draw [dashed] (4.5,-1.5)-- (0,0)--(7,0); 
+			\draw (3,5)--(0,0)-- (2,-3)--(7,0)--(3,5)--(4.5,-1.5);
+			\draw (3,5)--(2,-3);
+			\begin{scriptsize}
+			\draw  (3,5) circle (1.5pt) (3,5.4)node {$A$} (0,0) circle (1.5pt) (-0.2,0.2) node {$B$} (2,-3) circle (1.5pt) (2.4,-3.1) node {$C$} (7,0) circle (1.5pt) (7.2,-0.3) node {$D$} (4.5,-1.5) circle (1.5pt) (4.8,-1.7) node {$M$};
+			\end{scriptsize}
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex} [1H3B2-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Lê Hồng Phi]\\
+	Cho hình chóp $ S.ABC $ có $ SA=SB=SC $  và $ \widehat{ASB}=\widehat{BSC}=\widehat{CSA} $. Hãy xác định góc giữa hai đường thẳng $ SC $ và $ AB $
+	\choice
+	{\True $ 90^{\circ} $}
+	{$ 45^{\circ} $}
+	{$ 60^{\circ} $}
+	{$ 30^{\circ} $}
+	\loigiai{
+		\immini{Ta có $ \begin{aligned}[t]
+			\vec{SC}.\vec{AB}&=\vec{SC}\left(\vec{SB}-\vec{SA}\right)\\
+			&=\vec{SB}.\vec{SC}-\vec{SA}.\vec{SC}\\
+			&=SB.SC.\cos\widehat{BSC}-SA.SB.\cos\widehat{ASB}\\
+			&=0.
+			\end{aligned} $\\
+			Vậy góc giữa hai đường thẳng $ SC $ và $ AB $ bằng $ 90^{\circ} $.}{
+			\begin{tikzpicture}[scale=.6]
+			\tkzDefPoints{0/0/A, 4/-2/B, 6/0/C}
+			\coordinate (M) at ($(B)!.5!(C)$);   % M là trung điểm BC
+			\coordinate (G) at ($(A)!.67!(M)$);
+			\coordinate (S) at ($(G)+(0,5)$);
+			\tkzDrawSegments[dashed](A,C)
+			\tkzDrawPolygon(S,B,C)
+			\tkzDrawSegments(S,A A,B)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[above](S)
+			\tkzMarkSegments[mark=|](S,A S,B S,C)
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[1H3K2-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Lê Hồng Phi]\\
+	Cho tứ diện $ ABCD $. Gọi $ E, F $ lần lượt là trung điểm của $ AB, CD $ và $ G $ là trọng tâm của tứ diện $ ABCD $. Cho $ AB=2a, CD=2b, EF=2c $. Với $ M $ là một điểm tùy ý, tổng $ ME^2+ MF^2 $ bằng 
+	\choice
+	{ $ 2MG^2+ 2(a^2+b^2+c^2) $}
+	{$ 2MG^2+2a^2 $}
+	{\True $ 2MG^2+2c^2 $}
+	{$ 2MG^2+2b^2 $}
+	\loigiai{
+		\immini{Vì $ G $ là trọng tâm của tứ diện $ ABCD $ nên $ G $ là trung điểm của $ EF $.\\
+			Khi đó $\begin{aligned}[t]
+			\vec{ME}+\vec{MF}=2\vec{MG}\Rightarrow & \left(\vec{ME}+\vec{MF}\right)^2=4\vec{MG}^2\\
+			\Leftrightarrow & ME^2+MF^2+2\vec{ME}.\vec{MF}=4MG^2 \quad (1).
+			\end{aligned}$\\
+			Mặt khác $2\vec{ME}.\vec{MF}=ME^2+MF^2-EF^2 \quad(2) $.\\
+			Thay $ (2) $ vào $ (1) $ ta được
+			$\begin{aligned}[t]
+			&\; 2\left(ME^2+MF^2\right)-EF^2=4MG^2\\
+			\Leftrightarrow &\; 2\left(ME^2+MF^2\right)=4MG^2+EF^2\\
+			\Leftrightarrow &\;  2\left(ME^2+MF^2\right)=4MG^2+4c^2\\
+			\Leftrightarrow &\; ME^2+MF^2=2MG^2+2c^2.
+			\end{aligned}  $}{\begin{tikzpicture}[scale=.6]
+			\tkzDefPoints{0/0/A, 2/-2/B, 6/0/C, 3/4/D}
+			%	\coordinate (M) at ($(B)!.5!(A)$);   % M là trung điểm BC
+			\tkzDefMidPoint(A,B)\tkzGetPoint{E};
+			\tkzDefMidPoint(C,D)\tkzGetPoint{F};
+			\tkzDefMidPoint(E,F)\tkzGetPoint{G};
+			\tkzDrawPoints(E,F,G);
+			\tkzDrawSegments[dashed](A,C E,F)
+			\tkzDrawPolygon(D,B,C)
+			\tkzDrawSegments(D,A A,B)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](C,F,G)
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[below left](E)
+			\tkzLabelPoints[above](D)
+			\tkzMarkSegments[mark=|](A,E E,B)
+			\tkzMarkSegments[mark=||](C,F F,D)
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[1H3K2-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]\\
+	Cho tứ diện $S.ABC$ có $SA = SB = SC = AB + AC = a$, $BC = a\sqrt{2}$. Tích vô hương $\overrightarrow{SC}.\overrightarrow{AB}$ bằng
+	\choice
+	{$- a^2$}
+	{$\dfrac{a^2}{2}$}
+	{$a^2$}
+	{\True $- \dfrac{a^2}{2}$}
+	\loigiai{Xét tam giác $SBC$ có $SB^2 + SC^2 = BC^2 = 2a^2 \to \Delta SBC$ vuông tại $S$ \\
+		Ta có $\overrightarrow{SC}.\overrightarrow{AB} = \overrightarrow{SC}.\left(\overrightarrow{SB} - \overrightarrow{SA}\right) = \overrightarrow{SC}.\overrightarrow{SB} - \overrightarrow{SC}.\overrightarrow{SA} = 0 - a.a.\cos \widehat{ASC} = -a^2.\cos 60^{\circ} = - \dfrac{a^2}{2}$
+	}
+\end{ex}
+\begin{ex}%[TT-10]%[1H3K2-4]%[Đề cương khối 11 HK2, Chu Văn An, HN, 2018]%[Nguyễn Tiến Thùy]\\
+	Cho hình hộp chữ nhật $ABCD.A'B'C'D'$ có $AB=1$, $AD=2$, $AA'=3$. Xét điểm $M$ là điểm thay đổi trong không gian. Gọi $S$ là tổng các bình phương khoảng cách từ $M$ đến tất cả các đỉnh của hình hộp. Giá trị nhỏ nhất của $S$ bằng
+	\choice
+	{$\sqrt{14}$}
+	{$14$}
+	{$2\sqrt{7}$}
+	{\True $28$}
+	\loigiai{
+		\immini{
+			Lấy $O$ là tâm đối xứng của khối hộp chữ nhật $ABCD.A'B'C'D'$.\\
+			Do
+			$$MA^2=\overrightarrow{MA}^2=(\overrightarrow{MO}+\overrightarrow{OA})^2=MO^2+OA^2+2\overrightarrow{MO}\cdot\overrightarrow{OA},$$
+			$$MB^2=\overrightarrow{MB}^2=(\overrightarrow{MO}+\overrightarrow{OB})^2=MO^2+OB^2+2\overrightarrow{MO}\cdot\overrightarrow{OB},$$
+			$$MC^2=\overrightarrow{MC}^2=(\overrightarrow{MO}+\overrightarrow{OC})^2=MO^2+OC^2+2\overrightarrow{MO}\cdot\overrightarrow{OC},$$
+			$$MD^2=\overrightarrow{MD}^2=(\overrightarrow{MO}+\overrightarrow{OD})^2=MO^2+OD^2+2\overrightarrow{MO}\cdot\overrightarrow{OD},$$
+			$$MA'^2=\overrightarrow{MA'}^2=(\overrightarrow{MO}+\overrightarrow{OA'})^2=MO^2+OA'^2+2\overrightarrow{MO}\cdot\overrightarrow{OA'},$$
+			$$MB'^2=\overrightarrow{MB'}^2=(\overrightarrow{MO}+\overrightarrow{OB'})^2=MO^2+OB'^2+2\overrightarrow{MO}\cdot\overrightarrow{OB'},$$
+			$$MC'^2=\overrightarrow{MC'}^2=(\overrightarrow{MO}+\overrightarrow{OC'})^2=MO^2+OC'^2+2\overrightarrow{MO}\cdot\overrightarrow{OC'},$$
+			$$MD'^2=\overrightarrow{MD'}^2=(\overrightarrow{MO}+\overrightarrow{OD'})^2=MO^2+OD'^2+2\overrightarrow{MO}\cdot\overrightarrow{OD'},$$
+		}{
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/A}
+			\tkzDefShiftPoint[A](0:4){B}
+			\tkzDefShiftPoint[A](40:2){D}
+			\tkzDefShiftPoint[D](0:4){C}
+			\tkzDefShiftPoint[A](-90:5){A'}
+			\tkzDefShiftPoint[B](-90:5){B'}
+			\tkzDefShiftPoint[C](-90:5){C'}
+			\tkzDefShiftPoint[D](-90:5){D'}
+			\tkzDefMidPoint(A,C')\tkzGetPoint{O}
+			
+			\tkzDrawPoints(A,B,C,D,A',B',C',D',O)
+			\tkzDrawSegments(A,B B,C C,D D,A A,A' B,B' C,C' A',B' B',C')
+			\tkzDrawSegments[dashed](A',D' C',D' D,D' A,C' A',C B,D' B',D)
+			
+			\tkzLabelPoints[above left](A,B,C,D)
+			\tkzLabelPoints[](A',B',C',D')
+			\tkzLabelPoints[right](O)
+			\end{tikzpicture}
+		}
+		\noindent nên ta có $$S=MA^2+MB^2+MC^2+MD^2+MA^2+MB^2+MC^2+MD^2=8MO^2+8OA^2.$$
+		Từ đó suy ra $S_{\min}=8OA^2=28$, dấu bằng xảy ra khi $M\equiv O$.
+	}
+\end{ex}
+\section{Đường thẳng vuông góc với mặt phẳng}
+\dang{Câu hỏi lí thuyết}
+\begin{ex}%[1H3Y3-1]%[Đề cương ôn hk2 - k11 - Chu Văn An - Hà Nội - 2018]%[QK Trương]\\
+	Trong không gian cho đường thẳng $\Delta $ không nằm trong mặt phẳng $(P)$. Đường thẳng $\Delta $ vuông góc với mặt phẳng $(P)$ nếu: 
+	\choice
+	{$\Delta $ vuông góc mặt phẳng $(Q)$ mà $(Q) \perp (P)$}
+	{\True $\Delta $ vuông góc với mọi đường thẳng nằm trong mặt phẳng $(P)$}
+	{$\Delta $ vuông góc đường thẳng $a$ mà $a\parallel(P)$}
+	{$\Delta $ vuông góc với hai đường thẳng phân biệt nằm trong $(P)$}
+	\loigiai{
+		Theo lý thuyết đường thẳng vuông góc mặt phẳng.}
+\end{ex}
+\begin{ex}%[1H3B3-1]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Trần Hoàng Trọng Ân]\\
+	Trong không gian cho đường thẳng $ \Delta $ và điểm $ I $ . Có bao nhiêu đường thẳng đi qua điểm
+	$ I $ và vuông góc với đường thẳng $ \Delta $ đã cho?
+	\choice
+	{Không có}
+	{$ 2 $}
+	{$ 1 $}
+	{\True Vô số}
+	\loigiai{
+		Ta có: qua $ 1 $ điểm nằm ngoài mặt phẳng chỉ có duy nhất 1 đường thẳng đi qua điểm đó và vuông góc mặt phẳng đã cho.\\
+		Có vô số mặt phẳng chứa $ 1 $ đường thẳng cho trước.\\
+		Do đó có vô số đường thẳng đi qua $ 1 $ điểm và vuông góc với đường thẳng cho trước.
+	}
+\end{ex}
+\begin{ex}%[1H3B3-1]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Trần Hoàng Trọng Ân]\\
+	Cho $ a,b$ là các đường thẳng và $ (\alpha), (\beta) \text{ và } (\gamma) $ là các mặt phẳng phân biệt. Mệnh đề nào sau đây là mệnh đề đúng?
+	\choice
+	{\True Nếu $ a \perp (\alpha) $ và $ a \perp (\beta) $ thì $ (\alpha) \parallel (\beta)$ }
+	{Nếu $ a \perp b $ và $ b \subset (\alpha) $ thì $ a \perp (\alpha) $}
+	{Nếu $ (\gamma) \perp (\alpha) $ và  $ (\gamma) \perp (\beta) $ thì $ (\alpha) \parallel (\beta)  $}
+	{Nếu $ a \perp (\beta) $ và $ (\alpha) \perp (\beta) $ thì $ a \parallel (\alpha)  $}
+	\loigiai{
+		\begin{itemize}
+			\item Nếu $ a \perp b $ và $ b \subset (\alpha) $ thì $ a \perp (\alpha) $ .\textbf{Sai} $ a $ phải vuông góc hai đường thẳng cắt nhau trong mặt phẳng $ (\alpha) $
+			\item Nếu $ (\gamma) \perp (\alpha) $ và  $ (\gamma) \perp (\beta) $ thì $ (\alpha) \parallel (\beta)  $.\textbf{Sai} $ (\alpha) $ và $ (\beta) $ có thể cắt nhau.
+			\item Nếu $ a \perp (\beta) $ và $ (\alpha) \perp (\beta) $ thì $ a \parallel (\alpha)  $.\textbf{Sai} vì $ a \subset (\alpha) $.
+		\end{itemize}
+	}
+	
+\end{ex}
+\begin{ex}%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đỗ Đường Hiếu]%[1H3B3-1]\\
+	Cho đường thẳng $d$ và mặt phẳng $(\alpha)$. Khẳng định nào sau đây sai?
+	\choice
+	{\True Nếu đường thẳng $d$ vuông góc với hai đường thẳng phân biệt trong mặt phẳng $(\alpha)$ thì $d\perp (\alpha)$}
+	{Nếu $d\perp (\alpha)$ thì đường thẳng $d$ vuông góc với hai đường thẳng song song trong mặt phẳng $(\alpha)$}
+	{Nếu $d\perp (\alpha)$ và có một đường thẳng $a$ thỏa mãn $a\parallel (\alpha)$ thì $d\perp a$}
+	{Nếu đường thẳng $d$ vuông góc với hai đường thẳng cắt nhau trong mặt phẳng $(\alpha)$ thì $d$ sẽ vuông góc với một đường thẳng bất kỳ trong mặt phẳng $(\alpha)$}
+	\loigiai{
+		Giả sử đường thẳng $d\in (\alpha)$ và hai đường thẳng $a$, $b$ song song với nhau và nằm trong mặt phẳng $(\alpha)$. Khi đó nếu $d$ vuông góc với $a$ và $b$ thì rõ rằng $d$ không vuông góc với mặt phẳng  $(\alpha)$.
+	}
+\end{ex}
+\dang{Xác định quan hệ vuông góc giữa đường thẳng và mặt phẳng, đường thẳng và đường thẳng}
+\begin{ex}%[1H3B3-2]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Lê Hồng Phi]\\ 
+	Cho tứ diện đều $ ABCD $. Gọi $ M, N $ lần lượt là trung điểm của $ AB, CD $. Mệnh đề nào sau đây {\bf sai}?
+	\choice
+	{ $ MN\perp CD $}
+	{ $ AB\perp CD $}
+	{ $ MN\perp AB $}
+	{\True Tam giác $ MCD $ là tam giác đều}
+	\loigiai{
+		\immini{Giả sử tứ diện đều $ ABCD $ có cạnh bằng $ a $.\\
+			Khi đó $ MC $ là đường cao của tam giác đều $ ABC $ nên $ MC=\dfrac{a\sqrt{3}}{2} $.\\
+			Tương tự, $ MD=\dfrac{a\sqrt{3}}{2} $.\\
+			Cạnh $ CD=a $. Do đó khẳng định ``Tam giác $ MCD $ là tam giác đều'' là khẳng định sai.}{\begin{tikzpicture}[scale=.6]
+			\tkzDefPoints{0/0/A, 4/-2/B, 6/0/C}
+			\coordinate (I) at ($(B)!.5!(C)$);   % M là trung điểm BC
+			\coordinate (H) at ($(A)!.67!(I)$);
+			\coordinate (D) at ($(H)+(0,5)$);
+			\tkzDefMidPoint(A,B)\tkzGetPoint{M};
+			\tkzDefMidPoint(C,D)\tkzGetPoint{N};
+			\tkzDrawPoints(M,N);
+			\tkzDrawSegments[dashed](A,C M,C M,N)
+			\tkzDrawPolygon(D,B,C)
+			\tkzDrawSegments(D,A A,B M,D)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](C,N)
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[below left](M)
+			\tkzLabelPoints[above](D)
+			\tkzMarkSegments[mark=|](A,M M,B)
+			\tkzMarkSegments[mark=||](C,N N,D)
+			\tkzMarkRightAngle(A,M,D)
+			\tkzMarkRightAngle(B,M,C)
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[1H3B3-2]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Lê Hồng Phi]\\
+	Các đường thẳng cùng vuông góc với một đường thẳng thì 
+	\choice
+	{\True song song với một mặt phẳng}
+	{thuộc một mặt phẳng}
+	{vuông góc với nhau}
+	{song song với nhau}
+	\loigiai{
+		Từ liên hệ giữa quan hệ song song và quan hệ vuông góc của đường thẳng và mặt phẳng ta suy ra ``Các đường thẳng cùng vuông góc với một đường thẳng thì song song với một mặt phẳng''.
+	}
+\end{ex}
+\begin{ex}%[1H3B3-2]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Trần Hoàng Trọng Ân]\\
+	Cho hình chóp $ S.ABCD  $ có tứ giác $ ABCD $ là hình thoi tâm $ O $ và $ SB \perp (ABC) $ . Hãy chọn
+	khẳng định \textbf{sai} trong số khẳng định sau.
+	\choice
+	{$ OD \perp SB $}
+	{$ AC \perp SO $}
+	{$ OC \perp (SBD) $}
+	{\True $ BD \perp (SAC) $}
+	\loigiai{\begin{center}
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/B, 4/0/C, 1.5/2/A, 0/6/h};
+			\coordinate (D) at ($(C)+(A)$);
+			\coordinate (O) at ($(B)!.5!(D)$);
+			\coordinate (S) at ($(B)+(h)$);
+			\tkzDrawPolygon(B,C,D,S);
+			\tkzDrawPoints(O)
+			\tkzDrawSegments[dashed](A,D D,C D,S C,S A,C B,D S,B A,B S,A S,O);
+			\tkzMarkRightAngle(A,O,B);
+			\tkzMarkRightAngle(S,B,C);
+			\tkzMarkRightAngle(S,B,A);
+			\tkzLabelPoints[above](A,D);
+			\tkzLabelPoints[below](B,C);
+			\tkzLabelPoints[above](S);
+			\tkzLabelPoints[below](O);
+			\end{tikzpicture}
+		\end{center}
+		\begin{itemize}
+			\item Ta có mặt phẳng $ (ABC) $ trùng mặt phẳng $ (ABCD) $, do đó $ SB \perp (ABCD) \Rightarrow SB \perp OD \text{ vì } OD \subset (ABCD)$.
+			\item Ta có: $ AC \perp BD \text{ (t/c hình thoi) } $ và $ SB \perp AC \Rightarrow AC \perp (SBD) \Rightarrow AC \perp SO \text{ vì } SO \subset (SAC)$.
+			\item Ta có: $ OC \equiv AC  , AC \perp (SBD )\Rightarrow OC \perp (SBD)$.
+		\end{itemize}
+	}
+\end{ex}
+\begin{ex}%[1H3B3-2]%[Đề cương ôn hk2 - k11 - Chu Văn An - Hà Nội - 2018]%[QK Trương]\\
+	Cho tứ diện $ABCD$, gọi $M, N$ lần lượt là trung điểm của $AB, CD$. Mệnh đề nào sau đây là mệnh đề \textbf{sai}?
+	\choice
+	{\True $MN \perp BD$}
+	{$MN \perp AB$}
+	{$AB \perp \left(MCD\right)$}
+	{$\left(ABN\right) \perp \left(BCD\right)$}
+	\loigiai{
+		\immini{Vì $ABCD$ là tứ diện đều nên tam giác $ABN$ và tam giác $ABC$ cân. Do đó $MN \perp AB$  và $MC \perp AB$ ($MN, MC$ lần lượt đường cao của tam giác $ABN, ABC$) nên $AB \perp \left(MCD\right)$ .\\
+			Mặt khác $CD \perp AN, CD \perp BN\Rightarrow CD \perp (ABN)\Rightarrow \left(BCD\right) \perp \left(ABN\right)$ .}
+		{\begin{tikzpicture}[>=stealth,scale=.5
+			]
+			\tkzInit[ymin=-4,ymax=6,xmin=-1.2,xmax=8]
+			\tkzClip
+			\tkzDefPoints{3/5/A,0/0/B,2/-3/C,7/0/D,1.5/2.5/M,4.5/-1.5/N}
+			\tkzLabelPoints[left](M,B)
+			\tkzLabelPoints[below](N)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](C)
+			\tkzLabelPoints[right](D)
+			\tkzDrawPoints(A,B,C,D,M,N)
+			\tkzDrawSegments(A,B A,C A,D C,D A,N C,M B,C)
+			\tkzDrawSegments[dashed](B,N M,N M,D B,D)
+			\tkzMarkSegments[mark=|](M,A M,B)
+			\tkzMarkSegments[mark=|](N,C N,D)
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[1H3B3-2]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Dương BùiĐức]\\
+	Cho hình chóp tứ giác đều $ S.ABCD $ có tất cả các cạnh đều bằng $ a $. Khẳng định nào sau đây đúng?
+	\choice
+	{$ SA\perp CD $}
+	{$ SA\perp SB $}
+	{\True $ SA\perp SC $}
+	{$ SA\perp SD $}
+	\loigiai{
+		\immini[0.05]{
+			Vì $ S.ABCD $ là hình chóp tứ giác đều có tất cả các cạnh đều bằng $ a $ nên $ SA=SC=a$.\\
+			Do $ ABCD $ là hình vuông cạnh $ a $ nên $ AC=a\sqrt{2}$ \\
+			$\Rightarrow AC^{2}=SA^{2}+SC^{2}\Rightarrow SA\perp SC $.
+		}{
+			\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm, scale=0.7, thick]
+			\tkzDefPoint(0,0){A}
+			\def\h{3}
+			\tkzDefShiftPoint[A](0:1.5*\h){D}
+			\tkzDefShiftPoint[A](-150:0.9*\h){B}
+			\coordinate (C) at ($(D)+(B)-(A)$);
+			\coordinate (O) at ($(D)!0.5!(B)$);
+			\tkzDefShiftPoint[O](90:\h){S}
+			\tkzDrawSegments(S,D S,B S,C B,C C,D)
+			\tkzDrawSegments[dashed](A,B A,D A,S A,C B,D O,S)
+			\tkzDrawPoints[size=1pt](A,B,C,D,S,O)
+			\pgfresetboundingbox
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](B,C,O)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](D)
+			\tkzMarkRightAngles(S,O,A)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[1H3K3-2]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Mai Sương]\\
+	Cho hình chóp $S.ABC$ có các cạnh bên bằng nhau và tam giác $ABC$ vuông tại $C$. Gọi $H$ là hình chiếu vuông góc của đỉnh $S$ trên mặt phẳng $(ABC)$. Chọn khẳng định \textbf{sai} trong các khẳng định sau.
+	\choice
+	{$SH \perp BC$}
+	{\True $H$ là tâm đường tròn nội tiếp của tam giác $ABC$}
+	{$H$ là trung điểm cạnh $AB$}
+	{$HA=HB=HC$}
+	\loigiai{
+		\immini{
+			\begin{itemize}
+				\item $SH \perp (ABC) \Rightarrow SH \perp BC.$
+				\item Ta có $SA=SB=SC$ nên hình chiếu của $S$ trên $(ABC)$ là tâm đường tròn ngoại tiếp $\triangle ABC$. Do đó $HA=HB=HC$.\\
+				Mặt khác, vì $\triangle ABC$ vuông cân tại $C$ nên $H$ là trung điểm của $AB$.
+			\end{itemize}
+			Vậy khẳng định "$H$ là tâm đường tròn nội tiếp của tam giác $ABC$" là sai.
+		}
+		{\begin{tikzpicture}[>=stealth, line join=round, line cap = round,scale=0.75]%tứ diện
+			\tkzDefPoints{0/0/A, 6/0/B, 2/-2.5/C}
+			\tkzDefMidPoint(A,B) \tkzGetPoint{H}
+			\tkzDefLine[perpendicular=through H,K=0.7](A,B)\tkzGetPoint{S}
+			\tkzDrawSegments(B,C A,C S,A S,B S,C)
+			\tkzDrawSegments[dashed](A,B S,H H,C)
+			
+			\tkzDrawPoints(A,B,C,S,H)
+			\tkzLabelPoints[below right](H)
+			\tkzLabelPoints[below](A,B,C)
+			\tkzLabelPoints[above](S)
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đỗ Đường Hiếu]%[1H3K3-2]\\
+	Cho hình chóp $S.ABC$ có đáy là tam giác $ABC$ không vuông, $SA\perp (ABC)$. Gọi $H$, $K$ lần lượt là trực tâm của các tam giác $ABC$ và $SBC$. Khi đó, các đường thẳng $AH$, $SK$, $BC$ thỏa mãn
+	\choice
+	{\True Đồng quy}
+	{Không đồng phẳng}
+	{Đôi một song song}
+	{Đôi một chéo nhau}
+	\loigiai{
+		\immini{Gọi $E$ là chân đường cao hạ từ $A$ của tam giác $ABC$.\\
+			Ta có $SA\perp (ABC) \Rightarrow SA\perp BC$.\\
+			$\Rightarrow BC\perp (SAE) \Rightarrow BC\perp SE$, suy ra $SE$ là đường cao của tam giác $SBC$.\\
+			Vậy, ba đường thẳng $AH$, $SK$, $BC$ đồng quy tại $E$.
+		}
+		{\begin{tikzpicture}[line cap=round,line join=round, >=stealth,scale=1]
+			\def \xa{2} 
+			\def \xb{-2}
+			\def \y{4}
+			\def \z{3}
+			
+			\coordinate (A) at (0,0);
+			\coordinate (C) at ($(A)+(\xa,\xb)$);
+			\coordinate (B) at ($(A)+(\y,0)$);
+			\coordinate (S) at ($ (A)+(0,\z) $);
+			\coordinate (E) at ($ (B)!.3!(C) $);
+			\coordinate (H) at ($ (A)!.55!(E) $);
+			\coordinate (K) at ($ (S)!.75!(E) $);
+			\draw [dashed] (B)--(A)--(E);
+			\draw (E)--(S)--(A)--(C)--(S)--(B)--(C);
+			\tkzDrawPoints(S,A,B,C,E,H,K)
+			\tkzLabelPoints[right](E)
+			\tkzLabelPoints[above right](K)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](B,A,C,H)
+			\tkzMarkRightAngle(A,E,C)
+			\tkzMarkRightAngle(S,E,B)
+			\end{tikzpicture}}
+		
+	}
+\end{ex}
+\dang{Xác định góc giữa mặt phẳng và đường thẳng}
+\begin{ex}%[Đề cương ôn hk2 - k11 - Chu Văn An - Hà Nội - 2018]%[1H3B3-3]%[Trịnh Văn Xuân]\\
+	Cho tứ diện $ABCD$ có các đường thẳng $AC$, $BC$, $CD$ đôi một vuông góc. Khẳng định nào sau đây là đúng?
+	\choice
+	{Góc giữa đường thẳng $BD$ và mặt phẳng $(ABD)$ là góc $\widehat{ABD}$}
+	{Góc giữa đường thẳng $AB$ và mặt phẳng $(ACD)$ là góc $\widehat{DAC}$}
+	{\True Góc giữa đường thẳng $AB$ và mặt phẳng $(BCD)$ là góc $\widehat{ABC}$}
+	{Góc giữa đường thẳng $AD$ và mặt phẳng $(BCD)$ là góc $\widehat{ADB}$}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth]	
+			\tkzDefPoints{0/0/C,2/-1/D,4/0/B}
+			\tkzDefShiftPoint[C](90:3){A}
+			\tkzLabelPoints[left](C)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](D)
+			\tkzLabelPoints[right](B)
+			\tkzDrawPoints(C,D,B,A)
+			\tkzMarkAngle[size=1 cm](A,B,C)
+			\tkzMarkRightAngles(A,C,D A,C,B)	
+			\tkzDrawSegments(A,C A,D A,B C,D D,B)
+			\tkzDrawSegments[dashed](C,B)
+			\end{tikzpicture}
+		\end{center}
+		Ta có $AB\cap (BCD) = B$ và hình chiếu của $A$ trên mặt phẳng $(BCD)$ là $C$ nên $$(AB, (BCD)) = (AB, BC) = \widehat{ABC}.$$	
+	}
+\end{ex}
+\begin{ex}% [1H3K3-3]%[QK Trương]
+	Cho hình chóp $S.ABC$, $SA \perp \left(ABC\right)$, tam giác $ABC$ vuông tại $B$, $SA=AB=a$. Kết luận nào sau đây \textbf{sai} ?
+	\choice
+	{$\left(SAB\right)\perp \left(SBC\right)$}
+	{$\widehat{\left(SB, \left(ABC\right)\right)}=45^{\circ}$}
+	{\True $\widehat{\left(SC, \left(ABC\right)\right)}=45^{\circ}$}
+	{$\widehat{\left(\left(SBC\right), \left(ABC\right)\right)}=45^{\circ}$}
+	\loigiai{
+\begin{center}
+	\begin{tikzpicture}[scale=1.0]
+	\tkzDefPoints{0/0/A, 2/-2/B, 5/0/C}
+	\coordinate (S) at ($(A)+(0,5)$);
+	\tkzDrawSegments(S,A A,B B,C C,S S,B)
+	\draw[dashed] (A)--(C);
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoints[right](C)
+	\tkzLabelPoints[below](B)
+	\tkzLabelPoints[above](S)
+	\tkzMarkRightAngle(S,A,C)
+	\tkzMarkRightAngle(S,A,B)
+	\tkzMarkAngle[draw=black](S,C,A)
+	\tkzMarkAngles[draw=black](S,B,A)
+	\tkzLabelAngle[pos=0.6](S,C,A){$45^\circ$}%
+	\tkzLabelAngle[pos=0.6](S,B,A){$45^\circ$}%
+	\tkzMarkRightAngle(A,B,C)
+	\tkzDrawPoints(S,A,B,C)
+	\tkzLabelSegments[left](S,A A,B){$a$}
+	\end{tikzpicture}
+\end{center}
+Ta có: $BC\perp AB, BC\perp SA\Rightarrow BC\perp \left(SAB\right)\Rightarrow \left(SBC\right)\perp \left(SAB\right)$. 
+$SA\perp \left(ABC\right)\Rightarrow \widehat{\left(SB, \left(ABC\right)\right)}=\widehat{\left(SB, AB\right)}=\widehat{SBA}=45^{\circ}$ ($\Delta SAB$ vuông cân tại $A$). \\
+Mặt khác $\left(SAB\right)\perp BC, \left(SAB\right)\cap \left(SBC\right)=SB, \left(SAB\right)\cap \left(ABC\right)=AB\Rightarrow \widehat{\left(\left(SBC\right), \left(ABC\right)\right)}=\widehat{\left(SB, AB\right)}=45^{\circ}$.}
+\end{ex}
+
+
+\begin{ex}%[1H3K3-3]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Mai Sương]\\
+	Cho hình chóp $A.ABCD$ có đáy $ABCD$ là hình vuông cạnh $a$. Gọi $M$ và $N$ lần lượt là trung điểm của $AD$ và$SD$. Số đo của góc giữa đường thẳng $MN$ và mặt phẳng $ABC$ bằng
+	\choice
+	{$30^{\circ}$}
+	{\True $45^{\circ}$}
+	{$90^{\circ}$}
+	{$60^{\circ}$}
+	\loigiai{
+		\immini{
+			Gọi $O=AC \cap BD$, ta có $SO \perp (ABCD)$.\\
+			Ta có $MN \parallel SA$ nên $(MN,(ABC))=(SA,(ABC))=\widehat{SAO}.$\\
+			Xét $\triangle SOA$ vuông tại $O$ có $SA=a,OA=\dfrac{a\sqrt{2}}{2}$\\
+			$\Rightarrow \cos \widehat{SAO} = \dfrac{OA}{SA} = \dfrac{\sqrt{2}}{2} \Rightarrow \widehat{SAO}=45^{\circ}.$\\
+			Vậy góc cần tìm là $45^{\circ}$.
+		}
+		{\begin{tikzpicture}[>=stealth, line join=round, line cap = round,scale=0.7]%hình chóp đáy hình vuông
+			\tkzDefPoints{0/0/A, 6/0/D, -3/-2.5/B}
+			\tkzDefPointBy[translation=from A to D](B)\tkzGetPoint{C}
+			\tkzInterLL(A,C)(B,D) \tkzGetPoint{O}
+			\tkzDefLine[perpendicular=through O](A,D)\tkzGetPoint{S}
+			\tkzDefMidPoint(A,D) \tkzGetPoint{M}
+			\tkzDefMidPoint(S,D) \tkzGetPoint{N}
+			\tkzDrawSegments(S,B S,C S,D B,C C,D)
+			\tkzDrawSegments[dashed](S,A A,D A,B A,C B,D S,O M,N)
+			\tkzLabelPoints[left=0.15](A)
+			\tkzLabelPoints[below right](C,D)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[above right](N)
+			\tkzLabelPoints[below](O,M)
+			\tkzLabelPoints[below left](B)
+			\tkzDrawPoints(S,A,B,C,D,O,M,N)
+			\tkzMarkRightAngle(S,O,A)
+			\tkzMarkAngle[size=0.3cm](O,A,S)
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[1H3G3-3]%[Đề cương ôn hk2 - k11 - Chu Văn An - Hà Nội - 2018]%[Nguyễn Minh Tiến]\\
+	Cho hình lập phương $ABCD.A'B'C'D'$. Gọi $\alpha$ là góc giữa đường thẳng $AC'$ và mặt phẳng $\left(A'BCD'\right)$ thì ta có khẳng định nào sau đây là khẳng định đúng.
+	\choice
+	{$\alpha  = 90^\circ$}
+	{$\alpha  = 30^\circ$}
+	{$\cot \alpha = \sqrt{2}$}
+	{\True $\tan \alpha = \sqrt{2}$}
+	\loigiai{\immini{Dễ thấy $AB' \perp \left(A'BCD'\right)$ và $C'D \perp \left(A'BCD'\right)$. \\
+			Khi đó $IJ$ là hình chiếu của $AC'$ lên mặt phẳng $\left(A'BCD'\right)$. \\
+			$\Rightarrow \left(AC',\left(A'BCD'\right)\right) = \left(AC',IJ\right) = \widehat{AOI}$. \\
+			Gọi cạnh hình lập phương là $a$ khi đó $AI = \dfrac{a\sqrt{2}}{2}$ và $IO = \dfrac{a}{2}$.\\
+			Xét $\Delta AOI$ vuông tại $I \Rightarrow \tan \widehat{AOI} = \dfrac{AI}{IO} = \sqrt{2}$.}{\begin{tikzpicture}[scale=.7]
+			\draw (-1,3)-- (4,3)-- (4,-2)-- (-1,-2)-- (-1,3);
+			\draw (-1,3)-- (0,5)-- (5,5)--(4,3);
+			\draw (5,5)-- (5,0)-- (4,-2);
+			\draw (4,3)-- (-1,-2);
+			\draw (-1,3)-- (4,-2);
+			\draw [dashed] (0,5)-- (0,0)--(5,0);
+			\draw [dashed] (-1,-2)-- (0,0);
+			\draw [dashed] (5,5)-- (0,0);
+			\draw [dashed] (0,5)-- (5,0);
+			\draw [dashed] (2.5,2.5)-- (1.5,0.5);
+			\draw [dashed] (0,5)-- (4,-2);
+			\fill (0,0) circle (.05) node [below]{$A'$};
+			\fill (5,0) circle (.05) node [below]{$B'$};
+			\fill (4,-2) circle (.05) node [below]{$C'$};
+			\fill (-1,-2) circle (.05) node [below]{$D'$};
+			\fill (0,5) circle (.05) node [above]{$A$};
+			\fill (5,5) circle (.05) node [above]{$B$};
+			\fill (4,3) circle (.05) node [above]{$C$};
+			\fill (-1,3) circle (.05) node [above]{$D$};
+			\fill (2.5,2.5) circle (.05) node [above]{$I$};
+			\fill (1.5,0.5) circle (.05) node [above]{$J$};
+			\fill (2,1.5) circle (.05) node [above]{$O$};
+			\end{tikzpicture}}
+	}
+\end{ex}
+\dang{Dựng mặt phẳng vuông góc với đường thẳng cho trước. Thiết diện}
+\begin{ex}%[1H3K3-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Phan Quốc Trí]\\
+	Cho hình lập phương $ABCD.A'B'C'D'$. Gọi $(P)$ là mặt phẳng trung trực của đoạn thẳng $AC'$. Khi đó thiết diện của hình lập phương đã cho tạo bởi mặt phẳng $(P)$ là hình nào dưới đây?
+	\choice
+	{Hình vuông}
+	{\True Hình lục giác}
+	{Hình chữ nhật}
+	{Hình thang cân}
+	\loigiai{
+		\immini{
+			Gọi $M,N,P,Q,R,S$ lần lượt là trung điểm $BC,CD,DD',A'D',A'B', BB'$. Ta có  $MA=MC'\Rightarrow M\in (P)$.\\
+			Tương tự các điểm $N,P,Q,R,S$ cũng thuộc $(P)$. \\
+			Suy ra thiết diện của mặt phẳng $(P)$ và hình lập phương là hình lục giác $MNPQRS$.
+		}{
+			\begin{tikzpicture}[scale=1, line width=1.2pt]%1
+			\tkzDefPoints{0/0/B, 4/0/C, -3/-2/A, 0/-3/E}
+			\tkzDefPointBy[translation=from B to C](A)\tkzGetPoint{D}
+			\tkzDefPointBy[translation=from B to E](B)\tkzGetPoint{B'}
+			\tkzDefPointBy[translation=from B to E](C)\tkzGetPoint{C'}
+			\tkzDefPointBy[translation=from B to E](D)\tkzGetPoint{D'}
+			\tkzDefPointBy[translation=from B to E](A)\tkzGetPoint{A'}
+			\tkzDefMidPoint(B,C) \tkzGetPoint{M}
+			\tkzDefMidPoint(D,C) \tkzGetPoint{N}
+			\tkzDefMidPoint(D,D') \tkzGetPoint{P}
+			\tkzDefMidPoint(A',D') \tkzGetPoint{Q}
+			\tkzDefMidPoint(B',A') \tkzGetPoint{R}
+			\tkzDefMidPoint(B,B') \tkzGetPoint{S}
+			\tkzDrawSegments(A,D D,C A',D' C',D' A',A D',D C',C A,B B,C M,N N,P P,Q)
+			\tkzDrawSegments[dashed](A',B' B',C'  B,B' A,C' M,S S,R R,Q)
+			\tkzLabelPoints(C',D')
+			\tkzLabelPoints(N,P,Q)
+			\tkzLabelPoints[above](B,C,M,D)
+			\tkzLabelPoints[left](A,A',B',R,S)
+			\tkzFillPolygon[opacity=0.1](M,N,P,P,Q,R,S)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\section{Hai mặt phẳng vuông góc}
+\dang{Câu hỏi lí thuyết}
+\begin{ex}%[Đề cương ôn hk2 - k11 - Chu Văn An - Hà Nội - 2018]%[1H3B4-1]%[Trịnh Văn Xuân]\\
+	Cho các mệnh đề
+	\begin{enumerate}[A.]
+		\item Hình hộp có các đường chéo bằng nhau là hình lập phương.
+		\item Hình hộp có các cạnh bằng nhau là hình lập phương.
+		\item Hình hộp đứng có các cạnh bằng nhau là hình lập phương.
+		\item Hình hộp chữ nhật có các cạnh bằng nhau là hình lập phương.
+	\end{enumerate}
+	Có bao nhiêu mệnh đề \textbf{đúng} trong các mệnh đề trên?
+	\choice
+	{\True $1$}
+	{$2$}
+	{$3$}
+	{$0$}
+	\loigiai{
+		\begin{itemize}
+			
+			\item Hình hộp là hình lăng trụ có đáy là hình bình hành.
+			\item Hình hộp đứng là hình lăng trụ đứng có đáy là hình bình hành.
+			\item Hình hộp chữ nhật là hình lăng trụ đứng có đáy là hình chữ nhật.
+		\end{itemize}
+		Vậy hình hộp chữ nhật có các cạnh bằng nhau là hình lập phương.
+	}
+\end{ex}
+\dang{Xác định quan hệ vuông góc giữa mặt phẳng và mặt phẳng, đường thẳng và mặt phẳng}
+\begin{ex}%[1H3B4-2]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Mai Sương]\\
+	Cho hình lập phương $ABCD.A'B'C'D'$. Mệnh đề nào sau đây là mệnh đề \textbf{sai}?
+	\choice
+	{$B'C \perp (ABC'D')$}
+	{$(B'CDA') \perp (ABC'D')$}
+	{$((ABC'D'),(ABCD))=45^{\circ}$}
+	{\True $(BD',(ABCD))=45^{\circ}$}
+	\loigiai{
+		\immini{
+			\begin{itemize}
+				\item $\heva{B'C \perp BC'\\B'C \perp AB}\Rightarrow B'C \perp (ABC'D')$.
+				\item $B'C \perp (ABC'D') \Rightarrow (B'CDA') \perp (ABC'D')$.
+				\item $((ABC'D'),(ABCD))=\widehat{C'BC} =45^{\circ}$.
+				\item $(BD',(ABCD))=\widehat{D'BD} = \arctan \dfrac{1}{\sqrt{2}} \ne 45^{\circ}$.
+			\end{itemize}
+		}
+		{\begin{tikzpicture}[>=stealth, line join=round, line cap = round]%hình lập phương}
+			\tkzDefPoints{0/0/A, 4/0/D, -2.2/-1.5/B, 0/4/A'}
+			\tkzDefPointBy[translation=from A to D](B)\tkzGetPoint{C}
+			\tkzDefPointBy[translation=from A to A'](B)\tkzGetPoint{B'}
+			\tkzDefPointBy[translation=from A to A'](C)\tkzGetPoint{C'}
+			\tkzDefPointBy[translation=from A to A'](D)\tkzGetPoint{D'}
+			\tkzDrawSegments(B,C C,D C,C' B,B' D,D' A',B' A',D' D',C' C',B' B',C B,C')
+			\tkzDrawSegments[dashed](A,B A,D A,A' A',D A,D' B,D D',B)
+			
+			\tkzDrawPoints(A,B,C,D,A',B',C',D')
+			\tkzLabelPoints[below](A,B,C,D)
+			\tkzLabelPoints[above](A',B',C',D')
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[Đề cương HK2, Chu Văn An, Hà Nội]%[1H3B4-2]%[Phan Minh Tâm]\\
+	Cho tứ diện $ ABCD $ có $ AB \bot (BCD) $ và $ \widehat{BDC} =90^\circ.$ Số các mặt của tứ diện đã cho là tam giác đều là bao nhiêu?
+	\choice
+	{\True $ 0 $}
+	{$ 1 $}
+	{$ 3 $}
+	{$ 4 $}
+	\loigiai{
+		\immini
+		{
+			Theo giả thiết ta được $ \triangle ABC $, $ \triangle ABD $, $ \triangle BCD $ vuông.\\
+			Ta lại có $ \heva{&CD \bot BD \, (\text{ giả thiết})\\&CD \bot AB \, (\text{ do } AB \bot (BCD))} \Rightarrow CD \bot (ABD)$\\ $\Rightarrow CD \bot AD $.\\
+			Suy ra tam giác $ ACD $ vuông tại $ D $.\\
+			Vậy các mặt của tứ diện là các tam giác vuông.
+		}
+		{\begin{tikzpicture}[scale=.7]
+			\tkzDefPoints{0/0/B, 3/-2/C, 6/0/D}
+			\coordinate (A) at ($(B)+(0,5)$);
+			\tkzDrawSegments[dashed](B,D)
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawPolygon(A,D,C)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](D)
+			\tkzLabelPoints[below](C)
+			\tkzLabelPoints[above](A)
+			\tkzMarkRightAngle(A,B,C)
+			\tkzMarkRightAngle(A,B,D)
+			\tkzMarkRightAngle(B,D,C)
+			
+			\end{tikzpicture}}}
+\end{ex}
+\dang{Xác định góc giữa hai mặt phẳng}
+\begin{ex}%[1H3K4-3]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đỗ Đức Thảo]\\
+	Cho hai tam giác $ACD$ và $BCD$ nằm trên hai mặt phẳng vuông góc với nhau và\\ $AC=AD=BC=BD=a, CD=2x$. Tính giá trị của $x$ sao cho hai mặt phẳng $(ABC)$ và $(ABD)\,$ vuông góc với nhau.
+	\choice
+	{\True $\dfrac{a\sqrt{3}}{3}$}
+	{$\dfrac{a}{3}$}
+	{$\dfrac{a}{2}$}
+	{$\dfrac{a\sqrt{2}}{3}$}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth, line join=round, line cap = round,scale=0.8]
+			\tkzDefPoints{0/0/C, 6/0/D, 4.5/-3/B}
+			\tkzDefMidPoint(D,B)\tkzGetPoint{K}
+			\tkzDefMidPoint(C,B)\tkzGetPoint{J}
+			\tkzInterLL(C,K)(D,J)\tkzGetPoint{H1}
+			\coordinate (A) at ($(H1)+(0,5)$);
+			\tkzDefPointBy[projection = onto C--D](A)
+			\tkzGetPoint{H}
+			\tkzDrawSegments[dashed](C,D A,H H,B)
+			\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+			\tkzDrawSegments(A,C A,B A,D C,B B,D C,M M,D)
+			\tkzMarkAngles[draw=red, size=0.2](C,M,D)
+			\tkzMarkRightAngles[draw=red,size=0.3](A,H,C A,M,C)
+			\tkzMarkSegment[mark=x,size=3](A,M)
+			\tkzMarkSegment[mark=x,size=3](M,B)
+			\tkzMarkSegment[mark=s|,size=3](C,B)
+			\tkzMarkSegment[mark=s|,size=3](B,D)
+			\tkzMarkSegment[mark=s|,size=3](A,D)
+			\tkzMarkSegment[mark=s|,size=3](A,C)
+			\tkzLabelPoints[below right](D)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[below left](H)
+			\tkzLabelPoints[above left](C)	\tkzLabelPoints[above right](M)
+			\tkzDrawPoints(A,B,C,D,H,M)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $H$ là trung điểm của $CD$ và $M$ là trung điểm của $AB$.\\
+		Tam giác $ACB$ cân tại $C$ có $CM$ là trung tuyến nên $CM\bot AB$, tương tự $DM \bot AB$.\\ Do đó 
+		$ \left((ABC), (ABD)\right)=\widehat{CMD}$. Để hai mặt phẳng $(ABC)$ và $(ABD)$ vuông góc thì\\ $\widehat{CMD}=90^{\circ} \Leftrightarrow CM^2+MD^2=CD^2$.\\
+		Do $\triangle ACD$ cân tại $A$ nên $AH \bot CD$, theo giả thiết hai mặt phẳng $(ACD)$ và $(BCD)$ vuông góc và có giao tuyến chung là $CD$ nên $ AH\bot (BCD)\Rightarrow AH\bot HB$.\\ Tính được $AB^2=AH^2+HB^2=2\cdot AH^2=2\cdot(a^2-x^2)$.\\
+		Do $CM$ là trung tuyến $\triangle CAB$ nên $CM^2=\dfrac{CA^2+CB^2}{2}-\dfrac{AB^2}{4}=\dfrac{a^2+x^2}{2}$.\\
+		Một cách tương tự, $MD^2=\dfrac{a^2+x^2}{2}$. Do đó $CM^2+MD^2=CD^2 \Leftrightarrow a^2+x^2=4x^2 \Rightarrow x=\dfrac{a\sqrt{3}}{3}$.
+		
+		
+		
+		
+		
+	}
+\end{ex}
+\begin{ex}%[1H3K4-3]%[Đề cương ôn hk2 - k11 - Chu Văn An - Hà Nội - 2018]%[Nguyễn Minh Tiến]\\
+	Cho hình chóp $S.ABCD$ có $SA \perp \left(ABCD\right)$, $ABCD$ là hình thang vuông tại $A$ và $D$, $AB = 2CD$, $AD = CD = a$, $SA = a\sqrt{2}$. Số đo góc giữa hai mặt phẳng $\left(SAB\right)$ và $\left(SBC\right)$ bằng
+	\choice
+	{$90^\circ$}
+	{$45^\circ$}
+	{\True $60^\circ$}
+	{$30^\circ$}
+	\loigiai{\immini{Gọi $E$ là trung điểm của $AB \Rightarrow CE \perp AB$. \\
+			Mà $SA \perp CE \Rightarrow CE \perp \left(SAB\right) \Rightarrow CE \perp SB$. \\
+			Trong mặt phẳng $\left(SAB\right)$ dựng $EH \perp SB$ với $H \in SB$. \\
+			Khi đó $SB \perp \left(CEH\right) \Rightarrow SB \perp CH$. \\
+			Do đó $\left(\left(SAB\right),\left(SBC\right)\right) = \left(CH,EH\right) = \widehat{CHE}$.\\
+			Xét $\Delta SAB$ và $\Delta EHB$ đồng dạng $\Rightarrow \dfrac{SA}{EH} = \dfrac{SB}{EB}$\\ 
+			$ \Rightarrow EH = \dfrac{a\sqrt{3}}{3}$. Xét $\Delta CEH$ có $\tan \widehat{CHE} = \dfrac{CE}{EH} = \sqrt{3}$\\
+			$ \Rightarrow \widehat{CHE} = 60^{\circ}$.}{\begin{tikzpicture}[scale=.7]
+			\draw (0,5)-- (-2,-2)-- (1,-2)-- (6,0)-- (0,5);
+			\draw (0,5)-- (1,-2);
+			\draw (3.45,2.13)-- (1,-2);
+			\draw [dashed] (1,-2)-- (3,0)--(3.45,2.13);
+			\draw [dashed] (0,5)-- (0,0)--(6,0);
+			\draw [dashed] (0,0)-- (-2,-2);
+			\draw [dashed] (0,0)-- (1,-2);
+			\fill (3,0) circle (.05) node [above right]{$E$};
+			\fill (3.45,2.13) circle (.05) node [above]{$H$};
+			\fill (0,0) circle (.05) node [left]{$A$};
+			\fill (0,5) circle (.05) node [left]{$S$};
+			\fill (-2,-2) circle (.05) node [below]{$D$};
+			\fill (6,0) circle (.05) node [below]{$B$};
+			\fill (1,-2) circle (.05) node [below]{$C$};
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[1H3K4-3]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đỗ Đức Thảo]\\
+	Cho hình chóp $S.ABCD$ có $SA \bot (ABCD)$, $ABCD$ là hình thang vuông tại $A$ và $D$, $AB=2CD, AD=CD=a, SA=x$. Tìm giá trị của $x$ để số đo của góc giữa hai mặt phẳng $(SAB)$ và $(SCD)$ bằng $60^{\circ}$.
+	\choice
+	{$x=a$}
+	{\True $x=a\sqrt{2}$}
+	{$x=\dfrac{a}{2}$}
+	{$x=a\sqrt{3}$}
+	\loigiai{
+		
+		\begin{center}
+			\begin{tikzpicture}[line cap=round,line join=round, >=stealth,scale=1]
+			\def \xa{-2}
+			\def \xb{-1}
+			\def \y{4}
+			\def \z{3}
+			
+			\coordinate (A) at (0,0);
+			\coordinate (D) at ($(A)+(-1,-2)$);
+			\coordinate (B) at ($(A)+(5,0)$);
+			\coordinate (C) at ($ (D)+(2.5,0) $);
+			\coordinate (S) at ($ (A)+(0,\z) $);
+			\coordinate (M) at ($ (A)+(2.5,0) $);
+			\tkzDefShiftPoint[B](149:2.7){K}
+			\draw [dashed] (D)--(A)--(B) (M)--(C)--(A)--(S) (K)--(M);
+			\draw (S)--(D)--(C)--(B)--(S)--(C)--(K);
+			\tkzMarkRightAngles[siza=0.5](A,D,C S,A,B C,M,B M,K,B)
+			\tkzMarkAngles[size=0.8](C,K,M)
+			\tkzDrawPoints(S,A,B,C,D,M,K)
+			\tkzLabelPoints[right](B)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[above](S,K)
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[above right](M)
+			\tkzLabelPoints[below left](D)
+			\end{tikzpicture}
+		\end{center}
+		Đầu tiên thấy rằng hai mặt phẳng $(SAB)$ và $(SBC)$ có giao tuyến chung là $SB$.\\ Gọi $M$ là trung điểm của $AB$, khi đó dễ dàng có $AMCD$ là hình vuông nên $CM \bot AB$. Do $SA \bot (ABCD)$ nên $SA\bot CM$, vậy $CM \bot (SAB) \Rightarrow CM \bot SB$.\\
+		Từ $M$ kẻ $MK \bot SB$ thì ta có ngay $SB \bot (CKM)$, do đó $SB \bot CK$. \\ Vậy $\left((SAB), (SBC) \right) =\widehat{MKC}$.\\
+		Do $CM \bot (SAB)$ nên $CM \bot MK \Rightarrow \tan \widehat{MKC}=\dfrac{CM}{MK}$.
+		\begin{itemize}
+			\item $CM=AD=a$.
+			\item $\triangle BSA \sim \triangle BMK \Rightarrow \dfrac{SA}{MK}=\dfrac{BS}{BM}\Rightarrow MK=\dfrac{SA\cdot BM}{BS}=\dfrac{x\cdot a}{\sqrt{4a^2+x^2}}$.
+		\end{itemize}
+		Do đó $\dfrac{CM}{MK}=\dfrac{\sqrt{4a^2+x^2}}{x}=\tan 60^{\circ}=\sqrt{3}\Rightarrow 4a^2+x^2=3x^2\Rightarrow x= a\sqrt{2}$.
+		
+	}
+\end{ex}
+\begin{ex}%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đỗ Đường Hiếu]%[1H3K4-3]\\
+	Cho hình chóp $S.ABCD$ có đáy là hình vuông $ABCD$, $SA\perp (ABCD)$, $SA=a$, $AB=a\sqrt{2}$. Gọi $M$ là trung điểm của $SB$. Số đo của góc giữa hai mặt phẳng $(AMC)$ và $(ABCD)$ bằng
+	\choice
+	{$90^\circ$}
+	{\True $45^\circ$}
+	{$60^\circ$}
+	{$30^\circ$}
+	\loigiai{
+		\immini{
+			Gọi $N$ là trung điểm $AB$, khi đó $MN\parallel SA \Rightarrow MN\perp (ABCD)\Rightarrow MN\perp AC$.\\
+			Gọi $K$ là trung điểm $AO$ (với $O$ là tâm hình vuông $ABCD$), suy ra $NK\perp AC$.\\
+			Từ $MN\perp AC$ và $NK\perp AC$ suy ra $MK\perp AC$. Mặt khác $AC$ là giao tuyến của hai mặt phẳng $(AMC)$ và $(ABCD)$ nên suy ra 
+			$$\widehat{\left((AMC);(ABCD)\right)}=\widehat{(MK;NK)}=\widehat{MKN}$$
+			Ta có $MN=\dfrac{1}{2}SA=\dfrac{a}{2}$;\\
+			$NK=\dfrac{1}{2}AO=\dfrac{1}{2}\cdot \dfrac{BD}{2}=\dfrac{a\sqrt{2}\cdot\sqrt{2}}{4}=\dfrac{a}{2}$.\\
+			Tam giác $MNK$ vuông tại $N$, có
+			$\tan \widehat{MKN}=\dfrac{MN}{NK}=\dfrac{\dfrac{a}{2}}{\dfrac{a}{2}}=1\Rightarrow \widehat{MKN}=45^\circ$
+		}
+		{
+			\begin{tikzpicture}[line cap=round,line join=round, >=stealth,scale=1]
+			\def \xa{-1} 
+			\def \xb{-2}
+			\def \y{5}
+			\def \z{4}
+			
+			\coordinate (A) at (0,0);
+			\coordinate (B) at ($(A)+(\xa,\xb)$);
+			\coordinate (D) at ($(A)+(\y,0)$);
+			\coordinate (C) at ($(B)+(D)-(A)$);
+			\coordinate (S) at ($ (A)+(0,\z) $);
+			\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+			\tkzDefMidPoint(A,O)\tkzGetPoint{K}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{N}
+			\tkzDefMidPoint(S,B)\tkzGetPoint{M}
+			\draw [dashed] (S)--(A)--(B)--(D) (C)--(A)--(D) (M)--(N)--(K)--(M) (A)--(M);
+			\draw (S)--(B)--(C)--(S)--(D)--(C)--(M);
+			\tkzDrawPoints(S,A,B,C,D,O,K,N,M)
+			\tkzLabelPoints[above](S,M)
+			\tkzLabelPoints[below](A,B,C,D,O,N,K)
+			\tkzMarkRightAngle(S,A,B)
+			\tkzMarkRightAngle(M,N,K)
+			\tkzMarkAngle[size=0.5](M,K,N)
+			\end{tikzpicture}
+			
+		}
+	}
+\end{ex}
+\begin{ex}%[Đề cương HK2, Chu Văn An, Hà Nội]%[1H3K4-3]%[Phan Minh Tâm]\\
+	Cho hình chóp $ S.ABCD $ có đáy $ ABCD $ là hình vuông cạnh $ a $, tam giác $ SAB $ đều và nằm trong mặt phẳng vuông góc với đáy. Tính góc giữa hai mặt phẳng $ (SAB) $ và $ (SBC) $.
+	\choice
+	{$ 30^\circ $}
+	{$ 45^\circ $}
+	{$ 60^\circ $}
+	{\True $ 90^\circ $}
+	\loigiai{
+		\immini
+		{Gọi $ H $ là trung điểm $ AB $, do  $\triangle SAB $ đều và nằm trong mặt phẳng vuông góc với $ (ABCD) $ nên $ SH \bot (ABCD). $
+			Gọi $ K $ là trung điểm $ SB $.\\
+			Do tam giác $ SAB $ đều nên $ AK \bot SB $. \quad (1)\\
+			Mặt khác $ \heva{&BC \bot SH \,(\text{ do } SH \bot (ABCD))\\ &BC \bot AB \,(\text{do ABCD là hình vuông})}$\\$ \Rightarrow BC \bot SB. $\quad (2) \\
+			Từ $ (1) $, $ (2) $ suy ra $ \left((SAB),(SBC)\right) = {\left(AK,BC\right)}.$\\
+			Ta lại có $ \heva{&BC \bot AB\\&BC \bot SH} \Rightarrow BC \bot AK. $\\
+			Vậy $ \left((SAB),(SBC)\right) =  90^\circ.$
+		}
+		{
+			\begin{tikzpicture}[scale=.8]
+			\tkzDefPoints{0/0/A, -2/-2/B, 3/-2/C}
+			\coordinate (D) at ($(A)+(C)-(B)$);
+			\coordinate (H) at ($(A)!.5!(B)$);
+			\coordinate (S) at ($(H)+(0,4)$);
+			\coordinate (K) at ($(B)!.5!(S)$);
+			\tkzLabelPoints[right](H)
+			\tkzDrawSegments[dashed](A,K S,A A,B A,D S,H)
+			\tkzDrawPolygon(S,C,D)
+			\tkzDrawSegments(S,B B,C)
+			\tkzLabelPoints[left](B,K)
+			\tkzLabelPoints[right](C,D)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[above right](A)
+			\tkzMarkRightAngle[size=.2](S,H,A)
+			\tkzMarkRightAngle[size=.2](A,B,C)
+			\tkzMarkRightAngle[size=.2](A,K,B)
+			\tkzLabelLine[pos=0.6,above](A,D){$a$}
+			\tkzLabelLine[pos=0.6,above](A,S){$a$}
+			\tkzDrawPoints(S,A,B,C,D,H,K)
+			\end{tikzpicture} 
+		}
+		
+	}
+\end{ex}
+\dang{Hình chiếu vuông góc của đa giác trên mặt phẳng}
+\begin{ex}%[1H3B4-5]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Phan Quốc Trí]\\
+	Cho hình chóp $S.ABCD$ có đáy là tam giác $ABC$ thỏa mãn $AB=5,AC=6,BC=7$. Các mặt bên của hình chóp nghiên với đáy một góc $60^{\circ}$. Diện tích mặt bên lớn nhất của hình chóp bằng
+	\choice
+	{$\dfrac{28\sqrt{6}}{3}$}
+	{$2\sqrt{6}$}
+	{\True $\dfrac{14\sqrt{6}}{3}$}
+	{$\dfrac{7\sqrt{3}}{2}$}
+	\loigiai{
+		\immini{
+			Gọi $S,S'$ lần lượt là diện tích của mặt bên và diện tích hình chiếu của mặt bên trên mặt phẳng $(ABC)$. Ta có $S'=S\cdot \cos 60^{\circ} \Leftrightarrow S = 2 S'$.\\
+			Gọi $H$ là hình chiếu của $S$ trên $(ABC)$. Vì các mặt bên cùng tạo với mặt đáy một góc bằng nhau nên $\mathrm{d}(H,BC)=\mathrm{d}(H,AC)=\mathrm{d}(H,AB)$.\\
+			\begin{equation*}
+			\heva{&\mathrm{d}(H,BC)=\mathrm{d}(H,AC)=\mathrm{d}(H,AB)\\ &
+				AB<AC<BC} \Rightarrow S_{\Delta HAB}<S_{\Delta HAC}<S_{\Delta HBC}
+			\end{equation*}
+		}{
+			\begin{tikzpicture}[scale=0.8, line width=1.2pt]%1
+			\tkzDefPoints{0/0/A, 6/0/C, 1.5/-2/B, 0/5/E}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+			\tkzDefPointBy[homothety = center A ratio 0.6](M) \tkzGetPoint{H}
+			\tkzDefPointBy[translation=from A to E](H) \tkzGetPoint{S}
+			\tkzDefPointBy[homothety = center B ratio 0.4](C) \tkzGetPoint{I}
+			\tkzDefPointBy[homothety = center B ratio 0.45](A) \tkzGetPoint{J}
+			\tkzDrawSegments(A,B C,B S,A S,C S,B S,I S,J)
+			\tkzDrawSegments[dashed](A,C S,H H,I H,J)
+			\tkzLabelPoints(C,B)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[below](H)
+			\tkzMarkRightAngles[opacity=0.5](H,I,B H,J,B)
+			\end{tikzpicture}
+		}
+		$\Rightarrow 2\cdot S_{\Delta HAB}<2\cdot S_{\Delta HAC}< 2\cdot S_{\Delta HBC} \Leftrightarrow S_{\Delta SAB} < S_{\Delta SAC}<S_{\Delta SBC} $.\\
+		Gọi $r$ là bán kính đường tròn nội tiếp tam giác $ABC$. Ta có $\mathrm{d}(H,BC)=r=\dfrac{2\sqrt{6}}{3}$.\\
+		Khi đó $S_{\Delta SBC} = 2 S_{\Delta HBC} = 2 \cdot \dfrac{1}{2} r\cdot BC = \dfrac{14\sqrt{6}}{3}$.
+	}
+\end{ex}
+\begin{ex}%[1H3G4-5]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Lê Hồng Phi]\\
+	Cho hình hộp chữ nhật $ ABCD.A'B'C'D' $, biết $ AC=\sqrt{3}, CD'=2, D'A=\sqrt{5} $. Góc giữa hai mặt phẳng $ \left(ACD'\right) $ và $ \left(A'B'C'D'\right) $ là $ \alpha $, $ \tan \alpha $ bằng
+	\choice
+	{\True  $ \dfrac{3\sqrt{2}}{2}$}
+	{$ \dfrac{2\sqrt{6}}{3}$}
+	{$ \dfrac{\sqrt{30}}{6}$}
+	{$ \dfrac{\sqrt{2}}{3}$}
+	\loigiai{
+		\immini{Dễ thấy $ D $ là hình chiếu vuông góc của $ D' $ trên $ (ABCD) $. Suy ra $ \vartriangle ACD $ là hình chiếu vuông góc của $ \vartriangle ACD' $ trên mặt phẳng $ (ABCD) $.\\
+			Do đó, $ \cos \alpha =\dfrac{S_{ACD}}{S_{ACD'}} $.\\
+			Ta có $ \begin{aligned}[t]
+			\begin{cases}
+			DA^2+DC^2=3\\
+			DC^2+DD'^2=4\\
+			DA^2+DD'^2=5
+			\end{cases}\Leftrightarrow \begin{cases}
+			DA^2=2\\
+			DC^2=1\\
+			DD'^2=3
+			\end{cases}
+			\end{aligned} $}{\begin{tikzpicture}[>=stealth, scale=.6]
+			\tkzDefPoints{-2/-2/x, 8/0/y, 0/5/z, 0/0/A}
+			\coordinate (B) at ($(A)+(x)$);
+			\coordinate (C) at ($(B)+(y)$);
+			\coordinate (D) at ($(C)-(x)$);
+			\coordinate (A') at ($(A)+(z)$);
+			\coordinate (B') at ($(B)+(z)$);
+			\coordinate (C') at ($(C)+(z)$);
+			\coordinate (D') at ($(D)+(z)$);
+			\coordinate (X) at ($(A)+1.5*(x)$);
+			\coordinate (Y) at ($(A)+1.5*(D)$);
+			\coordinate (Z) at ($(A)+1.2*(z)$);
+			\tkzDrawSegments[dashed](B,A A,D A,A' A,C A,D')
+			\tkzDrawSegments(D,C D,D' C,D')
+			\tkzDrawPolygon(A',B',C',D')
+			\tkzDrawPolygon(B,B',C',C)
+			\tkzLabelPoints[right](C, C',  D')
+			\tkzLabelPoints[left](A, B, A', B')
+			\tkzLabelPoints[below right](D)
+			\end{tikzpicture}}\noindent
+		Diện tích tam giác $ ACD $ là $ S_{ACD}=\dfrac{1}{2}\cdot DA.DC=\dfrac{\sqrt{2}}{2} $.\\
+		Dùng công thức Hê-rông ta tính được diện tích tam giác $ ACD' $ là $ S_{ACD'}=\dfrac{\sqrt{11}}{2} $.\\
+		Suy ra $ \cos \alpha=\sqrt{\dfrac{2}{11}}\Rightarrow\tan^2\alpha=\dfrac{1}{\cos^2\alpha}-1=\dfrac{9}{2}\Rightarrow \tan\alpha=\dfrac{3\sqrt{2}}{2} $.
+	}
+\end{ex}
+\section{Khoảng cách}
+\dang{Câu hỏi lí thuyết}
+\begin{ex}%[TT-06]%[1H3B5-1]%[De-cuong-11-Hk2-ChuVanAn-HN,2018]%[Lê Ngọc Hiếu]\\
+	Tìm số khẳng định đúng trong các khẳng định sau
+	
+	
+	(I) Nếu đường thẳng $AB$ song song với mặt phẳng $(P)$ thì khoảng cách từ $A,B$ đến $(P)$ bằng nhau.
+	
+	(II) Nếu khỏag cách từ $A,B$ phân biệt đến mặt phẳng $(P)$ là bằng nhau thì đường thẳng $AB$ song song với mặt phẳng $(P)$.
+	
+	(III) Nếu khoảng cách từ $A,B,C$ phân biệt đến mặt phảng $(P)$ là bằng nhau và là một số thực dương thì mặt phẳng $(ABC)$ song song với măth phẳng $(P)$.
+	
+	(IV) Nếu khoảng cách từ $A,B$ phân biệt đến mặt phẳng $(P)$ là bằng nhau thì hoặc đường thẳng $AB$ song song với mặt phẳng $(P)$ hoặc đường thẳng $AB$ nằm trong mặt phẳng $(P)$.
+	\choice
+	{$4$}
+	{$2$}
+	{\True $1$}
+	{$3$}
+	\loigiai{\begin{center}
+			\begin{tikzpicture}[scale=0.5]
+			\tkzDefPoints{0/0/M, -2/-3/N, 8/0/Q, 1/2/A, 5/-4.5/B}
+			\coordinate (P) at ($(N)+(Q)-(M)$);
+			\tkzDefMidPoint(M,N)\tkzGetPoint{X}
+			\tkzDefMidPoint(P,Q)\tkzGetPoint{Y}
+			\tkzDefPointBy[projection= onto X--Y](A)\tkzGetPoint{H}
+			\tkzDefPointBy[projection= onto X--Y](B)\tkzGetPoint{K}
+			\tkzInterLL(B,K)(N,P)\tkzGetPoint{I}
+			\tkzInterLL(A,B)(H,K)\tkzGetPoint{R}
+			\tkzInterLL(A,B)(N,P)\tkzGetPoint{S}
+			\tkzMarkSegments[size=3,mark=|](A,H)
+			\tkzMarkSegments[size=3,mark=|](B,I)
+			\tkzMarkRightAngles[size=0.5](A,H,X B,K,Y)
+			\tkzMarkAngle[size=0.5](P,N,M)
+			\tkzDrawSegments(M,N N,P P,Q Q,M A,H B,I X,Y A,R S,B)
+			\tkzDrawSegments[dashed](I,K R,S)
+			\tkzLabelPoint(-2,-2.7){\footnotesize $\alpha$}
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[above right](H,K)
+			\tkzLabelPoints[below right](B)
+			\tkzDrawPoints(M,N,P,Q)
+			\end{tikzpicture}
+		\end{center}
+		Dựa vào hình vẽ trên, ta thấy $d\left(A,(\alpha)\right)=d\left(B,(\alpha)\right)$ nhưng $AB$ không song song với $(\alpha)$. Do đó (II),(III) và (IV) sai. Chỉ có (I) đúng.
+	}
+\end{ex}
+\begin{ex}%[TT-15]%[1H3B5-1]%[Đề cương khối 11 HK2, Chu Văn An, HN, 2018]%[Võ Thanh Phong]\\
+	Cho tứ diện $ABCD$, có bao nhiêu mặt phẳng $(P)$ có tính chất "Khoảng cách từ $A,B,C,D$ đến mặt phẳng $P$ là như nhau".
+	\choice
+	{$4$}
+	{$1$}
+	{\True $7$}
+	{$3$}
+	\loigiai{
+		Có 2 loại mặt phẳng thỏa mãn đề bài đó là:\\
+		Loại 1: Mặt phẳng đi qua trung điểm của 3 cạnh bên có chung đỉnh.
+		\begin{center}
+			{\begin{tikzpicture}[scale=0.3]
+				\tkzDefPoints{-1/3/B,1.5/0/C,7/3/D,2/8/A}
+				\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+				\tkzDefMidPoint(B,C)\tkzGetPoint{N}
+				\tkzDefMidPoint(C,D)\tkzGetPoint{P}
+				\tkzDefMidPoint(B,D)\tkzGetPoint{Q}
+				\tkzDefMidPoint(A,C)\tkzGetPoint{R}
+				\tkzDefMidPoint(A,D)\tkzGetPoint{S}
+				\tkzDrawPoints(A,B,C,D)
+				\tkzDrawSegments(A,B B,C A,D C,D A,C M,R R,S)
+				\tkzDrawSegments[dashed](B,D M,S)
+				\tkzLabelPoint[above](A){\footnotesize $A$}
+				\tkzLabelPoint[left](B){\footnotesize $B$}
+				\tkzLabelPoint[below](C){\footnotesize $C$}
+				\tkzLabelPoint[above right](D){\footnotesize $D$}
+				\end{tikzpicture}}
+			{
+				\begin{tikzpicture}[scale=0.3]
+				\tkzDefPoints{-1/3/B,1.5/0/C,7/3/D,2/8/A}
+				\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+				\tkzDefMidPoint(B,C)\tkzGetPoint{N}
+				\tkzDefMidPoint(C,D)\tkzGetPoint{P}
+				\tkzDefMidPoint(B,D)\tkzGetPoint{Q}
+				\tkzDefMidPoint(A,C)\tkzGetPoint{R}
+				\tkzDefMidPoint(A,D)\tkzGetPoint{S}
+				\tkzDrawPoints(A,B,C,D)
+				\tkzDrawSegments(A,B B,C A,D C,D A,C M,N)
+				\tkzDrawSegments[dashed](B,D M,Q N,Q)
+				\tkzLabelPoint[above](A){\footnotesize $A$}
+				\tkzLabelPoint[left](B){\footnotesize $B$}
+				\tkzLabelPoint[below](C){\footnotesize $C$}
+				\tkzLabelPoint[above right](D){\footnotesize $D$}
+				\end{tikzpicture}}
+			{
+				\begin{tikzpicture}[scale=0.3]
+				\tkzDefPoints{-1/3/B,1.5/0/C,7/3/D,2/8/A}
+				\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+				\tkzDefMidPoint(B,C)\tkzGetPoint{N}
+				\tkzDefMidPoint(C,D)\tkzGetPoint{P}
+				\tkzDefMidPoint(B,D)\tkzGetPoint{Q}
+				\tkzDefMidPoint(A,C)\tkzGetPoint{R}
+				\tkzDefMidPoint(A,D)\tkzGetPoint{S}
+				\tkzDrawPoints(A,B,C,D)
+				\tkzDrawSegments(A,B B,C A,D C,D A,C P,S)
+				\tkzDrawSegments[dashed](B,D P,Q Q,S)
+				\tkzLabelPoint[above](A){\footnotesize $A$}
+				\tkzLabelPoint[left](B){\footnotesize $B$}
+				\tkzLabelPoint[below](C){\footnotesize $C$}
+				\tkzLabelPoint[above right](D){\footnotesize $D$}
+				\end{tikzpicture}}
+			{
+				\begin{tikzpicture}[scale=0.3]
+				\tkzDefPoints{-1/3/B,1.5/0/C,7/3/D,2/8/A}
+				\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+				\tkzDefMidPoint(B,C)\tkzGetPoint{N}
+				\tkzDefMidPoint(C,D)\tkzGetPoint{P}
+				\tkzDefMidPoint(B,D)\tkzGetPoint{Q}
+				\tkzDefMidPoint(A,C)\tkzGetPoint{R}
+				\tkzDefMidPoint(A,D)\tkzGetPoint{S}
+				\tkzDrawPoints(A,B,C,D)
+				\tkzDrawSegments(A,B B,C A,D C,D A,C N,R P,R)
+				\tkzDrawSegments[dashed](B,D N,P)
+				\tkzLabelPoint[above](A){\footnotesize $A$}
+				\tkzLabelPoint[left](B){\footnotesize $B$}
+				\tkzLabelPoint[below](C){\footnotesize $C$}
+				\tkzLabelPoint[above right](D){\footnotesize $D$}
+				\end{tikzpicture}}
+		\end{center}
+		Có 4 mặt phẳng loại này, vì có 4 đỉnh.\\
+		Loại 2: Mặt phẳng qua trung điểm của 4 cạnh.\\
+		\begin{center}
+			{\begin{tikzpicture}[scale=0.5]
+				\tkzDefPoints{-1/3/B,1.5/0/C,7/3/D,2/8/A}
+				\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+				\tkzDefMidPoint(B,C)\tkzGetPoint{N}
+				\tkzDefMidPoint(C,D)\tkzGetPoint{P}
+				\tkzDefMidPoint(B,D)\tkzGetPoint{Q}
+				\tkzDefMidPoint(A,C)\tkzGetPoint{R}
+				\tkzDefMidPoint(A,D)\tkzGetPoint{S}
+				\tkzDrawPoints(A,B,C,D)
+				\tkzDrawSegments(A,B B,C A,D C,D A,C M,N P,S)
+				\tkzDrawSegments[dashed](B,D M,S N,P)
+				\tkzLabelPoint[above](A){\footnotesize $A$}
+				\tkzLabelPoint[left](B){\footnotesize $B$}
+				\tkzLabelPoint[below](C){\footnotesize $C$}
+				\tkzLabelPoint[above right](D){\footnotesize $D$}
+				\end{tikzpicture}}
+			{
+				\begin{tikzpicture}[scale=0.5]
+				\tkzDefPoints{-1/3/B,1.5/0/C,7/3/D,2/8/A}
+				\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+				\tkzDefMidPoint(B,C)\tkzGetPoint{N}
+				\tkzDefMidPoint(C,D)\tkzGetPoint{P}
+				\tkzDefMidPoint(B,D)\tkzGetPoint{Q}
+				\tkzDefMidPoint(A,C)\tkzGetPoint{R}
+				\tkzDefMidPoint(A,D)\tkzGetPoint{S}
+				\tkzDrawPoints(A,B,C,D)
+				\tkzDrawSegments(A,B B,C A,D C,D A,C M,R R,P)
+				\tkzDrawSegments[dashed](B,D M,Q P,Q)
+				\tkzLabelPoint[above](A){\footnotesize $A$}
+				\tkzLabelPoint[left](B){\footnotesize $B$}
+				\tkzLabelPoint[below](C){\footnotesize $C$}
+				\tkzLabelPoint[above right](D){\footnotesize $D$}
+				\end{tikzpicture}}
+			{
+				\begin{tikzpicture}[scale=0.5]
+				\tkzDefPoints{-1/3/B,1.5/0/C,7/3/D,2/8/A}
+				\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+				\tkzDefMidPoint(B,C)\tkzGetPoint{N}
+				\tkzDefMidPoint(C,D)\tkzGetPoint{P}
+				\tkzDefMidPoint(B,D)\tkzGetPoint{Q}
+				\tkzDefMidPoint(A,C)\tkzGetPoint{R}
+				\tkzDefMidPoint(A,D)\tkzGetPoint{S}
+				\tkzDrawPoints(A,B,C,D)
+				\tkzDrawSegments(A,B B,C A,D C,D A,C N,R R,S)
+				\tkzDrawSegments[dashed](B,D N,Q S,Q)
+				\tkzLabelPoint[above](A){\footnotesize $A$}
+				\tkzLabelPoint[left](B){\footnotesize $B$}
+				\tkzLabelPoint[below](C){\footnotesize $C$}
+				\tkzLabelPoint[above right](D){\footnotesize $D$}
+				\end{tikzpicture}}
+		\end{center}
+		Có 3 mặt phẳng loại này.
+	}
+\end{ex}
+\dang{Khoảng cách từ một điểm đến một mặt phẳng}
+\begin{ex}%[1H3B5-3]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Lê Thị Thúy Hằng]\\
+	Cho hình chóp tam giác đều $S.ABC$ có độ dài cạnh đáy bằng $3a$, cạnh bên bằng $2a$. Khoảng cách từ đỉnh $S$ đến mặt phẳng đáy bằng
+	\choice
+	{$\dfrac{3a}{2}$}
+	{$a \sqrt{3}$}
+	{$a \sqrt{2}$}
+	{\True $a$}
+	\loigiai{
+		\immini{Gọi $H$ là tâm đường tròn ngoại tiếp tam giác đều $ABC$. Do $S.ABC$ là hình chóp tam giác đều nên $SH \perp (ABC)$. \\
+			Ta có $SA= 2a$, $AH= \dfrac{3a \sqrt{3}}{2} \cdot \dfrac{2}{3}= a \sqrt{3}$. \\
+			Vậy $SH= \sqrt{SA^2 - AH^2}= \sqrt{4a^2 - 3a^2}=a$.
+		}{
+			\begin{tikzpicture}[scale=0.4]
+			\tkzDefPoints{0/0/A, 2/-2/B, 6/0/C}
+			\tkzDefMidPoint(A,B) \tkzGetPoint{M}
+			\tkzDefMidPoint(B,C) \tkzGetPoint{N}
+			\tkzInterLL(C,M)(A,N) \tkzGetPoint{H}
+			\coordinate (S) at ($(H)+(0,5)$);
+			\tkzDrawSegments(S,A S,B S,C A,B B,C)
+			\tkzDrawSegments[dashed](A,C S,H A,H)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](C,H)
+			\tkzDrawPoints[fill=black](S,A,B,C,H)
+			\end{tikzpicture}
+		}
+		
+	}
+\end{ex}
+\begin{ex}%[Đề cương ôn tập HK2, THPT Chu Văn An, HN, 2018]%[1H3B5-3]%[Nguyễn Thành Khoa]\\
+	Cho hình lập phương $ABCD.A'B'C'D'$ có cạnh $1$. Khoảng cách giữa hai đường thẳng $AC$ và $B'D'$ bằng
+	\choice
+	{\True $1$}
+	{$\sqrt{2}$}
+	{$\dfrac{\sqrt{2}}{2}$}
+	{$\dfrac{1}{2}$}
+	\loigiai{
+		\immini{
+			Ta có $(AC)\parallel (A'B'C'D')\\
+			\Rightarrow \mathrm{d}(AC,B'D')=\mathrm{d}(AC,(A'B'C'D'))\\
+			=\mathrm{d}(A,(A'B'C'D'))=AA'=1$.}
+		{\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{-1/-1/x, 3/0/y, 0/2/z, 0/0/A}
+			\coordinate (B) at ($(A)+(x)$);
+			\coordinate (C) at ($(B)+(y)$);
+			\coordinate (D) at ($(C)-(x)$);
+			\coordinate (A') at ($(A)+(z)$);
+			\coordinate (B') at ($(B)+(z)$);
+			\coordinate (C') at ($(C)+(z)$);
+			\coordinate (D') at ($(D)+(z)$);
+			\tkzInterLL(A',C')(B',D')
+			\tkzGetPoint{I}
+			
+			\tkzDrawSegments[dashed](B,A A,D A,A' A,C B,D)
+			\tkzDrawSegments(D,C D,D' A',C' B',D')
+			\tkzDrawPolygon(A',B',C',D')
+			\tkzDrawPolygon(B,B',C',C)
+			\tkzLabelPoints[right](C, C', D', D)
+			\tkzLabelPoints[left](A, B, B', A')
+			\end{tikzpicture}}}
+\end{ex}
+\begin{ex}%[Đề cương ôn tập HK2, THPT Chu Văn An, HN, 2018]%[1H3B5-3]%[Huỳnh Văn Quy]\\
+	Cho hình lập phương $ABCD.A'B'C'D'$ có cạnh bằng $1$. Khoảng cách giữa đường thẳng $BB'$ và mặt phẳng $(AA'C')$ bằng
+	\choice
+	{$\dfrac{\sqrt{3}}{2}$}
+	{$\sqrt{3}$}
+	{\True $\dfrac{\sqrt{2}}{2}$}
+	{$\dfrac{1}{2}$}
+	\loigiai{
+		\immini{Gọi $I=BD'\cap A'C'$.\\
+			Ta có: $BB'\parallel (AA'C)$\\
+			$\Rightarrow \mathrm{d}(BB',(ACC'))=\mathrm{d}(B',(ACC'))=B'I=\dfrac{\sqrt{2}}{2}$}{\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{-1/-1/x, 3/0/y, 0/2/z, 0/0/A}
+			\coordinate (B) at ($(A)+(x)$);
+			\coordinate (C) at ($(B)+(y)$);
+			\coordinate (D) at ($(C)-(x)$);
+			\coordinate (A') at ($(A)+(z)$);
+			\coordinate (B') at ($(B)+(z)$);
+			\coordinate (C') at ($(C)+(z)$);
+			\coordinate (D') at ($(D)+(z)$);
+			\tkzInterLL(A',C')(B',D')
+			\tkzGetPoint{I}
+			\tkzDrawPoints(A,B,C,D,A',B',C',D',I)
+			\tkzMarkRightAngle(A',I,B')
+			\tkzDrawSegments[dashed](B,A A,D A,A' A,C' A,C)
+			\tkzDrawSegments(D,C D,D' A',C' B',D')
+			\tkzDrawPolygon(A',B',C',D')
+			\tkzDrawPolygon(B,B',C',C)
+			\tkzLabelPoints[right](C, C', D', D)
+			\tkzLabelPoints[left](A, B, B', A')
+			\tkzLabelPoints[above](I)
+			\end{tikzpicture}}}
+\end{ex}
+\begin{ex}%[TT-09]%[1H3B5-3]%[Đề cương khối 11 HK2, Chu Văn An, HN, 2018]%[Nguyễn Tiến Thùy]\\
+	Cho hình chóp $S.ABCD$ có đáy là hình chữ nhật, $AB=a$, $AD=2a$, cạnh bên $SA=a$ và vuông góc với đáy. Khoảng cách từ điểm $A$ tới mặt phẳng $(SBD)$ là
+	\choice
+	{$a$}
+	{\True $\dfrac{2a}{3}$}
+	{$\dfrac{a}{2}$}
+	{$\dfrac{a}{3}$}
+	\loigiai{
+		\immini{
+			Do $SA\perp (ABCD)\Rightarrow SA\perp BD$.\hfill (1)\\
+			Trong mặt phẳng $(ABCD)$, kẻ $AK\perp BD$ tại $K$.\hfill (2)\\
+			Từ (1) và (2) suy ra $BD\perp (SAK)$, mà $BD\subset (SBD)$ suy ra $(SAK)\perp (SBD)$.\hfill (3)\\
+			Trong mặt phẳng $(SAK)$, kẻ $AH\perp SK$, suy ra $AH\perp (SBD)$ (do (3) và $(SAK)\cap (SBD)\equiv SK$).\\
+			Từ đó suy ra $d(A;(SBD))=AH$.\\
+			Trong tam giác vuông $ABD$ có $\dfrac{1}{AK^2}=\dfrac{1}{AB^2}+\dfrac{1}{AD^2}$.\\
+			Trong tam giác vuông $SAK$ có $$\dfrac{1}{AH^2}=\dfrac{1}{AK^2}+\dfrac{1}{AS^2}=\dfrac{1}{AB^2}+\dfrac{1}{AD^2}+\dfrac{1}{AS^2}$$
+		}{
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/A}
+			\tkzDefShiftPoint[A](0:4){D}
+			\tkzDefShiftPoint[A](-140:2){B}
+			\tkzDefShiftPoint[B](0:4){C}
+			\tkzDefShiftPoint[A](90:4){S}
+			\coordinate(K)at($(B)!0.5!(D)$);
+			\coordinate(H)at($(S)!0.6!(K)$);
+			
+			\tkzDrawPoints(A,B,C,D,S,K,H)
+			\tkzDrawSegments(B,C C,D S,B S,C S,D)
+			\tkzDrawSegments[dashed](A,B S,A A,D B,D A,K S,K A,H)
+			
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below right](C,H,K)
+			\tkzLabelPoints[above right](D)
+			\tkzLabelPoints[above](S)
+			\tkzMarkRightAngles(S,A,B S,A,D B,A,D A,K,B A,H,K)
+			\end{tikzpicture}
+		}
+		$$\Rightarrow \dfrac{1}{AH^2}=\dfrac{1}{a^2}+\dfrac{1}{4a^2}+\dfrac{1}{a^2}=\dfrac{9}{4a^2}\Rightarrow AH=\dfrac{2a}{3}.$$
+		Vậy ta có $d(A;(SBD))=AH=\dfrac{2a}{3}$.
+	}
+\end{ex}
+\begin{ex}%[1H3K5-3]%[Đề cương Toán 11, HK2, Chu Văn An, Hà Nội]%[Trần Phong]\\
+	Cho tứ diện $OABC$ có $OA,OB,OC$ đôi một vuông góc, $OA=a$, $OB=b$, $OC=c$. Tính khoảng cách $\mathrm{d}$ từ $O$ tới mặt phẳng $(ABC)$.
+	\choice
+	{$\mathrm{d}=\dfrac{\sqrt{a^2+b^2+c^2}}{3}$}
+	{\True $\mathrm{d}=\dfrac{abc}{\sqrt{a^2b^2+b^2c^2+c^2a^2}}$}
+	{$\mathrm{d}=\dfrac{ab+bc+ca}{\sqrt{a^2+b^2+c^2}}$}
+	{$\mathrm{d}=\dfrac{a^2b^2c^2}{a^2b^2+b^2c^2+c^2a^2}$}
+	\loigiai{
+		\immini{
+			\begin{itemize}
+				\item Ta có $\heva{& OA\perp OB\\& OA\perp OC}\Rightarrow OA\perp(OBC)$.
+				\item Kẻ $OK\perp BC$ tại $K$.
+				\item[] Ta có $\heva{& BC\perp OK\\& BC\perp OA}\Rightarrow BC\perp(OAK)$.
+				\item Kẻ $OH\perp AK$ tại $H$.
+				\item[] Ta có $\heva{& OH\perp AK\\& OH\perp BC}\Rightarrow OH\perp(ABC)$.
+			\end{itemize}
+		}
+		{
+			\begin{tikzpicture}[scale=0.75]
+			\tkzDefPoints{0/0/O,6/0/B,-2/-3/C,1.5/1/H}
+			\coordinate (A) at ($(O)+(0,5)$);
+			\coordinate (K) at ($(B)!0.45!(C)$);
+			\tkzDrawSegments(A,B A,C B,C A,K)
+			\tkzDrawSegments[dashed](O,A O,B O,C O,H O,K)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[left](O)
+			\tkzLabelPoints[right](B,H)
+			\tkzLabelPoints[below](C,K)
+			\tkzMarkRightAngle(A,O,B)
+			\tkzMarkRightAngle(A,O,C)
+			\tkzMarkRightAngle(C,O,B)
+			\tkzMarkRightAngle(O,K,C)
+			\tkzMarkRightAngle(O,H,K)
+			\tkzDrawPoints(O,A,B,C,H,K)
+			\end{tikzpicture}
+		}
+		\begin{itemize}
+			\item[] Suy ra $\mathrm{d}=\mathrm{d}(O,(ABC))=OH$.
+			\item Ta có $\dfrac{1}{OH^2}=\dfrac{1}{OA^2}+\dfrac{1}{OK^2}=\dfrac{1}{OA^2}+\dfrac{1}{OB^2}+\dfrac{1}{OC^2}=\dfrac{1}{a^2}+\dfrac{1}{b^2}+\dfrac{1}{c^2}=\dfrac{a^2b^2+b^2c^2+c^2a^2}{a^2b^2c^2}$.
+			\item[] Suy ra $\mathrm{d}=OH=\dfrac{abc}{\sqrt{a^2b^2+b^2c^2+c^2a^2}}$.
+		\end{itemize}
+	}
+\end{ex}
+\begin{ex}%[Đề Cương HK2-THPT Chu Văn An-Hà Nội]%[1H3K5-3]%[Nguyễn Văn Vũ]\\
+	Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình thang vuông tại $A$ và $B$. Biết $AD=2a$, $AB=BC=SA=a$ và cạnh bên $SA$ vuông góc với mặt đáy. Gọi $M$ là trung điểm của $AD$. Tính khoảng cách $h$ từ $M$ đến mặt phẳng $(SCD)$.
+	\choice
+	{\True $h=\dfrac{a\sqrt{6}}{6}$}
+	{$h=\dfrac{a\sqrt{6}}{3}$}
+	{$h=\dfrac{a\sqrt{3}}{6}$}
+	{$h=\dfrac{a}{3}$}
+	\loigiai{
+		\immini{Gọi $K$, $N$ lần lượt là trung điểm của các đoạn $CD$, $SD$.\\
+			Vì $SA\perp (ABCD)$ và $MN\parallel SA$ nên $NM\perp (ABCD)\Rightarrow MN\perp CD$. Ta cũng có tam giác $MCD$ vuông cân tại $M$ nên $MK\perp CD$.\\
+			Từ đó suy ra $CD\perp (MNK)\Rightarrow (MNK)\perp (SCD)$.\\
+			Gọi $H$ là hình chiếu của $M$ trên $NK$, suy ra $MH\perp (SCD)$.\\
+			Ta có $MN=\dfrac{SA}{2}=\dfrac{a}{2}$ và $MN=\dfrac{CD}{2}=\dfrac{a\sqrt{2}}{2}$.\\
+			Do đó, $h=d(M,(SCD))=MH=\dfrac{MK\cdot MN}{\sqrt{MK^2+MN^2}}=\dfrac{a\sqrt{6}}{6}$.}
+		{\begin{tikzpicture}[line join=round,line cap=round,font=\footnotesize,scale=1.3]
+			\coordinate[label=left:$A$] (A) at (0,0);
+			\coordinate[label=left:$B$] (B) at (.5,-1);
+			\coordinate[label=right:$D$] (D) at (4,0);
+			\coordinate[label=right:$C$] (C) at ($1/2*(D)-1/2*(A)+(B)$);
+			\coordinate[label=left:$S$] (S) at (0,3);
+			\coordinate[label=above right:$M$] (M) at ($(A)!.5!(D)$);
+			\coordinate[label=above:$N$] (N) at ($(S)!.5!(D)$);
+			\coordinate[label=below right:$K$] (K) at ($(C)!.5!(D)$);
+			\coordinate[label=right:$H$] (H) at ($(N)!.4!(K)$);
+			\draw (B)--(S)--(A)--(B)--(C)--(D)--(S)--(C) (N)--(K);
+			\draw[dashed] (K)--(M)--(N) (A)--(D) (M)--(H);
+			\tkzMarkRightAngles[size=.2](B,A,D C,B,A M,K,C D,A,S M,H,K)
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[TT-02]%[1H3K5-3]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đào Anh Dương]\\
+	Cho hình lập phương $ABCD.A'B'C'D'$ có cạnh bằng $1$. Khoảng cách từ điểm $A'$ đến mặt phẳng $(AB'D')$ bằng
+	\choice
+	{\True $\dfrac{\sqrt{3}}{3}$}
+	{$\dfrac{\sqrt{2}}{3}$}
+	{$\dfrac{1}{3}$}
+	{$\dfrac{2}{3}$}
+	\loigiai 
+	{
+		\immini 
+		{
+			Gọi $G$ là trọng tâm $\triangle AB'D'$. Vì $AB'=B'D'=D'A = \sqrt{2}$ nên $\triangle AB'D'$ đều.\\
+			Mặt khác ta có $A'A=A'B'=A'D'=1$ nên suy ra hình chóp $A'.AB'D'$ đều, do đó 
+			\begin{align*}
+			&\mathrm{d} \left(A',(AB'D')\right) = A'G = \sqrt{(A'D')^2 - (D'G)^2} \\
+			=&\sqrt{1^2 - \left(\sqrt{2} \cdot \dfrac{\sqrt{3}}{3}\right)^2} = \sqrt{1 - \dfrac{6}{9}} = \sqrt{\dfrac{1}{3}} = \dfrac{\sqrt{3}}{3}.
+			\end{align*}
+		}
+		{
+			\begin{tikzpicture}[scale=0.8]
+			\tkzDefPoints{0/0/A,4/0/D,1.5/1/B}
+			\tkzDefSquare(A,D)
+			\tkzGetPoints{D'}{A'}
+			\coordinate (C) at ($(B)+(D)-(A)$);
+			\coordinate (B') at ($(A')+(B)-(A)$);
+			\coordinate (C') at ($(B')+(D')-(A')$);
+			\tkzCentroid(A,B',D')		\tkzGetPoint{G}
+			\tkzMarkRightAngle[fill=gray!50](A',G,D')
+			\draw(A')--(B')--(C')--(C)--(D)--(A)--(A');
+			\draw(A')--(D')--(D) (C')--(D') (A)--(D')--(B');
+			\draw[dashed](B')--(B)--(C) (A)--(B) (B')--(A) (A')--(G)--(D');
+			\tkzDrawPoints(A,D,D',A',B,C,B',C',G)
+			\tkzLabelPoints[above](B')
+			\tkzLabelPoints[below](G,B,D)
+			\tkzLabelPoints[left](A',A)
+			\tkzLabelPoints[right](C',C)
+			\tkzLabelPoints(D')
+			\end{tikzpicture}
+	}}
+\end{ex}
+\begin{ex}%[TT-03]%[1H3K5-3]%[De-cuong-11-Hk2-ChuVanAn-HN,2018]%[Dương Phước Sang]\\
+	Cho hình chóp tam giác đều $S.ABC$ có cạnh đáy bằng $a$. Góc hợp bởi mặt bên và mặt đáy bằng $60^{\circ}$. Khoảng cách từ đỉnh $S$ của hình chóp đến mặt phẳng $(ABC)$ bằng
+	\choice
+	{\True $\dfrac{a}{2}$}
+	{$\dfrac{a}{4}$}
+	{$\dfrac{3a}{4}$}
+	{$\dfrac{3a}{2}$}
+	\loigiai{
+		\immini{Gọi $H$ là trung điểm của cạnh $BC$ thì $\left\{\begin{aligned}
+			&BC\perp SH \\
+			&BC\perp AH
+			\end{aligned}\right. $ \\
+			$ \Rightarrow $ góc giữa $(SBC)$ và $(ABC)$ là $\widehat{SHA} \Rightarrow \widehat{SHA}=60^{\circ}$. \\
+			Gọi $O$ là tâm của mặt đáy thì $SO\perp (ABC)$. \\
+			Tam giác $SOH$ vuông tại $O$ có\\
+			$SO=OH\cdot \tan \widehat{SHA}=\dfrac{AH}{3}\cdot \tan 60^{\circ}=\dfrac{a\sqrt{3}}{6}\cdot \sqrt{3}=\dfrac{a}{2}$. \\
+			Vậy $\mathrm{d}\left(S,(ABC)\right)=SO=\dfrac{a}{2}$.}
+		{\begin{tikzpicture}[line width=0.6pt,line cap=round,line join=round,>=stealth,scale=0.9]
+			\coordinate[label=left:{$A$}] (A) at (0,0);
+			\coordinate[label=below:{$B$}] (B) at (1.3,-1.5);
+			\coordinate[label=right:{$C$}] (C) at ($(A)+(5,0)$);
+			\coordinate[label=below:{$H$}] (H) at ($(B)!0.5!(C)$);
+			\coordinate[label=below:{$O$}] (O) at ($(A)!2/3!(H)$);
+			\coordinate[label={$S$}] (S) at ($(O)+(0,4)$);
+			\draw (B)--(S)--(A)--(B)--(C)--(S)--(H);
+			\draw[dashed] (C)--(A)--(H) (S)--(O);
+			\tkzMarkRightAngle[size=0.13](S,O,H)
+			\tkzMarkRightAngle[size=0.15](A,H,B)
+			\tkzMarkAngle[size=0.35](S,H,A)
+			\end{tikzpicture}}}
+\end{ex}
+\begin{ex}%[TT-07]%[1H3K5-3]%[De-cuong-11-Hk2-ChuVanAn-HN,2018]\\
+	Cho hình chóp tứ giác đều $S. ABCD$ có cạnh đáy bằng cạnh bên và bằng $a$. Khoảng cách từ $AD$ đến mặt phẳng $(SBC)$ bằng bao nhiêu?
+	\choice
+	{$\dfrac{2}{\sqrt{3}}a$}
+	{$\dfrac{a}{\sqrt{3}}$}
+	{\True $\dfrac{\sqrt{2}}{\sqrt{3}}a$}
+	{$\dfrac{3}{2}a$}
+	\loigiai{
+		\immini{Gọi $O$ là tâm của hình vuông $ABCD$ và $M$ là trung điểm của $BC$.\\
+			Kẻ $OH\bot SM$ (1).\\
+			Ta có $OM\bot BC$ và $SO\bot BC\Rightarrow BC\bot \left(SOM\right)\Rightarrow OH\bot BC$ (2).\\
+			Từ (1) và (2), suy ra: $OH\bot \left(SBC\right)\Rightarrow OH=d(O,(SBC))$.\\ 
+			$OH=\dfrac{OS. OM}{\sqrt{OS^2 + OM^2}}=\dfrac{\dfrac{a\sqrt{2}}{2}.\dfrac{a}{2}}{\sqrt{\dfrac{a^2}{2} + \dfrac{a^2}{4}}}=\dfrac{\sqrt{2}a}{2\sqrt{3}}$.\\
+			Do $AD\parallel \left(SBC\right)$ nên $d\left(AD, \left(SBC\right)\right)=d\left(A, \left(SBC\right)\right)=2d\left(O, \left(SBC\right)\right)=2OH=\dfrac{\sqrt{2}}{\sqrt{3}}a$.}{\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\tkzDefPoints{0/0/A, 5/0/B, -2/-2/D, 1.5/3.5/S}
+			\tkzDefPointBy[translation=from A to D](B)\tkzGetPoint{C}
+			\tkzInterLL(A,C)(B,D) \tkzGetPoint{O}
+			\tkzDrawPoints(O)
+			\tkzDefMidPoint(B,C) \tkzGetPoint{M}
+			\tkzDrawPoints(M)
+			\tkzDefPointBy[homothety = center S ratio .6](M)
+			\tkzGetPoint{H}
+			\tkzDrawSegments(B,C C,D S,B S,C S,D S,M)
+			\tkzDrawSegments[dashed](A,B S,A A,C B,D A,D S,O O,M O,H)
+			\tkzLabelPoints[left](A,D)
+			\tkzLabelPoints[below](B,O)
+			\tkzLabelPoints[right](C,M,H)
+			\tkzLabelPoints[above](S)
+			\tkzDrawPoints(S,A,B,C,D)
+			\tkzMarkRightAngles(O,M,C O,H,M)
+			\end{tikzpicture}} 
+	}
+\end{ex}
+\begin{ex}%[TT-08]%[1H3K5-3]%[De-cuong-11-Hk2-ChuVanAn-HN,2018]\\
+	Cho hình lăng trụ $ABCD.A’B’C’D’$ có đáy là hình vuông cạnh bằng $a\sqrt{3}$. Hình chiếu vuông góc của điểm $A$ lên $\left(A'B'C'D'\right)$ trùng với tâm $O$ của hình vuông $A'B'C'D'$. Biết rằng khoảng cách từ trọng tâm $G$ của tam giác $AB’D’$ đến mặt phẳng $\left(AA'D'\right)$ bằng $\dfrac{a}{2}$. Khoảng cách từ điểm $O$ đến mặt phẳng $\left(ADC'B'\right)$ bằng
+	\choice
+	{\True $\dfrac{3a}{4}$}
+	{$\dfrac{a}{2}$}
+	{$\dfrac{a\sqrt{13}}{4}$}
+	{$\dfrac{a\sqrt{7}}{2}$}
+	\loigiai{
+		\immini{Gọi $M$ là trung điểm của $A'D'$. \\
+			Kẻ $OH\bot AM$ (1).\\
+			Ta có: $OM\bot A'D'$ 
+			Mặt khác $A'D'\bot SO$, suy ra $A'D'\bot \left(AOM\right)\Rightarrow OH\bot A'D'$ (2).\\
+			Từ (1) và (2), suy ra $OH\bot \left(AA'D'\right)$ nên $OH=d\left(O, \left(AA'D'\right)\right)$.\\ 
+			Ta có $AO=\dfrac{3}{2}AG\Rightarrow d\left(O, \left(AA'D'\right)\right)=\dfrac{3}{2}d\left(G, \left(AA'D'\right)\right)=\dfrac{3}{2}. \dfrac{a}{2}=\dfrac{3a}{4}$.\\ 
+			Theo hình vẽ, ta có $d\left(O, \left(ADC'B'\right)\right)=OI=OH=d\left(O, \left(AA'D'\right)\right)=\dfrac{3a}{4}$}{\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\tkzDefPoints{0/0/A', 5/0/B', -2/-2/D', 1/3/A}
+			\tkzDefPointBy[translation=from A' to D'](B')\tkzGetPoint{C'}
+			\tkzDefPointBy[translation=from A' to A](B')\tkzGetPoint{B}
+			\tkzDefPointBy[translation=from A' to A](C')\tkzGetPoint{C}
+			\tkzDefPointBy[translation=from A' to A](D')\tkzGetPoint{D}
+			\tkzInterLL(A',C')(B',D') \tkzGetPoint{O}
+			\tkzDrawPoints(O)
+			\tkzDefMidPoint(A',D') \tkzGetPoint{M}
+			\tkzDrawPoints(M)
+			\tkzDefPointBy[translation=from A' to B'](M)\tkzGetPoint{N}
+			\tkzDefPointBy[homothety = center A ratio .6](O)
+			\tkzGetPoint{G}\tkzDrawPoints(G)
+			\tkzDrawAltitude[dashed](A,M)(O)
+			\tkzGetPoint{H} \tkzDrawPoints(H)
+			\tkzDrawAltitude[dashed](A,N)(O)
+			\tkzGetPoint{I} \tkzDrawPoints(I)
+			\tkzDrawSegments(A,B B,C C,D D,D' B,B' C,C' D',C' C',B' D,A)
+			\tkzDrawSegments[dashed](A,A' A',B' A',D' O,M A,M O,N O,I A,O A,N A',C' B',D')
+			\tkzLabelPoints[left](H,M)
+			\tkzLabelPoints[below](C',D',B',O)
+			\tkzLabelPoints[right](N,C,G)
+			\tkzLabelPoints[above right](A',I)
+			\tkzLabelPoints[above](B,D,A)
+			\tkzMarkRightAngles(M,H,O D',M,O C',N,O N,I,O)
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[TT-12]%[1H3K5-3]%[Đề cương khối 11 HK2, Chu Văn An, HN, 2018]%[Nguyễn Tiến Thùy]\\
+	Cho lăng trụ đứng $ABC.A'B'C'$ có đáy là tam giác đều cạnh $1$, $AA'=\sqrt{3}$. Tính khoảng cách $d$ từ điểm $A$ đến mặt phẳng $(A'BC)$.
+	\choice
+	{$d=\dfrac{\sqrt{3}}{2}$}
+	{\True $d=\dfrac{\sqrt{15}}{5}$}
+	{$d=\dfrac{2\sqrt{15}}{5}$}
+	{$d=\dfrac{\sqrt{3}}{4}$}
+	\loigiai{
+		\immini{
+			Lấy $M$ là trung điểm của đoạn $BC$, do tam giác $ABC$ đều suy ra $AM\perp BC$.\hfill $(1)$\\
+			Xét cặp tam giác $ABA'$ và $ACA'$ \\
+			\indent - chung cạnh $AA'$\\
+			\indent - $\widehat{A'AB}=\widehat{A'AC}=90^\circ$\\
+			\indent - $AB=AC$\\
+			suy ra $\triangle ABA'=\triangle ACA'$, suy ra $A'B=A'C$, suy ra tam giác $A'BC$ cân tại $A'$, suy ra $A'M\perp BC$.\hfill $(2)$\\
+			Từ $(1)$ và $(2)$ suy ra $BC\perp (AA'M)$, mà $BC\subset (A'BC)$ suy ra $(AA'M)\perp(A'BC)$.
+		}{
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/A}
+			\tkzDefShiftPoint[A](-50:1.5){B}
+			\tkzDefShiftPoint[A](0:4){C}
+			\tkzDefShiftPoint[A](-90:4){A'}
+			\tkzDefShiftPoint[B](-90:4){B'}
+			\tkzDefShiftPoint[C](-90:4){C'}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+			\coordinate (H)at($(M)!0.25!(A')$);
+			
+			\tkzDrawPoints(A,B,C,A',B',C',M,H)
+			\tkzDrawSegments(A,B B,C C,A A,A' B,B' C,C' A',B' B',C' A',B A,M)
+			\tkzDrawSegments[dashed](A',C' A',C A',M A,H)
+			
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[above right](C)
+			\tkzLabelPoints[below left](A')
+			\tkzLabelPoints[below](B')
+			\tkzLabelPoints[right](C')
+			\tkzLabelPoints[](M)
+			\tkzLabelPoints[](H)
+			\tkzMarkRightAngles(A,H,A' A,M,B B,M,A')
+			\end{tikzpicture}
+		}
+		\noindent Trong mặt phẳng $(AA'M)$ kẻ $AH\perp A'M$ tại $H$ suy ra $AH\perp(A'BD)$ (do $(AA'M)\cap (A'BD)\equiv A'M$).\\
+		Từ đó suy ra $d(A;(A'BC))=AH$.\\
+		Do tam giác $ABC$ đều suy ra $AM=\dfrac{\sqrt{3}}{2}$. Do tam giác $AA'M$ vuông tại $A$ suy ra 
+		$$\dfrac{1}{AH^2}=\dfrac{1}{AA'^2}+\dfrac{1}{AM^2}=\dfrac{1}{3}+\dfrac{4}{3}\Rightarrow AH=\dfrac{\sqrt{15}}{5}.$$
+		Vậy $d(A;(A'BD))=AH=\dfrac{\sqrt{15}}{5}$.
+	}
+\end{ex}
+\begin{ex}%[1H3G5-3]%[Đề cương HK2 lớp 11, Chu Văn An, HN, 2018]%[Nguyễn Đức Lợi]\\
+	Cho tứ diện $ABCD$ có $AC \perp AB$, $BD\perp AB$, $AC\perp BD$ với $AB=a$. Khoảng cách từ $C$ đến mặt phẳng $(ABD)$ bằng $b$ và khoảng cách từ $D$ đến $(ABC)$ bằng $2b$. Gọi $M$ là điểm thay đổi trên đoạn $AB$. Tính $S$ là giá trị nhỏ nhất của tổng $MC+MD$ theo $a, b$.
+	\choice
+	{$S=b+\sqrt{a^2+4b^2}$}
+	{$S=2b+\sqrt{a^2+4b^2}$}
+	{\True $S=\sqrt{a^2+9b^2}$}
+	{$S=\sqrt{\dfrac{a^2}{4}+b^2} + \sqrt{\dfrac{a^2}{4}+4b^2}$}
+	\loigiai{
+		\immini{
+			Có $AC \perp (ABD)$, suy ra $d(C,(ABD))=CA\Rightarrow CA=b$.\\
+			Lại có $BD\perp AB$, $AC\perp BD$ suy ra $BD \perp (ABC) \Rightarrow d(D,(ABC))=DB=2b$.\\
+			Do các tam giác $MBD$ và $MAC$ vuông nên ta có $$MC+MD=\sqrt{MA^2 +AC^2} +\sqrt{MB^2 + BD^2}$$
+			Áp dụng bất đẳng thức $$\sqrt{a^2+b^2}+ \sqrt{c^2+d^2} \geq \sqrt{(a+c)^2 +(b+d)^2}$$
+			Suy ra
+		}
+		{     
+			\begin{tikzpicture}[scale=0.6]
+			\tkzDefPoints{0/0/B, 7/0/C, 2/-2/A, 0/5/D}
+			\tkzDefMidPoint(B,A) \tkzGetPoint{M}
+			\tkzDrawSegments(C,D D,A D,B A,B C,A  M,D)
+			\tkzDrawSegments[dashed](C,B C,M)
+			\tkzDrawPoints[](A,C,D,B,M)
+			\tkzLabelPoints(C)
+			\tkzLabelPoints[above](D)
+			\tkzLabelPoints[left](B,M)
+			\tkzLabelPoints[below](A)
+			\tkzMarkRightAngles[fill=black,size=0.5, opacity=0.25](B,A,C A,B,D)
+			
+			\end{tikzpicture}
+		}
+		$$MC+MD=\sqrt{MA^2 +AC^2} +\sqrt{MB^2 + BD^2} \ge \sqrt{(AM+BM)^2 +(AC+BD)^2} =\sqrt{a^2+9b^2}$$
+		Đẳng thức xảy ra khi và chỉ khi $\dfrac{AM}{BM}=\dfrac{AC}{BD} \Leftrightarrow AM=\dfrac{1}{2} BM =\dfrac{1}{3}AB$.\\
+		Vậy $\displaystyle \min S = \sqrt{a^2+9b^2}$ khi $M$ thuộc đoạn $AB$ sao cho $AM=\dfrac{a}{3}.$
+	}
+\end{ex}
+\dang{Khoảng cách giữa hai đường thẳng chéo nhau}
+\begin{ex}%[TT-13]%[1H3B5-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Lê Thanh Nin]\\
+	Cho hình chóp tứ giác $ S.ABCD $ có đáy là hình vuông cạnh $ a $, các cạnh bên của hình chóp bằng nhau và cũng bằng $ a $. Khoảng cách giữa hai đường thẳng chéo nhau $ SA,BC $ bằng
+	\choice
+	{$ a $}
+	{$ \dfrac{\sqrt{3}}{2}a $}
+	{\True $ \dfrac{\sqrt{6}}{3}a $}
+	{$ \dfrac{a}{2} $}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line cap=round,line join=round, >=stealth,scale=1]
+			\def \x{2} 
+			\coordinate (B) at (0,0);
+			\coordinate (C) at ($(B)+(1.*\x,1*\x)$);
+			\coordinate (A) at ($(B)+(2*\x,0) $);
+			\coordinate (D) at ($(C)+(A)-(B)$);
+			\coordinate (O) at ($ (B)!1/2!(D) $);
+			\coordinate (S) at ($(O)+(0,2*\x)$);
+			\coordinate (K) at ($(A)!1/2!(D)$);
+			\coordinate (I) at ($(S)!3/5!(K)$);
+			\tkzMarkRightAngles[size=0.2,opacity=1](O,I,S O,K,A)
+			\tkzDrawSegments(S,B S,A S,D B,A A,D S,K)
+			\tkzDrawSegments[style=dashed](A,C B,D O,K O,I O,S C,D C,B C,S)
+			\tkzDrawPoints[fill=black](A,B,C,D,S,O,I,K)
+			\tkzLabelPoints[left=3pt](B,C,O)
+			\tkzLabelPoints[above](S) 
+			\tkzLabelPoints[right](A,D,K,I)
+			\end{tikzpicture}
+		\end{center}		
+		Gọi $ O $ là hình chiếu vuông góc của $ S $ lên mặt phẳng $ (ABCD) $. Do $ SA=SB=SC=SD $ nên $ OA=OB=OC=OD $ vậy $ O $ là tâm của hình vuông $ ABCD $.\\
+		Gọi $ K $ là trung điểm của $ AD $ suy ra $ OK\perp AD $ mặt khác $ SO\perp AD $ nên $ AD\perp (SOA) $.\\
+		Dựng $ OI\perp SK $ tại $ I $, do  $ AD\perp (SOA) $ nên $ AD\perp OI $ từ đó suy ra $ OI\perp (SAD) $.\\
+		Ta có $ BC\parallel AD $ suy ra $ BD\parallel (SAD) $.\\
+		Vậy $ d(BC,SA)=d(BC,(SAD)=d(B,(SAD)=2d(O,(SAD))=2OI $.\\
+		Tam giác $ SOD $ vuông tại $ O $ nên $ SO=\sqrt{SD^2-OD^2}=\dfrac{a\sqrt{2}}{2} $.\\
+		Lại có $ OK=\dfrac{AB}{2}=\dfrac{a}{2} $.\\
+		Tam giác $ SOK $ vuông tại $ O $ đường cao $ OI $ nên\\
+		$ \dfrac{1}{OI^2}=\dfrac{1}{SO^2}+\dfrac{1}{OK^2}=\dfrac{6}{a^2}\Rightarrow OI=\dfrac{a\sqrt{6}}{6} $.\\
+		Vậy $ d(BC,SA)=2OI=\dfrac{a\sqrt{6}}{3} $.
+	} 
+\end{ex}
+\begin{ex}%[TT-16]%[1H3B5-4]%[Đề cương khối 11 HK2, Chu Văn An, HN, 2018]%[Võ Thanh Phong]\\
+	Cho lăng trụ đều $ABC.A'B'C'$ có $AA'=a$, khoảng cách giữa hai đường thẳng $A'B$ và $CC'$ là $a\sqrt{3}$. Diện tích tam giác $ABC$ bằng 
+	\choice
+	{\True $a^2\sqrt{3}$}
+	{$\dfrac{3a^2\sqrt{3}}{4}$}
+	{$\dfrac{a^2\sqrt{3}}{4}$}
+	{$\dfrac{a^2\sqrt{3}}{3}$}
+	\loigiai{
+		\immini{Trong tam giác đều $ABC$, kẻ đường cao $CH\perp AB$. Ta có $CH\perp (ABB'A')$ nên $CH\perp A'B$.\\
+			Mặt khác, ta có $CH\perp CC'$ do $CC'\perp (ABC)$ nên ta suy ra khoảng cách giữa $A'B$ và $CC'$ là đoạn $CH$.\\
+			Vì $ABC$ là tam giác đều và có đường cao $CH=a\sqrt{3}$ nên $AB=BC=CA=2a$.\\
+			Vậy diện tích tam giác $ABC$ là $S=a^2\sqrt{3}$.}{\begin{tikzpicture}[scale=.7]
+			\tkzDefPoints{0/0/A, 2/-2/B, 5/0/C, 0/5/z}
+			\coordinate (A') at ($(A)+(z)$);
+			\coordinate (B') at ($(B)+(z)$);
+			\coordinate (C') at ($(C)+(z)$);
+			\tkzDefMidPoint(A,B)\tkzGetPoint{H}
+			\tkzDrawPolygon(A',B',C')
+			\tkzDrawSegments(A',A A,B B,C B,B' C,C' A',B)
+			\tkzDrawSegments[dashed](A,C  C,H)
+			\tkzLabelPoints[below right](B, C',C,B')
+			\tkzLabelPoints[left](A, A')
+			\tkzLabelPoints[left](H)
+			\tkzMarkRightAngle(C,H,B)
+			\tkzMarkRightAngle(C',C,H)
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[1H3K5-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Lê Thị Thúy Hằng]\\
+	Cho hình hộp đứng $ABCD.A'B'C'D'$ có đáy là hình bình hành, $AB=a$, $AD=2a$, $\widehat{BAD}=60^\circ$. Gọi $M, N, P$ lần lượt là trung điểm của $A'B$, $BD$, $DD'$ và $H$ là hình chiếu của $B$ lên $AD$. Khoảng cách giữa hai đường thẳng $MN$, $HP$ bằng
+	\choice
+	{$a \sqrt{3}$}
+	{$\dfrac{a \sqrt{3}}{2}$}
+	{$2 \sqrt{3} a$}
+	{\True $\dfrac{a \sqrt{3}}{4}$}
+	\loigiai{
+		\immini{Gọi $I$ là trung điểm $AB$. Ta có $MI \parallel DD'$ và $NI \parallel AD$ nên $(MNI) \parallel (AA'D'D)$. \\
+			Trong mặt phẳng $(ABCD)$, gọi $K$ là giao điểm của $NI$ và $BH$. \\
+			Suy ra \\
+			$$\begin{aligned}
+			{\rm d}(MN,HP) &= {\rm d}((MNI),(ADD'A')) \\
+			& =  {\rm d}(H,(MNI)) \\
+			& = HK.\\
+			\end{aligned}$$\\
+		}{
+			\begin{tikzpicture}[scale=0.7]
+			\tkzDefPoints{0/0/A, 6/0/B, -1/2/D}
+			\coordinate (C) at ($(B)+(D)-(A)$);
+			\coordinate (A') at ($(A)+(0,5)$);
+			\coordinate (B') at ($(B)+(0,5)$);
+			\coordinate (C') at ($(C)+(0,5)$);
+			\coordinate (D') at ($(D)+(0,5)$);
+			\tkzDefMidPoint(A',B') \tkzGetPoint{M}
+			\tkzDefMidPoint(B,D) \tkzGetPoint{N}
+			\tkzDefMidPoint(D,D') \tkzGetPoint{P}
+			\coordinate (H) at ($(A)!0.3!(D)$);
+			\tkzDefMidPoint(A,B) \tkzGetPoint{I}
+			\tkzInterLL(N,I)(B,H) \tkzGetPoint{K}
+			\tkzDrawSegments(A,B A,D A,A' D,D' B,B' A',B' B',C' C',D' A',D' H,P M,I)
+			\tkzDrawSegments[dashed](C,D B,C C,C' B,D B,H M,N N,I)
+			\tkzMarkRightAngle(A,H,B)
+			\tkzLabelPoints[below](A,B,I)
+			\tkzLabelPoints[left](D,P,H)
+			\tkzLabelPoints[above](M)
+			\tkzLabelPoints[above right](C,A',B',C',D')
+			\tkzLabelPoints[above left](K,N)
+			\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D',M,N,P,H,I,K)
+			\end{tikzpicture}
+		}
+		\noindent Ta có 
+		$$
+		BD = \sqrt{AB^2 + AD^2 - 2 \cdot AD \cdot AB \cdot \cos \widehat{BAD}} 
+		= \sqrt{4a^2 + a^2 -2 \cdot 2a \cdot a \cdot \cos 60^\circ} 
+		= a \sqrt{3}, $$
+		$DN= \dfrac{1}{2} BD = \dfrac{a \sqrt{3}}{2}$, 
+		$HB= \dfrac{AB \cdot AD \cdot \sin 60^\circ}{AD}
+		= \dfrac{a \sqrt{3}}{2}$.\\
+		Mặt khác $\dfrac{HK}{BH} = \dfrac{DN}{BD}$ nên 
+		$HK= \dfrac{HB \cdot DN}{BD}= \dfrac{a \sqrt{3}}{4}$.
+	}
+\end{ex}
+\begin{ex}%[1H3K5-4]%[Đề cương Toán 11, HK2, Chu Văn An, Hà Nội]%[Trần Phong]\\
+	Cho hình hộp đứng $ABCD.A'B'C'D'$ có đáy là hình bình hành $AB=2a$, $BC=a$, $\widehat{BAD}=60^\circ$. Gọi $M$ là trung điểm của $CC'$. Khoảng cách giữa hai đường thẳng $AM$ và $DD'$ bằng
+	\choice
+	{$\dfrac{a\sqrt{19}}{7}$}
+	{$\dfrac{a\sqrt{21}}{5}$}
+	{$\dfrac{a\sqrt{19}}{5}$}
+	{\True $\dfrac{a\sqrt{21}}{7}$}
+	\loigiai{
+		\immini{
+			\begin{itemize}
+				\item Ta có $DD'\parallel (AMC)$. Suy ra
+				\item[] $\mathrm{d}(AM,DD')=\mathrm{d}(DD',(AMC))=\mathrm{d}(D,(AMC))$.
+				\item Kẻ $DK\perp AC$ tại $K$.
+				\item[] Ta có $\heva{& DK\perp AC\\& DK\perp MC}\Rightarrow DK\perp(AMC)$.
+				\item[] Suy ra $\mathrm{d}(D,(AMC))=DK$.
+			\end{itemize}
+		}
+		{
+			\begin{tikzpicture}[scale=1.3,x=2cm,y=1.7cm]
+			\tkzInit[xmin=-0.2,xmax=2.1,ymin=-0.1, ymax=2.1] \tkzClip[space=.2]
+			\tkzDefPoints{0/0/A, 1.5/0/B, 0.5/0.5/D, 0/1.7/A'}
+			\tkzDefPointBy[translation = from A to B](D)\tkzGetPoint{C}
+			\tkzDefPointBy[translation = from A to B](A')\tkzGetPoint{B'}
+			\tkzDefPointBy[translation = from A to D](A')\tkzGetPoint{D'}
+			\tkzDefPointBy[translation = from A to D](B')\tkzGetPoint{C'}
+			\coordinate (M) at ($(C)!0.5!(C')$);
+			\coordinate (K) at ($(A)!0.4!(C)$);
+			\tkzDrawSegments(A,B A',A A',B' B',B B,C B',C' A',D' D',C' C',C)
+			\tkzDrawSegments[dashed](A,D D,C D,D' A,M A,C D,K)
+			\tkzLabelPoints[left](A,D,A',D')
+			\tkzLabelPoints[below](B,K)
+			\tkzLabelPoints[right](C,C',B',M)
+			\tkzLabelSegment[below](A,B){$2a$};
+			\tkzLabelSegment[right](B,C){$a$};
+			\tkzMarkRightAngle[size=0.15](D,K,A)
+			\tkzDrawPoints(A,B,C,D,A',B',C',D',M,K)
+			\end{tikzpicture}
+		}
+		\begin{itemize}
+			\item Ta có $BD^2=AD^2+AB^2-2\cdot AD\cdot AB\cdot\cos60^\circ=3a^2\Rightarrow BD=a\sqrt3$.
+			\item[] Suy ra $\triangle ADB$ vuông tại $D$. Khi đó $\dfrac{1}{DK^2}=\dfrac{1}{AD^2}+\dfrac{4}{BD^2}=\dfrac{7}{3a^2}$.
+			\item[] Hay $DK=\dfrac{a\sqrt{21}}{7}$.
+		\end{itemize}
+	}
+\end{ex}
+\begin{ex}%[Đề cương ôn tập HK2, THPT Chu Văn An, HN, 2018]%[1H3K5-4]%[Nguyễn Thành Khoa]\\
+	Cho hình lập phương $ABCD.A'B'C'D'$ có cạnh đáy bằng $a$. Gọi $O'$ là tâm của mặt đáy $A'B'C'D'$, điểm $M$ thuộc đoạn $BD$ sao cho $BM=\dfrac{3}{4}BD$. Khoảng cách giữa hai đường thẳng $AM$, $O'D$ bằng
+	\choice
+	{$\dfrac{a\sqrt{14}}{10}$}
+	{$\dfrac{a\sqrt{14}}{28}$}
+	{$\dfrac{a\sqrt{14}}{7}$}
+	{\True $\dfrac{a\sqrt{14}}{14}$}
+	\loigiai{
+		\immini{
+			Gọi $O$ là tâm của hình vuông $ABCD$.\\
+			Gọi $I$ là trung điểm của $OO'$.\\
+			Ta có $BM=\dfrac{3}{4}BD\Rightarrow$ M là trung điểm của $OD$.\\
+			$\Rightarrow O'D\parallel IM\Rightarrow O'D\parallel (IMA)$.\\
+			$\mathrm{d}(O'D,AM)=d(O'D,(IMA))=d(D,(IMA))$.\\
+			Mà $\mathrm{d}(D,(IMA))=d(O,(IMA))$.\\
+			Vậy $\mathrm{d}(O'D,AM)=d(O,(IMA))$.\\
+			Kẻ $OK\perp AM$ và $OH\perp IK$. \\
+			Suy ra $OH\perp (IMA)\Rightarrow \mathrm{d}(O,(IMA))=OH$.\\
+			Ta có: $\dfrac{1}{OH^2}=\dfrac{1}{OM^2}+\dfrac{1}{OA^2}+\dfrac{1}{OI^2}=\dfrac{8}{a^2}+\dfrac{2}{a^2}+\dfrac{4}{a^2}=\dfrac{14}{a^2}$\\
+			$\Rightarrow OH=\dfrac{a\sqrt{14}}{14}$.}
+		{\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{-2/-2/x, 4/0/y, 0/4/z, 0/0/A}
+			\coordinate (B) at ($(A)+(x)$);
+			\coordinate (C) at ($(B)+(y)$);
+			\coordinate (D) at ($(C)-(x)$);
+			\coordinate (A') at ($(A)+(z)$);
+			\coordinate (B') at ($(B)+(z)$);
+			\coordinate (C') at ($(C)+(z)$);
+			\coordinate (D') at ($(D)+(z)$);
+			\tkzInterLL(A',C')(B',D')
+			\tkzGetPoint{O'}
+			\tkzInterLL(A,C)(B,D)
+			\tkzGetPoint{O}
+			\coordinate (I) at ($(O)!0.5!(O')$);
+			\coordinate (M) at ($(O)!0.5!(D)$);
+			\coordinate (K) at ($(A)!0.6!(M)$);
+			\coordinate (H) at ($(I)!0.4!(K)$);
+			
+			\tkzDrawSegments[dashed](B,A A,D A,A' A,C B,D O,O' O,H I,K I,A I,M A,M O,K)
+			\tkzDrawSegments(D,C D,D' A',C' B',D')
+			\tkzDrawPoints(O,A,I,K,H,M)
+			\tkzDrawPolygon(A',B',C',D')
+			\tkzDrawPolygon(B,B',C',C)
+			\tkzLabelPoints[right](C, C', D', D, H,I)
+			\tkzLabelPoints[left](A, B, B', A')
+			\tkzLabelPoints[above](K,O')
+			\tkzLabelPoints[below](O,M)
+			\tkzMarkRightAngle(O,K,M)
+			\tkzMarkRightAngle(O,H,K)
+			\end{tikzpicture}}}
+\end{ex}
+\begin{ex}%[Đề Cương HK2-THPT Chu Văn An-Hà Nội]%[1H3K5-4]%[Nguyễn Văn Vũ]\\
+	Cho hình chóp $S.ABCD$ có đáy là hình thoi tâm $O$ cạnh $a$, $\widehat{ABC}=60^{\circ}$, $SA=SB=SC=2a$. Tính khoảng cách giữa hai đường thẳng $AB$ và $SC$.	
+	\choice
+	{\True $\dfrac{a\sqrt{11}}{4}$}
+	{$\dfrac{a\sqrt{11}}{8}$}
+	{$\dfrac{a\sqrt{11}}{12}$}
+	{$\dfrac{3a\sqrt{11}}{4}$}
+	\loigiai{
+		\immini{Gọi $M$, $N$ lần lượt là trung điểm của các đoạn $BC$, $AB$, $H$ là giao điểm của $AM$ và $CN$.\\ 
+			Vì $\widehat{ABC}=60^{\circ}$ và $AB=BC=a$ nên $\triangle ABC$ đều cạnh $a$ và $SA=SB=SC$ suy ra $SH\perp (ABCD)$.\\
+			Vì $AB\parallel(SCD)$ nên $d(AB,(SCD))=d(B,(SCD))=\dfrac{3}{2}d(H,(SCD))$.\\
+			Lại có $(SCD)\perp(SCH)$ theo giao tuyến $SC$ nên trong mặt phẳng $(SCH)$ hạ $HI\perp SC$ ($H\ \in \ SC$), suy ra $HI\perp (SCD) \Rightarrow HI=d(H,(SCD))$.\\
+			Ta có $HC=\dfrac{2}{3}CN=\dfrac{a\sqrt{3}}{3}$ và $SH=\sqrt{SC^2-HC^2}=\sqrt{(2a)^2-(\dfrac{a\sqrt{3}}{3})^2}=\dfrac{a\sqrt{11}}{\sqrt{3}}$.\\
+			Do đó, $d(H,(SCD))=HI=\dfrac{SH\cdot HC}{\sqrt{SH^2+HC^2}}=\dfrac{a\sqrt{11}}{4}$.}
+		{\begin{tikzpicture}[scale=.9]
+			\tkzDefPoints{0/0/B, 2/1.5/A, 5/0/C}
+			\coordinate (D) at ($(A)+(C)-(B)$);
+			\coordinate (M) at ($(B)!.5!(C)$);
+			\coordinate (N) at ($(A)!.5!(B)$);
+			\coordinate (O) at ($(A)!.5!(C)$);
+			\tkzInterLL(A,M)(B,O)
+			\tkzGetPoint{H}
+			\coordinate (S) at ($(H)+(0,5)$);
+			\tkzDefPointBy[projection= onto S--C](H)
+			\tkzGetPoint{I}
+			\tkzDrawSegments(S,D S,C S,B B,C C,D)
+			\tkzDrawSegments[dashed](S,A A,B A,D A,M B,D S,H A,C N,C H,I)
+			\tkzLabelPoints[above](S)
+			\tkzLabelPoints[left](N)
+			\tkzLabelPoints[above right](I)
+			\tkzLabelPoints[below](B,C,D,M,O)
+			\tkzLabelPoints[above left](H,A)
+			\tkzMarkRightAngle(A,M,C)
+			\tkzMarkRightAngle(A,O,D)
+			\tkzMarkRightAngle(A,N,C)
+			\tkzMarkRightAngle(H,C,D)
+			\tkzMarkRightAngle(H,I,C)
+			\end{tikzpicture}}
+	}
+\end{ex}
+\begin{ex}%[1H3K5-4]%[Đề cương HK2 lớp 11, Chu Văn An, HN, 2018]%[Nguyễn Đức Lợi]\\
+	Cho lăng trụ $ABC.A'B'C'$ có đáy $ABC$ là tam giác đều cạnh bằng $a$. Hình chiếu vuông góc của điểm $A'$ xuống mặt phẳng $(ABC)$ trùng với trọng tâm tam giác $ABC$. Biết khoảng cách giữa hai đáy bằng $a$, tính khoảng cách giữa $AA'$ và $BC$.
+	\choice
+	{$\dfrac{2a}{3}$}
+	{$\dfrac{3a}{2}$}
+	{$\dfrac{4a}{3}$}
+	{\True $\dfrac{3a}{4}$}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=.5]
+			\tkzDefPoints{0/0/A, 6/0/C, 2.5/-2./B, 0/6/a}
+			\tkzCentroid(A,B,C) \tkzGetPoint{I}
+			\coordinate (A') at ($(I)+(a)$);
+			\tkzDefPointBy[translation = from A to A'](B) \tkzGetPoint{B'}
+			\tkzDefPointBy[translation = from A to A'](C) \tkzGetPoint{C'}		
+			\tkzDefMidPoint(B,C) \tkzGetPoint{M}
+			\coordinate (H) at($(A)!.5!(A')$);
+			\coordinate (K) at ($(A)!.67!(H)$);
+			\tkzDrawSegments(A,B B,C A,C A,A' B,B' C,C' A',B' B',C' A',C')
+			\tkzDrawSegments[dashed](A',I H,M I,K  A,M)
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[left](A', H, K)
+			\tkzLabelPoints[right](C', M, C, B)  
+			\tkzLabelPoints[below left](B',I)  	
+			\end{tikzpicture}
+		\end{center}
+		Gọi $M$ là trung điểm của $BC$;
+		$I$ là trọng tâm tam giác $ABC$;
+		$H$ là hình chiều của $M$ lên $AA'$;
+		$K$ là hình chiếu của $I$ lên $AA'$.\\
+		Dễ thấy $BC\perp (AMA')$ nên $MH$ là đoạn vuông góc chung của $AA'$ và $BC$.\\
+		Tam giác $ABC$ đều cạnh bằng $a$ nên $AM=\dfrac{a\sqrt{3}}{2} \Rightarrow AI = \dfrac{a\sqrt{3}}{3}$. Mặt khác $A'I=a; \triangle AA'I$ vuông tại $I$ có đường cao $IK$ nên $IK = \dfrac{IA' \cdot IA}{\sqrt{IA'^2 + IA^2}}=\dfrac{a}{2}$.\\ 
+		Do đó $MH=\dfrac{3}{2}IK=\dfrac{3a}{4}$. Vậy khoảng cách giữa $AA'$ và $BC$ bằng $\dfrac{3a}{4}$.
+	}
+\end{ex}
+\begin{ex}%[TT-01]%[1H3K5-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Đào Anh Dương]\\
+	Cho hình chóp $S.ABCD$  đáy $ABCD$ là hình vuông cạnh $a$, mặt bên $(SAB)$ vuông góc với mặt đáy và $SA=SB=\dfrac{a\sqrt{5}}{2}$. Tính khoảng cách giữa hai đường thẳng $SC$ và $AB$.
+	\choice
+	{$\dfrac{a}{2}$}
+	{\True $\dfrac{a\sqrt{2}}{2}$}
+	{$\dfrac{a\sqrt{3}}{2}$}
+	{$a$}
+	\loigiai{
+		\immini{
+			Gọi $M, N$ lần lượt là trung điểm của $AB$ và $CD$.\\
+			Do $SA=SB$ nên $\triangle SAB$ cân tại $S$, suy ra $SM\perp AB$ mà $(SAB)\perp(ABCD))$, suy ra $SM\perp(ABCD)$.\hfill(1)\\
+			Lại có $MN\perp CD$, từ (1) suy ra $CD\perp(SMN)$.\hfill(2)\\
+			Trong tam giác $SMN$ kẻ đường cao $MH$, ta có $MH\perp SN$, theo (2) thì $MH\perp CD$ suy ra $MH\perp(SCD)$.\\
+			Vì $\heva{&AB\parallel CD\\&CD\subset(SCD)}\Rightarrow AB\parallel(SCD)$, suy ra $\mathrm{d}(AB,SC)=\mathrm{d}(AB,(SCD))=\mathrm{d}(M,(SCD))=MH$.\hfill(3)\\
+			Mà $SM=\sqrt{SA^2-MA^2}=a$, suy ra $\triangle SMN$ vuông cân tại $M$. Suy ra $H$ là trung điểm $SN$.\\
+			Vậy $MH=\dfrac{SN}{2}=\dfrac{a\sqrt{2}}{2}$.
+		}{
+			\begin{tikzpicture}[scale=1,>=stealth]
+			\tkzDefPoints{0/0/A,1/2/B}
+			\coordinate (D) at ($(A)+(3,0)$);
+			\coordinate (C) at ($(B)+(3,0)$);
+			\tkzDefMidPoint(B,A)\tkzGetPoint{M}
+			\tkzDefMidPoint(D,C)\tkzGetPoint{N}
+			\coordinate (S) at ($(M)+(0,4)$);
+			\coordinate (H) at ($(S)!1/2!(N)$);
+			\tkzDrawSegments(S,A S,C S,D C,D D,A S,N)
+			\tkzDrawSegments[dashed](S,B A,B B,C M,N S,M M,H)
+			\tkzLabelPoints[left](B,S,A,M)
+			\tkzLabelPoints[right](C,D,N,H)
+			\tkzMarkRightAngles(S,M,B A,B,C M,H,N)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[TT-14]%[1H3K5-4]%[Đề cương khối 11 Hk2, Chu Văn An, HN, 2018]%[Lê Thanh Nin]\\
+	Cho hình hộp $ ABCD.A'B'C'D' $ có $ AB=AD=a, AA'=BD=a\sqrt{3} $. Hình chiếu vuông góc của điểm $ A $ trên mặt phẳng $ (A'B'C'D') $ là điểm $ H $ nằm trên đoạn thẳng $ B'D' $ sao cho $ B'D'=3B'H $. Khoảng cách giữa hai đường thẳng $ AA' $ và $ BC' $ bằng
+	\choice
+	{$  a\sqrt{6} $}
+	{\True $ \dfrac{a\sqrt{6}}{3} $}
+	{$ \dfrac{a\sqrt{6}}{6}  $}
+	{$ \dfrac{a\sqrt{6}}{2} $}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line cap=round,line join=round, >=stealth,scale=1]
+			\def \x{2} 
+			\coordinate (C') at (0,0);
+			\coordinate (B') at ($(C')+(1.5*\x,1*\x)$);
+			\coordinate (D') at ($(C')+(2*\x,0) $);
+			\coordinate (A') at ($(B')+(D')-(C')$);
+			\coordinate (H) at ($ (B')!1/3!(D') $);
+			\coordinate (A) at ($(H)+(0,2*\x)$);
+			\coordinate (I) at ($(A)!3/5!(A')$);
+			\tkzMarkRightAngles[size=0.2,opacity=1](H,A',D' A,I,H)
+			\tkzDefPointsBy[translation= from A' to A](B',C',D'){B,C,D}
+			\tkzDrawSegments(A,B B,C C,D D,A C,C' D,D' A,A' C',D' D',A')
+			\tkzDrawSegments[style=dashed](B,B' B',A' B',C' B',D' B,C' A,H H,I  H,A')
+			\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D',H,I)
+			\tkzLabelPoints[left=3pt](B',C',H)
+			\tkzLabelPoints[above](A,B,C,D) 
+			\tkzLabelPoints[right](A',D',I)
+			\end{tikzpicture}
+		\end{center}
+		Theo định lí cô-sin ta có : $ BD^2=AB^2+AD^2-2AB\cdot AD.\cos \widehat{BAD}\\
+		\Leftrightarrow 3a^2=2a^2-2a^2\cos \widehat{BAD}\Leftrightarrow \cos \widehat{BAD}=-\dfrac{1}{2}\Leftrightarrow \widehat{BAD}=120^\circ. \\
+		\Rightarrow \widehat{B'A'D'}=120^\circ\Rightarrow \widehat{HD'K}=\widehat{HB'A'}=30^\circ$.\\
+		Tương tự ta có $ A'H^2=B'H^2+B'A'^2-2B'H\cdot B'A'\cos \widehat{HB'A'}=\dfrac{a^2}{3}\Rightarrow A'H=\dfrac{a\sqrt{3}}{3} .$\\
+		Tam giác $ HA'D' $ có $ A'H^2+A'D'^2=D'H^2 $ nên vuông tại $ A' $ suy ra $ HA'\perp  A'D'$ mà  $ A'D'\perp AH\Rightarrow A'D'\perp (AHA')$.\\
+		Từ $ H $  hạ $ HI \perp AA' $ tại $ I $.\\
+		Khi đó ta có $ A'D'\perp HI $ từ đó suy ra $ HI\perp (AA'D') $. Vậy $ d(H,(AA'D'))=HI $.\\			
+		Tam giác $ AHA' $ vuông tại $ H $ nên $ AH^2=A'A^2-A'H^2=3a^2-\dfrac{a^2}{3}=\dfrac{8a^2}{3} \Rightarrow AH=\dfrac{2a\sqrt{6}}{3}.$\\
+		Tam giác $ AHA' $ vuông tại $ H $ có đường cao $ HI $ nên $ HI=\dfrac{AH\cdot HA'}{AA'}=\dfrac{2a\sqrt{2}}{3\sqrt{3}}$.\\
+		Lại có $ (BB'C')\parallel (AA'D') $ nên $ d(BC',AA')=d((BB'C'),(AA'D'))=d(B',(AA'D'))$.\\
+		Mà $ \dfrac{D'B'}{D'H}=\dfrac{3}{2}\Rightarrow d(B',(AA'D'))=\dfrac{3}{2}d(H,(AA'D'))=\dfrac{3}{2}HI=\dfrac{a\sqrt{6}}{3} $.
+	} 
+\end{ex}
+\begin{ex}%[1H3G5-4]%[Đề cương Toán 11, HK2, Chu Văn An, Hà Nội]%[Nguyễn Thị Kiều Ngân]\\
+	Cho lăng trụ tam giác $ABC.A'B'C'$ có đáy $ABC$ là tam giác đều cạnh $a$. Hình chiếu vuông góc của $A'$ trên mặt phẳng $(ABC)$ là trung điểm $O$ của cạnh $AB$. Số đo của góc giữa đường thẳng $AA'$ và mặt phẳng $(A'B'C')$ là $60^\circ$. Gọi $I$ là trung điểm cạnh $B'C'$. Khoảng cách giữa hai đường thẳng $CI$ và $AB'$ bằng
+	\choice
+	{$\dfrac{a\sqrt{7}} {14}$}
+	{\True $\dfrac{a\sqrt{7}} {7}$}
+	{$\dfrac{a} {2}$}
+	{$\dfrac{a} {4}$}
+	\loigiai{
+		Góc giữa $AA'$ và mặt phẳng $(A'B'C')$ là góc giữa $AA'$ và mặt phẳng $(ABC)$ là góc $\widehat{A'AB}=60^\circ$.
+		Gọi $M$  là trung điểm $BC$ $\Rightarrow CI \parallel B'M$\\
+		$\Rightarrow CI \parallel (AB'M)$\\
+		$\Rightarrow \mathrm{d}(CI,AB') 
+		= \mathrm{d}(CI,AB'M)
+		= \mathrm{d}(C,(AB'M))
+		= \mathrm{d}(B,(AB'M))
+		= 2\cdot \mathrm{d}(O,(AB'M))$.\\
+		Gọi $E$ là trung điểm $AM$, $F$ là giao điểm của $AB'$ và $A'O$.\\
+		Kẻ $OH \perp EF$ tại $H$.
+		\immini{
+			Ta có
+			\begin{itemize}
+				\item $\heva{&AM \perp OE\\&AM \perp OF}
+				\Rightarrow AM \perp (OEF)$.
+				\item $\heva{&OH \perp EF\\&OH \perp AM}
+				\Rightarrow OH \perp (AB'M)$.\\
+				$\Rightarrow \mathrm{d}(O,(AB'M)) = OH$.
+				\item $\triangle {AA'B}$ đều (do $\widehat{A'AB}=60^\circ$, $A'O \perp AB$) nên $A'O = \dfrac{a\sqrt{3}}{2}
+				\Rightarrow OF = \dfrac{A'O}{3} =\dfrac{a\sqrt{3}}{6}$.
+				\item $OE = \dfrac{BC}{4} = \dfrac{a}{4}$.
+				\item $\dfrac{1}{OH^2} = \dfrac{1}{OE^2} + \dfrac{1}{OF^2} = \dfrac{28}{a^2}
+				\Rightarrow OH = \dfrac{a\sqrt{7}}{14}$.
+			\end{itemize}
+			Vậy $\mathrm{d}(CI,AB') = 2OH = \dfrac{a\sqrt{7}}{7}$.
+		}{
+			\begin{tikzpicture}[>=stealth]
+			\tkzDefPoints{0/0/A, 5/0/C, 2/-1.5/B}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{O}
+			\coordinate (A') at ($(O)+(0,6)$);
+			\tkzDefPointsBy[translation=from A to A'](B,C){B'}{C'}
+			\tkzDefMidPoint(B',C')\tkzGetPoint{I}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+			\tkzDefMidPoint(A,M)\tkzGetPoint{E}
+			\tkzInterLL(A,B')(A',O)\tkzGetPoint{F}
+			\tkzDefPointWith[linear,K=0.4](F,E)\tkzGetPoint{H}
+			\tkzDrawSegments(A,B B,C A,A' B,B' C,C' A',B' B',C' A',C' A',O C,I A,B' B',M)
+			\tkzDrawSegments[dashed](A,C A,M O,E E,F O,H)
+			\tkzDrawPoints(A,B,C,A',B',C',O,I,E,F,H)
+			\tkzLabelPoints[left](A,A',F)
+			\tkzLabelPoints[below left](O)
+			\tkzLabelPoints[right](C,C',M)
+			\tkzLabelPoints[above](B',I)
+			\tkzLabelPoints[right](H)
+			\tkzLabelPoints[below](B,E)
+			\tkzMarkRightAngles(A',O,A O,H,E A,M,B)
+			\tkzMarkAngles[size=.4cm](B,A,A')
+			\tkzMarkSegments[mark=||](B,M M,C B',I I,C)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[1H3G5-4]%[Đề cương Toán 11, HK2, Chu Văn An, Hà Nội]%[Nguyễn Thị Kiều Ngân]\\
+	Cho hình lăng trụ $ABCD.A'B'C'D'$ có đáy là hình vuông cạnh bằng $a\sqrt{3}$. Hình chiếu vuông góc của điểm $A$ trên mặt phẳng $(A'B'C'D')$ trùng với tâm $O$ của hình vuông $A'B'C'D'$. Biết rằng khoảng cách từ trọng tâm $G$ của tam giác $AB'D'$ đến $(AA'D')$ bằng $\dfrac{a}{2}$. Khoảng cách từ điểm $O$ đến mặt phẳng $(ADC'B')$ bằng
+	\choice
+	{\True $\dfrac{3a} {4}$}
+	{$\dfrac{a\sqrt{3}} {4}$}
+	{$\dfrac{3a} {2}$}
+	{$\dfrac{a\sqrt{3}} {2}$}
+	\loigiai{
+		\immini{
+			Gọi $M$, $N$ lần lượt là trung điểm $B'C'$, $A'D'$.\\
+			Tam giác $AMN$ cân tại $A$.\\
+			Ta có $\heva{&A'D' \perp MN\\&A'D' \perp AO}
+			\Rightarrow A'D' \perp (AMN)$.\\
+			$\Rightarrow B'C' \perp (AMN)$\\
+			Kẻ $GH \perp AN$ tại $H$, kẻ $GK \perp AM$ tại $K$.\\
+			Suy ra $\mathrm{d}(G,(ADC'B'))=GK=GH\\
+			=\mathrm{d}(G,(AA'D'))= \dfrac{a}{2}$.\\
+			Ta lại có $\dfrac{\mathrm{d}(O,(ADC'B'))}{\mathrm{d}(G,(ADC'B'))} = \dfrac{OA}{GA} = \dfrac{3}{2}\\
+			\Rightarrow \mathrm{d}(O,(ADC'B')) = \dfrac{3}{2} \cdot \mathrm{d}(G,(ADC'B')) \\
+			= \dfrac{3}{2} \cdot \dfrac{a}{2} = \dfrac{3a}{4}$.
+		}{
+			\begin{tikzpicture}[>=stealth,scale=.9]
+			\tkzDefPoints{0/0/A', 4.5/0/D', -2/-1.5/B'}
+			\tkzDefMidPoint(B',D')\tkzGetPoint{O}
+			\tkzDefPointsBy[translation=from A' to D'](B'){C'}
+			\coordinate (A) at ($(O)+(0,6)$);
+			\tkzDefPointsBy[translation=from A' to A](B'){B}
+			\tkzDefPointsBy[translation=from A' to A](C'){C}
+			\tkzDefPointsBy[translation=from A' to A](D'){D}
+			\tkzDefMidPoint(A,D')\tkzGetPoint{I}
+			\tkzInterLL(B',I)(A,O)\tkzGetPoint{G}
+			\tkzDefMidPoint(B',C')\tkzGetPoint{M}
+			\tkzDefMidPoint(A',D')\tkzGetPoint{N}
+			\tkzInterLL(A,B')(A',O)\tkzGetPoint{F}
+			\tkzDefPointWith[linear,K=0.5](A,N)\tkzGetPoint{H}
+			\tkzDefPointWith[linear,K=0.5](A,M)\tkzGetPoint{K}
+			\tkzDrawSegments(A,B B,C C,D A,D B,B' C,C' D,D' B',C' C',D' D,C')
+			\tkzDrawSegments[dashed](A,A' A',B' A',D' M,N A,M A,N A,O B',D' A,B' A,D' G,H G,K)
+			\tkzDrawPoints(A,B,C,D,A',B',C',D',O,G,M,N,H,K)
+			\tkzLabelPoints[left](K)
+			\tkzLabelPoints[above left](A',B)
+			\tkzLabelPoints[above right](N)
+			\tkzLabelPoints[below right](O)
+			\tkzLabelPoints[right](D,D',G,H)
+			\tkzLabelPoints[above](A,C)
+			\tkzLabelPoints[below](B',C',M)
+			\tkzMarkRightAngles(A,O,N B',A',D' G,H,N G,K,M)
+			\tkzMarkSegments[mark=||](B',M M,C' A',N N,D')
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{ex}%[Đề cương ôn tập HK2, THPT Chu Văn An, HN, 2018]%[1H3G5-4]%[Huỳnh Văn Quy]\\
+	Cho hình chóp tam giác đều $S.ABC$ có cạnh đáy bằng $a$. Gọi $G$ là trọng tâm tam giác $ABC$. Góc giữa đường thẳng $SA$ với mặt phẳng $(ABC)$ bằng $60^{\circ}$. Khoảng cách giữa hai đường thẳng $GC$ và $SA$ bằng
+	\choice
+	{$\dfrac{a\sqrt{5}}{10}$}
+	{$\dfrac{a\sqrt{2}}{5}$}
+	{\True $\dfrac{a\sqrt{5}}{5}$}
+	{$\dfrac{a}{5}$}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{0/0/A, 4/-2/B, 6/0/C}
+			\coordinate (M) at ($(B)!.5!(C)$);   % M là trung điểm BC
+			\coordinate (E) at ($(A)!.5!(B)$);   % M là trung điểm BC
+			\tkzInterLL(A,M)(C,E)
+			\tkzGetPoint{G}
+			\coordinate (S) at ($(G)+(0,5)$);
+			\coordinate (K) at ($(A)+(G)-(E)$);
+			\coordinate (x) at ($(A)+(C)-(G)$);
+			\coordinate (I) at ($(K)!0.3!(S)$);
+			\tkzDrawPoints(S,A,B,C,G,M,I,K)
+			\tkzDrawLine[add = 0 and 0.5,dashed](A,x)
+			\tkzDrawSegments[dashed](A,C S,G A,M C,E G,K S,K G,I)
+			\tkzDrawPolygon(S,B,C)
+			\tkzDrawSegments(S,A A,B)
+			\tkzLabelPoints[left](A,K,I)
+			\tkzLabelPoints[right](C, M, x)
+			\tkzLabelPoints[below](B,G)
+			\tkzLabelPoints[above](S)
+			\tkzMarkAngle[size=0.5](G,A,S)
+			\tkzMarkRightAngle(G,K,x)
+			\tkzMarkRightAngle(B,M,A)
+			\tkzMarkRightAngle(G,I,S)
+			\tkzMarkSegments[mark=|](B,M M,C)
+			\tkzMarkSegments[mark=x](A,E E,B)
+			\end{tikzpicture}
+		\end{center}
+		Ta có: $SG=AG\cdot\tan60^\circ=AG\sqrt{3}$.
+		Trong mặt phẳng $(ABC)$, kẻ $Ax\parallel CG$.\\
+		Kẻ $GK\perp Ax\Rightarrow CG\parallel(SAK)$.
+		$\Rightarrow \mathrm{d}(CG,SA)=\mathrm{d}(CG,(SAK))=\mathrm{d}(G,(SAK))$.\\
+		Ta có: $\heva{&AK\perp GK\\&AK\perp SG}\Rightarrow AK\perp(SGK)\Rightarrow AK\perp GI$.\hfill(*)\\
+		Kẻ $GI\perp SK$
+		$\Rightarrow GI\perp(SAK)$
+		$\Rightarrow \mathrm{d}(G,(SAK))=GI$.\\
+		Ta có: $GK=\dfrac{1}{2}AB=\dfrac{a}{2}$.
+		Xét tam giác $SGK$ vuông tại $G$:\\
+		$\dfrac{1}{GI^2}=\dfrac{1}{GK^2}+\dfrac{1}{SK^2}=\dfrac{1}{a^2}+\dfrac{1}{\left(\dfrac{a}{2}\right)^2}=\dfrac{5}{a^2}$
+		$\Rightarrow GI=\dfrac{a\sqrt{5}}{5}$.\\
+		\textbf{Cách 2}:\\
+		Gọi $P$ là trung điểm của $SB$, ta có: $MP\parallel SA$.\\
+		$SA\parallel(MPC)$, $GC\subset(MPC)$.\\
+		$\Rightarrow(SA,GC)=\mathrm{d}(SA,(MPC))=\mathrm{d}(A,(MPC))=\mathrm{d}(B,(MPC))$.\\
+		Trong tam giác $SGB$ (vuông tại $G$), gọi $P'$ là trung điểm của $GB$.\\
+		$\Rightarrow PP'\parallel SG\Rightarrow PP'\perp GB$.\\
+		Ta có $\mathrm{d}(B,(MPC))=2\mathrm{d}(P',(MPC))$.\\
+		Với $Q$ là trung điểm $GM$ ta có $P'Q\parallel AB$ nên $P'Q\parallel AB$ nên $P'Q\perp GM$.\\
+		Do $\heva{&P'Q\perp GM\\&P'P\perp GM}\Rightarrow GM\perp(PP'Q)$.\\
+		Suy ra $(MCP)\perp(PP'Q)$.
+		\begin{center}
+			\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{0/0/A, 1/-2/C, 8/0/B}
+			\coordinate (N) at ($(C)!.5!(B)$);   % M là trung điểm BC
+			\coordinate (E) at ($(A)!.5!(C)$);
+			\coordinate (M) at ($(A)!.5!(B)$);
+			\tkzInterLL(A,N)(B,E)
+			\tkzGetPoint{G}
+			\coordinate (P') at ($(B)!.5!(G)$);
+			\coordinate (S) at ($(G)+(0,7)$);
+			\coordinate (P) at ($(S)!.5!(B)$);
+			\coordinate (Q) at ($(G)!.5!(M)$);
+			\coordinate (K) at ($(Q)!.3!(P)$);
+			\tkzDrawPoints(S,A,B,C,M,K,G,P',Q,N)
+			\tkzDrawSegments[dashed](A,B S,G C,M B,E P,Q P',K P,M A,N P',Q P,P')
+			\tkzDrawPolygon(S,A,C)
+			\tkzDrawPolygon(S,B,C)
+			\tkzLabelPoints[left](A,C,Q,K)
+			\tkzLabelPoints[right](B,P)
+			\tkzLabelPoints[below](G,P',N)
+			\tkzLabelPoints[above](S,M)
+			\tkzMarkRightAngle(G,N,B)
+			\tkzMarkRightAngle(G,M,B)
+			\tkzMarkRightAngle(C,Q,P')
+			\tkzMarkRightAngle(P',K,P)
+			\tkzMarkAngle[size=0.7](G,A,S)
+			\tkzMarkSegments[mark=|](C,N N,B)
+			\tkzMarkSegments[mark=x](A,E E,C)
+			\end{tikzpicture}
+		\end{center}
+		Vì $(MCP)\cap(PP'Q)=PQ$ nên $\mathrm{d}(P',(MCP))=P'K$, với $P'K$ là đường cao trong tam giác vuông $PP'Q$ (vuông tại $P'$).\\
+		$P'Q=\dfrac{1}{2}MB=\dfrac{1}{4}AB=\dfrac{a}{4}$; $PP'=\dfrac{1}{2}SG=\dfrac{1}{2}a$.\\
+		$AG=\dfrac{2}{3}AN=\dfrac{2}{3}\cdot\dfrac{a\sqrt{3}}{2}=\dfrac{a}{\sqrt{3}}$;
+		$\tan60^\circ=\dfrac{SG}{AG}$;
+		$\Rightarrow SG=AG\cdot\tan60^\circ=\dfrac{a}{\sqrt{3}}\cdot\sqrt{3}=a$.\\
+		$\dfrac{1}{P'K^2}=\dfrac{1}{P'Q^2}+\dfrac{1}{P'P^2}=\dfrac{1}{\dfrac{a^2}{16}}+\dfrac{1}{\dfrac{a^2}{4}}$
+		$\Rightarrow P'K=\dfrac{a\sqrt{5}}{10}\Rightarrow d=2P'K=\dfrac{a\sqrt{5}}{5}$.}
+\end{ex}
+\begin{ex}%[TT-04]%[1H3G5-4]%[De-cuong-11-Hk2-ChuVanAn-HN,2018]%[Dương Phước Sang]\\
+	Cho hình chóp tam giác $S.ABC$ có $SA$ vuông góc với mặt đáy, tam giác $ABC$ vuông cân tại $B,BA=BC=a$, góc giữa $(SBC)$ và $(ABC)$ bằng $60^{\circ}$. Gọi $I$ là tâm của đường tròn ngoại tiếp tam giác $SBC$. Tính khoảng cách giữa hai đường thẳng $AI$ và $BC$.
+	\choice
+	{\True $\dfrac{a\sqrt{3}}{2}$}
+	{$\dfrac{a\sqrt{6}}{2}$}
+	{$\dfrac{a\sqrt{2}}{3}$}
+	{$\dfrac{a\sqrt{3}}{4}$}
+	\loigiai{
+		\immini{Ta có $\left\{\begin{aligned}
+			&BC\perp AB \\
+			&BC\perp SA
+			\end{aligned}\right. \Rightarrow BC\perp (SAB) \Rightarrow BC\perp SB$. \\
+			Và góc giữa $(SBC)$ và $(ABC)$ là góc $\widehat{SBA}=60^{\circ}$. \\
+			Do $I$ là tâm đường tròn ngoại tiếp $ \Delta SBC$ nên $I$ là trung điểm cạnh $SC$. \\
+			Gọi $E$ là trung điểm cạnh $SB$ thì $BC\parallel (AEI)$\\
+			$\Rightarrow \mathrm{d}(AI,BC)=\mathrm{d}(BC,(AEI))=\mathrm{d}(B,(AEI))$. \\
+			Gọi $H$ là trung điểm đoạn $AE$.\\
+			Do $\triangle ABE$ đều nên $BH \perp AE$.\\
+			Ngoài ra $BH \perp EI$ (do $BC \perp BH$) nên $BH \perp (AEI)$.\\
+			Như vậy $\mathrm{\,d}(BC,AI)=\mathrm{\,d}(B,(AEI))=BH=\dfrac{AB\sqrt{3}}{2}=\dfrac{a\sqrt{3}}{2}$.}
+		{\begin{tikzpicture}[line width=0.6pt,line cap=round,line join=round,>=stealth,scale=1]
+			\coordinate[label=left:{$A$}] (A) at (0,0);
+			\coordinate[label=below:{$B$}] (B) at (1.3,-1.5);
+			\coordinate[label=right:{$C$}] (C) at ($(A)+(5,0)$);
+			\coordinate[label={$S$}] (S) at ($(A)+(0,4)$);
+			\coordinate[label={$I$}] (I) at ($(S)!0.5!(C)$);
+			\coordinate (E) at ($(S)!0.5!(B)$);
+			\coordinate (H) at ($(A)!0.5!(E)$);
+			\draw (S)--(A)--(B)--(S)--(C)--(B) (A)--(E)--(I) (B)--(H);
+			\draw[dashed] (C)--(A)--(I);
+			\tkzMarkRightAngle[size=0.15](A,B,C)
+			\tkzMarkRightAngle[size=0.13](A,H,B)
+			\tkzMarkRightAngle[size=0.15](S,A,B)
+			\node at ($(E)+(0.15,0.3)$) {$E$};
+			\node at ($(H)+(-0.1,0.2)$) {$H$};
+			\end{tikzpicture}}}
+\end{ex}
+\begin{ex}%[TT-05]%[1H3G5-4]%[De-cuong-11-Hk2-ChuVanAn-HN,2018]%[Lê Ngọc Hiếu]\\
+	Cho hình lăng trụ đều $ABC.A'B'C'$ có tất cả các cạnh bằng $a$. Khoảng cách giữa hai đường thẳng $A'B$ và $B'C$ bằng
+	\choice
+	{$\dfrac{a}{2}$}
+	{\True $\dfrac{a\sqrt{5}}{5}$}
+	{$\dfrac{a\sqrt{2}}{2}$}
+	{$a$}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=.7]
+			\tkzInit[xmin=-2,xmax=6.5,ymin=-4.5,ymax=6.5]
+			\tkzClip
+			\tkzDefPoints{0/0/A, 2/-2/B, 6/0/C, 0/6/z}
+			\coordinate (A') at ($(A)+(z)$);
+			\coordinate (B') at ($(B)+(z)$);
+			\coordinate (C') at ($(C)+(z)$);
+			\tkzDefPointBy[homothety = center B ratio -1](A)\tkzGetPoint{E}
+			\tkzDefMidPoint(C,E)\tkzGetPoint{K}
+			\tkzDefPointBy[homothety = center B' ratio 0.4](K)\tkzGetPoint{H}
+			\tkzDrawPolygon(A',B',C')
+			\tkzDrawSegments(A',A A,E B,B' C,C' A',B B',C E,B' E,C K,B')
+			\tkzDrawSegments[dashed](A,C B,K B,C B,H)
+			\tkzLabelPoints[below right](C, C',E,K)
+			\tkzLabelPoints[right](H)
+			\tkzLabelPoints[left](A, A')
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[above](B')
+			\tkzMarkRightAngles(B,H,B' B,K,E A,C,E)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $E$ đối xứng của $A$ qua $B$. Khi đó $A'B \parallel B'E$.\\
+		$\Rightarrow A'B \parallel (B'EC) \Rightarrow d(A'B,B'C)=d\left(A'B,(B'EC)\right)=d \left(B,(B'EC)\right)$.\\
+		Gọi $K$ là trung điểm $EC$. Khi đó $BK \perp EC$.\\
+		Dựng $AH \perp B'K$, suy ra $BH \perp (B'CE)$ $\Rightarrow d \left(B,(B'EC)\right) = BH$.\\
+		$\Delta EAC$ có $BK$ là đường trung bình nên $BK=\dfrac{AC}{2}=\dfrac{a}{2}$.\\
+		$\Delta BB'K$ vuông tại $B$ có đường cao $AH$ nên \\
+		$\dfrac{1}{BH^2}=\dfrac{1}{BB'^2}+\dfrac{1}{BK^2}=\dfrac{1}{a^2}+\dfrac{4}{a^2}=\dfrac{5}{a^2}$\\
+		$\Rightarrow BH=\dfrac{a}{\sqrt{5}}=\dfrac{a\sqrt{5}}{5}$.
+	}
+\end{ex}
+\begin{ex}%[TT-11]%[1H3G5-4]%[Đề cương khối 11 HK2, Chu Văn An, HN, 2018]%[Nguyễn Tiến Thùy]\\
+	Cho hình tứ diện $OABC$ có đáy $OBC$ là tam giác vuông tại $O$, $OB=a$, $OC=a\sqrt{3}$. Cạnh $OA$ vuông góc với mặt phẳng $(OBC)$, $OA=a\sqrt{3}$, gọi $M$ là trung điểm của $BC$. Tính khoảng cách $h$ giữa hai đường thẳng $AB$ và $OM$.
+	\choice
+	{$h=\dfrac{a\sqrt{5}}{5}$}
+	{\True $h=\dfrac{a\sqrt{15}}{5}$}
+	{$h=\dfrac{a\sqrt{3}}{2}$}
+	{$h=\dfrac{a\sqrt{3}}{15}$}
+	\loigiai{
+		\immini{
+			Trên tia $CO$ lấy điểm $D$ sao cho $O$ là trung điểm của $CD$, kết hợp với $M$ là trung điểm của $BC$ suy ra $MO$ là đường trung bình của tam giác $CBD$, suy ra $MO\parallel BD$.\\
+			
+			Từ đó ta có $OM\parallel (ABD)$ suy ra $$d(OM;AB)=d(OM;(ABD))=d(O;(ABD))$$
+			
+			Trong mặt phẳng $(BCD)$, kẻ $ON\perp BD$ tại $N$. Do $OA\perp(OBC)$ suy ra $AO\perp BD$, từ đó suy ra $(OAN)\perp BD$, mà $BD\subset (ABD)$ suy ra $(OAN)\perp (ABD)$.\\
+		}{
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/A}
+			\tkzDefShiftPoint[A](-90:4){O}
+			\tkzDefShiftPoint[O](0:3){C}
+			\tkzDefShiftPoint[O](-50:2){B}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+			\coordinate(D)at($(C)!2!(O)$);
+			\coordinate(N)at($(D)!0.4!(B)$);
+			\coordinate(H)at($(A)!0.6!(N)$);
+			
+			\tkzDrawPoints(A,B,C,O,M,D,N,H)
+			\tkzDrawSegments(A,B B,C A,C A,D B,D A,N)
+			\tkzDrawSegments[dashed](O,C O,M A,O O,B O,D O,N O,H)
+			
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[below left,xshift=3pt,yshift=-3pt](O)
+			\tkzLabelPoints[](M)
+			\tkzLabelPoints[left](D)
+			\tkzLabelPoints[below](N)
+			\tkzLabelPoints[left](H)
+			
+			\tkzMarkRightAngles(O,H,A O,N,B A,O,C A,O,B B,O,C)
+			\end{tikzpicture}
+		}
+		Trong mặt phẳng $(AON)$, kẻ $OH\perp AN$ tại $H$ suy ra $OH\perp (ABD)$. Từ đó suy ra $d(O;(ABD))=OH$.\\
+		Trong tam giác vuông $OBD$ có $\dfrac{1}{ON^2}=\dfrac{1}{OB^2}+\dfrac{1}{OD^2}$.\\
+		Trong tam giác vuông $OAN$ có $\dfrac{1}{OH^2}=\dfrac{1}{OA^2}+\dfrac{1}{ON^2}=\dfrac{1}{OA^2}+\dfrac{1}{OB^2}+\dfrac{1}{OD^2}$\\
+		$$\Rightarrow \dfrac{1}{OH^2}=\dfrac{1}{3a^2}+\dfrac{1}{a^2}+\dfrac{1}{3a^2}\Rightarrow OH=\dfrac{a\sqrt{15}}{5}.$$
+		Vậy $d(AB;OM)=d(O;(ABD))=\dfrac{a\sqrt{15}}{5}$.
+	}
+\end{ex}

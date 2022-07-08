@@ -1,0 +1,227 @@
+\begin{ex}%[WTT-218cau-ham-an-2D1, Lê Quân]%[2D1K5-5]
+\immini{
+Một vật chuyển động có đồ thị của hàm quãng đường, hàm vật tốc và hàm gia tốc theo thời gian   được mô tả ở hình dưới đây. Hỏi đồ thị các hàm số trên theo thứ tự là các đường cong nào?}{
+\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1]
+	\def\xmin{-1}\def\xmax{3}\def\ymin{-2}\def\ymax{2}
+	\draw[thick,->] (\xmin-0.6,0)--(\xmax+0.8,0) node[below] {\footnotesize $x$};
+	\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+	\draw (0,0) node [below left] {\footnotesize $O$};
+	\foreach \x in {\xmin,...,\xmax}{\ifthenelse{\not \x=0}{
+			\draw (\x,0.1)--(\x,-0.1)  ;}{}}
+	\foreach \y in {\ymin,...,\ymax} {
+		\ifthenelse{\not \y=0}{\draw (0.1,\y)--(-0.1,\y)  ;}{} }
+	\clip (\xmin-0.5,\ymin-0.5) rectangle (\xmax+0.5,\ymax+0.5);
+	\draw[smooth,samples=200,thick,domain=0:4,color=blue] plot (\x,{1/(5*((\x)-2)^(2)+1)-1/21});
+	\draw[smooth,samples=200,thick,domain=0:4,color=red] plot (\x,{(-(10*(\x)-20))/(5*((\x)-2)^(2)+1)^(2)});
+	\draw[smooth,samples=200,thick,domain=0:4] plot (\x,{(1/sqrt(5))*rad(atan((\x-2)*sqrt(5)))-\x/21-(1/sqrt(5))*rad(atan(-2*sqrt(5))))});
+	
+	%Ghi chú
+	\node [above] at (1.7,1.35) {$ (a) $};
+	\node [above] at (3.2,0.2) {$ (b) $};
+	\node [above] at (3.2,1) {$ (c) $};
+	\end{tikzpicture}
+}
+\choice
+{$(b), (c), (a)$}
+{$(c), (a), (b)$}
+{$(a), (c), (b)$}
+{\True $(c), (b), (a)$}
+\loigiai{Ta thấy 
+\begin{itemize}  
+\item Do $(c)$ luôn nằm phía trên $Ox$, hai đường $(b)$, $(c)$ có cả đi lên, đi xuống nên $(c)$ không thể là đồ thị của $f'(x)$ hay $f"(x)$. Do đó $(c)$ là của $f(x)$.
+\item Đường $b$ cũng nằm trên $Ox$ nên $(b)$, $(a)$ có lúc lên lúc xuống nên $b$ phải là của $f'(x)$.
+Do vậy theo thứ tự đồ thị của $f(x),f'(x),f"(x)$ là $(c)$, $(b)$, $(a)$.
+\end{itemize}
+\begin{note}
+{\bf Lưu ý:} Cũng có thể chú ý: hoành độ giao điểm của $a$ với $Ox$ là điểm cực trị của hàm số có đồ thị  $b$ nên hàm số có đồ thị $a$ là đạo hàm của hàm số có đồ thị $b$. Do tính lồi lõm của $a,b$ nên $c$ không thể là $f"(x)$.
+\end{note}}
+\end{ex}
+\begin{ex}%[WTT-218cau-ham-an-2D1, Lê Quân]%[2D1K5-5]
+\immini{
+Cho đồ thị của ba hàm số $y=f(x)$, $y=f'(x)$, $y=f"(x)$  được vẽ mô tả ở hình dưới đây. Hỏi đồ thị các hàm số $y=f(x)$, $y=f'(x)$ và $y=f"(x)$  theo thứ tự, lần lượt tương ứng với đường cong nào?
+\choice
+{$(C_3),(C_2),(C_1)$}
+{\True $(C_2),(C_1),(C_3)$}
+{$(C_2),(C_3),(C_1)$}
+{$(C_1),(C_3),(C_2)$}}
+{
+\begin{tikzpicture}[scale=0.8,line width=1pt,>=stealth,x=1cm,y=1cm]
+\draw (-0.3,0) node[above] {\footnotesize $O$} (1.5,3.7) node {\footnotesize$\left(C_3\right)$}
+(0.75,3.3) node {\footnotesize$\left(C_2\right)$}
+(-2,1) node {\footnotesize$\left(C_1\right)$};
+\draw[->] (-4,0) -- (3,0) node [below left] {\footnotesize$x$};
+\draw[->] (0,-2) -- (0,4) node [below right] {\footnotesize$y$};
+\foreach \x/\xtext in {-1/-1,1/1}
+\draw[shift={(\x,0)}] (0pt,2pt)-- (0pt,-2pt) node[below] {\footnotesize $\xtext$};
+\foreach \y/\ytext in {-1/-1,2/2}
+\draw[shift={(0,\y)}] (2pt,0pt)-- (-2pt,0pt) node[left] {\footnotesize $\ytext$};
+\clip (-3.95,-1.95) rectangle (3,4);
+\draw[blue,smooth,samples=100,domain=-6:3] plot(\x,{-((\x)^2-2*(\x))*e^(\x)});
+\draw[red,smooth,samples=100,domain=-6:3]plot(\x,{-((\x)^2-2)*e^(\x)});
+\draw[smooth,samples=100,domain=-6:3]plot(\x,{-((\x)^2+2*(\x)-2)*e^(\x)});
+\end{tikzpicture}
+}
+\loigiai{
+Nhìn hình vẽ ta thấy: Đồ thị $(C_1)$ cắt trục $Ox$ tại 2 điểm là điểm cực trị của đồ thị hàm số $(C_2)$, đồ thị $(C_3)$ cắt $Ox$ tại hai điểm là cực trị của $(C_1)$.
+}
+\end{ex}
+\begin{ex}%[WTT-218cau-ham-an-2D1, Lê Quân]%[2D1K5-5]
+\immini{
+Cho $3$ hàm số $y=f(x)$, $y=g(x)=f'(x)$, $y=h(x)=g'(x)$ có đồ thị là $3$ đường cong trong hình vẽ bên. Mệnh đề nào sau đây đúng?
+\choice
+{$g(-1)>h(-1)>f(-1)$}
+{\True $h(-1)>g(-1)>f(-1)$}
+{$h(-1)>f(-1)>g(-1)$}
+{$f(-1)>g(-1)>h(-1)$}}
+{
+\begin{tikzpicture}[scale=0.8,line width=1pt,>=stealth,x=1cm,y=1cm]
+\draw (-0.3,0) node[above] {\footnotesize $O$} (1.5,3.7) node {\footnotesize$\left(3\right)$}
+(0.75,3.3) node {\footnotesize$\left(2\right)$}
+(-1.5,1) node {\footnotesize$\left(1\right)$};
+\draw[->] (-4,0) -- (3,0) node [below left] {\footnotesize$x$};
+\draw[->] (0,-2) -- (0,4) node [below right] {\footnotesize$y$};
+\foreach \x/\xtext in {-1/-1,1/1}
+\draw[shift={(\x,0)}] (0pt,2pt)-- (0pt,-2pt) node[below] {\footnotesize $\xtext$};
+\foreach \y/\ytext in {-1/-1,2/2}
+\draw[shift={(0,\y)}] (2pt,0pt)-- (-2pt,0pt) node[left] {\footnotesize $\ytext$};
+\clip (-3.95,-1.95) rectangle (3,4);
+\draw[smooth,samples=100,domain=-6:3] plot(\x,{-((\x)^2-2*(\x))*e^(\x)})
+plot(\x,{-((\x)^2-2)*e^(\x)})
+plot(\x,{-((\x)^2+2*(\x)-2)*e^(\x)});
+\end{tikzpicture}}
+\loigiai{
+Hàm số $y=f(x)$, $y=f'(x)$, $y=f"(x)$ lần lượt là $(1),(2),(3)$. Từ đồ thị ta thấy: $h(-1)>g(-1)>f(-1)$
+}
+\end{ex}
+\begin{ex}%[WTT-218cau-ham-an-2D1, Lê Quân]%[2D1K5-5]
+\immini{
+Cho đồ thị của hàm số $y=f(x)$ và $y=f'(x)$ như hình vẽ bên dưới. Biết hàm số $y=f(x)$ có đạo hàm cấp hai trên $\mathbb{R}$. Khẳng định nào sau \textbf{đúng}?}
+{
+\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1]
+\def\xmin{-2}\def\xmax{2}\def\ymin{-2}\def\ymax{2}
+\draw[thick,->] (\xmin-0.6,0)--(\xmax+0.6,0) node[below] {\footnotesize $x$};
+\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+\draw (0,0) node [below left] {\footnotesize $O$};
+\foreach \x in {\xmin,...,\xmax}{\ifthenelse{\not \x=0}{
+		\draw (\x,-0.1)--(\x,0.1) node [above] {\footnotesize $\x$};}{}}
+\foreach \y in {\ymin,...,\ymax} {
+	\ifthenelse{\not \y=0}{\draw (-0.1,\y)--(0.1,\y) node [right] {\footnotesize $\y$};}{} }
+\clip (\xmin-0.5,\ymin-0.5) rectangle (\xmax+0.5,\ymax+0.75);
+\draw[smooth,samples=200,thick,domain=0:3] plot (\x,{3*\x^4-6*\x^2+1});
+\draw[smooth,samples=200,thick,domain=0:3] plot (-\x,{3*\x^4-6*\x^2+1});
+\draw[smooth,samples=200,thick,domain=-3.2:3] plot (\x,{3*\x^5/5-2*((\x)^3)+2*\x-1});
+\end{tikzpicture}}
+\choice
+{\True $f'(-1)<f"(1)$}
+{$f'(-1)>f"(1)$}
+{$f'(-1)=f"(1)$}
+{$f"(0)\ne f"(1)$}
+\loigiai{
+Trước hết ta phân biệt đường $y=f(x)$ và $y=f'(x)$. Dễ thấy đường $y=f'(x)$ phải là đường phía trên (có đồ thị giống hàm trùng phương). Vì nếu là đường còn lại thì tính tăng giảm của hàm số không tương thích. Theo đó, $f"(1)=0$ do $x=1$ là điểm cực tiểu của $f'(x)$, $f'(-1)<0$ theo đồ thị của $f'(x)$. Do đó $A$ đúng.\\
+ Theo đó $B$, $C$ sai. Còn lại $D$ sai do $f"(0)=f"(1)=0$ vì $x=0,x=1$ là các điểm cực trị của $f'(x)$.
+}
+\end{ex}
+
+
+\begin{ex}%[WTT-218cau-ham-an-2D1, Lê Quân]%[2D1K5-5]
+\immini{
+Cho đồ thị của hàm số $y=f(x)$ và $y=f'(x)$ như hình bên. Khẳng định nào sau đây đúng?
+}
+{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1]
+\def\xmin{-2}\def\xmax{2}\def\ymin{-2}\def\ymax{2}
+\draw[thick,->] (\xmin-0.7,0)--(\xmax+0.5,0) node[below] {\footnotesize $x$};
+\draw[thick,->] (0,\ymin-0.6)--(0,\ymax+0.6) node[right] {\footnotesize $y$};
+\draw (0,0) node [below left] {\footnotesize $O$};
+\foreach \x in {\xmin,...,\xmax}{\ifthenelse{\not \x=0}{
+		\draw (\x,-0.1)--(\x,0.1) node [above] {\footnotesize $\x$};}{}}
+\foreach \y in {\ymin,...,\ymax} {
+	\ifthenelse{\not \y=0}{\draw (-0.1,\y)--(0.1,\y) node [right] {\footnotesize $\y$};}{} }
+\clip (-2.5,-2) rectangle (2.4,2);
+\draw[smooth,samples=100,thick,domain=-2.98:3.0] plot(\x,{0-(8.0/81.0)*(\x)^(5.0)-68.0/81.0*(\x)^(4.0)-86.0/81.0*(\x)^(3.0)+179.0/81.0*(\x)^(2.0)+212.0/81.0*(\x)-67.0/81.0});
+\draw[smooth,samples=200,thick,domain=-2.98:3.0] plot(\x,{0-(4.0/243.0)*(\x)^(6.0)-68.0/405.0*(\x)^(5.0)-43.0/162.0*(\x)^(4.0)+179.0/243.0*(\x)^(3.0)+106.0/81.0*(\x)^(2.0)-67.0/81.0*(\x)-1867.0/2430.0});
+\end{tikzpicture}}
+\choice
+{$f'(-1)<f"(1)$}
+{\True $f'(-1)>f"(1)$}
+{$f'(-1)=f"(1)$}
+{$f'(-1)=2f"(1)$}
+\loigiai{
+- Phân biệt đồ thị của $f(x)$ và $f'(x)$, ta thấy: tại giao điểm của  đồ thị $f'(x)$ với $Ox$, ứng với hoành dộ điểm cực trị trên đồ thị của $f(x)$.\\
+- Theo đó: $f'(-1)>0=f"(1)$, do đó $B$ đúng, $A,C,D$ sai.
+}
+\end{ex}
+\begin{ex}%[WTT-218cau-ham-an-2D1, Lê Quân]%[2D1K5-5]
+\immini{
+Cho 3 hàm số $y=f(x)$, $y=g(x)=f'(x)$, $y=h(x)=g'(x)$ có đồ thị là 3 đường cong như hình vẽ bên. Mệnh đề nào sau đây đúng?
+\choice
+{$g(1)>h(1)>f(1)$}
+{$h(1)>g(1)>f(1)$}
+{$h(1)>f(1)>g(1)$}
+{\True $f(1)>g(1)>h(1)$}}
+{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,thick,scale=0.7]
+\tikzset{label style/.style={font=\footnotesize}}
+%%Nhập giới hạn đồ thị và hàm số cần vẽ
+\def \xmin{-1}
+\def \xmax{7}
+\def \ymin{-3.2}
+\def \ymax{3.5}
+\draw[->] (\xmin,0)--(\xmax,0) node[below left] {$x$};
+\draw[->] (0,\ymin)--(0,\ymax) node[below left] {$y$};
+\draw (0,0) node [below right] {$O$};
+\foreach \x in {1,1,2,3,4,5,6}
+\draw[thin] (\x,1pt)--(\x,-1pt) node [below] {$\x$};
+\begin{scope}
+\clip (\xmin+0.01,\ymin+0.01) rectangle (\xmax-0.01,\ymax-0.01);
+\draw[samples=350,domain=\xmin+0.01:\xmax-0.01,smooth] plot (\x,{\x -3});
+\draw[samples=350,domain=\xmin+0.01:\xmax-0.01,smooth] plot (\x,{\x^2-6*\x +8});
+\draw[samples=350,domain=\xmin-1:\xmax-0.01,smooth] plot (\x,{0.45*(\x)^(3.0)-2.98*(\x)^(2.0)+5.341*(\x)});
+\end{scope}
+\end{tikzpicture}}
+\loigiai{
+Các đường trên cùng, đường ở giữa và đường thẳng theo thứ tự là đồ thị của $y=f(x)$, $y=f'(y)$, $y=g(x)$.
+Do đó, xét thứ tự cao thấp của đường thẳng $x=1$ với các đường trên ta có $f(1)>f'(1)>f"(1)$.
+}
+\end{ex}
+\begin{ex}%[WTT-218cau-ham-an-2D1, Lê Quân]%[2D1K5-5]
+\immini{
+Một vật chuyển động có đồ thị của hàm quãng đường $s(t)$, hàm vận tốc $v(t)$ và hàm gia tốc $a(t)$ theo thời gian $t$ được mô tả như hình bên. Khẳng định nào sau đây \textbf{đúng}?
+\choice
+{\True $s(\pi)<v(\pi)<a(\pi)$}
+{$a(\pi)<v(\pi)<s(\pi)$}
+{$s(\pi)<a(\pi)<v(\pi)$}
+{$v(\pi)<a(\pi)<s(\pi)$}}
+{
+\begin{tikzpicture}[line join=round, line cap=round,>=stealth,thick, scale=0.7]
+\tikzset{label style/.style={font=\footnotesize}}
+%%Nhập giới hạn đồ thị và hàm số cần vẽ
+\def \xmin{-1}
+\def \xmax{7}
+\def \ymin{-3.2}
+\def \ymax{3.5}
+\def \hamso{-3*sin(\x r)}
+\def \hams{-3*cos(\x r)}
+\def \ham{3*cos(\x r)}
+%\def \tiemcanxien{\x+1}
+%%Tự động
+\draw[->] (\xmin,0)--(\xmax,0) node[below right] {$x$};
+\draw[->] (0,\ymin)--(0,\ymax) node[above left] {$y$};
+\draw (0,0) node [below left] {$O$};
+%%Vẽ các điểm trên 2 hệ trục
+%\foreach \x in {-5,-4,-3,-2,-1,1,2,3,4,5}
+\draw[thin] (3.14,1pt)--(3.14,-1pt) node [below right] {$\pi$};
+\draw[thin] (6.28,1pt)--(6.28,-1pt) node [below] {$2\pi$};
+\foreach \y in {-3,-2,-1,1,2,3}
+\draw[thin] (1pt,\y)--(-1pt,\y) node [left] {$\y$};
+\node [above] at (6.28,-2.7) {$ (1) $};
+\node [above] at (6.6,0.2) {$ (2) $};
+\node [above] at (6.4,2) {$ (3) $};
+\begin{scope}
+\clip (\xmin+0.01,\ymin+0.01) rectangle (\xmax-0.01,\ymax-0.01);
+\draw[blue,samples=350,domain=0:6.3,smooth,variable=\x] plot (\x,{\hamso});
+\draw[samples=350,domain=0:6.3,smooth,variable=\x] plot (\x,{\hams});
+\draw[red,samples=350,domain=0:6.3,smooth,variable=\x] plot (\x,{\ham});
+\end{scope}
+\end{tikzpicture}
+}
+\loigiai{  Đồ thị $f(x)$, $f'(x)$, $f"(x)$ theo thứ tự tương ứng là $(3)$, $(2)$, $(1)$. Do đó $s(\pi)<v\pi)=0<a(\pi)$.}
+\end{ex}

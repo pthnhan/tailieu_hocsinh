@@ -1,0 +1,124 @@
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage{amsmath}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,unicode]{hyperref}
+\usepackage{bookmark}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm] {geometry}
+\usepackage[utf8]{vietnam}
+\usepackage{xcolor}
+\newcounter{dangso}
+\def\dangso{\stepcounter{dangso}{\arabic{dangso}}}
+\setcounter{dangso}{0}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{titlesec}
+\makeatletter
+\renewcommand{\labelenumi}{\alph{enumi})}
+\renewcommand\thesection{\@arabic\c@section}
+%\makeatother
+\titleformat{\section}{\centering\bfseries}{\S\thesection.\quad  }{-1.5em}{
+\setcounter{dangso}{0}
+}
+\titlespacing*{\section}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+%Định nghĩa dạng toán
+\newcommand{\maID}[1]{
+	\def\maIDEX{#1}
+	\ifthenelse{\equal{#1}{\string 0D}}
+	{
+		\begin{center}
+			\Huge\textbf{ĐẠI SỐ 10}
+		\end{center}
+		\addcontentsline{toc}{part}{Đại số 10}
+	}{}%
+	\ifthenelse{\equal{#1}{\string 0H}}
+	{
+		\begin{center}
+			\Huge\textbf{HÌNH HỌC 10}
+		\end{center}
+		\addcontentsline{toc}{part}{Hình học 10}
+	}{}%
+	\ifthenelse{\equal{#1}{\string 1D}}
+	{
+		\begin{center}
+			\Huge\textbf{ĐẠI SỐ \& GIẢI TÍCH 11}
+		\end{center}
+		\addcontentsline{toc}{part}{Đại số - Giải tích 11}
+	}{}%
+	\ifthenelse{\equal{#1}{\string 1H}}
+	{
+		\begin{center}
+			\Huge\textbf{HÌNH HỌC 11}
+		\end{center}
+		\addcontentsline{toc}{part}{Hình học 11}
+	}{}%
+	\ifthenelse{\equal{#1}{\string 2D}}
+	{
+		\begin{center}
+			\Huge\textbf{GIẢI TÍCH 12}
+		\end{center}
+		\addcontentsline{toc}{part}{Giải tích 12}
+	}{}%
+	\ifthenelse{\equal{#1}{\string 2H}}
+	{
+		\begin{center}
+			\Huge\textbf{HÌNH HỌC 12}
+		\end{center}
+		\addcontentsline{toc}{part}{Hình học 12}
+	}{}%
+}
+\newcommand{\maCH}[1]{
+\def\maCHEX{#1}
+\ifthenelse{\equal{#1}{\string 1}}{}{}%
+\ifthenelse{\equal{#1}{\string 2}}{}{}%
+\ifthenelse{\equal{#1}{\string 3}}{}{}%
+\ifthenelse{\equal{#1}{\string 4}}{}{}%
+\ifthenelse{\equal{#1}{\string 5}}{}{}%
+\ifthenelse{\equal{#1}{\string 6}}{}{}%
+\ifthenelse{\equal{#1}{\string 7}}{}{}%
+\ifthenelse{\equal{#1}{\string 8}}{}{}%
+\ifthenelse{\equal{#1}{\string 9}}{}{}%
+}
+\newcommand{\dang}[1]{\par\noindent{\color{blue}Dạng \dangso:\ }{
+		[\color{violet}\maIDEX\color{blue}\maCHEX\color{black}?\color{cyan}\thesection-\color{red}\thedangso\color{black}] } #1
+%\addcontentsline{toc}{subsubsection}{Dạng~\thedangso.\ #1}
+}
+\renewcommand\chapter{\par
+                    \thispagestyle{plain}%
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+\def\@makechapterhead#1{%
+	{\parindent \z@ \raggedright \normalfont
+		\ifnum \c@secnumdepth >\m@ne
+		\if@mainmatter
+		\large\color{violet}\bfseries
+		\fi
+		\fi
+		\interlinepenalty\@M
+		\bfseries #1\par\nobreak
+		\vskip 0\p@
+}}
+\begin{document}
+	\begin{center}
+		Nhóm Toán \& \LaTeX\\
+		\color{red}
+\vspace*{1cm}
+		\large DANH MỤC ID 6 THAM SỐ, MÔN TOÁN 10-11-12
+		
+		\today
+	\end{center}
+\tableofcontents
+\newpage
+\maID{0D}
+\input{data/0D}
+\maID{0H}
+\input{data/0H}
+\maID{1D}
+\input{data/1D}
+\maID{1H}
+\input{data/1H}
+\maID{2D}
+\input{data/2D}
+\maID{2H}
+\input{data/2H}
+\end{document}

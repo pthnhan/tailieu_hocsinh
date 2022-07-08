@@ -1,0 +1,179 @@
+\begin{ex}%[Phan Anh]%[2D1G2-2]
+Cho hàm số $f(x)$ có đúng ba điểm cực trị là $-2$, $-1$, $0$. Hỏi hàm số $y=f\left(x^2-2x\right)$ có bao nhiêu điểm cực trị?
+\choice
+{\True $3$}
+{$4$}
+{$5$}
+{$6$}
+\loigiai{
+Từ giả thiết suy ra $f'(x)=0\Leftrightarrow\hoac{&x=-2\\&x=-1\\&x=0.}$\\
+Đặt $g(x)=f(u)$, $u=x^2-2x$ thì $g'(x)=2(x-1)f'(u)$ nên\\
+$g'(x)=0\Leftrightarrow\hoac{&x=1\\&f'(u)=0}\Leftrightarrow\hoac{&x=1\\&x^2-2x=-2\text{ (vô nghiệm)}\\&x^2-2x=-1\\&x^2-2x=0}\Leftrightarrow\hoac{&x=1\\&x=1\text{ (nghiệm kép)}\\&x=0\vee x=2.}$\\
+Vậy phương trình $g'(x)=0$ có hai nghiệm đơn là $x=0$, $x=2$ và một nghiệm bội ba là $x=1$ nên hàm số đã cho có ba cực trị.}
+\end{ex}
+\begin{ex}%[Phan Anh]%[2D1G2-2]
+\immini{Cho hàm số $y=f(x)$ có đồ thị như hình bên dưới. Hàm số $g(x)=\left[f(x)\right]^2$ có bao nhiêu điểm cực đại, bao nhiêu điểm cực tiểu?
+\choice
+{$1$ điểm cực đại, $3$ điểm cực tiểu}
+{$2$ điểm cực đại, $2$ điểm cực tiểu}
+{\True $2$ điểm cực đại, $3$ điểm cực tiểu}
+{$3$ điểm cực đại, $2$ điểm cực tiểu}}
+{\begin{tikzpicture}[scale=0.7,>=stealth]
+	\draw[->](-1,0)--(4,0)node[above]{$x$};
+	\draw[->](0,-3)--(0,3)node[right]{$y$};
+	\draw[smooth,samples=100,domain=-0.42:3.19]plot(\x,{(\x)*(\x-1)^2*(\x-3)});
+	\fill (0,0)node[below left]{$O$}circle(1.2pt) (1,0)node[above]{$1$}circle(1.2pt) (3,0)node[above left]{$3$}circle(1.2pt);
+	\end{tikzpicture}}
+\loigiai{
+\immini{Dựa vào đồ thị, ta có $f(x)=0\Leftrightarrow\hoac{&x=0\\&x=1\text{ (nghiệm kép)}\\&x=3}$\\
+và $f'(x)=0\Leftrightarrow\hoac{&x=a\,(0<a<1)\\&x=1\\&x=b\,(1<b<3).}$}
+{\begin{tikzpicture}[scale=0.6,>=stealth]
+	\draw[->](-1,0)--(4,0)node[above]{$x$};
+	\draw[->](0,-3)--(0,3)node[right]{$y$};
+	\draw[smooth,samples=100,domain=-0.42:3.19]plot(\x,{(\x)*(\x-1)^2*(\x-3)});
+	\fill (0,0)node[below left]{$O$}circle(1.2pt) (1,0)node[above]{$1$}circle(1.2pt) (3,0)node[below right]{$3$}circle(1.2pt);
+	\draw[dashed](2.443,0)node[above]{$b$}--(2.443,-2.833);
+	\draw[dashed](0.307,0)node[above]{$a$}--(0.307,-0.397);
+	\end{tikzpicture}}
+\noindent
+Ta có $g'(x)=0\Leftrightarrow2f'(x)f(x)=0\Leftrightarrow\hoac{&f'(x)=0\\&f(x)=0}\Leftrightarrow\hoac{&x=a\,(0<a<1)\\&x=1\\&x=b\,(1<b<3)\\&x=0\\&x=1\text{ (nghiệm kép)}\\&x=3.}$\\
+Ta có bảng biến thiên của $g(x)$ là
+\begin{center}
+	\begin{tikzpicture}
+	\tkzTabInit[espcl=2,lgt=1.2]
+	{$x$/0.8,$f'(x)$/0.8,$f(x)$/0.8,$g'(x)$/0.8,$g(x)$/1.8}{$-\infty$,$0$,$a$,$1$,$b$,$3$,$+\infty$}
+	\tkzTabLine{,-,t,-,0,+,0,-,0,+,t,+,}
+	\tkzTabLine{,+,0,-,t,-,0,-,t,-,0,+,}
+	\tkzTabLine{,-,0,+,0,-,0,+,0,-,0,+,}
+	\tkzTabVar{+/$ $,-/$ $,+/$ $,-/$ $,+/$ $,-/$ $,+/$ $}	
+	\end{tikzpicture}
+\end{center}
+Dựa vào bảng biến thiên, ta kết luận $g(x)$ có $2$ điểm cực đại và $3$ điểm cực tiểu.}
+\end{ex}
+\begin{ex}%[Phan Anh]%[2D1G2-2]
+\immini{Cho hàm số $y=f(x)$ có đạo hàm $f'(x)$ trên $\mathbb{R}$. Đồ thị của hàm số $y=f'(x)$ như hình vẽ. Đồ thị của hàm số $y=\left(f(x)\right)^3$ có bao nhiêu điểm cực trị?
+\choice
+{$1$}
+{\True $2$}
+{$3$}
+{$8$}}
+{\begin{tikzpicture}[scale=0.6,>=stealth]
+	\draw[->](-3,0)--(3,0)node[above]{$x$};
+	\draw[->](0,-1)--(0,5)node[right]{$y$};
+	\draw[smooth,samples=100,domain=-2.1:2.1]plot(\x,{(\x+2)*(\x-1)^2});
+	\draw[dashed](-1,0)--(-1,4)--(2,4)--(2,0);
+	\fill (-1,0)node[below]{$-1$}circle(1.2pt) (-2,0)node[above left]{$-2$}circle(1.2pt) (0,0)node[above left]{$O$}circle(1.2pt) (1,0)node[below]{$1$}circle(1.2pt) (2,0)node[below]{$2$}circle(1.2pt) (0,2)node[left]{$2$}circle(1.2pt) (0,4)node[above left]{$4$}circle(1.2pt);
+	\end{tikzpicture}}
+\loigiai{
+Ta có $y=\left(f(x)\right)^3$, $y'=3f'(x)f^2(x)$.\\
+Từ đồ thị ta có $f'(x)=0$ tại $x=1$, $x=-1$.\\
+Bởi $f^2(x)$ không đổi dấu trên $\mathbb{R}$ suy ra $y'=\left(f(x)\right)^3$ có $2$ điểm cực trị là $x=1$, $x=-1$.}
+\end{ex}
+\begin{ex}%[Phan Anh]%[2D1G2-2]
+\immini{Cho hàm số $y=f(x)$ luôn dương và có đạo hàm $f'(x)$ trên $\mathbb{R}$. Đồ thị của hàm số $y=f'(x)$ như hình vẽ. Đồ thị hàm số $y=\sqrt{f(x)}$ có bao nhiêu điểm cực đại, bao nhiêu điểm cực tiểu?
+\choice
+{$1$ điểm cực tiểu, $2$ điểm cực đại}
+{\True $1$ điểm cực đại, $2$ điểm cực tiểu}
+{$1$ điểm cực tiểu, $1$ điểm cực đại}
+{$1$ điểm cực tiểu, $0$ điểm cực đại}}
+{\begin{tikzpicture}[scale=0.8,>=stealth]
+	\draw[->](-2,0)--(2,0)node[above]{$x$};
+	\draw[->](0,-1)--(0,3)node[right]{$y$};
+	\draw[smooth,samples=100,domain=-1.6:1.6]plot(\x,{(\x)^4-2*(\x)^2+1.5});
+	\end{tikzpicture}}
+\loigiai{
+Ta có $y=\sqrt{f(x)}$ xác định trên $\mathbb{R}$ và $y'=\dfrac{f'(x)}{2\sqrt{f(x)}}$. Bởi vì $\sqrt{f(x)}>0$, $\forall x\in\mathbb{R}$, nên ta suy ra được số điểm cực trị của $y=\sqrt{f(x)}$ bằng số điểm cực trị của $y=f(x)$.\\
+Từ đồ thị trên ta thu được $y=\sqrt{f(x)}$ có $1$ điểm cực đại, $2$ điểm cực tiểu.}
+\end{ex}
+\begin{ex}%[Phan Anh]%[2D1G2-2]
+\immini{Cho hàm số $y=f(x)$ có đồ thị như hình bên dưới. Đồ thị hàm số $g(x)=|f(x)+4|$ có tổng tung độ của các điểm cực trị bằng bao nhiêu?
+\choice
+{$2$}
+{$3$}
+{\True $4$}
+{$5$}}
+{\begin{tikzpicture}[scale=0.6,>=stealth]
+	\draw[->](-2,0)--(4,0)node[above]{$x$};
+	\draw[->](0,-5)--(0,1)node[right]{$y$};
+	\draw[smooth,samples=100,domain=-1.1:3.1]plot(\x,{(\x)^2*(\x-3)});
+	\draw[dashed](-1,0)--(-1,-4)--(2,-4)--(2,0);
+	\fill (-1,0)node[above]{$-1$}circle(1.2pt) (0,0)node[above right]{$O$}circle(1.2pt) (2,0)node[above]{$2$}circle(1.2pt) (3,0)node[below right]{$3$}circle(1.2pt) (0,-4)node[below left]{$-4$}circle(1.2pt);
+	\end{tikzpicture}}
+\loigiai{
+Đồ thị hàm số $g(x)=|f(x)+4|$ có được bằng cách
+\begin{itemize}
+	\item Tịnh tiến đồ thị hàm số $y=f(x)$ lên trên $4$ đơn vị ta được $f(x)+4$.
+	\item Lấy đối xứng phần phía dưới $Ox$ của đồ thị hàm số $4$ qua $f(x)+4$ ta được $|f(x)+4|$. 
+\end{itemize}
+\begin{center}
+	\begin{tikzpicture}[scale=0.6,>=stealth]
+	\draw[->](-2,0)--(4,0)node[above]{$x$};
+	\draw[->](0,-1)--(0,5)node[right]{$y$};
+	\draw[smooth,samples=100,domain=-1.1:3.1]plot(\x,{(\x)^2*(\x-3)+4})node[right]{$f(x)+4$};
+	\fill (-1,0)node[above left]{$-1$}circle(1.2pt) (0,0)node[above right]{$O$}circle(1.2pt) (2,0)node[below]{$2$}circle(1.2pt) (0,4)node[above left]{$-4$}circle(1.2pt);
+	\end{tikzpicture}
+	\quad \quad \quad
+	\begin{tikzpicture}[scale=0.6,>=stealth]
+	\draw[->](-2,0)--(4,0)node[above]{$x$};
+	\draw[->](0,-1)--(0,5)node[right]{$y$};
+	\draw[smooth,samples=100,domain=-1:3.1]plot(\x,{(\x)^2*(\x-3)+4})node[right]{$|f(x)+4|$};
+	\draw[smooth,samples=100,domain=-1.45:-1]plot(\x,{-(\x)^2*(\x-3)-4});
+	\fill (-1,0)node[above left]{$-1$}circle(1.2pt) (0,0)node[above right]{$O$}circle(1.2pt) (2,0)node[below]{$2$}circle(1.2pt) (0,4)node[above left]{$-4$}circle(1.2pt);
+	\end{tikzpicture}
+\end{center}
+Dựa vào đồ thị hàm số $g(x)=|f(x)+4|$ suy ra tọa độ các điểm cực trị là $(-1;0)$, $(0;4)$, $(2;0)$.\\
+Suy ra tổng tung độ các điểm cực trị bằng $T=0+4+0=4$.}
+\end{ex}
+\begin{ex}%[Phan Anh]%[2D1G2-2]
+\immini{Cho hàm số $y=f(x)$ có đồ thị như hình bên dưới. Đồ thị hàm số $h(x)=|2f(x)-3|$ có bao nhiêu điểm cực trị ?
+\choice
+{$4$}
+{$5$}
+{\True $7$}
+{$9$}}
+{\begin{tikzpicture}[scale=0.6,>=stealth]
+	\draw[->](-2,0)--(4,0)node[above]{$x$};
+	\draw[->](0,-3)--(0,4)node[right]{$y$};
+	\draw[smooth,samples=100,domain=-1.42:2.37]plot(\x,{(\x-1)*(\x+1)^2*(\x-2)^2+2});
+	\draw[dashed](-1,0)--(-1,2)--(2,2)--(2,0);
+	\draw[dashed](1,2)--(1,0);
+	\fill (-1,0)node[below]{$-1$}circle(1.2pt) (0,0)node[above right]{$O$}circle(1.2pt) (1,0)node[below]{$1$}circle(1.2pt) (2,0)node[below]{$2$}circle(1.2pt) (0,-2)node[below left]{$-2$}circle(1.2pt) (0,2)node[above left]{$2$}circle(1.2pt);
+	\end{tikzpicture}}
+\loigiai{
+Xét $g(x)=2f(x)-3\Rightarrow g'(x)=2f'(x)$.\\
+$g'(x)=0\Leftrightarrow f'(x)=0\Leftrightarrow\hoac{&x=-1\\&x=0\\&x=a\,,\,1<a<2\\&x=2.}$\\
+Ta tính được $g(-1)=1$, $g(0)=-7$, $g(a)>1$, $g(2)=1$.\\
+Bảng biến thiên của hàm số là
+\begin{center}
+	\begin{tikzpicture}
+	\tkzTabInit[lgt=1.2,espcl=2.4]
+	{$x$/0.8,$g'(x)$/0.8,$g(x)$/1.8}{$-\infty$,$-1$,$0$, $a$, $2$,$+\infty$}
+	\tkzTabLine{,+,0,-,0,+,0,-,0,+,}
+	\tkzTabVar{-/$-\infty$,+/$1$,-/$-7$,+/$g(a)$,-/$1$,+/$+\infty$}	
+	\end{tikzpicture}
+\end{center}
+Dựa vào bảng biến thiên suy ra
+\begin{itemize}
+	\item Đồ thị hàm số $g(x)$ có $4$ điểm cực trị.
+	\item Đồ thị hàm số $g(x)$ cắt trục $Ox$ tại $3$ điểm phân biệt.
+\end{itemize}
+Suy ra đồ thị hàm số $h(x)=|g(x)|$ có $7$ điểm cực trị.}
+\end{ex}
+\begin{ex}%[Phan Anh]%[2D1G2-2]
+\immini{Cho hàm số $y=f(x)$ có đồ thị như hình bên dưới. Đồ thị hàm số $h(x)=f(|x|)+2018$ có bao nhiêu điểm cực trị ?
+\choice
+{$2$}
+{$3$}
+{\True $5$}
+{$7$}}
+{\begin{tikzpicture}[scale=0.6,>=stealth]
+	\draw[->](-3,0)--(4,0)node[above]{$x$};
+	\draw[->](0,-6)--(0,4)node[right]{$y$};
+	\draw[smooth,samples=100,domain=-2.27:3.15]plot(\x,{(\x+2)*(\x)^2*(\x-1)*(\x-3)/4});
+	\fill (-2,0)node[above left]{$-2$}circle(1.2pt) (0,0)node[below left]{$O$}circle(1.2pt) (1,0)node[above right]{$1$}circle(1.2pt) (3,0)node[below right]{$3$}circle(1.2pt);
+	\end{tikzpicture}}
+\loigiai{
+Từ đồ thị ta thấy hàm số $f(x)$ có $2$ điểm cực trị dương\\
+$\Rightarrow$ hàm số $f(|x|)$ có $5$ điểm cực trị\\
+$\Rightarrow$ hàm số $h(x)$ có $5$ điểm cực trị (vì phép tịnh tiến không làm thay đổi số điểm cực trị).}
+\end{ex}

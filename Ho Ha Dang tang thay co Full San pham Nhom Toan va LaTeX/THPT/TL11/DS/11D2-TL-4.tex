@@ -1,0 +1,479 @@
+\section{Phép thử và biến cố}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Phép thử, không gian mẫu}
+Một trong những khái niệm cơ bản của lí thuyết xác suất là {\bf phép thử}. Một thí nghiệm, một phép đo hay một sự quan sát hiện tượng nào đó,... được gọi là {\bf phép thử}.
+
+\begin{dn}
+{\bf Phép thử ngẫu nhiên} là phép thử mà ta không đoán trước được kết quả của nó, mặc dù đã biết tập hợp tất cả các kết quả có thể có của phép thử đó.
+\end{dn}
+\begin{note}
+Để đơn giản ta gọi tắt phép thử ngẫu nhiên là phép thử và trong chương trình toán phổ thông ta chỉ xét phép thử có hữu hạn kết quả.
+\end{note}
+\begin{dn}
+Tập hợp các kết quả có thể xảy ra của một phép thử được gọi là {\bf không gian mẫu} của phép thử và kí hiệu là $\Omega$ (đọc là ô-mê-ga).
+\end{dn}
+
+\subsubsection{Biến cố}
+
+\begin{dn}
+Biến cố là một tập con của không gian mẫu.
+\end{dn}
+Mỗi biến cố liên quan đến một phép thử được mô tả bởi một tập con của không gian mẫu, tức là một tập hợp bao gồm các kết quả nào đó của phép thử.\\
+
+\begin{note}
+\hfill
+
+	\begin{itemize}
+		\item Biến cố có thể được cho dưới dạng một mệnh đề xác định tập hợp. Kí hiệu các biến cố bằng các chữ in hoa $A,B,C,...$
+		\item Khi nói \textit{cho các biến cố $A,B,...$} mà không nói gì thêm thì ta hiểu chúng cùng liên quan đến một phép thử.
+	\end{itemize}
+\end{note}
+\begin{dn}
+	Tập $\varnothing $ được gọi là \textbf{\textit{biến cố không thể}} (gọi tắt là \textbf{\textit{biến cố không}}).\\
+	Tập $\Omega$ được gọi là \textbf{\textit{biến cố chắc chắn}}.
+\end{dn}
+\textit{Biến cố $A$ xảy ra} trong một phép thử nào đó khi và chỉ khi kết quả của phép thử đó là một phần tử của $A$ (hay thuận lợi cho $A$).
+
+\subsubsection{Phép toán trên các biến cố}
+Giả sử $A$ và $B$ là hai biến cố liên quan đến một phép thử.
+\begin{dn}
+		Tập $\Omega \setminus A$ được gọi là \textbf{\textit{biến cố đối}} của biến cố $A$, kí hiệu $\overline{A}$.
+	\end{dn}
+	$\overline{A}$ xảy ra khi và chỉ khi $A$ không xảy ra.
+	\begin{tikzpicture}[scale=.7]
+	\tkzDefPoints{0/0/A, 5/0/B, 2/0/M, 0/3/D, 5/3/C, 3/3/N}
+	\tkzDrawPolygon(A,B,C, D)
+	\tkzDrawSegments(M,N)
+	\draw(4,0)--(4.5,-.5) node[below] {$\Omega$};
+	\node at (1,1.5){$A$};
+	\node at (3.75,1.5){$\overline{A}$};
+	\end{tikzpicture}
+
+\begin{dn}
+	Tập $A \cup B $ được gọi là \textbf{\textit{hợp}} của biến cố $A $ và $B$.\\
+	Tập $A \cap B $ được gọi là \textbf{\textit{giao}} của biến cố $A $ và $B$.\\
+	Nếu $A \cap B = \varnothing$ thì ta nói $A$ và $B$ \textbf{\textit{xung khắc}}.
+\end{dn}
+\begin{note}
+	$A\cup B$ xảy ra khi và chỉ khi $A$ xảy ra hoặc $B$ xảy ra.\\
+	$A\cap B$ xảy ra khi và chỉ khi $A$ và $B$ đồng thời xảy ra.\\	
+	Biến cố $A \cap B$ còn được viết là $A.B$.\\
+	$A$ và $B$ xung khắc khi và chỉ khi chúng không khi nào cùng xảy ra.
+\end{note}
+\immini{
+	\begin{tabular}{|l|l|}
+		\cline{1-2}
+		\textbf{Kí hiệu} & \textbf{Ngôn ngữ biến cố}  \\ 
+		\cline{1-2}
+		$A \subset \Omega$ & $A$ là biến cố  \\ 
+		\cline{1-2}
+		$A = \varnothing$ & $A$ là biến cố không \\ 
+		\cline{1-2}
+		$A = \Omega$ & $A$ là biến cố chắc chắn \\ 
+		\cline{1-2}
+		$C = A \cup B$ & $C$ là biến cố: "$A$ hoặc $B$" \\ 
+		\cline{1-2}
+		$C = A \cap B$ & $C$ là biến cố: "$A$ và $B$" \\ 
+		\cline{1-2}	
+		$A\cap B = \varnothing$ & $A$ và $B$ xung khắc \\ 
+		\cline{1-2}		
+		$B = \overline{A}$ & $A$ và $B$ đối nhau \\ 
+		\cline{1-2}	
+	\end{tabular}
+}{
+	\begin{tikzpicture}[scale=.7]
+	\tkzDefPoints{0/0/A, 5/0/B, 0/3/D, 5/3/C}
+	\tkzDrawPolygon(A,B,C,D)
+	\draw(4,0)--(4.5,-.5) node[below] {$\Omega$};
+	\node (A) at (1.5,1.5) [circle, draw] {$ A $};
+	\node (B) at (3.5,1.5) [circle, draw] {$ B $};
+	\end{tikzpicture}
+}
+
+\subsection{Các dạng toán}
+\begin{dang}{Mô tả không gian mẫu và xác định số kết quả có thể của phép thử}
+Muốn mô tả không gian mẫu của phép thử, ta chỉ cần liệt kê tất cả các kết quả có thể của phép thử đó.
+\end{dang}
+
+\begin{vd}%[Nguyễn Tiến Thùy]%[1D2B4]
+Gieo một con xúc xắc hai lần liên tiếp. Hãy mô tả không gian mẫu của phép thử.
+\loigiai{
+Không gian mẫu của phép thử
+$$\Omega=\left\{(i;j)|i=\overline{1,6},j=\overline{1,6}\right\}.$$
+}
+\end{vd}
+
+\begin{vd}%[Nguyễn Tiến Thùy]%[1D2B4]
+Lấy ngẫu nhiên lần lượt hai chữ số từ ba chữ số $\{0;1;2\}$ xếp thành hàng ngang từ trái qua phải. Hãy mô tả không gian mẫu của phép thử.
+\loigiai{
+Không gian mẫu của phép thử
+$$\Omega=\{(0,1);(0,2);(1,0);(1,2);(2,0);(2,1)\}.$$
+}
+\end{vd}
+
+\begin{vd}%[Nguyễn Tiến Thùy]%[1D2B4]
+Xếp ba người ngồi thành hàng ngang. Mô tả không gian mẫu của phép thử đó.
+\loigiai{
+Đặt tên ba người theo thứ tự là $A$, $B$, $C$. Khi đó không gian mẫu của phép thử là
+$$\Omega=\{ABC; ACB; BAC; BCA; CAB; CBA\}.$$
+}
+\end{vd}
+
+\begin{center}
+\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Nguyễn Tiến Thùy]%[1D2B4]
+Trong giỏ có $5$ củ khoai, lấy ngẫu nhiên ra hai củ. Hãy mô tả không gian mẫu.
+\loigiai{
+Giả sử $5$ củ khoai kí hiệu lần lượt là $1,2,3,4,5$. Khi đó không gian mẫu của phép thử là
+$$\Omega=\{12;13;14;15;23;24;25;34;35;45\}.$$
+}
+\end{bt}
+
+\begin{bt}%[Nguyễn Tiến Thùy]%[1D2B4]
+Gieo đồng xu ba lần liên tiếp. Hãy mô tả không gian mẫu của phép thử.
+\loigiai{
+Kí hiệu $S$ - là mặt sấp, $N$ - là mặt ngửa. Khi đó không gian mẫu của phép thử 
+$$\Omega=\{SSS;SSN;SNS;SNN;NSS;NSN;NNS;NNN\}.$$
+}
+\end{bt}
+
+\begin{bt}%[Nguyễn Tiến Thùy]%[1D2B4]
+Trong một bình có $3$ quả cầu đen khác nhau và $2$ quả cầu trắng khác nhau. Lấy ngẫu nhiên ra hai quả, hãy mô tả không gian mẫu của phép thử.
+\loigiai{
+Giả sử $3$ quả cầu đen kí hiệu lần lượt là $D_1$, $D_2$, $D_3$ và $2$ quả cầu trắng kí hiệu lần lượt là $T_1$, $T_2$. Khi đó không gian mẫu của phép thử là
+$$\Omega=\{D_1D_2;D_1D_3;D_1T_1;D_1T_2;D_2D_3;D_2T_1;D_2T_2;D_3T_1;D_3T_2;T_1T_2\}.$$
+}
+\end{bt}
+
+\begin{bt}%[Nguyễn Tiến Thùy]%[1D2B4]
+Xếp $4$ người ngồi thành hình vuông, mỗi người một đỉnh của hình vuông. Hãy mô tả không gian mẫu của phép thử.
+\loigiai{
+Đánh số lần lượt $4$ người theo thứ tự $1,2,3,4$. Khi đó không gian mẫu của phép thử
+$$\Omega=\{1234,1243,1324,1342,1423,1432\}.$$
+}
+\end{bt}
+
+\begin{bt}%[Nguyễn Tiến Thùy]%[1D2B4]
+Gieo con xúc xắc ba lần liên tiếp. Hãy mô tả không gian mẫu của phép thử.
+\loigiai{
+Không gian mẫu của phép thử
+$$\Omega=\{(i;j;k)|i=\overline{1,6},j=\overline{1,6},k=\overline{1,6}\}.$$
+}
+\end{bt}
+
+\begin{bt}%[Nguyễn Tiến Thùy]%[1D2B4]
+Cắm $2$ bông hoa khác nhau vào $3$ lọ khác nhau sao cho mỗi lọ có nhiều nhất một bông hoa. Hãy mô tả không gian mẫu của phép thử.
+\loigiai{
+Kí hiệu $2$ bông hoa lần lượt là $H_1,H_2$; $3$ lọ lần lượt kí hiệu là $L_1$, $L_2$, $L_3$. Khi đó không gian mẫu của phép thử là
+$$\Omega=\{(H_1L_1,H_2L_2);(H_1L_1,H_2L_3);(H_1L_2,H_2L_3);(H_1L_2,H_2L_1);(H_1L_3,H_2L_1);(H_1L_3,H_2L_2)\}.$$
+}
+\end{bt}
+
+\begin{bt}%[Nguyễn Tiến Thùy]%[1D2B4]
+Trong hộp có $8$ bi đen và $5$ bi trắng. Lấy ngẫu nhiên ra $3$ viên. Hãy mô tả không gian mẫu của phép thử đó.
+\loigiai{Đánh thứ tự các viên bi $B_1,B_2,...,B_{13}$.\\
+Không gian mẫu của phép thử là $\Omega=\{B_i,B_j,B_k|i\ne j,j\ne k,k\ne i;\, i,j,k\in\{1,2,...,13\}\}$.
+}
+\end{bt}
+
+
+\begin{dang}{Xác định biến cố của một phép thử}
+	Sử dụng định nghĩa
+\end{dang}
+\begin{vd}\label{vd2ss}%[Mai Hà Lan]%[1D2B4]
+	Gieo một con súc sắc hai lần, biến cố $A$: "Tổng số chấm trên mặt xuất hiện của hai lần gieo là số chẵn", và biến cố $B$ là biến cố đối của biến cố $A$. Xác định biến cố $B$ và liệt kê các kết quả thuận lợi cho $B$.
+	\loigiai{
+		$B$: "Tổng số chấm trên mặt xuất hiện của hai lần gieo là số lẻ". \\
+		$B = \{ (1,2), (1,4), (1,6), (2,1), (2,3), (2,5), (3,2), (3,4), (3,6), (4,1), (4,3), (4,5), (5,2), (5,4), (5,6),\\ (6,1), (6,3), (6,5) \}$.
+	}
+\end{vd}
+\begin{vd}%[Mai Hà Lan]%[1D2B4]
+	Gieo con súc sắc hai lần. Xác định biến cố $A$: "Tổng số chấm trên mặt xuất hiện của hai lần gieo nhỏ hơn hoặc bằng $4$".
+	\loigiai{
+		$A = \{ (1,1), (1,2), (1,3), (2,1), (2,2), (3,1) \}$.
+	}
+\end{vd}
+\begin{vd}%[Mai Hà Lan]%[1D2B4]
+	Gieo con súc sắc hai lần, biến cố: "Tổng số chấm trên mặt xuất hiện của hai lần gieo bằng $13$" và biến cố "Tổng số chấm trên mặt xuất hiện của hai lần gieo nhỏ hơn hoặc bằng $12$" biến cố nào là biến cố không, biến cố nào là biến cố chắc chắn?
+	\loigiai{
+		"Tổng số chấm trên mặt xuất hiện của hai lần gieo bằng $13$" là biến cố không, và biến cố "Tổng số chấm trên mặt xuất hiện của hai lần gieo nhỏ hơn hoặc bằng $12$" là biến cố chắc chắn.
+	}
+\end{vd}
+
+
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}\label{btsnt}%[Mai Hà Lan]%[1D2B4]
+	Chọn ngẫu nhiên một số nguyên dương không lớn hơn $15$. Gọi $A$ là biến cố "Số được chọn là số nguyên tố", $B$ là biến cố "Số được chọn là hợp số". Hãy liệt kê các kết quả thuận lợi cho $A$ và $B$.
+	\loigiai{
+		$A = \{ 2,3,5,7,11,13 \}$, $B= \{ 4,6,8,9,10,12,14 \}$
+		\begin{note}
+			Lưu ý cho học sinh số $1$ không phải là hợp số, cũng không phải số nguyên tố.
+		\end{note}
+	}
+\end{bt}
+\begin{bt}%[Mai Hà Lan]%[1D2K4]
+	Từ các số $1,2,3,4,5,6,7,8,9$, lập được số tự nhiên có $3$ chữ số đôi một khác nhau.
+	\begin{enumerate}
+		\item Xác định các biến cố:\\
+			$A$: "Số lập được là số có chữ số sau gấp đôi chữ số liền  trước nó";\\
+			$B$: "Số lập được là số có chữ số trước gấp đôi chữ số liền sau nó";\\
+			$C$: "Số lập được có tổng các chữ số bằng $6$".
+		\item[b)] Xác định một biến cố không và một biên cố chắc chắn.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item 	$A = \{ 124, 248 \}$, $B = \{ 842, 421 \}$, $C = \{ 123, 132, 213, 231, 321, 312 \}$.
+			\item[b)] Biến cố không là biến cố "Số lập được là số chia hết cho $10$";\\
+			Biến cố chắc chắn "Số được lập là số chẵn hoặc số lẻ".
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Mai Hà Lan]%[1D2K4]
+	Gieo một đồng xu $5$ lần liên tiếp. Xác định các biến cố:\\
+	\indent $A$: "Trong cả $5$ lần gieo đều được kết quả như nhau";\\
+	\indent $B$: "Trong $5$ lần gieo được đúng $2$ lần mặt sấp";\\
+	\indent $C$: "Trong $5$ lần gieo có ít nhất $4$ lần sấp".
+	\loigiai{
+		$A = \{SSSSS, NNNNN \}$,\\
+		$B = \{ SSNNN, SNSNN, SNNSN, SNNNS, NSSNN, NSNSN, NSNNS, NNSSN,$ \\
+		$ NNSNS, NNNSS \}$,\\
+		$C = \{ SSSSN, SSSNS, SSNSS, SNSSS, NSSSS, SSSSS \}$.
+	}
+\end{bt}
+\begin{bt}%[Mai Hà Lan]%[1D2K4]
+	Gieo một con súc sắc liên tiếp cho đến khi súc sắc xuất hiện mặt $1$ chấm hoặc $6$ chấm thì dừng lại. Xác định các biến cố:\\
+	\indent $A$: "số lần gieo không vượt quá hai lần";\\
+	\indent $B$: "Số lần gieo là ba".
+	\loigiai{
+		$A = \{ 1, 6, (2,1), (3,1), (4,1), (5,1), (6,1), (2,6), (3,6), (4,6), (5,6) \}$,\\
+		$B = \{ (2,2,1), (2,3,1), (2,4,1), (2,5,1), (3,2,1), (3,3,1), (3,4,1), (3,5,1), (4,2,1), (4,3,1), (4,4,1),$\\
+		$(4,5,1), (5,2,1), (5,3,1), (5,4,1), (5,5,1) \}$.
+	}
+\end{bt}
+\begin{bt}%[Mai Hà Lan]%[1D2K4]
+	Một người bắn cung, có hai trường hợp xảy ra, người đó bắn trúng hồng tâm hoặc người đó bắn không trúng hồng tâm. Người đó bắn liên tiếp $5$ lần. Xác định biến cố:\\
+	\indent $A$: "Trong $5$ lần bắn, chỉ có hai lần bắn trúng hồng tâm";\\
+	\indent $B$: "Trong $5$ lần bắn, lần bắn trúng hồng tâm và bắn không trúng hồng tâm xen kẽ nhau".
+	\loigiai{
+		Kí hiệu $T$ là bắn trúng hồng tâm, và $K$ là không bắn trúng hồng tâm.\\
+		$A = \{ TTKKK, TKTKK, TKKTK, TKKKT, KTTKK, KTKTK, KTKKT, KKTTK,$\\
+		$ KKTKT, KKKTT \}$;\\
+		$B = \{ TKTKT, KTKTK \}$.
+	}
+\end{bt}
+
+\begin{dang}{Phép toán trên biến cố}
+	Sử dụng định nghĩa.
+\end{dang}
+\begin{vd}%[Mai Hà Lan]%[1D2B4]
+	Theo \textbf{Ví dụ} \ref{vd2ss}.
+	\begin{enumerate}
+		\item Xác định $A \cap B$, $A \cup B$.
+		\item[b)] $A$ và $B$ có phải là hai biến cố xung khắc hay không.
+		\item[c)] Hai biến cố xung khắc thì hai biến cố đó đối nhau, đúng hay sai.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item $A \cap B = \varnothing$, $A \cup B = \Omega$.
+			\item[b)] $A$ và $B$ là hai biến cố xung khắc vì $A \cap B = \varnothing$.
+			\item[c)] Hai biến cố xung khắc suy ra hai biến cố đó đối nhau là sai. Chỉ đúng khi hợp của hai biến cố là không gian mẫu.
+		\end{enumerate}	
+	}
+\end{vd}
+
+\begin{vd}%[Mai Hà Lan]%[1D2B4]
+	Theo \textbf{Bài tập} \ref{btsnt}. Xác định $A \cup B$, $A \cap B$. Cho biết hai biến cố $A$ và $B$ xung khắc hay đối nhau hay vừa xung khắc vừa đối nhau.
+	\loigiai{
+		$A \cap B = \varnothing$, $A \cup B = \Omega \setminus \{ 1 \}$.\\
+		$A$ và $B$ là hai biến cố xung khắc, nhưng không phải là hai biến cố đối nhau.}
+\end{vd}
+
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Mai Hà Lan]%[1D2B4]
+	Một người bắn cung, có hai trường hợp xảy ra, hoặc người đó bắn trúng hồng tâm, hoặc người đó bắn không trúng hồng tâm. Người đó bắn liên tiếp bảy lần. Xét biến cố: "Trong bảy lần bắn có ít nhất hai lần bắn trúng hồng tâm". Xác định biến cố đối, biến cố xung khắc của biến cố $A$.
+	\loigiai{
+		$\overline{A}$: "Trong bảy lần bắn có nhiều nhất một lần bắn trúng hồng tâm";\\
+		Biến cố xung khắc với biến cố $A$ là các biến cố sau:\\
+		$\overline{A}$;\\
+		$B$: "Trong bảy lần bắn có đúng một lần bắn trúng hồng tâm";\\
+		$C$: "Trong bảy lần bắn, không có lần nào bắn trúng hồng tâm".
+	}
+\end{bt}
+\begin{bt}%[Mai Hà Lan]%[1D2K4]
+	\immini{
+		Cho các số $1,2,3,4,5,6,7,8,9$, lập các số có $4$ chữ số từ các số đã cho. Gọi\\
+		\indent $A$ là biến cố "Số lập được chia hết cho $3$",\\
+		\indent $B$ là biến cố "Số lập được chia hết cho $6$".\\
+		Xác định $A \cup B$, $A \cap B$, $\overline{A} \cup \overline{B}$, $\overline{A} \cap \overline{B}$.
+		\loigiai{
+			Ta có $B \subset A$ và $\overline{A} \subset \overline{B}$. Nên \\
+			$A \cup B = A$, $A \cap B = B$, $\overline{A} \cup \overline{B} = \overline{B}$, $\overline{A} \cap \overline{B} = \overline{A}$.}
+	}{
+		\begin{tikzpicture}[scale=.7]
+		\tkzDefPoints{0/0/A, 5/0/B, 0/3/D, 5/3/C}
+		\tkzDrawPolygon(A,B,C,D)
+		\draw(4,0)--(4.5,-.5) node[below] {$\Omega$};
+		\draw (1.5,1.5) circle (20pt); \node at (1.5,1.5){B};
+		\draw [thick] (2.5,1.5) ellipse (2cm and 1cm); \node at ($(2.5,1.5)+(0:1.5)$){A};
+		\end{tikzpicture}
+	}
+\end{bt}
+\begin{bt}%[Mai Hà Lan]%[1D2B4]
+		Lớp 11A có $35$ học sinh. Trong đó có $10$ bạn là học sinh giỏi môn Văn, $7$ bạn là học sinh giỏi môn Toán,  và $2$ bạn là học sinh giỏi cả hai môn. Chọn một học sinh đi thi giao thông học đường. Xét biến cố: \\
+		$A$: "Bạn được chọn là học sinh giỏi Văn";\\
+		$B$: "Bạn được chọn là học sinh giỏi Toán";\\
+		$C$: "Bạn được chọn là học sinh vừa giỏi Văn vừa giỏi Toán".\\
+		Xét tính đúng sai của các mệnh đề sau.
+		\begin{enumerate}
+			\item $A \cup B \cup C = \Omega$;
+			\item[b)] $A$ và $B$ là hai biến cố xung khắc nhau;
+			\item[c)] $A$ và $B$ là hai biến cố đối nhau;
+			\item[d)] $A \setminus B$ là biến cố đối của biến cố $B \setminus A$;
+			\item[e)] $\overline{A} \cap \overline{B}$ và $A \cup B$ là hai biến cố đối nhau;
+			\item[f)] $A \cap \overline{B}$ và $\overline{A} \cap B$ là hai biến cố xung khắc.
+		\end{enumerate}
+	\loigiai{
+	\immini{
+	\begin{enumerate}
+		\item Mệnh đề sai. $A \cup B \cup C = \Omega \setminus \overline{A \cup B}$.
+		\item[b)] Mệnh đề sai vì $A \cap B = C  \ne \varnothing $.
+		\item[c)] Mệnh đề sai vì $A \cap B = C  \ne \varnothing $.
+		\item[d)] Mệnh đề sai. $(A \setminus B) \cap (A \setminus B) = \varnothing$, nhưng $(A \setminus B) \cup (A \setminus B) \ne \Omega$. Đây là hai biến cố xung khắc nhưng không phải hai biến cố đối nhau.
+		\item[e)] Mệnh đề đúng vì $\overline{A} \cap \overline{B} = \overline{A \cup B}$.
+		\item[f)] Mệnh đề đúng.
+		Vì $\forall x \in A \cap \overline{B}
+		\Leftrightarrow \heva{& x \in A\\ & x \in \overline{B}} 
+		\Rightarrow \hoac{& x \not\in \overline{A}\\ & x \not\in B} $\\
+		Tương tự với tập $\overline{A} \cap B$. Suy ra hai tập là xung khắc nhau.
+	\end{enumerate}
+	}{
+		\begin{tikzpicture}
+		\tkzDefPoints{0/0/A, 5/0/B, 0/3/D, 5/3/C}
+		\tkzDrawPolygon(A,B,C,D)
+		\draw [thick] (1.5,1.5) ellipse (1.2cm and 1cm) node {$A$};
+		\draw [thick] (3.3,1.5) ellipse (1.2cm and .8cm) node {$B$};
+		\draw(4,0)--(4.5,-.5) node[below] {$\Omega$};
+		\draw(2.5,1.5)--(1.5,-.5) node[below] {$A \cap B$};
+		\draw(2.5,2.5)--(3,3.2) node[above] {$\overline{A \cup B}$};
+		\end{tikzpicture}
+	}
+}
+\end{bt}
+\begin{bt}%[Mai Hà Lan]%[1D2K4]
+	Một chiếc hộp có chín thẻ đánh số từ $1$ đến $9$. Rút ngẫu nhiên hai thẻ. Xét biến cố:\\
+		\indent $A$: "Tích của hai số ghi trên hai thẻ là một số chẵn";\\
+		\indent $B$: "Tích của hai số ghi trên hai thẻ là một số lẻ";\\
+		\indent $C$: "Trong hai thẻ có ít nhất một thẻ ghi số chẵn";\\
+		\indent $D$: "Trong hai thẻ có ít nhất một thẻ ghi số lẻ".\\
+	Xét tính đúng sai của các khẳng định sau.
+	\begin{enumerate}
+		\item $A$ và $B$ là hai biến cố xung khắc, $C$ và $D$ là hai biến cố xung khắc;
+		\item[b)] $A$ và $B$ là hai biến cố đối nhau, $C$ và $D$ là hai biến cố đối nhau;
+		\item[c)] $A$ và $D$ là hai biến cố xung khắc, $B$ và $C$ là hai biến cố xung khắc.
+	\end{enumerate}
+\loigiai{
+	\begin{enumerate}
+		\item $A$ và $B$ là hai biến cố xung khắc là khẳng định đúng.\\
+		$C$ và $D$ là hai biến cố xung khắc là khẳng định sai.
+		\item[b)] $A$ và $B$ là hai biến cố đối nhau là khẳng định đúng.\\
+		$C$ và $D$ là hai biến cố đối nhau là khẳng định sai.
+		\item[c)] $A$ và $D$ là hai biến cố xung khắc là khẳng định sai.\\
+		$B$ và $C$ là hai biến cố xung khắc là khẳng định đúng.
+	\end{enumerate}
+}
+\end{bt}
+\begin{bt}%[Mai Hà Lan]%[1D2K4]
+	Một hộp đứng $4$ viên bi xanh, $5$ viên bị đỏ và $6$ viên bị vàng. Chọn ngẫu nhiên $3$ viên bi. Xét các biến cố:\\
+	\indent $A$: "Ba viên bi là cùng màu";\\
+	\indent $B$: "Ba viên bi đều khác màu nhau";\\
+	Xét tính đúng sai của các khẳng định sau.
+	\begin{enumerate}
+		\item $A$ và $B$ là hai biến cố xung khắc;
+		\item[b)] $A$ và $B$ là hai biến cố đối nhau;
+		\item[c)] $\overline{A \cup B} $ là biến cố: "Trong ba viên bi có hai viên bi cùng màu".
+	\end{enumerate}
+\loigiai{
+	\begin{enumerate}
+		\item $A$ và $B$ là hai biến cố xung khắc là khẳng định đúng.
+		\item[b)] $A$ và $B$ là hai biến cố đối nhau là khẳng định sai.
+		\item[c)] $\overline{A \cup B} $ là biến cố: "Trong ba viên bi có hai viên bi cùng màu" là khẳng định đúng.
+	\end{enumerate}
+}
+\end{bt}
+
+\begin{center}
+\textbf{BÀI TẬP TỔNG HỢP}
+\end{center}
+
+\begin{bt}%[Phan Hoàng Anh]%[1D2B4]
+Cho một hộp chứa $3$ thẻ xanh và $3$ thẻ đỏ, giống nhau toàn bộ về kích thước. Trên các tấm thẻ cùng màu, nguời ta dán các hình tam giác, hình vuông và hình tròn. Người ta rút ngẫu nhiên trong hộp hai thẻ bất kì. Xét tính đúng sai của các khẳng định sau:
+\begin{enumerate}
+	\item Biến cố $A$: "Hai thẻ rút được đều là màu xanh" và biến cố $B$: "Hai thẻ rút ra đều là màu đỏ" là hai biến cố xung khắc.
+	\item Biến cố $X$: "Hai thẻ rút được đều có hình tròn" và biến cố $A\cup \overline{B}$ là hai biến cố xung khắc.
+\end{enumerate}
+	\loigiai{
+	\begin{enumerate}
+		\item Biến cố $A$ và biến cố $B$ là hai biến cố xung khắc. Bởi vì khi đã rút được hai thẻ màu xanh thì không thể đó là hai lá màu đỏ được.
+		\item Biến cố $X$ và biến cố $A\cup \overline{B}$ không là hai biến cố xung khắc vì $A\cup \overline{B}$ là biến cố có thể rút được hai thẻ màu xanh hoặc không rút được hai thẻ màu đỏ, và hoàn toàn các hình trên đó có thể là hình tròn.
+	\end{enumerate}	
+	}
+\end{bt}
+\begin{bt}%[Phan Hoàng Anh]%[1D2B4]
+Có hai người nam là $A$, $B$ với một người nữ là $C$, giả sử có hai người trong đó được ngồi vào hai cái ghế hàng ngang. Mỗi ghế có một chỗ ngồi.
+\begin{enumerate}
+	\item Mô tả không gian mẫu của phép thử.
+	\item Gọi $X$ là biến cố mà hai người ngồi đó là cũng giới tính. Liệt kê các kết quả thuận lợi của $X$.
+	\item Gọi $Y$ là biến cố người ngồi sau là nữ. Xác định các kết quả thuận lợi cho biến cố $X\cap Y$ và biến cố $X\cup Y$.
+\end{enumerate}	
+	\loigiai{
+	\begin{enumerate}
+		\item Không gian mẫu của phép thử là $\Omega=\Big\{AB,BA,BC,CB,CA,AC\Big\}$.
+		\item $\Omega_X=\Big\{AB,BA\Big\}$.
+		\item $\Omega_Y=\Big\{AC,BC\Big\}$.\\
+		Vậy $X\cap Y=\varnothing$ và $X\cup Y=\Big\{AB,BA,AC,CA\Big\}$.
+	\end{enumerate}	
+			}
+\end{bt}
+\begin{bt}%[Phan Hoàng Anh]%[1D2B4]
+Gieo hai súc sắc cân đối và đồng chất. Gọi $X$ là biến cố hai mặt súc sắc thu được đều là số chẵn, $Y$ là biến cố hai mặt súc sắc thu được có tổng là số chia hết cho $3$.
+\begin{enumerate}
+	\item Liệt kê các kết quả thuận lợi của biến cố $X\cap Y$.
+	\item Hai biến cố $\overline{X}$ và $Y$ có là hai biến cố xung khắc nhau không?
+\end{enumerate}
+	\loigiai{
+	\begin{enumerate}
+		\item $X\cap Y=\Big\{(1,2),(2,1),(1,5),(5,1),(2,4),(4,2),(3,3),(3,6),(6,3),(5,4),(4,5), (6,6)\Big\}$.
+		\item $\overline{X}$ và $Y$ có là hai biến cố không xung khắc vì $\overline{X}$ là các trường hợp tổng hai số là lẻ và khi đó vẫn có thể chia hết cho $9$. 
+	\end{enumerate}	
+	}
+\end{bt}
+\begin{bt}%[Phan Hoàng Anh]%[1D2B4]
+Một người tung đồng xu cân đối và đồng chất liên tiếp ba lần.
+\begin{enumerate}
+	\item Liệt kê không gian mẫu của phép thử.
+	\item Xác định các kết quả thuận lợi cho biến cố đối của biến cố không có quá hai lần mặt sấp xuất hiện.
+	\item Gọi $A$ là biến cố xuất hiện mặt sấp lần cuối cùng, $B$ là biến cố xuất hiện mặt ngửa ở lần thứ hai. Liệt kê các kết quả thuận lợi của biến cố $A\cap B$.
+\end{enumerate}
+	\loigiai{
+	\begin{enumerate}
+		\item Không gian mẫu là: $\Omega=\Big\{SSS,SSN,SNS,NSS,SNN,NSN,NNS,NNN\Big\}$.
+		\item Gọi biến cố đó là $X$, khi đó $\Omega_X=\Big\{NNN\Big\}$.
+		\item $A\cap B=\Big\{NNS,SNS\Big\}$.
+	\end{enumerate}	}
+\end{bt}
+\begin{bt}%[Phan Hoàng Anh]%[1D2B4]
+Có một chiếc hộp kín đựng rất nhiều thẻ màu xanh và thẻ màu vàng.	Một người tham gia một trò chơi với luật như sau: lần lượt rút trong hộp kín đó mỗi lần một thẻ, đến khi nào nhận được hai thẻ màu vàng thì thắng cuộc và dừng cuộc chơi.
+\begin{enumerate}
+	\item Gọi $X$ là biến cố người đó chiến thắng ở lần rút thứ tư, liệt kê các kết quả thuận lợi của biến cố $X$.
+	\item Gọi $Y$ là biến cố người đó rút được một thẻ vàng trong hai lần rút đầu tiên. Liệt kê các kết quả thuận lợi của biến cố hợp của $X$ và $Y$.
+\end{enumerate} 
+\loigiai{\begin{enumerate}
+		\item $\Omega_X=\Big\{XXVV, XVXV, VXXV\Big\}$.
+		\item $X\cup Y=\Big\{XVXV, VXXV\Big\}$.
+\end{enumerate} }
+\end{bt}

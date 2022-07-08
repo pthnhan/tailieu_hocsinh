@@ -1,0 +1,1861 @@
+\chapter{Quan hệ vuông góc trong không gian}
+\section{Véc-tơ trong không gian}
+\begin{vd}
+	Cho tứ diện $ABCD$. Chứng minh : $\overrightarrow{AC} + \overrightarrow{BD} =\overrightarrow{AD} +\overrightarrow{BC}$.
+	\loigiai{
+		
+		\begin{tikzpicture} %Hình 3.1
+		\tkzDefPoints{1/3/A, -2/0/B, -0.5/-1.5/C, 3/0/D}
+		\tkzDrawSegments(A,B  B,C C,D D,A A,C)
+		\tkzDrawSegments[dashed](B,D)
+		\tkzLabelPoints[below](C)
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](D)
+		\tkzLabelPoints[above](A)
+		\end{tikzpicture}	
+	}
+	
+\end{vd}
+\textbf{Quy tắc hình hộp}
+\immini{
+	Cho hình hộp $ABCD.A'B'C'D' $ có ba cạnh xuất phát từ đỉnh $A$ là $AB$, $AD$, $AA'$ và có đường chéo là $AC'$.
+	Khi đó ta có quy tắc hình hộp là : 
+	\[ \overrightarrow{AB} + \overrightarrow{AD} +\overrightarrow{AA'} =\overrightarrow{AC'}\]
+}
+{
+	\begin{tikzpicture}[>=stealth]%Hình 3.3
+	\tkzDefPoint(0,0){A'}
+	\tkzDefShiftPoint[A'](0:4){D'}
+	\tkzDefShiftPoint[A'](30:2){B'}
+	\tkzDefShiftPoint[D'](30:2){C'};
+	
+	\tkzDefShiftPoint[A'](110:4){A}
+	\tkzDefShiftPoint[A](0:4){D}
+	\tkzDefShiftPoint[A](30:2){B}
+	\tkzDefShiftPoint[D](30:2){C};
+	
+	\tkzDrawSegments(A',D' D',C' B,C C,D  A',A D,D' C,C')
+	\tkzDrawSegments[->](A,B A,D A,A')
+	\tkzDrawSegments[->, dashed](A,C')
+	\tkzDrawSegments[dashed](A',B' B',C' B,B')
+	\tkzLabelPoint[left](A'){\footnotesize $A'$}
+	\tkzLabelPoint(B'){\footnotesize $B'$}
+	\tkzLabelPoint(C'){\footnotesize $C'$}
+	\tkzLabelPoint(D'){\footnotesize $D'$}
+	\tkzLabelPoint[left](A){\footnotesize $A$}
+	\tkzLabelPoint[above](B){\footnotesize $B$}
+	\tkzLabelPoint[above](C){\footnotesize $C$}
+	\tkzLabelPoint[above](D){\footnotesize $D$}
+	\end{tikzpicture}
+}
+\begin{vd}
+	Cho tứ diện $ABCD$. Gọi $M$ và $N$ lần lượt là trung điểm của $AD$, $BC$ và $G$ là trọng tâm của tam giác $BCD$. Chứng minh rằng : 
+	\begin{multicols}{2}
+		\item[a)] $\overrightarrow{MN} = \dfrac{1}{2} \left ( \overrightarrow{AB} + \overrightarrow{DC}\right )$
+		\item[b)] $\overrightarrow{AB} +\overrightarrow{AC} + \overrightarrow{AD} =3\overrightarrow{AG} $
+	\end{multicols}
+	\loigiai{
+		
+		\begin{tikzpicture}[>=stealth]%Hình 3.4
+		\tkzDefPoint(0,0){B}
+		\tkzDefShiftPoint[B](0:5){D}
+		\tkzDefShiftPoint[B](-60:2){C}
+		\tkzDefShiftPoint[B](60:4){A}
+		
+		
+		\tkzDefMidPoint(A,D) \tkzGetPoint{M}
+		\tkzDefMidPoint(B,C) \tkzGetPoint{N}
+		\tkzDefMidPoint(B,D) \tkzGetPoint{N'}
+		\tkzInterLL(D,N)(C,N') \tkzGetPoint{G}	
+		
+		\tkzDrawSegments(A,B A,C A,D B,C C,D)
+		\tkzDrawSegments[dashed](B,D B,G C,G D,N M,N A,G)
+		\tkzLabelPoint[above](A){\footnotesize $A$}
+		\tkzLabelPoint[left](B){\footnotesize $B$}
+		\tkzLabelPoint[left](C){\footnotesize $C$}
+		\tkzLabelPoint[right](D){\footnotesize $D$}
+		\tkzLabelPoint[below](G){\footnotesize $G$}
+		\tkzLabelPoint[right](M){\footnotesize $M$}
+		\tkzLabelPoint[left](N){\footnotesize $N$}
+		
+		
+		\end{tikzpicture}
+	}
+\end{vd}
+\begin{kn}
+	Khái niệm về sự đồng phẳng của ba vectơ trong không gian.
+	
+	\begin{tikzpicture}[>=stealth]%Hình 3.5a
+	\tkzDefPoints{0/0/a, 6/0/b}
+	\tkzDefShiftPoint[a](60:3){D}
+	\tkzDefPointBy[translation=from  a to b](D) \tkzGetPoint{c}
+	\tkzDefShiftPoint[a](25:3){O}
+	\tkzDefShiftPoint[O](20:2){A}
+	\tkzDefShiftPoint[O](-20:2){B}
+	\tkzDefShiftPoint[O](-70:2.5){C}
+	\tkzDefShiftPoint[O](110:1){C1}
+	\tkzInterLL(a,b)(C,O) \tkzGetPoint{I}
+	
+	\tkzDrawSegment[dashed](O,I)
+	\tkzDrawLine[add=0 and 0 ](O,C1)
+	\tkzDrawLines[add=.5 and .5 ](O,A O,B)
+	\tkzDrawSegments[->](O,A O,B I,C)
+	\tkzDrawPoint(O)
+	\tkzDrawPolygon(a,b,c,D)
+	
+	\tkzLabelSegment[pos=.6](O,A){$\vec{a}$}
+	\tkzLabelSegment[pos=.6](O,B){$\vec{b}$}
+	\tkzLabelSegment[pos=.6, rotate=-60](I,C){$\vec{c}$}
+	
+	\tkzLabelPoint[above](A){\footnotesize $A$}
+	\tkzLabelPoint[above](B){\footnotesize $B$}
+	\tkzLabelPoint[right](C){\footnotesize $C$}
+	
+	\tkzLabelPoint[below left](O){\footnotesize $ O $}
+	\end{tikzpicture}
+	\begin{tikzpicture}[>=stealth]%Hình 3.5b
+	\tkzDefPoints{0/0/a, 6/0/b}
+	\tkzDefShiftPoint[a](60:3){D}
+	\tkzDefPointBy[translation=from  a to b](D) \tkzGetPoint{c}
+	\tkzDefShiftPoint[a](25:3){O}
+	\tkzDefShiftPoint[O](40:1.5){A}
+	\tkzDefShiftPoint[O](0:2){B}
+	\tkzDefShiftPoint[O](-30:1.5){C}
+	\tkzDrawLines[add=.4 and .2 ](O,A O,B O,C)
+	\tkzDrawSegments[->](O,A O,B O,C)
+	\tkzDrawPoint(O)
+	\tkzDrawPolygon(a,b,c,D)
+	\tkzLabelSegment[pos=.4](O,A){$\vec{a}$}
+	\tkzLabelSegment[pos=.7](O,B){$\vec{b}$}
+	\tkzLabelSegment[pos=.8](O,C){$\vec{c}$}
+	\tkzLabelPoint[left](A){\footnotesize $A$}
+	\tkzLabelPoint[above](B){\footnotesize $B$}
+	\tkzLabelPoint[above right](C){\footnotesize $C$}
+	\tkzLabelPoint[below](O){\footnotesize $O$}
+	\end{tikzpicture}
+\end{kn}	
+\begin{dn}
+	Trong không gian ba vectơ được gọi là đồng phẳng nếu các giá của chúng cùng song song với một mặt phẳng.
+	
+	
+	\begin{tikzpicture}[>=stealth]%Hình 3.6
+	\tkzDefPoints{0/0/A, 6/0/B}
+	\tkzDefShiftPoint[A](60:3){D}
+	\tkzDefPointBy[translation=from  A to B](D) \tkzGetPoint{C}
+	\tkzDefShiftPoint[A](25:2){O}
+	\tkzDefShiftPoint[O](0:3){O1}
+	\tkzDefShiftPoint[O](-20:2){O2}
+	\tkzDefShiftPoint[O](30:2){O3}
+	\tkzDefShiftPoint[O](140:2.5){O4}
+	\tkzDefPointBy[translation=from O to O3](O4) \tkzGetPoint{O6}	
+	\tkzDefShiftPoint[O](-120:2){O5}
+	\tkzDefPointBy[translation=from O to O2](O5) \tkzGetPoint{O7}	
+	\tkzDefShiftPoint[O](50:3){O8}
+	\tkzDefPointBy[translation=from O to O1](O8) \tkzGetPoint{O9}	
+	\tkzDrawSegments[->](O,O1 O,O2 O,O3 O4,O6 O5,O7 O8,O9)
+	\tkzDrawSegments[dashed](O,O4 O3,O6 O,O5 O2,O7 O,O8 O1,O9)
+	\tkzDrawLines[add= .2 and .2](O,O1 O,O2 O,O3 O4,O6 O5,O7 O8,O9)
+	\tkzDrawPolygon(A,B,C,D)
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoints(B)
+	\tkzLabelPoints[right](C)
+	\tkzLabelPoints[above](D)
+	\tkzLabelPoints[below](O)
+	\tkzLabelSegment[pos=.6](O,O3){$\vec{a}$}
+	\tkzLabelSegment[pos=.6](O,O1){$\vec{b}$}
+	\tkzLabelSegment[pos=.9](O,O2){$\vec{c}$}
+	\tkzLabelSegment[pos=.6](O4,O6){$\vec{a}$}
+	\tkzLabelSegment[pos=.6](O5,O7){$\vec{c}$}
+	\tkzLabelSegment[pos=.6](O8,O9){$\vec{b}$}
+	\tkzMarkAngles[pos=2, size =.6](B,A,D)
+	\node (A)  at ($(A)+(30:.4)$){$\alpha$};
+	
+	\end{tikzpicture}
+\end{dn}
+
+\begin{vd}
+	Cho tứ diện $ABCD$. Gọi $M$ và $N$ lần lượt là trung điểm của $AB$ và $CD$. Chứng minh ba vectơ $\overrightarrow{BC}$, $\overrightarrow{AD}$, $\overrightarrow{MN}$ đồng phẳng.
+	\loigiai{
+		
+		\begin{tikzpicture} %Hình 3.7
+		\tkzDefPoints{1/3/A, -2/0/B, 2/-2/C, 3/0/D}
+		\tkzDefMidPoint(A,B) \tkzGetPoint{M}
+		\tkzDefMidPoint(C,D) \tkzGetPoint{N}
+		\tkzDefMidPoint(A,C) \tkzGetPoint{P}
+		\tkzDefMidPoint(D,B) \tkzGetPoint{Q}
+		\tkzDrawSegments(A,B B,C C,D D,A M,P P,N A,C)
+		\tkzDrawSegments[dashed](M,N M,Q Q,P D,B Q,N)
+		\tkzLabelPoints[below](Q,C)
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](D,N)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[above right=-4pt](P)
+		\tkzLabelPoints[above left=-4pt](M)
+		\end{tikzpicture}
+	}
+\end{vd}
+
+\begin{vd}
+	Cho tứ diện $ABCD$. Gọi $M,M$ lần lượt là trung điểm của $AB$ và $CD$. Trên các cạnh $AD$ và $BC$ 
+	lần lượt lấy các điểm $P$ và $Q$ sao cho $\overrightarrow{AP} = \dfrac{2}{3} \overrightarrow{AD}$ và 
+	$\overrightarrow{BQ} = \dfrac{2}{3} \overrightarrow{BC}$. Chứng minh rằng bốn điểm $M,N,P,Q$ 
+	cùng thuộc một mặt phẳng.
+\end{vd}
+\loigiai{
+	
+	\begin{tikzpicture} %Hình 3.8
+	\tkzDefPoints{1/3/A, -2/0/B, 0/-2/C, 3/0/D}
+	\tkzDefMidPoint(A,B) \tkzGetPoint{M}
+	\tkzDefMidPoint(C,D) \tkzGetPoint{N}
+	\tkzDefBarycentricPoint(B=1,C=2) \tkzGetPoint{Q} %điểm Q trên AB với QB:QC=2:1
+	\tkzDefBarycentricPoint(A=1,D=2) \tkzGetPoint{P}
+	\tkzDrawSegments(A,B  B,C C,D D,A A,C M,Q)
+	\tkzDrawSegments[dashed](M,N M,P B,D)
+	\tkzLabelPoints[above left=-5pt](M)
+	\tkzLabelPoints[below](C,N)
+	\tkzLabelPoints[below left=-4pt](Q)
+	\tkzLabelPoints[left](B)
+	\tkzLabelPoints[right](D,P)
+	\tkzLabelPoints[above](A)
+	\end{tikzpicture}	
+}
+
+\begin{dl}
+	\immini{
+		Trong không gian cho ba vectơ không đồng phẳng $\overrightarrow{a}$, $\overrightarrow{b}$, $\overrightarrow{c}$. Khi đó với mọi vectơ  $\overrightarrow{x}$ ta đều tìm được một bộ ba số $m,n,p$ sao cho $\overrightarrow{x} =m\overrightarrow{a} +n\overrightarrow{b}+p\overrightarrow{c}$. Ngoài ra bộ ba $m,n,p$ là duy nhất.}
+	{
+		\begin{tikzpicture}[>=stealth'] %Hình 3.9
+		\tkzDefPoints{0/0/O, -0.56/5.58/M, -1.15/-2/N, 5/0/K}
+		\tkzDefBarycentricPoint(O=1,M=11) \tkzGetPoint{E} 
+		\tkzDefBarycentricPoint(O=1,N=5) \tkzGetPoint{F}
+		\tkzDefBarycentricPoint(O=1,K=9) \tkzGetPoint{H}
+		\tkzDefBarycentricPoint(O=3,M=1) \tkzGetPoint{C} 
+		\tkzDefBarycentricPoint(O=1,N=1) \tkzGetPoint{A}
+		\tkzDefBarycentricPoint(O=2,K=1) \tkzGetPoint{B}
+		\tkzDefPointBy[translation = from O to F](H) \tkzGetPoint{D'}
+		\tkzDefPointBy[translation = from O to E](D') \tkzGetPoint{D}
+		\tkzDrawSegments(O,M  O,N O,K)
+		\tkzDrawSegments[dashed](O,D'  F,D' H,D' D,D' D,E)
+		\tkzDrawVectors(O,D O,A O,B O,C)
+		\tkzLabelPoints[below](D')
+		\tkzLabelPoints[above](B)
+		\tkzLabelPoints[left](A,C,O)
+		\tkzLabelPoints[above right=-4pt](D)
+		\draw ($(O)!0.5!(A)$) node[left]{$\overrightarrow{a}$};
+		\draw ($(O)!0.5!(B)$) node[above]{$\overrightarrow{b}$};
+		\draw ($(O)!0.5!(C)$) node[left]{$\overrightarrow{c}$};
+		\draw ($(O)!0.6!(D)$) node[left]{$\overrightarrow{x}$};
+		\end{tikzpicture}	
+	}
+\end{dl}
+\begin{vd}
+	Cho hình hộp $ABCD.EFGH$ có $\overrightarrow{AB}=\overrightarrow{a}$, $\overrightarrow{AD}=\overrightarrow{b}$, $\overrightarrow{AE}=\overrightarrow{c}$. Gọi $I$ là trung điểm của đoạn $BG$. Hãy biểu thị vectơ $\overrightarrow{AI}$ qua ba vectơ $\overrightarrow{a}$, $\overrightarrow{b}$, $\overrightarrow{c}$.
+	\loigiai{
+		
+		\begin{tikzpicture}[>=stealth'] %Hình 3.10
+		\tkzDefPoints{0/0/E, -0.5/2.5/A, 1.5/1/F, 4/0/H}
+		\tkzDefPointBy[translation = from E to F](H) \tkzGetPoint{G}
+		\tkzDefPointBy[translation = from E to A](F) \tkzGetPoint{B}
+		\tkzDefPointBy[translation = from E to A](H) \tkzGetPoint{D}
+		\tkzDefPointBy[translation = from E to A](G) \tkzGetPoint{C}
+		\tkzDefBarycentricPoint(B=1,G=1) \tkzGetPoint{I}
+		\tkzDefBarycentricPoint(B=1,A=1) \tkzGetPoint{X}
+		\tkzDefBarycentricPoint(A=1,E=1) \tkzGetPoint{Z}
+		\tkzDefBarycentricPoint(A=1,D=1) \tkzGetPoint{Y}
+		\tkzDrawSegments(A,B  B,C C,D D,A A,E E,H H,G G,C D,H)
+		\tkzDrawSegments[dashed](E,F   F,G F,H  A,G  A,I B,G B,F)
+		\tkzLabelPoints[below](E,F,I,H)
+		\tkzLabelPoints[left](A)
+		\tkzLabelPoints[right](G)
+		\tkzLabelPoints[above](B,C)
+		\tkzLabelPoints[below right ](D)
+		\tkzLabelPoint[above](X){$\overrightarrow{a}$}
+		\tkzLabelPoint[above](Y){$\overrightarrow{b}$}
+		\tkzLabelPoint[left](Z){$\overrightarrow{c}$}
+		\end{tikzpicture}	
+	}
+\end{vd}
+\section{Hai đường thẳng vuông góc}
+[1H32-3.11]SGK/Tr-93
+
+\begin{tikzpicture}[>=stealth, line cap=round, line join=round]%Hình 3.11/ Tr-93
+\tkzDefPoints{0/0/M, 6/0/N, 2/2.6/Q, 2.2/1/A}
+\coordinate (P) at ($(N)+(Q)-(M)$);
+\tkzDefShiftPoint[A](15:2.5){B}
+\tkzDefShiftPoint[A](-15:2.5){C}
+\tkzDefShiftPoint[A](110:2){U}
+\tkzDefShiftPoint[A](-110:2){V}
+\tkzDefPointBy[translation = from A to B](U)
+\tkzGetPoint{U1}
+\tkzDefPointBy[translation = from A to C](V)
+\tkzGetPoint{V1}
+\tkzDrawSegments[dashed](A,U A,V B,U1 C,V1)
+\tkzDrawSegments(M,N N,P P,Q Q,M) 
+\tkzDrawSegments[->](A,B A,C U,U1 V,V1)
+\tkzDrawPoints[fill=black,size=2pt](A)
+\tkzLabelPoint[left](A){$A$}
+\tkzLabelPoint[right](B){$B$}
+\tkzLabelPoint[right](C){$C$}
+\tkzLabelSegment[pos=.5,rotate=15](U,U1){$\vec{u}$}
+\tkzLabelSegment[pos=.5,rotate=-15](V,V1){$\vec{v}$}
+\tkzMarkAngle[size=.5](C,A,B)
+\end{tikzpicture}
+
+
+[1H32-HĐ1]SGK/Tr-93
+
+\begin{tikzpicture}[>=stealth, line cap=round, line join=round]% Hình HĐ 1/ Tr-93
+\tkzDefPoints{1/4/A, 0/0/B, 2/-1.5/C, 5/0/D}
+\coordinate (H) at ($(A)!1/2!(B)$);
+\draw[dashed](B)--(D);
+\draw (A)--(B)--(C)--(D)--(A)--(C)--(H);
+%\tkzDrawPoints[fill=black,size=2pt](A,B,C,D,H)
+\draw (A) node[above] {$A$} (B) node[left] {$B$} (C) node[below] {$C$} (D) node[right] {$D$} (H) node[left] {$H$};
+\end{tikzpicture}
+
+
+[1H32-3.12]SGK/Tr-94
+
+\begin{tikzpicture}[>=stealth, line cap=round, line join=round]%Hình 3.12/ Tr-94
+\tkzDefPoints{0/0/O, 2/-1/A, 3.5/0/M, 0/4/C}
+\coordinate (B) at ($(A)!2/1!(M)$);
+\tkzDrawSegments[dashed](O,M O,B)
+\tkzDrawSegments(O,A O,C A,B B,C C,A C,M)
+\tkzMarkSegments[size=3pt, mark=|](A,M M,B)
+\tkzMarkRightAngle[size=.2](M,O,C)
+\tkzMarkRightAngle[size=.35](A,O,C)
+\tkzMarkRightAngle[size=.45](A,O,B)
+%\tkzDrawPoints[fill=black,size=2pt](O,A,B,C,M)
+\tkzLabelPoint[below left](O){$O$}
+\tkzLabelPoint[below](A){$A$}
+\tkzLabelPoint[below right](M){$M$}
+\tkzLabelPoint[right](B){$B$}
+\tkzLabelPoint[above](C){$C$}
+\end{tikzpicture}
+
+
+[1H32-HĐ2]SGK/Tr-94
+
+\begin{tikzpicture}[>=stealth, line cap=round, line join=round]%Hình HĐ 2/ Tr-94
+\tkzDefPoints{0/0/A}
+\tkzDefShiftPoint[A](0:4){B}
+\tkzDefShiftPoint[A](50:2.5){D}
+\coordinate (C) at ($(B)+(D)-(A)$);
+\tkzDefShiftPoint[A](-90:4){A1}
+\tkzDefPointBy[translation = from A to A1](B) \tkzGetPoint{B1}
+\tkzDefPointBy[translation = from A to A1](C) \tkzGetPoint{C1}
+\tkzDefPointBy[translation = from A to A1](D) \tkzGetPoint{D1}
+\tkzDrawSegments[dashed](D1,D D1,A1 D1,C1 A,C1)
+\tkzDrawSegments(A,B B,C C,D D,A A,A1 A1,B1 B1,C1 B,B1 C,C1 B,D)
+%\tkzDrawPoints[fill=black,size=2pt](A,B,C,D,A1,B1,C1,D1)
+\draw (A) node[left] {$A$} (B) node[right] {$B$} (C) node[above] {$C$} (D) node[above] {$D$} (A1) node[below] {$A'$} (B1) node[below] {$B'$} (C1) node[right] {$C'$} (D1) node[left] {$D'$};
+\end{tikzpicture}
+
+
+[1H32-3.13]SGK/Tr-94
+
+\begin{tikzpicture}[>=stealth, line cap=round, line join=round]%Hình 3.13/ Tr-94
+\tkzDefPoints{0/0/A, 1/0.2/B, 0/-0.5/C}
+\tkzDefLine[parallel=through C](A,B) \tkzGetPoint{D}%Khai báo đường thẳng qua C và song song AB
+\tkzDrawSegment[->](A,B)%Kẻ vecto AB
+\tkzDrawLines[add=0.6 and 2.0](C,D) %Kẻ đường thẳng CD 
+\tkzLabelSegment[pos=0.5, above](A,B){$\vec{a}$}%Đặt tên vecto AB là vecto a
+\tkzLabelLine[pos=-0.5, above](C,D){$d$}%Đặt tên đường thẳng CD là d
+\end{tikzpicture}
+
+
+[1H32-3.14]SGK/Tr-95
+
+\begin{tikzpicture}[>=stealth, line cap=round, line join=round]%Hình 3.14/ Tr-95
+\tkzDefPoints{0/0/O, 4/0/A, 4/2/B, 0/3/C, 1/0.5/D}%A,B lần lượt là điểm cuối của phần đường thẳng b',b, C,D lần lượt thuộc a,a' 
+\tkzDefLine[parallel=through B](A,O) \tkzGetPoint{B'}%Khai báo đường thẳng qua B và song song AO
+\tkzDefLine[parallel=through C](O,D) \tkzGetPoint{C'}
+\tkzDrawLines[add=0.3 and 0](O,A)%Vẽ đường thẳng OA
+\tkzDrawLines[add=1.5 and 2.0](O,D)
+\tkzDrawLines[add=0 and -0.1](B,B')
+\tkzDrawLines[add=1.5 and 0.5](C,C')
+\tkzLabelPoints[below](O)
+\tkzLabelLine[pos=0.7, above](O,A){$b'$}%Đặt tên đường thẳng
+\tkzLabelLine[pos=0.9, above](O,D){$a'$}
+\tkzLabelLine[pos=0.8, above](B,B'){$b$}
+\tkzLabelLine[pos=-1.3, above](C,C'){$a$}
+\end{tikzpicture}
+
+
+[1H32-3.15]SGK/Tr-96
+
+\begin{tikzpicture}[>=stealth, line cap=round, line join=round]%Hình 3.15/ Tr-96
+\tkzDefPoints{0/0/A, 3/0/B, 1/-1.5/C, 1.5/2/S}
+\tkzDrawSegments[dashed](A,B)
+\tkzDrawSegments(A,C B,C S,A S,B S,C)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[below](C)
+\tkzLabelPoints[above](S)
+\end{tikzpicture}
+
+
+[1H32-3.16]SGK/Tr-97
+
+\begin{tikzpicture}[>=stealth, line cap=round, line join=round]%Hình 3.16/ Tr-97
+\tkzDefPoints{0/0/B, 3/0/C, 1/-1.5/D, 1.5/2/A}
+\coordinate (P) at ($(A)!0.5! (B)$);
+\coordinate (Q) at ($(C)!0.5! (D)$);
+\tkzDrawSegments[dashed](B,C P,Q)
+\tkzDrawSegments(A,B A,C A,D B,D C,D)
+\tkzLabelPoints[left](B,P)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[below](D,Q)
+\tkzLabelPoints[above](A)
+\tkzMarkRightAngle(A,B,D)%Kẻ góc vuông
+\tkzMarkRightAngle(B,A,C)
+\end{tikzpicture}
+
+
+[1H32-BT4]SGK/Tr-98
+
+\begin{tikzpicture}[>=stealth, line cap=round, line join=round]%Hình BT4/ Tr-98
+\tkzDefPoints{0/0/A, 5/0/B, 3/-2/C, 2.5/3/D}
+\coordinate (M) at ($(A)!1/2!(C)$);
+\coordinate (N) at ($(C)!1/2!(B)$);
+\coordinate (P) at ($(B)!1/2!(D)$);
+\coordinate (Q) at ($(D)!1/2!(A)$);
+\draw[dashed](A)--(B) (M)--(N) (P)--(Q);
+\draw (A)--(C)--(B)--(D)--cycle;
+\draw (M)--(Q) (N)--(P);
+%\tkzDrawPoints[fill=black,size=2pt](A,B,C,D,M,N,P,Q)
+\draw (A) node[left] {$A$} (B) node[right] {$B$} (C) node[below] {$C$} (D) node[above] {$C'$} (M) node[left] {$M$} (N) node[right] {$N$} (P) node[right] {$P$} (Q) node[left] {$Q$};
+\end{tikzpicture}
+
+
+[1H32-BT6]SGK/Tr-98
+
+\begin{tikzpicture}[>=stealth, line cap=round, line join=round]%Hình BT6/ Tr-98
+\tkzDefPoints{0/0/A, 3/0/B, 1.6/-1.4/C, 0.8/2.5/C'}
+\coordinate (D) at ($(B)+(C)-(A)$);
+\coordinate (D') at ($(B)+(C')-(A)$);
+\tkzInterLL(A,D)(B,C)
+\tkzGetPoint{O}
+\tkzInterLL(A,D')(B,C')
+\tkzGetPoint{O'}
+\tkzDrawSegments[dashed](A,B A,D B,C B,D B,D' A,D' B,C' O,O')
+\tkzDrawSegments(A,C C,D C,C' A,C' C',D' D,D') 
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[below](C,D,O)
+\tkzLabelPoints[above](C',D',O')
+\tkzMarkSegments[mark=|](A,B A,C B,D C,D A,C' B,D' C',D')%Đánh dấu các đoạn thẳng bằng nhau
+\tkzMarkRightAngle(B,A,C)%Kí hiệu góc vuông
+\tkzMarkRightAngle(B,A,C')
+\end{tikzpicture}
+
+\section{Đường thẳng vuông góc với mặt phẳng}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Định nghĩa}
+%\begin{dn}
+%	\immini{Đường thẳng $d$ được gọi là vuông góc với mặt phẳng $(\alpha )$  nếu $d$  vuông góc với mọi đường thẳng $a$ nằm trong mặt phẳng $(\alpha )$.}
+%	{}
+%\end{dn}
+\begin{center}
+	\begin{tikzpicture}[scale=1.5]
+	
+	\tkzDefPoints{0/0/A, 1/1/B, 3/0/D, 2.5/2/m1}
+	\coordinate (C) at ($(D)+(B)-(A)$);
+	\draw (A)--(B)--(C)--(D)--cycle;
+	\tkzMarkAngle[size=.5](D,A,B)
+	\draw (0.06,-0.07) node[above right]{$\alpha$};
+	\coordinate (m2) at ($(m1)-(0,2.2)$);
+	\draw (m1) node[right]{$d$};
+	\tkzInterLL(B,C)(m1,m2) \tkzGetPoint{m3}
+	\coordinate (m4) at ($(m1)!0.6!(m2)$); 
+	\tkzInterLL(A,D)(m1,m2) \tkzGetPoint{m5}
+	\tkzDrawSegments(m1,m4 m2,m5)
+	\tkzDrawSegments[dashed](m4,m5)
+	\coordinate (e1) at ($(A)!0.8!(B)$);
+	\coordinate (e2) at ($(A)!0.6!(D)$);
+	\tkzDrawLines[add = -0.15 and -0.15](e1,e2)
+	\coordinate (e3) at ($(e1)!0.25!(e2)$);
+	\draw (e3) node[above,rotate=-30]{$a$};
+	\end{tikzpicture}
+	\newline\textbf{\centering \scriptsize Hình 3.17}
+\end{center}
+\subsubsection{Điều kiện để đường thẳng vuông góc mặt phẳng}
+
+
+\begin{center}
+	\begin{tikzpicture}[scale=1.5,>=stealth]
+	
+	\tkzDefPoints{0/0/A, 0.6/1.5/B, 3/0/D, 3.2/2/m1}
+	\coordinate (C) at ($(D)+(B)-(A)$);
+	\draw (A)--(B)--(C)--(D)--cycle;
+	\tkzMarkAngle[size=.5](D,A,B)
+	\draw (0.06,-0.06) node[above right]{$\alpha$};
+	\coordinate (m2) at ($(m1)-(0,2.2)$);
+	\draw (m1) node[left]{$d$};
+	\tkzInterLL(B,C)(m1,m2) \tkzGetPoint{m3}
+	\coordinate (m4) at ($(m1)!0.4!(m2)$); 
+	\tkzInterLL(D,C)(m1,m2) \tkzGetPoint{m5}
+	\draw (m1)--(m4);
+	\draw[dashed] (m4)--(m5);
+	\draw (m2)--(m5);
+	\coordinate (m6) at ($(m1)!0.15!(m2)$); 
+	\draw[->] (m3)--(m6);
+	\draw (m6) node[right]{$\vec{u}$};
+	\coordinate (e1) at ($(A)!0.8!(B)$);
+	\coordinate (e2) at ($(A)!0.75!(D)$);
+	\coordinate (e3) at ($(e1)!0.2!(e2)$);
+	\coordinate (e4) at ($(e1)!0.8!(e2)$);
+	\draw[->] (e3)--(e4);
+	\draw (e4) node[above,rotate=-30]{$\vec{m}$};
+	\draw (e3) node[above, rotate=-30]{$a$};
+	\tkzDrawLines[add = -0.15 and -0.1](e1,e2)
+	%vecto n
+	\coordinate (e5) at ($(B)!0.6!(C)$); 
+	\tkzDrawLines[add = -0.25 and -0.14](A,e5)
+	\coordinate (e6) at ($(A)!0.3!(e5)$);
+	\coordinate (e7) at ($(A)!0.74!(e5)$);
+	\draw[->] (e6)--(e7);
+	\draw (e7) node[above,rotate=30]{$\vec{n}$};
+	\draw (e6) node[above, rotate=30]{$b$};
+	%vecto p
+	\coordinate (e8) at ($(B)!0.5!(C)$); 
+	\coordinate (e9) at ($(D)!0.3!(e8)$);
+	\coordinate (e10) at ($(D)!0.7!(e8)$);
+	\draw[->] (e9)--(e10);
+	\draw (e10) node[above,rotate=-40]{$\vec{p}$};
+	\draw (e9) node[right,rotate=-40]{$c$};
+	\end{tikzpicture}
+	\newline\textbf{\centering \scriptsize Hình 3.18}
+\end{center}	
+\subsubsection{Tính chất}
+
+\begin{center}
+	\begin{tikzpicture}[scale=1.5]
+	\tkzDefPoints{0/0/A, 1/1/B, 3/0/D, 2.5/2/m1}
+	\coordinate (C) at ($(D)+(B)-(A)$);
+	\draw (A)--(B)--(C)--(D)--cycle;
+	\tkzMarkAngle[size=.5](D,A,B)
+	\draw (0.06,-0.07) node[above right]{$\alpha$};
+	\coordinate (m2) at ($(m1)-(0,2.2)$);
+	\draw (m1) node[right]{$d$};
+	\tkzInterLL(B,C)(m1,m2) \tkzGetPoint{m3}
+	\coordinate (m4) at ($(m1)!0.6!(m2)$); 
+	\tkzInterLL(A,D)(m1,m2) \tkzGetPoint{m5}
+	\tkzDrawSegments[thick](m1,m4 m2,m5)
+	\tkzDrawSegments[dashed](m4,m5)
+	\coordinate (e1) at ($(A)!0.8!(B)$);
+	\coordinate (e2) at ($(A)!0.6!(D)$);
+	\coordinate (O) at ($(e1)!0.5!(e2)$);
+	\tkzDrawPoints[size=1.5,fill=black](O)
+	\tkzLabelPoints[above](O)
+	\tkzDrawPoints(O)
+	\end{tikzpicture}
+	\newline\textbf{\centering \scriptsize Hình 3.19}
+\end{center}
+\begin{center}
+	\begin{tikzpicture}
+	\tkzDefPoints{0/0/E, 3/1/F, 0/5/H, 2/4.5/M, 1/2/I, -2/2/A}%điểm A ngay góc alpha, G ngay góc beta
+	\tkzDefPointBy[translation = from E to H](F)
+	\tkzGetPoint{G}
+	\tkzDefPointBy[symmetry = center I](A)
+	\tkzGetPoint{B}
+	\tkzInterLL(F,G)(M,B)
+	\tkzGetPoint{C}
+	\tkzInterLL(F,G)(I,B)
+	\tkzGetPoint{D}
+	\tkzInterLL(E,H)(M,A)
+	\tkzGetPoint{J}
+	\tkzInterLL(E,H)(I,A)
+	\tkzGetPoint{K}
+	\tkzLabelPoints[below](A,B,I)
+	\tkzLabelPoints[above](M)
+	\tkzDrawSegments(E,F F,D C,G G,H H,E M,I M,B B,I A,K A,J)
+	\tkzDrawSegments[dashed](M,J I,K C,D)
+	\tkzMarkRightAngle[size=.2](M,I,B)
+	\end{tikzpicture}\\
+	\textbf{Bài 3: Đường thẳng vuông góc với mặt phẳng}\\
+	Hình 3.20
+\end{center}
+\begin{center}
+	\begin{tikzpicture}
+	\tkzDefPoints{0/0/M, 1/2/N, -3/0/A, 0.5/3/O, 0.5/2.75/K}
+	\tkzDefPointBy[translation = from M to A](N)
+	\tkzGetPoint{B}
+	\tkzDefPointBy[symmetry = center M](A)
+	\tkzGetPoint{D}
+	\tkzDefPointBy[symmetry = center N](B)
+	\tkzGetPoint{C}
+	\tkzDefMidPoint(M,N)
+	\tkzGetPoint{I}
+	\tkzDefMidPoint(C,D)
+	\tkzGetPoint{J}
+	\tkzDefPointBy[symmetry = center I](O)
+	\tkzGetPoint{E}
+	\tkzInterLL(O,E)(A,D)
+	\tkzGetPoint{F}
+	\tkzDrawSegments(A,B B,C C,D D,A O,I F,E)
+	\tkzDrawSegments[dashed](I,F)
+	\tkzDrawPoints(K)
+	\tkzLabelPoints[below left](O)
+	\tkzMarkAngle[size=.5](M,A,B)
+	\draw (A) node [above right] {$\alpha$};
+	%\tkzMarkRightAngle[size=.2](O,I,J)
+	\end{tikzpicture}\\
+	\textbf{Bài 3: Đường thẳng vuông góc với mặt phẳng}\\
+	Hình 3.21
+\end{center}
+
+\begin{center}
+	\begin{tikzpicture}
+	\tkzDefPoints{0/0/A, 5/0/B, 6/3/C, 2/1.5/I, 4/1.5/J, 2/4.5/K}
+	\tkzDefPointBy[translation = from B to C](A)
+	\tkzGetPoint{D}
+	\tkzDefPointBy[symmetry = center I](K)
+	\tkzGetPoint{P}
+	\tkzDefPointBy[translation = from I to J](K)
+	\tkzGetPoint{K'}
+	\tkzDefPointBy[translation = from I to J](P)
+	\tkzGetPoint{P'}
+	\tkzInterLL(A,B)(K,P)
+	\tkzGetPoint{Q}
+	\tkzInterLL(A,B)(K',P')
+	\tkzGetPoint{Q'}
+	\tkzDrawSegments[dashed](I,Q J,Q')
+	\tkzDrawSegments(A,B B,C C,D D,A K,I Q,P K',J Q',P')
+	\tkzMarkAngle[size=.5](B,A,D)
+	\draw (A) node [above right] {$\alpha$};
+	\draw ($(K)$) node [below left] {$a$};
+	\draw ($(K')$) node [below left] {$b$};
+	\end{tikzpicture}\\
+	\textbf{Bài 3: Đường thẳng vuông góc với mặt phẳng}\\
+	Hình 3.22
+\end{center}
+\begin{center}
+	[1H33-3.23] SGK/tr101\\
+	\begin{tikzpicture}[>=stealth']
+	\tkzInit[ymin=-3.6,ymax=1.6,xmin=-4.1,xmax=2.6]
+	\tkzClip %cắt bớt phần ko gian dư
+	\tkzDefPoints{-4/-3/A, 1/-3/B, -2.5/-1.5/C, 0/-2/O}
+	\tkzDefPointBy[translation = from A to B](C) \tkzGetPoint{D}%phép tịnh tiến
+	\coordinate (A') at ($(A)+(0,2)$);
+	\tkzDefPointBy[translation = from A to B](A') \tkzGetPoint{B'}
+	\tkzDefPointBy[translation = from A to C](A') \tkzGetPoint{C'}
+	\tkzDefPointBy[translation = from A to B](C') \tkzGetPoint{D'}
+	\tkzDefLine[perpendicular=through O,K=0.8](A,B) \tkzGetPoint{d}%đường qua O vuông góc AB
+	\tkzInterLL(O,d)(A,B) \tkzGetPoint{d_1}
+	\tkzInterLL(O,d)(A',B') \tkzGetPoint{d_2}
+	\coordinate (O') at ($(d_2)+(0,1)$);
+	\coordinate[label={below left}:$a$] (O'_1) at ($(O')+(0,1.5)$);
+	\coordinate (O_1) at ($(O)+(0,-1.5)$);
+	\tkzDrawSegments[dashed](d_1,O d_2,O')
+	\tkzDrawSegments(A,B B,D D,C C,A A',B' B',D' D',C' C',A' O_1,d_1 O,d_2 O',O'_1)
+	\tkzMarkAngles[arc=l,size=1.1cm](B,A,C B',A',C')
+	\tkzLabelAngle[pos=0.7](B,A,C){$\beta$}
+	\tkzLabelAngle[pos=0.7](B',A',C'){$\alpha$}
+	\end{tikzpicture}\\
+	\textit{Hình 3.23}
+\end{center}
+
+\begin{center}
+	[1H33-3.24] SGK/tr101\\
+	\begin{tikzpicture}[>=stealth']
+	\tkzInit[ymin=-3.1,ymax=1.6,xmin=-4.1,xmax=4.6]
+	\tkzClip %cắt bớt phần ko gian dư
+	\tkzDefPoints{-4/-2/A, -2/0/B, 2/-2/D, 0/-1/O, 0.5/1/a}
+	\tkzDefPointBy[translation = from A to D](B) \tkzGetPoint{C}%phép tịnh tiến biến B thành C
+	\tkzDefLine[perpendicular=through O,K=0.4](A,D) \tkzGetPoint{b}%đường qua O vuông góc AB
+	\tkzInterLL(O,b)(A,D) \tkzGetPoint{b_1}
+	\coordinate[label={below left}:$b$] (O') at ($(O)+(0,2.5)$);
+	\coordinate (a') at ($(a)+(4,0)$);
+	\coordinate (O'') at ($(O)+(0,-2)$);
+	\tkzDrawSegments[dashed](b_1,O)
+	\tkzDrawSegments(A,B B,C C,D D,A O'',b_1 O,O' a,a')
+	\tkzLabelSegment(a,a'){$a$}
+	\tkzMarkAngles[arc=l,size=1.1cm](D,A,B)
+	\tkzLabelAngle[pos=0.7](D,A,B){$\alpha$}
+	\end{tikzpicture}\\
+	\textit{Hình 3.24}
+\end{center}
+%\begin{vd}
+%	Cho hình chóp $S. ABC$ có đáy là tam giác $ABC$ vuông tại $B$ và có cạnh $SA$ vuông góc với mặt phẳng $(ABC)$. 
+%	\item a) Chứng minh $BC\bot (SAB)$. 
+%	\item b) Gọi $AH$ là đường cao của tam giác $SAB$. Chứng minh $AH\bot SC$.
+%	\loigiai{
+%	} 
+%\end{vd}
+\begin{center}
+	\begin{tikzpicture}[scale=1.5]
+	%Hình chóp S.ABC có SA vuông góc đáy, đáy ABC là tam giác vuông tại B.
+	\tkzDefPoints{0/0/A, 2/-2/B, 5/0/C}
+	\coordinate (S) at ($(A)+(0,5)$);
+	\coordinate (H) at ($(S)!0.6!(B)$); % H thoa man SH=0.6SB
+	\draw[thick] (S)--(A);
+	\draw[thick] (S)--(C);
+	\draw[thick] (A)--(B);
+	\draw[thick] (B)--(C);
+	\draw[thick] (B)--(S);
+	\draw (A)--(H);
+	\draw[dashed] (A)--(C);
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoints[right](C)
+	\tkzLabelPoints[below](B)
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[right](H)
+	\tkzMarkRightAngle(S,A,C)
+	\tkzMarkRightAngle(S,A,B)
+	\tkzMarkRightAngle(A,H,S)
+	\tkzMarkRightAngle(A,B,C)
+	\tkzDrawPoints(S,A,B,C,H)
+	\end{tikzpicture}
+	\newline\textbf{\centering \scriptsize Hình 3.25}
+\end{center}
+\begin{center}
+	[1H33-3.26] SGK/tr102\\
+	\begin{tikzpicture}
+	\tkzInit[ymin=-3.1,ymax=2.6,xmin=-4.1,xmax=4.1]
+	\tkzClip %cắt bớt phần ko gian dư
+	\tkzDefPoints{-4/-2/M, -2/0/N, 2/-2/Q, -1.5/-1.5/A', 2.5/-0.5/O}
+	\tkzDefPointBy[translation = from M to N](Q) \tkzGetPoint{P}%phép tịnh tiến biến B thành C
+	\coordinate[label={below}:$B'$] (B') at ($(A')+(2,0)$);
+	\tkzDefLine[perpendicular=through A',K=0.4](N,P) \tkzGetPoint{a}%đường qua A' vuông góc NP
+	\tkzInterLL(A',a)(N,P) \tkzGetPoint{a_1}
+	\tkzDefLine[perpendicular=through B',K=0.4](N,P) \tkzGetPoint{b}%đường qua B' vuông góc NP
+	\tkzInterLL(B',b)(N,P) \tkzGetPoint{b_1}
+	\coordinate[label={above}:$A$] (A) at ($(a_1)+(0,2)$);
+	\coordinate[label={above}:$B$] (B) at ($(b_1)+(0,1.5)$);
+	\tkzDefLine[perpendicular=through O,K=0.4](N,P) \tkzGetPoint{o}%đường qua O vuông góc NP
+	\tkzInterLL(O,o)(P,Q) \tkzGetPoint{o_1}
+	\coordinate (o_2) at ($(o_1)+(0,-1.5)$);
+	\coordinate (o_3) at ($(O)+(0,3)$);
+	\tkzLabelPoints[below](A')
+	\tkzDrawSegments[dashed](a_1,b_1 O,o_1)
+	\tkzDrawSegments(a_1,N N,M M,Q Q,P P,b_1 A,A' B,B' O,o_3 o_1,o_2)
+	\tkzDrawLines(A,B A',B')
+	\tkzLabelSegment[pos=0.2,right](o_3,O){$\Delta$}
+	\tkzMarkAngles[arc=l,size=1.1cm](Q,M,N)
+	\tkzLabelAngle[pos=0.7](Q,M,N){$\alpha$}
+	\end{tikzpicture}\\
+	\textit{Hình 3.26}
+\end{center}
+\subsubsection{Định lý ba đường vuông góc}
+
+\begin{center}
+	[1H33-3.27] SGK/tr103\\
+	\begin{tikzpicture}
+	\tkzInit[ymin=-4.1,ymax=1.6,xmin=-4.1,xmax=4.1]
+	\tkzClip %cắt bớt phần ko gian dư
+	\tkzDefPoints{-4/-4/M, -2/-1/Q, 2/-4/N, -1/-2.5/A', 2.2/-2.5/B'}
+	\tkzDefPointBy[translation = from M to N](Q) \tkzGetPoint{P}%phép tịnh tiến biến Q thành P
+	\tkzDefLine[perpendicular=through A',K=0.4](Q,P) \tkzGetPoint{m}%đường qua A' vuông góc QP
+	\tkzInterLL(A',m)(Q,P) \tkzGetPoint{m_1}
+	\tkzDefLine[perpendicular=through B',K=0.4](Q,P) \tkzGetPoint{n}%đường qua B' vuông góc QP
+	\tkzInterLL(B',n)(Q,P) \tkzGetPoint{n_1}
+	\coordinate[label={above}:$A$] (A) at ($(m_1)+(0,1)$);
+	\coordinate[label={above}:$B$] (B) at ($(n_1)+(0,2)$);
+	\coordinate (H) at ($(A')!0.3!(B')$);
+	\tkzDefLine[parallel=through H](M,Q) \tkzGetPoint{x}%đường qua H song song MQ
+	\coordinate (H_1) at ($(H)!0.4!(x)$);
+	\coordinate[label={right}:$a$] (H_2) at ($(H)!-0.4!(x)$);
+	\tkzLabelPoints[below](A',B')
+	\tkzDrawSegments[dashed](m_1,n_1 H,H_1)
+	\tkzDrawLines(A,B A',B')
+	\tkzDrawSegments(M,N N,P P,n_1 m_1,Q Q,M H_2,H A,A' B,B')
+	\tkzLabelSegment[above,pos=0.7](A',B'){$b'$}
+	\tkzLabelSegment[above,pos=0.4](A,B){$b$}
+	\tkzMarkRightAngle(H_2,H,B')
+	\tkzMarkAngles[arc=l,size=1.1cm](N,M,Q)
+	\tkzLabelAngle[pos=0.7](N,M,Q){$\alpha$}
+	\end{tikzpicture}\\
+	\textit{Hình 3.27}
+\end{center}
+
+\subsubsection{Góc giữa đường thẳng và mặt phẳng}
+
+\begin{center}
+	[1H33-3.28] SGK/tr103\\
+	\begin{tikzpicture}
+	\tkzInit[ymin=-5,ymax=0.5,xmin=-4.1,xmax=4.1]
+	\tkzClip %cắt bớt phần ko gian dư
+	\tkzDefPoints{-4/-4/M, -2/-1.5/Q, 2/-4/N, -0.5/-3/H}
+	\tkzDefPointBy[translation = from M to N](Q) \tkzGetPoint{P}%phép tịnh tiến biến Q thành P
+	\tkzDefLine[perpendicular=through H,K=0.4](Q,P) \tkzGetPoint{h}%đường qua H vuông góc QP
+	\tkzInterLL(H,h)(Q,P) \tkzGetPoint{h_1}
+	\coordinate[label={above right}:$A$] (A) at ($(h_1)+(0,1)$);
+	\tkzDefLine[parallel=through H](Q,P) \tkzGetPoint{x}%đường qua H song song MQ
+	\coordinate[label={above right}:$O$] (O) at ($(H)!0.4!(x)$);
+	\tkzInterLL(A,O)(N,P) \tkzGetPoint{O_1}
+	\tkzInterLL(A,O)(P,Q) \tkzGetPoint{O_3}
+	\coordinate (O_2) at ($(O)!3.3!(O_1)$);
+	\tkzLabelPoints[below](H)
+	\tkzDrawLines[add=0 and 0.3](O,H O,A)
+	\tkzDrawSegments[dashed](h_1,O_3 O,O_1)
+	\tkzDrawSegments(M,N N,P P,O_3 h_1,Q Q,M A,H O_1,O_2)
+	\tkzLabelLine[below left,pos=1.3](O,A){$d$}
+	\tkzLabelLine[above,pos=1.3](O,H){$d'$}
+	\tkzMarkRightAngle(A,H,O)
+	\tkzMarkAngles[arc=l,size=0.7cm](A,O,H)
+	\tkzLabelAngle[pos=0.9](A,O,H){$\varphi$}
+	\tkzMarkAngles[arc=l,size=1.1cm](N,M,Q)
+	\tkzLabelAngle[pos=0.7](N,M,Q){$\alpha$}
+	\end{tikzpicture}\\
+	\textit{Hình 3.28}
+\end{center}
+%\begin{vd}
+%	Cho hình chóp $S. ABCD $ có đáy là hình vuông $ABCD$ cạnh $a$, có cạnh $SA=a\sqrt{2}$ và $SA$ vuông góc với mặt phẳng $(ABCD)$. 
+%	\item a) Gọi $M$ và $N$ lần lượt là hình chiếu của điểm $A$ lên các đường thẳng $SB$ và $SD$. Tính góc giữa đường thẳng $SC$ và mặt phẳng $(AMN)$. 
+%	\item b) Tính góc giữa hai đường thẳng $SC$ và mặt phẳng  $(ABCD)$. 
+%	\loigiai{		
+%	}	
+%\end{vd}
+\begin{center}
+	\begin{tikzpicture}
+	%Hình chóp S.ABCD có SA vuông góc đáy, đáy ABCD là hình chữ nhật.
+	\tkzDefPoints{0/0/A, -2/-2/B, 5/0/D}
+	\coordinate (C) at ($(B)+(D)-(A)$);
+	\coordinate (S) at ($(A)+(0,5)$);
+	\tkzInterLL(A,C)(B,D) \tkzGetPoint{O}
+	% Chú ý MN song song BD.
+	\coordinate (M) at ($(S)!0.6!(B)$);
+	\coordinate (N) at ($(S)!0.6!(D)$);
+	% vẽ đoạn thẳng
+	\draw[thick] (S)--(C);
+	\draw[thick] (S)--(D);
+	\draw[thick] (S)--(B);
+	\draw[thick] (B)--(C);
+	\draw[thick] (C)--(D);
+	\draw[dashed] (S)--(A);
+	\draw[dashed] (D)--(A);
+	\draw[dashed] (A)--(B);
+	\draw[dashed] (A)--(C);
+	\draw[dashed] (D)--(B);
+	\draw[dashed] (A)--(N);
+	\draw[dashed] (A)--(M);
+	\draw[dashed] (M)--(N);
+	% Gán nhãn các điểm
+	\tkzLabelPoints[below](A)
+	\tkzLabelPoints[right](D)
+	\tkzLabelPoints[below](B)
+	\tkzLabelPoints[below](C)
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[below](O)
+	\tkzLabelPoints[right](N)
+	\tkzLabelPoints[left](M)
+	% Kí hiệu các góc
+	\tkzMarkRightAngle(S,A,D)
+	\tkzMarkRightAngle(S,A,B)
+	\tkzMarkRightAngle(A,M,S)
+	\tkzMarkRightAngle(A,N,S)
+	\tkzMarkRightAngle(A,O,B)
+	% Vẽ các điểm
+	\tkzDrawPoints(S,A,B,C,D,O,M,N)
+	\end{tikzpicture}
+	\newline\textbf{\centering \scriptsize Hình 3.29}
+\end{center}
+
+%\begin{bt}
+%Cho tứ diện $ABCD$ có hai mặt $ABC$ và $BCD$ là hai tam giác cân có chung cạnh đáy $BC$. Gọi $I$ là trung điểm của cạnh $BC$. 
+%	\item a) Chứng minh rằng $BC$ vuông góc với mặt phẳng $(ADI)$. 
+%	\item b) Gọi $AH$ là đường cao của tam giác $ADI$, chứng minh rằng $AH$ vuông góc với mặt phẳng $(BCD)$. 
+%	\loigiai{	
+%	}
+%\end{bt}
+\begin{center}
+	\begin{tikzpicture}[scale=1.2]
+	
+	\tkzDefPoints{0/0/D, 2/-2/B, 6/0/C}
+	\coordinate (I) at ($(B)!0.5!(C)$);
+	\coordinate (H) at ($(D)!0.4!(I)$); % H thoa man SH=0.4SB
+	\coordinate (A) at ($(H)+(0,4)$);
+	\draw[thick] (A)--(B);
+	\draw[thick] (A)--(C);
+	\draw[thick] (A)--(D);
+	\draw[thick] (D)--(B);
+	\draw[thick] (B)--(C);
+	\draw (A)--(I);
+	\draw[dashed] (A)--(H);
+	\draw[dashed] (D)--(I);
+	\draw[dashed] (D)--(C);
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[left](D)
+	\tkzLabelPoints[below](B)
+	\tkzLabelPoints[above](C)
+	\tkzLabelPoints[below](I)
+	\tkzLabelPoints[below](H)
+	\tkzMarkRightAngle(D,I,B)
+	\tkzMarkRightAngle(A,I,C)
+	\tkzMarkRightAngle(A,H,D)
+	\tkzDrawPoints(A,B,C,D,H,I)
+	\tkzMarkSegments[mark=|](I,B I,C)
+	\end{tikzpicture}
+	\newline\textbf{\centering \scriptsize Hình bài tập 2, trang 104 Hình học 11}
+\end{center}	
+\begin{center}
+	\begin{tikzpicture}
+	\tkzDefPoints{0/0/O, -4/-1/A, 1/-1/B, 0/5/S}
+	\tkzDefPointBy[symmetry = center O](A)
+	\tkzGetPoint{C}
+	\tkzDefPointBy[symmetry = center O](B)
+	\tkzGetPoint{D}
+	\tkzDrawSegments[dashed](A,D A,C D,C D,B S,D S,O)
+	\tkzDrawSegments(A,B B,C S,A S,B S,C)
+	\tkzMarkRightAngle[size=.2](B,O,C)
+	\tkzLabelPoints[below](O,A,B)
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[right](C)
+	\tkzLabelPoints[left](D)
+	\tkzMarkSegments[mark=||](S,A S,B S,C S,D)
+	\end{tikzpicture}\\
+	\textbf{Bài 3: Đường thẳng vuông góc với mặt phẳng} (Hình bài tập 3).
+\end{center}
+
+\begin{center}
+	\begin{tikzpicture}
+	\tkzDefPoints{0/0/O, 0/6/A, 3/-2/B, 6/0/C}
+	\tkzDefMidPoint(B,C)
+	\tkzGetPoint{A'}
+	\tkzDefMidPoint(C,A)
+	\tkzGetPoint{B'}
+	\tkzInterLL(A,A')(B,B')
+	\tkzGetPoint{H}
+	\tkzDrawSegments[dashed](O,C O,H)
+	\tkzDrawSegments(O,A O,B A,B A,C A,H A,A' B,B' B,C)
+	\tkzMarkRightAngle[size=.2](C,O,B)
+	\tkzMarkRightAngle[size=.2](C,O,A)
+	\tkzMarkRightAngle[size=.2](A,O,B)
+	\tkzMarkRightAngle[size=.2](O,H,A)
+	\tkzMarkRightAngle[size=.2](O,H,B)
+	\tkzMarkRightAngle[size=.2](A,A',C)
+	\tkzMarkRightAngle[size=.2](B,B',C)
+	\tkzLabelPoints[above left](A)
+	\tkzLabelPoints[left](O)
+	\tkzLabelPoints[below](B)
+	\tkzLabelPoints[right](C,H)
+	\end{tikzpicture}\\
+	\textbf{Bài 3: Đường thẳng vuông góc với mặt phẳng} (Hình bài tập 4)
+\end{center}
+
+\begin{center}
+	\begin{tikzpicture}
+	\tkzDefPoints{0/0/O, -4/-1/D, 1/-1/A, 0/5/S}
+	\tkzDefPointBy[symmetry = center O](D)
+	\tkzGetPoint{B}
+	\tkzDefPointBy[symmetry = center O](A)
+	\tkzGetPoint{C}
+	\tkzDefMidPoint(A,B)
+	\tkzGetPoint{H}
+	\tkzDrawSegments[dashed](A,C B,D S,O S,C C,B C,D O,H)
+	\tkzDrawSegments(S,A S,B S,D A,B A,D S,H)
+	\tkzLabelPoints[below](O,A)
+	\tkzLabelPoints[below right](H)
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[right](B)
+	\tkzLabelPoints[left](C)
+	\tkzLabelPoints[ below left](D)
+	\tkzMarkSegments[mark=||](S,A S,B S,C S,D)
+	\tkzMarkRightAngle[size=.2](S,H,B)
+	\end{tikzpicture}\\
+	\textbf{Bài 3: Đường thẳng vuông góc với mặt phẳng} (Hình bài tập 5)
+\end{center}
+\begin{center}
+	\begin{tikzpicture}
+	%Hình chóp S.ABCD có SA vuông góc đáy, đáy ABCD là hình chữ nhật.
+	\tkzDefPoints{0/0/A, -2/-2/B, 5/0/D}
+	\coordinate (C) at ($(B)+(D)-(A)$);
+	\coordinate (S) at ($(A)+(0,5)$);
+	\tkzInterLL(A,C)(B,D) \tkzGetPoint{O}
+	% Chú ý MN song song BD.
+	\coordinate (I) at ($(S)!0.6!(B)$);
+	\coordinate (K) at ($(S)!0.6!(D)$);
+	% vẽ đoạn thẳng
+	\draw[thick] (S)--(C);
+	\draw[thick] (S)--(D);
+	\draw[thick] (S)--(B);
+	\draw[thick] (B)--(C);
+	\draw[thick] (C)--(D);
+	\draw[dashed] (S)--(A);
+	\draw[dashed] (D)--(A);
+	\draw[dashed] (A)--(B);
+	\draw[dashed] (A)--(C);
+	\draw[dashed] (D)--(B);
+	\draw[dashed] (A)--(K);
+	\draw[dashed] (A)--(I);
+	\draw[dashed] (I)--(K);
+	% Gán nhãn các điểm
+	\tkzLabelPoints[below](A)
+	\tkzLabelPoints[right](D)
+	\tkzLabelPoints[below](B)
+	\tkzLabelPoints[below](C)
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[below](O)
+	\tkzLabelPoints[right](K)
+	\tkzLabelPoints[left](I)
+	% Kí hiệu các góc
+	\tkzMarkRightAngle(S,A,D)
+	\tkzMarkRightAngle(S,A,B)
+	\tkzMarkRightAngle(A,O,B)
+	% Vẽ các điểm
+	\tkzDrawPoints(S,A,B,C,D,O,I,K)
+	\end{tikzpicture}
+	\newline\textbf{\centering \scriptsize Hình bài tập 6, trang 105 Hình học 11}
+\end{center}
+\begin{center}
+	\begin{tikzpicture}[scale=1.5]
+	%Hình chóp S.ABC có SA vuông góc đáy, đáy ABC là tam giác vuông tại B.
+	\tkzDefPoints{0/0/A, 2/-2/B, 5/0/C}
+	\coordinate (S) at ($(A)+(0,5)$);
+	\coordinate (M) at ($(S)!0.4!(B)$);
+	\coordinate (N) at ($(S)!0.4!(C)$);
+	\draw[thick] (S)--(A);
+	\draw[thick] (S)--(C);
+	\draw[thick] (A)--(B);
+	\draw[thick] (B)--(C);
+	\draw[thick] (B)--(S);
+	\draw (A)--(M);
+	\draw (N)--(M);
+	\draw[dashed] (A)--(C);
+	\draw[dashed] (A)--(N);
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoints[right](C)
+	\tkzLabelPoints[below](B)
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[right](N)
+	\tkzLabelPoints[left](M)
+	\tkzMarkRightAngle(S,A,C)
+	\tkzMarkRightAngle(S,A,B)
+	\tkzMarkRightAngle(A,M,B)
+	\tkzMarkRightAngle(A,B,C)
+	\tkzDrawPoints(S,A,B,C,M,N)
+	\end{tikzpicture}
+	\newline\textbf{\centering \scriptsize Hình bài tập 7, trang 105 Hình học 11}
+\end{center}
+\section{Hai mặt phẳng vuông góc}
+\subsection{Góc giữa hai mặt phẳng}
+\subsubsection{Định nghĩa}
+\immini{
+	\begin{dn}
+		Góc giữa hai mặt phẳng là góc giữa hai đường thẳng lần lượt vuông góc với hai mặt phẳng đó.
+	\end{dn}
+}{
+	\begin{tikzpicture}[scale=.7]
+	\tkzDefPoints{0/0/O, 4/0/A}
+	\coordinate (O1) at ($(O)+(3,.5)$);
+	\coordinate (O2) at ($(O)+(1,1.5)$);
+	\coordinate (O3) at ($(O2)+(3,.5)$);
+	\tkzInterLL(O,O3)(O2,O1)\tkzGetPoint{I}
+	\tkzDefLine[perpendicular=through I](O,O3)\tkzGetPoint{I'}
+	\tkzInterLL(I,I')(O,O1)\tkzGetPoint{t}
+	\tkzDefPointBy[symmetry=center t](I)\tkzGetPoint{t'}
+	\coordinate (A1) at ($(A)+(3,0)$);
+	\coordinate (A2) at ($(A)+(1,2)$);
+	\coordinate (A3) at ($(A2)+(3,0)$);
+	\tkzDrawSegments(A,A1 A1,A3 A3,A2 A,A2)
+	\tkzInterLL(A,A3)(A2,A1)\tkzGetPoint{J}
+	\tkzDefLine[perpendicular=through J](A,A1)\tkzGetPoint{J'}
+	\tkzInterLL(J,J')(A,A1)\tkzGetPoint{k}
+	\tkzDefPointBy[symmetry=center k](J)\tkzGetPoint{k'}
+	\tkzDrawSegments(O,O1 O1,O3 O3,O2 O2,O I,I' J,J' t,t' k,k')
+	\tkzMarkAngles[size=.7cm,mkpos=.2](O1,O,O2 A1,A,A2)
+	\tkzLabelAngle[pos=.5](O1,O,O2){\footnotesize $\alpha$}
+	\tkzLabelAngle[pos=.5](A1,A,A2){\footnotesize $\beta$}
+	\tkzDrawSegments[dashed](I,t k,J)
+	\tkzDrawPoints(I,J)
+	\tkzLabelLine[right](I,I'){$m$}
+	\tkzLabelLine[right](J,J'){$n$}
+	\end{tikzpicture}
+}
+
+Hình 3.31 SGK trang 106
+\begin{tikzpicture}
+\tkzDefPoints{0/0/M, 1/2/N, -3/0/A, -1/3/G}
+\tkzDefPointBy[translation = from M to A](N)
+\tkzGetPoint{B}
+\tkzDefPointBy[symmetry = center M](A)
+\tkzGetPoint{D}
+\tkzDefPointBy[symmetry = center N](B)
+\tkzGetPoint{C}
+\tkzDefPointBy[translation = from M to G](N)
+\tkzGetPoint{H}
+\tkzDefPointBy[symmetry = center M](G)
+\tkzGetPoint{F}
+\tkzDefPointBy[symmetry = center N](H)
+\tkzGetPoint{E}
+\tkzDefMidPoint(M,N)
+\tkzGetPoint{I}
+\tkzDefPointBy[translation = from M to D](I)
+\tkzGetPoint{O}
+\tkzDefPointBy[homothety = center I ratio 0.8](O)
+\tkzGetPoint{P}
+\tkzDefPointBy[homothety = center I ratio -0.8](O)
+\tkzGetPoint{Q}
+\tkzDefPointBy[translation = from M to F](I)
+\tkzGetPoint{J}
+\tkzDefPointBy[homothety = center I ratio 0.8](J)
+\tkzGetPoint{K}
+\tkzDefPointBy[homothety = center I ratio -0.8](J)
+\tkzGetPoint{L}
+\tkzInterLL(N,E)(M,D)
+\tkzGetPoint{X}
+\tkzInterLL(N,B)(M,G)
+\tkzGetPoint{Y}
+\tkzInterLL(G,M)(I,Q)
+\tkzGetPoint{Z}
+\tkzInterLL(D,M)(I,K)
+\tkzGetPoint{T}
+\tkzDrawPoints(I)
+\tkzLabelPoints(I)
+\tkzDrawSegments[dashed](N,Y I,Z N,E I,T)
+\tkzDrawSegments(A,D C,D A,B M,N B,Y N,C I,P Q,Z H,G G,F F,E E,X I,L T,K H,N)
+\node at (N) [above right] {$c$};
+\node at (Q) [above] {$a$};
+\node at (K) [left] {$b$};
+\tkzMarkAngle[size=.5](M,A,B)
+\node at (A) [above right] {$\alpha$};
+\tkzMarkAngle[size=.5](M,G,H)
+\node at (G) [right] {$\beta$};
+\tkzMarkRightAngle[size=.2](P,I,N)
+\end{tikzpicture}
+
+\subsubsection{Diện tích hình chiếu của một đa giác}
+Cho đa giác $\mathscr H$ nằm trong mặt phẳng $(\alpha)$ có diện tích $S$ và $\mathscr H'$ là hình chiếu vuông góc của $\mathscr H$ trên mặt phẳng $(\beta)$. Khi đó, diện tích $S'$ của $\mathscr H'$ được tính theo công thức $$S'=S\cos\varphi$$
+với $\varphi$ là góc giữa $(\alpha)$ và $(\beta)$.
+\begin{vd}
+	Cho hình chóp $S.ABC$ có đáy là tam giác đều $ABC$ cạnh $a$, cạnh bên $SA$ vuông góc với mặt phẳng $(ABC)$ và $SA=\dfrac{a}{2}$.
+	\begin{enumerate}
+		\item[a.] Tính góc giữa hai mặt phẳng $(ABC)$ và $(SBC)$.
+		\item[b.] Tính diện tích tam giác $SBC$.
+	\end{enumerate}
+\end{vd}
+\textbf{Giải.}\\
+\immini{
+	\begin{enumerate}
+		\item[a.] Gọi $H$ là trung điểm của cạnh $BC$. Ta có $BC\perp AH$.\hfill (1)\\
+		Vì $SA\perp(ABC)$ nên $SA\perp BC$.\hfill(2)\\
+		Từ (1) và (2) suy ra $BC\perp (SAH)$ nên $BC\perp SH$. Vậy góc giữa hai mặt phẳng $(ABC)$ và $(SBC)$ bằng $\widehat{SHA}$. Đặt $\varphi=\widehat{SHA}$, ta có\\
+		$\tan\varphi=\dfrac{SA}{AH}=\dfrac{\dfrac{a}{2}}{\dfrac{a\sqrt{3}}{2}}=\dfrac{1}{\sqrt{3}}=\dfrac{\sqrt{3}}{3}$.\\
+		Ta suy ra $\varphi=30^\circ$.\\
+		Vậy góc giữa $(ABC)$à $(SBC)$ bằng $30^\circ$.
+		\item[b.] Vì $SA\perp (ABC)$ nên tam giác $ABC$ là hình chiếu vuông góc của tam giác $SBC$. Gọi $S_1, S_2$ lần lượt là diện tích của cacm giác $SBC$ và $ABC$. Ta có:\\
+		$S_2=S_1\cos\varphi\Rightarrow S_1=\dfrac{S_2}{\cos\varphi}$.\\
+		Suy ra: $S_1=\dfrac{2}{\sqrt{3}}.\dfrac{a^2\sqrt{3}}{4}=\dfrac{a^2}{2}$.
+	\end{enumerate}
+}{
+	\begin{tikzpicture}
+	\tkzDefPoints{0/0/A, 0/3/S, 4/0/C, 1/-2/B}
+	\tkzDefMidPoint(B,C)\tkzGetPoint{H}
+	\tkzDefPointBy[projection=onto S--H](A)\tkzGetPoint{A'}
+	\tkzDrawSegments(S,A A,B B,C S,B S,C S,H)
+	\tkzDrawSegments[dashed](A,H A,C A,A')
+	\tkzDrawPoints(S,A,B,C,H,A')
+	\tkzLabelPoints[left](S,A)
+	\tkzLabelPoints[right](A',B,C,H)
+	\tkzMarkAngle[mkpos=.1](S,H,A)
+	\tkzMarkRightAngles(S,A,B S,A,C S,H,B A,H,B)
+	\tkzLabelAngle[pos=.5](S,H,A){\footnotesize $\varphi$}
+	\end{tikzpicture}
+}
+\subsection{Hai mặt phẳng vuông góc}
+\subsubsection{Các định lý}
+\begin{dl}
+	Điều kiện cần và đủ để hai mặt phẳng vuông góc với nhau là mặt phẳng này chứa một đường thẳng vuông góc với mặt phẳng kia
+\end{dl}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 2/2/B, 6/0/D, 0/4/F}
+\tkzDefPointBy[translation = from A to B](F)
+\tkzGetPoint{E}
+\tkzDefPointBy[translation = from A to B](D)
+\tkzGetPoint{C}
+\tkzDefMidPoint(A,B)
+\tkzGetPoint{O}
+\tkzDefMidPoint(E,F)
+\tkzGetPoint{J}
+\tkzDefMidPoint(C,D)
+\tkzGetPoint{I}
+\tkzDefPointBy[homothety = center O ratio 0.8](I)
+\tkzGetPoint{M}
+\tkzDefPointBy[homothety = center O ratio 0.8](J)
+\tkzGetPoint{N}
+\tkzLabelPoints(O)
+\tkzDrawSegments(A,B E,F C,D A,D A,F B,E B,C O,M O,N)
+\tkzLabelSegment[pos=.8, right](O,N){$a$}
+\tkzLabelSegment[pos=.8, above](O,M){$b$}
+\tkzLabelSegment[pos=.2, above](A,B){$c$}
+\tkzMarkRightAngle[size=.2](A,O,M)
+\tkzMarkRightAngle[size=.2](A,O,N)
+\tkzMarkRightAngle[size=.2](N,O,M)
+\tkzMarkAngle[size=.6](A,F,E)
+\tkzMarkAngle[size=.6](C,D,A)
+\tkzLabelPoint(F){$\alpha$}
+\tkzLabelPoint[above left](D){$\beta$}
+\end{tikzpicture}
+
+\begin{hq}
+	Nếu hai mặt phẳng vuông góc với nhau thì bất cứ đường thẳng nào nă trong mặt phẳng này và vuông góc với giao tuyến thì vuông góc với mặt phẳng kia.
+\end{hq}
+
+\begin{hq}\label{hq2}
+	Cho hai mặt phẳng $(\alpha)$ và $(\beta)$ vuông góc với nhau. Nếu từ một điểm thuộc mặt phẳng $(\alpha)$ ta dựng một đường thẳng vuông góc với mặt phẳng $(\beta)$ thì đường thẳng này nằm trong mặt phẳng $(\alpha)$.
+\end{hq}
+
+\begin{dl}
+	Nếu hai mặt phẳng cắt nhau và cùng vuông góc với mọt mặt phẳng thì giao tuyến của chúng vuông góc với mặt phẳng đó.
+\end{dl}
+\textbf{Chứng minh.}\\
+\immini{
+	Giả sử $(\alpha)$ và $(\beta)$ là hai mặt phẳng cắt nhau và cùng vuông góc với mặt phẳng $(\gamma)$.\\
+	Từ một điểm $M$ trên giao tuyến $d$ của hai mặt phẳng $(\alpha)$ và $(\beta)$ ta dựng đường thẳng $d'$ vuông góc với mặt phẳng $(\gamma)$.\\
+	Theo hệ quả \ref{hq2} thì $d'$ nằm trong $(\alpha)$ và $d'$ nằm trong $(\beta)$.\\
+	Vậy $d'$ trùng với $d$ nghĩa là $d$ vuông góc với $(\gamma)$.
+}{
+	\begin{tikzpicture}[scale=.7]
+	\tkzDefPoints{0/0/O}
+	\tkzDefShiftPoint[O](0:5){O1}
+	\tkzDefShiftPoint[O](70:2){O2}
+	\tkzDefShiftPoint[O2](0:5){O3}
+	\tkzDefShiftPoint[O](10:1){A}
+	\tkzDefShiftPoint[A](20:2){A1}
+	\tkzDefShiftPoint[A1](0,3){A2}
+	\tkzDefShiftPoint[A](0,3){A3}
+	\tkzDefShiftPoint[A1](-10:1.5){A4}
+	\tkzDefShiftPoint[A4](0,3){A5}
+	\tkzInterLL(O2,O3)(A,A3)\tkzGetPoint{t}
+	\tkzInterLL(O2,O3)(A4,A5)\tkzGetPoint{t'}
+	\tkzDefShiftPoint[A1](0,2){M}
+	\tkzDrawSegments(O,O1 O1,O3 O,O2 A,A1 A,A3 A3,A2 A2,A1 A1,A4 A4,A5 A5,A2 t',O3 t,O2)
+	\tkzDrawSegments[dashed](t,t')
+	\tkzMarkAngles[size=.5cm,mkpos=.1](A,A3,A2 A2,A5,A4)
+	\tkzLabelAngle[pos=.3](A,A3,A2){\footnotesize $\alpha$}
+	\tkzLabelAngle[pos=-.3](A2,A5,A4){\footnotesize $\beta$}
+	\tkzLabelLine[pos=.5,right](A2,A1){\footnotesize $d$}
+	\tkzLabelLine[pos=.5,left](A2,A1){\footnotesize $d'$}
+	\tkzDrawPoints(M)
+	\tkzLabelPoints[right](M)
+	\end{tikzpicture}
+}
+
+\subsection{Hình lăng trụ đứng, hình hộp chữ nhật, hình lập phương}
+\begin{dn}
+	Hình lăng trụ đứng là hình lăng trụ có các cạnh bên vuông góc với các mặt đáy. Độ dài cạnh bên được gọi là chiều cao của hình lăng trụ đứng
+\end{dn}
+
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 2/-2/B, 5/0/C}
+\coordinate (D) at ($(A)+(0,5)$);
+\tkzDefPointBy[translation = from A to B](D)
+\tkzGetPoint{E}
+\tkzDefPointBy[translation = from A to C](D)
+\tkzGetPoint{F}
+\tkzDrawSegments[dashed](A,C)
+\tkzDrawPolygon(A,B,C,F,E,D)
+\tkzDrawSegments(D,F B,E)
+
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\coordinate (A) at (0,0);
+\coordinate (B) at (2,2);
+\coordinate (D) at (5,0);
+\coordinate (C) at ($(D)+(B)-(A)$);
+\coordinate (E) at ($(A)+(0,3)$);
+\coordinate (F) at ($(B)+(E)-(A)$);
+\coordinate (G) at ($(C)+(E)-(A)$);
+\coordinate (H) at ($(D)+(E)-(A)$);
+\draw [dashed] (A)--(B)--(C) (B)--(F);
+\draw (G)--(C)--(D)--(A)--(E) (D)--(H);
+\draw (E)--(F)--(G)--(H)--cycle;
+\end{tikzpicture}
+\begin{tikzpicture}[line cap=round,line join=round]
+\coordinate (A) at (0,0);
+\coordinate (B) at (2,2);
+\coordinate (D) at (4,0);
+\coordinate (C) at ($(D)+(B)-(A)$);
+\coordinate (E) at ($(A)+(0,4)$);
+\coordinate (F) at ($(B)+(E)-(A)$);
+\coordinate (G) at ($(C)+(E)-(A)$);
+\coordinate (H) at ($(D)+(E)-(A)$);
+\draw [dashed] (A)--(B)--(C) (B)--(F);
+\draw (G)--(C)--(D)--(A)--(E) (D)--(H);
+\draw (E)--(F)--(G)--(H)--cycle;
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\coordinate (A) at (0,0);
+\coordinate (B) at (1,-1);
+\coordinate (C) at (4,-1);
+\coordinate (D) at (5,0);
+\coordinate (E) at (2,1);
+\coordinate (F) at ($(A)+(0,4)$);
+\coordinate (G) at ($(F)+(B)-(A)$);
+\coordinate (H) at ($(F)+(C)-(A)$);
+\coordinate (I) at ($(F)+(D)-(A)$);
+\coordinate (J) at ($(F)+(E)-(A)$);
+\draw [dashed] (A)--(E)--(D) (E)--(J);
+\draw (F)--(G)--(H)--(I)--(J)--(F)--(A)--(B)--(G);
+\draw (B)--(C)--(D)--(I) (B)--(G) (C)--(H);
+\end{tikzpicture}
+
+\subsubsection{Nhận xét}
+Các mặt bên của hình lăng trụ đứng luôn luôn vuông góc với mặt phẳng đáy và là những hình chữ nhật.
+\begin{vd}
+	Cho hình lập phương $ABCD.A'B'C'D'$ có cạnh bằng $a$. Tính diện tích thiết diện của hình lập phương bị cắt bởi mặ phẳng trung trực $(\alpha)$ của đoạn $AC'$.
+\end{vd}
+\textbf{Giải.}\\
+\immini{
+	Gọi M là trung điểm của $BC$. Ta có $MA=MC'=\dfrac{a\sqrt{5}}{2}$ nên $M$ thuộc mặ phẳng trung trực của $AC'$.\\
+	Gọi $N,P,Q,R,S$ lần lượt  trung điểm của $CD, DD', D'A', A'B', BB'$. Chứng minh tương tự trên ta có các điểm này đều thuộc mặt phẳng trung trực của $AC'$.\\
+	Vậy thiết diện của hình lập phương bị cắt bởi mặt phẳng trung trực $(\alpha)$ của đoạn $AC'$ là hình lục giác đều $MNPQRS$ có cạnh bằng $\dfrac{a\sqrt{2}}{2}$.\\
+	Diện tích $S$ của thiết diện cần tìm là: $S=6.\left(\dfrac{a\sqrt{2}}{2}\right)^2.\dfrac{\sqrt{3}}{4}=\dfrac{3\sqrt{3}a^2}{4}$.
+}{
+	\begin{tikzpicture}[scale=1]
+	\tkzDefPoints{0/0/A'}
+	\tkzDefShiftPoint[A'](30:2){B'}
+	\tkzDefShiftPoint[A'](4,0){D'}
+	\tkzDefShiftPoint[B'](4,0){C'}
+	\tkzDefShiftPoint[A'](0,3){A}
+	\tkzDefShiftPoint[B'](0,3){B}
+	\tkzDefShiftPoint[C'](0,3){C}
+	\tkzDefShiftPoint[D'](0,3){D}
+	\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+	\tkzDefMidPoint(D,C)\tkzGetPoint{N}
+	\tkzDefMidPoint(D,D')\tkzGetPoint{P}
+	\tkzDefMidPoint(A',D')\tkzGetPoint{Q}
+	\tkzDefMidPoint(A',B')\tkzGetPoint{R}
+	\tkzDefMidPoint(B,B')\tkzGetPoint{S}
+	\tkzDrawPolygon[fill=red!50!white, dashed](M,N,P,Q,R,S)
+	\tkzDrawSegments(A,B B,C C,D D,A A,A' D,D' A',D' D',C' C,C' M,N N,P P,Q A,C)
+	\tkzDrawSegments[dashed](B,B' A',B' B',C' B',D' M,S S,R R,Q)
+	\tkzDrawPoints(A,B,C,D,A',B',C',D',M,N,P,Q,R,S)
+	\tkzLabelPoints[left](A,A',R,S)
+	\tkzLabelPoints[right](N,C',P)
+	\tkzLabelPoints[below](Q,D')
+	\tkzLabelPoints[above](D,M,B,C)
+	\end{tikzpicture}
+}
+
+\subsection{Hình chóp đều và hình chóp cụt đều}
+\subsubsection{Hình chóp đều}
+\subsubsection{Hình chóp cụt đều}
+\begin{dn}
+	Phần của hình chóp đều nằm giữa đáy và một thiết diện song song với đáy cắt các cạnh bên của hình chóp đều được gọi là hình chóp cụt đều
+\end{dn}
+
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]
+\tkzDefPoints{-0.5/0/A_1, 1/-2/A_2, 4/-2/A_3, 3/0/H}
+\tkzDefPointBy[symmetry = center H](A_1)
+\tkzGetPoint{A_4}
+\tkzDefPointBy[symmetry = center H](A_2)
+\tkzGetPoint{A_5}
+\tkzDefPointBy[symmetry = center H](A_3)
+\tkzGetPoint{A_6}
+\coordinate (S) at ($(H)+(0,8)$);
+\tkzDefPointBy[homothety = center S ratio 0.5](A_1)
+\tkzGetPoint{B_1}
+\tkzDefPointBy[homothety = center S ratio 0.5](A_2)
+\tkzGetPoint{B_2}
+\tkzDefPointBy[homothety = center S ratio 0.5](A_3)
+\tkzGetPoint{B_3}
+\tkzDefPointBy[homothety = center S ratio 0.5](A_4)
+\tkzGetPoint{B_4}
+\tkzDefPointBy[homothety = center S ratio 0.5](A_5)
+\tkzGetPoint{B_5}
+\tkzDefPointBy[homothety = center S ratio 0.5](A_6)
+\tkzGetPoint{B_6}
+\tkzDefPointBy[homothety = center S ratio 0.5](H)
+\tkzGetPoint{H'}
+\tkzDrawPoints(H,H')
+\tkzLabelPoints(A_2,A_3,A_4,A_6,B_3,B_4,B_6,H)
+\tkzLabelPoints[left](A_1,B_1,B_2)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[below left](A_5, B_5, H')
+\tkzDrawPolygon(S,A_1,A_2,A_3,A_4)
+\tkzDrawSegments(S,A_2 S,A_3 B_1,B_2 B_2,B_3 B_3,B_4)
+\tkzDrawSegments[dashed](S,H B_1,B_6 B_6,B_5 B_5,B_4 A_1,A_6 A_6,A_5 A_5,A_4 S,A_6 S,A_5)
+\end{tikzpicture}\newline	
+Hình 3.37 SGK trang 112	
+\end{center}
+
+\section{Góc trong không gian}
+\subsection{Góc giữa hai đường thẳng}
+Để xác định góc giữa hai đường thẳng chéo nhau $a$ và $b$ ta lấy điểm $I$ tuỳ ý rồi vẽ hai đường thẳng $a', b'$ cùng đi qua $I$ lần lượt song song với $a$ và $b$.\\
+\begin{tikzpicture}[>=stealth, line cap=round, line join=round]
+	\tkzDefPoints{3/2/u, 4/0/v, 0/0/A, 2/0/B, 0/-3/C, 0/-2/D}
+	\draw (A) node[above]{$a$}--($(A)+(u)$);
+	\draw (B) node[above]{$b$}--($(B)+(v)$);
+	\coordinate (E) at ($(C)+(u)$);
+	\coordinate (F) at ($(D)+(v)$);
+	\draw (C) node[above]{$a'$}--(E);
+	\draw (D) node[above]{$b'$}--(F);
+	\coordinate (I) at (intersection of C--E and D--F);
+	\tkzMarkAngle[size=.5](F,I,E)
+	\draw (I) node [above]{$I$};
+\end{tikzpicture}
+
+Để cho đơn giản ta có thể chọn $I$ thuộc $a$ hoặc $b$.\\
+\begin{tikzpicture}[>=stealth, line cap=round, line join=round]
+\tkzDefPoints{3/2/u, 4/0/v, 0/0/A, 2/0/B, 2/-1/C}
+\coordinate (M) at ($(A)+(u)$);
+\coordinate (N) at ($(B)+(v)$);
+\coordinate (P) at ($(C)+(u)$);
+\draw (A) node[above]{$a$}--(M);
+\draw (B) node[above]{$b$}--(N);
+\draw (C) node[above]{$a'$}--(P);
+\coordinate (I) at (intersection of B--N and C--P);
+\tkzMarkAngle[size=.5](N,I,P)
+\draw (I) node [above]{$I$};
+\end{tikzpicture}
+
+Nhắc lại góc giữa hai véc-tơ.\\
+\begin{tikzpicture}[>=stealth, line cap=round, line join=round]
+\tkzDefPoints{0/0/O, 3/0/A, -1/2/B, -1/-1/M, -2/0/P}
+\coordinate (N) at ($(A)+(M)-(O)$);
+\coordinate (Q) at ($(B)+(P)-(O)$);
+\draw[->] (O)node[left]{$O$}--(A)node[right]{$A$};
+\draw[->] (O)--(B)node[above]{$B$};
+\draw[->] (M)--(N)node[midway,above]{$\vec{a}$};
+\draw[->] (P)--(Q)node [midway,right]{$\vec{b}$};
+\tkzMarkAngle[size=.3](A,O,B)
+\end{tikzpicture}
+
+Góc giữa hai đường thẳng là góc không tù bằng hoặc bù với góc giữa hai véc-tơ chỉ phương của chúng.\\
+\begin{tikzpicture}[>=stealth, line cap=round, line join=round]
+\tkzDefPoints{0/0/O, 2/0/u, -1/2/v, -3/-1/M, -1/-2/N}
+\coordinate (A) at ($(O)+(u)$);
+\coordinate (B) at ($(O)+(v)$);
+\draw[->] (O)node[left]{$O$}--(A)node[right]{$\vec{u}$};
+\draw[->] (O)--(B)node[above]{$\vec{v}$};
+\coordinate (P) at ($(M)+2*(u)$);
+\coordinate (Q) at ($(N)+2*(v)$);
+\draw (M)--(P) node[above]{$a$};
+\draw (N)--(Q)node[right]{$b$};
+\coordinate (I) at (intersection of M--P and N--Q);
+\tkzMarkAngle[size=.3](A,O,B)
+\tkzMarkAngle[size=.3](Q,I,M)
+\tkzMarkAngle[size=.35](Q,I,M)
+\end{tikzpicture}	
+
+\subsection{Góc giữa đường thẳng và mặt phẳng}
+(Định nghĩa góc giữa đường thẳng và mặt phẳng)
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+		\tkzInit[xmax=6,ymax=6]
+		\tkzDefPoint(0,0){X}
+		\begin{scope}[shift=(X)]
+		\tkzDefPoint(70:3){Y}
+		\tkzDefPoint(0:7){Z}
+		\tkzDefPointBy[translation=from X to Y](Z)\tkzGetPoint{T}
+		\end{scope}
+		\tkzDefShiftPoint[X](20:3){H}
+		\tkzDefShiftPoint[H](10:3){O}
+		\tkzDefPoint[shift={(0.4,0)}, label=left: $\varphi$](20:5.2){x}
+		\tkzDefPoint[shift={(-.1,-.2)}, label=left: $\alpha$](30:0.8){y}
+		\tkzDefShiftPoint[H](90:3){A}
+		\tkzInterLL(H,A)(Y,T)\tkzGetPoint{I}
+		\tkzInterLL(O,A)(Z,T)\tkzGetPoint{K}
+		\tkzInterLL(O,A)(Y,T)\tkzGetPoint{L}
+		\tkzDefPointBy[homothety=center O ratio 1.5](A)\tkzGetPoint{d}
+		\tkzDefPointBy[homothety=center O ratio 1.5](H)\tkzGetPoint{d'}
+		\tkzDefPointBy[homothety=center H ratio 1.2](O)\tkzGetPoint{a}
+		\tkzDefPointBy[homothety=center O ratio 1.5](K)\tkzGetPoint{b}
+		\tkzDrawSegments[dashed](I,L O,K)
+		\tkzDrawSegments(X,Y Y,I L,T T,Z Z,X H,A d,O d',a K,b)
+		\tkzMarkRightAngle(A,H,O)
+		\tkzMarkAngle[size=.5](A,O,H)
+		\tkzMarkAngle[size=.6](Z,X,Y)
+		\tkzDrawPoints(H,O,A)
+		\tkzLabelPoints(H,d')
+		\tkzLabelPoints[above](A,d)
+		\tkzLabelPoints[below left](O)
+		\end{tikzpicture}
+	\end{center}
+(Ví dụ 2, trang 103)
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+		\tkzInit[xmax=6,ymax=6]
+		\tkzDefPoint(0,0){B}
+		\begin{scope}[shift=(B)]
+		\tkzDefPoint(45:3){A}
+		\tkzDefPoint(0:6){C}
+		\tkzDefPointBy[translation=from B to C](A)\tkzGetPoint{D}
+		\end{scope}
+		\tkzDefShiftPoint[A](90:5){S}
+		\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+		\tkzDefPointBy[homothety=center S ratio 0.6](D)\tkzGetPoint{N}
+		\tkzDefPointBy[homothety=center S ratio 0.6](B)\tkzGetPoint{M}
+		\tkzDrawSegments[dashed](A,B A,C A,D B,D A,S A,M A,N M,N)
+		\tkzDrawSegments(S,B S,C S,D C,B C,D)
+		\tkzMarkRightAngle(S,A,D)
+		\tkzMarkRightAngle(S,A,B)
+		\tkzMarkRightAngle(A,O,D)
+		\tkzMarkRightAngle(A,M,B)
+		\tkzMarkRightAngle(A,N,D)
+		\tkzMarkAngle(S,C,A)
+		\tkzMarkSegments[mark=||](A,B A,D)
+		\tkzDrawPoints(S,A,B,C,D,M,N)
+		\tkzLabelPoints(B,C,D)
+		\tkzLabelPoints[below](A)
+		\tkzLabelPoints[above](S)
+		\tkzLabelPoints[above right](N)
+		\tkzLabelPoints[above left](M)
+		\end{tikzpicture}
+	\end{center}
+(Bài tập 3, trang 104)
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+		\tkzInit[xmax=6,ymax=6]
+		\tkzDefPoint(0,0){B}
+		\begin{scope}[shift=(B)]
+		\tkzDefPoint(35:3){A}
+		\tkzDefPoint(0:6){C}
+		\tkzDefPointBy[translation=from B to C](A)\tkzGetPoint{D}
+		\end{scope}
+		\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+		\tkzDefShiftPoint[O](90:5){S}
+		\tkzDrawSegments[dashed](A,B A,C A,D B,D A,S S,O)
+		\tkzDrawSegments(S,B S,C S,D C,B C,D)
+		\tkzMarkRightAngle(S,O,C)
+		\tkzDrawPoints(S,A,B,C,D,O)
+		\tkzLabelPoints(B,C,D)
+		\tkzLabelPoints[below](A,O)
+		\tkzLabelPoints[above](S)
+		\end{tikzpicture}
+	\end{center}
+\subsection{Góc giữa hai mặt phẳng}
+	\begin{figure}
+	\begin{tikzpicture}%[Định nghĩa]
+	\tkzDefPoints{2/2/A, 0/0/D, 5/0/C, -2/4/E}
+	\tkzDefPointBy[translation = from D to A](C)
+	\tkzGetPoint{B}
+	\tkzDefPointBy[translation = from D to A](E)
+	\tkzGetPoint{F}
+	\tkzDrawPolygon(A,B,C,D)
+	\tkzDrawPolygon(A,F,E,D)
+	\tkzDefMidPoint(A,E) \tkzGetPoint{M}
+	\tkzDefMidPoint(A,C) \tkzGetPoint{N}
+	\tkzDefLine[perpendicular=through M,K=1](D,E)\tkzGetPoint{u}
+	\tkzDefLine[perpendicular=through N,K=1](C,D)\tkzGetPoint{v}
+	\tkzInterLL(M,u)(N,v) \tkzGetPoint{I}
+	\tkzDrawSegments(M,I N,I)
+	\tkzDefPointBy[homothety = center I ratio 1.3](M) \tkzGetPoint{H}
+	\tkzDefPointBy[homothety = center I ratio 1.3](N) \tkzGetPoint{K}
+	\tkzDrawSegments[dashed](M,H N,K)
+	\tkzMarkAngle[size=.65](D,E,F)
+	\tkzLabelPoint[right](E){\footnotesize $P$}
+	\tkzMarkAngle[size=.65](B,C,D)
+	\tkzLabelPoint[above left](C){\footnotesize $Q$}
+	\tkzLabelPoint[above](M){\footnotesize $p$}
+	\tkzLabelPoint[above right](N){\footnotesize $q$}
+	\tkzMarkAngle[size=0.5](M,I,N)
+	\end{tikzpicture}
+	\caption{Định nghĩa}
+\end{figure}
+
+\begin{figure}
+	\begin{tikzpicture}%[Cách xác định góc giữa hai mặt phẳng]
+	\tkzDefPoints{0/5/A, 2/4/D, -2/4/F, 0/0/B, -3.5/0.7/M}
+	\tkzDefPointBy[translation= from A to B](F) \tkzGetPoint{E}
+	\tkzDefPointBy[translation= from A to B](D) \tkzGetPoint{C}
+	\tkzDefPointBy[homothety = center A ratio 0.4](B) \tkzGetPoint{I}
+	\tkzDefLine[parallel=through I, K=1](B,E) \tkzGetPoint{x}
+	\tkzDefLine[parallel=through I, K=1](B,C) \tkzGetPoint{y}
+	\tkzDefLine[perpendicular=through M, K=1](B,A) \tkzGetPoint{z}
+	\tkzInterLL(A,B)(M,z) \tkzGetPoint{X}
+	\tkzInterLL(E,F)(M,z) \tkzGetPoint{Y}
+	\tkzInterLL(C,D)(M,z) \tkzGetPoint{Z}
+	\tkzDefPointBy[homothety = center X ratio 1.4](Z) \tkzGetPoint{T}
+	\tkzDefPointBy[homothety = center A ratio 0.33](B) \tkzGetPoint{a}
+	\tkzDefLine[parallel=through a, K=1](M,T) \tkzGetPoint{b}
+	\tkzInterLL(C,X)(a,b) \tkzGetPoint{c}
+	\tkzDefPointBy[translation= from M to T](c) \tkzGetPoint{d}
+	\tkzInterLL(a,b)(E,F) \tkzGetPoint{e}
+	\tkzInterLL(a,b)(C,D) \tkzGetPoint{f}
+	\tkzDrawSegments(A,D B,C F,A E,B I,x I,y M,X X,Y Y,Z Z,T F,x A,I D,y X,B Y,E Z,C M,c d,T c,e f,d)
+	\tkzDrawSegments[dashed](x,Y I,X y,Z a,e a,f)
+	\tkzMarkAngle[size=.65](T,M,c)
+	\tkzLabelPoint[above right](M){\footnotesize $R$}
+	\tkzMarkAngle[size=.65](B,E,F)
+	\tkzLabelPoint[above right](E){\footnotesize $P$}
+	\tkzMarkAngle[size=.65](D,C,B)
+	\tkzLabelPoint[above left](C){\footnotesize $Q$}
+	\tkzLabelPoint[below right](A){\footnotesize $\Delta$}
+	\tkzLabelPoint[above right](x){\footnotesize $p$}
+	\tkzLabelPoint[above left](y){\footnotesize $q$}
+	\tkzMarkRightAngle[size=.2](y,I,A)
+	\tkzMarkRightAngle[size=.2](A,I,x)
+	\end{tikzpicture}
+	\caption{Cách xác định góc giữa hai mặt phẳng}
+\end{figure}
+
+\begin{figure}
+	\begin{tikzpicture}%[Bài 10, SGK Hình 11, tr114]
+	\tkzDefPoints{2/2/A, 0/0/D, 4/0/C, 3/5/S}
+	\tkzDefPointBy[translation = from D to C](A)
+	\tkzGetPoint{B}
+	\tkzDefMidPoint(B,D) \tkzGetPoint{O}
+	\tkzDefMidPoint(S,C) \tkzGetPoint{M}
+	\tkzDrawSegments(S,D S,B S,C B,C C,D M,B M,D)
+	\tkzDrawSegments[dashed](S,A A,B A,D S,O A,C B,D M,O)
+	\tkzLabelPoints[above left](A)
+	\tkzLabelPoints[below](C,O,D)
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[above right](M,B)
+	\end{tikzpicture}
+	\caption{Bài 10, SGK Hình 11, trang 114}
+\end{figure}
+
+
+\section{Khoảng cách}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Khoảng cách từ một điểm đến  một đường thẳng, đến một mặt phẳng}
+\begin{enumerate}
+	\item \textbf{Khoảng cách từ một điểm đến một đường thẳng }
+	\\\textbf{Hình 3.38}\\
+	\begin{tikzpicture}[scale=1,line cap=round,line join =round]%Hình 3.38
+	\tkzDefPoints{0/0/A,6/0/B,8/2/C}
+	%  %Dung phep tinh tien tim D
+	\coordinate (D) at ($(C)-(B)-(A)$);
+	%Dung phep vi tu tim cac diem phu E,F
+	\coordinate (E) at ($(A)!0.2!(B)$);%AE=0.2AD
+	\coordinate (F) at ($(C)!0.2!(B)$);
+	%Dung phep vi tu tim cac diem phu G tren CD
+	\coordinate (G) at ($(D)!0.3!(C)$);
+	%Xac dinh diem H tren duong thang EF
+	\coordinate (H) at ($(E)!0.55!(F)$);
+	%Xac dinh diem O tren duong thang GE
+	\coordinate (O) at ($(E)!0.8!(G)$);
+	\tkzDrawPolygon(A,B,C,D)%ve mat phang alpha
+	\tkzDrawLine[add = -0.1 and -0.1](E,F)%ve duong thang a
+	\tkzDrawSegments(O,H)
+	\tkzMarkRightAngles[size=0.3](F,H,O)%Ki hieu goc vuong
+	\tkzMarkAngles[size=0.7,](B,A,D)%ki hieu mat phang alpha
+	\tkzLabelAngle[pos=0.4](B,A,D){ $\alpha$}%
+	\tkzLabelLine[pos=0.2,above](E,F){$a$}% ten duong thang a
+	\tkzLabelPoints(H) 
+	\tkzLabelPoints[ left](O)
+	\tkzDrawPoints[fill=black,size=4pt](O)
+	\end{tikzpicture}
+	\item \textbf{Khoảng cách từ một điểm đến một mặt phẳng }
+	\\\textbf{Hình 3.39}\\
+	\begin{tikzpicture}[scale=1,line cap=round,line join =round]%Hình 3.39
+	\tkzDefPoints{0/0/A,6/0/B,8/2/C}
+	%Dung phep tinh tien tim D
+	\coordinate (D) at ($(C)-(B)-(A)$);
+	%Dung phep vi tu tim cac diem phu E,F
+	\coordinate (E) at ($(A)!0.2!(D)$);%AE=0.2AD
+	\coordinate (F) at ($(C)!0.2!(B)$);
+	%Dung phep vi tu tim cac diem phu H tren EF
+	\coordinate (H) at ($(E)!0.75!(F)$);
+	%Dung phep vi tu tim cac diem phu H tren EF
+	\coordinate (G) at ($(C)!(H)!(D)$);
+	%Xac dinh diem O tren duong thang GH
+	\coordinate (O) at ($(G)!-2.65!(H)$);
+	%Xac dinh diem M tren doan thang EH
+	\coordinate (M) at ($(H)!0.65!(E)$);
+	%Xac dinh giao diem I cua OM va CD
+	\tkzInterLL(O,M)(C,D) \tkzGetPoint{I}
+	\tkzDrawSegments(A,B B,C A,D C,G I,D O,H M,H O,M)
+	\tkzDrawSegments[dashed](I,G)%doan IG bi che khuat
+	\tkzMarkRightAngles[size=0.3](M,H,O)%Ki hieu goc vuong
+	\tkzMarkAngles[size=0.7,](B,A,D)%ki hieu mat phang alpha
+	\tkzLabelAngle[pos=0.4](B,A,D){ $\alpha$}%
+	\tkzLabelPoints[ right](H)
+	\tkzLabelPoints[ left](M)
+	\tkzLabelPoints[ above](O)
+	\tkzDrawPoints[fill=black,size=4pt](O)
+	\end{tikzpicture}
+\end{enumerate}
+\subsubsection{Khoảng cách giữa một đường thẳng và mặt phẳng song song , giữa hai mặt phẳng song song}
+\begin{enumerate}
+	\item \textbf{Khoảng cách giữa đường thẳng và mặt phẳng song song }%
+	\\\textbf{Hình 3.40}\\
+	\begin{tikzpicture}[scale=1,line cap=round,line join =round]%Hình 3.40
+	\tkzDefPoints{0/0/M,6/0/N,8/2/P}
+	%Dung phep tinh tien tim Q
+	\coordinate (Q) at ($(P)-(M)-(N)$);
+	%Dung phep vi tu tim cac diem phu E,F
+	\coordinate (E) at ($(M)!0.6!(Q)$);%ME=0.6EQ
+	\coordinate (F) at ($(N)!0.6!(P)$);
+	\coordinate (A') at ($(E)!0.2!(F)$);
+	\coordinate (B') at ($(E)!0.8!(F)$);%A'B' thuoc EF và //MN
+	\coordinate (A) at ($(A')!0.6! 90:(B')$);%AA' vuong goc A'B'
+	\coordinate (B) at ($(B')!0.6! -90:(A')$);%BB' vuong goc A'B'
+	\tkzDrawLine[add = 0.3 and 0.4](A,B)%ve duong thang AB
+	\tkzDrawPolygon(M,N,P,Q)%ve mat phang alpha
+	\tkzDrawSegments[line join=round](A,A' B,B')
+	\tkzLabelSegment[above,pos=.5](A,B){$a$}%ki hieu doan AB
+	\tkzMarkSegment[pos=0.5,mark=s|](A',A)%ki hieu doan AA'
+	\tkzMarkSegment[pos=0.5,mark=s|](B',B)%ki hieu doan BB'
+	\tkzMarkAngles[size=0.7,](N,M,Q)%ki hieu mat phang alpha
+	\tkzLabelAngle[pos=0.4](N,M,Q){ $\alpha$}%
+	\tkzLabelPoints[below](A',B') \tkzLabelPoints[above](A,B) 
+	\tkzDrawPoints[fill=black,size=4pt](A',B',A,B)
+	\end{tikzpicture}
+\end{enumerate}
+
+\subsubsection{Khoảng cách giữa hai mặt phẳng song song}
+[1H3-5] trong SGK trang 116
+
+\textbf{H3.41}
+
+\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/A, 6/0/B, 8/2/C}
+\tkzDefPointBy[translation = from B to A](C) \tkzGetPoint{D}
+\tkzDefPointWith[orthogonal, K=0.5](A,B)\tkzGetPoint{A'}
+\tkzDefPointBy[translation = from A to A'](B) \tkzGetPoint{B'}
+\tkzDefPointBy[translation = from A to A'](C) \tkzGetPoint{C'}
+\tkzDefPointBy[translation = from A to A'](D) \tkzGetPoint{D'}
+\tkzDefMidPoint(A,C)\tkzGetPoint{M'}
+\tkzDefMidPoint(A',C')\tkzGetPoint{M}
+\tkzInterLL(M,M')(A',B') \tkzGetPoint{I}
+\tkzDrawSegments(B,A B,C D,A D,C A',B' A',D' C',B' C',D' I,M')
+\tkzDrawSegments[dashed](M,I)
+\tkzDrawPoints(M',M)
+\tkzMarkAngles[size=0.8](B',A',D') \tkzLabelAngle[pos=0.5](B',A',D'){ $\alpha$}
+\tkzMarkAngles[size=0.8](B,A,D) \tkzLabelAngle[pos=0.5](B,A,D){ $\beta$}
+\tkzLabelPoints[right](M,M')
+\end{tikzpicture}
+\subsubsection{Đường vuông góc chung và khoảng cách giữa hai đường thẳng chéo nhau}
+[1H3-5] trong SGK trang 116
+
+\textbf{H3.42}
+
+\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/B, 2/-2/C, 5/0/D}
+\tkzDefPointWith[orthogonal, K=1.5](B,C)\tkzGetPoint{A}
+\tkzDefMidPoint(A,D)\tkzGetPoint{N}
+\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+\tkzDrawSegments(B,C C,D A,B A,C A,D)
+\tkzDrawSegments[dashed](B,D N,M)
+\tkzDrawPoints(A,B,C,D,M,N)
+\tkzLabelPoints[left](B,M)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[right](D,N)
+\tkzLabelPoints[below](C)
+\end{tikzpicture}
+\begin{dn}
+	
+	[1H3-5] trong SGK trang 117
+	
+	\textbf{H3.43}
+	
+	\begin{tikzpicture}[scale=1]
+	\tkzDefPoints{0/0/M, 0/-4/N, 3/1/a, 3/-5/b}
+	\tkzDrawLines[add=0.2 and 0.4](M,N)
+	\tkzDrawLines[add=1 and 0.1](M,a)
+	\tkzDrawLines[add=1 and 0.3](N,b)
+	\tkzDrawPoints(M,N)
+	\tkzLabelPoints[above left](M)
+	\tkzLabelPoints[below left](N)
+	\tkzLabelLine[pos=1.9,above](a,M){$a$}
+	\tkzLabelLine[pos=1.9,above](b,N){$b$}
+	\tkzLabelLine[pos=1.25,right](M,N){$\Delta$}
+	\tkzMarkRightAngles(a,M,N)
+	\tkzMarkRightAngles(M,N,b)
+	\end{tikzpicture}
+\end{dn}
+\subsubsection{Cách tìm đường vuông góc chung của hai đường thẳng chéo nhau}
+\textbf{H3.44}
+
+\begin{tikzpicture}
+\tkzDefPoints{-2/-2/x, 6/0/y, 0/4/z, 0/0/A, 0.4/0/t, 0/4/h}
+\coordinate (B) at ($(A)+(x)$);
+\coordinate (C) at ($(B)+(y)$);
+\coordinate (D) at ($(C)-(x)$);
+%\coordinate (B') at ($(B)!0.1!(C)$);
+\coordinate (E) at ($(A)!0.5!(B)+(t)$);
+\coordinate (F) at ($(C)!0.5!(D)-(t)$);
+\coordinate (G) at ($(E)+(h)$);
+\coordinate (H) at ($(F)+(h)$);
+\coordinate (N) at ($(E)!0.5!(F)$);
+\coordinate (M) at ($(G)!0.5!(H)$);
+\coordinate (P) at ($(C)!0.1!(N)$);
+\coordinate (Q) at ($(C)!1.8!(N)$);
+\coordinate (X) at ($(G)!.85!(H)$);
+\coordinate (Y) at ($(E)!.85!(F)$);
+\coordinate (Z) at ($(G)!.25!(H)$);
+\coordinate (T) at ($(E)!.25!(F)$);
+\tkzDrawPoints(M,N)
+\coordinate (j) at (intersection of P--Q and Z--T);
+\coordinate (k) at (intersection of A--D and Z--T);
+\coordinate (h) at (intersection of A--D and X--Y);
+\tkzDrawSegments[](A,B B,C C,D E,F G,H M,N X,Y Z,T P,N j,Q A,k h,D)
+\tkzDrawSegments[dashed](N,j h,k)
+\tkzMarkAngle[size=.8](C,B,A)
+\tkzMarkAngle[size=.5](M,X,Y);
+\draw (X) node[below left]{$\alpha$};
+\draw ($(B)!0.04!(C)$) node[above right]{$\beta$};
+\draw ($(G)!.1!(H)$) node[above]{$a$};
+\draw ($(E)!.1!(F)$) node[above]{$a'$};
+\tkzLabelPoints[above](M)
+\tkzLabelPoints[below](N)
+\tkzMarkRightAngle(M,N,F);
+\tkzMarkRightAngle(M,N,j);
+%\tkzLabelPoints[right](E, F, G, H,A, B, C, D)
+
+\end{tikzpicture}
+
+\begin{nx}
+	\textbf{H3.45}
+	
+	\begin{tikzpicture}
+	\tkzDefPoints{-2/-2/x, 6/0/y, 0/4/z, 0/0/A}
+	\coordinate (B) at ($(A)+(x)$);
+	\coordinate (C) at ($(B)+(y)$);
+	\coordinate (D) at ($(C)-(x)$);
+	\coordinate (E) at ($(A)+(z)$);
+	\coordinate (F) at ($(B)+(z)$);
+	\coordinate (G) at ($(C)+(z)$);
+	\coordinate (H) at ($(D)+(z)$);
+	\coordinate (K) at ($(F)!0.2!(H)$);
+	\coordinate (L) at ($(F)!0.8!(H)$);
+	\coordinate (M) at ($(F)!0.5!(H)$);
+	\coordinate (X) at ($(A)!0.2!(C)$);
+	\coordinate (Y) at ($(A)!0.8!(C)$);
+	\coordinate (B') at ($(B)!0.1!(C)$);
+	\coordinate (F') at ($(F)!0.1!(G)$);
+	\tkzDefPointBy[projection= onto F--G](M)
+	\tkzGetPoint{T}
+	\tkzInterLL(M,T)(X,Y)
+	\tkzGetPoint{N}
+	\tkzDrawPoints(M,N)
+	\tkzDrawSegments[dashed](M,T)
+	\tkzDrawSegments[](K,L X,Y T,N)
+	\tkzDrawPolygon(A,B,C,D)
+	\tkzDrawPolygon(E,F,G,H)
+	%\tkzLabelPoints[right](E, F, G, H,A, B, C, D)
+	\tkzLabelPoints[above](M)
+	\tkzLabelPoints[below](N)
+	\draw (K) node[above]{$a$};
+	\draw (X) node[below]{$b$};
+	\draw (B') node[above]{$\beta$};
+	\draw (F') node[above]{$\alpha$};
+	\tkzMarkAngle(C,B,A)
+	\tkzMarkAngle(G,F,E)
+	\tkzMarkRightAngle(N,M,L)
+	\tkzMarkRightAngle(Y,N,M)
+	\end{tikzpicture}
+\end{nx}
+
+\begin{vd}Cho hình chóp $S.ABCD$ có đáy là hình vuông $ABCD$ cạnh $a$, cạnh $SA$ vuông góc với mặt phẳng $(ABCD)$ và $SA=a$. Tính khoảng cách giữa hai đường thẳng chéo nhau $SC$ và $BD$.
+	
+	\loigiai{
+		\textbf{H3.46}
+		
+		\begin{tikzpicture}
+		\tkzDefPoints{0/0/A, 4/0/B, 1.5/2/D, 0/6/h};
+		\coordinate (C) at ($(B)+(D)$);
+		\coordinate (O) at ($(A)!.5!(C)$);
+		\coordinate (S) at ($(A)+(h)$);
+		\coordinate (H) at ($(S)!.75!(C)$);
+		\tkzDrawPolygon(A,B,C,S);
+		\tkzDrawPoints(O,H)
+		\tkzDrawSegments[dashed](A,D D,C D,S C,S A,C B,D O,H);
+		\tkzDrawSegments(S,B);
+		\tkzMarkRightAngle(H,O,D);
+		\tkzMarkRightAngle(O,H,C);
+		\tkzLabelPoints[left](A,D);
+		\tkzLabelPoints[right](B,C);
+		\tkzLabelPoints[above](S);
+		\tkzLabelPoints[above right](H);
+		\tkzLabelPoints[below](O);
+		\end{tikzpicture}}
+\end{vd}

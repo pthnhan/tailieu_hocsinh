@@ -1,0 +1,1349 @@
+\begin{name}
+{Thầy Nguyễn Tài Tuệ và Thầy Cao Thành Thái}
+{Đề thi thử môn Toán THPT Quốc gia 2018 đợt 2, THPT Chuyên Hùng Vương - Bình Dương}
+\end{name}
+\setcounter{ex}{0}\setcounter{bt}{0}
+\Opensolutionfile{ans}[ans/ans-2-GHK1-74-ChuyenHungVuong-BinhDuong-18]
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1D2B2]
+Cho tập hợp $A$ có $n$ phần tử $\left ( n\ge 4\right )$. Biết rằng số tập con của $A$ có 8 phần tử nhiều gấp $26$ lần số tập con của $A$ có 4 phần tử. Hãy tìm $k\in \left \{ 1,2,3, \dots ,n \right \}$ sao cho trong số tập con gồm $k$ phần tử của $A$ là nhiều nhất.
+ \choice
+ {$k=20$}
+ {$k=11$}
+ {$k=14$}
+ {\True $k=10$}
+\loigiai{
+\begin{enumerate}
+\item Số tập con có 8 phần tử của tập $A$ là $\mathrm{C}_n^8$.
+\item Số tập con có 4 phần tử của tập $A$ là $\mathrm{C}_n^4$.
+\end{enumerate}
+Theo bài ra $\mathrm{C}_n^8=26\mathrm{C}_n^4\Leftrightarrow \dfrac{n!}{8!(n-8)!}=26\dfrac{n!}{4!(n-4)!} \Leftrightarrow (n-4)(n-5)(n-6)(n-7) =43680$\\
+$\Leftrightarrow \hoac{&n = 20\\& n =-92 \text{(loại)}.}$\\
+Với $n=20$ gọi $k$ là số phần tử của tập $A$ nhiều nhất, khi đó
+$$\heva{&\mathrm{C}_n^k\ge \mathrm{C}_n^{k+1}\\&\mathrm{C}_n^k\ge \mathrm{C}_n^{k-1}}\Leftrightarrow k=10.$$
+}
+\end{ex}
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1H2K4]
+Cho hình hộp $ABCD.A'B'C'D'$. Trên các cạnh $AA'$, $BB'$, $CC'$ lần lượt lấy ba điểm $M$, $N$, $P$ sao cho $\dfrac{A'M}{AA'}=\dfrac{1}{3}$; $\dfrac{B'N}{BB'}=\dfrac{2}{3}$; $\dfrac{C'P}{CC'}=\dfrac{1}{2}$. Biết mặt phẳng $(MNP)$ cắt $DD'$ tại $Q$. Tính tỉ số $\dfrac{D'Q}{DD'}$.
+\choice
+{\True$\dfrac{1}{6}$}
+{$\dfrac{1}{3}$}
+{$\dfrac{5}{6}$}
+{$\dfrac{2}{3}$}
+\loigiai
+{
+\immini
+{
+Gọi $O, O'$ lần lượt là tâm của hình bình hành $ABCD$ và $A'B'C'D'$, $I=OO'\cap MP$ và cạnh bên $AA' =BB'=CC'=DD' =a$.\\
+Ta có\\
+$C'P+A'M =B'N+D'Q =2 O'I$\\
+$\Leftrightarrow \dfrac{C'P}{CC'}+\dfrac{A'M}{AA'} =\dfrac{B'N}{BB'}+\dfrac{D'Q}{DD'}$\\
+$\dfrac{D'Q}{DD'} = \dfrac{1}{2}+\dfrac{1}{3}-\dfrac{2}{3}= \dfrac{1}{6}$.
+}
+{
+\begin{tikzpicture}[>=stealth,scale=0.5, line cap=round, line join=round]%Hình HĐ 2/ Tr-94
+\tkzDefPoints{0/0/A}
+\tkzDefShiftPoint[A](0:7){B}
+\tkzDefShiftPoint[A](50:4){D}
+\coordinate (C) at ($(B)+(D)-(A)$);
+\tkzDefShiftPoint[A](90:7){A1}
+\tkzDefPointBy[translation = from A to A1](B) \tkzGetPoint{B1}
+\tkzDefPointBy[translation = from A to A1](C) \tkzGetPoint{C1}
+\tkzDefPointBy[translation = from A to A1](D) \tkzGetPoint{D1}
+\tkzDefMidPoint(A,A1)
+\tkzGetPoint{M}
+\tkzDefShiftPoint[C](90:4.66){P}
+\tkzDefShiftPoint[D](90:2.25){N}
+\tkzInterLL(B1,D1)(A1,C1)
+\tkzGetPoint{O'}
+\tkzDrawPoint(O') 
+\tkzInterLL(B,D)(A,C)
+\tkzGetPoint{O}
+\tkzDrawPoint(O) 
+\tkzInterLL(M,P)(O,O')
+\tkzGetPoint{I}
+\tkzDrawPoint(I) 
+\tkzInterLL(N,I)(B,B1)
+\tkzGetPoint{Q}
+\tkzDrawPoint(Q) 
+\tkzDrawSegments[dashed](A,D D1,D C,D M,N N,P M,P B,D A,C  M,P O,O' N,Q)
+\tkzDrawSegments(C,C1 D1,A1 D1,C1 B,C B,B1 A1,B1 B1,C1 A,A1 A,B B1,D1 A1,C1)
+%\tkzDrawPoints[fill=black,size=2pt](A,B,C,D,A1,B1,C1,D1)
+\draw (A) node[left] {$C$} (B) node[below] {$D$} (C) node[right] {$A$} (D) node[below] {$B$} (A1) node[left] {$C'$}  (C1) node[right] {$A'$} (D1) node[above] {$B'$} (M) node[left] {$P$} (P) node[right] {$M$} (N) node[left] {$N$}(B1) node[above] {$D'$};
+\draw (O') node [above] {$O'$} (I) node [below]{$I$} (Q) node [right]{$Q$} (O) node [below] {$O$};
+\tkzFillPolygon[pattern=north east lines,opacity=.3](M,N,P,Q)
+\end{tikzpicture}
+			}
+
+}
+\end{ex}
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1D3B3]
+Một cấp số cộng $(u_n)$ có số hạng đầu $u_1 =2018$ công sai $d =-5$. Hỏi bắt đầu từ số hạng nào của cấp số cộng đó thì nó nhận giá trị âm?	
+\choice
+{$u_{406}$}
+{$u_{403}$}
+{\True$u_{405}$}
+{$u_{404}$}
+\loigiai
+{
+Số hạng tổng quát của cấp số cộng là $u_n=u_1 +(n-1)d=2018 +(n-1)\cdot(-5)$.\\
+$\Rightarrow u_n<0 \Leftrightarrow n>\dfrac{2018}{5}+1 \approx  404{,}6$.\\
+Vậy từ số hạng thứ $405$ của cấp số cộng thì nó nhận giá trị âm.
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D1B4]
+Số đường tiệm cận của đồ thị hàm số $y = \dfrac{\sqrt{2018-x^2}}{x(x-2018)}$ là mấy?
+\choice
+{$2$}
+{$0$}
+{\True $1$}
+{$3$}
+\loigiai
+{
+Tập xác định của hàm số $\mathscr{D} =\left [ -\sqrt{2018};\sqrt{2018}\right ] \backslash \{0\}$.
+\begin{enumerate}
+	\item Đồ thị hàm số không có tiệm cận ngang.
+	\item Ta có $\lim\limits_{x \to 0^+} y = -\infty$ do đó đồ thị nhận $x=0$ là tiệm cận đứng.
+\end{enumerate}
+Vậy đồ thị đã cho chỉ có một tiệm cận.
+
+}
+\end{ex}
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D2K4]
+Cho hàm số $f(x)=\ln \left (x^2-3x\right )$. Tìm tập nghiệm $S$ của phương trình $f'(x) =0$.		
+\choice
+{\True $S= \varnothing$}
+{$S =\left\{ \dfrac{3}{2}\right \}$}
+{$S =\left\{0;3\right \}$}
+{$S =\left( -\infty;0\right ) \cup \left (3;+\infty\right )$}
+\loigiai
+{
+\begin{enumerate}
+	\item Tập xác định $\mathbb{D} =(-\infty;0)\cup (3;+\infty)$
+	\item Ta có $f'(x) =\dfrac{2x-3}{x^2 -3x}; f'(x) =0\Leftrightarrow x=\dfrac{3}{2} \text{ (không thỏa mãn điều kiện)}$.
+\end{enumerate}
+Vậy tập nghiệm $S = \varnothing$.
+}
+
+\end{ex}
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D2T1]
+Cường độ của ánh sáng $I$ khi đi qua môi trường khác với không khí, chẳng hạn như sương mù hay nước,... sẽ giảm dần tùy theo độ dày của môi trường và một hằng số $\mu $ gọi là khả năng hấp thụ ánh sáng tùy ý theo bản chất môi trường mà ánh sáng truyền đi và được tính theo công thức $I=I_0\cdot\text{e}^{-\mu x}$ với $x$ là độ dày của môi trường đó và tính bằng mét, $I_0$ là cường độ sáng tại thời điểm trên mặt nước. Biết rằng nước hồ trong suốt và có $\mu =1{,}4$. Hỏi cường độ  ánh sáng giảm đi bao nhiêu lần khi truyền trong hồ đó từ độ sâu $3$ m  xuống đến độ sâu $30$ m? (Chọn giá trị gần đúng với đáp số nhất).	
+\choice
+{$\mathrm{e}^{30}$ lần}
+{\True $2{,}6081\cdot 10^{16}$ lần}
+{$\mathrm{e}^{27}$ lần}
+{$2{,}6081\cdot 10^{-16}$ lần}
+\loigiai{
+Gọi $I_3$, $I_{30}$ lần lượt là cường độ ánh sáng ở độ sau $3$ m và $30$ m.\\
+Khi đó ta có $\dfrac{I_3}{I_{30}} =\dfrac{I_0\mathrm{e}^{-\mu \cdot 3}}{I_0\mathrm{e}^{-\mu\cdot 30}} =\mathrm{e}^{27\mu}=2{,}6081\cdot10^{16}.$
+}
+
+\end{ex}
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D1G3]
+Biết rằng các  số thực $a$, $b$ thay đổi sao cho hàm số $f(x) =-x^3 +(x+a)^3 +(x+b)^3$ luôn đồng biến trên khoảng $(-\infty;+\infty)$. Tìm giá trị nhỏ nhất của biểu thức $P= a^2+b^2 -4a-4b+2$.
+\choice
+{$-4$}
+{\True $-2$}
+{$0$}
+{$2$}
+\loigiai
+{
+Ta có
+\begin{align*}
+f'(x)=&3x^2+3(x+a)^2+3(x+b)^2\\
+=& 3(x^2+2(a+b)x +a^2+b^2).
+\end{align*}
+Hàm số đã cho đồng biến trên $\mathbb{R}\Leftrightarrow \Delta '\le 0 \Leftrightarrow ab\le 0$.\\
+Không mất tính tổng quát giả sử $a\ge 0, b\le 0$.\\
+Khi đó $b(b-4)\ge 0$, nên
+\begin{align*}
+P=&(a-2)^2 +b(b-4)-2\\
+\ge & -2.
+\end{align*}
+Đẳng thức xảy ra khi $\heva{&a=2\\&b=0.}$\\
+Vậy giá trị nhỏ nhất của $P$ là $-2$.
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1D3K4]
+Cho tam giác $ABC$ cân tại $A$. Biết độ dài cạnh $BC$, trung tuyến $AM$ và độ dài cạnh $AB$ theo thứ tự đó lập thành một cấp số nhân có công bội $q$. Tìm công bội $q$ của cấp số nhân đó.
+\choice 
+{$q=\dfrac{1+\sqrt{2}}{2}$}
+{\True $q=\dfrac{\sqrt{2+2\sqrt{2}}}{2}$}
+{$q=\dfrac{-1+\sqrt{2}}{2}$}
+{$q=\dfrac{\sqrt{-2+2\sqrt{2}}}{2}$}
+\loigiai
+{
+Giả sử $AB =AC=b, BC =a\Rightarrow AM^2 =b^2-\dfrac{a^2}{4}$.\\
+Ta có độ dài cạnh $BC$, trung tuyến $AM$ và độ dài cạnh $AB$ theo thứ tự đó lập thành một cấp số nhân khi và chỉ khi $BC\cdot AB =AM^2 \Leftrightarrow b^2 -ab -\dfrac{a^2}{4}=0\Leftrightarrow \hoac{& \dfrac{b}{a}=\dfrac{1+\sqrt{2}}{2}\\&\dfrac{b}{a}=\dfrac{1-\sqrt{2}}{2} \text{(loại)}.}$\\
+Mà công bội $q^2 =\dfrac{b}{a}\Rightarrow q=\dfrac{\sqrt{2+2\sqrt{2}}}{2}$.
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1D3B3]
+Một cấp số cộng $(u_n)$ có tổng của $n$ số hạng đầu $S_n$ tính theo công thức $S_n =5n^2 +3n, (n \in \mathbb{N^*})$. Tìm số hạng đầu $u_1$ và công sai $d$ của cấp số cộng đó.
+ \choice 
+{$u_1 =-8;d=10$}
+{$u_1 =-8;d=-10$}
+{\True $u_1 =8;d=10$}
+{$u_1 =8;d=-10$}
+\loigiai
+{
+Vì với $\forall n\in \mathbb{N^*}$, ta có:  $S_n =5n^2+3n$ nên $S_1=u_1 = 8$, $S_2 =u_1+u_2 =26$, suy ra $u_2 =18$, $d=u_2-u_1 =10$.
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1D2G5]
+Trên mặt phẳng $Oxy$ ta xét một hình chữ nhật $ABCD$ với các điểm $A(-2;0)$, $B(-2;2)$, $C(4;2)$, $D(4;0)$. Một con châu chấu nhảy trong hình chữ nhật đó tính cả trên cạnh của hình chữ nhật sao cho chân nó luôn đáp xuống mặt phẳng tại các điểm có tọa độ nguyên (tức là điểm có  cả hoành độ và tung độ đều nguyên). Tính xác suất để nó đáp xuống các điểm $M(x;y)$ mà $x+y <2$.
+ \choice 
+{\True $\dfrac{3}{7}$}
+{$\dfrac{8}{21}$}
+{$\dfrac{1}{3}$}
+{$\dfrac{4}{7}$}
+\loigiai
+{
+\immini{
+Số điểm có tọa độ nguyên trong hình chữ nhật là:\\
+ $n(\Omega) =7 \cdot 3=21$.\\
+Số điểm $M(x;y)$ có tọa độ nguyên nằm trong hình chữ nhật $ABCD$ và thỏa mãn $x+y<2$ là $n(A)=9$.\\
+Vậy xác suất cần tìm $P(A) =\dfrac{9}{21}=\dfrac{3}{7}$.
+}
+{
+ \begin{tikzpicture}[scale=0.8]
+\tkzInit[xmin=-2,ymin=0,xmax=4,ymax=2]
+\draw (0,2)--(2,0);
+\tkzAxeXY
+\tkzGrid
+\end{tikzpicture}
+}
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D2Y5]
+Tập nghiệm $S$ của phương trình $\left (\dfrac{4}{7}\right )^x \cdot \left (\dfrac{7}{4}\right )^{3x-1} -\dfrac{16}{49} =0$ là
+ \choice 
+{\True $S=\left \{ \dfrac{-1}{2}\right \}$}
+{$S=\left \{ 2\right \}$}
+{$S=\left \{ \dfrac{-1}{2};\dfrac{1}{2}\right \}$}
+{$S=\left \{ \dfrac{-1}{2}; 2\right \}$}
+\loigiai
+{
+Phương trình đã cho tương đương với $\left (\dfrac{4}{7}\right )^{1-2x} =\left (\dfrac{4}{7}\right )^2 \Leftrightarrow x=\dfrac{-1}{2}$.
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D1B4]
+Tâm đối xứng $I$ của đồ thị hàm số $y=-\dfrac{2x-1}{x+1}$ là
+ \choice 
+{$I(1;-2)$}
+{\True $I(-1;-2)$}
+{$I(1;2)$}
+{$I(-1;2)$}
+\loigiai
+{
+Tiệm cận đứng và tiệm cận ngang của đồ thị lần lượt là $x=-1, y=2$. Do đó tâm đối xứng của đồ thị là $I(-1;2)$.
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2H1G3]
+Trong mặt phẳng $(P)$ cho tam giác $XYZ$ cố định. Trên đường thẳng $d$ vuông góc với mặt phẳng $(P)$ tại $X$ và về hai phía của $(P)$ ta lấy hai điểm $A$, $B$ thay đổi sao cho hai mặt phẳng $(AYZ)$ và $(BYZ)$ luôn vuông góc với nhau. Hỏi vị trí của $A$, $B$ thỏa mãn điều kiện nào nào dưới đây thì thể tích tứ diện $ABYZ$ là nhỏ nhất?
+ \choice 
+{$XB =2XA$}
+{$XA =2XB$}
+{$XA \cdot XB =YZ^2$}
+{\True $X$ là trung điểm của đoạn $AB$}
+
+\loigiai
+{
+\immini{
+Hạ $AM \perp YZ \Rightarrow YZ \perp AM, YZ\perp BM $, mặt khác góc giữa hai mặt phẳng $(AYZ)$ và $(AYZ)$ bằng  $90^{\circ}$. Suy ra $AM \perp (BYZ)$.\\
+Thể tích khối tứ diện $ABYZ$ là
+\begin{align*}
+V_{ABYZ}=&\dfrac{1}{3}AM\cdot S_{\Delta BYZ}\\
+=&\dfrac{1}{6}YZ\cdot AM\cdot BM\\
+=&\dfrac{1}{6}YZ\cdot MX\cdot AB\\
+=&\dfrac{1}{6}YZ\cdot MX\cdot (AX+BX)\\
+\ge &\dfrac{1}{6}YZ\cdot MX\cdot 2\sqrt{AX\cdot BX}\\
+= &\dfrac{1}{6}YZ\cdot MX\cdot 2\sqrt{MX^2}\\
+= &\dfrac{1}{6}YZ\cdot MX\cdot 2\cdot MX.\\
+\end{align*}
+Vì $XYZ$ là tam giác giác cố định nên $M$ cố định.\\
+Đẳng thức xảy ra khi $AX = BX$ hay $X$ là trung điểm $AB$.
+}
+{
+\begin{tikzpicture}[line cap=round,smooth, samples =100,>=stealth,scale=0.7]
+\tkzDefPoints{0/0/X, 1.5/-2/Y, 4.5/0/Z}
+\coordinate (A) at ($(X)+(0,4)$);
+\coordinate (B) at ($(X) +(0,-5)$);
+\coordinate (M) at ($(Y)!0.3!(Z)$);
+\tkzLabelPoints[left](X,B,Y)
+\tkzLabelPoints[right](Z,M)
+\tkzLabelPoints[above](A)
+\tkzDrawSegments(A,X A,Y A,Z X,Y Z,Y B,Y B,M B,Z B,X A,M)
+\tkzDrawSegments[dashed](X,Z X,M) tikzdanhdaugocvuong\tkzMarkRightAngle(X,M,Y)
+\tkzMarkRightAngle(A,M,Z)  
+\end{tikzpicture}
+}
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1D2K3]
+Tính tổng $S = \mathrm{C}^{1009}_{2018} + \mathrm{C}^{1010}_{2018} + \mathrm{C}^{1011}_{2018} + \cdots  + \mathrm{C}^{2018}_{2018}$ (trong tổng đó các số hạng có dạng $\mathrm{C}^{k}_{2018}$ với $k$ nguyên dương nhận giá trị liên tục từ $1009$ đến $2018$). 
+\choice 
+{$S = 2^{2018} - \mathrm{C}^{1009}_{2018}$}
+{\True $S = 2^{2017}+\dfrac{1}{2}\mathrm{C}^{1009}_{2018}$}
+{$S=2^{2017}-\dfrac{1}{2}\mathrm{C}^{1009}_{2018}$}
+{$S=2^{2017}-\mathrm{C}^{1009}_{2018}$}
+\loigiai
+{
+Đặt $P=\mathrm{C}^{0}_{2018}+\mathrm{C}^{1}_{2018}+\mathrm{C}^{2}_{2018}+\cdots + \mathrm{C}^{1008}_{2018}$.\\
+Ta có $S+P =\mathrm{C}^{0}_{2018}+\mathrm{C}^{1}_{2018}+\mathrm{C}^{2}_{2018}+\cdots +\mathrm{C}^{2018}_{2018} =2^{2018}$.\\
+Mặt khác theo tính chất của tổ hợp  $\mathrm{C}_n^k=\mathrm{C}_n^{n-k} $ nên
+$P+\mathrm{C}_{2018}^{1009}=S$.\\
+Do đó $2S= 2^{2018} +\mathrm{C}_{2018}^{1009}\Rightarrow S=2^{2017}+\dfrac{1}{2}\mathrm{C}^{1009}_{2018}.$
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D2B3]
+Biết rằng $\log 7 =a$ và $\log_5 100=b$. Hãy biểu diễn $\log_{25}{56}$ theo $a$ và $b$.
+ \choice 
+{$\dfrac{ab+3b+6}{4}$}
+{$\dfrac{ab+b-6}{4}$}
+{\True$\dfrac{ab+3b-6}{4}$}
+{$\dfrac{ab-3b-6}{4}$}
+\loigiai
+{
+Ta có $b=\log_{5}100 =2+2\log_52\Rightarrow \log_52 =\dfrac{b-2}{2}$.\\
+Lại có $ab =\log 7 \cdot \log_5 100 = 2\log_5 7$.\\
+Suy ra $\log_{25}56 =\dfrac{1}{2}\left ( 3\log_5 2 +\log_5 7\right ) = \dfrac{3b-6+ab}{4}$.
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1D2B2]
+Trên mặt phẳng có $2017$ đường thẳng song song với nhau và $2018$ đường thẳng song song khác cùng cắt nhóm $2017$ đường thẳng đó. Đếm số hình bình hành nhiều nhất được tạo thành có đỉnh là các giao điểm nói trên. \choice 
+{$2017 \cdot 2018$}
+{$\mathrm{C}_{2017}^{4}+\mathrm{C}_{2018}^{4}$}
+{\True $\mathrm{C}_{2017}^{2} \cdot \mathrm{C}_{2018}^{2}$}
+{$2017+2018$}
+\loigiai
+{
+Mỗi hình bình hành được tạo từ $2$ đường trong số $2017$ đường và hai đường trong số $2018$ đường. Do đó số hình bình hành được tạo thành cần tìm là $\mathrm{C}_{2017}^{2} \cdot \mathrm{C}_{2018}^{2}$.
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1H2Y4]
+Tìm khẳng định đúng trong các khẳng định sau.
+ \choice 
+{\True Nếu một đường thẳng song song với một mặt phẳng thì nó song song với một đường thẳng nào đó nằm trong mặt phẳng đó}
+{Nếu hai mặt phẳng cùng song song với mặt phẳng thứ ba thì chúng song song với nhau}
+{Nếu ba mặt phẳng phân biệt đôi một cắt nhau theo ba giao tuyến thì ba giao tuyến đó phải đồng quy}
+{Trong không gian, hai đường thẳng cùng vuông góc với đường thẳng thứ ba thì hai đường thẳng đó song song với nhau}
+\loigiai
+{
+\begin{enumerate}
+	\item Khẳng định ``Nếu một đường thẳng song song với một mặt phẳng thì nó song song với một đường thẳng nào đó nằm trong mặt phẳng đó'' là khẳng định đúng.
+	\item Khẳng định ``Nếu hai mặt phẳng cùng song song với mặt phẳng thứ ba thì chúng song song với nhau'' sai vì hai mặt phẳng đó có thể trùng nhau.
+	\item Khẳng định ``Nếu ba mặt phẳng phân biệt đôi một cắt nhau theo ba giao tuyến thì ba giao tuyến đó phải đồng quy'' sai vì ba giao tuyến đó song song hoặc đồng quy (định lí về giao tuyến của ba mặt phẳng).
+	\item Khẳng định ``Trong không gian, hai đường thẳng cùng vuông góc với đường thẳng thứ ba thì hai đường thẳng đó song song với nhau'' sai, khẳng định này chỉ đúng khi xét trên mặt phẳng.
+\end{enumerate}
+}
+\end{ex}
+
+	
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D2B4]
+Đạo hàm của hàm số $f(x) =\sqrt{\ln \left (\ln x\right )}$ trên tập xác định của nó là 
+ \choice 
+{$f'(x) =\dfrac{1}{2\sqrt{ \ln \left (\ln x\right )}}$}
+{$f'(x) =\dfrac{1}{\sqrt{ \ln \left (\ln x\right )}}$}
+{$f'(x) =\dfrac{1}{2x\sqrt{ \ln \left (\ln x\right )}}$}
+{\True $f'(x) =\dfrac{1}{2x\ln x\sqrt{ \ln \left (\ln x\right )}}$}
+\loigiai
+{
+Ta có $f'(x) =\dfrac{(\ln (\ln x))'}{2\sqrt{\ln (\ln x)}}=\dfrac{1}{2x\ln x\sqrt{ \ln \left (\ln x\right )}}$.
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D2B5]
+Gọi $a$ là một nghiệm của phương trình $4 \cdot 2^{2\log x} -6^{\log x} -18 \cdot 3^{2\log x}=0$. Khẳng định nào sau đây đúng khi đánh giá về $a$? 
+\choice 
+{$(a-10)^2 =1$}
+{$a^2+a+1 =2$}
+{\True $a$ cũng là nghiệm của phương trình $\left (\dfrac{2}{3}\right )^{\log x} =\dfrac{9}{4}$}
+{$a=10^2$}
+\loigiai
+{
+Phương trình đã cho tương đương với\\
+\hspace*{0.6cm}$4\left (2^{\log x}\right )^2-(2.3)^{\log x}-18.3^{2\log x}=0$\\
+$\Leftrightarrow  4\left (\left (\dfrac{2}{3}\right )^{\log x}\right )^2-\left (\dfrac{2}{3}\right )^{\log x}-18 =0$\\
+$\Leftrightarrow  \hoac{&\left (\dfrac{2}{3}\right )^{\log x}=\dfrac{9}{4}\\
+&\left (\dfrac{2}{3}\right )^{\log x}=-2 \text{ (vô lí)}}$\\
+$\Leftrightarrow \left (\dfrac{2}{3}\right )^{\log x}=\dfrac{9}{4}$.
+}
+\end{ex}
+
+	
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1D3T4]
+Trên một bàn cờ vua kích thước $8\text{x}8$ người ta đặt số hạt thóc theo cách như sau. Ô thứ nhất đặt một hạt thóc, ô thứ hai đặt hai hạt thóc, các ô tiếp theo đặt số hạt thóc gấp đôi ô đứng liền kề trước nó. Hỏi phải tối thiểu từ ô thứ bao nhiêu để tổng số hạt thóc từ ô đầu tiên đến ô đó lớn hơn $20172018$ hạt thóc? 
+\choice 
+{$26$}
+{$23$}
+{$24$}
+{\True $25$}
+\loigiai
+{
+Đặt số hạt thóc ở các ô liên tiếp lần lượt  là $u_1, u_2,\ldots, u_{64}$.\\
+Nhận thấy số hạt thóc trên các ô lập nên một cấp số nhân với $u_1=1$ công bội $q=2$, nên công thức tổng quát tính tổng số hạt thóc ở ô thứ $n$ là $u_n=u_1\cdot 2^{n-1}=2^{n-1}$.\\
+Tổng số hạt thóc từ ô đầu tiên đến ô thứ $n$ là $$S_n=u_1\dfrac{1-q^n}{1-q} =2^n-1$$
+Tổng số hạt thóc từ ô đầu tiên đến ô thứ $n$ lớn hơn $20172018$ nên
+$$2^n-1>20172018\Leftrightarrow n\ge \log_2{20172019}  \approx 24{,}26 $$
+Vậy phải tối thiểu từ ô thứ 25 để tổng số hạt thóc từ ô đầu tiên đến ô đó lớn hơn $20172018$ hạt thóc.
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D1G5]
+Biết rằng đồ thị của hàm số $y =P(x)=x^3-2x^2-5x+2$ cắt trục hoành tại ba điểm phân biệt lần lượt có hoành độ là $x_1$, $x_2$, $x_3$. Tính giá trị của biểu thức: $$T=\dfrac{1}{x_1^2-4x_1+3}+\dfrac{1}{x_2^2-4x_2+3}+\dfrac{1}{x_3^2-4x_3+3}.$$
+ \choice 
+{$T=\dfrac{1}{2}\left[ -\dfrac{P'(1)}{P(1)}+\dfrac{P'(3)}{P(3)}\right ]$}
+{$T=\dfrac{1}{2}\left[ -\dfrac{P'(1)}{P(1)}-\dfrac{P'(3)}{P(3)}\right ]$}
+{\True $T=\dfrac{1}{2}\left[ \dfrac{P'(1)}{P(1)}-\dfrac{P'(3)}{P(3)}\right ]$}
+{$T=\dfrac{1}{2}\left[ \dfrac{P'(1)}{P(1)}+\dfrac{P'(3)}{P(3)}\right ]$}
+\loigiai
+{
+Đồ thị hàm số $y=P(x)$ cắt trục hoành tại ba điểm phân biệt $x_1$, $x_2$, $x_3$ nên ta có\\
+ $P(x) =(x-x_1)(x-x_2)(x-x_3)$,\\
+ $P'(x) =(x-x_1)(x-x_2)+(x-x_2)(x-x_3)+(x-x_3)(x-x_1)$.\\
+Suy ra $\dfrac{P'(x)}{P(x)}=\dfrac{1}{x-x_1}+\dfrac{1}{x-x_2}+\dfrac{1}{x-x_3}$.\\
+Ta có \\
+$T=\sum\limits_{i = 1}^3{\dfrac{1}{(x_i-1)(x_i-3)}}$\\
+\hspace*{0.4cm}$= \dfrac{1}{2}\sum\limits_{i = 1}^3{\left (\dfrac{1}{x_i-3}-\dfrac{1}{x_i-1}\right )}$\\
+\hspace*{0.4cm}$= \dfrac{1}{2}\left (\sum\limits_{i = 1}^3{\dfrac{1}{x_i-3}}-\sum\limits_{i = 1}^3{\dfrac{1}{x_i-1}}\right )$\\
+\hspace*{0.4cm}$= \dfrac{1}{2}\left( \sum\limits_{i = 1}^3{\dfrac{1}{1-x_i}}-\sum\limits_{i = 1}^3{\dfrac{1}{3-x_i}}\right )$\\
+\hspace*{0.4cm}$= \dfrac{1}{2}\left (\dfrac{P'(1)}{P(1)} -\dfrac{P'(3)}{P(3)}\right )$.
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D1G5]
+Cho hàm số $y=f(x)$ có bảng biến thiên như sau
+\begin{center}
+	\begin{tikzpicture}
+\tkzTabInit[nocadre=false,lgt=1.5,espcl=3]{$x$ /0.7,$f'(x)$ /0.7,$f(x)$ /2}
+{$-\infty$,$-1$,$3$,$+\infty$}%
+\tkzTabLine{ , + ,0, - ,0,+, }
+\tkzTabVar{-/ $-\infty$  , +/  $2018$  , -/ $-2018$,+/$+\infty$}
+\end{tikzpicture}
+\end{center}
+Đồ thị hàm số $y=\left | f(x-2017) +2018\right |$ có bao nhiêu điểm cực trị?
+ \choice 
+{$2$}
+{\True $3$}
+{$5$}
+{$4$}
+\loigiai
+{
+Ta có bảng biến thiên của hàm số $y= f(x-2017)$ là 
+\begin{center}
+	\begin{tikzpicture}
+\tkzTabInit[nocadre=false,lgt=1.5,espcl=3]{$x$ /0.7,$f'(x)$ /0.7,$f(x)$ /2}
+{$-\infty$,$2016$,$2020$,$+\infty$}%
+\tkzTabLine{ , + ,0, - ,0,+, }
+\tkzTabVar{-/ $-\infty$  , +/  $2018$  , -/ $-2018$,+/$+\infty$}
+\end{tikzpicture}
+\end{center}
+Bảng biến thiên của hàm số $ y=f(x-2017) +2018$ là
+\begin{center}
+	\begin{tikzpicture}
+\tkzTabInit[nocadre=false,lgt=1.5,espcl=3]{$x$ /0.7,$f'(x)$ /0.7,$f(x)$ /2}
+{$-\infty$,$2016$,$2020$,$+\infty$}%
+\tkzTabLine{ , + ,0, - ,0,+, }
+\tkzTabVar{-/ $-\infty$  , +/  $4036$  , -/ $0$,+/$+\infty$}
+\end{tikzpicture}
+\end{center}
+Do đó đồ thị hàm số $y=\left | f(x-2017) +2018\right |$ có $3$ điểm cực trị.
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D1B5]
+Cho hàm số $y=x^4 -4x^2 +3$. Khẳng định nào là khẳng định \textbf{sai}?
+ \choice 
+{\True Hàm số chỉ có một điểm cực trị}
+{Đồ thị hàm số nhận trục tung làm trục đối xứng}
+{Hàm số đã cho là hàm số chẵn}
+{Các điểm cực trị của đồ thị hàm số tạo thành một tam giác cân}
+\loigiai
+{
+Vì $ab<0$ nên hàm số đã cho có ba cực trị, suy ra khẳng định \textbf{"Hàm số chỉ có một điểm cực trị"} là khẳng định \textbf{sai}.
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2H1B3]
+Khẳng định nào sau đây \textbf{sai} khi kết luận về hình tứ diện đều?
+\choice 
+{Đoạn nối trung điểm của các cặp cạnh đối diện cũng là đoạn vuông góc chung của cặp cạnh đó}
+{Thể tích của khối tứ diện bằng một phần ba tích khoảng cách từ trọng tâm của tứ diện đến một mặt phẳng với diện tích toàn phần của nó (diện tích toàn phần là tổng diện tích của bốn mặt)}
+{Các cặp cạnh đối diện dài bằng nhau và vuông góc với nhau}
+{\True Hình tứ diện đều có một tâm đối xứng cũng chính là trọng tâm của nó}
+\loigiai
+{
+\immini{
+Gọi $M,N $ lần lượt là trung điểm $AB, CD$.
+\begin{enumerate}
+\item[•] Nhận thấy $\triangle ABN$, $\triangle CDM$ cân, nên $MN$ là đoạn vuông góc chung của $AB$, $CD$.
+\item[•] Gọi $G$ là trung điểm $MN$. Ta có 
+\begin{align*}
+V_{ABCD} =&V_{GABC}+V_{GABC}+V_{GACD}+V_{GABD}+V_{GBCD}\\
+=& \dfrac{4}{3}d(G,(ABC)) \cdot S_{\Delta ABC}\\
+=& \dfrac{1}{3}d(G,(ABC)) \cdot (4S_{\Delta ABC})\\
+=&\dfrac{1}{3}d(G,(ABC)) \cdot S_{tp}.
+\end{align*}
+\item[•] Theo tính chất của tứ diện đều thì các cặp cạnh đối diện dài bằng nhau và vuông góc với nhau.
+\end{enumerate}
+Vậy khẳng định \textbf{"Hình tứ diện đều có một tâm đối xứng cũng chính là trọng tâm của nó"} là khẳng định \textbf{sai}.
+}
+{
+\begin{tikzpicture}[scale =1.5, thick, black]
+	\coordinate  (A) at (0,0); 
+	\coordinate (B) at (2.5,0);
+	\coordinate (C) at (2,-1);
+	\coordinate (S) at (1.5,2); 
+	\coordinate (M) at ($(S)!0.5!(A)$);
+	\coordinate (N) at ($(B)!0.5!(C)$);
+	\coordinate (G) at ($(M)!0.5!(N)$);
+	\draw (1.8,0.5) node[left]{G};
+	\draw (0,0) node[left,below]{$B$} (2.5,0) node[right,below]{$D$} (2,-1) node[below]{$C$} (1.5,2) node[above]{$A$} (0.5,1.2)node[right]{M} (2.6,-0.5) node[left]{N};
+	\draw (A) -- (C) -- (B) -- (S) -- (A) (C) -- (S)--(N) (C)--(M);
+	\draw[dashed] (A)--(B) (M)--(N) (A)--(N) (B)--(M); 
+		\end{tikzpicture}
+
+}
+}
+\end{ex}
+
+	
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D2G4]
+Cho biểu thức $f(x) =\dfrac{1}{2018^x +\sqrt{2018}}$. Tính tổng sau 
+$$ S=\sqrt{2018}\left[f(-2017) +f(-2016)+\cdots + f(0) +f(1) +\cdots +f(2018)\right]$$
+ \choice 
+{\True $S=2018$}
+{$S=\dfrac{1}{2018}$}
+{$S=\sqrt{2018}$}
+{$S=\dfrac{1}{\sqrt{2018}}$}
+\loigiai
+{
+\begin{enumerate}
+\item Trước hết ta chứng minh với $a+b=1$ thì $f(a)+f(b)=\dfrac{1}{\sqrt{2018}}$.
+Thật vậy 
+\begin{align*}
+f(a) +f(b) =&\dfrac{1}{2018^a+\sqrt{2018}}+\dfrac{1}{2018^b+\sqrt{2018}}\\
+=& \dfrac{1}{\sqrt{2018}}\left( \dfrac{1}{2018^{a-\frac{1}{2}} +1}+\dfrac{1}{2018^{b-\frac{1}{2}} +1}\right )\\
+=& \dfrac{1}{\sqrt{2018}}\left( \dfrac{1}{2018^{a-\frac{1}{2}} +1}+\dfrac{1}{2018^{1-a-\frac{1}{2}} +1}\right )\\
+=& \dfrac{1}{\sqrt{2018}}\left( \dfrac{1}{2018^{a-\frac{1}{2}} +1}+\dfrac{2018^{a-\frac{1}{2}}}{2018^{a-\frac{1}{2}} +1}\right )\\
+=&\dfrac{1}{\sqrt{2018}}.
+\end{align*}
+\end{enumerate}
+ Áp dụng tính chất trên ta có
+  \begin{align*}
+ &f(-2017) +f(2018) =\dfrac{1}{\sqrt{2018}}\\
+ &f(-2016) +f(2016) =\dfrac{1}{\sqrt{2018}}\\
+ &\cdots\cdots\cdots\cdots\\
+ &f(0) +f(1) =\dfrac{1}{\sqrt{2018}}
+ \end{align*}
+Vậy $S=\sqrt{2018} \cdot \dfrac{1}{\sqrt{2018}}\cdot 2018 =2018$.
+}
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D1K5]
+ Cho $f(x)$ là một hàm số liên tục trên đoạn $\left[-1;8\right]$, biết $f(1) = f(3) = f(8) = 2$ có bảng biến thiên như sau:
+ \begin{center}
+  \begin{tikzpicture}
+    \tkzTab[espcl=2.5,lgt=1.6]
+    {$x$/0.8, $f'(x)$/0.8, $f(x)$/2}
+    {$-1$,$2$, $5$, $8$}
+    { , - ,0,+,0,-, }
+    {+/$4$,-/$-3$,+/$4$,-/$2$}
+   \end{tikzpicture}
+ \end{center}
+ Tìm $m$ để phương trình $f(x) = f(m)$ có ba nghiệm phân biệt thuộc đoạn $\left[-1;8\right]$.
+ \choice
+  {$m \in \left(-1;8\right] \setminus \{-1;3;5\}$}
+  {\True $m \in \left(-1;8\right] \setminus \left(1;3\right)$ và $m \neq 5$}
+  {$m \in \left[-1;8\right]$}
+  {$m \in \left[-1;8\right] \setminus \left[1;3\right]$ và $m \neq 5$}
+ \loigiai
+  {
+  Ta có bảng biến thiên sau:
+  \begin{center}
+   \begin{tikzpicture}
+    \tkzTabInit[espcl=4,lgt=1.6]
+    {$x$/0.8, $f'(x)$/0.8, $f(x)$/3}
+    {$-1$,$2$, $5$, $8$}
+    \tkzTabLine{ , - ,0,+,0,-, }
+    \tkzTabVar{+/$4$,-/$-3$,+/$4$,-/$2$}
+    \tkzTabVal[draw]{1}{2}{0.6}{$1$}{$2$}
+    \tkzTabVal[draw]{2}{3}{0.4}{$3$}{$2$}
+   \end{tikzpicture}
+  \end{center}
+  Số nghiệm của phương trình $f(x) = f(m)$ bằng số giao điểm của đồ thị hàm số $y = f(x)$ và đường thẳng $y = f(m)$.\\
+  Dựa vào bảng biến thiên ta có:
+  \begin{itemize}
+   \item Trường hợp $f(m) = f(-1) = f(5) = 4$, tức là $m = -1$ hoặc $m = 5$ thì phương trình $f(x) = f(m)$ có hai nghiệm thuộc đoạn $\left[-1;8\right]$ (không thỏa mãn yêu cầu bài toán).
+   \item Trường hợp $f(m) = f(1) = f(3) = f(8)$, tức là $m = 1$ hoặc $m = 3$ hoặc $m = 8$ thì phương trình $f(x) = f(m)$ có ba nghiệm thuộc đoạn $\left[-1;8\right]$ (thỏa mãn yêu cầu bài toán).
+   \item Trường hợp $2 < f(m) < 4 \Leftrightarrow \hoac{& f(1) < f(m) < f(-1) \\& f(3) < f(m) < f(5) \\& f(8) < f(m) < f(5)} \text{ (*)}$ thì phương trình $f(x) = f(m)$ có ba nghiệm thuộc đoạn $\left[-1;8\right]$ (thỏa yêu cầu bài toán).\\
+   Vì trên các khoảng $(-1;1)$, $(5;8)$ hàm số $f(x)$ giảm và trên khoảng $(3;5)$ hàm số $f(x)$ tăng nên $(*) \Leftrightarrow \hoac{& -1 < m < 1 \\& 3 < m < 5 \\& 5 < m < 8.}$
+   \item Trường hợp $-3 < f(m) < 2 \Leftrightarrow \hoac{& f(2) < f(m) < f(1) \\& f(2) < f(m) < f(3)} \Leftrightarrow \hoac{& 1 < m < 2 \\& 2 < m <3}$ (lí luận tương tự trường hợp bên trên) thì phương trình $f(x) = f(m)$ có hai nghiệm thuộc đoạn $\left[-1;8\right]$ (không thỏa yêu cầu bài toán).
+   \item Trường hợp $ f(m) = -3 \Leftrightarrow m = 2$ thì phương trình $f(x) = f(m)$ có một nghiệm thuộc đoạn $\left[-1;8\right]$ (không thỏa yêu cầu bài toán).
+  \end{itemize}
+  Kết hợp các trường hợp ta được $m \in \left(-1;8\right] \setminus \left(1;3\right)$ và $m \neq 5$ là các giá trị thỏa mãn yêu cầu bài toán.
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D1B1]
+ Cho hàm số $f(x) = x^3 - 3x + 1$. Mệnh đề nào sau đây đúng?
+ \choice
+  {Đồ thị hàm số có đường tiệm cận ngang}
+  {Điểm cực đại của đồ thị hàm số là $M(1;-1)$}
+  {\True Hàm số đồng biến trên các khoảng $(-\infty; -1)$ và $(1; +\infty)$}
+  {Hàm số không có cực trị}
+ \loigiai
+  {
+  Hàm số $f(x) = x^3 - 3x + 1$.\\
+  Tập xác định: $\mathscr{D} = \mathbb{R}$.\\
+  $f'(x) = 3x^2 - 3$.\\
+  $f'(x) = 0 \Leftrightarrow x = \pm 1$.\\
+  $\lim\limits_{x \to -\infty} f(x) = -\infty$; \hspace*{1cm} $\lim\limits_{x \to +\infty} f(x) = +\infty$.\\
+  Bảng biến thiên:
+  \begin{center}
+   \begin{tikzpicture}
+    \tkzTab[espcl=2.5,lgt=1.6]
+    {$x$/0.8, $f'(x)$/0.8, $f(x)$/2}
+    {$-\infty$,$-1$, $1$, $+\infty$}
+    { , + ,0,-,0,+, }
+    {-/$-\infty$,+/$3$,-/$-1$,+/$+\infty$}
+   \end{tikzpicture}
+  \end{center}
+  Hàm số đồng biến trên các khoảng $(-\infty; - 1)$ và $(1; +\infty)$.\\
+  Hàm số nghịch biến trên khoảng $(-1;1)$.\\
+  Điểm cực đại của đồ thị hàm số là $(-1;3)$.\\
+  Điểu cực tiểu của đồ thị hàm số là $(1;-1)$.
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D1B5]
+ Đường thẳng $y = 4x - 1$ và đồ thị hàm số $y = x^3 - 3x^2 - 1$ có bao nhiêu điểm chung?
+ \choice
+  {$1$}
+  {\True $3$}
+  {$0$}
+  {$2$}
+ \loigiai
+  {
+  Phương trình hoành độ giao điểm: $4x - 1 = x^3 - 3x^2 - 1 \Leftrightarrow x^3 - 3x^2 - 4x = 0 \Leftrightarrow \hoac{& x = 0 \\& x = -1 \\& x = 4.}$\\
+  Vậy đường thẳng $y = 4x - 1$ cắt đồ thị hàm số $y = x^3 - 3x^2 - 1$ tại ba điểm $(0;-1)$, $(-1;-5)$, $(4;15)$.
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1H2K1]
+ Cho hình chóp tứ giác $S.ABCD$ và một mặt phẳng $(P)$ thay đổi. Thiết diện của hình chóp cắt bởi mặt phẳng $(P)$ là một đa giác có số cạnh nhiều nhất có thể là bao nhiêu?
+ \choice
+  {\True $5$ cạnh}
+  {$4$ cạnh}
+  {$3$ cạnh}
+  {$6$ cạnh}
+ \loigiai
+  {
+  Hình chóp tứ giác có tất cả $5$ mặt. Do đó số giao tuyến của mặt phẳng $(P)$ với tất cả các mặt của hình chóp tứ giác tối đa là $5$ giao tuyến. Vậy thiết diện của hình chóp cắt bởi mặt phẳng $(P)$ là một đa giác có số cạnh nhiều nhất bằng $5$.
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2H1T3]
+ Một kim tự tháp Ai Cập được xây dựng khoảng $2500$ năm trước công nguyên. Kim tự tháp này là một khối chóp tứ giác đều có chiều cao $150$ mét, cạnh đáy dài $220$ mét. Hỏi diện tích xung quanh của kim tự tháp đó bằng bao nhiêu? (Diện tích xung quanh của hình chóp là tổng diện tích của các mặt bên).
+ \choice
+  {$2200\sqrt{346}\, \mathrm{m}^2$}
+  {$1100\sqrt{346}\, \mathrm{m}^2$}
+  {$\left(4400\sqrt{346} + 48400\right) \, \mathrm{m}^2$}
+  {\True $4400\sqrt{346}\, \mathrm{m}^2$}
+ \loigiai
+  {
+  \immini
+  {
+  Gọi $x$ là chiều cao mặt bên của kim tự tháp.\\
+  $x = \sqrt{150^2 + 110^2} = 10\sqrt{346}$ m.\\
+  Diện tích một mặt bên của kim tự tháp:\\
+  $S = \dfrac{1}{2} \cdot 220 \cdot 10\sqrt{346} = 1100\sqrt{346} \text{ m}^2$.\\
+  Diện tích xung quanh của kim tự tháp:\\
+  $S_{xq} = 4S = 4400\sqrt{346} \text{ m}^2$.
+  }
+  {
+  \begin{tikzpicture}[scale=.6]
+	\tkzDefPoints{0/0/A, 6/0/B, 4/-3/C}
+	\coordinate (D) at ($(A)+(C)-(B)$);
+	\tkzDefMidPoint(A,C)\tkzGetPoint{O}
+	\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+	\tkzDefShiftPoint[O](90:6){S}
+	\tkzDrawPoints(A,B,C,S,D,O)
+	\tkzDrawSegments(S,B S,C S,D B,C C,D S,M)
+	\tkzDrawSegments[dashed](S,A A,D A,B A,C B,D S,O O,M)
+	\tkzMarkRightAngle(S,M,B)
+	\tkzLabelLine[pos=0.5, right](S,M){\footnotesize $x$}
+	\tkzLabelLine[pos=0.5, left](S,O){\footnotesize $150$}
+	\tkzLabelLine[pos=0.5, below](C,D){\footnotesize $220$}
+  \end{tikzpicture}
+  }
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D1Y1]
+ Mệnh đề nào sau đây \textbf{sai}?
+ \choice
+  {Hàm số $f(x)$ đạt cực trị tại điểm $x_0$ thì đạo hàm tại đó không tồn tại hoặc $f'(x_0) = 0$}
+  {\True Hàm số $f(x)$ có $f'(x) > 0, \forall x \in (a;b)$ thì hàm số đồng biến trên $\left[a;b \right)$}
+  {Hàm số $f(x)$ liên tục trên đoạn $[a;b]$ thì nó đạt giá trị lớn nhất và giá trị nhỏ nhất trên đoạn đó}
+  {Hàm số $f(x)$ liên tục trên đoạn $[a;b]$ và $f(a) \cdot f(b) < 0$ thì tồn tại $c \in (a;b)$ sao cho $f(c) = 0$}
+ \loigiai
+  {
+  Hàm số $f(x)$ có đạo hàm $f'(x)$ trên khoảng $\left(a; b\right)$. Nếu $f'(x) > 0, \forall x \in (a;b)$ thì hàm số đồng biến trên $\left(a;b \right)$.
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2H1K3]
+ Cho hình hộp chữ nhật $ABCD.A'B'C'D'$. Trên các cạnh $AA'$, $BB'$, $CC'$ lần lượt lấy ba điểm $X$, $Y$, $Z$ sao cho $AX = 2A'X$, $BY = B'Y$, $CZ = 3C'Z$. Mặt phẳng $(XYZ)$ cắt $DD'$ tại điểm $T$. Khi đó tỉ số thể tích của khối $XYZT.ABCD$ và khối $XYZT.A'B'C'D'$ bằng bao nhiêu?
+ \choice
+  {$\dfrac{7}{24}$}
+  {$\dfrac{7}{17}$}
+  {\True $\dfrac{17}{7}$}
+  {$\dfrac{17}{24}$}
+ \loigiai
+  {
+  \immini
+  {
+  Dựng $XT \parallel YZ$, $YE \parallel XF \parallel BC$.\\
+  Giả sử thể tích của hình hộp chữ nhật là $V$.\\
+  Ta có: $\dfrac{V_{ABCD.XYEF}}{V} = \dfrac{7}{12}$.\\
+  Dễ thấy $XTF.YZE$ là hình lăng trụ với đáy $XTE$.\\
+  Và $\dfrac{V_{XTF.YZE}}{V} = \dfrac{1}{8}$.\\
+  Khi đó: $\dfrac{V_{ABCD.XYEF}}{V} = \dfrac{7}{12} + \dfrac{1}{8} = \dfrac{17}{24}$.\\
+  Vậy $\dfrac{V_{ABCD.XYZT}}{V_{A'B'C'D'.XYZT}} = \dfrac{17}{7}$.
+  }
+  {
+  \begin{tikzpicture}[scale=.4]
+	\tkzDefPoints{0/0/D, 8/0/D', -3/-3/C}
+	\coordinate (C') at ($(C) + (D') - (D)$);
+	\tkzDefShiftPoint[D](90:6){A}
+	\tkzDefPointBy[translation=from D to A](D')\tkzGetPoint{A'}
+	\tkzDefPointBy[translation=from D to A](C')\tkzGetPoint{B'}
+	\tkzDefPointBy[translation=from D to A](C)\tkzGetPoint{B}
+	\tkzDefBarycentricPoint(A=1,A'=2)\tkzGetPoint{X}
+	\tkzDefBarycentricPoint(B=1,B'=1)\tkzGetPoint{Y}
+	\tkzDefBarycentricPoint(C=1,C'=3)\tkzGetPoint{Z}
+	\tkzDefPointBy[translation=from Y to Z](X)\tkzGetPoint{T}
+	\tkzDefPointBy[translation=from A to D](X)\tkzGetPoint{F}
+	\tkzDefPointBy[translation=from A to D](Y)\tkzGetPoint{E}
+	\tkzDrawPoints(A,B,C,D,A',B',C',D',X,Y,Z,T,E,F)
+	\tkzDrawSegments(A,B A,A' A',B' B,B' X,Y A',D' B',C' Y,Z Y,E B,C C,C' C',D')
+	\tkzDrawSegments[dashed](A,D C,D D,D' X,F X,T E,F Z,T)
+	\tkzLabelPoints[above](A,A',X,B')
+	\tkzLabelPoints[left](B,D)
+	\tkzLabelPoints[right](D')
+	\tkzLabelPoints[below](C,E,Z,C')
+	\tkzLabelPoints[right,above](F)
+	\tkzLabelPoints[left,above](T,Y)
+  \end{tikzpicture}
+  }
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D1K1]
+ Tìm tất cả các giá trị thực của tham số $m$ để hàm số $f(x) = (m^2 - 4)x^3 + 3(m-2)x^2 + 3x -4$ đồng biến trên $\mathbb{R}$.
+ \choice
+  {\True $m \geq 2$}
+  {$m \leq 2$}
+  {$m > 2$}
+  {$m < 2$}
+ \loigiai
+  {
+  Hàm số $f(x) = (m^2 - 4)x^3 + 3(m-2)x^2 + 3x -4$ với $m$ là tham số.\\
+  Tập xác định: $\mathscr{D} = \mathbb{R}$.\\
+  Ta có: $f'(x) = 3(m^2 - 4)x^2 + 6(m - 2)x + 3$.
+  \begin{itemize}
+   \item Trường hợp 1: $m^2 - 4 = 0 \Leftrightarrow m = \pm 2$.\\
+   * Với $m = -2$ thì $f'(x) = -24x + 3$.\\
+   Hàm số đồng biến khi: $f'(x) > 0 \Leftrightarrow -24x + 3 > 0 \Leftrightarrow x < \dfrac{1}{8}$. Trường hợp này hàm số chỉ đồng biến trên khoảng $\left(-\infty; \dfrac{1}{8}\right)$. Vậy $m = -2$ không thỏa mãn yêu cầu bài toán.\\
+   * Với $m = 2$ thì $f'(x) = 3 >0, \forall x \in \mathbb{R}$. Trường hợp này hàm số luôn đồng biến trên  $\mathbb{R}$. Vậy $m = 2$ thỏa mãn yêu cầu bài toán.
+   \item Trường hợp 2: $m^2 - 4 \neq 0 \Leftrightarrow m \neq \pm 2$.
+   Ta có $\Delta' = (3m-6)^2 - 9(m^2 - 4) = -36m + 72$.\\
+   Yêu cầu bài toán được thỏa mãn khi: $\heva{& m^2 - 4 > 0 \\& -36m + 72 \leq 0} \Leftrightarrow \heva{& \hoac{&m < -2 \\& m > 2} \\& m \geq 2} \Leftrightarrow m > 2$.
+  \end{itemize}
+  Kết hợp cả hai trường hợp ta được $m \geq 2$ là các giá trị thỏa mãn yêu cầu bài toán.
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2H1K2]
+ Hai khối đa diện đều được gọi là \textit{đối ngẫu} nếu các đỉnh của khối đa diện đều loại này là tâm (tâm đường tròn ngoại tiếp) các mặt của khối đa diện diện đều loại kia. Mệnh đề nào sau đây \textbf{sai}?
+ \choice
+  {Khối tứ diện đều đối ngẫu với chính nó}
+  {Hai khối đa diện đều đối ngẫu với nhau luôn có số cạnh bằng nhau}
+  {\True Số mặt của một đa diện đều bằng số cạnh của đa diện đa diện đều đối ngẫu với nó}
+  {Khối $20$ mặt đều đối ngẫu với khối $12$ mặt đều}
+ \loigiai
+  {
+  \immini
+  {
+  Khối lập phương và khối bát diện đều là hai khối đa diện đều đối ngẫu nhau nhưng số mặt của khối lập phương là $6$ và số cạnh của khối bát diện là $12$.
+  }
+  {
+  \begin{tikzpicture}[scale=.5]
+	\tkzDefPoints{0/0/A, 5/0/B, 3.5/-2/C}
+	\coordinate (D) at ($(A) + (C) - (B)$);
+	\tkzDefShiftPoint[A](90:5){A'}
+	\tkzDefPointBy[translation=from A to A'](B)\tkzGetPoint{B'}
+	\tkzDefPointBy[translation=from A to A'](C)\tkzGetPoint{C'}
+	\tkzDefPointBy[translation=from A to A'](D)\tkzGetPoint{D'}
+	\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+	\tkzInterLL(A',C')(B',D')\tkzGetPoint{O'}
+	\tkzInterLL(A,D')(A',D)\tkzGetPoint{M}
+	\tkzInterLL(A,B')(A',B)\tkzGetPoint{N}
+	\tkzInterLL(B,C')(B',C)\tkzGetPoint{P}
+	\tkzInterLL(C,D')(C',D)\tkzGetPoint{Q}
+	\tkzDrawPoints(A,B,C,D,A',B',C',D',O,O',M,N,P,Q)
+	\tkzDrawSegments(A',B' B',C' C',D' D',A' B,B' C,C' D,D' B,C C,D)
+	\tkzDrawSegments[dashed](A,A' A,D A,B O,M O,N O,P O,Q O',M O',N O',P O',Q M,N N,P P,Q Q,M)
+  \end{tikzpicture}
+  }
+  
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D1B3]
+ Tích của giá trị lớn nhất và giá trị nhỏ nhất của hàm số $f(x) = x + \dfrac{1}{x}$ trên đoạn $[1;4]$ bằng bao nhiêu?
+ \choice
+  {$2$}
+  {\True $\dfrac{17}{2}$}
+  {$\dfrac{17}{4}$}
+  {$7$}
+ \loigiai
+  {
+  Tập xác định $\mathscr{D} = \mathbb{R}$.\\
+  Với $x \neq 0$, ta có: $f'(x) = 1 - \dfrac{1}{x^2} = \dfrac{x^2 - 1}{x^2}$.\\
+  $f'(x) = 0 \Leftrightarrow x = \pm 1$.\\
+  Ta lại có: $f(1) = 2$ và $f(4) = \dfrac{17}{4}$.\\
+  Vậy $\max\limits_{[1;4]} f(x) = \dfrac{17}{4}$ và $\min\limits_{[1;4]} f(x) = 2$. Do đó $\max\limits_{[1;4]} f(x) \cdot \min\limits_{[1;4]} f(x) = \dfrac{17}{2}$.
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1D3B3]
+ Mệnh đề nào sau đây là \textbf{sai}?
+ \choice
+  {Dãy số có tất cả các số hạng bằng nhau là một cấp số cộng}
+  {\True Một cấp số nhân có công bội $q > 1$ là một dãy số tăng}
+  {Dãy số có tất cả các số hạng bằng nhau là một cấp số nhân}
+  {Một cấp số cộng có công sai dương là một dãy số tăng}
+ \loigiai
+  {
+  Dãy số có tất cả các số hạng bằng nhau là một cấp số cộng với công sai $d = 0$.\\
+  Dãy số có tất cả các số hạng bằng nhau là một cấp số nhân với công bội $q = 1$.\\
+  Một cấp số cộng có công sai dương là một dãy số tăng vì kể từ số hạng thứ hai trở đi, mọi số hạng luôn lớn hơn số hạng đứng ngay trước nó.\\
+  Một cấp số nhân có công bội $q > 1$ chưa chắc là một dãy số tăng, chẳng hạn dãy số $-2; -4 ; \ldots ; -2^n; \ldots$
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2H2K1]
+ Cho khối trụ có bán kính đáy $R$ và có chiều cao $h = 2R$. hai đáy của khối trụ là hai đường tròn có tâm lần lượt là $O$ và $O'$. Trên đường tròn $(O)$ ta lấy điểm $A$ cố định. Trên đường tròn $(O')$ ta lấy điểm $B$ thay đổi. Hỏi độ dài đoạn thẳng $AB$ lớn nhất bằng bao nhiêu?
+ \choice
+  {\True $AB_{\max} = 2R\sqrt{2}$}
+  {$AB_{\max} = 4R\sqrt{2}$}
+  {$AB_{\max} = 4R$}
+  {$AB_{\max} = R\sqrt{2}$}
+ \loigiai
+  {
+  \immini
+  {
+  Gọi $C$ là điểm thuộc đường tròn $(O')$ sao cho $AC$ vuông góc với mặt phẳng chứa đường tròn $(O')$.\\
+  Ta có: $AB^2 = AC^2 + CB^2  \leq h^2 + (2R)^2$\\
+  Hay $AB^2 \leq 4R^2 + 4R^2 \Leftrightarrow AB^2 \leq 8R^2 \Leftrightarrow AB \leq 2R\sqrt{2}$.
+  Dấu ``='' xảy ra khi $B$ đối xứng với $C$ qua $O'$ hay $BC$ là đường kính của đường tròn $(O')$.\\
+  Vậy $AB_{\max} = 2R\sqrt{2}$.
+  }
+  {
+  \begin{tikzpicture}[scale=0.6]
+   \tkzDefPoint(0,0){O}
+   \tkzDefPoint(0,7){O'}
+   \tkzDefPoint(-2,-0.75){A}
+   \tkzDefPoint(-1,7.94){B}
+   \coordinate (C) at ($(A)+(0,7)$);
+   \coordinate (B') at ($2*(O')-(C)$);
+   \tkzDrawPoints(O,O',A,C,B,B')
+   \draw[dashed](3,0) arc (0:180:3 and 1);
+   \draw[thick] (-3,0) arc (180:360:3 and 1);
+   \draw[thick](3,7) arc (0:180:3 and 1);
+   \draw[thick](-3,7) arc (180:360:3 and 1);
+   \draw (3,0)--(3,7);
+   \draw(-3,0)--(-3,7);
+   \tkzDrawSegments(A,C B,C C,B')
+   \tkzDrawSegments[dashed](A,B')
+   \tkzLabelPoints[right](O)
+   \tkzLabelPoints[above](O',B,B')
+   \tkzLabelPoints[left](A,C)
+  \end{tikzpicture}
+  }
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1D2K5]
+ Hai bạn Hùng và Vương cùng tham gia một kỳ thi thử trong đó có hai môn thi trắc nghiệm là Toán và Tiếng Anh. Đề thi của mỗi môn gồm $6$ mã đề khác nhau và các môn khác nhau thì mã đề cũng khác nhau. Đề thi được sắp xếp và phát cho học sinh một cách ngẫu nhiên. Tính xác suất để trong hai môn Toán và Tiếng Anh thì hai bạn Hùng và Vương có chung đúng một mã đề thi.
+ \choice
+  {$\dfrac{5}{36}$}
+  {$\dfrac{5}{9}$}
+  {$\dfrac{5}{72}$}
+  {\True $\dfrac{5}{18}$}
+ \loigiai
+  {
+  Số cách nhận mã đề $2$ môn thi của bạn Hùng là $6 \cdot 6 = 36$.\\
+  Số cách nhận mã đề $2$ môn thi của bạn Vương là $6 \cdot 6 = 36$.\\
+  Số phần tử của không giam mẫu $\Omega$ là $n(\Omega) = 36 \cdot 36 = 1296$.\\
+  Gọi $A$ là biến cố ``Hùng và Vương có chung đúng một mã đề thi''.\\
+  * Trường hợp bạn Hùng và bạn Vương có chung mã đề thi môn Toán.\\
+  Số cách nhận mã đề thi của Hùng và Vương là: $6 \cdot 6 \cdot 5 = 180$.\\
+  * Trường hợp bạn Hùng và bạn Vương có chung mã đề thi môn Tiếng Anh.\\
+  Số cách nhận mã đề thi của Hùng và Vương là: $6 \cdot 6 \cdot 5 = 180$.\\
+  Số phần tử của biến cố $A$ là $n(A) = 180 + 180 = 360$.\\
+  Xác suất của biến cố $A$ là $P(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{5}{18}$.
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2H1K3]
+ Cho khối hộp chữ nhật $ABCD.A'B'C'D'$ có thể tích bằng $2016$. Thể tích phần chung của hai khối $A.B'CD'$ và $A'.BC'D$ bằng bao nhiêu?
+ \choice
+  {$1344$}
+  {\True $336$}
+  {$672$}
+  {$168$}
+ \loigiai
+  {
+  \immini
+  {  
+  Đặt $AB = x$, $AD = y$, $AA' = z$. Khi đó thể tích hình hộp chữ nhật $ABCD.A'B'C'D'$ là: $V = xyz$.
+  Gọi $O$, $O'$ lần lượt là tâm của các hình chữ nhật $ABCD$ và $A'B'C'D'$.\\
+  Gọi $M$, $N$, $P$, $Q$ lần lượt là giao điểm của $AB'$ và $A'B$, $AD'$ và $A'D$, $CD'$ và $C'D$, $BC'$ và $B'C$.\\
+  Khi đó khối bát diện $OMNPQO'$ là phần chung của hai khối $A.B'CD'$ và $A'.BC'D$.\\
+  Tứ giác $MNPQ$ là hình thoi có độ dài hai đường chéo là $x$ và $y$.\\
+  Diện tích hình thoi $MNPQ$ là: $S_{MNPQ} = \dfrac{1}{2}xy$.\\
+  Thể tích khối bát diện $OMNPQO'$ là:\\
+   $V_{OMNPQO'} = 2 \cdot \dfrac{1}{3} \cdot \dfrac{1}{2}xy \cdot \dfrac{z}{2} = \dfrac{1}{6}xyz = \dfrac{1}{6}V = 336$.
+  }
+  {
+  \begin{tikzpicture}[scale=.8]
+	\tkzDefPoints{0/0/A', 5/0/B', 3.5/-2/C'}
+	\coordinate (D') at ($(A') + (C') - (B')$);
+	\tkzDefShiftPoint[A'](90:7){A}
+	\tkzDefPointBy[translation=from A' to A](B')\tkzGetPoint{B}
+	\tkzDefPointBy[translation=from A' to A](C')\tkzGetPoint{C}
+	\tkzDefPointBy[translation=from A' to A](D')\tkzGetPoint{D}
+	\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+	\tkzInterLL(A',C')(B',D')\tkzGetPoint{O'}
+	\tkzInterLL(A,D')(A',D)\tkzGetPoint{M}
+	\tkzInterLL(A,B')(A',B)\tkzGetPoint{N}
+	\tkzInterLL(B,C')(B',C)\tkzGetPoint{P}
+	\tkzInterLL(C,D')(C',D)\tkzGetPoint{Q}
+	\tkzDrawPoints(A,B,C,D,A',B',C',D',O,O',M,N,P,Q)
+	\tkzDrawSegments(A,B A,D B',C' C',D' B,B' C,C' D,D' B,C C,D A,C B,D C,D' C',D B,C' B',C)
+	\tkzDrawSegments[dashed](A,A' A,B A',B' A',D' O,M O,N O,P O,Q O',M O',N O',P O',Q M,N N,P P,Q Q,M A',C' B',D' A,D' A',D A,B' A',B)
+	\tkzFillPolygon[color=blue,fill opacity=.2](O,M,N)
+	\tkzFillPolygon[color=blue,fill opacity=.2](O,N,P)
+	\tkzFillPolygon[color=blue,fill opacity=.2](O,P,Q)
+	\tkzFillPolygon[color=blue,fill opacity=.2](O,Q,M)
+	\tkzFillPolygon[color=blue,fill opacity=.2](O',M,N)
+	\tkzFillPolygon[color=blue,fill opacity=.2](O',N,P)
+	\tkzFillPolygon[color=blue,fill opacity=.2](O',P,Q)
+	\tkzFillPolygon[color=blue,fill opacity=.2](O',Q,M)
+	\tkzLabelPoints[above](A,B,C,O,Q)
+	\tkzLabelPoints[left](D,M,A')
+	\tkzLabelPoints[right](B',P,N)
+	\tkzLabelPoints[below](C',D',O')
+	\tkzLabelLine[pos=.5,above](A,B){$x$}
+	\tkzLabelLine[pos=.5,left](A,D){$y$}
+	\tkzLabelLine[pos=.5,right](B,B'){$z$}
+  \end{tikzpicture}
+  }
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D2B3]
+ Cho các số thực $a < b < 0$. Mệnh đề nào sau đây là \textbf{sai}?
+ \choice
+  {\True $\ln \sqrt{ab} = \dfrac{1}{2} \left( \ln a + \ln b \right)$}
+  {$\ln \left( \dfrac{a}{b} \right) = \ln|a| - \ln|b|$}
+  {$\ln \left( \dfrac{a}{b} \right)^2 = \ln(a^2) - \ln(b^2)$}
+  {$\ln(ab)^2 = \ln(a^2) + \ln(b^2)$}
+ \loigiai
+  {
+  Với $a < b < 0$, ta có: $\ln \sqrt{ab} = \dfrac{1}{2} \ln |ab| = \dfrac{1}{2} \left( \ln |a| + \ln |b|\right)$.
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D2T4]
+ Một người mỗi tháng đều đặn gửi vào một ngân hàng một khoản tiền $T$ theo hình thức lãi kép với lãi suất $0{,}6 \%$ mỗi tháng. Biết sau $15$ tháng người đó có số tiền là $10$ triệu đồng. Hỏi số tiền $T$ gần với số tiền nào nhất sau đây?
+ \choice
+  {\True $635.000$ đồng}
+  {$645.000$ đồng}
+  {$613.000$ đồng}
+  {$535.000$ đồng}
+ \loigiai
+  {
+  Gọi $r$ là lãi suất kép hàng tháng.\\
+  Gọi $T_{n}$ là số tiền người đó có được ở cuối tháng thứ $n$, ta có:\\
+  - Cuối tháng thứ nhất người đó có số tiền là: $T_1 = T + T \cdot r = T(1+r)$.\\
+  - Đầu tháng thứ hai, người đó gửi số tiền là:\\
+   $T(1+r) + T = T \left[(1+r) + 1\right] = \dfrac{T}{(1+r)-1} \cdot \left[(1+r)^2-1\right] = \dfrac{a}{r}\left[(1+r)^2 - 1\right]$.\\
+  - Cuối tháng thứ hai người đó có số tiền là:\\
+   $T_2 = \dfrac{T}{r}\left[(1+r)^2 - 1\right] + \dfrac{T}{r}\left[(1+r)^2 - 1\right]r = \dfrac{T}{r}\left[(1+r)^2 - 1\right](1+r)$.\\
+   \dotfill
+   - Cuối tháng thứ $n$ người đó có số tiền là:\\
+   $T_n = \dfrac{T}{r}\left[(1+r)^n - 1\right](1+r)$.\\
+   Suy ra: $T = \dfrac{T_n r}{\left[(1+r)^n - 1\right](1+r)}$.\\
+   Do đó số tiền ban đàu người đó gửi là:\\
+   $T = \dfrac{10000000 \cdot 0{,}6\%}{\left[(1 + 0{,}6\%)^{15} - 1\right](1+ 0{,}6\%)} \approx 635301$ đồng.
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1D5G1]
+ Biết hàm số $f(x)$ liên tục trên đoạn $[a;b]$ và có đạo hàm trên khoảng $(a;b)$. Cho các khẳng định sau:\\
+ (I) Tồn tại một số $c \in (a;b)$ sao cho $f'(c) = \dfrac{f(b) - f(a)}{b - a}$.\\
+ (II) Nếu $f(a) = f(b)$ thì luôn tồn tại $c \in (a;b)$ sao cho $f'(c) = 0$.\\
+ (III) Nếu $f(x)$ có hai nghiệm phân biệt thuộc khoảng $(a;b)$ thì giữa hai nghiệm đó luôn tồn tại một nghiệm của $f'(x)$.\\
+ Có bao nhiêu khẳng định đúng trong các khẳng định trên?
+ \choice
+  {$0$}
+  {$2$}
+  {\True $3$}
+  {$1$}
+ \loigiai
+  {
+  Theo định lý Rolle: Nếu hàm số $y = f(x)$ liên tục trên đoạn $[a;b]$ (với $a<b$), có đạo hàm trên khoảng $(a;b)$ và $f(a) = f(b)$ thì luôn tồn tại $c \in (a;b)$ sao cho $f'(c) = 0$.\\
+  Theo định lý Lagrange: Nếu hàm số $f(x)$ liên tục trên đoạn $[a;b]$ (với $a<b$), có đạo hàm trên khoảng $(a;b)$ thì tồn tại một số $c \in (a;b)$ sao cho $f'(c) = \dfrac{f(b) - f(a)}{b - a}$.\\
+  $f(x)$ có hai nghiệm phân biệt $x_1$, $x_2$ thuộc khoảng $(a;b)$ nên $f(x_1) = f(x_2)$. Do đó theo định lý Rolle thì phương trình $f'(x) = 0$ có nghiệm.
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D1K5]
+ \immini
+ {Cho hàm số $y = f(x)$ có đồ thị như hình vẽ . Xác định tất cả các giá trị thực của tham số $m$ để phương trình $|f(x)| = m$ có đúng hai nghiệm thực phân biệt.
+ \choice
+  {$m > -3$}
+  {$-4 < m < 0$}
+  {$m > 4$}
+  {\True $m > 4$; $m = 0$}
+  }
+  {
+  \begin{tikzpicture}[line cap=round,line join=round, >=stealth,x=1cm,y=1cm,scale=.8]
+   \draw[->] (-3,0) -- (3,0);
+   \draw[->] (0,-5) -- (0,2);
+   \clip(-3,-5) rectangle (3,2);
+   \draw[color=black] (2.8,0) node[above]{$x$};
+   \draw[color=black] (0,1.8) node[left]{$y$};
+   \draw[color=black] (-0.3,0) node[below]{\small $O$};
+   \draw[smooth,samples=100,domain=-3:3] plot(\x,{1*(\x)^4-2*(\x)^2-3});
+   \draw(1,0) node[above]{\small{$1$}};
+   \draw(-1,0) node[above]{\small{$-1$}};
+   \draw(0,-2.8) node[left]{\small{$-3$}};
+   \draw(0,-4.2) node[left]{\small{$-4$}};
+   \draw[dashed, line width=0.5pt](-1,0)--(-1,-4)--(0,-4)--(1,-4)--(1,0);
+  \end{tikzpicture}
+  }
+ \loigiai
+  {
+  \immini
+  {
+  Gọi $(C)$ là đồ thị của hàm số $y = f(x)$.\\
+  Ta có: $y = |f(x)| = \begin{cases} f(x) & \text{ khi } f(x) \geq 0 \\  -f(x) & \text{ khi } f(x) < 0 \end{cases}$.\\
+  Do đó, đồ thị của hàm số $y = |f(x)|$ gồm:\\
+  * Phần đồ thị nằm phía trên trục hoành của $(C)$.\\
+  * Phần đồ thị đối xứng qua trục hoành với phần đồ thị nằm phía dưới trục hoành của $(C)$.\\
+  Ta có đồ thị của hàm số $y = |f(x)|$ như hình vẽ bên.
+  Dựa vào đồ thị, yêu cầu bài toán thỏa mãn khi $m > 4$ hoặc $m = 0$.
+  }
+  {
+  \begin{tikzpicture}[line cap=round,line join=round, >=stealth,x=1cm,y=1cm,scale=.8]
+   \draw[->] (-3,0) -- (3,0);
+   \draw[->] (0,-1) -- (0,5);
+   \clip(-3,-1) rectangle (3,5);
+   \draw[color=black] (2.8,0) node[above]{$x$};
+   \draw[color=black] (0,4.8) node[left]{$y$};
+   \draw[color=black] (-0.3,0) node[below]{\small $O$};
+   \draw[smooth,samples=200,domain=-3:3,line width=0.5pt] plot(\x,{abs(1*(\x)^4-2*(\x)^2-3)});
+   \draw(1,0) node[above]{\small{$1$}};
+   \draw(-1,0) node[above]{\small{$-1$}};
+   \draw(0,2.8) node[left]{\small{$3$}};
+   \draw(0,4.2) node[left]{\small{$4$}};
+   \draw[dashed, line width=0.8pt](-1,0)--(-1,4)--(0,4)--(1,4)--(1,0);
+  \end{tikzpicture}
+  }
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2H2B2]
+ Cho khối lăng trụ đứng tam giác $ABC.A'B'C'$ có đáy $ABC$ là tam giác vuông tại $A$ và $AB = a$, $AC = a\sqrt{3}$, $AA' = 2a$. Tính bán kính $R$ của mặt cầu ngoại tiếp khối lăng trụ đó.
+ \choice
+  {$R = 2a\sqrt{2}$}
+  {$R = a$}
+  {\True $R = a\sqrt{2}$}
+  {$R = \dfrac{a\sqrt{2}}{2}$}
+ \loigiai
+  {
+  \immini
+  {
+  Gọi $M$, $M'$ lần lượt là trung điểm của $BC$ và $B'C'$.\\
+  Vì $ABC$ và $A'B'C'$ là các tam giác vuông nên $M$, $M'$ lần lượt là tâm đường tròn ngoại tiếp của chúng.\\
+  Gọi $I$ là trung điểm của $MM'$. Khi đó $I$ là tâm mặt cầu ngoại tiếp lăng trụ $ABC.A'B'C'$ và bán kính mặt cầu đó là $R = IA$.\\
+  Ta có:\\
+   $BC = \sqrt{AB^2 + AC^2} = 2a$; $AM = \dfrac{BC}{2} = a$\\ và $IM = \dfrac{MM'}{2} = \dfrac{AA'}{2} = a$.\\
+  Vậy $R = IA = \sqrt{IM^2 + AM^2} = a\sqrt{2}$.
+  }
+  {
+  \begin{tikzpicture}[scale=.6]
+	\tkzDefPoints{0/0/A, 6/0/B, 4/-3/C}
+	\tkzDefShiftPoint[A](90:8){A'}
+	\tkzDefPointBy[translation=from A to A'](B)\tkzGetPoint{B'}
+	\tkzDefPointBy[translation=from A to A'](C)\tkzGetPoint{C'}
+	\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+	\tkzDefMidPoint(B',C')\tkzGetPoint{M'}
+	\tkzDefMidPoint(M,M')\tkzGetPoint{I}
+	\tkzDrawPoints(A,B,C,A',B',C',M,M',I)
+	\tkzDrawSegments(A,C B,C A',B' B',C' C',A' A,A' B,B' C,C' M,M')
+	\tkzDrawSegments[dashed](A,B I,A A,M)
+	\tkzLabelPoints[left](A, A')
+	\tkzLabelPoints[below](C)
+	\tkzLabelPoints[right](B,B',M,I)
+	\tkzLabelPoints[above]( C', M')
+	\tkzMarkRightAngles(B,A,C B',M',M B,M,M')
+	\tkzMarkSegments[mark=|](B,M M,C B',M' M',C')
+	\tkzMarkSegments[mark=||](I,M I,M')
+  \end{tikzpicture}
+  }
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1H2G2]
+ Cho hình chóp $S.ABC$. Bên trong tam giác $ABC$ ta lấy điểm $O$ bất kỳ, từ $O$ ta dựng các đường thẳng lần lượt song song với $SA$, $SB$, $SC$ và cắt các mặt phẳng $(SBC)$, $(SAC)$, $(SAB)$ lần lượt tại $A'$, $B'$, $C'$. Khi đó tổng tỉ số $T = \dfrac{OA'}{SA} + \dfrac{OB'}{SB} + \dfrac{OC'}{SC}$ bằng bao nhiêu?
+ \choice
+  {$T = 3$}
+  {$T = \dfrac{3}{4}$}
+  {\True $T = 1$}
+  {$T = \dfrac{1}{3}$}
+ \loigiai
+  {
+  \immini
+  {
+  Gọi $I$, $J$, $K$ lần lượt là giao điểm của $AO$ và $BC$, của $BO$ và $AC$, của $CO$ và $AB$.\\
+  Khi đó $T = \dfrac{OA'}{SA} + \dfrac{OB'}{SB} + \dfrac{OC'}{SC} = \dfrac{IO}{IA} + \dfrac{JO}{JB} + \dfrac{KO}{KC}$.\\
+  Theo tỉ số diện tích tam giác, ta có:\\
+  $\dfrac{S_{OBC}}{S_{ABC}} = \dfrac{IO}{IA}$.\\
+  $\dfrac{S_{OCA}}{S_{ABC}} = \dfrac{JO}{JB}$.\\
+  $\dfrac{S_{OAB}}{S_{ABC}} = \dfrac{KO}{KC}$.\\
+  Lại có $S_{OBC} + S_{OCA} + S_{OAB} = S_{ABC}$.\\
+  Vậy $T = \dfrac{S_{OBC}}{S_{ABC}} + \dfrac{S_{OCA}}{S_{ABC}} + \dfrac{S_{OAB}}{S_{ABC}} = 1$.
+  }
+  {
+  \begin{tikzpicture}[scale=.8]
+    \clip (-1,-4) rectangle (7,9);
+	\tkzDefPoints{0/0/A, 6/0/B, 5/-3/C}
+	\coordinate (I) at ($(B)!0.6!(C)$);
+	\tkzDefBarycentricPoint(A=2,B=1)\tkzGetPoint{K}
+	\tkzInterLL(A,I)(C,K)\tkzGetPoint{O}
+	\tkzDefShiftPoint[O](90:7){S}
+	\tkzDefLine(B,O)
+	\tkzInterLL(B,O)(A,C)\tkzGetPoint{J}
+	\tkzDrawPoints(S,A,B,C,O,I,J,K)
+	\tkzDefLine[parallel=through O](S,A)\tkzGetPoint{T}
+	\tkzDefLine[parallel=through O](S,B)\tkzGetPoint{U}
+	\tkzDefLine[parallel=through O](S,C)\tkzGetPoint{V}
+	\tkzInterLL(T,O)(S,I)\tkzGetPoint{A'}
+	\tkzInterLL(U,O)(S,J)\tkzGetPoint{B'}
+	\tkzInterLL(V,O)(S,K)\tkzGetPoint{C'}
+	\tkzDrawPoints(A',B',C')
+	\tkzDrawSegments(S,A S,B S,C A,C B,C S,I S,J)
+	\tkzDrawSegments[dashed](A,B A,I B,J C,K S,K O,A' O,B' O,C')
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[left](A,J,C')
+	\tkzLabelPoints[right](B,I,A',B')
+	\tkzLabelPoints[below](C,O)
+	\tkzLabelPoints[left,above](K)
+  \end{tikzpicture}
+  }
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1D5K2]
+ Biết đồ thị hàm số $f(x) = ax^3 + bx^2 + cx + d$ cắt trục hoành tại ba điểm phân biệt có hoành độ $x_1$, $x_2$, $x_3$. Tính giá trị của biểu thức $T = \dfrac{1}{f'(x_1)} + \dfrac{1}{f'(x_2)} + \dfrac{1}{f'(x_3)}$.
+ \choice
+  {$T = \dfrac{1}{3}$}
+  {$T = 3$}
+  {$T = 1$}
+  {\True $T = 0$}
+ \loigiai
+  {
+  Vì phương trình $f(x) = 0$ có ba nghiệm phân biệt $x_1$, $x_2$, $x_3$ nên $f(x) = a(x - x_1)(x - x_2)(x - x_3)$.
+  Ta có: $f'(x) = a(x - x_1)(x - x_2) + a(x - x_2)(x - x_3) + a(x - x_3)(x - x_1)$.\\
+  Khi đó:\\
+  $f'(x_1) = a(x_1 - x_2)(x_1 - x_3)$\\
+  $f'(x_2) = a(x_2 - x_3)(x_2 - x_1)$\\
+  $f'(x_3) = a(x_3 - x_1)(x_3 - x_2)$\\
+  Vậy $T = \dfrac{1}{f'(x_1)} + \dfrac{1}{f'(x_2)} + \dfrac{1}{f'(x_3)} = \dfrac{1}{a(x_1 - x_2)(x_1 - x_3)} + \dfrac{1}{a(x_2 - x_3)(x_2 - x_1)} + \dfrac{1}{a(x_3 - x_1)(x_3 - x_2)}$\\
+  $= \dfrac{(x_2 - x_3) + (x_3 - x_1) + (x_1 - x_2)}{a(x_1 - x_2)(x_2 - x_3)(x_3 - x_1)} = 0$.
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[1H2B3]
+ Mệnh đề nào sau đây \textbf{sai}?
+ \choice
+  {Nếu hai mặt phẳng song song cùng cắt mặt phẳng thứ ba thì hai giao tuyến tạo thành song song với nhau}
+  {Nếu mặt phẳng $(P)$ song song với mặt phẳng $(Q)$ thì mọi đường thẳng nằm trên mặt phẳng $(P)$ đều song song với mặt phẳng $(Q)$}
+  {Ba mặt phẳng đôi một song song chắn trên hai đường thẳng chéo nhau những đoạn thẳng tương ứng tỉ lệ}
+  {\True Nếu mặt phẳng $(P)$ chứa hai đường thẳng phân biệt và hai đường thẳng đó cùng song song với mặt phẳng $(Q)$ thì mặt phẳng $(P)$ song song với mặt phẳng $(Q)$}
+ \loigiai
+  {
+  Nếu mặt phẳng $(P)$ chứa hai đường thẳng phân biệt (có thể song song) và hai đường thẳng đó cùng song song với mặt phẳng $(Q)$ thì mặt phẳng $(P)$ không hẳn song song với mặt phẳng $(Q)$.\\
+  Phát biểu đúng: Nếu mặt phẳng $(P)$ chứa hai đường thẳng phân biệt cắt nhau và hai đường thẳng đó cùng song song với mặt phẳng $(Q)$ thì mặt phẳng $(P)$ song song với mặt phẳng $(Q)$
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2H1K3]
+ Cho hình chóp $S.ABC$ có $SA = 2$, $SB = 3$, $SC = 4$. Góc $\widehat{ASB} = 45^\circ$, $\widehat{BSC} = 60^\circ$, $\widehat{CSA} = 90^\circ$. Tính khoảng cách từ $B$ đến $(SAC)$.
+ \choice
+  {$\dfrac{1}{2}$}
+  {$3$}
+  {$1$}
+  {\True $\dfrac{3}{2}$}
+ \loigiai
+  {
+  Thể tích của khối chóp $S.ABC$ là:\\
+  $V = \dfrac{1}{6} \cdot 2 \cdot 3 \cdot 4 \sqrt{1 + 2\cos 45^\circ \cos 60^\circ \cos 90^\circ - \cos^2 45^\circ - \cos^2 {60^\circ} - \cos^2 90^\circ} = 2$.\\
+  Diện tích tam giác $SAC$ là: $S_{SAC} = \dfrac{1}{2} \cdot 2 \cdot 4 = 4$.\\
+  Suy ra khoảng cách từ $B$ đến $(SAC)$ là: $d(B,(SAC)) = \dfrac{3V}{S_{SAC}} = \dfrac{3}{2}$.
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2D2G5]
+ Gọi $S$ là tập nghiệm của phương trình $(2 - x)(2 + 4^x) = 6$. Khi đó số phần tử của tập $S$ là bao nhiêu?
+ \choice
+  {$2$}
+  {\True $3$}
+  {$4$}
+  {$5$}
+ \loigiai
+  {
+  Xét hàm số $y = (2-x)(2+4^x)-6$.\\
+  $y' = -(2+4^x) + (2-x)\cdot 4^x \ln 4$.\\
+  $y'' = -2\ln4\cdot 4^x + (2-x)\ln^2 4 \cdot 4^x$.\\
+  $y'' = 0 \Leftrightarrow x = 2 + \dfrac{1}{\ln 2}$.\\
+  $y'' = 0$ có một nghiệm nên $y' = 0$ có không quá hai nghiệm, do đó $y = 0$ có không quá ba nghiệm.\\
+  Mặt khác $x = 0$, $x = 1$, $x = \dfrac{1}{2}$ là các nghiệm của phương trình đã cho.\\
+  Vậy phương trình đã cho có ba nghiệm $x = 0$, $x = 1$, $x = \dfrac{1}{2}$.
+  }
+\end{ex}
+
+
+\begin{ex}%[TT Chuyên Hùng Vương đợt 2 - Bình Dương]%[2H2K1]
+ Cho mặt trụ $(T)$ và một điểm $S$ cố định nằm bên ngoài $(T)$. Một đường thẳng $\Delta$ thay đổi luôn đi qua $S$ và luôn cắt $(T)$ tai hai điểm $A$, $B$ ($A$, $B$ có thể trùng nhau) . Gọi $M$ là trung điểm của đoạn thẳng $AB$. Tìm tập hợp các điểm $M$.
+ \choice
+  {Một mặt phẳng đi qua $S$}
+  {Một mặt cầu đi qua $S$}
+  {Một mặt nón có đỉnh là $S$}
+  {\True Một mặt trụ}
+ \loigiai
+  {
+  \begin{center}
+  \begin{tikzpicture}[scale=0.6]
+   \tkzDefPoint(0,0){O'}
+   \tkzDefPoint(0,7){O}
+   \tkzDefPoint(3,7){Z}
+   \tkzDefPoint(-1,5.114){D}
+   \tkzDefPoint(2.5,5.894){C}
+   \tkzDefPoint(-1,3){B}
+   \tkzDefPoint(2.5,3){Y}
+   \coordinate (N) at ($(D)!.5!(C)$);
+   \tkzInterLL(O,Z)(D,C)\tkzGetPoint{S}
+   \tkzInterLL(B,S)(C,Y)\tkzGetPoint{A}
+   \coordinate (M) at ($(B)!.5!(A)$);
+   \tkzDefMidPoint(O,S)\tkzGetPoint{I}
+   \tkzDrawPoints(O,O',D,C,B,N,S,A,M,I)
+   \draw[dashed](3,0) arc (0:180:3 and 2);
+   \draw[thick] (-3,0) arc (180:360:3 and 2);
+   \draw[thick](3,7) arc (0:180:3 and 2);
+   \draw[thick](-3,7) arc (180:360:3 and 2);
+   \draw (3,0)--(3,7);
+   \draw(-3,0)--(-3,7);
+   \draw(3.75,0)--(3.75,9);
+   \tkzDrawSegments(O,D O,C O,S A,S D,S O,N)
+   \tkzDrawSegments[dashed](A,B B,D A,C M,N)
+   \tkzLabelPoints[above](O,D,C,N,S)
+   \tkzLabelPoints[below](A,B,M)
+   \draw(3.8,7.5) node[left]{$I$};
+   \draw(3.8,3) node[right]{$l$};
+  \end{tikzpicture}
+  \end{center}
+  Gọi $(\alpha)$ là mặt phẳng đi qua $S$ và vuông góc với trục của mặt trụ $(T)$.
+  Gọi $(O)$ là đường tròn giao tuyến của mặt phẳng $(\alpha)$ và mặt trụ $(T)$.\\
+  Gọi $I$ là trung điểm của $OS$ và $l$ là đường thẳng đi qua $I$ và vuông góc với $(\alpha)$.\\
+  Từ $A$, $B$ kẻ các đường thẳng song song với trục của hình trụ cắt $(O)$ tại $C$ và $D$.\\
+  Gọi $M$, $N$ lần lượt là trung điểm của $AB$ và $CD$.\\
+  Dễ thấy $A$, $B$, $C$, $D$, $M$, $N$, $S$ cùng thuộc một mặt phẳng nên $S$, $C$, $N$, $D$ thẳng hàng.\\
+  Do góc $\widehat{ONS} = 90^\circ$ nên $NI = \dfrac{1}{2}OS$ (không đổi). Từ đó suy ra khoảng cách từ $M$ đến đường thẳng $l$ bằng $NI$ và bằng $\dfrac{OS}{2}$.\\
+  Vậy $M$ thuộc mặt trụ nhận đường thẳng $l$ làm trục và có bán kính bằng $\dfrac{OS}{2}$.
+  }
+\end{ex}
+
+
+
+
+\Closesolutionfile{ans}
+\newpage
+\begin{center}
+	\textbf{ĐÁP ÁN}
+\end{center}
+\begin{multicols}{10}
+	\input{ans/ans-2-GHK1-74-ChuyenHungVuong-BinhDuong-18} 
+\end{multicols}

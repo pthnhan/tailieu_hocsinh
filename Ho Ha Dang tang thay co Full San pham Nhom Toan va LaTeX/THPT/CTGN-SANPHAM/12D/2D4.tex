@@ -1,0 +1,968 @@
+\chapter{Số phức}
+\section{Cực trị số phức}
+\subsection{Các dạng toán và công thức giải nhanh}
+\begin{dang}{Tìm {$\max$, $\min$} của {$|z|$} }
+Cho số phức $z$ thỏa mãn $|z+x+yi|=k$. Khi đó\[\left|k-\sqrt{x^2+y^2}\right|\le|z|\le k+\sqrt{x^2+y^2}.\]
+\end{dang}
+\begin{vd}%[Lê Quốc Hiệp, dự án EX-CTGN]%[2D4K5-1]
+	Cho số phức $z$ thỏa mãn $|z+2-3i|=2$. Tìm giá trị nhỏ nhất $m$ của $|z|$.
+\choice
+{$m=\sqrt{13}$}
+{$m=\sqrt{13}+2$}
+{\True $m=\sqrt{13}-2$}
+{$m=\sqrt{5}+2$}
+\loigiai{
+\textbf{Cách 1.} Ta có $x=2,~y=-3,~k=2$ nên\[|z|\ge \left|2-\sqrt{2^2+(-3)^2}\right|=\sqrt{13}-2.\]
+Vậy $m=\sqrt{13}-2$.\\
+\textbf{Cách 2.} 
+\immini
+{Gọi $z=x+yi~(x,y \in\mathbb{R})$.\\
+	Ta có \[|z+2-3i|=2\Leftrightarrow |(x+2)+(y-3)i|=2\Leftrightarrow (x+2)^2+(y-3)^2=4.\]
+	Vậy tập hợp điểm biểu diễn số phức $z$ là đường tròn tâm $I(-2,3)$, bán kính $R=2$ (hình vẽ bên).\\
+	Khi đó \[m=OA=OI-R=\sqrt{13}-2.\]
+}
+{\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm,>=stealth,scale=0.7,every node/.style={scale=0.7}]
+	\tkzDefPoints{0/0/O,-2/3/I,0/3/B}
+	\draw[->] (-5,0)--(1.5,0) node[above] {$x$};
+	\draw[->] (0,-0.5)--(0,5.5) node[above] {$y$};
+	\fill (0,0) node[shift={(-60:2ex)}]{$O$} circle(1pt);
+	\draw[fill] (-2,0) circle (1pt) node[below] {$-2$};
+	\draw[fill] (0,3) circle (1pt) node[right] {$3$};
+	\draw[fill] (-2,3) circle (1pt) node[above] {$I$};
+	\draw (-2,3) circle (2);
+	\draw (-2,3)--(0,0);
+	\tkzInterLC[R](I,O)(I,2 cm) \tkzGetPoints{}{A}
+	\draw[dashed](-2,0)|-(0,3);
+	\tkzLabelPoints[below](A)
+	\tkzDrawPoint[fill=black](A)
+	\end{tikzpicture}}
+}
+\end{vd}
+
+\begin{vd}%[Lê Quốc Hiệp, dự án EX-CTGN]%[2D4K5-1]
+	Cho số phức $z$ thỏa mãn $|z-1-i|=\sqrt{5}$. Gọi $m,~M$ lần lượt là giá trị nhỏ nhất và lớn nhất của $|z|$. Tính giá trị $T=m+M$.
+	\choice
+	{\True $T=2\sqrt{5}$}
+	{$T=2\sqrt{2}$}
+	{$T=\sqrt{5}$}
+	{$T=\sqrt{2}$}
+	\loigiai{
+		\textbf{Cách 1.} Ta có $x=-1,~y=-1,~k=\sqrt{5}$ nên\[\left|\sqrt{5}-\sqrt{(-1)^2+(-1)^2}\right|\le|z|\le\sqrt{5}+\sqrt{(-1)^2+(-1)^2}\Leftrightarrow \sqrt{5}-\sqrt{2}\le|z|\le\sqrt{5}+\sqrt{2}.\]
+		Từ đó suy ra $m=\sqrt{5}-\sqrt{2}$ và $M=\sqrt{5}+\sqrt{2}$.\\
+		Vậy $T=m+M=2\sqrt{5}$.\\
+		\textbf{Cách 2.} 
+		\immini
+		{Gọi $z=x+yi~(x,y \in\mathbb{R})$.\\
+			Ta có \[|z-1-i|=\sqrt{5}\Leftrightarrow |(x-1)+(y-1)i|=\sqrt{5}\Leftrightarrow (x-1)^2+(y-1)^2=5.\]
+			Vậy tập hợp điểm biểu diễn số phức $z$ là đường tròn tâm $I(1,1)$, bán kính $R=\sqrt{5 }$ (hình vẽ bên).\\
+			Khi đó \[m=OA=R-OI=\sqrt{5}-\sqrt{2}\text{ và } M=OD=R+OI=\sqrt{5}+\sqrt{2}.\]
+			Vậy $T=m+M=2\sqrt{5}$.
+		}
+		{\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm,>=stealth,scale=0.7,every node/.style={scale=0.7}]
+			\tkzDefPoints{0/0/O,1/1/I,-1/2/B}
+			\draw[->] (-2,0)--(4.5,0) node[above] {$x$};
+			\draw[->] (0,-2)--(0,4.5) node[above] {$y$};
+			\fill (0,0) node[shift={(-60:2ex)}]{$O$} circle(1pt);
+			\draw[fill] (3,0) circle (1pt) node[below] {$3$};
+			\draw[fill] (0,3) circle (1pt) node[above left] {$3$};
+			\draw[fill] (1,1) circle (1pt) node[above] {$I$};
+			\tkzDrawCircle(I,B)
+			\tkzDrawLines[add=1 and 3](O,I)
+			\tkzInterLC(I,O)(I,B) \tkzGetPoints{D}{A}
+			\draw[dashed](1,0)|-(0,1);
+			\tkzLabelPoints[below](A)
+			\tkzLabelPoints[above](D)
+			\tkzDrawPoints[fill=black](A,D)
+			\end{tikzpicture}}
+	}
+\end{vd}
+
+\begin{dang}{Tìm {$\max$, $\min$} của {$|z-z_0|$} }
+	Cho $3$ số phức $z_1,~z_2,~z_3$ thỏa mãn $|z_1z-z_2|=a~(a\ge0)$. Khi đó\[\left|\left|\dfrac{z_2}{z_1}-z_3\right|-\dfrac{a}{|z_1|}\right|\le|z-z_3|\le \left|\dfrac{z_2}{z_1}-z_3\right|+\dfrac{a}{|z_1|}.\tag{1}\]
+	\textbf{Chú ý.} Khi $z_3=0$ thì \[(1)\Leftrightarrow \left|\left|\dfrac{z_2}{z_1}\right|-\dfrac{a}{|z_1|}\right|\le|z|\le \left|\dfrac{z_2}{z_1}\right|+\dfrac{a}{|z_1|}\]
+\end{dang}
+\begin{vd}%[Lê Quốc Hiệp, dự án EX-CTGN]%[2D4K5-1]
+	Cho số phức $z$ thoả mãn $\left|\dfrac{1+i}{1-i}z+2\right|=1$. Tìm giá trị lớn nhất $M$ của $|z-2+i|$.
+	\choice
+	{$M=\sqrt{13}$}
+	{$M=2+\sqrt{13}$}
+	{$M=\sqrt{13}-1$}
+	{\True $M=1+\sqrt{13}$}
+	\loigiai{
+		\textbf{Cách 1.} Ta có \[\left|\dfrac{1+i}{1-i}z+2\right|=1\Leftrightarrow |iz+2|=1.\]
+		Khi đó, $z_1=i;~z_2=-2;~a=1$ và $z_3=2-i$.\\
+		Suy ra \[|z-z_3|\le \left|\dfrac{z_2}{z_1}-z_3\right|+\dfrac{a}{|z_1|}\Leftrightarrow |z-2+i|\le \left|\dfrac{-2}{i}-2+i\right|+\dfrac{1}{|i|}=1+\sqrt{13}.\]
+		Vậy $M=1+\sqrt{13}$.\\
+		\textbf{Cách 2.} 
+		\immini
+		{Gọi $z=x+yi~(x,y \in\mathbb{R})$ và $H(2;-1)$.\\
+			Ta có
+			\begin{eqnarray*}
+				& &\left|\dfrac{1+i}{1-i}z+2\right|=1\\
+				& \Leftrightarrow & \left|z+2\cdot \dfrac{1-i}{1+i}\right|=1\cdot\left|\dfrac{1-i}{1+i}\right|\\
+				& \Leftrightarrow & \left|z-2i\right|=1\\
+				& \Leftrightarrow & x^2+(y-2)^2=1.
+			\end{eqnarray*}
+			Vậy tập hợp điểm biểu diễn số phức $z$ là đường tròn tâm $I(0,2)$, bán kính $R=1$ (hình vẽ bên).\\
+			Khi đó \[M=HD=R+IH=1+\sqrt{2^2+3^2}=1+\sqrt{13}.\]
+			Vậy $M=1+\sqrt{13}$.
+		}
+		{\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm,>=stealth,scale=1,every node/.style={scale=1}]
+			\tkzDefPoints{0/0/O,0/2/I,0/3/B,2/-1/H}
+			\draw[->] (-2,0)--(3,0) node[above] {$x$};
+			\draw[->] (0,-2)--(0,4) node[above] {$y$};
+			\fill (O) node[shift={(-60:2ex)}]{$O$} circle(1pt);
+			\fill (H) node[shift={(-60:2ex)}]{$H$} circle(1pt);
+			\draw[fill] (0,3) circle (1pt) node[above left] {$3$};
+			\draw[fill] (I) circle (1pt) node[left] {$I$};
+			\draw[fill] (2,0) circle (1pt) node[above] {$2$};
+			\draw[fill] (0,2) circle (1pt) node[right] {$2$};
+			\draw[fill] (0,-1) circle (1pt) node[left] {$-1$};
+			\tkzDrawCircle(I,B)
+			\tkzDrawLines[add=0.3 and 0](I,H)
+			\tkzInterLC(I,H)(I,B) \tkzGetPoints{D}{A}
+			\draw[dashed](2,0)|-(0,-1);
+			\tkzLabelPoints[below](A)
+			\tkzLabelPoints[above](D)
+			\tkzDrawPoints[fill=black](A,D)
+			\end{tikzpicture}}
+	}
+\end{vd}
+
+\begin{vd}%[Lê Quốc Hiệp, dự án EX-CTGN]%[2D4K5-1]
+	Cho số phức $z$ thoả mãn $\left|(3-2i)z+8-i\right|=\sqrt{13}$. Gọi $m,~M$ lần lượt là giá trị nhỏ nhất và lớn nhất của $|z-i|$. Tính $P=m\cdot M$.
+	\choice
+	{$P=4$}
+	{\True $P=3$}
+	{$P=5$}
+	{$P=6$}
+	\loigiai{
+		\textbf{Cách 1.} Ta có \[\left|(3-2i)z+8-i\right|=\sqrt{13}.\]
+		Khi đó, $z_1=3-2i;~z_2=8-i;~a=\sqrt{13}$ và $z_3=i$.\\
+		Suy ra 
+		\begin{eqnarray*}
+			& & \left|\left|\dfrac{z_2}{z_1}-z_3\right|-\dfrac{a}{|z_1|}\right|\le|z-z_3|\le \left|\dfrac{z_2}{z_1}-z_3\right|+\dfrac{a}{|z_1|}\\
+			& \Leftrightarrow & \left|\left|\dfrac{8-i}{3-2i}-i\right|-\dfrac{\sqrt{3}}{|3-2i|}\right|\le|z-z_3|\le\left|\dfrac{8-i}{3-2i}-i\right|+\dfrac{\sqrt{3}}{|3-2i|}\\
+			& \Leftrightarrow & \left|2-1\right|\le|z-i|\le2+1\Leftrightarrow 1\le|z-i|\le3.
+		\end{eqnarray*}
+		Từ đó suy ra $m=1$ và $M=3$.
+		Vậy $P=m\cdot M=3$.\\
+		\textbf{Cách 2.} 
+		\immini
+		{Gọi $z=x+yi~(x,y \in\mathbb{R})$ và $H(0;1)$.\\
+			Ta có
+			\begin{eqnarray*}
+				& &\left|(3-2i)z+8-i\right|=\sqrt{13}\\
+				& \Leftrightarrow & \left|z+\dfrac{8-i}{3-2i}\right|=\dfrac{\sqrt{13}}{|3-2i|}\\
+				& \Leftrightarrow & |z+2+i|=1\\
+				& \Leftrightarrow & (x+2)^2+(y+1)^2=1.
+			\end{eqnarray*}
+	
+		}
+		{\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm,>=stealth,scale=1,every node/.style={scale=1}]
+			\tkzDefPoints{0/0/O,-2/-1/I,-2/-2/B,0/-1/H}
+			\draw[->] (-4,0)--(1,0) node[above] {$x$};
+			\draw[->] (0,-3)--(0,1) node[above] {$y$};
+			\fill (O) node[shift={(-60:2ex)}]{$O$} circle(1pt);
+			\fill (H) node[shift={(150:2ex)}]{$-1$} circle(1pt);
+			\draw[fill] (I) circle (1pt) node[below] {$I$};
+			\draw[fill] (-2,0) circle (1pt) node[above] {$-2$};
+			\draw[fill] (0,-1) circle (1pt) node[right] {$H$};
+			\tkzDrawCircle(I,B)
+			\tkzDrawLines[add=1 and 0](I,H)
+			\tkzInterLC(I,H)(I,B) \tkzGetPoints{D}{A}
+			\draw[dashed](-2,0)|-(0,-1);
+			\tkzLabelPoints[below right](A)
+			\tkzLabelPoints[above left](D)
+			\tkzDrawPoints[fill=black](A,D)
+			\end{tikzpicture}}
+		\noindent Vậy tập hợp điểm biểu diễn số phức $z$ là đường tròn tâm $I(-2,-1)$, bán kính $R=1$ (hình vẽ bên).\\
+		Khi đó \[M=HD=R+IH=1+2=3 \text{ và }m=AH=1.\]
+		Vậy $P=m\cdot M=3$.
+	}
+\end{vd}
+
+\begin{dang}{Bất đẳng thức tam giác}
+	\begin{enumerate}
+		\item 	$|z_1 +z_2| \le |z_1| + |z_2|$. Dấu ``='' xảy ra khi $z_1 = k z_2$, $k \ge 0.$
+		\item $|z_1 +z_2| \ge ||z_1| - |z_2||$. Dấu ``='' xảy ra khi $z_1 = k z_2$, $k \le 0.$
+		\item $|z_1  - z_2| \ge ||z_1| - |z_2||$. Dấu ``='' xảy ra khi $z_1 = k z_2$, $k \ge 0.$
+		\item $|z_1 - z_2| \le |z_1| + |z_2|$. Dấu ``='' xảy ra khi $z_1 = k z_2$, $k \le 0.$
+	\end{enumerate}
+	\textbf{Chứng minh.}\\
+	\begin{enumerate}  
+		\item [a.] Chứng minh $|z_1 +z_2| \le |z_1| + |z_2|$.  
+		
+		Gọi $M, N$ lần lượt là điểm biểu diễn hình học của hai số phức $z_1, z_2$.
+		
+		Khi đó ta có $$|z_1 +z_2| = \left| \overrightarrow{OM} + \overrightarrow{ON} \right| \le \left|\overrightarrow{OM} \right| + \left|\overrightarrow{ON} \right| = |z_1|+|z_2| .$$
+		
+		Dấu ``='' xảy ra khi $\overrightarrow{OM}, \overrightarrow{ON} $ cùng hướng $\Leftrightarrow $ tồn tại $k \ge 0$ để $\overrightarrow{OM}= k\overrightarrow{ON}  $ 
+		
+		$\Leftrightarrow$ tồn tại $k \ge 0$ để $ z_1 = k z_2$.
+		
+		\item [b.] Chứng minh  $|z_1  - z_2| \ge ||z_1| - |z_2||$.
+		
+		Tương tự, ta có $$|z_1 - z_2| = |\overrightarrow{OM} -  \overrightarrow{ON} | \ge \left| \left| \overrightarrow{OM} \right| -  \left| \overrightarrow{ON} \right| \right|= \left| |z_1|-|z_2| \right|.$$
+		
+		Dấu ``='' xảy ra khi $\overrightarrow{OM}, \overrightarrow{ON} $ cùng hướng $\Leftrightarrow $ tồn tại $k \ge 0$ để $\overrightarrow{OM}= k\overrightarrow{ON}  $
+		
+		$\Leftrightarrow$ tồn tại $k \ge 0$ để $ z_1 = k z_2$.  
+		\item [c.] Công thức số 2 là hệ quả của công thức 3; công thức số 4 là hệ quả của công thức số 1.
+	\end{enumerate}
+\end{dang}
+
+\begin{vd}%[Nguyễn Cao Cường, dự án EX-CTGN]%[2D4K5-1]
+	Cho số phức $z$ thỏa mãn $|z-1-2i|=4$. Gọi $M,m$ lần lượt là giá trị lớn nhất, giá trị nhỏ nhất của $|z+2+i|$. Giá trị của $P=M^2 +m^2$ là	
+	\choice
+	{$ 34$}
+	{$82$}
+	{\True $68$}
+	{$36$}
+	
+	\loigiai{
+		
+		\begin{itemize}
+			\item \textbf{Cách 1:}
+			Ta có 
+			
+			\vspace{-1cm}
+			\begin{eqnarray*}
+				& |z+2 + i | &= |(z-1-2i) + (3+ 3i)| \\
+				& & \le |z-1-2i| + |3+ 3i |\\
+				& & =4 + 3\sqrt{2}.
+			\end{eqnarray*}
+			
+			Suy ra $M= 4 + 3\sqrt{2}$, khi $z-1-2i = k (3+ 3i)$ với $k \ge 0$.
+			
+			Thay vào $|z-1-2i|=4$ ta được $|k(3+ 3i)|=4 \Leftrightarrow k = \dfrac{2\sqrt{2}}{3} \Leftrightarrow z = 1 + 2\sqrt{2} + (2 + 2\sqrt{2})i.$
+			
+			Tương tự,
+			
+			\vspace{-1cm}
+			\begin{eqnarray*}
+				& |z+2 + i|&= |(z-1-2i) - (-3-3i)|  \\
+				& & \ge ||z-1-2i|- |-3-3i||\\
+				& & =3\sqrt{2}-4.
+			\end{eqnarray*} 
+			
+			Suy ra $m = 3\sqrt{2} -4$, khi $z-1-2i = k (-3-3i)$ với $k \ge 0$.
+			
+			Lập luận tương tự như trên, ta tìm được $k = \dfrac{2\sqrt{2}}{3}$ và $z= (1-2\sqrt{2}) + (2 -2\sqrt{2}) i.$
+			
+			Vậy $M= 3\sqrt{2} + 4, m =3\sqrt{2}-4$. Do đó $M^2 +m^2 =68.$
+			\item \textbf{Cách 2: }Dùng hình học.
+			
+			\begin{center}
+				\begin{tikzpicture}[>=stealth]
+				\draw[->,line width=1pt](-3,0)--(0,0) node[below right]{$O$}--(6,0) node[below]{$x$};
+				\draw[->,line width=1pt](0,-3)--(0,7) node[right]{$y$};
+				\tkzDefPoints{1/2/I, -2/-1/A, 5/2/T, 0/0/F}
+				\tkzDefCircle[radius](I,T)
+				\tkzDrawCircle(I,T)
+				\tkzInterLC(A,I)(I,T)    \tkzGetPoints{C}{D}
+				\tkzDrawPoints(A, I, C, D, F)
+				\tkzLabelPoints(I)
+				\tkzLabelPoints[below](A)
+				\tkzDrawSegments(A,D)
+				\draw[] (-1.4, -0.8) node {$N_2$};
+				\draw[] (4,5) node {$N_1$};
+				\draw [dashed] (-2,0)--(-2,-1)--(0,-1);
+				\draw [dashed] (1,0)--(1,2)--(0,2);
+				\draw (-2,0) node[above]{$-2$} circle(1pt);
+				\draw (0,-1) node[right]{$-1$} circle(1pt);
+				\draw (1,0) node[below]{$1$} circle(1pt);
+				\draw (0,2) node[left]{$2$} circle(1pt);
+				\end{tikzpicture}
+			\end{center}
+			
+			Gọi $N(x,y)$ là biểu diễn hình học của $z$. Do $|z-1-2i|=4$ nên quỹ tích của $N$ là đường tròn $(C)$ tâm $I(1;2), $ bán kính $R=4$. 
+			
+			Ta có $|z+2 +i| = |z-(-2-i)| = NA$ với $A(-2;-1)$.
+			
+			Khi đó $M= AN_1 = IA +R =  3\sqrt{2}+4$ và $m = AN_2 = IA - R = 3\sqrt{2}-4$.
+			
+			Vậy $P = 68.$
+	\end{itemize}}
+\end{vd}
+
+
+\begin{vd}%[Nguyễn Cao Cường, dự án EX-CTGN]%[2D4K5-1]
+	Cho số phức $z\neq 0$ thỏa mãn $|z| = 2$. Tính tích giá trị lớn nhất và giá trị nhỏ nhất của biểu thức $P= \left| 1 + \dfrac{i}{z}\right|.$
+	\choice
+	{\True $\dfrac{3}{4}$}
+	{$1$}
+	{$2$}
+	{$\dfrac{2}{3}$}
+	
+	\loigiai{
+		\textbf{Cách 1}\\
+		
+		Ta có $P = \left|1 + \dfrac{1}{z} \right| \le 1 + \left| \dfrac{1}{z} \right| = 1 + \dfrac{1}{2} =\dfrac{3}{2}.$ Suy ra $M= \dfrac{3}{2}.$
+		
+		Mặt khác, $P = \left| 1 + \dfrac{1}{z} \right| \ge 1 - \left| \dfrac{1}{z} \right| = 1 -\dfrac{1}{2} = \dfrac{1}{2} .$ Suy ra $m = \dfrac{1}{2}$.
+		
+		Vậy $M.m = \dfrac{3}{4}.$\\
+		\textbf{Cách 2}: Dùng hình học.\\
+		\immini
+		{
+			Gọi $N(x;y)$ là điểm biểu diễn hình học của số phức $z$. Do $|z|=2$ nên $N$ thuộc đường tròn $(C)$ tâm $O$, bán kính $R=2$.
+			
+			Ta có $P= \left| 1 + \dfrac{i}{z}\right| = \dfrac{|z+i|}{|z|}= \dfrac{|z+i|}{2}=\dfrac{NA}{2}$ với $A(0;-1).$
+			
+			Vậy $P_{\max}= \dfrac{AN_1}{2}= \dfrac{R+ OA}{2}=\dfrac{3}{2}$ và\\ $P_{\min}= \dfrac{AN_2}{2}= \dfrac{R- OA}{2}=\dfrac{1}{2}$. 
+			
+			Do đó $M.m = \dfrac{3}{4}.$
+		}
+		{
+			\begin{tikzpicture}[>=stealth]
+			\draw[->](-3,0)--(0,0) node[below right]{$O$}--(3,0) node[below]{$x$};
+			\draw[->](0,-3)--(0,3) node[right]{$y$};
+			\tkzDefPoints{0/-2/T, 0/-1/A, 0/2/B, 0/-2/C, 0/0/F}
+			\tkzDefCircle[radius](F,T)
+			\tkzDrawCircle(F,T)
+			\tkzDrawPoints(A, F, C, B)
+			\tkzLabelPoints[left](A)
+			%\draw (-2,0) node[above]{$-2$} circle(1pt);
+			\fill (0,-1) node[right]{$-1$} circle(1pt);
+			\fill (2,0) node[below right]{$2$} circle(1pt);
+			\draw[] (0.25, 2.3) node {$N_1$};
+			\draw[] (0.25, -2.3) node {$N_2$};
+			\end{tikzpicture}
+			
+		}
+		
+	}
+\end{vd}
+
+
+\begin{dang}{Công thức đường trung tuyến}
+	$$|z_1+z_2|^2 + |z_1-z_2|^2 =2 \left( |z_1|^2+ |z_2|^2\right).$$
+	\textbf{Chứng minh.}\\
+	Gọi $M, N$ lần lượt là điểm biểu diễn hình học của số phức $z_1, z_2$ và $P$ là trung điểm $MN$.
+	
+	Khi đó $|z_1 -z_2| = MN$ và $|z_1 + z_2 | = 2 OP.$
+	
+	Áp dụng công thức độ dài đường trung tuyến trong tam giác, ta có
+	\vspace{-0.25cm}
+	\begin{eqnarray*}
+		&	& OP^2 = \dfrac{OM^2+ ON^2}{2} - \dfrac{MN^2}{4}\\
+		& &  \Leftrightarrow \dfrac{1}{4} |z_1+z_2|^2 = \dfrac{|z_1|^2 + |z_2|^2}{2} - \dfrac{|z_1-z_2|^2}{4}. \\
+		& 	& \Leftrightarrow |z_1+z_2|^2 + |z_1-z_2|^2 =2 \left( |z_1|^2+ |z_2|^2\right).
+	\end{eqnarray*}
+\end{dang}
+
+\begin{vd}%[Nguyễn Cao Cường, dự án EX-CTGN]%[2D4K5-1]
+	Cho số phức $z=x+yi$, $x, y\in \mathbb{R}$ thõa mãn $|z-2|^2 + |z+2|^2 =26$ và $|z-(2+\sqrt{5} i)|$ đạt giá trị lớn nhất. Tính $x-y$.
+	\choice
+	{\True $ - 2 +\sqrt{5}$}
+	{$2 + \sqrt{5}$}
+	{$-2-\sqrt{5}$}
+	{$2-\sqrt{5}$}
+	
+	\loigiai{
+		\begin{itemize}
+			\item \textbf{Cách 1}
+			
+			Áp dụng công thức đường trung tuyến, ta có
+			$$26=|z-2|^2 + |z+2|^2 =2 (|z|^2 + 2^2) \Leftrightarrow |z|=3.$$
+			
+			Ta có $|z-(2+\sqrt{5} i)| \le |z|+ |2+ \sqrt{5}i| = 3+ 3 =6.$
+			
+			Suy ra $|z-(2+\sqrt{5} i)|_{\max}=6 $ khi tồn tại $k \le 0$ để $z = k(2 + \sqrt{5} i)$.
+			
+			Thay $z$ vào $|z|=3$ ta được $|k(2 + \sqrt{5} i)| =3$. Chọn $k=-1 <0$ thỏa yêu cầu.
+			
+			Suy ra $z = -2 -\sqrt{5}i.$ Vậy $x-y = -2 + \sqrt{5}.$
+			\item \textbf{Cách 2}: Dùng hình học.
+			\begin{center}
+				\begin{tikzpicture}[>=stealth]
+				\draw[->,line width=1pt](-4,0)--(0,0) node[below right]{$O$}--(4,0) node[below]{$x$};
+				\draw[->,line width=1pt](0,-4)--(0,4) node[right]{$y$};
+				\tkzDefPoints{0/-3/T, 2/2.236/A, 0/0/F, -2/-2.236/M}
+				\tkzDefCircle[radius](F,T)
+				\tkzDrawCircle(F,T)
+				\tkzDrawPoints(A, F, M)
+				\tkzLabelPoints[above](A)
+				\tkzLabelPoints[below](M)
+				\tkzDrawSegments(A,M)
+				\draw (0,3) node[ above right]{$3$} circle(1pt);
+				\draw (-3,0) node[below left]{$-3$} circle(1pt);
+				\draw [dashed] (0,-2.236)--(-2,-2.236)--(-2,0);
+				\draw [dashed] (0,2.236)--(2,2.236)--(2,0);
+				\draw (-2,0) node[above]{$-2$} circle(1pt);
+				\draw (2,0) node[below]{$2$} circle(1pt);
+				\draw (0,2.236) node[left]{$\sqrt{5}$} circle(1pt);
+				\draw (0,-2.236) node[right]{$-\sqrt{5}$} circle(1pt);
+				\end{tikzpicture}
+			\end{center}
+			
+			Gọi $M(x,y)$ là điểm biểu diễn hình học của số phức $z=x+yi, (x,y \in\mathbb{R})$. 
+			
+			Do $|z-2|^2 + |z+2|^2 =26$ nên $(x-2)^2 +y^2 + (x+2)^2 + y^2 =26 \Leftrightarrow x^2 + y^2 =9$.
+			
+			Suy ra $M$ thuộc đường tròn $(C)$ tâm $O$, bán kính $R=3$.
+			
+			Ta có $|z-(2+\sqrt{5} i)| = MA$ với $A(2; \sqrt{5})$.
+			
+			Vì $A \in (C)$ nên $MA$ lớn nhất khi $MA$ là đường kính, hay $M$ đối xứng với $A$ qua tâm $O$.
+			
+			Suy ra $M(-2; -\sqrt{5})$.
+			
+			Vậy $z=-2 -\sqrt{5}i$ và $x-y = -2 + \sqrt{5}.$
+		\end{itemize}
+	}
+\end{vd}
+
+
+\begin{vd} %[Nguyễn Cao Cường, dự án EX-CTGN]%[2D4K5-1]
+	Cho số phức $z$ thỏa mãn $|z+2-i|^2 + |z- 2+i|^2=16$. Gọi $M, m$ lần lượt là giá trị lớn nhất, giá trị nhỏ nhất của $|\overline z |$. Tính $M^2 -m^2$.
+	\choice
+	{\True $ 8$}
+	{$7$}
+	{$15$}
+	{$11$}
+	\loigiai{
+		\begin{itemize}
+			\item \textbf{Cách 1}
+			
+			Áp dụng công thức đường trung tuyến ta có
+			$$16= |z+2+i|^2 + |z- 2+i|^2= \dfrac{1}{2} \left( |2z+ 2i|^2 + |4|^2\right) \Leftrightarrow |z+i |=2.$$
+			
+			Vì $|\overline z|= |z|$ nên $|\overline z| = |z| = |(z+i)- i| \le |z+ i| + |i|=3 $.
+			
+			Vậy $M= 3$ khi $z + i =ki$, $k \le 0$.
+			
+			Từ $|z+i|=2$, ta suy ra $|k i| =2$. Chọn $k= -2 \Leftrightarrow z =-3i.$
+			
+			
+			Tương tự, ta có $|z| = |(z+i) - i| \ge ||z+i| - |i||= 1$.
+			
+			Suy ra $m=1$ khi $z+i = ki$, $k \ge 0$.
+			
+			Lập luận tương tự như trên, ta tìm được $k= 2$ $\Leftrightarrow z =i.$
+			
+			Do đó, $M^2 -m^2 = 8.$
+			\item \textbf{Cách 2}: Dùng hình học.
+			\immini
+			{
+				Gọi $N(x,y)$ là điểm biểu diễn hình học của số phức $z= x+ y i, (x, y \in \mathbb{R}).$
+				
+				Ta có: $|z+2+i|^2 + |z- 2+i|^2=16 \Leftrightarrow x^2 + (y+1)^2 =4$.
+				
+				Suy ra $N$ thuộc đường tròn tâm $I(0;-1)$, bán kính bằng $2$.
+				
+				Vì $|\overline z| = |z| = ON$ và $O$ nằm bên trong đường tròn $(C) $ nên $|\overline z|_{\max} = ON_1 = OI + R =3$.
+				
+				Tương tự, $|\overline z|_{\min} = ON_2 = R- OI =1.$
+				
+				Vậy $M^2 -m^2 = 8.$
+			}
+			{
+				\begin{tikzpicture}[>=stealth]
+				\draw[->,line width=1pt](-3,0)--(0,0) node[below right]{$O$}--(3,0) node[below]{$x$};
+				\draw[->,line width=1pt](0,-4)--(0,2) node[right]{$y$};
+				\tkzDefPoints{0/-1/I, 2/-1/T, 0/0/F, 0/1/A, 0/-3/B}
+				\tkzDefCircle[radius](I,T)
+				\tkzDrawCircle(I,T)
+				\tkzDrawPoints(I, A, B, F)
+				\tkzLabelPoints[right](I)
+				\tkzDrawSegments(A,B)
+				\draw[below right] (0,-3) node {$N_1$};
+				\draw[above right] (0,1) node {$N_2$};
+				\draw (0,1) node[ above left]{$1$} circle(1pt);
+				\draw (0,-3) node[below left]{$-3$} circle(1pt);
+				\draw (0,-1) node[left]{$-1$} circle(1pt);
+				\end{tikzpicture}
+			}
+			
+		\end{itemize}
+	}
+	
+\end{vd}
+
+\begin{dang}{Quỹ tích biểu diễn số phức là elip không chính tắc}
+	\begin{enumerate}[a)]
+		\item \textbf{Bài toán}. Với số phức $z$ bất kì thỏa mãn phương trình elip không chính tắc $$\left|z-z_1\right|+\left|z-z_2\right|=2a,$$
+		với $\left|z_1-z_2\right|<2a$ và $z_1,z_2\ne \pm c; \pm ci$; tìm giá trị lớn nhất và giá trị nhỏ nhất của $$P=\left|z-z_0\right|.$$
+		\item \textbf{Cách giải}. Để giải bài toán này, trước hết ta tính $\left|z_1-z_2\right|=2c<2a$. Khi đó, hai điểm $F_1$, $F_2$ (theo thứ tự) biểu diễn hai số phức $z_1$, $z_2$ là hai tiêu điểm của elip không chính tắc $(E): \left|z-z_1\right|+\left|z-z_2\right|=2a$ trên hệ trục tọa độ Đề-các vuông góc $Oxy$. Elip này có độ dài trục lớn là $2a$, độ dài trục nhỏ là $2b$, với $b^2=a^2-c^2$.\\
+		Xét $A$ là điểm biểu diễn số phức $z_0$. Gọi $I$ biểu diễn số phức $\dfrac{z_1+z_2}{2}$, hay $I$ là tâm của elip $(E)$. Khi tìm giá trị lớn nhất và giá trị nhỏ nhất của biểu thức $P=\left|z-z_0\right|$, ta xét một số trường hợp sau
+		\begin{itemize}
+			\item Nếu $A$ trùng với tâm $I$ của elip $(E)$, hay  $\left|z_0-\dfrac{z_1+z_2}{2}\right|=0$ thì \[\max P=a, \min P=b.\tag{1}\]
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,scale=0.5, line join = round, line cap = round]
+				\tkzInit[ymin=-4,ymax=4,xmin=-6.5,xmax=8.5]
+				\tkzClip
+				\tkzSetUpPoint[color=black,fill=white,size=6]
+				\tkzDefPoints{-4/0/F_1,0/0/I,4/0/F_2,-5/0/A_1,5/0/A_2,0/-3/B_1,0/3/B_2}
+				\draw (I) ellipse (5 cm and 3 cm);
+				\coordinate (M) at ($(I)+({5*cos(145)},{3*sin(145)})$);
+				\draw (I) node[below right] {$I\equiv A$};
+				\tkzDrawSegments(A_1,A_2 B_1,B_2 M,I)
+				\tkzDrawPoints[fill=black](I,F_1,F_2,M,A_1,A_2,B_1,B_2)
+				\tkzLabelPoints[above](M,B_2)
+				\tkzLabelPoints[left](A_1)
+				\tkzLabelPoints[right](A_2)
+				\tkzLabelPoints[below](F_1,F_2,B_1)
+				\end{tikzpicture}
+			\end{center}
+			\item Nếu $A$ nằm trên đường thẳng $F_1F_2$, nhưng nằm ở phía ngoài elip $(E)$, hay\\ $$\begin{cases}\left|z_0-\dfrac{z_1+z_2}{2}\right|>a,\\ z_0-z_1=k(z_0-z_2)\end{cases}$$ thì $\max P=\left|z_0-\dfrac{z_1+z_2}{2}\right|+a$ và $\min P=\left|z_0-\dfrac{z_1+z_2}{2}\right|-a.$\hfill(2)
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,scale=0.5, line join = round, line cap = round]
+				\tkzInit[ymin=-4,ymax=4,xmin=-6.5,xmax=8.5]
+				\tkzClip
+				\tkzSetUpPoint[color=black,fill=white,size=6]
+				\tkzDefPoints{-4/0/F_1,0/0/I,4/0/F_2,-5/0/A_1,5/0/A_2,0/-3/B_1,0/3/B_2,7.5/0/A}
+				\draw (I) ellipse (5 cm and 3 cm);
+				\coordinate (M) at ($(I)+({5*cos(145)},{3*sin(145)})$);
+				\tkzDrawSegments(A_1,A B_1,B_2 M,I M,A)
+				\tkzDrawPoints[fill=black](I,F_1,F_2,M,A_1,A_2,B_1,B_2,A)
+				\tkzLabelPoints[above](M,B_2)
+				\tkzLabelPoints[left](A_1)
+				\tkzLabelPoints[right](A)
+				\tkzLabelPoints[below right](I,A_2)
+				\tkzLabelPoints[below](F_1,F_2,B_1)
+				\end{tikzpicture}
+			\end{center}
+			\item Nếu $A$ nằm trên đường thẳng $F_1F_2$, nhưng nằm ở phía trong elip $(E)$, hay\\ $$\begin{cases}\left|z_0-\dfrac{z_1+z_2}{2}\right|<a,\\ z_0-z_1=k(z_0-z_2)\end{cases}$$ thì $\max P=\left|z_0-\dfrac{z_1+z_2}{2}\right|+a$.\hfill(3)
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,scale=0.5, line join = round, line cap = round]
+				\tkzInit[ymin=-4,ymax=4,xmin=-6.5,xmax=8.5]
+				\tkzClip
+				\tkzSetUpPoint[color=black,fill=white,size=6]
+				\tkzDefPoints{-4/0/F_1,0/0/I,4/0/F_2,-5/0/A_1,5/0/A_2,0/-3/B_1,0/3/B_2,3/0/A}
+				\draw (I) ellipse (5 cm and 3 cm);
+				\coordinate (M) at ($(I)+({5*cos(145)},{3*sin(145)})$);
+				\tkzDrawSegments(A_1,A_2 B_1,B_2 M,I M,A)
+				\tkzDrawPoints[fill=black](I,F_1,F_2,M,A_1,A_2,B_1,B_2,A)
+				\tkzLabelPoints[above](M,B_2)
+				\tkzLabelPoints[left](A_1)
+				\tkzLabelPoints[right](A_2)
+				\tkzLabelPoints[below right](I)
+				\tkzLabelPoints[below](F_1,F_2,B_1,A)
+				\end{tikzpicture}
+			\end{center}
+			\item Nếu $A$ nằm trên trục nhỏ của elip $(E)$, hay  $\left|z_0-z_1\right|=\left|z_0-z_2\right|$ thì \[\min P=\left|\left|z_0-\dfrac{z_1+z_2}{2}\right|-b\right|\tag{4}\]
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,scale=0.5, line join = round, line cap = round]
+				\tkzInit[ymin=-4,ymax=4,xmin=-6.5,xmax=8.5]
+				\tkzClip
+				\tkzSetUpPoint[color=black,fill=white,size=6]
+				\tkzDefPoints{-4/0/F_1,0/0/I,4/0/F_2,-5/0/A_1,5/0/A_2,0/-3/B_1,0/3/B_2,0/-2/A}
+				\draw (I) ellipse (5 cm and 3 cm);
+				\coordinate (M) at ($(I)+({5*cos(145)},{3*sin(145)})$);
+				\tkzDrawSegments(A_1,A_2 B_1,B_2 M,I M,A)
+				\tkzDrawPoints[fill=black](I,F_1,F_2,M,A_1,A_2,B_1,B_2,A)
+				\tkzLabelPoints[above](M,B_2)
+				\tkzLabelPoints[left](A_1)
+				\tkzLabelPoints[right](A_2,A)
+				\tkzLabelPoints[below right](I)
+				\tkzLabelPoints[below](F_1,F_2,B_1)
+				\end{tikzpicture}
+			\end{center}
+		\end{itemize}
+	\end{enumerate}
+\end{dang}
+
+\begin{vd}%[Nguyễn Chính Tâm, dự án EX-CTGN]%[2D4K5-1]
+	\label{VD1.C}
+	Với $z$ là các số phức thỏa mãn $\left|z+3-i\right|+\left|z+2-3i\right|=5$, giá trị nhỏ nhất của $P=\left|z+\dfrac{5}{2}-2i\right|$ là
+	\choice
+	{$\dfrac{\sqrt{5}}{2}$}
+	{\True $\sqrt{5}$}
+	{$2\sqrt{5}$}
+	{$\dfrac{2\sqrt{5}}{3}$}
+	\loigiai{
+		\immini{\textbf{Cách 1}. Trong hệ trục tọa độ Đề-các vuông góc $Oxy$ lấy các điểm $F_1(-3;1)$, $F_2(-2;3)$ theo thứ tự biểu diễn các số phức $z_1=-3+i$ và $z_2=-2+3i$. Với $M(x;y)$ biểu diễn số phức $z=x+yi$ ($x,y\in\mathbb{R}$), ta có 
+			$$\begin{aligned}
+			&\left|z+3-i\right|+\left|z+2-3i\right|=5\\ 
+			\Leftrightarrow&\left|z-z_1\right|+\left|z-z_2\right|=5,
+			\end{aligned}$$
+		}
+		{
+			\begin{tikzpicture}[>=stealth,scale=0.5, line join = round, line cap = round]
+			\tkzInit[ymin=-4,ymax=4,xmin=-8,xmax=6.5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{-4/0/F_1,0/0/I,4/0/F_2,-5/0/A_1,5/0/A_2,0/-3/B_1,0/3/B_2}
+			\draw (I) ellipse (5 cm and 3 cm);
+			\coordinate (M) at ($(I)+({5*cos(145)},{3*sin(145)})$);
+			\draw (I) node[below right] {$I\equiv A$};
+			\tkzDrawSegments(A_1,A_2 B_1,B_2 M,I)
+			\tkzDrawPoints[fill=black](I,F_1,F_2,M,A_1,A_2,B_1,B_2)
+			\tkzLabelPoints[above](M,B_2)
+			\tkzLabelPoints[left](A_1)
+			\tkzLabelPoints[right](A_2)
+			\tkzLabelPoints[below](F_1,F_2,B_1)
+			\end{tikzpicture}}
+		\hspace*{-18pt}hay $MF_1+MF_2=5$. Mặt khác $F_1F_2=\sqrt{5}<5$ nên $M$ nằm trên elip $(E)$ có hai tiêu điểm là $F_1$, $F_2$ và có tâm $I\left(-\dfrac{5}{2};2\right)$.
+		\begin{itemize}
+			\item Trục lớn của elip $(E)$ là $2a=5$.
+			\item Trục nhỏ của elip $(E)$ là $2b=2\sqrt{5}$.
+		\end{itemize}
+		Vì $P=\left|z+\dfrac{5}{2}-2i\right|=MI$ nên $P_{\min}=b=\sqrt{5}$.\\
+		\textbf{Cách 2}. Áp dụng công thức $(1)$ với $z_1=-3+i$, $z_2=-2+3i$, $z_0=-\dfrac{5}{2}+2i=\dfrac{z_1+z_2}{2}$, ta có $P_{\min}=b=\sqrt{5}$.
+	}
+\end{vd}
+
+\begin{vd}%[Nguyễn Chính Tâm, dự án EX-CTGN]%[2D4K5-1]
+	Với $z$ là các số phức thỏa mãn $\left|z+3-i\right|+\left|z+2-3i\right|=5$, giá trị lớn nhất của $P=\left|z+\dfrac{5}{2}-2i\right|$ là
+	\choice
+	{$\dfrac{7}{2}$}
+	{$2\sqrt{5}$}
+	{\True $\dfrac{5}{2}$}
+	{$\dfrac{\sqrt{2}}{2}$}
+	\loigiai{
+		\immini{\textbf{Cách 1}. Trong hệ trục tọa độ Đề-các vuông góc $Oxy$ lấy các điểm $F_1(-3;1)$, $F_2(-2;3)$ theo thứ tự biểu diễn các số phức $z_1=-3+i$ và $z_2=-2+3i$. Với $M(x;y)$ biểu diễn số phức $z=x+yi$ ($x,y\in\mathbb{R}$), ta có 
+			$$\begin{aligned}
+			&\left|z+3-i\right|+\left|z+2-3i\right|=5\\ 
+			\Leftrightarrow&\left|z-z_1\right|+\left|z-z_2\right|=5,
+			\end{aligned}$$
+		}
+		{
+			\begin{tikzpicture}[>=stealth,scale=0.5, line join = round, line cap = round]
+			\tkzInit[ymin=-4,ymax=4,xmin=-8,xmax=6.5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{-4/0/F_1,0/0/I,4/0/F_2,-5/0/A_1,5/0/A_2,0/-3/B_1,0/3/B_2}
+			\draw (I) ellipse (5 cm and 3 cm);
+			\coordinate (M) at ($(I)+({5*cos(145)},{3*sin(145)})$);
+			\draw (I) node[below right] {$I\equiv A$};
+			\tkzDrawSegments(A_1,A_2 B_1,B_2 M,I)
+			\tkzDrawPoints[fill=black](I,F_1,F_2,M,A_1,A_2,B_1,B_2)
+			\tkzLabelPoints[above](M,B_2)
+			\tkzLabelPoints[left](A_1)
+			\tkzLabelPoints[right](A_2)
+			\tkzLabelPoints[below](F_1,F_2,B_1)
+			\end{tikzpicture}}
+		\hspace*{-18pt}hay $MF_1+MF_2=5$. Mặt khác $F_1F_2=\sqrt{5}<5$ nên $M$ nằm trên elip $(E)$ có hai tiêu điểm là $F_1$, $F_2$ và có tâm $I\left(-\dfrac{5}{2};2\right)$.
+		\begin{itemize}
+			\item Trục lớn của elip $(E)$ là $2a=5$.
+			\item Trục nhỏ của elip $(E)$ là $2b=2\sqrt{5}$.
+		\end{itemize}
+		Vì $P=\left|z+\dfrac{5}{2}-2i\right|=MI$ nên $P_{\max}=a=\dfrac{5}{2}$.\\
+		\textbf{Cách 2}. Áp dụng công thức $(1)$ với $z_1=-3+i$, $z_2=-2+3i$, $z_0=-\dfrac{5}{2}+2i=\dfrac{z_1+z_2}{2}$, ta có $P_{\max}=a=\dfrac{5}{2}$.
+	}
+\end{vd}
+
+\begin{vd}%[Nguyễn Chính Tâm, dự án EX-CTGN]%[2D4K5-1]
+	\label{VD3.C}
+	Với $z$ là các số phức thỏa mãn $\left|z-i\right|+\left|z-3+3i\right|=6$, giá trị nhỏ nhất của $P=\left|z-6+7i\right|$ là
+	\choice
+	{$\dfrac{3\sqrt{5}}{4}$}
+	{$\dfrac{11}{2}$}
+	{$\sqrt{5}$}
+	{\True $\dfrac{9}{2}$}
+	\loigiai{
+		\textbf{Cách 1}. Ta có $z_1=i$ và $z_2=3-3i$ nên $F_1(0;1)$ và $F_2(3;-3)$.  Vì $F_1F_2=5<6$ nên điểm $M$ biểu diễn số phức $z$ nằm trên elip $(E)$ có độ dài trục lớn là $2a=6$.  Tâm của elip $(E)$ là $I\left(\dfrac{3}{2};-1\right)$. Do $z_0=6-7i$ nên $A(6;-7)$.\\
+		Ta có $z_0-z_1=6-8i$ và $z_0-z_2=3-4i$, suy ra $z_0-z_1=2(z_0-z_2)$. Do đó $A\in F_1F_2$.\\
+		Mặt khác $\left|z_0-\dfrac{z_1+z_2}{2}\right|=\dfrac{15}{2}>6$ nên $A$ nằm ngoài elip. Áp dụng công thức $(2)$ ta có $$P_{\min}=AI-a=\left|z_0-\dfrac{z_1+z_2}{2}\right|-a=\dfrac{9}{2}.$$
+		\textbf{Cách 2}. Do $A$ nằm ngoài elip $(E)$ nên khi $M$ trùng với $A_2$ thì  $$P_{\min}=AI-a=\left|z_0-\dfrac{z_1+z_2}{2}\right|-a=\dfrac{9}{2}.$$
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=0.5, line join = round, line cap = round]
+			\tkzInit[ymin=-4,ymax=4,xmin=-6.5,xmax=8.5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{-4/0/F_1,0/0/I,4/0/F_2,-5/0/A_1,5/0/A_2,0/-3/B_1,0/3/B_2,7.5/0/A}
+			\draw (I) ellipse (5 cm and 3 cm);
+			\coordinate (M) at ($(I)+({5*cos(145)},{3*sin(145)})$);
+			\tkzDrawSegments(A_1,A B_1,B_2 M,I M,A)
+			\tkzDrawPoints[fill=black](I,F_1,F_2,M,A_1,A_2,B_1,B_2,A)
+			\tkzLabelPoints[above](M,B_2)
+			\tkzLabelPoints[left](A_1)
+			\tkzLabelPoints[right](A)
+			\tkzLabelPoints[below right](I,A_2)
+			\tkzLabelPoints[below](F_1,F_2,B_1)
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+
+\begin{vd}%[Nguyễn Chính Tâm, dự án EX-CTGN]%[2D4K5-1]
+	Với $z$ là các số phức thỏa mãn $\left|z-i\right|+\left|z-3+3i\right|=6$, giá trị lớn nhất của $P=\left|z-6+7i\right|$ là
+	\choice
+	{\True $\dfrac{21}{2}$}
+	{$2\sqrt{5}$}
+	{$\dfrac{23}{2}$}
+	{$\dfrac{19}{2}$}
+	\loigiai{
+		\textbf{Cách 1}. Ta có $z_1=i$ và $z_2=3-3i$ nên $F_1(0;1)$ và $F_2(3;-3)$.  Vì $F_1F_2=5<6$ nên điểm $M$ biểu diễn số phức $z$ nằm trên elip $(E)$ có độ dài trục lớn là $2a=6$.  Tâm của elip $(E)$ là $I\left(\dfrac{3}{2};-1\right)$. Do $z_0=6-7i$ nên $A(6;-7)$.\\
+		Ta có $z_0-z_1=6-8i$ và $z_0-z_2=3-4i$, suy ra $z_0-z_1=2(z_0-z_2)$. Do đó $A\in F_1F_2$.\\
+		Mặt khác $\left|z_0-\dfrac{z_1+z_2}{2}\right|=\dfrac{15}{2}>3$ nên $A$ nằm ngoài elip. Áp dụng công thức $(2)$ ta có $$P_{\max}=AI+a=\left|z_0-\dfrac{z_1+z_2}{2}\right|+a=\dfrac{21}{2}.$$
+		\textbf{Cách 2}. Do $A$ nằm ngoài elip $(E)$ nên khi $M$ trùng với $A_1$ thì  $$P_{\max}=AI+a=\left|z_0-\dfrac{z_1+z_2}{2}\right|+a=\dfrac{21}{2}.$$
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=0.5, line join = round, line cap = round]
+			\tkzInit[ymin=-4,ymax=4,xmin=-6.5,xmax=8.5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{-4/0/F_1,0/0/I,4/0/F_2,-5/0/A_1,5/0/A_2,0/-3/B_1,0/3/B_2,7.5/0/A}
+			\draw (I) ellipse (5 cm and 3 cm);
+			\coordinate (M) at ($(I)+({5*cos(145)},{3*sin(145)})$);
+			\tkzDrawSegments(A_1,A B_1,B_2 M,I M,A)
+			\tkzDrawPoints[fill=black](I,F_1,F_2,M,A_1,A_2,B_1,B_2,A)
+			\tkzLabelPoints[above](M,B_2)
+			\tkzLabelPoints[left](A_1)
+			\tkzLabelPoints[right](A)
+			\tkzLabelPoints[below right](I,A_2)
+			\tkzLabelPoints[below](F_1,F_2,B_1)
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+
+\begin{vd}%[Nguyễn Chính Tâm, dự án EX-CTGN]%[2D4K5-1]
+	Với $z$ là các số phức thỏa mãn $\left|z-1+i\right|+\left|z+3-5i\right|=15$, giá trị lớn nhất của $P=\left|z-3+4i\right|$ là
+	\choice
+	{$\dfrac{10+4\sqrt{5}}{2}$}
+	{$\dfrac{12+4\sqrt{5}}{2}$}
+	{\True $\dfrac{15+4\sqrt{13}}{2}$}
+	{$\dfrac{15}{2}$}
+	\loigiai{
+		\textbf{Cách 1}. Ta có $z_1=1-i$ và $z_2=-3+5i$ nên $F_1(1;-1)$ và $F_2(-3;5)$. Vì $F_1F_2=2\sqrt{13}<15$ nên điểm $M$ biểu diễn số phức $z$ nằm trên elip $(E)$ có độ dài trục lớn là $2a=15$. Tâm của elip $(E)$ là $I\left(-1;2\right)$. Do $z_0=3-4i$ nên $A(3;-4)$.\\
+		Ta có $z_0-z_1=2-3i$ và $z_0-z_2=6-9i$, suy ra $z_0-z_1=\dfrac{1}{3}(z_0-z_2)$. Do đó $A\in F_1F_2$.\\
+		Mặt khác $\left|z_0-\dfrac{z_1+z_2}{2}\right|=2\sqrt{13}<\dfrac{15}{2}$ nên $A$ nằm trong elip. Áp dụng công thức $(3)$ ta có $$P_{\max}=AI+a=\left|z_0-\dfrac{z_1+z_2}{2}\right|+a=\dfrac{15+4\sqrt{13}}{2}.$$
+		\textbf{Cách 2}. Do $A$ nằm trong elip $(E)$ nên khi $M$ trùng với $A_1$ thì  $$P_{\max}=AI+a=\left|z_0-\dfrac{z_1+z_2}{2}\right|+a=\dfrac{15+4\sqrt{13}}{2}.$$
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=0.5, line join = round, line cap = round]
+			\tkzInit[ymin=-4,ymax=4,xmin=-6.5,xmax=8.5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{-4/0/F_1,0/0/I,4/0/F_2,-5/0/A_1,5/0/A_2,0/-3/B_1,0/3/B_2,3/0/A}
+			\draw (I) ellipse (5 cm and 3 cm);
+			\coordinate (M) at ($(I)+({5*cos(145)},{3*sin(145)})$);
+			\tkzDrawSegments(A_1,A_2 B_1,B_2 M,I M,A)
+			\tkzDrawPoints[fill=black](I,F_1,F_2,M,A_1,A_2,B_1,B_2,A)
+			\tkzLabelPoints[above](M,B_2)
+			\tkzLabelPoints[left](A_1)
+			\tkzLabelPoints[right](A_2)
+			\tkzLabelPoints[below right](I)
+			\tkzLabelPoints[below](F_1,F_2,B_1,A)
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+
+\begin{vd}%[Nguyễn Chính Tâm, dự án EX-CTGN]%[2D4K5-1]
+	Với $z$ là các số phức thỏa mãn $\left|z+2-2i\right|+\left|z+2i\right|=9$, giá trị lớn nhất của $P=\left|z-1+4i\right|$ là
+	\choice
+	{$\dfrac{11}{2}$}
+	{\True $\dfrac{17}{2}$}
+	{$\dfrac{15}{2}$}
+	{$8$}
+	\loigiai{
+		\textbf{Cách 1}.Ta có $z_1=-2+2i$ và $z_2=-2i$ nên $F_1(-2;2)$ và $F_2(0;-2)$. Vì $F_1F_2=2\sqrt{5}<9$ nên điểm $M$ biểu diễn số phức $z$ nằm trên elip $(E)$ có độ dài trục lớn là $2a=9$. Tâm của elip $(E)$ là $I\left(-1;0\right)$. Do $z_0=1-4i$ nên $A(1;-4)$.\\
+		Ta có $z_0-z_1=3-6i$ và $z_0-z_2=1-2i$, suy ra $z_0-z_1=3(z_0-z_2)$. Do đó $A\in F_1F_2$.\\
+		Mặt khác $\left|z_0-\dfrac{z_1+z_2}{2}\right|=4<\dfrac{9}{2}$ nên $A$ nằm trong elip. Áp dụng công thức $(3)$ ta có $$P_{\max}=AI+a=\left|z_0-\dfrac{z_1+z_2}{2}\right|+a=\dfrac{17}{2}.$$
+		\textbf{Cách 2}. Do $A$ nằm trong elip $(E)$ nên khi $M$ trùng với $A_1$ thì  $$P_{\max}=AI+a=\left|z_0-\dfrac{z_1+z_2}{2}\right|+a=\dfrac{17}{2}.$$
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=0.5, line join = round, line cap = round]
+			\tkzInit[ymin=-4,ymax=4,xmin=-6.5,xmax=8.5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{-4/0/F_1,0/0/I,4/0/F_2,-5/0/A_1,5/0/A_2,0/-3/B_1,0/3/B_2,3/0/A}
+			\draw (I) ellipse (5 cm and 3 cm);
+			\coordinate (M) at ($(I)+({5*cos(145)},{3*sin(145)})$);
+			\tkzDrawSegments(A_1,A_2 B_1,B_2 M,I M,A)
+			\tkzDrawPoints[fill=black](I,F_1,F_2,M,A_1,A_2,B_1,B_2,A)
+			\tkzLabelPoints[above](M,B_2)
+			\tkzLabelPoints[left](A_1)
+			\tkzLabelPoints[right](A_2)
+			\tkzLabelPoints[below right](I)
+			\tkzLabelPoints[below](F_1,F_2,B_1,A)
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Chính Tâm, dự án EX-CTGN]%[2D4K5-1]
+	Với $z$ là các số phức thỏa mãn $\left|z+2-i\right|+\left|z-i\right|=6$, giá trị nhỏ nhất của $P=\left|z+1\right|$ là
+	\choice
+	{\True $2\sqrt{2}-1$}
+	{$2$}
+	{$\dfrac{\sqrt{2}}{2}$}
+	{$2\sqrt{2}+1$}
+	\loigiai{
+		\textbf{Cách 1}. Ta có $z_1=-2+i$ và $z_2=i$ nên $F_1(-2;1)$ và $F_2(0;1)$. Vì $F_1F_2=2<6$ nên điểm $M$ biểu diễn số phức $z$ nằm trên elip $(E)$ có độ dài trục lớn là $2a=6$, độ dài trục nhỏ là $$2b=2\sqrt{a^2-c^2}=2\sqrt{3^2-1^2}=4\sqrt{2}.$$  Tâm của elip $(E)$ là $I\left(-1;1\right)$. Do $z_0=-1$ nên $A(-1;0)$.\\
+		Ta có $\left|z_0-z_1\right|=\left|z_0-z_2\right|=\sqrt{2}$ nên $A$ nằm trên trục nhỏ của elip $(E)$. Áp dụng công thức $(4)$ ta có $P_{\min}=\left|\left|z_0-\dfrac{z_1+z_2}{2}\right|-b\right|=2\sqrt{2}-1$.\\
+		\textbf{Cách 2}. Do $A$ nằm trên trục nhỏ của elip $(E)$ nên khi $M$ trùng với $B_1$ hoặc $M$ trùng với $B_2$ thì $$P_{\min}=\left|AI-b\right|=\left|\left|z_0-\dfrac{z_1+z_2}{2}\right|-b\right|=2\sqrt{2}-1.$$
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=0.5, line join = round, line cap = round]
+			\tkzInit[ymin=-4,ymax=4,xmin=-6.5,xmax=8.5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{-4/0/F_1,0/0/I,4/0/F_2,-5/0/A_1,5/0/A_2,0/-3/B_1,0/3/B_2,0/-2/A}
+			\draw (I) ellipse (5 cm and 3 cm);
+			\coordinate (M) at ($(I)+({5*cos(145)},{3*sin(145)})$);
+			\tkzDrawSegments(A_1,A_2 B_1,B_2 M,I M,A)
+			\tkzDrawPoints[fill=black](I,F_1,F_2,M,A_1,A_2,B_1,B_2,A)
+			\tkzLabelPoints[above](M,B_2)
+			\tkzLabelPoints[left](A_1)
+			\tkzLabelPoints[right](A_2,A)
+			\tkzLabelPoints[below right](I)
+			\tkzLabelPoints[below](F_1,F_2,B_1)
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+
+\begin{vd}%[Nguyễn Chính Tâm, dự án EX-CTGN]%[2D4K5-1]
+	Với $z$ là các số phức thỏa mãn $\left|z+1-i\right|+\left|z+1+i\right|=4$, gọi $P_{\min}$ là giá trị nhỏ nhất của $P=\left|z-1\right|$. Khi đó $\sqrt{2}+P_{\min}$ bằng
+	\choice
+	{$3$}
+	{$4$}
+	{$1$}
+	{\True$2$}
+	\loigiai{
+		\textbf{Cách 1}. Ta có $z_1=-1+i$ và $z_2=-1-i$ nên $F_1(-1;1)$ và $F_2(-1;-1)$. Vì $F_1F_2=\sqrt{2}<2$ nên điểm $M$ biểu diễn số phức $z$ nằm trên elip $(E)$ có độ dài trục lớn là $2a=4$, độ dài trục nhỏ là $$2b=2\sqrt{a^2-c^2}=2\sqrt{2^2-(\sqrt{2})^2}=2\sqrt{2}.$$  Tâm của elip $(E)$ là $I\left(-1;0\right)$. Do $z_0=1$ nên $A(1;0)$.\\
+		Ta có $\left|z_0-z_1\right|=\left|z_0-z_2\right|=\sqrt{5}$ nên $A$ nằm trên trục nhỏ của elip $(E)$. Áp dụng công thức $(4)$ ta có $P_{\min}=\left|\left|z_0-\dfrac{z_1+z_2}{2}\right|-b\right|=2-\sqrt{2}$. Do đó $\sqrt{2}+P_{\min}=2$.\\
+		\textbf{Cách 2}. Do $A$ nằm trên trục nhỏ của elip $(E)$ nên khi $M$ trùng với $B_1$ hoặc $M$ trùng với $B_2$ thì $$P_{\min}=\left|AI-b\right|=\left|\left|z_0-\dfrac{z_1+z_2}{2}\right|-b\right|=2-\sqrt{2}.$$
+		Do đó $\sqrt{2}+P_{\min}=2$.
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=0.5, line join = round, line cap = round]
+			\tkzInit[ymin=-4,ymax=4,xmin=-6.5,xmax=8.5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{-4/0/F_1,0/0/I,4/0/F_2,-5/0/A_1,5/0/A_2,0/-3/B_1,0/3/B_2,0/-2/A}
+			\draw (I) ellipse (5 cm and 3 cm);
+			\coordinate (M) at ($(I)+({5*cos(145)},{3*sin(145)})$);
+			\tkzDrawSegments(A_1,A_2 B_1,B_2 M,I M,A)
+			\tkzDrawPoints[fill=black](I,F_1,F_2,M,A_1,A_2,B_1,B_2,A)
+			\tkzLabelPoints[above](M,B_2)
+			\tkzLabelPoints[left](A_1)
+			\tkzLabelPoints[right](A_2,A)
+			\tkzLabelPoints[below right](I)
+			\tkzLabelPoints[below](F_1,F_2,B_1)
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+
+\begin{dang}{Tìm min và max của $|z|$ }
+	Cho số phức $z$ thỏa mãn $\left|z+\dfrac{z_0}{z}\right|=K$, $z_0$ là số phức cho trước.
+	Tìm giá trị lớn nhất, nhỏ nhất của $|z|$. Khi đó $$\frac{\sqrt{K^2+4|z_0|}-K}{2}\leq|z|\leq\frac{\sqrt{K^2+4|z_0|}+K}{2}.$$
+\end{dang}
+\begin{vd}%[Ha Pham, Du an EX-CTGN]%[2D4K2-5]
+	
+	Cho số phức $z$ thỏa mãn $\left|z+\dfrac{1}{z}\right|=3$.
+	Tìm tổng giá trị lớn nhất $M$ và giá trị nhỏ nhất $m$ của $|z|$. 
+	\choice
+	{$3$}
+	{$5$ }
+	{\True $\sqrt{13}$}
+	{$\sqrt{5}$}
+	\loigiai{
+		{\bf Cách 1. }Áp dụng công thức với $z_0=1$ và $K=3$ ta có $$M+m=\frac{\sqrt{K^2+4|z_0|}-K}{2}+\frac{\sqrt{K^2+4|z_0|}+K}{2}=\sqrt{K^2+4}=\sqrt{13}.$$
+		{\bf Cách 2. }Ta có $K^2=\left|z+\dfrac{1}{z}\right|^2=\left( z+\dfrac{1}{z}\right)\left( \bar{z}+\dfrac{1}{\bar{z}}\right)=|z|^2+\dfrac{1}{|z|^2}+\dfrac{z^2+\bar{z}^2}{|z|^2}=\dfrac{|z|^4+(z+\bar{z})^2-2|z|^2+1}{|z|^2}$. Suy ra $|z|^4-|z|^2(K^2+2)+1=-(z+\bar{z})^2\leq0$. Khi đó $$\dfrac{\sqrt{K^2+4}-K}{2}\leq|z|\leq\dfrac{\sqrt{K^2+4}+K}{2}.$$ Vậy $M+m=\sqrt{K^2+4}=\sqrt{13}.$
+	}
+\end{vd}
+\begin{vd}%[Ha Pham, Du an EX-CTGN]%[2D4K2-5]
+	Cho $z$ là số phức thỏa mãn $\left|z+\dfrac{i}{z}\right|=4$. Tìm giá trị nhỏ nhất của $|z|$.
+	
+	\choice
+	{$2+\sqrt{5}$}
+	{$\sqrt{2}+5$}
+	{\True $\sqrt{5}-2$}
+	{$4$}
+	\loigiai{
+		{\bf Cách 1. }Áp dụng công thức với $z_0=i$ và $K=4$ ta được giá trị nhỏ nhất của $|z|$ là $\sqrt{5}-2$. \\
+		{\bf Cách 2. }Ta có $K^2=\left|z+\dfrac{i}{z}\right|^2=\left( z+\dfrac{i}{z}\right)\left( \bar{z}+\dfrac{i}{\bar{z}}\right)=|z|^2-\dfrac{1}{|z|^2}+\dfrac{z^2+\bar{z}^2}{|z|^2}=\dfrac{|z|^4+(z+\bar{z})^2-2|z|^2-1}{|z|^2}$. Suy ra $|z|^4-|z|^2(K^2+2)-1=-(z+\bar{z})^2\leq0$. Khi đó $$\frac{\sqrt{K^2+4}-K}{2}\leq|z|\leq\frac{\sqrt{K^2+4}+K}{2}.$$ Vậy giá trị nhỏ nhất của $|z|$ là $\dfrac{\sqrt{K^2+4}-K}{2}=\dfrac{\sqrt{4^2+4}-4}{2}=\sqrt{5}-2$.
+	}
+\end{vd}
+
+\begin{dang}{Cực trị của $|z|$ liên quan đến elip}
+	Cho số phức $z$ thỏa mãn $|z-c|+|z+c|=2a$, trong đó $a, c$ là các số thực thỏa mãn $a>c$. 
+	Ta có quỹ tích điểm $M(x,y)$ biểu diễn $z$ là elip $\dfrac{x^2}{a^2}+\dfrac{y^2}{a^2-c^2}=1$.
+	Khi đó $$\sqrt{a^2-c^2}\leq|z|\leq a.$$
+	\begin{center}
+		\begin{tikzpicture}[scale=0.5, dot/.style={draw,fill,circle,inner sep=1pt}]
+		\def\a{4} % large half axis
+		\def\b{3} % small half axis
+		\def\angle{-45} % angle at which X is placed
+		% Draw the ellipse
+		\draw (0,0) ellipse ({\a} and {\b});
+		% Draw the inner lines and labels
+		\draw (-\a,0) coordinate[label={left:$-a$}] (A)
+		-- (\a,0) coordinate[label={right:$a$}] (B);
+		\draw (0,-\b) coordinate[label={below:$-b$}] (D)
+		-- (0,\b) coordinate[label={above:$b$}] (C);
+		\coordinate[label={below right:$O$}] (O) at (0,0);
+		% Nodes at the focal points
+		\node[dot,label={below:$-c$}] (F1) at ({-sqrt(\a*\a-\b*\b)},0) {};
+		\node[dot,label={below:$c$}] (F2) at ({+sqrt(\a*\a-\b*\b)},0) {};
+		\end{tikzpicture}
+\end{center}\end{dang}
+\begin{vd}%[Ha Pham, Du an EX-CTGN]%[2D4K2-5]
+	
+	Cho số phức $z$ thỏa mãn $|z-4|+|z+4|=10$. Tìm giá trị  lớn nhất, nhỏ nhất của $|z|$. 
+	\choice
+	{$10$ và $4$}
+	{$5$ và $4$}
+	{\True $5$ và $3$}
+	{$4$ và $3$}
+	\loigiai{
+		{\bf Cách 1. }Áp dụng công thức với $c=4, a=5$ ta có giá trị  lớn nhất, nhỏ nhất của $|z|$ là $a=5$ và $\sqrt{a^2-c^2}=3$.\\
+		{\bf Cách 2. } 
+		Ta có quỹ tích điểm $M(x,y)$ biểu diễn $z$ là elip $\dfrac{x^2}{25}+\dfrac{y^2}{9}=1$. Do đó, giá trị lớn nhất, nhỏ nhất của $|z|$ lần lượt là nửa độ dài trục lớn và nửa độ dài trục bé. Vậy giá trị lớn nhất, nhỏ nhất của $|z|$ lần lượt là $5$ và $3$.\\
+		\begin{center}
+			\begin{tikzpicture}[scale=0.5, dot/.style={draw,fill,circle,inner sep=1pt}]
+			\def\a{4} % large half axis
+			\def\b{3} % small half axis
+			\def\angle{-45} % angle at which X is placed
+			% Draw the ellipse
+			\draw (0,0) ellipse ({\a} and {\b});
+			% Draw the inner lines and labels
+			\draw (-\a,0) coordinate[label={left:$-5$}] (A)
+			-- (\a,0) coordinate[label={right:$5$}] (B);
+			\draw (0,-\b) coordinate[label={below:$-3$}] (D)
+			-- (0,\b) coordinate[label={above:$3$}] (C);
+			\coordinate[label={below right:$O$}] (O) at (0,0);
+			% Nodes at the focal points
+			\node[dot,label={below:$-4$}] (F1) at ({-sqrt(\a*\a-\b*\b)},0) {};
+			\node[dot,label={below:$4$}] (F2) at ({+sqrt(\a*\a-\b*\b)},0) {};
+			\end{tikzpicture}
+		\end{center}
+		
+	}
+\end{vd}
+\begin{vd}%[Ha Pham, Du an EX-CTGN]%[2D4K2-5]
+	
+	Cho số phức $z$ thỏa mãn $|\bar{z}-4|+|\bar{z}+4|=10$. Tìm giá trị  lớn nhất, nhỏ nhất của $|z|$. 
+	\choice
+	{$10$ và $4$}
+	{$5$ và $4$}
+	{\True $5$ và $3$}
+	{$4$ và $3$}
+	\loigiai{
+		Ta có $|\bar{z}-4|+|\bar{z}+4|=10$ tương đương với $|z-4|+|z+4|=10$ vì $|\bar{z}-4|=|z-4|$, $|z+4|=|\bar{z}+4|$. Do đó bài toán trở thành bài toán trong Ví dụ 3.\\
+		{\bf Cách 1. }Áp dụng công thức với $c=4, a=5$ ta có giá trị  lớn nhất, nhỏ nhất của $|z|$ là $5$ và $3$.\\
+		{\bf Cách 2. } 
+		Ta có quỹ tích điểm $M(x,y)$ biểu diễn $z$ là elip $\dfrac{x^2}{25}+\dfrac{y^2}{9}=1$. Do đó, giá trị lớn nhất, nhỏ nhất của $|z|$ lần lượt là nửa độ dài trục lớn và nửa độ dài trục bé. Vậy giá trị lớn nhất, nhỏ nhất của $|z|$ lần lượt là $5$ và $3$.
+	}
+\end{vd}
+
+\begin{dang}{Tìm giá trị lớn nhất và nhỏ nhất của $|z|$}
+	Cho số phức $z, z_1, z_2$ thỏa mãn $|z_1z+z_2|+|z_1z-z_2|=K$ với $z_1=a+bi$, $z_2=c+di$, $z=x+yi$. Tìm giá trị lớn nhất và nhỏ nhất của $|z|$. Khi đó 
+	$$\sqrt{\frac{K^2-4|z_2|^2}{4|z_1|^2}}\leq|z|\leq\frac{K}{2|z_1|}.$$
+\end{dang}
+\begin{vd}%[Ha Pham, Du an EX-CTGN]%[2D4K2-5]
+	Cho số phức $z$ thỏa mãn $|z+1+3i|+|z-1-3i|=8$. Tìm giá trị lớn nhất của $|z|$.
+	\choice
+	{$4$}
+	{$0$}
+	{\True $2$}
+	{$\sqrt{2}$}
+	\loigiai{
+		{\bf Cách 1. } Áp dụng với $z_1=1$, $z_2=1+3i$, $K=8$ ta có giá trị lớn nhất của $|z|$ là $\dfrac{K}{2|z_1|}=\dfrac{8}{2}=4.$\\
+		{\bf Cách 2. } Ta có $|z|=\dfrac{|2z|}{2}=\dfrac{|z+1+3i+z-1-3i|}{2}\leq\dfrac{|z+1+3i|+|z-1-3i|}{2}=\dfrac{8}{2}=4.$
+	}
+\end{vd}
+\begin{vd}%[Ha Pham, Du an EX-CTGN]%[2D4K2-5]
+	Cho số phức $z$ thỏa mãn $|z+2|+|z-2|=4$. Tìm giá trị nhỏ nhất của $|z|$.
+	\choice
+	{\True $0$}
+	{$1$}
+	{$2$}
+	{$4$}
+	\loigiai{
+		{\bf Cách 1. } Áp dụng với $z_1=1$, $z_2=2$, $K=4$ ta có giá trị nhỏ nhất của $|z|$ là $\sqrt{\dfrac{K^2-4|z_2|^2}{4|z_1|^2}}=\sqrt{\dfrac{4^2-4.2^2}{4.1^2}}=0$\\}
+	{\bf Cách 2. } Ta có $|z|\geq0$ và $|0+2|+|0-2|=4$. Do đó giá trị nhỏ nhất của $|z|$ là $0$.
+\end{vd}

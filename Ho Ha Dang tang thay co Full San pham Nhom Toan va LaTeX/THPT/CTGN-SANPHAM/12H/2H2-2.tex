@@ -1,0 +1,605 @@
+\section{Mặt trụ và khối trụ}
+\subsection{Tóm tắt lí thuyết}
+\begin{dn}
+	\immini{Cho hình chữ nhật $AOO'D$ quay xung quanh đường thẳng chứa một cạnh, chẳng hạn cạnh $OO'$, thì đường gấp khúc $OADO'$ tạo thành một hình được gọi là hình trụ tròn xoay hay còn gọi tắt là hình trụ.
+	}{\begin{tikzpicture}[line width=0.6pt,line cap=round,line join=round,scale=0.6]
+		\coordinate (A) at (-2,0);
+		\coordinate (O) at (0,0);
+		\coordinate (B) at ($(O)!-1!(A)$);
+		\coordinate (C) at ($(B)+(0,3)$);
+		\coordinate (O') at ($(O)+(0,3)$);
+		\coordinate (D) at ($(A)+(0,3)$);
+		\draw[dashed] (B) arc (0:180:2 and 0.8);
+		\draw (B) arc (0:-180:2 and 0.8);
+		\draw (C) arc (0:360:2 and 0.8);
+		\draw (A)--(D)--(O');
+		\draw (C)--(B);
+		\draw[dashed] (A)--(O) (O)--(O');
+		\tkzDrawPoints[size=3pt,fill=black](O,O')
+		%\draw (0,1.5) node[left]{$h$};
+		%\draw (1,0.3) node[left]{$r$};
+	%\tkzDrawPoints[fill=black](A,B,O,O')
+	\tkzLabelPoints[left](A,D)
+		\tkzLabelPoints[right](O,O')
+		\tkzDrawPolygon[fill=gray!40,opacity=.5,draw=none](A,D,O',O)
+		\end{tikzpicture}}
+\end{dn}
+\begin{dn}
+	Khối trụ tròn xoay là phần không gian được giới hạn bởi một hình trụ tròn xoay kể cả hình trụ đó. Khối trụ tròn xoay còn được gọi tắt là khối trụ.
+\end{dn}
+
+\subsection{Các dạng toán và công thức giải nhanh}
+
+\begin{dang}{Tứ diện nội tiếp hình trụ}
+\immini{
+Cho hình trụ có hai đáy là đường tròn tâm $O$ và tâm $O'$; trên đường tròn tâm $O$ kẻ dây cung $MN$, trên đường tròn tâm $O'$ kẻ dây cung $PQ$, biết $MN$ và $PQ$ chéo nhau. Khi đó $$V_{MNPQ}= \dfrac{1}{6} \cdot MN \cdot PQ \cdot OO' \cdot \sin (MN,PQ).$$
+}{
+\begin{tikzpicture}[scale=0.8]
+\def \x{1.8} %bán kính trục lớn elip
+\def \y{0.8} %bán kính trục bé elip
+\def \h{3.5} %chiều cao hình trụ
+\coordinate (A) at (0,0);
+\coordinate (B) at (2*\x,0);
+\coordinate (O) at ($(A)!0.5!(B)$);
+\coordinate (O') at ($(O)+(0,\h)$);
+\coordinate (A') at ($(A)+(0,\h)$);
+\coordinate (B') at ($(B)+(0,\h)$);
+\coordinate (M) at ($(O)+({\x*cos(100)},{\y*sin(100)})$);
+\coordinate (N) at ($(O)+({\x*cos(-40)},{\y*sin(-40)})$);
+\coordinate (P) at ($(O')+({\x*cos(50)},{\y*sin(50)})$);
+\coordinate (Q) at ($(O')+({\x*cos(-130)},{\y*sin(-130)})$);
+\draw[dashed] (B) arc(0:180:\x cm and \y cm);
+\draw (B) arc(0:-180:\x cm and \y cm);
+\draw (O') ellipse (\x cm and \y cm);
+\tkzDrawSegments(A,A' B,B' P,Q)
+\tkzDrawSegments[dashed](M,Q M,N N,Q N,P P,M O,O')
+\tkzDrawPoints[fill=black,size=3](O,O',M,N,P,Q)
+\tkzLabelPoints[above](Q,O')
+\tkzLabelPoints[below](O,N)
+\tkzLabelPoints[above right](P)
+\tkzLabelPoints[above left](M)
+\end{tikzpicture}	
+}
+\end{dang}
+\begin{vd}%[Nguyễn Sỹ- EX-CTGN]%[2H2K1-3]
+Cho hình trụ có hai đáy là đường tròn tâm $O$ và tâm $O'$ có bán kính $r=a$ và $OO'=2a$. Trên đường tròn tâm $O$ kẻ đường kính $MN$, trên đường tròn tâm $O'$ kẻ đường kính $PQ$, biết $MN$ và $PQ$ vuông góc với nhau. Tính thể tích khối tứ diện $MNPQ$
+\choice
+{$\dfrac{8a^3}{3}$}
+{$\dfrac{2a^3}{3}$}
+{\True $\dfrac{4a^3}{3}$}
+{$\dfrac{a^3}{3}$}
+\loigiai{
+\immini{
+Áp dụng công thức
+$V_{MNPQ}= \dfrac{1}{6} \cdot MN \cdot PQ \cdot OO' \cdot \sin (MN,PQ),$\\
+ta có  \[V_{MNPQ} = \dfrac{4a^3}{3}.\]
+}{
+		\begin{tikzpicture}[scale=0.7]
+		\def \x{1.8} %bán kính trục lớn elip
+		\def \y{0.8} %bán kính trục bé elip
+		\def \h{3.5} %chiều cao hình trụ
+		\coordinate (A) at (0,0);
+		\coordinate (B) at (2*\x,0);
+		\coordinate (O) at ($(A)!0.5!(B)$);
+		\coordinate (O') at ($(O)+(0,\h)$);
+		\coordinate (A') at ($(A)+(0,\h)$);
+		\coordinate (B') at ($(B)+(0,\h)$);
+		\coordinate (M) at ($(O)+({\x*cos(120)},{\y*sin(120)})$);
+		\coordinate (N) at ($(O)+({\x*cos(-60)},{\y*sin(-60)})$);
+		\coordinate (P) at ($(O')+({\x*cos(50)},{\y*sin(50)})$);
+		\coordinate (Q) at ($(O')+({\x*cos(-130)},{\y*sin(-130)})$);
+		\draw[dashed] (B) arc(0:180:\x cm and \y cm);
+		\draw (B) arc(0:-180:\x cm and \y cm);
+		\draw (O') ellipse (\x cm and \y cm);
+		\tkzDrawSegments(A,A' B,B' P,Q)
+		\tkzDrawSegments[dashed](M,Q M,N N,Q N,P P,M O,O')
+		\tkzDrawPoints[fill=black,size=3](O,O',M,N,P,Q)
+		\tkzLabelPoints[above](Q,O')
+		\tkzLabelPoints[below](O,N)
+		\tkzLabelPoints[above right](P)
+		\tkzLabelPoints[above left](M)
+		\end{tikzpicture}
+}
+}
+\end{vd}
+
+\begin{vd}%[Nguyễn Sỹ- EX-CTGN]%[2H2K1-3]
+Cho hình trụ có hai đáy là đường tròn tâm $O$ và tâm $O'$ có bán kính $r=a$ và $OO'=2a$. Trên đường tròn tâm $O$ kẻ dây cung $MN$ sao cho góc $\widehat{MON}= 60^\circ $, trên đường tròn tâm $O'$ kẻ đường kính $PQ$, biết $MN$ và $PQ$ tạo với nhau góc $30^\circ$. Tính thể tích $V$ của khối tứ diện $MNPQ$
+\choice
+{\True $\dfrac{a^3}{3}$}
+{$\dfrac{4a^3}{3}$}
+{$\dfrac{8a^3}{3}$}
+{$\dfrac{10a^3}{3}$}
+\loigiai{
+\immini
+{Do $\heva{& OM=ON=a\\& \widehat{MON}=60^\circ} \Rightarrow \triangle MON$ đều, suy ra $MN=a.$\\
+	Áp dụng công thức
+	$V_{MNPQ}= \dfrac{1}{6} \cdot MN \cdot PQ \cdot OO' \cdot \sin (MN,PQ),$ ta có  $V_{MNPQ} = \dfrac{a^3}{3}.$
+}{	
+	\begin{tikzpicture}[scale=.8]
+	\def \x{1.8} %bán kính trục lớn elip
+	\def \y{0.8} %bán kính trục bé elip
+	\def \h{3.5} %chiều cao hình trụ
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (2*\x,0);
+	\coordinate (O) at ($(A)!0.5!(B)$);
+	\coordinate (O') at ($(O)+(0,\h)$);
+	\coordinate (A') at ($(A)+(0,\h)$);
+	\coordinate (B') at ($(B)+(0,\h)$);
+	\coordinate (M) at ($(O)+({\x*cos(60)},{\y*sin(60)})$);
+	\coordinate (N) at ($(O)+({\x*cos(-30)},{\y*sin(-30)})$);
+	\coordinate (P) at ($(O')+({\x*cos(50)},{\y*sin(50)})$);
+	\coordinate (Q) at ($(O')+({\x*cos(-130)},{\y*sin(-130)})$);
+	\draw[dashed] (B) arc(0:180:\x cm and \y cm);
+	\draw (B) arc(0:-180:\x cm and \y cm);
+	\draw (O') ellipse (\x cm and \y cm);
+	\tkzDrawSegments(A,A' B,B' P,Q)
+	\tkzDrawSegments[dashed](M,Q M,N N,Q N,P P,M O,O')
+	\tkzDrawPoints[fill=black,size=3](O,O',M,N,P,Q)
+	\tkzLabelPoints[above](Q,O')
+	\tkzLabelPoints[below](O,N)
+	\tkzLabelPoints[above right](P)
+	\tkzLabelPoints[above right](M)
+	\end{tikzpicture}
+}
+}
+\end{vd}
+
+\begin{dang}{Bài toán tối ưu}
+\immini{
+	Xét các khối trụ có cùng thể tích $V_{0}$. Hỏi bán kính đáy $r$ (hoặc chiều cao $h$) của 
+	hình trụ bằng bao nhiêu để diện tích toàn phần $(S_{tp})$ nhỏ nhất?
+	Ta có $V_0=h\cdot \pi \cdot r^2 \Rightarrow h= \dfrac{V_0}{\pi r^2}$.\\
+Mà $S_{tp}= 2\pi r h+2\pi r^2= 2\pi (rh+r^2)= 2\pi \left( \dfrac{V_0}{\pi r}+r^2\right).$\\
+Áp dụng bất đẳng thức AM-GM, ta có 
+$$ S_{tp}=2 \pi \left( \dfrac{V_0}{2\pi r} + \dfrac{V_0}{2\pi r}+r^2\right) \geq 2\pi \cdot 3 \sqrt[3]{\dfrac{V_0^2}{4\pi}} = 3\cdot \sqrt[3]{2\pi V_0^2}.$$
+}{
+		\begin{tikzpicture}[line width=0.6pt,line cap=round,line join=round,scale=0.8]
+		\coordinate (A) at (-2,0);
+		\coordinate (O) at (0,0);
+		\coordinate (B) at ($(O)!-1!(A)$);
+		\coordinate (C) at ($(B)+(0,3)$);
+		\coordinate (O') at ($(O)+(0,3)$);
+		\coordinate (D) at ($(A)+(0,3)$);
+		\draw[dashed] (B) arc (0:180:2 and 0.8);
+		\draw (B) arc (0:-180:2 and 0.8);
+		\draw (C) arc (0:360:2 and 0.8);
+		\draw (A)--(D)--(O');
+		\draw (C)--(B);
+		\draw[dashed] (A)--(O) (O)--(O');
+		\tkzDrawPoints[size=3pt,fill=black](O,O')
+		\draw (0,1.5) node[left]{$h$};
+		\draw (-1,-0.3) node[left]{$r$};
+		%\tkzDrawPoints[fill=black](A,B,O,O')
+		\tkzLabelPoints[left](A,D)
+		\tkzLabelPoints[right](O,O')
+		%\tkzDrawPolygon[fill=gray!40,opacity=.5,draw=none](A,D,O',O)
+		\end{tikzpicture}
+}
+Đẳng thức xảy ra khi $r = \sqrt[3]{\dfrac{V_0}{2\pi}}.$ Khi đó $h=\sqrt[3]{\dfrac{4V_0}{\pi}}.$ \\
+\end{dang}
+\begin{vd}%[Nguyễn Sỹ- EX-CTGN]%[2H2G1-4]
+	Khi sản xuất vỏ lon sữa bò hình trụ, các nhà thiết kế luôn đặt mục tiêu sao cho chi phí nguyên liệu làm vỏ lon là ít nhất, tức là diện tích toàn phần của hình trụ là nhỏ nhất. Muốn thể tích khối trụ đó bằng $2$ và diện tích toàn phần phần hình trụ nhỏ nhất thì bán kính đáy bằng bao nhiêu?
+	\choice
+	{ $\dfrac{2}{\sqrt[3]{\pi}}$}
+	{\True $\dfrac{1}{\sqrt[3]{\pi}}$}
+	{$\dfrac{2}{\pi}$}
+	{$\dfrac{1}{2\pi}$}
+	\loigiai
+	{\immini{
+			Gọi $h$ và $r$ là chiều cao và bán kính đáy của lon. Ta có $V=h\pi r^2 \Rightarrow h=\dfrac{2}{\pi r^2}.$\\
+			Ta có $S_{\text{xq}}=2\pi rh+2\pi r^2=\dfrac{2}{r}+\dfrac{2}{r}+2\pi r^2$.\\
+			Áp dụng bất đẳng thức AM-GM, ta có $S_{\text{xq}} \geq 3\sqrt[3]{\dfrac{2}{r}\cdot \dfrac{2}{r}\cdot 2\pi r^2}= 6\sqrt[3]{\pi}.$\\
+			Đẳng thức xảy ra khi $\dfrac{2}{r}=2\pi r^2 \Leftrightarrow r=\dfrac{1}{\sqrt[3]{\pi}}.$
+		}
+		{\begin{tikzpicture}[line width=0.6pt,line cap=round,line join=round,scale=0.8]
+			\coordinate (A) at (-2,0);
+			\coordinate (O) at (0,0);
+			\coordinate (B) at ($(O)!-1!(A)$);
+			\coordinate (C) at ($(B)+(0,3)$);
+			\coordinate (O') at ($(O)+(0,3)$);
+			\coordinate (D) at ($(A)+(0,3)$);
+			\draw[dashed] (B) arc (0:180:2 and 0.8);
+			\draw (B) arc (0:-180:2 and 0.8);
+			\draw (C) arc (0:360:2 and 0.8);
+			\draw (A)--(D)--(C)--(B);
+			\draw[dashed] (A)--(B) (O)--(O');
+			\tkzDrawPoints[size=3pt,fill=black](O,O')
+			\draw (0,1.5) node[left]{$h$};
+			\draw (1,0.3) node[left]{$r$};
+			\end{tikzpicture}}
+\noindent	{\bf{Cách 2}.} Áp dụng CTGN, ta có khi $r = \sqrt[3]{\dfrac{V_0}{2\pi}}=\dfrac{1}{\sqrt[3]{\pi}},$ thì diện tích toàn phần nhỏ nhất.
+	}
+\end{vd}
+
+\begin{vd}%[Nguyễn Sỹ- EX-CTGN]%[2H2G1-4]
+	Một công ty cần sản xuất những chiếc bồn chứa nước dạng hình trụ với thể tích mỗi chiếc bồn bằng $1000$ lít bằng inox. Tính chiều cao $h$ của chiếc bồn sao cho diện tích toàn phần của bồn chứa nước đạt giá trị nhỏ nhất.
+		\choice
+		{$h =\sqrt{\dfrac{4}{\pi}}$ (m)}
+		{\True $h=\sqrt[3]{\dfrac{4}{\pi}}$ (m) }
+		{$h=\sqrt[3]{\dfrac{3}{\pi}}$ (m) }
+		{$h=\sqrt[3]{\dfrac{16}{\pi}}$ (m) }
+		\loigiai
+		{ Áp dụng TCGN, ta có diện tích toàn phần của bồn chứa nước đạt giá trị nhỏ nhất khi $h=\sqrt[3]{\dfrac{4V_0}{\pi}}=\sqrt[3]{\dfrac{4}{\pi}}$ (m).
+		}
+\end{vd}
+
+\begin{dang}{Thể tích phiến trụ (trụ cụt).}
+\immini{
+	Cho phiến trụ với các kích thước như hình vẽ. Ta có công thức thể tích hình phiến trụ là $V=\pi R^2\dfrac{h_1+h_2}{2}$
+}{
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
+	\draw (4.,4.5)-- (4.,-0.5);
+	\draw [dash pattern=on 2pt off 2pt] (-1.,-0.5)-- (4.,-0.5);
+	\draw (-1.,2.15)-- (-1.,-0.5);
+	\draw[dashed](4,-0.5) arc (0:180:2.5 and 1);
+	\draw(-1.,-0.5) arc (180:360:2.5 and 1);
+	\draw (4,4.5) .. controls (3.5,3.5) and (-0.5,1.65) .. (-1,2.15);
+	\draw (-1,2.15) .. controls (-0.5,3.1) and (3.5,4.95) .. (4,4.5);
+	\begin{scriptsize}
+	\draw  (4.,2.5) node[right] {$h_1$};
+	\draw  (-1.,0.85) node[left] {$h_2$};
+	\draw  (0.3,-1) node[right] { $R$};
+	\end{scriptsize}
+	\tkzDefPoints{-1/2.15/A,4/4.5/B}
+	\tkzDrawPoints(A,B)
+	\tkzDefPoints{1.5/-0.5/O}
+	\tkzDrawPoints(O)
+	\end{tikzpicture}
+}
+\end{dang}
+
+\begin{vd}%[Nguyễn Sỹ- EX-CTGN]%[2H2G1-1]
+	\immini{Cho phiến trụ có bán kính đáy $R=3$ (cm) và các chiều cao $h_1=5$ (cm), $h_2=6$ (cm) (như hình vẽ bên). Tính thể tích $V$ của phiến trụ đã cho.
+	\choice
+	{$V= \dfrac{11\pi}{2}$ (cm$^3$)}
+	{$V=\dfrac{55\pi}{2}$ (cm$^3$)}
+	{$V=50\pi$ (cm$^3$)}
+	{\True $V=\dfrac{99\pi}{2}$ (cm$^3$)}	
+}
+	{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.6]
+		\draw (4.,4.5)-- (4.,-0.5);
+		\draw [dash pattern=on 2pt off 2pt] (-1.,-0.5)-- (4.,-0.5);
+		\draw (-1.,2.15)-- (-1.,-0.5);
+		\draw[dashed](4,-0.5) arc (0:180:2.5 and 1);
+		\draw(-1.,-0.5) arc (180:360:2.5 and 1);
+		\draw (4,4.5) .. controls (3.5,3.5) and (-0.5,1.65) .. (-1,2.15);
+		\draw (-1,2.15) .. controls (-0.5,3.1) and (3.5,4.95) .. (4,4.5);
+		\begin{scriptsize}
+		\draw  (4.,2.5) node[right] {$h_1$};
+		\draw  (-1.,0.85) node[left] {$h_2$};
+		\draw  (0.3,-1) node[right] { $R$};
+		\end{scriptsize}
+		\tkzDefPoints{-1/2.15/A,4/4.5/B}
+		\tkzDrawPoints(A,B)
+			\tkzDefPoints{1.5/-0.5/O}
+		\tkzDrawPoints(O)
+		\end{tikzpicture}}
+		\loigiai
+		{ Áp dụng CTGN, ta có  $V=\pi R^2\dfrac{h_1+h_2}{2} =\dfrac{99\pi}{2}$ (cm$^3$).
+		}
+	
+\end{vd}
+
+\begin{vd}%[Nguyễn Sỹ- EX-CTGN]%[2H2G1-1]
+Cho khối trụ có chiều cao $20$. Cắt khối trụ bởi một mặt phẳng được thiết diện là hình elip có độ dài trục lớn bằng $10$. Thiết diện chia khối trụ ban đầu thành hai nửa, nửa trên có thể tích $V_1$, nửa dưới có thể tích $V_2$. Khoảng cách từ một điểm thuộc thiết diện gần đáy dưới nhất và điểm thuộc thiết diện xa đáy dưới nhất tới đáy dưới lần lượt là $8$ và $14$. Tính tỉ số $\dfrac{V_1}{V_2}$.
+\choice
+{$\dfrac{11}{20}$}
+{\True $\dfrac{9}{11}$}
+{$\dfrac{9}{20}$}
+{$\dfrac{6}{11}$}
+\loigiai{
+	\immini{Áp dụng công thức thể tích hình phiến trụ  $V=\pi R^2\dfrac{h_1+h_2}{2}$, ta có
+		$V_1=\pi R^2\dfrac{6+12}{2}=\pi R^2\cdot 9$; $V_2=\pi R^2\dfrac{8+14}{2}=\pi R^2\cdot 11$\\
+		$\Rightarrow \dfrac{V_1}{V_2}=\dfrac{9}{11}$.}{
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.6]
+		\draw (4.,6.15)-- (4.,-0.5);
+		\draw [dash pattern=on 2pt off 2pt] (-1.,-0.5)-- (4.,-0.5);
+		\draw (-1.,6.15)-- (-1.,-0.5);
+		\draw[dashed](4,-0.5) arc (0:180:2.5 and 1);
+		\draw(-1.,-0.5) arc (180:360:2.5 and 1);
+		\draw(4,6.15) arc (0:180:2.5 and 1);
+		\draw(-1.,6.15) arc (180:360:2.5 and 1);
+		\draw (4,4.5) .. controls (3.5,3.5) and (-0.5,1.65) .. (-1,2.15);
+		\draw[dashed](-1,2.15) .. controls (-0.5,3.1) and (3.5,4.95) .. (4,4.5);
+		\begin{scriptsize}
+		\draw  (4.,4.5) node[below right] {$B$};
+		\draw  (4.,2.5) node[right] {$14$cm};
+		\draw  (-1.,0.85) node[left] {$8$cm};
+		\draw  (-1.,3.85) node[left] {$12$cm};
+		\draw  (4.,5.5) node[right] {$6$cm};
+		\draw  (1.,1) node[right] {{\Large $V_2$}};
+		\draw  (0.5,4.5) node[right] {{\Large $V_1$}};
+		\draw  (-1.,2.15) node[left] {$A$};
+		\end{scriptsize}
+		\tkzDefPoints{-1/2.15/A,4/4.5/B}
+		\tkzDrawPoints(A,B)
+			\tkzDefPoints{1.5/-0.5/O}
+		\tkzDrawPoints(O)
+		\end{tikzpicture}
+	}
+}
+\end{vd}
+\begin{dang}{Thể tích hình nêm loại 1}
+	Một hình bán trụ được cắt vát bởi mặt phẳng $(P)$ để tạo thành một cái nêm có bán kính đáy là $R$. Biết mặt phẳng $(P)$ tạo với đáy góc $\alpha$. Thể tích hình nêm là $V=(\dfrac{\pi}{2}-\dfrac{2}{3})R^3\tan \alpha$
+	\begin{center}
+		\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+		\coordinate (A) at (2,2);
+		\coordinate (B) at (-2,-2);
+		\coordinate (D) at (2,-1);
+		\coordinate (C) at (-2,-5);
+		\coordinate (M) at ($(A)!0.5!(B)$);
+		\coordinate (N) at ($(C)!0.5!(D)$);
+		\coordinate (O) at (2.64,-4);
+		\coordinate (E) at (0.3,-3.5);
+		\coordinate (F) at (0.3,-4.95);
+		\coordinate (H) at (2.7,-.7);
+		\coordinate (G) at (2.7,-2.1);
+		\tkzDefPointWith[linear,K=1.2](O,N)\tkzGetPoint{S}
+		\tkzInterLL(F,G)(O,N)\tkzGetPoint{I}
+		\tkzInterLL(E,H)(O,M)\tkzGetPoint{J}
+		\draw (B) .. controls (0.4,-3.8) and (1.6,-4.2) .. (O);
+		\draw (O) .. controls (3.2,-3) and (3.05,-1.8) .. (A);
+		
+		\draw (C) .. controls (1,-5.2) and (2.2,-4.5) .. (O);
+		\draw[dashed] (O) .. controls (3.2,-3) and (2.9,-2) .. (D);
+		\draw (A) -- (B) -- (C) (O) -- (M) (H) -- (E) -- (F);
+		\draw[dashed] (A) -- (D) -- (C) (F) -- (G) -- (H) (M) -- (N) -- (G) (I) -- (J);
+		\draw[->,dashed] (O) -- (S);
+		\tkzDrawPoints[fill = black](A,B,C,D,O,E,F,H,G,I,J,N)
+		\draw (O) node[right] {$O$} (I) node[above left] {$I$} (S) node[above] {$x$} (E) node[below left] {$E$} (F) node[below] {$F$} (G) node[below] {$G$} (H) node[right] {$H$} (J) node[above] {$J$} (0.2,-2.7) node {$N$}; 
+		\tkzDrawPolygon[fill=blue!20,opacity=.2,draw=none](A,B,C,D)
+		\tkzDrawPolygon[fill=blue!10,opacity=.3,draw=none](E,F,G,H)
+		\tkzMarkAngle[size=0.7cm, label=$\alpha$](M,O,N)
+		\tkzLabelSegment[left](N,C){$R$}
+		\end{tikzpicture}
+	\end{center}
+	Đặt trục $Ox$ như hình vẽ. Mặt phẳng vuông góc với trục $Ox$ cắt trục $Ox$ tạo thành hình chữ nhật $EFGH.$\\
+	Ta có $OI=x\Rightarrow NI=R-x\Rightarrow FG=2IG=2\sqrt{NG^2-NI^2}=2\sqrt{R^2-(R-x)^2}.$\\
+	Mặt khác $IJ=OI\tan \alpha=x\tan \alpha.$\\
+	Như vậy $S(x)=S_{EFGH}=IJ\cdot FG=2\tan \alpha \cdot x\cdot \sqrt{R^2-(R-x)^2}.$\\ 
+	Thể tích khối hình nêm là $V= \displaystyle\int\limits_0^R 2\tan \alpha \cdot x\cdot \sqrt{R^2-(R-x)^2} \mathrm{\,d}x.$\\
+	Đặt $R-x=R\sin t\Rightarrow x=R-R\sin t$, $\mathrm{\,d}x=-R\cos t\mathrm{\,d}t.$\\
+	Khi $x=0\Rightarrow t=\dfrac{\pi}{2}$, khi $x=R\Rightarrow t=0.$ Khi đó
+	\begin{eqnarray*}
+		V&=&2\tan \alpha \displaystyle\int\limits_{\frac{\pi}{2}}^0 (R-R\sin t) \cdot \sqrt{R^2-R^2\sin ^2 t}\cdot (-R\cos t) \mathrm{\,d}t\\
+		&=&  2R^3\tan \alpha \displaystyle\int\limits_0^{\frac{\pi}{2}} (1-\sin t)\cdot \cos ^2 t\mathrm{\,d}t\\
+		&=& 2R^3\tan \alpha \displaystyle\int\limits_0^{\frac{\pi}{2}} \dfrac{1+\cos 2t}{2}\mathrm{\,d}t + 2R^3\tan \alpha \displaystyle\int\limits_0^{\frac{\pi}{2}} \cos ^2 t\mathrm{\,d}(\cos t)\\
+		&=&  2R^3\tan \alpha \left(\dfrac{t}{2}+\dfrac{\sin 2t}{4}+\dfrac{\cos t}{3}\right)\bigg|_0^{\frac{\pi}{2}}\\
+		&=&(\dfrac{\pi}{2}-\dfrac{2}{3})R^3\tan \alpha.
+	\end{eqnarray*}
+\end{dang}
+
+\begin{vd}%[Bùi Mạnh Tiến- EX-CTGN]%[2H2G1-4]
+	\immini[.1]{
+		Từ một khúc gỗ hình bán trụ có đường kính $20$ $\mathrm{cm}$, người ta cắt khúc gỗ theo một mặt phẳng đi qua đường kính đáy trên và nghiêng với đáy một góc $45^\circ$ để lấy một hình nêm (xem hình minh hoạ dưới đây).
+		Tính thể tích của hình nêm.
+		\choice
+		{$1000$ $\mathrm{cm^3}$}
+		{$500$ $\mathrm{cm^3}$}
+		{$1000\left(\dfrac{\pi}{2}-\dfrac{2}{3}\right)$ $\mathrm{cm^3}$}
+		{$1000\left(\dfrac{\pi}{4}-\dfrac{1}{3}\right)$ $\mathrm{cm^3}$}
+	}	
+	{
+		\begin{tikzpicture}[>=stealth, line join=round, line cap = round,scale = 0.7]
+		\coordinate (A) at (2,2);
+		\coordinate (B) at (-2,-2);
+		\coordinate (D) at (2,-1);
+		\coordinate (C) at (-2,-5);
+		\coordinate (O) at (2.64,-4);
+		\coordinate (M) at ($(A)!0.5!(B)$);
+		\coordinate (N) at ($(C)!0.5!(D)$);
+		\draw (B) .. controls (0.4,-3.8) and (1.6,-4.2) .. (O);
+		\draw (O) .. controls (3.2,-3) and (3.05,-1.8) .. (A);
+		\draw (C) .. controls (1,-5.2) and (2.2,-4.5) .. (O);
+		\draw[dashed] (O) .. controls (3.2,-3) and (2.9,-2) .. (D);
+		\draw[dashed] (C) -- (D) -- (A) (O) -- (N) -- (M);
+		\draw (A) -- (B) -- (C) (O) -- (M);
+		\tkzMarkAngle[size=0.7cm](M,O,N)
+		\draw (1.6,-3.2) node {$45^\circ$};
+		\end{tikzpicture}
+	}
+	\loigiai
+	{
+		$R=\dfrac{d}{2}=10$ $\mathrm{cm}\Rightarrow V=\left(\dfrac{\pi}{2}-\dfrac{2}{3}\right)R^3\tan \alpha=\left(\dfrac{\pi}{2}-\dfrac{2}{3}\right)10^3\tan 45^\circ=1000\left(\dfrac{\pi}{2}-\dfrac{2}{3}\right)$ $\mathrm{cm^3}.$
+	}
+\end{vd}
+\begin{vd}%[Bùi Mạnh Tiến- EX-CTGN]%[2H2G1-4]
+	\immini[.1]{
+		Từ một khúc gỗ hình bán trụ có đường kính $10$ $\mathrm{cm}$, người ta cắt khúc gỗ theo một mặt phẳng đi qua đường kính đáy trên và mép đáy dưới (xem hình bên). Biết chiều cao của khối bán trụ là $h=6$ $\mathrm{cm}$. Tính thể tích hình nêm tạo thành.
+		\choice
+		{\True $75\pi - 100$ $\mathrm{cm^3}$}
+		{$150\pi - 200$ $\mathrm{cm^3}$}
+		{$150\pi$ $\mathrm{cm^3}$}
+		{$75\pi$ $\mathrm{cm^3}$}
+	}
+	{
+		\begin{tikzpicture}[>=stealth, line join=round, line cap = round,scale = 0.7]
+		\coordinate (A) at (2,2);
+		\coordinate (B) at (-2,-2);
+		\coordinate (D) at (2,-1);
+		\coordinate (C) at (-2,-5);
+		\coordinate (O) at (2.64,-4);
+		\coordinate (M) at ($(A)!0.5!(B)$);
+		\coordinate (N) at ($(C)!0.5!(D)$);
+		\draw (B) .. controls (0.4,-3.8) and (1.6,-4.2) .. (O);
+		\draw (O) .. controls (3.2,-3) and (3.05,-1.8) .. (A);
+		\draw (C) .. controls (1,-5.2) and (2.2,-4.5) .. (O);
+		\draw[dashed] (O) .. controls (3.2,-3) and (2.9,-2) .. (D);
+		\draw[dashed] (C) -- (D) -- (A) (O) -- (N) -- (M);
+		\draw (A) -- (B) -- (C) (O) -- (M);
+		\tkzLabelSegment[above](N,C){$R$}
+		\tkzLabelSegment[left](B,C){$h$}
+		\end{tikzpicture}
+	}
+	\loigiai
+	{
+		Ta có $\tan \alpha = \dfrac{h}{R}=\dfrac{6}{5}.$\\
+		Thể tích khối nêm bằng $V=\left(\dfrac{\pi}{2}-\dfrac{2}{3}\right)\cdot 5^3 \cdot \dfrac{6}{5}=75\pi-100$ $\mathrm{cm^3}.$
+	}
+\end{vd}
+\begin{vd}%[Bùi Mạnh Tiến- EX-CTGN]%[2H2G1-4]
+	\immini[.1]{
+		Từ một khúc gỗ hình bán trụ có bán kính $6$ $\mathrm{cm}$, người ta cắt khúc gỗ theo một mặt phẳng đi qua đường kính đáy trên và 1 điểm mép đáy dưới (xem hình bên). Biết thể tích của hình nêm bằng $36\pi\sqrt{3}-48\sqrt{3} $ $\mathrm{cm^3}$. Tính góc tạo bởi mặt phẳng cắt hình bán trụ và mặt phẳng đáy.
+		\choice
+		{\True $30^\circ$}
+		{$45^\circ$}
+		{$60^\circ$}
+		{$75^\circ$}
+	}
+	{
+		\begin{tikzpicture}[>=stealth, line join=round, line cap = round,scale = 0.7]
+		\coordinate (A) at (2,2);
+		\coordinate (B) at (-2,-2);
+		\coordinate (D) at (2,-1);
+		\coordinate (C) at (-2,-5);
+		\coordinate (O) at (2.64,-4);
+		\coordinate (M) at ($(A)!0.5!(B)$);
+		\coordinate (N) at ($(C)!0.5!(D)$);
+		\draw (B) .. controls (0.4,-3.8) and (1.6,-4.2) .. (O);
+		\draw (O) .. controls (3.2,-3) and (3.05,-1.8) .. (A);
+		\draw (C) .. controls (1,-5.2) and (2.2,-4.5) .. (O);
+		\draw[dashed] (O) .. controls (3.2,-3) and (2.9,-2) .. (D);
+		\draw[dashed] (C) -- (D) -- (A) (O) -- (N) -- (M);
+		\draw (A) -- (B) -- (C) (O) -- (M);
+		\tkzLabelSegment[above](N,C){$R$}
+		\end{tikzpicture}
+	}
+	\loigiai
+	{
+		Thể tích khối nêm là $V=\left(\dfrac{\pi}{2}-\dfrac{2}{3}\right)R^3\tan \alpha\Rightarrow \tan \alpha = \dfrac{36\pi \sqrt{3}-48\sqrt{3}}{\left(\dfrac{\pi}{2}-\dfrac{2}{3}\right)6^3}=\dfrac{1}{\sqrt{3}}\Rightarrow \alpha = 30^\circ.$
+	}
+\end{vd}
+\begin{dang}{Thể tích hình nêm loại 2}
+	Một hình trụ được cắt bởi mặt phẳng $(P)$ đi qua đường kính của đáy và tạo với đáy góc $\alpha$. Hình tạo thành là một hình nêm(xem hình minh họa bên dưới). Biết đáy của hình trụ có bán kính $R$. Tính thể tích hình nêm tạo thành là $V=\dfrac{2R^3}{3}\tan \alpha.$
+	
+	Ta chọn trục $Ox$ như hình vẽ. Thiết diện tại điểm có tọa độ $x$ và vuông góc với trục $Ox$ cắt hình nêm theo thiết diện là tam giác vuông $MNP$.\\
+	Ta có $OM=x\Rightarrow MN=\sqrt{ON^2-OM^2}=\sqrt{R^2-x^2}$.\\
+	Mặt khác dễ thấy rằng $\triangle MNP\backsim \triangle OAB\Rightarrow \widehat{PMN}=\widehat{BOA}=\alpha.$\\
+	Trong $\triangle MNP$ có $NP=MN\tan \alpha = \sqrt{R^2-x^2}\cdot \tan \alpha .$\\
+	Thể tích của hình nêm là
+	\begin{eqnarray*}
+		V&=& \displaystyle\int\limits_{-R}^{R} S(x) \mathrm{\,d} x\\
+		&=&	\displaystyle\int\limits_{-R}^{R} \dfrac{1}{2}\cdot \sqrt{R^2-x^2}\cdot \sqrt{R^2-x^2} \tan \alpha \mathrm{\,d} x\\
+		&=&\tan \alpha \displaystyle\int\limits_{0}^{R} (R^2-x^2) \mathrm{\,d} x \\
+		&=&\tan \alpha \cdot \left(R^2x-\dfrac{x^3}{3}\right)\bigg|_0^R\\
+		&=& \dfrac{2R^3}{3}\tan \alpha.
+	\end{eqnarray*}
+\end{dang}
+\begin{vd}%[Bùi Mạnh Tiến- EX-CTGN]%[2H2G1-4]
+	\immini{
+		Từ một khúc gỗ hình trụ có đường kính $30$ $\mathrm{cm}$, người ta cắt khúc gỗ theo một mặt phẳng đi qua đường kính đáy và nghiêng với đáy một góc $45^\circ $ để lấy một hình nêm (xem hình minh hoạ dưới đây). Kí hiệu $V$ là thể tích của hình nêm. Tính $V.$
+		\choice
+		{\True $V=2250$ $\mathrm{cm^3}$}
+		{$V=\dfrac{225\pi}{4}$ $\mathrm{cm^3}$}
+		{$V=1250$ $\mathrm{cm^3}$}
+		{$V=1350$ $\mathrm{cm^3}$}
+	}{
+		\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+		\clip (-2.5,-5) rectangle (6,1.2);
+		\coordinate (A) at (-2,0);
+		\coordinate (B) at (2,0);
+		\coordinate (C) at (2,-4);
+		\coordinate (D) at (-2,-4);
+		\coordinate (M) at (0,-3);
+		\coordinate (N) at (0,-5);
+		\coordinate (I) at (2,-2);
+		\coordinate (E) at (6,-4);
+		\coordinate (J) at (4,-3);
+		\coordinate (K) at (4,-5);
+		\coordinate (S) at (6,-2);
+		\coordinate (O) at (4,-4);
+		\coordinate (U) at (6,-4);
+		\coordinate (H) at (4,-4.5);
+		\coordinate (T) at (5.55,-4.5);
+		\coordinate (V) at (5.55,-2.93);		
+		\tkzDefPointWith[linear,K=1.326](J,S)\tkzGetPoint{P}
+		\tkzDefPointWith[linear,K=1.326](K,S)\tkzGetPoint{Q}
+		\tkzDefPointWith[linear,K=1.3](O,K)\tkzGetPoint{F}
+		\draw (B) arc(0:180:2 cm and 1 cm);
+		\draw (B) arc(0:-180:2 cm and 1 cm);
+		\draw[dashed] (C) arc(0:180:2 cm and 1 cm);
+		\draw (C) arc(0:-180:2 cm and 1 cm);
+		\draw[dashed] (C) -- (D) (M) -- (N);
+		\draw (D) -- (A) -- (B) -- (C) (6,-2) -- (6,-4);
+		\draw (N) .. controls (1.24,-3.8) and (2,-2.6) .. (I);
+		\draw[dashed] (I) .. controls (2,-1.65) and (.6,-2.4) .. (M);
+		%Hết hình trụ, bắt đầu hình nêm
+		\draw (4,-5) .. controls (4.8,-5) and (6,-4.4) .. (6,-4);
+		\draw[dashed] (6,-4) .. controls (6,-3.6) and (4.8,-3) .. (4,-3);
+		
+		\draw (K) .. controls (P) and (Q) .. (J);
+		\draw (O) -- (S) (J) -- (K);
+		\draw[dashed] (O) -- (U);
+		%\draw[->] (O) -- (F); 
+		%\draw (F) node[right] {$x$} (O) node[left] {$O$} (U) node[right] {$A$} (S) node[right] {$B$} (H) node[left] {$M$} (T) node[below] {$N$} (V) node[right] {$P$};
+		%\tkzDrawPoints[fill = black](H,T,V,U,S,O)
+		%\tkzDrawPolygon[fill=blue!10,opacity=.5,draw=none](H,T,V)
+		\tkzMarkAngles[size=0.3cm](U,O,S)
+		\draw (4.7,-3.8) node {$45^\circ$};
+		\end{tikzpicture}
+	}
+	
+	\loigiai{
+		Bán kính đáy là $R=\dfrac{d}{2}=15$ $\mathrm{cm}.$\\
+		Thể tích hình nêm là $V=\dfrac{2R^3}{3}\tan \alpha = \dfrac{2\cdot 15^3}{3}=2250$ $\mathrm{cm^3}.$
+	}
+\end{vd}
+\begin{vd}%[Bùi Mạnh Tiến- EX-CTGN]%[2H2G1-4]
+	\immini{
+		Từ một khúc gỗ hình trụ người ta cắt khúc gỗ theo một mặt phẳng đi qua đường kính đáy và nghiêng với đáy một góc $\alpha $ với $\cos \alpha = \dfrac{3}{5}$ để lấy một hình nêm (xem hình minh hoạ dưới đây). Thể tích của hình nêm bằng $192$ $\mathrm{cm^3}$. Tính bán kính đáy $R$ của hình trụ.
+		\choice
+		{$R=3$}
+		{$R=4$}
+		{$R=5$}
+		{\True $R=6$}
+	}
+	{
+		\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+		\clip (-2.5,-5) rectangle (6,1.2);
+		\coordinate (A) at (-2,0);
+		\coordinate (B) at (2,0);
+		\coordinate (C) at (2,-4);
+		\coordinate (D) at (-2,-4);
+		\coordinate (M) at (0,-3);
+		\coordinate (N) at (0,-5);
+		\coordinate (I) at (2,-2);
+		\coordinate (E) at (6,-4);
+		\coordinate (J) at (4,-3);
+		\coordinate (K) at (4,-5);
+		\coordinate (S) at (6,-2);
+		\coordinate (O) at (4,-4);
+		\coordinate (U) at (6,-4);
+		\coordinate (H) at (4,-4.5);
+		\coordinate (T) at (5.55,-4.5);
+		\coordinate (V) at (5.55,-2.93);		
+		\tkzDefPointWith[linear,K=1.326](J,S)\tkzGetPoint{P}
+		\tkzDefPointWith[linear,K=1.326](K,S)\tkzGetPoint{Q}
+		\tkzDefPointWith[linear,K=1.3](O,K)\tkzGetPoint{F}
+		\draw (B) arc(0:180:2 cm and 1 cm);
+		\draw (B) arc(0:-180:2 cm and 1 cm);
+		\draw[dashed] (C) arc(0:180:2 cm and 1 cm);
+		\draw (C) arc(0:-180:2 cm and 1 cm);
+		\draw[dashed] (C) -- (D) (M) -- (N);
+		\draw (D) -- (A) -- (B) -- (C) (6,-2) -- (6,-4);
+		\draw (N) .. controls (1.24,-3.8) and (2,-2.6) .. (I);
+		\draw[dashed] (I) .. controls (2,-1.65) and (.6,-2.4) .. (M);
+		%Hết hình trụ, bắt đầu hình nêm
+		\draw (4,-5) .. controls (4.8,-5) and (6,-4.4) .. (6,-4);
+		\draw[dashed] (6,-4) .. controls (6,-3.6) and (4.8,-3) .. (4,-3);
+		
+		\draw (K) .. controls (P) and (Q) .. (J);
+		\draw (O) -- (S) (J) -- (K);
+		\draw[dashed] (O) -- (U);
+		
+		\tkzMarkAngles[size=0.3cm](U,O,S)
+		\draw (4.55,-3.8) node {$\alpha$};
+		\end{tikzpicture}
+	}
+	
+	
+	\loigiai{
+		Ta có $\cos \alpha = \dfrac{3}{5}\Rightarrow \tan \alpha=\sqrt{\dfrac{1}{\cos ^2 \alpha}-1}=\dfrac{4}{3}.$\\
+		Bán kính đáy bằng $R=\sqrt[3]{\dfrac{3V}{2\tan \alpha}}=6$ $\mathrm{cm}$.\\
+	}
+\end{vd}

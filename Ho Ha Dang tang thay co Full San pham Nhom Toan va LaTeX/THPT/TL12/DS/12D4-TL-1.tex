@@ -1,0 +1,710 @@
+\section{SỐ PHỨC}
+	\subsection{Tóm tắt lí thuyết}
+	\subsubsection{Định nghĩa số phức}
+	\begin{dn}
+		Một \textbf{số phức} là một biểu thức dạng $ a+bi $, trong đó $ a $ và $ b $ là những số thực và số $ i $ thỏa mãn $\boxed{ i^2=-1} $. Kí hiệu số phức đó là $ z $ và viết $ z=a+bi $.\\
+		$ i $ được gọi là \textit{đơn vị ảo}, $ a $ được gọi là \textit{phần thực}, $ b $ được gọi là \textit{phần ảo} của số phức $ z=a+bi $.\\
+		Tập hợp các số phức được kí hiệu là $ \mathbb C $.
+	\end{dn}
+	\begin{vd}
+		Các số sau là những số phức:\\
+		$3-5i$ ; $ -\sqrt 3+5i$ ; $ 2+\left(-4\right)i$.
+	\end{vd}
+	\subsubsection{Số phức bằng nhau}
+	\begin{dn}
+		Hai số phức được gọi là \textbf{bằng nhau} nếu phần thực và phần ảo của chúng tương ứng bằng nhau. 
+		$$\boxed{a+bi=c+di \Leftrightarrow a=c \text{ và }b=d.}$$
+	\end{dn}
+	\begin{vd}
+		Tìm các số thực $ x,y $, biết $$\left(3x-y\right)+\left(2y-1\right)i=\left(x+1\right)+\left(y+2\right)i$$
+	\end{vd}
+	\loigiai{Từ định nghĩa hai số phức bằng nhau, ta có $$ \begin{cases}
+		3x-y=x+1\\ 2y-1=y+2
+		\end{cases} \Leftrightarrow \begin{cases}
+		x=2\\y=3
+		\end{cases}$$
+		Vậy $ x=2 $ và $ y=3 $.}
+	\begin{note}
+		\begin{enumerate}
+			\item Mỗi số thực $ a $ được gọi là một số phức với phần ảo bằng $ 0 $, tức là $ a=a+0i $.\\
+			Như vậy, \textit{mỗi số thực cũng là một số phức}. Ta có $ \mathbb R \subset \mathbb C $.
+			\item Số phức $ 0+bi $ được gọi là \textbf{số thuần ảo} và viết đơn giản là $ bi $, tức là $ bi=0+bi $.
+		\end{enumerate}
+	\end{note}
+	\subsubsection{Biểu diễn hình học số phức}
+	
+	\begin{dn}
+		\immini{	Điểm $ M(a;b) $ trong một hệ trục tọa độ vuông góc của mặt phẳng được gọi là \textbf{điểm biểu diễn số phức} $ z=a+bi $.
+		}
+		{\begin{tikzpicture}[>=stealth,scale=0.6]
+			\draw[->,line width = 1pt] (-1.5,0)--(0,0) node[below right]{$O$}--(6,0) node[below]{$x$};
+			\draw[->,line width = 1pt] (0,-1) --(0,3.5) node[right]{$y$};
+			\foreach \x in {}{
+				\draw (\x,0) node[below]{$\x$} circle (1pt);
+				\draw (0,\x) node[left]{$\x$} circle (1pt);
+			}
+			\draw (0,2) node[left]{$b$} circle (1pt);
+			\draw (3,0) node[below]{$a$} circle (1pt);
+			\draw (3,2) node[above right]{$M$} circle (1pt);
+			\draw [dashed] (3,0)--(3,2)--(0,2);
+			\end{tikzpicture}}
+	\end{dn}
+	\subsubsection{Môđun của số phức}
+	Giả sử số phức $ z=a+bi $ được biểu diễn bởi điểm $ M(a;b) $ trên mặt phẳng tọa độ.
+	\begin{dn}
+		\immini{
+			Độ dài của véc-tơ $ \overrightarrow{OM} $ được gọi là \textbf{mô-đun của số phức} $ z $ và kí hiệu là $ |z| $.
+			
+			Từ định nghĩa, suy ra $ |z|=\left|\overrightarrow{OM}\right| $ hay $ \left|a+bi\right|=\left|\overrightarrow{OM}\right| $. Khi đó $$ \boxed{\left|a+bi\right|=\sqrt{a^2+b^2}.}$$}
+		{\begin{tikzpicture}[>=stealth,scale=0.7]
+			\draw[->,line width = 1pt] (-1.5,0)--(0,0) node[below right]{$O$}--(5,0) node[below]{$x$};
+			\draw[->,line width = 1pt] (0,-1) --(0,3.5) node[right]{$y$};
+			\foreach \x in {}{
+				\draw (\x,0) node[below]{$\x$} circle (1pt);
+				\draw (0,\x) node[left]{$\x$} circle (1pt);
+			}
+			\tkzDefPoints{0/0/O,3/2/M}
+			\tkzDrawPoints(O,M)
+			\tkzDefPoints{0/0/A,3/2/B}
+			\tkzDrawVectors(A,B)
+			\draw (0,2) node[left]{$b$} circle (1pt);
+			\draw (3,0) node[below]{$a$} circle (1pt);
+			\draw (3,2) node[above right]{$M$} circle (1pt);
+			\draw [dashed] (3,0)--(3,2)--(0,2);
+			\end{tikzpicture}}
+	\end{dn}
+	\subsubsection{Số phức liên hợp}
+	\begin{dn}\immini{
+			Cho số phức $ z=a+bi $. Ta gọi $ a-bi $ là \textbf{số phức liên hợp} của $ z $ và kí hiệu là $ \overline z=a-bi $. 
+			Tức là $$\boxed{ \overline{a+bi}=a-bi}.$$
+		}
+		{\begin{tikzpicture}[>=stealth,scale=0.6]
+			\draw[->,line width = 1pt] (-1.5,0)--(-1,0) node[below right]{$O$}--(7,0) node[below]{$x$};
+			\draw[->,line width = 1pt] (0,-2.8) --(0,3) node[right]{$y$};
+			\foreach \x in {}{
+				\draw (\x,0) node[below]{$\x$} circle (1pt);
+				\draw (0,\x) node[left]{$\x$} circle (1pt);
+			}
+			\tkzDefPoints{0/0/O,3/2/M}
+			\tkzDrawPoints(O,M)
+			\tkzDefPoints{0/0/A,3/2/B}
+			\tkzDrawVectors(A,B)
+			\draw (0,2) node[left]{$b$} circle (1pt);
+			\draw (3,0) node[below right]{$a$} circle (1pt);
+			\draw (3,2) node[above right ]{$z=a+bi$} circle (1pt);
+			\draw [dashed] (3,0)--(3,2)--(0,2);
+			\draw (0,-2) node[left]{$-b$} circle (1pt);
+			\draw (3,-2) node[below right ]{$\overline z=a-bi$} circle (1pt);
+			\draw [dashed] (3,0)--(3,-2)--(0,-2);
+			\tkzDefPoints{3/-2/C}
+			\tkzDrawVectors(A,C)
+			\end{tikzpicture}}
+	\end{dn}
+	\begin{tc}
+		$\overline{\overline{z}}=z$.
+	\end{tc}
+	\begin{tc}
+		$|\overline{z}|=|z|$.
+	\end{tc}
+\subsection{Các dạng toán}
+\begin{dang}{Xác định phần thực - phần ảo của số phức}
+\begin{center}
+Số phức $z=a+bi,\, a,b\in \mathbb{R}$ có
+$a$ là phần thực, $b$ là phần ảo.
+\end{center}
+\end{dang}
+\begin{vd}%[2D4Y1] 
+Xác định phần thực, phần ảo của các số phức:
+\begin{enumerate}
+\begin{multicols}{2}
+\item $z=2+3i$.
+\item $z=2i-4$.
+\item $z=3$.
+\item $z=15i$.
+\end{multicols}
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Số phức $z=2+3i$ có phần thực $a=2$ và phần ảo $b=3$.
+\item Số phức $z=2i-4$ có phần thực $a=-4$ và phần ảo $b=2$.
+\item Số phức $z=3$ có phần thực $a=3$ và phần ảo $b=0$.
+\item Số phức $z=15i$ có phần thực $a=0$ và phần ảo $b=15$.
+\end{enumerate}
+}
+\begin{center}
+\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[2D4Y1] 
+Xác định phần thực, phần ảo của các số phức:
+\begin{enumerate}
+\begin{multicols}{2}
+\item $z=4i$.
+\item $z=-3i+4$.
+\item $z=16$.
+\item $z=-43+15i$.
+\end{multicols}
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Số phức $z=4i$ có phần thực $a=0$ và phần ảo $b=4$.
+\item Số phức $z=-3i+4$ có phần thực $a=4$ và phần ảo $b=-3$.
+\item Số phức $z=16$ có phần thực $a=16$ và phần ảo $b=0$.
+\item Số phức $z=-43+15i$ có phần thực $a=-43$ và phần ảo $b=15$.
+\end{enumerate}
+}
+\end{bt}
+\end{vd}
+\begin{dang}{Xác định mô-đun của số phức}
+Mô-đun của số phức $z=a+bi$ là $|z|=\sqrt{a^2+b^2}$.
+\end{dang}
+\setcounter{vd}{0}
+\begin{vd}%[2D4Y1] 
+Tìm mô-đun của các số phức sau:
+\begin{enumerate}
+\begin{multicols}{2}
+\item $z=1+2i$.
+\item $z=3-5i$.
+\item $z=-5+4i$.
+\item $z=-4i$.
+\item $z=2$.
+\end{multicols}
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Ta có $|z|=|1+2i|=\sqrt{1^2+2^2}=\sqrt{5}$.
+\item Ta có $|z|=|3-5i|=\sqrt{3^2+(-5)^2}=\sqrt{34}$.
+\item Ta có $|z|=|-5+4i|=\sqrt{(-5)^2+4^2}=\sqrt{41}$.
+\item Ta có $|z|=|-4i|=\sqrt{(-4)^2}=4$.
+\item Ta có $|z|=|2|=\sqrt{2^2}=2$.
+\end{enumerate}
+}
+\end{vd}
+\begin{center}
+\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\setcounter{bt}{0}
+\begin{bt}%[2D4Y1] 
+Tìm mô-đun của các số phức sau:
+\begin{enumerate}
+\begin{multicols}{2}
+\item $z=\dfrac{1}{2}-\dfrac{\sqrt{3}}{2}i$.
+\item $z=4i-3$.
+\item $z=-3-4i$.
+\item $z=-6$.
+\item $z=-4i$.
+\end{multicols}
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Ta có $|z|=\left|\dfrac{1}{2}-\dfrac{\sqrt{3}}{2}i\right|=\sqrt{\left(\dfrac{1}{2}\right)^2+\left(-\dfrac{\sqrt{3}}{2}\right)^2}=1$.
+\item Ta có $|z|=|4i-3|=\sqrt{(-3)^2+4^2}=5$.
+\item Ta có $|z|=|-3-4i|=\sqrt{(-3)^2+(-4)^2}=5$.
+\item Ta có $|z|=|-6|=\sqrt{(-6)^2}=6$.
+\item Ta có $|z|=|-4i|=\sqrt{(-4)^2}=4$.
+\end{enumerate}
+}
+\end{bt}
+\begin{dang}{Hai số phức bằng nhau}
+Hai số phức $z=a+bi, z'=a'+b'i$ được gọi là bằng nhau nếu $\heva{&a=a'\\&b=b'.}$
+\end{dang}
+\setcounter{vd}{0}
+\setcounter{bt}{0}
+\begin{vd}%[2D4Y1] 
+Tìm các số thực $x$, $y$ biết:
+\begin{enumerate}
+\item $x+2y+3i=4x-5y+(6-y)i$.
+\item $-3x+6y-(8+4y)i=3x-4+(4x-y)i$.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item $x+2y+3i=4x-5y+(6-y)i \Leftrightarrow \heva{&x+2y=4x-5y\\&3=6-y}\Leftrightarrow \heva{&-3x+7y=0\\&y=3}\Leftrightarrow \heva{&x=7\\&y=3.}$
+\item $-3x+6y-(8+4y)i=3x-4+(4x-y)i\\ \Leftrightarrow \heva{&-3x+6y=3x-4\\&-(8+4y)=4x-y}\Leftrightarrow \heva{&-6x+6y=-4\\&-4x-3y=8}\Leftrightarrow \heva{&x=-\dfrac{6}{7}\\&y=-\dfrac{32}{21}.}$
+\end{enumerate}
+}
+\end{vd}
+\begin{vd}%[2D4Y1] 
+Cho $z=(3a+2)+(b-4)i$. Tìm các số $a,b$ để
+\begin{enumerate}
+\begin{multicols}{2}
+\item $z$ là số thực.
+\item $z$ là số thuần ảo.
+\end{multicols}
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item $z$ là số thực khi $b-4=0$ hay $b=4.$
+\item $z$ là số thuần ảo khi $3a+2=0$ hay $a=-\dfrac{2}{3}$.
+\end{enumerate}
+}
+\end{vd}
+\begin{center}
+\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[2D4Y1] 
+Tìm các số thực $x$, $y$, biết:
+\begin{enumerate}
+\item $(2x+1)+(3y-2)i=(x+2)+(y+4)i$.
+\item $(1-3x)+(y+1)i=(x+y)-(2x+1)i$.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Ta có $\heva{&2x+1=x+2\\&3y-2=y+4}\Leftrightarrow \heva{&x=1\\&y=3.}$
+\item Ta có $\heva{&1-3x=x+y\\&y+1=-(2x+1)}\Leftrightarrow \heva{&4x+y=1\\&2x+y=-2}\Leftrightarrow \heva{&x=\dfrac{3}{2}\\&y=-5.}$
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}%[2D4Y1] 
+Tìm các số thực $x,y$, biết:
+\begin{enumerate}
+\item $2x+1+5i=-4+(3y-2)i$.
+\item $(x-\sqrt{2})-4i=3-(y+1)i$.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Ta có $\heva{&2x+1=4\\&5=3y-2}\Leftrightarrow \heva{&x=\dfrac{3}{2}\\&y=\dfrac{7}{3}.}$
+\item Ta có $\heva{&x-\sqrt{2}=3\\&-4=-(y+1)}\Leftrightarrow \heva{&x=3+\sqrt{2}\\&y=3.}$
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}%[2D4Y1] 
+Cho số phức $z=(a-5)+(b+4)i$. Tìm các số $a,b$ để:
+\begin{enumerate}
+\begin{multicols}{2}
+\item $z$ là số thuần ảo.
+\item $z$ là số thực. 
+\end{multicols}
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Để $z$ là số thuần ảo thì $a-5=0$ hay $a=5$.
+\item Để $z$ là số thực thì $b+4=0$ hay $b=-4$.
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}%[2D4Y1]
+Cho số phức $z=(a^2-4b^2)+(a+2b)i$. Tìm các số $a,b$ để $z$ là số ảo.
+\loigiai{
+Để $z$ là số ảo thì $a^2-4b^2=0\Leftrightarrow \hoac{&a=2b\\&a=-2b.}$
+}
+\end{bt}
+
+
+\begin{dang}{Tìm tập hợp điểm biểu diễn}
+	\begin{center}
+		Số phức $z=a+bi$ ($a,b\in\mathbb{R}$) được biểu diễn bởi điểm $M(a;b)$.
+	\end{center}
+\end{dang}
+\begin{vd}%[2D4Y1]
+	Biểu diễn trên mặt phẳng tọa độ các số phức sau: $4-3i$, $3+2i$, $-5$, $5i$.
+	\loigiai{
+		\immini
+		{
+			Điểm $A(4;-3)$ biểu diễn số phức $4-3i$.\\
+			Điểm $B(3;2)$ biểu diễn số phức $3+2i$.\\
+			Điểm $C(-5;0)$ biểu diễn số phức $-5$.\\
+			Điểm $D(0;5)$ biểu diễn số phức $5i$.
+		}
+		{
+			\begin{tikzpicture}[scale=0.4,thick,>=stealth]
+			\draw[->,line width = 1pt] (-6,0) --(0,0) node[below left]{$O$}--(6,0) node[below]{$x$};
+			\draw[->,line width = 1pt] (0,-6) --(0,6) node[right]{$y$};
+			\draw (4,0) node[above]{$4$} circle (1pt);
+			\draw (3,0) node[below]{$3$} circle (1pt);
+			\draw (-5,0) node[below]{$-5$}node[above]{$C$} circle (1pt);
+			\draw (0,-3) node[left]{$-3$} circle (1pt);
+			\draw (0,2) node[left]{$2$} circle (1pt);
+			\draw (0,5) node[left]{$5$}node[right]{$D$} circle (1pt);
+			\draw [dashed] (4,0)--(4,-3) node[right]{$A$}--(0,-3) circle(1pt);
+			\draw [dashed] (3,0)--(3,2) node[above]{$B$}--(0,2);
+			\tkzDefPoints{4/-3/A,3/2/B,-5/0/C,0/5/D}
+			\tkzDrawPoints(A,B,C,D)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{vd}%[2D4B1]
+	Biết $A, B, C, D$ là bốn điểm trong mặt phẳng tọa độ biểu diễn theo thứ tự các số: $-1+i$, $-1-i$, $2i$, $2-2i$.\\
+	Tìm các số $z_1,z_2,z_3,z_4$ theo thứ tự biểu diễn các vec-tơ $\overrightarrow{AC},\overrightarrow{AD},\overrightarrow{BC},\overrightarrow{BD}$.
+	\loigiai{
+		Theo đề bài ta có $A(-1;1)$, $B(-1;-1)$, $C(0;2)$, $D(2;-2)$.\\
+		Suy ra $\overrightarrow{AC}=(1;1),\;\overrightarrow{AD}=(3;-3),\;\overrightarrow{BC}=(1;3),\;\overrightarrow{BD}=(3;-1)$.\\
+		Vậy $z_1=1+i,\;z_2=3-3i,\;z_3=1+3i,\;z_4=3-i$.
+	}
+\end{vd}
+\begin{vd}%[2D4B1]
+	Trên mặt phẳng tọa độ, tìm tập hợp điểm biểu diễn các số phức thỏa mãn điều kiện:
+	\begin{enumerate}[a.]
+		\item Phần thực của $z$ bằng $3$;
+		\item Phần ảo của $z$ bằng $-5$;
+		\item Phần thực thuộc khoảng $(-2;3)$;
+		\item Phần ảo thuộc đoạn $[-3;6]$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}[a.]
+			\item \immini
+			{
+				Số phức $z$ có phần thực bằng $3$ được biểu diễn bởi điểm $M(3;b)$.\\
+				Vậy tập hợp các điểm biểu diễn số phức $z$ là đường thẳng $x=3$.
+			}
+			{
+				\begin{tikzpicture}[scale=0.7,thick,>=stealth]
+				\draw[->,line width = 1pt] (-2,0) --(0,0) node[below left]{$O$}--(4,0) node[below]{$x$};
+				\draw[->,line width = 1pt] (0,-2) --(0,4) node[right]{$y$};
+				\draw (3,0) node[below right]{$3$} circle (1pt);
+				\draw (3,-1.5)--(3,3.5);
+				\end{tikzpicture}
+			}
+			\item \immini
+			{
+				Số phức $z$ có phần ảo bằng $-5$ được biểu diễn bởi điểm $M(a;-5)$.\\
+				Vậy tập hợp các điểm biểu diễn số phức $z$ là đường thẳng $y=-5$.
+			}
+			{
+				\begin{tikzpicture}[scale=0.7,thick,>=stealth]
+				\draw[->,line width = 1pt] (-2,0) --(0,0) node[below left]{$O$}--(4,0) node[below]{$x$};
+				\draw[->,line width = 1pt] (0,-3) --(0,2) node[right]{$y$};
+				\draw (0,-2) node[below right]{$-5$} circle (1pt);
+				\draw (-1.5,-2)--(3.5,-2);
+				\end{tikzpicture}
+			}
+			\item \immini
+			{
+				Số phức $z$ có phần thực thuộc khoảng $(-2;3)$ được biểu diễn bởi điểm $M(a;b)$ với $a\in(-2;3)$.\\
+				Vậy tập hợp các điểm biểu diễn số phức $z$ là phần mặt phẳng giới hạn bởi hai đường thẳng $x=-2$ và $x=3$.
+			}
+			{
+				\begin{tikzpicture}[scale=0.7,thick,>=stealth]
+				\draw[->,line width = 1pt] (-3,0) --(0,0) node[below left]{$O$}--(4,0) node[below]{$x$};
+				\draw[->,line width = 1pt] (0,-2) --(0,4) node[right]{$y$};
+				\draw (3,0) node[below right]{$3$} circle (1pt);
+				\draw (-2,0) node[below left]{$-2$} circle (1pt);
+				\draw [draw=none,pattern = north west lines, thick] (-2,3.5)--(3,3.5)--(3,-1.5)--(-2,-1.5);
+				\draw (-2,3.5)--(-2,-1.5) (3,3.5)--(3,-1.5);
+				\end{tikzpicture}
+			}
+			\item \immini
+			{
+				Số phức $z$ có phần ảo thuộc khoảng $[-3;6]$ được biểu diễn bởi điểm $M(a;b)$ với $b\in[-3;6]$.\\
+				Vậy tập hợp các điểm biểu diễn số phức $z$ là phần mặt phẳng giới hạn bởi hai đường thẳng $y=-3$ và $y=6$, kể cả các điểm nằm trên hai đường thẳng này.
+			}
+			{
+				\begin{tikzpicture}[scale=0.7,thick,>=stealth]
+				\draw[->,line width = 1pt] (-3,0) --(0,0) node[below left]{$O$}--(4,0) node[below]{$x$};
+				\draw[->,line width = 1pt] (0,-4) --(0,7) node[right]{$y$};
+				\draw (0,-3) node[below right]{$-3$} circle (1pt);
+				\draw (0,6) node[above right]{$-6$} circle (1pt);
+				\draw [draw=none,pattern = north west lines, thick] (-2.5,6)--(3.5,6)--(3.5,-3)--(-2.5,-3);
+				\draw (-2.5,6)--(3.5,6) (-2.5,-3)--(3.5,-3);
+				\end{tikzpicture}
+			}
+		\end{enumerate}
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[2D4Y1]
+	Biểu diễn trên mặt phẳng tọa độ các số phức sau: $-4-2i$, $-3+5i$, $4$, $-3i$.
+	\loigiai{
+		\immini
+		{
+			Điểm $A(-4;-2)$ biểu diễn số phức $-4-2i$.\\
+			Điểm $B(-3;5)$ biểu diễn số phức $-3+5i$.\\
+			Điểm $C(4;0)$ biểu diễn số phức $4$.\\
+			Điểm $D(0;-3)$ biểu diễn số phức $-3i$.\\
+		}
+		{
+			\begin{tikzpicture}[scale=0.4,thick,>=stealth]
+			\draw[->,line width = 1pt] (-6,0) --(0,0) node[below left]{$O$}--(6,0) node[below]{$x$};
+			\draw[->,line width = 1pt] (0,-6) --(0,6) node[right]{$y$};
+			\draw (-4,0) node[above]{$-4$} circle (1pt);
+			\draw (-3,0) node[below]{$-3$} circle (1pt);
+			\draw (4,0) node[below]{$4$}node[above]{$C$} circle (1pt);
+			\draw (0,-2) node[right]{$-2$} circle (1pt);
+			\draw (0,-3) node[left]{$-3$}node[right]{$D$} circle (1pt);
+			\draw (0,5) node[right]{$5$} circle (1pt);
+			\draw [dashed] (-4,0)--(-4,-2) node[left]{$A$}--(0,-2) circle(1pt);
+			\draw [dashed] (-3,0)--(-3,5) node[above]{$B$}--(0,5);
+			\tkzDefPoints{-4/-2/A,-3/5/B,4/0/C,0/-3/D}
+			\tkzDrawPoints(A,B,C,D)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[2D4K1]
+	Cho $ABCD$ là một hình bình hành với $A,B,C,D$ lần lượt là điểm biểu diễn của các số phức $1-2i,4-2i,5+i,z$. Tìm số phức $z$.
+	\loigiai{
+		Theo đề bài, ta có $A(1;-2)$, $B(4;-2)$, $C(5;1)$.\\
+		Vì $ABCD$ là hình bình hành nên $\overrightarrow{AB}=\overrightarrow{DC}$.\\
+		Suy ra $\left\lbrace\begin{aligned} x_B-x_A & =x_C-x_D\\y_B-y_A & =y_C-y_D \end{aligned}\right.\Leftrightarrow \left\lbrace\begin{aligned} x_D & =x_A+x_C-x_B=2\\y_D & =y_A+y_C-y_B=1. \end{aligned}\right.$\\
+		Vậy $D(2;1)$ biểu diễn số phức $z=2+i$.
+	}
+\end{bt}
+\begin{dang}{Số phức liên hợp}
+	\begin{center}
+		Số $\overline{z}=a-bi$ được gọi là số phức liên hợp của $z=a+bi$.
+	\end{center}
+\end{dang}
+\begin{vd}%[2D4Y1]
+	Tìm $\overline{z}$, biết:
+	\begin{multicols}{2}
+		\begin{enumerate}[a.]
+			\item $z=3-i\sqrt{2}$;
+			\item $z=-\sqrt{2}+i\sqrt{3}$;
+			\item $z=3$;
+			\item $z=-5i$.
+		\end{enumerate}
+	\end{multicols}
+	\loigiai{
+		\begin{multicols}{2}
+			\begin{enumerate}[a.]
+				\item $\overline{z}=3+i\sqrt{2}$.
+				\item $\overline{z}=-\sqrt{2}-i\sqrt{3}$.
+				\item $\overline{z}=3$.
+				\item $\overline{z}=5i$.
+			\end{enumerate}
+		\end{multicols}
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[2D4Y1]
+	Tìm $\overline{z}$, biết:
+	\begin{multicols}{2}
+		\begin{enumerate}[a.]
+			\item $z=-5+i\sqrt{3}$.
+			\item $z=\pi-2\pi i$.
+			\item $z=2$.
+			\item $z=i\cos \sqrt{2}$.
+		\end{enumerate}
+	\end{multicols}
+	\loigiai{
+		\begin{multicols}{2}
+			\begin{enumerate}[a.]
+				\item $\overline{z}=-5-i\sqrt{3}$.
+				\item $\overline{z}=\pi+2\pi i$.
+				\item $\overline{z}=2$.
+				\item $\overline{z}=-i\cos \sqrt{2}$.
+			\end{enumerate}
+		\end{multicols}
+	}
+\end{bt}
+\begin{center}
+	\textbf{BÀI TẬP TỔNG HỢP}
+\end{center}
+\begin{bt}%[2D4K1]
+	Trên mặt phẳng tọa độ, tìm tập hợp điểm biểu diễn các số phức thỏa mãn điều kiện:
+	\begin{enumerate}[a.]
+		\item Phần thực của $z$ lớn hơn hoặc bằng $1$;
+		\item Phần ảo của $z$ thuộc nửa khoảng $(-1;2]$;
+		\item Phần thực thuộc đoạn $[-1;2]$, phần ảo thuộc đoạn $[-1;3]$;
+		\item $|z|=2$;
+		\item $|z|\leq 2$;
+		\item $|z|=2$ và phần thực nhỏ hơn $1$;
+		\item $|z|\leq 2$ và phần thực thuộc đoạn $[-1;1]$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}[a.]
+			\item \immini
+			{
+				Số phức $z$ có phần thực lớn hơn hoặc bằng $1$ được biểu diễn bởi điểm $M(a;b)$ với $a\in[1;+\infty)$.\\
+				Vậy tập hợp các điểm biểu diễn số phức $z$ là phần gạch chéo ở hình bên, kể cả các điểm nằm trên đường thẳng $x=1$.
+			}
+			{
+				\begin{tikzpicture}[scale=0.7,thick,>=stealth]
+				\draw[->,line width = 1pt] (-2,0) --(0,0) node[below left]{$O$}--(5,0) node[below]{$x$};
+				\draw[->,line width = 1pt] (0,-2) --(0,4) node[right]{$y$};
+				\draw (1,0) node[below left]{$1$} circle (1pt);
+				\draw [draw=none,pattern = north west lines, thick] (1,3.5)--(4.5,3.5)--(4.5,-1.5)--(1,-1.5);
+				\draw (1,3.5)--(1,-1.5);
+				\end{tikzpicture}
+			}
+			\item \immini
+			{
+				Số phức $z$ có phần ảo thuộc nửa khoảng $(-1;2]$ được biểu diễn bởi điểm $M(a;b)$ với $b\in(-1;2]$.\\
+				Vậy tập hợp các điểm biểu diễn số phức $z$ là phần mặt phẳng tọa độ giới hạn bởi hai đường thẳng $y=-1$ và $y=2$, kể cả các điểm nằm trên đường thẳng $y=2$.
+			}
+			{
+				\begin{tikzpicture}[scale=0.7,thick,>=stealth]
+				\draw[->,line width = 1pt] (-2,0) --(0,0) node[below left]{$O$}--(5,0) node[below]{$x$};
+				\draw[->,line width = 1pt] (0,-2) --(0,4) node[right]{$y$};
+				\draw (0,2) node[above left]{$2$} circle (1pt);
+				\draw (0,-1) node[below left]{$-1$} circle (1pt);
+				\draw [draw=none,pattern = north west lines, thick] (-1.5,-1)--(4.5,-1)--(4.5,2)--(-1.5,2);
+				\draw[dashed] (-1.5,-1)--(4.5,-1);
+				\draw (-1.5,2)--(4.5,2);
+				\end{tikzpicture}
+			}
+			\item \immini
+			{
+				Số phức $z$ có phần thực thuộc đoạn$[-1;2]$, phần ảo thuộc đoạn $[-1;3]$ được biểu diễn bởi điểm $M(a;b)$ với $a\in[-1;2]$ và $b\in[-1;3]$.\\
+				Vậy tập hợp các điểm biểu diễn số phức $z$ là hình chữ nhật giới hạn bởi các đường thẳng $x=-1$, $x=2$, $y=-1$ và $y=3$, kể cả các điểm nằm trên bốn đường thẳng này.
+			}
+			{
+				\begin{tikzpicture}[scale=0.7,thick,>=stealth]
+				\draw[->,line width = 1pt] (-2,0) --(0,0) node[below left]{$O$}--(5,0) node[below]{$x$};
+				\draw[->,line width = 1pt] (0,-2) --(0,4) node[right]{$y$};
+				\draw (0,3) node[above left]{$3$} circle (1pt);
+				\draw (0,-1) node[below left]{$-1$} circle (1pt);
+				\draw (-1,0) node[below left]{$-1$} circle (1pt);
+				\draw (2,0) node[below right]{$2$} circle (1pt);
+				\draw [draw=none,pattern = north west lines, thick] (-1,-1)--(-1,3)--(2,3)--(2,-1);
+				\draw (-1.8,-1)--(4.8,-1) (-1.8,3)--(4.8,3) (-1,3.8)--(-1,-1.8) (2,3.8)--(2,-1.8);
+				\end{tikzpicture}
+			}
+			\item \immini
+			{
+				Số phức $z$ có mô-đun $|z|=2$ được biểu diễn bởi điểm $M(a;b)$ với $\sqrt{a^2+b^2}=2$ hay $a^2+b^2=4$.\\
+				Vậy tập hợp các điểm biểu diễn số phức $z$ là đường tròn $x^2+y^2=4$ (đường tròn tâm $O$, bán kính $2$).
+			}
+			{
+				\begin{tikzpicture}[scale=0.7,thick,>=stealth]
+				\draw[->,line width = 1pt] (-3,0) --(0,0) node[below left]{$O$}--(3,0) node[below]{$x$};
+				\draw[->,line width = 1pt] (0,-3) --(0,3) node[right]{$y$};
+				\draw[line width=1.2pt] (2,0) arc [radius=2cm, start angle=0, end angle= 180];
+				\draw[line width=1.2pt] (2,0) arc [radius=2cm, start angle=0, end angle= -180];
+				\draw (0,2) node[above left]{$2$} circle (1pt);
+				\draw (0,-2) node[below left]{$-2$} circle (1pt);
+				\draw (2,0) node[above right]{$2$} circle (1pt);
+				\draw (-2,0) node[above left]{$-2$} circle (1pt);
+				\end{tikzpicture}
+			}
+			\item \immini
+			{
+				Số phức $z$ có mô-đun $|z|\leq 2$ được biểu diễn bởi điểm $M(a;b)$ với $\sqrt{a^2+b^2}\leq 2$ hay $a^2+b^2\leq 4$.\\
+				Vậy tập hợp các điểm biểu diễn số phức $z$ là hình tròn tâm $O$, bán kính $2$ (gồm các điểm nằm trên và nằm trong đường tròn).
+			}
+			{
+				\begin{tikzpicture}[scale=0.7,thick,>=stealth]
+				\draw[->,line width = 1pt] (-3,0) --(0,0) node[below left]{$O$}--(3,0) node[below]{$x$};
+				\draw[->,line width = 1pt] (0,-3) --(0,3) node[right]{$y$};
+				\draw[line width=1.2pt] (2,0) arc [radius=2cm, start angle=0, end angle= 180];
+				\draw[line width=1.2pt] (2,0) arc [radius=2cm, start angle=0, end angle= -180];
+				\fill[pattern=north east lines, domain=-2:2, variable=\x]
+				(-2,0)--plot(\x,{sqrt(4-(\x)^2)})--(2,0)--
+				(-2,0)--plot(\x,{-sqrt(4-(\x)^2)})--(2,0);
+				\draw (0,2) node[above left]{$2$} circle (1pt);
+				\draw (0,-2) node[below left]{$-2$} circle (1pt);
+				\draw (2,0) node[above right]{$2$} circle (1pt);
+				\draw (-2,0) node[above left]{$-2$} circle (1pt);
+				\end{tikzpicture}
+			}
+			\item \immini
+			{
+				Số phức $z$ có mô-đun $|z|=2$ và phần thực nhỏ hơn 1 được biểu diễn bởi điểm $M(a;b)$ với $\sqrt{a^2+b^2}=2$ hay $a^2+b^2=4$ và $a<1$.\\
+				Vậy tập hợp các điểm biểu diễn số phức $z$ là cung tròn tâm $O$, bán kính $2$ từ điểm $(1;\sqrt{3})$ đến điểm $(1;-\sqrt{3})$ (như hình vẽ), không gồm hai đầu mút.
+			}
+			{
+				\begin{tikzpicture}[scale=0.7,thick,>=stealth]
+				\draw[->,line width = 1pt] (-3,0) --(0,0) node[below left]{$O$}--(3,0) node[below]{$x$};
+				\draw[->,line width = 1pt] (0,-3) --(0,3) node[right]{$y$};
+				\draw[line width=1.2pt] (-2,0) arc [radius=2cm, start angle=180, end angle= 60];
+				\draw[line width=1.2pt] (-2,0) arc [radius=2cm, start angle=-180, end angle= -60];
+				\draw (0,2) node[above left]{$2$} circle (1pt);
+				\draw (0,-2) node[below left]{$-2$} circle (1pt);
+				\draw (1,0) node[above right]{$1$} circle (1pt);
+				\draw (-2,0) node[above left]{$-2$} circle (1pt);
+				\draw[dashed] (1,-2.5)--(1,2.5);
+				\end{tikzpicture}
+			}
+			\item \immini
+			{
+				Số phức $z$ có mô-đun $|z|\leq 2$ và phần thực thuộc đoạn $[-1;1]$ được biểu diễn bởi điểm $M(a;b)$ với $\sqrt{a^2+b^2}\leq 2$ hay $a^2+b^2\leq 4$ và $a\in[-1;1]$.\\
+				Vậy tập hợp các điểm biểu diễn số phức $z$ là phần gạch chéo ở hình bên, kể cả các điểm nằm trên hai cung tròn và hai đường thẳng $x=-1$, $x=1$.
+			}
+			{
+				\begin{tikzpicture}[scale=0.7,thick,>=stealth]
+				\draw[->,line width = 1pt] (-3,0) --(0,0) node[below left]{$O$}--(3,0) node[below]{$x$};
+				\draw[->,line width = 1pt] (0,-3) --(0,3) node[right]{$y$};
+				\draw[line width=1.2pt] (2,0) arc [radius=2cm, start angle=0, end angle= 180];
+				\draw[line width=1.2pt] (2,0) arc [radius=2cm, start angle=0, end angle= -180];
+				\fill[pattern=north east lines, domain=-1:1, variable=\x]
+				(-1,0)--plot(\x,{sqrt(4-(\x)^2)})--(1,0)--
+				(-1,0)--plot(\x,{-sqrt(4-(\x)^2)})--(1,0);
+				\draw (0,2) node[above left]{$2$} circle (1pt);
+				\draw (0,-2) node[below left]{$-2$} circle (1pt);
+				\draw (1,0) node[above right]{$1$} circle (1pt);
+				\draw (-1,0) node[above left]{$-1$} circle (1pt);
+				\draw (1,-2.5)--(1,2.5) (-1,-2.5)--(-1,2.5);
+				\end{tikzpicture}
+			}
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[2D4K1]
+	Cho hình bình hành $ABCD$. Ba đỉnh $A$, $B$, $C$ lần lượt biểu diễn các số phức $a=2-2i$, $b=-1+i$, $c=5+mi$ ($m\in\mathbb{R}$).
+	\begin{enumerate}[a.]
+		\item Tìm số phức $d$ được biểu diễn bởi điểm $D$;
+		\item Xác định m sao cho ABCD là hình chữ nhật.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}[a.]
+			\item Theo đề bài, ta có $A(2;-2)$, $B(-1;1)$, $C(5;m)$.\\
+			Vì $ABCD$ là hình bình hành nên $\overrightarrow{AB}=\overrightarrow{DC}$.\\
+			Suy ra $\left\lbrace\begin{aligned} x_B-x_A & =x_C-x_D\\y_B-y_A & =y_C-y_D \end{aligned}\right.\Leftrightarrow \left\lbrace\begin{aligned} x_D & =x_A+x_C-x_B=8\\y_D & =y_A+y_C-y_B=m-3. \end{aligned}\right.$\\
+			Vậy số phức $d=8+(m-3)i$.
+			\item Ta có $\overrightarrow{AB}=(-3;3)$, $\overrightarrow{AD}=(6;m-1)$.\\
+			$ABCD$ là hình chữ nhật $\Leftrightarrow \overrightarrow{AB}\cdot \overrightarrow{AD}=0$.\\
+			$\Leftrightarrow -3\cdot 6+3\cdot (m-1)=0\Leftrightarrow m=7$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[2D4K1]
+	Cho $A,B,C$ là ba điểm lần lượt biểu diễn các số phức $a=-1-i$, $b=i$, $c=1+ki$ ($k\in\mathbb{R}$). Xác định $k$ để ba điểm $A,B,C$ thẳng hàng.
+	\loigiai{
+		Theo đề bài, ta có $A(-1;-1)$, $B(0;1)$, $C(1;k)$.\\
+		Suy ra $\overrightarrow{AB}=(1;2)$ và $\overrightarrow{AC}=(2;k+1)$.\\
+		Vậy $A,B,C$ thẳng hàng khi và chỉ khi $\dfrac{2}{1}=\dfrac{k+1}{2}\Leftrightarrow k=3$.
+	}
+\end{bt}
+\begin{bt}%[2D4K1]
+	Cho số phức $z=m+(m-3)i$, $m\in\mathbb{R}$.
+	\begin{enumerate}[a.]
+		\item Tìm $m$ để điểm biểu diễn số phức $z$ nằm trên đường thẳng $y=-x$;
+		\item Tìm $m$ để điểm biểu diễn số phức $z$ nằm trên đường tròn $x^2+y^2=5$;
+		\item Tìm $m$ để khoảng cách từ điểm biểu diễn số phức đến gốc tọa độ là nhỏ nhất.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}[a.]
+			\item Gọi $M(m;m-3)$ là điểm biểu diễn số phức $z=m+(m-3)i$.\\
+			$M$ nằm trên đường thẳng $y=-x$ khi và chỉ khi $m-3=-m\Leftrightarrow m=\dfrac{3}{2}$.
+			\item $M$ nằm trên đường tròn $x^2+y^2=5$ khi và chỉ khi $m^2+(m-3)^2=5$.\\
+			$\Leftrightarrow 2m^2-6m+4=0\Leftrightarrow \left[ \begin{aligned}
+			m=1\\ m=2 \end{aligned}\right.$.
+			\item Ta có $OM=\sqrt{m^2+(m-3)^2}=\sqrt{2m^2-6m+9}=\sqrt{2\left( m-\dfrac{3}{2}\right) ^2+\dfrac{9}{2}}$.\\
+			Vậy $OM_{min}=\sqrt{\dfrac{9}{2}}$ khi $m=\dfrac{3}{2}$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[2D4G1]
+	Cho $A$, $B$, $C$, $D$ là bốn điểm trong mặt phẳng tọa độ theo thứ tự biểu diễn các số $4+(3+\sqrt{3})i$, $2+(3+\sqrt{3})i$, $1+3i$, $3+i$. Chứng minh rằng tứ giác $ABCD$ là tứ giác nội tiếp.
+	\loigiai{
+		\immini
+		{
+			Theo đề bài, ta có $A(4;3+\sqrt{3})$, $B(2;3+\sqrt{3})$, $C(1;3)$, $D(3;1)$.\\
+			Suy ra\\
+			$\overrightarrow{CA}=(3;\sqrt{3})$, $\overrightarrow{CB}=(1;\sqrt{3})$, $\overrightarrow{DA}=(1;2+\sqrt{3})$, $\overrightarrow{DB}=(-1;2+\sqrt{3})$.\\
+			$\overrightarrow{CA}\cdot \overrightarrow{CB}=6$,\\ $\left| \overrightarrow{CA}\right| =\sqrt{3^2+(\sqrt{3})^2}=2\sqrt{3}$, $\left| \overrightarrow{CB}\right| =\sqrt{1^2+(\sqrt{3})^2}=2$.\\
+			$\overrightarrow{DA}\cdot \overrightarrow{DB}=-1+4+4\sqrt{3}+3=6+4\sqrt{3}$,\\
+			$\left| \overrightarrow{DA}\right| =\sqrt{1^2+(2+\sqrt{3})^2}=\sqrt{8+4\sqrt{3}}$,\\ $\left| \overrightarrow{DB}\right| =\sqrt{(-1)^2+(2+\sqrt{3})^2}=\sqrt{8+4\sqrt{3}}$.
+		}
+		{
+			\begin{tikzpicture}[scale=1,thick]
+			\tkzDefPoints{4/4.73/A, 2/4.73/B, 1/3/C, 3/1/D}
+			
+			\tkzDrawPoints(A,B,C,D)
+			\tkzDrawCircle[circum](A,B,C)
+			\tkzDrawSegments(A,B B,C A,C A,D D,B C,D)
+			
+			\tkzLabelPoints(D) \tkzLabelPoints[left](C)
+			\tkzLabelPoints[above](A,B)
+			\tkzMarkAngles[size=0.6](A,C,B A,D,B)
+			\end{tikzpicture}
+		}
+		\noindent Vậy ta có
+		$$\cos \widehat{ACB}=\dfrac{\overrightarrow{CA}\cdot \overrightarrow{CB}}{\left| \overrightarrow{CA}\right|\cdot \left| \overrightarrow{CB}\right|}=\dfrac{6}{2\sqrt{3}\cdot 2}=\dfrac{\sqrt{3}}{2}.$$
+		$$\cos \widehat{ADB}=\dfrac{\overrightarrow{DA}\cdot \overrightarrow{DB}}{\left| \overrightarrow{DA}\right|\cdot \left| \overrightarrow{DB}\right|}=\dfrac{6+4\sqrt{3}}{8+4\sqrt{3}}=\dfrac{\sqrt{3}}{2}.$$
+		Do đó tứ giác $ABCD$ có $\widehat{ACB}=\widehat{ADB}=30^\circ$ nên $ABCD$ là tứ giác nội tiếp.
+	}
+\end{bt}

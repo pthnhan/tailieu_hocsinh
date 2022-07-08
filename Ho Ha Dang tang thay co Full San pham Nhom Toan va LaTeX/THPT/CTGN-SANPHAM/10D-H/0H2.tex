@@ -1,0 +1,299 @@
+\chapter[Hệ thức lượng trong tam giác]{HỆ THỨC LƯỢNG TRONG TAM GIÁC}
+\section{Các hệ thức cơ bản}
+\subsection{Tóm tắt lí thuyết}
+\immini{
+Cho $\Delta ABC$ có $AB=c,BC=a,CA=b$, đường cao $AH=h_a$, các trung tuyến $AM=m_a$, $BN=m_b,CP=m_c$. Gọi $R$ là bán kính đường tròn ngoại tiếp tam giác và $r$ là bán kính đường tròn nội tiếp tam giác $\Delta ABC$.
+}{
+	\begin{tikzpicture}[thick,scale=.6]
+	\clip(-3,-1) rectangle (6,5);
+	\coordinate (C) at (5,0);
+	\coordinate (A) at (0,4);
+	\coordinate (B) at (-2,0);
+	\draw (C)--(A)--(B)--cycle;
+	\tkzLabelSegment[right=2pt](C,A){$b$}
+	\tkzLabelSegment[below left=2pt](C,B){$a$}
+	\tkzLabelSegment[below left=3pt](A,B){$c$}
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[left](B)
+	\tkzLabelPoints[right](C)
+	\tkzDrawAltitude(B,C)(A) \tkzGetPoint{H}
+	\tkzLabelPoints[below](H)
+	\tkzMarkRightAngle[size=0.2,opacity=.4](A,H,B)
+	\tkzDrawMedian(B,C)(A)\tkzGetPoint{M}
+	\tkzLabelPoints[below right](M)
+	\tkzDrawMedian(A,C)(B)\tkzGetPoint{N}
+	\tkzLabelPoints[above right=2pt](N)
+	\tkzDrawMedian(A,B)(C)\tkzGetPoint{P}
+	\tkzLabelPoints[above left=2pt](P)
+	\tkzMarkAngle[size=0.6,opacity=.4](A,C,B)% square angle here
+	%\tkzLabelAngle[pos = 0.35](A,C,B){$\gamma$}
+	\tkzMarkAngle[size=0.6cm,%
+	opacity=.4](B,A,C)
+	%\tkzLabelAngle[pos = 0.6](B,A,C){$\alpha$}
+	\tkzMarkAngle[size=0.6cm,%
+	opacity=.4](C,B,A)
+	\end{tikzpicture}
+}
+
+\immini{
+\begin{dl} Định lý côsin\\
+	$$\begin{aligned}
+	& a^2=b^2+c^2-2bc\cos A \\ 
+	& b^2=a^2+c^2-2ac\cos B \\ 
+	& c^2=a^2+b^2-2ab\cos C.\\ 
+	\end{aligned}$$
+\end{dl}}{
+
+\begin{tikzpicture}[thick,scale=0.6]
+\coordinate (C) at (5,0);
+\coordinate (A) at (0,4);
+\coordinate (B) at (-2,0);
+\draw (C)--(A)--(B)--cycle;
+
+\tkzLabelSegment[right=3pt](C,A){$b$}
+\tkzLabelSegment[below=2pt](C,B){$a$}
+\tkzLabelSegment[above left=2pt](A,B){$c$}
+
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+
+
+
+\tkzMarkAngle[size=0.6,opacity=.4](A,C,B)% square angle here
+%\tkzLabelAngle[pos = 0.35](A,C,B){$\gamma$}
+\tkzMarkAngle[size=0.6cm,%
+opacity=.4](B,A,C)
+%\tkzLabelAngle[pos = 0.6](B,A,C){$\alpha$}
+\tkzMarkAngle[size=0.6cm,%
+opacity=.4](C,B,A)
+%\tkzLabelAngle[pos = 0.5](C,B,A){$\beta$}
+
+\end{tikzpicture}
+}
+
+\begin{hq} Hệ quả định lý côsin\\
+	$$\begin{aligned}
+	& \cos A=\dfrac{b^2+c^2-a^2}{2bc} \\ 
+	& \cos B=\dfrac{a^2+c^2-b^2}{2ac} \\ 
+	& \cos C=\dfrac{a^2+b^2-c^2}{2ab}. \\
+	\end{aligned}$$
+\end{hq}
+
+\begin{dl} Định lý sin\\
+	$$\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}=2R.$$
+\end{dl}
+
+\begin{dl} Đường trung tuyến trong tam giác\\
+	$$\begin{aligned}
+	& m_a^2 =\dfrac{b^2 +c^2 }{2} -\dfrac{a^2 }{4} =\dfrac{2\left(b^2 +c^2 \right)-a^2 }{4}  \\ 
+	&m_b^2 =\dfrac{a^2 +c^2 }{2} -\dfrac{b^2 }{4} =\dfrac{2\left(a^2 +c^2 \right)-b^2 }{4}  \\ 
+	&m_c^2 =\dfrac{a^2 +b^2 }{2} -\dfrac{c^2 }{4} =\dfrac{2\left(a^2 +b^2 \right)-c^2 }{4} . \end{aligned}$$
+\end{dl}
+
+\begin{dl} Công thức tính diện tích  trong tam giác\\
+$$\begin{aligned}
+& {S=\dfrac{1}{2} ah_a =\dfrac{1}{2} ab\sin C=\dfrac{1}{2} ac\sin B=\dfrac{1}{2} bc\sin A}. \\ 
+&{S=\dfrac{abc}{4R} =pr=\sqrt{p\left(p-a\right)\left(p-b\right)\left(p-c\right)} , \,\left(p=\dfrac{1}{2} \left(a+b+c\right)\right).} 
+\end{aligned}$$
+\end{dl}
+
+
+\subsection{Các dạng toán và công thức giải nhanh}
+
+
+\begin{dang}{Tính yếu tố đường cao - đường trung tuyến - bán kính $R$ và $r$}
+	\begin{enumerate}
+		\item Trong tam giác $ABC$ có  $h_a,h_b,h_c$ lần lượt là các đường cao kẻ từ các đỉnh $A,B,C$ và $r$ là bán kính đường tròn nội tiếp tam giác, ta có $$\dfrac{1}{h_a}+\dfrac{1}{h_b}+\dfrac{1}{h_c}=\dfrac{1}{r}.$$
+		\loigiai{Ta có $S=\dfrac{1}{2}a{h_a}\Rightarrow \dfrac{1}{h_a}=\dfrac{a}{2S}$.\\
+		Tương tự $\dfrac{1}{h_b}=\dfrac{b}{2S}$ và $\dfrac{1}{h_c}=\dfrac{c}{2S}$.\\
+		Suy ra $\dfrac{1}{h_a} + \dfrac{1}{h_b} + \dfrac{1}{h_c} =\dfrac{a}{2S} + \dfrac{b}{2S} + \dfrac{c}{2S} = \dfrac{a+b+c}{2S} = \dfrac{p}{S}=\dfrac{1}{r}$.}
+		\item Trong tam giác $ABC$ có $h_a$ là đường cao kẻ từ đỉnh $A$ và $R$ là bán kính đường tròn ngoại tiếp tam giác, ta có
+		$$h_a=2R\sin B\sin C.$$
+		\loigiai{Ta có $a\cdot h_a=2S\Rightarrow h_a=\dfrac{2S}{a}$.\\
+		Mà $S=\dfrac{abc}{4R}\Rightarrow h_a=\dfrac{2bc}{4R}=\dfrac{bc}{2R}\quad (1)$.\\
+		Thay $b=2R\sin B$; $c=2R\sin C$ vào $(1)$ ta được\\
+		$h_a=\dfrac{2R\sin B\cdot 2R\sin C}{2R}\Rightarrow h_a=2R\sin B \sin C$.}
+		
+		\item Cho tam giác $ABC$ có các cạnh $a,b,c$. Đường cao $h_a,h_b,h_c$ được tính bởi công thức sau:
+		$$h_a=\dfrac{2\sqrt{p(p-a)(p-b)(p-c)}}{a}$$
+		$$h_b=\dfrac{2\sqrt{p(p-a)(p-b)(p-c)}}{b}$$
+		$$h_c=\dfrac{2\sqrt{p(p-a)(p-b)(p-c)}}{c}.$$
+		\loigiai{Ta có $S=\dfrac{1}{2}ah_a=\dfrac{1}{2}bh_b=\dfrac{1}{2}ch_c=\sqrt{p\left( p-a \right)\left( p-b \right)\left( p-c \right)}$.\\
+		$\Rightarrow h_a=\dfrac{2\sqrt{p\left( p-a \right)\left( p-b \right)\left( p-c \right)}}{a}$\\
+		Tương tự\\
+		$ h_b=\dfrac{2\sqrt{p\left( p-a \right)\left( p-b \right)\left( p-c \right)}}{b}$\\
+		$h_c=\dfrac{2\sqrt{p\left( p-a \right)\left( p-b \right)\left( p-c \right)}}{c}$.}
+		\item Trong tam giác $ABC$ có $m_a,m_b,m_c$ lần lượt là đường trung tuyến ứng với các cạnh $a,b,c$. Tam giác $ABC$ vuông tại A khi và chỉ khi $$5m_a^2=m_b^2+m_c^2.$$
+		\loigiai{Tam giác vuông tại $A$  khi và chỉ khi 
+			$b^2+c^2=a^2$.\\ 
+			$5\left( \dfrac{b^2+c^2}{2}-\dfrac{ a^2}{4} \right)=\dfrac{a^2+c^2}{2}-\dfrac{ b^2}{4}+\dfrac{a^2+b^2}{2}-\dfrac{c^2}{4}$.\\
+			Vậy $5 m_a^2= m_b^2+m_c^2$.}
+	\end{enumerate}
+\end{dang}
+
+\begin{vd}%[Võ Thanh Phong]%[0H2K3-1]
+	Trong tam giác $ABC$ cho $h_a, h_b, h_c$ lần lượt là các đường cao kẻ từ các đỉnh $A,B,C$ biết rằng $h_a=3$, $h_b=6$, $h_c=8$. Tính $r$ bán kính  đường tròn nội tiếp tam giác $ABC$.
+	\choice
+	{\True $1,6$}
+	{$3,5$}
+	{$5,1$}
+	{$4,2$}
+	\loigiai{Ta có $\dfrac{1}{r}=\dfrac{1}{h_a}+\dfrac{1}{h_b}+\dfrac{1}{h_c}=\dfrac{1}{3}+\dfrac{1}{6}+\dfrac{1}{8}=\dfrac{5}{8}$.\\	
+		Suy ra $r=1,6$.
+	}
+\end{vd}
+
+\begin{vd}%[Võ Thanh Phong]%[0H2K3-1]
+	Cho tam giác $ABC$, gọi $r$ là bán kính đường tròn nội tiếp tam giác $ABC$ và $h_a,h_b,h_c$ lần lượt là các đường cao ứng với các cạnh $BC,AC,AB$ sao cho $h_a=14,$ $h_b=7$, $r=2.$ Tính đường cao $h_c$.
+	\choice
+	{$5$}
+	{$4{,}1$}
+	{\True $3{,}5$}
+	{$2{,}8$}
+	\loigiai{ Ta có $\dfrac{1}{h_a}+\dfrac{1}{h_b}+\dfrac{1}{h_c}=\dfrac{1}{r}$.\\
+		Suy ra $\dfrac{1}{h_c}=\dfrac{1}{r}-\dfrac{1}{h_a}-\dfrac{1}{h_b}=\dfrac{1}{2}-\dfrac{1}{14}-\dfrac{1}{7}=\dfrac{2}{7}$ hay $h_c=3{,}5$.
+	}
+\end{vd}
+
+\begin{vd}%[Võ Thanh Phong]%[0H2K3-1]
+	Cho tam giác $ABC$ có $\widehat{B}={30^{\circ }},\widehat{C}={60^{\circ }}$, đường cao ${h_a}=2\sqrt{3}$. Tính $R$ bán kính đường tròn ngoại tiếp tam giác $ABC$. 
+	\choice
+	{$3$}
+	{\True$4$}
+	{$5$}
+	{$6$}
+	\loigiai{ Ta có $h_a=2R\sin B\sin C.$\\
+		Suy ra $R=\dfrac{h_a}{2\sin B\sin C}=\dfrac{2\sqrt{3}}{2\sin  30^{\circ}\sin 60^{\circ }}=4$.
+	}
+\end{vd}
+
+\begin{vd}%[Võ Thanh Phong]%[0H2K3-1]
+	Cho tam giác $ABC$ có $\widehat{B}={{30}^{\circ }},\widehat{C}={{60}^{\circ }}$, bán kính đường tròn ngoại tiếp tam giác $R=4$. Tính đường cao $h_a$ kẻ từ đỉnh $A$.
+	\choice
+	{$3\sqrt{2}$}
+	{$3\sqrt{3}$}
+	{$4\sqrt{2}$}
+	{\True$2\sqrt{3}$}
+	\loigiai{ Ta có $h_a=2R\sin B\sin C=2\cdot4\cdot \sin 30^{\circ }\sin 60^{\circ }=2\sqrt{3}$.
+	}
+\end{vd}
+
+\begin{vd}%[Võ Thanh Phong]%[0H2K3-1]
+	Cho tam giác $ABC$ có $a=7$, $b=8$, $c=6$. Hãy tính độ dài đường cao $h_a$ kẻ từ đỉnh $A$.
+	\choice
+	{$7\sqrt{3}$}
+	{$5$}
+	{$\dfrac{4\sqrt{2}}{3}$}
+	{\True$\dfrac{3\sqrt{15}}{2}$}
+	\loigiai{ Ta có $p=\dfrac{a+b+c}{2}=\dfrac{7+8+6}{2}=\dfrac{21}{2}.$\\
+	Suy ra	$h_a=\dfrac{2\sqrt{p(p-a)(p-b)(p-c)}}{a}=\dfrac{2\sqrt{\dfrac{21}{2}\cdot\dfrac{7}{2}\cdot \dfrac{5}{2}\cdot \dfrac{9}{2}}}{7}=\dfrac{3\sqrt{15}}{2}$ .
+	}
+\end{vd}
+
+\begin{vd}%[Võ Thanh Phong]%[0H2K3-1]
+	Cho tam giác $ABC$ có $a=5$, $b=$7, $c=6$. Gọi $m,n,k$ lần lượt là độ dài đường cao $h_a,h_b,h_c$. Tính $M=5m+7n+k.$
+	\choice
+	{$10\sqrt{7}$}
+	{\True$26\sqrt{6}$}
+	{$25$}
+	{$6\sqrt{5}$}
+	\loigiai{ Ta có: $p=\dfrac{a+b+c}{2}=\dfrac{5+7+6}{2}=9.$\\
+		$m=h_a=\dfrac{2\sqrt{p\left( p-a \right)\left( p-b \right)\left( p-c \right)}}{a}=\dfrac{2\sqrt{9\cdot 4\cdot 2\cdot 3}}{5}=\dfrac{12\sqrt{6}}{5}.$\\
+		$n=h_b=\dfrac{2\sqrt{p\left( p-a \right)\left( p-b \right)\left( p-c \right)}}{b}=\dfrac{2\sqrt{9\cdot4\cdot2\cdot3}}{7}=\dfrac{12\sqrt{6}}{7}.$\\
+		$k=h_c=\dfrac{2\sqrt{p\left( p-a \right)\left( p-b \right)\left( p-c \right)}}{c}=\dfrac{2\sqrt{9\cdot4\cdot2\cdot3}}{6}=2\sqrt{6}$.\\
+		$M=5m+7n+k=5\cdot\dfrac{12\sqrt{6}}{5}+7\cdot\dfrac{12\sqrt{6}}{7}+2\sqrt{6}=26\sqrt{6}$.
+	}
+\end{vd}
+
+
+\begin{vd}%[Võ Thanh Phong]%[0H2K3-1]
+	Cho tam giác $ABC$ vuông tại $A$, gọi $m_a,m_b,m_c$ lần lượt là đường trung tuyến ứng với các cạnh $a,b,c$ sao cho $m_b=3$ cm, $m_c= 4$ cm. Tính độ dài đường trung tuyến $m_a$.
+	\choice
+	{$\dfrac{\sqrt{5}}{2}$ cm}
+	{\True$\sqrt{5}$ cm}
+	{$5\sqrt{2}$ cm}
+	{$\dfrac{2\sqrt{5}}{5}$ cm}
+	\loigiai{ Ta có: $m_a^2=\dfrac{m_b^2+m_c^2}{5}=\dfrac{3^2+4^2}{5}=5$.\\	
+		Suy ra $m_a=\sqrt{5}$ cm.
+	}
+\end{vd}
+
+\begin{vd}%[Võ Thanh Phong]%[0H2K3-1]
+	Cho tam giác $ABC$ vuông tại $B$, gọi $m_a,m_b,m_c$ lần lượt là đường trung tuyến ứng với các cạnh $a,b,c$ sao cho $m_a=\sqrt{5}$, $m_c= 4$. Tính độ dài đường trung tuyến $m_b$.
+	\choice
+	{$5\sqrt{5}$}
+	{$21\sqrt{5}$}
+	{$4\sqrt{2}$}
+	{\True$\dfrac{21\sqrt{5}}{5}$}
+	\loigiai{ Ta có $m_b^2=\dfrac{m_a^2+m_c^2}{5}=\dfrac{\sqrt{5}^2+4^2}{5}=\dfrac{21}{5}$.\\
+		Suy ra $m_b=\dfrac{21\sqrt{5}}{5}$.
+	}
+\end{vd}
+
+\begin{dang}{Tính diện tích tam giác}
+	\begin{enumerate}
+		\item Với $R$ là bán kính đường tròn ngoại tiếp tam giác $ABC$. Ta có
+	$$S_{\triangle ABC}=2R^2\sin A\sin B\sin C.$$ 
+		\loigiai{Ta có $S=\dfrac{1}{2} ab\sin C=\dfrac{1}{2} ac\sin B=\dfrac{1}{2} bc\sin A$.\\
+		Suy ra $S^3=\dfrac{1}{8}\cdot a^2b^2c^2\sin A \sin B \sin C=\dfrac{1}{8}S^2R^2\sin A \sin B \sin C$.\\
+		Vậy $S_{\triangle ABC}=2R^2\sin A\sin B\sin C$.}
+		\item Cho tam giác $ABC$ có hai đường trung tuyến $BM,CN$ vuông góc với nhau. Ta có
+		$$S_{\triangle ABC}={a^2}\tan A.$$
+		\loigiai{Hai đường trung tuyến $BM$, $CN$ vuông góc với nhau thì $\left(\dfrac{2}{3}m_b\right)^2+\left(\dfrac{2}{3}m_c\right)^2=a^2$\\
+		$\Leftrightarrow \dfrac{4}{9}\left(\dfrac{a^2+b^2}{2}-\dfrac{c^2}{4}\right)+\dfrac{4}{9}\left(\dfrac{a^2+c^2}{2}-\dfrac{b^2}{4}\right)=a^2$\\
+		$\Leftrightarrow 5a^2=b^2+c^2$.\\
+		Mặt khác ta có $a^2=b^2-2bc\cos A \Rightarrow bc=\dfrac{2a^2}{\cos A}$.\\
+		Vậy $S=\dfrac{1}{2}\sin A=a^2\tan A$.
+	}
+	\end{enumerate}
+\end{dang}
+
+\begin{vd}%[Võ Thanh Phong]%[0H2K3-1]
+	Cho tam giác $ABC$ với ba góc $A,B,C$ có số đo lần lượt là $30^{\circ}, 30^{\circ}, 120^{\circ}$. Tính diện tích tam giác $ABC$ nội tiếp đường tròn bán kính $R$ bằng $12$.
+	\choice
+	{\True $36\sqrt{3}$}
+	{$28$}
+	{$45\sqrt{2}$}
+	{$50$}
+	\loigiai{
+	Ta có $S_{\triangle ABC}=2R^2\sin A\sin B\sin C = 2.12^2\sin 30^{\circ}\sin 30^{\circ}\sin 120^{\circ}=36\sqrt{3}.$
+	}
+\end{vd}
+
+\begin{vd}%[Võ Thanh Phong]%[0H2K3-1]
+	Cho tam giác $ABC$ có $\widehat{A}=120^{\circ}$, $\widehat{B}=30^{\circ}$, $\widehat{C}=30^{\circ}$.  Tính $R$ bán kính đường tròn ngoại tiếp tam giác $ABC$ có diện tích bằng $40\sqrt{3}$.
+	\choice
+	{$4$}
+	{\True $4\sqrt{10}$}
+	{$5\sqrt{2}$}
+	{$6$}
+	\loigiai{Ta có $S_{\triangle ABC}=2R^2\sin A\sin B\sin C$.\\
+	Suy ra $R=\sqrt{\dfrac{S_{\triangle ABC}}{2\sin A\sin B\sin C }}= \sqrt{\dfrac{40\sqrt{3}}{2\sin 30^{\circ}\sin 30^{\circ}\sin 120^{\circ}}}=4\sqrt{10}$.
+	}
+\end{vd}
+
+\begin{vd}%[Võ Thanh Phong]%[0H2K3-1]
+	Cho tam giác $ABC$ có hai đường trung tuyến $BM,CN$ vuông góc với nhau, cạnh $BC=3$, góc $A$ bằng $45^{\circ }$ . Tính $S_{\Delta ABC}.$ 
+	\choice
+	{$8$}
+	{$10$}
+	{\True$ 9$}
+	{$11$}
+	\loigiai{ Ta có 
+		$S_{\triangle ABC}=a^2\tan A=3^2\tan 45^{\circ }=9$.
+	}
+\end{vd}
+
+\begin{vd}%[Võ Thanh Phong]%[0H2K3-1]
+	Cho tam giác $ABC$ có hai đường trung tuyến $AM,BN$ vuông góc với nhau. Tính độ dài cạnh $AB$ biết diện tích tam giác $ABC$ bằng $16\sqrt{3}$ và góc $C$ bằng $60^{\circ}$.
+	\choice
+	{$3$}
+	{\True$4$}
+	{$6$}
+	{$8$}
+	\loigiai{ Ta có 
+		$S_{\triangle ABC}=c^2\tan C$.\\
+		Suy ra $c = \sqrt{\dfrac{S_{\triangle ABC}}{\tan C}} = \sqrt{\dfrac{16\sqrt{3}}{\tan 60^{\circ }}}= 4$.
+	}
+\end{vd}

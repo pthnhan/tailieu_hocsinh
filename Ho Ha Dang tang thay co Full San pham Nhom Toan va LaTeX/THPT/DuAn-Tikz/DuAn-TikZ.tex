@@ -1,0 +1,88 @@
+\documentclass[12pt,a4paper,twoside]{report}
+\usepackage[utf8]{vietnam}
+\usepackage[unicode, breaklinks=true]{hyperref}
+\usepackage[top=2cm, bottom=2cm, left=2.5cm, right=2cm] {geometry}
+\usepackage{amsmath, amssymb,yhmath,mathrsfs}
+\usepackage{tikz,tkz-euclide}
+\usetikzlibrary{intersections,shadings,calc,angles,quotes}
+\usepackage{arydshln}
+\usetkzobj{all}
+\usepackage{tkz-tab,tkz-linknodes}
+\usepackage{tikz-3dplot}
+\usepackage{esvect}
+%\def\vec{\vv}
+\def\overrightarrow{\vv}
+\usepackage[loigiai]{ex_test}
+%CÁC GÓI, LỆNH VIẾT TẮT CẦN THÊM
+%CẤU TRÚC TỰ LUẬN
+\usepackage{framed}
+\usepackage[most]{tcolorbox}
+\newtheorem{bt}{Bài}
+\newtheorem{vd}{Ví dụ}
+\def\beginbox{\begin{tcolorbox}[colframe=blue,colback=white]}
+\def\endbox{\end{tcolorbox}}
+\AtBeginEnvironment{vd}{
+\beginbox
+\renewcommand{\loigiai}[1]{
+\renewcommand{\immini}[2]{
+\setbox\imbox=\vbox{\hbox{##2}}
+\widthimmini=\wd\imbox
+\IMleftright{##1}{##2}
+}
+\endbox
+\begin{onlysolution}
+#1
+\end{onlysolution}
+\def\endbox{}
+}
+}
+\AtEndEnvironment{vd}{
+\endbox
+}
+\newtcolorbox[auto counter]{dang}[1]{
+colframe=blue,colback=white,
+title=Dạng~\thetcbcounter.\ #1
+\addcontentsline{toc}{subsection}{
+Dạng~\thetcbcounter.\ #1
+}
+}
+\theorembodyfont{\it}
+\newtheorem{dl}{Định lí}
+\theoremseparator{.}
+\theorembodyfont{\rm}
+\newtheorem{hq}{Hệ quả}
+\newtheorem{tc}{Tính chất}
+\newtheorem{dn}{Định nghĩa}
+\theoremstyle{nonumberplain}
+\newtheorem{kn}{Khái niệm}
+\newtheorem{nx}{Nhận xét}
+\theoremseparator{}
+\theorembodyfont{\it}
+\usepackage{stackengine}
+\usepackage{scalerel}
+\newcommand\dangersign[1][2ex]{%
+  \renewcommand\stacktype{L}%
+  \scaleto{\stackon[1.3pt]{\color{red}$\triangle$}{\fontsize{4}{0}\selectfont !}}{#1}%
+}
+\newtheorem{note}{{\dangersign[3ex]}}
+%Tiêu đề chương
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{2}
+%HẾT CẤU TRÚC TỰ LUẬN
+\title{Dự án vẽ hình lớp 11 $-$ lớp 12}
+\date{\today}
+\author{Nhóm Toán và \LaTeX}
+\begin{document}
+	\pagestyle{fancy}
+	\chead{Facebook \lq\lq Nhóm Toán và \LaTeX\rq\rq}
+	\lhead{\empty}
+	\rhead{\empty}
+	\maketitle
+	\tableofcontents
+\chapter{Hình học lớp 12}
+%\addcontentsline{toc}{chapter}{Hình học lớp 12}
+\input{HH12/HH12-C_1}
+\input{HH12/HH12-C_2}
+\input{HH11/HH11-C_2.tex}
+\input{HH11/HH11-C_3.tex}
+\end{document}

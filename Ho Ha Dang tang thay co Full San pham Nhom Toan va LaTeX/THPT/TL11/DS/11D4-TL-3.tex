@@ -1,0 +1,888 @@
+\section{Hàm số liên tục}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Hàm số liên tục tại một điểm}
+\begin{dn}
+Cho hàm số $y=f(x)$ xác định trên khoảng $K$ và $x_0\in K$. Hàm số $y=f(x)$ được gọi là \textbf{liên tục} tại $x_0$ nếu $\lim\limits_{x\to x_0}f(x)=f(x_0)$.
+\end{dn}
+
+\begin{note}
+Hàm số $y=f(x)$ không liên tục tại $x_0$ được gọi là \textbf{gián đoạn} tại điểm đó.
+\end{note}
+
+\subsubsection{Hàm số liên tục trên một khoảng}
+
+\begin{dn}
+Hàm số $y=f(x)$ được gọi là \textbf{liên tục trên một khoảng} nếu nó liên tục tại mọi điểm của khoảng đó.
+\end{dn}
+
+\begin{dn}
+Hàm số $y=f(x)$ được gọi là \textbf{liên tục trên đoạn} $[a;b]$ nếu nó liên tục trên khoảng $(a;b)$ và 
+$\lim\limits_{x\to a^+}f(x)=f(a)$, $\lim\limits_{x\to b^-}f(x)=f(b)$.
+\end{dn}
+
+\begin{note}
+Khái niệm hàm số liên tục trên nửa khoảng, như $(a;b]$, $[a;+\infty)$, $\ldots$ được định nghĩa một cách tương tự.
+\end{note}
+
+\begin{note}
+\immini{Đồ thị của hàm số liên tục trên một khoảng là một ``đường liền'' trên khoảng đó
+}{\begin{tikzpicture}[scale=1,thick,>=stealth, x=1.0cm,y=1.0cm]
+\draw [->] (-1.5,0)--(3,0)node[below]{\footnotesize $x$};
+\draw [->] (0,-2)--(0,2)node[right]{\footnotesize $y$};
+\draw [fill=white,draw=black] (0,0) circle (1pt)node[above right] {\footnotesize $O$};
+\draw [dashed](-1,0)--(-1,-1) (2,0)--(2,2);
+\clip(-2,-1.5) rectangle (2,2);
+\draw[line width=1.0pt,smooth,samples=100,domain=-1:2]  plot(\x,{(\x)^3-(\x)^2-(\x)});
+\end{tikzpicture}}
+\end{note}
+
+\subsubsection{Một số định lí cơ bản}
+\begin{dl}
+\hfill
+\begin{enumerate}
+\item  Hàm số đa thức liên tục trên toàn bộ tập số thực $\mathbb{R}$.
+\item Hàm số phân thức hữu tỉ (thương của hai đa thức) và các hàm số lượng giác liên tục trên từng khoảng của tập xác định của chúng.
+\end{enumerate}
+\end{dl}
+
+\begin{dl}
+Giả sử $y=f(x)$ và $y=g(x)$ là hai hàm số liên tục tại điểm $x_0$. Khi đó
+\begin{enumerate}
+\item Các hàm số $y=f(x)+g(x)$, $y=f(x)-g(x)$ và $y=f(x).g(x)$ liên tục tại $x_0$.
+\item Hàm số $y=\dfrac{f(x)}{g(x)}$ liên tục tại $x_0$ nếu $g(x_0)\neq 0$.
+\end{enumerate}
+\end{dl}
+
+\begin{dl}
+Nếu hàm số $y=f(x)$ liên tục trên đoạn $[a;b]$ và $f(a)f(b)<0$, thì tồn tại ít nhất một điểm $c\in (a;b)$ sao cho $f(c)=0$.
+\end{dl}
+
+\begin{note}
+Nếu hàm số $y=f(x)$ liên tục trên đoạn $[a;b]$ và $f(a)f(b)<0$ thì phương trình $f(x)=0$ có ít nhất một nghiệm nằm trong khoảng $(a;b)$.
+\end{note}
+
+
+\subsection{Các dạng toán}
+
+\begin{dang}{Xét tính liên tục của hàm số tại một điểm}
+Cho hàm số $y=f(x)$ xác định trên tập $D$. Để xét tính liên tục của hàm số $y=f(x)$ tại điểm $x_{0}\in D$, ta thực hiện các bước sau:
+\begin{enumerate}[Bước 1.]
+	\item Tính $f(x_0)$.
+	\item Tìm $\lim\limits_{x\to x_0}f(x)$.
+	\item So sánh và rút ra kết luận.
+	\begin{itemize}
+		\item Nếu $\lim\limits_{x\to x_0}f(x)=f(x_0)$ thì hàm số $f(x)$ liên tục tại điểm $x_0$.
+		\item Nếu $\lim\limits_{x\to x_0}f(x)\ne f(x_0)$ thì hàm số $f(x)$ không liên tục (gián đoạn) tại điểm $x_0$.
+	\end{itemize}
+\end{enumerate}
+\end{dang}
+\begin{vd}%[Huỳnh Văn Quy]%[1D4B3]
+	Cho hàm số: $f(x)=\heva{&\dfrac{x^2-1}{x-1}&\text{nếu}&\quad x\ne  1 \\ 
+		& a&\text{nếu}&\quad x=1}$ với $a$ là hằng số. \\
+	Xét tính liên tục của hàm số tại $x_0=1$.
+\loigiai{Ta có:
+	\begin{itemize}
+		\item $f(1) = a$.
+		\item $\lim\limits_{x\to 1}f(x)=\lim\limits_{x\to 1}\dfrac{x^2-1}{x-1}=\lim\limits_{x\to 1}(x+1)=2$.
+		\begin{itemize}
+			\item Nếu $a=2$ thì hàm số $f(x)$ liên tục tại điểm $x_0=1$.
+			\item Nếu $a\ne2$ thì hàm số $f(x)$ gián đoạn tại điểm $x_0=1$.
+		\end{itemize}
+	\end{itemize}}	
+\end{vd}
+\begin{vd}%[Huỳnh Văn Quy]%[1D4B3]
+	Cho hàm số $f(x)=\begin{cases}
+	x^2+1&\text{nếu}\:x>0\\
+	x&\text{nếu}\:x\leq0
+	\end{cases}$.\\
+	Xét tính liên tục của hàm số tại điểm $x_0=0$.
+	\loigiai{Ta có:
+	\begin{itemize}
+		\item $f(0)=0$.
+		\item $\lim\limits_{x\to0^{+}}f(x)=\lim\limits_{x\to0^{+}}(x^2+1)=1$.
+		\item $\lim\limits_{x\to0^{-}}f(x)=\lim\limits_{x\to0^{-}}x=0$.
+\end{itemize}
+	Ta có: $f(0)=\lim\limits_{x\to0^{-}}f(x)\ne\lim\limits_{x\to0^{+}}f(x)$. Vậy hàm số $f(x)$ gián đoạn tại điểm $x=0$.
+}
+\end{vd}
+\begin{vd}%[Huỳnh Văn Quy]%[1D4B3]
+	Cho hàm số $f(x)=\begin{cases}
+	\dfrac{x^2-6x+5}{x^2-1}&\text{nếu}\: x\ne 1\\
+	-2&\text{nếu}\: x=1
+	\end{cases}$.\\ 
+	Xét tính liên tục của hàm số $f(x)$ tại điểm $x_0=1$.
+	\loigiai{Ta có: $f(1)=-2$.\\
+		$\lim\limits_{x\to1}f(x)=\lim\limits_{x\to1}\dfrac{x^2-6x+5}{x^2-1}=\lim\limits_{x\to1}\dfrac{(x-5)(x-1)}{(x-1)(x+1)}=\lim\limits_{x\to1}\dfrac{x-5}{x+1}=-2=f(1)$.\\
+		Vậy hàm số $f(x)$ liên tục tại $x=1$.}
+\end{vd}
+\begin{vd}%[Huỳnh Văn Quy]%[1D4B3]
+	Xét tính liên tục của hàm số $f(x)=\begin{cases}
+	\dfrac{1-\sqrt{2x-3}}{2-x}&\text{nếu}\:x\ne2\\
+	1&\text{nếu}\:x=2
+	\end{cases}$
+ tại điểm $x_0=2$.
+ \loigiai{Ta có:
+ \begin{itemize}
+ 	\item $f(2)=1$.
+ 	\item $\lim\limits_{x\to 2}f(x)=\lim\limits_{x\to 2}\dfrac{1-\sqrt{2x-3}}{2-x}=\lim\limits_{x\to 2}\dfrac{1-(2x-3)}{(2-x)(1+\sqrt{2x-3})}=\lim\limits_{x\to 2}\dfrac{2(2-x)}{(2-x)(1+\sqrt{2x-3})}\\
+ 	=\lim\limits_{x\to 2}\dfrac{2}{1+\sqrt{2x-3}}=1=f(2)$
+\end{itemize}
+Vậy hàm số $f(x)$ liên tục tại $x_0=2$.}
+\end{vd}
+
+
+
+\begin{vd}%[Huỳnh Văn Quy]%[1D4B3]
+	Cho hàm số $f(x)$ xác định bởi: $f(x)=\begin{cases}
+	\dfrac{\sqrt{x}-2}{\sqrt{x+5}-3}&\text{khi}\:x\ne4\\
+	-\dfrac{3}{2}&\text{khi}\:x=4
+	\end{cases}$.\\
+Xét tính liên tục của hàm số $f(x)$ tại điểm $x_0=4$.
+\loigiai{
+Ta có:
+\begin{itemize}
+	\item $f(4)=-\dfrac{3}{2}$.
+	\item $\lim\limits_{x\to 4}f(x)=\lim\limits_{x\to 4}\dfrac{\sqrt{x}-2}{\sqrt{x+5}-3}=\lim\limits_{x\to 4}\dfrac{(\sqrt{x+5}+3)(x-4)}{(x+5-9)(\sqrt{x}+2)}$\\
+	$=\lim\limits_{x\to 4}\dfrac{\sqrt{x+5}+3}{\sqrt{x}+2}=\dfrac{6}{4}=\dfrac{3}{2}\ne f(4)$. 
+\end{itemize}
+Vậy hàm số $f(x)$ gián đoạn tại điểm $x=4$.
+}
+\end{vd}
+\begin{vd}%[Huỳnh Văn Quy]%[1D4K3]
+	Cho hàm số $f(x)=\begin{cases}
+	ax+\dfrac{1}{4}&\text{nếu}\quad x\leq 2\\
+	\dfrac{\sqrt[3]{3x+2}-2}{x-2}&\text{nếu}\quad x>2
+	\end{cases}$. Tìm $a$ để hàm số liên tục tại $x_0=2$. 
+	\loigiai{Ta có: $\lim\limits_{x\to 2^{-}}f(x)=\dfrac{1}{4}+2a=f(2)$.
+		\begin{align*}
+		\lim\limits_{x\to 2^{+}}f(x)&=\lim\limits_{x\to 2^{+}}\dfrac{3x-6}{(x-2)\left(4+2\sqrt[3]{3x+2}+\sqrt[3]{(3x+2)^2}\right)}\\
+		&=\lim\limits_{x\to2^{+}}\dfrac{3}{4+2\sqrt[3]{3x+2}+\sqrt[3]{(3x+2)^2}}=\dfrac{1}{4}.
+		\end{align*}
+		Điều kiện cần và đủ để hàm số $f(x)$ liên tục tại $x_0=2$ là $2a+\dfrac{1}{4}=\dfrac{1}{4}\Leftrightarrow a=0$.
+	}
+\end{vd}
+
+\begin{vd}%[Huỳnh Văn Quy]%[1D4K3]
+	Cho hàm số $f(x)=\begin{cases}
+	\dfrac{x^2-4}{x-2}&\text{nếu}\: x\ne 2\\
+	m^2+3m&\text{nếu}\: x=2
+	\end{cases}$. Tìm $m$ để hàm số liên tục tại $x_0=2$.
+	\loigiai{Ta có: $f(2)=m^2+3m$.\\
+		$\lim\limits_{x\to 2}f(x)=\lim\limits_{x\to 2}\dfrac{x^2-4}{x-2}=\lim\limits_{x\to 2}\dfrac{(x-2)(x+2)}{(x-2)}=\lim\limits_{x\to 2}(x+2)=4$.\\
+		Để hàm số liên tục tại điểm $x=2$ thì $\lim\limits_{x\to 2}f(x)=f(2)\Leftrightarrow 4=m^2+3m\Leftrightarrow \left[\begin{array}{l}
+		m=1\\
+		m=-4
+		\end{array}
+		\right.$.
+	}
+\end{vd}
+
+\begin{vd}%[Huỳnh Văn Quy]%[1D4K3]
+	Tìm $m$ để hàm số 
+	$f(x)=\begin{cases}
+	\dfrac{\sqrt{1-x}-\sqrt{1+x}}{x}&\text{nếu}\: x<0\\
+	m+\dfrac{x^3-3x+1}{x+2}&\text{nếu}\: x\geq 0
+	\end{cases}$ 
+	liên tục tại $x_0=0$.
+	\loigiai{Ta có: $f(0)=m+\dfrac{1}{2}$.
+		\begin{align*}
+		\lim\limits_{x\to0^{-}}f(x)&=\lim\limits_{x\to0^{-}}\dfrac{\sqrt{1-x}-\sqrt{1+x}}{x}=\lim\limits_{x\to0^{-}}\dfrac{\left(\sqrt{1-x}-\sqrt{1+x}\right)\left(\sqrt{1-x}+\sqrt{1+x}\right)}{x\left(\sqrt{1-x}+\sqrt{1+x}\right)}\\
+		&=\lim\limits_{x\to0^{-}}\dfrac{-2x}{x\left(\sqrt{1-x}+\sqrt{1+x}\right)}=\lim\limits_{x\to0^{-}}\dfrac{-2}{\sqrt{1-x}+\sqrt{1+x}}=-1.
+		\end{align*}
+		$\lim\limits_{x\to0^{+}}f(x)=\lim\limits_{x\to0^{+}}\left(m+\dfrac{x^3-3x+1}{x+2}\right)=m+\dfrac{1}{2}$.\\
+		Để hàm số liên tục tại $x=0$ thì: $\lim\limits_{x\to0^{+}}f(x)=\lim\limits_{x\to0^{-}}f(x)=f(0)\Leftrightarrow m+\dfrac{1}{2}=-1\Leftrightarrow m=-\dfrac{3}{2}$. 
+	}
+\end{vd}
+
+\begin{vd}%[Huỳnh Văn Quy]%[1D4K3]
+	Cho hàm số $f(x)=\begin{cases}
+	\dfrac{2x^3-\sqrt{8-4x}}{x-1}&\text{nếu}\:x<1\\
+	14ax&\text{nếu}\:x\geq1
+	\end{cases}$. Tìm $a$ để hàm số $f(x)$ liên tục tại $x_0=1$.
+	\loigiai{Ta có: $f(1)=14a$.\\
+		$\lim\limits_{x\to 1^{+}}f(x)=\lim\limits_{x\to 1^{+}}14ax=14a$.
+		\begin{align*}
+		\lim\limits_{x\to 1^{-}}f(x)&=\lim\limits_{x\to1^{-}}\dfrac{2x^3-\sqrt{8-4x}}{x-1}= \lim\limits_{x\to1^{-}}\frac{4x^6-(8-4x )}{(x-1 )(2x^3+\sqrt{8-4x})}\\
+		&=\lim\limits_{x\to1^{-}} \frac{(x-1 )(4x^5+4x^4+4x^3+4x^2+4x+8 )}{(x-1 )(2x^3+\sqrt{8-4x})}\\
+		&=\lim\limits_{x\to1^{-}}\dfrac{4x^5+4x^4+4x^3+4x^2+4x+8}{2x^3+\sqrt{8-4x}}=7
+		\end{align*}
+		$f(x)$ liên tục tại $x_0=1$ khi và chỉ khi $\lim\limits_{x\to 1^{+}}f(x)=\lim\limits_{x\to 1^{-}}f(x)=f(1)\Leftrightarrow 14a=7\Leftrightarrow a=\dfrac{1}{2}$.
+	}
+\end{vd}
+
+\begin{center}
+\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+
+	\begin{bt}%[Huỳnh Văn Quy]%[1D4B3]
+	Cho hàm số $f(x)=\begin{cases}
+	\dfrac{3x^2-4x+1}{x-1}&\text{nếu}\: x\ne1\\
+	5a^2-3&\text{nếu}\:x=1
+	\end{cases}$. Tìm $a$ để hàm số liên tục tại $x_0=1$.
+	\loigiai{Ta có: $f(1)=5a^2-3$.\\
+$\lim\limits_{x\to1}\dfrac{3x^2-4x+1}{x-1}=	\lim\limits_{x\to1}\dfrac{(x-1)(3x-1)}{x-1}=\lim\limits_{x\to1}(3x-1)=2$\\
+Hàm số $f(x)$ liên tục tại $x=1$ khi và chỉ khi $\lim\limits_{x\to1}f(x)=f(1)\Leftrightarrow 5a^2-3=2\Leftrightarrow a^2=1\Leftrightarrow a=\pm1$.
+}
+\end{bt}
+
+\begin{bt}%[Huỳnh Văn Quy]%[1D4B3]
+	Cho hàm số $f(x)=\begin{cases}
+	\dfrac{\sqrt{x+4}-2}{x}&\text{nếu}\:x\ne0\\
+	2a-\dfrac{5}{4}&\text{nếu}\:x=0
+	\end{cases}$. Tìm $a$ để hàm số liên tục tại $x_0=0$.
+	\loigiai{Ta có: $f(0)=2a-\dfrac{5}{4}$.\\
+		$\lim\limits_{x\to0}f(x)=\lim\limits_{x\to0}\dfrac{\sqrt{x+4}-2}{x}=\lim\limits_{x\to0}\dfrac{x+4-4}{x(\sqrt{x+4}+2)}=\lim\limits_{x\to0}\dfrac{1}{\sqrt{x+4}+2}=\dfrac{1}{4}$.\\
+		Hàm số $f(x)$ liên tục tại $x_0=0$ khi và chỉ khi $\lim\limits_{x\to 0}f(x)=f(0)\Leftrightarrow 2a-\dfrac{5}{4}=\dfrac{1}{4}\Leftrightarrow a=\dfrac{3}{4}$.}
+\end{bt}
+
+\begin{bt}%[Huỳnh Văn Quy]%[1D4G3]
+	Cho hàm số $f(x)=\begin{cases}
+	\dfrac{x^3-x^2+2x-2}{3x+a} &\text{nếu } x\neq 1\\
+	3x+a &\text{nếu } x=1
+	\end{cases}$. Tìm các giá trị của tham số $a$ để $f(x)$ liên tục tại $x=1$.
+	\loigiai{
+		Ta có: $\lim\limits_{x\to 1}f(x)=\lim\limits_{x\to 1}{\dfrac{x^3-x^2+2x-2}{3x+a}}=\lim\limits_{x\to 1}{\dfrac{(x-1)(x^2+2)}{3x+a}}$.\\
+		Nếu $a=-3$ thì $\lim\limits_{x\to 1}f(x)=\lim\limits_{x\to 1}{\dfrac{(x-1)(x^2+2)}{3(x-1)}}=\lim\limits_{x\to 1}{\dfrac{x^2+2}{3}}=1>0$ và $f(1)=0$.\\
+		Nên hàm số không liên tục tại $x=1$.\\
+		Nếu $a\neq -3$ thì $\lim\limits_{x\to 1}f(x)=\lim\limits_{x\to 1}{\dfrac{(x-1)(x^2+2)}{3x+a}}=0$, nhưng $f(1)=3+a \neq 0$.\\
+		Nên hàm số không liên tục tại $x=1$.\\
+		Vậy không có giá trị nào của $a$ thỏa mãn yêu cầu bài toán.
+	}
+\end{bt} 
+
+\begin{bt}%[Huỳnh Văn Quy]%[1D4G3]
+	Tìm $a$, $b$ để hàm số $f(x)=\begin{cases}
+	ax^2+bx+3&\text{nếu}\:x<1\\
+	5&\text{nếu}\:x=1\\
+	2x-3b&\text{nếu}\:x>1
+	\end{cases}$ liên tục tại $x_0=1$.
+	\loigiai{Ta có: $\lim\limits_{x\to 1^{-}}f(x)=\lim\limits_{x\to 1^{-}}(ax^2+bx+3)=a-b+3$,\\
+		$\lim\limits_{x\to 1^{+}}f(x)=\lim\limits_{x\to 1^{+}}(2x-3b)=2-3b$.\\
+		Hàm số $f(x)$ liên tục tại $x_0=1$ khi và chỉ khi $\lim\limits_{x\to 1^{-}}f(x)=\lim\limits_{x\to 1^{+}}f(x)=f(1)$.\\
+		Điều này xảy ra khi và chỉ khi $\begin{cases}
+		a-b+3=5\\
+		2-3b=5
+		\end{cases}\Leftrightarrow
+		\begin{cases}
+		a=1\\
+		b=-1
+		\end{cases}$.
+	}
+\end{bt}
+
+\begin{bt}%[Huỳnh Văn Quy]%[1D4G3]
+	Tìm $m$ để hàm số 
+	$f(x)=\begin{cases}
+	\dfrac{\sqrt{1+x}-\sqrt[3]{1+x}}{x}&\text{nếu}\: x<0\\
+	m+\dfrac{x^3-3x+1}{x+2}&\text{nếu}\: x\geq 0
+	\end{cases}$ 
+	liên tục tại $x_0=0$.
+	\loigiai{Ta có:
+		$f(0)=m+\dfrac{1}{2}$.
+		\begin{align*}
+		\lim\limits_{x\to0^{-}}f(x)&=\lim\limits_{x\to0^{-}}\dfrac{\sqrt{1+x}-\sqrt[3]{1+x}}{x}=\lim\limits_{x\to0^{-}}\dfrac{\left(\sqrt{1+x}-1\right)+\left(1-\sqrt[3]{1+x}\right)}{x}\\
+		&=\lim\limits_{x\to0^{-}}\dfrac{\sqrt{1+x}-1}{x}+\lim\limits_{x\to0^{-}}\dfrac{1-\sqrt[3]{1+x}}{x}\\
+		\lim\limits_{x\to0^{-}}\dfrac{\sqrt{1+x}-1}{x}&=\lim\limits_{x\to0^{-}}\dfrac{\left(\sqrt{1+x}-1\right)\left(\sqrt{1+x}+1\right)}{x\left(\sqrt{1+x}+1\right)}=\lim\limits_{x\to0^{-}}\dfrac{1+x-1}{x\left(\sqrt{1+x}+1\right)}\\
+		&=\lim\limits_{x\to0^{-}}\dfrac{1}{\sqrt{1+x}+1}=\dfrac{1}{2}\\
+		\lim\limits_{x\to0^{-}}\dfrac{1-\sqrt[3]{1+x}}{x}&=\lim\limits_{x\to0^{-}}\dfrac{\left(1-\sqrt[3]{1+x}\right)\left[1+\sqrt[3]{1+x}+\left(\sqrt[3]{1+x}\right)^2\right]}{x\left[1+\sqrt[3]{1+x}+\sqrt[3]{(1+x)^2}\right]}\\
+		&=\lim\limits_{x\to0^{-}}\dfrac{1-(1+x)}{x\left[1+\sqrt[3]{1+x}+\sqrt[3]{(1+x)^2}\right]}=\lim\limits_{x\to0^{-}}\dfrac{-1}{1+\sqrt[3]{1+x}+\sqrt[3]{(1+x)^2}}=-\dfrac{1}{3}.
+		\end{align*}
+		$\Rightarrow \lim\limits_{x\to0^{-}}f(x)=\dfrac{1}{2}-\dfrac{1}{3}=\dfrac{1}{6}$.\\
+		$\lim\limits_{x\to0^{+}}f(x)=\lim\limits_{x\to0^{+}}\left(m+\dfrac{x^3-3x+1}{x+2}\right)=m+\dfrac{1}{2}$.\\
+		Để hàm số liên tục tại $x=0$ thì $\lim\limits_{x\to0^{+}}=\lim\limits_{x\to0^{-}}f(x)
+		=f(0)\Leftrightarrow m+\dfrac{1}{2}=\dfrac{1}{6}\Leftrightarrow m=-\dfrac{1}{3}$.
+	}
+\end{bt}
+
+\begin{bt}%[Huỳnh Văn Quy]%[1D4G3]
+	Cho hàm số $f(x)=\begin{cases}
+	\dfrac{x^2-a^2}{x-a}+b&\text{nếu}\: x>a\\
+	1&\text{nếu}\: x=a\\
+	b-2x&\text{nếu}\: x<a
+	\end{cases}$. Tìm $a$, $b$ để hàm số liên tục tại $x_0=a$.
+	\loigiai{Ta có: $f(a)=1$.
+		\begin{align*}
+		\lim\limits_{x\to a^{+}}f(x)&=\lim\limits_{x\to a^{+}}\left(\dfrac{x^2-a^2}{x-a}+b\right)=\lim\limits_{x\to a^{+}}\left[\dfrac{(x-a)(x-b)}{x-a}+b\right]\\
+		&=\lim\limits_{x\to a^{+}}\left[(x+a)+b\right]=2a+b.
+		\end{align*}
+		$\lim\limits_{x\to a^{-}}f(x)=\lim\limits_{x\to a^{-}}(b-2x)=b-2a$.\\
+		Để hàm số liên tục tại $x_0=a$ thì $\lim\limits_{x\to a^{+}}f(x)=\lim\limits_{x\to a^{-}}f(x)=f(a)$\\
+		$\Leftrightarrow 2a+b=b-2a=1\Leftrightarrow \begin{cases}
+		2a+b&=1\\
+		b-2a&=1
+		\end{cases}
+		\Leftrightarrow \begin{cases}
+		b=1\\a=0
+		\end{cases}$.
+	}
+\end{bt}
+
+\begin{bt}%[Huỳnh Văn Quy]%[1D4G3]
+	Cho hàm số $f(x)=\begin{cases}
+	\dfrac{\sqrt[3]{x-3}+\sqrt[4]{2x-3}}{x-2}&\text{nếu}\:x\ne2\\
+	\dfrac{a}{6}&\text{nếu}\:x=2
+	\end{cases}$. Tìm $a$ để hàm số $f(x)$ liên tục tại $x_0=2$.
+	\loigiai{Ta có: $f(2)=\dfrac{a}{6}$.\\
+		$\lim\limits_{x\to2}f(x)=\lim\limits_{x\to 2}\dfrac{\sqrt[3]{x-3}+\sqrt[4]{2x-3}}{x-2}=\lim\limits_{x\to 2}\left(\dfrac{\sqrt[3]{x-3}+1}{x-2}+\dfrac{\sqrt[4]{2x-3}-1}{x-2}\right)=L_1+L_2$.
+		\begin{align*}
+		L_1&=\lim\limits_{x\to 2}\dfrac{\sqrt[3]{x-3}+1}{x-2}=\lim\limits_{x\to 2}\dfrac{x-3+1}{(x-2)[(\sqrt[3]{x-3})^2-\sqrt[3]{x-3}+1 ]}\\
+		&=\lim\limits_{x\to 2}\dfrac{1}{(\sqrt[3]{x-3})^2-\sqrt[3]{x-3}+1}=\dfrac{1}{3}.\\
+		L_2&=\lim\limits_{x\to 2}\dfrac{\sqrt[4]{2x-3}-1}{x-2}=\lim\limits_{x\to 2}\dfrac{2x-3-1}{(x-2 )(\sqrt[4]{2x-3}+1 )(\sqrt{2x-3}+1 )}\\
+		&=\lim\limits_{x\to 2}\dfrac{2}{(\sqrt[4]{2x-3}+1 )(\sqrt{2x-3}+1 )}=\dfrac{1}{2}.
+		\end{align*}
+		Vậy $\lim\limits_{x\to2}f(x)=L_1+L_2=\dfrac{1}{3}+\dfrac{1}{2}=\dfrac{5}{6}$.\\
+		Hàm số $f(x)$ liên tục tại $x_0=2$ $\Leftrightarrow \lim\limits_{x\to 2}f(x)=f(2)\Leftrightarrow \dfrac{a}{6}=\dfrac{5}{6}\Leftrightarrow a=5$.
+	}
+\end{bt}
+
+\begin{bt}%[Huỳnh Văn Quy]%[1D4G3]
+	Cho hàm số $f(x)=\begin{cases}
+	\dfrac{x+x^2+\cdots+x^n-n}{x-1}&\text{nếu}\: x\ne 1\\
+	15&\text{nếu}\: x=1
+	\end{cases}$. Tìm số tự nhiên $n$ để hàm số liên tục tại $x_0=1$.
+	\loigiai{Ta có: $f(1)=15$.\\
+		\begin{align*}
+		\lim\limits_{x\to1}f(x)&=\lim\limits_{x\to1}\dfrac{x+x^2+\cdots+x^n-n}{x-1}=\lim\limits_{x\to1}\dfrac{x-1+x^2-1+\cdots+x^n-1}{x-1}\\
+		&=\lim\limits_{x\to1}\dfrac{(x-1)\left[1+(x+1)+(x^2+x+1)+\cdots+\left(x^{n-1}+x^{n-2}+\cdots+1\right)\right]}{x-1}\\
+		&=1+2+\cdots+n=\dfrac{n(n+1)}{2}
+		\end{align*}
+		Hàm số $f(x)$ liên tục tại $x_0=1$ khi và chỉ khi $\lim\limits_{x\to1}f(x)=f(1)\Leftrightarrow \dfrac{n(n+1)}{2}=15\Leftrightarrow n=5.$
+	}
+\end{bt}
+
+
+
+
+\begin{dang}{Hàm số liên tục trên một tập hợp}
+\begin{enumerate}
+	\item Hàm đa thức liên tục trên $\mathbb{R}$.
+	\item Hàm phân thức hữu tỉ, hàm lượng giác liên tục trên từng khoảng xác định của chúng.
+\end{enumerate}
+\end{dang}
+\begin{vd}%[Hữu Bình]%[1D4B3]
+	Xét tính liên tục của hàm số sau trên tập xác định của chúng.
+	\begin{enumerate}
+		\item $f(x)=\heva{&\dfrac{x^2-x-2}{x+1}&\text{ khi } x\ne -1\\ &-3&\text{ khi } x=-1}$.
+		\item $f(x)=\heva{&\dfrac{2x+1}{(x-1)^2}&\text{ khi } x\ne 1\\ &3 &\text{ khi } x=1}$.
+	\end{enumerate}
+\loigiai{
+\begin{enumerate}
+	\item \begin{itemize}
+		\item Tập xác định của hàm số là $\mathscr{D}=\mathbb{R}$.
+		\item Khi $x \ne -1$, $f(x)=\dfrac{x^2-x-2}{x+1}$ là hàm phân thức hữu tỉ nên liên tục trên $(-\infty;-1)\cup(-1;+\infty)$.
+		\item Tại điểm $x=-1$, ta có $f(-1)=-3$.\\
+		$\lim\limits_{x\to -1}f(x)=\lim\limits_{x\to -1}\dfrac{x^2-x-2}{x+1}=\lim\limits_{x\to -1}(x-2)=-3=f(-1).$\\
+		Do đó hàm số liên tục tại $x=-1$.
+		\item Vậy hàm số liên tục trên $\mathbb{R}$.
+		\end{itemize}
+	\item \begin{itemize}
+		\item Tập xác định của hàm số là $\mathscr{D}=\mathbb{R}$.\\
+		\item Khi $x \ne 1$, $f(x)=\dfrac{2x+1}{(x-1)^2}$ là hàm phân thức hữu tỉ nên liên tục trên $(-\infty;1)\cup(1;+\infty)$.\\
+		\item Tại điểm $x=1$, ta có $f(1)=3$.\\
+		$\lim\limits_{x\to 1}f(x)=\lim\limits_{x\to 1}\dfrac{2x+1}{(x-1)^2}=+\infty\ne f(-1).$\\
+		Do đó hàm số gián đoạn tại $x=1$.
+		\item Vậy hàm số liên tục trên $\mathbb{R}\setminus\{1\}$.
+		\end{itemize}
+\end{enumerate}}
+\end{vd}
+
+\begin{vd}%[Hữu Bình]%[1D4K3]
+	Xét tính liên tục của hàm số sau trên tập xác định của chúng.
+	\begin{enumerate}
+		\item $f(x)=\heva{&x^2+3x&\text{ khi } &x\ge 2\\ &6x+1&\text{ khi } &x<2.}$
+		\item $f(x)=\heva{&x^2-3x+5&\text{ khi } &x> 1\\ &3 &\text{ khi } &x=1\\&2x+1 &\text{ khi }&x<1.}$
+		\item $f(x)=\heva{&x^2+1&\text{ khi } &x\ge 3\\ &2x+4 &\text{ khi } &0\le x <3\\&3x^2-5 &\text{ khi }&x<0.}$
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item \begin{itemize}
+				\item Tập xác định của hàm số là $\mathscr{D}=\mathbb{R}$.
+				\item Khi $x>2$, $f(x)=x^2+3x$ là hàm đa thức nên liên tục trên $(2;+\infty)$.
+				\item Khi $x<2$, $f(x)=6x+1$ là hàm đa thức nên liên tục trên $(-\infty;2)$.
+				\item Tại điểm $x=2$, ta có $f(2)=10$.\\
+				$\lim\limits_{x\to 2^+}f(x)=\lim\limits_{x\to 2^+}(x^2+3x)=10$ và $\lim\limits_{x\to 2^-}f(x)=\lim\limits_{x\to 2^-}(6x+1)=13$.\\
+				Vì không tồn tại $\lim\limits_{x\to 2}f(x)$ nên hàm số gián đoạn tại $x=2$.
+				\item Vậy hàm số liên tục trên $\mathbb{R}\setminus\{2\}$.
+				\end{itemize}
+			\item \begin{itemize}
+				\item Tập xác định của hàm số là $\mathscr{D}=\mathbb{R}$.
+				\item Khi $x>1$, $f(x)=x^2-3x+5$ là hàm đa thức nên liên tục trên $(1;+\infty)$.
+				\item Khi $x<1$, $f(x)=2x+1$ là hàm đa thức nên liên tục trên $(-\infty;1)$.
+				\item Tại điểm $x=1$, ta có $f(1)=3$.\\
+				$\lim\limits_{x\to 1^+}f(x)=\lim\limits_{x\to 1^+}(x^2-3x+5)=3$ và $\lim\limits_{x\to 1^-}f(x)=\lim\limits_{x\to 1^-}(2x+1)=3$.\\
+				Vì $\lim\limits_{x\to 1}f(x)=f(1)$ nên hàm số liên tục tại $x=1$.
+				\item Vậy hàm số liên tục trên $\mathbb{R}$.
+				\end{itemize}
+			\item \begin{itemize}
+				\item Tập xác định của hàm số là $\mathscr{D}=\mathbb{R}$.
+				\item Khi $x>3$, $f(x)=x^2+1$ là hàm đa thức nên liên tục trên $(3;+\infty)$.
+				\item Khi $0<x<3$, $f(x)=2x+4$ là hàm đa thức nên liên tục trên $(0;3)$.
+				\item Khi $x<0$, $f(x)=3x^2-5$ là hàm đa thức nên liên tục trên $(-\infty;0)$.
+				\item Tại điểm $x=3$, ta có $f(3)=10$.\\
+				$\lim\limits_{x\to 3^+}f(x)=\lim\limits_{x\to 3^+}(x^2+1)=10$ và $\lim\limits_{x\to 3^-}f(x)=\lim\limits_{x\to 3^-}(2x+4)=10$.\\
+				Vì $\lim\limits_{x\to 3}f(x)=f(3)$ nên hàm số liên tục tại $x=3$.
+				\item Tại điểm $x=0$, ta có $f(0)=-5$.\\
+				$\lim\limits_{x\to 0^+}f(x)=\lim\limits_{x\to 0^+}(2x+4)=4$ và $\lim\limits_{x\to 0^-}f(x)=\lim\limits_{x\to 0^-}(3x^2-5)=-5$.\\
+				Vì không tồn tại $\lim\limits_{x\to 0}f(x)$ nên hàm số gián đoạn tại $x=0$.
+				\item Vậy hàm số liên tục trên $\mathbb{R}\setminus\{0\}$.
+				\end{itemize}
+	\end{enumerate}}
+\end{vd}
+
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+
+\begin{bt}%[Hữu Bình]%[1D4B3]
+	Xét tính liên tục của hàm số sau trên tập xác định của chúng.
+	\begin{enumerate}
+		\item $f(x)=\heva{&\dfrac{x-2}{x^2-4}&\text{ khi } x\ne 2\\ &1&\text{ khi } x=2}$.
+		\item $f(x)=\heva{&\dfrac{x^3-1}{x-1}&\text{ khi } x\ne 1\\ &3 &\text{ khi } x=1}$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item \begin{itemize}
+				\item Tập xác định của hàm số là $\mathscr{D}=\mathbb{R}$.
+				\item Khi $x \ne 2$, $f(x)=\dfrac{x-2}{x^2-4}$ là hàm phân thức hữu tỉ nên liên tục trên $(-\infty;2)\cup(2;+\infty)$.
+				\item Tại điểm $x=2$, ta có $f(2)=1$.\\
+				$\lim\limits_{x\to 2}f(x)=\lim\limits_{x\to 2}\dfrac{x-2}{x^2-4}=\lim\limits_{x\to 2}\dfrac{1}{x+2}=\dfrac{1}{4}\ne f(2).$\\ Do đó hàm số gián đoạn tại $x=2$.
+				\item Vậy hàm số liên tục trên $\mathbb{R}\setminus\{2\}$.
+				\end{itemize}
+			\item \begin{itemize}
+				\item Tập xác định của hàm số là $\mathscr{D}=\mathbb{R}$.
+				\item Khi $x \ne 1$, $f(x)=\dfrac{x^3-1}{x-1}$ là hàm phân thức hữu tỉ nên liên tục trên $(-\infty;1)\cup(1;+\infty)$.
+				\item Tại điểm $x=1$, ta có $f(1)=3$.\\
+				$\lim\limits_{x\to 1}f(x)=\lim\limits_{x\to 1}\dfrac{x^3-1}{x-1}=\lim\limits_{x\to 1}(x^2+x+1)=3= f(1).$\\
+				Do đó hàm số liên tục tại $x=1$.
+				\item Vậy hàm số liên tục trên $\mathbb{R}$.
+				\end{itemize}
+	\end{enumerate}}
+\end{bt}
+
+\begin{bt}%[Hữu Bình]%[1D4K3]
+	Xét tính liên tục của hàm số sau trên tập xác định của chúng.
+	\begin{enumerate}
+		\item $f(x)=\heva{&x^2&\text{ khi } &x\ge -2\\ &2-x&\text{ khi } &x<-2.}$
+		\item $f(x)=\heva{&3x-2&\text{ khi } &x> -1\\ &1 &\text{ khi }& x=-1\\&x^2-6 &\text{ khi }&x<-1.}$
+		\item $f(x)=\heva{&x+1&\text{ khi } &x\ge 3\\ &x^2 &\text{ khi } &1\le x <3\\&4x^2-3 &\text{ khi }&x<1.}$
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item \begin{itemize}
+				\item Tập xác định của hàm số là $\mathscr{D}=\mathbb{R}$.
+				\item Khi $x>-2$, $f(x)=x^2$ là hàm đa thức nên liên tục trên $(-2;+\infty)$.
+				\item Khi $x<-2$, $f(x)=2-x$ là hàm đa thức nên liên tục trên $(-\infty;-2)$.
+				\item Tại điểm $x=-2$, ta có $f(-2)=4$.\\
+				$\lim\limits_{x\to (-2)^+}f(x)=\lim\limits_{x\to (-2)^+}x^2=4$ và $\lim\limits_{x\to (-2)^-}f(x)=\lim\limits_{x\to (-2)^-}(2-x)=4$.\\
+				Vì $\lim\limits_{x\to (-2)^+}f(x)= \lim\limits_{x\to (-2)^-}f(x)=f(-2)$ nên hàm số liên tục tại $x=2$.
+				\item Vậy hàm số liên tục trên $\mathbb{R}$.
+			\end{itemize}
+			\item \begin{itemize}
+				\item Tập xác định của hàm số là $\mathscr{D}=\mathbb{R}$.
+				\item Khi $x>-1$, $f(x)=3x-2$ là hàm đa thức nên liên tục trên $(-1;+\infty)$.
+				\item Khi $x<-1$, $f(x)=x^2-6$ là hàm đa thức nên liên tục trên $(-\infty;-1)$.
+				\item Tại điểm $x=-1$, ta có $f(-1)=1$.\\
+				$\lim\limits_{x\to (-1)^+}f(x)=\lim\limits_{x\to (-1)^+}(3x-2)=-5$ và $\lim\limits_{x\to (-1)^-}f(x)=\lim\limits_{x\to (-1)^-}(x^2-6)=3$.\\
+				Vì không tồn tại $\lim\limits_{x\to 1}f(x)$ nên hàm số gián đoạn tại $x=-1$.
+				\item Vậy hàm số liên tục trên $\mathbb{R}\setminus\{-1\}$.
+			\end{itemize}
+			\item \begin{itemize}
+				\item Tập xác định của hàm số là $\mathscr{D}=\mathbb{R}$.
+				\item Khi $x>3$, $f(x)=x+1$ là hàm đa thức nên liên tục trên $(3;+\infty)$.
+				\item Khi $1<x<3$, $f(x)=x^2$ là hàm đa thức nên liên tục trên $(1;3)$.
+				\item Khi $x<1$, $f(x)=4x^2-3$ là hàm đa thức nên liên tục trên $(-\infty;1)$.
+				\item Tại điểm $x=3$, ta có $f(3)=4$.\\
+				$\lim\limits_{x\to 3^+}f(x)=\lim\limits_{x\to 3^+}(x+1)=4$ và $\lim\limits_{x\to 3^-}f(x)=\lim\limits_{x\to 3^-}x^2=9$.\\
+				Vì không tồn tại $\lim\limits_{x\to 3}f(x)$ nên hàm số gián đoạn tại $x=3$.
+				\item Tại điểm $x=1$, ta có $f(1)=1$.\\
+				$\lim\limits_{x\to 1^+}f(x)=\lim\limits_{x\to 1^+}x^2=1$ và $\lim\limits_{x\to 1^-}f(x)=\lim\limits_{x\to 1^-}(4x^2-3)=1$.\\
+				Vì $\lim\limits_{x\to 1^+}f(x)= \lim\limits_{x\to 1^-}f(x)=f(1)$ nên hàm số liên tục tại $x=1$.
+				\item Vậy hàm số liên tục trên $\mathbb{R}\setminus\{3\}$.
+			\end{itemize}
+	\end{enumerate}}
+\end{bt}
+
+
+\begin{dang}{Dạng tìm tham số để hàm số liên tục - gián đoạn}
+Hàm số $ y = f(x) $ liên tục tại điểm $ x_0 \Leftrightarrow \lim\limits_{x \to x_0} f(x) = f(x_0) \\
+\hspace*{6.75cm}\Leftrightarrow \lim\limits_{x \to x_0^+} f(x) =\lim\limits_{x \to x_0^-} f(x)= f(x_0).$
+\end{dang}
+
+\begin{vd}%	[1D4Y3]
+Tìm tham số $ m $ để hàm số $ f(x) = \heva{&x^2 + 2x - m   &\text{  khi }  x \neq 2\\&x+m  &\text{  khi } x = 2} $, liên tục tại điểm $ x_0 = 2. $
+\loigiai{
+	
+	Ta có: $ \lim\limits_{x \to 2} f(x) = \lim\limits_{x \to 2} \left(x^2 + 2x - m \right) = 8 - m$\\
+	
+	và $ f(2) = 2 + m $.\\
+	
+	Để hàm số liên tục tại $ x_0 = 2 \Leftrightarrow 8 - m = 2 + m \Leftrightarrow m = 3. $
+}
+\end{vd}
+\begin{vd}%	[1D4K3]
+	Tìm tham số $ m $ để hàm số $ f(x) = \heva{&\dfrac{x^2 - 2x - 3}{x+1}   &\text{  khi }  x \neq -1\\&m^2 + 5m  &\text{  khi } x = -1} $, liên tục tại điểm $ x_0 = -1. $
+\loigiai{
+	
+	Ta có: $ \lim\limits_{x \to -1} f(x) =  \lim\limits_{x \to -1} \dfrac{x^2 - 2x - 3}{x+1}  = \lim\limits_{x \to -1} \dfrac{(x+1)(x-3)}{x+1} = \lim\limits_{x \to -1} (x-3)  = -4$ \\
+	
+	và $ f(-1) = m^2 + 5m $.\\
+	
+	Để hàm số liên tục tại $ x_0 = -1 \Leftrightarrow m^2 + 5m = -4 \Leftrightarrow \hoac{m=-1\\m=-4}. $
+}	
+\end{vd}
+\begin{vd}%	[1D4K3]
+	Tìm tham số $ m $ để hàm số $ f(x) = \heva{&\dfrac{\sqrt{4x+5} - 3}{x^2-1}   &\text{  khi }  x > 1\\&2m+3  &\text{  khi } x \leq 1} $, gián đoạn tại điểm $ x_0 = 1. $
+	\loigiai{ 
+		
+		Ta có: $ \lim\limits_{x \to 1^+} f(x) =  \lim\limits_{x \to 1^+} \left(\dfrac{\sqrt{4x+5}-3}{x^2-1} \right) =    \lim\limits_{x \to 1^+} \dfrac{4x - 4}{ (x-1)(x+1) \left(\sqrt{4x+5}+3\right)}  \\
+		 \hspace*{3.3cm} = \lim\limits_{x \to 1^+} \dfrac{4}{(x+1)\left( \sqrt{4x+5} + 3\right)} = \dfrac{4}{2 \cdot 6} = \dfrac{1}{3} \cdot $
+		 
+		 Mặt khác: $ \lim\limits_{x \to 1^-} f(x) = f(1) = 2m + 3. $
+		 
+		 Để hàm số gián đoạn tại điểm $ x_0 = 1 \Leftrightarrow  \lim\limits_{x \to 1^+} f(x) \neq f(1) \Leftrightarrow 2m + 3 \neq \dfrac{1}{3} \Leftrightarrow m \neq -\dfrac{4}{3} \cdot $
+}
+\end{vd}
+\begin{center}
+\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt} %[1D4B3]
+Cho hàm số $ f(x) = \heva{\dfrac{2x^2 - 5x + 2}{2 - x} \text{  khi } x \ne 2\\ m^2 - m - 5 \text{  khi } x = 2 } $. Tìm $ m $ để hàm số gián đoạn tại $ x = 2. $
+\loigiai{
+
+Ta có: $ \lim\limits_{x \to 2} f(x) = \lim\limits_{x \to 2} (-2x + 1) = -3$
+
+và $ f(2) = m^2 - m - 5. $
+
+Để hàm số gián đoạn tại $ x = 2 $ khi và chỉ khi $m^2 - m - 5 \ne -3 \Leftrightarrow \heva{&m \ne -1\\&m \ne 2} \cdot   $
+
+}
+\end{bt}
+\begin{bt}%[1D4G3]
+Cho hàm số $ f(x) = \heva{&\dfrac{\sqrt[3]{x-2} - 1}{x - 3} &\text{  khi } x \ne 3\\& a - 3 &\text{  khi } x = 3}.  $ Tìm $ a $ để hàm số liên tục tại $ x = 3. $
+\loigiai{
+
+Ta có: $ \lim\limits_{x \to 3} f(x) = \lim\limits_{x \to 3} \dfrac{\sqrt[3]{x-2} - 1}{x - 3} = \lim\limits_{x \to 3} \dfrac{x - 2 - 1}{(x-3) \left(\sqrt[3]{(x-2)^2} + \sqrt[3]{x-2} + 1\right)}  \\
+\hspace*{3.4cm} = \lim\limits_{x \to 3} \dfrac{1}{ \left(\sqrt[3]{(x-2)^2} + \sqrt[3]{x-2} + 1\right)} = \dfrac{1}{3};$
+
+Và $ f(3) = a - 3.$ \\
+
+Để hàm số liên tục tại $ x = 3 \Leftrightarrow a - 3 = \dfrac{1}{3}  \Leftrightarrow a = \dfrac{10}{3} \cdot $
+
+}
+\end{bt}
+
+\begin{bt}%[1D4K3]
+	Cho hàm số $ f(x) = \heva{&m^2 - m + 3 &\text{ khi } x = 1\\ &\dfrac{x^2 + mx - 1 - m}{x-1} &\text{ khi } x \ne 1} $. Tìm $ m $ để hàm số liên tục tại $ x = 1. $
+	\loigiai{
+		Ta có $ \lim\limits_{x \to 1} f(x) = \lim\limits_{x \to 1} \dfrac{x^2 + mx - 1 - m}{x-1} \\
+		\hspace*{4.5cm} = \lim\limits_{x \to 1}  \dfrac{(x-1)(x+1+m)}{x-1} \\
+\hspace*{4.5cm}		=  \lim\limits_{x \to 1}  (x+1+m) = 2 + m; $\\
+\hspace*{2cm}		$ f(1) = m^2 - m + 3 $.
+	
+		Để hàm số liên tục tại $ x = 1 \Leftrightarrow m^2 - m + 3 = 2 + m \Leftrightarrow m^2 - 2m + 1 = 0 \Leftrightarrow m = 1.$
+	}
+\end{bt}
+
+\begin{bt}%[1D4K3]
+	Cho hàm số $ f(x) = \heva{&x^2 + m &\text{ khi } x = 1\\ &\dfrac{x^3 - 3x^2 + x + 1}{x-1} &\text{ khi } x \ne 1} $. Tìm $ m $ để hàm số liên tục tại $ x = 1. $	
+	\loigiai{
+	\begin{itemize}
+		\item Ta có $ \lim\limits_{x \to 1} f(x) = \lim\limits_{x \to 1} \dfrac{x^3 - 3x^2 + x + 1}{x-1} \\		
+		\hspace*{2.6cm}		=  \lim\limits_{x \to 1}  (x^2 - 2x - 1) = -2; $
+		\item $ f(1) = 1 + m. $
+	\end{itemize}
+		
+	Để hàm số liên tục tại $ x = 1 \Leftrightarrow 1 + m = -2  \Leftrightarrow  m =-3.$
+	}
+\end{bt}
+\begin{bt}%[1D4G3]
+Cho hàm số $ f(x) = \heva{\dfrac{2\left(\sqrt{x+3} - 2\right)}{x^2 - 1} \text{\hspace*{1cm} khi } x > 1\\ ax^2 + bx + \dfrac{1}{4} \text{\hspace*{1cm} khi } x < 1\\ a - b - \dfrac{7}{4} \text{\hspace*{1cm} khi } x = 1} $. \\
+\hspace*{2cm} Tìm $ a, b $ để hàm số liên tục tại $ x = 1. $	
+	\loigiai{
+\begin{itemize}
+	\item 	Ta có $ \lim\limits_{x \to 1^+} f(x) =  \lim\limits_{x \to 1^+} \dfrac{2\left(\sqrt{x+3} - 2\right)}{x^2 - 1} =  \lim\limits_{x \to 1^+} \dfrac{2}{(x+1)\left(\sqrt{x+3} + 2\right)} = \dfrac{1}{4}   $;	
+	\item $ \lim\limits_{x \to 1^-} f(x) =  \lim\limits_{x \to 1^-} \left(ax^2 + bx + \dfrac{1}{4}\right) = a + b + \dfrac{1}{4};  $
+	\item $ f(1) = a - b - \dfrac{7}{4} $
+\end{itemize}
+Để hàm số liên tục tại $ x = 1 \Leftrightarrow  \lim\limits_{x \to 1^+} f(x) =  \lim\limits_{x \to 1^-} f(x) = f(1)\\ \hspace*{5.1cm} \Leftrightarrow \heva{a + b + \dfrac{1}{4} = \dfrac{1}{4}\\ a - b - \dfrac{7}{4} = \dfrac{1}{4}}  \Leftrightarrow \heva{&a = 1\\&b=-1} \cdot  $
+	}
+\end{bt}
+\begin{bt}%[1D4G3]
+Cho hàm số $ f(x) = \heva{&\dfrac{2x^2 +(2m-3)x - m + 1}{2x - 1} &\text{ \hspace*{1cm} khi } x \ne \tfrac{1}{2}\\  &\hspace*{2cm} 2m &\text{\hspace*{1cm} khi } x = \tfrac{1}{2} }   $	. \\
+\hspace*{1.5cm} Tìm $ m $ để hàm số liên tục tại $ x =  \dfrac{1}{2} \cdot  $
+	\loigiai{
+\begin{itemize}
+	\item Ta có $ \lim\limits_{x \to \tfrac{1}{2}} f(x) =\lim\limits_{x \to \tfrac{1}{2}}  \dfrac{2x^2 +(2m-3)x - m + 1}{2x - 1} \\
+	\hspace*{2.7 cm}= \lim\limits_{x \to \tfrac{1}{2}}  \dfrac{(2x-1)(x+m-1)}{2x - 1}  = m - \dfrac{1}{2};  $
+	\item $ f\left(\dfrac{1}{2}\right) = 2m. $
+\end{itemize}		
+Để hàm số liên tục tại $ x = \dfrac{1}{2} \Leftrightarrow 2m = m - \dfrac{1}{2} \Leftrightarrow m = - \dfrac{1}{2} \cdot$
+	}
+\end{bt}
+
+
+\begin{dang}{Chứng minh phương trình có nghiệm}
+		\begin{itemize}
+			\item Để chứng minh phương trình $f(x)=0$ có ít nhất một nghiệm trên $D$, ta chứng minh hàm số $y=f(x)$ liên tục trên $ D $ và có hai số $a,b\in D$ sao cho $f(a).f(b)<0$. 
+			\item Để chứng minh phương trình $f(x)=0$ có $ k $ nghiệm trên $ D $, ta chứng minh hàm số $y=f(x)$ liên tục trên $D$ và tồn tại $k$ khoảng rời nhau $(a_i;{a}_{i+1})\left(i=1,2,\ldots ,k\right)$ nằm trong $D$ sao cho $f(a_i).f({a}_{i+1})<0$.
+		\end{itemize}
+	\end{dang}
+	\begin{center}
+		\textbf{CÁC VÍ DỤ MẪU}
+	\end{center}
+	\begin{vd}%[Ngô Quang Anh]%[1D4Y3]
+	Chứng minh rằng phương trình $2x^4-2x^3-3=0$ có ít nhất một nghiệm thuộc khoảng $\left(-1;0\right).$ 
+			\loigiai{
+			Đặt $f(x)=2x^4-2x^3-3.$ \\
+			Vì  $f(x)$ là hàm đa thức xác định trên $\mathbb{R}$ nên $f(x)$ liên tục trên $\mathbb{R}$ $\Rightarrow f(x)$ liên tục trên $\left[-1;0\right].$ \\
+			Ta có: $f(0)=-3;f\left(-1\right)=1\Rightarrow f\left(-1\right)f(0)<0.$ \\
+			$\Rightarrow f(x)=0$ có ít nhất một nghiệm thuộc khoảng $\left(-1;0\right)$ (đpcm). 
+			
+		}
+	\end{vd}
+	\begin{vd}%[Ngô Quang Anh]%[1D4B3]
+		Chứng minh rằng  phương trình $6x^3+3x^2-31x+10=0$ có đúng $3$ nghiệm phân biệt.
+		\loigiai{
+		Đặt $f(x)=6x^3+3x^2-31x+10.$\\
+		TXĐ: $D=\mathbb{R}\Rightarrow f(x)$ liên tục trên $\mathbb{R}\Rightarrow f(x)$ liên tục trên $\left[-3;2\right].$ \\
+		Ta có:\\
+		$ \heva{
+		& f(-3)=-32 \\ 
+		& f(0)=10 
+		}$ $\Rightarrow f(-3)f(0)<0\Rightarrow f(x)=0$ có nghiệm thuộc $\left(-3;0\right).$ \\
+	$ \heva{
+		& f(0)=10 \\ 
+		& f(1)=-12 
+		}$ $\Rightarrow f(0)f(1)<0\Rightarrow f(x)=0$ có nghiệm thuộc $\left(0;1\right).$ \\
+		$\heva{
+		& f(1)=-12 \\ 
+		& f(2)=8  
+		}$ $\Rightarrow f(1)f(2)<0\Rightarrow f(x)=0$ có nghiệm thuộc $\left(1;2\right).$ \\
+		Mặt khác vì $f(x)$ là một đa thức bậc ba nên phương trình $f(x)=0$ chỉ có tối đa ba nghiệm. \\
+		Vậy phương trình $f(x)=0$ có đúng $3$ nghiệm phân biệt (đpcm).
+	}
+	\end{vd}
+	\begin{vd}%[Ngô Quang Anh]%[1D4K3]
+		Chứng minh rằng phương trình $x-1+\sin x=0$ có nghiệm.
+		\loigiai{
+			Xét hàm số $f(x)=x-1+\sin x$ liên tục trên $\left[0;\dfrac{\pi}{2}\right]$.\\
+			Ta có $\heva{
+				& f(0)=-1 \\ 
+				& f\left(\dfrac{\pi}{2}\right)=\dfrac{\pi}{2}\\}\Rightarrow f(0).f\left(\dfrac{\pi}{2}\right)<0$. Suy ra phương trình $f(x)=0$ có nghiệm $x_0\in \left(0;\dfrac{\pi}{2}\right).$ \\
+			Vậy phương trình $x-1+\sin x=0$ có nghiệm (đpcm).	
+		}
+	\end{vd}
+	\begin{vd}%[Ngô Quang Anh]%[1D4K3]
+	Chứng minh rằng phương trình $\left(m^2+m+4\right)x^{2017}-2x+1=0$ luôn có ít nhất một nghiệm âm với mọi giá trị của tham số $m$.
+		\loigiai{
+			Xét hàm số $f(x)=\left(m^2+m+4\right)x^{2017}-2x+1$ liên tục trên $\left[-1;0\right].$ \\
+			$f(-1)=-m^2+m-1=-{\left(m-\dfrac{1}{2}\right)}^2-\dfrac{3}{4}<0\ ,\ \forall m\in \mathbb{R};$ 	
+			$f(0)=1>0;$ 
+			$\Rightarrow f\left(-1\right).f(0)<0,\forall m \in \mathbb{R}$ 	
+			$\Rightarrow f(x)=0$  có ít nhất một nghiệm thuộc $\left(-1;0\right)$ với mọi giá trị của tham số $m$.\\
+			Vậy $f(x)=0$ luôn có ít nhất một nghiệm âm với mọi giá trị của tham số $m$ (đpcm).	
+		}
+	\end{vd}
+	\begin{vd}%[Ngô Quang Anh]%[1D4G3]
+		Chứng minh rằng phương trình $a\cos 2x+b\sin x+\cos x=0$ luôn có nghiệm với mọi tham số $a,b$.
+		\loigiai{
+			Đặt $f(x)=a\cos 2x+b\sin x+\cos x$ có tập xác định là $\mathbb{R}\Rightarrow f(x)$ liên tục trên $\mathbb{R}.$ \\
+			$f(0)=a+1;f\left(\pi \right)=a-1;f\left(\dfrac{\pi}{2}\right)=-a+b;f\left(\dfrac{3\pi}{2}\right)=-a-b$ 	\\
+			Vì $f(0)+f\left(\pi \right)+f\left(\dfrac{\pi}{2}\right)+f\left(\dfrac{3\pi}{2}\right)=0$ nên trong bốn số $f(0),f\left(\pi \right),f\left(\dfrac{\pi}{2}\right),f\left(\dfrac{3\pi}{2}\right)$ phải có hai số mà tích của chúng bé hơn hoặc bằng không.\\
+			Vậy phương trình $f(x)=0$ luôn có nghiệm với mọi tham số $a,b$ (đpcm).
+		}
+	\end{vd}
+	
+	
+	\begin{center}
+		\textbf{BÀI TẬP RÈN LUYỆN}
+	\end{center}
+	\begin{bt}%[Ngô Quang Anh]%[1D4B3]
+		Chứng minh phương trình $x^4-x^3-2x^2-15x-25=0$ có ít nhất $ 1 $ nghiệm dương và $ 1 $ nghiệm âm.
+		\loigiai{
+			Xét hàm số $f(x)=x^4-x^3-2x^2-15x-25$ liên tục trên $\mathbb{R}.$ \\
+			Ta có:\\
+			$f(-2).f(0)<0\Rightarrow f(x)=0$ có ít nhất một nghiệm thuộc $\left(-2;0\right)$ \;$ (1) $\\
+			$f(0).f(4)<0\Rightarrow f(x)=0$ có ít nhất một nghiệm thuộc $\left(0;4\right)$   \qquad $ (2) $\\
+			Từ $ (1), (2) $ suy ra phương trình đã cho có ít nhất một nghiệm âm và ít nhất một nghiệm dương (đpcm).
+		}
+	\end{bt}
+	\begin{bt}%[Ngô Quang Anh]%[1D4B3]
+		Chứng minh phương trình $x^4-2x^2+3x-1=0$ có ít nhất $ 2 $ nghiệm.
+		\loigiai{
+			Xét hàm số $f(x)=x^4-2x^2+3x-1$ $ \Rightarrow  $ $f$ là hàm đa thức nên liên tục trên $\mathbb{R}$ $ \Rightarrow  $  $f$ liên tục trên các đoạn $\left[-2;0\right],\left[0;2\right]$.\\
+			Ta có: \\
+			$f\left(-2\right).f(0)<0\Rightarrow f(x)=0$ có ít nhất $1$  nghiệm thuộc $\left(-2;0\right).$ \\
+			$f(0).f(2)<0\Rightarrow f(x)=0$ có ít nhất $1$ nghiệm thuộc $\left(0;2\right).$\\
+			Vậy phương trình đã cho có ít nhất $ 2 $ nghiệm.
+		}
+	\end{bt}
+	\begin{bt}%[Ngô Quang Anh]%[1D4B3]
+		Chứng minh rằng phương trình $x^5-3x^4+5 x-2=0$ có ít nhất ba nghiệm phân biệt.
+		\loigiai{
+			Xét hàm số $f(x)=x^5-3x^4+5 x-2$ $ \Rightarrow  $ $f$ là hàm đa thức nên liên tục trên $\mathbb{R}$ $ \Rightarrow  $  $f$ liên tục trên các đoạn $\left[0;1\right],\left[1;2\right], \left[2;4\right]$.\\
+			Ta có: \\
+			$f\left(0\right)f(1)<0\Rightarrow f(x)=0$ có ít nhất $1$  nghiệm thuộc $\left(0;1\right).$ \\
+			$f(1)f(2)<0\Rightarrow f(x)=0$ có ít nhất $1$ nghiệm thuộc $\left(1;2\right).$\\
+			$f(2)f(4)<0\Rightarrow f(x)=0$ có ít nhất $1$ nghiệm thuộc $\left(2;4\right).$\\
+			Vậy phương trình đã cho có ít nhất $ 3 $ nghiệm phân biệt.
+		}
+	\end{bt}
+	\begin{bt}%[Ngô Quang Anh]%[1D4K3]
+		Chứng minh rằng phương trình $x+1+\cos x=0$  có nghiệm.
+		\loigiai{
+			Xét hàm số $f(x)=x+1+\cos x$ liên tục trên $\left[-\pi ;0\right]$ và có $\heva{
+				& f\left(-\pi \right)=-\pi  \\ 
+				& f(0)=2 \\
+			}\Rightarrow f\left(-\pi \right).f(0)<0$. Suy ra phương trình $f(x)=0$ có nghiệm $x_0\in \left(-\pi ;0\right)$.\\
+			Vậy phương trình $x+1+\cos x=0$  có nghiệm.	
+		}
+	\end{bt}
+
+	\begin{bt}%[Ngô Quang Anh]%[1D4G3]
+	Chứng minh rằng phương trình
+	$\sqrt{x^5+2x^3+25x^2+14x+2}=3x^2+x+1$ có đúng $ 5 $ nghiệm phân biệt.
+		\loigiai{
+		Phương trình đã cho tương đương với
+		$x^5+2x^3+25x^2+14x+2={\left(3x^2+x+1\right)}^2$\\
+		$\Leftrightarrow x^5-9x^4-4x^3+18x^2+12x+1=0$  (1)\\
+		Xét hàm số $f(x)=x^5-9x^4-4x^3+18x^2+12x+1$ liên tục trên $\mathbb{R}$\\
+		Ta có: $f(-2)=-95<0,f(-1)=1>0,f\left(-\dfrac{1}{2}\right)=-\dfrac{19}{32}<0,$
+		$f(0)=1>0$\\ $f(2)=-47<0,f(10)=7921>0.$
+		Do đó phương trình $f(x)=0$ có ít nhất $ 5 $ nghiệm thuộc các khoảng
+		$\left(-2;-1\right),  \left(-1;-\dfrac{1}{2}\right),  \left(-\dfrac{1}{2};0\right),  \left(0;2\right),  \left(2;10\right).$\\
+		Mặt khác $f(x)$ là đa thức bậc $ 5 $ nên có tối đa $ 5 $ nghiệm.\\
+		Vậy phương trình đã cho có đúng $ 5 $ nghiệm phân biệt. 
+		}
+	\end{bt}
+
+		\begin{bt}%[Ngô Quang Anh]%[1D4K3]
+		Chứng minh rằng phương trình $\left(1-m^2\right)x^5-3x-1=0$ có ít nhất một nghiệm với mọi giá trị của $m$.
+		\loigiai{
+			Xét hàm số $y=f(x)=(1-m^2)x^5-3x-1.$\\
+			Hàm số $y=f(x)$ liên tục trên $\mathbb{R}$ nên liên tục trên $\left[-1;0\right].$\\
+			$f(0)=-1;f(-1)=m^2+1\Rightarrow f(0).f(-1)<0,\forall m$
+			$\Rightarrow $phương trình $f(x)=0$ có ít nhất $1$ nghiệm thuộc $\left(-1;0\right),\forall m.$ 
+			Vậy phương trình $\left(1-m^2\right)x^5-3x-1=0$ có ít nhất một nghiệm với mọi giá trị của $m.$	
+		}
+	\end{bt}
+
+	\begin{bt}%[Ngô Quang Anh]%[1D4K3]
+		Chứng minh rằng phương trình $\dfrac{x^4-x^2+mx-3m+1}{x^2-x-2}=m$ có ít nhất $2$ nghiệm với mọi $m>1.$ 
+		\loigiai{
+		Điều kiện: $x\ne-1;x\ne 2.$ \\
+		Phương trình đã cho $\Leftrightarrow x^4-x^2+mx-3m+1=m\left(x^2-x-2\right)\Leftrightarrow x^4-x^2+1-m\left(x^2-2x+1\right)=0$ \\
+		Xét hàm số $f(x)=x^4-x^2+1-m{\left(x-1\right)}^2$ liên tục trên $\mathbb{R}.$ \\
+		Ta có $f(-1)=-1-4m>0;f(0)=1-m<0;f(1)=1>0$ \\
+		Suy ra $f(x)=0$ có ít nhất 2 nghiệm thỏa $-1<x_1<0<x_2<1$ với mọi $m>1.$  \\
+		Vậy phương trình đã cho có ít nhất $2$ nghiệm với mọi $m>1.$ 
+		}
+	\end{bt}
+	\begin{bt}%[Ngô Quang Anh]%[1D4K3]
+	Chứng minh rằng phương trình $\dfrac{1}{\cos x}-\dfrac{1}{\sin x}=m$ luôn có nghiệm với mọi giá trị của tham số $m.$ 
+		\loigiai{
+		Điều kiện: $x\ne k\dfrac{\pi}{2},k\in \mathbb{Z}.$\\
+		Xét hàm số $f(x)=\sin x-\cos x-m\sin x\cos x$ liên tục trên $\left[0;\dfrac{\pi}{2}\right]$ và\\
+		$f(0).f(\dfrac{\pi}{2})=-1<0$. Do đó phương trình $f(x)=0$ có ít nhất một nghiệm 
+		$x_0\in \left(0;\dfrac{\pi}{2}\right)\Rightarrow x_0\ne k\dfrac{\pi}{2}\cdot$\\
+		Vậy phương trình đã cho có ít nhất một nghiệm.
+		}
+	\end{bt}
+	\begin{bt}%[Ngô Quang Anh]%[1D4G3]
+		Cho phương trình $f(x)=ax^2+bx+c=0$, biết $a.f(c)<0$. Chứng minh rằng phương trình 
+		$a{\left(ax^2+bx+c\right)}^2+b\left(ax^2+bx+c\right)+c=x$ có nghiệm.
+		\loigiai{
+			Xét hàm số $g(x)=a{\left(ax^2+bx+c\right)}^2+b\left(ax^2+bx+c\right)+c-x$ liên tục trên $\mathbb{R}.$ \\
+			Ta có: $af(c)<0\Rightarrow f(x)=0$ có hai nghiệm $x_1,x_2$ và $x_1<c<x_2.$ \\
+			Suy ra $g(x_1)=a{\left(f(x_1)\right)}^2+bf(x_1)+c-x_1=c-x_1>0$ và tương tự $g(x_2)=c-x_2<0$ \\
+			Do đó $g(x_1).g(x_2)<0\Rightarrow $ (đpcm).
+		}
+	\end{bt}
+	
+	\begin{bt}%[Ngô Quang Anh]%[1D4G3]
+	Chứng minh rằng phương trình $x^5+3x+1=0$ có đúng một nghiệm.
+		\loigiai{
+		Xét hàm số $f(x)=x^5+3x+1$ là hàm liên tục trên $\mathbb{R}.$\\
+		Mặt khác: $f(-1)=-1,f(0)=1\Rightarrow f(-1).f(0)=-1<0$\\
+		Nên phương trình $f(x)=0$ có ít nhất một nghiệm thuộc $\left(-1;0\right)$.\\
+		Giả sử phương trình có hai nghiệm $x_1,x_2$. \\
+		Khi đó: $f(x_1)-f(x_2)=0\Leftrightarrow \left(x_1^5-x_2^5\right)+3\left(x_1-x_2\right)=0$\\
+		$\Leftrightarrow \left(x_1-x_2\right)\underbrace{\left(x_1^4+x_1^3x_2+x_1^2x_2^2+x_1x_2^3+x_2^4+3\right)}_A=0$ (1)\\
+		Do $A={\left(x_1^2+\dfrac{1}{2}x_1x_2\right)}^2+{\left(\dfrac{1}{4}x_1x_2+x_2^2\right)}^2+\dfrac{1}{2}x_1^2x_2^2+3>0$\\
+			Nên (1)$\Leftrightarrow x_1=x_2$\\
+			Vậy phương trình luôn có đúng một nghiệm (đpcm).
+		}
+	\end{bt}
+
+
+
+\begin{center}
+\textbf{BÀI TẬP TỔNG HỢP}
+\end{center}
+\begin{bt}%[KV Thanh]%[1D4K3]
+Xét tính liên tục của hàm số $f(x)=\heva{&\dfrac{\sqrt[3]{8+x}-\sqrt{4-x}}{x}, &\text{ với } x\neq 0\\ &\dfrac{1}{3}, &\text{ với } x=0}$ tại điểm $x_0=0$.
+\loigiai{
+Xét tại $x_0=0$, ta có $f(0)=\dfrac{1}{3}$.\\
+$\lim\limits_{x\to 0}f(x)=\lim\limits_{x\to 0}\dfrac{\sqrt[3]{8+x}-\sqrt{4-x}}{x}=\lim\limits_{x\to 0}\dfrac{\left(\sqrt[3]{x+8}-2\right)-(\sqrt{4-x}-2)}{x}$.
+\begin{align*}
+L_1&=\lim\limits_{x\to 0}\dfrac{\sqrt[3]{x+8}-2}{x}=\lim\limits_{x\to 0}\dfrac{(x+8)-8}{x\left(\sqrt[3]{(x+8)^2}+2\sqrt[3]{x+8}+4\right)}\\
+&=\lim\limits_{x\to 0}\dfrac{1}{\sqrt[3]{(x+8)^2}+2\sqrt[3]{x+8}+4}=\dfrac{1}{12}.\\
+L_2&=\lim\limits_{x\to 0}\dfrac{\sqrt{4-x}-2}{x}=\lim\limits_{x\to 0}\dfrac{(4-x)-4}{x\left(\sqrt{4-x}+2\right)}\\
+&=\lim\limits_{x\to 0}\dfrac{-1}{\sqrt{4-x}+2}=-\dfrac{1}{4}.
+\end{align*}
+Suy ra $\lim\limits_{x\to 0}f(x)=L_1-L_2=\dfrac{1}{12}+\dfrac{1}{4}=\dfrac{1}{3}=f(0)$.\\
+Vậy hàm số $f(x)$ liên tục tại $x_0=0$.
+}
+\end{bt}
+\begin{bt}%[KV Thanh]%[1D4G3]
+Xét tính liên tục của hàm số $f(x)=\heva{& \dfrac{(1+2017x)^{2018}-(1+2018x)^{2017}}{x^2}, &\text{ với } x\neq 0\\& 2017\cdot 2018, &\text{ với } x=0.}$ trên tập số thực $\mathbb{R}$.
+\loigiai{
+TXĐ của hàm số $\mathscr{D}=\mathbb{R}$.\\
+Với $x\neq 0$ thì $f(x)=\dfrac{(1+2017x)^{2018}-(1+2018x)^{2017}}{x^2}$ liên tục tại mọi điểm $x\neq 0$.\\
+Xét tại $x=0$:\\
+$(1+2017x)^{2018}=1+\mathrm{C}_{2018}^1(2017x)+\mathrm{C}_{2018}^2(2017x)^2+\mathrm{C}_{2018}^3(2017x)^3+\cdots +\mathrm{C}_{2018}^{2018}(2017x)^{2018}$.\\
+$(1+2018x)^{2017}=1+\mathrm{C}_{2017}^1(2018x)+\mathrm{C}_{2017}^2(2018x)^2+\mathrm{C}_{2017}^3(2018x)^3+\cdots +\mathrm{C}_{2017}^{2017}(2018x)^{2017}$.\\
+Do $\mathrm{C}_{2018}^1(2017x)=\mathrm{C}_{2017}^1(2018x)=2017\cdot 2018x$ nên ta có:\\
+$(1+2017x)^{2018}-(1+2018x)^{2017}=\left(\mathrm{C}_{2018}^22017^2-\mathrm{C}_{2017}^22018^2\right)x^2+a_3x^3+a_4x^4+\cdots +a_{2018}x^{2018}$, trong đó $a_k=\mathrm{C}_{2018}^k2017^k-\mathrm{C}_{2017}^k2018^k, 3\leq k\leq 2017$ và $a_{2018}=2017^{2018}$.\\
+$\mathrm{C}_{2018}^22017^2-\mathrm{C}_{2017}^22018^2=\dfrac{2018\cdot 2017}{2}2017^2-\dfrac{2017\cdot 2016}{2}2018^2=\dfrac{2017\cdot 2018}{2}$\\
+Suy ra 
+\begin{align*}
+\lim\limits_{x\to 0}f(x)&=\lim\limits_{x\to 0}\dfrac{\tfrac{2017\cdot 2018}{2}x^2+a_3x^3+a_4x^4+\cdots +a_{2018}x^{2018}}{x^2}\\
+&=\lim\limits_{x\to 0}\left(\dfrac{2017\cdot 2018}{2}+a_3x+a_4x^2+\cdots +a_{2018}x^{2016}\right)=\dfrac{2017\cdot 2018}{2}.
+\end{align*}
+Do $\lim\limits_{x\to 0}f(x)=\dfrac{2017\cdot 2018}{2}\neq f(0)=2017\cdot 2018$ nên hàm số $f(x)$ gián đoạn tại $x=0$.
+}
+\end{bt}
+\begin{bt}%[KV Thanh]%[1D4K3]
+Tìm giá trị của $m$ để hàm số $f(x)=\heva{&\dfrac{3-\sqrt{9-x^2}}{\sqrt{x^2+4}-2}, &\text{ với } x\neq 0\\&m, &\text{ với } x=0}$ liên tục tại điểm $x_0=0$.
+\loigiai{
+$f(0)=m$.\\
+$\lim\limits_{x\to 0}f(x)=\lim\limits_{x\to 0}\dfrac{3-\sqrt{9-x^2}}{\sqrt{x^2+4}-2}=\lim\limits_{x\to 0}\dfrac{[9-(9-x^2)](\sqrt{x^2+4}+2)}{[(x^2+4)-4](3+\sqrt{9-x^2})}=\lim\limits_{x\to 0}\dfrac{\sqrt{x^2+4}+2}{3+\sqrt{9-x^2}}=\dfrac{2}{3}$.\\
+Suy ra hàm số $f(x)$ liên tục tại $x_0=0\Leftrightarrow \lim\limits_{x\to 0}f(x)=f(0)\Leftrightarrow m=\dfrac{2}{3}$.
+}
+\end{bt}
+\begin{bt}%[KV Thanh]%[1D4G3]
+Xét tính liên tục của hàm số $f(x)=\heva{&\dfrac{2-\sqrt{4-x^2}}{x^2},&\text{ với } x\neq 0\\&\dfrac{1}{4},&\text{ với } x=0}$ trên tập xác định của nó.
+\loigiai{
+TXĐ của hàm số $\mathscr{D}=[-2;2]$.\\
+Với $x_0\in (-2;2)\backslash \{0\}$, ta có $\lim\limits_{x\to x_0}f(x)=\lim\limits_{x\to x_0}\dfrac{2-\sqrt{4-x^2}}{x^2}=\dfrac{2-\sqrt{4-x_0^2}}{x_0^2}=f(x_0)$.\\
+Mặt khác
+$$\lim\limits_{x\to -2^+}f(x)=\lim\limits_{x\to -2^+}\dfrac{2-\sqrt{4-x^2}}{x^2}=\dfrac{1}{2}=f(-2); \lim\limits_{x\to 2^-}f(x)=\lim\limits_{x\to 2^-}\dfrac{2-\sqrt{4-x^2}}{x^2}=\dfrac{1}{2}=f(2).$$
+Suy ra hàm số $f(x)$ liên tục tại mọi $x_0\in [-2;2]\backslash \{0\}$.\\
+Xét tại $x_0=0$, ta có $f(0)=\dfrac{1}{4}$.\\
+$\lim\limits_{x\to 0}f(x)=\lim\limits_{x\to 0}\dfrac{2-\sqrt{4-x^2}}{x^2}=\lim\limits_{x\to 0}\dfrac{4-(4-x^2)}{x^2(2+\sqrt{4-x^2})}=\lim\limits_{x\to 0}\dfrac{1}{2+\sqrt{4-x^2}}=\dfrac{1}{4}=f(0)$.\\
+Suy ra $f(x)$ liên tục tại $x_0=0$.\\
+Vậy $f(x)$ liên tục trên tập xác định $\mathscr{D}=[-2;2]$ của nó.
+}
+\end{bt}
+\begin{bt}%[KV Thanh]%[1D4K3]
+Chứng minh rằng phương trình $m(x-2)^3(x-3)+2x-5=0$ luôn có nghiệm với mọi giá trị của tham số $m$.
+\loigiai{
+Xét hàm số $f(x)=m(x-2)^3(x-3)+2x-5$.\\
+Ta có:\\
+$f(x)$ liên tục trên $\mathbb{R}$;\\
+$f(2)=-1, f(3)=1\Rightarrow f(2)f(3)=-1<0$.
+Suy ra $f(x)=0$ có ít nhất một nghiệm trong khoảng $(2;3)$.\\
+Vậy phương trình $m(x-2)^3(x-3)+2x-5=0$ luôn có nghiệm với mọi giá trị của tham số $m$.
+}
+\end{bt}
