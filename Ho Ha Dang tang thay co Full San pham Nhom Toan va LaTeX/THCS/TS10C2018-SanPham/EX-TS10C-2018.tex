@@ -1,0 +1,185 @@
+\documentclass[12pt,a4paper,oneside]{book}
+%\usepackage{fouriernc}
+\usepackage{amsmath,amssymb}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{tkz-euclide}
+%\usetkzobj{all}
+\usepackage{tikz-3dplot}
+%\usetikzlibrary{arrows}
+\usetikzlibrary{shapes.geometric}
+
+\usepackage[tikz]{bclogo}
+\usetkzobj{all}
+\usepackage{tikz,tkz-tab,tkz-linknodes}
+\usetikzlibrary{snakes}
+\usepackage{tabvar}
+ 
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+\pgfplotsset{compat=1.9}
+
+\usetikzlibrary{arrows,calc,intersections,angles}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=1.5cm] {geometry}
+%\usepackage[unicode, bookmarks=false]{hyperref}
+\usepackage[hidelinks,unicode]{hyperref}
+
+\usepackage{currfile}
+
+
+%\usepackage[dethi]{ex_test} 
+\usepackage[loigiai]{ex_test}
+%\usepackage[color]{ex_test}
+\def\colorEX{\color{blue}}
+\renewcommand{\dapan}{\stepcounter{dapan}{\textbf{\color{blue}\Alph{dapan}.}}}
+%\renewtheorem{ex}{\color{violet}Câu}
+
+\usepackage{esvect}
+\def\vec{\vv}
+\def\overrightarrow{\vv}
+%Lệnh của gói mathrsfs
+\DeclareSymbolFont{rsfs}{U}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\mathscr}{rsfs}
+%Lệnh cung
+\DeclareSymbolFont{largesymbols}{OMX}{yhex}{m}{n}
+\DeclareMathAccent{\wideparen}{\mathord}{largesymbols}{"F3}
+%Lệnh song song
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\varparallel}{\mathrel}{symbolsC}{9}
+\DeclareMathSymbol{\parallel}{\mathrel}{symbolsC}{9}
+%Hệ hoặc, hệ và
+\newcommand{\hoac}[1]{ 
+	\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{
+	\left\{\begin{aligned}#1\end{aligned}\right.}
+\renewcommand{\baselinestretch}{1.4}
+\makeatletter
+\renewcommand{\labelenumi}{\alph{enumi})}
+\renewcommand \thesection {\@arabic\c@section}
+\theoremseparator{.}
+\theoremstyle{nonumberplain}
+\newtheorem{cm}{\textbf{\textit{Chứng minh}}}
+\newtheorem{dl}{Định lí}
+\theorembodyfont{\rm}
+\newtheorem{bode}{Bổ đề}
+\usepackage{stackengine}
+\usepackage{scalerel}
+\newcommand\dangersign[1][2ex]{%
+	\renewcommand\stacktype{L}%
+	\scaleto{\stackon[1.3pt]{\color{red}$\triangle$}{\fontsize{4}{0}\selectfont !}}{#1}%
+}
+\newtheorem{nx}{{\dangersign[3ex]}\color{red} Nhận xét}
+\numberwithin{equation}{section}
+\renewcommand{\baselinestretch}{1.4}
+\makeatletter
+\renewcommand{\labelenumi}{\alph{enumi})}
+\renewcommand \thesection {\@arabic\c@section}
+\newenvironment{name}[2]{\begin{bclogo}[logo =\bccrayon, noborder =false, marge =2, arrondi =0.2, couleur = red!20]
+		{\textcolor{blue}{\LaTeX\ hóa:  \textbf{#1}}}\vspace*{-3pt}%
+		\section{#2}
+\end{bclogo}}
+
+\begin{document}
+\providecommand*{\dx}{\ensuremath{\mathrm{\,d}}x}
+\providecommand*{\unit}[1]{\ensuremath{\mathrm{\,#1}}}
+
+\begin{titlepage}
+\begin{flushright}
+\fontsize{17}{0}\selectfont
+\textbf{Tập thể Giáo viên Toán}\\
+\textbf{\textit{Facebook: \lq\lq Nhóm Toán và LaTeX\rq\rq}}\\
+\textit{\color{red}\today}
+\end{flushright}
+
+\vspace{4cm}
+
+\begin{flushright}
+
+\vspace{1cm}
+
+ \textbf{\fontsize{20}{0}\selectfont T\fontsize{15}{0}\selectfont UYỂN TẬP ĐỀ THI TUYỂN SINH VÀO LỚP 10 CHUYÊN TOÁN NĂM HỌC 2018 - 2019}
+ 
+% \vspace{1cm}
+ 
+% \textbf{\fontsize{35}{0}\selectfont MÔN TOÁN}
+\end{flushright}
+
+%\vfill{
+%\begin{flushright}
+%\fontsize{17}{0}\textbf{NĂM HỌC 2017 - 2018}
+%\end{flushright}
+%}
+\end{titlepage}
+\pagestyle{empty}
+\renewcommand{\headrulewidth}{0.4pt}
+
+{\renewcommand{\baselinestretch}{1.3}
+\tableofcontents
+}
+
+\pagestyle{fancy}
+\chead{Facebook \lq\lq Nhóm Toán và LaTeX\rq\rq}
+\lhead{\empty}
+\rhead{\empty}
+\lfoot{\currfilename}
+%\lhead{\currfilename}
+\chapter*{Mở đầu}
+Kính chào các Thầy/Cô.
+
+\vspace{0.6cm}
+
+\noindent Trên tay các Thầy/Cô đang là một trong những tài liệu môn Toán được soạn thảo theo chuẩn \LaTeX{} bởi tập thể các giáo viên của "Nhóm Toán và LaTeX".\footnote{Tại địa chỉ https://www.facebook.com/groups/toanvalatex/}
+
+\vspace{0.6cm}
+
+\noindent Mục tiêu của nhóm: 
+\begin{enumerate}
+\item Hỗ trợ các giáo viên Toán tiếp cận với \LaTeX{} trong soạn thảo tài liệu Toán nói chung và đề thi trắc nghiệm bằng \LaTeX{} nói riêng, với cấu trúc gói đề thi trắc nghiệm là \texttt{ex\_test} của tác giả Trần Anh Tuấn, Đại học Thương Mại.
+\item Triển khai các dự án soạn bài tập trắc nghiệm và các đề thi của hai khối THPT và THCS bằng \LaTeX{}. Các thầy/cô tham gia dự án sẽ nhận được sản phẩm tổng hợp từ dự án đó.
+\item Hướng đến việc chia sẻ chuyên đề, viết sách,... bằng \LaTeX,...
+\end{enumerate}
+%\chapter{Đề thi vào chuyên toán tin Hà nội các năm.}
+
+\newpage\input{TSC18/1801-ts10c-bacninh}
+\newpage\input{TSC18/1802-ts10c-bentre-v2}
+\newpage\input{TSC18/1803-ts10c-binhdinh-v2}
+%\newpage\input{TSC18/1804-ts10c-dhsp-hanoi-v1}Bỏ
+\newpage\input{TSC18/1805-ts10c-dhsp-hanoi-v1}
+\newpage\input{TSC18/1806-ts10c-dhsp-hanoi-v2}
+%\newpage\input{TSC18/1807-ts10c-dhsp-hanoi-v1}Bỏ
+\newpage\input{TSC18/1808-ts10c-hanoi-v2}
+\newpage\input{TSC18/1809-ts10c-hcm}
+\newpage\input{TSC18/1810-ts10c-hoangvanthu-hoabinh}
+\newpage\input{TSC18/1811-ts10c-hungyen-v2}
+\newpage\input{TSC18/1812-ts10c-khtn-hanoi-v1}
+\newpage\input{TSC18/1813-ts10c-khtn-hanoi-v2}
+\newpage\input{TSC18/1814-ts10c-kiengiang}
+\newpage\input{TSC18/1815-ts10c-laocai-v2}
+\newpage\input{TSC18/1816-ts10c-lehongphong-namdinh-v1}
+\newpage\input{TSC18/1817-ts10c-lekhiet-quangngai}
+\newpage\input{TSC18/1818-ts10c-lequydon-danang}
+\newpage\input{TSC18/1819-ts10c-lequydon-khanhhoa-v2}
+\newpage\input{TSC18/1820-ts10c-lequydon-quangtri-v2}
+\newpage\input{TSC18/1821-ts10c-luongthevinh-dongnai}
+\newpage\input{TSC18/1822-ts10c-luongvanchanh-phuyen-v2}
+\newpage\input{TSC18/1823-ts10c-luongvantuy-ninhbinh-v2}
+\newpage\input{TSC18/1824-ts10c-ptnk-hcm-v1}
+\newpage\input{TSC18/1825-ts10c-ptnk-hcm-v2}
+\newpage\input{TSC18/1826-ts10c-thainguyen-v2}
+\newpage\input{TSC18/1827-ts10c-thaibinh-v2}
+\newpage\input{TSC18/1828-ts10c-thsp-hcm}
+\newpage\input{TSC18/1829-ts10c-vinhphuc-v2}
+\newpage\input{TSC18/1830-ts10c-vinhlong}
+\newpage\input{TSC18/1831-ts10c-hungvuong-phutho}
+\newpage\input{TSC18/1832-ts10c-binhphuoc-v2}
+\newpage\input{TSC18/1833-ts10c-nguyentrai-haiduong}
+\newpage\input{TSC18/1834-ts10c-hatinh}
+\newpage\input{TSC18/1835-ts10c-dhvinh-nghean-v2}
+\newpage\input{TSC18/1836-ts10c-tiengiang-v2}
+\newpage\input{TSC18/1837-ts10c-bacgiang}
+%\newpage\input{TSC18/1838-ts10c-tiengiang-v2}Bỏ
+%\newpage\input{TSC18/1839-ts10c-tiengiang-v2}Bỏ
+\newpage\input{TSC18/1840-ts10c-lequydon-vungtau}
+
+\end{document}

@@ -1,0 +1,525 @@
+\section{ĐOẠN THẲNG}
+\section{ĐỘ DÀI ĐOẠN THẲNG}
+	\subsection{Tóm tắt lý thuyết}
+		\begin{enumerate}
+			\item Đoạn thẳng $ AB $ là hình gồm điểm $ A $, điểm $ B $ và tất cả các điểm nằm giữa $ A $ và $ B $.
+			\item Khi hai đoạn thẳng hoặc một đoạn thẳng với một đường thẳng hoặc một đoạn thẳng với một tia chỉ có một điểm chung, ta nói chúng cắt nhau.
+			\item Nhận xét: Mỗi đoạn thẳng có một độ dài. Độ dài đoạn thẳng là một số lớn hơn $ 0 $.
+			\item So sánh hai đoạn thẳng
+				\begin{itemize} 
+				\item Nếu độ dài của hai đoạn thẳng $ AB $ và $ CD $ bằng nhau thì $ AB = CD $.
+				\item Nếu độ dài đoạn thẳng $ AB $ lớn hơn độ dài đoạn thẳng $ CD $ thì $ AB > CD $ hay $ CD < AB $.
+				\end{itemize}
+		\end{enumerate}
+	
+	\subsection{Các dạng bài tập và phương pháp giải}
+	\begin{dang}{Nhận biết đoạn thẳng}
+		Xác định hai điểm và tất cả những điểm nằm giữa hai điểm ấy.
+	\end{dang}
+	\begin{vd}
+		Trên đường thẳng $ a $ lấy $ 4 $ điểm $ A $, $ B $, $ C $, $ D $ phân biệt. Hỏi có mấy đoạn thẳng? Hãy gọi tên các đoạn thẳng ấy?
+		\loigiai{
+		\begin{center}
+		\begin{tikzpicture}
+			\draw (0,0)node[above right]{$a$}--(10,0);
+			\foreach \x / \chucai in {2.5/A, 4/B, 6/C, 8/D}
+    		\draw (\x, 0) node[below]{$\chucai$} circle(1pt);
+		\end{tikzpicture}
+		\end{center}
+		Có tất cả $ 6 $ đoạn thẳng là $ AB $, $ AC $, $ AD $, $ BC $, $ BD $, $ CD $.
+		}
+	\end{vd}
+	
+	\begin{vd}
+		Trong hình vẽ bên có bao nhiêu đoạn thẳng?
+		\loigiai{
+		\immini{
+		Có tất cả $ 10 $ đoạn thẳng, đó là $ MN $, $ NP $, $ PQ $, $ QM $, $ MO $, $ OP $, $ NO $, $ OQ $, $ MP $, $ NQ $.
+		}
+		{
+			\begin{tikzpicture}
+				\coordinate (Q) at (0,0) ;
+				\coordinate (M) at ($(Q) + (1,2)$) ;
+				\coordinate (P) at ($(Q) + (3,0)$) ;
+				\coordinate (N) at ($(P) + (1,2)$) ;
+				
+				\tkzInterLL(M,P)(N,Q)\tkzGetPoint{O}
+				
+				\draw (M) -- (P) ;
+				\draw (N) -- (Q) ;
+				\draw (O) node [below] {$O$} circle(1pt) ;
+				
+				\draw (M) node [above] {$M$} circle(1pt) -- (N) node [above] {$N$} circle(1pt) -- (P) node [below] {$P$} circle(1pt) -- (Q) node [below] {$Q$} circle(1pt) -- (M) ;
+			\end{tikzpicture}
+		}
+		}
+	\end{vd}
+	
+	\begin{dang}{Nhận biết đoạn thẳng cắt đoạn thẳng, cắt tia, cắt đường thẳng}
+		Nếu đoạn thẳng chỉ có một điểm chung với đường thẳng, tia hoặc đoạn thẳng khác thì chúng cắt nhau.
+	\end{dang}
+	\begin{vd}
+		\immini{
+			Cho hình vẽ bên
+			\begin{enumEX}{1}
+				\item Đường thẳng $ xx' $ có cắt đoạn $ AB $ không?
+				\item Trong hai tia $ Ox $, $ Ox' $ tia nào cắt đoạn thẳng $ AB $?
+				\item Đường thẳng $ xx' $ có cắt đoạn $ OA $ không?
+				\item Tia $ OB $ có cắt tia $ MA $ không?	
+			\end{enumEX}
+		}
+		{
+			\begin{tikzpicture}
+				\tkzDefPoints{0/0/x,6/0/x',1.5/0/O,2.2/2.5/X,4.5/-2/Y,4/2.5/Z,5/-1/T}
+				\tkzInterLL(X,Y)(O,Z)\tkzGetPoint{A}
+				\tkzInterLL(X,Y)(O,T)\tkzGetPoint{B}
+				\tkzInterLL(x,x')(A,B)\tkzGetPoint{M}
+				
+				\tkzDrawSegments(x,x' X,Y O,Z O,T)
+				\tkzDrawPoints(O,A,B,M)
+				\
+				\tkzLabelPoints[below](x',x){}
+				\tkzLabelPoints[above right](M)
+				\tkzLabelPoints[right](A)
+				\tkzLabelPoints[below left](B,O)
+			\end{tikzpicture}
+		}
+	\loigiai{
+		\begin{enumEX}{1}
+			\item Đường thẳng $ xx' $ và đoạn $ AB $ có điểm $ M $ chung nên cắt nhau.
+			\item Điểm $ M $ thuộc tia $ Ox' $ và đoạn $ AB $ nên tia $ Ox' $ cắt đoạn $ AB $.
+			\item Đường thẳng $ xx' $ và đoạn $ OA $ có chung điểm $ O $ nên chúng cắt nhau.
+			\item Tia $ OB $ và tia $ MA $ không có điểm chung nên chúng không cắt nhau.
+		\end{enumEX}
+	}
+	\end{vd}
+
+	\begin{vd}
+		Vẽ hình theo cách diễn đạt sau:
+		\begin{itemize}
+			\item Vẽ đoạn thẳng $ AB $, lấy $ M $ nằm giữa hai điểm $ A $ và $ B $.
+			\item Vẽ đường thẳng $ xy $ đi qua $ M $ sao cho $ A $, $ B $ không thuộc $ xy $.
+			\item Trên tia $ Mx $ lấy điểm $ C $.
+			\item Vẽ đường thẳng $ uv $ đi qua điểm $ C $ sao cho $ uv $ cắt đoạn thẳng $ AB $ tại điểm $ D $ nằm giữa hai điểm $ M $ và $ B $.
+		\end{itemize}
+		\loigiai{
+			Bạn có thể vẽ theo hình sau
+			\begin{center}
+				\begin{tikzpicture}
+					\tkzDefPoints{0/0/A, 6.5/0/B,2/3.5/u,5.2/-1.5/v, 4.5/3.5/x,0/-1.5/y}
+					\tkzInterLL(x,y)(u,v)\tkzGetPoint{C}
+					\tkzInterLL(x,y)(A,B)\tkzGetPoint{M}
+					\tkzInterLL(A,B)(u,v)\tkzGetPoint{D}
+					
+					\tkzDrawSegments(A,B u,v x,y)
+					\tkzDrawPoints(A,B,C,M,D)
+					\tkzLabelPoints[below](A,B)
+					\tkzLabelPoints[below right](M)
+					\tkzLabelPoints[below left](D)
+					\tkzLabelPoints[left](x,y,u,v,C)
+				\end{tikzpicture}
+			\end{center}
+		}
+	\end{vd}
+		
+	
+	\begin{dang}{Số đoạn thẳng}
+		Với $ n $ điểm cho trước $ \left(n \in \mathbb{N}, n \geqslant 2 \right) $, cứ qua hai điểm vẽ một đoạn thẳng, thì số đoạn thẳng vẽ được là $ \dfrac{n\left(n - 1\right)}{2} $.
+	\end{dang}
+	\begin{vd}
+		Cho $ n $ điểm phân biệt $ (n \geqslant 2) $. Cứ qua hai điểm ta kẻ một đoạn thẳng.
+		\begin{enumEX}{1}
+			\item Nếu $ n = 14 $ thì có bao nhiêu đoạn thẳng tạo thành?
+			\item Nếu có $ 210 $ đoạn thẳng tạo thành thì $ n $ là bao nhiêu?
+		\end{enumEX}
+	\loigiai{
+		\begin{enumEX}{1}
+			\item Với $ n = 14 $ thì số đoạn thẳng tạo thành là $ \dfrac{(14 - 1) \cdot 14}{2} = 91 $ (đoạn thẳng).
+			\item Nếu có $ 210 $ đoạn thẳng tạo thành thì $ \dfrac{(n - 1) \cdot n}{2} = 210 $	nên
+			\begin{align*}
+				n(n - 1) = 420 = 21 \cdot 20
+			\end{align*}
+			Do đó $ n = 21 $.
+		\end{enumEX}
+	}
+	\end{vd}
+	
+	\begin{dang}{So sánh độ dài đoạn thẳng}
+		Dùng thước thẳng để đo độ dài mỗi đoạn thẳng rồi so sánh độ dài của chúng.
+	\end{dang}
+	\begin{vd}
+		Lấy ba điểm $ A $, $ B $, $ C $ không thẳng hàng. Vẽ $ 3 $ đoạn thẳng $ AB $, $ BC $, $ CA $. Hãy đo và so sánh
+		\begin{enumEX}{2}
+			\item $ AB + AC $ và $ BC $.
+			\item $ AB - AC $ và $ BC $ (với $ AB > AC $).
+		\end{enumEX}
+		\loigiai{
+		\immini{
+			\begin{enumEX}{1}
+				\item $ AB + AC > BC $.
+				\item $ AB - AC < BC $.
+			\end{enumEX}
+		}
+		{
+		\begin{tikzpicture}
+			\tkzDefPoints{0/0/B,4/0/C,3/3/A}
+			\tkzDrawPoints(A,B,C)
+			\tkzDrawSegments(A,B B,C A,C)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below right](C)
+		\end{tikzpicture}
+		}
+		}
+	\end{vd}
+	
+	
+	\subsection{Bài tập tự luyện}
+	\begin{bt}%[6H1B6]%[Lục Hán Tường, dự án EX-C2-L6]%
+		Trên $ xy $ lấy ba điểm phân biệt $ M $, $ N $, $ P $. Hỏi có bao nhiêu đoạn thẳng?
+		\loigiai{
+			\begin{center}
+				\begin{tikzpicture}
+					\tkzDefPoints{0/0/x,1/0/M, 3/0/N, 5/0/P, 6/0/y}
+					\tkzDrawSegments(x,y)
+					\tkzDrawPoints(M,N,P)
+					\tkzLabelPoints[below](x,M,N,P,y)
+				\end{tikzpicture}
+			\end{center}
+		Có tổng cộng ba đoạn thẳng là $ MN $, $ MP $ và $ NP $.
+		}
+	\end{bt}
+
+	\begin{bt}%[6H1B7]%[Lục Hán Tường, dự án EX-C2-L6]%
+		Cho các đoạn thẳng $ AB $, $ CD $, $ MN $. Biết $ AB = 7 $ cm, $ MN = 13 $ cm. Số đo độ dài $ CD $ là một số nguyên tố, $ AB < CD $, $ MN > CD $. Độ dài $ CD $ là bao nhiêu?
+		\loigiai{
+			Ta có $ AB < CD < MN $ nên $ 7 < CD < 13 $. Mà độ dài $ CD $ là một số nguyên tố nên suy ra độ dài $ CD = 11 $ (cm).
+		}
+	\end{bt}
+
+	\begin{bt}%[6H1B6]%[Lục Hán Tường, dự án EX-C2-L6]%
+		\immini{
+		Cho hình vẽ:
+		\begin{enumEX}{1}
+			\item Hình bên có mấy đoạn thẳng?
+			\item Những cặp đoạn thẳng nào không cắt nhau?
+			\item Tia $ Ox $ không cắt đoạn thẳng nào?
+		\end{enumEX}
+		}
+		{
+			\begin{tikzpicture}
+				\tkzDefPoints{-1/0/x,0/0/A,4/0/B,5/0/t,0.5/-2/y,3.5/2/z}
+				
+				\tkzInterLL(x,t)(y,z)\tkzGetPoint{O}
+				\coordinate (D) at ($(O)-(1,4/3)$) ;
+				\coordinate (C) at ($(O)+(1,4/3)$) ;
+				
+				\tkzDrawSegments(x,t y,z A,D B,C)
+				\tkzDrawPoints(A,B,O,D,C)
+				\tkzLabelPoints[above](x,A)
+				\tkzLabelPoints[left](y,C)
+				\tkzLabelPoints[below right](O)
+				\tkzLabelPoints[below](B)
+				\tkzLabelPoints[right](D)
+			\end{tikzpicture}
+		}
+		\loigiai{
+			\begin{enumEX}{1}
+				\item Có tổng cộng $ 8 $ đoạn thẳng. Đó là các đoạn thẳng: $ OA $, $ OB $, $ OC $, $ OD $, $ AB $, $ CD $, $ AD $, $ CB $.
+				\item Những cặp đoạn thẳng không cắt nhau là: $ OA $ và $ BC $; $ OC $ và $ AD $; $ OD $ và $ BC $; $ OB $ và $ AD $; $ AD $ và $ BC $.
+				\item Tia $ Ox $ không cắt đoạn thẳng $ BC $.
+			\end{enumEX}
+		}
+	\end{bt}
+
+	\begin{bt}%[6H1B6]%[Lục Hán Tường, dự án EX-C2-L6]%
+		Vẽ hình theo cách diễn đạt sau:
+		\begin{enumEX}{1}
+			\item Đoạn thẳng $ AB $ không cắt đoạn thẳng $ CD $ nhưng đường thẳng $ AB $ cắt đoạn thẳng $ CD $.
+			\item Đường thẳng $ AB $ cắt đoạn thẳng $ CD $ đồng thời đường thẳng $ CD $ cắt đoạn thẳng $ AB $.
+		\end{enumEX}
+		\loigiai{
+			\begin{enumEX}{1}
+				\item 
+				\begin{tikzpicture}
+					\tkzDefPoints{0/0/C,4/0/D,0.5/2/A}
+					\coordinate (B) at ($(A) + (1,-1.5)$) ;
+					\coordinate (x) at ($(A) + (2,-3)$) ;
+					\coordinate (y) at ($(A) + (-0.5,0.75)$) ;
+					
+					\tkzDrawSegments(C,D y,x)
+					\tkzDrawPoints(A, C, D, B)
+					\tkzLabelPoints[below](C,D)
+					\tkzLabelPoints[right](A,B)
+				\end{tikzpicture}
+				
+				\item
+				\begin{tikzpicture}
+					\tkzDefPoints{-1/0/x,0/0/A,4/0/B,5/0/y,.5/2/z}
+					\coordinate (C) at ($(z) + (1,-1.5)$) ;
+					\coordinate (D) at ($(z) + (2,-3)$) ;
+					\coordinate (t) at ($(z) + (3,-4.5)$) ;
+					\tkzInterLL(x,y)(t,z)\tkzGetPoint{O}
+					
+					
+					\tkzDrawSegments(x,y z,t)
+					\tkzDrawPoints(A,B,C,D,O)
+					\tkzLabelPoints[below](A,B)
+					\tkzLabelPoints[right](C,D)
+				\end{tikzpicture}
+			\end{enumEX}
+		}
+	\end{bt}
+
+	\begin{bt}%[6H1K6]%[Lục Hán Tường, dự án EX-C2-L6]%
+		Cho $ n $ điểm phân biệt $ (n \geqslant 2) $. Cứ qua hai điểm ta kẻ một đoạn thẳng.
+		\begin{enumEX}{1}
+			\item Nếu $ n = 21 $ thì có bao nhiêu đoạn thẳng tạo thành?
+			\item Nếu có $ 120 $ đoạn thẳng tạo thành thì $ n $ là bao nhiêu?
+		\end{enumEX}
+		\loigiai{
+		\begin{enumEX}{1}
+			\item Với $ n = 21 $ thì số đoạn thẳng tạo thành là $ \dfrac{(21 - 1) \cdot 21}{2} = 210 $ (đoạn thẳng).
+			\item Nếu có $ 120 $ đoạn thẳng tạo thành thì $ \dfrac{(n - 1) \cdot n}{2} = 120 $	nên
+			\begin{align*}
+			n(n - 1) = 240 = 16 \cdot 15
+			\end{align*}
+			Do đó $ n = 16 $.
+		\end{enumEX}
+		}
+	\end{bt}
+	
+
+\section{KHI NÀO THÌ $AM + MB = AB$?}
+	\subsection{Tóm tắt lý thuyết.}
+	\begin{enumerate}
+		\item Nếu điểm $ M $ nằm giữa hai điểm $ A $ và $ B $ thì $ AM + MB = AB $.
+		\immini{Ngược lại, nếu $ AM + MB = AB $ thì điểm $ M $ nằm giữa hai điểm $ A $ và $ B $.}
+		{
+			\begin{tikzpicture}
+				\tkzDefPoints{0/0/A,2/0/M,6/0/B}
+				\tkzDrawPoints(A,B,M)
+				\tkzDrawSegments(A,B)
+				\tkzLabelPoints[below](A,M,B)
+			\end{tikzpicture}
+		}
+	\item \textbf{\textit{Chú ý}}
+	\begin{itemize} 
+		\item \immini{Ta có thể dùng mệnh đề sau tương đương với tính chất trên:\\
+		Nếu $ AM + MB \neq AB $ thì điểm $ M $ không nằm giữa $ A $ và $ B $.}
+		{
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/A,2/0/M,4/0/N,6/0/B}
+			\tkzDrawPoints(A,B,M,N)
+			\tkzDrawSegments(A,B)
+			\tkzLabelPoints[below](A,M,B,N)
+			\end{tikzpicture}
+		}
+		\item Cộng liên tiếp.\\
+		Nếu $ M $ nằm giữa $ A $ và $ B $; $ N $ nằm giữa $ M $ và $ B $ thì $ AM + MN + NB = AB $.
+	\end{itemize}
+	\end{enumerate}
+
+	\subsection{Các dạng bài tập và phương pháp giải}
+	\begin{dang}{Tính độ dài đoạn thẳng}
+		Vận dụng: Nếu điểm $ M $ nằm giữa $ A $ và $ B $ thì $ AM + MB = AB $.
+	\end{dang}
+	\begin{vd}
+		Cho điểm $ M $ nằm giữa hai điểm $ A $ và $ B $. Biết $ AB = 6 $ cm; $ AM = 2 $ cm. Tính độ dài $ BM $.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+				\tkzDefPoints{0/0/A,2/0/M,6/0/B}
+				\tkzDrawPoints(A,B,M)
+				\tkzDrawSegments(A,B)
+				\tkzLabelPoints[below](A,M,B)
+			\end{tikzpicture}
+		\end{center}
+		$ M $ nằm giữa $ A $ và $ B $, ta có:
+		\begin{align*}
+		& AM + MB = AB \\
+		& 2 + MB = 6 \\
+		& MB = 4 \ (\text{cm}).
+		\end{align*}
+	}
+	\end{vd}
+
+	\begin{vd}
+		Cho điểm $ I $ nằm giữa $ C $ và $ D $. Biết rằng $ IC - ID = 1 $cm và $ CD = 5 $cm. Tính độ dài $ IC $; $ ID $.
+		\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+				\draw (0,0) node [below] {$C$} circle(1pt) -- (3,0) node [below] {$I$} circle(1pt) -- (5,0) node [below] {$D$} circle(1pt) circle(1pt) ;
+			\end{tikzpicture}
+		\end{center}
+		$ I $ nằm giữa $ C $ và $ D $, ta có: 
+		\begin{align*}
+		& IC + ID = CD \\
+		& IC + ID = 5 .
+		\end{align*}
+		Mà $ IC - ID = 1 $.\\
+		Do đó 
+		\begin{align*}
+			IC = (5 + 1):2 = 3 \ (\text{cm})\\
+			ID = (5 - 1):2 = 2 \ (\text{cm}).
+		\end{align*}
+	}
+	\end{vd}
+
+	\begin{dang}{Xác định điểm nằm giữa hai điểm khác}
+		Nếu $ AM + MB = AB $ thì điểm $ M $ nằm giữa hai điểm $ A $ và $ B $.
+	\end{dang}
+	
+	\begin{vd}
+		Cho ba điểm $ A $, $ B $, $ C $, biết $ AC = 2 $ cm, $ BC = 3 $ cm, $ AB = 5 $ cm. Điểm nào nằm giữa hai điểm còn lại?
+		\loigiai{
+			Ta có: $ AC + BC = 2 + 3 = 5 $.\\
+			Suy ra: $ AC + BC = AB $.\\
+			Do đó điểm $ C $ nằm giữa $ A $ và $ B $.\\
+			\textit{\textbf{Nhận xét:}} Bạn nên thực hiện tổng hai số đo đoạn thẳng nhỏ $ AC $, $ BC $ sau đó so sánh kết quả với số đo đoạn lớn nhất $ AB $. Nếu bằng nhau thì điểm $ C $ nằm giữa hai điểm $ A $ và $ B $.
+		}
+	\end{vd}
+
+	\begin{vd}
+		Cho ba điểm $ A $, $ B $, $ C $, biết $ AB = 3{,}1 $ cm, $ AC = 1{,}9 $ cm, $ BC = 4 $ cm.
+		\begin{enumEX}{1}
+			\item Chứng tỏ trong ba điểm $ A $, $ B $, $ C $ không có điểm nào nằm giữa hai điểm còn lại.
+			\item Chứng tỏ ba điểm $ A $, $ B $, $ C $ không thẳng hàng.
+		\end{enumEX}
+		\loigiai{
+			\begin{enumEX}{1}
+				\item Ta có: $ AC + AB = 1{,}9 + 3{,}1 = 5 $ cm.\\
+				Suy ra $ AC + AB \neq BC $ nên $ A $ không nằm giữa $ B $ và $ C $.\\
+				Ta có: $ AC + BC = 1{,}9 + 4 = 5{,}9 $ cm.\\
+				Suy ra $ AC + BC \neq AB $ nên $ C $ không nằm giữa $ A $ và $ B $.\\
+				Ta có: $ AB + BC = 3{,}1 + 4 = 7{,}1 $ cm.\\
+				Suy ra $ AB + BC \neq AC $ nên $ B $ không nằm giữa $ A $ và $ C $.
+				\item $ A $, $ B $, $ C $ không có điểm nào nằm giữa hai điểm còn lại. Do vậy ba điểm $ A $, $ B $, $ C $ không thẳng hàng.
+			\end{enumEX}
+		Nhận xét: Trong ba điểm, nếu không có điểm nào nằm giữa hai điểm còn lại thì ba điểm đó không thẳng hàng.
+		}
+	\end{vd}
+
+	\subsection{Bài tập tự luyện}
+	\begin{bt}%[6H1B8]%[Lục Hán Tường, dự án EX-C2-L6]%
+		Cho điểm $ M $ thuộc đoạn thẳng $ AB $. Biết $ AM = 2 $ cm; $ AB = 5 $ cm. Tính độ dài đoạn $ MB $.
+		\loigiai{
+			\begin{center}
+				\begin{tikzpicture}
+					\tkzDefPoints{0/0/A,2/0/M,5/0/B}
+					\tkzDrawPoints(A,B,M)
+					\tkzDrawSegments(A,B)
+					\tkzLabelPoints[below](A,M,B)
+				\end{tikzpicture}
+			\end{center}
+			$ M $ nằm giữa $ A $ và $ B $, ta có:
+			\begin{align*}
+				& AM + MB = AB \\
+				& 2 + MB = 5 \\
+				& MB = 3 \ (\text{cm}).
+			\end{align*}
+		}
+	\end{bt}
+
+	\begin{bt}%[6H1B8]%[Lục Hán Tường, dự án EX-C2-L6]%
+		Cho $ I $ là một điểm thuộc đoạn thẳng $ EF $. Biết $ EI = 5 $ cm; $ IF = 4 $ cm. Tính độ dài đoạn $ EF $.
+		\loigiai{
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzDefPoints{0/0/E,9/0/F,5/0/I}
+				\tkzDrawPoints(E,I,F)
+				\tkzDrawSegments(E,F)
+				\tkzLabelPoints[below](E,I,F)
+				\end{tikzpicture}
+			\end{center}
+			$ I $ nằm giữa $ E $ và $ F $, ta có:
+			\begin{align*}
+			EF = EI + IF = 5 + 4 = 9 \ (\text{cm}).
+			\end{align*}
+		}
+	\end{bt}
+
+	\begin{bt}%[6H1B8]%[Lục Hán Tường, dự án EX-C2-L6]%
+		Ba điểm $ A $, $ B $, $ C $ có thẳng hàng không? Nếu biết
+		\begin{enumEX}{1}
+			\item $ AB = 3{,}6 $ cm; $ AC = 2{,}6 $ cm; $ BC = 6 $ cm.
+			\item $ AB = 4 $ cm; $ AC = 7 $ cm; $ BC = 3 $ cm.
+		\end{enumEX}
+		\loigiai{
+		\begin{enumEX}{1}
+			\item Ta có: $ AC + AB = 2{,}6 + 3{,}6 = 6{,}2 $ cm.\\
+			Suy ra $ AC + AB \neq BC $ nên $ A $ không nằm giữa $ B $ và $ C $.\\
+			Ta có: $ AC + BC = 2{,}6 + 6 = 8{,}6 $ cm.\\
+			Suy ra $ AC + BC \neq AB $ nên $ C $ không nằm giữa $ A $ và $ B $.\\
+			Ta có: $ AB + BC = 3{,}6 + 6 = 9{,}6 $ cm.\\
+			Suy ra $ AB + BC \neq AC $ nên $ B $ không nằm giữa $ A $ và $ C $.\\
+			Do $ A $, $ B $, $ C $ không có điểm nào nằm giữa hai điểm còn lại. Do vậy ba điểm $ A $, $ B $, $ C $ không thẳng hàng.
+			
+			\item Ta có: $ AB + BC = 4 + 3 = 7 $ cm.\\
+			Suy ra $ AB + BC = AC $ nên $ B $ nằm giữa $ A $ và $ C $ hay ba điểm $ A $, $ B $, $ C $ thẳng hàng.
+		\end{enumEX}
+		}
+	\end{bt}
+
+	\begin{bt}%[6H1K8]%[Lục Hán Tường, dự án EX-C2-L6]%
+		Cho hai điểm $ A $, $ B $ sao cho $ AB = 8 $ cm. Trên đường thẳng $ AB $ lấy điểm $ M $ sao cho $ MB = 3 MA $. Tính độ dài $ MA $.
+		\loigiai{
+			\begin{enumEX}[Trường hợp 1:]{1}
+				\item Điểm $ M $ nằm giữa $ A $ và $ B $.
+				\begin{center}
+					\begin{tikzpicture}
+						\tkzDefPoints{0/0/A,2/0/M,8/0/B}
+						\tkzDrawPoints(A,B,M)
+						\tkzDrawSegments(A,B)
+						\tkzLabelPoints[below](A,M,B)
+					\end{tikzpicture}
+				\end{center}
+				Ta có
+				\begin{align*}
+					& MA + BM = AB \\
+					& MA + 3MA = AB \\
+					& 4MA = 8 \\
+					& MA = 2 \ (\text{cm}).
+				\end{align*}
+				
+				\item Điểm $ A $ nằm giữa $ M $  và $ B $.
+				\begin{center}
+					\begin{tikzpicture}
+						\tkzDefPoints{0/0/A,-4/0/M,8/0/B}
+						\tkzDrawPoints(A,B,M)
+						\tkzDrawSegments(M,B)
+						\tkzLabelPoints[below](A,M,B)
+					\end{tikzpicture}
+				\end{center}
+				Ta có
+				\begin{align*}
+					& MA + AB = BM \\
+					& MB - MA = AB \\
+					&  3MA - MA = AB \\ 
+					& 2MA = 8 \\
+					& MA = 4 \ (\text{cm}).
+				\end{align*}
+				
+				\item Điểm $ B $ nằm giữa $ M $ và $ A $.\\
+				Ta có $ AM > BM $ mà $ BM = 3AM > AM \Rightarrow $ vô lý. TRường hợp này không xảy ra.
+			\end{enumEX}
+		}
+	\end{bt}
+
+	\begin{bt}%[6H1B8]%[Lục Hán Tường, dự án EX-C2-L6]%
+		Cho điểm $ C $ nằm giữa $ A $ và $ B $; điểm $ D $ nằm giữa $ C $ và $ B $. Biết rằng $ AB = 7 $ cm, $ AC = 3 $ cm, $ BD = 1 $ cm. Tính $ CD $.
+		\loigiai{
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzDefPoints{0/0/A,3/0/C,6/0/D,7/0/B}
+				\tkzDrawPoints(A,B,C,D)
+				\tkzDrawSegments(A,B)
+				\tkzLabelPoints[below](A,B,C,D)
+				\end{tikzpicture}
+			\end{center}
+			Ta có $ C $ nằm giữa $ A $ và $ D $, $ D $ nằm giữa $ C $ và $ B $ nên
+			\begin{align*}
+				& AB = AC + CD + DB \\ & 7 = 3 + CD + 1 \\ & CD = 3 \ (\text{cm}).
+			\end{align*}
+		}
+	\end{bt}

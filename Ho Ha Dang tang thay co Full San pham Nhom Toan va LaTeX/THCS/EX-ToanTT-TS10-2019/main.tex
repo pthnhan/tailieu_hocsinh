@@ -1,0 +1,100 @@
+\documentclass[12pt,a4paper]{extbook}
+\usepackage{extsizes}
+\usepackage{amsmath,amssymb,yhmath,mathrsfs,fontawesome}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{tkz-euclide}
+\usepackage{tikz-3dplot}
+\usepackage{tikz,tkz-tab,tkz-linknodes}
+\usetikzlibrary{shapes.geometric,arrows,calc,intersections,angles,patterns,snakes,positioning}
+\usetkzobj{all}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.9}
+\usepackage[top=1.5cm, bottom=2cm, left=1.5cm, right=1cm] {geometry}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage{currfile}
+\usepackage[loigiai]{ex_test}
+%CÁC GÓI, LỆNH VIẾT TẮT CẦN THÊM
+%CẤU TRÚC TỰ LUẬN
+\usepackage{framed}
+\usepackage[many]{tcolorbox}
+\newtheorem{bt}{\color{violet}\fontfamily{anttlc}\selectfont\MakeUppercase{Bài}}
+%%%%%%%%
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.5pt}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\sectionmark}[1]{\markright{\arabic{section}. #1}}
+\fancyhead[LO,RE,LE,RO]{}
+\fancyfoot[RE,LO]{\color{blue!50!black}\fontsize{10 pt}{1pt}\selectfont\bfseries\rightmark}
+\fancyfoot[LE]{\color{blue!50!black}\bfseries \thepage | Nhóm Toán và \LaTeX}
+\fancyfoot[RO]{\color{blue!50!black}\bfseries Nhóm Toán và \LaTeX | \thepage}
+%%%%%%%%
+%Tiêu đề chương
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+\renewcommand\thesection{\@arabic\c@section}
+\renewcommand\thesubsection{\@Alph\c@subsection}
+\renewcommand\thesubsubsection{\@arabic\c@subsubsection}
+
+\titleformat{\section}{\newpage\fontfamily{qag}\selectfont\color{blue}\centering\scshape\Large\bfseries}{{\fontsize{10 pt}{1pt}\selectfont\color{red} CHỦ ĐỀ}~\fontsize{40 pt}{1pt}\selectfont\circEX{\thesection}}{0.2cm}{\setcounter{bt}{0}}
+
+%HẾT CẤU TRÚC TỰ LUẬN
+\newcommand{\hoac}[1]{\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{\left\{\begin{aligned}#1\end{aligned}\right.}
+\renewcommand{\loigiaiEX}{\fontfamily{qag}\selectfont\color{violet}\faPencilSquareO~Lời giải}
+\renewcommand\labelitemi{\faCheckSquareO}
+\renewcommand\labelitemii{$\bullet$}
+\renewcommand{\labelenumi}{\circled{\small\fontfamily{lmss}\bfseries\selectfont\arabic{enumi}}}
+\newcounter{CircLabel}
+\newcommand*\CircLabel{%
+	\refstepcounter{CircLabel}%
+	\hskip1em\llap{\circled{\small\fontfamily{lmss}\bfseries\selectfont\arabic{CircLabel}}}}%
+\NewEnviron{circ_enum}[1][]{%
+	\hfill
+	\setcounter{CircLabel}{0}
+	\def\tempbegin{\begin{taskEX}[label=\CircLabel](#1)}%
+		\expandafter\tempbegin\BODY
+	\end{taskEX}
+}
+
+\setlistsEX{label=\CircLabel}
+
+\AtBeginEnvironment{listEX}{\setcounter{CircLabel}{0}}
+\AtBeginEnvironment{enumEX}{\setcounter{CircLabel}{0}}
+\usepackage[final]{pdfpages}%chèn trang PDF
+%HẾT CẤU TRÚC TỰ LUẬN
+\begin{document}
+%\renewcommand{\dapso}[1]{}% ẩn đáp số
+\hideansEX{bt}% luôn ẩn lời giải
+%\dotlineans{5}{bt}% luôn ẩn lời giải và hiện 5 dòng kẻ
+%\dotlinefull{bt} % hiện dòng kẻ bằng với số dòng đã giải
+
+\includepdf[pages=-]{biasach}
+\tableofcontents
+
+\section{BÀI TOÁN VỀ TAM GIÁC - ĐA GIÁC}
+\input{data/Filter-[9][H][1][F][F]}
+\input{data/Filter-[7][H][F][F][F]}
+\input{data/Filter-[8][H][F][F][F]}
+\section{BÀI TOÁN LIÊN QUAN ĐẾN ĐƯỜNG TRÒN}
+\input{data/Filter-[9][H][2][F][F]}
+\input{data/Filter-[9][H][3][F][F]}
+\section{BÀI TOÁN VỀ HÌNH HỌC KHÔNG GIAN}
+\input{data/Filter-[8][H][4][F][F]}
+\input{data/Filter-[9][H][4][F][F]}
+
+\section{BÀI TOÁN LIÊN QUAN ĐẾN SỐ HỌC - TỈ LỆ}
+\input{data/Filter-[7][D][F][F][F]}
+\input{data/Filter-[6][D][F][F][F]}
+\section{HÀM SỐ - PHƯƠNG TRÌNH - HỆ PHƯƠNG TRÌNH}
+\input{data/Filter-[8][D][F][F][F]}
+\input{data/Filter-[9][D][1][F][F]}
+\input{data/Filter-[9][D][2][F][F]}
+\input{data/Filter-[9][D][3][F][F]}
+\input{data/Filter-[9][D][4][F][F]}
+\input{data/Filter-[9][D][5][F][F]}
+
+\end{document}

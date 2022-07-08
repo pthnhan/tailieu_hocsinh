@@ -1,0 +1,859 @@
+%Biên soạn: Nguyễn Thành Khang
+
+\section{Bài toán quỹ tích, tìm yếu tố cố định}
+
+\begin{bt}
+	Cho đường tròn $(O),$ dây $AB$, $C$ là điểm chính giữa của cung nhỏ $AB$. Điểm $M$ di chuyển trên đoạn thẳng $AB$. Vẽ dây $CD$ đi qua $M$. Gọi $(I)$, $(K)$ theo thứ tự là đường tròn ngoại tiếp các tam giác $AMD$, $BMD$. Gọi $N$ là trung điểm của $IK$. Chứng minh rằng $N$ luôn thuộc một đường thẳng cố định khi $M$ di chuyển trên đoạn $AB$.
+	\loigiai{
+		\immini{
+			Đặt $\text{sđ}\wideparen{AC}=\text{sđ}\wideparen{CB}=\alpha \Rightarrow \widehat{ADC}=\dfrac{\alpha}{2}$.\\
+			Do đó $ \widehat{ADM}=\dfrac{\alpha}{2} \Rightarrow \widehat{AIM}=\alpha.$\\
+			Tương tự $\widehat{BKM}=\alpha$. Các tam giác cân $AIM$, $BKM$ có góc ở đỉnh bằng nhau nên góc ở đáy bằng nhau, suy ra $IM\parallel KB$, $KM\parallel IA.$\\
+			Gọi $E$ là giao điểm của $AI$ và $BK$. Ta có $EIMK$ là hình bình hành nên $\widehat{AEB}=\alpha.$ Điểm $E$ thuộc cung chứa góc $\alpha$ vẽ trên $AB$ nên $E\in(O),$ $CE$ là đường kính, $E$ cố định.\\
+			Trung điểm $N$ của $IK$ cũng là trung điểm của $EM$ nên $N$ luôn thuộc đường trung bình của tam giác cân $AEB$ (song song với $AB$).
+		}{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\tkzInit[xmin=-1, xmax=5.5, ymin=-1.5, ymax=5.5]
+			\tkzClip
+			\tkzDefPoints{0.5/0/A,4.5/0/B,2.5/2/O,2/0/M}
+			\tkzDrawCircle(O,A)
+			\tkzDefPointBy[projection= onto A--B](O) \tkzGetPoint{H}
+			\tkzInterLC(O,H)(O,A) \tkzGetPoints{C'}{C}
+			\tkzInterLC(C,M)(O,A) \tkzGetPoints{C}{D}
+			\tkzCircumCenter(A,M,D) \tkzGetPoint{I}
+			\tkzCircumCenter(B,M,D) \tkzGetPoint{K}
+			\tkzInterLL(A,I)(B,K) \tkzGetPoint{E}
+			\tkzInterLL(I,K)(E,M) \tkzGetPoint{N}
+			\tkzDefMidPoint(A,E)\tkzGetPoint{X}
+			\tkzDefMidPoint(B,E)\tkzGetPoint{Y}
+			\tkzDrawPoints[fill=black](A,B,C,D,O,M,I,K,E,N)
+			\tkzLabelPoints[above](E,O)
+			\tkzLabelPoints[below](A,B)
+			\tkzLabelPoints[above left](D,N,I)
+			\tkzLabelPoints[above right](K)
+			\tkzLabelPoints[below](M,C)
+			\tkzDrawSegments(A,B C,D A,D A,E B,E I,K M,I M,K E,M X,Y)
+			\end{tikzpicture}
+		}	    
+	}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ABC$ cân tại $A$ nội tiếp đường tròn $(O)$, $AB>BC$. Điểm $D$ chuyển động trên cung $AB$. Trên tia $CD$ lấy điểm $E$ sao cho $CE = AD$. Chứng minh rằng khi $D$ chuyển động trên cung $BC$ thì điểm $E$ luôn thuộc một đường tròn cố định.
+	\loigiai{ 
+		\immini{ 
+			Trên tia $CB$ lấy điểm $K$ sao cho $CK = CA$ (lấy điểm $K$ như vậy vì khi $D$ trùng $B$ thì $E$ trùng $K$)\\
+			Gọi $I$ là giao điểm của $AK$ và $(O)$. Ta sẽ chứng minh $KIEC$ là tứ giác nội tiếp. \\
+			Đặt $\widehat{KAC} = \widehat{IBK} = \alpha$. \hfill (1)\\
+			Tam giác $CAK$ cân $\Rightarrow  \widehat{ACK}+2\alpha   = 180^0 $\\
+			$\Rightarrow \widehat{ABC} +2\alpha = 180^\circ$ $\Rightarrow \widehat{IBK} + \widehat{ABI} = 2\alpha$. \\
+			Do $ \widehat{IBK} =  \alpha$ nên $ \widehat{ABI} = \alpha $ \\
+			$ \Rightarrow \widehat{ICA}= \widehat{ABI} = \alpha$. \hfill (2) \\
+			Từ $(1)$ và $(2)$ suy ra $\widehat{KAC} = \widehat{ICA}, IA = IC$.\\
+			Do đó $\triangle ICE  = \triangle IAD$ (c.g.c) $\Rightarrow \widehat{IEC} = \widehat{IDA}$.
+		}{
+			\begin{tikzpicture}[scale=0.8, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\tkzDefPoints{2/6/A, 0/0/B, 4/0/C, -2.32/0/K}
+			\clip (-2.8,-1.3) rectangle (5.5,6.5);
+			\tkzCircumCenter(A,B,C)\tkzGetPoint{O}
+			\tkzDrawCircle(O,A)
+			\coordinate (J) at ($(B)!.35!(A)$);
+			\tkzDrawCircle(O,A)
+			\tkzInterLC(J,C)(O,A)\tkzGetSecondPoint{D}
+			\tkzInterLC(A,K)(O,A)\tkzGetFirstPoint{I}
+			\tkzCircumCenter(I,K,C)\tkzGetPoint{V}
+			\tkzDrawCircle(V,C)
+			\tkzInterLC(D,C)(V,C)\tkzGetFirstPoint{E}
+			
+			\tkzDrawSegments(A,C C,K A,K A,D C,D C,I I,B I,D A,B I,E)
+			\tkzLabelPoints[right](C,O)
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[left](D,I)
+			\tkzLabelPoints[above](A,E)
+			\tkzLabelPoints[below right](K)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,O,K,I)
+			\end{tikzpicture}
+		}
+		\noindent Ta lại có $\widehat{IDA}$ bù $\widehat{ICA}$, mà $\widehat{ICA} = \widehat{IAC} = \widehat{K}$ nên $\widehat{IEC}$ bù $ \widehat{K} \Rightarrow$ $KIEC$ là tứ giác nội tiếp.\\
+		Suy ra $E$ luôn thuộc đường tròn ngoại tiếp tam giác $KIC$ cố định.
+	}
+\end{bt}
+
+%Chứng minh tâm đường tròn ngoại tiếp tam giác thuộc một đường thẳng cố định
+	
+\begin{bt}%[Thi vào 10, SGD\&ĐT Phú Yên, 2018-2019]%[Nguyễn Thành Khang]
+	Cho đường tròn $(O;R)$ đường kính $AB$. Gọi $d$ là tiếp tuyến của đường tròn tại $A$. $C$ là điểm chuyển động trên đường thẳng $d$. $BC$ cắt $(O)$ tại $D$ ($D \ne B$). Gọi $E$ là trung điểm của $BD$. Chứng minh rằng tâm $I$ của đường tròn ngoại tiếp tam giác $AEC$ thuộc một đường thẳng cố định.
+	\loigiai{
+		\immini{
+			Vì $E$ là trung điểm của $BD$ nên $OE \perp BD$.
+			Ta có tứ giác $OACE$ nội tiếp nên đường tròn ngoại tiếp tam giác $ACE$ chính là đường tròn ngoại tiếp tứ giác $OACE$.\\
+			Suy ra khi $C$ di chuyển trên đường thẳng $d$ thì tâm $I$ của đường tròn ngoại tiếp tam giác $ACE$ di chuyển trên trung trực của $OA$ cố định.
+		}{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\tkzInit[xmin=-3, xmax=3, ymin=-2, ymax=4]
+				\tkzClip
+				\tkzDefPoints{-2/0/A, 2/0/B, -2/3/C}
+				\tkzDrawCircle[diameter](A,B)\tkzGetPoint{O}
+				\tkzDefLine[orthogonal=through A](A,B) \tkzGetPoint{d}
+				\tkzDrawLine[add 0.2 and 1](A,C)
+				\tkzInterLC(C,B)(O,A)\tkzGetFirstPoint{D}
+				\tkzDefMidPoint(D,B)\tkzGetPoint{E}
+				\tkzDrawPoints[fill=black](A,B,O,D,C,E)
+				\tkzLabelPoints[above](D,E)
+				\tkzLabelPoints[below right](B,O)
+				\tkzLabelPoints[below left](A,C)
+				\tkzDrawSegments(A,B C,B O,E A,E)
+				\tkzMarkRightAngles(O,A,d)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[Thi vào lớp 10, SGD\&ĐT Thừa Thiên Huế, 2018-2019]%[Nguyễn Thành Khang]
+	Cho tam giác $ABC$ cân tại $A. $ Gọi $M$ là điểm bất kỳ nằm trên cạnh $AC$ ($M$ không trùng $A$ và $C$). Một đường thẳng đi qua điểm $M$ cắt cạnh $BC$ tại $I$ và cắt đường thẳng $AB$ tại $N$ sao cho $I$ là trung điểm của đoạn thẳng $MN $. Đường phân giác trong của góc $\widehat{BAC}$ cắt đường tròn ngoại tiếp tam giác $AMN$ tại điểm $D$ ($D$ không trùng $A$). Chứng minh rằng tâm đường tròn ngoại tiếp tam giác $AMN$ thuộc một đường thẳng cố định khi $M$ di chuyển trên cạnh $AC$. 
+	\loigiai{
+		\immini{
+			Trong đường tròn ngoại tiếp tam giác $AMN$, ta có $\widehat{NAD}$ là góc nội tiếp chắn cung $ND, \widehat{DAM}$ là góc nội tiếp chắn cung $MD$.\\
+			Mà $\widehat{NAD}=\widehat{DAM}$ nên $ND=MD$. \\
+			Trong đường tròn ngoại tiếp $\Delta AMN, I$ là trung điểm của dây $MN$ $\Rightarrow IN=IM$.\\
+			Mà $DN=DM$ suy ra $DI\perp MN$.\\
+			Gọi $H$ là giao điểm của $BC$ và $AD$, $J$ là giao điểm của $MN$ và $AD$. \\
+			Ta có $\Delta ABC$ cân tại $A$ có đường phân giác $AD$ đồng thời là đường cao nên $AD\perp BC$.\\ 
+			Hai tam giác vuông $DIJ$ và $IHJ$ có $\widehat{I}=\widehat{H}=90^\circ$ và $\widehat{J}$ chung nên $\Delta DIJ\backsim \Delta IHJ$.
+		}{
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-3, xmax=3.2, ymin=-2,ymax=4.5]
+			\tkzClip
+			\tkzDefPoints{-2.5/0/N,0/-1.5/D,2.5/0/M,0.5/0/J}
+			\tkzDefCircle[circum](M,D,N)     \tkzGetPoint{L}
+			\tkzDefMidPoint(M,N)\tkzGetPoint{I}
+			\tkzDrawCircle[circum](M,D,N)
+			\tkzInterLC(D,J)(L,D)\tkzGetFirstPoint{A}
+			\tkzDefPointBy[reflection = over A--D](I)    \tkzGetPoint{I'}
+			\tkzInterLL(I,I')(A,N)    \tkzGetPoint{B}
+			\tkzInterLL(I,I')(A,M)    \tkzGetPoint{C}
+			\tkzInterLL(A,D)(B,C)    \tkzGetPoint{H}
+			\tkzDrawSegments(A,N A,D A,C B,C M,N)
+			\tkzLabelPoints[left](B,N)
+			\tkzLabelPoints[right](A,M,C)
+			\tkzLabelPoints[below](I,D)
+			\tkzLabelPoints[below right](H)
+			\tkzLabelPoints[above right](J)
+			\tkzDrawPoints[fill=black](A,B,C,D,M,N,I,H,J)
+			\end{tikzpicture}
+		}
+		\noindent Suy ra $\widehat{IDJ}=\widehat{JIH}$ mà $\widehat{JIH}=\widehat{BIN}$ (đối đỉnh) nên $\widehat{IDJ}=\widehat{BIN}$.\hfill (1)\\
+		Mặt khác $\widehat{ANM}=\widehat{{ADM}}$ (góc nội tiếp cùng chắn cung $AM$.\hfill (2)\\
+		Từ (1) và (2) suy ra $\widehat{IDJ}+\widehat{ADM}=\widehat{BIN}+\widehat{ANH}\Rightarrow \widehat{IDM}=180^\circ-\widehat{NBI}$.\\
+		Theo câu (a), $\Delta NDM$ cân tại $D$ nên đường cao $DI$ đồng thời là đường phân giác $\Rightarrow \widehat{NDI}=\widehat{IDM}$.\\
+		Do đó $\widehat{NDI}+\widehat{NBI}=180^\circ$. Vậy, tứ giác $NBID$ nội tiếp.\\
+		Vì tứ giác $NBID$ nội tiếp mà $\widehat{NID}=90^\circ \Rightarrow \widehat{NID}$ chắn cung có số đo $180^\circ$ tức $ND$ là đường kính của đường tròn đó.\\
+		Suy ra $\widehat{NBD}=90^\circ$ hay $BD\perp AB$.\\
+		Do $\Delta ABC$ cố định nên đường phân giác trong $AD$ cố định và đường thẳng vuông góc với $AB$ tại $B$ cố định và $D$ là giao điểm của hai đường thẳng cố định này nên $D$ cố định.\\
+		Vậy đường tròn ngoại tiếp tam giác $AMN$ luôn đi qua điểm $D$ cố định, suy ra tâm đường tròn ngoại tiếp tam giác $AMN$ thuộc trung trực $AD$ cố định.
+	}
+\end{bt}
+
+\begin{bt}%[Nguyễn Thành Khang]
+	Cho tam giác nhọn $ABC$, điểm $M$ thuộc cạnh $BC$. Kẻ $MD$ song song với $AC$ ($D\in AB$), kẻ $ME$ song song với $AB$ ($E\in AC$). Chứng minh rằng khi $M$ di động trên cạnh $BC$ thì tâm đường tròn ngoại tiếp tam giác $ADE$ luôn thuộc một đường thẳng cố định.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\tkzDefPoints{2/4/A,0/0/B,6/0/C,1.33/2.67/D,4.67/1.33/E,2.24/0.94/K,4/0/M,0.33/2.33/O,4.67/2.67/O'} 
+			\tkzDrawPoints[fill=black](O,O',A,B,C,D,E,M,K)
+			\tkzDrawCircle(O,A) 
+			\tkzDrawCircle(O',A)  
+			\tkzDrawSegments(A,B B,C C,A M,E A,K K,B K,C K,E K,D K,E M,E M,D)
+			\tkzDrawSegments[dashed](O,A O',A)
+			\tkzLabelPoints[left](D)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](K,O,B,C,M)
+			\tkzLabelPoints[above right](O')
+			\tkzLabelPoints[right](E)
+			\tkzMarkAngles[size =0.5, mksize=2,mark=|](B,A,K)
+			\tkzMarkAngles[size =0.5, mksize=2,mark=|](A,C,K)
+			\tkzLabelAngle[pos=0.8,rotate=0](A,C,K){\footnotesize $1$} 
+			\tkzMarkAngles[size=0.5cm, mksize=3,mark=||](K,A,C)
+			\tkzMarkAngles[size=0.5cm, mksize=3,mark=||](K,B,A)
+			\tkzLabelAngle[pos=0.8,rotate=0](K,B,A){\footnotesize $1$} 
+			\end{tikzpicture}
+		\end{center}
+		Gọi $(O)$ là đường tròn đi qua $B$ và tiếp xúc với $AC$ tại $A$. Gọi $(O')$ là đường tròn qua $C$ và tiếp xúc với $AB$ tại $A$. Gọi $K$ là giao điểm thứ hai của đường tròn đó.\\
+		Ta có $\widehat{KAE}=\widehat{B_1}$. Ta sẽ chứng minh $\dfrac{AK}{BK}=\dfrac{AE}{BD}$.\\
+		Ta có $\triangle KAC \backsim \triangle KBA$ (g.g) $\Rightarrow \dfrac{AK}{BK}=\dfrac{AC}{AB}$. \hfill $(1)$\\
+		Vì $ADME$ là hình bình hành $\Rightarrow \dfrac{AE}{BD}=\dfrac{DM}{BD}=\dfrac{AB}{AC}$. \hfill $(2)$\\
+		Từ $(1)$ và $(2)$ suy ra $\dfrac{AK}{BK}=\dfrac{AE}{BD}$.\\
+		Lại có $\widehat{KAE}=\widehat{B_1}$ nên suy ra $\triangle KAE \backsim \triangle KBD$ (c.g.c).\\
+		Từ đó suy ra $\widehat{KEA}=\widehat{KDB}\Rightarrow ADKE$ là tứ giác nội tiếp.\\
+		Vậy đường tròn ngoại tiếp $\triangle ADE$ đi qua điểm cố định $K$.\\
+		Vì $A,K$ cố định nên tâm đường tròn ngoại tiếp $\triangle ADE$ thuộc đường trung trực của đoạn $AK$ cố định.
+		\begin{note}
+			Sở dĩ ta vẽ đường tròn $(O),(O')$ vì khi $M$ tiến đến $B$ thì đường tròn $(ADE)$ tiến đến đường tròn $(O)$, khi $M$ tiến dần đến $C$ thì đường tròn $(ADE)$ tiến đến đường tròn $(O')$.
+		\end{note}
+	}
+\end{bt}
+
+%Các bài toán chứng minh một đường đi qua một điểm cố định
+
+\begin{bt}%[Nguyễn Thành Khang]
+	Cho đường tròn $(O),$ dây $BC$ không đi qua $O$. Điểm $A$ chuyển động trên cung lớn $BC$. Vẽ đường tròn $(I)$ đi qua $B$ và tiếp xúc với $AC$ tại $A$. Vẽ đường tròn $(K)$ đi qua $C$ và tiếp xúc với $AB$ tại $A$. Gọi $D$ là giao điểm thứ hai của hai đường tròn $(I)$ và $(K)$. Chứng minh rằng khi $A$ di động trên cung lớn $BC$ thì đường thẳng $AD$ luôn đi qua một điểm cố định.
+	\loigiai{
+		\immini{
+			Giả sử đường thẳng $AD$ cắt đường tròn ngoại tiếp tam giác $BOC$ tại $M$. Ta có $$\widehat{BDM}=\widehat{BAD}+\widehat{ABD}=\widehat{BAD}+\widehat{DAC}=\widehat{BAC}.$$
+			Tương tự $\widehat{CDM}=\widehat{BAC}$.\\
+			Suy ra $\widehat{BDC}=\widehat{BDM}+\widehat{CDM}=2\widehat{BAC}$. Ta lại có $\widehat{BOC}=2\widehat{BAC}$ nên $B,D,O,C$ thuộc một đường tròn.\\
+			Đường tròn ngoại tiếp $\triangle BOC$ cố định mà $\widehat{BDM}=\widehat{CDM}$ nên $M$ là trung điểm cung $BC$ không chứa điểm $O$ và $M$ cố định. Dẫn tới $AD$ đi qua điểm $M$ cố định.
+		}{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\tkzInit[xmin=-3, xmax=4, ymin=-3.5, ymax=4.7]
+			\tkzClip
+			\tkzDefPoints{0/3/A, 2.5/0/C, -1/0/B}
+			\tkzCircumCenter(A,B,C) \tkzGetPoint{O}
+			\tkzDrawCircle(O,A)
+			\tkzLabelPoints[above](O)(0.3pt);
+			\tkzDefLine[orthogonal=through A](A,C) \tkzGetPoint{b}
+			\tkzDefMidPoint(A,B) \tkzGetPoint{X}
+			\tkzDefLine[orthogonal=through X](A,B) \tkzGetPoint{c}
+			\tkzInterLL(A,b)(X,c) \tkzGetPoint{I}
+			\tkzDrawCircle(I,B)
+			\tkzDefLine[orthogonal=through A](A,B) \tkzGetPoint{d}
+			\tkzDefMidPoint(A,C) \tkzGetPoint{Y}
+			\tkzDefLine[orthogonal=through Y](A,C) \tkzGetPoint{e}
+			\tkzInterLL(A,d)(Y,e) \tkzGetPoint{K}
+			\tkzDrawCircle(K,C)
+			\tkzInterCC(I,A)(K,C) \tkzGetSecondPoint{D}
+			\tkzCircumCenter(B,D,C) \tkzGetPoint{Z}
+			\tkzDrawCircle[circum](B,D,C)
+			\tkzInterLC(A,D)(Z,B) \tkzGetFirstPoint{M}
+			\tkzDrawPoints[fill=black](A,B,C,O,D,I,K,M)
+			\tkzDrawSegments(A,B B,C C,A A,M B,D D,C)
+			\tkzLabelPoints[above](A,I,O)
+			\tkzLabelPoints[below](B,M)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[above left](D,K)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[Nguyễn Thành Khang]
+	Cho đường tròn $(O)$, dây $BC$, điểm $A$ chuyển động trên cung lớn $BC$ sao cho $\triangle ABC$ nhọn. Các đường cao $BD$, $CE$ cắt nhau tại $H$. Gọi $I$ là giao điểm của $DE$ và $BC$. Gọi $K$ là giao điểm thứ hai của $IA$ và $(O)$. Chứng minh rằng đường thẳng $KH$ đi qua một điểm cố định.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\tkzInit[xmin=-5.5,ymin=-3.5,xmax=3.5,ymax=3.3]
+			\tkzClip
+			\tkzDefPoints{0/0/O, -3/-1/B}
+			\tkzDefPointBy[rotation= center O angle 140](B)\tkzGetPoint{C}
+			\tkzDefPointBy[rotation= center O angle 285](B)\tkzGetPoint{A}
+			\tkzDefPointBy[projection= onto C--A](B)\tkzGetPoint{D}
+			\tkzDefPointBy[projection= onto A--B](C)\tkzGetPoint{E}
+			\tkzInterLL(B,D)(C,E) \tkzGetPoint{H}
+			\tkzInterLL(D,E)(B,C) \tkzGetPoint{I}
+			\tkzInterLC(I,A)(O,B)\tkzGetFirstPoint{K}
+			\tkzInterLC(K,H)(O,B)\tkzGetFirstPoint{F}
+			\tkzDrawCircle(O,B)
+			\tkzDrawSegments(A,B A,C B,C B,D C,E C,F F,K D,I D,E I,B A,I B,F)
+			\tkzLabelPoints[left](K,I)
+			\tkzLabelPoints[right](D,C)
+			\tkzLabelPoints[above](A,O)
+			\tkzLabelPoints[left](E)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below](H,F)
+			\tkzMarkRightAngles(F,K,A B,D,C C,E,B)
+			\tkzDrawPoints[fill=black](A,B,C,D,K,F,E,O,H)
+			\end{tikzpicture}
+		\end{center}
+		Ta có $\triangle IKB \backsim \triangle ICA$ (g.g) $\Rightarrow \dfrac{IK}{IB}=\dfrac{IC}{IA} \Rightarrow IK\cdot IA=IB\cdot IC$.\\
+		Vì $BEDC$ là tứ giác nội tiếp nên $\triangle IEB \backsim \triangle ICD$ (g.g) $\Rightarrow \dfrac{IE}{IB}=\dfrac{IC}{ID} \Rightarrow IB\cdot IC=IE\cdot ID$.\\
+		Suy ra $IK\cdot IA=IE\cdot ID \Rightarrow \dfrac{IK}{ID}=\dfrac{IE}{IA}\Rightarrow \triangle IKD\backsim \triangle IEA$ (c.g.c) $\Rightarrow \widehat{IDK}=\widehat{IAE}$ $\Rightarrow AKED$ là tứ giác nội tiếp.\\
+		Lại có tứ giác $AEHD$ nội tiếp nên $A$, $K$, $D$, $H$, $E$ thuộc đường tròn đường kính $AH$.\\
+		Suy ra $\widehat{AKH}=90^\circ$.\\
+		Gọi $F$ là giao điểm của $KH$ và $(O)$. Vì $\widehat{AKH}=90^\circ\Rightarrow \widehat{ABF}=\widehat{ACF}=90^\circ$.\\
+		Khi đó ta có $BHCF$ là hình bình hành nên $HK$ đi qua trung điểm của $BC$ và đó là điểm cố định. 
+	}
+\end{bt}
+
+\begin{bt}%[Nguyễn Thành Khang]
+	Cho đường tròn $(O,R)$ và đường thẳng $d$ cắt đường tròn tại $A$, $B$. Từ điểm $M$ là điểm nằm trên tia đối tia $AB$ kẻ các tiếp tuyến $MC$, $MD$. Chứng minh rằng khi $M$ di chuyển trên tia đối tia $AB$, đường thẳng $CD$ luôn đi qua một điểm cố định.
+	\loigiai{
+		\immini{
+			Vì $MC$, $MD$ là tiếp tuyến của đường tròn $(O)$ nên $MO$ là trung trực của $CD$ suy ra $MO\perp CD$ tại $H$.\\
+			Trong tam giác $OCM$ vuông tại $C$ có đường cao $CH$ nên $OH\cdot OM=CO^2=R^2$.\hfill (1)\\
+			Kẻ $OK\perp AB$ cắt đường thẳng $CD$ tại $J$.\\
+			Ta có $\triangle OKM\backsim\triangle OHJ$ (g.g) $\Rightarrow \dfrac{OK}{OM}=\dfrac{OH}{OJ}$\\
+			$\Rightarrow OJ=\dfrac{OH\cdot OM}{OK}=\dfrac{R^2}{OK}$ không đổi (do $OK$ không đổi), nên $J$ là điểm cố định.\\
+			Vậy $CD$ luôn đi qua điểm $J$ cố định.
+		}{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\tkzInit[xmin=-0.6, xmax=5.8, ymin=-4, ymax=2]
+			\tkzClip
+			\tkzDefPoints{0/0/M,2/0/A,5/0/B,3.5/-1.5/O}
+			\tkzDrawCircle(O,A)
+			\tkzDefMidPoint(M,O)\tkzGetPoint{I}
+			\tkzInterCC(O,A)(I,O)\tkzGetFirstPoint{D}
+			\tkzInterCC(O,A)(I,O)\tkzGetSecondPoint{C}
+			\tkzInterLL(C,D)(M,O)\tkzGetPoint{H}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{K}
+			\tkzInterLL(O,K)(C,D)\tkzGetPoint{J}
+			\tkzDrawPoints[fill=black](A,B,M,O,C,D,H,K,J)
+			\tkzDrawSegments(M,B M,C M,D M,O O,J D,J C,O O,D)
+			\tkzMarkRightAngles(M,C,O C,H,O O,K,B O,D,M)
+			\tkzLabelPoints[above](J)
+			\tkzLabelPoints[above left](M,C)
+			\tkzLabelPoints[below left](H,D)
+			\tkzLabelPoints[above right](B,K)
+			\tkzLabelPoints[below right](A,O)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[Đề thi vào 10, chuyên Lương Thế Vinh, tỉnh Đồng Nai, năm 2018]%[Nguyễn Thành Khang]
+	Cho đường tròn $(O)$ đường kính $AB$ cố định. Biết điểm $C$ thuộc đường tròn $(O)$, với $C$ khác $A$ và $B$. Vẽ đường kính $CD$ của đường tròn $(O)$. Tiếp tuyến tại $B$ của đường tròn $(O)$ cắt hai đường thẳng $AC$ và $AD$ lần lượt tại $E$ và $F$. Chứng minh tứ giác $ECDF$ nội tiếp đường tròn và đường tròn ngoại tiếp tứ giác $ECDF$ luôn đi qua hai điểm cố định khi $C$ di động trên đường tròn $(O)$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=0.8, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\tkzInit[xmin=-1, xmax=11, ymin=-3.5, ymax=6.5]
+			\tkzClip
+			\tkzClip
+			\tkzDefPoints{0/0/A, 4/0/B,2/0/O, 0/4/X}
+			\tkzDrawCircle(O,A)
+			\tkzDefPointBy[rotation=center O angle -70](A)\tkzGetPoint{C}
+			\tkzDefLine[orthogonal=through B](A,B) \tkzGetPoint{b}
+			\tkzDefPointBy[symmetry = center O](C) \tkzGetPoint{D}
+			\tkzInterLL(A,C)(B,b) \tkzGetPoint{E}
+			\tkzInterLL(A,D)(B,b) \tkzGetPoint{F}
+			\tkzDefCircle[circum](E,D,C) \tkzGetPoint{I}
+			\tkzDrawCircle[circum](E,D,C)
+			\tkzInterLC(A,B)(I,C) \tkzGetPoints{P}{Q}
+			\tkzDrawSegments(A,B A,E A,F E,F C,D B,D B,P B,C C,Q D,P E,P)
+			\tkzDrawPoints[fill=black](A,B,O,C,E,F,D,I,P,Q)
+			\tkzLabelPoints[left](A,I)
+			\tkzLabelPoints[right](P)
+			\tkzLabelPoints[above](E)
+			\tkzLabelPoints[above left](C)
+			\tkzLabelPoints[below left](Q)
+			\tkzLabelPoints[below](D,F)
+			\tkzLabelPoints[above right](B,O)
+			\tkzMarkRightAngles(E,B,A)
+			\end{tikzpicture}
+		\end{center}
+		Ta có $\widehat{CDA}=\widehat{CBA}$ (góc nội tiếp chắn cung $AC$). Mà $\widehat{CBA}=\widehat{CEB}$ (cùng phụ với $\widehat{CAB}$), suy ra $\widehat{CEF}=\widehat{CDA}$. Do đó tứ giác $CDFE$ nội tiếp.
+		Gọi $I$ là tâm đường tròn ngoại tiếp tứ giác $CDFE$, $P,\ Q$ lần lượt là giao điểm của đường tròn $(I)$ với đường thẳng $AB$.\\
+		Ta có $\triangle OCQ\backsim \triangle OPD$ (g.g), khi đó ta có $OP\cdot OQ=OC\cdot OD=R^2$. \hfill (1)\\
+		Mặt khác $\triangle ACQ\backsim \triangle APE$ (g.g) nên $AP\cdot AQ=AC\cdot AE =AB^2=4R^2$. Mà
+		\begin{align*}
+			AP \cdot AQ&=(AO-OQ)\cdot (AO+OP)=R^2+AO(OP-OQ)-OP\cdot OQ\\
+			&=R(OP-OQ) \Rightarrow OP-OQ=4R. \tag{2}
+		\end{align*}
+		Từ (1) và (2) ta có $OP,\ OQ$ không đổi, hay $P,\ Q$ là các điểm cố định.
+	}
+\end{bt}
+
+\begin{bt}%[Đề thi HSG 9 - Thanh Hoá, 2016-2017]%[Nguyễn Thành Khang]
+	Cho góc $\widehat{ABx}$ cố định, trên tia $Bx$ lấy điểm $C$ sao cho $AB<AC$ và $AB<BC$. Đường tròn tâm $O$ nội tiếp tam giác $ABC$ tiếp xúc với ba cạnh $AB$, $BC$, $CA$ lần lượt tại $I$, $J$, $K$. Tia $BO$ cắt đường thẳng $JK$, $AC$ lần lượt tại $M$ và $D$. Chứng minh rằng đường thẳng $JK$ luôn đi qua một điểm cố định khi điểm $C$ di động trên tia $Bx$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\tkzInit[xmin=-0.5, xmax=8.5, ymin=-0.5, ymax=5.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B, 8/0/C, 2/5/A}
+			\tkzDefCircle[in](A,B,C) \tkzGetPoint{O}
+			\tkzDrawCircle[in](A,B,C)
+			\tkzDefPointBy[projection=onto A--B](O) \tkzGetPoint{I}
+			\tkzDefPointBy[projection=onto C--B](O) \tkzGetPoint{J}
+			\tkzDefPointBy[projection=onto A--C](O) \tkzGetPoint{K}
+			\tkzInterLL(B,O)(A,C)\tkzGetPoint{D}
+			\tkzInterLL(B,O)(K,J)\tkzGetPoint{M}
+			\tkzDrawPoints[fill=black](A,B,C,D,O,I,J,K,M)
+			\tkzDrawSegments(A,B B,C A,C O,I O,J O,K B,D J,K A,O)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[right](D) 
+			\tkzLabelPoints[below](B,J,C)
+			\tkzLabelPoints[below right](O,M)
+			\tkzLabelPoints[above left](I)
+			\tkzLabelPoints[above right](K)
+			\end{tikzpicture}
+		\end{center}
+		Ta có 
+		$$\widehat{AOB}=180^\circ-(\widehat{OAB}+\widehat{OBA})=180^\circ-\left(\dfrac{\widehat{BAC}+\widehat{ABC}}{2}\right)=180^\circ-\dfrac{180^\circ-\widehat{C}}{2}=90^\circ+\dfrac{\widehat{C}}{2}.$$
+		Ta có $\widehat{AOM}=180^\circ-\widehat{AOB}=90^\circ-\dfrac{\widehat{C}}{2}$.\\
+		Tam giác $CKJ$ cân tại $C$ nên $\widehat{CKM}=90^\circ-\dfrac{\widehat{C}}{2}$ $\Rightarrow \widehat{AOM}=\widehat{CKM}$.\\
+		Tứ giác $AOMK$ có $\widehat{AOM}+\widehat{AKM}=\widehat{CKM}+\widehat{AKM}=180^\circ$ nên tứ giác $AOMK$ nội tiếp.\\
+		Suy ra $\widehat{AMO}=\widehat{AKO}=90^\circ$ suy ra $AM \perp BD$ tại $M$.\\
+		Mà $BD$ cố định, $A$ cố định suy ra $M$ cố định. Vậy $KJ$ luôn đi qua điểm $M$ cố định.
+	}
+\end{bt}
+
+\begin{bt}%[Thi vào 10, Sở GD\&ĐT Hà Nội, 2015 - 2016]%[Nguyễn Thành Khang]    
+	Cho nửa đường tròn tâm $O$ có đường kính $AB$. Lấy điểm $C$ trên đoạn $AO$ ($C$ khác $A$, $C$ khác $O$). Đường thẳng đi qua $C$ và vuông góc với $AB$ cắt nửa đường tròn tại $K$. Gọi $M$ là điểm bất kì trên cung $KB$ ($M$ khác $K$, $M$ khác $B$). Đường thẳng $CK$ cắt các đường thẳng $AM$, $BM$ lần lượt tại $H$ và $D$. Đường thẳng $BH$ cắt nửa đường tròn tại điểm thứ hai $N$. Khi $M$ di động trên cung $KB$, chứng minh đường thẳng $MN$ luôn đi qua một điểm cố định.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\tkzInit[xmin=-5, xmax=10, ymin=-0.5, ymax=8]
+			\tkzClip
+			\tkzDefPoints{0/0/O,-4/0/B, 4/0/A, 2/0/C}
+			\tkzDrawArc[rotate, color=black](O,A)(180)
+			\tkzDefPointBy[rotation = center O angle -80](B) \tkzGetPoint{M}
+			\tkzDefLine[perpendicular=through C](A,B) \tkzGetPoint{c},
+			\tkzInterLC(C,c)(O,M) \tkzGetFirstPoint{K}
+			\tkzInterLL(A,M)(C,K) \tkzGetPoint{H}
+			\tkzInterLL(B,M)(C,K) \tkzGetPoint{D}
+			\tkzInterLL(B,H)(A,D) \tkzGetPoint{N}
+			\tkzDefMidPoint(D,H) \tkzGetPoint{E}
+			\tkzInterLL(M,N)(A,B) \tkzGetPoint{I}
+			\tkzDrawPoints[fill=black](O,A,B,C,H,M,N,K,D,I,E)
+			\tkzDrawSegments(C,B C,A A,M B,M M,D D,C D,A B,N C,M N,E N,O M,I A,I O,K M,E O,M)
+			\tkzLabelPoints[right](N,K)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below](I,C,O)
+			\tkzLabelPoints[above left](E)
+			\tkzLabelPoints[above](D,M)
+			\tkzLabelPoints[above right](H)
+			\tkzLabelPoints[below right](A)
+			\tkzMarkRightAngles(A,M,B A,C,D A,N,B)
+			\end{tikzpicture}
+		\end{center}
+		Ta có $H$ là trực tâm $\triangle ABD \Rightarrow AD \perp BH$. Mà $AN \perp BH$ nên $A$, $N$, $D$ thẳng hàng.\\
+		Gọi $E$ là giao điểm của $CK$ và tiếp tuyến tại $N$.\\
+		Ta có $BN \perp DN$ và $ON \perp EN \Rightarrow \widehat{DNE} = \widehat{BNO}$.\\
+		Mà $\widehat{BNO} =\widehat{OBN}$, $\widehat{OBN} =\widehat{EDN}\Rightarrow \widehat {DNE} =\widehat{EDN}$.\\
+		Suy ra $\triangle DEN$ cân tại $E$, suy ra $ED=EN$.\\
+		Ta có $\widehat{ENH}=90^\circ-\widehat{END}= 90^\circ -\widehat{NDH}= \widehat{EHN}$.\\
+		Suy ra $\triangle HEN$ cân tại $E$, suy ra $EH=EN$.\\
+		Từ đó suy ra $E$ là trung điểm của $HD$.\\
+		Kéo dài $MN$ cắt $AB$ tại điểm $I$, ta sẽ chứng minh điểm $I$ cố định.\\
+		$\triangle DMH$ vuông tại $H$ có $E$ là trung điểm cạnh huyền $DH$, suy ra $ME=EN=\dfrac{1}{2}DH$.
+		Lại có $\triangle EMO=\triangle ENO$ (c.c.c), suy ra $\widehat {EMO}= \widehat{ENO}=90^\circ \Rightarrow EM \perp OM$.\\
+		Suy ra tứ giác $EMON$ nội tiếp đường tròn đường kính $OE \Rightarrow OJ\cdot OE =OM^2 =R^2$.\\
+		Ta có $\triangle OJI \backsim \triangle OCE$ (g.g) $\Rightarrow \dfrac{OJ}{OC}=\dfrac{OI}{OE} \Rightarrow OI \cdot OC = OJ \cdot OE = R^2$.\\ 
+		Suy ra $OI = \dfrac{R^2}{OC}$ không đổi mà $O$ và đường thẳng $AB$ cố định, suy ra $I$ cố định.
+	}	
+\end{bt}
+
+\begin{bt}%[Đề thi HSG 9, Tỉnh Nghệ An, năm 2018]%[Nguyễn Thành Khang]
+	Cho $AB$ là một đường kính cố định của đường tròn $(O)$. Qua điểm $A$ vẽ đường thẳng $d$ vuông góc với $AB$. Từ một điểm $E$ bất kỳ trên đường thẳng $d$ vẽ tiếp tuyến với đường tròn $(O)$ ($C$ là tiếp điểm, $C$ khác $A$). Vẽ đường tròn $(K)$ đi qua $C$ và tiếp xúc với đường thẳng $d$ tại $E$, vẽ đường kính $EF$ của đường tròn $(K)$. Chứng minh rằng đường thẳng đi qua $F$ và vuông góc với $BE$ luôn đi qua điểm cố định khi $E$ thay đổi trên đường thẳng $d$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line cap=round, line join=round, >=stealth, rotate=90]
+			\pgfmathsetmacro\d{6}
+			\pgfmathsetmacro\h{0.4}
+			\tkzDefPoint[label=below:$A$](0,0){A}
+			\tkzDefShiftPoint[A](0:\d){B}
+			\tkzDrawCircle[diameter](A,B)\tkzGetPoint{O}
+			\tkzTangent[at=A](O)\tkzGetPoint{a}
+			\coordinate (E) at ($(A)!4.5!(a)$);
+			\tkzTangent[from=E](O,A)\tkzGetFirstPoint{C}
+			\coordinate (ec) at ($(E)!0.5!(C)$);
+			\coordinate (M) at ($(E)!0.5!(O)$);
+			\tkzDefLine[orthogonal=through ec](E,C)\tkzGetPoint{k}
+			\tkzDefLine[orthogonal=through E](A,a)\tkzGetPoint{e}
+			\tkzInterLL(ec,k)(E,e)\tkzGetPoint{K}
+			\tkzDefPointBy[symmetry=center K](E)\tkzGetPoint{F}
+			\tkzInterLC(B,E)(K,E)\tkzGetSecondPoint{Q}
+			\tkzDefMidPoint(O,E)\tkzGetPoint{M}
+			%\tkzInterLC(O,E)(K,E)\tkzGetSecondPoint{M}
+			\tkzInterLL(F,Q)(O,B)\tkzGetPoint{N}
+			\tkzDrawSegments(A,B E,O F,O E,F E,B M,N F,M F,N ec,K)
+			\tkzDrawCircle[radius](K,E)
+			\tkzDrawLine[add = 0.5 and 0.7,end=$d$](A,E)
+			\tkzDrawLine[add = 0 and 0.5](E,C)
+			\tkzDrawPoints[fill=black](A,B,C,O,K,E,F,M,Q,N)
+			\pgfresetboundingbox
+			\tkzLabelPoints[above](B,F)
+			\tkzLabelPoints[left](O,N)
+			\tkzLabelPoints[below left](E)
+			\tkzLabelPoints[right](K)
+			\draw ($(M)+(-85:\h)$) node{M};
+			\draw ($(Q)+(10:\h)$) node{Q};
+			\draw ($(C)+(0:\h)$) node{C};
+			\tkzMarkRightAngles(B,A,E F,E,A E,C,O K,ec,E)
+			\end{tikzpicture}
+		\end{center}
+		Ta có $ EC $ là tiếp tuyến của đường tròn $ (O) $ nên $ \widehat{ECO}=90^{\circ} $. Mà $ C $ nằm trên đường tròn tâm $ K $, bán kính $ \dfrac{EF}{2} $ nên $ \widehat{ECF}=90^{\circ}\Rightarrow O $, $ C $, $ F $ thẳng hàng.\\
+		Lại có $ EC $, $ EA $ là các tiếp tuyến của đường tròn $ (O) $ nên $ \widehat{AOE}=\widehat{EOF} $.\\
+		Mặt khác $ FE\perp d $, $ AB\perp d $ nên $ FE\parallel AB\Rightarrow \widehat{AOE}=\widehat{OEF}\Rightarrow \widehat{OEF}=\widehat{EOF}\Rightarrow $ tam giác $ FOE $ cân tại $ F $. Gọi $M$ là trung điểm của $OE$ thì $ FM\perp EO\Rightarrow \widehat{OMF}=90^{\circ}$.\\
+	 	Gọi $ N $ là trung điểm của $ AO $, $ Q $ là giao điểm của $ BE $ và $ FN \Rightarrow MN$ là đường trung bình của tam giác $ EAO\Rightarrow MN\parallel AE\Rightarrow MN\perp AO$.\\
+		Khi đó $\widehat{NMO}=90^{\circ}-\widehat{MON}\Rightarrow \widehat{NMF}=180^{\circ}-\widehat{MON}=\widehat{EOB} $.\\
+		Mặt khác $ \Delta MOF\backsim \Delta NOM $ (g.g) nên $ \dfrac{MF}{NM}=\dfrac{MO}{NO}=\dfrac{EO}{AO} $.\\
+		Mà $ AO=BO $ nên $ \dfrac{MF}{NM}=\dfrac{EO}{BO}\Rightarrow \Delta MFN\backsim\Delta OEB $ (c.g.c)\\
+		$ \Rightarrow \widehat{OEB}=\widehat{MFN} $, hay $ \widehat{MEQ}=\widehat{MFQ}\Rightarrow MEFQ $ là tứ giác nội tiếp đường tròn $ (K)$\\
+		$\Rightarrow \widehat{EQF}=90^{\circ}\Rightarrow NF\perp BE $.\\
+		Vậy khi $ E $ thay đổi trên $ d $ thì đường thẳng đi qua $ F $ và vuông góc với $ BE $ luôn đi qua điểm cố định là trung điểm của đoạn $ OA $.
+	}
+\end{bt}
+
+%Biên soạn: Hoàng Tựu
+
+%\begin{dang}{Chứng minh điểm thuộc đường tròn cố định}
+%	\textbf{Phương pháp:}
+%	\begin{enumerate}
+%		\item Chứng minh điểm $ M $ nằm trên một đường tròn cố định. Ta tìm điểm $ O $ cố định và đoạn thẳng  có độ dài cố định bằng $ R $ sao cho $ OM=R $.
+%		\item  Chứng minh điểm $ M $ nằm trên một đường tròn cố định. Ta chỉ ra $ \widehat{AMB}=\alpha $, với $ \alpha $ có số đo không đổi và $ AB $ cố định.
+%	\end{enumerate}	
+%	\begin{note}
+%		Muốn dự đoán được quỹ tích, cần phân tích yếu tố cố định, yếu tố thay đổi và mối quan hệ giữa chúng. Nếu xét ở ba vị trí đặc biệt mà quỹ tích không thẳng hàng, ta dự đoán đường tròn. 
+%	\end{note}
+%\end{dang}
+
+\begin{bt}%[]%[Hoàng Tựu]
+	Cho đường tròn $ (O) $ và dây cung $ BC $ cố định. Gọi $ A $ là điểm di động trên cung lớn $ BC $ của đường tròn $ (O) $, $ A $ khác $ B $ và $ C $. Trên tia đối của tia $ AB $ lấy $ M $ sao cho $ AM=AC $. Khi $ A $ di động trên cung lớn $ BC $ thì $ M $ thuộc một đường tròn cố định.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\tkzDefPoints{0/0/O,-1/-1/B,1/-1/C,-0.5/1/A}
+			\tkzDrawCircle[circum](A,B,C)  \tkzGetPoint{O}
+			\tkzDefPointBy[symmetry = center A](B)    \tkzGetPoint{M}			
+			\tkzDrawCircle[circum](M,B,C)  \tkzGetPoint{O}			
+			\tkzDrawSegments(A,B B,C C,A A,M M,C)
+			\tkzDrawPoints[fill=black](A,B,C,O,M)
+			\tkzLabelPoints[above](A,B,C,O,M)
+			\tkzMarkSegments[mark=|](M,A A,C)			
+			\end{tikzpicture}
+		\end{center}
+		Do tam giác $ MAC $ cân nên $ \widehat{BMC}=\dfrac{1}{2}\widehat{BAC}. 
+		$	Do $ BC $ cố định và $ \widehat{BAC} $. Do $ A $ chuyển động trên cung lớn $ BC $ nên $ M $ chuyển động trên cung lớn của đường tròn ngoại tiếp tam giác $ MBC $.
+	}
+\end{bt}
+
+\begin{bt}%[]%[Hoàng Tựu]
+	Cho đường tròn $ (O) $ và dây cung $ AB $ cố định và $ I $ là điểm chính giữa cung lớn $ AB $. Lấy $ M $ bất kì trên cung lớn $ AB $, dựng tia $ Ax\bot MI $ tại $ H $ và cắt tia $ BM $ tại $ C $. 
+	Khi $ M $ di động trên cung lớn $ AB $ thì $ C $ di chuyển trên một cung tròn cố định. 
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\tkzDefPoints{0/0/O,-1/-1/A,1/-1/B}		
+			\tkzDefPointBy[rotation = center O angle 75](B)    \tkzGetPoint{M}
+			\tkzDefPointBy[projection = onto A--B](O)    \tkzGetPoint{T}
+			\tkzInterLC(O,T)(O,A)    \tkzGetFirstPoint{I}
+			\tkzDefPointBy[projection = onto I--M](A)    \tkzGetPoint{H}
+			\tkzInterLL(A,H)(B,M)    \tkzGetPoint{C}
+			\tkzDefCircle[radius](O,A)
+			\tkzDrawCircle[radius](O,A)
+			\tkzDrawCircle[radius](I,C)			
+			\tkzDrawSegments(A,B B,C C,A A,I I,B M,I I,H I,C A,M)
+			\tkzDrawPoints[fill=black](A,B,C,O,I,M,H)
+			\tkzLabelPoints[above](A,B,C,O,I,M,H)		
+			\end{tikzpicture}
+		\end{center}
+		\begin{note}
+			\noindent\textbf{Phân tích:} Yếu tố cố định: $ O,\; I,\;AB $. Yếu tố thay đổi: $ M, C $. Dự đoán $ I\in (I,IA) $.
+		\end{note}
+		
+		\noindent$ I$ chính giữa cung $ AB $ nên tam giác $ IAB $ cân.  Ta có  $ \widehat{IMA}=\widehat{IBA}=\widehat{IAB} $ mà tứ giác $ IMBA $ nội tiếp nên $\widehat{IAB} =\widehat{IMC}  \Rightarrow \widehat{IMC}=\widehat{IMA}$. Do đó, tam giác $ AMC $ cân tại $ M \Rightarrow H$
+		là trung điểm của $ AC $. Vì vậy, tam giác $ IAC $ cân tại $ I $.  Vậy, $ IC=IA $. $ IA $ không đổi nên $ C\in (I,IA) $.		
+	}
+\end{bt}
+
+\begin{bt}%[]%[Hoàng Tựu]
+	Cho $(O,R)$ và dây $AB$ cố định, $C$ chuyển động trên cung lớn $AB. \;\,G$ là trọng tâm tam giác $ABC$. Chứng minh $G$ thuộc đường tròn cố định.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=0.8]			
+			\tkzDefPoints{0/0/O,-3/-1/A,3/-1/B,-2/3/C}			
+			\tkzDrawCircle[circum](A,B,C)  \tkzGetPoint{O}
+			\coordinate (M) at ($(A)!0.5!(B)$);
+			\coordinate (N) at ($(C)!0.5!(B)$);
+			\pgfresetboundingbox
+			\tkzInterLL(A,N)(C,M)    \tkzGetPoint{G}
+			\tkzInterLC(O,M)(O,A)    \tkzGetFirstPoint{C'}
+			\tkzInterLC(O,M)(O,A)    \tkzGetSecondPoint{D}
+			\tkzCentroid(A,B,D)    \tkzGetPoint{Q}
+			\tkzCentroid(A,B,C')    \tkzGetPoint{P}
+			\coordinate (O') at ($(P)!0.5!(Q)$);
+			\tkzDrawCircle[radius](O',Q)
+			\tkzInterLC(A,B)(O',Q)    \tkzGetFirstPoint{E}
+			\tkzInterLC(A,B)(O',Q)    \tkzGetSecondPoint{F}
+			\tkzMarkAngles[size=1cm,arc=ll,mark=|](A,C,B)
+			\tkzMarkAngles[size=1cm,arc=ll,mark=|](A,C',B)
+			\tkzMarkAngles[size=1cm,arc=ll,mark=|](F,G,E)
+			\tkzDrawSegments(A,B B,C C,A C,M C',D C',A C',B F,G E,G)
+			\tkzDrawPoints[fill=black](A,B,C,O,M,G,C',D,Q,P,O',E,F)
+			\tkzLabelPoints[above left](C,G,C')
+			\tkzLabelPoints[above right](P,O')
+			\tkzLabelPoints[below left](A,B,M,Q,E,F,D)
+			\end{tikzpicture}
+		\end{center}
+		
+		\noindent Gọi $ M $ là trung điểm của $ AB $ thì $ M $ cố định. Ta thấy, $ GM=\dfrac{1}{3} CM$ . Xét các vị trí đặc biệt: Nếu $ C\equiv C'$
+		thì $ G\equiv P $, nếu $ C\equiv D $ thì $ G\equiv Q $, nếu $ C\equiv B $ thì $ G\equiv E $, nếu $ C\equiv A $ thì $ G\equiv F $. Ta dự đoán được quỹ tích là đường tròn ngoại tiếp tứ giác $PEQF$. Gọi $ O' $ là là tâm đường tròn nói trên.\\
+		Vì $ MB, MA$ cố định nên $ E,\; F $ cố định. Dễ thấy $ FG\parallel CA, \; GE\parallel CF $. Do đó, $ \widehat{FGE}=\widehat{ACB}=\widehat{AC'B} $, mà $ \widehat{AC'B} =\alpha$ là góc có số đo không đổi( lí do là $ C' $ cố định). Suy ra $ \widehat{FGE}=\alpha $. Vậy $ G\in \left( O', \dfrac{R}{3}\right)  $.
+	}
+\end{bt}	
+
+\begin{bt}%[]%[Hoàng Tựu]
+	Cho hai đường tròn $(O), (O')$ cắt nhau tại hai điểm phân biệt $A, B, O, O'$ ở hai phía đối với $AB$. Kẻ hai bán kính song song cùng chiều $OM, O'N, I$ là trung điểm $MN, G$ là trọng tâm $\triangle IOO'$. Chứng minh:
+	\begin{enumerate}
+		\item $I$ thuộc đường tròn cố định khi $M, N$ chuyển động sao cho $OM \parallel O'N.$
+		\item $G$ thuộc đường tròn cố định khi $M, N$ chuyển động sao cho $OM \parallel O'N.$
+	\end{enumerate}
+	\loigiai{		
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=0.8]
+		\tkzDefPoints{0/0/O,3/0/O',2/3/A}
+		\tkzDrawCircle[radius](O,A)
+		\tkzDrawCircle[radius](O',A)
+		\tkzInterCC(O,A)(O',A)    \tkzGetSecondPoint{B}
+		\tkzDrawPoints[fill=black](A,B,O,O')		
+		\tkzDefPointBy[rotation = center O angle 75](A)    \tkzGetPoint{M}		
+		\tkzDefPointBy[translation = from O to O'](M)    \tkzGetPoint{M'}
+		\tkzInterLC(O',M')(O',A)    \tkzGetSecondPoint{N}
+		\tkzDrawSegments(O,M O',N M,N)
+		\coordinate (I) at ($(M)!0.5!(N)$);
+		\coordinate (I') at ($(O)!0.5!(O')$);
+		\tkzCentroid(I,O,O')    \tkzGetPoint{G}
+		\tkzDrawPoints[fill=black](M,N,G,I,I')
+		\tkzLabelPoints[above](M,N,I)
+		\tkzDrawSegments(O,O' I,I' I,O I,O')
+		\tkzLabelPoints[below left](A,G,I',O,O')
+		\tkzLabelPoints[above](B)
+		\end{tikzpicture}
+		\begin{enumerate}
+			\item Do $ O,\; O' $ cố định nên trung điểm $ I' $ cố định. Ta có $ II' $ là đường trung bình của hình thang $ OO'NM \Rightarrow II'=\dfrac{OM+O'N}{2}=\dfrac{R+R'}{2}$. Vậy $ I\in \left( I',\dfrac{R+R'}{2}\right)  $.
+			\item Vì $G  $ là trọng tâm tam giác $ IOO' $ nên $ IG=\dfrac{1}{3}II'=\dfrac{R+R'}{6} $. Do đó, $ G\in \left( I',\dfrac{R+R'}{6}\right)  $. 
+		\end{enumerate}		
+	}
+\end{bt}	
+\begin{bt}%[]%[Hoàng Tựu]
+	Cho $(O,R),\; B$ cố định trên đường tròn, $A$ đối xứng với $(O)$ qua $B$. Một cát tuyến qua $A$ cắt $(O)$ tại $E, F(AE<AF)$. Gọi $H$ là trung điểm của $EF, G$ là trọng tâm của $\triangle HOA, K$ là trọng tâm $\triangle FOA$. Cho cát tuyến quay quanh $A$. Chứng minh $G$ thuộc đường tròn cố định và $K$ thuộc đường tròn cố định.
+	\loigiai{		
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1.2]
+			\tkzDefPoints{0/0/O,2/0/B}			
+			\tkzDrawCircle[radius](O,B)
+			\tkzDefPointBy[symmetry = center B](O)    \tkzGetPoint{A}
+			\tkzDefPointBy[rotation = center O angle 35](B)    \tkzGetPoint{E}
+			\tkzInterLC(A,E)(O,B)    \tkzGetFirstPoint{F}
+			\tkzDefPointBy[symmetry = center O](B)    \tkzGetPoint{B'}
+			\tkzDefPointBy[symmetry = center O](F)    \tkzGetPoint{F'}
+			\tkzDefPointBy[homothety = center B ratio 1/3](B')    \tkzGetPoint{M}
+			\coordinate (H) at ($(E)!0.5!(F)$);
+			\tkzCentroid(H,O,A)    \tkzGetPoint{G}
+			\tkzCentroid(F,O,A)    \tkzGetPoint{K}			
+			\tkzDrawSegments(A,F A,O H,O F,O H,B F,B O,B' B',F M,K)
+			\tkzDrawPoints[fill=black](O,B,A,E,F,H,G,K,B',M)
+			%\tkzLabelPoints[above](O,B,A,E,F,H,G,K,B',M)
+			\tkzLabelPoints[above](F,H,E,A)
+			\tkzLabelPoints[ left](K,B')
+			\tkzLabelPoints[right](G)
+			\tkzLabelPoints[below right](O,M,B)
+			\tkzMarkRightAngles[size=0.2,fill=gray!50](O,H,A)			
+			\end{tikzpicture}
+		\end{center}
+		Tam giác $ OHA $ vuông tại $ H $ nên $ HB=OB \Rightarrow BG=\dfrac{1}{3}BH=\dfrac{1}{3}OB$. Do đó $ G $ nằm trên đường tròn tâm $ B $, bán kính $ \dfrac{1}{3}OB $.\\
+		Ta thấy khi cát tuyến trùng với $ OA $ và nếu $ F\equiv B' $ thì $ K\equiv M $, nếu $ F\equiv B $ thì $ K \equiv B$. Theo định lý Thales thì $ MK//B'F $ nên $ \widehat{MKB}=90^0. $ Mà $ MB $ cố định nên $ K $ thuộc đường tròn đường kính $ MB $.		
+	}
+\end{bt}	
+
+\begin{bt}%[]%[Hoàng Tựu]	
+	Cho $(O,R)$ và dây $BC$ cố định. $A$ chuyển động trên cung lớn $BC$. $H$ là trung điểm $AB$. Chứng minh $H$ thuộc một đường tròn cố định.
+	\loigiai{		
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+			\tkzDefPoints{0/0/O,-3/-2/B,3/-2/C,-1/3/A}
+			\tkzDrawCircle[circum](A,B,C)  \tkzGetPoint{O}
+			\tkzDrawSegments(A,B B,C C,A) 
+			\coordinate (H) at ($(A)!0.5!(B)$);
+			\coordinate (M) at ($(C)!0.5!(B)$);
+			\tkzDrawSegments(A,M O,M O,H B,O)
+			\coordinate (O') at ($(B)!0.5!(O)$);
+			\tkzDrawCircle[circum](O,B,H)  \tkzGetPoint{O'}
+			\tkzDefPointBy[symmetry = center O](B)    \tkzGetPoint{B'}
+			\tkzDrawPoints[fill=black](O,A,B,C,H,M,O',B')
+			\tkzDrawSegments(B,B')
+			\tkzLabelPoints[above right](A,C,B',H)
+			\tkzLabelPoints[above](O,O')
+			
+			\tkzLabelPoints[below ](B,M)
+			\end{tikzpicture}
+		\end{center}
+		\begin{note}
+			\noindent	\textbf{Phân tích:}\\
+			Kẻ $ AO $ cắt $ (O) $ tại $ O' $.\\
+			Ta xét các vị trí đặc biệt của $ A $. Nếu $ A\equiv B $ thì $ H\equiv B $, nếu $  A\equiv B'$ thì $ H\equiv O $, nếu $A\equiv C  $ thì $ H\equiv M $. Do đó, ta nhận thấy quỹ tích của $ H $ là đường tròn đi qua $ B,\; M,\; O $. Do $ AB' $ là đường kính của $ (O) $ nên $ \widehat{BCB'}=90^\circ $. Do đó $ B'C\bot BC $. Theo định lý Thales thì $ \widehat{OMB}=90^\circ $. Mà $ O' $ cố định nên tâm đường tròn ngoại tiếp tam giác $ APQ $ là $ (O') $. Như vậy, ta có thể kết luận $ H\in \left( O',\dfrac{OA}{2}\right) $.
+		\end{note}
+		
+		\noindent	Ta có $ OH\bot AB,\;  OM\bot BC$. Do đó tứ giác $ OHBM $ là tứ giác nội tiếp đường tròn tâm $ (O')  $, đường kính $ BO $. Mặt khác $ O, M $ cố định nên $ BO $ cố định. Do đó, $ O'H=O'B\Rightarrow H\in \left( O',\dfrac{BO}{2}\right) $.
+	}	
+\end{bt}	
+
+\begin{bt}%[]%[Hoàng Tựu]
+	Cho đường tròn đường kính $AB$ cố định, $M$ chuyển động trên đường tròn, lấy $N$ đối xứng với $A$ qua $M$. Chứng minh $N$ thuộc đường tròn cố định.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.5]
+			\tkzDefPoints{0/0/O,-2/0/A,2/0/B, -1/3/M}
+			\tkzDrawCircle[circum](A,B,M)  \tkzGetPoint{O}
+			\tkzDrawSegments(A,B B,M M,A)
+			\tkzDefPointBy[symmetry = center M](A)    \tkzGetPoint{N}
+			\tkzDefPointBy[symmetry = center B](A)    \tkzGetPoint{P}
+			\tkzDefPointBy[symmetry = center O](A)    \tkzGetPoint{O'}
+			\tkzDefPointBy[symmetry = center O'](A)    \tkzGetPoint{Q}
+			\tkzDrawSegments(M,N N,B)
+			\tkzDrawPoints[fill=black](A,B,M,O,N,O',P,Q)
+			\tkzDrawSegments(B,P A,Q N,Q Q,P O',B)
+			\tkzLabelPoints[above](M,N,O,O',Q)
+			\tkzLabelPoints[below](A,B,P)
+			\tkzDrawCircle[radius](O',N)			
+			\end{tikzpicture}
+		\end{center}
+		\begin{note}
+			\textbf{Phân tích:}\\
+			Kẻ $ AO $ cắt $ (O) $ tại $ O'$.\\
+			Ta xét các vị trí đặc biệt của $ M $. Nếu $ M\equiv B $ thì $ N\equiv P $, nếu $  M\equiv O' $ thì $ N\equiv Q $, nếu $M\equiv A  $ thì $ N\equiv A $. Do đó, ta nhận thấy quỹ tích của $ N $ là đường tròn đi qua $ P,\; Q,\; A $. Do $ AO' $ là đường kính của $ (O) $ nên $ \widehat{ABO'}=90^\circ $. Do đó $ O'B\bot AB $. Theo định lý Thales thì $ \widehat{APQ}=90^\circ $. Mà $ O' $ cố định nên tâm đường tròn ngoại tiếp tam giác $ APQ $ là $ (O') $. Như vậy, ta có thể kết luận $ N\in (O',4OA) $.
+		\end{note}		
+		\noindent
+		Kẻ $ AO $ cắt $ (O) $ tại $ O'$. Lấy $ Q $ đối xứng với $ A $ qua $ O' $, lấy $ P $ đối xứng với $ A$ qua $ B $. Dễ dàng chứng minh tứ giác $ APQN $ nội tiếp đường tròn tâm $ (O') $ bán kính $ O'A $. Vì $ O' $ cố định nên $ O'A $ cố định nên $ O'N=O'A\Rightarrow N\in (O',O'A) $.		
+		\begin{note}
+			Bản chất của vấn đề xoay quanh hai phép biến hình đối xứng tâm và phép vị tự. Do đó, ta có lời giải nhanh như sau: $ AN=2AM $. Xét phép vị tự tâm $ A $, tỉ số bằng $ 2 $. Khi $ M $ chạy trên $ (O) $ thì $ N $ chạy trên $ (O') $, và bán kính của $ (O') $ gấp đôi bán kính của $ (O') $. Và ta hoàn toàn có thể tổng quát bằng tỉ số $ k $ bất kì.
+		\end{note}		
+	}
+\end{bt}	
+
+\begin{bt}%[]%[Hoàng Tựu]
+	Cho tam giác $ ABC $ nội tiếp đường tròn tâm $ (O,R) $. $ BC $ cố định, $ A $ thay đổi trên $ (O) $. Trực tâm $ H $ của tam giác $ ABC $ chạy trên đường nào?
+	\loigiai{		
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.6]
+			\tkzDefPoints{0/0/O,-3/-2/B,3/-2/C,-1/2/A}
+			\tkzDrawCircle[circum](A,B,C)  \tkzGetPoint{O}
+			\tkzDrawSegments(A,B B,C C,A)
+			\pgfresetboundingbox
+			\tkzDefPointBy[projection = onto A--B](C)    \tkzGetPoint{C'}
+			\tkzDefPointBy[projection = onto A--C](B)    \tkzGetPoint{B'}
+			\tkzDefPointBy[projection = onto C--B](A)    \tkzGetPoint{A'}
+			\tkzDefPointBy[reflection = over C--B](O)    \tkzGetPoint{O'}
+			\tkzDefPointBy[symmetry = center O](A)    \tkzGetPoint{P}
+			\coordinate (M) at ($(C)!0.5!(B)$);
+			%\tkzDrawCircle[radius](O',H)			
+			%\tkzDrawSegments(A,A_2 A,M A,P H,P O,O' A',O' O',H)			
+			%\tkzDefPointBy[reflection = over C--B](A)    \tkzGetPoint{A_2}			
+			\tkzDrawPoints[fill=black](A,B,C,O,A',O',M,P)
+			\tkzInterLL(A,A')(C,C')    \tkzGetPoint{H}
+			\tkzDrawPoints[fill=black](H)
+			\tkzLabelPoints[below left](B,A',O',M,P)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[above left](A,H,O)
+			\tkzDrawSegments(A,P H,P A,A' B,H P,C B,P H,C O,O')
+			\tkzDrawCircle[radius](O',H)
+			\end{tikzpicture}
+			
+		\end{center}
+		\begin{note}
+			\noindent\textbf{Phân tích:}\\
+			Ta thấy, nếu $ A\equiv B $ thì $ H\equiv B $, nếu $ A\equiv C $ thì $ H\equiv C$, nếu $ A $ nằm chính giữa cung $ BC $ thì $ A'\equiv M$ và $ H,\;A,\;M $ thẳng hàng. Do đó, ta dự đoán quỹ tích là đường tròn. 
+		\end{note}
+		
+		\noindent
+		Ta có $ AP $ là đường kính nên $ PC\parallel BH $ (cùng vuông góc với $ AC $). Hoàn toàn tương tự, ta có ngay $ BP\parallel CH $ nên tứ giác $ BHCP $ là hình bình hành. $ OM $ là đường trung bình tam giác $ AHP $ nên $ OM=\dfrac{1}{2}AH $. Lấy $ O' $ đối xứng với $ O $ qua $ BC $ thì tứ giác $ OAA'O' $ là hình bình hành. Từ đó, suy ta $ O'H=OA=R $. Vậy, khi $ A $ di chuyển trên $ (O) $ thì $ H\in (O',R) $.
+		\begin{note}
+			Lưu ý rằng: Nếu ta xét bài toán bằng ngôn ngữ phép biến hình thì ta có kết quả gọn hơn rất nhiều, lời giải cũng tự nhiên hơn.\\
+			Ta có $ OO'=AH $, thực hiện phép tịnh tiến theo véc tơ $ OO' $ thì $ A\mapsto H, \; O\mapsto O' $. Vậy khi $ A  $ di chuyển trên $ (O) $ thì $ H $ di chuyển trên đường tròn  $ (O') $.\\
+			Thực hiện phép đối xứng trục $ BC $, ta có $ O\mapsto O',\; B\mapsto B,\; C\mapsto C $. 
+		\end{note}
+	}
+\end{bt}
+
+\begin{bt}%[]%[Hoàng Tựu]
+	Cho đoạn thẳng $ AB $ có trung điểm $ O $. Tia $ Ax\bot AB,\; By\bot AB $. Xét một góc vuông đỉnh $ O$ có một cạnh cắt $ Ax $ tại $ M $ và một cạnh cắt $ By $ tại $ N $, kẻ $ OH\bot MN $. Đường tròn ngoại tiếp tam giác $ MHB $ cắt $ Ax $ tại điểm thứ hai $ E $ khác $ M $. $ MB $ cắt $ NA $ tại $ I $, đường thẳng $ HI $ cắt $ EB $ tại $ K $. Chứng minh $ K $ nằm trên đường tròn cố định khi góc vuông quay xung quanh điểm $ O. $
+	\loigiai{		
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.6]
+			\tkzDefPoints{-3/0/A,3/0/B,0/0/O,-3/2/M,3/3/y}
+			\tkzDefPointBy[rotation = center O angle 90](M)    \tkzGetPoint{n}
+			\tkzInterLL(O,n)(B,y)    \tkzGetPoint{N}
+			\tkzDefPointBy[projection = onto M--N](O)    \tkzGetPoint{H}
+			\tkzDrawCircle[circum](M,H,B)  \tkzGetPoint{O'}
+			\tkzInterLC(M,A)(O',M)    \tkzGetFirstPoint{E}
+			%\tkzInterLC(A,B)(O,M)    \tkzGetFirstPoint{C}
+			\tkzInterLL(M,B)(N,A)    \tkzGetPoint{I}
+			\tkzInterLL(H,I)(E,B)    \tkzGetPoint{K}
+			\tkzDrawCircle[circum](A,B,K)  \tkzGetPoint{O_1}
+			\tkzInterLL(B,H)(A,M)    \tkzGetPoint{F}
+			\tkzInterLL(H,K)(A,B)    \tkzGetPoint{J}		
+			\tkzDrawPoints[fill=black](A,B,O,M,N,H,E,I,K,F,J)
+			\tkzDrawSegments(A,B A,M B,N M,O O,N M,N O,H M,E M,B N,A H,I E,B I,K H,A H,B M,F H,F)
+			\tkzLabelPoints[above](M,N,H,F)
+			\tkzLabelPoints[below](E,K)
+			\tkzLabelPoints[below left](A,O,B,I,J)
+			\tkzMarkRightAngles[size=0.4,fill=gray!20](A,B,N)
+			\tkzMarkRightAngles[size=0.4,fill=gray!20](B,A,M)
+			\tkzMarkRightAngles[size=0.4,fill=gray!20](M,O,N)
+			\tkzMarkRightAngles[size=0.4,fill=gray!20](A,H,B)
+			\end{tikzpicture}
+		\end{center}
+		\begin{note}
+			\noindent\textbf{Phân tích:} Yếu tố cố định: $ O,AB $, yếu tố thay đổi là $ M,\;N,\;H,\;K $. Khi $ OM=ON $ thì $ K,\; O, \; H$ thẳng hàng. Khi $ M\equiv A $ thì $ H\equiv A $ nên $ K\equiv A $, khi $ N\equiv B$ thì $ H\equiv B$ nên $ K\equiv B $. Vậy ta dự đoán là quỹ tích sẽ là đường tròn đường kính $ AB $.
+		\end{note}
+		
+		\noindent
+		Dễ thấy, tứ giác $ AOHM,\; O,B,N,H $ nội tiếp. Như thế, ta chứng minh được $ MA=MH,\; NH=NB $. Ta có $ \dfrac{MI}{IB}=\dfrac{AM}{BN} =\dfrac{AI}{IN} \Rightarrow \dfrac{MB}{HN}=\dfrac{MI}{IB}$ nên $ KH//ME $.\\
+		Ta có tứ giác $ MHBE $ nội tiêp nên $ \widehat{NHB}=\widehat{FEB},\; \widehat{FEB}=\widehat{NBH}$ ( do tam giác $ NBH $ cân tại $ N $) mà $\widehat{NBH} =\widehat{BFE} $ (do $ EF\parallel BN $) nên $ \widehat{FEB} =\widehat{BFE} $. Vậy $ J $ là trung điểm của $ HK $ hay $ JO $ là trung trực của tam giác $ HOK $. Vậy $ OK=OH=\dfrac{AB}{2} $.  Vậy $ K\in \left(O, \dfrac{AB}{2}\right)  .$
+	}
+\end{bt}
+
+\begin{bt}%[]%[Hoàng Tựu]
+	Cho đường tròn $ (O) $ và dây cung $ AB $ cố định và $ I $ là điểm chính giữa cung lớn $ AB $. Lấy $ M $ bất kì trên cung lớn $ AB $, dựng tia $ Ax\bot MI $ tại $ H $ và cắt tia $ BM $ tại $ C $. 
+	Khi $ M $ di động trên cung lớn $ AB $ thì $ C $ di chuyển trên một cung tròn cố định. 
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\tkzDefPoints{0/0/O,-1/-1/A,1/-1/B}			
+			\tkzDefPointBy[rotation = center O angle 75](B)    \tkzGetPoint{M}
+			\tkzDefPointBy[projection = onto A--B](O)    \tkzGetPoint{T}
+			\tkzInterLC(O,T)(O,A)    \tkzGetFirstPoint{I}
+			\tkzDefPointBy[projection = onto I--M](A)    \tkzGetPoint{H}
+			\tkzInterLL(A,H)(B,M)    \tkzGetPoint{C}
+			\tkzDefCircle[radius](O,A)
+			\tkzDrawCircle[radius](O,A)
+			\tkzDrawCircle[radius](I,C)			
+			\tkzDrawSegments(A,B B,C C,A A,I I,B M,I I,H I,C A,M)
+			\tkzDrawPoints[fill=black](A,B,C,O,I,M,H)
+			\tkzLabelPoints[above](A,B,C,O,I,M,H)			
+			\end{tikzpicture}
+		\end{center}
+		\begin{note}
+			\noindent\textbf{Phân tích:} Yếu tốt cố định: $ O,\; I,\;AB $. Yếu tố thay đổi: $ M, C $. Dự đoán $ I\in (I,IA) $.
+		\end{note}
+		
+		\noindent
+		$ I$ chính giữa cung $ AB $ nên tam giác $ IAB $ cân.  Ta có  $ \widehat{IMA}=\widehat{IBA}=\widehat{IAB} $ mà tứ giác $ IMBA $ nội tiếp nên $\widehat{IAB} =\widehat{IMC}  \Rightarrow \widehat{IMC}=\widehat{IMA}$. Do đó, tam giác $ AMC $ cân tại $ M \Rightarrow H$
+		là trung điểm của $ AC $. Vì vậy, tam giác $ IAC $ cân tại $ I $.  Vậy, $ IC=IA $ mà $ IA $ không đổi nên $ C\in (I,IA) $.
+		
+	}
+\end{bt}
+
+\begin{bt}
+	Cho tứ giác $ ABCD $ nội tiếp đường tròn tâm $ (O,R) $. Điểm $ E $ thuộc đường chéo $ AC $ sao cho $ AC=kAE,\; k>0 $. Gọi $ H $ là hình chiếu của $ E $ trên $ AB $. Kẻ đường thẳng qua $ A $ song song với $ EH $ cắt đường tròn tại điểm thứ hai là $ G $. Gọi $ I $ là giao điểm của $ EH $ với $ GC $. Cho $ BC $ cố định và $ A $ chuyển động trên $ (O) $. Khi đó, $ I $ cố định và quỹ tích của $ H $ là đường tròn đường kính $ BI $.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/O,-2/-2/B,2/-2/C,-1/3/A}
+			\tkzDrawCircle[circum](A,B,C)  \tkzGetPoint{O}
+			\tkzDefPointBy[symmetry = center O](B)    \tkzGetPoint{G}
+			\tkzDefPointBy[rotation = center O angle 35](C)    \tkzGetPoint{D}
+			\tkzDefPointBy[homothety = center A ratio 1/3](C)    \tkzGetPoint{E}
+			\tkzDefPointBy[homothety = center G ratio 1/3](C)    \tkzGetPoint{I}
+			\tkzDrawCircle[diameter](B,I)
+			\coordinate (O') at ($(I)!0.5!(B)$);
+			
+			\tkzDefPointBy[projection = onto A--B](E)    \tkzGetPoint{H}
+			\tkzDrawSegments(A,B B,C C,A A,D A,G G,C G,I E,H B,G C,D E,I B,I)
+			\tkzDrawPoints[fill=black](A,B,C,O,D,G,I,E,H,O')
+			\tkzLabelPoints[above](A,B,C,O,D,G,I,E,H,O')
+			\tkzMarkRightAngles[size=0.2,fill=gray!50](B,A,G)
+			\tkzMarkRightAngles[size=0.2,fill=gray!50](B,H,I)
+			\tkzMarkRightAngles[size=0.2,fill=gray!50](G,C,B)
+			\end{tikzpicture}
+		\end{center}
+		Dễ thấy $ BG $ là đường kính nên $ G $ cố định. Do $ EI\parallel AG $ nên $ GI=kGC $ nên $ I  $ cố định, và  $ H\in (O', O'B) $.	
+	}
+\end{bt}
+
+\begin{bt}%[trích SGD Hà Nội, 2018-2019]%[Hoàng Tựu]
+	Cho đường tròn $ (O, R)  $ và dây $ AB $ không đi qua tâm. Lấy $ S $ là điểm bất kì trên tia đối của tia $ AB $ ($ S $ khác $ A $) . Từ một điểm $ S $ vẽ hai tiếp tuyến $ SC $ và $ SD  $ với $ (O,R) $ sao cho điểm $ C $ thuộc cung nhỏ $ AB $ ( $ C, D $ là các tiếp điểm).	Gọi $ E $ là trung điểm của đoạn thẳng $ BD $ và $ F $ là hình chiếu vuông góc của $ E $ trên $ AD $. Chứng minh rằng, khi điểm $ S $ thay đổi trên tia đối của tia $ AB $ thì điểm $ F $ luôn thuộc một đường tròn cố định.
+	\loigiai{
+		\noindent Khi $ S $ di chuyển trên tia đối của tia $ AB $ thì $ D $ di chuyển đường tròn $ (O) $.\\
+		Hiển nhiên bài toán là trường hợp đặc biệt khi $ E $ là trung điểm của $ BD. $
+	}
+\end{bt}

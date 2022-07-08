@@ -1,0 +1,575 @@
+
+\section{TÍNH CHẤT BA ĐƯỜNG TRUNG TRỰC CỦA TAM GIÁC}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Đường trung trực của tam giác}
+\begin{dn}
+Trong một tam giác, đường trung trực của mỗi cạnh gọi là đường trung trực của tam giác đó.\\
+Mỗi tam giác có ba đường trung trực.
+\end{dn}
+\begin{note}
+Trong một tam giác bất kì, đường trung trực của một cạnh không nhất thiết đi qua đỉnh đối diện của cạnh ấy . Tuy nhiên, trong tam giác cân, đường trung trực của cạnh đáy luôn đi qua đỉnh đối diện với cạnh đó.
+\end{note}
+\begin{dl}
+Trong tam giác cân, đường trung trực của cạnh đáy đồng thời là đường cao, đường trung tuyến, đường phân giác của cạnh đáy.
+\end{dl}
+\subsubsection{Tính chất ba đường trung trực của tam giác}
+\begin{tc}
+Ba đường trung trực của một tam giác cùng đi qua một điểm, điểm này cách đều ba đỉnh của tam giác đó.
+\end{tc}
+\begin{nx} Từ định nghĩa và tính chất ba đường trung trực của tam giác ta có nhận xét sau:
+	\begin{itemize}
+		\item Để tìm được điểm $O$ cách đều ba đỉnh của  $\triangle ABC$, ta chỉ cần dựng hai đường trung trực của hai cạnh và khi đó  giao điểm $O$ của chúng là điểm cần tìm.
+		 \item  Nếu hai đường trung trực của $AB$ và $AC$ cắt nhau tại $O$ thì $OM$ (với $M$ là trung trực của $BC$) chính là đường trung trực của $BC.$
+		 \item Giao của ba đường trung trực của tam giác được gọi là {\it tâm đường tròn ngoại tiếp} của tam giác đó.
+		\end{itemize}
+\end{nx}
+
+\subsection{Các dạng toán}
+\begin{dang}{Chứng minh tính chất ba đường trung trực của tam giác}
+
+\end{dang}
+\begin{vd} %[Bùi Thị Thu Dung, EX-C2-7-2019]%[7H3B8]
+Chứng minh rằng ba đường trung trực của tam giác đồng quy tại một điểm.
+\loigiai{
+	\immini{Xét $\triangle ABC,$ gọi $O$ là giao điểm của hai đường trung trực của hai cạnh $AB$ và $AC.$ Ta cần đi chứng minh $O$ thuộc đường trung trực của cạnh $BC.$\\
+		Thật vậy, ta có:\\
+		$OA=OB$ (vì $O$ thuộc trung trực của $AB$).\\
+		$OA=OC$ (vì $O$ thuộc trung trực của $AC$).\\
+		Suy ra $OB=OC,$ do đó $O$ thuộc trung trực của cạnh $BC.$ Từ đó ta có ba đường trung trực của $\triangle ABC$ cùng đi qua điểm $O$ và $OA=OB=OC,$ nghĩa là điểm $O$ cách đều ba đỉnh của tam giác $ABC.$}{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+		\clip(-1,-1) rectangle (5,4);
+		\tkzDefPoint[label=left:$A$](1,3){A}
+		\tkzDefPoint[label=below :$B$](0,0){B}
+		\tkzDefPoint[label=below right:$C$](4,0){C}
+		\tkzDrawPolygon(A,B,C)
+		\tkzDefMidPoint(B,A)\tkzGetPoint{I}
+		\tkzDefLine[perpendicular=through I](B,A)\tkzGetPoint{K}
+		\coordinate (E) at ($(K)!2!(I)$);
+		%\tkzDrawPoints[fill=black](I, K)
+		\tkzDrawLines[add = .2 and .5,color=black](E,I)
+		\tkzDefMidPoint(B,C)\tkzGetPoint{J}
+		\tkzDefLine[perpendicular=through J](B,C)\tkzGetPoint{H}
+		\coordinate (F) at ($(J)!0.5!(H)$);
+		\tkzDrawLines[add = .2 and .5,color=black](F,J)
+		\tkzInterLL(E,I)(F,J) \tkzGetPoint{O}
+		\tkzDrawPoints[fill=black](I, J, O)
+		\tkzLabelPoints[below left,color=black](I,J,O)
+		\tkzMarkSegments[mark=||,pos=.5,size=3pt](J,B J,C)
+		\tkzMarkSegments[mark=|,pos=.5,size=3pt](A,I I,B)
+		\tkzMarkRightAngles[size=.2,draw=black](O,J,B O,I,A)
+		\draw (A)--(O) (B)--(O) (C)--(O);
+		\end{tikzpicture}}
+}
+\end{vd}
+\begin{dang} {Sử dụng tính chất của ba đường trung trực của tam giác để giải toán }
+	\end{dang}
+\begin{vd} %[Bùi Thị Thu Dung, EX-C2-7-2019]%[7H3K8]
+Xác định dạng của $\triangle ABC,$ biết giao điểm $O$ của ba đường trung trực, trọng tâm $G$ và điểm $A$ thẳng hàng.
+\loigiai{
+\immini{Từ giả thiết, ta suy ra giao điểm của ba đường trung trực thuộc $AG$ nên $AG$ là đường trung trực của $BC,$ suy ra $\triangle ABC$ cân tại $A.$}{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.8]
+	\clip(-2.5,-1) rectangle (3,5);
+	\tkzDefPoint[label=left:$B$](-2,0){B}
+	\tkzDefPoint[label=below :$C$](2,0){C}
+	\tkzDefPoint[label=above:$A$](0,4.5){A}
+	\tkzDrawPolygon(A,B,C)
+	\tkzDefMidPoint(C,A)\tkzGetPoint{I}
+	\tkzDefLine[perpendicular=through I](C,A)\tkzGetPoint{K}
+	\coordinate (E) at ($(K)!1.4!(I)$);
+	%\tkzDrawPoints[fill=black](I, K)
+	\tkzDrawLines[add = 0.1 and 1,color=black](E,I)
+	\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+	\tkzDefLine[perpendicular=through M](B,C)\tkzGetPoint{H}
+	\coordinate (F) at ($(M)!0.3!(H)$);
+	\tkzDrawLines[add = .3 and 1.2,color=black](F,M)
+	\tkzInterLL(E,I)(F,M) \tkzGetPoint{O}
+	\tkzInterLL(B,I)(A,M) \tkzGetPoint{G}
+	\tkzMarkSegments[mark=||,pos=.5,size=3pt](M,B M,C)
+	\tkzMarkSegments[mark=|,pos=.5,size=3pt](A,I I,C)
+	\tkzMarkRightAngles[size=.2,draw=black](A,M,C O,I,A)
+	\tkzDrawPoints[fill=black](I, M, O)
+	\tkzLabelPoints[below left,color=black](M)
+	\tkzDrawPoints[fill=black](G)
+	\tkzLabelPoints[below right,color=black](G)
+	\tkzLabelPoints[above left,color=black](O)
+	\tkzLabelPoints[below,color=black](I)
+	\draw (A)--(O) (B)--(O) (C)--(O) (B)--(I);
+	\end{tikzpicture}
+}
+
+}
+\end{vd}
+\begin{nx} Trong tam giác đều, giao điểm của ba đường phân giác, giao điểm của ba đường trung tuyến, giao điểm của ba đường trung trực trùng nhau.
+	\end{nx}
+\begin{vd} %[Bùi Thị Thu Dung, EX-C2-7-2019]%[7H3B8]  
+	Cho $\triangle ABC$ cân tại $A,$ đường trung tuyến $AM.$ Đường trung trực của $AC$ cắt $AM$ tại $O.$ Chứng minh rằng $OA=OB.$
+	\loigiai
+	{\immini{Vì $\triangle ABC$ cân tại $A$ nên đường trung tuyến $AM$ cũng chính là đường trung trực của $BC$, do đó
+			\[OB=OC\qquad\quad \hfill(1)\]
+			Vì $C$ thuộc đường trung trực của $AC$ nên  
+			\[OA=OC\qquad\quad \hfill(2)\]
+			Từ $(1)$ và $(2)$ suy ra $OA=OB.$}{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+			\clip(-2.5,-1) rectangle (3,4.5);
+			\tkzDefPoint[label=left:$B$](-2,0){B}
+			\tkzDefPoint[label=below :$C$](2,0){C}
+			\tkzDefPoint[label=above:$A$](0,4){A}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDefMidPoint(C,A)\tkzGetPoint{I}
+			\tkzDefLine[perpendicular=through I](C,A)\tkzGetPoint{K}
+			\coordinate (E) at ($(K)!1.4!(I)$);
+			%\tkzDrawPoints[fill=black](I, K)
+			\tkzDrawLines[add = 0.1 and 1,color=black](E,I)
+			\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+			%\tkzDefLine[perpendicular=through M](B,C)\tkzGetPoint{H}
+			%\coordinate (F) at ($(M)!0.3!(H)$);
+			%\tkzDrawLines[add = .3 and 1.2,color=black](F,M)
+			\tkzInterLL(E,I)(A,M) \tkzGetPoint{O}
+			\tkzMarkRightAngles[size=.2,draw=black](A,M,C A,I,O)
+			\tkzMarkSegments[mark=||,pos=.5,size=3pt](M,B M,C)% 
+			\tkzMarkSegments[mark=|,pos=.5,size=3pt](A,I I,C)%   
+			\tkzDrawPoints[fill=black](I, M, O)
+			\tkzLabelPoints[below left,color=black](I,M)
+			\tkzLabelPoints[above left,color=black](O)
+			\draw (A)--(O) (B)--(O) (C)--(O) (A)--(M);
+			\end{tikzpicture} }
+}
+	\end{vd}
+\begin{vd} %[Bùi Thị Thu Dung, EX-C2-7-2019]%[7H3K8] 
+	Cho $\triangle ABC$ có $\widehat{BAC}>90^\circ.$ Các đường trung trực của $AB$ và $AC$ cắt nhau tại $O$ và cắt $BC$ theo thứ tự tại $D,\ E.$
+	\begin{listEX}
+		\item Các tam giác $ABD$ và $ACE$ là các tam giác gì?
+		\item Đường tròn tâm $O$ bán kính $OA$ đi qua những điểm nào trong hình vẽ?
+		\end{listEX}
+	\loigiai
+	{
+		\immini{\begin{listEX}
+				\item Vì $D$ thuộc đường trung trực của $AB$ nên $DA=DB\Leftrightarrow\triangle BDA$ cân tại $D.$\\
+				Vì $E$ thuộc trung trực của $AC$ nên 
+				$EA=EC\Leftrightarrow\triangle ACE$ cân tại $E.$
+				\item Theo tính chất đường trung trực ta có $OC=OA=OB$ nên đường tròn tâm $O$ bán kính $OA$ đi qua điểm $B$ và $C.$
+		\end{listEX}}{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+			\clip(-3,-2) rectangle (3,3);
+			\tkzDefPoint[label=above left:$C$](3,2){C}
+			\tkzDefPoint[label=below :$B$](-2,0){B}
+			\tkzDefPoint[label=below right:$A$](2,0){A}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDefMidPoint(B,A)\tkzGetPoint{I}
+			\tkzDefLine[perpendicular=through I](B,A)\tkzGetPoint{K}
+			\coordinate (E) at ($(K)!2.5!(I)$);
+			%\tkzDrawPoints[fill=black](I, K)
+			\tkzDrawLines[add = 0.1 and .5,color=black](E,I)
+			\tkzDefMidPoint(A,C)\tkzGetPoint{J}
+			\tkzDefLine[perpendicular=through J](A,C)\tkzGetPoint{H}
+			\coordinate (F) at ($(J)!2!(H)$);
+			\tkzDrawLines[add = .2 and .5,color=black](F,J)
+			\tkzInterLL(E,I)(F,J) \tkzGetPoint{O}
+			\tkzInterLL(O,I)(B,C) \tkzGetPoint{D}
+			\tkzInterLL(O,J)(B,C) \tkzGetPoint{E}
+			\tkzDrawPoints[fill=black](I, J, O, D, E)
+			tkzMarkSegments[mark=||,pos=.5,size=3pt](C,J J,A)
+			\tkzMarkSegments[mark=|,pos=.5,size=3pt](A,I I,B)
+			\tkzMarkRightAngles[size=.2,draw=black](D,I,A E,J,C)
+			\tkzLabelPoints[below left,color=black](I,J)
+			\tkzLabelPoints[above,color=black](E)
+			\tkzLabelPoints[above left,color=black](O)
+			\tkzLabelPoints[above left,color=black](D)
+			\draw (O)--(A) (O)--(B) (O)--(C) (D)--(A) (E)--(A);
+			\end{tikzpicture}}
+	}
+\end{vd}
+\begin{vd}%[Bùi Thị Thu Dung, EX-C2-7-2019]%[7H3K8] 
+	Chứng minh rằng các đường trung trực của tam giác vuông đi qua trung điểm của cạnh huyền.
+	\loigiai
+	{
+Xét tam giác $ABC$ vuông tại $A.$ 
+\begin{center}\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+\clip(-1,-1) rectangle (3.5,4.5);
+\tkzDefPoint[label=above left:$C$](0,4){C}
+\tkzDefPoint[label=below :$B$](3,0){B}
+\tkzDefPoint[label=below right:$A$](0,0){A}
+\tkzDrawPolygon(A,B,C)
+\tkzDefMidPoint(B,A)\tkzGetPoint{M}
+\tkzDefLine[perpendicular=through M](B,A)\tkzGetPoint{K}
+\coordinate (E) at ($(K)!2.5!(M)$);
+\tkzDrawLines[add = 0.1 and .5,color=black](E,M)
+\tkzDefMidPoint(A,C)\tkzGetPoint{N}
+\tkzDefLine[perpendicular=through N](A,C)\tkzGetPoint{H}
+\coordinate (F) at ($(N)!2!(H)$);
+\tkzDrawLines[add = .2 and .5,color=black](F,N)
+\tkzInterLL(E,M)(F,N) \tkzGetPoint{O}
+\tkzDrawPoints[fill=black](M, N, O)
+\tkzMarkSegments[mark=||,pos=.5,size=3pt](C,N N,A)
+\tkzMarkSegments[mark=|,pos=.5,size=3pt](A,M M,B)
+\tkzMarkRightAngles[size=.2,draw=black](C,N,O O,M,B C,A,B)
+\tkzLabelPoints[below left,color=black](M,N)
+\tkzLabelPoints[above right,color=black](O)
+\draw (A)--(O);
+\end{tikzpicture}\end{center}
+\begin{itemize}
+	\item Cách 1: Gọi $O$ là trung điểm của $BC,$ ta có $O$ thuộc trung trực của $BC$ và $OA=\dfrac{1}{2}BC.$ \\ Suy ra $OA=OB$,  do đó $O$ thuộc đường trung trực của $AB.$\\
+	Vậy các đường trung trực của tam giác vuông đi qua trung điểm của cạnh huyền.
+	\item Cách 2: Gọi $M$ là trung điểm của $AB$, giả sử đường trung trực của $AB$ cắt $BC$ tại $O.$ Ta cần chứng minh $O$ thuộc đường trung trực của $AC.$\\
+	Xét hai tam giác vuông $OMA$ và $OMB,$ ta có:\\
+	$OM$ chung; $MA=MB.$ Do đó $\triangle OMA=\triangle OMB\ (\mbox{\ hai cạnh góc vuông}).$\\ Suy ra $\widehat{OAM}=\widehat{OBM}\Rightarrow\widehat{OAC}=\widehat{OCA}\ (\mbox{do } \widehat{OAC}\mbox{ phụ với } \widehat{OAB},\ \widehat{OCA}\ \mbox{phụ với }\widehat{OBA}).$ Do đó $\triangle OAC$ cân tại $O\Leftrightarrow OA=OC\Rightarrow O$ thuộc đường trung trực của $AC.$
+	\item  Cách 3: Gọi $M,\ N$ theo thứ tự là trung điểm của $AB,\ AC.$ Giả sử hai đường trung trực của $AB$ và $AC$ cắt nhau tại $O.$ Ta cần chứng minh $O$ thuộc $BC.$ Trong tứ giác $MONA$ có $\widehat{OMA}=\widehat{NAM}=\widehat{ONA}=90\circ$nên $\widehat{MON}=90^\circ.$\\
+	Vì $O$ thuộc đường trung trực của $AC$ nên $OA=OC\Leftrightarrow\triangle OAC$ cân tại $O$,\\ suy ra $\widehat{NOC}=\widehat{NOA}=\widehat{AON}.$
+	Tương tự, $\widehat{AOM}=\widehat{BOM}.$\\
+	Khi đó $\widehat{BOC}=\widehat{CON}+\widehat{NOA}+\widehat{AOM}+\widehat{MOB}
+	=2\widehat{NOA}+2\widehat{AOM}=2\widehat{MON}=180^\circ $
+	$\Leftrightarrow B,\ O,\ C \mbox{ thẳng hàng }\Leftrightarrow O\in BC$.
+	\end{itemize}	
+}
+	\end{vd}
+\begin{vd} %[Bùi Thị Thu Dung, EX-C2-7-2019]%[7H3Y8]
+	Vẽ đường tròn ngoại tiếp $\triangle ABC$ trong mỗi trường hợp sau:
+	\begin{listEX}
+		\item $\triangle ABC$ nhọn;
+		\item $\triangle ABC$ vuông tại $A;$
+		\item $\triangle ABC$ có $\widehat{BAC}>90^\circ.$
+		\end{listEX}
+	\loigiai
+	{	\begin{listEX}
+			\item\immini{$\triangle ABC$ nhọn.}{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+				\clip(-2,-2) rectangle (5,5);
+				\tkzDefPoint[label=above:$A$](1,3){A}
+				\tkzDefPoint[label=below :$B$](0,0){B}
+				\tkzDefPoint[label=below right:$C$](4,0){C}
+				\tkzDrawPolygon(A,B,C)
+				\tkzDefMidPoint(B,A)\tkzGetPoint{I}
+				\tkzDefLine[perpendicular=through I](B,A)\tkzGetPoint{K}
+				\coordinate (E) at ($(K)!2!(I)$);
+				%\tkzDrawPoints[fill=black](I, K)
+				%\tkzDrawLines[add = .2 and .5,color=black](E,I)
+				\tkzDefMidPoint(B,C)\tkzGetPoint{J}
+				\tkzDefLine[perpendicular=through J](B,C)\tkzGetPoint{H}
+				\coordinate (F) at ($(J)!0.5!(H)$);
+				%\tkzDrawLines[add = .2 and .5,color=black](F,J)
+				\tkzInterLL(E,I)(F,J) \tkzGetPoint{O}
+				%\tkzDrawPoints[fill=black](I, J, O)
+				\tkzDrawPoints[fill=black](O)
+				\tkzLabelPoints[below,color=black](O)
+				\tkzDefCircle[radius](O,A)
+				\tkzDrawCircle[radius](O,A)
+				\draw (A)--(O) (B)--(O) (C)--(O);
+				\end{tikzpicture}} 
+			\item\immini{$\triangle ABC$ vuông tại $A.$}{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+				\clip(-2,-2) rectangle (5,5);
+				\tkzDefPoint[label=above left:$C$](0,4){C}
+				\tkzDefPoint[label=below :$B$](3,0){B}
+				\tkzDefPoint[label=below right:$A$](0,0){A}
+				\tkzDrawPolygon(A,B,C)
+				\tkzDefMidPoint(B,A)\tkzGetPoint{M}
+				\tkzDefLine[perpendicular=through M](B,A)\tkzGetPoint{K}
+				\coordinate (E) at ($(K)!2.5!(M)$);
+				\tkzDefMidPoint(A,C)\tkzGetPoint{N}
+				\tkzDefLine[perpendicular=through N](A,C)\tkzGetPoint{H}
+				\coordinate (F) at ($(N)!2!(H)$);
+				\tkzInterLL(E,M)(F,N) \tkzGetPoint{O}
+				\tkzDrawPoints[fill=black](O)
+				\tkzMarkRightAngles[size=.2,draw=black](C,A,B)
+				\tkzLabelPoints[above right,color=black](O)
+				\draw (A)--(O);
+				\tkzDefCircle[radius](O,A)
+				\tkzDrawCircle[radius](O,A)
+				\end{tikzpicture}}
+			\item \immini{$\triangle ABC$ có $\widehat{BAC}>90^\circ.$}{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+				\clip(-4,-1) rectangle (5,6);
+				\tkzDefPoint[label=above left:$C$](3,2){C}
+				\tkzDefPoint[label=below :$B$](-2,0){B}
+				\tkzDefPoint[label=below right:$A$](2,0){A}
+				\tkzDrawPolygon(A,B,C)
+				\tkzDefMidPoint(B,A)\tkzGetPoint{I}
+				\tkzDefLine[perpendicular=through I](B,A)\tkzGetPoint{K}
+				\coordinate (E) at ($(K)!2.5!(I)$);
+				%\tkzDrawPoints[fill=black](I, K)
+				%\tkzDrawLines[add = 0.1 and .5,color=black](E,I)
+				\tkzDefMidPoint(A,C)\tkzGetPoint{J}
+				\tkzDefLine[perpendicular=through J](A,C)\tkzGetPoint{H}
+				\coordinate (F) at ($(J)!2!(H)$);
+				%\tkzDrawLines[add = .2 and .5,color=black](F,J)
+				\tkzInterLL(E,I)(F,J) \tkzGetPoint{O}
+				\tkzInterLL(O,I)(B,C) \tkzGetPoint{D}
+				\tkzInterLL(O,J)(B,C) \tkzGetPoint{E}
+				\tkzDrawPoints[fill=black](O)
+				\tkzLabelPoints[above left,color=black](O)
+				\tkzDrawCircle[radius](O,A)
+				\draw (O)--(A) (O)--(B) (O)--(C);
+				\end{tikzpicture}}
+		\end{listEX}
+	}
+	\end{vd}
+	\begin{nx} Qua ví dụ trên ta có nhận xét sau:
+	\begin{itemize}
+		\item Nếu $\triangle ABC$ nhọn thì tâm $O$ ở bên trong tam giác;
+		\item Nếu $\triangle ABC$ vuông tại $A$  thì tâm $O$ là trung điểm của cạnh $BC$;
+		\item Nếu $\triangle ABC$ có $\widehat{BAC}>90^\circ$ thì tâm $O$ ở bên ngoài tam giác.
+	\end{itemize}
+\end{nx}
+\begin{vd} %[Bùi Thị Thu Dung, EX-C2-7-2019]%[7H3G8] 
+	Cho  $\triangle ABC$ cân tại $A$, có $\widehat{ABC}=36^\circ.$ Gọi $O$ là giao điểm của ba đường trung trực, $I$ là giao điểm của ba đường phân giác. Chứng minh rằng $BC$ là đường trung trực của $OI.$
+	\loigiai
+	{
+		\immini{Ta có $BC\perp OI,\ \widehat{A}=180^\circ-(\widehat{B}+\widehat{C})=180^\circ-(36^\circ+36^\circ)=108^\circ.$	Gọi $M$ là trung điểm của $BC.$\\
+			Ta có $\widehat{BAM}=54^\circ$. \\ Mặt khác ta có $OA=OB\Rightarrow\triangle OAB$ cân tại $O\Rightarrow\widehat{OBA}=\widehat{OAB}=54^\circ$ $\Rightarrow\widehat{OBM}=\widehat{OBA}-\widehat{MBA}=54^\circ-36^\circ=18^\circ.$
+			Xét hai tam giá $MBO$ và $MBI$  vuông tại $M$ ta có: $BM$ chung; $\widehat{OBM}=\widehat{MBI}=18^\circ,$ do đó $\triangle MBO=\triangle MBI\ (\mbox{cạnh góc vuông - góc nhọn}),$ suy ra $MO=MI$ mà $BM\perp IO$ nên $BC$ là đường trung trực của $OI.$  }{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1.5]
+			\clip(-2.5,-1) rectangle (2.5,2);
+			\tkzDefPoint[label=below :$B$](-2,0){B}
+			\tkzDefPoint[label=below right:$C$](2,0){C}
+			\tkzDefPointBy[rotation = center B angle 36 ](C) 
+			\tkzGetPoint{W}
+			\tkzDefPointBy[rotation = center C angle -36](B) 
+			\tkzGetPoint{D}
+			\tkzInterLL(B,W)(C,D)\tkzGetPoint{A}
+			\tkzDefMidPoint(B,C) \tkzGetPoint{M}
+			\tkzDrawPoints[fill=black](A, B, C,M)
+			\tkzLabelPoints[above,color=black](A)
+			\tkzLabelPoints[above left,color=black](M)
+			\tkzDrawPolygon(A,B,C)
+			%\tkzMarkAngles[size=1cm,opacity=.4,draw=black,mksize=2](C,B,A A,C,B)
+			%\tkzLabelAngle[pos=.7, rotate=0](A,C,B){$36^\circ$}
+			%\tkzLabelAngle[pos=.7, rotate=0](A,B,C){$36^\circ$}
+			\tkzDefMidPoint(A,B) \tkzGetPoint{E}
+			\tkzDefLine[perpendicular=through E](A,B) \tkzGetPoint{K}
+		%	\tkzDrawPoints[fill=black](E,K)
+			\coordinate (F) at ($(E)!1.8!(K)$);
+			\tkzDrawLines[add = .2 and .2,color=black](E,F)
+			\tkzDefMidPoint(A,C) \tkzGetPoint{P}
+			\tkzDefLine[perpendicular=through P](A,C) \tkzGetPoint{L}
+			\tkzMarkSegments[mark=||,pos=.5,size=4pt](E,A E,B)
+			\tkzMarkSegments[mark=|,pos=.5,size=4pt](P,A P,C)% 
+	    	\tkzMarkRightAngles[size=.1,draw=black](B,E,O O,P,A A,M,C)
+			%\tkzDrawPoints[fill=black](P,L)
+			\coordinate (J) at ($(L)!0.6!(P)$);
+			\tkzDrawLines[add = 2 and .1,color=black](P,J)
+			\tkzInterLL(E,F)(P,J)    \tkzGetPoint{O}
+		    \tkzDrawPoints[fill=black](O)
+			\tkzLabelPoints[left,color=black](O)
+			\tkzDefLine[bisector](A,B,C) \tkzGetPoint{X}
+			%\tkzDrawPoints[fill=black](X)
+			\tkzDefLine[bisector](B,A,C) \tkzGetPoint{Z}
+			%\tkzDrawPoints[fill=black](Z)
+			\tkzInterLL(B,X)(A,Z)    \tkzGetPoint{I}
+			\tkzDrawPoints[fill=black](I)
+			\tkzLabelPoints[left,color=black](I)
+			\draw (A)--(I)--(O) (B)--(I) (C)--(I) (O)--(B);
+			\end{tikzpicture}}
+		}
+	\end{vd}
+\subsubsection{Bài tập tự luyện}
+\begin{bt}%[Bùi Thị Thu Dung, EX-C2-7-2019]% [7H3Y8]
+Cho $\triangle ABC.$ Tìm một điểm $O$ cách đều ba điểm $A,\ B,\ C.$ Có bao nhiêu điểm như vậy? 
+\loigiai
+{
+	\immini{Gọi $O$ là giao điểm của đường trung trực cạnh $AB$ và đường trung trực cạnh $AC.$ Khi đó theo tính chất đường trung trực thì $OA=OB,\ OB=OC$, suy ra $OA=OB=OC$ hay điểm $O$ cách đều ba điểm $A,\ B, \ C.$\\
+		Có duy nhất điểm $O$ thỏa mãn điều kiện trên.}{%% VẼ ĐƯỜNG TRÒN NGOẠI TIẾP CỦA TAM GIÁC NHỌN
+		\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.8]
+		\clip(-1,-2) rectangle (4.5,3.5);
+		\tkzDefPoint[label=above left:$A$](1,3){A}
+		\tkzDefPoint[label=below :$B$](0,0){B}
+		\tkzDefPoint[label=below right:$C$](4,0){C}
+		\tkzDrawPolygon(A,B,C)
+		\tkzDefMidPoint(B,A)\tkzGetPoint{I}
+		\tkzDefLine[perpendicular=through I](B,A)\tkzGetPoint{K}
+		\coordinate (E) at ($(K)!2!(I)$);
+		%\tkzDrawPoints[fill=black](I, K)
+		%\tkzDrawLines[add = .2 and .5,color=black](E,I)
+		\tkzDefMidPoint(B,C)\tkzGetPoint{J}
+		\tkzDefLine[perpendicular=through J](B,C)\tkzGetPoint{H}
+		\coordinate (F) at ($(J)!0.5!(H)$);
+		%\tkzDrawLines[add = .2 and .5,color=black](F,J)
+		\tkzInterLL(E,I)(F,J) \tkzGetPoint{O}
+		%\tkzDrawPoints[fill=black](I, J, O)
+		\tkzDrawPoints[fill=black](O)
+		\tkzLabelPoints[below,color=black](O)
+		\tkzDefCircle[radius](O,A)
+		\tkzDrawCircle[radius](O,A)
+		\draw (A)--(O) (B)--(O) (C)--(O);
+		\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt} %[Bùi Thị Thu Dung, EX-C2-7-2019]%[7H3B8]
+Chứng minh rằng điểm cách đều ba đỉnh của một tam giác vuông là trung điểm của cạnh huyền của tam giác đó.
+\loigiai
+{
+	\immini{Xét tam giác vuông $ABC$ vuông tại $A$, gọi $O$ là trung điểm của cạnh $BC$,  nên trung tuyến $AO$ bằng nửa cạnh huyền, nghĩa là $AO=\dfrac{1}{2}BC$, suy ra $OA=OB=OC$, nghĩa là trung điểm $O$ cách đều ba đỉnh của tam giác $ABC.$}{% VẼ ĐƯỜNG TRÒN NGOẠI TIẾP CỦA TAM GIÁC VUÔNG
+		\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.8]
+		\clip(-1,-1) rectangle (4,4.5);
+		\tkzDefPoint[label=above left:$C$](0,4){C}
+		\tkzDefPoint[label=below :$B$](3,0){B}
+		\tkzDefPoint[label=below:$A$](0,0){A}
+		\tkzDrawPolygon(A,B,C)
+		\tkzDefMidPoint(B,A)\tkzGetPoint{M}
+		\tkzDefLine[perpendicular=through M](B,A)\tkzGetPoint{K}
+		\coordinate (E) at ($(K)!2.5!(M)$);
+		\tkzDefMidPoint(A,C)\tkzGetPoint{N}
+		\tkzDefLine[perpendicular=through N](A,C)\tkzGetPoint{H}
+		\coordinate (F) at ($(N)!2!(H)$);
+		\tkzInterLL(E,M)(F,N) \tkzGetPoint{O}
+		\tkzDrawPoints[fill=black](O)
+		\tkzMarkRightAngles[size=.2,draw=black](C,A,B)
+		\tkzLabelPoints[above right,color=black](O)
+		\draw (A)--(O);
+		\tkzDefCircle[radius](O,A)
+		\tkzDrawCircle[radius](O,A)
+		\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt} %[Bùi Thị Thu Dung, EX-C2-7-2019]%[7H3K8]
+Chứng minh rằng nếu một tam giác có một đường trung trực đồng thời là đường trung tuyến thì tam giác đó là tam giác cân.
+\loigiai
+{
+	\immini{Xét tam giác $ABC$, giả sử $AM$ là đường trung tuyến đồng thời là đường trung trực cạnh $BC$ của tam giác.\\ Khi đó ta có:
+		$M$ là trung điểm của $BC$ và $AM\perp BC$, \\
+		suy ra $\triangle AMB=\triangle AMC\ (\mbox{c.g.c})\Rightarrow AB=AC$, do đó tam giác $ABC$ cân tại $A.$}{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.8]
+		\clip(-2.5,-1) rectangle (2.5,4.5);
+		\tkzDefPoint[label=left:$B$](-2,0){B}
+		\tkzDefPoint[label=below :$C$](2,0){C}
+		\tkzDefPoint[label=above:$A$](0,4){A}
+		\tkzDrawPolygon(A,B,C)
+		\tkzDefMidPoint(C,A)\tkzGetPoint{I}
+		\tkzDefLine[perpendicular=through I](C,A)\tkzGetPoint{K}
+		\coordinate (E) at ($(K)!1.4!(I)$);
+		%\tkzDrawPoints[fill=black](I, K)
+		%\tkzDrawLines[add = 0.1 and 1,color=black](E,I)
+		\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+		%\tkzDefLine[perpendicular=through M](B,C)\tkzGetPoint{H}
+		%\coordinate (F) at ($(M)!0.3!(H)$);
+		%\tkzDrawLines[add = .3 and 1.2,color=black](F,M)
+		\tkzInterLL(E,I)(A,M) \tkzGetPoint{O}
+		\tkzMarkRightAngles[size=.2,draw=black](A,M,C)
+		\tkzMarkSegments[mark=||,pos=.5,size=3pt](M,B M,C)% 
+		%\tkzMarkSegments[mark=|,pos=.5,size=3pt](A,I I,C)%   
+		\tkzDrawPoints[fill=black](M, O)
+		\tkzLabelPoints[below left,color=black](M)
+		\tkzLabelPoints[above left,color=black](O)
+		\draw (A)--(O) (B)--(O) (C)--(O) (A)--(M);
+		\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt} %[Bùi Thị Thu Dung, EX-C2-7-2019]%[7H3K8]
+	Chứng minh rằng nếu một tam giác có một đường trung trực đồng thời là đường phân giác thì tam giác đó là tam giác cân.
+\loigiai
+{
+	\immini{Xét tam giác $ABC$, giả sử $AD$ là đường phân giác đồng thời là đường trung trực cạnh $BC$ của tam giác. Khi đó ta có
+		$\widehat{BAD}=\widehat{CAD}$\\  và $AD\perp BC$, suy ra $\triangle ADB=\triangle ADC\ (\mbox{g.c.g})$\\$\Rightarrow AB=AC$, do đó tam giác $ABC$ cân tại $A.$}{
+		\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.8]
+		\clip(-2.5,-1) rectangle (2.5,4.5);
+		\tkzDefPoint[label=left:$B$](-2,0){B}
+		\tkzDefPoint[label=below :$C$](2,0){C}
+		\tkzDefPoint[label=above:$A$](0,4){A}
+		\tkzDrawPolygon(A,B,C)
+		\tkzDefMidPoint(C,A)\tkzGetPoint{I}
+		\tkzDefLine[perpendicular=through I](C,A)\tkzGetPoint{K}
+		\coordinate (E) at ($(K)!1.4!(I)$);
+		%\tkzDrawPoints[fill=black](I, K)
+		%\tkzDrawLines[add = 0.1 and 1,color=black](E,I)
+		\tkzDefMidPoint(B,C)\tkzGetPoint{D}
+		
+		%\tkzDefLine[perpendicular=through M](B,C)\tkzGetPoint{H}
+		%\coordinate (F) at ($(M)!0.3!(H)$);
+		%\tkzDrawLines[add = .3 and 1.2,color=black](F,M)
+		\tkzInterLL(E,I)(A,D) \tkzGetPoint{O}
+		\tkzMarkRightAngles[size=.2,draw=black](A,D,C)
+		\tkzMarkAngles[size=0.8cm,opacity=.4,draw=black,mark=||,mksize=2](B,A,D D,A,C)
+		
+		\tkzMarkSegments[mark=||,pos=.5,size=3pt](D,B D,C)% 
+		%\tkzMarkSegments[mark=|,pos=.5,size=3pt](A,I I,C)%   
+		\tkzDrawPoints[fill=black](D, O)
+		\tkzLabelPoints[below,color=black](D)
+		\tkzLabelPoints[above left,color=black](O)
+		\draw (A)--(D);
+		\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt} %[Bùi Thị Thu Dung, EX-C2-7-2019]%[7H3K8]
+Xác định dạng của $\triangle ABC,$ biết giao điểm của ba đường trung trực, giao điểm của ba đường phân giác và điểm $A$ thẳng hàng. 	
+	\loigiai
+	{ \immini{Xét tam giác $ABC$, gọi $I$ là giao điểm của ba đường phân giác của tam giác. \\ Vì giao điểm của ba đường trung trực, ba đường phân giác và điểm $A$ thẳng hàng nên $AI$ cũng là đường trung trực cạnh $BC$ của tam giác $ABC.$ Do đó, theo bài 4, suy ra $\triangle ABC$ cân tại $A.$ }{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+			\clip(-3,-3) rectangle (5,5);
+			\tkzDefPoint[label=left:$B$](-2,0){B}
+			\tkzDefPoint[label=below :$C$](2,0){C}
+			\tkzDefPoint[label=above:$A$](0,4){A}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDefMidPoint(C,A)\tkzGetPoint{J}
+			\tkzDefLine[perpendicular=through J](C,A)\tkzGetPoint{K}
+			\coordinate (E) at ($(K)!1.4!(J)$);
+			%\tkzDrawPoints[fill=black](I, K)
+			%\tkzDrawLines[add = 0.1 and 1,color=black](E,I)
+			\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+			
+			%\tkzDefLine[perpendicular=through M](B,C)\tkzGetPoint{H}
+			%\coordinate (F) at ($(M)!0.3!(H)$);
+			%\tkzDrawLines[add = .3 and 1.2,color=black](F,M)
+			\tkzInterLL(E,J)(A,M) \tkzGetPoint{O}
+			%\tkzMarkRightAngles[size=.2,draw=black](A,M,C)
+			\tkzMarkAngles[size=0.8cm,opacity=.4,draw=black,mark=||,mksize=2](B,A,M M,A,C)
+			
+		%	\tkzMarkSegments[mark=||,pos=.5,size=3pt](M,B M,C)% 
+			%\tkzMarkSegments[mark=|,pos=.5,size=3pt](A,I I,C)%   
+			\tkzDrawPoints[fill=black](O)
+			%\tkzLabelPoints[below left,color=black](M)
+			\tkzLabelPoints[above left,color=black](O)
+			\tkzInCenter(A,B,C) \tkzGetPoint{I}
+			\tkzDrawPoints[fill=black](I)
+			\tkzLabelPoints[below left,color=black](I)
+			\tkzMarkAngles[size=0.5cm,draw=black,mark=|,mksize=2](C,B,I I,B,A A,C,I I,C,B)
+			\draw (A)--(O) (B)--(O) (C)--(O) (O)--(I) (B)--(I) (C)--(I);
+			\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt} %[Bùi Thị Thu Dung, EX-C2-7-2019]%[7H3K8]
+Xác định dạng của $\triangle ABC,$ biết giao điểm của ba đường trung trực, giao điểm của ba đường phân giác trùng nhau.
+	\loigiai
+	{
+		\immini{Xét $\triangle ABC$, gọi $O$ là giao điểm của ba đường trung trực đồng thời là giao điểm của ba đường phân giác của tam giác $ABC.$\\ 
+			Do $\triangle OBC$ cân tại $O$ nên $\widehat{OBC}=\widehat{OCB}$, mà $OB,\ OC$ lần lượt là đường phân giác trong góc $B,$ góc $C$ tương ứng nên $\widehat{B}=\widehat{C}$. Chứng minh tương tự ta có $\widehat{B}=\widehat{A}$. \\
+			Từ đó suy ra tam giác $ABC$ đều. 	}{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+			\clip(-2.5,-1) rectangle (2.5,4);
+			\tkzDefPoint[label=below:$B$](-2,0){B}
+			\tkzDefPoint[label=below :$C$](2,0){C}
+			\tkzDrawEquilateral(B,C)
+			\tkzDefCircle[radius](B,C)
+			\tkzDefCircle[radius](C,B)
+			\tkzInterCC(B,C)(C,B) \tkzGetPoints{A}{D}
+			\tkzLabelPoints[above left,color=black](A)
+			\tkzCircumCenter(A,B,C) \tkzGetPoint{O}
+			\tkzDrawPoints[fill=black](A,B,C, O)
+			\tkzLabelPoints[left,color=black](O)
+			\tkzDrawPoints[fill=black](O)
+			\tkzMarkAngles[size=0.5cm,draw=black,mark=|,mksize=2](B,A,O O,A,C)
+			\tkzMarkAngles[size=0.5cm,draw=black,mark=|,mksize=2](C,B,O O,B,A)
+			\tkzMarkAngles[size=0.5cm,draw=black,mark=|,mksize=2](A,C,O O,C,B)
+			\draw (A)--(O) (B)--(O) (C)--(O);
+			\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt} %[Bùi Thị Thu Dung, EX-C2-7-2019]%[7H3K8]
+	Xác định dạng của $\triangle ABC,$ biết giao điểm của ba đường trung trực, giao điểm của ba đường trung tuyến trùng nhau.
+	\loigiai
+	{
+		\immini{Xét $\triangle ABC$, gọi $O$ là giao điểm của ba đường trung trực đồng thời là giao điểm của ba đường trung tuyến của tam giác $ABC.$ Gọi $I,\ J,\ K$ tương ứng là chân các đường trung tuyến hạ từ đỉnh $A,\ B,\ C$ xuống các cạnh $BC,\ CA, \ AB.$ \\ Khi đó ta có $\triangle ABI=\triangle ACI \ (\mbox{c.g.c}) \Rightarrow AB=AC$, $\triangle ABJ=\triangle CBJ=\triangle COJ\ (\mbox{c.g.c})\Rightarrow AB=BC.$ Do đó $AB=BC=CA$, suy ra tam giác $ABC$ đều. 	
+		}{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+			\clip(-2.5,-1) rectangle (3,4);
+			\tkzDefPoint[label=below:$B$](-2,0){B}
+			\tkzDefPoint[label=below :$C$](2,0){C}
+			\tkzDrawEquilateral(B,C)
+			\tkzDefCircle[radius](B,C)
+			\tkzDefCircle[radius](C,B)
+			%\tkzDrawCircle[radius](B,C)
+			%\tkzDrawCircle[radius](C,B)
+			\tkzInterCC(B,C)(C,B) \tkzGetPoints{A}{D}
+			\tkzLabelPoints[above left,color=black](A)
+			\tkzCircumCenter(A,B,C) \tkzGetPoint{O}
+			\tkzDrawPoints[fill=black](A,B,C, O)
+			\tkzLabelPoints[left,color=black](O)
+			\tkzDefMidPoint(B,C) \tkzGetPoint{I}
+			\tkzDefMidPoint(A,C) \tkzGetPoint{J}
+			\tkzDefMidPoint(A,B) \tkzGetPoint{K}
+			%\tkzDrawPoints[fill=black](A,B,C, O, I, J, K)
+			\tkzLabelPoints[left,color=black](K)
+			\tkzLabelPoints[below,color=black](I)
+			\tkzLabelPoints[right,color=black](J)
+			\tkzMarkRightAngles[size=.2,draw=black](A,I,C B,J,A B,K,C)
+			\tkzMarkSegments[mark=|,pos=.5,size=3pt](B,I I,C C,J J,A A,K K,B)
+			\draw (A)--(I) (B)--(J) (C)--(K);
+			\end{tikzpicture}}
+	}
+\end{bt}

@@ -1,0 +1,1115 @@
+\section{TAM GIÁC - TỨ GIÁC - ĐA GIÁC}
+
+\begin{center}
+ \large \textbf{TỔNG QUAN VỀ CHUYÊN ĐỀ}
+\end{center}
+\noindent{Các} hình tam giác, tứ giác được biết đến từ các lớp dưới. Với những kiến thức hình học của lớp 7, lớp 8, chúng ta sẽ phát hiện ra rất nhiều tính chất thú vị về độ dài, về góc, về tính song song, vuông góc, thẳng hàng... từ những hình tưởng như đơn giản.
+Các bài toán trong chuyên đề này gồm đủ các dạng như: tính toán, chứng minh, dựng hình, tìm giá trị nhỏ nhất, giá trị lớn nhất. Chúng ta đòi hỏi phải vẽ thêm đường phụ, điều đó sẽ mang đến cho chúng ta nhiều cảm hứng và lợi ích trong giải toán.
+\begin{vd}
+Do có ít khách hàng, một ông chủ cửa hàng đồ da đã nghĩ ra một cách quảng cáo khéo léo. Ông treo hai miếng da trước cửa hàng trong đó miếng da bên trái có hình tam giác, miếng da bên phải hình tròn có một lỗ hổng mà nếu lật ngược tấm da bên trái xếp vào lỗ hổng thì vừa khít. Bên cạnh hai tấm da, ông chủ cửa hàng đặt một tấm bảng ghi dòng chữ:
+\immini{``Quý khách nào cắt được miếng da bên trái thành ba mảnh rồi ghép kín lỗ hổng của tấm da bên phải (mà không phải lật ngược) thì khi mua bất cứ thứ hàng nào của cửa hàng cũng chỉ phải trả nửa tiền''.
+  \indent Ngay lập tức, có nhiều khách đến cửa hàng và đã có người làm được. Còn bạn, bạn hãy đưa ra cách làm của mình.\\
+ Theo Xem Lôi-đơ (\textit{Sam loyd}, Mĩ).
+}
+{\begin{tikzpicture}
+	\tkzInit[xmin=-4,ymin=0,xmax=-4,ymax=6]
+	\tkzDefPoints{-2/2/A,-4/0/B,-1/0/C, 0/1/D,0/2/E,2.5/0.75/I}
+	\tkzDefPointBy[reflection = over D--E](A)
+	\tkzGetPoint{A'}
+	\tkzDefPointBy[reflection = over D--E](B)
+	\tkzGetPoint{B'}
+	\tkzDefPointBy[reflection = over D--E](C)
+	\tkzGetPoint{C'}
+	\tkzFillCircle[R,color=blue](I,2 cm)
+	\tkzFillPolygon[color=blue,draw=black](A,B,C)
+	\tkzFillPolygon[color=white,draw=black](A',B',C')
+	\end{tikzpicture}
+}
+    \loigiai{
+        Các tam giác $ABC$ và $A'B'C'$ tuy bằng nhau nhưng nếu muốn đặt trùng khít nhau thì $\triangle ABC$ phải lật lại (đưa mặt trên xuống dưới, đưa mặt dưới lên trên).
+        \begin{center}
+        \begin{tikzpicture}
+        \tkzInit[xmin=-4,ymin=0,xmax=-4,ymax=6]
+        \tkzDefPoints{-2/2/A,-4/0/B,-1/0/C, 0/1/d,0/2/e,-2/0/H,-3/1/D,-1.5/1/E,-3.25/0.5/m,-1.75/0.5/n,-2.25/1/p}
+        \tkzDefPointBy[reflection = over d--e](A)
+        \tkzGetPoint{A'}
+        \tkzDefPointBy[reflection = over d--e](B)
+        \tkzGetPoint{B'}
+        \tkzDefPointBy[reflection = over d--e](C)
+        \tkzGetPoint{C'}
+  		\tkzDefPointBy[reflection = over d--e](D)
+  		\tkzGetPoint{D'}
+  		\tkzDefPointBy[reflection = over d--e](E)
+  		\tkzGetPoint{E'}
+  		\tkzDefPointBy[reflection = over d--e](m)
+  		\tkzGetPoint{m'}
+  		\tkzDefPointBy[reflection = over d--e](H)
+  		\tkzGetPoint{H'}
+  		\tkzDefPointBy[reflection = over d--e](n)
+  		\tkzGetPoint{n'}
+  		\tkzDefPointBy[reflection = over d--e](p)
+  		\tkzGetPoint{p'}
+  		\tkzLabelPoints[above](A,D,E,A',D',E')
+  		\tkzLabelPoints[below](B,C,H,B',C',H')
+  	    \tkzLabelPoint[right](m){$1$}
+  		\tkzLabelPoint[right](n){$2$}
+  		\tkzLabelPoint[right](p){$3$}
+  		\tkzLabelPoint[left](m'){$1'$}
+  		\tkzLabelPoint[left](n'){$2'$}
+  		\tkzLabelPoint[left](p'){$3'$}
+  		\tkzDrawSegments(A,B C,B A,C D,H H,E A',B' C',B' A',C' E',H' D',H')
+  		\tkzDrawSegments[dotted](A,H A',H')
+        \end{tikzpicture}
+        \end{center}
+        Nhưng nếu hai hình bằng nhau là tam giác cân (tổng quát, hình có trục đối xứng) thì không cần lật lại một hình vẫn đặt được trùng khớp với hình kia.
+        Do đó, ta làm như sau: ở miếng da hình tam giác, gọi $H$ là hình chiếu của $A$ trên $BC$, gọi $D,E$ theo thứ tự là trung điểm của $AB$ và $AC$. Cắt miếng da đó theo $HD$ và $HE$, miếng da được chi thành ba mảnh: mảnh 1 là tam giác cân $DBH$, mảnh 2 là tam giác cân $EHC$, mảnh 3 là tứ giác $ADHE$ (gồm hai tam giác cân $ADH$ và $AEH$). Không cần lật lại, ta ghép được:
+      \begin{itemize}
+      	\item Mảnh 1 trùng khít với phần 1'.
+      	\item Mảnh 2 trùng khít với phần 2'.
+      	\item Mảnh 3 trùng khít với phần 3'.
+      \end{itemize}           
+    }
+\end{vd}
+\subsection{TAM GIÁC}
+\begin{vd}
+    Cho tam giác $ABC$ vuông tại $A$, $\widehat{B}=60^\circ$, điểm $M$ thuộc cạnh $BC$ cùng với điểm $A$ chia chu vi tam giác $ABC$ thành hai phần bằng nhau (tức là $AB+BM=AC+CM$). Tính góc $AMB$.
+    \loigiai{
+    	\immini{ Kẻ $AH\perp BC$. Đặt $BH=1$. Do $\widehat{B}=60^\circ$ nên $\widehat{BAH}=\widehat{C}=30^\circ$. Áp dụng bổ đề: Trong tam giác vuông có góc nhọn $30^\circ$, cạnh đối diện với góc đó bằng nửa cạnh huyền vào các tam giác vuông $ABH,ABC,AHC$ được\\
+    	$AB=2BH=2,BC=2AB=4,AC=2AH$.\\
+    	  Áp dụng định lí Py-ta-go vào $\triangle AHB$ ta có\\ $AH^2=AB^2-BH^2=2^2-1=3$}
+    {\begin{tikzpicture}
+    			\tkzInit[xmin=-4,ymin=0,xmax=-4,ymax=6]
+    			\tkzDefPoints{-3/2/A,-4/0/B,1/0/C,-3/0/H,-0.38/0/M}
+    			\tkzLabelPoint[above](A){$A$}
+    			\tkzLabelPoints[below](B,C,H,M)
+    			\tkzMarkRightAngles(B,A,C A,H,B)
+    			\tkzDrawSegments(A,B B,C A,C A,H A,M)
+    			\tkzDrawPoints(A,B,C,H,M)
+    			\end{tikzpicture}
+}
+Suy ra $AH=\sqrt{3}\Rightarrow AC=2AH=2\sqrt{3}$.\\
+  Chu vi $\triangle ABC$ bằng $AB+BC+CA=2+4+2\sqrt{3}=6+2\sqrt{3}$.\\
+  Do đó $AB+BM=(6+2\sqrt{3}):2=3+\sqrt{3}$.\\
+  Suy ra $BM=3+\sqrt{3}-AB=1+\sqrt{3}\Rightarrow HM=BM-BH=1+\sqrt{3}-1=\sqrt{3}=AH$.\\
+  Tam giác $AHM$ vuông cân nên $\widehat{AMH}=45^\circ$, tức là $\widehat{AMB}=45^\circ$.    
+    }
+\end{vd}
+\subsection{TỨ GIÁC}
+Các tứ giác được nghiên cứu trong chuyên đề này là các tứ giác lồi, chúng có tính chất: Tổng các góc trong bằng $360^\circ$.
+Cần nắm vững định nghĩa, tính chất, dấu hiệu nhận biết của các tứ giác đặc biệt: hình thang, hình bình hành, hình chữ nhật, hình thoi, hình vuông.
+\begin{vd}
+Cho tứ giác $ABCD$ có $AB=BC=AD,\widehat{A}=80^\circ,\widehat{C}=40^\circ$. Tính các góc $B$ và   $D$.
+\loigiai{
+	\immini{$\triangle ADB$ cân tại $A$, $\widehat{A}=80^\circ$ nên $\widehat{D}_1=(180^\circ-80^\circ):2=50^\circ$.\\
+		Kẻ $AH\perp BD,BK\perp CD$. Ta có $\widehat{K}=\widehat{H}=90^\circ,\\BC=AD\text{ (giả thiết)},\widehat{C}=\widehat{A}_1=40^\circ$ nên \\
+		$\triangle CKB=\triangle AHD\Rightarrow BK=DH=HB$.\\
+	Tam giác vuông $BKD$ có $BH=\dfrac{1}{2}BD$ nên $\widehat{D}_2=30^\circ$. \\
+	Suy ra $\widehat{D}=\widehat{D}_1+\widehat{D}_2=50^\circ+30^\circ=80^\circ$. \\
+	Do đó $\widehat{B}=360^\circ-(80^\circ+80^\circ+40^\circ)=160^\circ$.}{\begin{tikzpicture}
+		\tkzInit[xmin=-4,ymin=0,xmax=-4,ymax=6]
+		\tkzDefPoints{-4/0/D,2/0/C,-3.44/3.14/A,-0.44/2.05/B}
+		\tkzDefPointBy[projection = onto B--D](A)
+		\tkzGetPoint{H}
+		\tkzDefPointBy[projection = onto C--D](B)
+		\tkzGetPoint{K}
+		\tkzMarkRightAngles(A,H,B B,K,C)
+		\tkzLabelPoints[above](A,B)
+		\tkzLabelPoints[below](C,D,H,K)
+		\tkzDrawSegments(A,B B,C C,D B,D A,D A,H B,K)
+		\tkzDrawPoints(A,B,C,D,M,H)
+		\tkzLabelAngle[pos=0.57,rotate=-12](C,D,B){$2$}
+		\tkzLabelAngle[pos=0.57,rotate=-22](B,D,A){$1$}
+		\tkzLabelAngle[pos=0.57,rotate=-20](D,A,H){$1$}
+		\tkzLabelAngle[pos=0.57,rotate=-20](H,A,B){$2$}
+		\tkzMarkSegments[mark =|](A,D A,B B,C)
+		\end{tikzpicture}}
+}	
+	\end{vd}
+\begin{vd}
+	Cho tứ giác $ABCD$ có tổng bình phương các cạnh đối bằng nhau $(AB^2+CD^2=AD^2+BC^2)$. Chứng minh rằng $AC$ vuông góc với $BD$.
+	\loigiai{
+\immini{Giả sử $AC$ không vuông góc với $BD$. Kẻ $AH\perp BD,\\AK\perp BD$, giả sử $H$ nằm giữa $B$ và $K$. Từ giả thiết suy ra\\ $AB^2-AD^2=BC^2-CD^2\\\Rightarrow (AB^2-AH^2)-(AD^2-AH^2)\\=(BC^2-CK^2)-(CD^2-CK^2)\\\Rightarrow HB^2-HD^2=BK^2-DK^2\\\Rightarrow HB^2-BK^2=HD^2-DK^2$.\\
+	Đẳng thức trên sai, vì vế trái âm, vế phải dương.
+	Vậy $AC$ vuông góc với $BD$.	}{\begin{tikzpicture}
+	\tkzInit[xmin=-5,ymin=0,xmax=-4,ymax=3]
+	\tkzDefPoints{-4/0/B,-2/2/A,-1/-3/C,2/0/D}
+	\tkzDefPointBy[projection = onto B--D](A)
+	\tkzGetPoint{H}
+	\tkzDefPointBy[projection = onto B--D](C)
+	\tkzGetPoint{K}
+	\tkzMarkRightAngles(A,H,B B,K,C)
+	\pgfresetboundingbox
+	\tkzLabelPoints[above](A,K)
+	\tkzLabelPoints[below](H,C,B,D)
+	\tkzDrawSegments(A,B B,C C,D B,D A,D A,H C,K)
+	\tkzDrawPoints(A,B,C,D,H)
+	\end{tikzpicture}
+}
+}
+	\end{vd}
+\begin{note}
+	Bổ để trên cũng đúng trong trường hợp điểm $C$ nằm trên đoạn thẳng $BD$. Chứng minh tương tự như trên.
+\end{note}
+\begin{vd}
+	Cho tam giác $ABC$ vuông cân tại $A$, đường trung tuyến $BE$. Đường thẳng đi qua $A$ và vuông góc với $BE$ cắt $BC$ ở $K$. Chứng minh rằng $BK=2KC$.
+	\loigiai{
+		\immini{Kẻ $AH\perp BC$, cắt $BE$ ở $G$. Ta có $G$ là trực tâm của $\triangle ABK$ nên $KG\perp AB$. Ta lại có $CA\perp AB$ nên $KG$ vuông góc với $CA$.
+			Gọi $I$ là trung điểm của $BG$. Do $G$ là trọng tâm của $\triangle ABC$ nên $BI=IG=GE$.
+			Kẻ $IM$ song song với $GK$ (hay song song với $EC$), khi đó  $BM=MK=KC$ (tính chất đường song song cách đều).
+			Vậy $BK=2KC$.}{	\begin{tikzpicture}
+			\tkzInit[xmin=-5,ymin=-4,xmax=-4,ymax=3]
+			\tkzDefPoints{-4/0/B,2/0/C,-1/3/A}
+			\tkzDefMidPoint(A,C)
+			\tkzGetPoint{E}
+			\tkzDefLine[perpendicular=through A](B,E)
+			\tkzGetPoint{k}
+			\tkzDefLine[perpendicular=through A](B,C)
+			\tkzGetPoint{h} 
+			\tkzInterLL(A,h)(C,B)
+			\tkzGetPoint{H}
+			\tkzInterLL(A,k)(C,B)
+			\tkzGetPoint{K}
+			\tkzInterLL(A,k)(E,B)
+			\tkzGetPoint{k'}
+			\tkzInterLL(A,H)(E,B)
+			\tkzGetPoint{G}	
+			\tkzDefMidPoint(B,G)
+			\tkzGetPoint{I}
+			\tkzDefLine[parallel=through I](G,K)
+			\tkzGetPoint{m}
+			\tkzInterLL(I,m)(C,B)
+			\tkzGetPoint{M}
+			\tkzMarkRightAngles(B,A,C A,k',E A,H,C)
+			\pgfresetboundingbox
+			\tkzLabelPoints[above](A,I,E)
+			\tkzLabelPoints[below](B,C,M,H,K)
+			\tkzLabelPoint[above left](G){$G$}
+			\tkzDrawSegments(A,B B,C C,A B,E A,H)
+			\tkzDrawSegments[dotted](I,M G,K A,K)
+			\tkzDrawPoints(A,B,C,I,G,E,K,M,H)
+			\tkzMarkSegments[mark =|](A,E E,C)
+			\tkzMarkSegments[mark =||](B,I I,G)
+			\end{tikzpicture}}		}
+	\end{vd}
+\begin{vd}
+	Cho tam giác $ABC$. Ở phía ngoài tam giác $ABC$, vẽ các tam giác đều $ABD,ACE$ và tam giác cân $BCF$ có $\widehat{F}=120^\circ$.
+	\begin{enumerate}
+		\item Gọi $I$ là điểm đối xứng với $F$ qua $BC$, gọi $K$ là điểm đối xứng với $I$ qua $DE$. Chứng minh rằng tam giác $DIE$ cân có $\widehat{I}=120^\circ$.
+		\item Tam giác $DIK$ là tam giác gì?
+		\item Chứng minh rằng $AKIF$ là hình bình hành và $AF$ vuông góc với $DE$.
+	\end{enumerate}
+	\loigiai{
+		\immini{
+			(hình vẽ và chứng minh ứng với $\widehat{ABC}>30^\circ,\widehat{ACB}>30^\circ$; các trường hợp khác tương tự).
+			\begin{enumerate}
+				\item $I$ đối xứng với $F$ qua $BC$\\
+				$\Rightarrow BI=BF,\widehat{B_2}=\widehat{B_1}=30^\circ$.\\
+				$\triangle DBI$ và $\triangle ABF$ có $DB=AB$,\\
+				$\widehat{DBI}=\widehat{ABF}\left(=60^\circ+\widehat{B_3}\right)$, $BI=BF$.\\
+				Do đó $\triangle DBI=\triangle ABF$ (c.g.c)\\
+				$\Rightarrow \widehat{I_1}=\widehat{F_1},DI=AF$.\\
+				Tương tự $\widehat{I_1}=\widehat{AFC}$, $EI=AF$.\\
+				Suy ra $DI=EI$. \hfill $(1)$\\
+				$\widehat{I_1}+\widehat{I_2}=\widehat{F_1}+\widehat{AFC}=\widehat{BFC}=120^\circ$
+				\begin{align}
+				\widehat{DIE} & = 360^\circ-\left(\widehat{I_1}+\widehat{I_2}+\widehat{BIC}\right) \tag*{}\\ 
+				&=360^\circ-\left(120^\circ+120^\circ\right)=120^\circ \tag*{(2)}
+				\end{align}
+				Từ (1) và (2) suy ra $\triangle DIE$ cân có $\widehat{I}=120^\circ$.
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[scale=0.9]
+			\tkzInit[xmin=-2.4,xmax=6.3,ymin=-2,ymax=6.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,5/0/C,1.5/3/A}
+			\tkzInterCC(A,B)(B,A)\tkzGetSecondPoint{D}
+			\tkzInterCC(A,C)(C,A)\tkzGetFirstPoint{E}
+			\tkzInterCC(B,C)(C,B)\tkzGetSecondPoint{G}
+			\tkzCircumCenter(B,C,G)\tkzGetPoint{F}
+			\tkzDefPointBy[reflection=over B--C](F)\tkzGetPoint{I}
+			\tkzDefPointBy[reflection=over D--E](I)\tkzGetPoint{K}
+			\tkzInterLL(I,F)(B,C)\tkzGetPoint{X}
+			\tkzInterLL(I,K)(D,E)\tkzGetPoint{Y}
+			\tkzMarkRightAngles(I,X,C K,Y,E)
+			\tkzMarkAngles[size=0.5,arc=l](C,B,I)\tkzLabelAngle[pos=1](C,B,I){$2$}
+			\tkzMarkAngles[size=0.6,arc=l](F,B,C)\tkzLabelAngle[pos=1](F,B,C){$1$}
+			\tkzLabelAngle[pos=0.8](A,B,I){$3$}
+			\tkzLabelAngle[pos=0.6](B,F,A){$1$}
+			\tkzLabelAngle[pos=-0.45](B,I,D){$1$}
+			\tkzLabelAngle[pos=0.45](C,I,E){$2$}
+			\tkzDrawSegments(A,B B,C C,A A,D B,D A,E C,E B,F C,F D,I I,C E,I I,B D,E D,K I,K A,F)
+			\tkzMarkSegments[mark=|,pos=0.5](B,I B,F)
+			\tkzMarkSegments[mark=||,pos=0.5](A,B B,D D,A)
+			\tkzDrawSegments[dashed](I,F)
+			\tkzDrawPoints(A,B,C,D,E,F,I,K)
+			\tkzLabelPoints[below](B,F,C)
+			\tkzLabelPoints[above](K,A)
+			\tkzLabelPoints[above left](D)
+			\tkzLabelPoints[above right](E)
+			\tkzLabelPoints[above left](I)
+			\end{tikzpicture}
+		}
+		\begin{enumerate}\setcounter{enumi}{1}
+			\item $\triangle DIE$ cân có $\widehat{I}=120^\circ$ nên $\widehat{IDE}=30^\circ$. $K$ đối xứng với $I$ qua $DE$ nên $DK=DI$ và $\widehat{IDK}=2\widehat{IDE}=2\widehat 30^\circ=60^\circ$. Suy ra $\triangle DIK$ đều.
+			\item $\triangle DIK$ đều $\Rightarrow IK=DI$ mà $DI=AF$ nên $IK=AF$.\hfill(3)\\
+			$\triangle DAK=\triangle DBI$ (c.g.c) $\Rightarrow AK=BI$ mà $BI=IF$ nên $AK=IF$.\hfill (4)\\
+			Từ (3) và (4) suy ra $AKIF$ là hình bình hành $\Rightarrow AF\parallel IK$.\\
+			Ta lại có $IK\perp DE$ nên $AF\perp DE$.
+		\end{enumerate}
+	}
+\end{vd}
+\begin{vd}
+	Cho tam giác $ABC$ vuông tại $A$, đường cao $AH$. Gọi $M,N$ theo thứ tự là chân các đường vuông góc kẻ từ $H$ đến $AC,AB$. Đường thẳng $MN$ cắt $AH$ tại $I$ và cắt $CB$ tại $E$. Gọi $O$ là trung điểm của $BC$. Kẻ $HD$ vuông góc với $AE$ ($D\in AE$). Chứng minh rằng:
+	\begin{enumerate}
+		\item $I$ là trực tâm của tam giác $AOE$;
+		\item $\widehat{BDC}=90^\circ$.
+	\end{enumerate}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item Tứ giác $AMHN$ là hình chữ nhật nên $\widehat{M_1}=\widehat{AHN}$.\\
+				Ta lại có $\widehat{AHN}=\widehat{B_1}$ (cùng phụ $\widehat{H_1}$) nên $\widehat{M_1}=\widehat{B_1}$.\hfill (1)\\
+				Do $OA=OC$ nên $\widehat{A_1}=\widehat{ACB}$.\hfill (2)
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[scale=0.9]
+			\tkzInit[xmin=-3.5,xmax=7.3,ymin=-0.5,ymax=4]
+			\tkzClip
+			\tkzDefPoints{0/0/B,2.5/0/H,7/0/C}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{O}
+			\tkzDefLine[orthogonal=through H](B,C)\tkzGetPoint{h}
+			\tkzInterLC(H,h)(O,B)\tkzGetSecondPoint{A}
+			\tkzDefMidPoint(A,H)\tkzGetPoint{I}
+			\tkzInterLC(A,B)(I,A)\tkzGetFirstPoint{N}
+			\tkzInterLC(A,C)(I,A)\tkzGetSecondPoint{M}
+			\tkzInterLL(B,C)(M,N)\tkzGetPoint{E}
+			\tkzInterLC(A,E)(I,A)\tkzGetFirstPoint{D}
+			\tkzDrawPoints(A,B,C,H,O,I,N,M,D,E)
+			\tkzDrawSegments(A,E A,B A,C E,C E,M A,H D,B D,H D,I I,O D,C H,N H,M)
+			\tkzDrawSegments[dashed](D,O A,O)
+			\tkzMarkAngles[arc=l, size=0.5](O,A,C A,C,O)
+			\tkzMarkAngles[arc=l, size=0.5](A,M,E A,H,N H,B,A)
+			\tkzMarkAngles[arc=l, size=0.4](A,M,E A,H,N H,B,A)
+			\tkzLabelPoints[below](E,B,H,O,C)
+			\tkzLabelPoints[above](A,D,N,M)
+			\tkzLabelPoints[below left](I)
+			\tkzLabelAngles[pos=0.7](O,A,C N,B,H N,H,B){$1$}
+			\tkzLabelAngles[pos=-0.7](E,M,A){$1$}
+			\end{tikzpicture}
+		}
+		\begin{enumerate}\setcounter{enumi}{1}
+			\item[] Từ (1) và (2) suy ra $\widehat{M_1}+\widehat{A_1}=\widehat{B_1}+\widehat{ACB}=90^\circ$, suy ra $EM\perp OA$.\\
+			Tam giác $AOE$ có $EM\perp OA, AH\perp OE$ nên $I$ là trực tâm.
+			\item Từ câu a), suy ra $OI\perp AD$.\hfill (3)\\
+			$\triangle ADH$ vuông tại $D$ có $DI$ là đường trung tuyến nên $IA=ID$.\hfill (4)\\
+			Từ (3) và (4) suy ra $OI$ là đường trung trực của $AD$, do đó $OA=OD$.\\
+			Tam giác $BDC$ có $OD=OA=OB=OC$ nên $\widehat{BDC}=90^\circ$.
+		\end{enumerate}
+	}
+\end{vd}
+\begin{vd}
+	Cho tam giác $ABC$ cân tại $A$ có $\widehat{A}=\alpha <60^\circ$. Trên cạnh $AB$ lấy điểm $D$ sao cho $CD=AB$. Gọi $E$ là điểm đối xứng với $B$ qua $AC$. Gọi $F$ là giao điểm của $DE$ và $AC$.
+	\begin{enumerate}
+		\item Chứng minh rằng $BFEC$ là hình thoi.
+		\item Tính các góc của hình thoi đó theo $\alpha$.
+	\end{enumerate}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item Do $E$ đối xứng với $B$ qua $AC$ nên $EC=BC$ và $EF=BF$.\hfill (1)\\
+				Để chứng minh $BFEC$ là hình thoi, ta sẽ chứng minh $EC=EF$.\\
+				Đặt $\widehat{ABC}=\widehat{ACB}=\beta$ thì $\alpha+2\beta=180^\circ$.\\
+				Gọi $Cx$ là tia đối của tia $CE$. Do $E$ đối xứng với $B$ qua $AC$ nên $\widehat{C_1}=\widehat{ACB}=\beta$, suy ra $\widehat{C_3}=180^\circ-2\beta=\alpha$.\hfill (2)
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[scale=0.9]
+			\tkzInit[xmin=-2.7,xmax=5.5,ymin=-1,ymax=5]
+			\tkzClip
+			\tkzDefPoints{-2/0/B,2/0/C,0/4.5/A}
+			\tkzInterLC(A,B)(C,B)\tkzGetSecondPoint{D}
+			\tkzDefPointBy[reflection=over A--C](B) \tkzGetPoint{E}
+			\tkzInterLL(A,C)(D,E)\tkzGetPoint{F}
+			\tkzDefPointBy[homothety=center C ratio -0.35](E)\tkzGetPoint{X}
+			\tkzDrawSegments(A,B B,C A,C D,E B,E B,F C,D E,X)
+			%\tkzDrawSegments[add=0 and 0.4](E,C)
+			\tkzInterLL(A,C)(B,E)\tkzGetPoint{H}
+			\tkzMarkRightAngles(E,H,F)
+			\tkzMarkAngles[arc=l,size=0.5](C,B,D B,D,C E,C,F)
+			\tkzMarkAngles[arc=l,size=0.5](B,A,C D,C,B B,C,X)
+			\tkzMarkAngles[arc=l,size=0.4](B,A,C D,C,B B,C,X)
+			\tkzMarkSegments[mark=|,pos=0.5](C,D B,C E,C)
+			\tkzLabelAngles[pos=0.7](B,A,C){$\alpha$}
+			\tkzLabelAngles[pos=0.7](E,F,C E,C,F){$1$}
+			\tkzLabelAngle[pos=0.7](D,C,B){$2$}
+			\tkzLabelAngle[pos=-0.7](X,C,B){$3$}
+			\tkzLabelSegment[pos=0.1](X,C){$x$}
+			\tkzDrawPoints(A,B,C,D,E,F)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[above left](D)
+			\tkzLabelPoints[above right](E,F)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below right](C)
+			\end{tikzpicture}
+		}
+		\begin{enumerate}\setcounter{enumi}{1}
+			\item[] $\triangle CBD$ cân có góc đáy $\widehat{CBD}=\beta$ nên $\widehat{C_2}=180^\circ-2\beta=\alpha$.\hfill (3)\\
+			Từ (2) và (3) suy ra $\widehat{C_2}=\widehat{C_3}$ nên $\widehat{DCx}=2\alpha$.\hfill (4)\\
+			Ta có $CD=CB=CE$ nên $\triangle DCE$ cân tại $C$, suy ra $\widehat{DCx}=2\widehat{CED}$.\hfill (5)\\
+			Từ (4) và (5) suy ra $\widehat{CED}=\alpha$. Tam giác $ECF$ có $\widehat{E}=\alpha, \widehat{C_1}=\beta$ nên $\widehat{F_1}=\beta$, suy ra $\widehat{C_1}=\widehat{F_1}$, do đó $EC=EF$.\hfill (6)\\
+			Từ (1) và (6) suy ra $BC=EC=EF=BF$ nên tứ giác $BFEC$ là hình thoi.
+			\item Hình thoi $BFEC$ có $\widehat{CEF}=\alpha$ nên $\widehat{CBF}=\alpha,\widehat{BFE}=\widehat{BCE}=180^\circ-\alpha$.
+		\end{enumerate}
+	}
+\end{vd}
+\begin{vd}
+	Tính độ dài cạnh của hình vuông $ABCD$, biết rằng có điểm $M$ nằm trong hình vuông thoả mãn $MB=1$ cm, $MA=MC=\sqrt{5}$ cm.
+	\loigiai{
+		\immini{
+			$\triangle MAB=\triangle MCB$ (c.c.c) $\Rightarrow \widehat{MBA}=\widehat{MBC}=45^\circ$.\\
+			Kẻ $ME\perp AB$ ($E\in AB$), suy ra $\triangle MEB$ vuông cân tại $E$ nên $ME=EB=\dfrac{MB}{\sqrt{2}}=\dfrac{1}{\sqrt{2}}$ (cm).\hfill (1)\\
+			$\triangle AEM$ vuông tại $E$\\
+			$\Rightarrow AE^2=MA^2-ME^2=\left(\sqrt{5}\right)^2-\left(\dfrac{1}{\sqrt{2}}\right)^2=\dfrac{9}{2}$\\
+			$\Rightarrow AE=\dfrac{3}{\sqrt{2}}$ (cm).\hfill (2)\\
+			Từ (1) và (2) suy ra\\
+			$AB=AE+EB=\dfrac{3}{\sqrt{2}}+\dfrac{1}{\sqrt{2}}=2\sqrt{2}$ (cm).
+		}{
+			\begin{tikzpicture}[scale=0.8]
+			\tkzInit[xmin=-0.7,xmax=6.7,ymin=-0.7,ymax=6.7]
+			\tkzClip
+			\tkzDefPoints{0/0/D,6/0/C,0/6/A,6/6/B,4.5/6/E,4.5/4.5/M}
+			\tkzDrawSegments(A,B B,C C,D D,A A,M M,B M,E M,C)
+			\tkzMarkRightAngles(B,E,M)
+			\tkzLabelSegments[pos=0.5,below left](A,M M,C){$\sqrt{5}$}
+			\tkzLabelSegment[pos=0.5,below right](M,B){$1$}
+			\tkzDrawPoints(A,B,C,D,M,E)
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[above right](B)
+			\tkzLabelPoints[below left](D,M)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[above](E)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{vd}
+	Cho hình vuông $ABCD$ có cạnh bằng $1$, các điểm $E,F,G,H$ theo thứ tự thuộc các cạnh $AB,BC,CD,DA$. Tính chu vi nhỏ nhất của tứ giác $EFGH$.
+	\loigiai{
+		\immini{Đặt $EH=a,EF=b,FG=c,GH=d,AH=m,AE=n$.\\
+			Ta có $a^2=m^2+n^2\ge\dfrac{\left(m+n\right)^2}{2}$\\
+			$\Rightarrow a\ge\dfrac{m+n}{\sqrt{2}}\Rightarrow a\sqrt{2}\ge AH+AE$.\\
+			Tương tự ta có $b\sqrt{2}\ge BE+BF,c\sqrt{2}\ge CF+CG,$ $\break d\sqrt{2}\ge DG+DH$.\\
+			Suy ra $\left(a+b+c+d\right)\sqrt{2}\ge AB+BC+CD+DA=4$\\
+			$\Rightarrow a+b+c+d\ge 2\sqrt{2}$.\\
+			Chu vi nhỏ nhất của tứ giác $EFGH$ bằng $2\sqrt{2}$ khi và chỉ khi $E,F,G,H$ lần lượt là trung điểm các cạnh của hình vuông $ABCD$.
+		}{
+			\begin{tikzpicture}[scale=0.8]
+			\tkzInit[xmin=-0.7,xmax=6.7,ymin=-0.7,ymax=6.7]
+			\tkzClip
+			\tkzDefPoints{0/0/D,6/0/C,0/6/A,6/6/B,2.5/6/E,6/4/F,4.5/0/G,0/2/H}
+			\tkzDrawSegments(A,B B,C C,D D,A E,F F,G G,H H,E)
+			\tkzMarkRightAngles(H,A,E E,B,F F,C,G G,D,H)
+			\tkzLabelSegment[pos=0.5,below right](H,E){$a$}
+			\tkzLabelSegment[pos=0.5,below left](E,F){$b$}
+			\tkzLabelSegment[pos=0.5,above left](F,G){$c$}
+			\tkzLabelSegment[pos=0.5,above right](G,H){$d$}
+			\tkzLabelSegment[pos=0.5,left](A,H){$m$}
+			\tkzLabelSegment[pos=0.5,above](A,E){$n$}
+			\tkzDrawPoints(A,B,C,D,E,F,G,H)
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[above right](B)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[below left](D)
+			\tkzLabelPoints[above](E)
+			\tkzLabelPoints[right](F)
+			\tkzLabelPoints[below](G)
+			\tkzLabelPoints[left](H)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\subsection{ĐA GIÁC}
+\begin{enumerate}[1.]
+	\item Các đa giác được nghiên cứu trong chuyên đề này là các đa giác lồi, chúng có tính chất: tổng các góc trong của đa giác $n$ cạnh bằng $\left(n-2\right)180^\circ$.
+	\item Đa giác đều là đa giác có các cạnh bằng nhau và các góc bằng nhau. Mỗi góc trong của đa giác đều $n$ cạnh bằng $\dfrac{\left(n-2\right)180^\circ}{n}$.
+\end{enumerate}
+\begin{vd}
+	Tìm giá trị của $n$ sao cho các đa giác đều $n$ cạnh, $n+1$ cạnh, $n+2$ cạnh, $n+3$ cạnh đều có số đo mỗi góc là một số nguyên độ.
+	\loigiai{
+		Ta có $\dfrac{\left(n-2\right)180}{n}$ là một số nguyên nên $\left(n-2\right)180\ \vdots \ n\Leftrightarrow 360 \ \vdots \ n$ ($n\ge 3$).\\
+		Do $360=2^3\cdot 3^2\cdot 5$ nên $360$ có $24$ ước tự nhiên, trong đó có $22$ ước tự nhiên khác $1$ và $2$ là: $3,4,5,6,8,9,10,12,15,18,20,24,30,36,40,45,60,72,90,120,180,360$. Trong các số trên, có bốn số tự nhiên liên tiếp là $3,4,5,6$. Vậy giá trị phải tìm của $n$ là $3$ (các đa giác đều có $3,4,5,6$ cạnh có số đo mỗi góc bằng $60^\circ,90^\circ,108^\circ,120^\circ$).
+	}
+\end{vd}
+\begin{center}
+	\large \textbf{BÀI TẬP}
+\end{center}
+\subsubsection{Tam giác}
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$, $AB<AC<2AB$. Trên cạnh $AC$ lấy điểm $D$ sao cho $CD=AB$. Trên cạnh $AB$ lấy điểm $E$ sao cho $BE=AD$. Gọi $I$ là giao điểm của $BD$ và $CE$. Tính góc $CID$.
+	\loigiai{
+		\immini{Qua $B$ kẻ đường thẳng song song với $EC$, qua $C$ kẻ đường thẳng song song với $BE$, chúng cắt nhau ở $K$.\\
+			Ta có $\widehat{CID}=\widehat{DBK}$ \hfill $(*)$\\
+			Dễ chứng minh được $\Delta CBK = \Delta BCE\,\,  \text{(c.g.c)}$\\
+		Suy ra 	$CK=BE=AD.$\\
+			$\Delta ABD = \Delta CDK \,\, \text{(c.g.c)}$\\
+			Dễ chứng minh $\Delta DBK$ vuông cân, suy ra $\widehat{DBK}= 45 ^ \circ$\\
+			Do $(*)$ nên $\widehat{CID}= 45^ \circ$.  }{
+			\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{0/0/A, 3/0/B, 0/5/C, 0/2/D, 1/0/E}
+			\coordinate (K) at ($(B)+(C)-(E)$);
+			\tkzDrawSegments(A,B B,C C,A B,D C,E C,K B,K K,D)
+			\tkzInterLL(B,D)(C,E)\tkzGetPoint{I}
+			\tkzLabelPoints(B,E,K)
+			\tkzLabelPoints[left](C,D,A)
+			\tkzLabelPoints[right](I)
+			\tkzDrawPoints(A,B,C,D,E,I,K)
+			\tkzMarkAngle[size=5mm](C,I,D)
+			\tkzMarkAngle[size=5mm](K,B,D)
+			\tkzMarkAngle[arc=ll,size=5mm](C,K,D)\tkzMarkAngle[arc=ll,size=5mm](A,D,B)
+			\tkzMarkRightAngle(B,A,C)
+			\tkzMarkSegments[mark=|](A,D B,E)
+			\draw (0,1.5) node[below right] {$1$};
+			\draw (1.55,5) node[below left] {$1$};
+			\tkzDrawPoints(A,B,C,D,E,I,K)
+			\end{tikzpicture}
+	}}
+\end{bt}
+\subsubsection{Tứ giác - Hình thang}
+\begin{bt}
+	Cho tứ giác $ABCD$ có $\widehat{A}= 60 ^ \circ$, $AB=AD$, $\widehat{B}=75^ \circ$, $\widehat{D}= 90 ^ \circ$. Gọi $G$ là giao điểm của $BC$ và $AD$. $E$ là giao điểm của tia phân giác góc $A$ với $BC$. Chứng minh
+	\begin{enumerate}
+		\item $AB=AE$.
+		\item $BC=EG$.
+	\end{enumerate}
+	\loigiai{\immini{
+			\begin{enumerate}
+				\item $AB=AE$.\\
+				$\Delta ABE$ có $\widehat{BAE}+\widehat{ABE}+\widehat{ABE}=180^ \circ$\\
+				$\Rightarrow \widehat{AEB}=180^\circ - (\widehat{BAE}+\widehat{ABE})=75 ^\circ$.\\
+				$\Rightarrow \Delta ABE$ cân tại $A$ nên $AB=AE$.
+				\item $BC=EG$.\\
+				Gọi $K$ là giao điểm của $AB$ và $CD$.\\ $\Delta ABD$ đều và $\widehat{D_1}=\widehat{K}=30^ \circ$ nên $AB=BD=BK$,\\ mà $AB=AE$(câu a) nên $BK=AE$.\\
+				Ta lại có $\widehat{KBC}=\widehat{AEG} (=105^ \circ)$ \\nên $\Delta KBC=\Delta AEG \text{(g.c.g)}$\\ $\Rightarrow BC=EG$.
+		\end{enumerate}}{
+			\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{0/0/A, 1.5/2.2/B, 3/0/D, 3/4.4/K, 3/1/C}
+			\tkzDrawBisector(B,A,D) \tkzGetPoint{X}
+			\tkzInterLL(A,X)(C,B)\tkzGetPoint{E}
+			\tkzInterLL(B,C)(A,D)\tkzGetPoint{G}
+			\tkzDrawSegments(A,B A,D B,D K,B K,D B,C X,E G,C G,D)
+			\tkzMarkSegments[mark=|](A,B A,D)
+			\tkzLabelPoints[left](A,B)
+			\tkzLabelPoints[above right](C,G,K)
+			\tkzLabelPoints[above](E)
+			\tkzLabelPoints(D)
+			\tkzDrawPoints(A,B,C,D,E,G,K)
+			\tkzMarkAngle[size=5mm](X,A,B)
+			\tkzMarkAngle[size=5mm](D,A,E)
+			\tkzMarkRightAngle(A,D,K)
+			\tkzDrawPoints(A,B,C,D,E,K,G)
+			\end{tikzpicture}}}
+\end{bt}
+\begin{bt}
+	Cho tam giác $ABC$, ở phía ngoài của tam giác đó vẽ các tam giác cân $ABD$ đáy $AB$, tam giác cân $BCE$ đáy $BC$ và tam giác cân $ACF$ đáy $AC$. Kẻ $AH$ vuông góc với $DF$ $(H \in DF)$, $AH$ và $BI$ cắt nhau tại $O$. Chứng minh rằng $OC$ vuông góc với $EF$.
+	\loigiai{\immini{
+			Đặt $AD=DB=a$, $AF=FC=b$, $CE=EB=c$.\\
+			Do $OA \perp DF$ nên \\$OF^2-OD^2=HF^2-HD^2=AF^2-AD^2=b^2-a^2$. \hfill $(1)$\\
+			Tương tự, do $OB \perp DE$ nên $OD^2-OE^2=a^2-c^2$. \hfill $(2)$\\
+			Cộng $(1)$ với $(2)$ được\\ $OF^2-OE^2=b^2-c^2=CF^2-CE^2$.\\
+			Theo bổ đề nhận biết hai đường chéo vuông góc,\\ ta có $OC \perp EF$.}{\begin{tikzpicture}[scale=0.8]
+			\clip (-1,-2.5) rectangle (7,7);
+			\tkzDefPoints{0/0/B, 2/5/A, 7/0/C}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{X}
+			\tkzDefMidPoint(A,C)\tkzGetPoint{Z}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{Y}
+			\tkzDefPointWith[orthogonal,K=0.5](X,A)\tkzGetPoint{D}
+			\tkzDefPointWith[orthogonal,K=0.5](Y,B)\tkzGetPoint{E}
+			\tkzDefPointWith[orthogonal,K=0.5](Z,C)\tkzGetPoint{F}
+			\tkzDrawAltitude(D,F)(A)\tkzGetPoint{H}
+			\tkzDrawAltitude(D,E)(B)\tkzGetPoint{I}
+			\tkzInterLL(A,H)(B,I)\tkzGetPoint{O}
+			\tkzDrawSegments(A,B B,C A,C A,D B,D A,E C,E F,C D,E D,F O,I O,H A,F B,E)
+			\tkzDrawSegments[dashed](E,O F,O O,C E,F)
+			%\tkzMarkSegments[mark=|](A,B A,D)
+			\tkzLabelPoints[left](B,D,O)
+			\tkzLabelPoints[right](F,C)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below left](E,H)
+			\tkzLabelPoints[below](I)
+			\tkzMarkRightAngles(D,I,B A,H,D)
+			\draw (-0.5,1.6) node[below right] {$a$};
+			\draw (0.5,4.3) node[below right] {$a$};
+			\draw (3.5,5) node[below right] {$b$};
+			\draw (6.5,2) node[below right] {$b$};
+			\draw (5,-1) node[below right] {$c$};
+			\draw (2,-1) node[below left] {$c$};
+			\tkzDrawPoints(A,D,H,F,O,I,B,C,E)
+			\end{tikzpicture}}}
+\end{bt}
+\begin{bt}
+	Cho tam giác $ABC$ vuông cân tại $A$, điểm $H$ thuộc cạnh $AC$. Đường thẳng đi qua $A$ và vuông góc với $BH$ cắt $BC$ ở $D$. Lấy điểm $E$ thuộc đoạn $BD$ sao cho $DE=DC$. Đường thẳng đi qua $E$ và vuông góc với $BH$ cắt $AB$ ở $K$. Chứng minh rằng $AK=AH$.
+	\loigiai{\immini{
+			Kẻ đường thẳng qua $C$ và song song với $AD$,\\ cắt $BA$ ở $M$ thì $AK=AM$. \hfill $(1)$\\
+			$\Delta ABH = \Delta ACM \text{(g.c.g)}$ \\ 
+			$\Rightarrow AH=AM.$ \hfill $(2)$\\
+			Từ $(1)$ và $(2)$ suy ra $AK=AH$.}{
+			\begin{tikzpicture}[scale=0.8]
+			\clip (-1,-2.5) rectangle (4,5);
+			\tkzDefPoints{0/0/A, 0/5/B, 4/0/C, 2/0/H}
+			\tkzDefLine[perpendicular=through A](B,H) \tkzGetPoint{a}
+			\tkzInterLL(A,a)(B,H)\tkzGetPoint{I}
+			\tkzInterLL(A,a)(B,C)\tkzGetPoint{D}
+			\tkzDefPointBy[homothety = center D ratio -1](C)\tkzGetPoint{E}
+			\tkzDefLine[perpendicular=through E](B,H) \tkzGetPoint{b}
+			\tkzInterLL(E,b)(B,H)\tkzGetPoint{N}
+			\tkzInterLL(E,b)(B,A)\tkzGetPoint{K}
+			\tkzDefLine[perpendicular=through C](B,H) \tkzGetPoint{c}
+			\tkzInterLL(C,c)(B,A)\tkzGetPoint{M}
+			\tkzMarkSegments[mark=|](D,E C,D)
+			\tkzDrawSegments(A,B B,C C,A B,H A,D K,E A,M M,C)
+			\tkzLabelPoints[above](B)
+			\tkzLabelPoints[right](E,D,C)
+			\tkzLabelPoints[left](K,A,M)
+			\tkzLabelPoints[above right](I)
+			\tkzLabelPoints[below](H)
+			\tkzMarkAngles(A,B,H C,A,D A,C,M)
+			\tkzMarkRightAngles(B,I,A B,N,K)
+			\tkzDrawPoints(A,B,C,D,E,K,I,H,M)
+			\end{tikzpicture}
+	}}
+\end{bt}
+\begin{bt}
+	Cho tam giác $ABC$ có $BC=a$, nửa chu vi bằng $p$, đường cao $AH$. Chứng minh rằng $AH^2 \leq p(p-a)$.
+	\loigiai{\immini{
+			Kẻ đường thẳng $d$ qua $A$ và song song với $BC$. Gọi $D$ là điểm đối xứng với $B$ qua $d$. Đặt $AH=h$ thì $BD=2h$. Đặt $AC=b$, $AB=c$.\\
+			Ta có \begin{align*}
+			&AB+AC=AD+AC \geq CD\\
+			\Rightarrow\ \ &(b+c)^2 \geq CD^2=a^2+(2h)^2\\
+			\Rightarrow\ \ &h^2 \leq \dfrac{(b+c)^2-a^2}{4}\\
+			=\ \ &\dfrac{(b+c+a)(b+c-a)}{4}\\
+			=\ \ &\dfrac{2p(2p-2a)}{4}=p(p-a).
+			\end{align*}
+		}{
+			\begin{tikzpicture}[scale=0.8]
+			\clip (-1,-2.5) rectangle (7,7);
+			\tkzDefPoints{0/0/B, 2/3/A, 6/0/C}
+			\tkzDefPointBy[projection = onto B--C](A)\tkzGetPoint{H}
+			\tkzDefLine[parallel=through A](B,C)\tkzGetPoint{d}
+			\tkzDefPointBy[projection = onto A--d](B)\tkzGetPoint{I}
+			\tkzDefPointBy[homothety = center I ratio -1](B)\tkzGetPoint{D}
+			\tkzDefPointBy[homothety = center I ratio -0.5](A)\tkzGetPoint{M}
+			\tkzDrawSegments(A,B B,C C,A A,H I,d B,D D,C I,M)
+			\tkzLabelPoints[above](A,D,d)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[below](H)
+			\tkzMarkRightAngles(A,H,C B,I,A)
+			\tkzMarkSegments[mark=|](I,D I,B)
+			\tkzDrawPoints(A,B,C,D,H)
+			\end{tikzpicture}}}
+\end{bt}
+\subsubsection{Hình bình hành}
+\begin{bt}
+	Cho hình bình hành $ABCD$, $M$ là trung điểm của $BC$. Gọi $H$ là chân đường vuông góc kẻ từ $A$ đến $DM$. Chứng minh rằng $BA=BH$.
+	\loigiai{\immini{
+			Gọi $K$ là rung điểm của $AD$. Ta có $BKDM$ là hình bình hành nên $BK \parallel DM$, suy ra $BK \perp AH$ (tại $I$) và $AI=IH$.\\
+			Do $BK$ là đường trung trực của $AH$ nên $BA=BH$.
+		}{\begin{tikzpicture}[scale=0.8]
+			\clip (-3,-3.5) rectangle (6,0.5);
+			\tkzDefPoints{0/0/A, -2/-3/D, 5/0/B}
+			\coordinate (C) at ($(B)+(D)-(A)$);
+			\coordinate (M) at ($(B)!0.5!(C)$);
+			\coordinate (K) at ($(A)!0.5!(D)$);
+			\tkzDefPointBy[projection = onto K--B](A)\tkzGetPoint{I}
+			\tkzDefPointBy[projection = onto D--M](A)\tkzGetPoint{H}
+			\tkzDrawSegments(A,B B,C C,D D,A K,B D,M A,H B,H)
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[right](M,C)
+			\tkzLabelPoints[left](K,D)
+			\tkzLabelPoints[above left](I,H)
+			\tkzMarkRightAngles(A,I,B A,H,M)
+			\tkzMarkSegments[mark=|](K,A K,D M,B M,C)
+			\tkzDrawPoints(A,B,C,D,I,H,M)
+			\end{tikzpicture}}}
+\end{bt}
+\begin{bt}
+	Cho tam giác $ABC$ có $\widehat{A}=90^\circ$. Ở phía ngoài tam giác đó vẽ các tam giác vuông cân $ABD$ có cạnh huyền $AB$ và $ACE$ có cạnh huyền $AC$. Vẽ hình bình hành $ADKE$. Tam giác $BKC$ là hình gì?
+	\loigiai{\immini{
+			$\Delta DBK=\Delta KEC (c.g.c) \Rightarrow BK=KC$ và $\widehat{K_1}=\widehat{C_1}.$ \hfill $(1)$\\
+			Gọi $H$ là giao điểm của $CE$ và $DK$.\\
+			Ta có $CE \perp AE$ và $AE \parallel DK$ bên $CE \perp DK$ (tại $H$) $\Rightarrow \widehat{C_1}$ phụ $\widehat{CKH}$. \hfill $(2)$\\
+			Từ $(1)$ và $(2)$ suy ra $\widehat{K_1}$ phụ $\widehat{CKH}$ và $\Delta BKC$ vuông cân.}{\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{3/2/A, 0/0/B, 8/0/C}
+			%\coordinate (C) at ($(B)+(D)-(A)$);
+			\coordinate (M) at ($(A)!0.5!(B)$);
+			\coordinate (N) at ($(A)!0.5!(C)$);
+			\tkzDefPointBy[rotation = center M angle 90](A)\tkzGetPoint{D}
+			\tkzDefPointBy[rotation = center N angle 90](C)\tkzGetPoint{E}
+			\coordinate (K) at ($(E)+(D)-(A)$);
+			\tkzInterLL(D,K)(E,C)\tkzGetPoint{H}
+			\tkzDrawSegments(A,B B,C C,A D,B D,A E,C E,A K,D K,E K,D K,E K,B K,C)
+			\tkzDrawSegments[dashed](H,K H,E)
+			\tkzLabelPoints[above](A,D,K,H)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[above right](E)
+			\tkzMarkRightAngles(B,D,A A,E,C)
+			\tkzMarkSegments[mark=|](D,B D,A K,E)
+			\tkzMarkSegments[mark=||](E,A E,C D,K)
+			\tkzDrawPoints(A,B,C,D,K,E,H)
+			\end{tikzpicture}}}
+\end{bt}
+\begin{bt}
+	Cho hình thang $ABCD$ $(AB \parallel CD), AB<CD$. Gọi $E,$ $F,$ $M$ theo thứ tự là trung điểm của $BD,$ $AC,$ $CD$. Chứng minh rằng các đường thẳng đi qua $E$ và vuông góc với với $AD$, đi qua $F$ và vuông góc với $BC$, đi qua $M$ và vuông góc với $CD$ đồng quy. 
+	\loigiai{\immini{
+			Gọi $I$ là trung điểm của $AB$, các đường thẳng $IE$ và $IF$ cắt $CD$ theo thứ tự là $H$ và $G$. Ba đường thẳng cần chứng minh đồng quy là ba đường trung trực của $\Delta IHG$. 
+		}{\begin{tikzpicture}[scale=0.8]
+			\clip (-1.5,-5.5) rectangle (8.5,0.5);
+			\tkzDefPoints{0/0/A,4/0/B,8/-5/C,-1/-5/D}
+			\coordinate (M) at ($(C)!0.5!(D)$);
+			\coordinate (E) at ($(B)!0.5!(D)$);
+			\coordinate (F) at ($(A)!0.5!(C)$);
+			\coordinate (I) at ($(A)!0.5!(B)$);
+			\tkzDefPointBy[projection = onto D--A](E)\tkzGetPoint{X}
+			\tkzDefPointBy[projection = onto B--C](F)\tkzGetPoint{Y}
+			\tkzInterLL(X,E)(Y,F)\tkzGetPoint{Z}
+			\tkzInterLL(I,E)(D,C)\tkzGetPoint{H}
+			\tkzInterLL(I,F)(D,C)\tkzGetPoint{G}
+			\tkzDefPointBy[projection = onto D--C](Z)\tkzGetPoint{M}
+			\tkzMarkSegments[mark=|](I,A I,B)
+			\tkzMarkSegments[mark=|](D,H  G,C)
+			\tkzMarkRightAngles(A,X,Z Z,Y,B Z,M,C)
+			\tkzDrawSegments(A,B B,C C,D D,A B,D A,C I,H I,G)
+			\tkzDrawSegments[dashed](X,Z Z,Y Z,M)
+			\tkzLabelPoints[above](A,I,B)
+			\tkzLabelPoints[below right](E)
+			\tkzLabelPoints[above](F)
+			\tkzLabelPoints(D,H,M,G,C)
+			\tkzDrawPoints(A,B,C,D,I,E,F,H,M,G)
+			\end{tikzpicture}
+	}}
+\end{bt}
+\begin{bt}
+	Cho tam giác $ABC$ và đường trung tuyến $AM$ có $AB=5$ cm, $AC=13$ cm, $AM=6$ cm. Gọi $d_1$ và $d_2$ theo thứ tự là các đường vuông góc với $BC$ tại $B$ và tại $C$. Gọi $D$ là giao điểm của $AM$ và $d_1$, gọi $E$ là giao điểm của $AB$ và $d_2$ Chứng minh rằng $CD$ vuông góc với $ME$. 
+	\loigiai{\immini{
+			Gọi $K$ là giao điểm của $AM$ và $d_2$.\\
+			Lấy $F$ trên $MK$ sao cho $MF=MA$.\\
+			Tam giác $AFC$ có $AF=12$ cm, $CF=5$ cm, $AC=13$ cm nên $\widehat{AFC}=90 ^ \circ$, suy ra $KA \perp AB$.\\
+			Ta lại có $BC \perp EK$ nên $EM \perp BK$. \hfil $(1)$\\
+			Dễ chứng minh $BDCK$ là hình bình hành nên $BK \parallel CD.$ \hfill $(2)$\\
+			Từ $(1)$ và $(2)$ suy ra $EM \perp CD$.
+		}{\begin{tikzpicture}[scale=0.6]
+			\tkzDefPoints{2/2/A,0/0/B,8/0/C}
+			\coordinate (F) at ($(B)+(C)-(A)$);
+			\tkzDrawMedian(C,B)(A)\tkzGetPoint{M}
+			\tkzDefPointBy[rotation = center B angle 90](C)\tkzGetPoint{X}
+			\tkzDefPointBy[rotation = center C angle -90](B)\tkzGetPoint{Y}
+			\tkzInterLL(A,B)(Y,C)\tkzGetPoint{E}
+			\tkzInterLL(A,M)(Y,C)\tkzGetPoint{K}
+			\tkzInterLL(A,M)(X,B)\tkzGetPoint{D}
+			\tkzDefPointBy[homothety = center C ratio 1.2](E)\tkzGetPoint{Z}
+			\tkzMarkSegments[mark=|](M,B M,C)
+			\tkzMarkSegments[mark=||](M,A M,F)
+			\tkzDrawSegments(A,B B,C C,A A,M B,X Z,K A,E D,K F,C E,M C,D B,K E,Z)
+			\tkzLabelPoints(C,E,K)
+			\tkzLabelPoints[left](B,D,A)
+			\tkzLabelPoints[below left](F,M)
+			\tkzMarkRightAngles[size = 0.4](D,B,C E,C,B)
+			\draw (X)node[right]{$d_1$} (Z)node[right]{$d_2$};
+			\tkzDrawPoints(A,B,C,D,M,F,E,K)
+			\end{tikzpicture}}}
+\end{bt}
+\begin{bt}
+	Cho hình bình hành $ABCD$, các đường chéo cắt nhau tại $O$. Đặt $OA=OC=m$. $OB=OD=n$. Chứng minh rằng
+	\begin{enumerate}
+		\item $AB^2+AD^2=2m^2+2n^2.$
+		\item Tổng bình phương các cạnh của hình bình hành bằng tổng bình phương các đường chéo.
+	\end{enumerate}
+	\loigiai{\immini{
+			\begin{itemize}
+				\item Kẻ $DH$ và $BK$ vuông góc $AC$.\\
+				Đặt $OH=OK=x$. Ta có\\
+				$AB^2=AK^2+BK^2=(m+x)^2+(n^2-x^2)=m^2+2mx+n^2$.\\
+				$AD^2=AH^2+DH^2=(m-x)^2+(n^2-x^2)=m^2-2mx+n^2$.\\
+				Suy ra $AB^2+AD^2=2m^2+2n^2.$
+				\item Ta có $AB^2+BC^2+CD^2+DA^2=2(AB^2+AD^2)=4m^2+4n^2=(AC^2+BD^2)$.
+		\end{itemize}}{\begin{tikzpicture}[scale=0.8]
+			\clip (-2.5,-2.5) rectangle (4.7,3);
+			\tkzDefPoints{-0.5/1/A, -2/-2/D, 3/-2/C}
+			\coordinate (B) at ($(A)+(C)-(D)$);
+			\tkzInterLL(A,C)(D,B)\tkzGetPoint{O}
+			\tkzDefPointBy[projection = onto A--C](D)\tkzGetPoint{H}
+			\tkzDefPointBy[projection = onto A--C](B)\tkzGetPoint{K}
+			\tkzMarkRightAngles(A,H,D B,K,C)
+			\tkzDrawSegments(A,B B,C C,D A,D A,C D,B D,H B,K)
+			\tkzLabelPoints[left](K)
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[right](H)
+			\tkzLabelPoints[below](D,O,C)
+			\tkzDrawPoints(A,B,C,D,O,H,K)
+			\end{tikzpicture}}}
+\end{bt}
+\begin{bt}
+	Dựng tam giác $ABC$ biết vị trí ba điểm $B,H,M$ trong đó $H$ là trực tâm, $M$ là trung điểm của $AC$.
+	\loigiai{\immini{Gọi $I$ là điểm đối xứng với $B$ qua $M$.\\
+			Ta có $CI \parallel AB$ nên $CI \perp CH$.\\
+			Điểm $C$ là giao điểm của đường tròn đường kính $HI$ và đường thẳng qua $M$ và vuông góc với $BH$.\\
+			Điểm $A$ là điểm đối xứng với điểm $C$ qua $M$.}{\begin{tikzpicture}[scale=0.8]
+			\tkzDefPoints{-0.5/1/A, -2/-2/B, 3/-2/C}
+			\tkzDefPointBy[projection= onto A--B](C)\tkzGetPoint{X}
+			\tkzDefPointBy[projection= onto A--C](B)\tkzGetPoint{Y}
+			\tkzInterLL(C,X)(B,Y)\tkzGetPoint{H}
+			\tkzDefMidPoint(A,C)\tkzGetPoint{M}
+			\tkzDefPointBy[symmetry = center M](B)\tkzGetPoint{I}
+			\tkzMarkRightAngles(B,X,C B,Y,C H,C,I)
+			\tkzDrawSegments(A,B B,C C,A C,X B,Y B,I C,I)
+			\tkzLabelPoints[above](A,I,M)
+			\tkzLabelPoints[below](B,C,H)
+			\tkzDrawPoints(A,B,C,H,M,I)
+			\end{tikzpicture}}}
+\end{bt}
+\subsubsection{Hình chữ nhật}
+\begin{bt}
+	Cho tam giác $ABC$ vuông cân tại $A$, điểm $D$ trên cạnh $BC$. Gọi $H$ là chân đường vuông góc kẻ từ $B$ đến $AD$. Trên tia đối của tia $HB$ lấy điểm $E$ sao cho $HE=AH$. Chứng minh rằng $\widehat{HEC}= 90 ^ \circ$.
+	\loigiai{
+		\immini{Kẻ $CK \perp AD$.\\ Ta có $\triangle CKA = \triangle AHB$ (cạnh huyền  - góc nhọn).\\
+			Suy ra $CK=AH=HE$ nên $CKHE$ là hình bình hành.\\
+			Mà $CK \perp HK$ nên $CKHE$ là hình chữ nhật.\\
+			Suy ra $\widehat{HEC}= 90 ^ \circ$.}{\begin{tikzpicture}[scale=0.8]
+			\clip (-0.5,-0.5) rectangle (5.5,5);
+			\tkzDefPoints{0/0/A, 0/4/B, 5/0/C}
+			\tkzDefPointBy[homothety = center B ratio 0.3](C)\tkzGetPoint{D}
+			\tkzDefPointBy[projection= onto A--D](B)\tkzGetPoint{H}
+			\tkzDefPointBy[projection= onto A--D](C)\tkzGetPoint{K}
+			\tkzDefPointBy[rotation = center H angle 90](A)\tkzGetPoint{E}
+			\tkzMarkRightAngles(A,K,C A,H,B B,A,C)
+			\tkzDrawSegments(A,B B,C C,A A,H E,C E,B K,C)
+			\tkzLabelPoints[above](B)
+			\tkzLabelPoints[right](C,E)
+			\tkzLabelPoints[above left](A,K)
+			\tkzLabelPoints[left](D)
+			\tkzLabelPoints[above right](H)
+			\tkzDrawPoints(A,B,C,D,E,K,H)
+			\end{tikzpicture}
+	}}
+\end{bt}
+\begin{bt}
+	Cho đoạn thẳng $AB$. Vẽ về một phía của $AB$ các tia $Ax$ và $By$ vuông góc với $AB$. Trên đoạn thẳng $AB$ lấy các điểm $C$ và $D$ sao cho $AC=BD$. Gọi $E$ là một điểm thuộc tia $Ax$ $(E$ khác $A)$. Đường vuông góc với $EC$ tại $C$ cắt $By$ ở $K$. Tính góc $EDK$.
+	\loigiai{\immini{Gọi $I$ là trung điểm của $EK$.\\
+			Kẻ $IH \perp AB$ thì $HA = HB$ nên $HC=HD$.\\
+			Ta có $ID=IC=IE=IK$ nên $\widehat{EDK}=90^{\circ}$.}{\begin{tikzpicture}[scale=0.8]
+			\clip (-0.5,-0.5) rectangle (6.5,6.5);
+			\tkzDefPoints{0/0/A, 6/0/B}
+			\tkzDefLine[perpendicular=through A](A,B) \tkzGetPoint{x}
+			\tkzDefLine[perpendicular=through B](A,B) \tkzGetPoint{y}
+			\tkzDefPointBy[homothety = center A ratio 0.3](B)\tkzGetPoint{C}
+			\tkzDefPointBy[homothety = center B ratio 0.3](A)\tkzGetPoint{D}
+			\tkzDefPointBy[homothety = center A ratio 0.8](x)\tkzGetPoint{E}
+			\tkzDefLine[perpendicular=through C](E,C) \tkzGetPoint{a}
+			\tkzInterLL(C,a)(B,y)\tkzGetPoint{K}
+			\tkzDefMidPoint(E,K)\tkzGetPoint{I}
+			\tkzDefPointBy[projection= onto A--B](I)\tkzGetPoint{H}
+			\tkzDrawSegments(A,B A,x B,y E,C C,K E,K)
+			\tkzDrawSegments[dashed](I,H I,C I,D)
+			\tkzMarkSegments[mark=||](I,E I,K)
+			\tkzMarkSegments[mark=|](A,C D,B)
+			\tkzMarkRightAngles(E,A,B A,B,K I,H,B)
+			\tkzLabelPoints(y,K,B)
+			\tkzLabelPoints[above](I)
+			\tkzLabelPoints[below](C,H,D)
+			\tkzLabelPoints[left](x,E,A)
+			\tkzDrawPoints(A,B,C,D,E,K,I,H)
+			\end{tikzpicture}}}
+\end{bt}
+\begin{bt}
+	Cho đoạn hình chữ nhật $ABCD$ có $E$ là trung điểm của $AB$, $F$ là trung điểm của $BC$. Đặt $\widehat{EDF}= \alpha$. Gọi $I$ là giao điểm của $AF$ và $EC$. Tính góc $AIE$ theo $\alpha$.
+	\loigiai{\immini{Gọi $K$ là trung điểm $AD$.\\
+			Ta có $\triangle CDK =\triangle DCF$ (g.c.g)\\
+			Suy ra $\widehat{C_1}=\widehat{D_2}$ nên $\widehat{C_1}=\widehat{D_1}=\alpha$.\\
+			Do $AKCF$ là hình bình hành nên $AF \parallel KC$.\\
+			Suy ra $\widehat{I_1}=\widehat{C_1}=\alpha$.}{\begin{tikzpicture}[scale=0.8]
+			\tkzDefPoints{0/0/D, 0/4/A, 6/0/C, 6/4/B}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{E}
+			\tkzDefMidPoint(A,D)\tkzGetPoint{K}
+			\tkzDefMidPoint(C,B)\tkzGetPoint{F}
+			\tkzInterLL(A,F)(C,E)\tkzGetPoint{I}
+			\tkzDrawSegments(A,B B,C C,D D,A E,D E,C A,F K,C D,F)
+			\tkzMarkSegments[mark=||](E,A E,B)
+			\tkzMarkSegments[mark=|](K,D K,A F,B F,C)
+			\tkzMarkAngles(C,D,F K,C,D)
+			\tkzLabelPoints[above](A,E,B)
+			\tkzLabelPoints[left](K,D)
+			\tkzLabelPoints[right](F,C)
+			\tkzLabelPoints[above right](I)
+			\tkzDrawPoints(A,B,C,D,E,F,K,I)
+			\end{tikzpicture}}}
+\end{bt}
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$ $(AB<AC)$, đường cao $AH$. Trêan cạnh $AC$ lấy điểm $E$ sao cho $AE=AB$. Gọi $I$ là trung điểm của $BE$. Tính góc $AHI$.
+	\loigiai{
+		\immini{Kẻ $EK \perp AH, ED \perp BC$.\\
+			Ta có $\triangle AHB = \triangle EKA$ (cạnh huyền - góc nhọn).\\
+			Suy ra $AH=EK=HD$.\\
+			Ta có $AI=DI=\dfrac{1}{2}BE$.\\
+			Suy ra $\triangle AHI = \triangle DHI$.\\
+			Suy ra $\widehat{AHI}=\widehat{DHI}=45^{\circ}$.}
+		{\begin{tikzpicture}[scale=1]
+			\clip (-0.5,-2.5) rectangle (6,2.5);
+			\tkzDefPoints{2/2/A, 0/0/B}
+			\tkzDefPointBy[homothety=center A ratio 1.5](B)\tkzGetPoint{B'}
+			\tkzDefPointBy[rotation= center A angle 90](B') \tkzGetPoint{C}
+			\tkzDefPointBy[rotation= center A angle 90](B) \tkzGetPoint{E}
+			\tkzDefMidPoint(B,E)\tkzGetPoint{I}
+			\tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{H}
+			\tkzDefPointBy[projection=onto H--A](E)\tkzGetPoint{K}
+			\tkzDefPointBy[projection=onto B--C](E)\tkzGetPoint{D}
+			\tkzDrawPoints(A,B,C,E,H,I,K,D)
+			\tkzDrawSegments(A,B B,C C,A A,H B,E A,I H,I D,I K,E D,E)
+			\tkzLabelPoints[left](B,K)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[right](C,E)
+			\tkzLabelPoints[below](H,D,I)
+			\end{tikzpicture}}	
+	}
+\end{bt}
+\begin{bt}
+	Cho góc vuông $Oxy$ và điểm $A$ nằm trog góc vuông đó. Gọi $M$ là điểm di động trên tia $Ox$. Đường vuông góc với $AM$ tại $A$ cắt tia $Oy$ ở $N$. Tìm vị trí của điểm $M$ để độ dài $MN$ nhỏ nhất. 
+	\loigiai{
+		\immini{Gọi $I$ là trung điểm $MN$.\\
+			Ta có $MN=IM+IN=IA+IO \ge OA$.\\
+			$MN$ nhỏ nhất bằng $OA$ khi và chỉ khi $O, I, A$ thẳng hàng.\\
+			Khi đó $I$ là trung điểm của $OA$, $AMON$ là hình chữ nhật và $M$ là chân đường vuông góc kẻ từ $A$ đến $Ox$.}
+		{\begin{tikzpicture}[scale=0.8]
+			\clip (-1,-0.5) rectangle (5.5,5.5);
+			\tkzDefPoints{0/0/O, 4/0/M, 0/2/N, 3/4/A, 5/0/x, 0/5/y}
+			\tkzDefPointBy[projection=onto N--O](A)\tkzGetPoint{N'}
+			\tkzDefPointBy[projection=onto O--M](A)\tkzGetPoint{M'}
+			\tkzDefMidPoint(M,N)\tkzGetPoint{I}
+			\tkzDrawSegments(A,M A,N M,N O,x O,y)
+			\tkzDrawSegments[dashed](A,M' A,N' A,O)
+			\tkzDrawPoints(A,M,N,M',N',I,O)
+			\tkzLabelPoints[left](N,N',y)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below left](O)
+			\tkzLabelPoints[below](M,M',I,x)
+			\end{tikzpicture}}
+	}
+\end{bt}
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$, đường cao $AH=h$. Gọi $I$ là điểm bất kỳ nằm trong tam giác $ABC$. Gọi $D,$ $E,$ $F$ theo thứ tự là chân các đường vuong góc kẻ từ $I$ đến $BC,$ $AC,$ $AB$. Tính giá trị nhỏ nhất của tổng $ID^2+IE^2+IF^2$ theo $h$.
+	\loigiai{
+		\immini{Kẻ $IN \perp AH$.\\
+			Ta có $IE^2+IF^2=IA^2$ nên\\ $IE^2+IF^2+ID^2=IA^2+ID^2\\ \ge AN^2+NH^2 \ge \dfrac{(AN+NH)^2}{2}=\dfrac{AH^2}{2}=\dfrac{h^2}{2}$.\\
+			Giá trị nhỏ nhất của $IE^2+IF^2+ID^2=\dfrac{h^2}{2}$ \\ khi và chỉ khi $I$ là trung điểm của đường cao $AH$.}
+		{\begin{tikzpicture}[scale=1]
+			\clip (-0.5,-1.5) rectangle (6,3);
+			\tkzDefPoints{2/2/A, 0/0/B, 2.5/0.8/I}
+			\tkzDefPointBy[homothety=center A ratio 1.5](B)\tkzGetPoint{B'}
+			\tkzDefPointBy[rotation= center A angle 90](B') \tkzGetPoint{C}
+			\tkzDefPointBy[projection=onto B--C](I)\tkzGetPoint{D}
+			\tkzDefPointBy[projection=onto C--A](I)\tkzGetPoint{E}
+			\tkzDefPointBy[projection=onto B--A](I)\tkzGetPoint{F}
+			\tkzDefPointBy[projection=onto H--A](I)\tkzGetPoint{N}
+			\tkzDrawPoints(A,B,C,D,E,F,H,I,N)
+			\tkzDrawSegments(A,B B,C C,A A,H N,I E,I D,I I,F)
+			\tkzDrawSegments[dashed](A,I)
+			\tkzLabelPoints[left](B,F,N)
+			\tkzLabelPoints[above](A,I)
+			\tkzLabelPoints[right](C,E)
+			\tkzLabelPoints[below](H,D)
+			\end{tikzpicture}}
+	}
+\end{bt}
+\subsubsection{Hình thoi - Hình vuông}
+\begin{bt}
+	Tính cạnh của hình thoi biết một đường chéo bằng $15$ cm và chiều cao bằng $12$ cm.
+	\loigiai{
+		\immini{Hình thoi $ABCD$ có $BD=15$cm, đường cao $BH=12$cm thì $HD^2=BD^2-BH^2=15^2-12^2=81$. \\ Suy ra $HD =9$cm.\\
+			Đặt $AB=x$ thì $AH=x-9$.\\
+			Giải phương trình $(x-9)^2+12^2=x^2$ ta được $x=12,5$.\\
+			Vậy cạnh hình thoi bằng $12,5$cm.}{\begin{tikzpicture}[scale=1]
+			\clip (-0.5,-3) rectangle (5,2.5);
+			\tkzDefPoints{2/2/A, 0/0/B, 2/0/I}
+			\tkzDefPointBy[symmetry=center I](B)
+			\tkzGetPoint{D}
+			\tkzDefPointBy[symmetry=center I](A)
+			\tkzGetPoint{C}
+			\tkzDefPointBy[projection=onto D--A](B)\tkzGetPoint{H}
+			\tkzDrawPoints(A,B,C,D,H)
+			\tkzDrawSegments(A,B B,C C,D D,A A,H B,D)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[right](D)
+			\tkzLabelPoints[below](C)
+			\end{tikzpicture}}
+	}
+\end{bt}
+\begin{bt}
+	Cho hình vuông $ABCD$, điểm $E$ thuộc cạnh $AD$, điểm $F$ thuộc tia đối của tia $CD$ sao cho $CF=AE$. Gọi $I$ là giao điểm của $EF$ và $AC$. Chứng minh rằng $BI$ vuông góc với $EF$.
+	\loigiai{
+		\immini{Ta có $\triangle BAE = \triangle BCF$ (c.g.c) nên $BE=BF$.\\
+			Kẻ $EG \parallel CF$.\\
+			Ta có $EG=AE=CF$ nên $EGFC$ là hình bình hành.\\
+			Suy ra $IE=IF$.\\
+			Tam giác $BEF$ cân có $BI$ là đường trung tuyến nên $BI \perp EF$.}
+		{\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{0/0/D, 0/4/A, 0/3/E, 5/0/F}
+			\tkzDefPointBy[rotation= center A angle 90](D)
+			\tkzGetPoint{B}
+			\tkzDefMidPoint(B,D)\tkzGetPoint{O}
+			\tkzDefPointBy[symmetry=center O](A)
+			\tkzGetPoint{C}
+			\tkzInterLL(A,C)(E,F)\tkzGetPoint{I}
+			\tkzDefPointBy[translation= from A to B](E)
+			\tkzGetPoint{E'}
+			\tkzInterLL(A,C)(E,E')\tkzGetPoint{G}
+			\tkzDrawSegments(A,B B,C C,D D,A B,I C,F E,F A,C E,G)
+			\tkzDrawPoints(A,B,C,D,E,F,I)
+			\tkzLabelPoints[left](E)
+			\tkzLabelPoints[above](B,A,G)
+			\tkzLabelPoints[below left](I,D)
+			\tkzLabelPoints[below](F,C)
+			\end{tikzpicture}}
+	}
+\end{bt}
+\begin{bt}
+	Cho hình vuông $ABCD$ cạnh $a$. Lấy điểm điểm $E$ thuộc cạnh $AB$, $K$ thuộc cạnh $CD$ sao cho $AE< \dfrac{a}{2}$, $CK <\dfrac{a}{2}$. Lấy $G$ thuộc cạnh $AD$ sao cho $\widehat{KEG}=\widehat{KEB}$. Đường thẳng đi qua $K$ và song song với $GE$ cắt $BC$ ở $H$. Gọi $O$ là giao điểm của $GH$ và $EK$. Chứng minh rằng $\widehat{EOG}=45^ \circ$.
+	\loigiai{
+		\immini{Do $\widehat{E_1}=\widehat{E_2}$ nên ta kẻ $KF \perp AB, KI \perp EG$ \\ thì $KI=KF=a$.\\
+			Kẻ $MN \perp CD, MQ \perp AD$, ta có\\
+			$\triangle KCH=\triangle MQG$ (cạnh huyền - góc nhọn).\\
+			$\Rightarrow KC=MQ=ND$\\
+			$\Rightarrow NK=DC=a=KI \Rightarrow \widehat{K_3}=\widehat{K_4}$.\\
+			Ta lại có $\widehat{K_1}=\widehat{K_2}$ nên $\widehat{K_2}+\widehat{K_3}=45^{\circ} \Rightarrow \widehat{EKM}=45^{\circ}$.\\
+			Do $KM \parallel HG$ nên $\widehat{EOG}=\widehat{EKM}=45^{\circ}$.}
+		{\begin{tikzpicture}[scale=1]
+			\clip (-2,-1.5) rectangle (5,4);
+			\tkzDefPoints{0/0/D, 0/4/A, 1/4/E, 2.8/0/K}
+			\tkzDefPointBy[reflection=over E--K](B)\tkzGetPoint{G'}
+			\tkzInterLL(E,G')(A,D)\tkzGetPoint{G}
+			\tkzDefPointBy[translation= from G to E](K)
+			\tkzGetPoint{H'}
+			\tkzInterLL(K,H')(B,C)\tkzGetPoint{H}
+			\tkzInterLL(H,G)(E,K)\tkzGetPoint{O}
+			\tkzDefPointBy[projection=onto B--A](K)\tkzGetPoint{F}
+			\tkzDefPointBy[projection=onto E--G](K)\tkzGetPoint{I}
+			\tkzDefPointBy[symmetry=center G](E)\tkzGetPoint{M}
+			\tkzDefPointBy[projection=onto D--C](M)\tkzGetPoint{N}
+			\tkzDefPointBy[projection=onto D--A](M)\tkzGetPoint{Q}
+			\tkzDrawSegments(A,B B,C C,D D,A K,I K,F E,K K,H K,M M,Q M,N N,D G,H E,M)
+			\tkzDrawPoints(A,B,C,D,E,F,I,K,H,G,O)
+			\tkzLabelPoints[left](M,N,I)
+			\tkzLabelPoints[right](H,Q,O)
+			\tkzLabelPoints[above](E,F,B,A)
+			\tkzLabelPoints[below left](D)
+			\tkzLabelPoints[below](C,K)
+			\tkzLabelPoints[above left](G)
+			\end{tikzpicture}}
+	}
+\end{bt}
+\begin{bt}
+	Cho hình vuông $ABCD$ canh $a$, điểm $E$ thuộc cạnh $BC$, điểm $F$ thuộc cạnh $CD$ sao cho $\widehat{EAF}=45^ \circ$. Tính đọ dài lớn nhất của $EF$.
+	\loigiai{
+		\immini{Trên tia đối của tia $DC$ lấy $K$ sao cho $DK=BE$.\\
+			Ta có $\triangle ADK = \triangle ADE$ (c.g.c) nên $\widehat{A_4}=\widehat{A_1}$.\\
+			Suy ra $\widehat{A_4}+\widehat{A_3}=\widehat{A_1}+\widehat{A_3}=45^{\circ}=\widehat{A_2}$.\\
+			Do đó $\triangle FAE=\triangle FAK$ (c.g.c)\\
+			$\Rightarrow EF=KF=KD+DF=BE+DF$\\
+			$\Rightarrow EF+CE+CF=BE+CE+DF=BC+CD=2a$.\\
+			Ta lại có $EF \le CE+CF$ nên $EF \le a$.\\
+			Giá trị lớn nhất của $EF$ là $a$ khi và chỉ khi $E$ trùng $B$ hoặc $E$ trùng $C$.}
+		{\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{0/0/D, 0/4/A, 4/3/E, -1/0/K}
+			\tkzDefPointBy[rotation= center A angle -45](E)
+			\tkzGetPoint{F'}
+			\tkzInterLL(A,F')(C,D)\tkzGetPoint{F}
+			\tkzDrawSegments(A,B B,C C,D D,A A,E A,F A,K D,K E,F)
+			\tkzDrawPoints(A,B,C,D,E,F,I,K)
+			\tkzLabelPoints[left](K)
+			\tkzLabelPoints[above](B,A)
+			\tkzLabelPoints[right](E)
+			\tkzLabelPoints[below](F,C,D)
+			\end{tikzpicture}}	
+	}
+\end{bt}
+\begin{bt}
+	Tính chu vi nhỏ nhất của tứ giác $ABCD$ biết hai đường chéo vuông góc và có tổng bằng $k$.
+	\loigiai{
+		\immini{Đặt $AB=a, BC=b, CD=c, DA=d$.\\
+			Gọi $O$ là giao điểm của hai đường chéo.\\
+			Ta có $a^2=OA^2+OB^2 \ge \dfrac{(OA+OB)^2}{2}$\\
+			Suy ra $a \ge \dfrac{OA+OB}{\sqrt{2}} \Rightarrow a\sqrt{2} \ge OA+OB$.\\
+			Tương tự $b\sqrt{2} \ge OB+OC, c\sqrt{2} \ge OC+OD,\\ d\sqrt{2} \ge OD+OA$.\\
+			Suy ra $(a+b+c+d)\sqrt{2} \ge 2(OA+OB+OC+OD)=2k$.\\
+			$\min(a+b+c+d)=k\sqrt{2} \Leftrightarrow \heva{
+				&OA=OB=OC=OD=\dfrac{k}{4}\\
+				&AC \perp BD.}$\\
+			$\Leftrightarrow ABCD$ là hình vuông có đường chéo bằng $\dfrac{k}{2}$.}{\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{0/0/A, 2/2/B, 2/-3/D, 5/0/C}
+			\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+			\tkzDrawSegments(A,B B,C C,D D,A A,C D,B)
+			\tkzDrawPoints(A,B,C,D,O)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[above](B)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[below](D)
+			\tkzLabelPoints[below right](O)
+			\end{tikzpicture}}
+	}
+\end{bt}
+\subsubsection{Đa giác}
+\begin{bt}
+	Tính các góc của một đa giác có số đo các góc tăng đều từ $90^ \circ$ đến $126^ \circ$.
+	\loigiai{
+		Xét đa giác $n$ cạnh có số đo các góc tăng dần là $a_1,a_2,\cdots,a_n$. Tổng các góc trong bằng $\dfrac{(a_1+a_n)n}{2}=\dfrac{(90^{\circ}+126^{\circ})n}{2}=108^{\circ}n$.\\
+		Giải phương trình $(n-2)180^{\circ}=108^{\circ}n$ ta được $n=5$.\\
+		Gọi $d$ là độ tăng dần của các góc. Do $n=5$ nên $90^{\circ}+4d=126^{\circ}$ nên $d=9^{\circ}$.\\
+		Số đo các góc của đa giác là $90^{\circ},99^{\circ},108^{\circ},117^{\circ},126^{\circ}$.
+	}
+\end{bt}
+\begin{bt}
+	Cho hai đa giác đều, đa giác $M$ có $x$ cạnh, số đo mỗi góc là $m$, đa giác $n$ có $y$ cạnh, số đo mỗi góc là $n$. Tính $x$ và $y$, biết rằng
+	\begin{enumerate}
+		\item $\dfrac{m}{n}=\dfrac{2}{5}.$
+		\item $\dfrac{m}{n}=\dfrac{3}{4}.$
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item $\dfrac{m}{n}=\dfrac{(x-2)180}{x}:\dfrac{(y-2)180}{y}=\dfrac{x-2}{x}\cdot\dfrac{y}{y-2}$.\\
+			Ta có $\dfrac{(x-2)y}{(y-2)x}=\dfrac{2}{5}$. Rút gọn được $3xy+4x-10y=0 \Leftrightarrow (3y+4)(3x-10)=-40$.\\
+			Do $y \ge 3$ nên $3y+4 \ge 13$, ta có hai trường hợp:
+			\begin{itemize}
+				\item $\heva{
+					&3y+4=20\\
+					&3x-10=-2} \Leftrightarrow \heva{
+					&x=\dfrac{8}{3}\\
+					&y=\dfrac{24}{3}}.$
+				\item $\heva{
+					&3y+4=40\\
+					&3x-10=-1} \Leftrightarrow \heva{
+					&x=3\\
+					&y=12}.$
+			\end{itemize}
+			\item Có bốn đáp số: \begin{multicols}{4}
+				$\heva{
+					&x=4\\
+					&y=6}$
+				\\
+				$\heva{			
+					&x=5\\
+					&y=10}$
+				\\
+				$\heva{
+					&x=6\\
+					&y=18}$
+				\\
+				$\heva{
+					&x=7\\
+					&y=42.}$
+			\end{multicols}
+		\end{enumerate}
+	}
+\end{bt}  
+
+
+
+

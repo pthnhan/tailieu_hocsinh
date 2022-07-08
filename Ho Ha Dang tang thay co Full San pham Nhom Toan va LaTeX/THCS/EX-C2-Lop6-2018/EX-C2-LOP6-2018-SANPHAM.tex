@@ -1,0 +1,164 @@
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage{amsmath,amssymb,yhmath,mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{tkz-euclide}
+\usepackage{tikz-3dplot}
+\usepackage{tikz,tkz-tab,tkz-linknodes}
+\usetikzlibrary{shapes.geometric,arrows,calc,intersections,angles,patterns,snakes}
+\usetkzobj{all}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.9}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=1.5cm] {geometry}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage{currfile}
+\usepackage[loigiai]{ex_test}
+%CÁC GÓI, LỆNH VIẾT TẮT CẦN THÊM
+%CẤU TRÚC TỰ LUẬN
+
+\usepackage{framed}
+\usepackage[most]{tcolorbox}
+\newtheorem{bt}{Bài}
+\newtheorem{vd}{Ví dụ}
+\def\beginbox{\begin{tcolorbox}[colframe=blue,colback=white]}
+\def\endbox{\end{tcolorbox}}
+\AtBeginEnvironment{vd}{
+\beginbox
+\renewcommand{\loigiai}[1]{
+\renewcommand{\immini}[2]{
+\setbox\imbox=\vbox{\hbox{##2}}
+\widthimmini=\wd\imbox
+\IMleftright{##1}{##2}
+}
+\endbox
+\begin{onlysolution}
+#1
+\end{onlysolution}
+\def\endbox{}
+}
+}
+\AtEndEnvironment{vd}{
+\endbox
+}
+\newtcolorbox[auto counter]{dang}[1]{
+colframe=blue,colback=white,
+title=Dạng~\thetcbcounter.\ \protect{#1}
+\addcontentsline{toc}{subsection}{
+Dạng~\thetcbcounter.\ #1
+}
+}
+\theorembodyfont{\it}
+\newtheorem{dl}{Định lí}
+\theoremseparator{.}
+\theorembodyfont{\rm}
+\newtheorem{hq}{Hệ quả}
+\newtheorem{tc}{Tính chất}
+\newtheorem{dn}{Định nghĩa}
+\theoremstyle{nonumberplain}
+\newtheorem{kn}{Khái niệm}
+\theoremseparator{}
+\theorembodyfont{\it}
+\usepackage{stackengine}
+\usepackage{scalerel}
+\newcommand\dangersign[1][2ex]{%
+  \renewcommand\stacktype{L}%
+  \scaleto{\stackon[1.3pt]{\color{red}$\triangle$}{\fontsize{4}{0}\selectfont !}}{#1}%
+}
+\newtheorem{note}{{\dangersign[3ex]}}
+\newcommand{\hoac}[1]{ 
+	\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{
+	\left\{\begin{aligned}#1\end{aligned}\right.}
+%Tiêu đề chương
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{2}
+\usepackage{titlesec}
+\makeatletter
+\renewcommand \thesection{\@arabic\c@section.}
+\renewcommand\thesubsection{\@Roman\c@subsection.}
+\renewcommand\thesubsubsection{\@arabic\c@subsubsection.}
+\makeatother
+\titleformat{\section}{\selectfont\color{red!50!blue}\centering\scshape\Large\bfseries}{\S\thesection}{0em}{
+\setcounter{vd}{0}
+\setcounter{ex}{0}
+\setcounter{bt}{0}
+\setcounter{dl}{0}
+\setcounter{dn}{0}
+\setcounter{hq}{0}
+\setcounter{tc}{0}
+\setcounter{\tcbcounter}{0}
+}
+\renewcommand{\labelenumi}{\alph{enumi})}
+%HẾT CẤU TRÚC TỰ LUẬN
+\begin{document}
+\begin{titlepage}
+\pagestyle{empty}
+\begin{center}
+	\fontsize{16}{0}\selectfont\textbf{BÙI VĂN TUYÊN - NGUYỄN ĐỨC TRƯỜNG}\\
+\end{center}
+\vspace{6cm}
+\begin{center}
+	\textbf{\fontsize{24}{0}\selectfont TRỌNG TÂM KIẾN THỨC\\ VÀ PHƯƠNG PHÁP GIẢI BÀI TẬP}\\
+\end{center}		
+\begin{center}
+	\textbf{\fontsize{40}{0}\selectfont TOÁN 6}
+\end{center}
+\begin{center}
+	\textbf{\fontsize{18}{0}\selectfont Tập hai}
+\end{center}
+\begin{center}
+	\textit{\textbf{\fontsize{14}{0}\selectfont (Tái bản lần thứ nhất)}}
+\end{center}
+\vfill{
+	\begin{center}
+		\fontsize{14}{0}\textbf{NHÀ XUẤT BẢN GIÁO DỤC VIỆT NAM}
+	\end{center}
+}
+\end{titlepage}
+	\pagestyle{fancy}
+\lhead{Facebook ``Nhóm Toán và \LaTeX''}
+%\newpage
+\chead{\empty}
+\rhead{\currfilename}
+\lfoot{\empty}
+
+\tableofcontents
+\part{SỐ HỌC}
+%\chapter{ÔN TẬP VỀ SỐ TỰ NHIÊN}
+%\input{DS/6D1-TL-1-2-3}
+%\input{DS/6D1-TL-4-5}
+%\input{DS/6D1-TL-6-7-8}
+%\input{DS/6D1-TL-9-10}
+\input{DS/6D1-TL-11-12-13}
+%\input{DS/6D1-TL-14-15-16-17}
+%\input{DS/6D1-TL-18-OTC1}
+%\chapter{SỐ NGUYÊN}
+%\input{DS/6D2-TL-1-2-3}
+%\input{DS/6D2-TL-4-5-6-7-8-9}
+%\input{DS/6D2-TL-10-11-12-13}
+%\input{DS/6D2-TL-OTC2}
+%\chapter{PHÂN SỐ}
+%\input{DS/6D3-TL-1-2}
+%\input{DS/6D3-TL-3-4}
+%\input{DS/6D3-TL-5-6}
+%\input{DS/6D3-TL-7-8}
+%\input{DS/6D3-TL-9-10-11}
+%\input{DS/6D3-TL-12}
+%\input{DS/6D3-TL-13}
+%\input{DS/6D3-TL-14-15}
+%\input{DS/6D3-TL-16-17}
+%\input{DS/6D3-TL-OTC3}
+%\part{HÌNH HỌC}
+%\chapter{ĐOẠN THẲNG}
+%\input{HH/6H1-TL-1-2}
+%\input{HH/6H1-TL-3-4-5}
+%\input{HH/6H1-TL-6-7-8}
+%\input{HH/6H1-TL-9-10}
+%\input{HH/6H1-TL-OTC1}
+%\chapter{GÓC}
+%\input{HH/6H2-TL-1-2}
+%\input{HH/6H2-TL-3-4}
+%\input{HH/6H2-TL-5-6}
+%\input{HH/6H2-TL-7-8-OTC2}
+\end{document}

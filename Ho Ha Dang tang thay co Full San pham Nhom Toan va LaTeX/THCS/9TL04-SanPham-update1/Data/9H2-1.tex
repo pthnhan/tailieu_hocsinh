@@ -1,0 +1,1201 @@
+%%Biên soạn: Cao Thành Thái. Phản biện: Dương BùiĐức
+
+\section{Sự xác định đường tròn. Tính chất đối xứng của đường tròn}
+
+
+
+\subsection{Tóm tắt lí thuyết}
+
+\subsubsection{Định nghĩa đường tròn}
+
+\begin{dn}
+ \immini[0.01]{
+ Đường tròn tâm $O$ bán kính $R$ (với $R>0$) là hình gồm các điểm cách đều điểm $O$ một khoảng không đổi bằng $R$.\\
+ Đường tròn tâm $O$ bán kính $R$ được kí hiệu là $(O;R)$, ta cũng có thể kí hiệu là $(O)$ khi không cần chú ý đến bán kính.
+ }
+ {
+ \begin{tikzpicture}
+  \tkzDefPoints{0/0/O, 1.5/0/M}
+  \tkzDrawPoints[fill=black](O)
+  \tkzDrawCircle[radius](O,M)
+  \tkzDrawSegments(O,M)
+  \tkzLabelPoints[below](O)
+  \tkzLabelLine[above](O,M){$R$}
+ \end{tikzpicture}
+ }
+\end{dn}
+\immini{{\bf Nhận xét.} Cho đường tròn $(O;R)$ và một điểm $M$. Khi đó
+\begin{itemize}
+ \item $M$ nằm trên $(O;R)$ khi và chỉ khi $OM=R$.
+ \item $M$ nằm bên trong $(O;R)$ khi và chỉ khi $OM<R$.
+ \item $M$ nằm bên ngoài $(O;R)$ khi và chỉ khi $OM>R$.
+\end{itemize}
+}
+{
+\begin{tikzpicture}[scale=0.9]
+ \def\a{2}
+ \tkzDefPoints{0/0/O,\a/0/A}
+ \draw (A) arc(0:360:\a cm and \a cm);
+ \coordinate(M_1) at ([shift={(O)}]120:\a cm and \a cm);
+ \coordinate(M_2) at ([shift={(O)}]220:1.5 cm and 1.5 cm);
+ \coordinate(M_3) at ([shift={(O)}]330:2.5 cm and 2.5 cm);
+ \tkzDrawPoints[fill=black](O, M_1, M_2, M_3)
+ \tkzDrawSegments(O,A O,M_1 O,M_2 O,M_3)
+ \tkzLabelPoints[above](M_1)
+ \tkzLabelPoints[below](O,M_3)
+ \tkzLabelPoints[below right](M_2)
+ \tkzLabelLine[above](O,A){$R$}
+\end{tikzpicture}
+}
+\subsubsection{Cách xác định đường tròn}
+\begin{enumerate}
+ \item Một đường tròn được xác định khi biết tâm và bán kính của nó.
+ \item Một đường tròn được xác định khi biết một đoạn thẳng là đường kính của đường tròn đó.
+ \item Qua ba điểm không thẳng hàng cho trước ta vẽ được một và chỉ một đường tròn.
+\end{enumerate}
+\begin{center}
+ \begin{tikzpicture}[scale=0.8]
+  \tkzDefPoints{0/0/O, 1.5/0/M}
+  \tkzDrawPoints[fill=black](O)
+  \tkzDrawCircle[radius](O,M)
+  \tkzDrawSegments(O,M)
+  \tkzLabelPoints[below](O)
+  \tkzLabelLine[above](O,M){$R$}
+ \end{tikzpicture}\hspace{1cm}
+ \begin{tikzpicture}[scale=0.8]
+  \tkzDefPoints{0/0/A,3/0/B}
+  \tkzDefMidPoint(A,B)\tkzGetPoint{O}
+  \tkzDrawPoints[fill=black](A,B,O)
+  \tkzDrawSegments(A,B)
+  \tkzDrawCircle[radius](O,A)
+  \tkzMarkSegments[mark=||,size=0.1cm](A,O O,B)
+  \tkzLabelPoints[below](O)
+  \tkzLabelPoints[left](A)
+  \tkzLabelPoints[right](B)
+  \tkzLabelLine[above](A,O){$R$}
+  \tkzLabelLine[above](B,O){$R$}
+ \end{tikzpicture}\hspace{1cm}
+ \begin{tikzpicture}[scale=0.8]
+  \tkzInit[xmin=-1.8, xmax=2,ymin=-1.6,ymax=2]
+  \tkzClip
+  \def\a{1.5}\def\b{1.5}
+  \tkzDefPoints{\a/0/M,-\a/0/N}
+  \tkzDefMidPoint(M,N)\tkzGetPoint{O}
+  \draw (M) arc(0:360:\a cm and \b cm);
+  \coordinate(C) at ([shift={(O)}]335:\a cm and \b cm);
+  \coordinate(B) at ([shift={(O)}]208:\a cm and \b cm);
+  \coordinate(A) at ([shift={(O)}]110:\a cm and \b cm);
+  \tkzDefLine[mediator](A,B)\tkzGetPoints{D}{E}
+  \tkzDefLine[mediator](A,C)\tkzGetPoints{F}{G}
+  \tkzDefMidPoint(A,B)\tkzGetPoint{i}
+  \tkzDefMidPoint(A,C)\tkzGetPoint{j}
+  \tkzDrawPoints[fill=black](A,B,C,O)
+  \tkzDrawSegments(A,B B,C C,A)
+  \tkzDrawLines[add=.1 and .1](D,E)
+  \tkzDrawLines[add=.1 and .1](F,G)
+  \tkzMarkRightAngles[size=0.15](A,i,O C,j,O)
+  \tkzMarkSegments[mark=|,size=0.1cm](A,i B,i)
+  \tkzMarkSegments[mark=||,size=0.1cm](A,j C,j)
+  \tkzLabelPoints[above](A)
+  \tkzLabelPoints[below](O)
+  \tkzLabelPoints[left](B)
+  \tkzLabelPoints[right](C)
+ \end{tikzpicture}
+\end{center}
+
+\subsubsection{Tính chất đối xứng của đường tròn}
+\begin{tc}
+ Đường tròn là hình có tâm đối xứng. Tâm của đường tròn là tâm đối xứng của đường tròn đó.
+\end{tc}
+
+\begin{tc}
+ Đường tròn là hình có trục đối xứng. Bất kỳ đường kính nào cũng là trục đối xứng của đường tròn.
+\end{tc}
+\begin{minipage}{8cm}
+\begin{center}
+ \begin{tikzpicture}[scale=0.8]
+  \def\a{1.5}\def\b{1.5}
+  \tkzDefPoints{\a/1/A',-\a/1/A}
+  \tkzDefMidPoint(A,A')\tkzGetPoint{O}
+  \draw (A') arc(0:360:\a cm and \b cm);
+  \tkzDrawPoints[fill=black](A,A',O)
+  \tkzDrawSegments(A,A')
+  \tkzMarkSegments[mark=|,size=0.1cm](A,O A',O)
+  \tkzLabelPoints[left](A)
+  \tkzLabelPoints[right](A')
+  \tkzLabelPoints[below](O)
+ \end{tikzpicture}
+\end{center}
+\end{minipage}
+\begin{minipage}{8cm}
+\begin{center}
+ \begin{tikzpicture}[scale=0.8]
+  \def\a{1.5}\def\b{1.5}
+  \tkzDefPoints{\a/0/M,-\a/0/N}
+  \tkzDefMidPoint(M,N)\tkzGetPoint{O}
+  \draw (M) arc(0:360:\a cm and \b cm);
+  \tkzDefShiftPoint[O](90:\a){A}
+  \tkzDefPointBy[symmetry=center O](A)\tkzGetPoint{B}
+  \coordinate(C) at ([shift={(O)}]220:\a cm and \b cm);
+  \tkzDefPointBy[reflection=over A--B](C)\tkzGetPoint{C'}
+  \tkzInterLL(A,B)(C,C')\tkzGetPoint{i}
+  \tkzDrawPoints[fill=black](A,B,C,C',O)
+  \tkzDrawSegments(A,B C,C')
+  \tkzMarkSegments[mark=|,size=0.1cm](C,i C',i)
+  \tkzMarkRightAngles[size=0.15](A,i,C')
+  \tkzLabelPoints[above](A)
+  \tkzLabelPoints[below](B)
+  \tkzLabelPoints[left](C)
+  \tkzLabelPoints[right](O,C')
+ \end{tikzpicture}
+\end{center}
+\end{minipage}
+
+\begin{note}
+ Đường tròn có một tâm đối xứng và có vô số trục đối xứng.
+\end{note}
+
+\subsection{Các ví dụ}
+
+\begin{vd}
+\label{9H2-1.vd.1}
+ Cho tam giác $ABC$ vuông tại $A$. Xác định tâm và bán kính đường tròn đi qua ba đỉnh của tam giác $ABC$.
+ \loigiai
+  {
+  \immini{
+  Gọi $M$ là trung điểm của $BC$.\\
+  Ta có $AM$ là trung tuyến ứng với cạnh huyền nên $AM=\dfrac{BC}{2}$.\\
+  Suy ra $MA=MB=MC=\dfrac{BC}{2}$.\\
+  Vậy đường tròn đi qua ba đỉnh của tam giác $ABC$ có tâm là điểm $M$ và bán kính $R=\dfrac{BC}{2}$.
+  }
+  {
+  \begin{tikzpicture}[scale=0.8]
+   \tkzDefPoints{0/0/B, 3/0/C}
+   \tkzDefShiftPoint[B](50:1){b}
+   \tkzDefShiftPoint[C](-40:1){c}
+   \tkzInterLL(B,b)(C,c)\tkzGetPoint{A}
+   \tkzDefMidPoint(B,C)\tkzGetPoint{M}
+   \tkzDrawPoints[fill=black](A,B,C,M)
+   \tkzDrawSegments(A,B B,C C,A A,M)
+   \tkzDrawCircle(M,A)
+   \tkzMarkSegments[mark=|,size=0.1cm](B,M M,C)
+   \tkzMarkRightAngles(B,A,C)
+   \tkzLabelPoints[above](A)
+   \tkzLabelPoints[below](M)
+   \tkzLabelPoints[left](B)
+   \tkzLabelPoints[right](C)
+  \end{tikzpicture}
+  }
+  }
+\end{vd}
+
+\begin{vd}
+ Chứng minh rằng, nếu một tam giác có một cạnh là đường kính của đường tròn đi qua ba đỉnh của tam giác đó thì tam giác đó là tam giác vuông.
+ \loigiai
+  {
+  \immini{
+  Xét tam giác $ABC$ có ba đỉnh nằm trên đường tròn $(O)$ đường kính $BC$.\\
+  Ta có $OA=OB=OC$ (vì là bán kính của $(O)$).\\
+  Lúc đó $AO$ là trung tuyến ứng với cạnh $BC$ và $AO=\dfrac{BC}{2}$.\\
+  Vậy $ABC$ là tam giác vuông tại $A$.
+  }
+  {
+  \begin{tikzpicture}[scale=0.8]
+   \tkzDefPoints{0/0/B, 3/0/C}
+   \tkzDefShiftPoint[B](50:1){b}
+   \tkzDefShiftPoint[C](-40:1){c}
+   \tkzInterLL(B,b)(C,c)\tkzGetPoint{A}
+   \tkzDefMidPoint(B,C)\tkzGetPoint{O}
+   \tkzDrawPoints[fill=black](A,B,C,O)
+   \tkzDrawSegments(A,B B,C C,A A,O)
+   \tkzDrawCircle(O,A)
+   \tkzMarkSegments[mark=|,size=0.1cm](B,O O,C O,A)
+   \tkzLabelPoints[above](A)
+   \tkzLabelPoints[below](O)
+   \tkzLabelPoints[left](B)
+   \tkzLabelPoints[right](C)
+  \end{tikzpicture}
+  }
+  \begin{note}
+   Đường tròn qua ba đỉnh của một tam giác vuông thì nó có tâm là trung điểm của cạnh huyền và bán kính bằng phân nửa độ dài cạnh huyền. Ngược lại, một đường tròn đi qua ba đỉnh của một tam giác nhận một cạnh của tam giác đó là đường kính thì tam giác đó là tam giác vuông.
+  \end{note}
+  }
+\end{vd}
+
+\begin{vd}
+ Cho tam giác đều $ABC$ có cạnh bằng $a$. Tính bán kính đường tròn đi qua ba đỉnh của tam giác $ABC$.
+ \loigiai
+  {
+  \immini{
+  Gọi $M$, $N$, $P$ lần lượt là trung điểm của $BC$, $CA$, $AB$.\\
+  Dựng các đường trung trực của các cạnh $AB$, $BC$, $CA$, các đường trung trực này đồng quy tại $O$, suy ra $O$ là tâm của đường tròn đi qua ba đỉnh của tam giác $ABC$. Bán kính của đường tròn $(O)$ là $R=OA=OB=OC$.\\
+  Vì $ABC$ là tam giác đều nên các đường trung trực này cũng là các đường trung tuyến của tam giác $ABC$. Suy ra $O$ cũng là trọng tâm của tam giác $ABC$.
+  }
+  {
+  \begin{tikzpicture}[scale=0.8]
+   \tkzInit[xmin=-0.6,xmax=3.6,ymin=-1,ymax=3.2]
+   \tkzClip
+   \tkzDefPoints{0/0/B, 3/0/C}
+   \tkzCalcLength[cm](B,C)\tkzGetLength{r}
+   \tkzDefShiftPoint[B](60:\r){A}
+   \tkzDefMidPoint(B,C)\tkzGetPoint{M}
+   \tkzDefMidPoint(C,A)\tkzGetPoint{N}
+   \tkzDefMidPoint(A,B)\tkzGetPoint{P}
+   \tkzDefCircle[circum](A,B,C)\tkzGetPoint{O}
+   \tkzDrawPoints[fill=black](A,B,C,M,N,P,O)
+   \tkzDrawPolygon(A,B,C)
+   \tkzDrawCircle(O,A)
+   \tkzDrawSegments(O,N O,P A,M)
+   \tkzMarkRightAngles[size=0.15](A,M,B C,N,O A,P,O)
+   \tkzLabelPoints[above](A)
+   \tkzLabelPoints[below](M)
+   \tkzLabelPoints[left](B,P)
+   \tkzLabelPoints[right](C,N)
+   \tkzLabelPoints[below right](O)
+  \end{tikzpicture}
+  }
+  \noindent Trong tam giác $ABM$ vuông tại $M$ ta có $AM=\sqrt{AB^2 - BM^2} = \sqrt{a^2 - \left(\dfrac{a}{2}\right)^2} = \dfrac{a\sqrt{3}}{2}$.\\
+  Lại có $OA=\dfrac{2}{3}AM = \dfrac{2}{3} \cdot \dfrac{a\sqrt{3}}{2} = \dfrac{a\sqrt{3}}{3}$.\\
+  Vậy bán kính đường tròn đi qua ba đỉnh của tam giác $ABC$ là $R=\dfrac{a\sqrt{3}}{3}$.
+  }
+\end{vd}
+
+\begin{vd}
+ \label{9H2-1.vd.2}
+ Cho hình chữ nhật $ABCD$ có $AB=12$ cm, $BC=5$ cm. Chứng minh rằng bốn điểm $A$, $B$, $C$, $D$ cùng thuộc một đường tròn. Xác định tâm và bán kính của đường tròn đó.
+ \loigiai
+  {
+  \immini{
+  Gọi $O$ là giao điểm $AC$ và $BD$. Khi đó $O$ là trung điểm của $AC$, $BD$.\\
+  Mà $ABCD$ là hình chữ nhật nên $AC=BD$.\\
+  Do đó $OA=OB=OC=OD$ hay bốn điểm $A$, $B$, $C$, $D$ cùng thuộc một đường tròn $(O)$, bán kính $R=OA=\dfrac{AC}{2}$.\\
+  Tam giác $ABC$ vuông tại $B$ nên $AC=\sqrt{AB^2+BC^2} = \sqrt{12^2+5^2} = 13$.
+  }
+  {
+  \begin{tikzpicture}[scale=0.8]
+   \tkzDefPoints{0/0/A, 3/0/B}
+   \tkzDefShiftPoint[B](90:1.5){C}
+   \tkzDefPointBy[translation=from B to A](C)\tkzGetPoint{D}
+   \tkzDefMidPoint(A,C)\tkzGetPoint{O}
+   \tkzDrawPoints[fill=black](A,B,C,D,O)
+   \tkzDrawPolygon(A,B,C,D)
+   \tkzDrawSegments(A,C B,D)
+   \tkzDrawCircle(O,A)
+   \tkzMarkRightAngles[size=0.15](A,B,C A,D,C)
+   \tkzLabelPoints[below](O)
+   \tkzLabelPoints[left](A,D)
+   \tkzLabelPoints[right](B,C)
+  \end{tikzpicture}
+  }
+  \noindent Suy ra $R=\dfrac{AC}{2} = 6,5$ cm.\\
+  Vậy bốn điểm $A$, $B$, $C$, $D$ cùng thuộc một đường tròn $(O)$ bán kính $R=6,5$ cm.
+  \begin{note}
+   Đường tròn qua bốn đỉnh của hình chữ nhật $ABCD$ có tâm là giao điểm của hai đường chéo và bán kính của nó bằng một nửa độ dài đường chéo của hình chữ nhật đó.
+  \end{note}
+  }
+\end{vd}
+
+\begin{vd}
+ Cho đường tròn $(O)$ với hai đường kính $AC$ và $BD$ vuông góc với nhau. Chứng minh $ABCD$ là hình vuông.
+ \loigiai
+  {
+  \immini{
+  Tứ giác $ABCD$ có hai đường chéo $AC$, $BD$ là đường kính của đường tròn $(O)$ nên $ABCD$ là hình chữ nhật.\\
+  Lại có $AC \perp BD$.\\
+  Vậy $ABCD$ là hình chữ nhật có hai đường chéo vuông góc với nhau nên $ABCD$ là hình vuông.
+  }
+  {
+  \begin{tikzpicture}[scale=0.8]
+   \def\a{2}
+   \tkzDefPoints{0/0/D, \a/0/C}
+   \tkzDefShiftPoint[C](90:\a){B}
+   \tkzDefPointBy[translation=from C to D](B)\tkzGetPoint{A}
+   \tkzDefMidPoint(A,C)\tkzGetPoint{O}
+   \tkzDrawPoints[fill=black](A,B,C,D,O)
+   \tkzDrawPolygon(A,B,C,D)
+   \tkzDrawSegments(A,C B,D)
+   \tkzDrawCircle(O,A)
+   \tkzMarkRightAngles[size=0.15](A,O,B)
+   \tkzLabelPoints[below](O)
+   \tkzLabelPoints[left](A,D)
+   \tkzLabelPoints[right](B,C)
+  \end{tikzpicture}
+  }
+  }
+\end{vd}
+
+\begin{vd}
+ Cho hình thang cân $ABCD$ với $AB \parallel CD$ và $AB > CD$. Chứng minh rằng bốn điểm $A$, $B$, $C$, $D$ cùng thuộc một đường tròn.
+ \loigiai
+  {
+  \immini{
+  Gọi $M$, $N$ lần lượt là trung điểm của $AB$, $CD$.\\
+  Do $ABCD$ là hình thang cân với hai đáy $AB$, $CD$ nên $MN$ đường trung trực của $AB$, $CD$.\\
+  Gọi $P$ là trung điểm của $BC$. Qua $P$ dựng đường trung trực của $BC$ cắt $MN$ tại $O$. Ta cần chứng minh $OA=OB=OC=OD$.\\
+  Thật vậy, vì $O$ nằm trên đường trung trực của $AB$ nên $OA=OB$.\\
+  Mà $MN$ cũng là trung trực của $CD$ nên $OC=OD$.\\
+  Hơn nữa, $O$ nằm trên đường trung trực của $BC$ nên $OB=OC$.
+  }
+  {
+  \begin{tikzpicture}
+   \tkzDefPoints{0/0/A, 3.5/0/B}
+   \tkzDefShiftPoint[A](70:2){D}
+   \tkzDefShiftPoint[B](110:2){C}
+   \tkzDefMidPoint(A,B)\tkzGetPoint{M}
+   \tkzDefMidPoint(C,D)\tkzGetPoint{N}
+   \tkzDefMidPoint(B,C)\tkzGetPoint{P}
+   \tkzDefLine[perpendicular = through P](B,C)\tkzGetPoint{p}
+   \tkzInterLL(P,p)(M,N)\tkzGetPoint{O}
+   \tkzDrawPoints[fill=black](A,B,C,D,M,N,P,O)
+   \tkzDrawPolygon(A,B,C,D)
+   \tkzDrawCircle(O,A)
+   \tkzDrawSegments(M,N O,P)
+   \tkzMarkRightAngles[size=0.15](C,N,M A,M,N O,P,B)
+   \tkzMarkSegments[mark=|,size=0.1cm](A,M M,B)
+   \tkzMarkSegments[mark=||,size=0.1cm](C,N N,D)
+   \tkzMarkSegments[mark=x,size=0.1cm](B,P C,P)
+   \tkzLabelPoints[below](M)
+   \tkzLabelPoints[left](A,O,D)
+   \tkzLabelPoints[right](B,C)
+   \tkzLabelPoints[below left](N,P)
+  \end{tikzpicture}
+  }
+  \noindent Từ đó suy ra $OA=OB=OC=OD$.\\
+  Vậy bốn điểm $A$, $B$, $C$, $D$ cùng thuộc một đường tròn $(O)$ bán kính $R=OA$.
+  }
+\end{vd}
+
+\begin{vd}
+ Trên mặt phẳng tọa độ $Oxy$, hãy xác định vị trí của mỗi điểm $A(-1;-1)$, $B(-1;-2)$, $C\left(\sqrt{2};\sqrt{2}\right)$ đối với đường tròn tâm $O$ bán kính $2$.
+ \loigiai
+  {
+  \immini{
+  \begin{itemize}
+   \item $OA$ là cạnh huyền trong tam giác vuông cân cạnh bằng $1$ nên $OA=\sqrt{1^2+1^2}=\sqrt{2}<2$, suy ra $A$ nằm bên trong đường tròn $(O;2)$.
+   \item $OB$ là cạnh huyền trong tam giác vuông có hai cạnh góc vuông là $1$; $2$ nên $OB=\sqrt{1^2+2^2}=\sqrt{5}>2$, suy ra $B$ nằm bên ngoài đường tròn $(O;2)$.
+   \item $OC$ là cạnh huyền trong tam giác vuông cân cạnh bằng $\sqrt{2}$ nên $OC=\sqrt{\sqrt{2}^2+\sqrt{2}^2}=2$, suy ra $C$ nằm trên đường tròn $(O;2)$.
+  \end{itemize}
+  }
+  {
+  \begin{tikzpicture}[line join=round, line cap=round, font=\footnotesize,>=stealth, scale=0.8]
+   \draw[->](-3,0)--(3,0) node[below right] {$x$};
+   \draw[->](0,-3)--(0,3) node[right] {$y$};
+   \clip (-3,-3) rectangle (3,3);
+   \draw[fill=black] (0,0) circle(1pt) node[above left]{$ O $};
+   \foreach \x in {-2,...,2}
+   \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+   \foreach \y in {-2,...,2}
+   \draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+   \draw[dashed,fill=black] (-1,0)--(-1,-1) circle(1pt) node[left]{$A$} --(0,-1);
+   \draw[dashed,fill=black] (-1,0)--(-1,-2) circle(1pt) node[below left]{$B$} --(0,-2);
+   \draw[dashed,fill=black] ({sqrt(2)},0)--({sqrt(2)},{sqrt(2)}) circle(1pt) node[above right]{$C$} --(0,{sqrt(2)});
+   \draw (0,0) circle[radius=2cm];
+   \draw (0,0)--(-1,-1) (0,0)--(-1,-2) (0,0)--({sqrt(2)},{sqrt(2)});
+   \draw (-1,0) node[above]{$-1$} (0,-1) node[right]{$-1$} (0,-2)node[below right]{$-2$} ({sqrt(2)},0)node[below]{$\sqrt{2}$} (0,{sqrt(2)})node[left]{$\sqrt{2}$};
+  \end{tikzpicture}
+  }
+  }
+\end{vd}
+
+\begin{vd}
+ Cho góc nhọn $xAy$ và hai điểm $B$, $C$ thuộc tia $Ax$. Dựng đường tròn $(O)$ đi qua điểm $B$ và $C$ sao cho tâm $O$ nằm trên tia $Ay$.
+ \loigiai
+  {
+  \immini{
+  Giả sử đã dựng được $(O)$ thỏa mãn đề bài. Khi đó $OB=OC$ bằng bán kính, nên $O$ nằm trên đường trung trực $d$ của $BC$.\\
+  Lại có $O$ thuộc $Ay$ nên $O$ là giao điểm của $d$ và $Ay$.\\
+  \textbf{\textit{Cách dựng.}} Dựng đường trung trực $d$ của $BC$ cắt $Ay$ tại $O$. Dựng đường tròn tâm $O$ bán kính $OB$ thì đó là đường tròn phải dựng (như hình vẽ).
+  }
+  {
+  \begin{tikzpicture}[scale=0.8]
+   \tkzDefPoints{0/0/A, 1.5/0/B, 4/0/C, 4.5/0/x}
+   \tkzDefShiftPoint[A](33:5){y}
+   \tkzDefMidPoint(B,C)\tkzGetPoint{M}
+   \tkzDefShiftPoint[M](90:3){d}
+   \tkzInterLL(M,d)(A,y)\tkzGetPoint{O}
+   \tkzDrawPoints[fill=black](A,B,C,M,O)
+   \tkzDrawSegments(A,x A,y M,d O,B O,C)
+   \tkzDrawCircle(O,B)
+   \tkzMarkRightAngles(d,M,A)
+   \tkzMarkSegments[mark=|,size=0.1cm](B,M M,C)
+   \tkzLabelPoints[below](A,B,C,y)
+   \tkzLabelPoints[left](O)
+   \tkzLabelPoints[above right](M)
+   \tkzLabelPoints[left](d)
+   \tkzLabelPoints[right](x)
+  \end{tikzpicture}
+  }
+  }
+\end{vd}
+
+\begin{vd}
+ Một tấm bìa hình tròn không còn dấu vết của tâm. Hãy tìm lại tâm của hình tròn đó.
+ \loigiai
+  {
+  \immini{
+  \noindent{\textbf{Cách 1.}} Trên đường tròn của tấm bìa lấy ba điểm $A$, $B$, $C$ không trùng nhau.\\
+  Nối $A$ với $B$ và $B$ với $C$.\\
+  Dựng các đường trung trực của $AB$, $BC$ chúng cắt nhau tại $O$, khi đó $O$ là tâm của đường tròn đi qua ba đỉnh của tam giác $ABC$ hay $O$ là tâm của tấm bìa hình tròn.
+  }
+  {
+  \begin{tikzpicture}
+   \def\a{1.2}\def\b{1.2}
+   \tkzDefPoints{\a/0/M,-\a/0/N}
+   \tkzDefMidPoint(M,N)\tkzGetPoint{O}
+   \draw (M) arc(0:360:\a cm and \b cm);
+   \tkzDefShiftPoint[O](100:\a){A}
+   \tkzDefShiftPoint[O](220:\a){B}
+   \tkzDefShiftPoint[O](320:\a){C}
+   \tkzDefMidPoint(A,B)\tkzGetPoint{M}
+   \tkzDefMidPoint(B,C)\tkzGetPoint{N}
+   \tkzDefLine[perpendicular=through M](A,B)\tkzGetPoint{d1}
+   \tkzDefLine[perpendicular=through N](B,C)\tkzGetPoint{d2}
+   \tkzInterLL(M,d1)(N,d2)\tkzGetPoint{O}
+   \tkzDrawPoints[fill=black](A,B,C,O)
+   \tkzDrawSegments(A,B B,C)
+   \tkzDrawLines(M,d1 N,d2)
+   \tkzMarkRightAngles[size=0.15](A,M,d1 B,N,d2)
+   \tkzMarkSegments[mark=|,size=0.1cm](M,A M,B)
+   \tkzMarkSegments[mark=||,size=0.1cm](N,B N,C)
+   \tkzLabelPoints[above](A)
+   \tkzLabelPoints[left](B)
+   \tkzLabelPoints[right](C)
+   \tkzLabelPoints[above right](O)
+  \end{tikzpicture}
+  }
+  
+  \immini{
+  \noindent{\textbf{Cách 2.}} Gấp tấm bìa sao cho hai phần của hình tròn trùng nhau, nếp gấp là một đường kính.\\
+  Lại gấp như trên theo nếp gấp khác, ta được một đường kính thứ hai.\\
+  Giao điểm của hai đường kính này là tâm của tấm bìa hình tròn.
+  }
+  {
+  \begin{tikzpicture}
+   \def\a{1.2}\def\b{1.2}
+   \tkzDefPoints{\a/0/M,-\a/0/N}
+   \tkzDefMidPoint(M,N)\tkzGetPoint{O}
+   \draw (M) arc(0:360:\a cm and \b cm);
+   \tkzDefShiftPoint[O](140:\a){A}
+   \tkzDefPointBy[symmetry=center O](A)\tkzGetPoint{B}
+   \tkzDefShiftPoint[O](200:\a){C}
+   \tkzDefPointBy[symmetry=center O](C)\tkzGetPoint{D}
+   \tkzDrawPoints[fill=black](A,B,C,D,O)
+   \tkzDrawSegments(A,B C,D)
+   \tkzLabelPoints[above](A,O)
+   \tkzLabelPoints[below](B)
+   \tkzLabelPoints[left](C)
+   \tkzLabelPoints[right](D)
+  \end{tikzpicture}
+  }
+  }
+\end{vd}
+
+\begin{vd}
+ Cho tứ giác $ABCD$ có $\widehat{C}+\widehat{D}=90^\circ$. Gọi $M$, $N$, $P$, $Q$ lần lượt là trung điểm của $AB$, $BD$, $DC$ và $CA$. Chứng minh rằng bốn điểm $M$, $N$, $P$, $Q$ cùng thuộc một đường tròn.
+ \loigiai
+  {
+  \immini{
+  Gọi $I$ là giao điểm của $AD$ và $BC$.\\
+  Vì $\widehat{C}+\widehat{D}=90^\circ$ nên $\widehat{DIC}=90^\circ$.\\
+  Do $M$, $N$, $P$, $Q$ lần lượt là trung điểm của $AB$, $BD$, $DC$ và $CA$ nên $MN$, $NP$, $PQ$, $QM$ lần lượt là đường trung bình của tam giác $ABD$, $BCD$, $ACD$, $ABC$.\\
+  Suy ra $MN \parallel AD$, $PQ \parallel AD$, $MQ \parallel BC$, $NP \parallel BC$ do đó $MN \parallel PQ$, $NP \parallel MQ$.\\
+  Vậy tứ giác $MNPQ$ là hình bình hành.
+  }
+  {
+  \begin{tikzpicture}[scale=0.9]
+   \tkzDefPoints{0/0/D, 7/0/C}
+   \tkzDefShiftPoint[D](55:1){a}
+   \tkzDefShiftPoint[C](145:1){b}
+   \tkzInterLL(D,a)(C,b)\tkzGetPoint{I}
+   \tkzDefBarycentricPoint(I=1,D=1.2)\tkzGetPoint{A}
+   \tkzDefBarycentricPoint(I=3.6,C=2)\tkzGetPoint{B}
+   \tkzDefMidPoint(A,B)\tkzGetPoint{M}
+   \tkzDefMidPoint(B,D)\tkzGetPoint{N}
+   \tkzDefMidPoint(D,C)\tkzGetPoint{P}
+   \tkzDefMidPoint(C,A)\tkzGetPoint{Q}
+   \tkzDefBarycentricPoint(I=2,M=-5)\tkzGetPoint{x}
+   \tkzDrawPoints[fill=black](A,B,C,D,I,M,N,P,Q)
+   \tkzDrawPolygon(I,C,D)
+   \tkzDrawSegments(A,B A,C B,D I,x)
+   \tkzDrawPolygon(M,N,P,Q)
+   \tkzDrawArc[towards,color=black](P,C)(D)
+   \tkzMarkRightAngle(A,I,C)
+   \tkzLabelAngle[pos=0.3](N,M,x){\tiny $1$}
+   \tkzLabelAngle[pos=0.3](Q,M,x){\tiny $2$}
+   \tkzLabelAngle[pos=0.6](D,I,M){\footnotesize $1$}
+   \tkzLabelAngle[pos=0.6](M,I,C){\footnotesize $2$}
+   \tkzLabelPoints[above](I,B,Q)
+   \tkzLabelPoints[below](N,P)
+   \tkzLabelPoints[left](A,D)
+   \tkzLabelPoints[right](C)
+   \tkzLabelPoints[above left](M)
+  \end{tikzpicture}
+  }
+  \noindent
+  Lại có $\left\{\begin{aligned}&\widehat{M}_1 = \widehat{I}_1 \\&\widehat{M}_2 = \widehat{I}_2\end{aligned}\right.$ (góc đồng vị).\\
+  Khi đó $\widehat{NMQ} = \widehat{M}_1 + \widehat{M}_2 = \widehat{I}_1 + \widehat{I}_2 = 90^\circ$.\\
+  Do đó $MNPQ$ là hình chữ nhật.\\
+  Theo ví dụ \ref{9H2-1.vd.2} thì bốn điểm $M$, $N$, $P$, $Q$ cùng thuộc một đường tròn.
+  }
+\end{vd}
+
+\subsection{Luyện tập}
+
+\begin{bt}
+ Cho tam giác $ABC$ cân tại $A$, $BC=12$ cm, chiều cao $AH=4$ cm. Tính bán kính của đường tròn đi qua ba đỉnh của tam giác $ABC$.
+ \loigiai
+  {
+  \immini{
+  Vì tam giác $ABC$ cân tại $A$ nên đường cao $AH$ cũng là đường trung trực của đoạn $BC$.\\
+  Qua trung điểm $M$ của $AB$ kẻ đường trung trực của $AB$ cắt đường thẳng $AH$ tại $O$. Khi đó $O$ là tâm của đường tròn đi qua ba đỉnh của tam giác $ABC$.\\
+  Bán kính của đường tròn $(O)$ là $R=OA=OB$.\\
+  Tam giác $BOH$ vuông tại $H$ nên
+  \allowdisplaybreaks
+  \begin{eqnarray*}
+   BO^2 = BH^2 + OH^2 &\Leftrightarrow & BO^2 = \left(\dfrac{BC}{2}\right)^2 + (OA-AH)^2\\
+   &\Leftrightarrow & R^2 = 36+(R-4)^2 \\
+   &\Leftrightarrow & 8R = 52 \\
+   &\Leftrightarrow & R=6,5.
+  \end{eqnarray*}
+  }
+  {
+  \begin{tikzpicture}
+   \tkzDefPoints{0/0/B, 4/0/C}
+   \tkzDefShiftPoint[B](33:1){b}\tkzDefShiftPoint[C](147:1){c}
+   \tkzInterLL(B,b)(C,c)\tkzGetPoint{A}
+   \tkzDefMidPoint(B,C)\tkzGetPoint{H}
+   %\tkzDefMidPoint(C,A)\tkzGetPoint{N}
+   \tkzDefMidPoint(A,B)\tkzGetPoint{P}
+   \tkzDefCircle[circum](A,B,C)\tkzGetPoint{O}
+   \tkzDrawPoints[fill=black](A,B,C,H,P,O)
+   \tkzDrawPolygon(A,B,C)
+   \tkzDrawCircle(O,A)
+   \tkzDrawSegments(A,O O,P O,B)
+   \tkzMarkRightAngles[size=0.15](A,H,C B,P,O)
+   \tkzLabelPoints[above](A)
+   \tkzLabelPoints[below](O)
+   \tkzLabelPoints[left](B)
+   \tkzLabelPoints[right](C)
+   \draw ($(H)+(0.2,-0.3)$) node{$H$};
+   \draw ($(P)+(0.4,-0.1)$) node{$M$};
+   %\draw ($(N)-(0.4,0.1)$) node{$N$};
+  \end{tikzpicture}
+  }
+  \noindent Vậy bán kính của đường tròn đi qua ba đỉnh của tam giác $ABC$ bằng $6,5$ cm.
+  }
+\end{bt}
+
+\begin{bt}
+ Cho tam giác $ABC$ cân tại $A$ có ba đỉnh nằm trên đường tròn $(O)$. Đường cao $AH$ cắt $(O)$ ở $D$. Biết $BC=24$ cm, $AC=20$ cm. Tính chiều cao $AH$ và bán kính đường tròn $(O)$.
+ \loigiai
+  {
+  \immini{
+  Vì tam giác $ABC$ cân tại $A$ nên đường cao $AH$ cũng là đường trung trực của đoạn $BC$, suy ra $H$ là trung điểm của đoạn $BC$.\\
+  Tam giác $ACH$ vuông tại $H$ nên
+  \begin{align*}
+   AH = \sqrt{AC^2-CH^2} = \sqrt{20^2 - 12^2} = 16 \text{ cm}.
+  \end{align*}
+  Tam giác $ACD$ có $AD$ là đường kính nên tam giác $ACD$ vuông tại $C$.\\
+  Áp dụng hệ thức về cạnh trong tam giác vuông $ACD$ ta có
+  \begin{eqnarray*}
+   AC^2 = AD \cdot AH \Leftrightarrow AD = \dfrac{AC^2}{AH} \Leftrightarrow AD = 25 \text{ cm}.
+  \end{eqnarray*}
+  }
+  {
+  \begin{tikzpicture}[scale=0.8]
+   \tkzInit[xmin=-0.5,xmax=4,ymin=-1.8,ymax=3.3]
+   \tkzClip
+   \tkzDefPoints{0/0/B, 3.5/0/C}
+   \tkzDefShiftPoint[B](57:1){b}\tkzDefShiftPoint[C](123:1){c}
+   \tkzInterLL(B,b)(C,c)\tkzGetPoint{A}
+   \tkzDefMidPoint(B,C)\tkzGetPoint{H}
+   \tkzDefCircle[circum](A,B,C)\tkzGetPoint{O}
+   \tkzInterLC(A,H)(O,A)\tkzGetSecondPoint{D}
+   \tkzDrawPoints[fill=black](A,B,C,D,H,O)
+   \tkzDrawPolygon(A,B,C)
+   \tkzDrawCircle(O,A)
+   \tkzDrawSegments(A,D B,D C,D)
+   \tkzMarkRightAngles[size=0.15](A,H,C)
+   \tkzLabelPoints[above](A)
+   \tkzLabelPoints[below](D)
+   \tkzLabelPoints[left](B,O)
+   \tkzLabelPoints[right](C)
+   \tkzLabelPoints[below left](H)
+  \end{tikzpicture}
+  }
+  \noindent Vậy bán kính của đường tròn $(O)$ là $R=\dfrac{AD}{2}=12,5$ cm.
+  }
+\end{bt}
+
+\begin{bt}
+ Cho hình thang cân $ABCD$ (với $AD\parallel BC$) có $AB=12$ cm, $AC=16$ cm, $BC=20$ cm. Chứng minh rằng $A$, $B$, $C$, $D$ cùng thuộc một đường tròn. Tính bán kính của đường tròn đó.
+ \loigiai
+  {
+  \immini{
+  Vì $ABCD$ là hình thang cân với hai đáy $AD$, $BC$ nên $\break AB=CD=12$ cm và $BD=AC=16$ cm.\\
+  Gọi $O$ là trung điểm của $BC$.\\
+  Xét tam giác $ABC$ có
+  \begin{align*}
+   AB^2+AC^2 = 12^2+16^2=20^2 = BC^2.
+  \end{align*}
+  Vậy tam giác $ABC$ vuông tại $A$. Do đó ba đỉnh của tam giác $ABC$ cùng thuộc đường tròn $(O)$.\\
+  Tương tự ta cũng có tam giác $BCD$ vuông tại $D$. Do đó ba đỉnh của tam giác $BCD$ cùng thuộc đường tròn $(O)$.
+  }
+  {
+  \begin{tikzpicture}
+   \tkzDefPoints{0/0/B, 4/0/C}
+   \tkzDefShiftPoint[B](53.53:2.4){A}
+   \tkzDefShiftPoint[C](126.47:2.4){D}
+   \tkzDefMidPoint(B,C)\tkzGetPoint{O}
+   \tkzDrawPoints[fill=black](A,B,C,D,O)
+   \tkzDrawPolygon(A,B,C,D)
+   \tkzDrawCircle(O,A)
+   \tkzDrawSegments(O,A O,D A,C B,D)
+   \tkzMarkRightAngles[size=0.15](B,A,C B,D,C)
+   \tkzMarkSegments[mark=|](B,O O,C)
+   \tkzLabelPoints[above](A,D)
+   \tkzLabelPoints[below](O)
+   \tkzLabelPoints[left](B)
+   \tkzLabelPoints[right](C)
+  \end{tikzpicture}
+  }
+  \noindent Vậy bốn điểm $A$, $B$, $C$, $D$ cùng thuộc đường tròn $(O)$ bán kính $R=\dfrac{BC}{2}=10$ cm.
+  }
+\end{bt}
+
+\begin{bt}
+ Cho đường tròn $(O)$ đường kính $AB$, $M$, $N$ thuộc $(O)$ sao cho $AM=BN$ và $M$, $N$ nằm trên hai nửa đường tròn khác nhau. Chứng minh $MN$ là đường kính của $(O)$.
+ \loigiai
+  {
+  \immini{
+  Vì $M$, $N$ thuộc đường tròn $(O)$ nên tam giác $ABM$, $ABN$ là tam giác vuông lần lượt tại $M$, $N$.\\
+  Hai tam giác vuông $ABM$ và $ABN$ có $AM=BN$, $AB$ là cạnh chung nên hai tam giác này bằng nhau, suy ra $BM=AN$.\\
+  Vậy tứ giác $AMBN$ có $AM=BN$ và $BM=AN$ nên $AMBN$ là hình bình hành. Hơn nữa $\widehat{AMB}=90^\circ$. Do đó $AMBN$ là hình chữ nhật.\\
+  Vậy $MN$ là đường kính của $(O)$.
+  }
+  {
+  \begin{tikzpicture}
+   \def\r{2}
+   \tkzDefPoints{\r/0/C,-\r/0/D}
+   \tkzDefMidPoint(C,D)\tkzGetPoint{O}
+   \draw (C) arc(0:360:\r cm and \r cm);
+   \coordinate (A) at ([shift={(O)}]180:\r cm and \r cm);
+   \tkzDefPointBy[symmetry=center O](A)\tkzGetPoint{B}
+   \coordinate (M) at ([shift={(O)}]130:\r cm and \r cm);
+   \tkzDefPointBy[symmetry=center O](M)\tkzGetPoint{N}
+   \tkzDrawPoints[fill=black](A,B,M,N,O)
+   \tkzDrawPolygon(A,M,B,N)
+   \tkzDrawSegments(A,B M,N)
+   \tkzLabelPoints[below](O)
+   \tkzLabelPoints[left](A,M)
+   \tkzLabelPoints[right](B,N)
+  \end{tikzpicture}
+  }
+  }
+\end{bt}
+
+\begin{bt}
+ Cho tứ giác $ABCD$ có $\widehat{B}=\widehat{D}=90^\circ$.
+ \begin{enumerate}
+  \item Chứng minh bốn điểm $A$, $B$, $C$, $D$ cùng thuộc một đường tròn.
+  \item Nếu $AC=BD$ thì tứ giác $ABCD$ là hình gì?
+ \end{enumerate}
+ \loigiai
+  {
+  \begin{enumerate}
+   \item\immini{
+   Gọi $O$ là trung điểm của $AC$.\\
+   Vì tam giác $ABC$ vuông tại $B$ nên ba đỉnh $A$, $B$, $C$ cùng thuộc đường tròn $(O)$.\\
+   Vì tam giác $ACD$ vuông tại $D$ nên ba đỉnh $A$, $C$, $D$ cùng thuộc đường tròn $(O)$.\\
+   Vậy bốn điểm $A$, $B$, $C$, $D$ cùng thuộc một đường tròn $(O)$ đường kính $AC$.
+   }
+   {
+   \begin{tikzpicture}
+    \tkzDefPoints{0/0/A,3/0/C}
+    \tkzDefShiftPoint[A](70:1){a1}\tkzDefShiftPoint[C](160:1){c1}
+    \tkzInterLL(A,a1)(C,c1)\tkzGetPoint{B}
+    \tkzDefShiftPoint[A](310:1){a2}\tkzDefShiftPoint[C](40:1){c2}
+    \tkzInterLL(A,a2)(C,c2)\tkzGetPoint{D}
+    \tkzDefMidPoint(A,C)\tkzGetPoint{O}
+    \tkzDrawPoints[fill=black](A,B,C,D,O)
+    \tkzDrawPolygon(A,B,C,D)
+    \tkzDrawSegments(A,C)
+    \tkzDrawCircle(O,A)
+    \tkzMarkRightAngles[size=0.15](A,B,C A,D,C)
+    \tkzMarkSegments[mark=|,size=0.1cm](A,O O,C)
+    \tkzLabelPoints[above](B)
+    \tkzLabelPoints[below](D,O)
+    \tkzLabelPoints[left](A)
+    \tkzLabelPoints[right](C)
+   \end{tikzpicture}
+   }
+   \item Nếu $BD=AC$ thì $BD$ là đường kính của $(O)$, suy ra $\widehat{BAD}=90^\circ$.\\
+   Vậy tứ giác $ABCD$ có $\widehat{A}=\widehat{B}=\widehat{D}=90^\circ$ nên $ABCD$ là hình chữ nhật.
+  \end{enumerate}
+  }
+\end{bt}
+
+\begin{bt}
+ Cho hình chữ nhật $ABCD$, vẽ tam giác $AEC$ vuông tại $E$. Chứng minh năm điểm $A$, $B$, $C$, $D$, $E$ cùng thuộc một đường tròn.
+ \loigiai
+  {
+  \immini{
+  Gọi $O$ là trung điểm của $AC$.\\
+  Vì tam giác $ABC$ vuông tại $B$ nên ba điểm $A$, $B$, $C$ thuộc đường tròn $(O)$ đường kính $AC$.\\
+  Vì tam giác $ACD$ vuông tại $D$ nên ba điểm $A$, $C$, $D$ thuộc đường tròn $(O)$ đường kính $AC$.\\
+  Vì tam giác $ACE$ vuông tại $E$ nên ba điểm $A$, $C$, $E$ thuộc đường tròn $(O)$ đường kính $AC$.
+  }
+  {
+  \begin{tikzpicture}[scale=0.8]
+   \tkzDefPoints{0/0/A, 3/0/B}
+   \tkzDefShiftPoint[A](90:2){D}
+   \tkzDefShiftPoint[B](90:2){C}
+   \tkzDefPointBy[rotation=center A angle 40](C)\tkzGetPoint{a1}
+   \tkzDefPointBy[rotation=center C angle -50](A)\tkzGetPoint{c1}
+   \tkzInterLL(A,a1)(C,c1)\tkzGetPoint{E}
+   \tkzDefMidPoint(A,C)\tkzGetPoint{O}
+   \tkzDrawPoints[fill=black](A,B,C,D,E,O)
+   \tkzDrawPolygon(A,B,C,D)
+   \tkzDrawSegments(A,E C,E A,C)
+   \tkzDrawCircle(O,A)
+   \tkzMarkRightAngles[size=0.15](A,D,C A,E,C A,B,C)
+   \tkzMarkSegments[mark=|,size=0.1cm](A,O C,O)
+   \tkzLabelPoints[above](E)
+   \tkzLabelPoints[below](O)
+   \tkzLabelPoints[left](A,D)
+   \tkzLabelPoints[right](B,C)
+  \end{tikzpicture}
+  }
+  \noindent Vậy năm điểm $A$, $B$, $C$, $D$, $E$ cùng thuộc đường tròn $(O)$ đường kính $AC$.
+  }
+\end{bt}
+
+\begin{bt}
+ Cho tam giác $ABC$ vuông tại $A$, đường cao $AH$. Từ $M$ là điểm bất kỳ trên cạnh $BC$ kẻ $MD\perp AB$, $ME \perp AC$. Chứng minh năm điểm $A$, $D$, $M$, $H$, $E$ cùng nằm trên một đường tròn.
+ \loigiai
+  {
+  \immini{
+  Vì $MD \perp AB$ và $AC \perp AB$ nên $MD \parallel AE$.\\
+  Vì $ME \perp AC$ và $AB \perp AC$ nên $ME \parallel AD$.\\
+  Từ hai điều trên suy ra $ADME$ là hình bình hành.\\
+  Mà $\widehat{DAE}=90^\circ$ nên $ADME$ là hình chữ nhật, suy ra bốn điểm $A$, $D$, $M$, $E$ thuộc đường tròn $(O)$ đường kính $AM$ (với $O$ là trung điểm của đoạn $AM$).
+  }
+  {
+  \begin{tikzpicture}[scale=0.8]
+   \tkzInit[xmin=-0.2,xmax=5.2,ymin=-0.6,ymax=3]
+   \tkzClip
+   \tkzDefPoints{0/0/B, 5/0/C}
+   \tkzDefPointBy[rotation=center B angle 48](C)\tkzGetPoint{b1}
+   \tkzDefPointBy[rotation=center C angle -42](B)\tkzGetPoint{c1}
+   \tkzInterLL(B,b1)(C,c1)\tkzGetPoint{A}
+   \tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{H}
+   \tkzDefBarycentricPoint(B=2,C=3)\tkzGetPoint{M}
+   \tkzDefPointBy[projection=onto A--B](M)\tkzGetPoint{D}
+   \tkzDefPointBy[projection=onto A--C](M)\tkzGetPoint{E}
+   \tkzDefMidPoint(A,M)\tkzGetPoint{O}
+   \tkzDrawPoints[fill=black](A,B,C,D,E,H,M,O)
+   \tkzDrawPolygon(A,B,C)
+   \tkzDrawSegments(A,H M,D M,E A,M)
+   \tkzDrawCircle(O,A)
+   \tkzMarkRightAngles[size=0.15](M,D,A M,E,A B,A,C A,H,C)
+   \tkzMarkSegments[mark=|,size=0.1cm](A,O O,M)
+   \tkzLabelPoints[above](A)
+   \tkzLabelPoints[below](B,C,H,M)
+   \tkzLabelPoints[left](D)
+   \tkzLabelPoints[right](E,O)
+  \end{tikzpicture}
+  }
+  \noindent Lại có tam giác $AHM$ vuông tại $H$ nên ba điểm $A$, $H$, $M$ thuộc đường tròn $(O)$ đường kính $AM$.\\
+  Vậy năm điểm $A$, $D$, $M$, $H$, $E$ cùng nằm trên đường tròn $(O)$ đường kính $AM$.
+  }
+\end{bt}
+
+\begin{bt}
+ Cho tam giác $ABC$ có $AQ$, $KB$, $CI$ là ba đường cao và $H$ là trực tâm.
+ \begin{enumerate}
+  \item Chứng minh $A$, $B$, $Q$, $K$ cùng thuộc một đường tròn. Xác định tâm của đường tròn đó.
+  \item Chứng minh $A$, $I$, $H$, $K$ cùng thuộc một đường tròn. Xác định tâm của đường tròn đó.
+ \end{enumerate}
+ \loigiai
+  {
+  \begin{enumerate}
+   \item \immini{
+   Gọi $O$ là trung điểm của $AB$.\\
+   Vì tam giác $ABQ$ vuông tại $Q$ nên ba điểm $A$, $B$, $Q$ thuộc đường tròn $(O)$ đường kính $AB$.\\
+   Vì tam giác $ABK$ vuông tại $K$ nên ba điểm $A$, $B$, $K$ thuộc đường tròn $(O)$ đường kính $AB$.\\
+   Từ đó suy ra bốn điểm $A$, $B$, $Q$, $K$ cùng thuộc đường tròn $(O)$ đường kính $AB$.
+   }
+   {
+   \begin{tikzpicture}[scale=0.8]
+    \tkzInit[xmin=-1,xmax=5.2,ymin=-0.8,ymax=4.5]
+    \tkzClip
+    \tkzDefPoints{0/0/B, 5/0/C, 3/4/A}
+    \tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{Q}
+    \tkzDefPointBy[projection=onto A--C](B)\tkzGetPoint{K}
+    \tkzDefPointBy[projection=onto B--A](C)\tkzGetPoint{I}
+    \tkzInterLL(A,Q)(B,K)\tkzGetPoint{H}
+    \tkzDefMidPoint(A,B)\tkzGetPoint{O}
+    \tkzDefMidPoint(A,H)\tkzGetPoint{O'}
+    \tkzDrawPoints[fill=black](A,B,C,H,I,K,Q,O,O')
+    \tkzDrawPolygon(A,B,C)
+    \tkzDrawSegments(A,Q B,K C,I)
+    \tkzDrawCircle(O,A)
+    \tkzDrawCircle(O',A)
+    \tkzMarkSegments[mark=||,size=0.1cm](A,O' O',H)
+    \tkzMarkRightAngles[size=0.15](A,Q,B A,K,B A,I,C)
+    \tkzLabelPoints[above](A)
+    \tkzLabelPoints[below](B,C,Q,O)
+    \tkzLabelPoints[left](I,O')
+    \tkzLabelPoints[right](K)
+    \draw ($(H)-(0.2,0.4)$) node{$H$};
+   \end{tikzpicture}
+   }
+   \item Gọi $O'$ là trung điểm của $AH$.\\
+   Vì $\triangle AHI$ vuông tại $I$ nên ba điểm $A$, $H$, $I$ thuộc đường tròn $(O')$ đường kính $AH$.\\
+   Vì $\triangle AHK$ vuông tại $K$ nên ba điểm $A$, $H$, $K$ thuộc đường tròn $(O')$ đường kính $AH$.\\
+   Từ đó suy ra bốn điểm $A$, $I$, $H$, $K$ cùng thuộc đường tròn $(O')$ đường kính $AH$.
+  \end{enumerate}
+  }
+\end{bt}
+
+\begin{bt}
+ Cho tam giác đều $ABC$ có $AM$, $BN$, $CP$ là ba đường trung tuyến. Chứng minh $B$, $P$, $N$, $C$ cùng thuộc một đường tròn.
+ \loigiai
+  {
+  \immini{
+  Tam giác $ABC$ là tam giác đều nên $AM$, $BN$, $CP$ cũng là các đường cao của tam giác $ABC$, suy ra các tam giác $BPC$, $BNC$ là các tam giác vuông.\\
+  Vì tam giác $BPC$ vuông tại $P$ nên ba điểm $B$, $P$, $C$ thuộc đường tròn $(M)$ đường kính $BC$.\\
+  Vì tam giác $BNC$ vuông tại $N$ nên ba điểm $B$, $N$, $C$ thuộc đường tròn $(M)$ đường kính $BC$.\\
+  Vậy bốn điểm $B$, $P$, $N$, $C$ cùng thuộc đường tròn $(M)$ đường kính $BC$.
+  }
+  {
+  \begin{tikzpicture}[scale=0.8]
+   \tkzDefPoints{0/0/B, 3.5/0/C}
+   \tkzDefPointBy[rotation=center B angle 60](C)\tkzGetPoint{A}
+   \tkzDefMidPoint(B,C)\tkzGetPoint{M}
+   \tkzDefMidPoint(C,A)\tkzGetPoint{N}
+   \tkzDefMidPoint(B,A)\tkzGetPoint{P}
+   \tkzDrawPoints[fill=black](A,B,C,M,N,P)
+   \tkzDrawPolygon(A,B,C)
+   \tkzDrawSegments(A,M B,N C,P)
+   \tkzDrawCircle(M,B)
+   \tkzMarkSegments[mark=|,size=0.1cm](B,M M,C C,N N,A A,P P,B)
+   \tkzMarkRightAngles[size=0.15](A,M,C A,N,B B,P,C)
+   \tkzLabelPoints[above](A)
+   \tkzLabelPoints[below](M)
+   \tkzLabelPoints[left](B)
+   \tkzLabelPoints[right](C)
+   \tkzLabelPoints[above left](P)
+   \tkzLabelPoints[above right](N)
+  \end{tikzpicture}
+  }
+  }
+\end{bt}
+
+\begin{bt}
+ Cho tứ giác $ABCD$ có $AC\perp BD$. Gọi $M$, $N$, $P$, $Q$ lần lượt là trung điểm của các cạnh $AB$, $BC$, $CD$, $DA$. Chứng minh bốn điểm $M$, $N$, $P$, $Q$ cùng thuộc một đường tròn.
+ \loigiai
+  {
+  \immini{
+  Gọi $I$ là giao điểm của $AC$ và $BD$.\\
+  Do $AC \perp BD$ nên $\widehat{BIC}=\widehat{I}_1 + \widehat{I}_2 = 90^\circ$.\\
+  Vì $M$, $N$, $P$, $Q$ lần lượt là trung điểm của các cạnh $AB$, $BC$, $CD$, $DA$ nên $MN$, $NP$, $PQ$, $QM$ lần lượt là đường trung bình của tam giác $ABC$, $BCD$, $CDA$, $DAB$.\\
+  Suy ra $MN\parallel AC \parallel PQ$, $MQ \parallel BD \parallel NP$.\\
+  Vậy tứ giác $MNPQ$ là hình bình hành.\\
+  Lại có $\left\{\begin{aligned}&\widehat{I}_1 = \widehat{N}_1 \\&\widehat{I}_2 = \widehat{N}_2\end{aligned}\right.$ (góc so le trong của cặp đường thẳng song song).\\
+  Khi đó $\widehat{MNP} = \widehat{N}_1 + \widehat{N}_2 = \widehat{I}_1 + \widehat{I}_2 = \widehat{BIC} =  90^\circ$.
+  }
+  {
+  \begin{tikzpicture}
+   \tkzDefPoints{0/0/A, 5/0/C}
+   \tkzDefBarycentricPoint(A=5,C=3)\tkzGetPoint{I}
+   \tkzDefShiftPoint[I](90:1.8){B}
+   \tkzDefShiftPoint[I](270:2.5){D}
+   \tkzDefMidPoint(A,B)\tkzGetPoint{M}
+   \tkzDefMidPoint(B,C)\tkzGetPoint{N}
+   \tkzDefMidPoint(C,D)\tkzGetPoint{P}
+   \tkzDefMidPoint(D,A)\tkzGetPoint{Q}
+   \tkzDrawPoints[fill=black](A,B,C,D,I,M,N,P,Q)
+   \tkzDrawPolygon(A,B,C,D)
+   \tkzDrawPolygon(M,N,P,Q)
+   \tkzDrawSegments(A,C B,D I,N)
+   \tkzMarkSegments[mark=|,size=0.1cm](A,M B,M)
+   \tkzMarkSegments[mark=||,size=0.1cm](B,N C,N)
+   \tkzMarkSegments[mark=|||,size=0.1cm](C,P D,P)
+   \tkzMarkSegments[mark=x,size=0.1cm](D,Q A,Q)
+   \tkzMarkRightAngles[size=0.15](B,I,C)
+   \tkzLabelAngles[pos=0.5](B,I,N I,N,P){\tiny $1$}
+   \tkzLabelAngles[pos=0.5](C,I,N){\tiny $2$}\tkzLabelAngles[pos=-0.5](M,N,I){\tiny $2$}
+   \tkzLabelPoints[above](B,M,N)
+   \tkzLabelPoints[below](D,P)
+   \tkzLabelPoints[left](A,Q)
+   \tkzLabelPoints[right](C)
+   \tkzLabelPoints[below left](I)
+  \end{tikzpicture}
+  }
+  \noindent Do đó $MNPQ$ là hình chữ nhật.\\
+  Vậy bốn điểm $M$, $N$, $P$, $Q$ cùng thuộc một đường tròn.
+  }
+\end{bt}
+
+\begin{bt}
+ Cho tam giác $ABC$ vuông tại $A$.
+ \begin{enumerate}
+  \item Nêu cách dựng đường tròn $(O)$ đi qua $A$ và tiếp xúc với $BC$ tại $B$.
+  \item Nêu cách dựng đường tròn $(O')$ đi qua $A$ và tiếp xúc với $BC$ tại $C$.
+ \end{enumerate}
+ \loigiai
+  {
+  \begin{enumerate}
+   \item \immini{
+   Giả sử đã dựng được $(O)$ thỏa mãn đề bài. Khi đó $OA=OB$ bằng bán kính, nên $O$ nằm trên đường trung trực $d$ của $AB$.\\
+   Lại có $(O)$ tiếp xúc với $BC$ tại $B$ nên $OB \perp BC$, suy ra $O$ nằm trên đường thẳng $d'$ đi qua $B$ và vuông góc với $BC$.\\
+   Do đó $O$ là giao điểm của $d$ và $d'$.\\
+   \textbf{\textit{Cách dựng.}} Dựng đường trung trực $d$ của $AB$. Dựng đường thẳng $d'$ vuông góc với $BC$ tại $B$. Gọi $O$ là giao điểm của $d$ và $d'$. Dựng đường tròn tâm $O$ bán kính $OA$ thì đó là đường tròn phải dựng (như hình vẽ).
+   }
+   {
+   \begin{tikzpicture}[scale=0.8]
+    \tkzDefPoints{0/0/B, 3.8/0/C}
+    \tkzDefPointBy[rotation=center B angle 40](C)\tkzGetPoint{b1}
+    \tkzDefPointBy[rotation=center C angle -50](B)\tkzGetPoint{c1}
+    \tkzInterLL(B,b1)(C,c1)\tkzGetPoint{A}
+    \tkzDefMidPoint(A,B)\tkzGetPoint{M}
+    \tkzDefLine[perpendicular=through M](B,A)\tkzGetPoint{d}
+    \tkzDefLine[perpendicular=through B](B,C)\tkzGetPoint{d'}
+    \tkzInterLL(M,d)(B,d')\tkzGetPoint{O}
+    \tkzDrawPoints[fill=black](A,B,C,O)
+    \tkzDrawPolygon(A,B,C)
+    \tkzDrawLines(M,d B,d')
+    \tkzDrawCircle(O,A)
+    \tkzMarkSegments[mark=|,size=0.1cm](A,M B,M)
+    \tkzMarkRightAngles[size=0.15](O,M,A O,B,C B,A,C)
+    \tkzLabelPoints[above](d)
+    \tkzLabelPoints[below](C)
+    \tkzLabelPoints[right](A,O,d')
+    \tkzLabelPoints[below left](B)
+   \end{tikzpicture}
+   }
+   \item \immini{
+   Giả sử đã dựng được $(O')$ thỏa mãn đề bài. Khi đó $O'A=O'C$ bằng bán kính, nên $O'$ nằm trên đường trung trực $d_1$ của $AC$.\\
+   Lại có $(O')$ tiếp xúc với $BC$ tại $C$ nên $O'C \perp BC$, suy ra $O'$ nằm trên đường thẳng $d_2$ đi qua $C$ và vuông góc với $BC$.\\
+   Do đó $O'$ là giao điểm của $d_1$ và $d_2$.\\
+   \textbf{\textit{Cách dựng.}} Dựng đường trung trực $d_1$ của $AC$. Dựng đường thẳng $d_2$ vuông góc với $BC$ tại $C$. Gọi $O'$ là giao điểm của $d_1$ và $d_2$. Dựng đường tròn tâm $O'$ bán kính $O'A$ thì đó là đường tròn phải dựng (như hình vẽ).
+   }
+   {
+   \begin{tikzpicture}
+    \tkzDefPoints{0/0/B, 4/0/C}
+    \tkzDefPointBy[rotation=center B angle 40](C)\tkzGetPoint{b1}
+    \tkzDefPointBy[rotation=center C angle -50](B)\tkzGetPoint{c1}
+    \tkzInterLL(B,b1)(C,c1)\tkzGetPoint{A}
+    \tkzDefMidPoint(A,C)\tkzGetPoint{M}
+    \tkzDefLine[perpendicular=through M](A,C)\tkzGetPoint{d1}
+    \tkzDefLine[perpendicular=through C](B,C)\tkzGetPoint{d2}
+    \tkzInterLL(M,d1)(C,d2)\tkzGetPoint{O'}
+    \tkzDrawPoints[fill=black](A,B,C,O')
+    \tkzDrawPolygon(A,B,C)
+    \tkzDrawLines(M,d1 C,d2)
+    \tkzDrawCircle(O',A)
+    \tkzMarkSegments[mark=|,size=0.1cm](A,M C,M)
+    \tkzMarkRightAngles[size=0.15](O',M,A O',C,B B,A,C)
+    \tkzLabelPoints[above left](A)
+    \tkzLabelPoints[below](B)
+    \tkzLabelPoints[left](O')
+    \tkzLabelPoints[below left](C)
+    \tkzLabelPoint[below](d1){$d_1$}
+    \tkzLabelPoint[left](d2){$d_2$}
+   \end{tikzpicture}
+   }
+  \end{enumerate}
+  }
+\end{bt}
+
+\begin{bt}
+ Cho năm điểm $A$, $B$, $C$, $D$, $E$. Biết rằng qua bốn điểm $A$, $B$, $C$, $D$ có thể vẽ được một đường tròn, qua bốn điểm $B$, $C$, $D$, $E$ cũng vẽ được một đường tròn. Hỏi qua cả năm điểm $A$, $B$, $C$, $D$, $E$ có thể vẽ được một đường tròn không?
+ \loigiai
+  {
+  Gọi $(O)$ là đường tròn đi qua qua đỉnh của tam giác $ABC$.\\
+  Với giả thiết:
+  \begin{itemize}
+   \item Bốn điểm $A$, $B$, $C$, $D$ thuộc đường tròn $(O_1)$, suy ra $(O_1)\equiv (O)$.
+   \item Bốn điểm $B$, $C$, $D$, $E$ thuộc đường tròn $(O_2)$, suy ra $(O_2)\equiv (O)$.
+  \end{itemize}
+  Vậy cả năm điểm $A$, $B$, $C$, $D$, $E$ cùng thuộc đường tròn $(O)$.
+  }
+\end{bt}
+
+\begin{bt}
+ Cho đường tròn $(O;R)$ đường kính $BC$. Điểm $A$ di động trên $(O)$ , gọi $P$, $Q$ theo thứ tự là trung điểm của $AB$ và $AC$.
+ \begin{enumerate}
+  \item Chứng minh $PQ$ có độ dài không đổi khi $A$ di động trên $(O)$.
+  \item Tìm quỹ tích trung điểm $M$ của $PQ$.
+ \end{enumerate}
+ \loigiai
+  {
+  \begin{enumerate}
+   \item \immini{
+   Khi $A$ không trùng với các điểm $B$, $C$ thì $PQ$ là đường trung bình của tam giác $ABC$. Do đó $PQ = \dfrac{BC}{2} = R$ (không đổi).\\
+   Khi $A \equiv B$ thì $P\equiv B$ và $Q\equiv O$ nên $PQ=OB=R$ (không đổi).\\
+   Khi $A \equiv C$ thì $Q\equiv C$ và $P\equiv O$ nên $PQ=OC=R$ (không đổi).\\
+   Vậy $PQ$ có độ dài không đổi (luôn bằng $R$) khi $A$ di động trên $(O)$.
+   }
+   {
+   \begin{tikzpicture}[scale=0.8]
+    \def\r{1.8}
+    \tkzDefPoints{\r/0/C,-\r/0/B}
+    \tkzDefMidPoint(C,B)\tkzGetPoint{O}
+    \draw (C) arc(0:360:\r cm and \r cm);
+    \coordinate (A) at ([shift={(O)}]100:\r cm and \r cm);
+    \tkzDefMidPoint(A,B)\tkzGetPoint{P}
+    \tkzDefMidPoint(A,C)\tkzGetPoint{Q}
+    \tkzDefMidPoint(P,Q)\tkzGetPoint{M}
+    \tkzDrawPoints[fill=black](A,B,C,M,O,P,Q)
+    \tkzDrawPolygon(A,B,C)
+    \tkzDrawSegments(P,Q A,O)
+    \tkzMarkSegments[mark=|,size=0.1cm](A,P P,B)
+    \tkzMarkSegments[mark=||,size=0.1cm](A,Q Q,C)
+    \tkzMarkSegments[mark=x,size=0.1cm](P,M M,Q)
+    \tkzMarkRightAngles[size=0.15](B,A,C)
+    \tkzLabelPoints[above](A)
+    \tkzLabelPoints[below](O,P)
+    \tkzLabelPoints[left](B)
+    \tkzLabelPoints[right](C,Q)
+    \tkzLabelPoints[below right](M)
+   \end{tikzpicture}
+   }
+   \item Vì $O$, $P$, $Q$ lần lượt là trung điểm của $BC$, $AB$, $AC$ nên $OP$, $OQ$ là các đường trung bình của tam giác $ABC$, suy ra $OP \parallel AQ$, $OQ \parallel AP$.\\
+   Do đó tứ giác $APOQ$ là hình bình hành, nên $AO$, $PQ$ cắt nhau tại trung điểm của mỗi đường, suy ra $M$ là trung điểm của $AO$.\\
+   Khi đó $OM = \dfrac{AO}{2} = \dfrac{R}{2}$ (không đổi).\\
+   Vậy quỹ tích điểm $M$ là đường tròn $\left(O;\dfrac{R}{2}\right)$.
+  \end{enumerate}
+  }
+\end{bt}
+
+\begin{bt}
+ Cho tam giác $ABC$, các đường cao $BD$ và $CE$. Trên cạnh $AC$ lấy điểm $M$. Kẻ tia $Cx$ vuông góc với tia $BM$ tại $F$. Chứng minh rằng năm điểm $B$, $C$, $D$, $E$, $F$ cùng thuộc một đường tròn.
+ \loigiai
+  {
+  \immini{
+  Gọi $O$ là trung điểm của $BC$.\\
+  Vì tam giác $BCD$ vuông tại $D$ nên ba điểm $B$, $C$, $D$ cùng thuộc đường tròn $(O)$ đường kính $BC$.\\
+  Vì tam giác $BCE$ vuông tại $E$ nên ba điểm $B$, $C$, $E$ cùng thuộc đường tròn $(O)$ đường kính $BC$.\\
+  Vì tam giác $BCF$ vuông tại $F$ nên ba điểm $B$, $C$, $F$ cùng thuộc đường tròn $(O)$ đường kính $BC$.\\
+  Vậy năm điểm $B$, $C$, $D$, $E$, $F$ cùng thuộc đường tròn $(O)$ đường kính $BC$.
+  }
+  {
+  \begin{tikzpicture}
+   \tkzInit[xmin=-0.5,xmax=4.5,ymin=-2.2,ymax=3.5]
+   \tkzClip
+   \tkzDefPoints{0/0/B, 4/0/C, 1.2/3./A}
+   \tkzDefPointBy[projection=onto A--C](B)\tkzGetPoint{D}
+   \tkzDefPointBy[projection=onto A--B](C)\tkzGetPoint{E}
+   \tkzDefBarycentricPoint(A=2,C=3)\tkzGetPoint{M}
+   \tkzDefLine[perpendicular=through C](B,M)\tkzGetPoint{x}
+   \tkzInterLL(B,M)(C,x)\tkzGetPoint{F}
+   \tkzDefMidPoint(B,C)\tkzGetPoint{O}
+   \tkzDrawPoints[fill=black](A,B,C,D,E,F,M,O)
+   \tkzDrawPolygon(A,B,C)
+   \tkzDrawSegments(B,D B,F C,E C,x)
+   \tkzDrawCircle(O,B)
+   \tkzMarkRightAngles[size=0.15](B,D,C B,E,C B,F,C)
+   \tkzMarkSegments[mark=|,size=0.1cm](B,O C,O)
+   \tkzLabelPoints[above](A)
+   \tkzLabelPoints[below](O)
+   \tkzLabelPoints[left](B,E)
+   \tkzLabelPoints[right](C,F,x)
+   \tkzLabelPoints[above right](D)
+   \draw ($(M)-(0.5,-0.1)$) node{$M$};
+  \end{tikzpicture}
+  }
+  }
+\end{bt}
+
+\begin{bt}
+ Cho tam giác $ABC$ có $H$ là trực tâm. Lấy $M$, $N$ thuộc tia $BC$ sao cho $MN=BC$ và $M$ nằm giữa $B$, $C$. Gọi $D$ là hình chiếu của $M$ lên $AC$ và $E$ là hình chiếu của $N$ lên $AB$. Chứng minh rằng các điểm $A$, $D$, $E$, $H$ cùng thuộc một đường tròn.
+ \loigiai
+  {
+  \immini
+  {
+  Gọi $K$ là giao điểm của $MD$, $NE$.\\
+  Ta thấy $HB \parallel MK$ do cùng vuông góc $AC$ suy ra cặp góc đồng vị $\widehat{HBC}=\widehat{KMN}$.\\
+  Tương tự $\widehat{HCB}=\widehat{KNM}$.\\
+  Kết hợp giả thiết $BC=MN$ suy ra $\triangle BHC = \triangle MKN$.\\
+  Do đó $S_{BHC}=S_{MKN}$, suy ra $HK \parallel BC$.\\
+  Mà $AH \perp BC$ nên $AH \perp HK$, suy ra $H$ thuộc đường tròn đường kính $AK$.\\
+  Vì tam giác $ADK$ vuông tại $D$ nên ba điểm $A$, $D$, $K$ thuộc đường tròn đường kính $AK$.
+  }
+  {
+  \begin{tikzpicture}[scale=0.8]
+   \tkzInit[xmin=-0.5,xmax=8,ymin=-0.7,ymax=5.7]
+   \tkzClip
+   \tkzDefPoints{0/0/B, 6/0/C, 2/5/A}
+   \tkzDefShiftPoint[B](0:1.5){M}
+   \tkzDefPointBy[translation=from B to C](M)\tkzGetPoint{N}
+   \tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{a1}
+   \tkzDefPointBy[projection=onto A--C](B)\tkzGetPoint{b1}
+   \tkzInterLL(A,a1)(B,b1)\tkzGetPoint{H}
+   \tkzDefPointBy[projection=onto A--C](M)\tkzGetPoint{D}
+   \tkzDefPointBy[projection=onto B--A](N)\tkzGetPoint{E}
+   \tkzInterLL(M,D)(N,E)\tkzGetPoint{K}
+   \tkzDefMidPoint(A,K)\tkzGetPoint{O}
+   \tkzDrawPoints[fill=black](A,B,C,D,E,H,K,M,N,O)
+   \tkzDrawPolygon(A,B,C)
+   \tkzDrawSegments(A,H A,K B,H C,H M,D N,E H,K C,N)
+   \tkzDrawCircle(O,A)
+   \tkzMarkRightAngles[size=0.15](A,D,M A,E,N)
+   \tkzLabelPoints[above](A)
+   \tkzLabelPoints[below](B,H,M,C,N,K)
+   \tkzLabelPoints[left](E)
+   \tkzLabelPoints[right](D)
+  \end{tikzpicture}
+  }
+  \noindent Vì tam giác $AEK$ vuông tại $E$ nên ba điểm $A$, $E$, $K$ thuộc đường tròn đường kính $AK$.\\
+  Vậy các điểm $A$, $D$, $E$, $H$ cùng thuộc đường tròn đường kính $AK$.
+  }
+\end{bt}
+
+\begin{bt}
+ Cho tam giác $ABC$ nhọn, các đường cao $AA_1$, $BB_1$, $CC_1$ đồng quy tại $H$. Gọi $A_2$, $B_2$, $C_2$ lần lượt thuộc đoạn thẳng $AA_1$, $BB_1$, $CC_1$ sao cho $S_{A_2BC}+S_{B_2CA}+S_{C_2AB}=S_{ABC}$. Chứng minh rằng $A_2$, $B_2$, $C_2$, $H$ cùng thuộc một đường tròn.
+ \loigiai
+  {
+  \begin{center}
+  \begin{tikzpicture}[scale=0.8]
+  	\tkzInit[xmin=-0.5,xmax=8.5,ymin=-7.1,ymax=7.1]
+  	\tkzClip
+  	\tkzDefPoints{0/0/B, 8/0/C, 2.5/6.5/A}
+  	\tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{A_1}
+  	\tkzDefPointBy[projection=onto A--C](B)\tkzGetPoint{B_1}
+  	\tkzDefPointBy[projection=onto A--B](C)\tkzGetPoint{C_1}
+  	\tkzInterLL(A,A_1)(B,B_1)\tkzGetPoint{H}
+  	\tkzDefMidPoint(B,B_1)\tkzGetPoint{B_2}
+  	\tkzDefBarycentricPoint(C=2,C_1=3)\tkzGetPoint{C_2}
+  	\tkzDefLine[perpendicular=through B_2](B,B_1)\tkzGetPoint{b1}
+  	\tkzDefLine[perpendicular=through C_2](C,C_1)\tkzGetPoint{c1}
+  	\tkzInterLL(B_2,b1)(C_2,c1)\tkzGetPoint{P}
+  	\tkzDefLine[parallel=through P](B,C)\tkzGetPoint{p1}
+  	\tkzInterLL(P,p1)(A,A_1)\tkzGetPoint{A_2}
+  	\tkzDefPointBy[translation=from A to C](B)\tkzGetPoint{D}
+  	\tkzDrawPoints[fill=black](A,B,C,D,A_1,B_1,C_1,A_2,B_2,C_2,H,P)
+  	\tkzDrawPolygon(A,B,D,C)
+  	\tkzDrawSegments(A,A_1 B,B_1 C,C_1 B,A_2 B,P B_2,P C_2,P H,P A_2,P A_2,C B,C C,P)
+  	\tkzMarkRightAngles[size=0.15](A,A_1,C B,B_1,C A,C_1,C P,B_2,B P,C_2,C)
+  	\tkzLabelPoints[above](A,C_2)
+  	\tkzLabelPoints[below](D,A_1,P)
+  	\tkzLabelPoints[left](B,C_1)
+  	\tkzLabelPoints[right](C,B_1)
+  	\draw ($(H)+(0.2,0.5)$) node{$H$};
+  	\draw ($(B_2)-(0.5,-0.1)$) node{$B_2$};
+  	\draw ($(A_2)-(0.5,-0.2)$) node{$A_2$};
+  \end{tikzpicture}
+  \end{center}
+  Qua $B_2$, $C_2$ lần lượt dựng các đường thẳng vuông góc với $BB_1$, $CC_1$ chúng cắt nhau tại $P$. Dựng hình bình hành $ABDC$. Vì $B_2$, $C_2$ lần lượt thuộc đoạn $BB_1$, $CC_1$ nên $P$ nằm ở miền trong hình bình hành $ABDC$.\\
+  Ta dễ thấy $PB_2 \parallel CA$, $PC_2 \parallel AB$ nên 
+  \begin{equation}\label{9H2-1.bt.1}
+   S_{PCA}= S_{B_2CA} \text{ và } S_{PAB}=S_{C_2AB}.
+  \end{equation}
+  Nếu $P$ nằm ở miền trong tam giác $BCD$ thì $S_{B_2CA}+S_{C_2AB}= S_{PCA}+S_{PAB} > S_{ABC}$ vô lý vì trái với giả thiết, vậy $P$ nằm ở miền trong tam giác $ABC$.\\
+  Khi đó kết hợp giả thiết $S_{PCA}+S_{PBA}+S_{PBC}=S_{ABC}=S_{A_2BC}+S_{B_2CA}+S_{C_2AB}$. Theo \eqref{9H2-1.bt.1} suy ra $S_{PBC}=S_{A_2BC}$, suy ra $PA_2 \parallel BC$ hay $PA_2 \perp AA_1$.\\
+  Từ đây dễ thấy $A_2$, $B_2$, $C_2$ thuộc đường tròn đường kính $PH$ hay $A_2$, $B_2$, $C_2$, $H$ cùng thuộc một đường tròn.
+  }
+\end{bt}
+
+

@@ -1,0 +1,677 @@
+
+\section{Các phép tính về số tự nhiên}
+\subsection{Kiến thức cơ bản}
+\begin{enumerate}
+	\item Tập hợp các số tự nhiên là $\mathbb{N}=\{0;1;2;3 \ldots \}$.\\
+	Tập hợp các số tự nhiên khác $0$ là $\mathbb{N}^*=\{1;2;3;4 \ldots \}$.
+	\item Với phép cộng và phép nhân, cần nhớ các tính chất giao hoán và kết hợp. Giữa phép nhân và phép cộng có tính chất phân phối:
+	$$ a(b+c)=ab+ac. $$
+	\item Điều kiện để có hiệu $a-b$ là $a\geq b$.
+	\item Số tự nhiên $a$ chia hết cho số tự nhiên $b$ khác $0$ nếu có số tự nhiên $k$ sao cho $a=bk$.
+	\begin{itemize}
+		\item Trong phép chia hết ta có
+		$$ \text{Số bị chia}=\text{Số chia} \times \text{Thương} .$$
+		\item Trong phép chia có dư ta có
+		$$ \text{Số bị chia}=\text{Số chia} \times \text{Thương}+\text{Số dư} $$
+		$$ a=bk+r \ \text{với} \ 0<r<b. $$
+	\end{itemize}
+	\item Lũy thừa bậc $n$ của $a$ là tích của $n$ thừa số bằng nhau, mỗi thừa số bằng $a$.\\
+	Công thức nhân, chia hai lũy thừa cùng cơ số:
+	$$ a^m\cdot a^n=a^{m+n} $$
+	$$ a^m \colon a^n=a^{m-n} \ (a\ne 0, m\geq n).$$
+	\item Quy ước về thứ tự thực hiện phép tính:\\
+	Lũy thừa $\to$ Nhân, chia $\to$ Cộng, trừ (đối với biểu thức không có dấu ngoặc);\\
+	$ ( \ )  \to [ \ ] \to \{ \ \}$ (đối với biểu thức có dấu ngoặc).
+\end{enumerate}
+\subsection{Một số dạng toán}
+\begin{dang}{Số tự nhiên và các chữ số}
+\end{dang}
+
+\begin{vd}%[6D1K2]
+	Xét $100$ số tự nhiên đầu tiên $0$, $1$, $2,\ldots$, $99$. Tìm số tự nhiên $k$ sao cho trong $100$ số trên, có nhiều nhất các số có tổng các chữ số bằng $k$.
+	\loigiai{
+		Viết các số tự nhiên từ $0$ đến $99$ theo từng chục. Các số có tổng các chữ số bằng nhau được nối với nhau bởi các nét chấm.
+		\begin{center}
+			\begin{tikzpicture} 
+			%% Đường kẽ
+			\foreach \x in {1,...,9}
+			\foreach \y in {1,...,9}
+			{ \pgfmathsetmacro{\xt}{\x - 1}
+				\pgfmathsetmacro{\yt}{\y - 1}
+				\draw[dotted] (\x,\y) -- (\xt,\yt);
+			}
+			%%%%%%%%%%%================================%%%%%%%%%%%%%%%%%%
+			%%% Viết các con số
+			\foreach \x in {0,1,...,9}
+			\foreach \y in {0,1,...,9}
+			{ \pgfmathsetmacro{\so}{int(\x+\y*10)}
+				\node[fill=white,circle] at (\x,9-\y) {$ \so $};
+			}
+			\end{tikzpicture}
+		\end{center}
+		Quan sát bảng trên, ta thấy số lượng các số có tổng các chữ số bằng $9$ là nhiều nhất, tức là $k=9$. Mười số có tổng các chữ số bằng $9$ là $9$, $18$, $27$, $36$, $45$, $54$, $63$, $72$, $81$, $90$.
+		
+	}
+\end{vd}
+\begin{dang}{Tính giá trị của một biểu thức}
+\end{dang}
+\begin{vd}%[8D3Y2]
+	Tìm các tích:
+	\begin{enumEX}{2}
+		\item $a=234 \cdot \underbrace{99 \ldots 9}_{50 \hspace{0.1cm} \text{chữ số} \hspace{0.1cm}9}$.
+		\item $b=\underbrace{11 \ldots 1}_{100 \hspace{0.1cm} \text{chữ số}\hspace{0,1cm}1}\cdot 3456$.
+	\end{enumEX}
+	\loigiai{
+		\begin{enumerate}
+			\item Ta có $a=234 \cdot \underbrace{99 \ldots 9}_{50 \hspace{0.1cm} \text{chữ số} \hspace{0.1cm}9}=234\left( \underbrace{100 \ldots 0}_{50 \hspace{0.1cm} \text{chữ số} \hspace{0.1cm}0}-1\right)=234\underbrace{0 \ldots 0}_{50 \hspace{0.1cm} \text{chữ số} \hspace{0.1cm}0}-234$.\\
+			Đặt phép trừ:
+			\begin{center}
+				\begin{tikzpicture}[scale=0.65]
+				\draw(4.0,-0.5)node[left]{\normalsize $234\,\,00\ldots0 \,\,000$ };
+				\draw(4.0,-1.5)node[left]{\normalsize $234$};
+				\draw(-1.2,-1)node[right]{\normalsize $-$};
+				\draw(-0.5,-1.9)--(3.8,-1.9);
+				\draw(4.0,-3.0)node[left]{$233\underbrace{ 99\ldots 9}_{47\ \text{chữ số} 9}766$};
+				\end{tikzpicture}
+			\end{center}	
+			Vậy $a=233\underbrace{99 \ldots 9}_{47 \hspace{0.1cm} \text{chữ số} \hspace{0.1cm}9}766$.
+			\item Ta có $b=\underbrace{11 \ldots 1}_{100 \hspace{0.1cm} \text{chữ số}\hspace{0,1cm}1}\cdot 3456$ mà $3456=9 \cdot 384$ nên $b=384\cdot \underbrace{99 \ldots 9}_{100 \hspace{0.1cm}\text{chữ số} \hspace{0.1cm} 9}$\\
+			Giải tương tự câu $1)$ ta được $b=383\underbrace{99 \ldots 9}_{97 \hspace{0.1cm}\text{chữ số} \hspace{0.1cm} 9}616$.
+		\end{enumerate}
+	}
+\end{vd}
+\begin{vd}%[8D3Y2]
+	Tính hiệu $a-b$ biết:\\
+	$a= 1\cdot 2+2\cdot 3+3\cdot 4+\cdots+98\cdot99$ và
+	$b=1^2+2^2+3^2+\cdots+98^2.$
+	\loigiai{
+		Ta có:
+		\begin{eqnarray*}
+			a&=&1\cdot 2+2\cdot 3+3\cdot 4+\cdots+98\cdot99\\
+			&=& 1(1+1)+2(2+1)+3(3+1)+\cdots+98(98+1)\\
+			&=& 1^2+1+2^2+2+3^2+3+\cdots+98^2+98\\
+			&=& b+(1+2+3+\cdots+98)\\
+			&=& b+(1+98)\cdot 98 :2\\
+			&=&b+4851.
+		\end{eqnarray*}	
+		Vậy $a-b=4851$.	
+	}
+\end{vd}
+
+\begin{dang}{TÌM SỐ CHƯA BIẾT}
+\end{dang}
+
+\begin{vd}%[8D3B2]
+	Tìm các số tự nhiên $x$ và $y$ ($x<y$) sao cho $2^x+2^y=20.$
+	\loigiai{
+		Xét các lũy thừa của $2$ nhỏ hơn $20$, ta có
+		$2^0=1$, $2^1=2$, $2^2=4$, $2^3=8$, $2^4=16$.\\
+		Chỉ có hai số có tổng bằng $20$ là $4+16$, tức là $2^2+2^4=20$. 
+		Vậy $x=2$ và $y=4$.
+	}
+\end{vd}
+
+\begin{dang}{GIẢI BÀI TOÁN LIÊN QUAN ĐẾN THÀNH PHẦN CỦA PHÉP TÍNH}
+\end{dang}
+\begin{vd}%[8D3Y2]
+	Tìm một phép chia có dư, số bị chia bằng $24$, thương bằng $3$. Tìm số chia và số dư.
+	\loigiai{
+		Gọi số chia là $b$, số dư là $r$, ta có: $24=3b+r$ với $0<r<b$.\\
+		Từ $r=24-3b$ và $r>0$ suy ra $3b<24$ nên $b<8$.\hfill$(1)$\\	
+		Từ $r=24-3b$ và $r<b$ suy ra $24-3b<b$ nên $24<4b$, do đó $b>6$. \hfill$(2)$\\
+		Do $b$ là số tự nhiên nên từ $(1)$ và $(2)$ suy ra $b=7$. Do đó $r=24-3\cdot 7=3$.\\
+		Vậy số chia bằng $7$, số dư bằng $3$.
+	}
+\end{vd}
+\begin{dang}{Điền chữ số}
+	
+\end{dang}
+\begin{vd}%[8D3Y2]
+	Tìm số tự nhiên có hai chữ số, biết rằng nếu viết thêm chữ số $4$ vào trước chữ số hàng chục thì được số $A$, nếu viết thêm chữ số $8$ vào sau chữ số hàng đơn vị thì được số $B$, trong đó $B$ gấp đôi $A$.
+	\loigiai{
+		\textbf{Cách 1:} \\
+		Gọi số phải tìm là $\overline{ab}$, ta có phép tính
+		\begin{center}
+			\begin{tikzpicture}[scale=0.65]
+			\draw(4.0,-0.5)node[left]{\normalsize $4\,a\,b$ };
+			\draw(4.0,-1.5)node[left]{\normalsize $2$};
+			\draw(1.2,-1)node[right]{\normalsize $\times$};
+			\draw(2.0,-1.9)--(3.8,-1.9);
+			\draw(4.0,-2.5)node[left]{$a\,b\,8$};
+			\end{tikzpicture}
+		\end{center}
+		Xét phép nhân ở hàng trăm được $2\cdot 4\le a$ nên $a\ge 8$ \hfill$(1)$.\\
+		Xét phép nhân ở cột hàng đơn vị được $2b=8$ hoặc $2b=18$, tức là $b=4$ hoặc $b=9$.
+		\begin{itemize}
+			\item Trường hợp $b=4$, ta có phép tính 	
+			\begin{center}
+				\begin{tikzpicture}[scale=0.65]
+				\draw(4.0,-0.5)node[left]{\normalsize $4\,a\,4$ };
+				\draw(4.0,-1.5)node[left]{\normalsize $2$};
+				\draw(1.2,-1)node[right]{\normalsize $\times$};
+				\draw(2.0,-1.9)--(3.8,-1.9);
+				\draw(4.0,-2.5)node[left]{$a\,4\,8$};
+				\end{tikzpicture}
+			\end{center}
+			Xét phép nhân ở cột hàng chục được $2a=4$ hoặc $2a=14$, tức là $a=2$ hoặc $a=7$.\\
+			Loại cả $a=2$ và $a=7$ vì trái với $(1)$.
+			\item Trường hợp $b=9$, ta có phép tính 	
+			\begin{center}
+				\begin{tikzpicture}[scale=0.65]
+				\draw(4.0,-0.5)node[left]{\normalsize $4\,a\,9$ };
+				\draw(4.0,-1.5)node[left]{\normalsize $2$};
+				\draw(1.2,-1)node[right]{\normalsize $\times$};
+				\draw(2.0,-1.9)--(3.8,-1.9);
+				\draw(4.0,-2.5)node[left]{$a\,9\,8$};
+				\end{tikzpicture}
+			\end{center}
+			Xét phép nhân ở cột hàng chục được $2a=8$ hoặc $2a=18$, tức là $a=4$ hoặc $a=9$.\\
+			Loại $a=4$ vì trái với $(1)$.\\
+			Với $a=9$, ta được 
+			\begin{center}
+				\begin{tikzpicture}[scale=0.65]
+				\draw(4.0,-0.5)node[left]{\normalsize $4\,9\,9$ };
+				\draw(4.0,-1.5)node[left]{\normalsize $2$};
+				\draw(1.2,-1)node[right]{\normalsize $\times$};
+				\draw(2.0,-1.9)--(3.8,-1.9);
+				\draw(4.0,-2.5)node[left]{$9\,9\,8$};
+				\end{tikzpicture}
+			\end{center}
+			Thỏa mãn yêu cầu bài toán. Vậy số phải tìm là $99$.
+		\end{itemize}
+		\textbf{Cách 2:} \\
+		Gọi số phải tìm là $\overline{ab}$, ta có $\overline{ab8}=\overline{4ab}\cdot 2$.\\
+		Đặt $\overline{ab}=x$, ta được
+		\begin{eqnarray*}
+			10x+8 &=&(400+x)\cdot 2\\
+			10x+8&=&800+2x \\
+			8x & = & 792 \\
+			x & =& 99. 	
+		\end{eqnarray*}
+		Vậy ta tìm được $x=99$.
+	}
+\end{vd}
+\begin{luuy}{}
+	Khi trong phép tính có một nhóm chữ số được lập lại, ta có thể biểu thị nhóm chữ số ấy bởi số $x$.
+\end{luuy}
+\begin{vd}%[8D3Y2]
+	Điền chữ số thỏa mãn cả hai phép cộng sau
+	\begin{center}
+		\begin{tikzpicture}[scale=0.65]
+		\draw(4.0,-0.5)node[left]{\normalsize one };
+		\draw(4.0,0.5)node[left]{\normalsize  one };
+		\draw(1.2,1)node[right]{\normalsize $+$};
+		\draw(4.0,1.5)node[left]{\normalsize  one };
+		\draw(4.0,2.5)node[left]{\normalsize  one };
+		\draw(2.0,-0.9)--(3.8,-0.9);
+		\draw(4.8,-0.9)node[right]{\normalsize và};
+		\draw(4.0,-1.5)node[left]{four};
+		\end{tikzpicture} 
+		\begin{tikzpicture}[scale=0.65]
+		\draw(4.0,-0.5)node[left]{\normalsize four };
+		\draw(4.0,-1.5)node[left]{\normalsize one};
+		\draw(1.2,-1)node[right]{\normalsize $+$};
+		\draw(2.0,-1.9)--(3.8,-1.9);
+		\draw(4.0,-2.5)node[left]{five};
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		\begin{itemize}
+			\item Ở cột hàng đơn vị của phép cộng thứ hai, $r+e=e$ nên $r=0$.
+			\item 	Ở cột hàng đơn vị của phép cộng thứ nhất, $4e$ tận cùng $0$ mà $e\ne 0$ (vì đã có $r\ne 0$) nên $e=5$.
+			\item 	Ở phép cộng thứ nhất, one$\cdot 4$ là số có bốn chữ số nên $o \ge 2$.
+			\item 	Ở phép cộng thứ hai, cột hàng trăm khoog nhớ sang cột hàng ngìn nên $o \le 4$. Vậy $o\in\{2; 3; 4\}$.
+		\end{itemize}
+		Với phép cộng thứ nhất. Giả sử cột hàng trăm được nhớ $k$ từ cột hàng chục sang. Do $4n+2\le 4\cdot 9 +2=38$ nên $k\le 3$.\\
+		Ở cột hàng trăm ta có $4\cdot o+k$ tận cùng $o$.
+		\begin{itemize}
+			\item Nếu $o=2$ thì $4\cdot 2+k$ tận cùng $2$ nên $k=4$, trái với $(1)$.
+			\item Nếu $o=4$ thì $4\cdot 4+k$ tận cùng $4$ nên $k=8$, trái với $(1)$.
+			\item Nếu $o=3$ thì $4\cdot 3+k$ tận cùng $3$ nên $k=1$. Do đó ở cột hàng chục có $10\le 4n+2\le 19$, suy ra $2\le n\le 4$. Loại $n=2$ vì khi đó $u=0$, trùng với $r=0$. Loại $n=3$ vì đã có $o=3$. Vậy $n=4$.
+		\end{itemize}
+		Ta có 
+		\begin{center}
+			\begin{tikzpicture}[scale=0.65]
+			\draw(4.0,-0.5)node[left]{\normalsize $345$ };
+			\draw(4.0,0.5)node[left]{\normalsize $345$ };
+			\draw(1.2,1)node[right]{\normalsize $+$};
+			\draw(4.0,1.5)node[left]{\normalsize $345$ };
+			\draw(4.0,2.5)node[left]{\normalsize $345$ };
+			\draw(2.0,-0.9)--(3.8,-0.9);
+			\draw(4.8,-0.9)node[right]{\normalsize và };  
+			\draw(4.0,-1.5)node[left]{$1380$};
+			\end{tikzpicture} 
+			\begin{tikzpicture}[scale=0.65]
+			\draw(4.0,-0.5)node[left]{\normalsize $1380$ };
+			\draw(4.0,-1.5)node[left]{\normalsize $345$};
+			\draw(1.2,-1)node[right]{\normalsize $+$};
+			\draw(2.0,-1.9)--(3.8,-1.9);
+			\draw(4.0,-2.5)node[left]{$1725$};
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+
+\begin{dang}{Tìm chữ số tận cùng của một lũy thừa}
+	Trong nhiều trường hợp, ta cần tìm một hoặc nhiều chữ số tận cùng của một số. Ở chuyên đề 3, ta sẽ thấy: Để xét xem một số có chia hết cho $2$, cho $5$ hay không, ta chỉ cần biết chữ số tận cùng của số ấy; để xét xem một số có chia hết cho $4$, cho $25$ hay không, ta cần biết hai chữ số tận cùng của số ấy.
+	\begin{listEX}
+		\item 	Tìm một số tận cùng.\\
+		Khi tìm chữ số tận cùng của một lũy thừa, cần chú ý đến những số vẫn giữ nguyên chữ số tận cùng khi nâng lên lũy thừa bất kì (khác $0$):
+		\begin{itemize}
+			\item Các số có tận cùng là $0, 1, 5, 6$ nâng lên lũy thừa $n$ (khác $0$) vẫn giữ nguyên chữ số tận cùng:\\
+			$(\cdots 0)^n=\cdots 0; (\cdots 1)^n=\cdots 1; (\cdots 5)^n=\cdots 5; (\cdots 6)^n=\cdots 6$.
+			\item Với các số có tận cùng khác $0, 1, 5, 6$, ta đưa về số có tận cùng là $1$ hoặc $6$:
+			\begin{center}
+				$(\cdots 2)^4=\cdots 6; (\cdots 3)^4=\cdots 1; (\cdots 4)^2=\cdots 6; (\cdots 7)^4=\cdots 1;(\cdots 8)^4=\cdots 6; (\cdots 9)^2=\cdots 1$.    
+			\end{center}
+		\end{itemize} 
+		\item 	Tìm hai chữ số tận cùng.\\
+		Khi tìm hai chữ số tận cùng của một lũy thừa, cần chú ý đến những số vẫn giữ nguyên hai chữ số tận cùng khi nâng lên lũy thừa bất kì (khác $0$).
+		\begin{itemize}
+			\item Các số có tận cùng là $00, 01, 25, 76$ nâng lên lũy thừa $n$ (khác $0$) vẫn giữ nguyên hai chữ số tận cùng:
+			\begin{center}
+				$(\cdots 00)^n=\cdots 00; (\cdots 01)^n=\cdots 01; (\cdots 25)^n=\cdots 25; (\cdots 76)^n=\cdots 76.$ 
+			\end{center}
+			\item Với những trường hợp khác, ta thường nâng lên lũy thừa thích hợp để được số có tận cùng $01$ hoặc $76$.
+		\end{itemize}
+	\end{listEX}
+\end{dang}
+
+\begin{vd}%[8D3B2]
+	Tìm chữ số tận cùng của $3^{2015}$. $\underbrace{ 11\ldots1}_{100\ \text{chữ số}}$
+	\loigiai{
+		Ta thấy $3^4=81$, số tận cùng bàng $1$ nâng lên lũy thừa nào cũng tận cùng bằng $1$ nên
+		\begin{center}
+			$3^{2015}=\underbrace{3^4\cdot 3^4\cdots\cdots 3^4}_{503 \ \text{chữ số} \ 3^4} \cdot 3^3=81^{503}\cdot 27=(\cdots 1)\cdot 27=\cdots 7$.
+		\end{center}
+		Vậy chữ số tận cùng của $3^{2015}$ là $7$.
+	}
+\end{vd}
+\begin{vd}%[8D3B2]
+	Tìm hai chữ số tận cùng của $6^{2011}$.
+	\loigiai{
+		Ta thấy $6^5$ tận cùng bằng $76$, số tận cùng là $76$ nâng lên lũy thừa $n$ (khác $0$) vẫn tận cùng là $76$ nên
+		\begin{center}
+			$6^{2011}=\underbrace{ 6^5\cdot 6^5\cdots\cdots 6^5\cdot }_{402 \ \text{chữ số } 6^5} 6=(\cdots 76)^{402}\cdot 6=(\cdots 76)\cdot 6=\cdots 56.$
+		\end{center}
+		Vậy hai chữ số tận cùng của $6^{2011}$ là $56$.
+	}
+\end{vd}
+\subsection{Bài tập}
+\begin{bt}%[6D1K9]%[6D1G9]
+	Tính giá trị của các biểu thức (tính nhanh nếu có thể) 
+	\begin{enumerate}
+		\item $215 \cdot 62 + 42 - 52\cdot 215$.
+		\item $ 14\cdot 29 + 14 \cdot 71 + (1 + 2 + 3 + 4 + \ldots + 99)(199199 \cdot 198 - 198198\cdot 199)$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item $ 215 \cdot 62 + 42 - 52 \cdot 215 = 215 \cdot  ( 62 - 52 ) + 42 = 2150 + 42 = 2192$.
+			\item Chú ý rằng $199199 \cdot 198 - 198198 \cdot 199 = 1001 \cdot 199 \cdot 198 - 1001 \cdot 198 \cdot 199 = 0$.\\
+			Đáp số$\colon 1400$.
+			
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[6D1G4]
+	Người ta đánh số trang của một cuốn sách bằng dãy số tự nhiên $1$,$2$, $3$, $ \ldots $
+	\begin{enumerate}
+		\item Nếu quyển sách có $180$ trang thì phải viết tất cả bao nhiêu chữ số ?
+		\item Nếu phải viết tất cả $327$ chữ số thì quyển sách có bao nhiêu trang ?
+		
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Phải viết tất cả $432$ chữ số.
+			\item Từ $1$ đến $9$ có $9$ số, phải viết $9$ chữ số.\\
+			Từ $10$ đến $99$ có $90$ số, phải viết $2\cdot 90 = 180$ (chữ số).\\
+			Còn lại $327 - (9 + 180) = 138$ chữ số, dùng để viết các số có ba chữ số kể từ $100$.\\
+			Quyển sách có $99 + 138 : 3 = 145$ (trang).
+			
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[6D1K5]
+	Tìm hai số tự nhiên, biết rằng tổng của chúng gấp ba lần hiệu của chúng và bằng nửa tích của chúng.
+	
+	
+	\loigiai{
+		Gọi hiệu của hai số phải tìm là $a$ thì tổng của chúng bằng $3a$, tích của chúng bằng $6a$.\\
+		Số nhỏ bằng $(3a - a) : 2 = a$.\\
+		Số lớn bằng $(3a + a) : 2 = 2a$.\\
+		Số nhỏ bằng $6a : 2a = 3$.\\
+		Số lớn bằng $6a : a = 6$.
+	}
+\end{bt}
+\begin{bt}%[6D1G6]
+	Tìm số tự nhiên lớn nhất có ba chữ số, biết rằng khi chia nó cho $69$ thì thương và số dư bằng nhau.
+	\loigiai
+	{	Gọi số phải tìm là $a$, khi chia $a$ cho $69$ được thương và số dư đều là $k$. Ta có 
+		\[a = 69k + k\ \text{nên}\ a = 70k.\]
+		Do $a \leq 999$ nên $70k \leq 999$, suy ra $k \leq 14$.\\
+		Để $a$ lớn nhất, ta chọn $k = 14$. Khi đó $a = 70\cdot 14 = 980$.  
+	}
+\end{bt}
+
+
+\begin{bt}%[6D1G6]
+	Tìm số dư của phép chia số $\underbrace{ 11\ldots1}_{100\ \text{chữ số}}$ cho $1001$.
+	\loigiai{
+		Ta thấy $111 111 : 1001 = 111$.
+		$$a = \underbrace{11 \ldots1}_{100\ \text{chữ số}} = \underbrace{11 \ldots1}_{96\ \text{chữ số}}1111.$$
+		Vì $\underbrace{11 \ldots1}_{96\ \text{chữ số}\ 1}$ chia hết cho $1001$, còn $1111$ chia cho $1001$ dư $110$ nên $a$ chia cho $1001$ dư $110$.
+	}
+\end{bt}
+\begin{bt}%[6D1K5]
+	Điền chữ số thích hợp để 
+	\begin{center}
+		\begin{tikzpicture}[scale=0.65]
+		\draw[](4.0,-0.5)node[left]{\normalsize $8\,a\,b\,a$ };
+		\draw[](4.0,-1.5)node[left]{\normalsize $c\,2\,5\,d$};
+		\draw[](1.2,-1)node[right]{\normalsize $+$};
+		\draw[](2.0,-1.9)--(3.8,-1.9);
+		\draw[](4.0,-2.5)node[left]{$d\,5\,2\,c$};
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Xét cột hàng nghìn ta được $c = 1$, $d = 9$ nên số hạng thứ nhất bằng $9521 - 1259 = 8262$.
+	}
+\end{bt}
+\begin{bt}%[6D1G5]
+	Điền chữ số $\overline{abc} + \overline{bca}$ sao cho tổng trên là lớn nhất và $a$, $b$, $c$ nhận các giá trị $1$, $2$, $3$ (không nhất thiết tương ứng).
+	\loigiai{
+		Ta có $ n = \overline{abc} + \overline{bca}  = 101a + 110b + 11c$.\\
+		Để $n$ lớn nhất, ta chọn $b = 3$, $a = 2$, $c = 1$.\\
+		Ta được $n = 231 + 312 = 543$.
+	}
+\end{bt}
+\begin{bt}%[6D1G5]
+	Điền chữ số thích hợp để 
+	\[ \overline{aa} + \overline{bb} + \overline{cc} = \overline{bac}.\]
+	\loigiai{
+		Ta có \[ \overline{aa} + \overline{bb} + \overline{cc} = \overline{bac}.\]
+		\[ \text{nên}\ 11(a + b + c) = 100b + 10a + c.\]
+		Suy ra $10c + a = 89b$, tức là $ \overline{ca} = 89b$.
+		\\ Vậy $b = 1$, $\overline{ca} = 89$. Ta có $ 99 + 11 + 88 = 198$.
+	}
+\end{bt}
+\begin{bt}
+	Điền chữ số thích hợp để
+	\begin{enumEX}{2}
+		\item \begin{tabular}{rc|l}
+			*\ *\ *\ 1&&$ab$\\
+			\cline{3-3}
+			*\ *\ * \phantom{1}&&$ba$\\
+			\cline{1-1}
+			\phantom{*}\ * \ * \ *&&\\
+			\phantom{*}\ * \ * \ *&&\\
+			\cline{1-1}
+			\phantom{* \ * \ *}$0$&&\\
+		\end{tabular}		
+		\item \begin{tabular}{rc|l}
+			*\ *\ *\ *&&$4*$\\
+			\cline{3-3}
+			*\ *\ $ 8 $ \phantom{1}&&$**$\\
+			\cline{1-1}
+			\phantom{*}\ * \ * \ *&&\\
+			\phantom{*}\ $ 4 $ \ $ 3 $ \ $ 2 $&&\\
+			\cline{1-1}
+			\phantom{* \ * \ *}$0$&&\\
+		\end{tabular}		
+	\end{enumEX}
+	\loigiai{
+		\begin{enumerate}
+			\item Ta thấy $ a\cdot b $ tận cùng bằng $ 1 $ và $ a\neq b $ nên $ a=7 $, $ b=3 $ hoặc $ a=3 $, $ b=7 $. Do đó số bị chia là $ 73\cdot 37=2701 $.
+			\item Gọi thương là $ \overline{ab} $. Ta có $ 432:b=\overline{4*} $ và $ 432:8=54 $ nên $ b>8 $, suy ra $ b=9 $. Do đó số chia bằng $ 432:9=48 $.\\
+			Xét tích riêng thứ nhất, ta có $ 48\cdot a=\overline{**8} $ nên $ a=6 $. Do vậy số bị chia là $ 69\cdot 48=3312 $.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}
+Có bao nhiêu số tự nhiên có hai chữ số mà chữ số hàng chục nhỏ hơn chữ số hàng đơn vị?
+\loigiai{
+Ta cần đếm lượng các số $ \overline{ab} $ mà $ a<b $.
+\begin{enumerate}[]
+	\item Nếu $ a=1 $ thì $ b\in\{2;\ 3;\ldots;9\} $. Suy ra $ b $ nhận $ 8 $ giá trị.
+	\item Nếu $ a=2 $ thì $ b\in\{3;\ 4;\ldots;9\} $. Suy ra $ b $ nhận $ 7 $ giá trị.
+	\item Nếu $ a=3 $ thì $ b\in\{4;\ 5;\ldots;9\} $. Suy ra $ b $ nhận $ 6 $ giá trị.\\
+$ \ldots $
+\item Nếu $ a=7 $ thì $ b\in\{8;9\} $. Suy ra $ b $ nhận $ 2 $ giá trị.
+\item Nếu $ a=8 $ thì $ b=9 $. Suy ra $ b $ nhận $ 1 $ giá trị.
+\end{enumerate}
+Vậy có $ 8+7+6+\ldots+2+1=36 $ (số) mà chữ số hàng chục nhỏ hơn chữ số hàng đơn vị.
+}
+\end{bt}
+\begin{bt}
+	Có bao nhiêu số tự nhiên có ba chữ số, trong đó có ít nhất hai chữ số giống nhau?
+	\loigiai{
+		Số lượng các chữ số tự nhiên có ba chữ số là $ 999-100+1=900 $ số.\\
+		Số lượng các chữ số tự nhiên có dạng $ \overline{abc} $ mà $ a,\ b,\ c $ phân biệt là $ 9\cdot 9\cdot 8=648 $ số.\\
+		Do vậy có $ 900-648=252 $ số cần tìm.
+	}
+\end{bt}
+\begin{bt}
+	Trong các số tự nhiên từ $ 1 $ đến $ 500 $, có bao nhiêu số có ít nhất một chữ số $ 5 $?
+	\loigiai{
+		\begin{enumerate}[Cách 1.]
+			\item Có $ 1 $ chữ số $ 5 $ ở hàng trăm ($ 500 $).\\
+			Các chữ số $ 5 $ có ở hàng chục của các số có tận cùng $ 50 $, $ 51 $, $ \ldots $, $ 59 $ nên có
+			\[
+			10\cdot 5=50\text{ (số)}.
+			\]
+			Các chữ số $ 5 $ có ở hàng đơn vị (mà không có ở hàng chục) của các số có tận cùng $ 05 $, $ 15 $, $ 25 $, $ 35 $, $ 45 $, $ 65 $, $ 75 $, $ 85 $, $ 95 $ nên có $ 9\cdot 5=45 $ (số).\\
+			Vậy có tất cả $ 1+50+45=96 $ số cần tìm.
+			\item Xét các số từ $ 000 $ đến $ 499 $, các số không chứa chữ số $ 5 $ có dạng $ \overline{abc} $, trong đó $ a $ có $ 5 $ cách chọn (từ $ 0 $ đến $ 4 $), $ b $ và $ c $ có $ 9 $ cách chọn (từ $ 0 $ đến $ 9 $ và khác $ 5 $) nên có			
+			\[
+			5\cdot 9\cdot 9=405\text{ (số)}.
+			\]
+			Do đó từ $ 0 $ đến $ 499 $ có $ 500-405=95 $ số có chứa chữ số $ 5 $, suy ra từ $ 0 $ đến $ 500 $ có $ 95+1=96 $ số có chứa chữ số $ 5 $.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}
+	\immini{
+Trên $ n $ ô vuông cách đều nhau của một đường tròn, người ta ghi $ n $ số tự nhiên liên tiếp theo chiều kim đồng hồ. Biết rằng ô ghi số $ 12 $ đối diện với ô ghi số $ 60 $ (như hình vẽ bên). Hãy tìm $ n $.
+}{
+\begin{tikzpicture}[square/.style={regular polygon,regular polygon sides=4, minimum size=1cm},font=\footnotesize]
+\def\r{2}
+\tkzDefPoint(0,0){O}
+\tkzDrawArc[dashed,R](O,\r cm)(-30,30)
+\tkzDrawArc[dashed,R](O,\r cm)(150,210)
+\tkzDrawArc[R](O,\r cm)(30,150)
+\tkzDrawArc[R](O,\r cm)(210,330)
+\draw[dashed] (0,-\r)--(0,\r);
+\node[square,draw=black,fill=white,scale=0.75] at (60:\r) {\phantom{12}};
+\node[square,draw=black,fill=white,scale=0.75] at (90:\r) {$12$};
+\node[square,draw=black,fill=white,scale=0.75] at (120:\r) {\phantom{12}};
+\node[square,draw=black,fill=white,scale=0.75] at (-60:\r) {\phantom{12}};
+\node[square,draw=black,fill=white,scale=0.75] at (-90:\r) {$60$};
+\node[square,draw=black,fill=white,scale=0.75] at (-120:\r) {\phantom{12}};
+\end{tikzpicture}
+}
+	\loigiai{
+		Xét đường thẳng chứa các ô ghi số $ 12 $ và số $ 60 $. Ở một phía của đường thẳng, có các số từ $ 13 $ đến số $ 59 $, gồm $ 59-13+1=47 $ (số).\\
+		Ở phía bên kia của đường thẳng cũng có $ 47 $ số, do vậy nếu tính cả hai số $ 12 $ và $ 60 $ thì có tất cả $ 47+47+2=96 $ số.\\
+		Vậy $ n=96 $.
+	}
+\end{bt}
+\begin{bt}
+Tìm số tự nhiên $ n $ biết rằng có đúng $ 100 $ số lẻ nằm giữa $ n $ và $ 2n $.
+\loigiai{
+Có $ n $ số tự nhiên từ $ n+1 $ đến $ 2n $, do đó để tìm $ n $ thì ta tính số lượng các số tự nhiên từ $ n+1 $ đến $ 2n $.\\
+Trong các số lẻ nằm giữa $ n $ và $ 2n $, gọi $ a $ là số nhỏ nhất và $ b $ là số lớn nhất. Suy ra từ $ a $ đến $ b $ có $ 100 $ số lẻ, giữa chúng có $ 99 $ số chẵn và $ 2n $ là số liền sau của $ b $. Do vậy, từ $ a $ đến $ 2n $ có $ 100+99+1=200 $ (số tự nhiên). Ta xét hai trường hợp
+\begin{enumerate}[TH1.]
+	\item Nếu $ n $ là số chẵn thì $ n+1 $ là số lẻ, do đó $ a=n+1 $. Vì từ $ n+1 $ đến $ 2n $ có $ 200 $ số tự nhiên nên $ n=200 $.
+	\item Nếu $ n $ là số lẻ thì $ n+1 $ là số liền trước của $ a $, do đó từ $ n+1 $ đến $ 2n $ có $ 201 $ số tự nhiên nên $ n=201 $.
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}
+Người ta ghép hai chữ số $ 1 $, hai chữ số $ 2 $ và hai chữ số $ 3 $ thành một số có sáu chữ số. Tìm số có sáu chữ số đó biết rằng hai chữ số $ 1 $ cách nhau một chữ số, hai chữ số $ 2 $ cách nhau hai chữ số và hai chữ số $ 3 $ cách nhau $ 3 $ chữ số.
+\loigiai{
+Do hai chữ số $ 3 $ cách nhau $ 3 $ chữ số nên số phải tìm có một trong hai dạng $ 3***3* $ hoặc $ *3***3 $.
+\begin{enumerate}[TH1.]
+	\item Với dạng $ 3***3* $: Do hai chữ số $ 2 $ cách nhau hai chữ số và hai chữ số $ 1 $ cách nhau một chữ số nên số cần tìm là $ 312132 $.
+	\item Với dạng $ *3***3 $: Do hai chữ số $ 2 $ cách nhau hai chữ số và hai chữ số $ 1 $ cách nhau một chữ số nên số cần tìm là $ 231213 $.
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}
+	\immini{
+Hãy xếp sáu số $ 1,\ 2,\ 3,\ 4,\ 5,\ 6 $ vào các hình tròn đặt trên các cạnh của tam giác (như hình vẽ bên) sao cho tổng các số trên cạnh nào của tam giác cũng bằng $ 9 $.	
+}{
+	\begin{tikzpicture}
+	\draw (0,0)--(2,0)--(1,2)--cycle;
+	\foreach \p/\q/\r in {0/0/2,1/0/4,2/0/3,1.5/1/5,1/2/1,0.5/1/6} \draw[fill=white] (\p,\q) circle(.3);
+	\end{tikzpicture}
+}
+\loigiai{
+	\immini{
+Tổng các số từ $ 1 $ đến $ 6 $ là $ 1+2+3+4+5+6=21 $.\\
+Tổng trên ít hơn ba lần tổng các số trên mỗi cạnh là $ 9\cdot 3-21=6 $, nên tổng ba số ở ba đỉnh của tam giác bằng $ 6 $. Vì vậy các số ở đỉnh của tam giác là $ 1,\ 2,\ 3 $. Từ đó ta xếp được hình như bên cạnh.	
+}{
+\begin{tikzpicture}
+\draw (0,0)--(2,0)--(1,2)--cycle;
+\foreach \p/\q/\r in {0/0/2,1/0/4,2/0/3,1.5/1/5,1/2/1,0.5/1/6} \draw[fill=white] (\p,\q) circle(.3)node{\bf \r};
+\end{tikzpicture}
+}
+}
+\end{bt}
+\begin{bt}
+	\immini{
+Người ta đặt chín số tự nhiên liên tiếp từ $ 1 $ đến $ 9 $ vào các ô vuông ở hình vẽ bên sao cho tổng năm số ở hàng ngang bằng tổng năm số ở cột dọc. Các ô có kí hiệu $ a $ và $ b $ có thể nhận những giá trị nào?	
+}{
+\begin{tikzpicture}[font=\footnotesize]
+\foreach \i/\j in {1/a,2/4,3/9,4/b,5/7}{
+	\draw (\i,0) rectangle (\i+1,1);
+	\draw (1,\i-1) rectangle (2,\i);
+	\draw (\i+0.5,0.5) node {$\j$};
+}
+\end{tikzpicture}
+}
+	\loigiai{
+		Đặt $ 4+9+b+7=m $ thì $ m=b+20 $. Tổng các số từ $ 1 $ đến $ 9 $ bằng $ 45 $ và tổng các số theo hàng bằng tổng các số theo cột nên $ 2m=45-a $.\\
+		Do $ a\geq 1 $ nên $ m\leq 22 $, tức là $ b+20\leq 22 $. Suy ra $ b\in\{1;2\} $
+		\begin{enumerate}[]
+			\item Nếu $ b=1 $ thì $ m=21 $, $ a=3 $.
+			\item Nếu $ b=2 $ thì $ m=22 $, $ a=1 $.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}
+Chia số tự nhiên $ a $ cho $ 72 $ thì dư $ 69 $. Chia số $ a $ cho $ 18 $ thì thương bằng số dư. Hãy tìm số $ a $.
+\loigiai{
+Số $ a $ chia cho $ 72 $ dư $ 69 $ nên ta có
+\[
+a=72k+69=18\cdot 4k+18\cdot 3+15=18(4k+3)+15\ (k\in\mathbb{N}).
+\]
+Suy ra $ a $ chia cho $ 18 $ dư $ 15 $.\\
+Do $ a $ chia cho $ 18 $ được thương bằng số dư nên $ 4k+3=15 $, suy ra $ k=3 $ và $ a=285 $.
+}
+\end{bt}
+\begin{bt}
+	Xét phép chia số tự nhiên $ a $ cho số tự nhiên $ b $ khác $ 0 $, ta có $ a=kb+r $ ($ 0\leq r<b $).
+	\begin{enumerate}[ ]
+		\item Nếu $ r=0 $ thì $ k $ gọi là thương đúng của phép chia.
+		\item Nếu $ r\neq 0 $ thì $ k $ gọi là thương hụt của phép chia.
+	\end{enumerate}
+Kí hiệu $ [a:b] $ là thương đúng hoặc thương hụt của phép chia $ a $ cho $ b $. Tính
+\begin{enumEX}{2}
+	\item $ [32:4] $ và $ [61:4] $.
+	\item $ [800:5]+[800:5^{2}]+[800:5^{3}]+[800:5^{4}] $.
+\end{enumEX}
+	\loigiai{
+		\begin{enumerate}
+			\item $ [32:4]=8 $ và $ [61:4]=15 $.
+			\item $ [800:5]+[800:5^{2}]+[800:5^{3}]+[800:5^{4}]=160+32+6+1=199 $.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}
+Điền chữ số thích hợp để $ \overline{84**}:47=\overline{*8*} $.
+\loigiai{
+Số bị chia nhỏ nhất là $ 8400 $ và lớn nhất là $ 8499 $. Ta thấy $ 8400 $ chia $ 47 $ được $ 178 $ dư $ 34 $ và $ 8499 $ chia $ 47 $ được $ 180 $ dư $ 39 $ nên $ 178<\overline{*8*}\leq 180 $. Suy ra $ \overline{*8*}=180 $.\\
+Ta được $ 8460:47=180 $.
+}
+\end{bt}
+\begin{bt}
+Tính 
+\begin{enumEX}{2}
+	\item $ (2^{9}\cdot 16+2^{9}\cdot 34):2^{10} $;
+	\item $ (3^{4}\cdot 57-9^{2}\cdot 21):3^{5} $.
+\end{enumEX}
+\loigiai{
+\begin{enumerate}
+	\item $ (2^{9}\cdot 16+2^{9}\cdot 34):2^{10}=25 $.
+	\item $ (3^{4}\cdot 57-9^{2}\cdot 21):3^{5}=12 $.
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}
+Cho biết $ 1^{3}+2^{3}+3^{3}+\ldots+9^{3}=2025 $. Hãy tính $ 2^{3}+4^{3}+6^{3}+\ldots+18^{3} $.
+\loigiai{
+Ta có $ 2^{3}+4^{3}+6^{3}+\ldots+18^{3}=2^{3}(1^{3}+2^{3}+3^{3}+\ldots+9^{3})=8\cdot 2025=16200 $.
+}
+\end{bt}
+\begin{bt}
+	Cho $ a=2+2^{2}+2^{3}+2^{4}+\ldots+2^{10} $. Không tính giá trị của $ a $, hãy chứng tỏ $ a+2=2^{11} $.
+	\loigiai{
+		Ta có $ a=2+2^{2}+2^{3}+2^{4}+\ldots+2^{10} $ nên $ 2a=2^{2}+2^{3}+2^{4}+2^{5}+\ldots+2^{11} $. Suy ra
+		\[
+		2a-a=(2^{2}+2^{3}+2^{4}+2^{5}+\ldots+2^{11})-(2+2^{2}+2^{3}+2^{4}+\ldots+2^{10})=2^{11}-2.
+		\]
+		Do vậy $ a=2^{11}-2 $, tức là $ a+2=2^{11} $.
+	}
+\end{bt}
+\begin{bt}
+Tìm số tự nhiên $ x $ biết rằng $ (2x+1)^{2}=625 $.
+\loigiai{
+Ta có $ (2x+1)^{2}=625 $ nên $ (2x+1)^{2}=25^{2} $, do đó $ 2x+1=25 $. Từ đó suy ra $ x=12 $.
+}
+\end{bt}
+\begin{bt}
+	Quan sát $ 11-2=9=3^{2} $ và $ 1111-22=1089=33^{2} $. Hãy chứng minh rằng $ \underbrace{11\ldots 1}_{2n\text{ chữ số }1}-\underbrace{22\ldots 2}_{n\text{ chữ số }2} $ là số chính phương.
+	\loigiai{
+	Đặt $ a=\underbrace{11\ldots 1}_{n\text{ chữ số }1} $ thì
+	\[
+	A=\underbrace{11\ldots 1}_{2n\text{ chữ số }1}-\underbrace{22\ldots 2}_{n\text{ chữ số }2}=\underbrace{11\ldots 1}_{n\text{ chữ số }1}\underbrace{11\ldots 1}_{n\text{ chữ số }1}-2\cdot \underbrace{11\ldots 1}_{n\text{ chữ số }1}=a\cdot 10^{n}+a-2a=a\cdot 10^{n}-a.\tag{1}
+	\]
+	Lại có $ 9a+1=\underbrace{99\ldots 9}_{n\text{ chữ số }9}+1=10^{n} $.\hfill(2)\\
+	Từ (1) và (2) suy ra $ A=a(9a+1)-a=9a^{2}=(3a)^{2} $. Vậy $ A $ là số chính phương.
+	}
+\end{bt}
+\begin{bt}
+	Tìm chữ số tận cùng của 
+	\begin{enumEX}{2}
+		\item $ 7^{35}-4^{31} $;
+		\item $ 2^{1930}\cdot 9^{1945} $.
+	\end{enumEX}
+	\loigiai{
+		\begin{enumerate}
+			\item Ta có\\
+			$ 7^{35}=\underbrace{7^{4}\cdot 7^{4}\cdots 7^{4}}_{8\text{ lần }7^{4}}\cdot 7^{3}=(\ldots 1)^{8}\cdot (\ldots 3) $ tận cùng bằng $ 3 $ và $ 4^{31}=\underbrace{4^{2}\cdot 4^{2}\cdots 4^{2}}_{15\text{ lần }4^{2}}\cdot 4=(\ldots 6)\cdot 4 $ tận cùng là $ 4 $. Do đó $ 7^{35}-4^{31} $ tận cùng là $ 9 $.
+			\item Ta có $ 2^{1930} $ tận cùng bằng $ 4 $ và $ 9^{1945} $ tận cùng bằng $ 9 $ nên $ 2^{1930}\cdot 9^{1945} $ tận cùng bằng $ 6 $.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}
+	Tìm hai chữ số tận cùng của 
+	\begin{enumEX}{2}
+		\item $ 351^{2011} $;
+		\item $ 218^{218} $.
+	\end{enumEX}
+	\loigiai{
+		\begin{enumerate}
+			\item Số tận cùng là $ 51 $ khi bình phương lên sẽ được số tận cùng là $ 01 $ và số tận cùng là $ 01 $ khi lũy thừa bậc $ n $ lên sẽ được tận cùng là $ 01 $. Do đó
+			\[
+			351^{2011}=\underbrace{351^{2}\cdots 351^{2}}_{1005\text{ lần }351^{2}}\cdot 351=(\ldots 01)^{1005}\cdot 351=\ldots 51.
+			\]
+			Vậy $ 351^{2011} $ có hai chữ số tận cùng là $ 51 $.
+			\item Số tận cùng là $ 18 $ khi lũy thừa bậc $ 4 $ thì tận cùng là $ 76 $ và số tận cùng là $ 76 $ khi nâng lũy thừa bậc $ n $ (khác $ 0 $) cũng tận cùng là $ 76 $. Do đó
+			\[
+			218^{218}=\underbrace{218^{4}\cdots 218^{4}}_{54\text{ lần }218^{4}}\cdot 218^{2}=(\ldots 76)^{54}\cdot (\ldots 24)=\ldots 24.
+			\]
+			Vậy $ 218^{218} $ có hai chữ số tận cùng là $ 24 $.
+		\end{enumerate}
+	}
+\end{bt}

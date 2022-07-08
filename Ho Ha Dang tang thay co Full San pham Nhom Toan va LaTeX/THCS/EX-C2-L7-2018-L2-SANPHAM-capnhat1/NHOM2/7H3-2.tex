@@ -1,0 +1,623 @@
+%GV soạn:Đặng Đức Quý
+%GV phản biện: Phuong Dam Thanh
+\Opensolutionfile{ans}[ans/ans7H3-2]
+\section{Quan hệ giữa đường vuông góc và đường xiên. Đường xiên và hình chiếu}
+\subsection{Hỏi đáp nhanh}
+
+\begin{ex}%[7H3Y2]
+	\item Giải thích kết luận Đường vuông góc ngắn hơn đường xiên dựa vào quan hệ giữa góc và cạnh đối diện trong tam giác như thế nào?
+	\loigiai{
+		\immini{ Xét $\triangle ABH$ ta luôn có $AH < AB$.
+			Mặt khác $AH$ và $AB$ là lần lượt là đường vuông góc và đường xiên kẻ từ $A$ đến đường thẳng $d$.\\
+		Vậy đường vuông góc ngắn hơn đường xiên. 
+	}{
+\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+\def\khvuong[size=#1](#2,#3,#4){%
+\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)--($(#3)!#1!(#4)$);
+ }
+\def\vediem(#1){
+\fill (#1) circle (0.05);
+}
+\coordinate[label=above:A] (a) at (0,2);
+\coordinate[label=above:$d$] (d) at (4,0);
+\coordinate (t) at (-1,0);
+\coordinate[label=below:B] (b) at ($(t)!0.8!(d)$);
+\coordinate[label=below:H] (h) at ($(d)!(a)!(b)$);
+\draw (t)--(d) (b)--(a)--(h);
+\khvuong[size=6pt](a,h,b)
+\vediem(a)\vediem(b)\vediem(h)
+\end{tikzpicture}
+}
+}
+	\end{ex}
+\begin{ex}%[7H3B2]
+	\item So sánh đường xiên và hình chiếu của nó trên một đường thẳng. Khi nào đường xiên dài gấp đôi hình chiếu của nó?
+	\loigiai{ 
+\immini{
+			 Xét $\triangle ABH$ có $BH= \dfrac{1}{2}AB \Rightarrow \widehat{HAB} = 30^\circ$. \\
+	Vậy đường xiên dài gấp đôi hình chiếu khi đường xiên tạo với đường vuông góc một góc $30^\circ$.
+ }{	
+	\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+\def\khvuong[size=#1](#2,#3,#4){%
+\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)--($(#3)!#1!(#4)$);
+ }
+\def\vediem(#1){
+\fill (#1) circle (0.05);
+}
+\coordinate[label=above:A] (a) at (0,3);
+\coordinate[label=above:$d$] (d) at (4,0);
+\coordinate (t) at (-1,0);
+\coordinate[label=below:B] (b) at ($(t)!0.6!(d)$);
+\coordinate[label=below:H] (h) at ($(d)!(a)!(b)$);
+\draw (t)--(d) (b)--(a)--(h);
+\khvuong[size=6pt](a,h,b)
+\vediem(a)\vediem(b)\vediem(h)
+\end{tikzpicture}
+		}
+	
+}
+	\end{ex}
+\begin{ex}%[7H3B2]
+	\item Hãy so sánh hai đường xiên thông qua hai hình chiếu dựa vào quan hệ giữa góc và cạnh đối diện trong một tam giác (chứng tỏ $ON > OM$ trong hình).
+		\loigiai{
+	\immini{
+		Áp dụng tính chất góc ngoài của $\triangle OHM$ ta có\\
+		$\widehat{OMN} > \widehat{OHM} = 90^\circ$. Suy ra $\widehat{OMN}$ là góc tù.\\
+		Xét $\triangle OMN$ có $\widehat{OMN} > \widehat{ONM} \Rightarrow ON > OM$.
+}{
+\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+\def\khvuong[size=#1](#2,#3,#4){%
+\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)--($(#3)!#1!(#4)$);
+ }
+\def\vediem(#1){
+\fill (#1) circle (0.05);
+}
+\coordinate[label=above:O] (o) at (0,3);
+\coordinate[label=above:$d$] (d) at (4,0);
+\coordinate (t) at (-1,0);
+\coordinate[label=below:N] (n) at ($(t)!0.8!(d)$);
+\coordinate[label=below:M] (m) at ($(t)!0.6!(d)$);
+\coordinate[label=below:H] (h) at ($(d)!(o)!(t)$);
+\draw (t)--(d) (n)--(o)--(h) (o) --(m);
+\khvuong[size=6pt](o,h,n)
+\vediem(o)\vediem(n)\vediem(m)\vediem(h)
+\end{tikzpicture}
+	}
+}
+\end{ex}
+\subsection{Học giải toán}
+%vd1
+\begin{vd}%[7H3B2]
+Cho $\triangle ABC$ có $AB > AC$. Từ $A$ hạ $AH \perp BC$. Trên đoạn thẳng $AH$ lấy điểm $M$ ($M$ không trùng $A$, $H$). Chứng minh rằng
+\begin{enumerate}
+	\item $MB > MC$.
+	\item $BA > BM$.
+	\end{enumerate}
+\loigiai{
+\immini{	
+	\begin{enumerate}
+		\item Từ $AB > AC$ (giả thiết), suy ra $BH > CH$ (đường xiên lớn hơn thì hình chiếu lớn hơn).\\
+		Xét hai đường xiên $MB$ và $MC$ có $BH > CH$ suy ra $MB > MC$ (hình chiếu lớn hơn thì đường xiên lớn hơn).
+		\item Ta xét $BH$ là đường vuông góc với đường thẳng $AH$ thì $AH$ và $MH$ là hình chiếu của $BA$ và $BM$ trên đường thẳng $AH$.\\
+		Theo giả thiết $M$ nằm giữa $A$ và $H$ nên $HM < HA$ suy ra $BM < BA$ (hình chiếu lớn hơn thì đường xiên xiên lớn hơn).\\
+		Vậy $BA > BM$.
+	\end{enumerate}
+}{
+\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+\def\khvuong[size=#1](#2,#3,#4){%
+\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)--($(#3)!#1!(#4)$);
+ }
+\def\vediem(#1){
+\fill (#1) circle (0.05);
+}
+\coordinate[label=above:A] (a) at (2.5,3);
+\coordinate[label=left:B] (b) at (-1,0);
+\coordinate[label=right:C] (c) at (3.5,0);
+\coordinate[label=below:H] (h) at ($(b)!(a)!(c)$); 
+\coordinate[label=above left:M] (m) at ($(a)!0.35!(h)$);
+\draw (a)--(b)--(c)--cycle;
+\draw (b)--(m)--(c) (a)--(h);
+\khvuong[size=6pt](a,h,c)
+\vediem(a)\vediem(b)\vediem(c)\vediem(h)\vediem(m)
+	\end{tikzpicture}
+}
+}
+\end{vd}
+
+\begin{vd}%[7H3K2]
+%vd 2
+Cho tam giác $ABC$ có hai góc $B$ và $C$ nhọn. Điểm $M$ nằm giữa $B$ và $C$. Gọi $d$ là tổng khoảng cách từ $B$ và $C$ đến đường thẳng $AM$.
+\begin{enumerate}
+\item Chứng minh rằng: $d \leq BC$.
+\item Xác định vị trí của điểm $M$ sao cho $d$ có giá trị lớn nhất.
+\end{enumerate}
+	\loigiai{
+		
+\begin{enumerate}
+			\item \immini{
+Kẻ $BH \perp AM$ và $CK \perp AM$ $(H,K \in AM)$. Theo đề ra ta có $d = BH + CK$.\\
+			Ta có: $BH \leq BM$ (Quan hệ đường vuông góc - đường xiên)\\
+			và $CK \leq CM$ (quan hệ đường vuông góc - đường xiên).\\
+			Suy ra $BH + CK \leq BM + CM = BC$ hay $d \leq B$.
+}{
+\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+%Định nghĩa lệnh vẽ ký hiệu vuông góc:
+\def\khvuong[size=#1](#2,#3,#4){%
+\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)--($(#3)!#1!(#4)$);
+ }
+\def\vediem(#1){
+\fill (#1) circle (0.05);
+}
+%Hết định nghĩa
+\coordinate[label=above:A] (a) at (1,2);
+\coordinate[label=left:B] (b) at (0,0);
+\coordinate[label=right:C] (c) at (4,0);
+\coordinate[label=below left:M] (m) at ($(b)!0.7!(c)$);
+\coordinate (x) at ($(a)!1.5!(m)$);
+\coordinate[label=left: H] (h) at ($(a)!(b)!(x)$);
+\coordinate[label=below:K] (k) at ($(a)!(c)!(x)$);
+\draw (a)--(b)--(c)--cycle;
+\draw (a)--(k);
+\draw (b)--(h) (c)--(k);
+\khvuong[size=6pt](b,h,m)
+\khvuong[size=6pt](a,k,c)
+\vediem(a)\vediem(b)\vediem(c)\vediem(m)\vediem(h)\vediem(k)
+\end{tikzpicture}
+	}
+			\item \immini{
+Ta luôn có $d \leq BC$, $d = BC$ khi và chỉ khi $BM = BH$, $CM = CK$ hay đồng thời $H \equiv M$ và $K \equiv M$, tức là $AM \perp BC$. \\
+			Vì hai góc $B$ và $C$ nhọn nên khi đó $M$ nằm giữa $B$ và $C$, thỏa mãn điều kiện. Vậy $d$ có giá trị lớn nhất khi $M$ là hình chiếu của $A$ trên $BC$.
+}{
+\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+%Định nghĩa lệnh vẽ ký hiệu vuông góc:
+\def\khvuong[size=#1](#2,#3,#4){%
+\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)--($(#3)!#1!(#4)$);
+ }
+\def\vediem(#1){
+\fill (#1) circle (0.05);
+}
+%Hết định nghĩa
+\coordinate[label=above:A] (a) at (1,2);
+\coordinate[label=left:B] (b) at (0,0);
+\coordinate[label=right:C] (c) at (4,0);
+\draw (b)--(a)--(c)--cycle;
+\coordinate[label=below:M] (m) at ($(b)!(a)!(c)$);
+\draw (a)--(m);
+\khvuong[size=6pt](a,m,c)
+\vediem(a)\vediem(b)\vediem(c)\vediem(m)
+\end{tikzpicture}
+}
+	\end{enumerate}
+}
+
+
+\end{vd}
+\begin{vd}%[7H3K2]
+%vd 3	
+Cho một điểm $O$ ở ngoài đường thẳng $xy$, $A$ là hình chiếu của $O$ trên $xy$. Trên cùng nửa mặt phẳng bờ $OA$, ta kẻ các đường xiên $OB$, $OC$, $OD$ sao cho $AB = BC = CD$. Hãy sắp xếp thứ tự các góc $AOB$, $BOC$, $COD$ theo số đo của chúng.
+	\loigiai{    
+		\immini{
+		 Ta chứng minh cho một trường hợp, các trường hợp khác được chứng minh tương tự.\\
+	Chẳng hạn, ta chứng minh $\widehat{DOC} < \widehat{COB}$.\\
+	Trên tia $OC$ lấy điểm $C’$ sao cho $C$ là trung điểm của $OC'$, nối $C’D$. \\
+	Xét $\triangle DCC’\ \text{và}\ \triangle BCO’$ có\\
+	$\heva{&DC = BC\\&\widehat{DCC'} = \widehat{BCO}\\&CC' = CO} \Rightarrow  \triangle DCC’ = \triangle BCO’\ \text{(c.g.c)}$\\
+	$ \Rightarrow DC’= OB$ và $\widehat{DC'C}=\widehat{COB}. \hfill (1)$\\
+	Ta có $OB < OD$ (vì $AB < AD$ theo định lí về quan hệ giữa đường xiên và hình chiếu của nó), nên $DC’< OD$. Trong tam giác $ODC’$, theo định lí về quan hệ giữa cạnh và góc đối diện ta có $\widehat{DOC} < \widehat{DC’C}. \hfill(2)$\\
+	Từ $(1)$ và $(2)$ suy ra $\widehat{DOC} < \widehat{COB}$.\\
+	Vậy $\widehat{AOB} > \widehat{BOC} > \widehat{COD}$.
+}{
+\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+%Định nghĩa lệnh vẽ ký hiệu vuông góc:
+\def\khvuong[size=#1](#2,#3,#4){%
+	\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)--($(#3)!#1!(#4)$);
+}
+\def\vediem(#1){
+	\fill (#1) circle (0.05);
+}
+%Hết định nghĩa
+\coordinate[label=above:$x$] (x) at (-3,0);
+\coordinate[label=above:$y$] (y) at (3,0);
+\coordinate[label=above:O] (o) at (2,3);
+\coordinate[label=below:A] (a) at ($(x)!(o)!(y)$);
+\coordinate[label=above left:D] (d) at ($(y)!0.8!(x)$);
+\coordinate[label=below:B] (b) at ($(a)!1/3!(d)$);
+\coordinate[label=below right:C] (c) at ($(a)!2/3!(d)$);
+\coordinate[label=below right:C'] (c') at ($(o)!2!(c)$);
+\draw (x)--(y) (d)--(o)--(a) (b)--(o)--(c);
+\draw[dashed] (d)--(c')--(c);
+\khvuong[size=6pt](o,a,x)
+\vediem(o)\vediem(a)\vediem(d)\vediem(b)\vediem(c)\vediem(c')
+\draw[line width=1]($($(d)!0.5!(c)$)-(0.06,0.05)$)--($($(d)!0.5!(c)$)+(0.06,0.05)$); 
+\draw[line width=1]($($(c)!0.5!(b)$)-(0.06,0.05)$)--($($(c)!0.5!(b)$)+(0.06,0.05)$); 
+\draw[line width=1]($($(b)!0.5!(a)$)-(0.06,0.05)$)--($($(b)!0.5!(a)$)+(0.06,0.05)$); 
+\draw[line width=1]($($(o)!0.5!(c)$)-(-0.05,0.05)$)--($($(o)!0.5!(c)$)+(-0.05,0.05)$); 
+\draw[line width=1]($($(c)!0.5!(c')$)-(-0.05,0.05)$)--($($(c)!0.5!(c')$)+(-0.05,0.05)$); 
+\draw[line width=1]($($(o)!0.52!(c)$)-(-0.05,0.05)$)--($($(o)!0.52!(c)$)+(-0.05,0.05)$); 
+\draw[line width=1]($($(c)!0.52!(c')$)-(-0.05,0.05)$)--($($(c)!0.52!(c')$)+(-0.05,0.05)$); 
+\end{tikzpicture}		
+}
+}
+
+
+\end{vd}
+
+\begin{vd}%[7H3K2]
+	% vd 4
+	Cho góc $xOy= 60^\circ$, $A$ là điểm trên tia $Ox$, $B$ là điểm trên tia $Oy$ ($A$, $B$ không trùng với $O$). Chứng minh rằng $OA + OB \leq 2AB.$
+
+	\loigiai{
+	\immini{ 
+Kẻ tia phân giác $Ot$ của góc $xOy$.\\
+		Gọi $I$ là giao điểm của $AB$ và $Ot$; $H$, $K$ lần lượt là hình chiếu của $A$, $B$ trên $Ot$.\\
+		Xét tam giác OAH có $\widehat{AOH} = 30^\circ$ nên $OA = 2AH$.\\
+		Vì $AH$, $AI$ lần lượt là đường vuông góc, đường xiên kẻ từ $A$ đến đường thẳng $Ot$ nên $AH \leq AI$. 
+		Do vậy $OA \leq 2AI. \hfill (1)$\\
+		Chứng minh tương tự ta có $OB = 2BK \leq 2BI. \hfill (2)$\\
+		Từ $(1)$ và $(2)$ ta có $OA + OB \leq 2AI + 2BI = 2AB.$\\
+		Đẳng thức xảy ra khi $H \equiv I \equiv K$ hay $AB \perp Ot \Leftrightarrow OA = OB.$ 
+}{
+	\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale= 1.2]
+%Định nghĩa lệnh vẽ ký hiệu vuông góc:
+\def\khvuong[size=#1](#2,#3,#4){%
+\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)--($(#3)!#1!(#4)$);
+ }
+\def\vediem(#1){
+\fill (#1) circle (0.05);
+}
+%Hết định nghĩa
+\def\r{3}
+\coordinate[label=left:O] (o) at (0:0);
+\coordinate[label=$x$] (x) at (30:\r);
+\coordinate[label=$y$] (y) at (-30:\r);
+\coordinate[label=$t$] (t) at (0:\r);
+\coordinate[label=A] (a) at ($(o)!0.4!(x)$);
+\coordinate[label=above right:B] (b) at ($(o)!0.8!(y)$);
+\coordinate[label=below:H] (h) at ($(o)!(a)!(t)$);
+\coordinate[label=K] (k) at ($(o)!(b)!(t)$);
+\draw (x)--(o)--(y);
+\draw[name path=ot](o)--(t);
+\draw[name path=ab](a)--(b);
+\path[name intersections={of =ot and ab}];
+\coordinate[label=I] (i) at (intersection-1);
+\draw (a)--(h) (b)--(k);
+\khvuong[size=6pt](a,h,o)
+\khvuong[size=6pt](b,k,o)
+\draw (15:0.4) node[scale=0.5]{$30^{\circ}$} (-15:0.4) node[scale=0.5]{$30^{\circ}$};
+\vediem(o)\vediem(a)\vediem(b)\vediem(h)\vediem(k)\vediem(i)
+\end{tikzpicture}
+} 
+}
+\end{vd}
+
+\subsection{Bài tập}
+\subsubsection{Cơ bản}
+\begin{bt}%[7H3B2]
+	% 2.1
+	Cho tam giác $ABC$ cân tại $A$. Kẻ $AH$ vuông góc với $BC$ $(H \in BC)$. Trên tia đối của tia $HA$ lấy điểm $F$ sao cho $HF = HA$. Trên tia đối của tia $CB$ lấy diểm $E$ tùy ý. Chứng minh rằng 
+	\begin{enumerate}
+	\item $AB = AC = FB = FC$.
+	\item Tam giác $AEF$ cân.
+	\end{enumerate}
+	\loigiai{
+	\immini{
+	\begin{enumerate}
+		\item $AB = AC$ (giả thiết)
+	suy ra $HB = HC$ (đường xiên bằng nhau nên hình chiếu bằng nhau).
+	$AH = HF$ (giả thiết) suy ra $CA = CF$ và $BA = BF$ (hình chiếu bằng nhau nên đường xiên bằng nhau).\\
+	Từ đó suy ra $AB = AC = CF = BF.$
+	\item $AH = HF$ (giả thiết)
+	suy ra $AE = FE$ (hình chiếu bằng nhau). Vậy $\triangle AEF$ cân tại $E$.
+\end{enumerate}
+}{
+\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+\def\khvuong[size=#1](#2,#3,#4){%
+\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)--($(#3)!#1!(#4)$);
+ }
+\def\vediem(#1){
+\fill (#1) circle (0.05);
+}
+\coordinate[label=left:B] (b) at (-2,0);
+\coordinate[label=above right:C] (c) at (2,0);
+\coordinate[label=below right:H] (h) at ($(b)!0.5!(c)$);
+\coordinate[label=above:A] (a) at ($(h)!1.2!90:(c)$);
+\coordinate[label=below:F] (f) at ($(a)!2!(h)$);
+\coordinate[label=above right: E](e) at ($(b)!1.4!(c)$);
+\draw (a)--(b)--(f)--(e)--cycle;
+\draw (a)--(f) (b)--(e);
+\draw (a)--(c)--(f);
+\khvuong[size=6pt](a,h,c)
+\vediem(a)\vediem(b)\vediem(c)\vediem(e)\vediem(f)\vediem(h)
+\draw[line width=1] ($($(a)!0.5!(h)$)-(0.1,0)$)--($($(a)!0.5!(h)$)+(0.1,0)$);
+\draw[line width=1] ($($(f)!0.5!(h)$)-(0.1,0)$)--($($(f)!0.5!(h)$)+(0.1,0)$);
+\end{tikzpicture}	
+}
+}	
+\end{bt}
+
+% 2.2
+\begin{bt}%[7H3B2]
+Cho $I$ là trung điểm của đoạn thẳng $AB$. Qua $I$ kẻ đường thẳng $d$. Biết $IH$ và $IK$ là hình chiếu của đoạn $IA$ và $IB$ trên dường thẳng $d$.
+\begin{enumerate}
+\item Chứng minh $IH = IK$.
+\item Nếu $I$ không phải là trung điểm của $AB$ mà $IA > IB$. Chứng minh hình chiếu của $IA$ trên đường thẳng $d$ cũng lớn hơn hình chiếu của $IB$ trên đường thẳng $d$.
+\end{enumerate}
+	\loigiai{
+\begin{enumerate}
+	\item  \immini{
+Xét $\triangle AIH\ \text{và} \triangle BIK$ có \\
+	$\heva{&\widehat{AHI} = \widehat{BKI} = 90^\circ\\ &IA=IB\ \text{(gt)}\\ & \widehat{AIH} = \widehat{BIK}\ \text{(đối đỉnh)}}$ \\
+	$\Rightarrow \triangle AIH = \triangle BIK\ \text{(cạnh huyền - góc nhọn)}$\\
+	$\Rightarrow IH = IK$.
+}{
+\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1.2]
+%Định nghĩa lệnh vẽ vuông góc
+\def\khvuong[size=#1](#2,#3,#4){%
+	\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)--($(#3)!#1!(#4)$);
+}
+\def\vediem(#1){
+	\fill (#1) circle (0.05);
+}
+%===Hết định nghĩa=======
+\coordinate[label=left:A] (a) at (0,0);
+\coordinate[label=right:B] (b) at (4,0);
+\coordinate[label=above right:I] (i) at ($(a)!0.5!(b)$);
+\coordinate[label=right:$d$] (d) at (1,2);
+\coordinate (x) at ($(d)!1.5!(i)$);
+\coordinate [label=right:H](h) at ($(d)!(a)!(x)$); %Lấy H là chân đường vuông góc từ A đến dx
+\coordinate [label=below left:K](k) at ($(d)!(b)!(x)$); %Lấy K là chân đường vuông góc từ A đến dx
+\draw (a)--(h) (b)--(k) (d)--(x) (a)--(b);
+\khvuong[size=6pt](a,h,i)
+\khvuong[size=6pt](b,k,i)
+\vediem(a)\vediem(b)\vediem(i)\vediem(k)\vediem(h)
+\draw[line width=1] ($($(a)!0.5!(i)$)-(0.05,0.05)$)--($($(a)!0.5!(i)$)+(0.05,0.05)$);
+\draw[line width=1] ($($(b)!0.5!(i)$)-(0.05,0.05)$)--($($(b)!0.5!(i)$)+(0.05,0.05)$);
+\end{tikzpicture}
+}
+			\item \immini{
+Trên cạnh $IA$ lấy điểm $M$ sao cho $I$ là trung điểm của $MB$.
+Khi đó $IM < IA$ do $IB < IA$.\\
+Gọi $N$ là hình chiếu của điểm $M$ trên đường thẳng $d$. Do $IM < IA$ nên suy ra $IN < IH$.\\
+Dễ chứng minh được $$\triangle BIK = \triangle MIN\ \text{(cạnh huyền - góc nhọn)} \Rightarrow IK = IN$$.
+Mặt khác $IN < IH$ suy ra $IK < IH$ (đpcm). 
+}{
+\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1.2]
+%Định nghĩa lệnh vẽ vuông góc
+\def\khvuong[size=#1](#2,#3,#4){%
+	\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)--($(#3)!#1!(#4)$);
+}
+\def\vediem(#1){
+	\fill (#1) circle (0.05);
+}
+%===Hết định nghĩa=======
+\coordinate[label=left:A] (a) at (0,0);
+\coordinate[label=right:B] (b) at (4,0);
+\coordinate[label=above right:I] (i) at ($(a)!0.75!(b)$);
+\coordinate[label=right:$d$] (d) at (1,2);
+\coordinate (x) at ($(d)!1.5!(i)$);
+\coordinate [label=right:H](h) at ($(d)!(a)!(x)$); %Lấy H là chân đường vuông góc từ A đến dx
+\coordinate [label=below left:K](k) at ($(d)!(b)!(x)$); %Lấy K là chân đường vuông góc từ A đến dx
+\coordinate[label=below left:M] (m) at ($(b)!2!(i)$);
+\coordinate[label=above right:N] (n) at ($(h)!(m)!(i)$);
+\draw (m)--(n);
+\draw (a)--(h) (b)--(k) (d)--(x) (a)--(b);
+\khvuong[size=6pt](a,h,i)
+\khvuong[size=6pt](b,k,i)
+\khvuong[size=6pt](i,n,m)
+\vediem(a)\vediem(b)\vediem(i)\vediem(k)\vediem(h)\vediem(m)\vediem(n)
+\draw[line width=1] ($($(m)!0.5!(i)$)-(0.05,0.05)$)--($($(m)!0.5!(i)$)+(0.05,0.05)$);
+\draw[line width=1] ($($(b)!0.5!(i)$)-(0.05,0.05)$)--($($(b)!0.5!(i)$)+(0.05,0.05)$);
+\end{tikzpicture}
+}
+\end{enumerate}
+}
+	\end{bt}
+
+\begin{bt}%[7H3K2]
+%2.3
+Hai đoạn thẳng $MN = 12$cm, $PQ = 8$cm cắt nhau tại $O$ là trung điểm của mỗi đoạn và góc tạo thành giữa hai đoạn thẳng đó là $60^\circ$ (hay $\widehat{MOQ} = 60^\circ$).
+	\begin{enumerate}
+		\item  Nêu cách tìm hình chiếu của đoạn $MN$ trên đường thẳng $PQ$ và cách tìm hình chiếu của đoạn $PQ$ trên đường thẳng $MN$.
+		\item Tính độ dài của hai hình chiếu đó.
+	\end{enumerate}
+	\loigiai{ 
+	\immini{	
+		\begin{enumerate}
+			\item Muốn tìm hình chiếu của đoạn $MN$ trên $PQ$ ta tìm hình chiếu của hai điển $M$, $N$ trên $PQ$. Từ $M$ hạ $MN \perp PQ$ và từ $N$ hạ $NK \perp PQ$, ta có $HK$ là hình chiếu của $MN$ trên đường thẳng $PQ$.\\
+			Tương tự đối với hình chiếu của $PQ$ trên đường thẳng $MN$.
+\item Dễ chứng minh được $\triangle ONK = \triangle OMH$ (cạnh huyền - góc nhọn) suy ra $OK = OH$.\\ 
+$\triangle OPE = \triangle OQF$ (cạnh huyền - góc nhọn) suy ra $OE = OF$.\\ 
+$\triangle ONK$ vuông tại $K$ có $\widehat {KNO} = 30^\circ$ nên $ OK = \dfrac{1}{2}ON = 3$ cm, mà $OK = OH$ nên $HK = 6$cm.\\
+\end{enumerate}
+}{
+\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.6]
+\def\khvuong[size=#1](#2,#3,#4){%
+\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)--($(#3)!#1!(#4)$);
+ }
+\def\vediem(#1){
+\fill (#1) circle (0.05);
+}
+%=======
+\coordinate[label=below right:O] (o) at (0:0);
+\coordinate[label=above: P] (p) at (90:4);
+\coordinate[label=above right: N](n) at (30:6);
+\coordinate[label=below left: M] (m) at ($(n)!2!(o)$);
+\coordinate[label=below: Q] (q) at ($(p)!2!(o)$);
+\coordinate[label=below right:E] (e) at ($(m)!(p)!(n)$);
+\coordinate[label=above left:F] (f) at ($(m)!(q)!(n)$);
+\coordinate[label=above left:K] (k) at ($(p)!(n)!(q)$);
+\coordinate[label=below right:H] (h) at ($(p)!(m)!(q)$);
+\draw (p)--(q) (m)--(n);
+\draw[dashed] (n)--(k) (m)--(h) (p)--(e) (q)--(f);
+\draw (60:0.75) node[scale=0.75]{$60^{\circ}$};
+\khvuong[size=8pt](n,k,o)
+\khvuong[size=8pt](m,h,o)
+\khvuong[size=8pt](p,e,o)
+\khvuong[size=8pt](q,f,o)
+\vediem(o)\vediem(p)\vediem(n)\vediem(m)\vediem(e)\vediem(f)\vediem(q)\vediem(k)\vediem(h)
+\end{tikzpicture}
+}
+ $\triangle OPE$ vuông tại $E$ có $\widehat {OPE} = 30^\circ$ nên $ OE = \dfrac{1}{2}OP = 2$ cm, mà $OE = OF$ nên $EF = 4$cm.\\
+}	
+\end{bt}
+
+\begin{bt}%[7H3K2]
+	%2.4
+	Cho tam giác $ABC$. 
+	\begin{enumerate}
+	\item Từ $A$ hạ $AH \perp BC$ $(H \in BC)$. Chứng minh 
+	$AH < \dfrac{AB+AC}{2}$.
+	\item Từ $B$ hạ $BK$ vuông góc $AC$ $(K \in AC)$, từ $C$ hạ $CI \perp AB\ (I \in AB)$. Chứng minh rằng $AH + BK + CI$ nhỏ hơn chu vi của $\triangle ABC$.                                            
+		\end{enumerate}
+	\loigiai{
+\begin{enumerate}
+		\item \immini{
+Ta có $AH \leq AC$ (đẳng thức xảy ra khi $\widehat{C} = 90^\circ$).\\ 
+		$AH \perp AB$ (đẳng thức xảy ra khi $\widehat{B} = 90^\circ$).\\
+		Do hai đẳng thức không xảy ra đồng thời nên \\
+		$2AH < AC + AB \Rightarrow AH < \dfrac{AB + AC}{2}. \hfill (1)$
+}{
+ \begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+%Định nghĩa lệnh vẽ ký hiệu vuông góc:
+\def\khvuong[size=#1](#2,#3,#4){%
+\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)--($(#3)!#1!(#4)$);
+ }
+\def\vediem(#1){
+\fill (#1) circle (0.05);
+}
+%Hết định nghĩa
+\coordinate[label=above:A] (a) at (1,3);
+\coordinate[label=left:B] (b) at (0,0);
+\coordinate[label=right:C] (c) at (4,0);
+\coordinate[label=below:H] (h) at ($(b)!(a)!(c)$);
+\coordinate[label=left:I] (i) at ($(a)!(c)!(b)$);
+\coordinate[label=right:K] (k) at ($(a)!(b)!(c)$);
+\draw (a)--(b)--(c)--cycle;
+\draw (a)--(h) (b)--(k) (c)--(i);
+\khvuong[size=6pt](a,h,b)
+\khvuong[size=6pt](b,k,c)
+\khvuong[size=6pt](c,i,b)
+\vediem(a)\vediem(b)\vediem(c)\vediem(h)\vediem(k)\vediem(i)
+\end{tikzpicture}
+}
+\item Tương tự ta cũng chứng minh được 
+		$$ BK < \dfrac{AB + BC}{2}. \qquad (2)$$
+		$$ CI < \dfrac{AC + BC}{2}. \qquad (3)$$
+		Cộng theo vế $(1)$ ; $(2)$; $(3)$ có\\
+		$AH + BK + CI < \dfrac{AB + AC}{2}+\dfrac{AB + BC}{2}+\dfrac{AC + BC}{2}.$\\
+		Hay $AH + BK + CI < AB + BC + AC$ bằng chu vi tam giác $ABC$.
+		\end{enumerate}
+}
+\end{bt}
+
+\subsubsection{Nâng cao}
+\begin{bt}%[7H3K2]
+	%2.5
+Chứng minh rằng trong một tam giác vuông, tổng cạnh huyền và đường cao tương ứng luôn nhỏ hơn tổng hai cạnh góc vuông.
+\loigiai{
+\immini{
+Kẻ đường vuông góc $AH$ xuống $BC$ suy ra $H$ thuộc cạnh $BC$.\\
+Trên tia $CB$ lấy điểm $E$ sao cho $CE = CA$.\\
+Trên tia $AB$ lấy điểm $F$ sao cho $AF =  AH$.\\                                                                                                           
+Ta có $CH < CA$ nên $CH < CE$.\\                                                                                                               
+Từ đó, ta có $CH < CE < CB \Rightarrow E$ nằm giữa $H$ và $B$.\\
+Vì $AH < AB$ nên $AF < AB \Rightarrow F$ nằm giữa $A$ và $B$.\\
+Lại có $CE = CA \Rightarrow \triangle AFE$ cân tại $C \Rightarrow \widehat{CAE}= \widehat{CEA}$.\\
+Mà $\widehat{CAE} + \widehat{BAE} = 90^\circ$; $\widehat{CEA} + \widehat{HAE} = 90^\circ \Rightarrow \widehat{BAE} = \widehat{HAE}$.\\
+
+}{
+\begin{tikzpicture}
+%Định nghĩa lệnh vẽ ký hiệu vuông góc:
+\def\khvuong[size=#1](#2,#3,#4){%
+\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)--($(#3)!#1!(#4)$);
+ }
+\def\vediem(#1){
+\fill (#1) circle (0.05);
+}
+%Hết định nghĩa
+\pgfmathsetmacro{\b}{4}% Độ dài cạnh AB (có thể thay đổi tùy ý)
+\pgfmathsetmacro{\c}{3}%Độ dài cạnh AC (có thể thay đổi tùy ý)
+\pgfmathsetmacro{\h}{(\b *\c)/sqrt((\b)^2+(\c)^2)} %(Độ dài đường cao AH)
+\coordinate[label=left:A] (a) at (0,0); %Khai báo điểm A
+\coordinate[label=right:B] (b) at (\b,0); %Khai báo điểm B
+\coordinate[label=left:C] (c) at (0,\c); %Khai báo điểm C
+\draw[name path=ab](a)--(b); %Vẽ cạnh AB
+\draw[name path=ac] (a)--(c); %Vẽ cạnh AC
+\draw[name path=bc] (b)--(c); %Vẽ cạnh BC
+\draw[name path=tib,opacity=0] (a) arc (180:90:\b/2); %Vẽ cung tròn bán kính AB/2, điểm bắt đầu là A và điểm kết thúc là H 
+\path [name intersections={of=bc and tib}]; %Lấy giao điểm H của cung tròn và BC
+\coordinate[label=H] (h) at (intersection-1); %Khai báo điểm H
+\draw (a)--(h) ; %Vẽ AH
+\pgfmathsetmacro{\gocc}{atan(\b/\c)} %Tính giá trị góc quay C
+\coordinate[label=E](e) at ($(c)!1!\gocc:(a)$); %Quay A theo góc quay C để lấy điểm E (tâm quay C)
+\coordinate[label=below:F](f) at ($(a)!1!-\gocc:(h)$);  %Quay H theo góc quay -C để lấy điểm F (tâm quay A)
+\draw[dashed] (a)--(e)--(f); %Vẽ nét đứt AEF
+\khvuong[size=6pt](a,h,c) %Vẽ ký hiệu vuông góc tại H
+\khvuong[size=6pt](e,f,a) %Vẽ khí hiệu vuông góc tại F
+\khvuong[size=6pt](c,a,b) %Vẽ kí hiệu vuông góc tại A
+\vediem(a)\vediem(b)\vediem(c)\vediem(h)\vediem(e)\vediem(f)
+\end{tikzpicture}
+}
+Do đó $\triangle AHE = \triangle AFE\ \text{(c.g.c)} \Rightarrow \widehat{AHE} = \widehat{AFE}\ \text{(hai góc tương ứng)} \Rightarrow  EF \perp AB$.\\
+Ta có $AH + BC = AF + CE + BE$; $AB + AC = AF + BF + CE.$ \\
+Mà $BE > BF$ suy ra $AH + BC > AB + AC$.
+}
+\end{bt}
+
+\begin{bt}%[7H3K2]
+	%2.6
+	Cho $ABC$ vuông tại $A$; $Bx$ là tia phân giác của góc $B$ cắt $AC$ tại $D$. Tại $C$ kẻ $Cy \perp AC$ ($AB$ và $Cy$ thuộc hai nửa mặt phẳng đối nhau có bờ $AC$). $Cy$ cắt $Bx$ tại $N$. So sánh chu vi tam giác $ABD$ và chu vi tam giác $CDN$.
+	\loigiai{
+\immini{
+	$AB \perp AC$ (giả thiết), $Cy \perp AC$ (giả thiết) suy ra $AB \parallel  Cy$.\\
+	Xét $\triangle BCN$ có $\widehat{N} = \widehat{ABD}$ (so le trong), $\widehat{ABD} = \widehat{CBD}$ (giả thiết).\\
+	Vậy $\widehat{N} = \widehat{CBD} \Rightarrow \triangle BCN$ cân tại $C$ suy ra $BC = CN$.\\
+	Tam giác $ABC$ vuông tại $A$ nên $AB < BC$.
+	Vậy $AB < CN. \hfill(1)$\\
+	Kẻ $DH \perp BC$ ta có $\triangle ABD = \triangle HBD$ (cạnh huyền - góc nhọn).\\
+	Suy ra $DA = DH$, mà $DC > DH$. \\
+	Vậy $DC > DA$ hay $DA < DC. \hfill(2)$\\
+	Xét $\triangle BCD\ \text{và}\ \triangle NCD$ có\\
+	$\heva{&CN = BC\\& CD\ \text{chung}\\& \widehat{DCN} = 90^\circ > \widehat{BCD}}$ $\Rightarrow BD < DN. \hfill (3)$\\
+	Cộng $(1)$, $(2)$ và $(3)$ theo từng vế ta có\\
+	$AB + AD + BD < CN + DC + DN$.\\
+	Vậy chu vi tam giác $ABD$ nhỏ hơn chu vi tam giác $CDN$.
+}{
+	\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale= 1]
+%Định nghĩa lệnh vẽ ký hiệu vuông góc:
+\def\khvuong[size=#1](#2,#3,#4){%
+\draw ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)+($(#3)!#1!(#4)$)-(#3)$)--($(#3)!#1!(#4)$);
+ }
+\def\vediem(#1){
+\fill (#1) circle (0.05);
+}
+%Hết định nghĩa
+\pgfmathsetmacro{\b}{2}
+\pgfmathsetmacro{\c}{4}
+\coordinate[label=left:A] (a) at (0,0);
+\coordinate[label =below:B] (b) at (0,-\b);
+\coordinate[label=right:C] (c) at (\c,0);
+\pgfmathsetmacro{\gocb}{atan(\c/\b)}
+\coordinate[label=above right: $x$] (x) at ($(b)!1.8!\gocb/2:(c)$);
+\coordinate[label=above:$y$] (y) at ($(c)!1.2!-90:(a)$);
+\draw (a)--(b)--(c);
+\draw[name path=ac] (a)--(c);
+\draw[name path=bx] (b)--(x);
+\draw[name path=cy] (c)--(y);
+\path[name intersections={of =cy and bx}];
+\coordinate[label=left:N] (n) at (intersection-1);
+\path[name intersections={of =ac and bx}];
+\coordinate[label=above left:D] (d) at (intersection-1);
+\coordinate[label=below right:H] (h) at ($(b)!(d)!(c)$);
+\draw (d)--(h);
+\khvuong[size=6pt](d,h,b)
+\khvuong[size=6pt](y,c,a)
+\khvuong[size=6pt](b,a,c)
+\vediem(a) \vediem(b) \vediem(c)\vediem(d)\vediem(n)\vediem(h)
+	\end{tikzpicture}
+	}	
+	}
+\end{bt}
+
+\Closesolutionfile{ans}
+%%12:20:1 10/11/2018Last Modification of contents

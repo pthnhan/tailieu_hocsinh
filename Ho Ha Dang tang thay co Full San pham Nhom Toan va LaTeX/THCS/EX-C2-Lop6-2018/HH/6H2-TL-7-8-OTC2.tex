@@ -1,0 +1,1161 @@
+\section{Đường tròn}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Đường tròn và hình tròn}
+\begin{dn}
+	Đường tròn tâm $O$, bán kính $R$ là hình gồm các điểm cách $O$ một khoảng bằng $R$, kí hiệu $(O;R).$
+\end{dn}
+\begin{dn}
+	Hình tròn là hình gồm các điểm nằm trên đường tròn và các điểm nằm trong đường tròn đó.
+\end{dn}
+\subsubsection{Cung và dây cung}
+\immini{
+	Hai điểm $C,\ D$ của một đường tròn chia đường tròn thành hai \textit{cung}. Đoạn thẳng nối hai mút của một cung gọi là \textit{dây cung}.\medskip
+	
+	Dây cung đi qua tâm là \textit{đường kính}.\medskip
+	
+	Trong hình bên, đoạn thẳng $CD$ gọi là \textit{dây cung}; đoạn thẳng $AB$ gọi là \textit{đường kính}.
+}{
+	\begin{tikzpicture}[scale=0.8]
+	\tkzInit[xmin=-1,xmax=4.5,ymin=-2.5,ymax=2.5]
+	\tkzClip
+	\tkzDefPoints{0/0/A,2/0/O,4/0/B,-5/0/M,5/2.1/N}
+	\tkzDrawCircle(O,A)
+	\tkzInterLC(M,N)(O,A)\tkzGetFirstPoint{C}
+	\tkzInterLC(M,N)(O,A)\tkzGetSecondPoint{D}
+	\tkzDrawPoints[fill=black](O,A,B,C,D)
+	\tkzLabelPoints[left](A,C)
+	\tkzLabelPoints[right](B)
+	\tkzLabelPoints[above right](D)
+	\tkzLabelPoints[below](O)
+	\tkzDrawSegments[](A,B C,D)
+	\end{tikzpicture}
+}
+\subsection{Các dạng toán}
+\begin{dang}{Nhận biết vị trí của một điểm đối với đường tròn}
+	\textbf{PHƯƠNG PHÁP GIẢI:}
+	\begin{list}{•}{}
+		\item Điểm $A$ thuộc đường tròn $(O;R)$ nếu $OA=R$.
+		\item Điểm $A$ nằm trong đường tròn $(O;R)$ nếu $OA<R$.
+		\item Điểm $A$ nằm ngoài đường tròn $(O;R)$ nếu $OA>R$.
+	\end{list}
+\end{dang}
+\begin{vd}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2Y8]
+	Vẽ đường tròn $(O;1{,}5\text{ cm})$. Lấy $3$ điểm $A,B,C$ sao cho $OA=1$ cm, $OB=1{,}5$ cm, $OC=2$ cm. Trong $3$ điểm $A,B,C$, điểm nào nằm trong đường tròn, ngoài đường tròn, điểm nào thuộc đường tròn?
+	\loigiai{
+		\immini{
+			Vì $OA=1$ cm $<1{,}5$ cm nên điểm $A$ nằm trong đường tròn.\medskip
+			
+			$OB=1{,}5$ cm nên điểm $B$ nằm trên đường tròn.\medskip
+			
+			$OC=2$ cm $>1{,}5$ cm nên điểm $C$ nằm ngoài đường tròn.
+		}{
+			\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{0/0/O}
+			\tkzDefShiftPoint[O](-20:1){A}
+			\tkzDefShiftPoint[O](5:1.5){B}
+			\tkzDefShiftPoint[O](30:2){C}
+			\tkzDrawCircle(O,B)
+			\tkzDrawPoints[fill=black](O,A,B,C)
+			\tkzLabelPoints[below left](O)
+			\tkzLabelPoints[right](B,C)
+			\tkzLabelPoints[below](A)
+			\tkzDrawSegments[](O,A O,B O,C)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{vd}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2B8]%[6H2K8]
+	Cho đoạn thẳng $AB=3$ cm. Vẽ đường tròn $(A;2\text{ cm})$ cắt $AB$ tại điểm $M$. Vẽ đường tròn $(B;1{,}5\text{ cm})$ cắt $AB$ tại $N$. Hai đường tròn này cắt nhau tại $I, K$.
+	\begin{listEX}[]
+		\item Tính $AI,BK$.
+		\item Chứng tỏ $N$ là trung điểm của $AB$.
+	\end{listEX}
+	\loigiai{
+		\immini{
+			\begin{listEX}[]
+				\item Vì điểm $I$ thuộc đường tròn $(A;2\text{ cm})$\\ nên $AI=2$ cm.\medskip
+				
+				Vì điểm $K$ thuộc đường tròn $(B;1{,}5\text{ cm})$\\ 
+				nên $BK=1{,}5$ cm.\medskip
+				\item Vì điểm $N$ thuộc đường tròn $(B;1{,}5\text{ cm})$\\
+				nên $BN=1{,}5$ cm.\medskip
+				
+				Vì $N$ nằm giữa $A$ và $B$ nên $AN+NB=AB$.\medskip
+				
+				Lại có $BN=1{,}5$ cm, $AB=3$ cm.\medskip
+				
+				Nên $AN=1{,}5$ cm.\\
+			\end{listEX}
+		}{
+			\begin{tikzpicture}[scale=1.2]
+			\tkzDefPoints{0/0/A,2/0/M,1.5/0/N,3/0/B}
+			\tkzDrawCircle(A,M)
+			\tkzDrawCircle(B,N)
+			\tkzInterCC(A,M)(B,N)\tkzGetFirstPoint{I}
+			\tkzInterCC(A,M)(B,N)\tkzGetSecondPoint{K}
+			\tkzDrawPoints[fill=black](A,B,M,N,I,K)
+			\tkzLabelPoints[above=.1](I)
+			\tkzLabelPoints[below left](A,N)
+			\tkzLabelPoints[below right](B)
+			\tkzLabelPoints[above right](M)
+			\tkzLabelPoints[below=.1](K)
+			\tkzDrawSegments[](A,I B,K A,B)
+			\end{tikzpicture}
+		}
+		Khi đó ta có $AN=NB$ do đó $N$ là trung điểm của $AB$.
+	}
+\end{vd}\medskip
+
+\begin{dang}{Đếm số dây cung, số cung của đường tròn}
+	\textbf{PHƯƠNG PHÁP GIẢI}\medskip
+	
+	Đoạn thẳng nối $2$ điểm phân biệt trên đường tròn tạo thành $1$ dây cung. Hai điểm này chia đường tròn thành $2$ phần, mỗi phần gọi là một cung.\medskip
+	
+	Trên đường tròn có $n$ điểm phần biệt. Nối mỗi cặp điểm ta được một dây cung thì số dây cung là $\dfrac{n\cdot (n-1)}{2}$ và số cung tạo thành là $n\cdot (n-1).$
+\end{dang}
+\setcounter{vd}{0}
+\begin{vd}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2B8]%[6H2B8]
+	Trên đường tròn $(O)$ lấy $9$ điểm phân biệt. Nối mỗi cặp điểm ta được một dây cung.
+	\begin{listEX}[]
+		\item Hỏi vẽ được bao nhiêu dây cung?
+		\item Hỏi trên đường tròn có bao nhiêu cung được tạo thành?
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}[]
+			\item Số dây cung là $\dfrac{9\cdot (9-1)}{2}=36$ (dây cung).
+			\item Số cung trên đường tròn là $9\cdot (9-1)=72$ (cung).
+		\end{listEX}
+	}
+\end{vd}
+\begin{vd}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2K8]
+	Trên đường tròn tâm $O$ ta lấy $n$ điểm. Số cung tròn tạo thành là $132$. Hỏi $n$ là số nào?
+	\loigiai{
+		Số cung tạo thành từ $n$ điểm là $n\cdot (n-1)$ nên $n\cdot (n-1)=132=12\cdot 11.$\\
+		Suy ra $n=12.$
+	}
+\end{vd}
+\begin{center}
+	\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2B8]
+	Xác định xem khẳng định nào đúng ghi Đ, khẳng định nào sai ghi S.
+	\def\listEXenumi{(\Alph{enumi})}
+	\begin{listEX}
+		\item \TF{S} Trong một đường tròn, bán kính có độ dài bằng đường kính.
+		\item \TF{Đ} Trong một đường tròn, đường kính có độ dài gấp đôi bán kính.
+		\item \TF{S} Hình tròn là hình gồm những điểm nằm bên trong đường tròn.
+		\item \TF{S} Đường kính của đường tròn là đoạn nối tâm với một điểm nằm trên đường tròn.
+	\end{listEX}
+	\loigiai{
+		\begin{list}{•}{}
+			\item Câu A sai vì trong một đường tròn, bán kính có độ dài bằng nửa đường kính.
+			\item Câu C sai vì hình tròn là hình gồm những điểm nằm trên đường tròn và những điểm nằm trong đường tròn đó.
+			\item Câu D sai vì đường kính của đường tròn là dây cung đi qua tâm.
+		\end{list}
+	}
+\end{bt}
+\begin{bt}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2B8]%[6H2K8]
+	Cho đoạn thẳng $AB=4$ cm. Vẽ đường tròn $(A;3\text{ cm)}$ và $(B;2\text{ cm)}$. Hai đường tròn tâm $A,\ B$ lần lượt cắt đoạn thẳng $AB$ tại $K,\ I$.
+	\begin{listEX}
+		\item Tính độ dài $BK.$
+		\item Chứng minh $I$ là trung điểm của $AB.$
+	\end{listEX}
+	\loigiai{
+		\immini{
+			\begin{listEX}
+				\item Vì $K$ thuộc đường tròn $(A)$ nên $AK=3$ cm.\\
+				Lại có $AK+BK=AB$ (vì $K$ nằm giữa $AB$).\\
+				Nên $BK=AB-AK=4-3=1$ cm.
+				\item Vì $I$ thuộc đường tròn $(B)$ nên $BI=2$ cm.\\
+				Lại có $AI+BI=AB$ (vi $I$ nằm giữa $AB$).\\
+				Nên $AI=AB-BI=2$ cm.\\
+				Suy ra $AI=IB$ hay $I$ là trung điểm của $AB$.
+			\end{listEX}
+		}{
+			\begin{tikzpicture}[scale=.8]
+			\tkzDefPoints{0/0/A,3/0/M,4/0/B,6/0/N}
+			\tkzDrawCircle(A,M)
+			\tkzDrawCircle(B,N)
+			\tkzInterLC(A,B)(A,M)\tkzGetSecondPoint{K}
+			\tkzInterLC(A,B)(B,N)\tkzGetFirstPoint{I}
+			\tkzLabelPoints[below left](A,I)
+			\tkzLabelPoints[below right](B,K)
+			\tkzDrawPoints[fill=black](A,B,K,I)
+			\tkzDrawSegments(A,B)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2K8]
+	Trên đường tròn tâm $O$ lấy $50$ điểm. Nối 2 điểm với nhau ta được một dây cung. Hỏi có bao nhiêu dây cung tạo thành?
+	\loigiai{
+		Số dây cung được tạo thành là $\dfrac{50\cdot (50-1)}{2}=1225$ (dây cung).
+	}
+\end{bt}
+\begin{bt}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2B8]
+	Trên đường tròn tâm $O$ lấy $4$ điểm $A,\ B,\ C,\ D$. Hỏi có bao nhiêu cung tạo thành?
+	\loigiai{
+		Số cung được tạo thành là $4\cdot (4-1)=12$ (cung).
+	}
+\end{bt}
+\begin{bt}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2K8]
+	Trên đường tròn tâm $O$ lấy $n$ điểm. Số cung tròn tạo thành là $72$. Vậy giá trị của $n$ là bao nhiêu?
+	\loigiai{
+		Số cung tròn tạo thành từ $n$ điểm là $n\cdot (n-1)$ nên $n\cdot (n-1)=72=9\cdot 8.$\\
+		Suy ra $n=9.$
+	}
+\end{bt}
+\begin{bt}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2K8]%[6H2K8]
+	Trên đường tròn $(O)$ lấy $99$ điểm phân biệt. Nối mỗi cặp điểm ta được một dây cung.
+	\begin{listEX}
+		\item Hỏi vẽ được bao nhiêu dây cung?
+		\item Hỏi trên đường tròn có bao nhiêu cung?
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}
+			\item Số dây cung được tạo thành là $\dfrac{99\cdot (99-1)}{2}=4851$ (dây cung).
+			\item Số cung được tạo thành là $99\cdot (99-1)=9702$ (cung).
+		\end{listEX}
+	}
+\end{bt}
+\section{Tam giác}
+\subsection{Tóm tắt lí thuyết}
+\immini{
+	
+	\begin{dn}
+		Tam giác $ABC$ là hình gồm ba đoạn thẳng $AB,\ BC,\ CA$ khi $A,\ B,\ C$ không thẳng hàng.
+	\end{dn}
+	
+	Tam giác $ABC$ kí hiệu là $\triangle ABC.$\medskip
+	
+	Ba điểm $A,B,C$ là ba \textit{đỉnh} của tam giác.\medskip
+	
+	Ba đoạn thẳng $AB,BC,CA$ là ba \textit{cạnh} của tam giác.\medskip
+	
+	Ba góc $\widehat{A},\widehat{B},\widehat{C}$ là ba \textit{góc} của tam giác.
+	
+}{
+	\begin{tikzpicture}[scale=.8]
+	\tkzDefPoints{0/0/B,2/3.5/A,5/0/C}
+	\tkzDrawPoints[fill=black](A,B,C)
+	\tkzLabelPoints[below left](B)
+	\tkzLabelPoints[below right](C)
+	\tkzLabelPoints[above](A)
+	\tkzDrawSegments(A,B B,C C,A)
+	\end{tikzpicture}
+}
+\subsection{Các dạng toán}
+\begin{dang}{Nhận dạng tam giác và các yếu tố}
+	\textbf{PHƯƠNG PHÁP GIẢI}\medskip
+	
+	Đối chiếu với định nghĩa của tam giác.
+\end{dang}
+\begin{vd}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2Y9]
+	\immini{
+		Cho hình vẽ bên. Hãy dùng kí hiệu ghi:
+		\begin{listEX}
+			\item Tên các tam giác khác nhau trong hình.
+			\item Tên các góc trong mỗi tam giác.
+			\item Những tam giác chung cạnh $AM$.
+		\end{listEX}
+	}{
+		\begin{tikzpicture}
+		\tkzDefPoints{0/0/B,0.75/3/A,2/0/M,5/0/C}
+		\tkzDrawPoints[fill=black](A,B,C,M)
+		\tkzDrawSegments(A,B B,C C,A A,M)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[below left](B)
+		\tkzLabelPoints[below](M)
+		\tkzLabelPoints[below right](C)
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\begin{listEX}
+			\item Tên các tam giác khác nhau trong hình là $\triangle ABC,\triangle ABM,\triangle ACM.$
+			\item Tên các góc trong $\triangle ABC$ là $\widehat{ABC},\widehat{BCA},\widehat{CAB}.$\\
+			Tên các góc trong $\triangle ABM$ là $\widehat{ABM},\widehat{BMA},\widehat{MAB}.$\\
+			Tên các góc trong $\triangle ACM$ là $\widehat{ACM},\widehat{CMA},\widehat{MAC}.$
+			\item Tam giác chung cạnh $AM$ là $\triangle ABM$ và $\triangle AMC$.
+		\end{listEX}
+	}
+\end{vd}
+\begin{vd}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2Y9]
+	Hình vẽ dưới đây có bao nhiêu tam giác? Hãy kể tên.
+	\begin{center}
+		\begin{tikzpicture}
+		\tkzDefPoints{0/0/A,2/3.5/B,6/0/F,3.5/0/C}
+		\tkzDefMidPoint(A,B)\tkzGetPoint{E}
+		\tkzInterLL(E,F)(B,C)\tkzGetPoint{D}
+		\tkzLabelPoints[above](B)
+		\tkzLabelPoints[below left](A)
+		\tkzLabelPoints[above left](E)
+		\tkzLabelPoints[below right](F)
+		\tkzLabelPoints[below](C)
+		\tkzLabelPoints[above right](D)
+		\tkzDrawPoints[fill=black](A,B,C,E,F,D)
+		\tkzDrawSegments(A,B B,C B,F A,F E,F E,C)
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Có tất cả $12$ tam giác. Đó là\\
+		$\triangle BDF,\triangle CDF,\triangle BED,\triangle CDE,\triangle AEC$ ($5$ tam giác đơn), $\triangle BCF,\\ \triangle BEF,\triangle BCE, \triangle CFE$ ($4$ tam giác đôi), $\triangle ABC,\triangle AEF$ ($2$ tam giác ba) và $\triangle ABF$.
+	}
+\end{vd}\medskip
+
+\begin{dang}{Vẽ tam giác}
+	\textbf{PHƯƠNG PHÁP GIẢI}\medskip
+	
+	Để vẽ một tam giác biết độ dài ba cạnh, ta vẽ một cạnh trước. Sau đó vẽ hai cung tròn có tâm là hai đỉnh đã vẽ, hai bán kính lần lượt bằng độ dài hai cạnh còn lại. Giao điểm hai cung tròn là đỉnh thứ ba của tam giác.
+\end{dang}
+\setcounter{vd}{0}
+\begin{vd}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2Y9]
+	Vẽ một tam giác $ABC$, biết ba cạnh $BC=5$ cm, $AB=3$ cm, $AC=4$ cm.
+	\loigiai{
+		\immini{
+			\begin{list}{•}{}
+				\item Vẽ đoạn thẳng $AB=3$ cm.
+				\item Vẽ cung tròn tâm $A$, bán kính $4$ cm.
+				\item Vẽ cung tròn tâm $B$, bán kính $5$ cm.
+				\item Lấy một giao điểm của hai cung trên.
+				\item Gọi giao điểm đó là $C$.
+				Vẽ các đoạn thẳng $AC,BC$ ta có $\triangle ABC.$
+			\end{list}
+		}{
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/A,3/0/B,0/4/C}
+			\tkzCompasss[color=black,style=solid](A,C B,C)
+			\tkzDrawPoints[fill=black](A,B,C)
+			\tkzLabelPoints[above](C)
+			\tkzLabelPoints[below left](A)
+			\tkzLabelPoints[below right](B)
+			\tkzLabelSegment[below](A,B){$3$ cm}
+			\tkzLabelSegment[sloped,above](B,C){$5$ cm}
+			\tkzLabelSegment[sloped,above](A,C){$4$ cm}
+			\tkzDrawSegments(A,B B,C C,A)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}\medskip
+
+\begin{dang}{Tính số tam giác tạo thành}
+	\textbf{PHƯƠNG PHÁP GIẢI}\medskip
+	
+	Cho $n$ điểm $A_1;\ A_2;\ldots;\ A_n$ theo thứ tự trên đường thẳng $xy$ và điểm $M$ nằm ngoài đường thẳng $xy$. Nối $M$ với $n$ điểm đó. Số tam giác đếm được là $\dfrac{n\cdot (n-1)}{2}$.
+\end{dang}
+\setcounter{vd}{0}
+\begin{vd}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2B9]
+	Trên đường thẳng $xy$ lấy $6$ điểm $A,\ B,\ C,\ D,\ E,\ F$ theo thứ tự đó. Lấy điểm $M$ nằm ngoài đường thẳng $xy$. Nối $M$ với các điểm $A,\ B,\ C,\ D,\ E,\ F$. Số tam giác tạo thành là bao nhiêu?
+	\loigiai{
+		Số tam giác nhận được đúng bằng số đoạn thẳng tạo thành từ $6$ điểm trên đường thẳng $xy$. \\
+		Mà số đoạn thẳng lập được là $\dfrac{6\cdot(6-1)}{2}=15$.\\
+		Suy ra số tam giác tạo thành là $15$ tam giác.
+	}
+\end{vd}\medskip
+
+\begin{vd}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2K9]
+	Cho $n$ điểm $A_1;\ A_2;\ldots;\ A_n$ theo thứ tự trên đường thẳng $xy$ và điểm $M$ nằm ngoài đường thẳng $xy$. Nối $M$ với $n$ điểm đó. Số tam giác đếm được là $55$ thì giá trị của $n$ là bao nhiêu?
+	\loigiai{
+		Số tam giác tạo thành bằng số đoạn thẳng lập được từ các điểm trên đường thẳng $xy$ nên ta có $\dfrac{n\cdot (n-1)}{2}=55$ hay $n\cdot (n-1)=110=11\cdot 10.$\\
+		Suy ra $n=11.$
+	}
+\end{vd}
+\begin{center}
+	BÀI TẬP TỰ LUYỆN
+\end{center}
+\begin{bt}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2Y9]
+	\immini{
+		Cho hình bên.
+		\begin{listEX}
+			\item Góc $ABC$ không phải là góc của tam giác nào?
+			\item Cạnh $AD$ không phải là cạnh của tam giác nào?
+			\item Đoạn thẳng $AB$ là cạnh chung của những tam giác nào?
+		\end{listEX}
+	}{
+		\begin{tikzpicture}[scale=.8]
+		\tkzDefPoints{0/0/B,2/0/D,4.5/0/E,7.5/0/C,2.2/3.5/A}
+		\tkzDrawPoints[fill=black](A,B,C,D,E)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[below right](C)
+		\tkzLabelPoints[below left](B)
+		\tkzLabelPoints[below](D,E)
+		\tkzDrawSegments(A,B B,C C,A A,D A,E)
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\begin{listEX}
+			\item Góc $ABC$ không là góc của $\triangle ADE,\triangle AEC,\triangle ADC.$
+			\item Cạnh $AD$ không phải là cạnh của $\triangle AEC,\triangle ABE,\triangle ABC$.
+			\item Đoạn thẳng $AB$ là cạnh chung của $\triangle ABD ,\triangle ABE,\triangle ABC$.
+		\end{listEX}
+	}
+\end{bt}
+\begin{bt}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2Y9]
+	\immini{
+		Cho hình chữ nhật $MNPQ$ có $MP$ và $NQ$ cắt nhau tại $O$. Số tam giác đếm được là bao nhiêu? Hãy kể tên.\medskip
+		
+		\loigiai{
+			Có tất cả $8$ tam giác. Đó là $\triangle OMN,\triangle ONP,\triangle OPQ,\triangle OMQ,\\ \triangle MPQ,\triangle NPQ,\triangle MNP,\triangle MNQ$.
+		}
+	}{
+		\begin{tikzpicture}
+		\tkzDefPoints{0/0/Q,4/0/P,0/3/M,4/3/N}
+		\tkzInterLL(M,P)(N,Q)\tkzGetPoint{O}
+		\tkzDrawPoints[fill=black](M,N,P,Q,O)
+		\tkzLabelPoints[above](O)
+		\tkzLabelPoints[above left](M)
+		\tkzLabelPoints[above right](N)
+		\tkzLabelPoints[below left](Q)
+		\tkzLabelPoints[below right](P)
+		\tkzDrawSegments[](M,N N,P P,Q Q,M M,P N,Q)
+		\end{tikzpicture}
+	}
+\end{bt}
+\begin{bt}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2B9]
+	Vẽ tam giác $MNP$ có $MN=3$ cm, $NP=3$ cm, $PM=3$ cm và đo góc của $\triangle MNP$.\medskip
+	
+	\loigiai{
+		\immini{
+			\begin{list}{•}{}
+				\item Vẽ đoạn thẳng $NP=3$ cm.
+				\item Vẽ cung tròn tâm $N$, bán kính $3$ cm.
+				\item Vẽ cung tròn tâm $P$, bán kính $3$ cm.
+				\item Lấy một giao điểm của hai cung tròn.
+				\item Gọi giao điểm đó là $M$. Vẽ các đoạn thẳng $NM,PM$ ta có $\triangle MNP$.
+			\end{list}
+		}{
+			\begin{tikzpicture}[scale=1.4]
+			\tkzDefPoints{0/0/N,3/0/P}
+			\tkzDefShiftPoint[N](60:3){M}
+			\tkzDrawPoints[fill=black](M,N,P)
+			\tkzCompasss[color=black,style=solid](N,M P,M)
+			\tkzDrawSegments(M,N N,P P,M)
+			\tkzLabelPoints[above](M)
+			\tkzLabelPoints[below left](N)
+			\tkzLabelPoints[below right](P)
+			\end{tikzpicture}
+		}
+	}
+	Ta có $MN=NP=PM=3$ cm nên $\triangle MNP$ là tam giác đều.
+	
+	Suy ra $\widehat{MNP}=\widehat{NPM}=\widehat{NMP}=60^\circ.$
+\end{bt}
+\begin{bt}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2B9]
+	Trên đường thẳng $xy$ lấy 4 điểm $A,\ B,\ C,\ D$ phân biệt theo thứ tự đó. Gọi $M$ là điểm nằm ngoài đường thẳng $xy$, kẻ các đoạn thẳng $MA,\ MB,\ MC,\ MD$.
+	\begin{listEX}
+		\item Trên hình vẽ có bao nhiêu tam giác? Hãy kể tên.
+		\item Đoạn $MB$ là cạnh chung của những tam giác nao?
+		\item Hai tam giác nào có hai góc kề bù?
+	\end{listEX}
+	\loigiai{
+		\immini{
+			\begin{listEX}
+				\item Trên hình vẽ có $ 6 $ tam giác là $\triangle MAB,\triangle MBC,\ \triangle MCD,\triangle MAC,\triangle MBD,\triangle MAD$.
+				\item Đoạn $MB$ là cạnh chung của các tam giác $\triangle MAB,\triangle MBD,\triangle MBC.$
+				\item Những tam giác có 2 góc kề bù là $\triangle MAB$ và $\triangle MBC;$ $\triangle MAB$ và $\triangle MBD;\triangle MAC$ và $\triangle MCD;\triangle MBC$ và $\triangle MCD.$ 
+			\end{listEX}
+		}{
+			\begin{tikzpicture}
+			\tkzDefPoints{-1/0/x,0/0/A,1/0/B,2.5/0/C,4.5/0/D,5.5/0/y,1.25/3.5/M}
+			\tkzDrawSegments(x,y M,A M,B M,C M,D)
+			\tkzDrawPoints[fill=black](M,A,B,C,D)
+			\tkzLabelPoints[above](M)
+			\tkzLabelPoints[below](x,y,A,B,C,D)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2K9]
+	Lấy điểm $O$ nằm ngoài đường thẳng $a$ chứa $1001$ điểm. Nối điểm $O$ với mỗi điểm đã cho. 
+	\begin{listEX}
+		\item Hỏi có bao nhiêu góc định $O$ tạo thành?
+		\item Hỏi có bao nhiêu tam giác có $3$ đỉnh là $3$ trong số $1002$ điểm đã cho.
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}
+			\item Đặt $1001$ điểm đó là $A_1;A_2;\ldots ;A_{1001}$.\\
+			Xét các tia $OA_1;OA_2;\ldots ;OA_{1001}$ có tất cả $1001$ tia có gốc là $O$.\\
+			Số góc đỉnh $O$ tạo thành là $\dfrac{1001\cdot (1001-1)}{2}=500500$ (góc).
+			\item Số tam giác tạo thành bằng số góc đỉnh $O$ nên số tam giác tạo thành là $500500$ (tam giác).
+		\end{listEX}
+	}
+\end{bt}
+\begin{bt}%[Lê Nguyễn Viết Tường, C2-L6-2018]%[6H2B9]
+	Bạn Minh đố bạn Thông vẽ tam giác $ABC$ có $AB=6$ cm, $AC=2$ cm, $BC=3$ cm. Hỏi bạn Thông có vẽ được không?
+	\loigiai{
+		Bạn Thông không vẽ được tam giác như vậy, vì các đường tròn $(A;2\text{ cm})$ và $(B;3\text{ cm})$ không cắt nhau.
+	}
+\end{bt}
+\section{Ôn tập chương II}
+\subsection{Trọng tâm kiến thức}
+\begin{enumerate}[1.]
+\item Nửa mặt phẳng, góc.
+\item Số đo góc, khi nào thì $ \widehat{xOy}+\widehat{yOz}=\widehat{xOz} $?
+\item Vẽ góc khi cho biết số đo.
+\item Tia phân giác của góc.
+\item Đường tròn, tam giác.
+\end{enumerate}
+\subsection{Các dạng bài tập và phương pháp giải}
+\begin{dang}{Góc phụ nhau, bù nhau và kề bù}
+\begin{itemize}
+\item Hai góc phụ nhau là hai góc có tổng số đo bằng $ 90^{\circ} $.
+\item Hai góc bù nhau là hai góc có tổng số đo bằng $ 180^{\circ} $.
+\item Hai góc kề bù là hai góc vừa kề nhau, vừa bù nhau.
+\end{itemize}
+\end{dang}
+\setcounter{vd}{0}
+\begin{vd}%[Dương BùiĐức, C2-L6-2018]%[6H2Y6]
+Cho góc $ xOy $ và $ yOz $ là cặp góc kề bù. Gọi $ Oa $, $ Ob $ là các tia phân giác của góc $ xOy $ và $ yOz $. Khi đó có bao nhiêu cặp góc phụ nhau? Hãy kể tên.
+\loigiai{
+\immini[0.01]{
+Vì $ Oa $ là tia phân giác góc $ \widehat{xOy} $ nên $ \widehat{xOa}=\widehat{aOy}=\dfrac{1}{2}\widehat{xOy} $;\\
+Vì $ Ob $ là tia phân giác góc $ \widehat{yOz} $ nên $ \widehat{yOb}=\widehat{bOz}=\dfrac{1}{2}\widehat{yOz} $.\\
+Suy ra $ \widehat{aOy}+\widehat{bOy}=\dfrac{1}{2}\widehat{xOy}+\dfrac{1}{2}\widehat{yOz}=\dfrac{1}{2}(\widehat{xOy}+\widehat{yOz})=90^{\circ} $.\\
+Từ đó ta có bốn cặp góc phụ nhau, đó là\\
+$ \widehat{aOy}$ và $\widehat{bOy} $, $ \widehat{aOy}$ và $\widehat{bOz} $, $ \widehat{xOa}$ và $\widehat{bOy} $, $ \widehat{xOa}$ và $\widehat{bOz} $.
+}{
+\begin{tikzpicture}[scale=1,line join=round,line cap=round]
+\pgfmathsetmacro\h{3}
+\pgfmathsetmacro\ang{70}
+\tkzDefPoint[label=-90:$O$](0,0){O}
+\tkzDefShiftPoint[O](0:\h){z}
+\tkzDefPointsBy[symmetry = center O](z){x}
+\tkzDefShiftPoint[O](\ang:0.8*\h){y}
+\tkzDefLine[bisector](y,O,x)\tkzGetPoint{a}
+\tkzDefLine[bisector](z,O,y)\tkzGetPoint{b}
+\tkzDrawLines[add = 0 and -0.3,end=$a$](O,a)
+\tkzDrawLines[add = 0 and -0.3,end=$b$](O,b)
+\pgfresetboundingbox
+\tkzDrawSegments(x,z O,y)
+\tkzDrawPoints[fill=black](O)
+\tkzLabelPoints[below left](x,z,y)
+\tkzMarkAngles[size=0.5cm,arc=l](z,O,b)
+\tkzMarkAngles[size=0.6cm,arc=l](b,O,y)
+\tkzMarkAngles[size=0.5cm,arc=ll](y,O,a)
+\tkzMarkAngles[size=0.6cm,arc=ll](a,O,x)
+\end{tikzpicture}
+}
+}
+\end{vd}
+\begin{vd}%[Dương BùiĐức, C2-L6-2018]%[6H2B4][6H2K4]
+	Cho hai góc kề bù $ \widehat{aOb} $ và $ \widehat{bOc} $, trong đó $ \widehat{aOb}=3\widehat{bOc} $.
+	\def\listEXenumi{\alph{enumi})}
+	\begin{listEX}
+		\item Tính $ \widehat{bOc} $.
+		\item Trên nửa mặt phẳng bờ $ aOc $ chứa tia $ Ob $, vẽ tia $ Od $ sao cho $ \widehat{aOd}=\widehat{bOc} $. Chứng tỏ góc $ \widehat{bOd} $ vuông.
+	\end{listEX}
+	\loigiai{
+		\immini[0.01]{
+			\begin{listEX}
+				\item Ta có
+				\begin{eqnarray*}
+					\widehat{aOb}+\widehat{bOc}&=&180^{\circ}\\
+					3\widehat{bOc}+\widehat{bOc}&=&180^{\circ}\\
+					4\widehat{bOc}&=&180^{\circ}\\
+					\widehat{bOc}&=&45^{\circ}.
+				\end{eqnarray*}
+				\end{listEX}
+				}{
+			\begin{tikzpicture}[scale=1,line join=round,line cap=round]
+			\pgfmathsetmacro\h{3}
+			\pgfmathsetmacro\ang{45}
+			\tkzDefPoint[label=-90:$O$](0,0){O}
+			\tkzDefShiftPoint[O](0:\h){c}
+			\tkzDefPointsBy[symmetry = center O](c){a}
+			\tkzDefShiftPoint[O](\ang:\h){b}
+			\tkzDefShiftPoint[O](3*\ang:\h){d}
+			\tkzDrawLines[add = 0 and -0.3,end=$d$](O,d)
+			\tkzDrawLines[add = 0 and -0.3,end=$b$](O,b)
+			\tkzDrawSegments(a,c)
+			\tkzDrawPoints[fill=black](O)
+			\tkzLabelPoints[below](a,c)
+			\tkzMarkAngles[size=0.5cm,arc=l](c,O,b)
+			\tkzMarkAngles[size=0.5cm,arc=l](d,O,a)
+			\end{tikzpicture}
+		}
+	\setcounter{enumi}{1}
+	\begin{listEX}
+		\item Ta có $ \widehat{aOd}=\widehat{bOc}=45^{\circ} $. Mà
+		\begin{eqnarray*}
+		\widehat{aOd}+\widehat{dOb}+\widehat{bOc}&=&180^{\circ}\\
+		45^{\circ}+\widehat{dOb}+45^{\circ}&=&180^{\circ}.
+		\end{eqnarray*}
+		Suy ra $ \widehat{dOb}=90^{\circ} $.
+	\end{listEX}
+	}
+\end{vd}
+\begin{dang}{Tia nằm giữa, không nằm giữa hai tia còn lại}
+\textbf{Phương pháp giải}
+\begin{itemize}
+	\item Điểm $ M $ thuộc tia $ Ox $, điểm $ N $ thuộc tia $ Oy $.
+	\begin{itemize}
+		\item Nếu đoạn thẳng $ MN $ cắt tia $ Oz $ thì tia $ Oz $ nằm giữa hai tia $ Ox $, $ Oy $.
+		\item Nếu đoạn thẳng $ MN $ không cắt tia $ Oz $ thì tia $ Oz $ không nằm giữa hai tia $ Ox $, $ Oy $.
+	\end{itemize}
+	\item Nếu $ \widehat{xOy}+\widehat{yOz}=\widehat{xOz} $ thì tia $ Oy $ nằm giữa hai tia $ Ox $, $ Oz $.
+	\item Trên nửa mặt phẳng bờ chứa tia $ Ox $ có hai tia $ Oy $, $ Oz $ mà $ \widehat{xOy}<\widehat{xOz} $ thì tia $ Oy $ nằm giữa hai tia $ Ox $, $ Oz $.
+\end{itemize}
+\end{dang}
+\setcounter{vd}{0}
+\begin{vd}%[Dương BùiĐức, C2-L6-2018]%[6H2B1][6H2B1]
+Cho góc $ \widehat{aOb} $ và tia $ Oc $ nằm giữa hai tia $ Oa $, $ Ob $. Gọi $ Od $ là tia đối $ Oc $. Chứng tỏ rằng
+\begin{listEX}[2]
+\item Tia $ Od $ không nằm giữa hai tia $ Oa $ và $ Ob $.
+\item Tia $ Ob $ không nằm giữa hai tia $ Oa $ và $ Od $.
+\end{listEX}
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1,line join=round,line cap=round]
+\pgfmathsetmacro\h{3}
+\pgfmathsetmacro\ang{80}
+\tkzDefPoint[label=-90:$O$](0,0){O}
+\tkzDefShiftPoint[O](0:0.8*\h){A}
+\tkzDefShiftPoint[O](0.4*\ang:\h){c}
+\tkzDefShiftPoint[O](\ang:0.7*\h){B}
+\tkzDefPointsBy[symmetry = center O](c){d}
+\coordinate (D) at ($(O)!0.7!(d)$);
+\tkzDrawLines[add = 0 and 1.2,end=$a$](O,A)
+\tkzDrawLines[add = 0 and 0.5,end=$b$](O,B)
+\pgfresetboundingbox
+\tkzDrawSegments(c,d A,B A,D)
+\tkzDrawPoints[fill=black](O,A,B,D)
+\tkzLabelPoints[below](c,d,A,D)
+\tkzLabelPoints[left](B)
+\end{tikzpicture}
+\end{center}
+\begin{listEX}
+\item Lấy điểm $ A $ thuộc tia $ Oa $, điểm $ B $ thuộc tia $ Ob $. Vì tia $ Oc $ nằm giữa hai tia $ Oa $ và $ Ob $ nên đoạn thẳng $ AB $ cắt tia $ Oc\Rightarrow $  đoạn thẳng $ AB $ không cắt tia $ Od $ (do tia $ Od $ và tia $ Oc $ là hai tia đối nhau).\\
+Vậy tia $ Od $ không nằm giữa hai tia $ Oa $ và $ Ob $.
+\item Lấy điểm $ D $ thuộc tia $ Od $ ($ D\neq O $). Khi đó, đoạn thẳng $ AD $ và tia $ Ob $ thuộc hai nửa mặt phẳng khác nhau có bờ là đường thẳng $ cd $ nên chúng không có điểm chung. Suy ra, đoạn thẳng $ AD $ không cắt tia $ Ob $, do đó tia $ Ob $ không nằm giữa hai tia $ Oa $ và tia $ Od $.
+\end{listEX}
+}
+\end{vd}
+\begin{vd}%[Dương BùiĐức, C2-L6-2018]%[6H2B3][6H2K4][6H2K4]
+	Trên cùng một nửa mặt phẳng bờ chứa tia $ Ox $, vẽ ba tia $ Oy $, $ Oz $, $ Ot $ sao cho $ \widehat{xOz}=30^{\circ} $, $ \widehat{xOt}=60^{\circ} $, $ \widehat{xOy}=90^{\circ} $.
+	\begin{listEX}
+	\item Trong ba tia $ Ox $, $ Oz $, $ Ot $, tia nào nằm giữa hai tia còn lại? Vì sao?
+	\item Trong ba tia $ Oy $, $ Oz $, $ Ot $, tia nào nằm giữa hai tia còn lại? Vì sao?
+	\item Vẽ tia $ Oa $ là tia đối của tia $ Ox $. Trên nửa mặt phẳng bờ là đường thẳng $ ax $ không chứa tia $ Oy $, vẽ tia $ Ob $ sao cho $ \widehat{aOb}=60^{\circ} $. Hỏi tia $ Ob $ và tia $ Ot $ có phải là hai tia đối nhau không? Vì sao?
+	\end{listEX}
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1,line join=round,line cap=round]
+\pgfmathsetmacro\h{3}
+\pgfmathsetmacro\ang{30}
+\tkzDefPoint[label=-90:$O$](0,0){O}
+\tkzDefShiftPoint[O](0:\h){x}
+\tkzDefPointsBy[symmetry = center O](x){a}
+\tkzDefShiftPoint[O](\ang:0.8*\h){z}
+\tkzDefShiftPoint[O](2*\ang:0.8*\h){t}
+\tkzDefShiftPoint[O](3*\ang:\h){y}
+\tkzDefPointsBy[symmetry = center O](t){b}
+\tkzDrawLines[add = 0 and 0.3,end=$z$](O,z)
+\tkzDrawLines[add = 0 and 0.3,end=$t$](O,t)
+\tkzDrawLines[add = 0 and 0,end=$y$](O,y)
+%\pgfresetboundingbox
+\tkzDrawSegments(a,x O,b)
+\tkzDrawPoints[fill=black](O)
+\tkzLabelPoints[below](a,x,b)
+\tkzMarkRightAngles[size=0.2](y,O,a)
+\tkzMarkAngles[size=0.5cm,arc=l](x,O,z)
+\tkzMarkAngles[size=0.7cm,arc=ll](x,O,t a,O,b)
+\end{tikzpicture}
+\end{center}
+\begin{listEX}
+\item Ta có $ \widehat{xOz}=30^{\circ}<\widehat{xOt}=60^{\circ} $ và $ Oz $, $ Ot $ là hai tia cùng thuộc nửa mặt phẳng bờ $ Ox $ nên tia $ Oz $ nằm giữa hai tia $ Ox $ và tia $ Ot $.
+\item Vì tia $ Oz $ nằm giữa hai tia $ Ot $ và tia $ Ox $ nên
+\begin{eqnarray*}
+\widehat{xOz}+\widehat{zOt}&=&\widehat{xOt}\\
+30^{\circ}+\widehat{zOt}&=&60^{\circ}\\
+\widehat{zOt}&=&30^{\circ}.
+\end{eqnarray*}
+Tương tự câu a) ta có tia $ Ot $ nằm giữa hai tia $ Oy $ và tia $ Ox $, do đó
+\begin{eqnarray*}
+	\widehat{xOt}+\widehat{yOt}&=&\widehat{xOy}\\
+	60^{\circ}+\widehat{zOt}&=&90^{\circ}\\
+	\widehat{yOt}&=&30^{\circ}.
+\end{eqnarray*}
+Tương tự câu a) ta có tia $ Oz $ nằm giữa hai tia $ Oy $ và tia $ Ox $, do đó
+\begin{eqnarray*}
+	\widehat{xOz}+\widehat{yOz}&=&\widehat{xOy}\\
+	30^{\circ}+\widehat{yOz}&=&90^{\circ}\\
+	\widehat{yOz}&=&60^{\circ}.
+\end{eqnarray*}
+Suy ra $ \widehat{zOt}+\widehat{tOy}=\widehat{zOy} $, do đó tia $ Ot $ nằm giữa hai tia $ Oz $ và tia $ Oy $.
+\item Ta có
+\begin{eqnarray*}
+	\widehat{xOt}+\widehat{tOa}&=&180^{\circ}\ (\text{kề bù})\\
+	60^{\circ}+\widehat{tOa}&=&180^{\circ}\\
+	\widehat{tOa}&=&120^{\circ}.
+\end{eqnarray*}
+Suy ra $ \widehat{tOa}+\widehat{aOb}=120^{\circ}+60^{\circ}=180^{\circ} $, do đó tia $ Ot $ và tia $ Ob $ là hai tia đối nhau.
+\end{listEX}
+}
+\end{vd}
+\begin{vd}%[Dương BùiĐức, C2-L6-2018]%[6H2B4]
+	Cho ba tia $ Oa $, $ Ob $, $ Oc $ chung gốc. Biết rằng $ \widehat{aOb}=23^{\circ} $, $ \widehat{bOc}=35^{\circ} $, $ \widehat{cOa}=58^{\circ} $. Hỏi trong ba tia $ Oa $, $ Ob $, $ Oc $ tia nào nằm giữa hai tia còn lại? Vì sao?
+	\loigiai{
+Ta có $ \widehat{aOb}+\widehat{bOc}=23^{\circ} +35^{\circ} =58^{\circ}=\widehat{cOa} $, nên tia $ Ob $ nằm giữa hai tia $ Oa $ và $ Oc $.
+}
+\end{vd}
+\begin{dang}{Tính số đo góc}
+	\textbf{Phương pháp giải}\\
+	Vận dụng: Nếu tia $ Oz $ là tia phân giác của góc $ \widehat{xOy} $ thì $ \widehat{xOz}=\widehat{zOy}=\dfrac{\widehat{xOy}}{2} $.
+\end{dang}
+\setcounter{vd}{0}
+\begin{vd}%[Dương BùiĐức, C2-L6-2018]%[6H2K6]
+Cho góc $ \widehat{xOy}=110^{\circ} $. Vẽ tia $ Oz $ nằm trong góc $ \widehat{xOy} $ sao cho $ \widehat{xOz}=40^{\circ} $. Gọi $ Oa $, $ Ob $ lần lượt là tia phân giác của các góc $ \widehat{xOz} $, $ \widehat{zOy} $. Tính số đo góc $ \widehat{aOb} $.
+\loigiai{
+\immini[0.01]{
+Vì tia $ Oz $ nằm trong góc $ \widehat{xOy} $ nên
+\begin{eqnarray*}
+\widehat{xOz}+\widehat{zOy}&=&\widehat{xOy}\\
+40^{\circ}+\widehat{zOy}&=&110^{\circ}\\
+\widehat{zOy}&=&70^{\circ}.
+\end{eqnarray*}
+Do $ Oa $ là tia phân giác của $ \widehat{xOz} $ nên $ \widehat{aOz}=\dfrac{1}{2}\widehat{xOz}=20^{\circ} $.\\
+Do $ Ob $ là tia phân giác của $ \widehat{yOz} $ nên $ \widehat{bOz}=\dfrac{1}{2}\widehat{yOz}=35^{\circ} $.\\
+Do $ Oz $ nằm giữa hai tia $ Oa $ và $ Ob $ nên $ \widehat{aOb}=\widehat{aOz}+\widehat{zOb}=55^{\circ} $.
+}{
+\begin{tikzpicture}[scale=1,line join=round,line cap=round]
+\pgfmathsetmacro\h{3}
+\pgfmathsetmacro{\angz}{70}
+\pgfmathsetmacro{\angx}{110}
+\tkzDefPoint[label=-90:$O$](0,0){O}
+\tkzDefShiftPoint[O](0:\h){y}
+\tkzDefShiftPoint[O](\angz:0.8*\h){z}
+\tkzDefShiftPoint[O](\angx:\h){x}
+\tkzDefLine[bisector](y,O,z)\tkzGetPoint{b}
+\tkzDefLine[bisector](z,O,x)\tkzGetPoint{a}
+\tkzDrawLines[dashed,add = 0 and -0.3,end=$a$](O,a)
+\tkzDrawLines[dashed,add = 0 and -0.3,end=$b$](O,b)
+\pgfresetboundingbox
+\tkzDrawSegments(x,O O,y O,z)
+\tkzDrawPoints[fill=black](O)
+\tkzLabelPoints[below left](z,y)
+\tkzLabelPoints[right](x)
+\tkzMarkAngles[size=0.6cm,arc=l](y,O,b)
+\tkzMarkAngles[size=0.7cm,arc=l](b,O,z)
+\tkzMarkAngles[size=0.6cm,arc=ll](z,O,a)
+\tkzMarkAngles[size=0.7cm,arc=ll](a,O,x)
+\end{tikzpicture}
+}
+}
+\end{vd}
+\begin{vd}%[Dương BùiĐức, C2-L6-2018]%[6H2B5][6H2K6][6H2K4]
+Trên nửa mặt phẳng bờ chứa tia $ Ox $, vẽ hai tia $ Oy $ và $ Oz $ sao cho $ \widehat{xOy}=50^{\circ} $, $ \widehat{xOz}=110^{\circ} $.
+\begin{listEX}
+\item Trong ba tia $ Ox $, $ Oy $, $ Oz $ tia nào nằm giữa hai tia còn lại?
+\item Tia $ Oy $ có phải là tia phân giác của góc $ \widehat{xOz} $ không? Vì sao?
+\item Vẽ tia $ Om $ là tia đối của tia $ Oy $. Tính số đo góc $ \widehat{mOz} $.
+\end{listEX}
+\loigiai{
+\immini{
+\begin{listEX}
+\item Ta có $ \widehat{xOy}=50^{\circ}<\widehat{xOz}=110^{\circ} $ và tia $ Oy $, $ Oz $ cùng thuộc nửa mặt phẳng bờ chứa tia $ Ox $ nên tia $ Oy $ nằm giữa hai tia $ Ox $ và $ Oz $.
+\item Ta có 
+\begin{eqnarray*}
+	\widehat{xOy}+\widehat{yOz}&=&\widehat{xOz}\\
+	50^{\circ}+\widehat{yOz}&=&110^{\circ}\\
+	\widehat{yOz}&=&60^{\circ}.
+\end{eqnarray*}
+Suy ra $ \widehat{xOy}\neq \widehat{yOz} $, do đó tia $ Oy $ không phải là tia phân giác của góc $ \widehat{xOy} $.
+\end{listEX}
+}{
+\begin{tikzpicture}[scale=1,line join=round,line cap=round]
+\pgfmathsetmacro\h{3}
+\pgfmathsetmacro\angy{50}
+\pgfmathsetmacro\angz{110}
+\tkzDefPoint[label=-90:$O$](0,0){O}
+\tkzDefShiftPoint[O](0:\h){x}
+\tkzDefShiftPoint[O](\angz:0.8*\h){z}
+\tkzDefShiftPoint[O](\angy:0.8*\h){y}
+\tkzDefPointsBy[symmetry = center O](y){m}
+\tkzDrawLines[add = 0 and 0.3,end=$z$](O,z)
+\tkzDrawLines[add = 0 and 0.3,end=$m$](O,m)
+\tkzDrawLines[add = 0 and 0,end=$y$](O,y)
+%\pgfresetboundingbox
+\tkzDrawSegments(O,x)
+\tkzDrawPoints[fill=black](O)
+\tkzLabelPoints[below](x)
+\tkzMarkAngles[size=0.7cm,arc=l](x,O,y)
+\tkzMarkAngles[size=0.6cm,arc=ll](x,O,z)
+\end{tikzpicture}
+}
+\setcounter{enumi}{2}
+\begin{listEX}
+\item Ta có $ \widehat{yOz} $ và $ \widehat{zOm} $ là hai góc kề bù nên
+\begin{eqnarray*}
+	\widehat{yOz}+\widehat{zOm}&=&180^{\circ}\\
+	60^{\circ}+\widehat{zOm}&=&180^{\circ}\\
+	\widehat{zOm}&=&120^{\circ}.
+\end{eqnarray*}
+\end{listEX}
+}
+\end{vd}
+\begin{dang}{Số góc, số cung, số dây cung}
+	\textbf{Phương pháp giải}
+	\begin{itemize}
+		\item Nếu có $ n $ tia chung gốc thì số góc tạo thành được tính bởi công thức $ \dfrac{n(n-1)}{2} $.
+		\item Trên đường tròn có $ n $ điểm phân biệt, nối mỗi cặp điểm ta được một dây cung thì
+		\begin{itemize}
+			\item số dây cung là $ \dfrac{n(n-1)}{2} $.
+			\item số cung được tạo thành là $ n(n-1) $.
+		\end{itemize}
+	\end{itemize}
+\end{dang}
+\setcounter{vd}{0}
+\begin{vd}%[Dương BùiĐức, C2-L6-2018]%[6H2B2]
+Vẽ $ 10 $ đường thẳng cắt nhau tại $ O $. Trên hình vẽ số góc đỉnh $ O $ tạo thành là bao nhiêu?
+\loigiai{
+Số góc đỉnh $ O $ tạo thành là $ \dfrac{20\cdot (20-1)}{2}=190 $ (góc).
+}
+\end{vd}
+\begin{vd}%[Dương BùiĐức, C2-L6-2018]%[6H2K2]
+	Cho $ 10 $ tia chung gốc $ O $. Xóa đi $ 3 $ tia trong số $ 10 $ tia đó thì số góc đỉnh $ O $ giảm đi bao nhiêu?
+	\loigiai{
+	Số góc đỉnh $ O $ tạo thành bởi $ 10 $ tia chung gốc $ O $ là $ \dfrac{10\cdot (10-1)}{2}=45 $ (góc).\\
+	Số góc đỉnh $ O $ tạo thành bởi $ 7 $ tia chung gốc $ O $ là $ \dfrac{7\cdot (7-1)}{2}=21 $ (góc).\\
+	Vậy số góc giảm đi là $ 45-21=24 $ (góc).
+	}
+\end{vd}
+\begin{vd}%[Dương BùiĐức, C2-L6-2018]%[6H2K8]
+	Trên đường tròn lấy $ 5 $ phân biệt. Nếu lấy thêm $ 4 $ điểm phân biệt nữa (khác các điểm đã cho) thì số cung của đường tròn tăng thêm là bao nhiêu?
+	\loigiai{
+		Với $ 5 $ điểm phân biệt trên đường tròn thì số cung tạo thành là $ 5\cdot(5-1)=20 $ (cung).\\
+		Với $ 9 $ điểm phân biệt trên đường tròn thì số cung tạo thành là $ 9\cdot (9-1)=72 $ (cung).\\
+		Vậy số cung tăng lên là $ 72-20=52 $ (cung).
+	}
+\end{vd}
+\begin{vd}%[Dương BùiĐức, C2-L6-2018]%[6H2Y9]
+\immini[0.2]{
+Cho hình vẽ bên, số tam giác đếm được là bao nhiêu? Hãy kể tên.
+}{
+\begin{tikzpicture}[line join=round,line cap=round]
+\pgfmathsetmacro\h{2}
+\tkzDefPoint[label=-90:$N$](0,0){N}
+\tkzDefShiftPoint[N](0:1.3*\h){P}
+\tkzDefShiftPoint[N](70:\h){M}
+\coordinate (Q) at ($(N)!1/3!(P)$);
+\coordinate (R) at ($(M)!2/5!(P)$);
+\tkzDrawPoints[fill=black](M,N,P,Q,R)
+\tkzDrawSegments(M,N N,P P,M M,Q Q,R)
+\tkzLabelPoints[below](N,P,Q)
+\tkzLabelPoints[above](M,R)
+\end{tikzpicture}
+}
+\loigiai{
+Số tam giác đếm được là $ 5 $ tam giác, đó là $ \triangle MNQ $, $ \triangle MRQ $, $ \triangle RQP $, $ \triangle MQP $, $ \triangle MNP $.
+}
+\end{vd}
+\begin{center}
+	\textbf{Bài tập tự luyện}
+\end{center}
+\begin{bt}%[Dương BùiĐức, C2-L6-2018]%[6H2Y4][6H2Y4][6H2Y6][6H2Y6]
+Xác định tính đúng sai của các khẳng định sau
+\def\listEXenumi{(\Alph{enumi})}
+\begin{listEX}
+	\item Hai góc có tổng số đo bằng $ 180^{\circ} $ là hai góc kề bù.
+	\item Hai góc kề bù thì có tổng số đo bằng $ 180^{\circ} $.
+	\item Nếu tia $ Oy $ là tia phân giác của góc $ \widehat{xOz} $ thì $ \widehat{xOy}=\widehat{yOz} $.
+	\item Nếu $ \widehat{xOy}=\widehat{yOz} $ thì tia $ Oy $ là tia phân giác của góc $ \widehat{xOz} $.
+\end{listEX}
+\loigiai{
+\def\listEXenumi{(\Alph{enumi})}
+\begin{listEX}
+	\item Sai vì hai góc chưa kề nhau.
+	\item Đúng.
+	\item Đúng.
+	\item Sai vì chưa có tia $ Oy $ nằm giữa hai tia $ Ox $ và $ Oz $.
+\end{listEX}
+}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, C2-L6-2018]%[6H2Y1][6H2Y2][6H2Y6][6H2Y4]
+Xác định tính đúng sai của các khẳng định sau
+\def\listEXenumi{(\Alph{enumi})}
+\begin{listEX}
+	\item Nếu đường thẳng $ a $ không cắt đoạn thẳng $ MN $ thì hai điểm $ M $ và $ N $ nằm cùng một nửa mặt phẳng bờ $ a $.
+	\item Hai góc có chung một cạnh là hai góc kề nhau.
+	\item Tia phân giác của một góc là tia tạo với hai cạnh của góc hai góc bằng nhau.
+	\item Nếu $ \widehat{xOy}+\widehat{yOz}=\widehat{xOz} $ thì tia $ Oy $ nằm giữa hai tia $ Ox $ và $ Oz $.
+\end{listEX}
+\loigiai{
+	\immini{
+\def\listEXenumi{(\Alph{enumi})}
+\begin{listEX}
+	\item Đúng.
+	\item Sai (hình vẽ minh họa).
+	\item Sai (hình vẽ minh họa).
+	\item Đúng.
+\end{listEX}	
+}{
+\begin{tikzpicture}[scale=1,line join=round,line cap=round]
+\pgfmathsetmacro\h{2}
+\pgfmathsetmacro\ang{50}
+\tkzDefPoint[label=-90:$O$](0,0){O}
+\tkzDefShiftPoint[O](0:\h){z}
+\tkzDefShiftPoint[O](\ang:0.8*\h){y}
+\tkzDefShiftPoint[O](1.5*\ang:0.8*\h){x}
+\tkzDrawLines[add = 0 and 0.3,end=$x$](O,x)
+\tkzDrawLines[add = 0 and 0.3,end=$y$](O,y)
+\tkzDrawLines[add = 0 and 0,end=$z$](O,z)
+\tkzDrawPoints[fill=black](O)
+\tkzMarkAngles[size=0.4cm,arc=l](z,O,y)
+\tkzMarkAngles[size=0.6cm,arc=ll](z,O,x)
+\tkzDefPoint[label=-90:$A$](3*\h,0){A}
+\tkzDefShiftPoint[A](0:\h){a}
+\tkzDefShiftPoint[A](\ang:0.8*\h){b}
+\tkzDefLine[bisector](a,A,b)\tkzGetPoint{ab}
+\tkzDefPointsBy[symmetry = center A](ab){c}
+\tkzDrawLines[add = 0 and 0.2,end=$a$](A,a)
+\tkzDrawLines[add = 0 and 0.2,end=$b$](A,b)
+\tkzDrawLines[add = 0 and -0.3,end=$c$](A,c)
+\tkzDrawPoints[fill=black](A)
+\tkzMarkAngles[size=0.5cm,arc=l](a,A,b)
+\tkzMarkAngles[size=0.6cm,arc=ll](c,A,a)
+\tkzMarkAngles[size=0.8cm,arc=ll](b,A,c)
+\draw ($(O)+(-50:0.8*\h)$) node{(B)};
+\draw ($(A)+(-50:0.8*\h)$) node{(C)};
+\end{tikzpicture}
+}
+}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, C2-L6-2018]%[6H2Y3][6H2Y4][6H2Y1][6H2Y9]
+	Xác định tính đúng sai của các khẳng định sau
+	\def\listEXenumi{(\Alph{enumi})}
+	\begin{listEX}
+		\item Số đo góc vuông bằng nửa số đo góc bẹt.
+		\item Góc $ 60^{\circ} $ và $ 40^{\circ} $ là hai góc phụ nhau.
+		\item Trong ba tia chung gốc luôn có một tia nằm giữa hai tia còn lại.
+		\item Hình gồm ba đoạn $ MN $, $ NP $, $ PM $ là tam giác $ MNP $.
+	\end{listEX}
+\loigiai{
+	\immini[-0.03]{
+\def\listEXenumi{(\Alph{enumi})}
+\begin{listEX}
+	\item Đúng vì góc vuông có số đo bằng $ 90^{\circ} $ và góc bẹt có số đo bằng $ 180^{\circ} $.
+	\item Sai vì hai góc phụ nhau có tổng bằng $ 90^{\circ} $.
+	\item Sai.
+	\item Sai vì nếu ba điểm $ M,\ N,\ P $ thẳng hàng thì sẽ không tạo thành một tam giác.
+\end{listEX}	
+}{
+\begin{tikzpicture}[scale=1,line join=round,line cap=round]
+\pgfmathsetmacro\h{2}
+\pgfmathsetmacro\ang{50}
+\tkzDefPoint[label=-90:$A$](0,0){A}
+\tkzDefShiftPoint[A](0:1.5*\h){a}
+\tkzDefShiftPoint[A](\ang:\h){b}
+\coordinate (M) at ($(A)!0.8!(a)$);
+\coordinate (N) at ($(A)!0.5!(b)$);
+\tkzDefLine[bisector](a,A,b)\tkzGetPoint{ab}
+\tkzDefPointsBy[symmetry = center A](ab){c}
+\tkzDrawLines[add = 0 and 0.2,end=$a$](A,a)
+\tkzDrawLines[add = 0 and 0.2,end=$b$](A,b)
+\tkzDrawLines[add = 0 and -0.5,end=$c$](A,c)
+\tkzDrawLines[add = 0 and 0](M,N)
+\tkzDrawLines[dashed,add = 0 and -0.3](A,ab)
+\tkzDrawPoints[fill=black](A,M,N)
+\tkzMarkAngles[size=0.5cm,arc=l](a,A,b)
+\tkzLabelPoints[below](M)
+\tkzLabelPoints[above left](N)
+\end{tikzpicture}
+}
+}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, C2-L6-2018]%[6H2Y9]%[6H2B8]
+Vẽ tam giác $ ABC $ có $ AB=2 $ cm, $ BC=3 $ cm, $ CA=4 $ cm và đường tròn $ (A;2\ \text{cm}) $.
+\begin{listEX}
+\item Trong các điểm $ A $, $ B $, $ C $ điểm nào nằm trong, điểm nào nằm bên ngoài, điểm nào nằm bên trên đường tròn $ (A;2\ \text{cm}) $.
+\item Chứng tỏ tâm đường tròn đường kính $ AC $ nằm trên đường tròn $ (A;2\ \text{cm}) $.
+\end{listEX}
+\loigiai{
+\immini{
+\begin{listEX}
+\item Điểm $ A $ là tâm đường tròn $ (A;2\ \text{cm}) $ nên nằm trong đường tròn $ (A;2\ \text{cm}) $.\\
+Vì $ AB=2 $ cm nên điểm $ B $ nằm trên đường tròn $ (A;2\ \text{cm}) $.\\
+Vì $ AC=4 $ cm $ >2 $ cm nên điểm $ C $ nằm ngoài đường tròn $ (A;2\ \text{cm}) $.
+\item Gọi $ M $ là tâm đường tròn đường kính $ AC $. Ta có 
+\[ 
+AM=MC=\dfrac{AC}{2}=2\ \text{cm}.
+\]
+Do đó điểm $ M $ nằm trên đường tròn $ (A;2\ \text{cm}) $.
+\end{listEX}
+}{
+\begin{tikzpicture}[line join=round,line cap=round]
+\pgfmathsetmacro\r{2}
+\pgfmathsetmacro\ang{40}
+\tkzDefPoint[label=-90:$A$](0,0){A}
+\tkzDefShiftPoint[A](0:\r){B}
+\tkzDefShiftPoint[A](\ang:2*\r){C}
+\tkzDefMidPoint(A,C)\tkzGetPoint{M}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawCircle[R](A,\r cm)
+\tkzDrawPoints[fill=black](A,B,C,M)
+\tkzLabelPoints[below right](B)
+\tkzLabelPoints[above](C,M)
+\end{tikzpicture}
+}
+}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, C2-L6-2018]%[6H2K6]
+Cho hai góc kề bù $ \widehat{xOy} $ và $ \widehat{yOz} $. Gọi $ Oa $ là tia phân giác của góc $ \widehat{xOy} $. Trên nửa mặt phẳng bờ là đường thẳng $ xz $ chứa tia $ Oy $, ta kẻ tia $ Ob $ sao cho $ \widehat{aOb}=90^{\circ} $. Chứng minh $ Ob $ là tia phân giác góc $ \widehat{yOz} $.
+\loigiai{
+\immini{
+Vì $ Oa $ là tia phân giác của góc $ \widehat{xOy} $ nên $ \widehat{xOa}=\widehat{aOy}=\dfrac{\widehat{xOy}}{2} $.\\
+Ta có 
+\begin{eqnarray*}
+\widehat{xOa}+\widehat{aOb}+\widehat{bOz}&=&180^{\circ}\\
+\widehat{xOa}+90^{\circ}+\widehat{bOz}&=&180^{\circ}\\
+\widehat{xOa}+\widehat{bOz}&=&90^{\circ}\\
+\widehat{bOz}&=&90^{\circ}-\widehat{xOa}.
+\end{eqnarray*}
+}{
+\begin{tikzpicture}[scale=1,line join=round,line cap=round]
+\pgfmathsetmacro\h{3}
+\pgfmathsetmacro\ang{70}
+\tkzDefPoint[label=-90:$O$](0,0){O}
+\tkzDefShiftPoint[O](0:\h){z}
+\tkzDefPointsBy[symmetry = center O](z){x}
+\tkzDefShiftPoint[O](\ang:0.8*\h){y}
+\tkzDefLine[bisector](y,O,x)\tkzGetPoint{a}
+\tkzDefLine[bisector](z,O,y)\tkzGetPoint{b}
+\tkzDrawLines[add = 0 and -0.3,end=$a$](O,a)
+\tkzDrawLines[add = 0 and -0.3,end=$b$](O,b)
+\pgfresetboundingbox
+\tkzDrawSegments(x,z O,y)
+\tkzDrawPoints[fill=black](O)
+\tkzLabelPoints[below left](x,z,y)
+\tkzMarkRightAngles[size=0.2](a,O,b)
+\tkzMarkAngles[size=0.5cm,arc=ll](y,O,a)
+\tkzMarkAngles[size=0.6cm,arc=ll](a,O,x)
+\end{tikzpicture}
+}
+Lại có 
+\begin{eqnarray*}
+	\widehat{aOy}+\widehat{bOy}&=&90^{\circ}\\
+	\widehat{bOy}&=&90^{\circ}-\widehat{xOa}\ (\text{vì } \widehat{xOa}=\widehat{aOy}).
+\end{eqnarray*}
+Do vậy $ \widehat{yOb}=\widehat{bOz} $.\\
+Vì $ Ob $ là tia nằm giữa hai tia $ Oz $ và $ Oy $ nên $ Ob $ là tia phân giác góc $ \widehat{yOz} $.
+}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, C2-L6-2018]%[6H2K9]
+Trên đường thẳng $ xy $ lấy ba điểm $ M $, $ N $, $ P $. Lấy hai điểm $ E $, $ F $ nằm ngoài đường thẳng $ xy $ ($ E,\ F $ không thẳng hàng với $ M,\ N,\ P $). Nối $ EF $ và nối $ E $, $ F $ với các điểm $ M $, $ N $, $ P $. Hỏi có bao nhiêu tam giác tạo thành mà đỉnh là các điểm đã cho?
+\loigiai{
+\begin{itemize}
+\item Số góc chung đỉnh $ E $ kết hợp với $ 4 $ điểm $ F $, $ M $, $ N $, $ P $ là $ \dfrac{4\cdot (4-1)}{2}=6 $ (góc).
+\item Số góc chung đỉnh $ F $ kết hợp với $ 3 $ điểm $ M $, $ N $, $ P $ là $ \dfrac{3\cdot (3-1)}{2}=3 $ (góc).
+\end{itemize}
+Vì ba điểm $ M $, $ N $, $ P $ thẳng hàng nên số tam giác tạo thành bởi các điểm đã cho chính là số góc chung đỉnh $ E $ và $ F $ trong hai trường hợp trên.\\
+Do vậy, số tam giác tạo thành bởi các điểm đã cho là $ 6+3=9 $ (tam giác).
+}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, C2-L6-2018]%[6H2K3]
+Trong một ngày đêm ($ 24 $ giờ) có bao nhiêu lần hai kim đồng hồ tạo với nhau một góc $ 90^{\circ} $ mà kim phút chỉ số $ 12 $?
+\loigiai{
+Khi kim phút ở số $ 12 $ thì kim giờ ở vị trí số $ 3 $ và $ 9 $ sẽ tạo với kim phút một góc $ 90^{\circ} $.\\
+Do một ngày đêm có $ 24 $ giờ nên số lần kim giờ tạo với kim phút một góc $ 90^{\circ} $ (khi kim phút đứng ở vị trí số $ 12 $) là $ 2\cdot 2=4 $ (lần).
+}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, C2-L6-2018]%[6H2Y1][6H2K4]
+Trên cùng nửa mặt phẳng bờ chứa tia $ Ox $, vẽ hai tia $ Oy $ và $ Oz $ sao cho $ \widehat{xOy}=30^{\circ} $, $ \widehat{xOz}=110^{\circ} $.
+\begin{listEX}
+\item Trong ba tia $ Ox $, $ Oz $, $ Ot $, tia nào nằm giữa hai tia còn lại? Vì sao?
+\item Vẽ tia $ Ot $ là tia phân giác của góc $ \widehat{yOz} $. Tính số đo góc $ \widehat{zOt} $ và $ \widehat{tOx} $.
+\end{listEX}
+\loigiai{
+\immini{
+\begin{listEX}
+\item Vì hai tia $ Oy $, $ Oz $ cùng nằm về nửa mặt phẳng bờ chứa tia $ Ox $ và $ \widehat{xOy}=30^{\circ} < \widehat{xOz}=110^{\circ} $ nên tia $ Oy $ nằm giữa hai tia $ Ox $ và $ Oz $.
+\item Ta có
+\begin{eqnarray*}
+	\widehat{xOy}+\widehat{yOz}&=&\widehat{xOz}\\
+	30^{\circ}+\widehat{yOz}&=&110^{\circ}\\
+	\widehat{yOz}&=&80^{\circ}.
+\end{eqnarray*}
+\end{listEX}
+}{
+\begin{tikzpicture}[line join=round,line cap=round]
+\pgfmathsetmacro\h{3}
+\pgfmathsetmacro{\angy}{30}
+\pgfmathsetmacro{\angz}{110}
+\tkzDefPoint[label=-90:$O$](0,0){O}
+\tkzDefShiftPoint[O](0:\h){x}
+\tkzDefShiftPoint[O](\angz:\h){z}
+\tkzDefShiftPoint[O](\angy:\h){y}
+\tkzDefLine[bisector](y,O,z)\tkzGetPoint{t}
+\pgfresetboundingbox
+\tkzDrawLines[add = 0 and 0.3,end=$x$](O,x)
+\tkzDrawLines[add = 0 and 0.3,end=$y$](O,y)
+\tkzDrawLines[add = 0 and 0,end=$z$](O,z)
+\tkzDrawLines[dashed,add = 0 and -0.5,end=$t$](O,t)
+\tkzDrawPoints[fill=black](O)
+\tkzMarkAngles[size=0.6cm,arc=l](x,O,y)
+\tkzMarkAngles[size=0.5cm,arc=ll](y,O,t)
+\tkzMarkAngles[size=0.7cm,arc=ll](t,O,z)
+\end{tikzpicture}
+}
+Vì $ Ot $ là tia phân giác góc $ \widehat{yOz} $ nên 
+\[ 
+\widehat{zOt}=\widehat{tOy}=\dfrac{80^{\circ}}{2}=40^{\circ}.
+\]
+\indent Lại có
+\[ 
+\widehat{tOx}=\widehat{tOy}+\widehat{yOx}=40^{\circ}+30^{\circ}=70^{\circ}.
+\]
+}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, C2-L6-2018]%[6H2K4]
+Trên cùng nửa mặt phẳng bờ chứa tia $ Ox $, vẽ hai tia $ Oy $ và $ Oz $ sao cho $ \widehat{xOz}=50^{\circ} $, $ \widehat{xOy}=120^{\circ} $. Gọi tia $ Oa $, $ Ob $ thứ tự là phân giác của góc $ \widehat{xOy} $ và $ \widehat{yOz} $. Tính số đo của góc $ \widehat{aOb} $.
+\loigiai{
+\immini{
+	Ta có 
+	\begin{eqnarray*}
+		\widehat{xOz}+\widehat{zOy}&=&\widehat{xOy}\\
+		50^{\circ}+\widehat{zOy}&=&120^{\circ}\\
+		\widehat{zOy}&=&70^{\circ}.
+	\end{eqnarray*}
+	Vì tia $ Oa $, $ Ob $ thứ tự là phân giác của góc $ \widehat{xOy} $ và $ \widehat{yOz} $ nên
+	\begin{eqnarray*}
+		\widehat{xOa}&=&\dfrac{\widehat{xOy}}{2}=60^{\circ}.\\
+		\widehat{zOb}&=&\dfrac{\widehat{zOy}}{2}=35^{\circ}.
+	\end{eqnarray*}
+}{
+\begin{tikzpicture}[line join=round,line cap=round]
+\pgfmathsetmacro\h{3}
+\pgfmathsetmacro{\angy}{120}
+\pgfmathsetmacro{\angz}{50}
+\tkzDefPoint[label=-90:$O$](0,0){O}
+\tkzDefShiftPoint[O](0:\h){x}
+\tkzDefShiftPoint[O](\angz:\h){z}
+\tkzDefShiftPoint[O](\angy:\h){y}
+\tkzDefLine[bisector](x,O,y)\tkzGetPoint{a}
+\tkzDefLine[bisector](z,O,y)\tkzGetPoint{b}
+\pgfresetboundingbox
+\tkzDrawLines[add = 0 and 0.3,end=$x$](O,x)
+\tkzDrawLines[add = 0 and 0.1,end=$y$](O,y)
+\tkzDrawLines[add = 0 and 0.1,end=$z$](O,z)
+\tkzDrawLines[dashed,add = 0 and -0.4,end=$a$](O,a)
+\tkzDrawLines[dashed,add = 0 and -0.4,end=$b$](O,b)
+\tkzDrawPoints[fill=black](O)
+\tkzMarkAngles[size=0.4cm,arc=l](x,O,a)
+\tkzMarkAngles[size=0.5cm,arc=l](a,O,y)
+\tkzMarkAngles[size=0.6cm,arc=ll](z,O,b)
+\tkzMarkAngles[size=0.7cm,arc=ll](b,O,y)
+\end{tikzpicture}
+}\noindent
+Mà 
+\begin{eqnarray*}
+	\widehat{xOz}+\widehat{zOb}&=&\widehat{xOb}\\
+	50^{\circ}+35^{\circ}&=&\widehat{xOb}\\
+	\widehat{xOb}&=&85^{\circ}.
+\end{eqnarray*}
+Lại có
+\begin{eqnarray*}
+	\widehat{xOa}+\widehat{aOb}&=&\widehat{xOb}\\
+	60^{\circ}+\widehat{aOb}&=&85^{\circ}\\
+	\widehat{aOb}&=&25^{\circ}.
+\end{eqnarray*}
+}\noindent
+\textbf{Nhận xét.} Bạn có thể chứng tỏ được bài toán tổng quát sau:\\
+``Trên nửa mặt phẳng bờ $ Ox $ vẽ hai tia $ Oy $ và $ Oz $ sao cho $ \widehat{xOy}<\widehat{xOz} $. Gọi tia $ Oa $, $ Ob $ thứ tự là phân giác của góc $ \widehat{xOy} $ và $ \widehat{yOz} $ thì $ \widehat{aOb}=\dfrac{\widehat{xOz}}{2}$''.
+\end{bt}

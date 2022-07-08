@@ -1,0 +1,990 @@
+%Người soạn: Lê Quân, Phản biện Nguyễn Ngọc Dũng.
+\Opensolutionfile{ans}[ans/ans7H1-3]
+\section{HAI ĐƯỜNG THẲNG SONG SONG}
+\subsection{Tóm tắt lí thuyết}
+\begin{enumerate}[\tickEX] 
+	\item Hai đường thẳng được gọi là song song khi chúng không có điểm chung. Ký hiệu $a \parallel b.$
+	\begin{center}
+		\begin{tikzpicture}[line width=1pt]
+		\tkzInit[xmin=-5.5,ymin=-0.5,xmax=5.5,ymax=1.5]
+		\tkzClip
+		\draw[line width = 1pt] (-5,0)--(5,0)node[midway, above]{$a$};
+		\draw[line width = 1pt] (-5,1)--(5,1)node[midway, above]{$b$};
+		\end{tikzpicture}
+	\end{center}
+	\item Cho đường thẳng $c$ cắt hai đường thẳng $a$ và $b$. Nếu trong các cặp góc tạo thành có một cặp góc so le trong bằng nhau thì
+	\begin{enumerate}
+		\item Cặp góc so le trong còn lại bằng nhau.
+		\item Hai cặp góc đồng vị bằng nhau.
+	\end{enumerate}
+	\item  Dấu hiệu nhận biết hai đường thẳng song song. Nếu đường thẳng $c$ cắt hai đường thẳng $a, b$ và trong các góc tạo thành có
+	\begin{enumerate}
+		\item Hoặc một  cặp góc so le trong bằng nhau;
+		\item Hoặc một cặp góc đồng vị bằng nhau;
+		\item Hoặc một cặp góc trong cùng phía bù nhau.
+	\end{enumerate}
+\end{enumerate}
+
+\subsection{Các dạng toán}
+%dang1
+\begin{dang}[Nhận biết hai đường thẳng không cắt nhau]
+\begin{enumerate}[\tickEX]
+	\item Dựa vào hình vẽ nhận biết hai đường thẳng không cắt nhau.
+\end{enumerate}
+\end{dang}
+
+\begin{vd}
+Cho hình vẽ bên, tìm 
+\immini
+{
+\begin{enumerate}
+	\item Những đường thẳng nào song song với $AB?$  
+	\item Những đường thẳng nào song song với $BC?$
+	\item Những đường thẳng nào song song với $CC'?$
+\end{enumerate}
+}
+{
+	\begin{tikzpicture}[scale=1, line join=round, line cap=round]
+	\tkzInit[xmin=-2,ymin=-1.5,xmax=4,ymax=3]
+	\tkzClip
+	\tkzDefPoints{0/0/A,-1.3/-1.1/B,2/-1.1/C}
+	\coordinate (D) at ($(A)+(C)-(B)$);
+	\coordinate (A') at ($(A)+(0,2.5)$);
+	\tkzDefPointsBy[translation=from A to A'](B,C,D){B'}{C'}{D'}
+	\tkzDrawPolygon(A',B',B,C,D,D')
+	\tkzDrawPolygon[dashed, pattern=north west lines, pattern color = olive, thin](A',D,C,B')
+	\tkzDrawSegments(B',C' C',D' C,C' B',C)
+	\tkzDrawSegments[dashed](A,B A,D A,A' A',D)
+	\tkzDrawPoints[fill=black,size=4](A,B,D,C,A',B',C',D')
+	\tkzLabelPoints[above](A',D')
+	\tkzLabelPoints[below](A,B,C)
+	\tkzLabelPoints[left](B')
+	\tkzLabelPoints[right](C',D)
+	\end{tikzpicture}
+}
+\loigiai
+{
+\begin{enumerate}
+	\item Những đoạn thẳng song song với $AB$ là $CD, C'D', A'B'.$
+	\item Những đoạn thẳng song song với $BC$ là $AD, A'D', B'C'.$
+	\item Những đoạn thẳng song song với $CC'$ là $BB', AA', DD'.$
+\end{enumerate}
+}
+\end{vd}
+%dang2
+\begin{dang}[Xác định cặp góc so le trong, cặp góc trong cùng phía, cặp góc đồng vị.]
+Phải căn cứ vào vị trí của hai góc so với hai đường thẳng và đường thứ ba cắt chúng (cát tuyến).
+\begin{center}
+	\begin{tikzpicture}[>=stealth,line width=1pt]
+	\tkzInit[xmin=-0.3,ymin=-2.5,xmax=7.6,ymax=4]
+	\tkzClip
+	\draw[draw = none, fill = gray!10] (-0.1,-2.3) rectangle (7.6,3.4);
+	\tkzDefPoints{0/0/A,7/2/B,0/-0.28/C,7/-1/D,5/3/E,2/-2/F}	
+	\tkzDrawPolygon[draw=none, fill = gray!20](A,B,D,C)
+	\tkzInterLL(A,B)(E,F)\tkzGetPoint{I}
+	\tkzInterLL(E,F)(C,D)\tkzGetPoint{K}	
+	\draw[<->] (A)--(B) node[right] {$l$};
+	\draw[<->] (C)--(D) node[right] {$m$}; 
+	\draw[<->] (F)--(E) node[right] {$t$};
+	\node at (1.5,3) {Vùng ngoài};
+	\node at (5,-1.5) {Vùng ngoài};
+	\node at (5.5,0.3) {Vùng trong};
+	\node[above, xshift = -0.15cm] at (I) {$\footnotesize 1$};
+	\node[above, xshift = 0.45cm, yshift = 0.075cm] at (I) {$\footnotesize 2$};
+	\node[above, xshift = 0.2cm, yshift = - 0.5cm] at (I) {$\footnotesize 3$};
+	\node[above, xshift = -0.5cm, yshift = -.7cm] at (I) {$\footnotesize 4$};
+	\node[above, xshift = -0.15cm] at (K) {$\footnotesize 5$};
+	\node[above, xshift = 0.4cm, yshift = -0.1cm] at (K) {$\footnotesize 6$};
+	\node[above, xshift = 0.2cm, yshift = - 0.55cm] at (K) {$\footnotesize 7$};
+	\node[above, xshift = -0.4cm, yshift = -0.5cm] at (K) {$\footnotesize 8$};
+	\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+	\item Góc so le trong là những góc ở vùng trong không liền kề, nằm khác phía của đường thẳng cắt ngang $t$.\\
+	Ví dụ: $ 4 $ và $\widehat{6}$, $\widehat{3}$ và $\widehat{5}$.
+	\item Góc trong cùng phía là những góc ở vùng trong nằm cùng một phía của đường thẳng cắt ngang $t$.\\
+	Ví dụ: $\widehat{3}$ và $\widehat{6}$, $\widehat{4}$ và $\widehat{5}$.
+	\item Góc đồng vị là những góc nằm cùng phía của đường thẳng cắt ngang $t$ và nằm vị trí tương ứng với nhau.\\
+	Ví dụ: $\widehat{1}$ và $\widehat{5}$, $\widehat{4}$ và $\widehat{8}$, $\widehat{2}$ và $\widehat{6}$, $\widehat{3}$ và $\widehat{7}$.
+\end{enumerate}
+\end{dang}
+
+\begin{vd}
+\immini
+{
+Cho hình bên
+\begin{enumerate}
+	\item Góc nào so le trong với $\widehat{2}?$
+	\item Góc nào đồng vị với $\widehat{2}?$
+	\item Góc nào trong cùng phía với $\widehat{2}?$
+\end{enumerate}
+}
+{
+\begin{tikzpicture}[>=stealth,line width=1pt]
+\tkzInit[xmin=-1.5,ymin=-1.5,xmax=5.5,ymax=3.5]
+\tkzClip
+\tkzDefPoints{0/0/A,5/2/B,1/2/C,2/-1/D,4/3/E,3/-1/F}
+\tkzInterLL(A,B)(C,D)\tkzGetPoint{I}
+\tkzInterLL(E,F)(A,B)\tkzGetPoint{K}	
+\draw[<->] (A)--(B) node[right] {$r$};
+\draw[<->] (D)--(C) node[right] {$m$}; 
+\draw[<->] (F)--(E) node[right] {$n$};
+\node[above, xshift = -0.3cm,  yshift = -0.1cm] at (I) {$ 1$};
+\node[above, xshift = 0.15cm, yshift = 0cm] at (I) {$ 2$};
+\node[above, xshift = 0.3cm, yshift = - 0.5cm] at (I) {$\footnotesize 7$};
+\node[above, xshift = -0.1cm, yshift = -0.6cm] at (I) {$\footnotesize 8$};
+\node[above, xshift = -0.15cm, yshift = -0.1cm] at (K) {$\footnotesize 3$};
+\node[above, xshift = 0.3cm, yshift = 0.1cm] at (K) {$\footnotesize 4$};
+\node[above, xshift = 0.2cm, yshift = - 0.55cm] at (K) {$\footnotesize 5$};
+\node[above, xshift = -0.3cm, yshift = -0.6cm] at (K) {$\footnotesize 6$};
+\end{tikzpicture}
+}
+
+\loigiai
+{
+Xét hai đường thằng $m$ và $n$ cùng với cát tuyến $r$ thì
+\begin{enumerate}
+	\item $\widehat{6}$ so le trong với $\widehat{2};$
+	\item $\widehat{4}$ đồng vị với $\widehat{2};$
+	\item $\widehat{3}$ trong cùng phía với $\widehat{2}.$
+\end{enumerate}
+}
+\end{vd}
+\begin{vd}
+\immini
+{
+Cho hình bên, hãy kể tên 
+\begin{enumerate}
+	\item Góc so le trong với góc $N_1;$
+	\item Góc đồng vị với góc $N_2;$
+	\item Góc trong cùng phía với góc $M_1.$
+\end{enumerate}
+}
+{
+\begin{tikzpicture}
+\tkzInit[xmin=-0.5,ymin=-1.5,xmax=5.5,ymax=3.5]
+\tkzClip
+\tkzDefPoints{0/0/A, 5/0/B, 0/2/C, 5/2/D, 2/-1/E, 3/3/F}
+\tkzDrawSegments(A,B C,D E,F)
+\tkzInterLL(A,B)(E,F)\tkzGetPoint{N}
+\tkzInterLL(E,F)(C,D)\tkzGetPoint{M}
+\node[above right] at (A) {$a$};
+\node[above right] at (C) {$b$};
+\node[left] at (F) {$c$};
+\tkzLabelPoints[above left, xshift=-0.2cm](M,N)
+\tkzDrawPoints[fill=black, size=5](M,N)
+\node[below, xshift=-0.3cm] at (M) {$\footnotesize 1$};
+\node[below, xshift=0.1cm] at (M) {$\footnotesize 2$};
+\node[above, xshift=0.3cm] at (M) {$\footnotesize 3$};
+\node[above, xshift=-0.1cm] at (M) {$\footnotesize 4$};
+\node[below, xshift=-0.3cm] at (N) {$\footnotesize 3$};
+\node[below, xshift=0.1cm] at (N) {$\footnotesize 4$};
+\node[above, xshift=0.3cm] at (N) {$\footnotesize 1$};
+\node[above, xshift=-0.1cm] at (N) {$\footnotesize 2$};
+\end{tikzpicture}
+}
+
+\loigiai{
+Xét hai đường thẳng $a, b$ cùng với cát tuyến $c$ thì
+\begin{enumerate}
+	\item Góc $M_1$ so le trong với góc $N_1;$
+	\item Góc $M_4$ đồng vị với góc $N_2;$
+	\item Góc $N_2$ trong cùng phía với góc $M_1.$
+\end{enumerate}	
+}
+\end{vd}
+\begin{vd}
+Xem hình bên rồi cho biết
+\immini
+{
+	\begin{enumerate}
+		\item Cặp góc so le trong của hai đường thẳng $AB$ và $CD$ đối với cát tuyến $AD;$
+		\item Cặp góc so le trong của hai đường thẳng $AC$ và $BD$ đối với cát tuyến $AD;$
+		\item Cặp góc trong cùng phía của hai đường thẳng $AB$ và $CD$ đối với cát tuyến $AC;$
+		\item Cặp góc đồng vị của hai đường thẳng $AC$ và $BD$ đối với cát tuyến $Cx.$
+	\end{enumerate}
+}
+{
+	\begin{tikzpicture}[scale = 1.2]
+	\tkzInit[xmin=-0.5,ymin=-0.5,xmax=3.5,ymax=3]
+	\tkzClip
+	\tkzDefPoints{0/0/C, 3/0/D, 0/2/A, 2/2.5/B}
+	\tkzLabelPoints[above left](A,C)
+	\tkzLabelPoints[above right](B)
+	\tkzLabelPoints[above, xshift=0.1cm](D)
+	\node[below, xshift=1.4cm] at (D){$x$};
+	\node[below, xshift=0.15cm, yshift=-0.1cm] at (A){$\footnotesize 1$};
+	\node[below, xshift=0.55cm, yshift=0.16cm] at (A){$\footnotesize 2$};
+	\node[above, xshift=-0.7cm, yshift=-0.1cm] at (D){$\footnotesize 2$};
+	\node[above, xshift=-0.4cm, yshift=0.3cm] at (D){$\footnotesize 1$};
+	\tkzDrawSegments[dashed](A,D)
+	\tkzDrawLines[add=1cm and 1.5cm](A,B)
+	\tkzDrawLines[add=1cm and 1.3cm](C,D)
+	\tkzDrawLines[add=1cm and 1.3cm](C,D)
+	\tkzDrawLines[add=1.2cm and 1cm](C,A)
+	\tkzDrawLines[add=1.25cm and 1cm](D,B)	
+	\tkzDrawPoints[size=7,fill=black](A,B,C,D)	
+	\end{tikzpicture}
+}
+\loigiai{
+\begin{enumerate}
+	\item Cặp góc $\widehat{A_2}$ và $\widehat{D_2}$ là cặp góc so le trong của hai đường thẳng $AB$ và $CD$ đối với cát tuyến $AD.$
+	\item Cặp góc $\widehat{A_1}$ và $\widehat{D_1}$ là cặp góc so le trong của hai đường thẳng $AC$ và $BD$ đối với cát tuyến $AD.$
+	\item Cặp góc $\widehat{CAB}$ và $\widehat{ACD}$ là cặp góc trong cùng phía của hai đường thẳng $AB$ và $CD$ đối với cát tuyến $AC.$
+	\item Cặp góc $\widehat{ACD}$ và $\widehat{BDx}$ là cặp góc trong cùng phía của hai đường thẳng $AC$ và $BD$ đối với cát tuyến $Cx.$
+\end{enumerate}
+}
+\end{vd}
+%dang3
+\begin{dang}[Tìm giá trị của tham số $x, y, \ldots$ để hai đường thẳng song song và ngược lại]
+	Sử dụng các tính chất của các cặp góc so le, các cặp góc đồng vị, các cặp góc trong cùng phía
+	được tạo bởi các đường thẳng song song để tìm giá trị của $x,y, \ldots$
+\end{dang}
+\begin{vd} Tìm giá trị của $x$ để đường thẳng $a \parallel b$. 
+\begin{center}
+	\begin{tikzpicture}[>=stealth]
+	\tkzInit[xmin=-0.5,ymin=-1.5,xmax=5.5,ymax=3.5]
+	\tkzClip
+	\tkzDefPoints{0/0/A, 5/0/B, 0/2/C, 5/2/D, 2/-1/E, 3/3/F}
+	\tkzDrawSegments(A,B C,D E,F)
+	\tkzInterLL(A,B)(E,F)\tkzGetPoint{N}
+	\tkzInterLL(E,F)(C,D)\tkzGetPoint{M}
+	\node[above right] at (A) {$b$};
+	\node[above right] at (C) {$a$};
+	\node[left] at (F) {$c$};
+	\tkzDrawPoints[fill=black, size=5](M,N)
+	\tkzLabelAngle[pos=0.3, xshift = -0.6cm,yshift=-0.1cm](N,M,D){\footnotesize $x^{\circ}$}
+    \tkzLabelAngle[pos=0.3, xshift = -0.3cm](M,N,A){\footnotesize $(2x)^{\circ}$}		
+	\end{tikzpicture}
+\end{center}
+\loigiai{
+Ta có $a \parallel b$ nên cặp góc trong cùng phía bù nhau.\\
+ $\Rightarrow x^{\circ} + (2x)^{\circ} = 180^{\circ} \Rightarrow (3x)^{\circ} = 180^{\circ}\Rightarrow x = 60^{\circ}.$
+}
+\end{vd}
+\begin{vd} Tìm giá trị của $x$ để đường thẳng $a \parallel b$. 
+	\begin{center}
+		\begin{tikzpicture}[>=stealth]
+		\tkzInit[xmin=-0.5,ymin=-1.5,xmax=5.5,ymax=3.5]
+		\tkzClip
+		\tkzDefPoints{0/0/A, 5/0/B, 0/2/C, 5/2/D, 2/-1/E, 3/3/F}
+		\tkzDrawSegments(A,B C,D E,F)
+		\tkzInterLL(A,B)(E,F)\tkzGetPoint{N}
+		\tkzInterLL(E,F)(C,D)\tkzGetPoint{M}
+		\node[above right] at (A) {$b$};
+		\node[above right] at (C) {$a$};
+		\node[left] at (F) {$c$};
+		\tkzDrawPoints[fill=black, size=5](M,N)
+		\tkzLabelAngle[pos=0.3, xshift = -1.2cm,yshift=0.5cm](N,M,D){\footnotesize $(x+66)^{\circ}$}
+		\tkzLabelAngle[pos=0.3, xshift = -0.6cm](M,N,A){\footnotesize $(2x-8)^{\circ}$}		
+		\end{tikzpicture}
+	\end{center}
+\loigiai{
+	Vì $a \parallel b$ nên cặp góc đồng vị bằng nhau
+	$\Rightarrow (x+66)^{\circ} = (2x-8)^{\circ} \Rightarrow x^{\circ} = 74^{\circ}.$
+}
+\end{vd}
+%dang4
+\begin{dang}[Nhận biết hai đường thẳng song song]
+Cần chứng tỏ cặp góc so le trong bằng nhau, hoặc cặp góc đồng vị bằng nhau, hoặc cặp góc trong cùng phía bù nhau.
+\end{dang}
+\begin{vd}
+	Cho hình bên, biết $\widehat{A_1} = 60^{\circ}, \widehat{B_1} = \dfrac{1}{2} \widehat{B_2}$. Chứng tỏ rằng $a \parallel b.$
+	\begin{center}
+		\begin{tikzpicture}
+		\tkzInit[xmin=-0.5,ymin=-1.5,xmax=5.5,ymax=3.5]
+		\tkzClip
+		\tkzDefPoints{0/0/A, 5/0/B, 0/2/C, 5/2/D, 2/-1/E, 3/3/F}
+		\tkzDrawSegments(A,B C,D E,F)
+		\tkzInterLL(A,B)(E,F)\tkzGetPoint{N}
+		\tkzInterLL(E,F)(C,D)\tkzGetPoint{M}
+		\node[above right] at (A) {$b$};
+		\node[above right] at (C) {$a$};
+		\node[left] at (F) {$c$};
+		\node[above left, xshift=-0.2cm] at (M){$A$};
+		\node[below right] at (N){$B$};
+		\tkzDrawPoints[fill=black, size=5](M,N)
+		\node[below, xshift=-0.3cm] at (M) {$1$};
+		\node[below, xshift=0.1cm] at (M) {$2$};
+		\node[above, xshift=0.3cm] at (N) {$1$};
+		\node[above, xshift=-0.1cm] at (N) {$2$};
+		\end{tikzpicture}
+	\end{center}
+\loigiai{
+	Ta có $\widehat{B_1}  + \widehat{ B_2} = 180^{\circ}$ (kề bù), mà $\widehat{B_1}  =\dfrac{1}{2} \widehat{B_2} $ nên $\widehat{B_1} = 180^{\circ}:3=60^{\circ}.$\\
+	Suy ra $\widehat{A_1}  = \widehat{B_1} = 60^{\circ}.$\\
+	Do đó $a \parallel b$ (vì có cặp góc so le trong bằng nhau).	
+}
+\end{vd}
+\begin{vd}
+Cho hình bên, biết $\widehat{A_2}  = 70^{\circ}, \widehat{B} = 110^{\circ}.$ Chứng tỏ rằng $Ax \parallel By.$
+\begin{center}
+	\begin{tikzpicture}
+	\tkzInit[xmin=-1.5,ymin=-1.5,xmax=3.5,ymax=3]
+	\tkzClip
+	\tkzDefPoints{0/0/A, 2/0/B, 1/2.75/C, 3/2.75/D, -1/0/E, -1/-2.75/F}
+	\tkzDrawLines[add=1.5cm and 1cm](A,B)
+	\tkzDrawLines[add=1cm and 0cm](A,C)
+	\tkzDrawLines[add=0cm and 0cm](B,D)
+	\tkzDrawPoints[size=7,fill=black](A,B)
+	\tkzLabelPoints[below](B)	
+	\tkzLabelPoints[below right](A)	
+	\tkzMarkAngles[size=0.7](E,A,F)
+	\tkzMarkAngles[size=0.7](B,A,C)
+	\tkzLabelAngle[pos=0.35](D,B,A){\footnotesize $110^{\circ}$}
+	\tkzLabelAngle[pos=-1](E,A,F){\footnotesize $70^{\circ}$}
+	\tkzLabelAngle[pos=-0.4](E,A,F){\footnotesize $2$}
+	\tkzLabelAngle[pos=0.4](E,A,F){\footnotesize $1$}
+	\tkzLabelSegment[pos=0.9, xshift=-0.1cm](A,C){$x$}
+	\tkzLabelSegment[pos=0.9, xshift=-0.1cm](B,D){$y$}	
+	\end{tikzpicture}
+\end{center}
+\loigiai{
+	Ta có $\widehat{A_1} = \widehat{A_2}  = 70^{\circ}$ (đối đỉnh).\\
+	Do đó $\widehat{A_1} + \widehat{B} = 70^{\circ} + 110^{\circ} = 180^{\circ}.$\\
+	Suy ra $Ax \parallel By$ (vì có cặp góc trong cùng phía bù nhau).	
+}
+\end{vd}
+\begin{vd}	
+Cho hình dưới, biết $\widehat{F} = \widehat{H_1}$; $\widehat{K} = \widehat{H_2}.$ Chứng tỏ rằng $EF \parallel IK.$
+\begin{center}
+	\begin{tikzpicture}
+	\tkzInit[xmin=-0.5,ymin=-1.5,xmax=5.5,ymax=2.5]
+	\tkzClip
+	\tkzDefPoints{0/0/F,3/0/H,5/0/K,1.5/2/E}
+	\coordinate (I) at ($(E)!1.5!(H)$);		
+	\tkzLabelPoints[below](F,I)
+	\tkzLabelPoints[above](E)
+	\tkzLabelPoints[below left](H)
+	\tkzLabelPoints[right](K)		
+	\tkzDrawPoints[size=5,fill=black](F,H,K,I,E)
+	\tkzDrawPolygon(F,E,H)
+	\tkzDrawPolygon( H,K,I)
+	\tkzMarkAngles[size=0.6](E,H,F)
+	\tkzLabelAngle[pos=0.35](E,H,F){\footnotesize $1$}
+	\tkzMarkAngles[size=0.6](I,H,K)
+	\tkzLabelAngle[pos=0.35](I,H,K){\footnotesize $2$}							 
+	\end{tikzpicture}
+\end{center}
+\loigiai{
+	Ta có $\widehat{F}  = \widehat{H_1}$; $\widehat{K}  = \widehat{H_2} $ mà $\widehat{H_1}  = \widehat{H_2}$ (đối đỉnh)
+	nên $\widehat{F}  = \widehat{K}.$\\
+	Suy ra $EF \parallel IK$ (vì có cặp góc so le trong bằng nhau). 		
+}
+\end{vd}
+\begin{vd}
+\immini
+{
+	Cho hình bên, biết $\widehat{M_1}  = 75^{\circ}$; $\widehat{N_1} = 105^{\circ}$; $\widehat{P_1} = 75^{\circ}.$\\
+	Hãy kể tên các cặp đường thẳng song song.
+}
+{
+	\begin{tikzpicture}
+	\tkzInit[xmin=-0.5,ymin=-0.5,xmax=4.5,ymax=3]
+	\tkzClip
+	\tkzDefPoints{0/0/M,2/0/N,3/0/P,0.5/2/E,2.5/2/F,3.5/2/G,4/0/H}
+	\tkzDrawLines[add=1cm and 1cm](M,E)
+	\tkzDrawLines[add=1cm and 1cm](N,F)
+	\tkzDrawLines[add=1cm and 1cm](P,G)
+	\tkzDrawLines[add=1cm and 1cm](M,P)
+	\tkzLabelPoints[below right](M,N,P)
+	\tkzDrawPoints[size=5,fill=black](M,P,N)
+	\tkzMarkAngles[size=0.6](N,M,E)
+	\tkzLabelAngle[pos=0.35](N,M,E){\footnotesize $1$}
+	\tkzLabelAngle[pos=0.35](M,N,F){\footnotesize $1$}
+	\tkzMarkAngles[size=0.6](H,P,G)
+	\tkzLabelAngle[pos=0.35](H,P,G){\footnotesize $1$}
+	\tkzLabelSegment[pos=-0.5](M,N){$m$}
+	\tkzLabelSegment[pos=1.3, xshift=-0.1cm](M,E){$a$}
+	\tkzLabelSegment[pos=1.3, xshift=-0.1cm](N,F){$b$}
+	\tkzLabelSegment[pos=1.3, xshift=-0.1cm](P,G){$c$}			 
+	\end{tikzpicture}
+}
+\loigiai{
+\begin{itemize}
+	\item Ta có $\widehat{M_1} + \widehat{N_1}  = 75^{\circ} + 105^{\circ} = 180^{\circ}.$\\
+	Suy ra $a \parallel b$ (vì có cặp góc trong cùng phía bù nhau).
+	\item Ta có $\widehat{M_1} = \widehat{P_1}  = 75^{\circ}.$\\
+	Suy ra $a \parallel c$ (vì có cặp góc đồng vị bằng nhau).
+	\item Ta có $\widehat{bNP}$ kề bù với góc $N_1,$ do đó
+	$\widehat{bNP} = \widehat{P_1} = 75^{\circ}.$\\
+	Suy ra $b \parallel c$ (vì có cặp góc đồng vị bằng nhau).
+\end{itemize}
+}		 
+\end{vd}
+\btvn
+%dang1
+\begin{vn}
+	Cho hình dưới, những đường thẳng nào không cắt nhau.
+	\begin{center}
+		\begin{minipage}{0.2\textwidth}
+			\begin{tikzpicture}
+			\tkzInit[xmin=-2.5,ymin=-1.5,xmax=2.5,ymax=6.2]
+			\tkzClip
+			\tkzDefPoints{-2/0/E,2/0/F,2/5/G,-2/5/H,0/0/O,0/5/I}
+			\draw[dashed] (E) arc [start angle=180, end angle=0,x radius=2,y radius=1];
+			\draw (F) arc [start angle=0, end angle=-180,x radius=2,y radius=1];
+			\draw (H) arc [start angle=180, end angle=0,x radius=2,y radius=1];
+			\draw (G) arc [start angle=0, end angle=-180,x radius=2,y radius=1];
+			\draw (E)--(H) (F)--(G);
+			\draw[dashed] (E)--(F) (O)--(I) node[above, sloped] at (1,0) {$r=20$cm};
+			\draw[fill=black] (0,0) circle (.3ex);
+			\draw (H)--(G);
+			\tkzLabelPoints[below right](F,G)
+			\tkzLabelPoints[below left](H,E,O,I)
+			\end{tikzpicture}
+		\end{minipage}
+		\hspace{2cm}
+		\begin{minipage}{0.2\textwidth}
+			\begin{tikzpicture}
+			\tkzInit[xmin=-1.5,ymin=-1.5,xmax=5.5,ymax=5.5]
+			\tkzClip
+			\tkzDefPoints{0/0/O,1/0/B,2/5/A,-1/0/C}
+			\draw[dashed,rotate=-45] (-1,0) arc [start angle=180, end angle=0,x radius=1,y radius=0.5];
+			\draw[rotate=-45] (1,0) arc [start angle=0, end angle=-180,x radius=1,y radius=0.5];
+			\draw[rotate=-45] (-2,5) arc [start angle=180, end angle=0,x radius=2,y radius=1];
+			\draw[rotate=-45] (2,5) arc [start angle=0, end angle=-180,x radius=2,y radius=1];
+			\draw[rotate=-45] (-1,0)--(-2,5) (-2,5)--(2,5) node[above left] at (-2,5) {$D$};
+			\draw[rotate=-45,dashed] (-1,0)--(1,0) (0,0)--(0,5)	node[left] at (-1,0) {$C$} node[right] at (0,5) {$I$} node[right] at (0,0) {$O$};
+			\draw[rotate=-45,dashed] (1,0)--(2,5)	node[right] at (1,0) {$B$} node[right] at (2,5) {$A$};		
+			\end{tikzpicture}
+		\end{minipage}		
+	\end{center}
+\loigiai{
+\begin{itemize}
+	\item Những đường thẳng không cắt nhau hình bên trái là $HE, OI$ và $GF$; $HG$ và $EF.$\\
+	\item Những đường thẳng không cắt nhau hình bên phải là $AD$ và $CB.$
+\end{itemize}
+}
+\end{vn}
+%dang2
+\begin{vn}
+	Tìm trong hình dưới. Hãy cho biết
+	\begin{enumerate}
+		\item Các góc đồng vị với $\widehat{C_1}.$
+		\item Các góc so le trong với $\widehat{A_1}.$
+		\item Các góc trong cùng phía với $\widehat{C_1}.$
+	\end{enumerate}
+	\begin{center}
+		\begin{tikzpicture}
+		\tkzInit[xmin=-2.5,ymin=-0.5,xmax=2.5,ymax=3.5]
+		\tkzClip
+		\tkzDefPoints{0/0/A,2/3/C,-2/1/D,-2/3/E,2/0/F,-1/0/G}
+		\coordinate (B) at ($(A)!0.334!(C)$);	
+		\tkzDrawLines[add=2cm and 1cm](A,F)
+		\tkzDrawLines[add=0cm and 0cm](B,D)
+		\tkzDrawLines[add=0cm and 0cm](C,E)
+		\tkzDrawLines[add=0cm and 0cm](C,A)
+		\tkzDrawPoints[size=5,fill=black](A,B,C)
+		\tkzLabelPoints[below](A)
+		\tkzLabelPoints[right](B,C)
+		\tkzLabelSegment[pos=2](F,A){$x$}
+		\tkzLabelSegment[pos=1.5](A,F){$y$}
+		\tkzLabelSegment[pos=1](B,D){$m$}
+		\tkzLabelSegment[pos=1](C,E){$n$}	
+		\tkzLabelAngle[pos=0.3](F,A,B){\footnotesize $1$}
+		\tkzLabelAngle[pos=-0.45](A,B,D){\footnotesize $2$}	
+		\tkzLabelAngle[pos=0.35](C,B,D){\footnotesize $1$}
+		\tkzLabelAngle[pos=-0.3](B,C,E){\footnotesize $1$}
+		\tkzLabelAngle[pos=0.25](B,A,G){\footnotesize $2$}
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		\begin{enumerate}
+			\item Các góc đồng vị với $\widehat{C_1}$ là $\widehat{B_2}.$
+			\item Các góc so le với $\widehat{A_1}$ là $\widehat{C_1}$ và $\widehat{B_2}.$
+			\item Các góc trong cùng phía với $\widehat{C_1}$ là $\widehat{B_1}$ và $\widehat{A_2}.$
+		\end{enumerate}
+	}
+\end{vn}
+\begin{vn}
+	\immini
+	{
+		Cho hình bên, trong các góc được đánh số. Hãy cho biết
+		\begin{enumerate}
+			\item Các cặp góc đồng vị.
+			\item Các cặp góc so le trong.
+			\item Các cặp góc trong cùng phía.
+		\end{enumerate}
+	}
+	{
+		\begin{tikzpicture}[>=stealth]
+		\tkzInit[xmin=-1.5,ymin=-0.8,xmax=5.5,ymax=3.5]
+		\tkzClip
+		\tkzDefPoints{0/0/A,4/0/B,4.5/3/C,0.5/3/D,5/0/E,-1/3/G,5/3/C'}	
+		\tkzDrawVector[<->,add=1cm and 1.5cm](A,B)
+		\tkzDrawVector[<->,add=1cm and 1cm](C,D)
+		\tkzDrawVector[<->,add=1cm and 1cm](A,D)
+		\tkzDrawVector[<->,add=1cm and 1cm](B,C)
+		\tkzDrawVector[<->,add=1cm and 1cm](A,C)
+		\tkzLabelAngle[pos=0.35](E,B,C){\footnotesize $5$}
+		\tkzLabelAngle[pos=0.35](B,C,C'){\footnotesize $6$}
+		\tkzLabelAngle[pos=0.35](A,C,B){\footnotesize $4$}
+		\tkzLabelAngle[pos=-0.55](A,C,D){\footnotesize $3$}
+		\tkzLabelAngle[pos=0.55](B,A,C){\footnotesize $2$}
+		\tkzLabelAngle[pos=0.45](C,A,D){\footnotesize $1$}
+		\tkzLabelAngle[pos=0.35](A,D,C){\footnotesize $7$}
+		\tkzLabelAngle[pos=-0.35](A,D,C){\footnotesize $8$}
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\begin{enumerate}
+			\item Cặp góc đồng vị $\widehat{7}$ và $\widehat{6}$;	$\widehat{2}$ và $\widehat{5}.$
+			\item Các cặp góc so le trong $\widehat{1}$ và $\widehat{4};$ $\widehat{2}$ và $\widehat{3};$ $\widehat{5}$ và $\widehat{4}.$
+			\item Cặp góc trong cùng phía $\widehat{5}$ và $\widehat{6};$ $\widehat{2}$ và $\widehat{4};$ $\widehat{1}$ và $\widehat{3};$ 
+			$\widehat{3}$ và $\widehat{7};$ $\widehat{1}$ và $\widehat{7}.$
+		\end{enumerate}
+	}
+\end{vn}
+
+%dang3
+\begin{vn} Tìm giá trị của $x$ để đường thẳng $a \parallel b$. 
+	\begin{center}
+		\begin{tikzpicture}[>=stealth]
+		\tkzInit[xmin=-0.5,ymin=-1.5,xmax=5.5,ymax=3.5]
+		\tkzClip
+		\tkzDefPoints{0/0/A, 5/0/B, 0/2/C, 5/2/D, 2/-1/E, 3/3/F}
+		\tkzDrawSegments(A,B C,D E,F)
+		\tkzInterLL(A,B)(E,F)\tkzGetPoint{N}
+		\tkzInterLL(E,F)(C,D)\tkzGetPoint{M}
+		\node[above right] at (A) {$b$};
+		\node[above right] at (C) {$a$};
+		\node[left] at (F) {$c$};
+		\tkzDrawPoints[fill=black, size=5](M,N)
+		\tkzLabelAngle[pos=0.3, xshift = -0.6cm,yshift=-0.1cm](N,M,D){\footnotesize $4x^{\circ}$}
+		\tkzLabelAngle[pos=0.3, xshift = -0.3cm](M,N,A){\footnotesize $88^{\circ}$}		
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Để $a \parallel b$ thì cặp góc trong cùng phía phải bù nhau.\\
+		$\Rightarrow 4x^{\circ} + 88 = 180^{\circ} \Rightarrow x^{\circ} = 180^{\circ} - 88^{\circ} \Rightarrow x = 23^{\circ}.$
+	}
+\end{vn}
+\begin{vn} Tìm giá trị của $x$ để đường thẳng $a \parallel b$. 
+	\begin{center}
+		\begin{tikzpicture}[>=stealth]
+		\tkzInit[xmin=-0.5,ymin=-1.5,xmax=5.5,ymax=3.5]
+		\tkzClip
+		\tkzDefPoints{0/0/A, 5/0/B, 0/2/C, 5/2/D, 2/-1/E, 3/3/F}
+		\tkzDrawSegments(A,B C,D E,F)
+		\tkzInterLL(A,B)(E,F)\tkzGetPoint{N}
+		\tkzInterLL(E,F)(C,D)\tkzGetPoint{M}
+		\node[above right] at (A) {$b$};
+		\node[above right] at (C) {$a$};
+		\node[left] at (F) {$c$};
+		\tkzDrawPoints[fill=black, size=5](M,N)
+		\tkzLabelAngle[pos=0.3, xshift = -0.6cm,yshift=-0.1cm](N,M,D){\footnotesize $4x^{\circ}$}
+		\tkzLabelAngle[pos=0.3, xshift = 1.2cm](M,N,A){\footnotesize $(2x+30)^{\circ}$}		
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Để $a \parallel b$ thì cặp góc so le trong phải bằng nhau.\\
+		$\Rightarrow 4x^{\circ} = (2x+30)^{\circ} \Rightarrow 2x^{\circ} = 30^{\circ} \Rightarrow x = 15^{\circ}.$
+	}
+\end{vn}
+\begin{vn}
+	Cho các hình bên dưới, tìm những góc được ký hiệu bằng các chữ cái.
+	\begin{listEX}[3]
+		\item 
+		\begin{tikzpicture}[>=stealth,scale=0.8]
+		\draw[<->,rotate=45] (0,0)--(4.5,0);
+		\draw[<->,rotate=45] (1.5,1.5)--(5.5,1.5);
+		\draw (1.5,0)--(1.5,5) node at (1.3,1) {$c$};	
+		\node at (1.65,1.9) {$b$};
+		\node at (1.8,4.2) {\scriptsize $64^{\circ}$};
+		\node at (1.8,3.5) {$a$};
+		\end{tikzpicture}
+		\item 
+		\begin{tikzpicture}[>=stealth,scale=0.7]
+		\tkzDefPoints{0/0/A,5/0/A',0/1/B,5/1/B',0/3/C,5/3/C',2.5/0/D}
+		\tkzDrawVectors[<->,add=1cm and 1cm](A,A' B,B' C,C')
+		\tkzDrawLines[add=1cm and 1cm](C,A')
+		\tkzDrawLines[add=1cm and 1cm](D,C')
+		\tkzLabelAngle[pos=1.2](C',C,A'){\footnotesize $64^{\circ}$}
+		\tkzInterLL(C,A')(B,B')\tkzGetPoint{I}
+		\tkzInterLL(C',D)(A,A')\tkzGetPoint{K}
+		\tkzLabelAngle[pos=0.75](B,I,C){\footnotesize $a$}
+		\tkzLabelAngle[pos=-0.55](B,I,K){\footnotesize $b$}
+		\tkzLabelAngle[pos=-0.65](A',K,I){\footnotesize $40^{\circ}$}
+		\end{tikzpicture}
+		\item 
+		\begin{tikzpicture}[>=stealth]
+		\tkzDefPoints{0/0/A,4/-1/B,0/1.5/C}
+		\tkzDefPointBy[translation=from A to B](C)\tkzGetPoint{C'}
+		\tkzDrawVectors[<->](A,B C,C')
+		\coordinate (D) at ($(C)!0.4!(C')$);
+		\coordinate (E) at ($(A)!0.5!(B)$);
+		\tkzDrawLines[add=1cm and 1cm](E,D)
+		\tkzLabelAngle[pos=0.45](C,D,E){\footnotesize $120^{\circ}$}
+		\tkzLabelAngle[pos=0.45](A,E,D){\footnotesize $x$}
+		\tkzLabelAngle[pos=0.35](B,E,D){\footnotesize $y$}
+		\end{tikzpicture}
+		\item 
+		\begin{tikzpicture}[>=stealth,scale=0.7]
+		\tkzDefPoints{0/0/A,5/0/A',0/1/B,5/1/B',0/3/C,5/3/C',2.5/0/D}
+		\tkzDrawVectors[<->,add=1cm and 1cm](A,A' C,C')
+		\tkzDrawLines[add=1cm and 1cm](C,A')
+		\tkzDrawLines[add=1cm and 1cm](D,C')
+		\tkzLabelAngle[pos=1.2](C',C,A'){\footnotesize $46^{\circ}$}
+		\tkzLabelAngle[pos=1.2,xshift=-0.6cm,yshift=0.5cm](C',C,A'){\footnotesize $b$}
+		\tkzInterLL(C,A')(B,B')\tkzGetPoint{I}
+		\tkzInterLL(C',D)(A,A')\tkzGetPoint{K}
+		\tkzLabelAngle[pos=0.65,xshift=0.1cm](A',K,I){\footnotesize $40^{\circ}$}
+		\tkzLabelAngle[pos=0.65,xshift=0.5cm,yshift=0.1cm](I,A',D){\footnotesize $c$}
+		\tkzLabelAngle[pos=-0.65](C,C',I){\footnotesize $a$}		
+		\end{tikzpicture}
+		\item 
+		\begin{tikzpicture}[>=stealth]
+		\tkzDefPoints{0/0/A,2/0/A',0/1.5/B,2/1.5/B'}
+		\tkzDrawVectors[<->,add=1cm and 1cm](A,B A',B')
+		\tkzDrawLines[add=1cm and 1cm](A,B' A',B)
+		\tkzLabelAngle[pos=-0.55](A,B,A'){\footnotesize $69^{\circ}$}
+		\tkzLabelAngle[pos=0.35, yshift=0.2cm](B,A,A'){\footnotesize $y$}	
+		\tkzLabelAngle[pos=0.55](A,B',A'){\footnotesize $65^{\circ}$}
+		\tkzLabelAngle[pos=0.55](B,A',B'){\footnotesize $m$}
+		\end{tikzpicture}
+		\item 
+		\begin{tikzpicture}[>=stealth]
+		\tkzDefPoints{0/0/A,2/0/A',0/2/B,2/2/B'}
+		\tkzDrawVectors[<->,add=1cm and 1cm](A,A' B,B')
+		\tkzDrawLines[add=1cm and 1cm](A,B A,B')
+		\tkzLabelAngle[pos=-0.65](B,B',A){\footnotesize $u$}
+		\tkzLabelAngle[pos=0.7](B,A,B'){\footnotesize $42^{\circ}$}
+		\tkzLabelAngle[pos=-0.65](B,A,B'){\footnotesize $v$}
+		\tkzLabelAngle[pos=0.65](B',A,A'){\footnotesize $t$}
+		\tkzMarkRightAngle(A,B,B')								
+		\end{tikzpicture}
+		\item 
+		\begin{tikzpicture}
+		\tkzDefPoints{0/0/A,2/0/A',1/2.5/B,3/2.5/B'}
+		\tkzDrawVectors[<->,add=1cm and 1cm](A,A' B,B' A,B A',B')
+		\tkzLabelAngle[pos=-0.65](B,B',A'){\footnotesize $62^{\circ}$}
+		\tkzLabelAngle[pos=0.35](B,A,A'){\footnotesize $c$}
+		\tkzLabelAngle[pos=0.35](A,A',B'){\footnotesize $a$}
+		\coordinate (C) at ($(A)!0.8!(B)$);
+		\coordinate (C') at ($(A')!0.5!(B')$);
+		\tkzDrawLines[add=1cm and 1cm](C,C')	
+		\tkzLabelAngle[pos=0.35](A,C,C'){\footnotesize $b$}
+		\tkzLabelAngle[pos=0.4](C,C',B'){\footnotesize $100^{\circ}$}
+		\end{tikzpicture}
+		\item 
+		\begin{tikzpicture}[>=stealth]
+		\tkzDefPoints{0/0/A,2/0.8/A',0/1.5/B,2/2.3/B', 0/1.1/C,2/1.1/C'}
+		\tkzInterLL(B,B')(C,C')\tkzGetPoint{D}
+		\tkzInterLL(A,A')(C,C')\tkzGetPoint{D'}
+		\tkzDrawVectors[->,add=1cm and 1cm](A,B A',B')
+		\tkzDrawVectors[->,add=1.5cm and 1cm](B,B' A',A)
+		\tkzDrawLines[add=0.5cm and 1cm](D,D')
+		\tkzLabelAngle[pos=0.6,yshift=0.1cm](C',D,D'){\footnotesize $a$}
+		\tkzLabelAngle[pos=0.25](C',C,A){\footnotesize $c$}
+		\tkzLabelAngle[pos=0.25](C,C',B'){\footnotesize $d$}
+		\tkzLabelAngle[pos=0.55,yshift=-0.15cm](B,A,A'){\footnotesize $76^{\circ}$}	
+		\tkzLabelAngle[pos=0.45](A,B',A'){\footnotesize $b$}
+		\draw[stealth-] (D')+(-0.3,-0.05)  .. controls ++(0.05,-0.5) 
+		and ++(-0.3,-0.2) .. +(0.5,-0.3) node[anchor=west,inner sep=2pt]{$\footnotesize 34^\circ$};
+		\end{tikzpicture}
+		\item 
+		\begin{tikzpicture}
+		\tkzDefPoints{0/0/A,4/1/B,0/1.5/C}
+		\tkzDefPointBy[translation=from A to B](C)\tkzGetPoint{C'}
+		\tkzDrawVectors[<->](A,B C,C')
+		\coordinate (D) at ($(C)!0.4!(C')$);
+		\coordinate (E) at ($(A)!0.7!(B)$);
+		\tkzDrawLines[add=1cm and 1cm](E,D)
+		\tkzLabelAngle[pos=-0.35](C,D,E){\footnotesize $3x$}
+		\tkzLabelAngle[pos=-0.45](A,E,D){\footnotesize $2x$}
+		\tkzLabelAngle[pos=0.35](B,E,D){\footnotesize $y$}
+		\end{tikzpicture}
+	\end{listEX}
+	\loigiai{
+	\begin{enumerate}
+		\item Ta có $\widehat{a} = 180^{\circ} - 64^{\circ} =116^{\circ}$ ($\widehat{a}$ kề bù với góc $64^{\circ}$),
+		$b=180^{\circ}-116^{\circ}$ ($\widehat{b}$ và $\widehat{a}$ là hai góc trong cùng phía), $\widehat{c}=\widehat{b}=64^{\circ}$ (hai góc đối đỉnh).
+		\item Ta có $\widehat{a}=64^{\circ}$ ($\widehat{a}$ so le trong với góc $64^{\circ}$), $b=40^{\circ}$ ($\widehat{b}$ đồng vị với góc $40^{\circ}$).
+		\item Ta có $\widehat{y}=120^{\circ}$ ($\widehat{y}$ đồng vị với góc $120^{\circ}$), $\widehat{x} = 180^{\circ}-120^{\circ}=60^{\circ}$ ($\widehat{x}$ kề bù với $\widehat{y}$).
+		\item Ta có $\widehat{a}=40^{\circ}$ ($\widehat{a}$ so le trong với góc $40^{\circ}$), $\widehat{b}=180^{\circ}-46^{\circ}=134^{\circ}$ ($\widehat{b}$ kề bù với góc $46^{\circ}$),
+		$\widehat{c} = 180^{\circ} - 46^{\circ} = 134^{\circ}$ ($\widehat{c}$ trong cùng phía với góc $46^{\circ}$).
+		\item Ta có $\widehat{y}=65^{\circ}$ ($\widehat{y}$ so le trong với góc $65^{\circ}$), $\widehat{m} = 69^{\circ}$ ($\widehat{m}$ đồng vị với góc $69^{\circ}$).
+		\item Ta có $\widehat{u}= 90^{\circ}-42^{\circ}=48^{\circ}$ ($\widehat{u}$ phụ với góc $42^{\circ}$), $\widehat{t} + 42^{\circ}= 180^{\circ} - 90^{\circ}$ (góc trong cùng phía với góc 
+		$90^{\circ}$) suy ra $\widehat{t} = 90^{\circ} - 42^{\circ} = 48^{\circ}$, $\widehat{v} = 42^{\circ}$ ($\widehat{v}$ đối đỉnh với góc $42^{\circ}$).
+		\item Ta có $\widehat{b} = 100^{\circ}$ ($\widehat{b}$ so le trong với góc $100^{\circ}$), $\widehat{a}=180^{\circ}-62^{\circ} = 118^{\circ}$ ($\widehat{a}$ trong cùng phía với góc 
+		$62^{\circ}$),
+		$\widehat{c} = 180- 118^{\circ} = 62^{\circ}$ ($\widehat{c}$ trong cùng phía với $\widehat{a}$).
+		\item Ta có $\widehat{a} = 34^{\circ}$ ($\widehat{a}$ so le trong với góc $\widehat{34^{\circ}}$), $\widehat{c} = 180^{\circ} - 76^{\circ} - 34^{\circ} = 70^{\circ}$ (tổng ba góc trong một 
+		tam giác bằng $180^{\circ}$), $\widehat{d}=70^{\circ}$
+		($\widehat{d}$ so le trong với góc $\widehat{c}$), $\widehat{b}=180^{\circ} - \widehat{a}-\widehat{d} = 76^{\circ}$ (tổng ba góc trong một tam giác bằng $180^{\circ}$).
+		\item Ta có $\widehat{2x}$ trong cùng phía với góc đối đỉnh của góc $\widehat{3x}$ nên $3x+2x=180^{\circ} \Rightarrow 5x=180^{\circ} \Rightarrow x = 36^{\circ} \Rightarrow 
+		\widehat{2x}=72^{\circ},\widehat{y}=180^{\circ}-72^{\circ}=108^{\circ}$ ($\widehat{y}$ kề bù với $\widehat{2x}$).  
+	\end{enumerate}
+	}
+\end{vn}
+\begin{vn}
+	\immini
+	{
+		Cho hình bên
+		\begin{enumerate}
+			\item Kể tên các cặp góc so le trong, cặp góc đồng vị.
+			\item Cho biết thêm $\widehat{BAD}  + \widehat{ADC}  + \widehat{DCB} + \widehat{CBA} = 360^{\circ}.$ Tính $x?$
+		\end{enumerate}	
+	}
+	{
+		\begin{tikzpicture}
+		\tkzInit[xmin=-1,ymin=-1.5,xmax=5.5,ymax=3.5]
+		\tkzClip
+		\tkzDefPoints{0/0/B,4/0/C,0/3/A,3.5/3/D,5/0/E,-1/3/F}
+		\coordinate (G) at ($(C)!1.2!(D)$);
+		\tkzDrawLines[add=0cm and 1cm](B,C)
+		\tkzDrawLines[add=0cm and 1cm](C,D)
+		\tkzDrawLines[add=0cm and 1cm](D,A)
+		\tkzDrawSegments(A,B)
+		\tkzLabelSegment[pos=1.25](B,C){$x$}
+		\tkzLabelSegment[pos=1.3,right](C,D){$z$}
+		\tkzLabelSegment[pos=1.25](D,A){$y$}
+		\tkzDrawPoints[size=7,fill=black](A,B,C,D)	
+		\tkzLabelPoints[below](B,C)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[right](D)
+		\tkzMarkAngles[size=0.3](E,C,D)
+		\tkzLabelAngle[pos=0.6](E,C,D){\footnotesize $105^{\circ}$}
+		\tkzMarkAngles[size=0.3](G,D,A)
+		\tkzLabelAngle[pos=0.5](G,D,A){\footnotesize $75^{\circ}$}
+		\tkzMarkAngles[size=0.3](F,A,B)
+		\tkzLabelAngle[pos=-0.55](F,A,B){\footnotesize $x^{\circ}$}
+		\tkzMarkRightAngle[size=0.3](A,B,C)		
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\begin{enumerate}
+			\item Các cặp góc so le trong là $\widehat{ABC}$ và $\widehat{yAB};$ $ \widehat{ADC} $ và $\widehat{DCx};$ $\widehat{BAD}$ 
+			và $\widehat{ADz}.$\\
+			Cặp góc đồng vị $\widehat{BCD} $ và $\widehat{ADz}.$
+			\item Ta có $\widehat{ADC}  = 180^{\circ} - 75^{\circ} = 105^{\circ}.$\\
+			$\widehat{DCB}  = 180^{\circ} - 105^{\circ} = 75^{\circ}.$\\
+			$\widehat{BAD}  = 360^{\circ} - 90^{\circ} - 75^{\circ} - 105^{\circ} = 90^{\circ}.$\\
+			Do đó $x^{\circ} = 180^{\circ} - 90^{\circ} = 90^{\circ}.$
+		\end{enumerate}
+	}
+\end{vn}
+\begin{vn}
+	Cho hình dưới, biết $\widehat{A_4}  = \widehat{B_1}$ và $\widehat{A_2} = 70^{\circ}.$ Tính số đo các cặp góc so le trong, số đo các cặp góc đồng vị.
+	\begin{center}
+		\begin{tikzpicture}
+		\tkzInit[xmin=-0.5,ymin=-1.2,xmax=5.5,ymax=3.5]
+		\tkzClip
+		\tkzDefPoints{0/0/A, 5/0/B, 0/2/C, 5/2/D, 2/-1/E, 3/3/F,4/0/G,-1/0/H}
+		\tkzDrawSegments(A,B C,D E,F)
+		\tkzInterLL(A,B)(E,F)\tkzGetPoint{N}
+		\tkzInterLL(E,F)(C,D)\tkzGetPoint{M}
+		\coordinate (T) at ($(M)!1.2!(N)$);
+		\node[above left, xshift=-0.2cm] at (M){$A$};
+		\node[below right,yshift=-0.2cm] at (N){$B$};
+		\tkzDrawPoints[fill=black, size=5](M,N)
+		\tkzMarkAngles[size=0.4](D,M,F)
+		\tkzLabelAngle[pos=0.65](D,M,F){\footnotesize $70^{\circ}$}
+		\tkzLabelAngle[pos=0.25](D,M,F){\footnotesize $2$}
+		\tkzLabelAngle[pos=0.23](M,N,A){\footnotesize $2$}	
+		\tkzLabelAngle[pos=0.23](B,N,M){\footnotesize $1$}
+		\tkzLabelAngle[pos=0.23](D,M,N){\footnotesize $1$}
+		\tkzLabelAngle[pos=-0.35](C,M,N){\footnotesize $4$}
+		\tkzLabelAngle[pos=0.23](F,M,C){\footnotesize $3$}
+		\tkzLabelAngle[pos=-0.35](H,N,T){\footnotesize $3$}
+		\tkzLabelAngle[pos=0.23](G,N,T){\footnotesize $4$}
+		%\tkzLabelPoints[below](C,D,M,F,N,T,H,G)		
+		\end{tikzpicture}
+	\end{center}	
+	\loigiai{
+		Ta có $\widehat{A_4}  = \widehat{A_2}  = 70^{\circ}$ (hai góc đối đỉnh).\\
+		Mà $\widehat{A_4}  = \widehat{B_1}$ suy ra $\widehat{B_1} = 70^{\circ}.$\\
+		$\widehat{A_4} $ và $ \widehat{B_1}$ là cặp góc so le trong, suy ra các cặp góc so le trong còn lại cũng bằng nhau.
+		Ta có được\\
+		$\widehat{B_2} = \widehat{A_1} = 180^{\circ} - \widehat{A_4} = 180^{\circ} - 70^{\circ} = 110^{\circ}.$\\
+		Vì các cặp góc so le trong bằng nhau, suy ra các cặp góc đồng vị cũng bằng nhau nên ta có\\
+		$\widehat{B_1} = \widehat{A_2} = 70^{\circ}; \widehat{B_4} = \widehat{A_1} = 110^{\circ};
+		 \widehat{B_3} = \widehat{A_4} = 70^{\circ}; \widehat{A_3} = \widehat{B_2} = 110^{\circ}.$
+	}
+\end{vn}
+
+\begin{vn}
+Cho hình dưới, biết $\widehat{A_1} = 72^{\circ};$ $\widehat{B_2} = \dfrac{2}{3} \widehat{B_1}.$ Chứng tỏ rằng $a \parallel b.$
+\begin{center}
+	\begin{tikzpicture}
+	\tkzInit[xmin=-0.5,ymin=-1.2,xmax=5.5,ymax=3.5]
+	\tkzClip
+	\tkzDefPoints{0/0/A, 5/0/B, 0/2/C, 5/2/D, 2/-1/E, 3/3/F}
+	\tkzDrawSegments(A,B C,D E,F)
+	\tkzInterLL(A,B)(E,F)\tkzGetPoint{N}
+	\tkzInterLL(E,F)(C,D)\tkzGetPoint{M}
+	\node[above right] at (A) {$b$};
+	\node[above right] at (C) {$a$};
+	\node[left] at (F) {$c$};
+	\node[above left, xshift=-0.2cm] at (M){$A$};
+	\node[below right] at (N){$B$};
+	\tkzDrawPoints[fill=black, size=5](M,N)
+	\tkzMarkAngles[size=0.4](D,M,F)
+	\tkzLabelAngle[pos=0.23](D,M,F){\footnotesize $1$}
+	\tkzLabelAngle[pos=0.65](D,M,F){\footnotesize $72^{\circ}$}
+	\tkzLabelAngle[pos=0.23](M,N,A){\footnotesize $1$}
+	\tkzLabelAngle[pos=0.33](B,N,M){\footnotesize $2$}	
+	\end{tikzpicture}
+\end{center}
+	\loigiai{
+		Ta có $\widehat{B_2} + \widehat{B_1} = 180^{\circ}$ (hai góc bù nhau) và $\widehat{B_2} = \dfrac{2}{3} \widehat{B_1}.$\\
+		Suy ra $ \dfrac{2}{3} \widehat{B_1} + \widehat{B_1} = 180^{\circ} \Rightarrow \dfrac{5}{3} \widehat{B_1} = 180^{\circ} \Rightarrow \widehat{B_1} = 108^{\circ}.$\\
+		Nên ta suy ra được $\widehat{B_2} = 180^{\circ} - 108^{\circ} = 72^{\circ} \Rightarrow \widehat{A_1} = \widehat{B_2}  \Rightarrow a \parallel b$ (hai góc đồng vị bằng nhau).	
+	}
+\end{vn}
+
+\begin{vn}
+Cho hình dưới, biết tia $BM$ là tia phân giác của góc $ABC, \widehat{MBC}  = 70^{\circ}, \widehat{MCB} = 40^{\circ}.$
+Chứng tỏ rằng $AB \parallel MC.$
+\begin{center}
+	\begin{tikzpicture}
+	\tkzInit[xmin=-2.5,ymin=-0.5,xmax=4.5,ymax=3.5]
+	\tkzClip
+	\tkzDefPoints{0/0/B,4/0/C,1/3/M,-2/1.5/A}
+	\tkzDrawPolygon(M,B,C)
+	\tkzDrawSegments(B,A)	
+	\tkzDrawPoints[size=5,fill=black](A,B,C)
+	\tkzLabelPoints[below](A,B,C)
+	\tkzLabelPoints[above](M)
+	\tkzLabelAngle[pos=0.7](B,C,M){\footnotesize $40^{\circ}$}	
+	\tkzMarkAngles[size=0.3](C,B,M)
+	\tkzLabelAngle[pos=0.7](C,B,M){\footnotesize $70^{\circ}$}
+	\tkzMarkAngles[size=0.3, mark=|](M,B,A)	
+	\tkzMarkAngles[size=0.3, mark=|](C,B,M)	
+	\end{tikzpicture}
+\end{center}
+\loigiai{	
+	Vì $BM$ là tia phân giác $\widehat{ABC} \Rightarrow \widehat{ABM} = \widehat{MBC} = 70^{\circ} \Rightarrow \widehat{ABC} = 140^{\circ}.$\\
+	Mặt khác ta có $\widehat{C}=40^{\circ} \Rightarrow \widehat{ABC} + \widehat{C} = 140^{\circ} + 40^{\circ} = 180^{\circ} \Rightarrow AB \parallel MC.$
+} 
+\end{vn}
+
+\begin{vn}
+Cho hình dưới, biết $\widehat{A_1} - \widehat{A_2} = \widehat{B_1} - \widehat{B_2}.$ Chứng tỏ rằng $a \parallel b.$
+\begin{center}
+	\begin{tikzpicture}
+	\tkzInit[xmin=-0.3,ymin=-1.3,xmax=5.3,ymax=3.3]
+	\tkzClip
+	\tkzDefPoints{0/0/A, 5/0/B, 0/2/C, 5/2/D, 2/-1/E, 3/3/F}
+	\tkzDrawSegments(A,B C,D E,F)
+	\tkzInterLL(A,B)(E,F)\tkzGetPoint{N}
+	\tkzInterLL(E,F)(C,D)\tkzGetPoint{M}
+	\node[above right] at (A) {$b$};
+	\node[above right] at (C) {$a$};
+	\node[left] at (F) {$c$};
+	\node[above left, xshift=-0.2cm] at (M){$A$};
+	\node[below right] at (N){$B$};
+	\tkzDrawPoints[fill=black, size=5](M,N)
+	\tkzLabelAngle[pos=0.3](N,M,D){\footnotesize $1$}
+	\tkzLabelAngle[pos=-0.4](C,M,N){\footnotesize $2$}
+	\tkzLabelAngle[pos=0.3](M,N,A){\footnotesize $1$}
+	\tkzLabelAngle[pos=.4](B,N,M){\footnotesize $2$}		
+	\end{tikzpicture}
+\end{center}
+\loigiai{	
+	Ta có $\widehat{A_1} - \widehat{A_2}  = \widehat{B_1}  - \widehat{B_2}  $ và $\widehat{A_1}  + \widehat{A_2}  = \widehat{B_1 } + \widehat{B_2} = 180^{\circ}$ (kề bù).\\
+	Cộng hai vế với nhau ta được $\widehat{A_1}  - \widehat{A_2}  + \widehat{A_1} + \widehat{A_2}  = \widehat{ B_1} - \widehat{B_2}  + \widehat{B_1} + \widehat{B_2},$\\
+	hay $2 \widehat{A_1} = 2 \widehat{B_1} \Rightarrow \widehat{A_1} = \widehat{B_1}.$
+	Do đó $a \parallel b$ (vì có cặp góc so le trong bằng nhau).
+}
+\end{vn}
+\begin{vn}
+	Tìm trong hình dưới, các cặp đường thẳng song song.
+	\begin{center}
+		\begin{tikzpicture}
+		\tkzInit[xmin=-2.5,ymin=-1.3,xmax=3.3,ymax=3.5]
+		\tkzClip
+		\tkzDefPoints{0/0/A,2/3/C,-2/1/D,-2/3/E,2/0/F,-1/0/G}
+		\coordinate (B) at ($(A)!0.334!(C)$);	
+		\tkzDrawLines[add=2cm and 1cm](A,F)
+		\tkzDrawLines[add=0cm and 0cm](B,D)
+		\tkzDrawLines[add=0cm and 0cm](C,E)
+		\tkzDrawLines[add=0cm and 0cm](C,A)
+		\tkzDrawPoints[size=5,fill=black](A,B,C)
+		\tkzLabelPoints[below](A)
+		\tkzLabelPoints[right](B,C)
+		\tkzLabelSegment[pos=2](F,A){$x$}
+		\tkzLabelSegment[pos=1.5](A,F){$y$}
+		\tkzLabelSegment[pos=1](B,D){$m$}
+		\tkzLabelSegment[pos=1](C,E){$n$}	
+		\tkzLabelAngle[pos=0.75](F,A,B){\footnotesize $60^{\circ}$}	
+		\tkzLabelAngle[pos=0.3](F,A,B){\footnotesize $1$}
+		\tkzLabelAngle[pos=0.75](C,B,D){\footnotesize $120^{\circ}$}	
+		\tkzLabelAngle[pos=0.25](C,B,D){\footnotesize $1$}
+		\tkzLabelAngle[pos=-0.75](B,C,E){\footnotesize $60^{\circ}$}
+		\tkzLabelAngle[pos=-0.3](B,C,E){\footnotesize $1$}
+		\tkzLabelAngle[pos=0.25](B,A,G){\footnotesize $2$}
+		\end{tikzpicture}
+	\end{center}
+\loigiai{
+\begin{itemize}
+	\item Vì $\widehat{C_1}  = \widehat{A_1} = 60^{\circ}$ là hai so le trong nên $n \parallel xy;$
+	\item Vì $\widehat{C_1 } + \widehat{ B_1} = 180^{\circ}$ là hai góc trong cùng phía bù nhau nên $n \parallel m;$
+	\item Vì $\widehat{A_2}$ và $\widehat{A_1}$ là hai góc bù nhau nên $\widehat{A_2} = 180^{\circ} -\widehat{A_1} = 120^{\circ} \Rightarrow \widehat{A_2} = \widehat{B_1} = 120^{\circ}$ 
+	là hai góc so le trong bằng nhau nên $m \parallel xy$.
+\end{itemize}
+}
+\end{vn}
+
+\begin{vn}
+Cho hình dưới, chứng tỏ rằng
+	\begin{enumerate}
+		\item $Ax \parallel By;$
+		\item $Cz \parallel By.$
+	\end{enumerate}
+\begin{center}
+	\begin{tikzpicture}
+	\tkzInit[xmin=-0.3,ymin=-0.5,xmax=5,ymax=3]
+	\tkzClip
+	\tkzDefPoints{0/0/C,2/1/B,1.5/2.5/A,3/0/C',4/1/B',3/2.5/A'}
+	\tkzDrawLines[add=0cm and 1cm](A,A')
+	\tkzDrawLines[add=0cm and 1cm](B,B')
+	\tkzDrawLines[add=0cm and 1cm](C,C')
+	\tkzDrawSegments(A,B B,C)	
+	\tkzDrawPoints[size=5,fill=black](A,B,C)
+	\tkzLabelPoints[below](B,C)
+	\tkzLabelPoints[above](A)	
+	\tkzLabelAngle[pos=0.45](B,A,A'){\footnotesize $45^{\circ}$}	
+	\tkzLabelAngle[pos=0.45,xshift=0.1cm,yshift=-0.1cm](B',B,A){\footnotesize $135^{\circ}$}		
+	\tkzLabelAngle[pos=-0.45](C,B,A){\footnotesize $75^{\circ}$}
+	\tkzLabelAngle[pos=1](C',C,B){\footnotesize $30^{\circ}$}	
+	\tkzLabelSegment[pos=1.6](A,A'){$x$}
+	\tkzLabelSegment[pos=1.4](B,B'){$y$}
+	\tkzLabelSegment[pos=1.2](C,C'){$z$}					
+	\end{tikzpicture}
+\end{center}
+\loigiai{
+\begin{center}
+	\begin{tikzpicture}
+	\tkzInit[xmin=-0.3,ymin=-0.5,xmax=5,ymax=3]
+	\tkzClip
+	\tkzDefPoints{0/0/C,2/1/B,1.5/2.5/A,3/0/C',4/1/B',3/2.5/A',0/1/D}
+	\tkzDrawLines[add=0cm and 1cm](A,A')
+	\tkzDrawLines[add=0cm and 1cm](B,B')
+	\tkzDrawLines[add=0cm and 1cm](C,C')
+	\tkzDrawSegments(A,B B,C)	
+	\tkzDrawPoints[size=5,fill=black](A,B,C)
+	\tkzLabelPoints[below](B,C)
+	\tkzLabelPoints[above](A)	
+	\tkzLabelAngle[pos=0.65](B,A,A'){\footnotesize $45^{\circ}$}
+	\tkzLabelAngle[pos=0.25](B,A,A'){\footnotesize $1$}	
+	\tkzLabelAngle[pos=0.75](B',B,A){\footnotesize $135^{\circ}$}		
+	\tkzLabelAngle[pos=0.25](B',B,A){\footnotesize $1$}	
+	\tkzLabelAngle[pos=-0.45](C,B,A){\footnotesize $75^{\circ}$}
+	\tkzLabelAngle[pos=1](C',C,B){\footnotesize $30^{\circ}$}		
+	\tkzLabelSegment[pos=1.6](A,A'){$x$}
+	\tkzLabelSegment[pos=1.4](B,B'){$y$}
+	\tkzLabelSegment[pos=1.2](C,C'){$z$}					
+	\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+	\item Ta có $\widehat{A_1} + \widehat{ B_1} = 45^{\circ} + 135^{\circ} = 180^{\circ}.$ Suy ra $Ax \parallel By$.
+	\item Ta có $\widehat{CBy} + \widehat{yBA} + \widehat{ABC} = 360^{\circ}$ 
+	suy ra $\widehat{CBy} = 360^{\circ} -\widehat{yBA} - \widehat{ABC} = 360^{\circ} - 135^{\circ} - 75^{\circ} = 150^{\circ}.$\\
+	Mà ta lại có $\widehat{C} + \widehat{B_1} =  30^{\circ} + 150^{\circ} = 180^{\circ}$ là cặp góc trong cùng phía bù nhau nên $By \parallel Cz.$
+\end{enumerate}
+}
+\end{vn}
+
+\Closesolutionfile{ans}

@@ -1,0 +1,412 @@
+%GV soạn: Phuong Dam Thanh
+%GV phản biện: Hua Duc Sinh
+\Opensolutionfile{ans}[ans/ans7H3-3]
+\section{Quan hệ giữa ba cạnh của tam giác}
+\subsection{Hỏi đáp nhanh}
+\begin{ex}%[7H3K3]
+Bạn Minh lập luận: Ba đoạn thẳng $a=10$cm, $b=4$cm, $c=5$cm thỏa mãn $a+b>c$ nên chúng có thể lập thành một tam giác. Lập luận đó đúng hay sai?
+\loigiai
+{
+Lập luận của bạn Minh là sai. Ta thấy $b+c<a$.
+}
+\end{ex}
+\begin{ex}%[7H3K3]
+Chu vi một tam giác cân là $20$cm, một cạnh của tam giác dài $5$cm. Hỏi cạnh đó là cạnh bên hay cạnh đáy?
+\loigiai
+{
+Nếu cạnh đó là cạnh bên thì tổng hai cạnh bên là $5+5=10$cm. Trong đó cạnh đáy còn lại là $20-10=10$cm, vi phạm bất đẳng thức tam giác. Vậy cạnh $5$cm phải là cạnh đáy.
+}
+\end{ex}
+\begin{ex}%[7H3K3]
+Ba điểm $A,B, C$ phân biệt thỏa mãn $AB-AC=BC$ thì vị trí ba điểm $A,B,C$ như thế nào?
+\loigiai
+{
+	Từ giả thiết ta có  $AB=AC+BC$. Vậy $A,B,C$ là ba điểm thẳng hàng và $C$ nằm giữa $A,B$.
+}
+\end{ex}
+\subsection{Học giải toán}
+\begin{vd}%[7H3G3]
+Cho góc $\widehat{xOy}$ nhọn, trên $Ox$ lấy hai điểm $M$ và $N$ (điểm $M$ nằm giữa hai điểm $O$ và $N$). Trên $Oy$ lấy hai điểm $E$ và $F$ (điểm $E$ nằm giữa hai điểm $O$ và $F$). Chứng minh $MN+EF<MF+NE$.
+\loigiai
+{
+	
+\begin{minipage}{.5\textwidth}
+Gọi $I$ là giao điểm của $MF$ và $NE$. Xét $\triangle MIN$ có $MN<MI+IN$ (tổng hai cạnh lớn hơn một cạnh).\hfill $(1)$\\
+Xét $\triangle EIF$ có $EF<IF+IE$ (tổng hai cạnh lớn hơn một cạnh). \hfill $(2)$\\
+Từ $(1)$ và $(2)$ có $$MN+EF<MI+NI+IF+IE$$
+hay $MN+EF<MF+NE$.
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[line join = round]
+\tkzDefPoints{0/0/O, 7/0/y, 5/4/x, 6/0/F, 4/0/E, 2/1.6/M, 4/3.2/N}
+\tkzDrawPoints(O,M,N,E,F)
+\tkzLabelPoints[below](O,y,x,E,F)
+\tkzLabelPoints[above](M,N)
+\tkzDrawSegments(O,y O,x)
+\tkzInterLL(M,F)(N,E)\tkzGetPoint{I}
+\tkzDrawSegments(M,F N,E)
+\tkzLabelPoints[right](I)
+\tkzDrawPoints(I)
+
+\end{tikzpicture}
+\end{minipage}
+
+}
+\end{vd}
+\begin{vd}%[7H3G3]
+Cho $\triangle ABC$ có $AB>AC$. Điểm $M$ là trung điểm của $BC$. Chứng minh rằng
+$$\dfrac{AB-AC}{2}<AM<\dfrac{AB+AC}{2}$$
+\loigiai
+{
+	
+\begin{minipage}{.6\textwidth}
+Trên tia đối của tia $MA$ ta lấy điểm $A'$ sao cho $MA'=MA$. 
+\begin{itemize}
+	\item Xét hai tam giác $ABM$ và $A'MC$ có
+	\begin{align*}
+	AM&=MA'\ \ \text{(Theo cách vẽ)}\\
+	BM&=MC \ \ \text{(Theo giả thiết)}\\
+	\widehat {AMB}&=\widehat {CMA'} \ \ \text{(Góc đối đỉnh)}.
+	\end{align*}
+	Vậy $\triangle ABM$ = $\triangle A'MC$ (c.g.c).
+	
+	Suy ra $AB=A'C$.
+	\item Xét $\triangle ACA'$ có $A'C-AC<AA'<AC+A'C$, do $AB=A'C$ và $AA'=2AM$ nên ta có
+	$$AB-AC<2AM<AC+AB$$
+\end{itemize}
+Vậy $\dfrac{AB-AC}{2}<AM<\dfrac{AB+AC}{2}$.
+\end{minipage}
+\begin{minipage}{.4\textwidth}
+	\begin{tikzpicture}[line join = round]
+	\tkzDefPoints{0/0/C, 1/2/A, 5/-2/A', 6/0/B, 3/0/M}
+	\tkzDrawPoints(A,B,C,M,A')
+	\tkzLabelPoints[above](M)
+	\tkzLabelPoints[below](A')
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[left](C)
+	\tkzLabelPoints[right](B)
+	\tkzDrawSegments(C,A A,B C,M M,B A,M)
+	\tkzDrawSegments[dashed](C,A' A',B A',M)
+	\tkzMarkSegments[pos=0.5,mark=||](C,M M,B)
+	\tkzMarkSegments[pos=0.5,mark=x](M,A' M,A)
+\end{tikzpicture}
+\end{minipage}
+
+}
+\end{vd}
+\begin{vd}%[7H3G3]
+Cho $\triangle ABC$ có hai đường cao $BE, CF$. Chứng minh rằng $EF<BC$.
+	\loigiai
+	{
+		
+		\begin{minipage}{.5\textwidth}
+		Gọi $M$ là trung điểm của $BC$. Xét $\triangle BCE$ vuông tại $E$ có trung tuyến $EM$ nên $ME=\dfrac{1}{2}BC$.
+		
+		Xét $\triangle BCF$ vuông tại $F$ có trung tuyến $FM$ nên $MF=\dfrac{1}{2}BC$.
+		
+		Do đó $ME+MF=BC$. Ba điểm $M,E,F$ nằm trên ba cạnh của tam giác $ABC$ và không thể thẳng hàng nên nó tạo thành một tam giác, do đó $ME+MF>EF$.
+		
+		Vậy $EF<BC$.
+		\end{minipage}
+		\begin{minipage}{.5\textwidth}
+			\begin{tikzpicture}[line join = round, scale = 0.8]
+			\tkzDefPoints{0/0/B, 2/5/A, 7/0/C}
+			\tkzDefPointBy[projection=onto A--C](B)\tkzGetPoint{E} %Dựng đường cao AD.;
+			\tkzDefPointBy[projection=onto A--B](C)\tkzGetPoint{F} %Dựng đường cao BE.;
+			\tkzDefMidPoint(C,B)\tkzGetPoint{M}
+			\tkzDrawSegments(C,A A,B C,B B,E C,F E,F)
+			\tkzDrawSegments[dashed](E,M F,M)
+			\tkzMarkSegments[pos=0.5,mark=|](C,M M,B)
+			\tkzMarkRightAngles(B,E,C B,F,C)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above](F)
+			\tkzLabelPoints[above](E)
+			\tkzLabelPoints[below](M)
+			\tkzDrawPoints(A,B,C,M,E,F)
+			\end{tikzpicture}
+		\end{minipage}
+		
+	}
+\end{vd}
+\begin{vd}%[7H3G3]
+	Cho tam giác đều $ABC$, $O$ là điểm nằm trong tam giác. Chứng minh rằng ba đoạn thẳng $OA, OB, OC$ luôn lập được thành một tam giác.
+	\loigiai
+	{
+		
+		\begin{minipage}{.7\textwidth}
+		Dựng tam giác đều $OAE$ ($E$ và $O$ ở khác phía so với $AC$). Xét hai tam giác $BAO$ và $CAE$. 
+		
+		Ta có $\widehat{BAO}=\widehat{CAE} = 60^{\circ}-\widehat{OAC}$, $BA=CA, OA=EA$, do đó hai tam giác này bằng nhau (c.g.c). Suy ra $OB=CE$. Lại có $OA=OE$ (cách dựng). Vì $O$ nằm trong $\triangle ABC$, $\widehat{OAE} =60^{\circ}$ nên ba đỉnh $O, C, E$ luôn là ba đỉnh của một tam giác. Như vậy $OA, OB, OC$ tương ứng bằng ba cạnh của tam giác $OCE$, tức chúng luôn lập được thành một tam giác.
+		\end{minipage}
+		\begin{minipage}{.3\textwidth}
+			\begin{tikzpicture}[line join = round, scale = 0.6]
+			\tkzDefPoints{0/0/B, 2/5/A, 7/0/C, 3/2/O}
+		 	\tkzDefPointBy[rotation= center A angle 60](O)
+		 	\tkzGetPoint{E}
+			\tkzDrawSegments(C,A A,B C,B B,O C,O A,O A,E O,E C,E)
+			\tkzMarkSegments[pos=0.5,mark=|](O,A O,E A,E)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above](O)
+			\tkzLabelPoints[right](E)
+			\tkzDrawPoints(A,B,C,O,E)
+			\end{tikzpicture}
+		\end{minipage}
+		
+	}
+\end{vd}
+\subsection{Bài tập}
+\subsubsection{Cơ bản}
+\begin{bt}%[7H3K3]
+Tính chu vi của $\triangle ABC$ cân, biết
+\begin{enumEX}{2}
+	\item $AB=7$cm, $AC=4$cm.
+	\item $AB=9$cm, $AC=4$cm.
+\end{enumEX} 
+\loigiai
+{
+\begin{enumEX}{1}
+	\item Nếu $AB$ là cạnh bên thì ba cạnh là $7$cm, $7$cm và $4$cm thỏa mãn bất đẳng thức tam giác. Vậy chu vi tam giác là $18$cm.
+	
+	Nếu $AB$ là cạnh đáy thì ba cạnh là $7$cm, $4$cm, $4$cm cũng thỏa mãn bất đẳng thức tam giác. Vậy chu vi tam giác trong trường hợp này là $15$cm.
+	\item Nếu $AB$ là cạnh đáy thì ba cạnh là $9$cm, $4$cm và $4$cm không thỏa mãn bất đẳng thức tam giác vì $4+4<9$ nên không có trường hợp này.
+	
+	Nếu $AB$ là cạnh bên thì ba cạnh là $9$cm, $9$cm và $4$cm thỏa mãn bất đẳng thức tam giác. Vậy chu vi tam giác là $22$cm.
+\end{enumEX} 
+}
+\end{bt}
+\begin{bt}%[7H3K3]
+	Cho $\triangle ABC$ có $AB>AC$. Kẻ tia phân giác $AD$ của góc $A$ ($D\in BC$). Lấy $M$ trên đoạn thẳng $AD$ ($M$ không trùng $A$). Chứng minh rằng $AB-AC>MB-MC$.
+	\loigiai
+	{
+		
+	\begin{minipage}{.6\textwidth}
+		Trên tia $AB$ lấy điểm $E$ sao cho $AE=AC$. Vì $AB>AC$ nên $E$ nằm giữa $A$ và $B$. 
+		
+		Xét hai $\triangle AEM$ và $\triangle ACM$ có: $AE=AC$ (cách dựng); $\widehat{EAM} = \widehat{CAM}$ (giả thiết) và $AM$ là cạnh chung. 
+		
+		Vậy $\triangle AEM$ = $\triangle ACM$ (c.g.c). Suy ra $EM=MC$. \hfill (1).
+		
+		Trong $\triangle BEM$, theo bất đẳng thức tam giác ta có $BE>MB-ME$. Theo cách dựng điểm $E$ ta có $BE=AB-AE=AB-AC$; theo (1) ta có $MB-ME =MB-MC$. Vậy $AB-AC>MB-MC$.
+	\end{minipage}
+	\begin{minipage}{.4\textwidth}
+		\begin{tikzpicture}[line join = round, scale=0.8]
+		\tkzDefPoints{0/0/B, 4/5/A, 6/0/C}
+	 	\tkzDefLine[bisector](B,A,C)\tkzGetPoint{N}
+	 	\pgfresetboundingbox
+	   	\tkzInterLL(A,N)(B,C)
+	 	\tkzGetPoint{D}
+	 	\tkzDefPointBy[homothety=center A ratio 0.7](D)\tkzGetPoint{M}
+	 	\tkzDefPointBy[reflection=over A--D](C)\tkzGetPoint{E}
+	 	\tkzDrawSegments(C,A A,B C,B B,M C,M A,D)
+	 	\tkzDrawSegment[dashed](M,E)
+		\tkzMarkSegments[pos=0.5,mark=|](A,E A,C)
+		\tkzMarkSegments[pos=0.5,mark=x](M,E M,C)
+		\tkzMarkAngles(B,A,D D,A,C)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](C)
+		\tkzLabelPoints[right](M)
+		\tkzLabelPoints[below](D)
+		\tkzLabelPoints[left](E)
+		\tkzDrawPoints(A,B,C,D,E,M)
+		\end{tikzpicture}
+	\end{minipage}
+
+	}
+\end{bt}
+\begin{bt}%[7H3K3]
+	Chứng minh rằng trong một tam giác, độ dài cạnh lớn nhất sẽ lớn hơn hoặc bằng $\dfrac{1}{3}$ chu vi của tam giác nhưng nhỏ hơn nửa chu vi của tam giác ấy.
+	\loigiai
+	{
+	Giả sử độ dài ba cạnh là $a, b, c$. Không mất tính tổng quát, giả sử $a \ge b \ge c >0$. 
+	
+	Ta có $a<b+c \Rightarrow a+a <a+b+c \Rightarrow a<\dfrac{a+b+c}{2}$.
+	
+	Từ $a\ge b, a\ge c$ ta có $3a \ge a+b+c \Rightarrow a\ge \dfrac{a+b+c}{3}$.
+	
+	Vậy $\dfrac{a+b+c}{3}\le a <\dfrac{a+b+c}{2}$.
+	}
+\end{bt}
+\subsubsection{Nâng cao}
+\begin{bt}%[7H3G3]
+	Chu vi của một tam giác cân là $15$cm, độ dài các cạnh có số đo là các số nguyên dương. Tính số đo cạnh đáy.
+	\loigiai
+	{
+	Gọi độ dài cạnh đáy là $a$cm thì độ dài mỗi cạnh bên là $\dfrac{15-a}{2}$cm. Suy ra $a$ là số tự nhiên lẻ.
+	
+	Mặt khác $\dfrac{15-a}{2}+\dfrac{15-a}{2}>a$ nên $15-a>a$ hay $a<7{,}5$.
+	
+	Vậy cạnh đáy $a$ có thể nhận các giá trị $1, 3, 5, 7$cm.
+	}
+\end{bt}
+\begin{bt}%[7H3G3]
+	Chứng minh rằng nếu điểm $M$ nằm trong tam giác $ABC$ thì tổng các khoảng cách từ $M$ đến ba đỉnh của tam giác ấy nhỏ hơn chu vi nhưng lớn hơn nửa chu vi của tam giác $ABC$.	
+	\loigiai
+	{
+		
+			\begin{minipage}{.6\textwidth}
+			Trong $\triangle AMB$ có $AM+MB>c$ (bất đẳng thức trong tam giác).
+			
+			Trong $\triangle AMC$ có $AM+MC>b$.
+			
+			Trong $\triangle BMC$ có $BM+MC>a$.
+			
+			Suy ra $2(AM+MB+MC)>a+b+c$, hay $AM+MB+MC>\dfrac{a+b+c}{2}$.
+			
+			Gọi $N$ là giao điểm của $AM$ và $BC$. Trong tam giác $ANC$ ta có $AN=AM+MC<AC+CN$, trong tam giác $BMN$ ta có $BM<MN+NB$. Suy ra $AM+MC+BM<AC+CN+MN+NB$, hay $MA+MB<CA+CB$.
+			
+			Hoàn toàn tương tự, ta chứng minh được $MB+MC<AB+AC$, $MA+MC<MA+BC$. Cộng từng vế ba bất đẳng thức cuối ta được $MA+MB+MC<a+b+c$.
+			
+			Vậy $\dfrac{a+b+c}{2}<MA+MB+MC<a+b+c$.
+		\end{minipage}
+		\begin{minipage}{.4\textwidth}
+			\begin{tikzpicture}[line join = round]
+			\tkzDefPoints{0/0/B, 4/5/A, 6/0/C, 3/2/M}
+			\tkzInterLL(A,M)(B,C)
+			\tkzGetPoint{N}
+			\tkzDrawSegments(C,A A,B C,B B,M C,M A,M M,N)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[right](M)
+			\tkzLabelPoints[below](N)
+			\tkzDrawPoints(A,B,C,N,M)
+			\end{tikzpicture}
+		\end{minipage}
+	
+	}
+\end{bt}
+\begin{bt}%[7H3G3]
+	Cho tam giác $ABC$ vuông tại $A$ có $AB=3$; $AC=4$. Gọi $I$ là trung điểm của $AC$, $d$ là đường trung trực của đoạn $AC$ và $M$ là điểm tùy ý trên $d$.
+			\begin{enumEX}{1}
+			\item Chứng minh rằng $MA+MB \ge 5$.
+			\item Xác định vị trí của $M$ để tổng $MA+MB$ nhỏ nhất. Tìm giá trị nhỏ nhất đó. 
+		\end{enumEX} 
+	\loigiai
+	{
+		
+		\begin{minipage}{.6\textwidth}
+		\begin{enumEX}{1}
+			\item Xét $\triangle ABC$ vuông tại $A$, có
+						
+			$BC^2=AB^2+AC^2=3^2+4^2=25=5^2$ (định lý Py ta go) $\Rightarrow BC=5$.
+			
+			Xét hai tam giác $MIA$ và $MIC$ có $IA=IC, \widehat{MIA}=\widehat{MIC}=90^{\circ}$, cạnh $MI$ chung. Vậy $\triangle MIA=\triangle MIC$ (c.g.c). Suy ra $MA=MC$ (hai cạnh tương ứng).
+			
+			Do vậy, ta có: $MA+MB=MC+MB \ge BC =5$.			
+			\item Vì $MA+MB \ge 5$ (chứng minh trên) nên $MA+MB$ nhỏ nhất bằng $5$ khi và chỉ khi $MB+MC=BC$.
+			
+			$\Leftrightarrow M$ nằm trên đoạn $BC$.
+			
+			$\Leftrightarrow M \equiv J$ với $J$ là giao điểm của $d$ và $BC$.
+		\end{enumEX} 
+		\end{minipage}
+	\begin{minipage}{.4\textwidth}
+			\begin{tikzpicture}[line join = round]
+		\tkzDefPoints{0/0/A, 4/0/C, 0/3/B, 2/0/I, 2/4/M}
+		\tkzInterLL(I,M)(B,C)
+		\tkzGetPoint{J}
+		\tkzDrawSegments(C,A A,B C,B B,M C,M A,M)
+		\tkzDrawLine(M,I) 
+		\tkzLabelPoints[below](A)
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](C)
+		\tkzLabelPoints[right](M)
+		\tkzLabelPoints[left](J)
+		\tkzLabelPoints[below right](I)
+		\tkzDrawPoints(A,B,C,M,I,J)
+		\end{tikzpicture}
+		
+			\end{minipage}
+		
+	}
+\end{bt}
+\begin{bt}%[7H3G3]
+Cho $\triangle ABC$ cân tại $A$. Đường thẳng $d$ qua $A$ và song song với $BC$. Lấy $A'$ là điểm bất kỳ trên đường thẳng $d$ ($A'\ne A$). Chứng minh rằng chu vi $\triangle ABC$ nhỏ hơn chu vi $\triangle A'BC$.
+	\loigiai
+	{
+		
+\begin{minipage}{.7\textwidth}
+	Lấy điểm $B'$ sao cho $d$ là đường trung trực của $BB'$. Dễ thấy $B', A, C$ thẳng hàng. Suy ra $CA+AB'=CB'$. 
+	
+Vì $d$ là đường trung trực của $BB'$, $A,A' \in d$ nên ta có $AB'=AB$; $A'B'=A'B$.
+
+Ta có $AB+AC+BC=AB+AB'+BC=BC+B'C$. \hfill (1).
+
+Trong tam giác $A'B'C$ ta có $A'B'+A'C>B'C$. Suy ra $A'B+AC >B'C$ hay $A'B+AC+BC >B'C+BC$ \hfill (2).
+
+Từ (1) và (2) ta có $A'B+AC+BC >AB+AC+BC$.
+\end{minipage}
+	\begin{minipage}{.3\textwidth}
+	\begin{tikzpicture}[line join = round, scale=0.8]
+	\tkzDefPoints{0/0/B, 4/0/C, 2/3/A, 0/3/H, 3/3/A', 0/6/B'}
+	\tkzDrawSegments(C,A A,B C,B B,A' B,B')
+	\tkzDrawSegments[dashed](A,B' A',B')
+	\tkzDrawLine(H,A') 
+	\tkzLabelPoints[below](B)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[above left](H)
+	\tkzLabelPoints[right](C)
+	\tkzLabelPoints[right](B')
+	\tkzLabelPoints[above right](A')
+	\tkzMarkAngles(H,A,B B',A,H C,B,A A,C,B)
+	\tkzDrawPoints(A,B,C,A',B',H)
+	\end{tikzpicture}
+	
+\end{minipage}
+ 
+	}
+\end{bt}
+\begin{bt}%[7H3G3]
+	Cho góc $\widehat{xOy}$ nhọn. $M$ là điểm thuộc miền trong của góc. Hãy xác định điểm $A$ trên $Ox$, điểm $B$ trên $Oy$ sao cho chu vi tam giác $MAB$ là nhỏ nhất.
+	\loigiai
+	{
+		
+	\begin{minipage}{.6\textwidth}
+			Gọi $E$ là điểm đối xứng với $M$ qua $Ox$, $F$ là điểm đối xứng với $M$ qua $Oy$, $A', B'$ lần lượt là giao điểm của $EF$ với $Ox$ và $Oy$.
+		
+		Dễ thấy $AM=AE, BM=BF$ do tính chất đối xứng. Khi đó chu vi $\triangle MAB$ là
+		
+		$$MA+AB+MB=EA+AB+BF \ge EF.$$
+		Dấu $"="$ xảy ra khi $E,F,A,B$ thẳng hàng. Vậy chu vi $\triangle MAB$ nhỏ nhất khi $A$ trùng với $A'$, $B$ trùng với $B'$.
+	\end{minipage}
+	\begin{minipage}{.4\textwidth}
+	\begin{tikzpicture}[line join = round]
+	\tkzDefPoints{0/0/O, 5/3/x, 5/-1/y, 3/1/M, 4/2.4/A, 4/-0.8/B}
+	\tkzDefPointBy[reflection=over O--x](M)\tkzGetPoint{E}
+	\tkzDefPointBy[reflection=over O--y](M)\tkzGetPoint{F}
+	\tkzDrawSegments(E,F E,A B,F M,A M,B O,x O,y A,B)
+	\tkzDrawSegments[dashed](M,E M,F)
+	\tkzInterLL(E,F)(O,x)
+	\tkzGetPoint{A'}
+	\tkzInterLL(E,F)(O,y)
+	\tkzGetPoint{B'}
+	\tkzInterLL(M,F)(O,y)
+	\tkzGetPoint{K}
+	\tkzInterLL(M,E)(O,x)
+	\tkzGetPoint{H}
+	\tkzLabelPoints[below](B)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[right](M)
+	\tkzLabelPoints[below left](B')
+	\tkzLabelPoints[left](A')
+	\tkzLabelPoints[left](O)
+	\tkzLabelPoints[above](E)
+	\tkzLabelPoints[below](F)
+	\tkzLabelPoints[above](x)
+	\tkzLabelPoints[above](y)
+	\tkzMarkRightAngles(A,H,M B,K,M)
+	\tkzLabelPoints[below right](K)
+	\tkzLabelPoints[above right](H)
+	\tkzDrawPoints(O,A,B,E,A',B',F,H,M,K)
+	\pgfresetboundingbox
+	\end{tikzpicture}
+		\end{minipage}
+	
+	}
+\end{bt}
+\Closesolutionfile{ans}

@@ -1,0 +1,898 @@
+\section{Tính chia hết của số nguyên}
+Tính chia hết đối với số nguyên đã được trình bày ở cuốn \textit{Nâng cao và phát triển Toán 6, Nâng cao và phát triển Toán 7}. Nhờ sử dụng các hằng đẳng thức đáng nhớ và phân tích đa thức thành nhân tử ở lớp 8 ta có khả năng giải quyết nhiều bài toán về chia hết phức tạp hơn ở các lớp dưới.
+
+\subsection{Chứng minh quan hệ chia hết}
+Gọi $A(n)$ là một biểu thức phụ thuộc vào $n$ ($n\in \mathbb{N}$ hoặc $n\in \mathbb{Z}$).
+\begin{note}
+Để chứng minh biểu thức $A(n)$ chia hết cho một số $m$, ta thường phân tích biểu thức $A(n)$ thành thừa số, trong đó có một thừa số là $m$. Nếu $m$ là hợp số, ta phân tích nó thành một tích các thừa số đôi một nguyên tố cùng nhau, rồi chứng minh $A(n)$ chia hết cho tất cả các số đó. Nên lưu ý nhận xét: Trong $k$ số nguyên liên tiếp, bao giờ cũng tồn tại một bội số của $k$.
+\end{note}
+
+\begin{vd}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+Chứng minh rằng $A=n^3\left(n^2-7\right)^2-36n$ chia hết cho $5040$ với mọi số tự nhiên $n$.
+	\loigiai{
+Phân tích ra thừa số nguyên tố: $5040=2^4\cdot 3^2\cdot 5\cdot 7$.\\
+Phân tích 
+\begin{eqnarray*}
+	A&=&n\left[n^2\left(n^2-7\right)^2-36\right]=n\left[\left(n^3-7n\right)^2-6^2\right]\\
+	&=&n\left(n^3-7n-6\right)\left(n^3-7n+6\right).
+\end{eqnarray*}
+Ta lại có
+\begin{eqnarray*}
+	n^3-7n-6&=&(n+1)(n+2)(n-3),\\
+	n^3-7n+6&=&(n-1)(n-2)(n+3).
+\end{eqnarray*}
+Do đó $A=(n-3)(n-2)(n-1)n(n+1)(n+2)(n+3)$.\\
+Đây là tích của bảy số nguyên liên tiếp. Trong bảy số nguyên liên tiếp:
+\begin{itemize}
+	\item Tồn tại một bội số của $5$ (nên $A$ chia hết cho $5$);
+	\item Tồn tại một bội số của $7$ (nên $A$ chia hết cho $7$);
+	\item Tồn tại một bội số của $3$ (nên $A$ chia hết cho $9$);
+	\item Tồn tại một bội số của $2$, trong đó có một bội số của $4$ (nên $A$ chia hết cho $16$).
+\end{itemize}
+$A$ chia hết cho các số $5, 7, 9, 16$ đôi một nguyên tố cùng nhau nên $A$ chia hết cho $5\cdot 7\cdot 9\cdot 16=5040$.
+\begin{note}
+	Khi chứng minh $A(n)$ chia hết cho $m$, ta có thể xét mọi trường hợp về số dư khi chia $n$ cho $m$.
+\end{note}
+	}
+\end{vd}
+
+\begin{vd}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+Chứng minh rằng với mọi số nguyên $a$ thì
+\begin{listEX}[2]
+	\item $a^2-a$ chia hết cho $2$;
+	\item $a^3-a$ chia hết cho $3$;
+	\item $a^5-a$ chia hết cho $5$;
+	\item $a^7-a$ chia hết cho $7$.
+\end{listEX}
+	\loigiai{
+\begin{enumerate}
+	\item $a^2-a=a(a-1)$, chia hết cho $2$.
+	\item $a^3-a=a\left(a^2-1\right)=(a-1)a(a+1)$, tích này chia hết cho $3$ vì tồn tại một bội của $3$.
+	\item $A=a^5-a=a\left(a^2+1\right)\left(a^2-1\right)$.\\
+	Nếu $a=5k$ ($k\in \mathbb{Z}$) thì $a$ chia hết cho $5$.\\
+	Nếu $a=5k\pm 1$ ($k\in \mathbb{Z}$) thì $a^2-1$ chia hết cho $5$.\\
+	Nếu $a=5k\pm 2$ ($k\in \mathbb{Z}$) thì $a^2+1$ chia hết cho $5$.\\
+	Trường hợp nào cũng có một thừa số của $A$ chia hết cho $5$.\\
+	Cách 2: Phân tích $a^5-a$ thành một tổng của hai số hạng chia hết cho $5$: Một số hạng là tích của năm số nguyên liên tiếp, một số hạng chứa thừa số $5$.
+	\begin{eqnarray*}
+		a^5-a&=&a\left(a^2-1\right)\left(a^2+1\right)\\
+		&=&a\left(a^2-1\right)\left(a^2-4+5\right)\\
+		&=&a\left(a^2-1\right)\left(a^2-4\right)+5a\left(a^2-1\right)\\
+		&=&(a-2)(a-1)a(a+1)(a+2)+5a\left(a^2-1\right).
+	\end{eqnarray*}
+Số hạng thứ nhất là tích của năm số nguyên liên tiếp nên chia hết cho $5$, số hạng thứ hai cũng chia hết cho $5$. Do đó $a^5-a$ chia hết cho $5$.\\
+Cách 3: Giải tương tự như cách 2: Xét hiệu giữa $a^5-a$ và tích năm số nguyên liên tiếp $(a-2)(a-1)a(a+1)(a+2)$, được $5a\left(a^2-1\right)$. Do đó $a^5-a$ chia hết cho $5$.
+	\item $A=a^7-a=a\left(a^3+1\right)\left(a^3-1\right)$.\\
+Nếu $a=7k$ ($k\in \mathbb{Z}$) thì $a$ chia hết cho $7$.\\
+Nếu $a=7k+ 1$ ($k\in \mathbb{Z}$) thì $a^3-1$ chia hết cho $7$.\\
+Nếu $a=7k- 1$ ($k\in \mathbb{Z}$) thì $a^3+1$ chia hết cho $7$.\\
+Nếu $a=7k+2$ ($k\in \mathbb{Z}$) thì $a^3-1$ chia hết cho $7$.\\
+Nếu $a=7k-2$ ($k\in \mathbb{Z}$) thì $a^3+1$ chia hết cho $7$.\\
+Nếu $a=7k+3$ ($k\in \mathbb{Z}$) thì $a^3+1$ chia hết cho $7$.\\
+Nếu $a=7k-3$ ($k\in \mathbb{Z}$) thì $a^3-1$ chia hết cho $7$.\\
+Trường hợp nào cũng có một thừa số của $A$ chia hết cho $7$.\\
+Vậy $a^7-a$ chia hết cho $7$.
+\end{enumerate}	
+	}
+\end{vd}
+
+\begin{vd}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K3]
+Chứng minh rằng một số chính phương chia cho $3$ chỉ có thể có số dư bằng $0$ hoặc $1$.
+	\loigiai{
+Gọi $A$ là số chính phương $A=n^2$ ($n\in \mathbb{N}$). Xét các trường hợp
+\begin{itemize}
+	\item $n=3k$ ($k\in \mathbb{N}$)$\Rightarrow A=9k^2$, chia hết cho $3$.
+	\item $n=3k\pm 1$ ($k\in \mathbb{N}$)$\Rightarrow A=9k^2\pm 6k+1$, chia cho $3$ dư $1$.
+\end{itemize}
+Vậy số chính phương chia cho $3$ chỉ có thể có số dư bằng $0$ hoặc $1$.
+	}
+\end{vd}
+
+\begin{vd}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K3]
+Chứng minh rằng một số chính phương chia cho $4$ chỉ có thể có số dư bằng $0$ hoặc $1$.
+	\loigiai{
+Gọi $A$ là số chính phương $A=n^2$ ($n\in \mathbb{N}$). Xét các trường hợp
+\begin{itemize}
+	\item $n=2k$ ($k\in \mathbb{N}$)$\Rightarrow A=4k^2$, chia hết cho $4$.
+	\item $n=2k+ 1$ ($k\in \mathbb{N}$)$\Rightarrow A=4k^2+4k+1=4k(k+1)+1$, chia cho $4$ dư $1$.
+\end{itemize}
+Vậy số chính phương chia cho $4$ chỉ có thể có số dư bằng $0$ hoặc $1$.
+\begin{note}
+	Từ bài toán trên ta thấy
+	\begin{itemize}
+		\item Số chính phương chẵn thì chia hết cho $4$.
+		\item Số chính phương lẻ thì chia cho $4$ dư $1$ (hơn nữa, chia cho $8$ cũng dư $1$).
+	\end{itemize}
+\end{note}
+	}
+\end{vd}
+
+\begin{vd}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+Các số sau có là số chính phương không?
+\begin{eqnarray*}
+	M&=&1992^2+1993^2+1994^2;\\
+	N&=&1992^2+1993^2+1994^2+1995^2;\\
+	P&=&1+9^{100}+94^{100}+1994^{100}\\
+\end{eqnarray*}
+	\loigiai{
+Các số $1993^2, 1994^2$ là các số chính phương không chia hết cho $3$ nên chia cho $3$ dư $1$, còn $1992^2$ chia hết cho $3$. Số $M$ là số chia cho $3$ dư $2$, không là số chính phương.\\
+Các số $1992^2, 1994^2$ là số chính phương chẵn nên chia hết cho $4$. Các số $1993^2, 1995^2$ là các số chính phương lẻ nên chia cho $4$ dư $1$. Số $N$ là số chia cho $4$ dư $2$, không là số chính phương.\\
+Các số $94^{100}, 1994^{100}$ là số chính phương chẵn nên chia hết cho $4$. Còn $9^{100}$ là số chính phương lẻ nên chia cho $4$ dư $1$. Số $P$ là số chia cho $4$ dư $2$, không là số chính phương.
+	}
+\end{vd}
+
+\begin{vd}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+Trong dãy sau có tồn tại số nào là số chính phương không?
+\[11, 111, 1111, 11111, \ldots\]
+	\loigiai{
+Mọi số của dãy đều tận cùng bởi $11$ nên là số chia cho $4$ dư $3$. Mặt khác, số chính phương lẻ thì chia cho $4$ dư $1$.\\
+Vậy không có số nào của dãy là số chính phương.
+
+\begin{note}
+	Khi chứng minh về tính chất chia hết của các lũy thừa, ta còn sử dụng đến các hằng đẳng thức 8, 9 ở bài 2 và công thức Niu-tơn sau đây:
+	\[(a+b)^n=a^n+c_1a^{n-1}b+c_2a^{n-2}b^2+\cdots+c_{n-1}ab^{n-1}+b^n.\]
+Trong công thức trên, vế phải là một đa thức có $n+1$ hạng tử, bậc của mỗi hạng tử đối với tập hợp các biến $a, b$ là $n$ (phần biến số của mỗi hạng tử có dạng $a^ib^k$, trong đó $i+k=n$ với $0\le i\le n, 0\le k\le n$). Các hệ số $c_1, c_2, \ldots, c_{n-1}$ được xác định bởi tam giác Pa-xcan:
+\begin{center}
+%\begin{tikzpicture}
+%\def\N{5}
+%\path  
+%\foreach \n in {0,...,\N} { 
+%	(-\N/2+1, -\n) node  {$n=$ \n}
+%	\foreach \k in {0,...,\n}{
+%		(\n-\k,-\n) node {
+%			\pgfmathsetmacro{\th}{(\n!/(\k!*(\n-\k)!))}
+%			\pgfmathparse{div(\th,1)}              
+%			\pgfmathresult
+%}}};
+%\foreach \y [evaluate=\y as \xmax using {int(2*\y)}] in {0,...,\N} {
+%	\foreach \x in {\y, ...,\xmax} {
+%		\draw (-\y+\x,-\y) +(-.5,-.5) rectangle ++(.5,.5);
+%		
+%	}
+%}
+%\end{tikzpicture}
+\end{center}
+Trong hình 1, các số dọc theo một cạnh góc vuông bằng 1, các số dọc theo cạnh huyền bằng 1. Cộng mỗi số với số liền sau bên phải thì được số đứng ở hàng dưới của số liền sau ấy, chẳng hạn ở hình 2.\\
+Áp dụng các hằng đẳng thức đó vào tính chia hết, ta có với mọi số nguyên $a, b$ và số tự nhiên $n$:
+\begin{eqnarray*}
+	&&a^n-b^n\;\text{chia hết cho}\; a-b \;(a\ne b)\\
+	&&a^{2n+1}-b^{2n+1}\;\text{chia hết cho}\; a+b \;(a\ne -b)\\
+	&&(a+b)^n=\text{BS} a+b^n (\text{BS} a \;\text{là bội của}\;a).
+\end{eqnarray*}
+Đặc biệt nên lưu ý đến:
+\begin{eqnarray*}
+	&&(a+1)^n=BS a+1;\\
+	&&(a-1)^{2n}=BS a+1;\\
+	&&(a-1)^{2n+1}=BS a-1.
+\end{eqnarray*}
+\end{note}
+	}
+\end{vd}
+
+\begin{vd}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1G3]
+Chứng minh rằng với mọi số tự nhiên $n$, biểu thức $16^n-1$ chia hết cho $17$ khi và chỉ khi $n$ là số chẵn.
+	\loigiai{
+Nếu $n$ chẵn ($n=2k, k\in \mathbb{N}$) thì $A=16^{2k}-1=\left(16^2\right)^k-1$ chia hết cho $16^2-1$ theo hằng đẳng thức 8, mà $16^2-1=255$, chia hết cho $17$. Vậy $A$ chia hết cho $17$.\\
+Nếu $n$ lẻ thì $A=16^n+1-2$, mà $16^n+1$ chia hết cho $17$ theo hằng đẳng thức 9, nên $A$ không chia hết cho $17$.\\
+Vậy $A$ chia hết cho $17$ khi và chỉ khi $n$ chẵn.\\
+Cách 2: $A=16^n-1=(17-1)^n-1=BS 17+(-1)^n-1$ (theo công thức Niu-tơn).\\
+Nếu $n$ chẵn thì $A=BS 17+1-1=BS 17$.\\
+Nếu $n$ lẻ thì $A=BS 17-1-1$ không chia hết cho $17$.
+\begin{note}
+	Người ta còn dùng phương pháp phản chứng, nguyên lí Đi-rích-lê
+ để chứng minh quan hệ chia hết.
+\end{note}
+	}
+\end{vd}
+
+\begin{vd}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+Chứng minh rằng tồn tại một bội của $2003$ có dạng
+\[20042004\ldots2004.\]
+	\loigiai{
+Xét $2004$ số:\\
+$a_1=2004$\\
+$a_2=20042004$\\
+\ldots\\
+$a_{2004}=20042004\ldots2004$ (nhóm $2004$ có mặt $2004$ lần).\\
+Theo nguyên lí Đi-rích-lê, tồn tại hai số có cùng số dư khi phép chia cho $2003$.\\
+Gọi hai số đó là $a_m$ và $a_n$ ($1\le n<m\le 2004$) thì $a_m-a_n  \;\vdots\;2003$. Ta có
+\[a_m-a_n=2004 \ldots 20040000\ldots0000=\underbrace {2004 \ldots 2004}_{m - n \;\text{nhóm}\;2004}\cdot 10^{4n}.\]
+Do $10^{4n}$ và $2003$ nguyên tố cùng nhau nên $\underbrace {2004 \ldots 2004}_{m - n \;\text{nhóm}\;2004}$ chia hết cho $2003$.
+	}
+\end{vd}
+
+
+\subsection{Tìm số dư}
+\begin{vd}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1G3]
+Tìm số dư khi chia $2^{100}$:
+\begin{listEX}[3]
+	\item Cho $9$;
+	\item Cho $25$;
+	\item Cho $125$.
+\end{listEX}
+	\loigiai{
+\begin{enumerate}
+	\item Lũy thừa của $2$ sát với bội số của $9$ là $2^3=8=9-1$.\\
+	Ta có $2^{100}=2\left(2^3\right)^{33}=2\left(9-1\right)^{33}=2\left(BS \;9-1\right)=BS \;9-2=BS \;9+7$.\\
+	Số dư khi chia $2^{100}$ cho $9$ là $7$.
+	\item Lũy thừa của $2$ sát với bội số của $25$ là $2^{10}=1024=BS \;25-1$.\\
+	Ta có $2^{100}=\left(2^{10}\right)^{10}=\left(BS \;25-1\right)^{10}=BS \;25+1$.\\
+	Số dư khi chia $2^{100}$ cho $25$ là $1$.
+	\item Dùng công thức Niu-tơn:
+	\[2^{100}=(5-1)^{50}=5^{50}-50\cdot 5^{49}+\cdots+\dfrac{50\cdot 49}{2}\cdot 5^2-50\cdot 5+1.\]
+	Không kể phần hệ số của khai triển Niu-tơn thì $48$ số hạng đầu đã chứa lũy thừa của $5$ với số mũ lớn hơn hoặc bằng $3$ nên chia hết cho $125$. Hai số hạng tiếp theo cũng chia hết cho $125$, số hạng cuối cùng là $1$. Vậy $2^{100}=BS\;125+1$.
+\end{enumerate}
+\begin{note}
+	Tổng quát hơn, ta chứng minh được rằng nếu một số tự nhiên $n$ không chia hết cho $5$ thì chia $n^{100}$ cho $125$ ta được số dư là $1$.\\
+	Thật vậy, $n$ có dạng $5k\pm 1$ hoặc $5k\pm 2$. Ta có
+	\[(5k\pm 1)^{100}=(5k)^{100}\pm\cdots +\dfrac{100\cdot 99}{2}(5k)^2\pm 100\cdot 5k+1=BS\;125+1.\]
+	\[(5k\pm 2)^{100}=(5k)^{100}\pm\cdots +\dfrac{100\cdot 99}{2}(5k)^2\cdot 2^{98}\pm 100\cdot 5k\cdot 2^{99}+2^{100}=BS\;125+2^{100}.\]
+	Ta lại có $2^{100}=BS\;125+1$ (câu c). Do đó $(5k\pm 2)^{100}=BS\;125+1$.
+\end{note}
+	}
+\end{vd}
+
+\begin{vd}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1G3]
+Tìm ba chữ số tận cùng của $2^{100}$ khi viết trong hệ thập phân.
+	\loigiai{
+Tìm ba chữ số tận cùng của $2^{100}$ là tìm số dư khi chia $2^{100}$ cho $1000$. Trước hết tìm số dư khi chia $2^{100}$ cho $125$. Theo ví dụ trên ta có $2^{100}=BS\;125+1$, mà $2^{100}$ là số chẵn, nên ba chữ số tận cùng của nó chỉ có thể là $126, 376, 626$ hoặc $876$.\\
+Hiển nhiên $2^{100}$ chia hết cho $8$ nên ba chữ số tận cùng của nó phải chia hết cho $8$. Trong bốn số trên chỉ có $376$ thỏa mãn điều kiện này.\\
+Vậy ba chữ số tận cùng của $2^{100}$ là $376$.
+\begin{note}
+	Bạn đọc tự chứng minh rằng nếu $n$ là số chẵn không chia hết cho $5$ thì ba chữ số tận cùng của $n^{100}$ là $376$.
+\end{note}
+	}
+\end{vd}
+
+\begin{vd}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1G3]
+Tìm bốn chữ số tận cùng của $5^{1994}$ khi viết trong hệ thập phân.
+	\loigiai{
+$5^4=625$. Ta thấy số tận cùng bằng $0$$625$ nâng lên lũy thừa nguyên dương bất kì vẫn tận cùng bằng $0$$625$ (chỉ cần kiểm tra: $\ldots$ $0$$625\times \ldots 0$$625=\ldots 0625$).\\
+Do đó
+\[5^{1994}=5^{4k+2}=25\left(5^4\right)^k=25(0625)^k=25(\ldots0625)=\ldots 5625.\]
+Cách khác: Tìm số dư khi chia $5^{1994}$ cho $10000=2^4\cdot 5^4$.\\
+\textit{Nhận xét:} $5^{4k}-1$ chia hết cho $5^4-1=\left(5^2+1\right)\left(5^2-1\right)$ nên chia hết cho $16$.\\
+Ta có $5^{1994}=5^6\left(5^{1988}-1\right)+5^6$.\\
+Do $5^6$ chia hết cho $5^4$, còn $5^{1988}-1$ chia heest cho $16$ (theo nhận xét trên) nên $5^6\left(5^{1988}-1\right)$ chia hết cho $10000$. Tính $5^6$, ta được $15625$. Vậy bốn chữ số tận cùng của $5^{1994}$ là $5625$.
+\begin{note}
+	Nếu viết $5^{1994}=5^2\left(5^{1992}-1\right)+5^2$ thì ta có $5^{1992}-1$ chia hết cho $16$, nhưng $5^2$ không chia hết cho $5^4$.\\
+	Như thế trong bài toán này, ta cần viết $5^{1994}$ dưới dạng $5^n\left(5^{1994-n}-1\right)+5^n$ sao cho $n\ge 4$ và $1994-n$ chia hết cho $4$.
+\end{note}
+	}
+\end{vd}
+
+\subsection{Tìm điều kiện để chia hết}
+\begin{vd}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K12]
+Tìm số nguyên $x$ để giá trị của biểu thức $A$ chia hết cho giá trị của biểu thức $B$:
+\[A=x^3+2x^2-3x+2,\qquad B=x^2-x.\]
+	\loigiai{
+Đặt tính chia:
+\polylongdiv[style=D]{x^3+2x^2-3x+2}{x^2-x}\\
+Muốn chia hết, ta phải có $2$ chia hết cho $n(n-1)$, do đó $2$ chia hết cho $n$.\\
+Ta có
+\begin{center}
+	\begin{tabular}{ |c|c|c|c|c| } 
+		\hline
+		$n$ & $1$ & $-1$ &$2$ &$-2$ \\
+		\hline
+		$n-1$ & $0$ & $-2$ &$1$ &$-3$ \\
+		\hline
+		$n(n-1)$ & $0$ & $2$ &$2$ &$6$ \\
+		\hline
+		 &loại& & & loại\\
+		\hline
+	\end{tabular}
+\end{center}
+Vậy $n=-1; n=2$.
+\begin{note}Chú ý:
+\begin{enumerate}
+	\item Không thể nói đa thức $A$ chia hết cho đa thức $B$. Ở đây chỉ tồn tại những giá trị nguyên của $n$ để giá trị của biểu thức $A$ chia hết cho giá trị của biểu thức $B$.
+	\item Có thể thay việc đặt phép chia bằng cách biến đổi:
+	\[x^3+2x^2-3x+2=x\left(x^2-x\right)+3(x^2-x)+2\]
+\end{enumerate}	
+\end{note}
+	}
+\end{vd}
+
+\begin{vd}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K3]
+Tìm số nguyên dương $n$ để $n^5+1$ chia hết cho $n^3+1$.
+	\loigiai{
+Biến đổi 
+\begin{eqnarray*}
+n^5+1\;\vdots\; n^3+1 &\Leftrightarrow& n^2\left(n^3+1\right)-\left(n^2-1\right) \;\vdots\;n^3+1\\
+&\Leftrightarrow& (n+1)(n-1)\;\vdots\; (n+1)\left(n^2-n+1\right)\\
+&\Leftrightarrow& n-1\;\vdots\;n^2-n+1 (\text{vì}\;n+1\ne 0).
+\end{eqnarray*}
+Nếu $n=1$ thì ta được $0$ chia hết cho $1$.\\
+Nếu $n>1$ thì $n-1<n(n-1)+1=n^2-n+1$, do đó $n-1$ không thể chia hết cho $n^2-n+1$.\\
+Vậy giá trị duy nhất của $n$ tìm được là $1$.
+	}
+
+\end{vd}
+
+\begin{vd}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K3]
+	Tìm số nguyên $n$ để $n^5+1$ chia hết cho $n^3+1$.
+	\loigiai{
+		Biến đổi 
+		\begin{eqnarray*}
+			n^5+1\;\vdots\; n^3+1 &\Leftrightarrow& n^2\left(n^3+1\right)-\left(n^2-1\right) \;\vdots\;n^3+1\\
+			&\Leftrightarrow& (n+1)(n-1)\;\vdots\; (n+1)\left(n^2-n+1\right)\\
+			&\Leftrightarrow& n-1\;\vdots\;n^2-n+1.
+		\end{eqnarray*}
+		$n-1\;\vdots\;n^2-n+1 \Rightarrow n(n-1)\;\vdots\;n^2-n+1 \Rightarrow n^2-n\;\vdots\;n^2-n+1$\\
+		$\Rightarrow (n^2-n+1)-1 \;\vdots\;n^2-n+1 \Rightarrow 1\;\vdots\;n^2-n+1$.\\
+		Có hai trường hợp:
+		\begin{itemize}
+			\item $n^2-n+1=1\Leftrightarrow n(n-1)=0 \Leftrightarrow n=0; n=1$. Các giá trị thỏa mãn đề bài.
+			\item $n^2-n+1=-1 \Leftrightarrow n^2-n+2=0$, vô nghiệm.
+		\end{itemize}
+		Vậy $n=0; n=1$ là hai số phải tìm.
+		\begin{note}
+			Từ $n-1\;\vdots\;n^2-n+1$ suy ra $n(n-1) \;\vdots\;n^2-n+1$ là phép kéo theo chứ không là phép biến đổi tương đương. Do đó sau khi tìm được $n=0, n=1$, ta phải thử lại.
+		\end{note}
+	}
+	
+\end{vd}
+
+\begin{vd}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1G5]
+Tìm số tự nhiên $n$ sao cho $2^n-1$ chia hết cho $7$.
+	\loigiai{
+Nếu $n=3k$ ($k\in \mathbb{N}$) thì $2^n-1=2^{3k}-1=8^k-1$ chia hết cho $7$.\\
+Nếu $n=3k+1$ ($k\in \mathbb{N}$) thì $2^n-1=2^{3k+1}-1=2\left(2^{3k}-1\right)+1=BS\;7+1$.\\
+Nếu $n=3k+2$ ($k\in \mathbb{N}$) thì $2^n-1=2^{3k+2}-1=4\left(2^{3k}-1\right)+3=BS\;7+3$.\\
+Vậy $2^n-1$ chia hết cho $7$ $\Leftrightarrow n=3k$ ($k\in \mathbb{N}$).
+	}
+\end{vd}
+
+
+\subsection{Bài tập}
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+	Chứng minh rằng với mọi số nguyên $n$ ta có:
+	\begin{enumerate}
+		\item $n^3+3n^2+2n$ chia hết cho $6$.
+		\item ${\left( n^2 + n - 1 \right)}^2-1$ chia hết cho $24$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Biến đổi $n^3+3n^2+2n=n(n+1)(n+2)$, đây là tích của ba số nguyên liên tiếp.\\
+			Do đó $n^3+3n^2+2n$ chia hết cho $6$ với mọi nguyên $n$.\\
+			Suy ra điều phải chứng minh.
+			\item Biến đổi: ${\left( n^2 + n - 1 \right)}^2-1 = (n-1)n(n+1)(n+2)$.\\
+			Đây là tích của $4$ số nguyên liên tiếp, do đó: ${\left( n^2 + n - 1 \right)}^2-1$ chia hết cho $24$.
+		\end{enumerate}
+	}
+\end{bt}
+
+%
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+	Chứng minh rằng:
+	\begin{enumerate}
+		\item $n^3+6n^2+8n$ chia hết cho $48$ với mọi số chẵn $n$.
+		\item $n^4-10n^2+9$ chia hết cho $384$ với mọi số lẻ $n$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Biến đổi $n^3+6n^2+8n=n(n+2)(n+4)$.\\
+			Vì $n$ là số chẵn nên ta thay $n=2k$ với $k \in \mathbb{Z}$, ta có:\\
+			$n^3+6n^2+8n=2k(2k+2)(2k+4)=8k(k+1)(k+2)$ chia hết cho $48$.\\
+			Suy ra điều phải chứng minh.
+			\item Đặt $A=n^4-10n^2+9$.\\
+			$\Rightarrow A = n^4-10n^2+9=(n^2-1)(n^2-9)=(n-1)(n+1)(n-3)(n+3)$.\\
+			Vì $n$ là số lẻ suy ra $n=2k+1$ với $k \in \mathbb{Z}$, thay vào biểu thức ta có:
+			\begin{eqnarray*}
+				& A & = (n-1)(n+1)(n-3)(n+3) = \\
+				& & = (2k+1-1)(2k+1+1)(2k+1-3)(2k+1+3)\\
+				& & = (2k-2)2k(2k+2)(2k+4) \\
+				& & = 2(k-1)\cdot 2k\cdot 2(k+1) \cdot 2(k+2)\\
+				& & = 8(k-1)k(k+1)(k+2)
+			\end{eqnarray*}
+			Vì $(k-1)k(k+1)(k+2)$ là tích của $4$ số nguyên liên tiếp nên $(k-1)k(k+1)(k+2)$ chia hết cho $24$\\
+			Suy ra $A$ chia hết cho $384$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+	Chứng minh rằng $n^6+n^4-2n^2$ chia hết cho $72$ với mọi số nguyên $n$.
+	\loigiai{
+		Đặt $A = n^6+n^4-2n^2$, ta có:
+		\begin{eqnarray*}
+			& A & = n^6+n^4-2n^2 \\
+			& & = n^2(n^4+n^2-2)\\
+			& & = n^2(n^2-1)(n^2+2) \\
+			& & = n^2(n-1)(n+1)(n^2-4)+6n^2(n-1)(n+1)\\
+			& & = n\cdot n \cdot (n-1)(n+1)(n-2)(n+2) +6n\cdot n(n-1)(n+1)\\
+			& & = (n-2)(n-1)n\cdot n(n+1)(n+2) + 6n\cdot n(n-1)(n+1)
+		\end{eqnarray*}
+		$(n-2)(n-1)n$ là tích của ba số tự nhiên liên tiếp suy ra $(n-2)(n-1)n$ chia hết cho $3$.\\
+		$n(n+1)(n+2)$ là tích của ba số tự nhiên liên tiếp suy ra $n(n+1)(n+2)$ chia hết cho $3$.\\
+		$\Rightarrow (n-2)(n-1)n\cdot n(n+1)(n+2)$ chia hết cho $9$.\\
+		Mà trong 5 số tự nhiên liên tiếp có ít nhất 1 số chia hết cho $2$ và 1 số chia hết cho $4$ suy ra: $(n-2)(n-1)n\cdot n(n+1)(n+2)$ chia hết cho $8$.\\
+		Suy ra $(n-2)(n-1)n\cdot n(n+1)(n+2)$ chia hết cho $72$.\\
+		Dễ dàng chứng minh được $6n\cdot n(n-1)(n+1)$ chia hết cho $72$.\\
+		Suy ra $A$ chia hết cho $72$.
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+	Chứng minh rằng $3^{2n}-9$ chia hết cho $72$ với mọi số nguyên dương $n$.
+	\loigiai{
+		Biến đổi $B=3^{2n}-9=9^n-9$, nên $B \; \vdots \; 9$.\\
+		Đề chứng minh $B \; \vdots \; 8$ ta viết $B$ dưới dạng:
+		\begin{center}
+			$ B = (3^n)^2-1-8=(3^n-1)(3^n+1)-8$
+		\end{center}
+		Vì $3^n-1$ và $3^n+1$ là $2$ số chẵn liên tiếp nên $(3^n-1)(3^n+1)$ chia hết cho $8$.\\
+		Suy ra: $B$ chia hết cho $8$.\\
+		Vậy $3^{2n}-9$ chia hết cho $72$ với mọi số nguyên dương $n$.
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+	Chứng minh rằng với mọi số tự nhiên $a$ và $n$ thì:
+	\begin{enumerate}
+		\item $7^n$ và $7^{n+4}$ có hai chữ số tận cùng như nhau.
+		\item $a$ và $a^5$ có chữ số tận cùng như nhau.
+		\item $a^n$ và $a^{n+4}$ có chữ số tận cùng như nhau $(n\ge 1)$
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Xét hiệu $A = 7^{n+4} - 7^n$ ta có:
+			\begin{eqnarray*}
+				& A & = 7^{n+4} - 7^n \\
+				& & = 7^n(7^4-1)\\
+				& & = 7^n \cdot 2400 \\
+				& \Rightarrow & A \; \vdots \; 100
+			\end{eqnarray*}
+			Vậy $2$ số $7^n$ và $7^{n+4}$ có hai chữ số tận cùng như nhau.
+			\item Xét hiệu $B = a^5 - a = a(a^2+1)(a^2-1)$.\\
+			Dễ dàng chứng minh $B \; \vdots \; 2$ và $B \; \vdots \; 5$ suy ra $B \; \vdots \; 10 $.\\
+			Vậy $a$ và $a^5$ có chữ số tận cùng như nhau.
+			\item Xét hiệu $C = a^{n+4} - a^n = a^n(a^2+1)(a^2-1)$.\\
+			Dễ dàng chứng minh $C \; \vdots \; 2$ và $C \; \vdots \; 5$ suy ra $C \; \vdots \; 10 $.\\
+			Vậy $a^n$ và $a^{n+4}$ có chữ số tận cùng như nhau.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+	Tìm điều kiện của số tự nhiên $a$ để $a^2+3a+2$ chia hết cho $6$.
+	\loigiai{
+		$a^2+3a+2=(a+1)(a+2)$ luôn chia hết cho $2$.\\
+		$a^2+3a+2 \; \vdots \; 3 \Leftrightarrow a^2$ chia $3$ dư $1$ $\Leftrightarrow a$ không chia hết cho $3$.\\
+		Vậy nếu $a$ không chia hết cho $3$ thì $a^2+3a+2$ chia hết cho $6$.
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K5]
+	\begin{enumerate}
+		\item Cho $a$ là số nguyên tố lớn hơn $3$. Chứng minh rằng $a^2-1$ chia hết cho $24$.
+		\item Chứng minh rằng nếu $a$ và $b$ là các số nguyên tố lớn hơn $3$ thì $a^2-b^2$ chia hết cho $24$.
+		\item Tìm điều kiện của số tự nhiên $a$ để $a^4-1$ chia hết cho $240$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Ta có $a^2$ là số chính phương lẻ nên chia cho $8$ dư $1$, $a^2$ là số chính phương không chia hết cho $3$ nên chia cho $3$ dư $1$.\\
+			Suy ra $a^2-1$ chia hết cho $8$, chia hết cho $3$, do đó chia hết cho $24$.
+			\item Áp dụng ý a) ta có nếu $a$ và $b$ là các số nguyên tố lớn hơn $3$ thì:\\
+			$a^2-1$ chia hết cho $3$ và $b^2-1$ chia hết cho $3$.\\
+			$\Leftrightarrow (a^2-1)-(b^2-1) \; \vdots \; 3 \Leftrightarrow a^2-b^2 \; \vdots \; 3$.\\
+			Suy ra điều phải chứng minh.
+			\item Ta có: $240=2^4\cdot 3 \cdot5 $.\\
+			Vì $A \; \vdots \; 240 \Rightarrow a^4 - 1 \; \vdots \; 2 $ và $ a^4 - 1 \; \vdots \; 3 $; $ a^4 - 1 \; \vdots \; 5 $.\\
+			Dễ thấy $a^4 - 1 \; \vdots \; 2 \Leftrightarrow a $ là số lẻ.\\
+			Dễ thấy $a^4 - 1 \; \vdots \; 3 \Leftrightarrow a $ không chia hết cho $3$.\\
+			Dễ thấy $a^4 - 1 \; \vdots \; 5 \Leftrightarrow a $ không chia hết cho $5$.\\
+			Ta sẽ chứng minh nếu $a$ không chia hết cho $2$, $3$ và $5$ thì $a^4-1$ chia hết cho $240$.\\
+			Thật vậy:
+			\begin{eqnarray*}
+				& A & = a^4 - 1 = (a^2-1)(a^2+1)\\
+				& & = (a-1)(a+1)(a^2+1)
+			\end{eqnarray*}
+			Nếu $a$ lẻ thì $a=2k+1$ với ($k \in \mathbb{N}$).\\
+			Khi đó ta có:
+			\begin{eqnarray*}
+				& A & = (a-1)(a+1)(a^2+1) \\
+				& & = (2k+1-1)(2k+1+1) \cdot \left[ {\left( 2k+1 \right)}^2 + 1 \right] \\
+				& & = 2k(2k+2)(4k^2+4k+2) \\
+				& & = 8k(k+1)(2k^2+2k+1) \\
+				& \Rightarrow & A \; \vdots \; 16
+			\end{eqnarray*}
+			Nếu $a$ không chia hết cho $3$ thì $a = 3k \pm 1 $ với ($k \in \mathbb{N}$).\\
+			Khi đó ta có $a^2-1 \; \vdots \; 3 \Rightarrow A \; \vdots \; 3$.\\
+			Nếu $a$ không chia hết cho $5$ thì $a = 5k \pm 1 $ hoặc $a = 5k \pm 2 $ với ($k \in \mathbb{N}$).\\
+			Suy ra $a^2-1 \; \vdots \; 5 $ hoặc $a^2+1 \; \vdots \; 5 $
+			$\Rightarrow A \; \vdots \; 5 $.\\
+			$\Rightarrow A \; \vdots \; 240 $.\\
+			Vậy nếu $a$ không chia hết cho $2$, $3$ và $5$ thì $a^4-1$ chia hết cho $240$.
+		\end{enumerate}	
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K5]
+	Tìm ba số nguyên tố liên tiếp $a$, $b$, $c$ sao cho $a^2+b^2+c^2$ cũng là một số nguyên tố.
+	\loigiai{
+		Xét $2$ trường hợp:
+		\begin{enumerate}
+			\item Trong $a$, $b$, $c$ có một số bằng $3$.\\
+			Khi đó: $2^2+3^2+5^2=38$, là hợp số, loại.\\
+			Còn $3^2+5^2+7^2=83$ là một số nguyên tố, thỏa mãn.
+			\item Cả $a$, $b$, $c$ đều lớn hơn $3$.\\
+			Khi đó $a^2$, $b^2$, $c^2$ đều chia cho $3$ dư $1$ nên $a^2+b^2+c^2$ chia hết cho $3$, là hợp số, loại.
+		\end{enumerate}
+		Vậy ba số nguyên tố liên tiếp $a$, $b$, $c$ là $3$, $5$, $7$ thì $a^2+b^2+c^2$ cũng là một số nguyên tố.
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K5]
+	Cho bốn số nguyên dương $a$, $b$, $c$, $d$ thỏa mãn $a^2+b^2=c^2+d^2$. Chứng minh rằng $a+b+c+d$ là hợp số.
+	\loigiai{
+		Ta có: $a^2+b^2=c^2+d^2 \Rightarrow a^2+b^2+c^2+d^2 = 2(c^2+d^2) \; \vdots \; 2$.\\
+		Xét:
+		\begin{eqnarray*}
+			& A &  = (a^2 + b^2 +c^2 +d^2) - (a + b + c + d)\\
+			& & = (a^2-a)+(b^2-b)+(c^2-c)+(d^2-d) \\
+			& & = a(a-1)+b(b-1)+c(c-1)+d(d-1)
+		\end{eqnarray*}
+		Vì $a(a-1) \; \vdots \; 2$; $b(b-1) \; \vdots \; 2$; $c(c-1) \; \vdots \; 2$; $d(d-1) \; \vdots \; 2$.\\
+		$\Rightarrow A \; \vdots \; 2 \Leftrightarrow a + b + c + d \; \vdots \; 2 $.\\
+		Mà $a$, $b$, $c$, $d$ là các số nguyên dương suy ra $a + b + c + d >2 \Rightarrow a + b + c + d$ là hợp số (điều phải chứng minh).
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+	Cho bốn số nguyên dương $a$, $b$, $c$, $d$ thỏa mãn $ab=cd$. Chứng minh rằng $a^5+b^5+c^5+d^5$ là hợp số.
+	\loigiai{
+		Gọi $\text{ƯCLN}(a,c)=k$, ta có: $a=ka_1$, $c=kc_1$ và $(a_1,c_1)=1$.\\
+		Thay vào $ab=cd$ được $ka_1b=kc_1d$ nên: $a_1b=c_1d$
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K2]
+	Cho các số tự nhiên $a$ và $b$. Chứng minh rằng:
+	\begin{enumerate}
+		\item Nếu $a^2+b^2$ chia hết cho $3$ thì $a$ và $b$ chia hết cho $3$.
+		\item Nếu $a^2+b^2$ chia hết cho $7$ thì $a$ và $b$ chia hết cho $7$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Một số chính phương chia cho $3$ chỉ có thể dư $0$ hoặc $1$.\\
+			Xét các trường hợp tổng của 2 số dư: $0+0$; $0+1$; $1+1$ thì chỉ có $0+0$ là chia hết cho $3$.\\
+			Do đó để $a^2+b^2$ chia hết cho $3$ thì $a^2 \; \vdots \; 3$ và $b^2 \; \vdots \; 3$.\\
+			$\Rightarrow a \; \vdots \; 3$ và $b \; \vdots \; 3 \Rightarrow a+b \; \vdots \; 3$.\\
+			Suy ra điều phải chứng minh.
+			\item \textbf{Nhận xét:} Một số chính phương khi chia cho $7$ chỉ có thể dư là $0$; $1$; $2$; $4$.\\
+			Ta có: $a^2+b^2$ chia hết cho $7$ nên chỉ có trường hợp $2$ số dư là $0+0$ thỏa mãn.\\
+			$\Rightarrow a^2 \; \vdots \; 7 $ và $b^2 \; \vdots \; 7$ $\Rightarrow a \; \vdots \; 7 $ và $b \; \vdots \; 7$.\\
+			Suy ra điều phải chứng minh.
+		\end{enumerate}	
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+	Cho các số nguyên $a$, $b$, $c$. Chứng minh rằng:
+	\begin{enumerate}
+		\item Nếu $a+b+c$ chia hết cho $6$ thì $a^3+b^3+c^3$ chia hết cho $6$.
+		\item Nếu $a+b+c$ chia hết cho $30$ thì $a^5+b^5+c^5$ chia hết cho $30$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Xét hiệu:
+			\begin{eqnarray*}
+				& A &  = (a^3 + b^3 +c^3) - (a + b + c)\\
+				& & = (a^3-a)+(b^3-b)+(c^3-c)\\
+				& & = (a-1)a(a+1)+(b-1)b(b+1)+(c-1)c(c+1) \\
+				& \Rightarrow & A \; \vdots \; 6 \\
+				& \Rightarrow & a^3 + b^3 +c^3 \; \vdots \; 6
+			\end{eqnarray*}
+			Suy ra điều phải chứng minh.
+			\item Xét hiệu:
+			\begin{eqnarray*}
+				& A &  = (a^5 + b^5 +c^5) - (a + b + c)\\
+				& & = (a^5-a)+(b^5-b)+(c^5-c)\\
+				& & = a(a^4-1)+b(b^4-1)+c(c^4-1) \\
+				& & = a(a^2-1)(a^2+1)+b(b^2-1)(b^2+1)+c(c^2-1)(c^2+1) \\
+				& & = a(a-1)(a+1)(a^2+1)+b(b-1)(b+1)(b^2+1)+c(c-1)(c+1)(c^2+1) \\
+				& & = a(a-1)(a+1)(a^2-4)+5a(a-1)(a+1)+b(b-1)(b+1)(b^2-4) +5b(b-1)(b+1) \\
+				& & +c(c-1)(c+1)(c^2-4)+5c(c-1)(c+1) \\
+				& & = a(a-1)(a+1)(a-2)(a+2)+5a(a-1)(a+1)+b(b-1)(b+1)(b-2)(b+2) \\
+				& & +5b(b-1)(b+1)+c(c-1)(c+1)(c-2)(c+2)+5c(c-1)(c+1) \\
+				& & = (a-2)(a-1)a(a+1)(a+2)+5(a-1)a(a+1)+(b-2)(b-1)b(b+1)(b+2) \\
+				& & +5(b-1)b(b+1)+(c-2)(c-1)c(c+1)(c+2)+5(c-1)c(c+1)
+			\end{eqnarray*}
+			\textbf{Nhận xét:} $(a-2)(a-1)a(a+1)(a+2)$ là tích của $5$ số nguyên liên tiếp \\
+			$\Rightarrow (a-2)(a-1)a(a+1)(a+2) \; \vdots \; 30$.\\
+			Mà dễ thấy $5(a-1)a(a+1) \; \vdots \; 30\Rightarrow (a-2)(a-1)a(a+1)(a+2)+5(a-1)a(a+1)  \; \vdots \; 30$ .\\
+			Tương tự ta có: $(b-2)(b-1)b(b+1)(b+2)+5(b-1)b(b+1)  \; \vdots \; 30$\\
+			và $(c-2)(c-1)c(c+1)(c+2)+5(c-1)c(c+1)  \; \vdots \; 30$.
+			$\Rightarrow A \; \vdots \; 30$.\\
+			Mà $a+b+c$ chia hết cho $30$ suy ra $a^5+b^5+c^5$ chia hết cho $30$.\\
+			Suy ra điều phải chứng minh.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+	Cho các số nguyên $a$, $b$, $c$ thỏa mãn $a+b+c=0$. Chứng minh rằng:
+	\begin{enumerate}
+		\item $a^3+b^3+c^3$ chia hết cho $3abc$;
+		\item $a^5+b^5+c^5$ chia hết cho $5abc$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item $a+b+c=0 \Rightarrow c=-(a+b)$.\\
+			Do đó: $a^3+b^3+c^3 = a^3+b^3+-(a+b)^3 = -3ab(a+b)=3abc \; \vdots \; 3abc$.\\
+			Hay $a^3+b^3+c^3$ chia hết cho $3abc$ (điều phải chứng minh).
+			\item $a+b+c=0 \Rightarrow c=-(a+b)$.\\
+			Do đó:
+			\begin{eqnarray*}
+				& a^5 + b^5 +c^5 &  = a^5+b^5-(a+b)^5\\
+				& & = -5a^4b-10a^3b^2-10a^2b^3-5ab^4\\
+				& & = -5ab(a^3+2a^2b+2ab^2+b^3) \\
+				& & = -5ab \left[ (a^3+b^3) + (2a^2b+2ab^2) \right] \\
+				& & = -5ab \left[ (a+b)(a^2-ab+b^2) + 2ab(a+b) \right] \\
+				& & = -5ab(a+b)(a^2+ab+b^2)\\
+				& & = 5abc(a^2+ab+b^2)
+			\end{eqnarray*}
+			$\Rightarrow a^5 + b^5 +c^5 \; \vdots \; 5abc$, suy ra điều phải chứng minh.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+	\begin{enumerate}
+		\item Viết số $1998$ thành tổng của ba số tự nhiên tùy ý. Chứng minh rằng tổng các lập phương của ba số tự nhiên đó chia hết cho $6$.
+		\item Viết số ${1995}^{1995}$ thành tổng của nhiều số tự nhiên. Tổng các lập phương của ba số tự nhiên đó chia cho $6$ dư bao nhiêu?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Áp dụng câu a) bài $197$ chú ý rằng $1998$ chia hết cho $6$.
+			\item Đặt ${1995}^{1995} = a = a_1 + a_2 + \cdots +a_n$.\\
+			Gọi $S = a_1^3 +a_2^3 + \cdots + a_n^3 = (a_1^3-a_1) + (a_2^3-a_2) + \cdots + (a_n^3-a_n) + a$.\\
+			Mỗi dấu ngoặc đều chia hết cho $6$, do đó số dư của $a$ khi chia cho $6$ chính là số dư của $S$ khi chia cho $6$.\\
+			Mà $1995$ là số lẻ chia hết cho $3$, suy ra ${1995}^{1995}$ chia $6$ dư $3$.\\
+			Suy ra $S$ chia $6$ dư $3$.
+		\end{enumerate}	
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+	Chứng minh rằng với mọi số nguyên $a$ và $b$ thì:
+	\begin{enumerate}
+		\item $a^3b-ab^3$ chia hết cho $6$.
+		\item $a^5b-ab^5$ chia hết cho $30$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item $a^3b-ab^3 = a^3b - ab -ab^3 +ab = b(a^3-a)-a(b^3-b)$.\\
+			Biểu thức trong mỗi dấu ngoặc chia hết cho $6$.\\
+			Suy ra $a^3b-ab^3$ chia hết cho $6$ (điều phải chứng minh).
+			\item $a^5b-ab^5 = a^5b - ab + ab - ab^5 = b(a^5-a) -a(b^5-b)$.\\
+			Dễ thấy $a^5-a$ và $b^5-b$ chia hết cho $30$, suy ra $b(a^5-a) -a(b^5-b)$.\\
+			Hay $a^5b-ab^5$ chia hết cho $30$ (điều phải chứng minh).
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+	Chứng minh rằng với mọi số tự nhiên đều viết được dưới dạng $b^3+6c$ trong đó $b$ và $c$ là các số nguyên.
+	\loigiai{
+		Gọi $a$ là một số tự nhiên tùy ý, ta dễ dàng chứng minh được $a^3-a$ chia hết cho $6$.\\
+		$\Rightarrow a^3-a=6k \Rightarrow a = a^3-6k$ với $k \in \mathbb{Z}$.\\
+		Vậy mọi số tự nhiên đều viết được dưới dạng $b^3+6c$ trong đó $b$ và $c$ là các số nguyên.
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1G5]
+	Chứng minh rằng nếu các số tự nhiên $a$, $b$, $c$ thỏa mãn điều kiện $a^2+b^2=c^2$ thì $abc$ chia hết cho $60$.
+	\loigiai{
+		Ta có:
+		\begin{eqnarray*}
+			& n = 3k \pm 1 & \Rightarrow n^2 = 3m + 1\\
+			& n = 5k \pm 1 & \Rightarrow n^2 = 5m + 1\\
+			& n = 5k \pm 2 & \Rightarrow n^2 = 5m + 4 = 5r - 1\\
+			& n = 4k \pm 1 & \Rightarrow n^2 = 8m + 1\\
+			& n = 4k \pm 2 & \Rightarrow n^2 = 8m + 4
+		\end{eqnarray*}
+		Nếu $a$, $b$ cùng không chia hết cho $3$ suy ra $a^2+b^2=3a_1+1+3b_1+1=3(a_1+b_1)+2$.\\
+		Mà $c^2$ có dạng $3c_1$ hoặc $3c_1+1 \Rightarrow a^2+b^2 \ne c^2$ (loại).\\
+		$\Rightarrow$ trong $2$ số $a$, $b$ phải có ít nhất $1$ số chia hết cho $3$ $\Rightarrow abc \; \vdots \;3$.\\
+		Nếu $a$, $b$, $c$ đều không chia hết cho $5$ thì $a^2$, $b^2$, $c^2$ chia cho $5$ dư $1$ hoặc $4$.\\
+		Khi đó $a^2+b^2$ chia $5$ dư $0$, $2$, $3$ còn $c^2$ chia cho $5$ dư $1$ hoặc $4 \Rightarrow a^2+b^2 \ne c^2$ (loại).\\
+		$\Rightarrow$ trong $3$ số $a$, $b$, $c$ phải có ít nhất $1$ số chia hết cho $5$ $\Rightarrow abc \; \vdots \;5 $.
+		Nếu $a$, $b$, $c$ đều không chia hết cho $4$ thì $a^2$, $b^2$, $c^2$ chia cho $8$ dư $1$ hoặc $4$.\\
+		Khi đó $a^2+b^2$ chia $8$ dư $0$, $2$, $5$ còn $c^2$ chia cho $8$ dư $1$ hoặc $4 \Rightarrow a^2+b^2 \ne c^2$ (loại).\\
+		$\Rightarrow$ trong $3$ số $a$, $b$, $c$ phải có ít nhất $1$ số chia hết cho $4$ $\Rightarrow abc \; \vdots \;4 $.\\
+		Vậy $abc$ chia hết cho $3$; $4$; $5 \Rightarrow abc \; \vdots \; 60$
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+	Chứng minh rằng tổng các lập phương của ba số nguyên liên tiếp thì chia hết cho $9$.
+	\loigiai{
+		Gọi ba số nguyên liên tiếp đó là $n - 1$; $n$; $n+1$.\\
+		Ta có:
+		\begin{eqnarray*}
+			& (n-1)^3 + n^3 + (n+1)^3 & = n^3 - 3n^2 + 3n - 1 + n^3 + n^3 + 3n^2 + 3n + 1 \\
+			& & = 3n^3 + 6n \\
+			& & = 3(n^3-n)+9n
+		\end{eqnarray*}
+		Có $3(n^3-n)+9n \; \vdots \; 9 \Rightarrow (n-1)^3 + n^3 + (n+1)^3 \; \vdots \; 9 $.\\
+		Vậy tổng các lập phương của ba số nguyên liên tiếp thì chia hết cho $9$.
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+	Chứng minh rằng nếu tổng lập phương của ba số nguyên chia hết cho $9$ thì tồn tại một trong ba số đó là bội của $3$.
+	\loigiai{
+		\textbf{Nhận xét:} Lập phương của một số nguyên bất kì khi chia $9$ có số dư là $0$; $1$ hoặc $8$.\\
+		Xét $3$ số nguyên $a$, $b$, $c$ đều không chia hết cho $3$. Khi đó $a^3 + b^3 + c^3$ chia cho $9$ sẽ có $1$ trong các số dư sau: $1+1+1=3 \not \vdots \; 9$; $1+1+8=10 \not \vdots \; 9$; $1+8+8=17 \not \vdots \; 9$; $8+8+8=24\not \vdots \; 9$.\\
+		Trong các trường hợp trên $a^3 + b^3 + c^3$ đều không chia hết cho $9$.\\
+		Suy ra để $a^3 + b^3 + c^3$ chia hết cho $9$ thì ít nhất một trong ba số $a$, $b$, $c$ phải chia hết cho $3$.\\
+		Vậy nếu tổng lập phương của ba số nguyên chia hết cho $9$ thì tồn tại một trong ba số đó là bội của $3$ (điều phải chứng minh).
+	}
+\end{bt}
+
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K5]
+	Cho dãy số $7$, $13$, $25$, $43$, ... , $3n(n-1)+7$. Chứng minh rằng:
+	\begin{enumerate}
+		\item Trong năm số hạng liên tiếp của dãy bao giờ cũng tồn tại một bội số của $25$.
+		\item Không có số hạng nào của dãy là lập phương của một số nguyên.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Nhận xét: $a_3$ chia hết cho 5. Ta sẽ chứng minh các số $a_{5k+3}$ chia hết cho $25$.\\
+			Thật vậy:
+			\begin{eqnarray*}
+				& a_{5k+3} & = 3(5k+3)(5k+2) + 7  \\
+				& & = 3(25k^2+25k+6)+7 \\
+				& & = 3(25k^2+25k)+25 \\
+				& \Rightarrow & a_{5k+3} \; \vdots \; 25
+			\end{eqnarray*}
+			Vậy trong năm số hạng liên tiếp của dãy bao giờ cũng tồn tại một bội số của $25$ (điều phải chứng minh).
+			\item $n(n-1)$ chia $3$ dư $0$ hoặc $2$ $\Rightarrow 3n(n-1)$ chia cho $9$ dư $0$ hoặc $6$.\\
+			$\Rightarrow 3n(n-1)+7$ chia cho $9$ dư $7$ hoặc $4$.\\
+			Mà lập phương của một số nguyên chia cho $9$ chỉ có thể dư là $0$, $1$, $8$.\\
+			Vậy không có số hạng nào của dãy là lập phương của một số nguyên (điều phải chứng minh).
+		\end{enumerate}
+	}
+\end{bt}
+
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+	\begin{enumerate}
+		\item Chứng minh rằng nếu số tự nhiên $a$ không chia hết cho $7$ thì $a^6-1$ chia hết cho $7$.
+		\item Chứng minh rằng nếu $n$ là lập phương của một số tự nhiên thì $(n-1)n(n+1)$ chia hết cho $504$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Bài toán là trường hợp đặc biệt của định lí nhỏ Phéc-ma: $a^{p-1}-1$ chia hết cho $p$ với $p=7$.\\
+			Chứng minh trực tiếp: $a^6-1=(a^3+1)(a^3-1)$.\\
+			Nếu $a=7k \pm 1$ với $k \in \mathbb{N}$ thì $a^3=\text{BS}7 \pm 1$.\\
+			Nếu $a=7k \pm 2$ với $k \in \mathbb{N}$ thì $a^3=\text{BS}7 \pm 8$.\\
+			Nếu $a=7k \pm 3$ với $k \in \mathbb{N}$ thì $a^3=\text{BS}7 \pm 27$.\\
+			Vậy ta luôn có $a^3+1$ hoặc $a^3-1$ chia hết cho $7$.\\
+			Do đó $a^6-1$ chia hết cho $7$.\\
+			Vậy nếu số tự nhiên $a$ không chia hết cho $7$ thì $a^6-1$ chia hết cho $7$ (điều phải chứng minh).
+			\item Ta có: $504=3^2 \cdot 7 \cdot 8$. Đặt $n=a^3$, ta cần chứng minh:
+			$A=(a^3-1)a^3(a^3+1)$ chia hết cho $504$.\\
+			Nếu $a$ chẵn thì $a^3$ chia hết cho $8$.\\
+			Nếu $a$ lẻ thì $a^3-1$ và $a^3+1$ là $2$ số chẵn liên tiếp nên $(a^3-1)(a^3+1)$ chia hết cho $8$.\\
+			Do đó $A \; \vdots \; 8$.\\
+			Nếu $a$ chia hết cho $7$ thì $A$ chia hết cho $7$.\\
+			Nếu $a$ không chia hết cho $7$ thì áp dụng câu a) ta chứng minh được $A \; \vdots \; 7$.\\
+			Suy ra $A \; \vdots \; 7$.\\
+			Nếu $a$ chia hết cho $3$ thì $a^3$ chia hết cho $9$.
+			Nếu $a=3k \pm 1$ với $k \in \mathbb{N}$ thì $a^3 \pm 1 =\text{BS}9 \pm 1$.\\
+			Suy ra $a^3+1$ hoặc $a^3-1$ chia hết cho $9$.\\
+			Suy ra $A \; \vdots \; 9$.\\
+			Vậy $A$ chia hết cho $8$, $7$, $9$ hay $A$ chia hết cho $504$.\\
+			Suy ra nếu $n$ là lập phương của một số tự nhiên thì $(n-1)n(n+1)$ chia hết cho $504$ (điều phải chứng minh).
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K9]
+	Chứng minh rằng nếu $A$ chia hết cho $B$ với:
+	\begin{enumerate}
+		\item $A=1^3+2^3+3^3+\cdots+{99}^3+{100}^3$,\\
+		$B=1+2+3+\cdots+99+100$;
+		\item $A=1^3+2^3+3^3+\cdots+{98}^3+{99}^3$,\\
+		$B=1+2+3+\cdots+98+99$;
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Ta có: $B=1+2+3+\cdots+99+100 = 100 \cdot 101 : 2 = 50 \cdot 101$.\\
+			Để chứng minh $A$ chia hết cho $101$ ta ghép cặp $1^3+100^3$; $2^3+99^3$; $\cdots$.
+			Để chứng minh $A$ chia hết cho $50$ ta ghép cặp $50^3+100^3$; $1^3+99^3$; $2^3+98^3$; $\cdots$; $49^3+51^3$.
+			\item Giải tương tự câu a).
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K5]
+	Các số sau có chính phương hay không?
+	\begin{enumerate}
+		\item $A=22\cdots24$ (có $50$ chữ số $2$);
+		\item $B=44 \cdots 4$ (có $100$ chữ số $4$);
+		\item $A={1994}^7+7$;
+		\item $B=144 \cdots 4$ (có $99$ chữ số $4$).
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Tổng các chữ số của $A$ là $50 \cdot 2 + 4 = 104$ $\Rightarrow A$ chia $3$ dư $2$.\\
+			Mà $1$ số chính phương chia $3$ dư $0$ hoặc $1$ nên $A$ không là số chính phương.
+			\item $B=44 \cdots 4$ (có $100$ chữ số $4$) $\Rightarrow B = 4\cdot \underbrace {11 \cdots 1}_{100}$.\\
+			Để $B$ là số chính phương thì $\underbrace {11 \cdots 1}_{100}$ phải là số chính phương.\\
+			Mà $\underbrace {11 \cdots 1}_{100}$ có tận cùng là $11$ chia $4$ dư $3$, không phải là số chính phương.\\
+			Do đó, $B$ không là số chính phương.
+			\item $A={1994}^7+7$ chia $4$ dư $3$ nên không là số chính phương.
+			\item $B=144 \cdots 4$ (có $99$ chữ số $4$) $\Rightarrow B = 4\cdot 36\underbrace {11 \cdots 1}_{97}$.\\
+			$36\underbrace {11 \cdots 1}_{97}$ chia $4$ dư $3$ nên $36\underbrace {11 \cdots 1}_{97}$ không phải là số chính phương.\\
+			Do đó, $\Rightarrow B = 4\cdot 36\underbrace {11 \cdots 1}_{97}$ không phải là số chính phương.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K5]
+	Có thể dùng cả năm chữ số $2$, $3$, $4$, $5$, $6$ lập thành số chính phương có năm chữ số được không?
+	\loigiai{
+		Số có năm chữ số tạo bởi các chữ số $2$, $3$, $4$, $5$, $6$ có tổng các chữ số là $2+3+4+5+6=20$ chia $3$ dư $2$ nên nó không phải là số chính phương.\\
+		Vậy không thể dùng cả năm chữ số $2$, $3$, $4$, $5$, $6$ lập thành số chính phương có năm chữ số được.
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K5]
+	Chứng minh rằng tổng của hai số chính phương lẻ không là số chính phương.
+	\loigiai{
+		Mọi số lẻ đều chia cho $4$ dư $1$ nên tổng của chúng chia cho $4$ dư $2$ nên không là số chính phương.
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1K5]
+	Chứng minh rằng mọi số lẻ đều có thể viết được dưới dạng hiệu của hai số chính phương.\\
+	\loigiai{
+		Mọi số lẻ đều có dạng $2k+1$ với $k \in \mathbb{N}$.\\
+		Ta có: $2k+1= (k+1-k)(k+1+k)=(k+1)^2-k^2$.
+	}
+\end{bt}
+
+\begin{bt}%[Tuấn Nguyễn, dự án EX-C2-L8-2018]%[8D1G5]
+	Chứng minh rằng:
+	\begin{enumerate}
+		\item $A=1^2+2^2+3^2+4^2+\cdots +{100}^2$ không là số chính phương.
+		\item $B=1^2+2^2+3^2+4^2+\cdots +{56}^2$ không là số chính phương.
+		\item $C=1+3+5+7+\cdots +n$ là số chính phương ($n$ lẻ).
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item $A=1^2+2^2+3^2+4^2+\cdots +{100}^2$ gồm $50$ số chính phương chẵn, $50$ số chính phương lẻ.\\
+			Mỗi số chính phương chẵn đều chia hết cho $4$ nên tổng của $50$ số chính phương chẵn chia hết cho $4$.\\
+			Mỗi số chính phương lẻ đều chia cho $4$ dư $1$ nên tổng của $50$ số chính phương lẻ chia cho $4$ dư $2$.\\
+			Suy ra $A$ chia $4$ dư $2$. Suy ra $A$ không là số chính phương.
+			\item $B=1^2+2^2+3^2+4^2+\cdots +{56}^2$ có thể viết dưới dạng tổng của $57$ số chính phương liên tiếp là\\
+			$B = 0^2 + 1^2 + 2^2 + 3^2 + 4^2 +\cdots + {56}^2$.\\
+			Xét tổng của $3$ số chính phương liên tiếp $(n-1)^2+n^2+(n+1)^2=3n^2+2$ chia $3$ dư $2$.\\
+			Suy ra tổng của $3$ số chính phương liên tiếp chia $3$ dư $2$.
+			Ta có:
+			\begin{eqnarray*}
+				& B & = 0^2 + 1^2+2^2+3^2+4^2+\cdots +{56}^2 \\
+				& & = (0^2+1^2+2^2) + (3^2+4^2+5^2) + \cdots + ({54}^2 + {55}^2 + {56}^2) \\
+				& & = 19 \cdot (\text{BS}3+2) \\
+				& & = \text{BS}3+38 \\
+				& & = \text{BS}3+2
+			\end{eqnarray*}
+			Một số chính phương chia $3$ chỉ có dư là $0$ hoặc $1$ nên $B$ không là số chính phương.
+			\item Đặt $n=2k-1$ với $k \in \mathbb{N}$.\\
+			Ta có:
+			\begin{eqnarray*}
+				& C & = 1 + 3 + 5 + \cdots +(2k-1) \\
+				& & = \dfrac{1+(2k-1)}{2} \cdot k \\
+				& & = k^2 \\
+				& \Rightarrow & C \text{ là số chính phương.}
+			\end{eqnarray*}
+			Vậy với $n$ lẻ thì $C=1+3+5+7+\cdots +n$ là số chính phương.
+		\end{enumerate}	
+	}
+\end{bt}

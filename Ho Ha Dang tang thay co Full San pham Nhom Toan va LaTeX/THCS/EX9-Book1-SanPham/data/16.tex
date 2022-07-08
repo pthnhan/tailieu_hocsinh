@@ -1,0 +1,539 @@
+\chapter{BÀI TOÁN ĐƯA VỀ GIẢI PHƯƠNG TRÌNH NGHIỆM NGUYÊN}
+
+\begin{flushright}
+ \textit{Trăm trâu trăm cỏ\\
+ Bài toán từ xưa\\
+ Đã từng chắp cánh\\
+ Cho nhiều ước mơ}
+\end{flushright}
+
+\section{BÀI TOÁN VỀ SỐ TỰ NHIÊN VÀ CÁC CHỮ SỐ}
+
+\begin{vd}
+ Tìm hai số tự nhiên liên tiếp, mỗi số có hai chữ số, biết rằng nếu viết số lớn trước số nhỏ thì ta được một số chính phương.
+ \loigiai
+  {
+  Gọi hai số tự nhiên phải tìm là $x$ và $x + 1$, số chính phương là $n^2$, trong đó $x$, $n$ thuộc $\mathbb{N}$. Do $x$ và $x + 1$ đều là các số có hai chữ số và $n^2$ là số có bốn chữ số nên
+  \begin{equation}
+   10 \leq x \leq 98; \, 32 \leq n \leq 99 \label{3.1}
+  \end{equation}
+  Từ giả thiết ta có
+  \begin{equation}
+   100(x + 1) + x = n^2 \Leftrightarrow 101x + 100 = n^2 \Leftrightarrow (n + 10)(n - 10) = 101x \label{3.2}
+  \end{equation}
+  Chú ý rằng $(n + 10)(n - 10)$ chia hết cho số nguyên tố $101$, do đó tồn tại một thừa số chia hết cho $101$.\\
+  Từ \eqref{3.1} ta có
+  \begin{align*}
+   & 22 \leq n - 10 \leq 89, \\
+   & 42 \leq n + 10 \leq 109.
+  \end{align*}
+  Từ đó và \eqref{3.2} chỉ có thể là $n + 10 = 101$.\\
+  Suy ra $n = 91$; $n^2 = 91^2 = 8281$.\\
+  Vậy hai số phải tìm là $81$ và $82$.
+  }
+\end{vd}
+
+\begin{vd}
+ Tìm các số tự nhiên có bốn chữ số và bằng lập phương của tổng các chữ số của nó.
+ \loigiai
+  {
+  Gọi số phải tìm là $\overline{abcd}$ (với $a \neq 0$, và $a$, $b$, $c$, $d$ thuộc $\mathbb{N}$). Ta có
+  \begin{equation}
+   \overline{abcd} = (a + b + c + d)^3 \label{3.3}
+  \end{equation}
+  Đặt $a + b + c + d = m$. Số $\overline{abcd}$ và tổng các chữ số của nó khi chia cho $9$ có cùng số dư nên $\left( \overline{abcd} - m \right) \vdots \, 9$ hay $\overline{abcd} = 9k + m \, (k \in \mathbb{N})$.\\
+  Thay vào \eqref{3.3} được $9k + m = m^3$.\\
+  Do đó $\left( m^3 - m \right) \vdots \, 9$, tức là $(m - 1)m(m + 1) \, \vdots \, 9$.\\
+  Trong ba số nguyên liên tiếp, có một và chỉ một số chia hết cho $3$. Tích của chúng chia hết cho $9$ nên có một và chỉ một số chia hết cho $9$.\\
+  Ta có
+  \begin{align*}
+   1000 \leq \overline{abcd} \leq 9999 & \Rightarrow 1000 \leq m^3 \leq 9999 \\
+   & \Rightarrow 10 \leq m \leq 21.
+  \end{align*}
+  Do đó $9 \leq m - 1 \leq 20; \, 11 \leq m + 1 \leq 22$.\\
+  Xét ba trường hợp sau:
+  \begin{enumerate}
+   \item $m \, \vdots \, 9 \Rightarrow m = 18$. Khi đó
+   $$\overline{abcd} = 18^3 = 5832 = (5 + 8 + 3 + 2)^3.$$
+   \item $(m + 1) \, \vdots \, 9 \Rightarrow m + 1 = 18 \Rightarrow m = 17$. Khi đó
+   $$\overline{abcd} = 17^3 = 4913 = (4 + 9 + 1 + 3)^3.$$
+   \item $(m - 1) \, \vdots \, 9 \Rightarrow m - 1 = 18 \Rightarrow m = 19$. Khi đó
+   $$\overline{abcd} = 19^3 = 6859, \textrm{ loại vì tổng các chữ số không bằng } 19.$$
+  \end{enumerate}
+  Vậy số phải tìm là $5832$ và $4913$.\\
+  $\blacktriangleright\blacktriangleright$ \textbf{\textit{Kinh nghiệm giải toán}}
+  \begin{itemize}
+   \item Nếu khai triển hai vế của $\overline{abcd} = (a + b + c + d)^3$ thì ta sẽ được một phương trình bậc ba với bốn ẩn $a$, $b$, $c$, $d$; giải phương trình này rất phức tạp.\\
+   Nhờ đặt $a + b + c + d = m$ và sử dụng dấu hiệu chia hết cho $9$, ta đi đến $\left( m^3 - m \right) \vdots \, 9$. Cùng với việc chặn giá trị của $m$ (là $10 \leq m \leq 21$), ta tìm được giá trị của $m$.
+   \item Khi giải các bài toán về số tự nhiên và các chữ số, nên lưu ý:\\
+   - Chọn một nhóm chữ số làm ẩn phụ.\\
+   - Chặn giá trị của ẩn một cách hợp lí và sử dụng các tính chất về chia hết, về số nguyên tố để giảm bớt trường hợp phải xét.
+  \end{itemize}
+  }
+\end{vd}
+
+
+\begin{vd}
+ Tìm các số tự nhiên có bốn chữ số và bằng tổng các bình phương của số tạo bởi hai chữ số đầu và số tạo bởi hai chữ số cuối, biết rằng hai chữ số cuối giống nhau.
+ \loigiai
+  {
+  Gọi số phải tìm là $\overline{abcc}$ (với $a \neq 0$, và $a$, $b$, $c$ thuộc $\mathbb{N}$). Ta có $\overline{abcc} = \overline{ab}^2 + \overline{cc}^2$.\\
+  Đặt $\overline{ab} = x$, $\overline{cc} = y$ trong đó $x$, $y$ thuộc $\mathbb{N}$; $10 \leq x \leq 99$ và $0 \leq y \leq 99$.\\
+  Ta có $100x + y = x^2 + y^2$.\\
+  Ta lại có $x^2 + y^2 \geq 2xy$ nên $100x + y \geq 2xy \Leftrightarrow (2x - 1)(y - 50) \leq 50$.\\
+  Do $x \geq 10$ nên $2x - 1 \geq 19$.\\
+  Suy ra $y - 50 \leq \dfrac{50}{19} < 3 \Rightarrow y < 53$.\\
+  Dễ thấy $y \neq 0$ và $y \, \vdots \, 11$ nên $y \in \{11; 22; 33; 44 \}$.\\
+  Xét các giá trị của $y$:
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+  $y$  & $y^2 - y$ & $\Delta'$     &  Nhận xét \\
+  \hline
+  $11$ & $110$     & $2390$        & $\Delta'$ không là số chính phương, vì $2390 \, \vdots \, 5$ nhưng $2390 \not \vdots \, 25$.\\
+  \hline
+  $22$ & $462$     & $2038$        & $\Delta'$ không là số chính phương.\\
+  \hline
+  $33$ & $1056$    & $1444 = 38^2$ & $\begin{array}{ll} x_1 & = 50 - 38 = 12 \\ x_2 & = 50 + 38 = 88. \end{array}$ \\
+  \hline
+  $44$ & $1892$    & $608$         & $\Delta'$ không là số chính phương.\\
+  \hline
+  \end{tabular}
+  \end{center}
+  Vậy số phải tìm là $1233$ và $8833$.
+  }
+\end{vd}
+
+
+
+\begin{center}
+    \textbf{BÀI TẬP}
+\end{center}
+
+\begin{bt}
+ Tìm các số tự nhiên $\overline{abc}$ với các chữ số khác nhau sao cho
+ $$9a = 5b + 4c.$$
+ \loigiai
+  {
+  Ta có
+  $$9a = 5b + 4c \Leftrightarrow 9a - 9c = 5b - 5c \Leftrightarrow 9(a - c) = 5(b - c).$$    
+  Suy ra $5(b - c) \, \vdots \, 9 \Rightarrow (b - c) \, \vdots \, 9$.\\
+  Theo đề bài, $b \neq c$ nên ta có hai trường hợp:
+  \begin{itemize}
+   \item $\heva{& b = 9 \\& c = 0.}$\\
+   Thay vào biểu thức $9a = 5b + 4c$ ta được $a = 5$. Do đó ta có số phải tìm là $590$.
+   \item $\heva{& c = 9 \\& b = 0.}$\\
+   Thay vào biểu thức $9a = 5b + 4c$ ta được $a = 4$. Do đó ta có số phải tìm là $409$.
+  \end{itemize}
+  Vậy các số phải tìm là $590$ và $409$.
+  }
+\end{bt}
+
+
+\begin{bt}
+ Tìm các số tự nhiên có ba chữ số, biết rằng nếu cộng chữ số hàng trăm với $n \, (n \in \mathbb{N})$, trừ các chữ số hàng chục và đơn vị cho $n$ thì được một số gấp $n$ lần số ban đầu với $n$ là số tự nhiên nhỏ hơn chữ số hàng chục và chữ số hàng đơn vị của số ban đầu.
+ \loigiai
+  {
+  Gọi số phải tìm là $x$ với $x \in \mathbb{N^*}$.\\
+  Khi thêm $n$ vào hàng trăm, bớt $n$ ở hàng chục và hàng đơn vị, số đó sẽ tăng thêm
+  $$100n - 10n - n \text{ hay } 89n.$$
+  Ta có $nx - x = 89n \Rightarrow (n - 1)x = 89n$.\\
+  Suy ra
+  \begin{align*}
+   89n \, \vdots \, (n - 1) & \Rightarrow 89 \, \vdots \, (n - 1) \text{ (do $n$ và $n - 1$ nguyên tố cùng nhau)}\\
+   & \Rightarrow n - 1 = 1 \text{ (chú ý $1 \leq n \leq 9$)}\\
+   & \Rightarrow n = 2.
+  \end{align*}
+  Vậy số phải tìm là $x = 178$.
+  }
+\end{bt}
+
+
+\begin{bt}
+ Tìm hai số chính phương có bốn chữ số, biết rằng mỗi chữ số của số thứ nhất đều lớn hơn chữ số cùng hàng của số thứ hai cùng bằng một số.
+ \loigiai
+  {
+  Gọi số chính phương thứ nhất là $x^2 = \overline{abcd}$, với $x$, $a$, $b$, $c$, $d$ thuộc $\mathbb{N}$ và $a \neq 0$.\\
+  Gọi số chính phương thứ hai là $y^2 = \overline{a'b'c'd'}$, với $y$, $a'$, $b'$, $c'$, $d'$ thuộc $\mathbb{N}$ và $a' \neq 0$.\\
+  Trong đó $a - a' = b - b' = c - c' = d - d' = m$, với $m \leq 8$.\\
+  Ta có $32 \leq y < x \leq 99$.
+  $$x^2 - y^2 = 1111m \Leftrightarrow (x + y)(x - y) = 11 \cdot 101m.$$
+  Do $11$ và $101$ đều là số nguyên tố và
+  \begin{align*}
+   & x - y \leq 99 - 32 = 67 \\
+   & x + y \leq 99 + 98 = 197
+  \end{align*}
+  nên $\heva{& x + y = 101 \\& x - y = 11m} \Leftrightarrow \heva{& x = \dfrac{101 + 11m}{2} \\& y = \dfrac{101 - 11m}{2}.}$
+  $$y \geq 32 \Leftrightarrow 101 - 11m \geq 64 \Leftrightarrow m \leq 3\dfrac{4}{11}.$$
+  Mặt khác, số $m$ là số lẻ để $y$ là số nguyên, do đó $m \in \{ 1; 3 \}$.
+  \begin{itemize}
+   \item Với $m = 1$ thì $\heva{& x = 56 \\& y = 45} \Leftrightarrow \heva{& x^2 = 3136 \\& y^2 = 2025.}$
+   \item Với $m = 3$ thì $\heva{& x = 67 \\& y = 34} \Leftrightarrow \heva{& x^2 = 4489 \\& y^2 = 1156.}$
+  \end{itemize}
+  }
+\end{bt}
+
+
+\begin{bt}
+ Tìm các số tự nhiên có hai chữ số và bằng bình phương của tổng các chữ số của nó.
+ \loigiai
+  {
+  \textbf{Cách 1} \\
+  Gọi số cần tìm là $\overline{xy}$, với $x$, $y$ thuộc $\mathbb{N}$ và $x \neq 0$.\\
+  Ta có
+  $$ \overline{xy} = (x + y )^2 \Leftrightarrow 10x + y = (x + y)^2 \Leftrightarrow 9x = (x + y)^2 - (x + y) \Leftrightarrow (x + y)(x + y - 1) = 9x.$$
+  Hai số nguyên tố cùng nhau có tích chia hết cho $9$ nên tồn tại một số chia hết cho $9$.\\
+  Ta có $10 \leq (x + y)^2 \leq 99 \Rightarrow 4 \leq x + y \leq 9 \Rightarrow 3 \leq x + y - 1 \leq 8$.\\
+  Suy ra $(x + y) \, \vdots \, 9$. Khi đó $x + y = 9$.\\
+  Vậy số cần tìm là $\overline{xy} = 9^2 = 81$.\\
+  \textbf{Cách 2}\\
+  Xét các số chính phương có hai chữ số: $16$, $25$, $36$, $49$, $64$, $81$. Chỉ có duy nhất số $81$ thỏa mãn vì $16 \neq (1 + 6)^2$; $25 \neq (2 + 5)^2$; $36 \neq (3 + 6)^2$; $49 \neq (4 + 9)^2$; $64 \neq (6 + 4)^2$; $81 = (8 + 1)^2$.
+  }
+\end{bt}
+
+
+\begin{bt}
+ Tìm các số tự nhiên có ba chữ số và bằng lập phương của tổng các chữ số của nó.
+ \loigiai
+  {
+  \textbf{Cách 1}\\
+  Gọi số phải tìm là $\overline{abc}$ (với $a \neq 0$, và $a$, $b$, $c$ thuộc $\mathbb{N}$). Ta có
+  \begin{equation}
+   \overline{abc} = (a + b + c)^3 \label{3.4}
+  \end{equation}
+  Đặt $a + b + c = m$. Số $\overline{abc}$ và tổng các chữ số của nó khi chia cho $9$ có cùng số dư nên $\left( \overline{abc} - m \right) \vdots \, 9$ hay $\overline{abc} = 9k + m \, (k \in \mathbb{N})$.\\
+  Thay vào \eqref{3.4} được $9k + m = m^3$.\\
+  Do đó $\left( m^3 - m \right) \vdots \, 9$, tức là $(m - 1)m(m + 1) \, \vdots \, 9$.\\
+  Trong ba số nguyên liên tiếp, có một và chỉ một số chia hết cho $3$. Tích của chúng chia hết cho $9$ nên có một và chỉ một số chia hết cho $9$.\\
+  Ta có
+  \begin{align*}
+   100 \leq \overline{abc} \leq 999 & \Rightarrow 100 \leq m^3 \leq 999 \\
+   & \Rightarrow 5 \leq m \leq 9.
+  \end{align*}
+  Do đó $4 \leq m - 1 \leq 8; \, 6 \leq m + 1 \leq 10$.\\
+  Xét hai trường hợp sau:
+  \begin{enumerate}
+   \item $m \, \vdots \, 9 \Rightarrow m = 9$. Khi đó
+   $$\overline{abc} = 9^3 = 729,  \textrm{ loại vì tổng các chữ số không bằng } 9.$$
+   \item $(m + 1) \, \vdots \, 9 \Rightarrow m + 1 = 9 \Rightarrow m = 8$. Khi đó
+   $$\overline{abc} = 8^3 = 512 = (5 + 1 + 2)^3.$$
+  \end{enumerate}
+  Vậy số phải tìm là $512$.\\
+  \textbf{Cách 2}\\
+  Gọi số phải tìm là $\overline{abc}$ (với $a \neq 0$, và $a$, $b$, $c$ thuộc $\mathbb{N}$).\\
+  Ta có $\overline{abc} = (a + b + c)^3$.\\
+  Suy ra $100 \leq (a + b + c)^3 < 1000 \Rightarrow 5 \leq a + b + c \leq 9$.\\
+  Xét các trường hợp $a + b + c$ lần lượt lấy các giá trị từ $5$ đến $9$:
+  \begin{itemize}
+   \item $a + b + c = 5$ thì $(a + b + c)^3 = 125$ loại vì $1 + 2 + 5 \neq 5$.
+   \item $a + b + c = 6$ thì $(a + b + c)^3 = 216$ loại vì $2 + 1 + 6 \neq 6$.
+   \item $a + b + c = 7$ thì $(a + b + c)^3 = 343$ loại vì $3 + 4 + 3 \neq 7$.
+   \item $a + b + c = 8$ thì $(a + b + c)^3 = 512$ thỏa mãn vì $5 + 1 + 2 = 8$.
+   \item $a + b + c = 9$ thì $(a + b + c)^3 = 729$ loại vì $7 + 2 + 9 \neq 9$.
+  \end{itemize}
+  Vậy số phải tìm là $512$.
+  }
+\end{bt}
+
+
+\begin{bt}
+ Tìm các số tự nhiên có bốn chữ số và bằng lũy thừa bậc bốn của tổng các chữ số của nó.
+ \loigiai
+  {
+  Gọi số phải tìm là $\overline{abcd}$ (với $a \neq 0$, và $a$, $b$, $c$, $d$ thuộc $\mathbb{N}$).\\
+  Ta có $\overline{abcd} = (a + b + c + d)^4$.\\
+  Suy ra $1000 \leq (a + b + c + d)^4 \leq 9999 \Rightarrow 6 \leq a + b + c + d \leq 9$.\\
+  Xét các trường hợp $a + b + c + d$ lần lượt lấy các giá trị từ $6$ đến $9$:
+  \begin{itemize}
+   \item $a + b + c + d = 6$ thì $(a + b + c + d)^4 = 1296$ loại vì $1 + 2 + 9 + 6 \neq 6$.
+   \item $a + b + c + d = 7$ thì $(a + b + c + d)^4 = 2401$ thỏa mãn vì $2 + 4 + 0 + 1 = 7$.
+   \item $a + b + c + d = 8$ thì $(a + b + c + d)^4 = 4096$ loại vì $4 + 0 + 9 + 6 \neq 8$.
+   \item $a + b + c + d = 9$ thì $(a + b + c + d)^4 = 6561$ loại vì $6 + 5 + 6 + 1 \neq 9$.
+  \end{itemize}
+  Vậy số phải tìm là $2401$. 
+  }
+\end{bt}
+
+
+\begin{bt}
+ Tìm các số tự nhiên có bốn chữ số và bằng bình phương của tổng của số tạo bởi hai chữ số đầu và số tạo bởi hai chữ số cuối của số đó (viết theo thứ tự cũ).
+ \loigiai
+  {
+  Gọi số phải tìm là $\overline{abcd}$ (với $a \neq 0$, và $a$, $b$, $c$, $d$ thuộc $\mathbb{N}$).\\
+  Ta có $\overline{abcd} = \left( \overline{ab} + \overline{cd} \right)^2$.\\
+  Đặt $\overline{ab} = x$, $\overline{cd} = y$ trong đó $x$, $y$ thuộc $\mathbb{N}$; $10 \leq x \leq 99$ và $0 \leq y \leq 99$.\\
+  Ta có $100x + y = (x + y)^2 \Leftrightarrow 99x = (x + y)^2 - (x + y) \Leftrightarrow 99x = (x + y)(x + y - 1)$.\\
+  Xét hai trường hợp sau:
+  \begin{itemize}
+   \item Một trong hai thừa số $x + y$, $x + y - 1$ chia hết cho $99$.\\
+   Do $32 \leq x + y \leq 99$ nên $31 \leq x + y - 1 \leq 98$. Suy ra $(x + y) \, \vdots \, 99$. Cho nên $x + y = 99$.\\
+   Ta có $99^2 = 9801$, thỏa mãn vì $9801 = (98 + 01)^2$.
+   \item Trong hai thừa số $x + y$, $x + y - 1$ không có thừa số nào chia hết cho $99$. Chú ý rằng chúng nguyên tố cùng nhau nên phải có một số chia hết cho $11$ và số kia chia hết cho $9$.\\
+   Từ đó ta xét hai trường hợp:
+   \begin{itemize}
+    \item[$\circ$] $\heva{& (x + y) \, \vdots \, 11 \\& (x + y - 1) \, \vdots \, 9} \Leftrightarrow \heva{& (x + y) \in \{33; 44; 55; 66; 77; 88 \} \\& (x + y - 1) \in \{36; 45; 54; 63; 72; 81; 90 \}} \Leftrightarrow x + y = 55.$\\
+    Ta có $55^2 = 3025$, thỏa mãn vì $3025 = (30 + 25)^2$.
+    \item[$\circ$] $\heva{& (x + y) \, \vdots \, 9 \\& (x + y - 1) \, \vdots \, 11} \Leftrightarrow \heva{& (x + y) \in \{36; 45; 54; 63; 72; 81; 90 \} \\& (x + y - 1) \in \{33; 44; 55; 66; 77; 88 \}} \Leftrightarrow x + y = 45.$\\
+    Ta có $45^2 = 2025$, thỏa mãn vì $2025 = (20 + 25)^2$.
+   \end{itemize}
+  \end{itemize}
+  Vậy các số phải tìm là $9801$; $3025$ và $2025$.
+  }
+\end{bt}
+
+
+\begin{bt}
+ Tìm các số tự nhiên có bốn chữ số, hai chữ số đầu như nhau, hai chữ số cuối như nhau sao cho số đó thỏa mãn mỗi điều kiện sau:
+ \begin{enumerate}
+  \item Bằng tổng các bình phương của số tạo bởi hai chữ số đầu và số tạo bởi hai chữ số cuối của số đó (viết theo thứ tự cũ).
+  \item Bằng tích của hai số, mỗi số gồm hai chữ số như nhau.
+ \end{enumerate}
+ \loigiai
+  {
+  \begin{enumerate}
+   \item Gọi số cần tìm là $\overline{xxyy}$ (với $x$, $y$ thuộc $\mathbb{N}$ và $x \neq 0$).\\
+   Ta có 
+   {\allowdisplaybreaks
+   \begin{align*}
+    \overline{xxyy} = \overline{xx}^2 + \overline{yy}^2 & \Leftrightarrow 1100x + 11y = (11x)^2 + (11y)^2 \\
+    & \Leftrightarrow 100x + y = 11(x^2 + y^2) \\
+    & \Leftrightarrow 99x + x + y = 11 (x^2 + y^2).\tag{*} 
+   \end{align*}}
+   Suy ra $(x + y) \, \vdots \, 11$, chỉ có thể là $x + y = 11$.\\
+   Thay vào $(*)$ ta được
+   \begin{align*}
+    9x + 11 = 11(x^2 + y^2) & \Leftrightarrow 9x + 1 = x^2 + y^2 \\
+    & \Leftrightarrow 9x + 2xy + 1 = (x + y)^2 \\
+    & \Leftrightarrow x(9 + 2y) + 1 = 121 \\
+    & \Leftrightarrow x(9 + 2y) = 120.
+   \end{align*}
+   Ta thấy $9 + 2y$ là số lẻ nên $x \, \vdots \, 8$, do đó $x = 8$. Suy ra $y = 3$.\\
+   Thử lại ta thấy $8833 = 88^2 + 33^2$.\\
+   Vậy số phải tìm là $8833$.
+   
+   \item Gọi số cần tìm là $\overline{xxyy}$ (với $x$, $y$ thuộc $\mathbb{N}$ và $x \neq 0$).\\
+   Ta có
+   \begin{align*}
+    \overline{xxyy} = \overline{aa} \cdot \overline{bb} & \Leftrightarrow 1100x + 11y = 11a \cdot 11b \text{ (với $a$, $b$ thuộc $\mathbb{N}^*$)}\\
+    & \Leftrightarrow 100x + y = 11ab \\
+    & \Leftrightarrow 99x + x + y = 11ab.
+   \end{align*}
+   Suy ra $(x + y) \, \vdots \, 11$, chỉ có thể là $x + y = 11$.\\
+   Xét các số $\overline{x0y}$ có $x + y = 11$, ta thấy
+   \begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    $\overline{x0y}$                  & $209$ & $308$ & $407$ & $506$ & $605$ & $704$ & $803$ & $902$\\
+    \hline
+    $ab = \dfrac{\overline{x0y}}{11}$ & $19$  & $28$  & $37$  & $46$  & $55$  & $64$  & $73$  & $82$\\
+    \hline
+    \end{tabular}
+   \end{center}
+   Ta có hai trường hợp viết được thành tích của hai số có một chữ số:
+   $$28 = 4 \cdot 7; \hspace*{0.5cm} 64 = 8 \cdot 8.$$
+   Vậy các số phải tìm là $3388 = 44 \cdot 77$; $7744 = 88 \cdot 88$.
+  \end{enumerate}      
+  }
+\end{bt}
+
+
+\begin{bt}
+ Tìm các số nguyên dương $n$  sao cho trong mỗi trường hợp sau tổng các chữ số của $n$ bằng:
+ \begin{multicols}{3}
+  \begin{enumerate}
+   \item $94 - n$.
+   \item $n - 36$.
+   \item $n^2 - 71n + 8$.
+  \end{enumerate}
+ \end{multicols}
+ \loigiai
+  {
+  Kí hiệu $S(n)$ là tổng các chữ số của $n$.
+  \begin{enumerate}
+   \item Ta có $S(n) = 94 - n$.\\
+   Do $S(n) > 0$ nên $n < 94$\\
+   Từ $n < 94$ suy ra $S(n) \leq 9 + 3$ hoặc $S(n) \leq 8 + 9$, do đó $S(n) \leq 17$. Suy ra
+   $$n = 94 - S(n) \geq 94 - 17 = 77$$
+   Cho nên $n = \overline{7a}$ hoặc $n = \overline{8b}$ hoặc $n = \overline{9c}$.
+   \begin{itemize}
+   	\item Với $n = \overline{7a}$ ta được $7 + a = 94 - \overline{7a}$ hay $2a = 17$ (loại).
+   	\item Với $n = \overline{8b}$ ta được $8 + b = 94 - \overline{8b}$ hay $b = 3$ (nhận).
+   	\item Với $n = \overline{9c}$ ta được $9 + c = 94 - \overline{9c}$ hay $2c = -5$ (loại).
+   \end{itemize}
+   Vậy số phải tìm là $83$.
+   \item Ta có $S(n) = n - 36$ nên $n - S(n) = 36$ \hfill (*)\\
+   $\bullet$ Xét $n$ có một chữ số. Khi đó $S(n) = n$ trái với (*).\\
+   $\bullet$ Xét $n$ có hai chữ số. Đặt $n = \overline{ab}$, thay vào (*) được $\overline{ab} - (a + b) = 36$. Ta được $a = 4$ và $b \in \{0; 1; 2; 3; 4; 5; 6; 7; 8; 9\}$.\\
+   $\bullet$ Xét $n$ có $k$ chữ số ($k \geq 3, k \in \mathbb{Z}$). Ta có $S(n) \leq 9k$ và $n > \underbrace{9 \ldots 9}_{k - 1 \text{ chữ số}}$, do đó
+   $$n - S(n) > \underbrace{9 \ldots 9}_{k - 1 \text{ chữ số}} - 9k = 9 \left( \underbrace{1 \ldots 1}_{k - 1 \text{ chữ số}} - k \right)$$
+   Với $k = 3$ thì $n - S(n) > 9(11 - 3) = 72$, trái với (*).\\
+   Trong biểu thức $\underbrace{1 \ldots 1}_{k - 1 \text{ chữ số}} - k$, khi số trừ $k$ tăng thêm $1$ đơn vị thì số bị trừ $\underbrace{1 \ldots 1}_{k - 1 \text{ chữ số}}$ tăng thêm nhiều hơn $1$ đơn vị, nên với mọi $k \geq 4$ thì $n - S(n) > 72$, trái với (*).\\
+   Vậy các số phải tìm là $40$; $41$; $42$; $43$; $44$; $45$; $46$; $47$; $48$; $49$.
+   \item Do $n$ là số nguyên dương nên $0 < S(n) \leq n$.\\
+   $$S(n) \leq n \Rightarrow n^2 - 71n + 8 \leq n \Rightarrow n^2 + 8n \leq 72n \Rightarrow n + \dfrac{8}{n} \leq 72 \Rightarrow n < 72 \hspace*{0.5cm} (1)$$
+   $$S(n) > 0 \Rightarrow n^2 - 71n + 8 > 0 \Rightarrow n^2 + 8n > 71n \Rightarrow n + \dfrac{8}{n} > 71 \Rightarrow n \geq 71 \hspace*{0.5cm} (2)$$
+   Từ (1) và (2) suy ra $n = 71$ thỏa mãn $S(n) = n^2 - 71n + 8$.
+  \end{enumerate}      
+  }
+\end{bt}
+
+
+\begin{bt}
+ Có tồn tại hay không một số tự nhiên nào mà khi xóa một chữ số đầu thì số đó giảm đi một số lần trong mỗi trường hợp sau:
+ \begin{multicols}{2}
+  \begin{enumerate}
+   \item $146$ lần?
+   \item $145$ lần?
+  \end{enumerate}
+ \end{multicols}
+ \loigiai
+  {
+  \begin{enumerate}
+   \item Giải sử có số $A = \overline{a_1 a_2 \ldots a_n}$, xóa chữ số $a_1$ được số $B = \overline{a_2 a_3 \ldots a_n}$ và $A = 146B$ thì $a_1 \cdot 10^{n-1} + B = 146B$. Suy ra $a_1 \cdot 10^{n-1} = 145B = 5 \cdot 29B$. Do đó $a \, \vdots \, 29$. Điều này không xảy ra. Vậy không tồn tại số $A$.
+   \item Giải sử có số $A = \overline{a_1 a_2 \ldots a_n}$, xóa chữ số $a_1$ được số $B = \overline{a_2 a_3 \ldots a_n}$ và $A = 145B$.\\
+   Lập luận như trên đi đến $a_1 \cdot 10^{n-1} = 144B = 9 \cdot 16B$.\\
+   Vì $9$ và $10^{n-1}$ nguyên tố cùng nhau nên $a_1 = 9$ và $B = \dfrac{10^{n-1}}{16} = \dfrac{10^{n-1}}{2^4}$.\\
+   Ta chọn $n = 5$ thì $B = \dfrac{10^4}{2^4} = 5^4 = 625$.\\
+   Như thế tồn tại số $A = 90625 = 145 \cdot 625$.
+  \end{enumerate}      
+  }
+\end{bt}
+
+
+\begin{bt}
+ Đầu năm mới, thầy giáo dạy Toán của lớp 9C chúc cả lớp bằng một bài toán điền chữ số như sau:
+ \begin{center}
+  9C $+$ CỐ $+$ HỌC $=$ GIỎI.
+ \end{center}
+ Bạn hãy giải bài toán trên, biết rằng:
+ \begin{itemize}
+  \item[-] Các chữ Ố, Ọ, Ỏ biểu thị cùng một chữ số.
+  \item[-] Các chữ khác nhau biểu thị các chữ số khác nhau, chúng cũng có thể bằng $9$.
+ \end{itemize}
+ \loigiai
+  {
+  \immini
+  {
+  Ta kí hiệu các chữ Ọ, Ỏ và Ố đều là Ô (để khỏi lẫn với số $0$).\\
+  Xét ba trường hợp:\\
+  \textbf{Trường hợp 1:} $\mathrm{H} = 9$ và cột hàng trăm được nhớ $1$ ở chục sang.\\
+  Như vậy $\mathrm{G} = 1$, $\mathrm{I} = 0$. Ta có
+  }
+  {
+  \begin{tabular}{r}
+      9C \\
+  $+$ CÔ \\
+     HÔC \\
+     \hline
+    G I Ô I
+  \end{tabular}
+  }
+  \begin{center}
+  \begin{tabular}{r}
+      9C \\
+  $+$ CÔ \\
+     9ÔC \\
+     \hline
+    10Ô0
+  \end{tabular}
+  \end{center}
+  Suy ra $90 + \mathrm{C} + 10\mathrm{C} + \textrm{Ô} + 900 + 10 \textrm{Ô} + \mathrm{C} = 1000 + 10\textrm{Ô}$\\
+  Hay $12\mathrm{C} + \textrm{Ô} = 10$ (loại).\\
+  \textbf{Trường hợp 2:} $\mathrm{H} = 9$ và cột hàng trăm được nhớ $2$ ở chục sang.\\
+  Như vậy $\mathrm{G}$ và $\mathrm{I}$ đều bằng $1$ (loại).\\
+  \textbf{Trường hợp 3:} $\mathrm{H} = 8$ và cột hàng trăm được nhớ $2$ ở chục sang.\\
+  Như vậy $\mathrm{G} = 1$, $\mathrm{I} = 0$. Ta có
+  \begin{center}
+  \begin{tabular}{r}
+      9C \\
+  $+$ CÔ \\
+     8ÔC \\
+     \hline
+    10Ô0
+  \end{tabular}
+  \end{center}
+  Suy ra $90 + \mathrm{C} + 10\mathrm{C} + \textrm{Ô} + 800 + 10 \textrm{Ô} + \mathrm{C} = 1000 + 10\textrm{Ô}$\\
+  Hay $12\mathrm{C} + \textrm{Ô} = 110$. Do $\mathrm{C} > 7$ và khác $8$ nên $C = 9$; $\textrm{Ô} = 2$.\\
+  Vậy bài toán của thầy giáo là $99 + 92 + 829 = 1020$.
+  }
+\end{bt}
+
+
+\begin{bt}\label{136}
+ Tìm số $A = \overline{a_0 a_1 \ldots a_9}$ biết rằng:
+ \begin{itemize}
+  \item[ ] $a_0$ bằng số chữ số $0$ của số $A$,
+  \item[ ] $a_1$ bằng số chữ số $1$ của số $A$,\\
+  $\ldots \ldots \ldots \ldots$
+  \item[ ] $a_9$ bằng số chữ số $9$ của số $A$.
+ \end{itemize}
+ \loigiai
+  {
+  $A = \overline{a_0 a_1 a_2 a_3 a_4 a_5 a_6 a_7 a_8 a_9}$.\\
+  Số $A$ có $10$ chữ số nên
+  \begin{equation}
+   a_0 + a_1 + a_2 + \cdots + a_9 = 10 \label{3.5}
+  \end{equation}
+  Đặt $a_0 = k$ ($k \geq 1$). Số $A$ có $k$ chữ số $0$.\\
+  Chia $10$ chữ số của $A$ thành hai nhóm:\\
+  - Nhóm I gồm chữ số đầu (là $k$) và $k$ chữ số $0$. Nhóm này chiếm $k + 1$ vị trí và có tổng các chữ số bằng $k$.\\
+  - Nhóm II gồm các chữ số còn lại. Nhóm này chiếm $10 - (k+1) = 9 - k$ vị trí và có tổng các chữ số bằng $10 - k$.\\
+  Ở nhóm II, tổng các chữ số lớn hơn số chữ số của nó là $10 - k - (9 - k) = 1$. Điều này chỉ xảy ra khi  trong $9 - k$ chữ số ở nhóm II, có một chữ số $2$, còn lại là $8 - k$ chữ số đều là $1$.\\
+  Ta sẽ chứng minh các chữ số $2$ và $1$ chỉ thuộc nhóm II tức là chứng minh $a_0$ khác $2$ và $a_0$ khác $1$. Thật vậy:
+  \begin{itemize}
+   \item Nếu $a_0 = 2$ (tức $k = 2$) thì số chữ số $1$ (của nhóm II cũng là của $A$) là $8 - 2 = 6$. Suy ra $a_1 = 6$. Chỉ riêng $a_1$ và sáu chữ số $1$ đã có tổng $6 + 6 = 12 > 10$ (loại).
+   \item Nếu $a_0 = 1$ (tức $k = 1$) thì số chữ số $1$ của nhóm II là $8 - 1 = 7$. Số chữ số $1$ của $A$ là $a_1 = 8$. Chỉ riêng $a_1$ và tám chữ số $1$ đã có tổng $8 + 8 = 16 > 10$ (loại).
+   \item Vậy $A$ có một chữ số $2$ và $8-k$ chữ số $1$, tức là $a_2 = 1$ và $a_1 = 8 - k$.
+  \end{itemize}
+  Ta có $a_0 + a_1 + a_2 = k + (8 - k) + 1 = 9$ nên
+  \begin{equation}
+   a_3 + a_4 + a_5 + a_6 + a_7 + a_8 + a_9 = 1 \label{3.6}
+  \end{equation}
+  Chỉ xảy ra \eqref{3.6} khi vế trái của \eqref{3.6} có một số bằng $1$ và sáu số $0$. \hfill (*)\\
+  Ta thấy $a_1 \neq 0$ vì $A$ có chữ số $1$ là $a_2 = 1$. Do $a_0$, $a_1$, $a_2$ khác $0$  nên từ (*) suy ra $A$ có sáu chữ số $0$, tức là $a_0 = 6$.\\
+  Suy ra $a_1 = 8 - k = 8 - 6 = 2$.\\
+  Do $A$ có một chữ số $6$ nên $a_6 = 1$, từ \eqref{3.6} suy ra
+  $$a_3 = a_4 = a_5 = a_7 = a_8 = a_9 = 0.$$
+  Vậy số phải tìm là $6 \ 210 \ 001 \ 000$.
+  }
+\end{bt}
+
+
+\begin{bt}
+ Tìm số $A = \overline{a_0 a_1 a_2 a_3 a_4 a_5 a_6}$ biết rằng:
+ \begin{itemize}
+  \item[ ] $a_0$ bằng số chữ số $0$ của số $A$,
+  \item[ ] $a_1$ bằng số chữ số $1$ của số $A$,\\
+  $\ldots \ldots \ldots \ldots$
+  \item[ ] $a_6$ bằng số chữ số $6$ của số $A$.
+ \end{itemize}
+ \loigiai
+  {
+  $A = \overline{a_0 a_1 a_2 a_3 a_4 a_5 a_6}$.\\
+  Số $A$ có $7$ chữ số nên
+  \begin{equation}
+   a_0 + a_1 + a_2 + \cdots + a_6 = 7 \label{3.7}
+  \end{equation}
+  Đặt $a_0 = k$ ($k \geq 1$). Số $A$ có $k$ chữ số $0$.\\
+  Chia $7$ chữ số của $A$ thành hai nhóm:\\
+  - Nhóm I gồm chữ số đầu (là $k$) và $k$ chữ số $0$. Nhóm này chiếm $k + 1$ vị trí và có tổng các chữ số bằng $k$.\\
+  - Nhóm II gồm các chữ số còn lại. Nhóm này chiếm $7 - (k+1) = 6 - k$ vị trí và có tổng các chữ số bằng $7 - k$.\\
+  Ở nhóm II, tổng các chữ số lớn hơn số chữ số của nó là $7 - k - (6 - k) = 1$. Điều này chỉ xảy ra khi  trong $6 - k$ chữ số ở nhóm II, có một chữ số $2$, còn lại là $5 - k$ chữ số đều là $1$.\\
+  Ta sẽ chứng minh các chữ số $2$ và $1$ chỉ thuộc nhóm II tức là chứng minh $a_0$ khác $2$ và $a_0$ khác $1$. Thật vậy:
+  \begin{itemize}
+   \item Nếu $a_0 = 2$ (tức $k = 2$) thì số chữ số $1$ (của nhóm II cũng là của $A$) là $5 - 2 = 3$. Suy ra $a_1 = 3$. Ta thấy $a_0$, $a_1$ và ba chữ số $1$ đã có tổng $2 + 3 + 3 = 8 > 7$ (loại).
+   \item Nếu $a_0 = 1$ (tức $k = 1$) thì số chữ số $1$ của nhóm II là $5 - 1 = 4$. Số chữ số $1$ của $A$ là $a_1 = 5$. Chỉ riêng $a_1$ và năm chữ số $1$ đã có tổng $5 + 5 = 10 > 7$ (loại).
+   \item Vậy $A$ có một chữ số $2$ và $5-k$ chữ số $1$, tức là $a_2 = 1$ và $a_1 = 5 - k$.
+  \end{itemize}
+  Ta có $a_0 + a_1 + a_2 = k + (5 - k) + 1 = 6$ nên
+  \begin{equation}
+   a_3 + a_4 + a_5 + a_6 = 1 \label{3.8}
+  \end{equation}
+  Chỉ xảy ra \eqref{3.8} khi vế trái của \eqref{3.8} có một số bằng $1$ và ba số $0$. \hfill (*)\\
+  Ta thấy $a_1 \neq 0$ vì $A$ có chữ số $1$ là $a_2 = 1$. Do $a_0$, $a_1$, $a_2$ khác $0$  nên từ (*) suy ra $A$ có ba chữ số $0$, tức là $a_0 = 3$.\\
+  Suy ra $a_1 = 5 - k = 5 - 3 = 2$.\\
+  Do $A$ có một chữ số $3$ nên $a_3 = 1$, từ \eqref{3.8} suy ra
+  $$a_4 = a_5 = a_6 = 0.$$
+  Vậy số phải tìm là $3 \ 211 \ 000$.
+  }
+\end{bt}

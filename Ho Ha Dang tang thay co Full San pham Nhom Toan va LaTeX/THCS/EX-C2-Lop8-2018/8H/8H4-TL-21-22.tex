@@ -1,0 +1,876 @@
+\chapter{Đường thẳng và mặt phẳng trong không gian. Quan hệ song song}
+\section{Hình lăng trụ đứng}
+\subsection{Tóm tắt lí thuyết}
+Hình lăng trụ đứng có hai đáy là hai đa giác, các mặt bên là những hình chữ nhật.
+\begin{center}
+	\begin{tikzpicture}[scale=0.4, line join = round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/A,7/0/C,2.5/-3/B}
+\coordinate (A') at ($(A)+(0,6)$);
+\tkzDefPointsBy[translation = from A to A'](B,C){B'}{C'}
+\tkzDrawPolygon(A,B,C,C',B',A')
+\tkzDrawSegments(A',C' B',B)
+	\tkzDrawSegments[dashed](A,C)
+\tkzDrawPoints(A,C,B,A',B',C')
+\tkzLabelPoints[above](B')
+\tkzLabelPoints[below](B)
+\tkzLabelPoints[left](A',A)
+\tkzLabelPoints[right](C',C)
+\end{tikzpicture}
+\end{center}
+Hình lăng trụ đứng có đáy là hình bình hành gọi là hình hộp đứng. 
+\begin{center}
+	\begin{tikzpicture}[scale=.4, line join = round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/A,8/0/B,-3/-2/D}
+\coordinate (C) at ($(B)+(D)-(A)$);
+\coordinate (A') at ($(A) - (0,5)$);
+\tkzDefPointsBy[translation = from A to A'](B,C,D){B'}{C'}{D'}
+\tkzDrawPolygon(A,B,B',C',D',D)
+\tkzDrawSegments(C,B C,D C,C')
+\tkzDrawSegments[dashed](A',A A',B' A',D')
+\tkzDrawPoints(A,B,D,C,A',B',C',D')
+\tkzLabelPoints[above](A,B,C)
+\tkzLabelPoints[below](D',C')
+\tkzLabelPoints[left](A',D)
+\tkzLabelPoints[right](B')
+\end{tikzpicture}
+
+\end{center}
+ Diện tích xung quanh hình lăng trụ đứng bằng: Chu vi đáy $\times$ chiều cao.
+$$S_{xq}=2ph$$
+Thể tích hình lăng trụ đứng bằng: Diện tích đáy $\times$ chiều cao.
+$$V=Sh$$
+\begin{vd}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4B1]
+Cho hình lập phương $ABCD.A'B'C'D'$. Gọi $E$, $F$ theo thứ tự là trung điểm $AB$, $AD$. Người ta cắt hình lập phương theo mặt phẳng chứa $EF$ và song song với mặt chéo $\left(BDD'B'\right)$ thì hình lập phương đó chia thành hai hình lăng trụ. Tính số mặt, số đỉnh, số cạnh của mỗi hình lăng trụ.
+\loigiai{
+\immini{Hình lăng trụ nhỏ có $5$ mặt, $6$ đỉnh, $9$ cạnh.\\
+Hình lăng trụ lớn có $7$ mặt, $10$ đỉnh, $15$ cạnh.\\
+\begin{note}
+	Nếu gọi $M$ là số mặt, Đ là số đỉnh, C là số cạnh thì ở hai hình lăng trụ trên, ta thấy: 
+	M $+$ Đ $-$ C $=2$
+\end{note}}
+{\begin{tikzpicture}[scale=.6, line join = round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/D',5/0/C',2/2/A'}
+\coordinate (B') at ($(A')+(C')-(D')$);
+\coordinate (E) at ($(A)!0.5!(B)$);
+\coordinate (F) at ($(A)!0.5!(D)$);
+\coordinate (G) at ($(A')!0.5!(D')$);
+\coordinate (H) at ($(A')!0.5!(B')$);
+\tkzDefSquare(D',C')    \tkzGetPoints{C}{D}
+\tkzDefSquare(A',B')    \tkzGetPoints{B}{A}
+\tkzDrawPolygon(A,B,B',C',D',D)
+\tkzDrawSegments(C,B C,D C,C' D,B F,E)
+\tkzDrawSegments[dashed](A',A A',B' A',D' D',B' F,G E,H G,H)
+\tkzDrawPoints(A',B',C',D',C,D,B,A,E,F,G,H)
+\tkzLabelPoints[above](A,B,E)
+\tkzLabelPoints[below](D',C',H)
+\tkzLabelPoints[left](A',D,F,G)
+\tkzLabelPoints[right](C,B')
+\fill[pattern=north east lines] (E)--(F)--(G)--(H)--cycle;
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+\subsection{Bài tập}
+\begin{bt}~\\%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4K4]
+\begin{enumerate}
+	\item Tính số mặt, số cạnh, số đỉnh của một hình lăng trụ đứng có đáy là một đa giác $100$ cạnh; $n$ cạnh $(n\ge 3)$.
+	\item Chứng minh công thức đối M $+$ Đ $-$ C $=2$ của hình lăng trụ đứng với M là số mặt, Đ là số đỉnh, C là số cạnh.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+	\item Với đa giác đáy có $100$ cạnh, hình lăng trụ có $102$ mặt, $200$ đỉnh, $300$ cạnh. Với đa giác đáy có $n$ cạnh, hình lăng trụ có $n+2$ mặt, $2n$ đỉnh, $3n$ cạnh $(n\ge 3)$.
+	\item Suy ra từ câu a).
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}~\\%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4K4]
+	\begin{enumerate}
+		\item Trong các số sau $36$, $25$, $18$, $17$, $11$, $6$, $4$ số nào không thể là số đỉnh của một hình lăng trụ đứng?
+		\item Trong các số sau $12$, $20$, $9$, $15$, $32$, $6$ số nào không thể là số cạnh của một hình lăng trụ đứng?
+	\end{enumerate}
+\loigiai{
+\begin{enumerate}
+	\item Gọi $n$ là số cạnh của đa giác đáy. Số đỉnh của hình lăng trụ là $2n$ (với $n\ge 3$) nên không thể là $25$, $17$, $11$, $4$.
+	\item Gọi $n$ là số cạnh của đa giác đáy. Số cạnh của hình lăng trụ là $3n$ (với $n\ge 3$) nên không thể là $20$, $32$, $6$.
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4K4]
+Cho hình lăng trụ đứng $ABCD.A'B'C'D'$ có đáy là hình thoi. Biết đường cao $AA'=5$ cm, các đường chéo $AC'=15$ cm, $DB'=9$ cm. Tính cạnh $AB$ của đáy.
+\loigiai{
+\immini{Gọi $O$ là giao điểm của $AC$ và $BD$. \\
+	Ta lần lượt tính được $AC^2=200$, $OA^2=50$, $BD^2=56$, $OB^2=14$, $AB^2=64$, $AB=8$ cm.}
+{\begin{tikzpicture}[scale=.5, line join = round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/A,8/0/B,-3/-2/D}
+\coordinate (C) at ($(B)+(D)-(A)$);
+\coordinate (A') at ($(A) - (0,5)$);
+\tkzDefPointsBy[translation = from A to A'](B,C,D){B'}{C'}{D'}
+\coordinate (O) at ($(A)!0.5!(C)$);
+\tkzDrawPolygon(A,B,B',C',D',D)
+\tkzDrawSegments(C,B C,D C,C' D,B A,C)
+\tkzDrawSegments[dashed](A',A A',B' A',D' A,C' D,B')
+\tkzDrawPoints(A,B,D,C,A',B',C',D',O)
+\tkzLabelPoints[above](A,B,C,O)
+\tkzLabelPoints[below](D',C')
+\tkzLabelPoints[left](A',D)
+\tkzLabelPoints[right](B')
+\end{tikzpicture}
+}
+}
+\end{bt}
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4K5]%[8H4K6]
+Cho hình lăng trụ đứng $ABC.A'B'C'$ có đáy là tam giác đều, $M$ là trung điểm cạnh $BC$, $AA'=AM=a$.
+\begin{enumerate}
+	\item Tính cạnh đáy của hình lăng trụ.
+	\item Tính diện tích xung quanh và thể tích của hình lăng trụ.
+\end{enumerate}
+\loigiai{
+\immini{\begin{enumerate}
+	\item Trong tam giác đều $ABC$: $AB=\dfrac{2AM}{\sqrt{3}}=\dfrac{2a}{\sqrt{3}}$.
+	\item Diện tích tam giác $ABC$: $S=\dfrac{AB^2\sqrt{3}}{4}=\dfrac{\sqrt{3}a^2}{3}$.\\
+	Chu vi tam giác $ABC$: $C=3\cdot AB=\dfrac{6a}{\sqrt{3}}$.\\
+	Diện tích xung quanh: $S_{xq}=2C\cdot AA'=2\sqrt{3}a^2$.\\
+	Thể tích $V=AA'\cdot S=\dfrac{a^3\sqrt{3}}{3}$.
+\end{enumerate}}
+{\begin{tikzpicture}[scale=0.4, line join = round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/A,7/0/C,2.5/-3/B}
+\coordinate (A') at ($(A)+(0,6)$);
+\coordinate (M) at ($(C)!0.5!(B)$);
+\tkzDefPointsBy[translation = from A to A'](B,C){B'}{C'}
+\tkzDrawPolygon(A,B,C,C',B',A')
+\tkzDrawSegments(A',C' B',B)
+\tkzDrawSegments[dashed](A,C A,M)
+\tkzMarkSegments[pos=0.5,mark=|](M,B M,C)
+\tkzDrawPoints(A,C,B,A',B',C',M)
+\tkzLabelPoints[above](B')
+\tkzLabelPoints[below](B)
+\tkzLabelPoints[left](A',A)
+\tkzLabelPoints[right](C',C,M)
+
+\end{tikzpicture}
+}
+}
+\end{bt}
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4T1]
+	Một thùng hình hộp chữ nhật có chiều rộng $10$ dm, chiều cao $8$ dm, trong thùng đựng 1 phần nước. Khi nghiêng thùng cho nước trong thùng vừa vặn phủ kín mặt bên $10$ dm $\times$ $8$ dm thì nước còn phủ đầy $\dfrac{3}{4}$ của thùng. Tính chiều cao của mực nước khi thùng đặt nằm ngang.
+	\begin{center}
+	\begin{minipage}{0.45\linewidth}
+		\centering
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+		\def\a{5}
+		\def\b{2}
+		\tkzDefPoints{0/0/A}
+		\coordinate (B) at ($(A)+(\a,0)$);
+		\tkzDefShiftPoint[A](-150:\a/2){D}
+		\coordinate (C) at ($(B)+(D)-(A)$);
+		\coordinate (A') at ($(A)+(0,-\b)$);
+		\tkzDefPointsBy[translation = from A to A'](B,C,D){B'}{C'}{D'}
+		\def \t{1};
+		\fill[color=cyan!60] (D')--($(D')+(0,\t)$)--($(A')+(0,\t)$)--($(B')+(0,\t)$)--(B')--(C')--cycle;
+		\draw[color=black!50] ($(D')+(0,\t)$)--($(C')+(0,\t)$)--($(B')+(0,\t)$);
+		\tkzDrawPolygon(A,B,B',C',D',D)
+		\tkzDrawSegments(C,B C,C' C,D)
+		\tkzDrawSegments[dashed](A',A A',B' A',D')
+		\tkzDrawPoints[fill=black](A,B,D,C,A',B',C',D')
+		%\tkzLabelPoints(A,B,D,C,A',B',C',D')
+		\end{tikzpicture}
+	\end{minipage}
+	\begin{minipage}{0.45\linewidth}
+		\centering
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+		\begin{scope} [rotate=-30]
+		\def\a{5}
+		\def\b{2}
+		\tkzDefPoints{0/0/A}
+		\coordinate (B) at ($(A)+(\a,0)$);
+		\tkzDefShiftPoint[A](-140:\a/2){D}
+		\coordinate (C) at ($(B)+(D)-(A)$);
+		\coordinate (A') at ($(A)+(0,-\b)$);
+		\tkzDefPointsBy[translation = from A to A'](B,C,D){B'}{C'}{D'}
+		\def \t{1};
+		\coordinate (M) at ($(D')!0.2!(C')$);
+		\coordinate (N) at ($(A')!0.2!(B')$);
+		\fill[color=cyan!60] (M)--(N)--(B)--(B')--(C')--cycle;
+		%\draw ($(D')+(0,\t)$)--($(C')+(0,\t)$)--($(B')+(0,\t)$);
+		\tkzDrawPolygon(A,B,B',C',D',D)
+		\tkzDrawSegments(C,B C,C' C,D)
+		\tkzDrawSegments[color=black!50](M,C)
+		\tkzDrawSegments[dashed](A',A A',B' A',D')
+		\tkzDrawPoints[fill=black](A,B,D,C,A',B',C',D')
+		%\tkzLabelPoints(A,B,D,C,A',B',C',D')
+		\end{scope}
+		\end{tikzpicture}
+	\end{minipage}	
+	\end{center}
+	\loigiai{Gọi $a$ là chiều dài của đáy chậu và $x$ là chiều cao của mực nước phải tìm (đơn vị dm). Khi thùng nước đặt nằm ngang thì khối nước là một hình hộp chữ nhật có thể tích $10ax$ $\left(\text{dm}^3\right)$.\\
+	Khi thùng nước đặt nghiêng thì khối nước là một hình lăng trụ đứng, có chiều cao $10$ dm, đáy là một tam gác vuông có cạnh góc vuông là $8$ dm và $\dfrac{3}{4}a$, thể tích bằng $\dfrac{1}{2}\cdot 8 \cdot \dfrac{3}{4}a\cdot 10=30a\left(\text{dm}^3\right)$.\\
+Từ $10ax=30a$, ta tính được $x=3$ dm.}
+\end{bt}
+
+\section{Hình chóp đều. Hình chóp cụt đều}
+\subsection{Tóm tắt lí thuyết}
+Hình chóp có đáy là một đa giác, các mặt bên là những tam giác có chung một đỉnh, là đỉnh của hình chóp.
+\begin{center}
+	\begin{tikzpicture}[scale=0.5, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/B,7/0/C,2/-3/D,3/5/A}
+	\tkzDrawPolygon(A,B,D,C)
+	\tkzDrawSegments(A,D)
+	\tkzDrawSegments[dashed](B,C)
+	\tkzDrawPoints(A,B,C,D)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[below](D)
+	\tkzLabelPoints[left](B)
+	\tkzLabelPoints[right](C)
+	\end{tikzpicture}
+\end{center}
+Hình chóp đều là hình chóp có đáy là đa giác đều, các mặt bên là những tam giác cân.
+\begin{center}
+	\begin{tikzpicture}[scale=0.6,font=\footnotesize,line join=round, line cap=round,>=stealth]
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (2,-2);
+	\coordinate (D) at (5,0);
+	\coordinate (C) at ($(B)+(D)-(A)$);
+	\coordinate (O) at ($(A)!0.5!(C)$);
+	\coordinate (S) at ($(O)+(0,7)$);
+	\coordinate (M) at ($(B)!0.5!(A)$);
+	\tkzDrawSegments(S,A S,B S,C A,B B,C S,M)
+	\tkzDrawSegments[dashed,thin](A,C A,D C,D S,D S,O B,D)
+	\tkzMarkRightAngles[size=0.2,thin](S,O,D S,O,A S,M,B)
+	\tkzDrawPoints[fill=black,size=2pt](S,A,B,C,D,O,M)
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[left](A,M)
+	\tkzLabelPoints[below](B,C,O)
+	\tkzLabelPoints[right](D)
+	\tkzLabelSegment[right](S,O){$h$}
+	\tkzLabelSegment[left](S,M){$d$}
+	\end{tikzpicture}
+\end{center}
+Khi cắt hình chóp đều bởi một mặt phẳng song song với đáy, phần hình chóp nằm giữa mặt phẳng đó và mặt phẳng đáy là một hình chóp cụt đều. Hình chóp cụt đều có các mặt bên là những hình thang cân.
+\begin{center}
+\begin{tikzpicture}[scale=0.5, line join = round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/D,7/0/C,3/3/A}
+\coordinate (B) at ($(A)+(C)-(D)$);
+\tkzInterLL(A,C)(B,D)    \tkzGetPoint{O}
+\coordinate (S) at ($(O)+(0,7)$);
+\tkzDefPointBy[homothety = center S ratio 0.4](D)    \tkzGetPoint{D'}
+\tkzDefPointBy[homothety = center S ratio 0.4](C)    \tkzGetPoint{C'}
+\tkzDefPointBy[homothety = center S ratio 0.4](B)    \tkzGetPoint{B'}
+\tkzDefPointBy[homothety = center S ratio 0.4](A)    \tkzGetPoint{A'}
+\coordinate (O') at ($(B')!0.5!(D')$);
+\coordinate (H) at ($(C)!0.3!(B)$);
+\tkzMarkRightAngles[size=0.2,thin](C',H,B)
+\tkzDrawPolygon(A',B',C',D')
+\tkzDrawSegments(D,D' C,C' B,B' D,C B,C C',H)
+\tkzDrawSegments[dashed](A,A' A,D A,B O',O)
+\tkzDrawPoints(D,C,A,B,O,D',B',C',A')
+\tkzLabelPoints[left](A,D,D')
+\tkzLabelPoints[right](B,C,B',C')
+\tkzLabelPoints[above right](O,A')
+\tkzLabelSegment[left](O',O){$h$}
+\tkzLabelSegment[right](C',H){$d$}
+\end{tikzpicture}
+\end{center}
+Diện tích xung quanh của hình chóp đều bằng: Nửa chu vi đáy $\times$ Trung đoạn
+$$S_{xq}=pd$$
+Diện tích xung quanh của hình chóp cụt đều bằng: Nửa tổng chu vi đáy $\times$ Trung đoạn
+$$S_{xq}=\left(p+p'\right)d$$
+Thể tích của hình chóp bằng: $\dfrac{1}{3}$ diện tích đáy $\times$ Chiều cao.
+$$V=\dfrac{1}{3}Sh$$
+\begin{vd}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4K6]
+Một hình chóp và một hình lăng trụ đứng có diện tích đáy bằng nhau. Chiều cao của hình chóp gấp đôi chiều cao của hình lăng trụ. Tỉ số các thể tích của khối chóp và hình lăng trụ bằng
+\begin{enumEX}{4}
+\item $\dfrac{1}{3}$;
+\item $\dfrac{2}{3}$;
+\item $1$;
+\item $\dfrac{3}{2}$.	
+\end{enumEX}	
+\loigiai{
+Gọi $S$ và $h$ theo thứ tự là diện tích đáy và chiều cao của hình lăng trụ. Khi đó hình chóp có diện tích đáy $S$ và chiều cao $2h$.\\
+Thể tích hình chóp: $V_1=\dfrac{1}{3}S\cdot2h=\dfrac{2}{3}Sh$.\\
+Thể tích hình lăng trụ: $V_2=Sh$.\\
+Tỉ số các thể tích của khối chóp và hình lăng trụ bằng $\dfrac{2}{3}$. Vậy câu b) là câu trả lời đúng.
+}
+\end{vd}
+\begin{vd}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4G9]
+Tính thể tích hình chóp tam giác đều có cạnh đáy bằng $\sqrt{2}$ và cạnh bên bằng $1$.
+\loigiai{
+\begin{enumerate}[\bf Cách 1.]
+\item \immini{Kí hiệu như trên hình vẽ. Xét tam giác $CBM$ vuông tại $M$:\\
+	$BM^2=BC^2-CM^2=\left(\sqrt{2}\right)^2-\left(\dfrac{\sqrt{2}}{2} \right)^2=\dfrac{3}{2}$\\
+	$\Rightarrow BM=\dfrac{\sqrt{3}}{\sqrt{2}}$.\\
+	$BH=\dfrac{2}{3}BM=\dfrac{2}{3}\cdot\dfrac{\sqrt{3}}{\sqrt{2}}=\dfrac{\sqrt{2}}{\sqrt{3}}$.\\
+	Xét tam giác $\Delta AHB$ vuông tại $H$:\\
+	$AH^2=AB^2-BH^2=1-\left(\dfrac{\sqrt{2}}{\sqrt{3}}\right)^2=\dfrac{1}{3}\Rightarrow AH=\dfrac{1}{\sqrt{3}}$.\\
+	$S_{BCD}=\dfrac{1}{2}\cdot CD\cdot BM=\dfrac{1}{2}\cdot \sqrt{2}\cdot \dfrac{\sqrt{3}}{\sqrt{2}}=\dfrac{\sqrt{3}}{2}$.\\
+	$V=\dfrac{1}{3}\cdot S_{BCD}\cdot AH=\dfrac{1}{3}\cdot \dfrac{\sqrt{3}}{2}\cdot \dfrac{1}{\sqrt{3}}=\dfrac{1}{6}$.}
+{\begin{tikzpicture}[scale=0.7,font=\footnotesize,line join=round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\coordinate (B) at (-2,0);
+	\coordinate (C) at (-1,-3);
+	\coordinate (D) at (3,0);
+	\coordinate (M) at ($(C)!0.5!(D)$);
+	\tkzCentroid(D,B,C)    \tkzGetPoint{H}
+	\coordinate (A) at ($(H)+(0,5)$);
+	\tkzDrawSegments(A,B A,C A,D D,C C,B)
+	\tkzDrawSegments[dashed,thin](B,D H,A B,M)
+	\tkzDrawPoints[fill=black,size=2pt](D,A,B,C,H)
+	\tkzMarkSegments[pos=0.5,mark=|](C,M M,D)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[left](B)
+	\tkzLabelPoints[below](C,H)
+	\tkzLabelPoints[right](D,M)
+	\end{tikzpicture}
+}
+	\item Xét tam giác $\Delta CAD$
+	\begin{itemize}
+		\item $CD^2=\left(\sqrt{2}\right)^2=2$.
+		\item $AC^2+AD^2=1^2+1^2=2$
+		\item[$\Rightarrow$]$CD^2=AC^2+AD^2\Rightarrow \widehat{CAD}=90^\circ$.
+	\end{itemize}
+Tương tự $\widehat{BAC}=\widehat{BAD}=90^\circ$.\\
+Xét hình chóp đáy là tam giác vuông $CAD$, đường cao $BA$, thể tích hình chóp bằng:
+$$V=\dfrac{1}{3}\cdot S_{CAD}\cdot BA=\dfrac{1}{6}.$$
+\end{enumerate}
+}
+\end{vd}
+\begin{vd}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4G8]
+Một hình chóp cụt đều có đáy là hình vuông, các cạnh đáy bằng $a$ và $b$. Tính chiều cao của hình chóp cụt đều, biết rằng diện tích xung quanh bằng tổng diện tích hai đáy.
+\loigiai{
+\immini{Kí hiệu như hình vẽ.\\
+Diện tích xung quanh hình chóp cụt đều bằng tổng diện tích hai đáy nên $\left(2a+2b\right)d=a^2+b^2$.\\
+Do đó $d=\dfrac{a^2+b^2}{2\left(a+b\right)}$.\\
+Gọi $I$, $I'$ theo thứ tự là trung điểm của $BC$, $B'C'$. Ta có $O'I'\parallel A'B'\parallel AB\parallel OI$. $O'I'$ và $OI$ xác định mặt phẳng $\left(O'I'IO\right)$. Trên mặt phẳng đó kẻ $I'H\perp OI$.\\
+Đặt $I'I=d$, $I'H=OO'=h$. \\Ta có: $HI=OI-OH=\dfrac{a}{2}-\dfrac{b}{2}$\\
+$h^2=I'I^2-HI^2=d^2-\left(\dfrac{a-b}{2}\right)^2\quad (2)$\\
+}
+{\begin{tikzpicture}[scale=0.6, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/D,7/0/C,3/3/A}
+	\coordinate (B) at ($(A)+(C)-(D)$);
+	\tkzInterLL(A,C)(B,D)    \tkzGetPoint{O}
+	\coordinate (S) at ($(O)+(0,7)$);
+	\tkzDefPointBy[homothety = center S ratio 0.45](D)    \tkzGetPoint{D'}
+	\tkzDefPointBy[homothety = center S ratio 0.45](C)    \tkzGetPoint{C'}
+	\tkzDefPointBy[homothety = center S ratio 0.45](B)    \tkzGetPoint{B'}
+	\tkzDefPointBy[homothety = center S ratio 0.45](A)    \tkzGetPoint{A'}
+	\coordinate (I) at ($(B)!0.5!(C)$);
+	\coordinate (I') at ($(B')!0.5!(C')$);
+	\coordinate (O') at ($(B')!0.5!(D')$);
+	\tkzDefPointBy[projection = onto O--I](I')    \tkzGetPoint{H}
+	\tkzDrawPolygon(A',B',C',D')
+	\tkzDrawSegments(D,D' C,C' B,B' D,C B,C B',D' A',C' O',I' I,I')
+	\tkzDrawSegments[dashed](A,A' A,D A,B A,C B,D O,O' O,I I',H)
+	\tkzDrawPoints(D,C,A,B,O,D',B',C',A',I,I',O',H)
+	\tkzLabelPoints[left](A,D,D')
+	\tkzLabelPoints[right](B,C,I,I')
+	\tkzLabelPoints[above right](A',O',B')
+	\tkzLabelPoints[below](O,C')
+	\tkzLabelPoints[below left](H)
+	\tkzLabelSegment[below](D,C){$a$}
+	\tkzLabelSegment[left](O,O'){$h$}
+	\tkzLabelSegment[above](A',B'){$b$}
+	\tkzLabelSegment[right](I,I'){$d$}
+	\end{tikzpicture}}
+Từ $(1)$ và $(2)$ suy ra:\\
+$h^2=\dfrac{\left(a^2+b^2 \right)^2}{4(a+b)^2}-\dfrac{(a-b)^2}{4}=\dfrac{\left(a^2+b^2 \right)^2-\left(a^2-b^2\right)^2}{4(a+b)^2}=\dfrac{4a^2b^2}{4(a+b)^2}=\dfrac{a^2b^2}{(a+b)^2}$.\\
+Do đó $h=\dfrac{ab}{a+b}$.}
+\end{vd}
+\begin{vd}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4K7]
+Cho hình chóp $A.BCD$ có đáy $BCD$. Gọi $E$, $F$ theo thứ tự là trọng tâm các tam giác $BCD$, $ACD$.\begin{enumerate}
+	\item Chứng minh $EF\parallel AB$.
+	\item Gọi $K$ là trọng tâm tam giác $ABC$. Chứng minh rằng các đường thẳng $AE$, $BF$, $DK$ đồng qui.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+	\item \immini{Gọi $M$ là trung điểm của $CD$. Theo tính chất đường trung tuyến ta có
+	\begin{itemize}
+		\item $E\in BM$, $ME=\dfrac{1}{3}MB$.
+		\item $F\in AM$, $MF=\dfrac{1}{3}MA$.
+	\end{itemize}
+Ta có: $\dfrac{ME}{MB}=\dfrac{MF}{MA}=\dfrac{1}{3}$ nên $EF \parallel AB$ (định lý Ta-lét đảo).}
+{\begin{tikzpicture}[scale=0.7,font=\footnotesize,line join=round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\coordinate (B) at (-2,0);
+	\coordinate (C) at (-2,-3);
+	\coordinate (D) at (3,0);
+	\coordinate (M) at ($(C)!0.5!(D)$);
+	\coordinate (N) at ($(C)!0.5!(B)$);
+	\tkzCentroid(D,B,C)    \tkzGetPoint{E}
+	\tkzCentroid(A,D,C)    \tkzGetPoint{F}
+	\tkzCentroid(A,B,C)    \tkzGetPoint{K}
+	\tkzInterLL(A,E)(B,F)    \tkzGetPoint{G}
+	\coordinate (A) at ($(E)+(0,6)$);
+	\tkzDrawSegments(A,B A,C A,D D,C C,B A,M A,N)
+	\tkzDrawSegments[dashed,thin](B,D E,A B,M E,F D,N B,F K,D)
+	\tkzDrawPoints[fill=black,size=2pt](D,A,B,C,E,F,N,K,G)
+	\tkzMarkSegments[pos=0.5,mark=|](C,M M,D)
+	\tkzMarkSegments[pos=0.5,mark=||](C,N B,N)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[above left](G)
+	\tkzLabelPoints[left](B,N,K)
+	\tkzLabelPoints[below](C,E)
+	\tkzLabelPoints[right](D,M,F)
+	
+
+	\end{tikzpicture}}
+\item $AE$ cắt $BF$ tại $G$. Ta có $EF\parallel AB$ nên $\dfrac{GE}{GA}=\dfrac{EF}{AB}$.\\
+Ta lại có $\dfrac{EF}{AB}=\dfrac{MF}{MA}=\dfrac{1}{3}$. Do đó $G$ chia trong $EA$ theo tỉ số $1:3$.\\
+Chứng minh tương tự, $DK$ cắt $AE$ tại điểm $G'$, cũng chia trong $EA$ theo tỉ số $1:3$ suy ra $G\equiv G'$. Vậy $AE$, $BF$, $DK$ đồng quy.
+\end{enumerate}
+}
+\end{vd}
+
+\subsection{Bài tập}
+
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4K7]
+Cho hình chóp tứ giác đều $S.ABCD$ có cạnh đáy $20$ cm, chiều cao $10$ cm. Tính độ dài cạnh bên.
+\loigiai{
+\immini{Gọi $O$ là tâm hình vuông $ABCD$. Khi đó $SO=10$ cm.\\
+	Ta có $AC=AB\sqrt{2}=20\sqrt{2}$ cm, $OA=\dfrac{1}{2}\cdot AC=10\sqrt{2}$.\\
+	Trong tam giác vuông $SOA$:\\ $SA^2=SO^2+AC^2=300\Rightarrow SA=\sqrt{300}$.
+}
+{
+\begin{tikzpicture}[scale=0.5,font=\footnotesize,line join=round, line cap=round,>=stealth]
+\coordinate (A) at (0,0);
+\coordinate (B) at (2,-2);
+\coordinate (D) at (5,0);
+\coordinate (C) at ($(B)+(D)-(A)$);
+\coordinate (O) at ($(A)!0.5!(C)$);
+\coordinate (S) at ($(O)+(0,7)$);
+\tkzDrawSegments(S,A S,B S,C A,B B,C)
+\tkzDrawSegments[dashed,thin](A,C A,D C,D S,D S,O B,D)
+\tkzMarkRightAngles[size=0.2,thin](S,O,D S,O,A)
+\tkzDrawPoints[fill=black,size=2pt](S,A,B,C,D,O)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[below](B,C,O)
+\tkzLabelPoints[right](D)
+\end{tikzpicture}
+}
+}
+\end{bt}
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4G7]
+Hình chóp tam giác đều $S.ABC$ có tất cả các cạnh bằng $2$ dm. Tính độ dài đoạn thẳng $MN$ nối trung điểm hai cạnh đối $AB$ và $SC$.
+\loigiai{
+\immini
+{Gọi $M$, $N$ là trung điểm $AB$ và $SC$. \\
+Ta có $CM=\dfrac{AB\sqrt{3}}{2}=\dfrac{2\sqrt{3}}{2}=\sqrt{3}$ dm.\\
+Tam giác $MNC$ vuông tại $N$.\\
+ Ta tính được $MN^2=MC^2-NC^2=3-1=2\Rightarrow MN=\sqrt{2}$ dm. }
+{\begin{tikzpicture}[scale=0.6,line join=round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\coordinate (A) at (-2,0);
+	\coordinate (B) at (-1,-3);
+	\coordinate (C) at (3,0);
+	\tkzDefCircle[circum](A,B,C) \tkzGetPoint{O}
+	\coordinate (M) at ($(A)!0.5!(B)$);
+	\coordinate (N) at ($(S)!0.5!(C)$);
+	\coordinate (S) at ($(O)+(0,5)$);
+	\tkzDrawSegments(S,A S,B S,C B,C A,B S,M)
+	\tkzDrawSegments[dashed,thin](A,C M,N M,C)
+	%\tkzMarkRightAngles[size=0.2,thin](S,O,A S,O,C)
+	\tkzMarkSegments[pos=0.5,mark=|](M,A M,B)
+	\tkzMarkSegments[pos=0.5,mark=||](S,N N,C)
+	\tkzDrawPoints[fill=black,size=2pt](S,A,B,C,M,N)
+	
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[left](A,M)
+	\tkzLabelPoints[below](B)
+	\tkzLabelPoints[right](N,C)
+	\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4G9]
+Tính thể tích hình chóp lục giác đều có cạnh đáy $5$ cm, cạnh bên $13$ cm.
+\loigiai{\immini{Gọi $O$ là tâm của lục giác đều $ABCDEG$.\\
+Ta tính được $S=\dfrac{3\sqrt{3}AB^2}{2}=\dfrac{75\sqrt{3}}{2}$ cm$^2$.\\
+Tam giác $SAO$ vuông tại $O$:\\ $SO=\sqrt{SA^2-AO^2}=12$ cm.\\
+Thể tích hình chóp $V=\dfrac{1}{3}\cdot S\cdot h=150\sqrt{3}$ cm$^3$.}
+	{\begin{tikzpicture}[scale=0.8, line join = round, line cap=round,>=stealth]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{0/0/O,-2/0/A,-1/-1/B,1/-1/C,2/0/D,1/1/E,-1/1/G}
+		
+		\coordinate (S) at ($(O)+(0,6)$);
+		
+		\tkzDrawSegments(S,C S,A S,B S,C S,D A,B B,C C,D)
+		\tkzDrawSegments[dashed](S,O S,G S,E A,G A,D B,E D,E G,E)
+		\tkzDrawPoints(D,C,A,B,O,S,E,G)
+		\tkzLabelPoints[above](S)
+		\tkzLabelPoints[left](A,G)
+		\tkzLabelPoints[right](D,E)
+		\tkzLabelPoints[below](O,B,C)
+		\end{tikzpicture}
+}}
+\end{bt}
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4K1]
+Cho một khối gỗ hình lập phương $ABCD.A'B'C'D'$ cạnh $4$. Tại đỉnh $A$ người ta cưa lấy ra một hình chóp có đỉnh là $A$, ba đỉnh còn lại nằm trên ba cạnh xuất phát từ $A$ và cách $A$ là 1. Tại các đỉnh khác của hình lập phương ta cũng làm như vậy. Số cạnh của phần gỗ còn lại là
+\begin{enumEX}{5}
+	\item $24$;
+	\item $12$;
+	\item $16$;
+	\item $36$;
+	\item $30$.
+\end{enumEX}
+\loigiai{
+\immini{Hình lập phương có $12$ cạnh. Sau mỗi lần cưa, số cạnh tăng thêm $3$ nên sau $8$ lần cưa số cạnh tăng thêm $3\cdot 8=24$. Số cạnh của phần gỗ còn lại là $12+14=36$. Do đó d) là câu trả lời đúng.}
+{
+}}
+\end{bt}
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4G1]
+Cho một khối gỗ hình lập phương. Người ta cưa khối gỗ theo một mặt phẳng đi qua trung điểm của 3 cạnh xuất phát từ 1 đỉnh của hình lập phương.
+\begin{enumerate}
+	\item Tính thể tích của phần gỗ nhỏ bị cưa rời ra, biết cạnh của hình lập phương là 2.
+	\item Phần gỗ còn lại có bao nhiêu mặt, đỉnh, cạnh?
+\end{enumerate}
+\loigiai{
+\immini{\begin{enumerate}
+	\item Gọi $B''$, $C''$, $D''$ lần lượt là trung điểm của $CB$, $CC'$, $CD$. Khi cắt khối gỗ theo mặt phẳng qua $B''$, $C''$, $D''$ ta được một hình chóp tam giác đều $C.B''C''D''$ có cạnh đáy là $\sqrt{2}$ và các cạnh bên là $1$. Tính được $V=\dfrac{1}{6}$.
+	\item Hình lập phương có $6$ mặt, $8$ đỉnh, $12$ cạnh. Sau khi bị cưa, số mặt tăng $1$, số đỉnh tăng $2$, số cạnh tăng $3$. Do đó phần gỗ còn lại có $7$ mặt, $10$ đỉnh, $15$ cạnh.
+\end{enumerate}}
+{\begin{tikzpicture}[scale=0.5, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/D',5/0/C',2/2/A'}
+	\coordinate (B') at ($(A')+(C')-(D')$);
+	\tkzDefSquare(D',C')    \tkzGetPoints{C}{D}
+	\tkzDefSquare(A',B')    \tkzGetPoints{B}{A}
+	\tkzDefPointBy[homothety = center C ratio 0.5](B)    \tkzGetPoint{B''}
+	\tkzDefPointBy[homothety = center C ratio 0.5](C')   \tkzGetPoint{C''}
+	\tkzDefPointBy[homothety = center C ratio 0.5](D)    \tkzGetPoint{D''}
+	\tkzDrawPolygon(A,B,B',C',D',D)
+	\tkzDrawSegments(C,B C,D C,C' B'',D'' D'',C'' B'',C'')
+	\tkzDrawSegments[dashed](A',A A',B' A',D')
+	\tkzDrawPoints(A',B',C',D',C,D,B,A)
+	\tkzLabelPoints[above](A,B,D'',B'')
+	\tkzLabelPoints[below](D',C')
+	\tkzLabelPoints[left](A',D)
+	\tkzLabelPoints[right](C,B',C'')
+	\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4G5]
+	Cho một khối gỗ hình lập phương. Tại mỗi đỉnh của hình lập phương, người ta cưa khối gỗ theo một mặt phẳng đi qua trung điểm của 3 cạnh xuất phát từ đỉnh ấy.
+	\begin{enumerate}
+		\item Phần gỗ còn lại có bao nhiêu mặt, đỉnh, cạnh?
+		\item Tính tỉ số các thể tích của phần gỗ còn lại so với khối gỗ ban đầu.
+	\end{enumerate}
+\loigiai{
+\immini{\begin{enumerate}
+	\item Phần gỗ còn lại có $14$ mặt: $6$ mặt là hình vuông, $8$ mặt là tam giác đều. Số đỉnh của phần gỗ còn lại là số đỉnh của $6$ hình vuông, trong đó mỗi đỉnh được tính $2$ lần nên số đỉnh là $\dfrac{4\cdot6}{2}=12$.\\
+	Số cạnh của phần gỗ còn lại là số cạnh của $6$ hình vuông, nên số cạnh là $4\cdot6=24$.
+	\item Gọi cạnh của hình lập phương là $2a$, thể tích hình lập phương là $8a^3$. Mỗi hình chóp ở mỗi góc có thể tích $\dfrac{a^3}{6}$.\\
+	Phần gỗ còn lại có thể tích: $8a^3-8\cdot\dfrac{a^3}{6}=\dfrac{20a^3}{3}$.\\
+	Tỉ số phải tìm là $\dfrac{20a^3}{3}:\left(8a^3\right)=\dfrac{5}{6}$.
+\end{enumerate}}
+{\begin{tikzpicture}[scale=0.7, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/D',5/0/C',2/2/A'}
+	\coordinate (B') at ($(A')+(C')-(D')$);
+	\tkzDefSquare(D',C')    \tkzGetPoints{C}{D}
+	\tkzDefSquare(A',B')    \tkzGetPoints{B}{A}
+	\tkzDefPointBy[homothety = center C ratio 0.5](B)    \tkzGetPoint{B''}
+	\tkzDefPointBy[homothety = center C ratio 0.5](C')   \tkzGetPoint{C''}
+	\tkzDefPointBy[homothety = center C ratio 0.5](D)    \tkzGetPoint{D''}
+	\coordinate (I) at ($(A)!0.5!(B)$);
+	\coordinate (J) at ($(A)!0.5!(D)$);
+	\coordinate (K) at ($(A)!0.5!(A')$);
+	\coordinate (L) at ($(D)!0.5!(D')$);
+	\coordinate (M) at ($(D')!0.5!(C')$);
+	\coordinate (N) at ($(B')!0.5!(B)$);
+	\coordinate (O) at ($(A')!0.5!(D')$);
+	\coordinate (F) at ($(A')!0.5!(B')$);
+	\coordinate (G) at ($(C')!0.5!(B')$);		
+	\tkzDrawPolygon(A,B,B',C',D',D)
+	\tkzDrawSegments(C,B C,D C,C' B'',D'' D'',C'' B'',C'' D'',L  D'',J B'',I B'',N M,L C'',M C'',G I,J)
+	\tkzDrawSegments[dashed](A',A A',B' A',D' I,N J,L M,O L,O K,F O,K O,F G,N N,F G,F I,K K,J M,G)
+	\tkzDrawPoints(A',B',C',D',C,D,B,A)
+	\tkzLabelPoints[above](A,B)
+	\tkzLabelPoints[below](D',C')
+	\tkzLabelPoints[left](D)
+	\tkzLabelPoints[right](C,B')
+	\tkzLabelPoints[above right](A')
+	\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4K7]
+	Hình chóp tam giác đều $S.ABC$ có các mặt là tam giác đều. Gọi $O$ là trung điểm của đường cao $SH$ của hình chóp. Chứng minh rằng $\widehat{AOB}=\widehat{BOC}=\widehat{COA}=90^\circ$
+	\loigiai{
+\immini{Gọi $a$ là cạnh của hình chóp, $M$ là trung điểm của $AB$. Lần lượt tính được\\
+$CH=\dfrac{2}{3}CM=\dfrac{a\sqrt{3}}{3}$, $SH=\dfrac{a\sqrt{6}}{3}$.\\
+$OC^2=CH^2+OH^2=\dfrac{a^2}{3}+\dfrac{a^2}{6}=\dfrac{a^2}{2}$.\\
+Tương tự $OB^2=OA^2=\dfrac{a^2}{2}$.\\
+Trong tam giác $BOC$ ta có:\\ $OB^2+OC^2=\dfrac{a^2}{2}+\dfrac{a^2}{2}=a^2=BC^2\Rightarrow \widehat{BOC}=90^\circ$.\\
+Tương tự $\widehat{AOB}=\widehat{COA}=90^\circ$.}
+{\begin{tikzpicture}[scale=.7, line join = round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/A,7/0/C,2/-3/B}
+\tkzCentroid(B,C,A)    \tkzGetPoint{H}
+\coordinate (S) at ($(H)+(0,5)$);
+\coordinate (M) at ($(A)!0.5!(B)$);
+\coordinate (O) at ($(S)!0.5!(H)$);
+\tkzDrawSegments(A,S S,B S,C A,B B,C)
+\tkzDrawSegments[dashed](A,C S,H M,C O,A O,B O,C)
+\tkzDrawPoints(A,B,C,S,H,M)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[below](H)
+\tkzLabelPoints[left](B,A,M)
+\tkzLabelPoints[right](C,O)
+\tkzLabelSegment[left](S,O){$a$}
+\end{tikzpicture}
+
+}	
+}
+\end{bt}
+
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4G8]
+	Cho hình chóp cụt đều có hai đáy là các hình vuông cạnh $a$ và $2a$, cạnh bên bằng $a$. Tính:
+	\begin{enumerate}
+		\item Trung đoạn;
+		\item Diện tích xung quanh;
+		\item Đường cao.
+	\end{enumerate}
+\loigiai{
+	\immini{\begin{enumerate}
+		\item Ta tính được $CK=\dfrac{2a-a}{2}=\dfrac{a}{2}$, $C'K=\dfrac{a\sqrt{3}}{2}$.
+		\item $S_{xq}=(4a+2a)\cdot \dfrac{a\sqrt{3}}{2}=3\sqrt{3}a^2$.
+		\item $OC=\dfrac{2a}{\sqrt{2}}$, $O'C'=\dfrac{a}{\sqrt{2}}$, $HC=OC-O'C'=\dfrac{a}{\sqrt{2}}$.\\
+		$C'H^2=C'C^2-HC^2=a^2-\left(\dfrac{a}{\sqrt{2}}\right)^2=\dfrac{a^2}{2}$\\
+		$\Rightarrow C'H=\dfrac{a\sqrt{2}}{2}\Rightarrow O'O=\dfrac{a\sqrt{2}}{2}$.
+\end{enumerate}}
+{\begin{tikzpicture}[scale=0.6, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/D,7/0/C,3/3/A}
+	\coordinate (B) at ($(A)+(C)-(D)$);
+	\tkzInterLL(A,C)(B,D)    \tkzGetPoint{O}
+	\coordinate (S) at ($(O)+(0,7)$);
+	\tkzDefPointBy[homothety = center S ratio 0.45](D)    \tkzGetPoint{D'}
+	\tkzDefPointBy[homothety = center S ratio 0.45](C)    \tkzGetPoint{C'}
+	\tkzDefPointBy[homothety = center S ratio 0.45](B)    \tkzGetPoint{B'}
+	\tkzDefPointBy[homothety = center S ratio 0.45](A)    \tkzGetPoint{A'}
+	\coordinate (O') at ($(B')!0.5!(D')$);
+	\tkzDefPointBy[homothety = center C ratio 0.2](B)    \tkzGetPoint{K}
+	\tkzDefPointBy[homothety = center C ratio 0.2](A)    \tkzGetPoint{H}
+	\tkzMarkRightAngles[size=0.3](C',K,B C',H,A)
+
+	\tkzDrawPolygon(A',B',C',D')
+	\tkzDrawSegments(D,D' C,C' B,B' D,C B,C B',D' A',C' C',K)
+	\tkzDrawSegments[dashed](A,A' A,D A,B A,C B,D O,O' C',H)
+	\tkzDrawPoints(D,C,A,B,O,D',B',C',A',O',K,H)
+	\tkzLabelPoints[left](A,D,D',H)
+	\tkzLabelPoints[right](B,C,C')
+	\tkzLabelPoints[above right](A',O',B')
+	\tkzLabelPoints[below](O)
+	\tkzLabelPoints[below right](K)
+	
+	\end{tikzpicture}}}
+\end{bt}	
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4G8]
+	Cho hình chóp cụt đều có hai đáy là các hình vuông cạnh $a$ và $2a$, trung đoạn bằng $a$. Tính:
+	\begin{enumerate}
+		\item Diện tích xung quanh;
+		\item Cạnh bên;
+		\item Đường cao.
+	\end{enumerate}
+\loigiai{
+\immini{\begin{enumerate}
+	\item $S_{xq}=(4a+2a)a=6a^2$.
+	\item $CK=\dfrac{a}{2}$, $CC'^2=C'K^2+KC^2=a^2+\left(\dfrac{a}{2}\right)^2=\dfrac{5a^2}{4}\Rightarrow C'C=\dfrac{a\sqrt{5}}{2}$.
+	\item $OC=\dfrac{2a}{\sqrt{2}}$, $O'C'=\dfrac{a}{\sqrt{2}}$, $HC=OC-O'C'=\dfrac{a}{\sqrt{2}}$.\\
+	$C'H^2=C'C^2-HC^2=\left(\dfrac{a\sqrt{5}}{2}\right)^2-\left(\dfrac{a}{\sqrt{2}}\right)^2=$\\
+	$
+	\Rightarrow C'H^2=\dfrac{3a^2}{4}\Rightarrow C'H=\dfrac{a\sqrt{3}}{2}\Rightarrow O'O=\dfrac{a\sqrt{3}}{2}$.
+\end{enumerate}}
+{\begin{tikzpicture}[scale=0.6, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/D,7/0/C,3/3/A}
+	\coordinate (B) at ($(A)+(C)-(D)$);
+	\tkzInterLL(A,C)(B,D)    \tkzGetPoint{O}
+	\coordinate (S) at ($(O)+(0,7)$);
+	\tkzDefPointBy[homothety = center S ratio 0.45](D)    \tkzGetPoint{D'}
+	\tkzDefPointBy[homothety = center S ratio 0.45](C)    \tkzGetPoint{C'}
+	\tkzDefPointBy[homothety = center S ratio 0.45](B)    \tkzGetPoint{B'}
+	\tkzDefPointBy[homothety = center S ratio 0.45](A)    \tkzGetPoint{A'}
+	\coordinate (O') at ($(B')!0.5!(D')$);
+	\tkzDefPointBy[homothety = center C ratio 0.2](B)    \tkzGetPoint{K}
+	\tkzDefPointBy[homothety = center C ratio 0.2](A)    \tkzGetPoint{H}
+	\tkzMarkRightAngles[size=0.3](C',K,B C',H,A)
+	
+	\tkzDrawPolygon(A',B',C',D')
+	\tkzDrawSegments(D,D' C,C' B,B' D,C B,C B',D' A',C' C',K)
+	\tkzDrawSegments[dashed](A,A' A,D A,B A,C B,D O,O' C',H)
+	\tkzDrawPoints(D,C,A,B,O,D',B',C',A',O',K,H)
+	\tkzLabelPoints[left](A,D,D',H)
+	\tkzLabelPoints[right](B,C,C')
+	\tkzLabelPoints[above right](A',O',B')
+	\tkzLabelPoints[below](O)
+	\tkzLabelPoints[below right](K)
+	
+	\end{tikzpicture}}}
+\end{bt}
+
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4K7]
+	Chứng minh công thức M $+$ Đ $-$ C $=2$ đối với hình chóp (M, Đ, C theo thứ tự là số mặt, số đỉnh, số cạnh).
+	\loigiai{Gọi $n$ là số cạnh của đa giác đáy hình chóp. Số mặt của hình chóp là $n+1$, số đỉnh là $n+1$, số cạnh là $2n$, do đó:\\
+ M $+$ Đ $-$ C $=(n+1)+(n+1)-2n=2$	}
+\end{bt}
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4K7]
+	Cho hình chóp tam giác $S.ABC$, điểm $G$ là trọng tâm tam giác $SBC$. Gọi $K$ là trung điểm của $SA$. Hãy xác định giao điểm của đường thẳng $KG$ và mặt phẳng $(ABC)$.
+	\loigiai{
+\immini{Gọi $M$ là trung điểm của $BC$, $I$ là giao điểm của $KG$ và $AM$. Đó là giao điểm của đường thẳng $KG$ và mặt phẳng $(ABC)$.}
+{\begin{tikzpicture}[scale=0.6,line join=round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\coordinate (A) at (-2,0);
+	\coordinate (B) at (-1,-3);
+	\coordinate (C) at (3,0);
+	\tkzDefCircle[circum](A,B,C) \tkzGetPoint{O}
+	\coordinate (M) at ($(B)!0.5!(C)$);
+	\coordinate (S) at ($(O)+(0,5)$);
+	\coordinate (K) at ($(S)!0.5!(A)$);
+	\tkzCentroid(S,B,C)    \tkzGetPoint{G}
+	\tkzDrawSegments(S,A S,B S,C B,C A,B S,M M,I G,I)
+	\tkzDrawSegments[dashed,thin](A,C A,M K,G)
+	\tkzInterLL(K,G)(A,M)    \tkzGetPoint{I}
+
+	\tkzMarkSegments[pos=0.5,mark=|](S,K K,A)
+	\tkzDrawPoints[fill=black,size=2pt](S,A,B,C,M,K,G,I)
+	
+	\tkzLabelPoints[above](S)
+	\tkzLabelPoints[left](K,A)
+	\tkzLabelPoints[below](B,M)
+	\tkzLabelPoints[right](C,I,G)
+	\end{tikzpicture}
+}	
+}
+\end{bt}
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4G7]
+	Hình chóp $A.BCD$ có $AB=a$, $CD=b$. Gọi $M$, $N$ theo thứ tự là trung điểm của $AD$, $BC$. Chứng minh rằng $MN<\dfrac{a+b}{2}$.
+	\loigiai{
+\immini{Gọi $T$ là trung điểm của $BD$. Xét $\Delta MTN$:\\
+$MN\le MT+TN=\dfrac{a+b}{2}$. Dấu bằng không xảy ra.}
+{\begin{tikzpicture}[scale=0.6, line join = round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,7/0/C,2/-3/D,3/5/A}
+\tkzDrawPolygon(A,B,D,C)
+
+\coordinate (M) at ($(A)!0.5!(D)$);
+\tkzMarkSegments[pos=0.5,mark=|](M,A M,D)
+\coordinate (N) at ($(B)!0.5!(C)$);
+\tkzMarkSegments[pos=0.5,mark=||](B,N N,C)
+\coordinate (T) at ($(B)!0.5!(D)$);
+\tkzDrawSegments[dashed](B,C M,N T,N)
+\tkzDrawSegments(A,D M,T)
+\tkzDrawPoints(A,B,C,D,M,N,T)
+\tkzLabelPoints[above](A,N)
+\tkzLabelPoints[below](D)
+\tkzLabelPoints[left](B,T,M)
+\tkzLabelPoints[right](C)
+\end{tikzpicture}
+}	
+}
+\end{bt}
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4G7]
+	Cho hình chóp $A.BCD$. Chứng minh rằng ba đoạn thẳng nối trung điểm các cạnh đối của hình chóp gặp nhau tại một điểm ($AB$ và $CD$ là một cặp cạnh đối của hình chóp).
+	\loigiai{
+\immini{Kí hiệu như hình vẽ. Dễ dàng chứng minh $EFGH$ là hình bình hành, gọi giao điểm hai đường chéo $EG$ và $FH$ là $O$. Ta thấy $IFKH$ cũng là hình bình hành nên $O$ cũng là trung điểm của $IK$.}
+{\begin{tikzpicture}[scale=0.7, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/B,7/0/D,1/-3/C,3/5/A}
+	\coordinate (E) at ($(A)!0.5!(B)$);
+	\coordinate (I) at ($(A)!0.5!(C)$);
+	\coordinate (K) at ($(B)!0.5!(D)$);
+	\coordinate (H) at ($(B)!0.5!(C)$);
+	\coordinate (F) at ($(A)!0.5!(D)$);
+	\coordinate (G) at ($(C)!0.5!(D)$);
+	\tkzInterLL(I,K)(H,F)    \tkzGetPoint{O}
+	
+	\tkzDrawSegments[dashed](I,K H,K E,F B,D E,G H,F H,G I,F K,F)
+	\tkzDrawSegments(A,C I,H B,C A,D F,G A,B C,D E,H)
+	\tkzDrawPoints(A,B,C,D,I,K,H,E,G,O,F)
+	\tkzLabelPoints[above](A,K,O)
+	\tkzLabelPoints[below](C,G)
+	\tkzLabelPoints[left](B,H,I,E)
+	\tkzLabelPoints[right](D,F)
+	\end{tikzpicture}}	
+}
+\end{bt}
+\begin{bt}%[Điệp Nguyễn,EX-C2-L8-2018]%[8H4G7]
+	Cho hình chóp $S.ABC$. Trên $SA$, $SB$, $SC$ theo thứ tự lấy các điểm $A'$, $B'$, $C'$ sao cho các đường thẳng $A'B'$, $B'C'$, $C'A'$ theo thứ tự không song song với $AB$, $BC$, $CA$. Gọi $D$ là giao điểm của $A'B'$ và $AB$, $E$ là giao điểm của $B'C'$ và $BC$, $F$ là giao điểm của $C'A'$ và $CA$. Chứng minh rằng 3 điểm $D$, $E$, $F$ thẳng hàng.
+	\loigiai{
+\immini{Điểm $D\in AB$ mà $AB$ nằm trong mp$(ABC)$	nên $D\in (ABC)\quad (1)$.\\
+Điểm $D\in A'B'$ mà $A'B'$ nằm trong mp$(A'B'C')$	nên $D\in (A'B'C')\quad (2)$.\\
+Từ $(1)$ và $(2)$ suy ra $D$ thuộc giao tuyến của mp$(ABC)$ và mp$\left(A'B'C'\right)$.\\
+Chứng minh tương tự $E$, $F$ cũng thuộc giao tuyến của mp$(ABC)$ và mp$(A'B'C')$. Vậy $D$, $E$, $F$ thẳng hàng.}
+{\begin{tikzpicture}[scale=0.6, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/A,7/0/C,2/-3/B,3/5/S}
+	\tkzDrawPolygon(S,A,B,C)
+	\coordinate (A') at ($(S)!0.7!(A)$);
+	\coordinate (B') at ($(S)!0.85!(B)$);
+	\coordinate (C') at ($(S)!0.4!(C)$);
+	\tkzInterLL(A,B)(A',B')    \tkzGetPoint{D}
+	\tkzInterLL(C,B)(C',B')    \tkzGetPoint{E}
+	\tkzInterLL(A,C)(A',C')    \tkzGetPoint{F}
+	\tkzDrawSegments(S,B A,F B,E A,B F,D A',F C',E A',D)
+	\tkzDrawSegments[dashed](A,C A',C')
+	\tkzDrawPoints(S,A,C,B,A',B',C',D,E,F)
+	\tkzLabelPoints[above](A,A',S)
+	\tkzLabelPoints[below](B,D,E)
+	\tkzLabelPoints[left](F)
+	\tkzLabelPoints[right](C,B',C')
+	\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}
+	Chứng minh rằng trong một hình chóp tam giác bất kì, tồn tại ba cạnh xuất phát từ một đỉnh mà một cạnh lớn hơn tổng của hai cạnh kia.
+	\loigiai{
+		\immini{Gọi $AB$ là cạnh lớn nhất của hình chóp. Ta sẽ chứng minh rằng hoặc ba cạnh xuất phát từ $A$ hoặc ba cạnh xuất phát từ $B$ thỏa mãn bất đẳng thức tam giác.\\
+	Xét hai tam giác nhận $AB$ làm cạnh:\\
+$\Delta ABC:AC+BC>AB$\\
+$\Delta ABD: AD+BD>AB.$
+Suy ra $(AC+AD)+(BC+BD)>2AB$. Tồn tại một trong hai tổng: $AC+AD$ hoặc $BC+BD$ lớn hơn $AB$.}
+{\begin{tikzpicture}[scale=0.5, line join = round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,7/0/C,2/-3/D,4/7/A}
+\tkzDrawPolygon(A,B,D,C)
+\tkzDrawSegments(A,D)
+\tkzDrawSegments[dashed](B,C)
+\tkzDrawPoints(A,B,C,D)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](D)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\end{tikzpicture}
+}
+}
+\end{bt}
+\begin{bt}
+	Hình chóp $A.BCD$ có độ dại sáu cạnh là $7$, $13$, $18$, $27$, $36$, $41$. Cạnh nào đối diện với cạnh có độ dài $41$.
+	\loigiai{
+\immini{Xét cạnh có độ dài nhỏ nhất là $7$. Hai cạnh ở cùng một mặt với cạnh đó phải có hiệu nhỏ hơn $7$, chỉ có thể là: $13$ và $18$, hoặc $36$ và $41$. Giả sử $AB=41$, $BC=36$, $AC=7$.\\
+Khi đó $CD$, $AD$ nhận các giá trị $\{13;18\}$.\\
+Xét $CD=18$. Khi đó $AD=13$, $BD=27$, $\Delta ABD$ có $AD+BD<AB$, loại.\\
+Xét $CD=13$, $AD=18$. Do đó cạnh đối diện với cạnh $AB$	(có độ dài $41$) là cạnh $CD$ (có độ dài $13$).}
+{\begin{tikzpicture}[scale=0.5, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/B,7/0/C,2/-3/D,5/7/A}
+	\tkzDrawPolygon(A,B,D,C)
+	\tkzDrawSegments(A,D)
+	\tkzDrawSegments[dashed](B,C)
+	\tkzDrawPoints(A,B,C,D)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[below](D)
+	\tkzLabelPoints[left](B)
+	\tkzLabelPoints[right](C)
+	\tkzLabelSegment[right](A,C){$7$}
+	\tkzLabelSegment[left](A,B){$41$}
+	\tkzLabelSegment[above](B,C){$36$}
+	\end{tikzpicture}}
+}
+\end{bt}

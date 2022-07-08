@@ -1,0 +1,657 @@
+%%Biên soạn: Le Manh Thang. Phản biện: Lục Tường
+\section{Liên hệ giữa dây và khoảng cách từ tâm đến dây}
+\subsection{Tóm tắt lí thuyết}
+	\immini{\begin{dl}
+			Trong một đường tròn:
+			\begin{enumerate}[1)]
+				\item Hai dây bằng nhau thì cách đều tâm.
+				\item Hai dây cách đều tâm thì bằng nhau.
+			\end{enumerate}
+	\end{dl}}{
+		\begin{tikzpicture}[scale=.8]
+		\tkzDefPoints{0/0/O, 2/0/A}
+		\tkzDrawCircle(O,A)
+		\tkzDefShiftPoint[O](110:2){B}
+		\tkzDefShiftPoint[O](-35:2){D}
+		\tkzDefShiftPoint[O](-145:2){C}
+		\tkzDefMidPoint(A,B)\tkzGetPoint{K}
+		\tkzDefMidPoint(C,D)\tkzGetPoint{H}
+		\tkzDrawSegments(A,B C,D O,A O,D O,H O,K)
+		\tkzDrawPoints[fill=black](O,A,B,C,D,H,K)		
+		\tkzLabelPoints[above](B)
+		\tkzLabelPoints[shift={(-0.1,0.5)}](K)
+		\tkzLabelPoints[right](D,A)
+		\tkzLabelPoints[left](O,C)
+		\tkzLabelPoints[below](H)
+		\tkzMarkRightAngles(O,H,D O,K,A)
+		\end{tikzpicture}
+	}	
+
+	\immini{\begin{dl}
+	Trong hai dây của một đường tròn:
+	\begin{enumerate}[1)]
+		\item Dây nào lớn hơn thì dây đó gần tâm hơn.
+		\item Dây nào gần tâm hơn thì dây đó lớn hơn.
+	\end{enumerate}
+	\end{dl}}{
+		\begin{tikzpicture}[scale=.8]
+		\tkzDefPoints{0/0/O}
+		\tkzDefShiftPoint[O](115:2){A}
+		\tkzDrawCircle(O,A)
+		\tkzDefShiftPoint[O](-30:2){C}
+		\tkzDefShiftPoint[O](-150:2){B}
+		\tkzDefMidPoint(A,C)\tkzGetPoint{F}
+		\tkzDefMidPoint(A,B)\tkzGetPoint{D}
+		\tkzDefMidPoint(B,C)\tkzGetPoint{E}
+		\tkzDrawSegments(A,B B,C C,A O,E O,D O,F)
+		\tkzDrawPoints[fill=black](O,A,B,C,D,E,F)		
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[right](C)
+		\tkzLabelPoints[left](D,B)
+		\tkzLabelPoints[below](E)
+		\tkzLabelPoints[shift={(-0.5,0.1)}](O)
+		\tkzLabelPoints[shift={(-0.1,0.5)}](F)
+		\tkzMarkRightAngles(O,E,C O,F,C O,D,A)
+		\end{tikzpicture}
+}
+\vspace{6pt}
+\begin{note}
+	Cả hai định lý trên vẫn đúng với trường hợp hai đường tròn có bán kính bằng nhau (gọi là hai đường tròn bằng nhau).
+\end{note}
+\subsection{Các ví dụ}
+\begin{vd}
+	Cho đường tròn tâm $(O)$ bán kính $5\text{\,cm}$, dây $AB$ bằng $8\text{\,cm}$.
+	\begin{enumerate}
+		\item Tính khoảng cách từ tâm $O$ đến dây $AB$.
+		\item Gọi $I$ là điểm thuộc dây $AB$ sao cho $AI=1\text{\,cm}$. Kẻ dây $CD$ qua $I$ và vuông góc với $AB$. Chứng minh rằng $CD=AB$.
+	\end{enumerate}
+	\loigiai{
+	\immini{\vspace*{-20pt}
+	\begin{enumerate}
+		\item Gọi $H$ là trung điểm của $AB$, suy ra $OH\perp AB$.\\
+		Khoảng cách từ $O$ đến dây $AB$ là
+		\[OH=\sqrt{OA^2-HA^2}=\sqrt{5^2-4^2}=3\text{\,cm}.\]\vspace*{-24pt}
+		\item Kẻ $OK\perp CD$ tại $K$. Suy ra $OKIH$ là hình chữ nhật.\\
+		mà $IH=AH-AI=3\text{\,cm}$ $\Rightarrow IH=OH$.\\
+		suy ra $OKIH$ là hình vuông $\Rightarrow OK=OH$.\\
+		Do đó khoảng cách từ tâm $O$ đến hai dây $AB$ và $CD$ bằng nhau, suy ra $AB=CD$.
+	\end{enumerate}
+	}{
+		\begin{tikzpicture}[scale=1]
+		\tkzDefPoints{0/0/O}
+		\tkzDefShiftPoint[O](-145:2){A}
+		\tkzDefShiftPoint[O](-35:2){B}
+		\tkzDrawCircle(O,A)		
+		\tkzDefMidPoint(A,B)\tkzGetPoint{H}
+		\tkzDefPointBy[rotation=center H angle 90](O)\tkzGetPoint{I}
+		\tkzDefLine[perpendicular=through I](A,B) \tkzGetPoint{d}
+		\tkzInterLC(I,d)(O,A)\tkzGetFirstPoint{D}
+		\tkzInterLC(I,d)(O,A)\tkzGetSecondPoint{C}
+		\tkzDefMidPoint(C,D)\tkzGetPoint{K}
+		\tkzDrawSegments(A,B O,H C,D O,K)
+		\tkzDrawPoints[fill=black](O,A,B,H,I,C,D,K)		
+		\tkzLabelPoints[above](C)
+		\tkzLabelPoints[right](O,B)
+		\tkzLabelPoints[left](A,K)
+		\tkzLabelPoints[below](D,H)
+		\tkzLabelPoints[shift={(0,0)}](I)
+		\tkzMarkRightAngles(O,H,A C,I,H O,K,D)
+		\end{tikzpicture}}
+	}
+\end{vd}
+
+\begin{vd}
+	Cho đường tròn tâm $(O)$ các dây $MN$ và $PQ$ bằng nhau, các tia $MN$ và $PQ$ cắt nhau tại điểm $A$ nằm bên ngoài đường tròn. Gọi $E$ và $F$ theo thứ tự là trung điểm của $MN$ và $PQ$. Chứng minh rằng:
+	\begin{listEX}[2]
+		\item $AE=AF$.
+		\item $AN=AQ$.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+		\item Chứng minh $AE=AF$.
+		\immini{
+			Vì $E$, $F$ lần lượt là trung điểm của $MN$, $PQ$ nên
+			\begin{center}
+				$OE\perp MN$ và $OF\perp PQ$.
+			\end{center}
+			Mặt khác, $MN=PQ \,\Rightarrow\, OE=OF.$\\
+			Suy ra
+			$$AE=\sqrt{OA^2-OE^2}=\sqrt{OA^2-OF^2}=AF.$$
+		}{
+			\begin{tikzpicture}[scale=.9]
+			\tkzDefPoints{0/0/O}
+			\tkzDefShiftPoint[O](0:2){N}
+			\tkzDefShiftPoint[O](-120:2){M}
+			\tkzDefShiftPoint[O](30:2){Q}
+			\tkzDefShiftPoint[O](150:2){P}
+			\tkzDrawCircle(O,N)		
+			\tkzInterLL(P,Q)(M,N)\tkzGetPoint{A}
+			\tkzDefMidPoint(M,N)\tkzGetPoint{E}
+			\tkzDefMidPoint(P,Q)\tkzGetPoint{F}
+			\tkzDrawSegments(A,M A,P O,E O,F O,A)
+			\tkzDrawPoints[fill=black](O,A,M,N,P,Q,E,F)		
+			\tkzLabelPoints[above](Q,F)
+			\tkzLabelPoints[right](A)
+			\tkzLabelPoints[left](O,P)
+			\tkzLabelPoints[below](M)
+			\tkzLabelPoints[shift={(-0.1,0.1)}](N,E)
+			\tkzMarkRightAngles(O,E,A O,F,A)
+			\end{tikzpicture}
+		}\vspace*{-1.2cm}
+			\item Chứng minh $AN=AQ$.\\
+			Ta có
+			\[AN=AE-NE \text{\;và\;} AQ=AF-FQ\]
+			mà
+			\[NE=\dfrac{1}{2}MN=\dfrac{1}{2}PQ=QF \text{\;và\;} AE=AF\]
+			Suy ra $AN=AQ$.
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}
+	Cho đường tròn tâm $(O)$, dây $AB$ và dây $CD$, $AB<CD$. Giao điểm $K$ của các đường thẳng $AB$, $CD$ nằm ngoài đường tròn. Đường tròn $(O;OK)$ cắt $KA$ và $KC$ tại $M$ và $N$. Chứng minh rằng $KM<KN$.
+	\loigiai{
+	\immini{
+		Kẻ $OE\perp AB$ tại $E$, kẻ $OF\perp CD$ tại $F$.\\
+		Trong đường tròn nhỏ, ta có
+		\[AB<CD \;\Rightarrow\; OE>OF.\]
+		Trong đường tròn lớn, ta có
+		\[OE>OF \;\Rightarrow\; KM<KN.\]
+	}{
+	\begin{tikzpicture}[scale=.8]
+	\tkzDefPoints{0/0/O}
+	\tkzDefShiftPoint[O](0:2){A}
+	\tkzDefShiftPoint[O](-120:2){B}
+	\tkzDefShiftPoint[O](22:2){C}
+	\tkzDefShiftPoint[O](158:2){D}
+	\tkzDrawCircle(O,A)		
+	\tkzInterLL(A,B)(C,D)\tkzGetPoint{K}
+	\tkzDrawCircle(O,K)
+	\tkzInterLC(A,K)(O,K)\tkzGetSecondPoint{M}
+	\tkzInterLC(C,K)(O,K)\tkzGetFirstPoint{N}
+	\tkzDefMidPoint(A,B)\tkzGetPoint{E}
+	\tkzDefMidPoint(C,D)\tkzGetPoint{F}
+	\tkzDrawSegments(K,N K,M O,E O,F)
+	\tkzDrawPoints[fill=black](O,A,B,C,D,M,N,K,E,F)
+	\tkzLabelPoints[above](F)
+	\tkzLabelPoints[right](K)
+	\tkzLabelPoints[left](O,M,N)
+	\tkzLabelPoints[below](B,E)
+	\tkzLabelPoints[shift={(-0.1,0.1)}](A)
+	\tkzLabelPoints[shift={(-0.1,0.5)}](C)
+	\tkzLabelPoints[shift={(-0.5,0.5)}](D)
+	\tkzMarkRightAngles(O,E,A O,F,C)
+	\end{tikzpicture}
+}}
+\end{vd}
+
+\begin{vd}
+	Cho đường tròn tâm $(O)$ và điểm $I$ nằm bên trong đường tròn. Chứng minh rằng dây $AB$ vuông góc với $OI$ tại $I$ ngắn hơn mọi dây khác đi qua $I$.
+	\loigiai{
+		\immini{
+			Gọi $CD$ là dây bất kỳ (khác $AB$) đi qua $I$. Ta cần chứng minh $AB<CD$.\\
+			Kẻ $OI\perp CD$ tại $K$.\\
+			Tam giác $OKI$ vuông tại $K$ nên $OI>OK$.\\
+			Trong đường tròn $(O)$, ta có
+			\[OI>OK \;\Rightarrow\; AB<CD.\]
+		}{
+			\begin{tikzpicture}[scale=.9]
+			\tkzDefPoints{0/0/O}
+			\tkzDefShiftPoint[O](-30:2){B}
+			\tkzDefShiftPoint[O](-150:2){A}
+			\tkzDefShiftPoint[O](10:2){D}
+			\tkzDefShiftPoint[O](158:2){C}
+			\tkzDrawCircle(O,B)	
+			\tkzDefMidPoint(A,B)\tkzGetPoint{I}	
+			\tkzInterLC(I,D)(O,A)\tkzGetSecondPoint{C}
+			\tkzDefMidPoint(C,D)\tkzGetPoint{K}	
+			\tkzDrawSegments(A,B C,D O,I O,K)
+			\tkzDrawPoints[fill=black](O,A,B,C,D,I,K)
+			\tkzLabelPoints[above](O)
+			\tkzLabelPoints[right](B,D)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[below](I,C)
+			\tkzLabelPoints[shift={(-0.1,.15)}](K)
+			\tkzMarkRightAngles(O,I,A O,K,D)
+			\end{tikzpicture}
+	}}
+\end{vd}
+
+\begin{vd}
+	Cho đường tròn tâm $(O)$ và hai dây $AB$, $AC$ sao cho $AB<AC$ và tâm $O$ nằm trong góc $\widehat{ABC}$. Chứng minh rằng $\widehat{OAB}>\widehat{OAC}$.
+	\loigiai{
+		\immini{
+			Kẻ $OE\perp AB$ tại $E$, kẻ $OF\perp AC$ tại $F$.\\
+			Trong đường tròn $(O)$, ta có
+			\[AB<AC \;\Rightarrow\; OE>OF.\]
+			\[\Rightarrow\;\sin{\widehat{OAE}}=\dfrac{OE}{OA}>\dfrac{OF}{OA}=\sin{\widehat{OAF}}.\]
+			Suy ra $\widehat{OAE}>\widehat{OAF}$ hay $\widehat{OAB}>\widehat{OAC}$.
+		}{
+			\begin{tikzpicture}[scale=.9]
+			\tkzDefPoints{0/0/O}
+			\tkzDefShiftPoint[O](-35:2){B}
+			\tkzDefShiftPoint[O](-145:2){A}
+			\tkzDefShiftPoint[O](80:2){C}
+			\tkzDrawCircle(O,B)
+			\tkzDefMidPoint(A,B)\tkzGetPoint{E}	
+			\tkzDefMidPoint(A,C)\tkzGetPoint{F}	
+			\tkzDrawSegments(A,B A,C O,E O,F O,A)
+			\tkzDrawPoints[fill=black](O,A,B,C,E,F)
+			\tkzLabelPoints[above](C)
+			\tkzLabelPoints[right](B,O)
+			\tkzLabelPoints[left](A,F)
+			\tkzLabelPoints[below](E)
+			\tkzMarkRightAngles(O,E,A O,F,A)
+			\end{tikzpicture}
+	}}
+\end{vd}
+
+\begin{vd}
+	Cho đường tròn tâm $(O,R)$, dây $AB$ di động sao cho $\widehat{AOB}=60^\circ$. Gọi $M$ là trung điểm của $AB$. Chứng minh rằng điểm $M$ luôn di động trên một đường tròn cố định.
+	\loigiai{
+		\immini{
+			Vì $M$ là trung điểm của dây $AB$ nên $OM\perp AB$.\\
+			Lại có $OA=OB$ và $\widehat{AOB}=60^\circ$ $(O)$, suy ra tam giác $OAB$ đều.\\
+			Do đó,
+			\[OM=\dfrac{OA\sqrt{3}}{2}=\dfrac{R\sqrt{3}}{2}.\]
+			Suy ra $M$ di động trên đường tròn tâm $O$, bán kính bằng $\dfrac{R\sqrt{3}}{2}$.
+		}{
+			\begin{tikzpicture}[scale=.9]
+			\tkzDefPoints{0/0/O}
+			\tkzDefShiftPoint[O](30:2){B}
+			\tkzDefShiftPoint[O](-30:2){A}
+			\tkzDrawCircle(O,B)
+			\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+			\tkzDrawCircle[dashed](O,M)	
+			\tkzDrawSegments(A,B O,A O,B O,M)
+			\tkzDrawPoints[fill=black](O,A,B,M)
+			\tkzLabelPoints[right](A,B)
+			\tkzLabelPoints[left](O)
+			\tkzLabelPoints[above left](M)
+			\tkzMarkRightAngles(O,M,A)
+			\end{tikzpicture}
+	}}
+\end{vd}
+
+\begin{vd}
+	Cho tam giác nhọn $ABC$ nội tiếp đường tròn $(O)$. Gọi $M$ là điểm bất kỳ thuộc cung $BC$ không chứa $A$. Gọi $D$, $E$ theo thứ tự là điểm đối xứng với $M$ qua $AB$, $AC$. Tìm vị trí của $M$ để $DE$ có độ dài lớn nhất.
+	\loigiai{
+		\immini{
+			Ta có $AB$, $AC$ lần lượt là đường trung trực của $MD$ và $ME$ nên
+			\[AD=AM=AE.\]
+			Mặt khác,
+			\[\widehat{MAD}+\widehat{MAE}=
+			2\widehat{BAM}+2\widehat{MAC}=2\widehat{BAC}.\]
+			Do đó, tam giác $ADE$ cân tại $A$ có $\widehat{DAE}$ không đổi nên $DE$ lớn nhất khi $AD$ lớn nhất tương đương $AM$ lớn nhất hay $AM$ là đường kính của $(O)$.
+		}{
+			\begin{tikzpicture}[scale=1]
+			\clip (-3.8,-2.5) rectangle (3.8,2.5);
+			\tkzDefPoints{0/0/O}
+			\tkzDefShiftPoint[O](-27:2){C}
+			\tkzDefShiftPoint[O](-153:2){B}
+			\tkzDefShiftPoint[O](105:2){A}
+			\tkzDefShiftPoint[O](-113:2){M}
+			\tkzDefShiftPoint[O](-75:2){A'}
+			\tkzDefPointBy[reflection=over A--B](M)\tkzGetPoint{D}
+			\tkzDefPointBy[reflection=over A--C](M)\tkzGetPoint{E}
+			\tkzDrawCircle(O,B)
+			\tkzDefMidPoint(D,M)\tkzGetPoint{I}	
+			\tkzDefMidPoint(E,M)\tkzGetPoint{J}	
+			\tkzDrawSegments(A,I B,C C,A A,D A,E D,E A,M M,E D,M)
+			\tkzDrawSegments[dashed](A,A')
+			\tkzDrawPoints[fill=black](O,A,B,C,M,D,E)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[right](C,E,O)
+			\tkzLabelPoints[left](B,D)
+			\tkzLabelPoints[below](M)
+			\tkzMarkRightAngles(A,I,M A,J,M)
+			\end{tikzpicture}
+	}}
+\end{vd}
+
+\subsection{Luyện tập}
+\begin{bt}
+	Cho đường tròn tâm $O$ bán kính $OA=11\text{\,cm}$. Điểm $M$ thuộc bán kính $OA$ và cách $O$ là $7\text{\,cm}$. Qua $M$ kẻ dây $CD$ có độ dài $18\text{\,cm}$, $MC<MD$. Tính các độ dài $MC$, $MD$.
+	\loigiai{
+		\immini{
+			Kẻ $OI\perp CD$ tại $I$, suy ra $I$ là trung điểm $CD$. Ta có
+			\[OI=\sqrt{OC^2-CI^2}=\sqrt{11^2-9^2}=2\sqrt{10}.\]
+			và 
+			\[IM=\sqrt{OM^2-OI^2}=\sqrt{7^2-\left(2\sqrt{10}\right)^2}=\sqrt{9}=3.\]
+			Suy ra
+			\[CM=CI-IM=9-3=6\text{\,(cm)}\]
+			và \[DM=CD-CM=18-6=12\text{\,(cm)}.\]
+			
+		}{
+			\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{0/0/O}
+			\tkzDefShiftPoint[O](90:2){A}
+			\tkzDefShiftPoint[O](90:1.28){M}
+			\tkzDefShiftPoint[O](120:2){C}
+			\tkzDrawCircle(O,A)
+			\tkzInterLC(C,M)(O,A)\tkzGetSecondPoint{D}
+			\tkzDefMidPoint(C,D)\tkzGetPoint{I}
+			\tkzDrawSegments(O,A C,D O,I)
+			\tkzDrawPoints[fill=black](O,A,C,D,I,M)
+			\tkzLabelPoints[above](A,C,I)
+			\tkzLabelPoints[right](D)
+			\tkzLabelPoints[shift={(-.6,.05)}](M)
+			\tkzLabelPoints[below](O)
+			\tkzMarkRightAngles(O,I,D)
+			\end{tikzpicture}
+	}}
+\end{bt}
+
+\begin{bt}
+	Cho đường tròn tâm $O$ bán kính $25\text{\,cm}$. Hai dây $AB$, $CD$ song song với nhau và có độ dài lần lượt là $40\text{\,cm}$, $48\text{\,cm}$. Tính khoảng cách giữa hai dây $AB$, $CD$.
+	\loigiai{
+		\immini{
+			Kẻ $OM\perp AB$ tại $M$; $ON\perp CD$ tại $N$.\\
+			Vì $AB\parallel CD$ nên $M$, $O$, $N$ thẳng hàng.
+			Ta có
+			\[OM=\sqrt{OB2-MB^2}=\sqrt{25^2-20^2}=15.\]
+			và 
+			\[ON=\sqrt{OC^2-NC^2}=\sqrt{25^2-24^2}=7.\]
+			Khoảng cách $d$ giữa $AB$ và $CD$ là
+			\[d=OM+ON=15+7=22\text{\,(cm)}.\]		
+		}{
+			\begin{tikzpicture}[scale=1]
+			\clip (-2.5,-2.5) rectangle (2.6,2.6);
+			\tkzDefPoints{0/0/O}
+			\tkzDefShiftPoint[O](40:2){B}
+			\tkzDefShiftPoint[O](140:2){A}
+			\tkzDefShiftPoint[O](-160:2){D}
+			\tkzDefShiftPoint[O](-20:2){C}
+			\tkzDrawCircle(O,A)
+			\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+			\tkzDefMidPoint(C,D)\tkzGetPoint{N}
+			\tkzDrawSegments(A,B C,D M,N O,B O,C)
+			\tkzDrawPoints[fill=black](O,A,B,C,D,M,N)
+			\tkzLabelPoints[left](A,D,O)
+			\tkzLabelPoints[right](B,C)
+			\tkzLabelPoints[above](M)
+			\tkzLabelPoints[below](N)
+			\tkzMarkRightAngles(O,M,A O,N,C)
+			\end{tikzpicture}
+	}}
+\end{bt}
+
+\begin{bt}
+	Cho đường tròn tâm $O$, đường kính $10\text{\,dm}$, điểm $M$ cách $O$ là $3\text{\,dm}$.
+	\begin{enumerate}
+		\item Tính độ dài dây ngắn nhất đi qua $M$.
+		\item Tính độ dài dây dài nhất đi qua $M$.
+	\end{enumerate}
+	\loigiai{
+		\immini{\vspace*{-5mm}
+			\begin{enumerate}
+				\item Tính độ dài dây ngắn nhất đi qua $M$.\\
+				Theo ví dụ 1.4, gọi $AB$ là dây cung đi qua $M$ và vuông góc với $OM$, khi đó dây $AB$ ngắn hơn mọi dây cung khác đi qua $M$. Ta có
+				\[AB=2AM=2\sqrt{OA^2-OM^2}=\sqrt{5^2-3^2}=4\text{\,dm}.\]\vspace*{-8mm}
+				\item Tính độ dài dây dài nhất đi qua $M$.\\
+				Đường kính là dây cung lớn nhất. Do đó, dây cung đi qua $O$ và $M$ là dài nhất và bằng $10\text{\,dm}$.
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[scale=1]
+			\clip (-2.5,-2.2) rectangle (2.5,2.7);
+			\tkzDefPoints{0/0/O}
+			\tkzDefShiftPoint[O](-30:2){B}
+			\tkzDefShiftPoint[O](-150:2){A}
+			\tkzDefShiftPoint[O](90:2){D}
+			\tkzDefShiftPoint[O](-90:2){C}
+			\tkzDrawCircle(O,B)	
+			\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+			\tkzDrawSegments(C,D A,B)
+			\tkzDrawPoints[fill=black](O,A,B,C,D,M)
+			\tkzLabelPoints[right](B)
+			\tkzLabelPoints[left](A,O)
+			\tkzLabelPoints[below left](M)
+			\tkzMarkRightAngles(O,M,A)
+			\end{tikzpicture}
+	}}
+\end{bt}
+
+\begin{bt}
+	Cho đường tròn tâm $O$, dây $AB=24\text{\,cm}$, dây $AC=20\text{\,cm}$. Biết $\widehat{BAC}<90^\circ$ và điểm $O$ nằm trong góc $\widehat{BAC}$. Gọi $M$ là trung điểm của $AC$, khoảng cách từ $M$ đến $AB$ bằng $8\text{\,cm}$.
+	\begin{enumerate}
+		\item Chứng minh rằng tam giác $ABC$ cân.
+		\item Tính bán kính của đường tròn đã cho.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Chứng minh tam giác $ABC$ cân.
+			\immini{
+				Kẻ $MH\perp AB$ tại $H$. Tam giác $AHM$ vuông tại $H$, có $AM=10\text{\,cm}$, $MH=8\text{\,cm}$, suy ra
+				\[AH=\sqrt{MA^2-MH^2}=\sqrt{10^2-8^2}=6\text{\,cm}.\]
+				Kẻ $CK\perp AB$ tại $K$, suy ra $MH\parallel CK$.\\
+				Tam giác $ACK$ có $MH$ là đường trung bình nên
+				\[CK=2MH=16\text{\,cm}, \text{\;và\;} AK=2AH=12\text{\,cm}.\]
+			}{
+				\begin{tikzpicture}[scale=1]
+				\clip (-2.5,-2.5) rectangle (2.5,2.2);
+				\tkzDefPoints{0/0/O}
+				\tkzDefShiftPoint[O](160:2){A}
+				\tkzDefShiftPoint[O](20:2){B}
+				\tkzDefShiftPoint[O](-90:2){C}
+				\tkzDrawCircle(O,A)
+				\tkzDefMidPoint(A,B)\tkzGetPoint{K}
+				\tkzDefMidPoint(A,C)\tkzGetPoint{M}
+				\tkzDrawAltitude(A,B)(M)\tkzGetPoint{H}
+				\tkzDrawSegments(A,B A,C B,C O,M M,H C,K)
+				\tkzDrawPoints[fill=black](O,A,B,C,M,H,K)		
+				\tkzLabelPoints[above](H,K)
+				\tkzLabelPoints[right](B,O)
+				\tkzLabelPoints[left](A)
+				\tkzLabelPoints[below](C)
+				\tkzLabelPoints[shift={(-0.6,0.1)}](M)
+				\tkzMarkRightAngles(A,H,M C,K,A)
+				\tkzMarkSegments[mark=||](M,A M,C)
+				\end{tikzpicture}
+			}
+			Vì $AK=\dfrac{1}{2}AB$ nên $K$ là trung điểm $AB$. Vậy tam giác $ABC$ cân tại $C$.
+			\item Tính bán kính của đường tròn $(O)$.\\
+			Ta có $CK\perp AB$ và $OK\perp AB$ nên $O\in CK$.\\
+			Hai tam giác $OMC$ và $AKC$ có $\widehat{C}$ chung và $\widehat{OMC}=\widehat{AKC}=90^\circ$.\\
+			Do đó, hai tam giác $OMC$ và $AKC$ đồng dạng. Suy ra
+			\[\dfrac{MC}{KC}=\dfrac{OC}{AC}\;\Rightarrow\; OC=\dfrac{10\cdot 20}{16}=12{,}5\text{\,(cm)}.\]
+			Vậy đường tròn $(O)$ có bán kính bằng $12{,}5\text{\,cm}$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}
+	Cho đường tròn tâm $O$, đường kính $AB=13\text{\,cm}$. Dây $CD$ có độ dài $12\text{\,cm}$ và vuông góc với $AB$ tại $H$.
+	\begin{enumerate}
+		\item Tính độ dài đoạn $AH$ và $BH$.
+		\item Gọi $M$, $N$ lần lượt là hình chiếu của $H$ trên $AC$, $BC$. Tính diện tích tứ giác $CMHN$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Tính độ dài đoạn $AH$ và $BH$.
+			\immini{
+				Ta có $AB\perp CD$, suy ra $CH=\dfrac{1}{2}CD=6\text{\,cm}$.\\
+				Tam giác $CHO$ vuông tại $H$, ta có
+				\[OH=\sqrt{OC^2-OH^2}=\sqrt{(6{,}5)^2-6^2}=2{,}5\text{\,cm}.\]
+				Giả sử $AH<BH$, khi đó
+				\[AH=AO-HO=4\text{\,cm}, \text{\;và\;} BH=HO+OB=9\text{\,cm}.\]
+			}{
+				\begin{tikzpicture}[scale=1]
+				\clip (-2.4,-2.4) rectangle (2.5,2.4);
+				\tkzDefPoints{0/0/O}
+				\tkzDefShiftPoint[O](180:2){A}
+				\tkzDefShiftPoint[O](0:2){B}
+				\tkzDefShiftPoint[O](110:2){C}
+				\tkzDefShiftPoint[O](-110:2){D}
+				\tkzDrawCircle(O,A)
+				\tkzDefMidPoint(C,D)\tkzGetPoint{H}
+				\tkzDrawAltitude(A,C)(H)\tkzGetPoint{M}
+				\tkzDrawAltitude(B,C)(H)\tkzGetPoint{N}
+				\tkzDrawSegments(A,B C,D A,C C,B H,M H,N)
+				\tkzDrawPoints[fill=black](O,A,B,C,D,M,N,H)		
+				\tkzLabelPoints[above](C,N)
+				\tkzLabelPoints[right](B)
+				\tkzLabelPoints[left](A)
+				\tkzLabelPoints[below](O,D)
+				\tkzLabelPoints[below left](H)
+				\tkzLabelPoints[shift={(-0.3,-0.1)}](M)
+				\tkzMarkRightAngles(C,M,H C,N,H C,H,B)
+				\end{tikzpicture}
+			}
+			\item Tính diện tích tứ giác $CMHN$.\\
+			Vì $AB$ là đường kính nên tam giác $ABC$ vuông tại $C$. Do đó $CMHN$ là hình chữ nhật.\\
+			Tam giác $CHA$ vuông tại $H$, $HM$ là đường cao nên
+			\[\dfrac{1}{HM^2}=\dfrac{1}{HC^2}+\dfrac{1}{HA^2}=\dfrac{13}{144}
+			\;\Rightarrow\; HM=\dfrac{12\sqrt{13}}{13}\text{\,(cm)}.\]
+			Tam giác $CHB$ vuông tại $H$, $HN$ là đường cao nên
+			\[\dfrac{1}{HN^2}=\dfrac{1}{HC^2}+\dfrac{1}{HB^2}=\dfrac{13}{324}
+			\;\Rightarrow\; HN=\dfrac{18\sqrt{13}}{13}\text{\,(cm)}.\]
+			Diện tích $CMHN$ là
+			\[S_{CMHN}=HM\cdot HN=\dfrac{216}{13} \text{\,(cm}^2).\]
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}
+	Cho đường tròn $(O)$ và hai dây cung $AB$ và $CD$ cắt nhau tại điểm $M$ nằm bên trong đường tròn. Gọi $H$ và $K$ theo thứ tự là trung điểm của $AB$ và $CD$. Cho biết $AB>CD$, chứng minh rằng $MH>MK$.
+	\loigiai{
+	\immini{
+		Tam giác $OHM$ và $OKM$ vuông tại $H$ và $K$. Ta có
+		\begin{align*}
+			MH^2-MK^2&=\left(OM^2-OH^2\right)-\left(OM^2-OK^2\right)\\
+					 &=OK^2-OH^2.
+		\end{align*}
+		Mặt khác, trong đường tròn $(O)$, ta có
+		\[AB>CD \;\Rightarrow\; OH<OK \;\Rightarrow\; OK^2-OH^2>0.\]
+		Suy ra
+		\[MH^2>MK^2 \text{\;hay\;} MH>MK.\]
+	}{
+		\begin{tikzpicture}[scale=1]
+		\clip (-2.5,-2.5) rectangle (2.6,2.5);
+		\tkzDefPoints{0/0/O}
+		\tkzDefShiftPoint[O](190:2){A}
+		\tkzDefShiftPoint[O](45:2){B}
+		\tkzDefShiftPoint[O](160:2){C}
+		\tkzDefShiftPoint[O](-90:2){D}
+		\tkzDrawCircle(O,A)
+		\tkzInterLL(C,D)(A,B)\tkzGetPoint{M}
+		\tkzDefMidPoint(A,B)\tkzGetPoint{H}
+		\tkzDefMidPoint(C,D)\tkzGetPoint{K}
+		\tkzDrawSegments(O,M A,B C,D O,H O,K)
+		\tkzDrawPoints[fill=black](O,A,B,C,D,M,H,K)
+		\tkzLabelPoints[below](D)
+		\tkzLabelPoints[above](H)
+		\tkzLabelPoints[right](O,B)
+		\tkzLabelPoints[shift={(-.5,.05)}](K)
+		\tkzLabelPoints[shift={(-.22,.6)}](M)
+		\tkzLabelPoints[left](A,C)
+		\tkzMarkRightAngles(A,H,O C,K,O)
+		\end{tikzpicture}
+}}
+\end{bt}
+
+\begin{bt}
+	Cho đường tròn $(O)$ và hai điểm $A$, $B$ nằm bên trong đường tròn và không cùng thuộc một đường kính. Dựng hai dây song song và bằng nhau sao cho điểm $A$ nằm trên một dây, điểm $B$ nằm trên một dây còn lại.
+	\loigiai{
+		\immini{
+		\textbf{Cách dựng}.
+		\setlistsEX{%
+			counter-format = tsk[1]),label-width=1.5em,after-item-skip=0pt
+		}
+			\begin{enumerate}
+				\item Dựng trung điểm $I$ của đoạn $AB$.
+				\item Qua $A$, dựng dây $CD$ song song với $OI$.
+				\item Qua $B$, dựng dây $EF$ song song với $OI$.
+			\end{enumerate}
+		\textbf{Chứng minh}.\\
+		Theo cách dựng trên ta đã có hai dây $CD$ và $EF$ song song với nhau.
+		}{
+			\begin{tikzpicture}[scale=1]
+			\clip (-2.5,-2.5) rectangle (2.6,2.5);
+			\tkzDefPoints{0/0/O}
+			\tkzDefShiftPoint[O](150:2){C}
+			\tkzDefShiftPoint[O](30:2){D}
+			\tkzDefShiftPoint[O](-30:2){F}
+			\tkzDefShiftPoint[O](-150:2){E}
+			\tkzDrawCircle(O,C)
+			\tkzDefMidPoint(E,F)\tkzGetPoint{K}
+			\tkzDefMidPoint(C,D)\tkzGetPoint{H}
+			\tkzDefShiftPoint[C](0:1){A}
+			\tkzDefShiftPoint[E](0:0.5){B}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{I}
+			\tkzDrawSegments(E,F C,D H,K A,B O,I)
+			\tkzDrawPoints[fill=black](O,A,B,C,D,H,K,I,E,F)
+			\tkzLabelPoints[below](B,K)
+			\tkzLabelPoints[above](A,H)
+			\tkzLabelPoints[right](D,F,O)
+			\tkzLabelPoints[left](I,C,E)
+			\tkzMarkRightAngles(C,H,O O,K,E)
+			\tkzMarkSegments[mark=|](I,A I,B)
+			\end{tikzpicture}
+	}
+	\noindent Kẻ $OH\perp CD$ và $OK\perp EF$.\\
+		Ta có $IO$ là đường trung bình của hình thang $AHKB$ nên suy ra $OH=OK$.\\
+		Trong đường tròn $(O)$, ta có
+		\[OH=OK \;\Rightarrow\; CD=EF.\]
+		\textbf{Biện luận}.\\
+		Bài toán có một nghiệm hình.
+}
+\end{bt}
+
+\begin{bt}
+	Cho nửa đường tròn tâm $O$, đường kính $AB$, dây $CD$. Gọi $H$, $K$ theo thứ tự là chân các đường vuông góc kẻ từ $A$, $B$ đến $CD$.
+	\begin{enumerate}
+		\item Chứng minh rằng $CH=DK$.
+		\item Chứng minh rằng $S_{AHKB}=S_{ACB}+S_{ADB}$.
+		\item Tính diện tích lớn nhất của tứ giác $AHBK$, biết $AB=30\text{\,cm}$, $CD=18\text{\,cm}$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Chứng minh rằng $CH=DK$.
+			\immini{
+				Kẻ $OI\perp CD$ tại $I$, suy ra $I$ là trung điểm $CD$.\\
+				Ta có $AH$, $BK$, $OI$ song song với nhau (do cùng vuông góc với $CD$), đồng thời $O$ là trung điểm của $AB$ nên $OI$ là đường trung bình của hình thang $AHKB$, suy ra $IH=IK$. Do đó
+				\[CH=IH-IC=IK-ID=DK.\]\vspace*{-1cm}
+			}{
+				\begin{tikzpicture}[scale=1]
+				\clip (-3.5,-0.5) rectangle (3,2.8);
+				\tkzDefPoints{0/0/O}
+				\tkzDefShiftPoint[O](180:2.5){A}
+				\tkzDefShiftPoint[O](0:2.5){B}
+				\tkzDefShiftPoint[O](60:2.5){D}
+				\tkzDefShiftPoint[O](150:2.5){C}
+				\draw (B) arc (0:180: 2.5 and 2.5);
+				\tkzDefMidPoint(C,D)\tkzGetPoint{I}
+				\tkzDrawAltitude(C,D)(A)\tkzGetPoint{H}
+				\tkzDrawAltitude(C,D)(B)\tkzGetPoint{K}
+				\tkzDefPointBy[translation=from O to I](A)\tkzGetPoint{E}
+				\tkzDefPointBy[translation=from O to I](B)\tkzGetPoint{F}
+				\tkzDrawAltitude[dashed](A,B)(I)\tkzGetPoint{I'}
+				\tkzDrawAltitude[dashed](A,B)(C)\tkzGetPoint{C'}
+				\tkzDrawAltitude[dashed](A,B)(D)\tkzGetPoint{D'}
+				\tkzDrawSegments(A,B H,K O,I A,E B,F E,F)
+				\tkzDrawPoints[fill=black](O,A,B,C,D,H,K,I,E,F,I',C',D')		
+				\tkzLabelPoints[above](I,D)
+				\tkzLabelPoints[right](B,K,F)
+				\tkzLabelPoints[left](A,H,E)
+				\tkzLabelPoints[below](O,C',I',D')
+				\tkzLabelPoints[shift={(-0.5,0.5)}](C)
+				\tkzMarkRightAngles(A,H,I B,K,I O,I,D I,I',A)
+				\end{tikzpicture}
+			}
+			\item Qua $I$, kẻ đường thẳng song song với $AB$, cắt $AH$, $BK$ lần lượt tại $E$, $F$.\\
+			Gọi $I',C',D'$ lần lượt là hình chiếu của $I$, $C$, $D$ lên cạnh $AB$. Khi đó, $II'$ là đường trung bình của hình thang $CC'D'D$, suy ra $CC'+DD'=2II'$.\\
+			Hai tam giác vuông $IHE$ và $IKF$ có $IH=IK$ và $\widehat{HIE}=\widehat{KIF}$ nên bằng nhau.
+			Suy ra,
+			\[S_{AHKB}=S_{AEFB}=AB\cdot II'.\tag{1}\]
+			Mặt khác,
+			\[S_{ABC}+S_{ADB}=\dfrac{1}{2}CC'\cdot AB+\dfrac{1}{2}DD'\cdot AB=AB\cdot II'.\tag{2}\]
+			Từ $(1)$ và $(2)$, suy ra \[S_{AHKB}=S_{ACB}+S_{ADB}.\]
+			\item Độ dài $OI=\sqrt{OC^2-IC^2}=\sqrt{15^2-9^2}=12\text{\,cm}$.
+			Ta có
+			\[S_{AHKB}=AB\cdot II' \leqslant AB\cdot IO=30\cdot 12=360.\]
+			Dấu ``$=$'' xảy ra khi $I'\equiv O$ hay $CD \parallel AB$.\\
+			Vậy hình thang $AHKB$ có diện tích lớn nhất bằng $360\text{\,cm}^2$. 			
+		\end{enumerate}
+	}
+\end{bt}
+  

@@ -1,0 +1,405 @@
+\chapter{ĐỘ DÀI ĐƯỜNG TRÒN VÀ DIỆN TÍCH HÌNH TRÒN}
+
+\section{Độ dài đường tròn}
+	
+\begin{bt}%[Bài 50]%[Tuấn Nguyễn]
+	Cho điểm $B$ nằm giữa $A$ và $C$, biết rằng $AB=a$, $BC=b$. Vẽ các đường tròn $(O)$; $(I)$; $(K)$ đường kính lần lượt là $AB, BC, CA$. Gọi $D, E$ lần lượt trên $(O), (I)$ sao cho $DB=\dfrac{a\sqrt{2}}{2}$, $BE=\dfrac{b}{2}$.
+	\begin{enumerate}
+		\item Tính chu vi các đường tròn $(O)$; $(I)$; $(K)$ theo $a$ và $b$.
+		\item Tính độ dài các cung $AD, EC$ theo $a$ và $b$.
+		\item So sánh chu vi đường tròn $(K)$ với tổng các chu vi của hai đường tròn $(O)$ và $(I)$.
+	\end{enumerate}	
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round]
+			\tkzDefPoints{0/0/A,3/0/B,8/0/C}
+			\tkzDrawCircle[diameter](A,B) \tkzGetPoint{O}
+			\tkzDrawCircle[diameter](B,C) \tkzGetPoint{I}
+			\tkzDrawCircle[diameter](A,C) \tkzGetPoint{K}
+			\tkzInterCC[R](O,1.5 cm)(B,2.12 cm) \tkzGetPoints{D}{t}
+			\tkzInterCC[R](I,2.5 cm)(B,2.5 cm) \tkzGetPoints{y}{E}
+			\tkzDrawPoints(A,B,C,O,I,K,D,E)
+			\tkzDrawSegments(A,C B,D B,E)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above](E,D,O,I,K)
+			\tkzLabelPoints[below right](B)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Gọi chu vi các đường tròn $(O)$, $(I)$, $(K)$ lần lượt là $\mathrm{C}_O$, $\mathrm{C}_I$, $\mathrm{C}_K$. Ta có
+			\begin{itemize}
+				\item $\mathrm{C}_O=2\pi \cdot \dfrac{AB}{2} = \pi \cdot a \text{ (đvđd)}$.
+				\item $\mathrm{C}_I=2\pi \cdot \dfrac{BC}{2} = \pi \cdot b \text{ (đvđd)}$.
+				\item $\mathrm{C}_K=2\pi \cdot \dfrac{AC}{2} = \pi \cdot (a+b) \text{ (đvđd)}$
+			\end{itemize}
+			\item $BD$ là dây cung của $\left(O;\dfrac{a}{2}\right)$, $BD=\dfrac{AB\sqrt{2}}{2}$.\\
+			Dễ dàng chứng minh được tam giác $ABD$ là tam giác vuông cân, suy ra 
+			\[ \widehat {DBA} = 45^ \circ \Rightarrow \text{sđ}\wideparen{AD} = 90^\circ.\]
+			Vậy độ dài cung $AD$ là $l_{\wideparen{AD}}=\dfrac{\pi \cdot a \cdot 90}{360} = \dfrac{\pi a}{4} \text{ (đvđd)}$.
+			\item Ta có $C_O+C_I=\pi a + \pi b = \pi (a+b) = C_K$.\\
+			Vậy chu vi của đường tròn $(K)$ bằng tổng chu vi của hai đường tròn $(O)$ và $(I)$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Bài 51]%[Tuấn Nguyễn]
+	Cho đường tròn $(O;R)$, $AB$ và $AC$ là hai dây cung, $B$ thuộc cung $AC$, $AB=R\sqrt{2}$, $\text{sđ}\wideparen{AC}=120^\circ$.
+	\begin{enumerate}
+		\item Tính số đo dây cung $AB$, số đo dây cung $BC$.
+		\item Tính độ dài các cung $AB, BC, AC$ theo $R$.
+		\item Tính độ dài các đoạn thẳng $AC, BC$ theo $R$.
+		\item $E, F$ là hai điểm di động trên đường tròn $(O;R)$ sao cho $EF=R\sqrt{3}$. Chứng minh đường thẳng $EF$ luôn tiếp xúc với một đường tròn cố định.
+		\item Tính cạnh đa giác đều $12$ cạnh (thập nhị giác đều) nội tiếp $(O;R)$ theo $R$.
+		\item Tính cạnh bát giác đều nội tiếp $(O;R)$ theo $R$.
+	\end{enumerate}	
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round]
+			\tkzDefPoints{0/0/A,3/0/O}
+			\tkzDrawCircle(O,A)
+			\tkzDefShiftPoint[O](60:3){C}
+			\tkzDefShiftPoint[O](90:3){B}
+			\tkzDefShiftPoint[O](135:3){M}
+			\tkzDefShiftPoint[O](0:3){F}
+			\tkzDefShiftPoint[O](-120:3){E}
+			\tkzDrawAltitude(E,F)(O)\tkzGetPoint{K}
+			\tkzDrawAltitude(B,C)(A)\tkzGetPoint{H}
+			\tkzDrawPoints(A,B,C,O,H,K,M,E,F)
+			\tkzDrawSegments(O,A O,C A,C A,B A,M E,F C,H O,M)
+			\tkzLabelPoints[left](A,E)
+			\tkzLabelPoints[right](C,O,F)
+			\tkzLabelPoints[above](M,H,B)
+			\tkzLabelPoints[below right](K)
+			\tkzMarkRightAngles(A,H,B O,K,F)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có $AB = R\sqrt2$ mà $OA=OB=R$, nên $OA^2+OB^2=AB^2$ suy ra $\triangle OAB$ vuông cân tại $O \Rightarrow \text{sđ}\wideparen{AB} = 90^\circ$.\\
+			Vì điểm $B$ thuộc cung $AC$ nên
+			\[ \text{sđ}\wideparen{AC}=\text{sđ}\wideparen{AB}+\text{sđ}\wideparen{BC} \Rightarrow \text{sđ}\wideparen{BC}=\text{sđ}\wideparen{AC}-\text{sđ}\wideparen{AB}=120^\circ - 90^\circ=30^\circ.\]
+			Vậy $\text{sđ}\wideparen{AB} = 90^\circ$ và $\text{sđ}\wideparen{BC} = 30^\circ$.
+			\item Độ dài cung $AB$ là $l_{\wideparen{AB}}=\dfrac{2\pi \cdot R \cdot 90}{360} = \dfrac{\pi R}{2} \text{ (đvđd)}$.\\
+			Độ dài cung $BC$ là $l_{\wideparen{BC}}=\dfrac{2\pi \cdot R \cdot 30}{360} = \dfrac{\pi R}{6} \text{ (đvđd)}$.\\
+			Độ dài cung $AC$ là $l_{\wideparen{AC}}=\dfrac{2\pi \cdot R \cdot 120}{360} = \dfrac{2\pi R}{3} \text{ (đvđd)}$.
+			\item Hạ $AH \perp BC$, $H \in BC$. Dễ thấy $\triangle AHB$ là nửa tam giác đều, do đó
+			\[ HB = \dfrac{AB}{2}=\dfrac{R\sqrt 2}{2} \Rightarrow AH = \sqrt 3 \cdot HB = \sqrt 3 \cdot \dfrac{R\sqrt 2}{2} = \dfrac{R\sqrt 6}{2}. \]
+			Mà $\triangle AHC$ vuông cân ở $H$ nên $AC = \sqrt 2 \cdot AH = \sqrt 2 \cdot \dfrac{R\sqrt 6}{2} = R\sqrt 3$.\\
+			Ta có $BC = HC - HB = \dfrac{R\sqrt 6}{2} - \dfrac{R\sqrt 2}{2} = \dfrac{R\sqrt 2 \cdot (\sqrt 3 - 1)}{2} = \dfrac{R(\sqrt 3 - 1)}{\sqrt 2}$.\\
+			\item Với $E$, $F$ di động trên $(O)$ sao cho $EF=R\sqrt 3 $ thì  $\widehat {EOF} = 120^\circ$.\\
+			Hạ $OK \perp EF$, $K \in EF$, khi đó ta dễ dàng tính được $OK = \dfrac{R}{2}$.\\
+			Vậy khi $E$, $F$ di động trên $(O)$ thì đường thẳng $EF$ luôn tiếp xúc với đường tròn $\left(O;\dfrac{R}{2}\right)$.
+			\item Xét thập nhị giác đều như hình vẽ.
+			\begin{center}
+				\begin{tikzpicture}[scale=1, line join=round, line cap=round]
+				\tkzDefPoints{0/0/A,3/0/O}
+				\tkzDrawCircle(O,A)
+				\tkzDefShiftPoint[O](30:3){A_2}
+				\tkzDefShiftPoint[O](60:3){A_3}
+				\tkzDefShiftPoint[O](90:3){A_4}
+				\tkzDefShiftPoint[O](120:3){A_5}
+				\tkzDefShiftPoint[O](150:3){A_6}
+				\tkzDefShiftPoint[O](180:3){A_7}
+				\tkzDefShiftPoint[O](210:3){A_8}
+				\tkzDefShiftPoint[O](240:3){A_9}
+				\tkzDefShiftPoint[O](270:3){10}
+				\tkzDefShiftPoint[O](300:3){11}
+				\tkzDefShiftPoint[O](330:3){12}
+				\tkzDefShiftPoint[O](360:3){A_1}
+				\tkzDrawAltitude(A_1,O)(A_2)\tkzGetPoint{H}
+				\tkzDrawPoints(O,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,10,11,12,H)
+				\tkzDrawSegments(A_1,A_2 A_2,A_3 A_3,A_4 A_4,A_5 A_5,A_6 A_6,A_7 A_7,A_8 A_8,A_9 A_9,10 10,11 11,12 12,A_1 O,A_2 O,A_1 A_2,H)
+				\tkzLabelPoints[right](A_1,A_2,A_3)
+				\tkzLabelPoints[below](O,H)
+				\tkzLabelAngle[pos=1.0](A_1,O,A_2){\footnotesize $30^\circ$}
+				\tkzMarkRightAngles(A_2,H,O)
+				\end{tikzpicture}
+			\end{center}
+			Hạ $A_2H \perp A_1O$. Ta dễ dàng tính được $OH = \dfrac{R\sqrt 3}{2}$, $AH=\dfrac{R}{2}$.\\
+			Suy ra $A_1H = OA_1-OH=R-\dfrac{R\sqrt 3}{2}=\dfrac{R(2-\sqrt 3)}{2}$.\\
+			Áp dụng định lí Pi-ta-go cho tam giác $A_1 H A_2$ ta có
+			\[ A_1A_2=\sqrt{A_1H^2+A_2H^2} = R \sqrt {2-\sqrt 3} .\]
+			Vậy cạnh hình thập nhị giác đều nội tiếp $(O;R)$ là $R \sqrt {2-\sqrt 3}$.
+			\item Hình bát giác đều
+			\begin{center}
+				\begin{tikzpicture}[scale=1, line join=round, line cap=round]
+				\tkzDefPoints{0/0/A,3/0/O}
+				\tkzDrawCircle(O,A)
+				\tkzDefShiftPoint[O](45:3){A_1}
+				\tkzDefShiftPoint[O](90:3){A_2}
+				\tkzDefShiftPoint[O](135:3){A_3}
+				\tkzDefShiftPoint[O](180:3){A_4}
+				\tkzDefShiftPoint[O](225:3){A_5}
+				\tkzDefShiftPoint[O](270:3){A_6}
+				\tkzDefShiftPoint[O](315:3){A_7}
+				\tkzDefShiftPoint[O](360:3){A_8}
+				\tkzDrawAltitude(A_1,O)(A_2)\tkzGetPoint{H}
+				\tkzDrawPoints(O,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8)
+				\tkzDrawSegments(A_1,A_2 A_2,A_3 A_3,A_4 A_4,A_5 A_5,A_6 A_6,A_7 A_7,A_8 A_8,A_1 A_1,O A_2,O)
+				\tkzLabelPoints[above](A_1,A_2,A_3)
+				\tkzLabelPoints[below right](O,H)
+				\tkzLabelAngle[pos=0.8](A_1,O,A_2){\footnotesize $45^\circ$}
+				\tkzMarkRightAngles(A_2,H,O)
+				\end{tikzpicture}
+			\end{center}
+			Chứng minh tương tự ý e) ta có $A_1A_2=R\sqrt{2-\sqrt 2}$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Bài 52]%[Tuấn Nguyễn]
+	Cho đường tròn $(O;R)$, $A$ là điểm cố định sao cho $OA=2R$. Vẽ các tiếp tuyến $AB$, $AC$ với đường tròn $(O;R)$ ($B$, $C$ là các tiếp điểm). Vẽ cát tuyến $ADE$ ($D$ nằm giữa $A$ và $E$) với đường tròn $(O;R)$.
+	\begin{enumerate}
+		\item Tính độ dài cung $BC$ theo $R$.
+		\item Tính chu vi đường tròn ngoại tiếp tam giác $ABC$ theo $R$.
+		\item Tính chu vi đường tròn nội tiếp tam giác $ABC$ theo $R$.
+		\item Gọi $M$ là trung điểm $DE$. Tính chu vi đường tròn ngoại tiếp tam giác $MBC$ theo $R$.
+		\item Gọi $\mathrm{C}_1$, $\mathrm{C}_2$ lần lượt là chu vi của các đường tròn đường kính $AD$, $AE$. Xác định vị trí của cát tuyến $ADE$ để:
+		\begin{enumerate}
+			\item $\mathrm{C}_1+\mathrm{C}_2$ đạt giá trị lớn nhất.
+			\item $\mathrm{C}_1+\mathrm{C}_2$ đạt giá trị nhỏ nhất.
+		\end{enumerate}	
+	\end{enumerate}	
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round]
+			\clip (-0.7,-3.5) rectangle (9.7,3.5);
+			\tkzDefPoints{0/0/A,3/0/L,6/0/O}
+			\tkzDrawCircle(O,L)
+			\tkzTangent[from=A](O,L) \tkzGetPoints{e}{f}
+			\tkzInterLC(A,e)(O,L) \tkzGetPoints{B}{g}
+			\tkzInterLC(A,f)(O,L) \tkzGetPoints{C}{h}
+			\tkzDefShiftPoint[O](30:3){E}
+			\tkzInterLC(E,A)(O,L) \tkzGetPoints{D}{j}
+			\tkzDrawAltitude(A,E)(O)\tkzGetPoint{M}
+			\tkzDrawPoints(A,B,C,O,D,E,M)
+			\tkzDrawSegments(O,A B,C A,E A,B A,C)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](O,E)
+			\tkzLabelPoints[above](C,M)
+			\tkzLabelPoints[above left](D)
+			\tkzLabelPoints[below](B)
+			\tkzMarkRightAngles(O,M,E)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Dễ dàng chứng minh $\triangle OAB$ là nửa tam giác đều suy ra $\triangle ABC$ là tam giác đều.\\
+			\[ \Rightarrow BC=AB= \sqrt{OA^2-OB^2}=\sqrt{4R^2-R^2}=\sqrt{3R^2}=\sqrt 3 R .\]
+			\item Dễ thấy $4$ điểm $A$, $B$, $C$, $O$ thuộc đường tròn đường kính $AO$ nên đường tròn ngoại tiếp $\triangle ABC$ là đường tròn đường kính $AO=2R$.\\
+			Chu vi đường tròn ngoại tiếp tam giác $ABC$ là $\mathrm{C}=\pi \cdot 2R=2\pi R$.
+			\item Tam giác $ABC$ là tam giác đều nên tâm đường tròn ngoại tiếp cũng chính là trọng tâm, trực tâm và tâm đường tròn nội tiếp tam giác.\\
+			Gọi $r$ là bán kính đường tròn nội tiếp tam giác $ABC$, ta có $\dfrac{r}{R}=\dfrac{1}{2} \Rightarrow r = \dfrac{R}{2}$.\\
+			Chu vi đường tròn ngoại tiếp tam giác $ABC$ là $\mathrm{C'}=\pi \cdot 2r=2\pi \dfrac{R}{2}=\pi R$.
+			\item Dễ dàng chứng minh được $4$ điểm $B$, $M$, $O$, $C$ cùng thuộc một đường tròn nên đường tròn ngoại tiếp tam giác $MBC$ chính là đường tròn đường kính $AO=2R$.\\
+			Ở câu b) ta đã tính được chu vi đường tròn này là $\mathrm{C}=2\pi R$.\\
+			Vậy chu vi đường tròn ngoại tiếp tam giác $MBC$ là $\mathrm{C}=2\pi R$.
+			\item Ta có
+			\[ \mathrm{C}_1+\mathrm{C}_2 = \pi \times (AD+AE) \]
+			\begin{enumerate}
+				\item $AD+AE=2AM$, mà $AM \le AO$ (quan hệ hình chiếu và đường xiên) suy ra $AM$ đạt giá trị lớn nhất là $AO=2R$ khi $M \equiv O$ hay cát tuyến $ADE$ đi qua $O$.\\
+				Khi đó $\mathrm{C}_1+\mathrm{C}_2 = \pi \times (AD+AE) = \pi \times 2R = 2\pi R$.\\
+				Vậy $\mathrm{C}_1+\mathrm{C}_2$ đạt giá trị lớn nhất là $2\pi R$ khi cát tuyến $ADE$ đi qua tâm $O$.
+				\item Áp dụng bất đẳng thức Cô-si, ta có
+				\[ AD+AE \le 2 \sqrt{AD \cdot AE} = 2\sqrt{AB^2}=2AB=2\sqrt3 R.\]
+				Dấu bằng xảy ra khi và chỉ khi $AD=AE=AB$ hay $D \equiv E$ và $AD$ là tiếp tuyến của $(O)$.\\
+				Khi đó $\mathrm{C}_1+\mathrm{C}_2 = \pi \times 2AB = \pi \times 2\sqrt3 R =2\sqrt 3 \pi R $.\\
+				Vậy $\mathrm{C}_1+\mathrm{C}_2$ đạt giá trị nhỏ nhất là $2\sqrt 3 \pi R$ khi $ADE$ là tiếp tuyến của $(O)$ (khi đó $E \equiv D$).
+			\end{enumerate}	
+		\end{enumerate}
+	}
+\end{bt}
+
+\section{Diện tích hình tròn}
+	
+\begin{bt}%[Bài 53]%[Cao Thành Thái]
+	Cho đoạn thẳng $AB$ cố định, $C$ là điểm chuyển động trên đoạn thẳng $AB$. Vẽ về một phía của $AB$ các nửa đường tròn có đường kính là $AB$, $AC$, $CB$. Đặt $AB=2a$, $AC=2x$ ($a>x>0$).
+	\begin{enumerate}
+		\item Tính diện tích các nửa hình tròn đường kính $AB$, $AC$, $CB$ theo $a$, $x$.
+		\item Xác định vị trí của điểm $C$ để diện tích phần giới hạn bởi ba nửa đường tròn trên đạt giá trị lớn nhất.
+		\item Gọi $I$, $K$ lần lượt là tâm các đường tròn đường kính $AC$, $CB$. $DE$ là tiếp tuyến của các đường tròn $(I)$, $(K)$ ($D \in (I)$; $E \in (K)$). Giả sử $\widehat{DIC}=60^\circ$. Tính diện tích hình giới hạn bởi đoạn thẳng $DE$, cung $\wideparen{DC}$ của $(I)$ và cung $\wideparen{EC}$ của $(K)$.
+	\end{enumerate}
+	\loigiai
+	{
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/A, 9/0/B}
+			\tkzDefBarycentricPoint(A=1.2,B=4)\tkzGetPoint{C}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+			\tkzDefMidPoint(A,C)\tkzGetPoint{I}
+			\tkzDefMidPoint(C,B)\tkzGetPoint{K}
+			\tkzCalcLength[cm](A,M)\tkzGetLength{rAM}
+			\tkzCalcLength[cm](A,I)\tkzGetLength{rAI}
+			\tkzCalcLength[cm](C,K)\tkzGetLength{rCK}
+			\coordinate(D) at ([shift={(I)}]60:\rAI cm and \rAI cm);
+			\coordinate(E) at ([shift={(K)}]60:\rCK cm and \rCK cm);
+			\draw [pattern=north east lines] (I)--(D)--(E)--(K)--cycle;
+			\draw (B) arc(0:180:\rAM cm and \rAM cm);
+			\draw[fill=white] (C) arc(0:180:\rAI cm and \rAI cm);
+			\draw[fill=white] (B) arc(0:180:\rCK cm and \rCK cm);
+			\tkzTangent[at=C](I)\tkzGetPoint{c}
+			\tkzInterLL(D,E)(C,c)\tkzGetPoint{T}
+			\tkzDrawPoints[fill=black](A,B,C,D,E,M,I,K,T)
+			\tkzDrawSegments(I,D K,E D,E A,B C,T T,I T,K)
+			\tkzMarkRightAngles(I,D,E K,E,D)
+			\tkzLabelPoints[below](A,B,I,C,K)
+			\tkzLabelPoints[above](D,E,T)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Gọi $S_1$, $S_2$, $S_3$ lần lượt là diện tích các nửa hình tròn đường kính $AB$, $AC$, $CB$.\\
+			Ta có
+			\allowdisplaybreaks
+			\begin{eqnarray*}
+				S_1 &=& \dfrac{1}{2}\pi\left(\dfrac{AB}{2}\right)^2 = \dfrac{1}{2}\pi \left(\dfrac{2a}{2}\right)^2 = \dfrac{1}{2}\pi a^2.\\
+				S_2 &=& \dfrac{1}{2}\pi\left(\dfrac{AC}{2}\right)^2 = \dfrac{1}{2}\pi\left(\dfrac{2x}{2}\right)^2 = \dfrac{1}{2}\pi x^2.\\
+				S_3 &=& \dfrac{1}{2}\pi\left(\dfrac{CB}{2}\right)^2 = \dfrac{1}{2}\pi\left(\dfrac{AB-AC}{2}\right)^2 = \dfrac{1}{2}\pi\left(\dfrac{2a-2x}{2}\right)^2 = \dfrac{1}{2}\pi (a-x)^2.
+			\end{eqnarray*}
+			\item Gọi $S_4$ là diện tích phần hình giới hạn bởi ba đường tròn đường kính $AB$, $AC$, $CB$.\\
+			Ta có
+			\allowdisplaybreaks
+			\begin{eqnarray*}
+				S_4 &=& S_1-(S_2+S_3) = \dfrac{1}{2}\pi a^2 - \left[\dfrac{1}{2}\pi x^2 + \dfrac{1}{2}\pi (a-x)^2\right]\\
+				&=& \dfrac{\pi}{2}a^2 - \dfrac{\pi}{2}(x^2+a^2-2ax+x^2) = \dfrac{\pi}{2}(-2x^2+2ax)\\
+				&=& \pi(-x^2+ax) = \pi\left[-\left(x-\dfrac{a}{2}\right)^2 + \dfrac{a^2}{4} \right].
+			\end{eqnarray*}
+			Do đó $S_4 \leq \dfrac{\pi a^2}{4}$, với mọi $0<x<a$. Đẳng thức xảy ra khi $x-\dfrac{a}{2}=0$ hay $x=\dfrac{a}{2}$.\\
+			Vậy diện tích phần hình giới hạn bởi ba nửa đường tròn đường kính $AB$, $AC$, $BC$ đạt giá trị lớn nhất bằng $\dfrac{\pi a^2}{4}$ khi $C$ là trung điểm của đoạn thẳng $AB$.
+			\item Từ điểm $C$ kẻ tiếp tuyến chung của hai đường tròn $(I)$, $(K)$ cắt $DE$ tại $T$. Khi đó $DT=CT=TE$ và $TI$, $TK$ lần lượt là phân giác của $\widehat{DIC}$, $\widehat{EKC}$.\\
+			Trong hình thang $DEKI$ có $\widehat{D}=\widehat{E}=90^\circ$ và $\widehat{DIC}=60^\circ$ nên $\widehat{EKC}=120^\circ$.\\
+			Suy ra $\widehat{TIC}=30^\circ$, $\widehat{TKC}=60^\circ$ nên tam giác $TIK$ vuông tại $T$.\\
+			Xét tam giác vuông $TIK$ có
+			$$CT^2 = CI \cdot CK \Leftrightarrow \left(\dfrac{DE}{2}\right)^2 = ID \cdot KE \Leftrightarrow DE = 2\sqrt{ID \cdot KE} = 2\sqrt{(a-x)x}.$$
+			Diện tích hình thang $IDEK$ là $S_{IDEK} = \dfrac{(ID+KE)DE}{2} = \dfrac{a\sqrt{(a-x)x}}{2}$.\\
+			Diện tích hình quạt $IDC$ là $S_{\text{q}IDC} = \dfrac{\pi ID \cdot 60}{360} = \dfrac{\pi(a-x)}{6}$.\\
+			Diện tích hình quạt $KCE$ là $S_{\text{q}KCE} = \dfrac{\pi KE \cdot 120}{360} = \dfrac{\pi x}{3}$.\\
+			Gọi $S$ là diện tích hình giới hạn bởi đoạn thẳng $DE$, cung $\wideparen{DC}$ của $(I)$ và cung $\wideparen{EC}$ của $(K)$. Ta có
+			\begin{eqnarray*}
+				S &=& S_{IDEK} - (S_{\text{q}IDC} + S_{\text{q}KCE}) = \dfrac{a\sqrt{(a-x)x}}{2} - \left[\dfrac{\pi(a-x)}{6} + \dfrac{\pi x}{3}\right]\\
+				&=& \dfrac{a\sqrt{(a-x)x}}{2} - \dfrac{\pi(a+x)}{6}.
+			\end{eqnarray*}
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Bài 54]%[Cao Thành Thái]
+	Cho $AB$ là dây cung của đường tròn $(O;R)$ và $AB=R\sqrt{3}$. Các tiếp tuyến của đường tròn $(O)$ tại $A$ và $B$ cắt nhau ở $C$. Vẽ đường tròn tâm $C$ bán kính $CA$.
+	\begin{enumerate}
+		\item Tính diện tích hình quạt $OAB$ theo $R$.
+		\item Tính diện tích hình tròn $(C)$ theo $R$.
+		\item Tính diện tích phần tứ giác $OACB$ nằm ngoài hình tròn $(O)$ theo $R$.
+		\item Kẻ đường kính $AD$ của đường tròn $(C)$. Tính diện tích hình quạt $CBD$ theo $R$.
+		\item Tính diện tích phần chung của hai hình tròn $(O)$ và $(C)$ theo $R$.
+	\end{enumerate}
+	\loigiai
+	{
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzDefPoints{1/1.8/A, 1/-1.8/B}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+			\tkzDefPointBy[rotation=center A angle -30](M)\tkzGetPoint{o}
+			\tkzDefLine[perpendicular=through M](A,B)\tkzGetPoint{m}
+			\tkzInterLL(A,o)(M,m)\tkzGetPoint{O}
+			\tkzTangent[at=A](O)\tkzGetPoint{c}
+			\tkzTangent[at=B](O)\tkzGetPoint{c'}
+			\tkzInterLL(A,c)(B,c')\tkzGetPoint{C}
+			\tkzDefPointBy[symmetry=center C](A)\tkzGetPoint{D}
+			\tkzDrawPoints[fill=black](A,B,C,D,M,O)
+			\tkzDrawCircle[radius](O,A)
+			\tkzDrawCircle[radius](C,A)
+			\tkzDrawSegments(O,A O,B O,C A,B A,D B,C)
+			\tkzLabelPoints[above](C)
+			\tkzLabelPoints[left](O)
+			\tkzLabelPoints[right](D)
+			\draw ($(A)+(-0.05,0.3)$) node{$A$};
+			\draw ($(B)-(0.05,0.3)$) node{$B$};
+			\draw ($(M)+(0.3,0.3)$) node{$M$};
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Gọi $M$ là trung điểm của $AB$. Suy ra $OM$ vừa là đường cao vừa là đường phân giác trong tam giác $OAB$.\\
+			Ta có $\sin\widehat{AOM} = \dfrac{AM}{OA} = \dfrac{\sqrt{3}}{2}$ nên $\widehat{AOM} = 60^\circ$, suy ra $\widehat{AOB}=120^\circ$ hay $\text{sđ}\wideparen{AB}=120^\circ$.\\
+			Diện tích hình quạt $OAB$ là $S_{\text{q}OAB} = \dfrac{\pi R^2 \cdot 120}{360} = \dfrac{\pi R^2}{3}$.
+			\item Ta có
+			$$\tan\widehat{AOC} = \dfrac{AC}{OA} \Rightarrow AC = OA\tan\widehat{AOC} = R\tan 60^\circ = R\sqrt{3}.$$
+			Diện tích hình tròn $(C)$ là $S_{(C)} = \pi AC^2 = \pi \left(R\sqrt{3}\right)^2 = 3\pi R^2$.
+			\item Diện tích tứ giác $OACB$ là $S_{OACB} = 2S_{OAC} = 2 \cdot \dfrac{1}{2}OA \cdot AC = R \cdot R\sqrt{3} = R^2\sqrt{3}$.\\
+			Diện tích phần tứ giác $OACB$ nằm ngoài hình tròn $(O)$ là $$S=S_{OACB} - S_{\text{q}OAB} = R^2\sqrt{3} - \dfrac{\pi R^2}{3} = \dfrac{(3\sqrt{3}-\pi)R^2}{3}.$$
+			\item Tứ giác $OACB$ nội tiếp nên $\widehat{BCD}=120^\circ$ hay $\text{sđ}\wideparen{BD}=120^\circ$.\\
+			Diện tích hình quạt $CBD$ là $S_{\text{q}CBD} = \dfrac{\pi AC^2 \cdot 120}{360} = \dfrac{\pi (R\sqrt{3})^2}{3} = \pi R^2$.
+			\item Ta có $OM = \sqrt{OA^2 - AM^2} = \dfrac{R}{2}$; $CM = \sqrt{AC^2-AM^2} = \dfrac{3R}{2}$.\\
+			Gọi $S_1$ là diện tích hình viên phân bán kính $R$, cung $\wideparen{AB}$.\\
+			Gọi $S_2$ là diện tích hình viên phân bán kính $R\sqrt{3}$, cung $\wideparen{AB}$.\\
+			Ta có
+			\allowdisplaybreaks
+			\begin{eqnarray*}
+				S_1 &=& S_{\text{q}OAB} - S_{OAB} = \dfrac{\pi R^2}{3} - \dfrac{1}{2}AB \cdot OM = \dfrac{\pi R^2}{3} - \dfrac{R^2\sqrt{3}}{4}.\\
+				S_2 &=& S_{\text{q}CAB} - S_{CAB} = \dfrac{\pi (R\sqrt{3})^2 \cdot 60}{360} - \dfrac{1}{2}AB \cdot CM = \dfrac{\pi R^2}{2} - \dfrac{3\sqrt{3}R^2}{4}
+			\end{eqnarray*}
+			Diện tích phần chung của hai hình tròn $(O)$ và $(C)$ là
+			$$S_{\text{chung}} = S_1 + S_2 = \dfrac{\pi R^2}{3} - \dfrac{R^2\sqrt{3}}{4} + \dfrac{\pi R^2}{2} - \dfrac{3\sqrt{3}R^2}{4} = \dfrac{(5\pi - 6\sqrt{3})R^2}{6}.$$
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Bài 55]%[Cao Thành Thái]
+	Cho tam giác $ABC$ vuông tại $A$ có các cạnh $AB=c$, $AC=b$. Vẽ nửa đường tròn đường kính $BC$. Ở miền ngoài của tam giác vuông vẽ hai nửa đường tròn có đường kính lần lượt là $AB$ và $AC$.
+	\begin{center}
+		\begin{tikzpicture}
+		\tkzDefPoints{-4/0/B, 4/0/C}
+		\tkzDefMidPoint(B,C)\tkzGetPoint{O}
+		\tkzDefPointBy[rotation=center C angle -60](O)\tkzGetPoint{A}
+		\tkzDefMidPoint(A,B)\tkzGetPoint{H}
+		\tkzDefMidPoint(A,C)\tkzGetPoint{T}
+		\tkzCalcLength[cm](O,B)\tkzGetLength{rOB}
+		\tkzCalcLength[cm](H,A)\tkzGetLength{rHA}
+		\tkzCalcLength[cm](T,A)\tkzGetLength{rTA}
+		\draw[rotate=30,pattern=north west lines] (A) arc(0:180:\rHA cm and \rHA cm);
+		\draw[rotate=-60,pattern=north east lines] (C) arc(0:180:\rTA cm and \rTA cm);
+		\draw[fill=white] (C) arc(0:180:\rOB cm and \rOB cm);
+		\tkzDrawPoints[fill=black](A,B,C,H,O)
+		\tkzDrawPolygon(A,B,C)
+		\tkzDrawSegments(O,H O,A)
+		\tkzMarkRightAngles(B,A,C B,H,O)
+		\tkzLabelPoints[above](H)
+		\tkzLabelPoints[below](B,C,O)
+		\draw ($(A)+(0.1,0.3)$) node{$A$};
+		\draw ($(H)+(-0.5,1.8)$) node{$m$};
+		\draw ($(C)+(-0.6,1.8)$) node{$n$};
+		\end{tikzpicture}
+	\end{center}
+	\begin{enumerate}
+		\item Tính diện tích các nửa hình tròn đường kính $AB$, $AC$, $BC$ theo $b$, $c$.
+		\item Tính diện tích các hình viên phân $AmB$, $AnC$ cho biết $\widehat{ABC}=30^\circ$.
+		\item Chứng minh diện tích hai hình lưỡi liềm có gạch sọc (hình trăng khuyết Hypôcrat) bằng diện tích tam giác $ABC$.
+	\end{enumerate}
+	\loigiai
+	{
+		\begin{enumerate}
+			\item Ta có $BC = \sqrt{b^2+c^2}$.\\
+			Gọi $S_1$, $S_2$, $S_3$ lần lượt là diện tích các nửa hình tròn đường kính $AB$, $AC$, $BC$.
+			\allowdisplaybreaks
+			\begin{eqnarray*}
+				S_1 &=& \dfrac{1}{2}\pi\left(\dfrac{AB}{2}\right)^2 = \dfrac{\pi c^2}{8}.\\
+				S_2 &=& \dfrac{1}{2}\pi\left(\dfrac{AC}{2}\right)^2 = \dfrac{\pi b^2}{8}.\\
+				S_3 &=& \dfrac{1}{2}\pi\left(\dfrac{BC}{2}\right)^2 = \dfrac{\pi(b^2+c^2)}{8}.
+			\end{eqnarray*}
+			Ta có nhận xét $S_3=S_1+S_2$.
+			\item Tam giác $OAB$ cân tại $O$ có $\widehat{ABC}=30^\circ$ nên $\widehat{AOB}=120^\circ$, suy ra $\widehat{AOC}=60^\circ$.\\
+			Do đó $\text{sđ}\wideparen{AmB}=120^\circ$ và $\text{sđ}\wideparen{AnC}=60^\circ$.\\
+			Bán kính của nửa đường tròn $(O)$ là $R = \dfrac{BC}{2} = \dfrac{\sqrt{b^2+c^2}}{2}$.\\
+			Khi đó $BC=2R$, $AC=R$, $AB = R\sqrt{3}$ và $OH=\dfrac{R}{2}$.\\
+			Diện tích hình quạt $OAB$ là $S_{\text{q}OAB} = \dfrac{\pi R^2 \cdot 120}{360} = \dfrac{\pi R^2}{3}$.\\
+			Diện tích hình quạt $OAC$ là $S_{\text{q}OAC} = \dfrac{\pi R^2 \cdot 60}{360} = \dfrac{\pi R^2}{6}$.\\
+			Diện tích tam giác $OAB$ là $S_{OAB} = \dfrac{1}{2}AB \cdot OH = \dfrac{1}{2}R\sqrt{3} \cdot \dfrac{R}{2} = \dfrac{R^2\sqrt{3}}{4}$.\\
+			Diện tích tam giác $OAC$ là $S_{OAC} = \dfrac{AC^2\sqrt{3}}{4} = \dfrac{R^2\sqrt{3}}{4}$.\\
+			Diện tích hình viên phân $AmB$ là $$S_{AmB} = S_{\text{q}OAB} - S_{OAB} = \dfrac{\pi R^2}{3} - \dfrac{R^2\sqrt{3}}{4} = \dfrac{(4\pi - 3\sqrt{3})R^2}{12}.$$
+			Diện tích hình viên phân $AnC$ là $$S_{AnC} = S_{\text{q}OAC} - S_{OAC} = \dfrac{\pi R^2}{6} - \dfrac{R^2\sqrt{3}}{4} = \dfrac{(2\pi - 3\sqrt{3})R^2}{12}.$$
+			\item Diện tích tam giác $ABC$ là $S_{ABC} = \dfrac{1}{2}bc$.\\
+			Diện tích $S$ cùa hình trăng khuyết Hypôcrat là
+			\begin{eqnarray*}
+				S &=& S_{ABC} + S_1 + S_2 - S_3 = S_{ABC}.
+			\end{eqnarray*}
+			Vậy ta có điều phải chứng minh.
+		\end{enumerate}
+	}
+\end{bt}

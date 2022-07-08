@@ -1,0 +1,548 @@
+
+\section{TẬP HỢP. PHẦN TỬ CỦA TẬP HỢP}
+\subsection{Tóm tắt lý thuyết}
+\subsubsection{Khái niệm tập hợp}
+Tập hợp là một khái niệm cơ bản, không được định nghĩa. Ta làm quen với khái niệm này qua một số ví dụ
+\begin{itemize}
+	\item Tập hợp các con gà trong sân.
+	\item Tập hợp các xe máy trong một bãi đỗ xe.
+	\item Tập hợp các số tự nhiên.
+\end{itemize}
+
+\subsubsection{Cách viết - các kí hiệu}
+\begin{itemize}
+	\item Người ta thường đặt tên một tập hợp bằng chữ cái in hoa. Riêng tập hợp các số tự nhiên được kí hiệu là $\mathbb{N}$.
+	\item Để viết một tập hợp thường có hai cách:
+	\begin{enumerate}[-]
+		\item Liệt kê các phần tử của tập hợp;
+		\item Chỉ ra tính chất đặc trưng cho các phần tử của tập hợp đó.
+	\end{enumerate}
+	\item Người ta minh họa tập hợp bằng một vòng kín, mỗi phần tử của tập hợp được biểu diễn bởi một dấu chấm bên trong vòng kín.
+\end{itemize}
+	\immini
+	{Hình bên minh họa tập hợp $A$ các số tự nhiên nhỏ hơn $5$.\\
+		$A = \{0; 1; 2; 3; 4\}$\\
+		$3 \in A; 7 \notin A$.}
+	{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+		\draw (0,0);
+		\draw (0,0) arc (0:180:4 cm and 2cm);
+		\draw (0,0) arc (0:-180:4 cm and 2cm);
+		\tkzDefPoints{-5.2/0.5/M,-6/-1.2/B,-2/-1.4/C,-3.7/-0.3/D,-1.8/1.13/E}
+		\tkzDefPoints{-9/1/A}
+		\tkzDrawPoints(B,C,D,E,M)
+		\coordinate (S) at (-8,0);
+		\tkzDrawSegment(A,S)
+		\tkzLabelPoints[left](A)
+		\tkzLabelPoint[above](M) {$1$}
+		\tkzLabelPoint[above](B) {$2$}
+		\tkzLabelPoint[above](C) {$0$}
+		\tkzLabelPoint[above](D) {$3$}
+		\tkzLabelPoint[above](E) {$4$}
+		\end{tikzpicture}}
+\subsection{Các dạng toán}
+\begin{dang}{Viết một tập hợp cho trước}
+\begin{itemize}
+	\item Liệt kê các phần tử của tập hợp vào trong dấu $\{ \}$, cách nhau bởi dấu ``;'' (nếu có phần tử là số) hoặc dấu ``,''. Mỗi phần tử được liệt kê một lần theo thứ tự tùy ý.
+	\item Hoặc chỉ ra tính chất đặc trưng cho các phần tử của tập hợp đó.
+\end{itemize}
+\end{dang}
+\begin{vd}
+Viết tập hợp $A$ các số tự nhiên lớn hơn $5$ nhưng nhỏ hơn $10$ bằng hai cách.
+\loigiai{
+\begin{itemize}
+	\item Cách liệt kê các phần tử: $A = \{6; 7; 8; 9\}$.
+	\item Cách chỉ ra tính chất đặc trưng: $A = \{x \in \mathbb{N} | 5 < x < 10\}$.
+\end{itemize}
+}
+\end{vd}
+\begin{vd}
+Viết tập hợp các chữ cái trong từ
+\begin{enumEX}{2}
+	\item ``THANH HÓA''
+	\item``NINH BÌNH''
+\end{enumEX}
+\loigiai{
+\begin{enumEX}{2}
+	\item $\{\mathrm{T}; \mathrm{H}; \mathrm{A}; \mathrm{N}; \mathrm{O}\}$
+	\item $\{\mathrm{N}; \mathrm{I}; \mathrm{H}; \mathrm{B}\}$.
+\end{enumEX}
+}
+\end{vd}
+\begin{vd}
+Viết tập hợp $M$ được minh họa trong hình dưới đây.
+\begin{center}
+	\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	\draw (0,0);
+	\draw (0,0) arc (0:180:4 cm and 2cm);
+	\draw (0,0) arc (0:-180:4 cm and 2cm);
+	\tkzDefPoints{-6.2/1.1/A,-6/-1.2/B,-2/-1.4/C,-3.7/-0.3/D,-1.8/1.13/E}
+	\coordinate (S) at (-8,0);
+	\tkzDefPoints{-9/1/M}
+	\tkzDrawPoints(A,B,C,D,E)
+	\tkzDrawSegment(M,S)
+	\tkzLabelPoint[above](A) {$7$}
+	\tkzLabelPoint[above](B) {$12$}
+	\tkzLabelPoint[above](C) {$a$}
+	\tkzLabelPoint[above](D) {$b$}
+	\tkzLabelPoint[above](E) {$4$}
+	\tkzLabelPoints[left](M)
+	\end{tikzpicture}
+\end{center}	
+\loigiai{
+$M = \{a; b, 4; 7; 12\}$.
+}
+\end{vd}
+
+\begin{vd}
+\immini
+{
+Xem hình bên rồi cho biết trong các khẳng định sau, khẳng định nào đúng, khẳng định nào sai?
+\begin{enumEX}{1}
+	\item $E = \{1; 2; 3; 4, c\}$;
+	\item $F = \{a, b\}$;
+	\item $P = \{1; 2; 3; 4; 5, a; b; c\}$.
+\end{enumEX}	
+}
+{
+	\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.7]
+	\tkzDefPoints{-6/-2/A,-8.5/0.5/B,-9/-0.5/C,-7.8/-0.5/D,-6/0.5/S,-6/-0.5/M,-4/0.5/N,-3/-0.5/O,-10/3.5/P,-11/-3/E,1/3/F,-6/3/R,-11/0/Q,-1/0/T}
+	\tkzDrawPoints(A,B,C,D,S,M,N,O)
+	\tkzLabelPoint[right](A) {$5$}
+	\tkzLabelPoint[right](B) {$2$}
+	\tkzLabelPoint[left](C) {$1$}
+	\tkzLabelPoint[right](D) {$3$}
+	\tkzLabelPoint[left](S) {$4$}
+	\tkzLabelPoint[left](M) {$c$}
+	\tkzLabelPoint[right](N) {$a$}
+	\tkzLabelPoint[right](O) {$b$}
+	\tkzLabelPoints[right](E,F)
+	\tkzLabelPoints[above](P)
+	\tkzDrawSegments(P,R E,Q F,T)
+	\draw (0,0);
+	\draw (0,0) arc (0:180:6 cm and 3cm);
+	\draw (0,0) arc (0:-180:6 cm and 3cm);
+	\draw (-5,0);
+	\draw (-5,0) arc (0:180:3 cm and 1.5cm);
+	\draw (-5,0) arc (0:-180:3 cm and 1.5cm);
+	\draw (-1,0);
+	\draw (-1,0) arc (0:180:3 cm and 1.5cm);
+	\draw (-1,0) arc (0:-180:3 cm and 1.5cm);
+	\end{tikzpicture}
+}
+\loigiai{
+\begin{enumEX}{1}
+\item Đúng, vì tập hợp $E$ có các phần tử $1; 2; 3; 4, c$.
+\item Sai, vì tập hợp $F$ có các phần tử là $a, b, c, 4$.
+\item Đúng, vì tập hợp $P$ có các phần tử là các phần tử của tập hợp $E, F$ và thêm phần tử $5$.	
+\end{enumEX}
+}	
+\end{vd}
+
+\begin{vd}
+	\immini
+	{Xem hình bên rồi cho biết cách viết nào đúng, cách viết nào sai?
+	\begin{enumEX}{1}
+		\item $P = \{\text{bút, tẩy}\}$
+		\item $Q = \{\text{sách, vở}\}$
+		\item $Q = \{\text{sách, vở, bút, tẩy}\}$
+		\item $Q = \{\text{sách, vở, bút, tẩy, kính}\}$	
+	\end{enumEX}	
+	}
+	{
+\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.6]
+\tkzDefPoints{-13/1.5/A,-7/0.5/B,-5/-0.35/C,-2/1.2/D,-1.5/-0.5/E,-11/-3/P,1/-1/Q,0/0/R,-9/0/S}
+\tkzDrawPoints(A,B,C,D,E,F)
+\tkzLabelPoint[below](A) {kính}
+\tkzLabelPoint[below](B) {bút}
+\tkzLabelPoint[below](C) {tẩy}
+\tkzLabelPoint[below](D) {sách}
+\tkzLabelPoint[below](E) {vở}
+\tkzLabelPoints[below](P,Q)
+\tkzDrawSegment(Q,R)
+\tkzDrawSegment(S,P)
+\draw (0,0);
+\draw (0,0) arc (0:180:6 cm and 2.5cm);
+\draw (0,0) arc (0:-180:6 cm and 2.5cm);
+\draw (-3,0);
+\draw (-3,0) arc (0:180:3 cm and 1.5cm);
+\draw (-3,0) arc (0:-180:3 cm and 1.5cm);
+\end{tikzpicture}	
+	}
+
+\loigiai{
+\begin{enumEX}{1}
+	\item Đúng, vì tập hợp $P$ chỉ có hai phần tử là bút và tẩy.
+	\item Sai, vì còn thiếu hai phần tử của tập hợp $P$.
+	\item Đúng, vì tập hợp Q có bốn phần tử là sách, vở, bút, tẩy.
+	\item Sai, vì kính không phải là phần tử của tập hợp Q.
+\end{enumEX}
+}
+\end{vd}
+
+\begin{dang}{Sử dụng các kí hiệu $\in$ và $\notin$}
+	\begin{itemize}
+		\item Kí hiệu $\in$ đọc là ``thuộc'' hoặc ``là phần tử của''.
+		\item Kí hiệu $\notin$ đọc là ``không thuộc'' hoặc ``không phải là phần tử của''.
+	\end{itemize}
+\end{dang}
+
+\begin{vd}
+	Cho tập hợp $A = \{1; 2, x\}$ và $B = \{1; 2; 3; x; y\}$.\\ Hãy điền kí hiệu thích hợp vào ô trống
+	\begin{enumEX}{3}
+		\item $ 1 \boxEX{\phantom{$\in$}} A$
+		\item $ y \boxEX{\phantom{$\in$}} A$
+		\item $ y \boxEX{\phantom{$\in$}} B$
+	\end{enumEX}
+\loigiai{
+\begin{enumEX}{3}
+	\item $ 1 \boxEX{$ \in $} A$
+	\item $ y \boxEX{$ \notin $} A$
+	\item $ y \boxEX{$ \in $} B$
+\end{enumEX}
+}
+\end{vd}
+
+\begin{vd}
+Cho ba tập hợp:\\
+$A = \{\text{bút, tẩy, com pa, ê ke}\}$;\\
+$B = \{\text{sách, vở, ê ke}\}$;\\
+$M = \{\text{com pa, tẩy, ê ke}\}$.\\
+Trong các cách viết sau, cách viết nào đúng, cách viết nào sai?
+\begin{enumEX}{3}
+	\item Bút $\in A$;
+	\item Tẩy $\notin B$;
+	\item $M \in A$. 
+\end{enumEX}
+\loigiai{
+\begin{enumEX}{1}
+	\item Đúng, vì bút là phần tử của $A$.
+	\item Đúng, vì tẩy không phải là phần tử của $B$.
+	\item Sai, vì $M$ là một tập hợp, không phải là phần tử của $A$.
+\end{enumEX}
+}
+\end{vd}
+
+\begin{vd}
+	Cho tập hợp $M = \{\text{mèo, chó, lợn, gà, thỏ}\}$.\\
+	Hãy điền kí hiệu thích hợp vào ô trống:
+	\begin{enumEX}{3}
+		\item $ \text{Thỏ} \boxEX{\phantom{$\in$}} M$;
+		\item $ \text{Gà} \boxEX{\phantom{$\in$}} M$
+		\item $ \text{Vịt} \boxEX{\phantom{$\in$}} M$.
+	\end{enumEX}
+\loigiai{
+\begin{enumEX}{3}
+	\item $ \text{Thỏ} \boxEX{$\in$} M$;
+	\item $ \text{Gà} \boxEX{$\in$} M$
+	\item $ \text{Vịt} \boxEX{$\notin$} M$.
+\end{enumEX}
+}
+\end{vd}
+
+
+\begin{center}
+\textbf{BÀI TẬP TỰ LUYỆN }
+\end{center}
+\begin{bt}%[Hoàng Mạnh Linh, dự án EX-C2-L6-2018]%[6D1B1]
+Viết tập hợp $E$ các số tự nhiên không nhỏ hơn $79$ nhưng không lớn hơn $85$ bằng hai cách.
+\loigiai{
+Cách thứ nhất: $E = \{79; 80; 81; 82; 83; 84; 85\}$.\\
+Cách thứ hai: $E = \{x \in \mathbb{N}|79 \leq x \leq 85\}$.
+}
+\end{bt}
+
+\begin{bt}%[Hoàng Mạnh Linh, dự án EX-C2-L6-2018]%[6D1Y1]
+Viết tập hợp các chữ cái trong cụm từ ``NHÀ TÌNH NGHĨA''.
+\loigiai{
+$\{N. H, A, T, I, G\}$.
+}
+\end{bt}
+
+
+\begin{bt}%[Hoàng Mạnh Linh, dự án EX-C2-L6-2018]%[6D1B1]
+Cho tập hợp $M = \{\text{mèo, chó, lợn, gà, thỏ}\}$ và $N = \{\text{mèo, lợn, gà, vịt, ngỗng}\}$. Hãy viết các tập hợp sau
+\begin{enumEX}{1}
+	\item Tập hợp $E$ các phần tử của $M$ mà không thuộc $N$.
+	\item Tập hợp $F$ các phần tử của $N$ mà không thuộc $M$.
+	\item Tập hợp $G$ các phần tử vừa thuộc $M$ vừa thuộc $N$.
+	\item Tập hợp $H$ các phần tử thuộc ít nhất một trong hai tập hợp $M$ và $N$.
+\end{enumEX}
+\loigiai{
+	\begin{enumEX}{1}
+	\item $E = \{\text{chó, thỏ}\}$.
+	\item $F = \{\text{vịt, ngỗng}\}$.
+	\item $G = \{\text{mèo, lợn{,} gà}\}$.
+	\item $H = \{\text{mèo, chó, lợn, gà, thỏ, vịt, ngỗng}\}$.	
+	\end{enumEX}
+}
+\end{bt}
+\begin{bt}%[Hoàng Mạnh Linh, dự án EX-C2-L6-2018]%[6D1Y1]
+Xét các tập hợp $M = \{\text{mèo, chó, lợn, gà, thỏ}\}$ và $N = \{\text{mèo, lợn, gà, vịt, ngỗng}\}$, điền kí hiệu thích hợp vào ô trống
+\begin{enumEX}{4}
+\item $\text{Vịt} \boxEX{\phantom{$\in$}} M$
+\item $\text{Vịt} \boxEX{\phantom{$\in$}} N$
+\item $\text{Gà} \boxEX{\phantom{$\in$}} M$
+\item $\text{Gà} \boxEX{\phantom{$\in$}} N$	
+\end{enumEX}
+\loigiai{
+\begin{enumEX}{4}
+	\item $\text{Vịt} \boxEX{$\notin$} M$
+	\item $\text{Vịt} \boxEX{$\in $} N$
+	\item $\text{Gà} \boxEX{$\in $} M$
+	\item $\text{Gà} \boxEX{$\in $} N$	
+\end{enumEX}
+}
+\end{bt}
+\section{TẬP HỢP CÁC SỐ TỰ NHIÊN}
+\section{GHI SỐ TỰ NHIÊN}
+\subsection{Tóm tắt lý thuyết}
+\subsubsection{Tập hợp $\mathbb{N}$ và tập hợp $\mathbb{N}^*$}
+\begin{eqnarray}
+\mathbb{N}&=&\{0; 1; 2; 3; \cdots\}.\notag\\
+\mathbb{N}^*&=&\{1; 2; 3; \cdots\}.\notag
+\end{eqnarray}
+\subsubsection{Thứ tự trong tập hợp số tự nhiên}
+\begin{enumEX}{1}
+\item Trong hai số tự nhiên khác nhau, có một số nhỏ hơn số kia. Khi $a$ nhỏ hơn $b$ ta viết $a < b$ hoặc $b > a$. Khi $a$ không lớn hơn $b$ ta viết $a \leq b$ để chỉ $a < b$ hoặc $a = b$.
+\item Nếu $a < b$ và $b < c$ thì $a < c$.
+\item Mỗi số tự nhiên có một số liền sau duy nhất. Số liền sau số $5$ là số $6$. Số $5$ là số liền trước số $6$. Số $5$ và số $6$ là hai số tự nhiên liên tiếp. Hai số tự nhiên liên tiếp thì hơn kém nhau một đơn vị.
+\item Số $0$ là số tự nhiên nhỏ nhất. Không có số tự nhiên lớn nhất.
+\item Tập hợp các số tự nhiên có vô số phần tử. 	
+\end{enumEX}
+\subsubsection{Ghi số tự nhiên}
+
+Trong hệ thập phân ta dùng $10$ chữ số: $0$; $1$; $2$; $3$; $4$; $5$; $6$; $7$; $8$; $9$ để ghi mọi số. Cứ $10$ đơn vị ở một hàng thì làm thành một đơn vị ở hàng liền trước nó.\\
+Kí hiệu $\overline{ab}$ chỉ số tự nhiên có hai chữ số, $a$ là chữ số hàng chục, $b$ là chữ số hàng đơn vị.
+\begin{align*}
+\overline{ab} &= a \times 10 + b \quad (a \neq 0);\\
+\overline{ab} &= a \times 100 + b \times 10 + c \quad (a \neq 0).
+\end{align*}
+Ngoài cách ghi số như trên, còn có những cách ghi số khác, chẳng hạn cách ghi số La Mã.
+\subsection{Các dạng toán}
+\begin{dang}{Tìm số liền trước, liền sau của một số tự nhiên}
+Số liền sau của số tự nhiên $a$ là $a + 1$.\\
+Số liền trước của số tự nhiên $a$ là $a - 1 \quad (a \neq 0)$.
+\end{dang}
+\begin{vd}
+Trong ba số tự nhiên liên tiếp có một số là $19$. Hỏi ba số tự nhiên liên tiếp đó là ba số nào?
+\loigiai{
+\begin{itemize}
+	\item Nếu $19$ là số nhỏ nhất trong ba số thì ba số tự nhiên liên tiếp đó là $19$; $20$; $21$.
+	\item Nếu $19$ là số thứ hai trong ba số thì ba số tự nhiên liên tiếp đó là $18$; $19$; $20$.
+	\item Nếu $19$ là số lớn nhất trong ba số thì ba số tự nhiên liên tiếp đó là $17$; $18$; $19$.
+\end{itemize}
+}
+\end{vd}
+\begin{vd}
+Tìm hai số tự nhiên liên tiếp biết tổng của chúng là $2015$.
+\loigiai{
+Gọi số nhỏ trong hai số tự nhiên liên tiếp là $a$, số liền sau của nó là $a + 1$.\\
+Theo đề bài ta có:
+\begin{align*}
+&a + a + 1 = 2015\\
+&a \times 2 + 1 = 2015\\
+&a \times 2 = 2015 - 1 = 2014
+\end{align*}
+Do đó $a = 2014 \colon 2 = 1007$.\\
+Vậy hai số tự nhiên liên tiếp cần tìm là $1007; 1008$.
+}
+\end{vd}
+
+\begin{vd}
+	Tổng của ba số tự nhiên liên tiếp là $300$. Tìm ba số tự nhiên đó.
+	\loigiai{
+Tổng ba số tự nhiên liên tiếp gấp ba lần số ở giữa. Do đó số ở giữa là:
+\begin{align*}
+300 \colon 3 = 100
+\end{align*}
+Vậy ba số tự nhiên cần tìm là $99$; $100$; $101$.	
+}
+\end{vd}
+
+\begin{dang}{Tìm các số tự nhiên thỏa mãn điều kiện cho trước}
+Dựa vào các điều kiện cho trước ta liệt kê dần các số tự nhiên thỏa mãn các điều kiện đó.
+\end{dang}
+
+\begin{vd}
+	Tìm $x \in \mathbb{N}$, biết:
+	\begin{enumEX}{2}
+		\item $x < 7$;
+		\item $20 \leq x < 25$.
+	\end{enumEX}
+\loigiai{
+\begin{enumEX}{1}
+	\item Vì $x < 7$ và $x \in \mathbb{N}$ nên $x \in \{0; 1; 2; 3; 4; 5; 6\}$.
+	\item Vì $20 \leq x < 25$ và $x \in \mathbb{N}$ nên $x \in \{20; 21; 22; 23; 24\}$.
+\end{enumEX}
+}
+\end{vd}
+
+\begin{vd}
+	Tìm các số tự nhiên $a$ và $b$, biết:
+	\begin{enumEX}{2}
+		\item $12 < a < b < 15$;
+		\item $35 < a < b < 39$.
+	\end{enumEX}
+\loigiai{
+\begin{enumEX}{1}
+	\item Giữa các số tự nhiên $12$ và $15$ chỉ có hai số tự nhiên là $13$ và $14$. Mặt khác $a < b$ nên $a = 13$; $b = 14$. Khi đó $12 < 13 < 14 < 15$.
+	\item Giữa các số tự nhiên $35$ và $39$ có ba số tự nhiên là $36, 37, 38$. Mặt khác $a < b$ nên $a = 36$; $b = 37$ hoặc $a = 36$; $b = 38$ hoặc $a = 37$; $b = 38$. Ta có ba đáp số:
+	\begin{align*}
+	&35 < 36 < 37 < 39;\\
+	&35 < 36 < 38 < 39;\\
+	&35 < 37 < 38 < 39.
+	\end{align*}
+\end{enumEX}
+}
+\end{vd}
+
+\begin{vd}
+	Tìm ba số tự nhiên $a$, $b$, $c$ biết rằng chúng thỏa mãn đồng thời ba điều kiện sau
+	\begin{align*}
+	a < b < c; 91 \leq a \leq 93; 91 < c < 94.
+	\end{align*}
+\loigiai{
+	Từ điều kiện $91 \leq a \leq 93$ và $a \in \mathbb{N}$ ta suy ra $a \in \{91; 92; 93  \}$.\\
+	Từ điều kiện $91 < c < 94$ và $c \in \mathbb{N}$ ta suy ra $c \in \{92; 93 \}$.\\
+	Mặt khác $a < b < c$ ($b$ là số tự nhiên) nên $a = 91$; $b = 92$; $c = 93$.
+}
+\end{vd}
+
+\begin{dang}{Ghi các số tự nhiên}
+Sử dụng $10$ chữ số, số $0$ không đứng đầu.\\
+Mỗi chữ số ở những vị trí khác nhau thì có những giá trị khác nhau.
+\end{dang}
+
+\begin{vd}
+Xét số $2345$. Các khẳng định sau đúng, sai thế nào?
+\begin{enumEX}{2}
+	\item Số $2345$ có chữ số hàng chục là $3$;
+	\item Số $2345$ có chữ số chục là $4$;
+	\item Số $2345$ có chữ số trăm là $23$;
+	\item Số $2345$ có chữ số nghìn là $2000$.
+\end{enumEX}
+\loigiai{
+\begin{enumEX}{1}
+\item Sai, vì số $2345$ có chữ số hàng chục là $4$.
+\item Sai, vì số $2345$ có chữ số chục là $234$.
+\item Đúng, vì số $2345$ có chữ số trăm là $23$.
+\item Sai, vì số $2345$ có chữ số nghìn là $2$.	
+\end{enumEX}
+}	
+\end{vd}
+
+\begin{vd}
+Cho biết trong các khẳng định sau, khẳng định nào đúng, khẳng định nào sai?
+\begin{enumEX}{1}
+\item Số tự nhiên lớn nhất có hai chữ số là $99$;
+\item Số tự nhiên nhỏ nhất có hai chữ số là $11$;
+\item Số tự nhiên lớn nhất có ba chữ số và số tự nhiên nhỏ nhất có bốn chữ số là hai số tự nhiên liên tiếp;
+\item Số tự nhiên nhỏ nhất có hai chữ số kém số tự nhiên nhỏ nhất có ba chữ số là $90$ đơn vị.	
+\end{enumEX}
+\loigiai{
+\begin{enumEX}{1}
+	\item Đúng.
+	\item Sai, vì số tự nhiên nhỏ nhất có hai chữ số là $10$.
+	\item Đúng, vì $999$ và $1000$ là hai số tự nhiên liên tiếp.
+	\item Đúng, vì $100 - 10 = 90$.
+\end{enumEX}
+}	
+\end{vd}
+
+\begin{dang}{Từ $n$ chữ số khác nhau, viết tất cả các số có $n$ chữ số khác nhau đó}
+	Giả sử từ ba chữ số $a$, $b$, $c$ khác nhau và khác $0$ ta viết tất cả các số có ba chữ số khác nhau đó như sau
+	\begin{itemize}
+		\item Chọn $a$ làm chữ số hàng trăm được hai số $\overline{abc}$; $\overline{acb}$.
+		\item Chọn $b$ làm chữ số hàng trăm được hai số $\overline{bac}$; $\overline{bca}$.
+		\item Chọn $c$ làm chữ số hàng trăm được hai số $\overline{cab}$; $\overline{cba}$.
+	\end{itemize}
+\begin{note}
+	Chữ số $0$ không thể đứng đầu.
+\end{note}
+\end{dang}
+
+\begin{vd}
+	Từ ba chữ số $1$; $5$; $8$. Hãy viết tất cả các số tự nhiên có ba chữ số mà các chữ số đó khác nhau.
+	\loigiai{
+Từ ba chữ số $1$; $5$; $8$ ta viết được $6$ số có ba chữ số khác nhau là $158$; $185$; $518$; $581$; $815$; $851$.	
+}
+\end{vd}
+
+\begin{vd}
+	Từ bốn chữ số $3$; $6$; $7$; $9$ viết được tất cả bao nhiêu số tự nhiên có bốn chữ số mà các chữ số đó đều khác nhau?
+	\loigiai{
+\begin{itemize}
+	\item Có $4$ cách chọn chữ số hàng nghìn (chọn $3$ hoặc $6$ hoặc $7$ hoặc $9$).
+	\item Sau khi chọn chữ số hàng nghìn thì còn $3$ cách chọn chữ số hàng trăm.
+	\item Sau khi chọn chữ số hàng nghìn và hàng trăm thì còn 2 cách chọn chữ số hàng chục.
+	\item Cuối cùng chỉ còn $1$ cách chọn chữ số hàng đơn vị.
+\end{itemize}
+Vậy ta viết được tất cả $4 \times 3 \times 2 \times 1 = 24$ (số).	
+}
+\end{vd}
+
+\begin{vd}
+	Từ bốn chữ số $0$; $2$; $5$; $7$ viết được tất cả bao nhiêu số tự nhiên có bốn chữ số mà các chữ số đó khác nhau?
+	\loigiai{
+\begin{itemize}
+	\item Vì chữ số $0$ không thể đứng đầu nên chỉ có $3$ cách chọn chữ số hàng nghìn (chọn $2$ hoặc $5$ hoặc $7$).
+	\item Sau khi chọn chữ số hàng nghìn thì có $3$ cách chọn chữ số hàng trăm.
+	\item Sau khi chọn chữ số hàng nghìn và hàng trăm thì còn $2$ cách chọn chữ số hàng chục.
+	\item Cuối cùng chỉ còn $1$ cách chọn chữ số hàng đơn vị.
+\end{itemize}	
+Vậy có tất cả $3 \times 3 \times 2 \times 1 = 18$ (số).
+}
+\end{vd}
+
+\begin{center}
+\textbf{BÀI TẬP TỰ LUYỆN}
+\end{center}
+\begin{bt}%[Hoàng Mạnh Linh, dự án EX-C2-L6-2018]%[6D1Y3]
+Viết tập hợp ba số tự nhiên liên tiếp lớn hơn $45$ nhưng nhỏ hơn $50$.
+\loigiai{
+Viết được hai tập hợp là $A_1 = \{46; 47; 48\}$ và $A_2 = \{47; 48; 49\}$.
+}
+\end{bt}
+
+\begin{bt}%[Hoàng Mạnh Linh, dự án EX-C2-L6-2018]%[6D1B3]
+Viết số tự nhiên lớn nhất
+\begin{enumEX}{2}
+	\item Có ba chữ số;
+	\item Có ba chữ số khác nhau.
+\end{enumEX}
+\loigiai{
+\begin{enumEX}{1}
+	\item Số tự nhiên lớn nhất có ba chữ số là $999$;
+	\item Số tự nhiên lớn nhất có ba chữ số khác nhau là $987$.
+\end{enumEX}
+}
+\end{bt}
+
+\begin{bt}%[Hoàng Mạnh Linh, dự án EX-C2-L6-2018]%[6D1B3]
+	Dùng ba chữ số $5$, $6$, $0$ để viết tất cả các số tự nhiên có ba chữ số mà các chữ số đều khác nhau.
+	\loigiai{
+Có tất cả bốn số thỏa yêu cầu đề bài là $506$; $560$; $605$; $650$.	
+}
+\end{bt}
+
+
+\begin{bt}%[Hoàng Mạnh Linh, dự án EX-C2-L6-2018]%[6D1K3]
+	Cho số $1234$. Hãy viết thêm chữ số $5$ xen giữa các chữ số của nó để được một số
+	\begin{enumEX}{2}
+		\item Nhỏ nhất có thể được;
+		\item Lớn nhất có thể được.
+	\end{enumEX}
+\loigiai{
+\begin{enumEX}{2}
+	\item $12354$;
+	\item $15234$.
+\end{enumEX}
+}
+\end{bt}
+
+\begin{bt}%[Hoàng Mạnh Linh, dự án EX-C2-L6-2018]%[6D1B3]
+	Đọc các số La Mã sau: $\mathrm{XXXVI}$; $\mathrm{XLII}$; $\mathrm{MX}$.
+	\loigiai{
+	$36; 42; 1010$.
+}
+\end{bt}

@@ -1,0 +1,438 @@
+%Người soạn: Phan Ngọc Toàn, Phản biện: Nguyễn Chính Tâm 
+\Opensolutionfile{ans}[ans/ans7D1G-2]
+%\chapter{Phép nhân và phép chia các đa thức}
+\section{ĐỊNH LÝ BEZOUT - LƯỢC ĐỒ HORNER}
+\subsection{Tóm tắt lí thuyết}
+\begin{dl}
+Số dư trong phép chia đa thức $f(x)$ cho nhị thức $x-a$ bằng giá trị của đa thức $f(x)$ tại $x=a$.
+\end{dl}
+
+\begin{hq}
+Đa thức $f(x)$ chia hết cho $x-a$ khi và chỉ khi $f(a)=0$ (hay $a$ là nghiệm của đa thức $f(x)$).
+\end{hq}
+
+\begin{dl}
+Nếu đa thức bị chia là $P_n(x)=a_nx^n+a_{n-1}x^{n-1}+\dotsb +a_1x+a_0$, đa thức chia là $x-a$, đa thức thương là $Q_{n-1}(x)=b_{n-1}x^{n-1}+b_{n-2}x^{n-2}+\dotsb +b_1x+b_0$ thì giữa các hệ số $a_n$, $a_{n-1}$, $\dotsc$, $a_1$, $a_0$ với $b_{n-1}$, $b_{n-2}$, $\dotsc$, $b_1$, $b_0$ và hằng số $a$ có mối quan hệ sau:
+\begin{align*}
+&b_{n-1}=a_n\\ 
+& b_{n-2}=a_{n-1}+a \cdot b_{n-1}\\
+& b_{n-3}=a_{n-2}+a \cdot b_{n-2}\\
+& \dotsc\\
+&b_1=a_2+a \cdot b_2\\
+&b_0=a_1+a \cdot b_1\\
+&r=a_0+a \cdot b_0 \quad (\text{$r$ là số dư}) 
+\end{align*}
+\end{dl}
+Trong thực hành ta thường lập bảng các hệ số như sau:
+\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}
+					\hline 
+  &$ a_n$& $ a_{n-1} $&  $ \dotsc $ & $a_1 $ & $ a_0 $  \\ 
+					\hline 
+ $ a $  & $ b_{n-1}=a_n $ &$ b_{n-2}=a_{n-1}+a \cdot b_{n-1}$&  $ \dotsc $ & $ b_0=a_1+a \cdot b_1 $ &$r=a_0+a \cdot b_0 $ \\ 
+					\hline 
+				\end{tabular} 	
+			\end{center}
+
+\subsection{Các dạng toán}
+
+\begin{dang}[Phân tích đa thức thành nhân tử]
+\end{dang}
+
+\begin{vd}
+	Phân tích đa thức $ f(x)=2x^3+x^2-13x+6 $ thành nhân tử bằng ba cách.
+	\begin{listEX}
+		\item Tách, thêm bớt các hạng tử.
+		\item Chia đa thức.
+		\item Dùng lược đồ Horner.
+	\end{listEX}
+	\loigiai
+	{
+		\begin{listEX}
+			\item Tách, thêm bớt các hạng tử.\\
+			Nhận xét $f(2)=2\cdot 2^3+2^2-12\cdot 2+6=0$ nên $ f(x)=(x-2)g(x)$.\\
+			Từ đó ta có 
+			\begin{eqnarray*}
+				f(x)&=&2x^3-4x^2+5x^2-10x-3x+6\\
+				&=&2x^2(x-2)+5x(x-2)-3(x-2)\\
+				&=&(x-2)(2x^2+5x-3).
+			\end{eqnarray*}
+			Nhận xét tiếp $ g(-3)=2\cdot (-3)^2+5(-3)-3=0$ nên $ g(x)=(x+3)h(x) $\\
+			Phân tích tiếp $ g(x)=2x^2+6x-x-3=2x(x+3)-(x+3)=(x+3)(2x-1)$.\\
+			Vậy $ f(x)=(x-2)(x+3)(2x-1)$.
+			\item Chia đa thức\\
+			Từ nhận xét $ f(2)=0 $ nên ta có $ f(x)=(x-2)g(x)$. Chia đa thức $ f(x)$ cho $x-2$ ta được
+			\begin{center}
+			\polylongdiv[style=D]{2x^3+x^2-13x+6}{x-2}
+			\end{center}
+			 $ g(x)=2x^2+5x-3$.\\
+			Từ nhận xét $ g(x)=(x+3)h(x)$, chia tiếp $ g(x) $ cho $x+3$
+			\begin{center}
+				\polylongdiv[style=D]{2x^2+5x-3}{x+3}
+			\end{center}
+			 được thương là $ 2x-1 $ dư $ 0 $.\\
+			Vậy $ f(x)=(x-2)(x+3)(2x-1)$. 
+			\item Dùng lược đồ Horner.\\
+			Nhận xét $ f(2)=0 $ nên $ f(x)=(x-2)g(x)$. Khi đó ta có
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline 
+					Hệ số của $f(x)$&  &$ 2$& $ 1 $ &$ -13 $  &$ 6 $  \\ 
+					\hline 
+					Hệ số của $g(x)$&$ a=2 $  & $ 2 $ & $ 1+2\cdot2=5 $ & $ -13+2\cdot 5=-3 $ & $ 6+2\cdot (-3)=0=r $ \\ 
+					\hline 
+				\end{tabular} 	
+			\end{center}
+			Vậy $ g(x)=2x^2+5x-3 $ và $ f(x)=(x-2)(2x^2+5x-3)$.\\
+			Nhận xét $ g(-3)=0$ nên $ g(x)=(x+3)h(x)$ dùng tiếp lược đồ Horner, ta được
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|}
+					\hline 
+					Hệ số của $ g(x) $&  &$ 2 $  &$ 5 $  &$ -3 $  \\ 
+					\hline 
+					Hệ số của $h(x)$& $a=-3$  &$2$  & $5+(-3)\cdot2=-1$ & $ -3+(-3)\cdot(-1)=0=r$ \\ 
+					\hline 
+				\end{tabular} 
+			\end{center}
+			Vậy $ g(x)=(x+3)(2x-1)$ nên $ f(x)=(x-2)(x+3)(2x-1) $.
+		\end{listEX}
+	}
+\end{vd}
+
+\begin{vd}
+Cho đa thức $ f(x)=a_{2016}x^{2016}+a_{2015}x^{2015}+\dotsb+a_2x^2+a_1x+a_0 \vdots \ (x-1)$. Chứng minh rằng $a_{2016}+a_{2015}+\dotsb +a_2+a_1+a_0=0$
+
+\loigiai{
+Từ giả thiết ta có $ f(x)=(x-1)\cdot q(x)$ với $ q(x)$ là đa thức thương.\\
+	Thay $ x=1$ vào đẳng thức trên ta được $$a_{2016}\cdot 1^{2016}+a_{2015}\cdot1^{2015}+\dotsb+a_2\cdot 1^2+a_1\cdot 1+a_0=(1-1)\cdot q(x)$$
+	$$ \Leftrightarrow a_{2016}+a_{2015}+\dotsb +a_2+a_1+a_0=0.$$ Vậy $a_{2016}+a_{2015}+\dotsb +a_2+a_1+a_0=0.$
+}
+\end{vd}
+
+\begin{dang}[Tìm số dư của phép chia đa thức]
+\end{dang}
+
+
+\begin{vd}
+	Không dùng phép chia đa thức, hãy tìm số dư trong phép chia đa thức \break $h(x)=30x^3+4x^2+1975x-2009$ cho
+	\begin{listEX}[3]
+		\item $ x-1 $.
+		\item $ x+1 $.
+		\item $ x-2 $.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}[a)]
+			\item Ta có $ h(x)=(x-1)h(x)+r$ với $h(x)$ là thương và $r$ là số dư khi chia $ h(x) $ cho $ x-1 $. Suy ra $ r=h(1)=30+4+1975-2009=0$.\\
+			Vậy số dư cần tìm bằng $ 0$.
+			\item Ta có $ h(x)=(x+1)h(x)+r$ với $h(x)$ là thương và $r$ là số dư khi chia $ h(x) $ cho $ x+1 $. Suy ra $ r=h(-1)=-30+4-1975-2009=-4010$.\\
+			Vậy số dư cần tìm bằng $-4010$.
+			\item Ta có $ h(x)=(x-2)h(x)+r$ với $h(x)$ là thương và $r$ là số dư khi chia $ h(x) $ cho $ x-2 $. Suy ra $ r=h(2)=30\cdot2^3+4\cdot2^2+1975\cdot2-2009=2197$.\\
+			Vậy số dư cần tìm bằng $2197$.
+		\end{enumerate}
+	}	
+\end{vd}
+
+\begin{vd}
+Không làm phép chia, tìm phần dư trong phép chia đa thức $f(x)$ cho $g(x)$ với $f(x)=x^{2015}+x+1$, $ g(x)=x^3-x$.
+\loigiai{
+ Gọi đa thức thương là $q(x)$ và đa thức dư là $r(x)$. Đa thức $g(x)$ bậc $3$ nên đa thức dư có bậc bé hơn $3$. Suy ra $ r(x)=ax^2+bx+c$.\\
+	Ta có $g(x)=x(x-1)(x+1)$. Suy ra $ f(x)=x(x-1)(x+1)q(x)+ax^2+bx+c$.\\
+	Thay $ x=0$, $ x=1$, $ x=-1$ ta được $\heva{&c=1\\&a+b+c=3\\&a-b+c=-1}\Leftrightarrow \heva{&a=0\\&b=2\\&c=1}$. Vậy $ r(x)=2x+1$.
+}
+\end{vd}
+
+\begin{vd}
+Dùng lược đồ Horner để tính giá trị của đa thức $f(x)=x^3+2x^2-5x+3$ tại $ x=45 $.
+\loigiai{
+Theo định lí Bé-zout, số dư trong phép chia $ f(x) $ cho $ (x-45) $ là $f(45)$.\\
+Ta lập lược đồ Horner:\\
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+	\hline 
+Hệ số của $ f(x) $	&  & $ 1 $ & $ 2 $ & $ -5 $ & $ 3 $ \\ 
+	\hline 
+	& $ a=45 $ & $ 1 $ & $ 2+45\cdot 1=47 $ & $ -5+45\cdot 47=2110 $  & $ 3+45\cdot 2110=94953$  \\ 
+	\hline 
+\end{tabular} 	
+\end{center}
+Vậy số dư của phép chia là $ f(45)=94953 $.
+}
+\end{vd}
+\begin{vd}
+Cho đa thức $ f(x)=x^5-2x^4+3x^3-4x^2+5x-3702$, biết \break $ f(x)=(x-6)\cdot q(x)+r(x)$.
+\begin{enumerate}[a)]
+	\item Dùng lược đồ Horner để tìm $q(x)$.
+	\item Dùng định lí Bezout để tính $ r $, so sánh với kết quả tính $ r $ bằng lược đồ Horner.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}[a)]
+	\item Ta có lược đồ Horner khi chia $ f(x) $ cho $ x-6 $ như sau
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}
+		\hline 
+	Hệ số $f(x)$&  & $1$ & $ -2 $ & $ 3 $ & $ -4 $ & $ 5 $&$ -3702  $\\ 
+		\hline 
+Hệ số $ q(x)$&$a=6$& $1$& $ 4 $ & $ 27 $ & $ 158 $ & $ 953 $&$ 2016 $ \\ 
+		\hline 
+	\end{tabular} 	
+	\end{center}
+Suy ra ta có $ q(x)=x^4+4x^3+27x^2+158x+953 $ và số dư $r=2016$.
+\item Theo định lí Bezout số dư của phép chia $ f(x) $ cho $ x-6 $ chính bằng $f(6)$.\\
+Vậy $ r=f(6)=6^5-2\cdot 6^4+3\cdot 6^3-4\cdot 6^2+5\cdot 6-3702=2016$.
+\end{enumerate}
+}
+\end{vd}
+
+
+
+
+
+\begin{dang}[Xác định đa thức]
+\end{dang}
+
+\begin{vd}
+Tìm giá trị của $a$ để $f(x)=x^4++5x^3-21x^2+8x+a$ chia hết cho $x+1$.
+\loigiai{
+Theo hệ quả của định lí Bezout ta có,  đa thức $f(x)=x^4++5x^3-21x^2+8x+a$ chia  hết cho $x+1$ khi và chỉ khi
+$$ 0=f(-1)=1-5-21-8+a\Rightarrow a= 33. $$
+Vậy $f(x)=x^4++5x^3-21x^2+8x+33$.
+}
+\end{vd}
+
+\begin{vd}
+Cho các đa thức $f(x)=x^4+ax^2+b$, $g(x)=x^2-5x+6$. Xác định các hệ số $a$ và $b$ để $f(x) \ \vdots \ g(x)$.
+\loigiai{
+Ta có $g(x)=(x-2)(x-3)$. Vì $f(x) \ \vdots \ g(x)$ nên $f(x)$ có thể phân  tích về dạng $f(x)=(x-2)(x-3)\cdot q(x)$. Từ đó suy ra
+$$ \heva{&f(x) \ \vdots \ (x-2)\\ &f(x) \ \vdots \ (x-3).}  $$
+Theo định lí Bezout ta được 
+$$ \heva{&f(2)=4a+b+16=0\\ &f(3)=9a+b+81=0} \Rightarrow a=-13, b=36. $$
+Vậy $f(x)=x^4-13x^2+36$.
+}
+\end{vd}
+
+\begin{vd}
+Tìm giá trị của $a$ để $f(x)=2x^2+ax+15$ chia cho $x-5$ dư $10$.
+\loigiai{
+Theo định lí Bezout ta có, phần dư trong phép chia đa thức $f(x)=2x^2+ax+15$ chia cho $x-5$ là
+$$ 10=f(5)=50+5a+15\Rightarrow a= -11. $$
+Vậy $f(x)=2x^2-11x+15$.
+}
+\end{vd}
+
+\begin{vd}
+Tìm đa thức $f(x)$, biết rằng $f(x)$ chia cho $x-3$ dư $27$, chia cho $x-5$ dư $39$ và chia cho $g(x)=x^2-8x+15$ được thương là $5x$ và còn dư.
+\loigiai{
+Từ giả thiết ta được
+\begin{eqnarray*}
+&f(x)=(x-3)h(x)+27\\ 
+& f(x)=(x-5)k(x)+39.
+\end{eqnarray*}
+Ta lại có, $g(x)=x^2-8x+15=(x-3)(x-5)$. Vì đa thức $g(x)$ có bậc hai nên dư trong phép chia $f(x)$ cho $g(x)$ là đa thức $r(x)$ có bậc nhỏ hơn hai, do đó $r(x)=ax+b$.Kết hợp với ở trên ta được
+$$ f(x)=(x-3)(x-5) \cdot 5x+ax+b. $$ Áp dụng định lí Bezout ta có
+$$ \heva{&f(3)=3a+b=27 \quad (1)\\&f(5)=5a+b=39 \quad (2).} $$ Từ $(1)$ và $(2)$ suy ra $a=6$; $b=9$ hay $r(x)=6x+9$. Khi đó, $$f(x)=(x-3)(x-5)5x+6x+9=5x^3-40x^2+81x+9.$$
+}
+\end{vd}
+
+\begin{vd}
+Xác định $a$ và $b$ để $f(x)=x^4-x^3-7x^2+ax+b$ chia cho $x^2-x-6$ dư $3x+2$.
+\loigiai{
+Gọi thương trong phép chia $f(x)$ cho $x^2-x-6$ là $q(x)$ ta có
+\begin{eqnarray*}
+&f(x)=&x^4-x^3-7x^2+ax+b=(x-3)(x+2)q(x)+3x+2.\\ 
+&f(3)=&81-27-36+3a+b=11. \quad (1)\\
+&f(-2)=&16+8-28-2a+b=-4. \quad (2)
+\end{eqnarray*}
+Từ $(1)$ và $(2)$ ta được
+$$ \heva{&3a+b=20\\&-2a+b=0}\Rightarrow a=4; b=8. $$ Vậy $f(x)=x^4-x^3-7x^2+4x+8$.
+}
+\end{vd}
+
+
+\begin{vd}
+Tồn tại hay không đa thức $P(x)$ với hệ số nguyên, có nghiệm nguyên sao cho $P(0)$ và $P(1)$ là các số lẻ?
+\loigiai{
+Giả sử $a$ là nghiệm nguyên của $P(x)$, theo hệ quả của định lí Bezout ta được $$P(x)=(x-a)Q(x) \quad (1)$$, trong đó  $Q(x)$ có hệ số nguyên. \\
+Trong $(1)$ thay $x=0$ ta được $P(0)=-a \cdot Q(0) $. Vì $P(0)$ lẻ nên $a$ lẻ. Lại thay $x=1$ vào $(1)$ ta được $P(1)=(1-a)\cdot Q(1)$, vì $P(1)$ lẻ nên $1-a$ lẻ hay $a $ chẵn. Điều này mây thuẫn. Vậy  không tồn tại đa thức $P(x)$ thỏa đề bài.
+}
+\end{vd}
+
+
+
+\btvn
+\begin{vn}
+	Phân tích các đa thức sau thành nhân tử bằng ba cách (tách, chia đa thức, dùng lược đồ Horner)
+	\begin{listEX}
+		\item $ A(x)=x^3-13x+12$.
+		\item $ B(x)=x^4-15x^2+10x+24$.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}[a)]
+			
+			\item $ A(x)=x^3-13x+12$.
+			\begin{itemize}
+				\item Tách, thêm bớt các hạng tử.\\
+				Nhận xét $A(1)=1^3-13\cdot1+12=0$ nên $ A(x)=(x-1)g(x)$.\\
+				Từ đó ta có 
+				\begin{eqnarray*}
+					A(x)&=&x^3-13x+12\\
+					&=&x^3-1-13x+13\\
+					&=&(x-1)(x^2+x+1)-13(x-1)\\
+					&=&(x-1)(x^2+x-12).
+				\end{eqnarray*}
+				Nhận xét tiếp $ g(3)=3^2+3-12=0$ nên $ g(x)=(x-3)h(x) $\\
+				Phân tích tiếp $ g(x)=x^2+x-12=x^2-3x+4x-12=x(x-3)+4(x-3)=(x-3)(x+4)$.\\
+				Vậy $ A(x)=(x-1)(x-3)(x+4)$.
+				\item Chia đa thức\\
+				Từ nhận xét $ A(1)=0 $ nên ta có $ A(x)=(x-1)g(x)$. Chia đa thức $ A(x)$ cho $x-1$ \begin{center}
+					\polylongdiv[style=D]{x^3-13x+12}{x-1}
+				\end{center}
+				ta được $ g(x)=x^2+x-12$.\\
+				Từ nhận xét $ g(x)=(x-3)h(x)$, chia tiếp $ g(x) $ cho $ x-3 $ 
+				\begin{center}
+					\polylongdiv[style=D]{x^2+x-12}{x-3}
+				\end{center}
+				ta được thương là $ x+4 $ dư $ 0 $.\\
+				Vậy $ A(x)=(x-1)(x-3)(x+4)$. 
+				\item Dùng lược đồ Horner.\\
+				Nhận xét $ A(1)=0 $ nên $ A(x)=(x-1)g(x)$. Khi đó ta có
+				\begin{center}
+					\begin{tabular}{|c|c|c|c|c|c|}
+						\hline 
+						Hệ số của $A(x)$&  &$1$& $0$ &$-13$& $12$  \\ 
+						\hline 
+						Hệ số của $g(x)$& $ a=1 $& $1$&  $ 0+1\cdot1=1 $ & $ -13+1\cdot1=-12$ & $ 12+(-12)\cdot1=0=r $ \\ 
+						\hline 
+					\end{tabular} 	
+				\end{center}
+				Vậy $ g(x)=x^2+x-12$ và $ A(x)=(x-1)(x^2+x-12)$.\\
+				Nhận xét $g(3)=0$ nên $ g(x)=(x-3)h(x)$ dùng tiếp lược đồ Horner, ta được
+				\begin{center}
+					\begin{tabular}{|c|c|c|c|c|}
+						\hline 
+						Hệ số của $g(x)$&  		& $1$&$ 1 $  &$ -12 $  \\ 
+						\hline 
+						Hệ số của $h(x)$&$a=3$&$1$  & $1+(1)\cdot3=4$& $ -12+(4)\cdot(3)=0=r$ \\ 
+						\hline 
+					\end{tabular} 
+				\end{center}
+				Vậy $ g(x)=(x-3)(x+4)$ nên $ A(x)=(x-1)(x-3)(x+4)$.
+			\end{itemize}
+			\item $ B(x)=x^4-15x^2+10x+24$.
+			\begin{itemize}
+				\item Tách, thêm bớt các hạng tử.\\
+				Nhận xét $B(2)=2^4-15\cdot2^2+10\cdot 2+24=0$ nên $ B(x)=(x-2)g(x)$.\\
+				Từ đó ta có 
+				\begin{eqnarray*}
+					B(x)&=&x^4-15x^2+10x+24\\
+					&=&x^4-16-15x^2+30x-20x+40\\
+					&=&(x-2)(x+2)(x^2+4)-15x(x-2)-20(x-2)\\
+					&=&(x-2)(x^3+2x^2-11x-12).
+				\end{eqnarray*}
+				Nhận xét tiếp $ g(3)=3^3+2\cdot3^2-11\cdot3-12=0$ nên $ g(x)=(x-3)h(x) $\\
+				Phân tích tiếp
+				\begin{eqnarray*}
+				g(x)&=&x^3+2x^2-11x-12\\ 
+				&=&x^3-3x^2+5x^2-15x+4x-12\\
+					&=&x^2(x-3)+5x(x-3)+4(x-3)\\
+					&=&(x-3)(x^2+5x+4)
+				\end{eqnarray*}
+				Nhận xét tiếp $ h(-1)=(-1)^2+5\cdot(-1)+4=0$ nên $ h(x)=(x+1)k(x) $\\
+				Phân tích tiếp $ h(x)=x^2+5x+4=x^2+x+4x+4=x(x+1)+4(x+1)=(x+1)(x+4)$.\\
+				Vậy $ B(x)=(x-2)(x-3)(x+1)(x+4)$.
+				\item Chia đa thức\\
+				Từ nhận xét $ B(2)=0 $ nên ta có $ B(x)=(x-2)g(x)$. Chia đa thức $ B(x)$ cho $x-2$
+				\begin{center}
+					\polylongdiv[style=D]{x^4-15x^2+10x+24}{x-2}
+				\end{center}
+				ta được $ g(x)=x^3+2x^2-11x-12$.\\
+				Từ nhận xét $ g(3)=0 \Rightarrow g(x)=(x-3)h(x)$, chia tiếp $ g(x) $ cho $ x-3 $ 
+				\begin{center}
+					\polylongdiv[style=D]{x^3+2x^2-11x-12}{x-3}
+				\end{center}
+				ta được thương là $ h(x)=x^2+5x+4 $ dư $ 0 $. Mà $ h(-1)=0 $ lấy $ h(x) $ chia cho $ x+1 $ 
+				\begin{center}
+					\polylongdiv[style=D]{x^2+5x+4}{x+1}
+				\end{center}
+				ta được thương là $ x+4 $ dư $ 0 $.\\
+				Vậy $ B(x)=(x-2)(x-3)(x+1)(x+4)$. 
+				\item Dùng lược đồ Horner.\\
+				Nhận xét $ B(2)=0 $ nên $ B(x)=(x-2)g(x)$. Khi đó ta có
+				\begin{center}
+					\begin{tabular}{|c|c|c|c|c|c|c|}
+						\hline 
+						Hệ số $B(x)$&  & $1$ & $0$ & $-15$ & $10$ & $24$\\ 
+						\hline 
+						Hệ số $g(x)$& $2$ & $1$ & $2$ & $-11$ & $-12$ & $0$\\ 
+						\hline 
+						Hệ số $h(x)$& $3$ & $ 1 $ & $ 5 $ & $ 4 $ & $ 0 $ &  \\ 
+						\hline 
+						Hệ số $k(x)$& $-1$& $ 1 $ & $ 4 $ & $ 0 $ &  &  \\ 
+						\hline 
+					\end{tabular} 	
+				\end{center}
+				
+				Vậy $ B(x)=(x-2)(x-3)(x+1)(x+4)$
+			\end{itemize}
+			
+		\end{enumerate}
+	}
+\end{vn}
+\begin{vn}
+Cho đa thức $ g(x)=b_{100}x^{100}+b_{99}x^{99}+\dotsb+b_2x^2+b_1x+b_0 \vdots \ (x+1)$. Chứng minh rằng $\left(b_{100}+b_{98}+\dotsb+b_2+b_0 \right)-\left(b_{99}+b_{97}+\dotsb+b_3+b_1 \right)=0 $.
+\loigiai{
+Từ giả thiết ta có $ g(x)=(x+1)\cdot q(x)$ với $ q(x)$ là đa thức thương.\\
+Thay $ x=-1$ vào đẳng thức trên ta được 
+\begin{eqnarray*}
+&&b_{100}(-1)^{100}+b_{99}(-1)^{99}+\dotsb+b_2(-1)^2+b_1(-1)+b_0=(1-1)\cdot q(x)\\ 
+ \Leftrightarrow &&b_{100}-b_{99}+\dotsb+b_2-b_1+b_0=0.
+\end{eqnarray*}
+Vậy $\left(b_{100}+b_{98}+\dotsb+b_2+b_0 \right)-\left(b_{99}+b_{97}+\dotsb+b_3+b_1 \right)=0.$
+	}
+\end{vn}
+\begin{vn}
+	Không làm phép chia, tìm phần tư trong phép chia đa thức $f(x)$ cho $g(x)$ với \\ $f(x)=x^{20}+x^{15}+x^{10}+x^5+x$, $ g(x)=x^2-1$.
+	
+	\loigiai{
+		Gọi đa thức thương là $q(x)$ và đa thức dư là $r(x)$. Đa thức $g(x)$ bậc $2$ nên đa thức dư có bậc bé hơn $2$. Suy ra $ r(x)=ax+b$.\\
+			Ta có $g(x)=(x-1)(x+1)$. Suy ra $ f(x)=(x-1)(x+1)q(x)+ax+b$.\\
+			Thay $x=1$, $x=-1$ ta được $\heva{&a+b=5\\&-a+b=-1}\Leftrightarrow \heva{&a=3\\&b=2}$. Vậy $ r(x)=3x+2$.
+	}
+\end{vn}
+
+
+\begin{vn}
+Tìm giá trị của $a$ để $f(x)=18x^2+a$ chia hết cho $3x+5$.
+\loigiai{
+Theo hệ quả của định lí Bezout ta có,  đa thức $f(x)=18x^2+a$ chia  hết cho $3x+5$ khi và chỉ khi
+$$ 0=f\left(-\dfrac{5}{3}\right)=18\cdot \left(-\dfrac{5}{3}\right)^2+a\Rightarrow a= -50. $$
+Vậy $f(x)=18x^2-50$.
+}
+\end{vn}
+
+\begin{vn}
+Tìm tất cả các số thực $a, b$ sao cho đa thức $f(x)=4x^4-11x^3-2ax^2+5bx-6$ chia hết cho đa thức $g(x)=x^2-2x-3$.
+\loigiai{
+Ta có $g(x)=(x+1)(x-3)$. Vì $f(x) \ \vdots \ g(x)$ nên $f(x)$ có thể phân  tích về dạng \\ $f(x)=(x-2)(x-3)\cdot q(x)$. Từ đó suy ra
+$$ \heva{&f(x) \ \vdots \ (x+1)\\ &f(x) \ \vdots \ (x-3).}  $$
+Theo định lí Bezout ta được 
+$$ \heva{&f(-1)=-2a-5b+9=0\\ &f(3)=-18a+15b+21=0} \Rightarrow a=2, b=1. $$
+Vậy $f(x)=4x^4-11x^3-4x^2+5x-6$.
+} 
+\end{vn}
+
+
+\begin{vn}
+Cho đa thức $H(x)=4x^3+ax^2+bx+c$, biết $H(x)$ chia cho $x-1$ dư $4$, chia cho $x+2$ dư $-35$, chia cho $x-3$ dư $120$. Tìm $a,b,c$.
+\loigiai{
+Ta có $H(1)=4$, $H(-2)=-35$, $H(3)=120$. Khi đó ta có
+\begin{eqnarray*}
+&H(1)&=4+a+b+c=4. \quad (1) \\ 
+&H(-2)&=-32+4a-2b+c=-35. \quad (2) \\
+&H(3)&=108+9a+3b+c=120. \quad (3)
+\end{eqnarray*}
+Từ $(1)$ và $(2)$ suy ra $-a+b=1 \quad (4)$; từ $(1)$ và $(3)$ suy ra $8a+2b=12 \quad (5)$. Từ $(4)$ và $(5)$ tìm được $a=1$, $b=2$. Thế vào $(1)$ ta được $c=-3$. Vậy $H(x)=4x^3+x^2+2x-3$.
+
+	}
+\end{vn}
+
+\Closesolutionfile{ans}

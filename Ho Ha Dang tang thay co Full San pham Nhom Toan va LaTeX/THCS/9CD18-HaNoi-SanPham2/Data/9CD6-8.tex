@@ -1,0 +1,766 @@
+
+%Biên soạn: Nguyễn Chính Tâm
+
+\section{Cực trị hình học}
+
+\begin{bt}
+	Cho hình vuông $ABCD$ có cạnh bằng $1$, các điểm $E,F,G,H$ theo thứ tự thuộc các cạnh $AB,BC,CD,DA$. Tính chu vi nhỏ nhất của tứ giác $EFGH$.
+	\loigiai{
+		\immini{Đặt $EH=a,EF=b,FG=c,GH=d,AH=m,AE=n$.\\
+			Ta có $a^2=m^2+n^2\ge\dfrac{\left(m+n\right)^2}{2}$\\
+			$\Rightarrow a\ge\dfrac{m+n}{\sqrt{2}}\Rightarrow a\sqrt{2}\ge AH+AE$.\\
+			Tương tự ta có $b\sqrt{2}\ge BE+BF,c\sqrt{2}\ge CF+CG,$ $\break d\sqrt{2}\ge DG+DH$.\\
+			Suy ra $\left(a+b+c+d\right)\sqrt{2}\ge AB+BC+CD+DA=4$\\
+			$\Rightarrow a+b+c+d\ge 2\sqrt{2}$.\\
+			Chu vi nhỏ nhất của tứ giác $EFGH$ bằng $2\sqrt{2}$ khi và chỉ khi $E,F,G,H$ lần lượt là trung điểm các cạnh của hình vuông $ABCD$.
+		}{
+			\begin{tikzpicture}[scale=0.8]
+			\tkzInit[xmin=-0.7,xmax=6.7,ymin=-0.7,ymax=6.7]
+			\tkzClip
+			\tkzDefPoints{0/0/D,6/0/C,0/6/A,6/6/B,2.5/6/E,6/4/F,4.5/0/G,0/2/H}
+			\tkzDrawSegments(A,B B,C C,D D,A E,F F,G G,H H,E)
+			\tkzMarkRightAngles(H,A,E E,B,F F,C,G G,D,H)
+			\tkzLabelSegment[pos=0.5,below right](H,E){$a$}
+			\tkzLabelSegment[pos=0.5,below left](E,F){$b$}
+			\tkzLabelSegment[pos=0.5,above left](F,G){$c$}
+			\tkzLabelSegment[pos=0.5,above right](G,H){$d$}
+			\tkzLabelSegment[pos=0.5,left](A,H){$m$}
+			\tkzLabelSegment[pos=0.5,above](A,E){$n$}
+			\tkzDrawPoints(A,B,C,D,E,F,G,H)
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[above right](B)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[below left](D)
+			\tkzLabelPoints[above](E)
+			\tkzLabelPoints[right](F)
+			\tkzLabelPoints[below](G)
+			\tkzLabelPoints[left](H)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}
+	Cho góc vuông $Oxy$ và điểm $A$ nằm trog góc vuông đó. Gọi $M$ là điểm di động trên tia $Ox$. Đường vuông góc với $AM$ tại $A$ cắt tia $Oy$ ở $N$. Tìm vị trí của điểm $M$ để độ dài $MN$ nhỏ nhất. 
+	\loigiai{
+		\immini{Gọi $I$ là trung điểm của đoạn thẳng $MN$.\\
+			Ta có $MN=IM+IN=IA+IO \ge OA$.\\
+			$MN$ nhỏ nhất bằng $OA$ khi và chỉ khi $O, I, A$ thẳng hàng.\\
+			Khi đó $I$ là trung điểm của $OA$, $AMON$ là hình chữ nhật và $M$ là chân đường vuông góc kẻ từ $A$ đến $Ox$.}
+		{\begin{tikzpicture}[scale=1]
+			\clip (-1,-0.5) rectangle (5.5,5.5);
+			\tkzDefPoints{0/0/O, 4/0/M, 0/2/N, 3/4/A, 5/0/x, 0/5/y}
+			\tkzDefPointBy[projection=onto N--O](A)\tkzGetPoint{N'}
+			\tkzDefPointBy[projection=onto O--M](A)\tkzGetPoint{M'}
+			\tkzDefMidPoint(M,N)\tkzGetPoint{I}
+			\tkzDrawSegments(A,M A,N M,N O,x O,y)
+			\tkzDrawSegments[dashed](A,M' A,N' A,O)
+			\tkzDrawPoints(A,M,N,M',N',I,O)
+			\tkzLabelPoints[left](N,N',y)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below left](O)
+			\tkzLabelPoints[below](M,M',I,x)
+			\end{tikzpicture}}
+	}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$, đường cao $AH=h$. Gọi $I$ là điểm bất kỳ nằm trong tam giác $ABC$. Gọi $D,$ $E,$ $F$ theo thứ tự là chân các đường vuông góc kẻ từ $I$ đến $BC,$ $AC,$ $AB$. Tính giá trị nhỏ nhất của tổng $ID^2+IE^2+IF^2$ theo $h$.
+	\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+			\clip (-0.5,-1.25) rectangle (4.5,2.3);
+			%\tkzGrid
+			\tkzDefPoints{4/0/C, 0/0/B, 2.5/0.4/I}
+			\tkzDefPointBy[rotation= center B angle 55](C) \tkzGetPoint{b}
+			\tkzDefPointBy[rotation= center C angle -35](B) \tkzGetPoint{c}
+			\tkzInterLL(B,b)(C,c)    \tkzGetPoint{A}
+			\tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{H}
+			\tkzDefPointBy[projection=onto B--C](I)\tkzGetPoint{D}
+			\tkzDefPointBy[projection=onto C--A](I)\tkzGetPoint{E}
+			\tkzDefPointBy[projection=onto B--A](I)\tkzGetPoint{F}
+			\tkzDefPointBy[projection=onto H--A](I)\tkzGetPoint{N}
+			\tkzDrawPoints(A,B,C,D,E,F,H,I,N)
+			\tkzDrawSegments(A,B B,C C,A A,H N,I E,I D,I I,F)
+			\tkzDrawSegments[dashed](A,I)
+			\tkzLabelPoints[left](B,F,N)
+			\tkzLabelPoints[above](A,I,E)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[below](H,D)
+			\end{tikzpicture}
+\end{center}
+Kẻ $IN \perp AH$. Vì $IE^2+IF^2=IA^2$ nên
+\[IE^2+IF^2+ID^2=IA^2+ID^2 \ge AN^2+NH^2 \ge \dfrac{(AN+NH)^2}{2}=\dfrac{AH^2}{2}=\dfrac{h^2}{2}.\]
+Vậy giá trị nhỏ nhất của $IE^2+IF^2+ID^2=\dfrac{h^2}{2}$, đạt được khi và chỉ khi $I$ là trung điểm của đường cao $AH$.
+	}
+\end{bt}
+
+\begin{bt}
+	Cho hình vuông $ABCD$ canh $a$, điểm $E$ thuộc cạnh $BC$, điểm $F$ thuộc cạnh $CD$ sao cho $\widehat{EAF}=45^ \circ$. Tính độ dài lớn nhất của $EF$.
+	\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1]
+			\clip (-1.5,-0.5) rectangle (4.5,4.5);
+			%\tkzGrid
+			\tkzDefPoints{0/0/D, 0/4/A,4/4/B,4/0/C, 4/3/E, -1/0/K}
+			\tkzDefPointBy[rotation= center A angle -45](E)
+			\tkzGetPoint{F'}
+			\tkzInterLL(A,F')(C,D)\tkzGetPoint{F}
+			\tkzDrawSegments(A,B B,C C,D D,A A,E A,F A,K D,K E,F)
+			\tkzDrawPoints(A,B,C,D,E,F,K)
+			\tkzLabelPoints[left](K)
+			\tkzLabelPoints[above](B,A)
+			\tkzLabelPoints[right](E)
+			\tkzLabelPoints[below](F,C,D)
+			\end{tikzpicture}
+\end{center}
+Trên tia đối của tia $DC$ lấy $K$ sao cho $DK=BE$.\\
+			Ta có $\triangle ADK = \triangle ADE$ (c.g.c) nên $\widehat{A_4}=\widehat{A_1}$.  
+			Suy ra $\widehat{A_4}+\widehat{A_3}=\widehat{A_1}+\widehat{A_3}=45^{\circ}=\widehat{A_2}$.\\
+			Do đó $\triangle FAE=\triangle FAK$ (c.g.c)  $\Rightarrow EF=KF=KD+DF=BE+DF$\\
+			$\Rightarrow EF+CE+CF=BE+CE+DF=BC+CD=2a$.\\
+			Ta lại có $EF \le CE+CF$ nên $EF \le a$.\\
+			Vậy giá trị lớn nhất của $EF$ là $a$ khi và chỉ khi $E$ trùng $B$ hoặc $E$ trùng $C$.
+	}
+\end{bt}
+
+\begin{bt}
+	Tính chu vi nhỏ nhất của tứ giác $ABCD$ biết hai đường chéo vuông góc và có tổng bằng $k$.
+	\loigiai{
+		\immini{Đặt $AB=a, BC=b, CD=c, DA=d$.\\
+			Gọi $O$ là giao điểm của hai đường chéo.\\
+			Ta có $a^2=OA^2+OB^2 \ge \dfrac{(OA+OB)^2}{2}$\\
+			Suy ra $a \ge \dfrac{OA+OB}{\sqrt{2}} \Rightarrow a\sqrt{2} \ge OA+OB$.\\
+			Tương tự $b\sqrt{2} \ge OB+OC, c\sqrt{2} \ge OC+OD,\\ d\sqrt{2} \ge OD+OA$.\\
+			Suy ra $(a+b+c+d)\sqrt{2} \ge 2(OA+OB+OC+OD)=2k$.\\
+			$\min(a+b+c+d)=k\sqrt{2} \Leftrightarrow \heva{
+				&OA=OB=OC=OD=\dfrac{k}{4}\\
+				&AC \perp BD.}$\\
+			$\Leftrightarrow ABCD$ là hình vuông có đường chéo bằng $\dfrac{k}{2}$.}{\begin{tikzpicture}[scale=1]
+			\tkzDefPoints{0/0/A, 2/2/B, 2/-3/D, 5/0/C}
+			\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+			\tkzDrawSegments(A,B B,C C,D D,A A,C D,B)
+			\tkzDrawPoints(A,B,C,D,O)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[above](B)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[below](D)
+			\tkzLabelPoints[below right](O)
+			\end{tikzpicture}}
+	}
+\end{bt}
+
+%\subsection*{Bài toán cực trị liên quan đến diện tích}
+
+\begin{bt}
+    Trong các tam giác $ABC$ vuông tại $A$ có $BC=2a$, đường cao $AH$, tính diện tích lớn nhất của hình chữ nhật $ADHE$ ($D \in AC, E \in AB$).
+    \loigiai
+    {
+    	\immini 
+    	{
+    		Đặt $AD=x,DH=y$. Gọi $M$ là trung điểm của $BC$, ta có\\
+ $S_{ADHE} = xy \le \dfrac{x^2+y^2}{2}=\dfrac{AH^2}{2} \le \dfrac{AM^2}{2} = \dfrac{a^2}{2}$. \\
+Suy ra $ \max S_{ADHE} = \dfrac{a^2}{2} \Leftrightarrow H \equiv M$.\\
+Hay $ \triangle ABC$  vuông cân tại $A$.
+    	}
+    	{
+    		\begin{tikzpicture}[>=stealth,x=1cm,y=1cm,scale=1]
+    		\tkzInit[xmin=-3.3,xmax=2.7,ymin=-0.7,ymax=3.1]
+    		\tkzClip
+    		\tkzDefPoints{-3/0/B,-0.8/3/a,2.5/0/C}
+    		\tkzDefPointBy[projection = onto a--B](C)
+    		\tkzGetPoint{A}
+    		\tkzDefPointBy[projection = onto B--C](A)
+    		\tkzGetPoint{H}
+    		\tkzDefPointBy[projection = onto A--B](H)
+    		\tkzGetPoint{E}
+    		\tkzDefPointBy[projection = onto A--C](H)
+    		\tkzGetPoint{D}
+    		\coordinate (M) at ($(B)!0.5!(C)$);	
+    		\tkzMarkRightAngles[fill=gray!50](B,A,C A,H,C H,E,A H,D,A)
+    		\path(A)--(D) node[above,midway]{$x$};
+    		\path(H)--(D) node[right,midway]{$y$};
+    		\tkzDrawSegments(A,B B,C C,A A,H H,E H,D)
+    		\tkzDrawSegments[dashed](A,M)
+    		\tkzDrawPoints(A,B,C,H,M,E,D)
+    		\tkzLabelPoints[above](A,D)
+    		\tkzLabelPoints[left](E)
+    		\tkzLabelPoints[below](B,H,C,M)
+    		\end{tikzpicture}
+    	} 
+    }
+\end{bt}
+
+\begin{bt}
+	Hình thoi $ABCD$ có tổng hai đường chéo bằng $m$. Tính diện tích lớn nhất của hình thoi.
+	\loigiai 
+	{
+		\begin{center}
+			\begin{tikzpicture}[scale=0.8]
+				\tkzDefPoints{-3/0/D,3/0/B,0/1.5/A}
+				\coordinate (C) at ($(D)+(B)-(A)$);
+				\tkzInterLL(A,C)(B,D)
+				\tkzGetPoint{O}
+				\tkzMarkRightAngles[fill=gray!50,size=0.3](A,O,B)
+				\tkzDrawPolygon(A,B,C,D)
+				\tkzDrawSegments(A,C B,D)
+				\path(A)--(O) node[right,midway]{$x$};
+				\path(O)--(B) node[below,midway]{$y$};
+				\tkzDrawPoints(A,B,C,D,O)
+				\tkzLabelPoints[above](A)
+				\tkzLabelPoints[below](C)
+				\tkzLabelPoints[left](D)
+				\tkzLabelPoints[right](B)
+				\tkzLabelPoints(O)
+			\end{tikzpicture}
+		\end{center}
+Gọi $O$ là giao điểm của $AC$ và $BD$. Đặt $OA=x, OB=y$. Ta có $OA+OB = \dfrac{AC+BD}{2}$ nên $x+y = \dfrac{m}{2}$. Ta có  \[S_{ABCD} = \dfrac{1}{2}AC \cdot BD = \dfrac{1}{2} \cdot 2x \cdot 2y = 2xy.\]
+Do đó \[S_{ABCD} = 2xy \le \dfrac{(x+y^2)}{2} = \dfrac{\left(\dfrac{m}{2}\right)^2}{2} = \dfrac{m^2}{8} \Rightarrow \max S_{ABCD} = \dfrac{m^2}{8} \Leftrightarrow x = y = \dfrac{m}{4}.\]
+	}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác đều $ABC$ cạnh $4$ cm. Tìm vị trí điểm $M$ trên cạch $BC$ sao cho nếu gọi $D$ là hình chiếu của $M$ trên $AB$, gọi $E$ là hình chiều của $M$ trên $AC$ thì tứ giác $ADME$ có diện tích lớn nhất.
+	\loigiai
+	{
+		\immini
+		{
+			Đặt $S_{MDB}= S_1, S_{MEC}= S_2 \Rightarrow S_{ADME}$ lớn nhất $\Leftrightarrow S_1+ S_2$ nhỏ nhất.
+			Đặt $MB= x, MC= y$ thì $x + y =4$. Tam giác vuông $MDB$ là nửa tam giác đều cạnh $x$ nên $S_1= \dfrac{x^2 \cdot \sqrt{3}}{8}$. \\
+			Tương tự $S_2= \dfrac{y^2 \cdot \sqrt{3}}{8}$. Từ đó ta có\\
+			$S_1+ S_2= \dfrac{\sqrt{3}}{8}(x^2+ y^2) \geq \dfrac{\sqrt{3}}{8}\dfrac{(x+y)^2}{2}= \sqrt{3}$ \\ $\Rightarrow S_1+ S_2 \geq \sqrt{3}$. Đẳng thức xảy ra $\Leftrightarrow x= y$.\\
+			Vậy $S_{ADME}$ lớn nhất bằng $3\sqrt{3}$ cm$^2$ khi và chỉ khi $M$ là trung điểm của $BC$.   
+		}
+		{
+			\begin{tikzpicture}[scale=0.75]
+			\tkzInit[xmin=-3.3,xmax=5,ymin=-2,ymax=6]
+			\tkzClip
+			\tkzDefPoints{0/5/A, -2.5/0/B, 4/0/C, 0/0/M}
+			\tkzDefPointBy[projection= onto A--B](M)
+			\tkzGetPoint{D}
+			\tkzDefPointBy[projection= onto A--C](M)
+			\tkzGetPoint{E}
+			\tkzDrawSegments(A,B B,C A,C M,E M,D)
+			\tkzMarkRightAngle(M,D,B)
+			\tkzMarkRightAngle(M,E,C)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](M)
+			\tkzLabelPoints[above right](E)
+			\tkzLabelPoints[above left](D)
+			\path(B)--(M) node[below,midway,sloped]{$x$};
+			\path(B)--(M) node[above,midway]{\footnotesize $S_1$};
+			\path(M)--(C) node[below,midway,sloped]{$y$};
+			\path(M)--(C) node[above=0.3cm,midway]{$S_2$};
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}% Nguyễn Chính Tâm
+Cho tam giác nhọn $ABC$, $BC=a$, $CA=b$, $AB=c$, điểm $O$ nằm trong tam giác. Gọi $D$, $E$, $F$ theo thứ tự là hình chiếu của $O$ trên $AB$, $BC$, $CA$. Đặt $AD=x$, $BE=y$, $CF=z$.
+\begin{enumerate}
+	\item [a)] Chứng minh bất đẳng thức $x^2+y^2+z^2\ge \dfrac{a^2+b^2+c^2}{4}.$
+\item [b)] Vẽ ở phía ngoài tam giác $ABC$ các hình vuông theo thứ tự có các cạnh là $AD$, $BE$, $CF$. Tìm vị trí của điểm $O$ để tổng diện tích ba hình vuông nhỏ nhất.
+\end{enumerate}
+    \loigiai{
+\immini 
+    	{
+a) Đặt $BD=m$, $CE=n$, $AF=p$. \\
+Ta có 
+$2(x^2+m^2)\ge (x+m)^2=c^2.$\\
+Tương tự $2(y^2+n^2)\ge a^2$, $2(z^2+p^2)\ge b^2$. \\
+Từ đó suy ra \\
+$x^2+y^2+m^2+n^2+p^2\ge \dfrac{a^2+b^2+c^2}{2}$.\hfill$(1)$\\
+Ta lại có
+	}
+{
+\begin{tikzpicture}[scale=0.8]
+\tkzInit[ymin=-1,ymax=5.6,xmin=-3.75,xmax=5.25]
+\tkzClip
+\tkzDefPoints{0/5/A,5/0/C,-2/0/B,1.25/1.75/O}
+\tkzDefPointBy[projection=onto A--B](O)\tkzGetPoint{D}
+\tkzDefPointBy[projection=onto B--C](O)\tkzGetPoint{E}
+\tkzDefPointBy[projection=onto A--C](O)\tkzGetPoint{F}
+\tkzLabelPoints[left](D)
+\tkzLabelPoints[right](F,O)
+\tkzLabelPoints[below](B,E,C)
+\tkzLabelPoints[above](A)
+\tkzDrawPoints(A,B,C,D,E,F,O)
+\tkzDrawSegments(A,B B,C C,A O,D O,E O,F)
+\tkzDrawSegments[loosely dashed](A,O B,O C,O)
+\tkzMarkRightAngles(O,E,C O,F,A O,D,B)
+\draw [] (0,0)node[below]{$y$} (3,0)node[below]{$n$} (4.2,1)node[above]{$z$} (1.35,3.75)node[above]{$p$} (-0.75,3.6)node[above]{$x$} (-1.5,1.5)node[left]{$m$};
+		\end{tikzpicture}
+	}
+{\allowdisplaybreaks
+\begin{align*}
+x^2+y^2+z^2&=\left(OA^2-OD^2\right)+\left(OB^2-OE^2\right)+\left(OC^2-OF^2\right)\\ 
+m^2+n^2+p^2&=\left(OB^2-OD^2\right)+\left(OC^2-OE^2\right)+\left(OA^2-OF^2\right)
+\end{align*}}nên $x^2+y^2+z^2=m^2+n^2+p^2$.\hfill$(2)$\\
+Từ $(1)$ và $(2)$ suy ra $x^2+y^2+z^2\ge \dfrac{a^2+b^2+c^2}{4}.$\\
+b) $\min(x^2+y^2+z^2)=\dfrac{a^2+b^2+c^2}{4}\Leftrightarrow \begin{cases}
+x=m\\
+y=n\\
+z=p
+\end{cases}\Leftrightarrow O$ là giao điểm các đường trung trực của tam giác $ABC$. 
+    }
+\end{bt}
+
+\begin{bt}% Nguyễn Chính Tâm 
+Cho hình chữ nhật $ABCD$ có diện tích $S$. Qua điểm $O$ nằm trong hình chữ nhật, kẻ hai đường thẳng song song với các cạnh của hình chữ nhật, chia nó thành bốn hình chữ nhật nhỏ. Gọi diện tích hình chữ nhật nhỏ có đỉnh $A$ là $S_1$, diện tích hình chữ nhật nhỏ có đỉnh $C$ là $S_2$, giả sử $S_1\le S_2$. Chứng minh rằng $S_1\le \dfrac{S}{4}.$
+    \loigiai{
+\immini 
+    	{
+Gọi $S_3$, $S_4$ theo thứ tự là diện tích các hình chữ nhật nhỏ có đỉnh $B$, đỉnh $D$. Kí hiệu các điểm $E$, $F$, $G$, $H$ như trên hình vẽ. Ta có $S_1.S_2=OE.OG.OF.OH$ và $S_3.S_4=OG.OF.OE.OH$ nên $S_1S_2=S_3S_4$.\\
+Ta có $S_1\le S_2$ nên $S_1^2\le S_1S_2=S_3S_4$. Từ đó suy ra $S_1\le \sqrt{S_1S_2}\le \dfrac{S_1+S_2}{2}$ và $S_1\le \sqrt{S_3S_4}\le \dfrac{S_3+S_4}{2}$. Do đó ta có $$S_1\le \dfrac{S_1+S_2+S_3+S_4}{4}=\dfrac{S}{4}.$$
+	}
+{
+\begin{tikzpicture}[scale=0.9]
+\tkzInit[ymin=-1,ymax=5,xmin=-2,xmax=6.6]
+\tkzClip
+\tkzDefPoints{0/4/A,6/4/B,6/0/C,0/0/D,0/2.5/E,6/2.5/F,2/4/G,2/0/H}
+\tkzInterLL(G,H)(E,F)\tkzGetPoint{O}
+\tkzLabelPoints[left](E)
+\tkzLabelPoints[right](F)
+\tkzLabelPoints[below](H)
+\tkzLabelPoints[below left](D)
+\tkzLabelPoints[below right](O,C)
+\tkzLabelPoints[above](G)
+\tkzLabelPoints[above left](A)
+\tkzLabelPoints[above right](B)
+\tkzDrawPoints(A,B,C,D,E,F,G,H,O)
+\tkzDrawSegments(A,B B,C C,D D,A E,F G,H)
+\draw(1,3.25)node{$S_1$} (1,1.25)node{$S_4$} (4,3.25)node{$S_3$} (4,1.25)node{$S_2$};
+\end{tikzpicture}
+	}
+    }
+\end{bt}
+
+%\subsection*{Bài toán cực trị có liên quan đến đường tròn}
+
+\begin{bt}
+Cho đường tròn $(O;R)$ và hai điểm $A$, $B$ nằm ngoài đường tròn, trong đó $OA=2R$. Gọi $C$ là giao của tia $OA$ và đường tròn $(O)$. Dựng điểm $M$ thuộc đường tròn $(O)$ sao cho tổng $AM+2MB$ nhỏ nhất.
+\loigiai{
+Gọi $I$ phải dựng là trung điểm của $OC$.\\
+		Ta có $\dfrac{OI}{OM}=\dfrac{OM}{OA}=\dfrac{1}{2}$ nên $\triangle IOM\backsim\triangle MOA$ (c.g.c). Do đó  \[\dfrac{IM}{AM}=\dfrac{OI}{OM}=\dfrac{1}{2}\Rightarrow AM=2IM.\]
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+\clip(-4,-4)rectangle(2.3,2);
+\tkzDefPoints{0/0/O,0/-2/M, 1.8/-3.2/B}
+\coordinate (C) at ($(O)+({2*cos(-130)},{2*sin(-130)})$);
+\coordinate (A) at ($(O)!2!(C)$);
+\coordinate (I) at ($(O)!0.5!(C)$);
+\tkzDrawCircle(O,M)
+\tkzDrawSegments(O,A O,M A,M M,I M,B)
+\tkzDrawPoints(A,B,C,M,O,I)
+\tkzLabelPoints[below](A,B,M)
+\tkzLabelPoints[above](C,O,I)
+\end{tikzpicture}
+\end{center}
+Ta có $$AM+2MB=2IM+2MB=2(IM+MB)\ge 2IB.$$
+		Vậy $\min(AM+2MB)=2IB$ khi $M$ là giao điểm của đoạn thẳng $IB$ với đường tròn $(O)$.
+}
+\end{bt}
+\begin{bt}
+Cho đường tròn $(O;R)$, điểm $I$ nằm trong đường tròn có $OI=d>0$. Qua $I$ vẽ hai tia vuông góc với nhau, cắt đường tròn ở $A$ và $B$ sao cho $O$ nằm trong góc vuông $\widehat{AIB}$.
+ Tính diện tích lớn nhất của tam giác $AIB$.
+\loigiai{Ta có $a^2+b^2=(R^2-x^2)+(R^2-y^2)=2R^2-(x^2+y^2)=2R62-d^2$.\\
+ Đặt $S_{AIB}=S$, ta có
+		\immini{$2S=IA\cdot IB=I(a+y)(b+x)=(ab+xy)+(ax+by)$.\hfill$(1)$\\
+		Theo bất đẳng thức Cô-si:\\ $ab+xy\le\dfrac{a^2+b^2}{2}+\dfrac{x^2+y^2}{2}=\dfrac{2R^2-d^2}{2}+\dfrac{d^2}{2}=R^2$.\hfill$(2)$\\
+\noindent{Theo} bất đẳng thức Bu-nhi-a-cốp-xki: \[ax+by\le\sqrt{(a^2+b^2)(x^2+y^2)}=\sqrt{(2R^2-d^2)d^2}=d\sqrt{2R^2-d^2}.\tag{3}\]
+Từ $(1)$, $(2)$, $(3)$, suy ra $2S\le R^2+d\sqrt{2R^2-d^2}$ (không đổi).}
+{\begin{tikzpicture}[scale=0.6]
+\tkzDefPoints{0/0/I, 1.5/0/M, 0/1.2/N,4/0/A, 1.5/1.2/O}
+\tkzDrawCircle(O,A)
+\coordinate (A') at ($(A)!2!(M)$);
+\tkzInterLC(I,N)(O,A)	\tkzGetPoints{B'}{B}
+\tkzDrawSegments(O,A O,B O,M O,N O,I A,A' B,B' A,B)
+\tkzDrawPoints(A,B,O,I,M,N)
+\tkzLabelPoints[below](M)
+\tkzLabelPoints[left](N)
+\tkzLabelPoints[below left](I)
+\tkzLabelPoints[below right](A)
+\tkzLabelPoints[above left](B)
+\tkzLabelPoints[above right](O)
+\tkzMarkRightAngle(A,M,O)
+\tkzMarkRightAngle(O,N,B)
+\end{tikzpicture}}
+Vậy $\max S=\dfrac{R^2+d\sqrt{2R^2-d^2}}{2}\Leftrightarrow\heva{&x=y\\&a=b}\Leftrightarrow$ $IA$ và $IB$ tạo với $OI$ góc $45^\circ$.
+}
+\end{bt}
+
+\begin{bt}
+Cho đường tròn $(O)$, dây $AB$ cố định, điểm $M$ chuyển động trên đường tròn. Vẽ hình bình hành $BAMC$. Tìm vị trí của điểm $M$ để độ dài $AC$ lớn nhất.
+\loigiai{\begin{center}
+		\begin{tikzpicture}[scale=1.3]
+		\tkzDefPoints{0/0/O, 3/0/E}
+		\coordinate (B) at ($(O)+({3*cos(-35)},{3*sin(-35)})$);
+		\coordinate (A) at ($(O)+({3*cos(-145)},{3*sin(-145)})$);
+		\coordinate (M) at ($(O)+({3*cos(80)},{3*sin(80)})$);
+		\tkzDrawCircle(O,E)
+		\coordinate (C) at ($(B)+(M)-(A)$);
+		\tkzInterLL(M,B)(A,C)	\tkzGetPoint{I}
+		\coordinate (K) at ($(O)!0.5!(B)$);
+		\tkzDrawCircle(K,O)
+		\tkzInterLC(A,K)(K,O)	\tkzGetSecondPoint{I'}
+		\tkzInterLC(B,I')(O,E)	\tkzGetFirstPoint{M'}
+		\tkzDrawPoints(A,B,C,M,O,I,K,I',M')
+		\tkzDrawSegments(A,M M,C A,C C,B A,B O,I O,B A,I' B,M' B,M)
+		\tkzLabelPoints[below left](A)
+		\tkzLabelPoints[below right](B)
+		\tkzLabelPoints[below](K)
+		\tkzLabelPoints[above right](M',C)
+		\tkzLabelPoints[above](M,I)
+		\tkzLabelPoints[above left](O,I')
+		\end{tikzpicture}
+	\end{center}
+Gọi $I$ là giao điểm của $AC$ và $BM$. Do $MI=IB$ nên $OI\perp BM$, $I$ chuyển động trên đường tròn đường kính $OB$.\\
+$AC$ lớn nhất $\Leftrightarrow$ $AI$ lớn nhất $\Leftrightarrow$ đoạn thẳng $AI$ đi qua trung điểm $K$ của $OB$. Khi đó, $M$ ở vị trí $M'$ đối xứng với $B$ qua điểm $I'$ vừa xác định.}
+\end{bt}
+\begin{bt}
+Cho nửa đường tròn $(O)$, đường kính $AB=2R$. Hai bán kính $OC$ và $OD$ thay đổi vị trí sao cho $C$ thuộc cung $AD$ và $\widehat{COD}=60^\circ$. Tìm vị trí của các điểm $C$, $D$ để tứ giác $ACDB$ có diện tích lớn nhất.
+\loigiai{\immini{Có $\triangle COD$ đều $\Rightarrow S_{COD}=\dfrac{R^2\sqrt{3}}{4}$\hfill$(1)$\\
+Đặt $S_{ACDB}=S$ thì $S$ lớn nhất $\Leftrightarrow S_{AOC}+S_{BOD}$ lớn nhất.\\
+Gọi $I$ là trung điểm của $CD$. Kẻ $II'$, $CC'$, $DD'$ vuông góc với $AB$.\\
+Ta có $S_{AOC}+S_{BOD}=R\cdot\dfrac{CC'+DD'}{2}=R\cdot II'$\hfill$(2)$\\
+Ta lại có $II'\le IO=\dfrac{R\sqrt{3}}{2}$\hfill$(3)$\\
+Từ $(1)$, $(2)$, $(3)$ suy ra\\ $S\le\dfrac{R^2\sqrt{3}}{4}+R\cdot\dfrac{R\sqrt{3}}{2}=\dfrac{3R^2\sqrt{3}}{4}.$}{\begin{tikzpicture}
+\clip(-4,-1)rectangle(4,4);
+\tkzDefPoints{0/0/O, -3/0/A, 3/0/B}
+\tkzDrawArc[color=black](O,B)(A)
+\coordinate (C) at ($(O)+({3*cos(130)},{3*sin(130)})$);
+\coordinate (D) at ($(O)+({3*cos(70)},{3*sin(70)})$);
+\tkzDefPointBy[projection=onto A--B](C)	\tkzGetPoint{C'}
+\tkzDefPointBy[projection=onto A--B](D)	\tkzGetPoint{D'}
+\coordinate (I) at ($(C)!0.5!(D)$);
+\tkzDefPointBy[projection=onto A--B](I)	\tkzGetPoint{I'}
+\tkzDrawPoints(A,B,O,C,D,I,C',D')
+\tkzDrawSegments(A,B O,C O,D C,D A,C B,D C,C' D,D' I,I' O,I)
+\tkzLabelPoints[below](O,C',D',I')
+\tkzLabelPoints[below left](A)
+\tkzLabelPoints[below right](B)
+\tkzLabelPoints[above](C,D)
+\tkzLabelPoints[below right](I)
+\tkzMarkRightAngle(B,D',D)
+\tkzMarkRightAngle(O,I',I)
+\tkzMarkRightAngle(B,C',C)
+\end{tikzpicture}}
+\noindent{Vậy} $\max S=\dfrac{3R^2\sqrt{3}}{4}\Leftrightarrow$ $I'$ trùng $O$ $\Leftrightarrow\widehat{AOC}=\widehat{BOD}=60^\circ$.}
+\end{bt}
+\begin{bt}
+Cho nửa đường tròn $(O)$, đường kính $AB=2R$, bán kính $OC$ vuông góc với $AB$, điểm $M$ chuyển động trên cung $CB$. Gọi $H$ là hình chiếu của $M$ trên $OB$. Tìm vị trí của điểm $M$ để tam giác $MOH$ có:
+\begin{multicols}{2}
+\begin{enumerate}
+	\item Chu vi lớn nhất.
+	\item Diện tích lớn nhất.
+\end{enumerate}
+\end{multicols}
+\loigiai{\immini{Đặt $MH=x$, $OH=y$.
+	\begin{enumerate}
+		\item Chu vi $\triangle MOH$ là $R+x+y$.\\
+		Ta có $(x+y)^2\le2(x^2+y^2)=2R^2$.\\
+		Chu vi $\triangle MOH$ lớn nhất bằng $R+R\sqrt{2}$ khi và chỉ khi $x=y\Leftrightarrow\widehat{BOM}=45^\circ$.
+		\item $2S_{MOH}=MH\cdot OH=xy\le\dfrac{x^2+y^2}{2}=\dfrac{R^2}{2}$.\\
+		Vậy $\max S=\dfrac{R^2}{4}\Leftrightarrow x=y\widehat{BOM}=45^\circ$.
+\end{enumerate}}{\begin{tikzpicture}
+\clip(-4,-1)rectangle(3.5,4);
+\tkzDefPoints{0/0/O, -3/0/A, 3/0/B, 0/3/C}
+\tkzDrawArc[color=black](O,B)(A)
+\coordinate (M) at ($(O)+({3*cos(70)},{3*sin(70)})$);
+\tkzDefPointBy[projection=onto A--B](M)	\tkzGetPoint{H}
+\tkzDrawPoints(A,B,O,C,M,H)
+\tkzDrawSegments(A,B O,C O,M M,H)
+\tkzLabelPoints[below](O,H)
+\tkzLabelPoints[below left](A)
+\tkzLabelPoints[below right](B)
+\tkzLabelPoints[above](M,C)
+\tkzMarkRightAngle(M,H,O)
+\tkzMarkRightAngle(C,O,A)
+\end{tikzpicture}}}
+\end{bt}
+
+\begin{bt}
+	Trong các tam giác có đáy $BC=a$, đường cao $AH=h$, tam giác nào có bán kính đường tròn nội tiếp lớn nhất?
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzInit[xmin =-7, xmax=5, ymin=0, ymax=8]
+			\tkzClip
+			%\tkzGrid
+			\tkzDefPoints{-4/4/A, -5/1/B, 1/1/C, -5/7/D, -4/1/H, -5/4/E, -2/4/G}
+			\tkzDrawLine(G,E)
+			\tkzDrawPoints(A, B, C, D, H)
+			\tkzLabelPoints(C,  H)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[above](A, D)
+			\tkzDrawSegments(A,B A,C B,C A,D A,H)
+			\tkzDrawSegments[dashed](D,E B,E D,C)
+			\tkzMarkRightAngles(B,E,A A,H,C)
+			\tkzLabelSegment[pos=0.5,left](D,E){ $h$}
+			\tkzLabelSegment[pos=0.5,left](B,E){$h$}
+			\tkzLabelSegment[pos=0.5,right](A,H){$h$}
+			\end{tikzpicture}
+		\end{center}
+		Gọi $r$ là bán kính đường tròn nội tiếp. $S_{ABC}=r\cdot \dfrac{AB+BC+CA}{2}$ mà $S_{ABC}=\dfrac{1}{2}ah$ không đổi nên $r$ lớn nhất khi $AB+BC+CA$ nhỏ nhất. Điều này xảy ra khi $AB+AC$ nhỏ nhất. Khi đó $\triangle ABC$ cân tại $A$.
+		
+	}
+\end{bt}
+
+\begin{bt}
+	Trong các tam giác vuông $ABC$ có cạnh huyền $BC=a$, tam giác nào có bán kính đường tròn nội tiếp lớn nhất?
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzInit[ xmin =1, xmax=11, ymin=0.5, ymax=5.5]
+			\tkzClip
+			%\tkzGrid
+			\tkzDefPoints{3/1/A, 3/5/B, 10/1/C, 4.48/2.46/I, 5.21/3.74/H, 4.48/0.99/E, 3.01/2.46/D}
+			\tkzDrawPoints(A, B, C, I)
+			\tkzLabelPoints(I)
+			\tkzLabelPoints[below](A, C)
+			\tkzLabelPoints[left=3pt](B)
+			\tkzLabelSegment[pos=0.7,left=4pt, above](I,E){$r$}
+			\tkzLabelSegment[pos=0.7,left=4pt, below](A,E){$r$}
+			\tkzDrawSegments(A,B B,C C,A)
+			\tkzDrawSegments[dashed](I,E I,D I,H)
+			\tkzMarkRightAngles(I,H,B I,D,B I,E,A B,A,C)
+			\draw (4.48,2.46) circle (1.47);
+			\end{tikzpicture}
+		\end{center}
+		Gọi $r$ là bán kính đường tròn nội tiếp $\triangle ABC$. Ta có $2r=b+c-a$. \hfill(1)\\
+		Ta có $(b+c)^2\leq 2(b^2+c^2)=2a^2 \Rightarrow b+c\leq a\sqrt{2}$.\hfill(2)\\
+		Từ (1) và (2) suy ra
+		\[2r\leq a\sqrt{2}-a=a(\sqrt{2}-1) \Rightarrow r\leq \dfrac{\sqrt{2}-1}{2}\cdot a.\]
+		Vậy $\max r=\dfrac{\sqrt{2}-1}{2}\cdot a\Leftrightarrow AB=AC.$
+	}
+\end{bt}
+\begin{bt}
+	Trong các tam giác $ABC$ vuông tại $A$ ngoại tiếp đường tròn $(O, r)$, tam giác nào có cạnh huyền nhỏ nhất?
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzInit[xmin =0, xmax=11, ymin=0, ymax=6]
+			\tkzClip
+			\tkzDefPoints{3/1/A, 3/5/B, 10/1/C, 4.48/2.46/O, 5.21/3.74/D, 4.48/0.99/E, 3.01/2.46/H}
+			\tkzDrawPoints(A, B, C, O)
+			\tkzLabelPoints(O)
+			%\tkzLabelPoints[above=5pt](D)
+			\tkzLabelPoints[below](A, C)
+			\tkzLabelPoints[left=3pt](B)
+			\tkzLabelSegment[pos=0.4,right, above=2pt](O, D){$r$}
+			\tkzDrawSegments(A,B B,C C,A)
+			\tkzDrawSegments[dashed](O,E O,H O,D)
+			\tkzMarkRightAngles(O,D,B O,H,B O,E,A B,A,C)
+			\draw (4.48,2.46) circle (1.47);
+			\end{tikzpicture}
+		\end{center}
+		Ta có $$2BC^2=2(AB^2+BC^2)\geq (AB+AC)^2=(BC+2r)^2 \Rightarrow BC\sqrt{2}\geq BC+2R$$
+		Suy ra $ BC\geq \dfrac{2r}{\sqrt{2}-1}=2r(\sqrt{2}-1).$\\
+		Vậy $\min BC=2r(\sqrt{2}+1) \Leftrightarrow AB=AC=r(\sqrt{2}+2)$.
+	}
+\end{bt}
+\begin{bt}
+	Cho hình vuông $ABCD$ cạnh $a$. Vẽ cung $BD$ một phần tư đường tròn có tâm $A$, bán kính $AB$ (nằm trong hình vuông $ABCD$). Gọi $I$ là điểm chuyển động trên cung $BD$. Tiếp tuyến tại $I$ cắt các cạnh $CB, CD$ theo thứ tự ở $E, F$. Tìm vị trí của điểm $I$ để tam giác $CEF$ có diện tích lớn nhất?
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzInit[xmin =3, xmax=11, ymin=2, ymax=10]
+			\tkzClip
+			\tkzDefPoints{4/9/A, 10/9/B, 10/3/C, 4/3/D, 7.3/4/I, 5.8/3/F, 10/5.77/E}
+			\tkzDrawArc[towards](A,D)(B)
+			\tkzDrawPoints(A, B, C, D, I, E, F)
+			\tkzLabelPoints[below=10pt,left](D, F)
+			\tkzLabelPoints[below=10pt,right](C)
+			\tkzLabelPoints[above=10pt,left](A)
+			\tkzLabelPoints[above=10pt,right](B)
+			\tkzLabelPoints[right=5pt](E)
+			\tkzLabelPoints[below=5pt](I)
+			\tkzDrawSegments(A,B B,C C,D D,A E,F A,I)
+			\tkzDrawSegments[dashed](A,F A,E)
+			\tkzLabelSegment[pos=0.5,below](F,C){ $y$}
+			\tkzLabelSegment[pos=0.5,right](C,E){$x$}
+			\tkzLabelSegment[pos=0.5,above](A,B){ $a$}
+			\tkzMarkRightAngles(A,D,F D,C,B A,B,C A,I,E)
+			\end{tikzpicture}
+		\end{center}
+		Đặt $CE=x, CF=y$. Ta có $S_{CEF}=\dfrac{1}{2}xy$. Do $\widehat{EAF}=45^{\circ}$ nên ta chứng minh được\\ $CE+CF+EF=CB+CD=2a$. Suy ra $x+y+\sqrt{x^2+y^2}=2a$. \hfill(1)\\
+		Ta lại có $x+y\geq 2\sqrt{xy}, x^2+y^2\geq 2xy$ nên \\
+		$x+y+\sqrt{x^2+y^2}\geq 2\sqrt{xy}+\sqrt{2xy}=(2+\sqrt{2})\sqrt{xy}$.\hfill(2)\\
+		Từ (1) và (2) suy ra $\sqrt{xy}\leq \dfrac{2a}{2+\sqrt{2}}=a(2-\sqrt{2})$. \\
+		$S_{CEF}$ lớn nhất $\Leftrightarrow x=y$. Khi đó, $I$ là giao điểm của cung $BD$ và đường chéo $AC$.
+		
+	}
+\end{bt}
+
+%\subsection*{Bài toán cực trị hình học trong các kì thi}
+
+\begin{bt}%[Đề thi TS vào lớp 10 THPT của Tp. Hà Nội năm học 2009-2010]%[9H3B7]%[9H2B6]%[9H2B6]%[9H3K7]
+	Cho đường tròn $(O; R)$ và điểm $A$ nằm bên ngoài đường tròn. Kẻ tiếp tuyến $AB$, $AC$ với đường tròn ($B$, $C$ là các tiếp điểm). Đường thẳng qua $O$ và vuông góc với $OA$ cắt $AB$, $AC$ theo thứ tự tại $M$, $N$. Chứng minh 	$PM+QN \geq MN$.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm, scale=0.7, thick]
+\tkzDefPoint(0,0){O}
+\def\r{4}
+\tkzDefShiftPoint[O](0:1.7*\r){A}
+\tkzTangent[from with R=A](O,\r cm)\tkzGetPoints{B}{C}
+\tkzDefLine[orthogonal=through O](O,A)\tkzGetPoint{o}
+\tkzInterLL(A,B)(O,o)\tkzGetPoint{M}
+\tkzInterLL(A,C)(O,o)\tkzGetPoint{N}
+\coordinate (K) at ($(O)+(10:\r)$);
+\tkzTangent[at=K](O)\tkzGetPoint{k}
+\tkzInterLL(A,B)(K,k)\tkzGetPoint{P}
+\tkzInterLL(A,C)(K,k)\tkzGetPoint{Q}
+\tkzInterLL(B,C)(O,A)\tkzGetPoint{E}
+\tkzDrawSegments(A,N A,M M,N B,C P,Q O,B O,C O,K O,A B,K O,P O,Q)
+\tkzDrawCircle[R](O,\r cm)
+\tkzDrawPoints[size=1](O)
+\pgfresetboundingbox
+\tkzLabelPoints[above](M,P,B)
+\tkzLabelPoints[below](N,C,Q)
+\tkzLabelPoints[left](O)
+\tkzLabelPoints[right](A,K)
+\tkzLabelPoints[below right](E)
+\tkzMarkRightAngles(O,B,M O,C,N O,K,Q O,E,C A,O,M)
+\end{tikzpicture}
+\end{center}
+ Vì $ABC$ là tam giác cân tại $A$ và $MN\parallel BC\Rightarrow AMN$ cũng là tam giác cân tại $A$\\
+$\Rightarrow \widehat{AMN}=\widehat{ANB}\Rightarrow \widehat{MAN}+2\widehat{AMN}=180^{\circ}$.\\
+Vì $ABOC$ là tứ giác nội tiếp nên $\widehat{BAC}+\widehat{BOC}=180^{\circ}$. Mà $\widehat{BOC}=2\widehat{POQ}\Rightarrow \widehat{AMN}=\widehat{POQ}$.\\
+Xét tam giác $POM$ có $\widehat{PON}=\widehat{PMO}+\widehat{OPM}=\widehat{POQ}+\widehat{QON}\Rightarrow \widehat{QON}=\widehat{OPM}$.\\
+Ta có $\Delta OMP\backsim \Delta QNO\ (\mbox{g-g})\Rightarrow \dfrac{OM}{QN}=\dfrac{PM}{ON}\Rightarrow PM\cdot QN=OM^{2}$.\\
+Áp dụng bất đẳng thức Cauchy, ta có $PM+QN\geq 2\sqrt{PM\cdot QN}=2OM=MN$.
+}
+\end{bt}  
+
+\begin{bt}%[Đề thi TS vào lớp 10 THPT Chuyên của Tp. Hà Nội năm học 2008-2009]%[9H1K1]%[9H3K3]%[9H3K2]%
+	Cho tam giác $ABC$ vuông tại $A$. Vẽ hai đường tròn $\big(O_1\big)$, $\big(O_2\big)$ lần lượt có đường kính $AB$ và $AC$. Gọi $H$ là giao điểm thứ hai của $\big(O_1\big)$ và $\big(O_2\big)$. Đường thẳng $d$ thay đổi đi qua $A$ cắt các đường tròn $\big(O_1\big)$ và $\big(O_2\big)$ lần lượt tại các điểm $D$, $E$ sao cho $A$ nằm giữa $D$ và $E$.
+	\begin{enumerate}	
+		\item  Xác định vị trí của đường thẳng $d$ để diện tích tứ giác $BDEC$ đạt giá trị lớn nhất. Tính giá trị lớn nhất đó theo $b$ và $c$, với $b = AC$, $c = AB$. 
+		\item Đường thẳng đi qua trung điểm đoạn $DE$ và vuông góc với $BC$ cắt $BC$ tại $K$. 
+		
+		Chứng minh rằng $KB^2 = BD^2 + KH^2$.
+	\end{enumerate}
+\loigiai{
+	\begin{center}
+	\begin{tikzpicture}[scale=1.3]
+	\tkzInit[xmin=-3.25,ymin=-1.7,xmax=2.5,ymax=4.5]
+\tkzClip
+\tkzDefPoints{-1/0/A,-1/4/B,2/0/C,0/-0.5/P}
+\tkzDefCircle[diameter](A,B)
+\tkzGetPoint{I}
+\tkzDrawCircle[diameter](A,B)
+\tkzDefCircle[diameter](A,C)
+\tkzGetPoint{J}
+\tkzDrawCircle[diameter](A,C)
+\tkzInterCC(I,B)(J,C)
+\tkzGetPoints{H}{A}
+\tkzInterLC(A,P)(I,B)
+\tkzGetPoints{A}{D}
+\tkzInterLC(A,P)(J,C)
+\tkzGetPoints{E}{A}
+\tkzDefLine[mediator](D,E)
+\tkzGetPoints{i}{j}
+\tkzDefMidPoint(B,C)
+\tkzGetPoint{M}
+\tkzDefMidPoint(D,E)
+\tkzGetPoint{T}
+\tkzDefLine[perpendicular=through T](C,B)
+ \tkzGetPoint{c}
+\tkzInterLL(T,c)(B,C)
+\tkzGetPoint{K}
+\tkzLabelPoint[above right](H){$H$}
+\tkzLabelPoint[below](T){$T$}
+\tkzLabelPoint[below left](A){$A$}
+\tkzLabelPoint[above](B){$B$}
+\tkzLabelPoint[right](C){$C$}
+\tkzLabelPoint[left](I){$O_1$}
+\tkzLabelPoint[below](J){$O_2$}
+\tkzLabelPoint[above right](M){$M$}
+\tkzLabelPoint[above right](K){$K$}
+\tkzLabelPoint[left](D){$D$}
+\tkzLabelPoint[below right](E){$E$}
+\tkzDrawPoints(A,B,C,D,E,K,I,J,T,M)
+\tkzDrawSegments(T,M A,B E,D A,C B,C B,D E,C T,K D,T T,E B,K C,K)
+\tkzMarkSegments[mark=|](B,K C,K)
+\tkzMarkSegments[mark=||](D,T T,E)
+\tkzMarkRightAngle(T,K,C)
+	\end{tikzpicture}
+		\end{center}
+\begin{enumerate}
+	\item Ta có $S_{BDEC}=S_{ABC}+S_{ABD}+S_{ACE}$.\\
+	Tam giác $ABD$ có $AB$ không đổi nên $S_{ABD}$ lớn nhất $\Leftrightarrow $ đường cao hạ từ $D$ xuống $AB$ lớn nhất $\Leftrightarrow D $ là điểm chính giữa của cung $AB$. Khi đó $\widehat{BAD}=45^\circ\Rightarrow \widehat{CAE}=45^\circ$ (vì $\widehat{BAC}=90^\circ$), lúc này $E$ là điểm chính giữa cung $AC$, dẫn đến $S_{ACE}$ cũng lớn nhất.\\
+	Do đó $S_{BDEC}$ lớn nhất khi và chỉ khi $D$ là điểm chính giữa cung $AB$. Khi đó
+\[S_{BDEC}=S_{ABC}+S_{ABD}+S_{ACE}=\dfrac{1}{4}(b+c)^2.\]
+\item Gọi $T$ là trung điểm của $DE$.\\ Ta có 
+$\widehat{BHD}=\widehat{BAD}$ (cùng chắn cung $BD$), 
+$\widehat{CHE}=\widehat{CAE}$ (cùng chắn cung $CE$).\\
+Suy ra $\widehat{DHE}=\widehat{BAC}=90^\circ$, dẫn đến $HT=TD$.\\
+ Sử dụng định lí Pythagore cho các tam giác vuông ta có
+\begin{align*}
+KB^2&=TB^2-TK^2=TB^2-TH^2+HK^2\\ 
+&=TB^2-TD^2+HK^2=BD^2+HK^2.
+\end{align*}
+\end{enumerate}
+}
+\end{bt}
+
+\begin{bt}%[Đề thi TS vào lớp 10 THPT Chuyên của Tp. Hà Nội năm học 2014-2015]%[9H3B7]
+Cho tam giác đều $ABC$ nội tiếp đường tròn $\left(O\right)$, $H$ là trung điểm $BC$. $M$ là điểm bất kỳ thuộc đoạn thẳng $BH$  ($M$ khác $B$). Lấy điểm $N$ thuộc đoạn thẳng $CA$ sao cho $CN = BM$. Gọi $I$ là trung điểm $MN$.
+ Xác định vị trí của điểm $M$ để tam giác $IAB$ có chu vi nhỏ nhất.  
+\loigiai
+{
+	\begin{center}
+		\begin{tikzpicture}[scale=1.3]
+		\tkzInit[xmin=-5,xmax=5,ymin=-8,ymax=3.5]
+		\tkzClip
+		\tkzDefPoints{-4/-4/B,4/-4/C}
+		\tkzDefEquilateral(B,C)					\tkzGetPoint{A}
+		\tkzDrawCircle[circum](A,B,C)		\tkzGetPoint{O}
+		\coordinate (H) at ($(B)!0.5!(C)$);
+		\coordinate (K) at ($(A)!0.5!(C)$);
+		\coordinate (M) at ($(B)!0.4!(H)$);
+		\coordinate (N) at ($(C)!0.4!(K)$);
+		\coordinate (I) at ($(M)!0.5!(N)$);
+		\tkzInterLL(I,O)(A,B)		\tkzGetPoint{P}
+		\draw(P) node[above left]{$P'$};
+		\tkzDefPointBy[reflection = over H--K](B)	\tkzGetPoint{B'}
+		\tkzMarkAngles[size=0.7cm,mark=|](B,A,O C,B,O A,C,O)
+		\tkzMarkAngles[size=0.7cm](A,O,P H,O,I H,M,I A,N,P)
+		\tkzMarkAngles[size=0.4cm,arc=ll,mark=|](M,I,H N,I,K M,O,H N,O,K)
+		\tkzMarkAngles[size=0.4cm,arc=ll](O,P,A O,N,C)
+		\tkzMarkRightAngles[size=0.2,fill=gray!50](A,H,B B,K,C O,I,M)
+		\tkzMarkSegments[mark=|](B,M C,N A,P)
+		\tkzMarkSegments[mark=x](I,M I,N)
+		\tkzDrawSegments(A,B B,C C,A M,N A,H B,K O,M O,I I,H O,N O,C O,P P,N P,M I,A I,B I,K B',I B',A)
+		\tkzDrawPoints(A,B,C,O,H,K,M,N,I,P,B')
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[below](M,H,B')
+		\tkzLabelPoints[left](B,O,P)
+		\tkzLabelPoints[right](K,N,C)
+		\tkzLabelPoints(I)
+		\end{tikzpicture}
+	\end{center}
+	 Gọi $\mathscr{C}$ là chu vi của $\triangle IAB$. \\
+		Ta có $\mathscr{C}=IA+IB+AB$, $\mathscr{C}_{\min} \Leftrightarrow (IA+IB)_{\min}$. \\
+		Gọi $K$ là trung điểm của $AC$, ta sẽ chứng minh $H,I,K$ thẳng hàng. \\
+		Xét $\triangle BOM$ và $\triangle CON$ có
+		\begin{align*}
+		&BO=OC \text{ (bán kính đường tròn)},\\
+		&\widehat{OBM} = \widehat{OCN} = 30^\circ, \\
+		&BM=CN \text{ (giả thiết).}
+		\end{align*}
+		Vậy $\triangle BOM = \triangle CON$ (c.g.c) $\Rightarrow OM = ON \Rightarrow \triangle OMN$ cân tại $O$. \\
+		Mặt khác ta có $I$ là trung điểm của $MN$ $\Rightarrow OI \perp MN$ hay $\triangle OIM$ vuông tại $I$. \\
+		Tứ giác $OMHI$ có $I,H$ cùng nhìn đoạn thẳng $OM$ dưới một góc vuông nên $OMHI$ là tứ giác nội tiếp. \\
+		Do đó bốn điểm $O$, $M$, $H$, $I$ cùng thuộc một đường tròn.\\
+		$ \Rightarrow \widehat{MIH} = \widehat{HOM}$, tương tự ta có $\widehat{KIN} = \widehat{KON}$. \\
+		Ta có $\triangle OHM = \triangle OKN$ (cạnh huyền - cạnh góc vuông) $\Rightarrow \widehat{KON} = \widehat{MOH}$. Từ đó suy ra $\widehat{KIN} = \widehat{MIH} \Rightarrow K,I,H$ thẳng hàng. \\
+		Gọi $B'$ là điểm đối xứng với $B$ qua $HK$ $\Rightarrow IB = IB' \Rightarrow IA + IB = IA + IB' \ge AB'$.\\
+		 Dấu ``$=$'' xảy ra $\Leftrightarrow I \equiv AB' \cap HK \Rightarrow I$ là trung điểm của $HK \Rightarrow \heva{&M \equiv H, \\ &N \equiv K.}$
+}
+\end{bt}
+
+

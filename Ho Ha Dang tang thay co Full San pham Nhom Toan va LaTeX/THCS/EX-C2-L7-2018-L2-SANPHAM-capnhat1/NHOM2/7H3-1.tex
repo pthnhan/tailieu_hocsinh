@@ -1,0 +1,717 @@
+%GV soạn:Hung Nguyen
+%GV phản biện: Dang Duc Quy
+\Opensolutionfile{ans}[ans/ans7H3-1]
+\section{Quan hệ giữa góc và cạnh đối diện trong một tam giác}
+\subsection{Hỏi đáp nhanh}
+\begin{ex}%[7H3K1]
+	Tại sao trong một tam giác, góc đối diện với cạnh nhỏ nhất là góc nhọn?
+	\loigiai{
+	Vì góc đối diện với cạnh nhỏ nhất là góc nhỏ nhất nên nếu góc đó không nhọn (tức lớn hơn hoặc bằng $90^\circ$) thì tổng số đo $3$ góc của tam giác giác lớn hơn hoặc bằng $270^\circ$, vô lí. Vậy góc đối diện với cạnh nhỏ nhất là góc nhọn.
+	}
+\end{ex}
+\begin{ex}%[7H3B1]
+	Trong một tam giác, góc đối diện với cạnh lớn nhất có phải là góc tù không? Lấy ví dụ minh họa.
+	\loigiai{
+	\immini
+	{
+		Không. Ví dụ trong một tam giác vuông, cạnh lớn nhất là cạnh huyền và góc đối diện với cạnh huyền là góc vuông, không phải góc tù.
+	}
+	{
+		\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-2,xmax=8,ymin=-1,ymax=2.7]
+		\tkzClip
+		\tkzDefPoints{0/0/A,6/0/B,0/2/C}
+		\tkzDrawPoints[fill=black](A,B,C)
+		\tkzDrawSegments(A,B B,C C,A)
+		\tkzMarkRightAngle(B,A,C)
+		\tkzLabelPoints[above](C) \tkzLabelPoints[below](A,B)
+		\end{tikzpicture}
+	}	
+	}
+\end{ex}
+\begin{ex}%[7H3K1]
+	Trong một tam giác cân, biết cạnh đáy lớn hơn cạnh bên. Hãy so sánh góc ở đỉnh với $60^\circ$.
+	\loigiai{
+	\immini
+	{
+		Xét tam giác $ABC$ cân tại $A$ có $AB=AC<BC$.\\
+		Khi đó ta có $\widehat{B}=\widehat{C}<\widehat{A}$.\\
+		Suy ra $$180^\circ=\widehat{A}+\widehat{B}+\widehat{C}<3\widehat{A}\Rightarrow \widehat{A}>60^\circ.$$
+	}
+	{
+		\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-1,xmax=7,ymin=-1,ymax=3]
+		\tkzClip
+		\tkzDefPoints{3/2/A,0/0/B,6/0/C}
+		\tkzDrawPoints[fill=black](A,B,C)
+		\tkzDrawSegments(A,B B,C C,A)
+		\tkzLabelPoints[above](A) \tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](C)
+		\tkzMarkSegments[pos=0.5,mark=|](A,B A,C)
+		\end{tikzpicture}
+	}	
+	}
+\end{ex}
+\begin{ex}%[7H3Y1]
+	Cho tam giác $ABC$ có $AB=3$ cm; $BC=4$ cm; $AC=6$ cm. Hỏi $\triangle ABC$ có góc nào lớn nhất? Góc nào nhỏ nhất?
+	\loigiai{
+	\immini
+	{
+		Vì $AC$ là cạnh lớn nhất nên $\widehat{B}$ (góc đối diện với cạnh $AC$) là góc lớn nhất và $AB$ là cạnh nhỏ nhất nên $\widehat{C}$ (góc đối diện với cạnh $AB$) là góc nhỏ nhất.
+	}
+	{
+		\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-1,xmax=7,ymin=-1,ymax=2.5]
+		\tkzClip
+		\tkzDefPoints{0/0/A,6/0/C}
+		\tkzInterCC[R](A,3 cm)(C,4 cm) \tkzGetFirstPoint{B}
+		\tkzDrawPoints[fill=black](A,B,C)
+		\tkzDrawSegments(A,B B,C C,A)
+		\tkzLabelPoints[above](B) \tkzLabelPoints[below](A,C)
+		\end{tikzpicture}
+	}
+	}
+\end{ex}
+
+\subsection{Học giải toán}
+\begin{vd}%[7H3B1]
+	Cho $\triangle ABC$ có $AB>AC$. Kẻ $BN$ là tia phân giác của $\widehat{ABC}$ ($N\in AC$). Kẻ $CM$ là tia phân giác của $\widehat{ACB}$ ($M\in AB$), $BN$ và $CM$ cắt nhau tại $I$.
+	\begin{enumerate}
+		\item So sánh $IC$ và $IB$.
+		\item Một học sinh nhận xét $\widehat{C_1}=\widehat{C_2}$ (giả thiết). Vậy $AM=MB$ vì là hai cạnh đối diện với hai góc bằng nhau. Đúng hay sai? Tại sao?
+	\end{enumerate}
+	\loigiai{
+	\immini
+	{
+			\begin{enumerate}
+			\item Xét $\triangle ABC$ có $AB>AC$ (giả thiết). Suy ra $\widehat{C}>\widehat{B}$ (định lí). Mà $\widehat{C_1}=\dfrac{1}{2}\widehat{C}$ và $\widehat{B_1}=\dfrac{1}{2}\widehat{B}$ nên $\widehat{C_1}>\widehat{B_1}$.\\
+			Trong $\triangle CIB$ có $\widehat{C_1}>\widehat{B_1}$ nên $IB>IC$ (định lí).
+			\item Từ $\widehat{C_1}=\widehat{C_2}$ suy ra $AM=MB$ là sai vì $\widehat{C_1}$ là góc của $\triangle BCM$; $\widehat{C_2}$ là góc của $\triangle CMA$. Các cạnh $AM$ và $MB$ cũng là cạnh của hai tam giác khác nhau. Định lí ở trên chỉ xét trong một tam giác.
+		\end{enumerate}
+	}
+	{
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-1,xmax=7,ymin=-1,ymax=5]
+		\tkzClip
+		\tkzDefPoints{4/4/A,0/0/B,6/0/C}
+		\tkzDefLine[bisector](A,B,C) \tkzGetPoint{b}
+		\tkzInterLL(B,b)(A,C)\tkzGetPoint{N}
+		\tkzDefLine[bisector](A,C,B) \tkzGetPoint{c}
+		\tkzInterLL(C,c)(A,B)\tkzGetPoint{M}
+		\tkzInterLL(B,N)(C,M) \tkzGetPoint{I}
+		\tkzDrawPoints(A,B,C,M,N,I)
+		\tkzDrawSegments(A,B B,C C,A B,N C,M)
+		\tkzLabelPoints[above](A,I) \tkzLabelPoints[left](B,M)
+		\tkzLabelPoints[right](C,N)
+		\tkzMarkAngles[size=0.5](C,B,N) \tkzMarkAngles[size=0.6](N,B,A)
+		\tkzMarkAngles[size=0.5,mark=|](A,C,M) \tkzMarkAngles[size=0.6,mark=|](M,C,B)
+		\tkzLabelAngle[pos=1](C,B,N){$1$} \tkzLabelAngle[pos=1](M,C,B){$1$}
+		\tkzLabelAngle[pos=1](N,B,A){$2$} \tkzLabelAngle[pos=1](A,C,M){$2$}
+		\end{tikzpicture}
+	}
+	}
+\end{vd}
+\begin{vd}%[7H3K1]
+	Cho tam giác $ABC$ có $AB<AC$, $AD$ là tia phân giác của góc $BAC$ ($D\in BC$). Chứng minh rằng:
+	\begin{enumerate}
+		\item $\widehat{ADB}<\widehat{ADC}$.
+		\item $CD>DB$.
+	\end{enumerate}
+	\loigiai{
+	\immini
+	{
+		\begin{enumerate}
+			\item Xét $\triangle ABC$ có $AB<AC$ (giả thiết) $\Rightarrow \widehat{C}<\widehat{B}$ (định lí).\\
+			Xét $\triangle ABD$ và $\triangle ACD$ có\\ $\widehat{A_1}+\widehat{B}+\widehat{ADB}=\widehat{A_2}+\widehat{C}+\widehat{ADC}=180^\circ$ (định lí tổng ba góc trong tam giác).\\
+			Mà $\widehat{A_1}=\widehat{A_2}$ (giả thiết) và $\widehat{C}<\widehat{B}$ (chứng minh trên) nên $\widehat{ADB}<\widehat{ADC}$.
+		\end{enumerate}	
+	}
+	{
+		\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-2,xmax=8,ymin=-1,ymax=5]
+		\tkzClip
+		\tkzDefPoints{2/4/A,0/0/B,6/0/C}
+		\tkzDefLine[bisector](B,A,C) \tkzGetPoint{d}
+		\tkzInterLL(A,d)(B,C)\tkzGetPoint{D}
+		\tkzDefPointBy[reflection=over A--D](B)\tkzGetPoint{E}
+		\tkzDrawPoints(A,B,C,D,E)
+		\tkzDrawSegments(A,B B,C C,A A,D D,E)
+		\tkzLabelPoints[above](A) \tkzLabelPoints[below](B,C,D)
+		\tkzLabelPoints[right](E)
+		\tkzMarkAngles[size=0.5](D,A,C) \tkzMarkAngles[size=0.6](B,A,D)
+		\tkzLabelAngle[pos=1](B,A,D){$1$} \tkzLabelAngle[pos=-.5](A,E,D){$1$}
+		\tkzLabelAngle[pos=1](D,A,C){$2$}
+		\tkzLabelAngle[pos=.4](D,E,C){$2$}
+		\tkzMarkSegments[pos=0.5,mark=|](A,B A,E)
+		\end{tikzpicture}
+	}
+	\begin{enumerate}
+		\item[b)] Vì $AC>AB$ (giả thiết) nên trên cạnh $AC$ ta lấy được một điểm $E$ sao cho $AE=AB$.\\
+		Xét $\triangle ABD$ và $\triangle AED$ có:
+		\begin{itemize}
+			\item $AB=AE$ (theo cách dựng).
+			\item $\widehat{A_1}=\widehat{A_2}$ (giả thiết).
+			\item $AD$ là cạnh chung.
+		\end{itemize}
+		Do vậy $\triangle ABD=\triangle AED$ (c.g.c).\\
+		$\Rightarrow BD=ED$ (hai cạnh tương ứng) và $\widehat{B}=\widehat{E_1}$ (hai góc tương ứng).\\
+		Ta lại có $\widehat{E_2}=180^\circ-\widehat{E_1}$ (hai góc kề bù).\\
+		Suy ra $\widehat{E_2}=180^\circ -\widehat{B}=\widehat{BAC}+\widehat{C}\Rightarrow \widehat{E_2}>\widehat{C}$.\\
+		Xét $\triangle ECD$ có $\widehat{E_2}>\widehat{C}$ (chứng minh trên) $\Rightarrow CD>ED$ (định lí).\\
+		Mà $ED=BD$ (chứng minh trên) nên suy ra $CD>BD$.
+	\end{enumerate}
+	}
+\end{vd}
+\begin{vd}%[7H3K1]
+	Cho tam giác $ABC$ có $AB<AC$, $M$ là trung điểm của cạnh $BC$.
+	\begin{enumerate}
+		\item Chứng minh rằng $\widehat{AMB}<\widehat{AMC}$.
+		\item Trên đoạn $AM$ lấy một điểm $E$ tùy ý. Chứng minh $EB<EC$.
+	\end{enumerate}
+	\loigiai{
+	\immini
+	{
+		\begin{enumerate}
+			\item Trên tia đối của tia $MA$ lấy điểm $A'$ sao cho $M$ là trung điểm của $ABOVE'$.\\
+			Khi đó, ta có $\triangle ABM=\triangle A'CM$ (c.g.c)\\
+			$\Rightarrow A'C=AB$ (hai cạnh tương ứng) và $\widehat{A_1}=\widehat{A'}$ (hai góc tương ứng).\hfill$(1)$\\
+			Vì $AB<AC$ (giả thiết) nến $A'C<AC$.\\
+			Xét $\triangle ACA'$, có $A'C<AC$ (chứng minh trên) $\Rightarrow \widehat{A_2}<\widehat{A'}$ (quan hệ góc - cạnh đối diện).\hfill$(2)$\\
+			Từ $(1)$ và $(2)$ suy ra $\widehat{A_1}>\widehat{A_2}$. Lại có $\widehat{B}>\widehat{C}$ (do $AC>AB$). Vậy $\widehat{AMB}<\widehat{AMC}$.
+		\end{enumerate}
+	}
+	{
+		\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-2,xmax=8,ymin=-4.2,ymax=4.2]
+		\tkzClip
+		\tkzDefPoints{2/3.5/A,0/0/B,6/0/C}
+		\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+		\tkzDefPointBy[translation= from A to M](M) \tkzGetPoint{A'}
+		\tkzDefPointBy[homothety=center A ratio .7](M)\tkzGetPoint{E}
+		\tkzDrawPoints(A,B,C,M,A',E)
+		\tkzDrawSegments(A,B B,C C,A A,A' A',C E,B E,C)
+		\tkzLabelPoints[above](A) \tkzLabelPoints[below](A')
+		\tkzLabelPoints[below right](C) \tkzLabelPoints[below left](B,M)
+		\tkzLabelPoints[above right](E)
+		\tkzLabelAngle[pos=1](B,A,M){$1$} \tkzLabelAngle[pos=.5](A,M,B){$1$}
+		\tkzLabelAngle[pos=1](M,A,C){$2$}
+		\tkzLabelAngle[pos=.4](C,M,A){$2$}
+		\tkzMarkSegments[pos=0.5,mark=|](B,M C,M)
+		\end{tikzpicture}
+	}
+	\begin{enumerate}
+		\item[b)] Giả sử $EB=EC$ thì $\triangle EMB=\triangle EMC$ (c.c.c). Suy ra $\widehat{M_1}=\widehat{M_2}$, trái với a).\\
+		Giả sử $EB>EC$. Lập luận tương tự câu a) suy ra $\widehat{M_1}>\widehat{M_2}$, vô lí. Vậy $EB<EC$.
+	\end{enumerate}
+	\begin{note}
+		Các tam giác $AMB$ và $AMC$ có hai cặp cạnh tương ứng bằng nhau, cặp cạnh thứ ba không bằng nhau. Góc $M_2$ đối diện với cạnh $AC$ lớn hơn nên nó lớn hơn góc $M_1$. Ta có kết quả tổng quát sau.\\
+		Nếu hai tam giác có hai cặp cạnh bằng nhau nhưng cặp cạnh thứ ba không bằng nhau thì góc đối diện với cạnh lớn hơn là góc lớn hơn. Ngược lại, nếu hai tam giác có hai cặp cạnh bằng nhau nhưng hai góc xem giữa không bằng nhau thì cạnh đối diện với góc lớn hơn là cạnh lớn hơn.\\
+		Hai tam giác $ABC$ và $A'B'C'$ có $AB=A'B'$; $AC=A'C'$, thì $BC<B'C'\Leftrightarrow \widehat{A}<\widehat{A'}$.
+	\end{note}
+	}
+\end{vd}
+\begin{vd}%[7H3K1]
+	Cho tam giác $ABC$ có $\widehat{B}=75^\circ$, $\widehat{C}=45^\circ$. Điểm $M$ nằm trong tam giác $ABC$ sao cho $\widehat{MBC}=\widehat{MCB}=30^\circ$. Chứng minh rằng $AM$ vuông góc với $BM$.
+	\loigiai{
+	\immini
+	{
+		Ta có\\
+		$\widehat{BAC}=180^\circ-\left( \widehat{ABC}+\widehat{ACB}\right)=180^\circ-(75^\circ+45^\circ)=60^\circ$.\hfill$(1)$\\
+		$\widehat{B_2}=\widehat{ABC}-\widehat{B_1}=75^\circ-30^\circ=45^\circ$.\\
+		$\widehat{C_2}=\widehat{ACB}-\widehat{C_1}=45^\circ-30^\circ=15^\circ$.\\
+		Giả sử $MA$ không vuông góc với $MB$, tức là $\widehat{AMB}\ne 90^\circ$, ta xét hai trường hợp sau:
+	}
+	{
+		\begin{tikzpicture}[scale=.65, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-1,xmax=7,ymin=-1,ymax=5]
+		\tkzClip
+		\tkzDefPoints{0/0/B,5/0/C}
+		\tkzDefPointBy[rotation= center B angle 75](C) \tkzGetPoint{b}
+		\tkzDefPointBy[rotation= center C angle -45](B) \tkzGetPoint{c}
+		\tkzInterLL(B,b)(C,c) \tkzGetPoint{A}
+		\tkzDefPointBy[rotation= center B angle 30](C) \tkzGetPoint{e}
+		\tkzDefPointBy[rotation= center C angle -30](B) \tkzGetPoint{f}
+		\tkzInterLL(B,e)(C,f) \tkzGetPoint{M}
+		\tkzDrawSegments(A,B B,C C,A M,A M,B M,C)
+		\tkzDrawPoints[fill=black](A,B,C,M)
+		\tkzLabelPoints[above](A) \tkzLabelPoints[below](B,C,M)
+		\tkzLabelAngle[pos=1.5](M,A,C){$1$} \tkzLabelAngle[pos=1](M,C,B){$1$}
+		\tkzLabelAngle[pos=1](C,B,M){$1$}
+		\tkzLabelAngle[pos=.8](B,A,M){$2$}
+		\tkzLabelAngle[pos=.8](M,B,A){$2$}
+		\tkzLabelAngle[pos=1.5](A,C,M){$2$}
+		\end{tikzpicture}
+	}
+	\noindent Trường hợp 1: $\widehat{AMB}<90^\circ$.\\
+	Xét $\triangle AMB$ có $\widehat{A_2}=180^\circ-\left( \widehat{AMB}+45^\circ\right)>45^\circ$.\\
+	$\Rightarrow \widehat{A_2}>\widehat{B_2}\Rightarrow MB>MA$ (định lí).\\
+	Vì $\triangle MBC$ cân tại $M$ nên $MB=MC\Rightarrow MC>MA\Rightarrow \widehat{A_1}>\widehat{C_2}$ (định lí).\\
+	Từ đó suy ra $\widehat{A_1}+\widehat{A_2}>\widehat{B_2}+\widehat{C_2}$ hay $\widehat{BAC}>60^\circ$, trái với $(1)$.\\
+	Trường hợp 2: $\widehat{AMB}>90^\circ$.\\
+	Lập luận tương tự, ta có $\widehat{BAC}<60^\circ$, trái với $(1)$.\\
+	Vậy $\widehat{AMB}=90^\circ$ hay $MA\perp MB$.	
+	}
+\end{vd}
+\subsection{Bài tập}
+\subsubsection{Cơ bản}
+\begin{bt}%[7H3B1]
+	Cho $\triangle ABC$, lấy $M$ là trung điểm của cạnh $BC$. Chứng minh rằng:
+	\begin{enumerate}
+		\item Nếu $AM>\dfrac{1}{2}BC$ thì $\widehat{BAC}$ là góc nhọn.
+		\item Nếu $AM=\dfrac{1}{2}BC$ thì $\widehat{BAC}$ là góc vuông.
+		\item Nếu $AM<\dfrac{1}{2}BC$ thì $\widehat{BAC}$ là góc tù.
+	\end{enumerate}
+	\loigiai{
+	\immini
+	{
+		\begin{enumerate}
+			\item Trong $\triangle ABM$ có $AM>BM\Rightarrow \widehat{B}>\widehat{A_1}$.\hfill$(1)$\\
+			Trong $\triangle AMC$ có $AM>MC$ nên $\widehat{C}>\widehat{A_2}$.\hfill$(2)$\\
+			Cộng từng vế $(1)$ và $(2)$ có $$\widehat{B}+\widehat{C}>\widehat{A_1}+\widehat{A_2}=\widehat{A}.$$
+			Mà $\widehat{A}+\widehat{B}+\widehat{C}=180^\circ$ nên $\widehat{A}<90^\circ$. Vậy $\widehat{A}$ nhọn.
+		\end{enumerate}
+	}
+	{
+		\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-1,xmax=7,ymin=-1,ymax=5]
+		\tkzClip
+		\tkzDefPoints{2/4/A,0/0/B,6/0/C}
+		\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+		\tkzDrawPoints[fill=black](A,B,C,M)
+		\tkzDrawSegments(A,B B,C C,A A,M)
+		\tkzLabelPoints[above](A) \tkzLabelPoints[below](B,C,M)
+		\tkzLabelAngle[pos=1](M,A,C){$2$}
+		\tkzLabelAngle[pos=1](B,A,M){$1$}
+		\tkzMarkSegments[pos=0.5,mark=|](B,M C,M)
+		\tkzMarkAngles[size=0.6](B,A,M) \tkzMarkAngles[size=0.5,mark=|](M,A,C)
+		\end{tikzpicture}
+	}
+	\immini
+	{
+		\begin{enumerate}
+			\item[b)] Trong $\triangle ABM$ có $AM=BM\Rightarrow \widehat{B}=\widehat{A_1}$.\hfill$(3)$\\
+			Trong $\triangle AMC$ có $AM=MC$ nên $\widehat{C}=\widehat{A_2}$.\hfill$(4)$\\
+			Cộng từng vế $(3)$ và $(4)$ có $$\widehat{B}+\widehat{C}=\widehat{A_1}+\widehat{A_2}=\widehat{A}.$$
+			Mà $\widehat{A}+\widehat{B}+\widehat{C}=180^\circ$ nên $\widehat{A}=90^\circ$. Vậy $\widehat{A}$ vuông.
+		\end{enumerate}
+	}
+	{
+		\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-1,xmax=7,ymin=-1,ymax=5]
+		\tkzClip
+		\tkzDefPoints{0/0/B,6/0/C}
+		\tkzDefPointBy[rotation= center B angle 50](C) \tkzGetPoint{b}
+		\tkzDefPointBy[rotation= center C angle -40](B) \tkzGetPoint{c}
+		\tkzInterLL(B,b)(C,c) \tkzGetPoint{A}
+		\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+		\tkzDrawPoints[fill=black](A,B,C,M)
+		\tkzDrawSegments(A,B B,C C,A A,M)
+		\tkzLabelPoints[above](A) \tkzLabelPoints[below](B,C,M)
+		\tkzLabelAngle[pos=1](M,A,C){$2$}
+		\tkzLabelAngle[pos=1](B,A,M){$1$}
+		\tkzMarkSegments[pos=0.5,mark=|](B,M C,M)
+		\tkzMarkAngles[size=0.6](B,A,M) \tkzMarkAngles[size=0.5,mark=|](M,A,C)
+		\end{tikzpicture}
+	}
+	\immini
+	{
+		\begin{enumerate}
+			\item[c)] Trong $\triangle ABM$ có $AM<BM\Rightarrow \widehat{B}<\widehat{A_1}$.\hfill$(5)$\\
+			Trong $\triangle AMC$ có $AM<MC$ nên $\widehat{C}<\widehat{A_2}$.\hfill$(6)$\\
+			Cộng từng vế $(5)$ và $(6)$ có $$\widehat{B}+\widehat{C}<\widehat{A_1}+\widehat{A_2}=\widehat{A}.$$
+			Mà $\widehat{A}+\widehat{B}+\widehat{C}=180^\circ$ nên $\widehat{A}>90^\circ$. Vậy $\widehat{A}$ tù.
+		\end{enumerate}
+	}
+	{
+		\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-1,xmax=7,ymin=-1,ymax=4]
+		\tkzClip
+		\tkzDefPoints{0/0/B,6/0/C}
+		\tkzDefPointBy[rotation= center B angle 30](C) \tkzGetPoint{b}
+		\tkzDefPointBy[rotation= center C angle -50](B) \tkzGetPoint{c}
+		\tkzInterLL(B,b)(C,c) \tkzGetPoint{A}
+		\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+		\tkzDrawPoints[fill=black](A,B,C,M)
+		\tkzDrawSegments(A,B B,C C,A A,M)
+		\tkzLabelPoints[above](A) \tkzLabelPoints[below](B,C,M)
+		\tkzLabelAngle[pos=1](M,A,C){$2$}
+		\tkzLabelAngle[pos=1](B,A,M){$1$}
+		\tkzMarkSegments[pos=0.5,mark=|](B,M C,M)
+		\tkzMarkAngles[size=0.6](B,A,M) \tkzMarkAngles[size=0.5,mark=|](M,A,C)
+		\end{tikzpicture}
+	}
+	\begin{note}
+		Dựa vào quan hệ giữa góc và cạnh đối diện trong một tam giác, ta cũng chứng minh được kết quả quen thuộc: Trong tam giác vuông, trung tuyến ứng với cạnh huyền dài bằng nửa cạnh huyền.
+	\end{note}
+	}
+\end{bt}
+\begin{bt}%[7H3B1]
+	Cho tam giác $ABC$, hai tia phân giác của góc $B$ và góc $C$ cắt nhau ở $I$.
+	\begin{enumerate}
+		\item Tìm cạnh lớn nhất của tam giác $BIC$.
+		\item Giả sử $IB<IC$, hãy so sánh $AB$ và $AC$.
+	\end{enumerate}
+	\loigiai{
+	\immini
+	{
+		\begin{enumerate}
+			\item Xét $\triangle BIC$, có
+			\begin{eqnarray*}
+				\widehat{BIC} &=180^\circ-\left( \widehat{B_1}+\widehat{C_1}\right) &=180^\circ-\left( \dfrac{\widehat{B}}{2}+\dfrac{\widehat{C}}{2}\right)\\
+				&=180^\circ-\dfrac{180^\circ-\widehat{A}}{2} &=90^\circ+\dfrac{\widehat{A}}{2}>90^\circ.
+			\end{eqnarray*}
+			$\Rightarrow BC$ là cạnh lớn nhất của $\triangle BIC$.
+		\end{enumerate}
+	}
+	{
+		\begin{tikzpicture}[scale=.8, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-1,xmax=7,ymin=-1,ymax=5]
+		\tkzClip
+		\tkzDefPoints{2/4/A,0/0/B,6/0/C}
+		\tkzDefLine[bisector](C,B,A) \tkzGetPoint{b}
+		\tkzDefLine[bisector](A,C,B) \tkzGetPoint{c}
+		\tkzInterLL(B,b)(C,c)\tkzGetPoint{I}
+		\tkzDrawPoints(A,B,C,I)
+		\tkzDrawSegments(A,B B,C C,A B,I C,I)
+		\tkzLabelPoints[above](A,I) \tkzLabelPoints[below](B,C)
+		\tkzLabelAngle[pos=.8](I,B,A){$2$}
+		\tkzLabelAngle[pos=.8](C,B,I){$1$}
+		\tkzLabelAngle[pos=1](A,C,I){$2$}
+		\tkzLabelAngle[pos=1](I,C,B){$1$}
+		\end{tikzpicture}
+	}
+	\begin{enumerate}
+		\item[b)] Xét $\triangle BIC$ có $IB<IC\Rightarrow \widehat{B_1}>\widehat{C_1}$ (quan hệ góc - cạnh đối diện).\\
+		$\Rightarrow \widehat{ABC}>\widehat{ACB}\Rightarrow AC>AB$ (quan hệ góc - cạnh đối diện).
+	\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[7H3K1]
+	Cho tam giác $ABC$. Trên tia đối của tia $BA$ lấy điểm $D$ và trên tia đối của tia $CA$ lấy điểm $E$ sao cho $CE=BD$. Chứng minh rằng $BC<DE$.
+	\loigiai{
+	\immini
+	{
+		Vì $\widehat{C_1}$ là góc ngoài của $\triangle ACD$ tại đỉnh $C$ nên\\
+		$\widehat{C_1}=\widehat{D_1}+\widehat{A}>\widehat{D_1}$.\\
+		Xét $\triangle ECD$ và $\triangle DBC$, ta có
+		\begin{itemize}
+			\item $CD$ là cạnh chung
+			\item $\widehat{C_1}>\widehat{D_1}$ (chứng minh trên)
+			\item $CE=BD$ (giả thiết)
+		\end{itemize}
+		Do đó $DE>BC$ (theo nhận xét ở ví dụ 3).
+	}
+	{
+		\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-2,xmax=9,ymin=-3,ymax=5]
+		\tkzClip
+		\tkzDefPoints{2/4/A,0/0/B,6/0/C}
+		\tkzInterLC[R](A,B)(B,2 cm) \tkzGetSecondPoint{D}
+		\tkzInterLC[R](A,C)(C,2 cm) \tkzGetSecondPoint{E}
+		\tkzDrawPoints[fill=black](A,B,C,D,E)
+		\tkzDrawSegments(A,D B,C D,E C,D A,E)
+		\tkzLabelPoints[above](A) \tkzLabelPoints[left](B,D)
+		\tkzLabelPoints[right](C,E)
+		\tkzMarkSegments[pos=0.5,mark=|](B,D C,E)
+		\tkzLabelAngle[pos=.5](D,C,E){$1$} \tkzLabelAngle[pos=.7](C,D,B){$1$}
+		\end{tikzpicture}
+	}
+	}
+\end{bt}
+\begin{bt}%[7H3B1]
+	Cho $\triangle ABC$ có $\widehat{A}=90^\circ$; $M$ là trung điểm của cạnh $AC$. Trên tia đối của tia $MB$ lấy điểm $E$ sao cho $ME=MB$. Chứng minh rằng:
+	\begin{enumerate}
+		\item $CE\perp AC$ và $BC>CE$.
+		\item $\widehat{ABM}>\widehat{MBC}$.
+	\end{enumerate}
+	\loigiai{
+	\immini
+	{
+		\begin{enumerate}
+			\item Ta có $\triangle ABM=\triangle CEM$ (c.g.c) $\Rightarrow \widehat{BAM}=\widehat{ECM}$ (hai góc tương ứng) và $AB=CE$ (hai cạnh tương ứng).\\
+			Mà $\widehat{BAM}=90^\circ$ nên $\widehat{ECM}=90^\circ$.\\
+			$\Rightarrow CE\perp AC$.\\
+			Xét $\triangle ABC$ có $\widehat{A}=90^\circ$, $BC$ là cạnh huyền nên ta có $BC>AB$.\\
+			Mà $AB=CE$ (chứng minh trên) nên $BC>CE$.
+			\item Ta có $\widehat{ABM}=\widehat{CEM}$ (do $\triangle ABM=\triangle CEM$).\\
+			Mà $\widehat{CEM}>\widehat{MBC}$ (do $BC>CE$) nên $\widehat{ABM}>\widehat{MBC}$.
+		\end{enumerate}
+	}
+	{
+		\begin{tikzpicture}[scale=.8, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-1,xmax=6,ymin=-4,ymax=4]
+		\tkzClip
+		\tkzDefPoints{0/0/A,0/3/B,5/0/C}
+		\tkzDefMidPoint(A,C)\tkzGetPoint{M}
+		\tkzDefPointBy[translation= from B to M](M) \tkzGetPoint{E}
+		\tkzDrawPoints[fill=black](A,B,C,M,E)
+		\tkzDrawSegments(A,B B,C C,A B,E C,E)
+		\tkzMarkRightAngle(B,A,C)
+		\tkzMarkSegments[pos=0.5,mark=|](A,M C,M)
+		\tkzMarkSegments[pos=0.5,mark=||](B,M E,M)
+		\tkzLabelPoints[above](B) \tkzLabelPoints[below left](A,M)
+		\tkzLabelPoints[below right](C,E)
+		\end{tikzpicture}
+	}	
+	}
+\end{bt}
+\begin{bt}%[7H3B1]
+	Cho $\triangle ABC$ có $\widehat{A}=90^\circ$. Trên cạnh $AB$ và $AC$ lần lượt là các điểm $E$ và $F$ (không trùng với các đỉnh của tam giác). Chứng minh $BC>EF$.
+	\loigiai{
+	\immini
+	{
+		Xét $\triangle AEF$ có $\widehat{EFC}=\widehat{A}+\widehat{E_1}$ (tính chất góc ngoài).\\
+		Mà $\widehat{A}=90^\circ\Rightarrow \widehat{EFC}>90^\circ$.\\
+		Trong $\triangle EFC$ có $\widehat{EFC}$ tù nên cạnh $CE$ là cạnh lớn nhất $\Rightarrow CE>EF$.\hfill$(1)$\\
+		Xét $\triangle AEC$ có $\widehat{BEC}=\widehat{A}+\widehat{C_1}$ (tính chất góc ngoài).\\
+		Mà $\widehat{A}=90^\circ\Rightarrow \widehat{BEC}>90^\circ$.\\
+		Trong $\triangle BEC$ có $\widehat{BEC}$ là góc tù nên cạnh $BC$ là cạnh lớn nhất $\Rightarrow BC>CE$.\hfill$(2)$\\
+		Từ $(1)$ và $(2)$ suy ra $BC>EF$.
+	}
+	{
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-1,xmax=6,ymin=-1,ymax=4]
+		\tkzClip
+		\tkzDefPoints{0/0/A,5/0/B,0/3/C}
+		\tkzDefPointBy[homothety=center A ratio .6](B)\tkzGetPoint{E}
+		\tkzDefPointBy[homothety=center A ratio .4](C)\tkzGetPoint{F}
+		\tkzDrawPoints[fill=black](E,F,A,B,C)
+		\tkzDrawSegments(A,B B,C C,A E,F E,C)
+		\tkzMarkRightAngle(B,A,C)
+		\tkzLabelAngle[pos=1](F,E,A){$1$} \tkzLabelAngle[pos=.5](F,C,E){$1$}
+		\tkzLabelPoints[left](C,F) \tkzLabelPoints[below](A,B,E)
+		\end{tikzpicture}
+	}	
+	}
+\end{bt}
+\subsubsection{Nâng cao}
+\begin{bt}%[7H3G1]
+	Cho tam giác $ABC$ cân tại $A$. Gọi $D$ là điểm bất kì thuộc miền trong của tam giác sao cho $\widehat{ADB}>\widehat{ADC}$. Chứng minh rằng $DC>DB$.
+	\loigiai{
+	\immini
+	{
+		Trên nửa mặt phẳng bờ $AC$ không chứa điểm $B$, vẽ tia $Ax$ sao cho $\widehat{CAx}=\widehat{BAD}$.\\
+		Trên tia $Ax$ lấy điểm $E$ sao cho $AE=AD$.\\
+		Khi đó $\triangle ADB=\triangle AEC$ (c.g.c) $\Rightarrow DB=EC$ (hai cạnh tương ứng) và $\widehat{ADB}=\widehat{AEC}$ (hai góc tương ứng).\\
+		Vì $\widehat{ADB}>\widehat{ADC}$ (giả thiết) nên $\widehat{AEC}>\widehat{ADC}$.\\
+		$\Rightarrow \widehat{E_1}+\widehat{E_2}>\widehat{D_1}+\widehat{D_2}$.\\
+		Mặt khác, ta có $\widehat{D_1}=\widehat{E_1}$ (do $\triangle AED$ cân tại $A$). Suy ra $\widehat{E_2}>\widehat{D_2}$.\\
+		Xét $\triangle CDE$ có $\widehat{E_2}>\widehat{D_2}$ nên $DC>EC$.\\
+		Mà $DB=EC$ (chứng minh trên), suy ra $DC>DB$.
+	}
+	{
+		\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth]
+		%\tkzInit[xmin=-7,xmax=7,ymin=-7,ymax=7]
+		%\tkzClip
+		\tkzDefPoints{0/0/B,4/0/C,1.5/1/D}
+		\tkzDefPointBy[rotation= center B angle 70](C) \tkzGetPoint{b}
+		\tkzDefPointBy[rotation= center C angle -70](B) \tkzGetPoint{c}
+		\tkzInterLL(B,b)(C,c) \tkzGetPoint{A}
+		\tkzDefPointBy[rotation= center A angle 40](D) \tkzGetPoint{E}
+		\tkzDefPointBy[homothety=center A ratio 1.2](E)\tkzGetPoint{x}
+		\tkzDrawPoints[fill=black](A,B,C,D,E)
+		\tkzDrawSegments(A,x B,C C,A A,D A,B B,D D,C E,C E,D)
+		\tkzLabelPoints[above](A) \tkzLabelPoints[left](B,D)
+		\tkzLabelPoints[right](E,C,x)
+		\tkzLabelAngle[pos=1.3](B,A,D){$1$} \tkzLabelAngle[pos=.5](E,D,A){$1$}
+		\tkzLabelAngle[pos=-.5](A,E,D){$1$} \tkzLabelAngle[pos=1.3](D,A,C){$2$}
+		\tkzLabelAngle[pos=.7](C,D,E){$2$} \tkzLabelAngle[pos=.5](D,E,C){$2$}
+		\tkzLabelAngle[pos=1.3](C,A,E){$3$}
+		\end{tikzpicture}
+	}
+	}
+\end{bt}
+\begin{bt}%[7H3G1]
+	Cho tam giác $ABC$ có $AB<AC$ và $AD$ là tia phân giác của góc $A$ ($D$ thuộc $BC$). Kẻ $AH$ vuông góc với $BC$ ($H$ thuộc $BC$) và gọi $M$ là trung điểm của cạnh $BC$. Chứng minh rằng tia $AD$ nằm giữa hai tia $AH$ và $AM$.
+	\loigiai{
+	\immini
+	{
+		Nhận thấy hai điểm $M$ và $D$ luôn nằm trên tia $CB$.\\
+		Xét $\triangle ABC$ có $AB<AC$ (giả thiết) nên $\widehat{C}<\widehat{B}$.\\
+		$\Rightarrow H$ thuộc tia $CB$.\\
+		Do đó các tia $AM$, $AD$, $AH$ cùng thuộc nửa mặt phẳng chứa điểm $B$ có bờ là đường thẳng $AC$.\hfill$(*)$\\
+		Ta sẽ chứng minh $\widehat{CAM}<\widehat{CAD}<\widehat{CAH}$.\\
+		Xét $\triangle ABC$ có $AB<AC$ (giả thiết) và $M$ là trung điểm của $BC$ nên theo ví dụ $3$, ta có
+	}
+	{
+		\begin{tikzpicture}[scale=.75, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-1,xmax=7,ymin=-1,ymax=5]
+		\tkzClip
+		\tkzDefPoints{1/4/A,0/0/B,6/0/C}
+		\tkzDefMidPoint(C,B)\tkzGetPoint{M}
+		\tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{H}
+		\tkzDefLine[bisector](B,A,C) \tkzGetPoint{d}
+		\tkzInterLL(A,d)(B,C)\tkzGetPoint{D}
+		\tkzDrawPoints[fill=black](A,B,C,D,M,H)
+		\tkzDrawSegments(A,B B,C C,A A,H A,D A,M)
+		\tkzLabelPoints[above](A) \tkzLabelPoints[below](B,C,H,D,M)
+		\tkzMarkRightAngles(C,H,A)
+		\end{tikzpicture}
+	}
+	\immini
+	{
+		$\widehat{CAM}<\widehat{BAM}\Rightarrow 2\widehat{CAM}<\widehat{BAM}+\widehat{CAM}=\widehat{BAC}$\\
+		$\Rightarrow \widehat{CAM}<\dfrac{\widehat{BAC}}{2}=\widehat{CAD}$.\hfill$(1)$\\
+		Xét $\triangle HAC$ vuông ở $H$ có
+		\begin{align}
+		\widehat{CAH} &=90^\circ-\widehat{C}=\dfrac{\widehat{A}+\widehat{B}+\widehat{C}}{2}-\widehat{C}\nonumber\\
+		&=\dfrac{\widehat{A}}{2}+\dfrac{\widehat{B}-\widehat{C}}{2}>\dfrac{\widehat{A}}{2}=\widehat{CAD}\tag{2}
+		\end{align}
+		Từ $(1)$ và $(2)$ suy ra $\widehat{CAM}<\widehat{CAD}<\widehat{CAH}$.\\
+		Kết hợp với $(*)$ ta suy ra tia $AD$ nằm giữa hai tia $AH$ và $AM$.
+	}
+	{
+		\begin{tikzpicture}[scale=.75, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-1,xmax=7,ymin=-1,ymax=5]
+		\tkzClip
+		\tkzDefPoints{1/4/A,2/0/B,6/0/C}
+		\tkzDefMidPoint(C,B)\tkzGetPoint{M}
+		\tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{H}
+		\tkzDefLine[bisector](B,A,C) \tkzGetPoint{d}
+		\tkzInterLL(A,d)(B,C)\tkzGetPoint{D}
+		\tkzDrawPoints[fill=black](A,B,C,D,M,H)
+		\tkzDrawSegments(A,B H,C C,A A,H A,D A,M)
+		\tkzLabelPoints[above](A) \tkzLabelPoints[below](B,C,H,D)
+		\tkzLabelPoints[below right](M)
+		\tkzMarkRightAngles(C,H,A)
+		\end{tikzpicture}
+	}
+	}
+\end{bt}
+\begin{bt}%[7H3K1]
+	Cho tam giác $ABC$ cân tại $A$. Trên đáy $BC$ lấy các điểm $E$ và $F$ sao cho $BE=EF=FC$.
+	\begin{enumerate}
+		\item So sánh độ lớn của các góc $\widehat{BAE}$; $\widehat{EAF}$; $\widehat{FAC}$.
+		\item Nếu đoạn thẳng $BC$ được chia thành $4$ đoạn nhỏ bằng nhau thì $4$ góc đối diện với $4$ đoạn nhỏ đó có số đo như thế nào?
+	\end{enumerate}
+	\loigiai{
+	\immini
+	{
+		\begin{enumerate}
+			\item Vì tam giác $ABC$ cân tại $A$ nên ta có $\triangle AEB=\triangle AFC$ (c.g.c).\\
+			Suy ra $\widehat{BAE}=\widehat{FAC}$ (hai góc tương ứng).\\
+			Trên tia $AF$ lấy điểm $N$ sao cho $F$ là trung điểm của $AN$.\\
+			Khi đó $\triangle AEF=\triangle NCF$ (c.g.c) nên $\widehat{EAF}=\widehat{FNC}$ và $AE=CN$.\\
+			Ta có $\widehat{AEC}$ là góc ngoài của $\triangle ABE$ nên $\widehat{AEC}>\widehat{B}=\widehat{ACE}$.\\
+			Xét $\triangle AEC$ có $\widehat{AEC}>\widehat{ACE}$ nên $AC>AE=CN$.\\
+			Xét $\triangle ACN$ có $AC>CN$ nên $\widehat{ANC}>\widehat{NAC}$.\\
+			Mà $\widehat{ANC}=\widehat{EAF}$, suy ra $\widehat{EAF}>\widehat{FAC}=\widehat{BAE}$.
+		\end{enumerate}
+	}
+	{
+		\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-1,xmax=7,ymin=-5,ymax=5]
+		\tkzClip
+		\tkzDefPoints{3/4/A,0/0/B,6/0/C,2/0/E,4/0/F}
+		\tkzDefPointBy[translation= from A to F](F) \tkzGetPoint{N}
+		\tkzDrawPoints[fill=black](A,B,C,E,F,N)
+		\tkzDrawSegments(A,B B,C C,A A,E A,N N,C)
+		\tkzLabelPoints[above](A) \tkzLabelPoints[below](B,E,N)
+		\tkzLabelPoints[below left](F) \tkzLabelPoints[below right](C)
+		\tkzMarkSegments[pos=0.5,mark=|](B,E E,F F,C)
+		\tkzMarkSegments[pos=0.5,mark=||](A,F F,N)
+		\end{tikzpicture}
+	}
+	\immini
+	{
+		\begin{enumerate}
+			\item[b)] Chứng minh tương tự ta có nếu $BC$ chia thành $4$ đoạn nhỏ bằng nhau thì góc $A$ được chia thành $4$ góc nhỏ trong đó hai góc giữa bằng nhau, hai góc ngoài bằng nhau, hai góc nằm giữa lớn hơn hai góc nằm ngoài.
+		\end{enumerate}
+	}
+	{
+		\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-1,xmax=9,ymin=-1,ymax=3.7]
+		\tkzClip
+		\tkzDefPoints{4/3/A,0/0/B,6/0/G,8/0/C,2/0/E,4/0/F}
+		\tkzDrawPoints[fill=black](A,B,C,E,F,G)
+		\tkzDrawSegments(A,B B,C C,A A,E A,F A,G)
+		\tkzLabelPoints[above](A) \tkzLabelPoints[below](B,E,F)
+		\tkzLabelPoints[below left](G) \tkzLabelPoints[below right](C)
+		\tkzMarkSegments[pos=0.5,mark=|](B,E E,F F,G G,C)
+		\end{tikzpicture}
+	}
+	}
+\end{bt}
+\begin{bt}%[7H3K1]
+	Cho tam giác $ABC$ có $\widehat{B}=75^\circ$, $\widehat{C}=60^\circ$. Điểm $M$ nằm trong tam giác $ABC$ sao cho tam giác $MBC$ vuông cân tại $M$. Chứng minh rằng $MA=MB$.
+	\loigiai{
+	\immini
+	{
+		Từ giả thiết ta có\\
+		$\widehat{BAC}=180^\circ-\left( \widehat{ABC}+\widehat{ACB}\right)=180^\circ-\left( 75^\circ+60^\circ\right)=45^\circ$.\\
+		$\widehat{B_2}=\widehat{ABC}-\widehat{B_1}=75^\circ-45^\circ=30^\circ$.\\
+		$\widehat{C_2}=\widehat{ACB}-\widehat{C_1}=60^\circ-45^\circ=15^\circ$.\\
+		Giả sử $MA\ne MB$, ta xét hai trường hợp:\\
+		Trường hợp 1: $MA<MB$.\\
+		Xét $\triangle MAB$ có $MA<MB$ nên $\widehat{B_2}<\widehat{A_2}$.\\
+		Vì $MC=MB$ nên $MA<MC$, do đó $\widehat{C_2}<\widehat{A_1}$.\\
+		Suy ra $\widehat{B_2}+\widehat{C_2}<\widehat{A_1}+\widehat{A_2}$ hay $30^\circ+15^\circ=45^\circ<\widehat{BAC}$, trái với $(1)$.\\
+		Trường hợp 2: $MA>MB$.\\
+		Xét tương tự dẫn đến $45^\circ>\widehat{BAC}$, trái với $(1)$.\\
+		Vậy $MA=MB$.
+	}
+	{
+		\begin{tikzpicture}[scale=.9, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-1,xmax=6,ymin=-1,ymax=7]
+		\tkzClip
+		\tkzDefPoints{0/0/B,5/0/C}
+		\tkzDefPointBy[rotation= center B angle 75](C) \tkzGetPoint{b}
+		\tkzDefPointBy[rotation= center C angle -60](B) \tkzGetPoint{c}
+		\tkzInterLL(B,b)(C,c) \tkzGetPoint{A}
+		\tkzDefPointBy[rotation= center B angle 45](C) \tkzGetPoint{x}
+		\tkzDefPointBy[rotation= center C angle -45](B) \tkzGetPoint{y}
+		\tkzInterLL(B,x)(C,y) \tkzGetPoint{M}
+		\tkzDrawPoints[fill=black](A,B,C,M)
+		\tkzDrawSegments(A,B B,C C,A M,A M,B M,C)
+		\tkzLabelPoints[above](A) \tkzLabelPoints[left](B,M)
+		\tkzLabelPoints[right](C)
+		\tkzMarkSegments[pos=0.5,mark=|](B,M M,C)
+		\tkzLabelAngle[pos=.7](C,B,M){$1$} \tkzLabelAngle[pos=.7](B,A,M){$2$}
+		\tkzLabelAngle[pos=.7](M,C,B){$1$} \tkzLabelAngle[pos=.7](M,B,A){$2$}
+		\tkzLabelAngle[pos=1.2](M,A,C){$1$} \tkzLabelAngle[pos=1.2](A,C,M){$2$}
+		\tkzMarkRightAngles(B,M,C)
+		\end{tikzpicture}
+	}	
+	}
+\end{bt}
+\begin{bt}%[7H3K1]
+	Cho tam giác $ABE$ có $AB=a$, $\widehat{EAB}=\widehat{EBA}=15^\circ$. Trên nửa mặt phẳng bờ $AB$ có chứa $E$, vẽ các tia $Ax$, $By$ vuông góc với $AB$. Lấy $D$ trên tia $Ax$, lấy $E$ trên tia $By$ sao cho $AD=BC=a$. Chứng minh rằng tam giác $ECD$ là tam giác đều.
+	\loigiai{
+	\immini
+	{
+		Vì $\triangle AED=\triangle BEC$ (c.g.c) nên $ED=EC=b$.\\
+		Ta có $\widehat{A_2}=75^\circ$, $\widehat{AEB}=150^\circ$.\\
+		Ta sẽ chứng minh $\widehat{AED}=\widehat{BEC}=75^\circ$.\\
+		Giả sử $\widehat{AED}\ne 75^\circ$, ta xét hai trường hợp:\\
+		Trường hợp 1: $\widehat{AED}>75^\circ$.\\
+		Xét $\triangle AED$ có $\widehat{E_1}>75^\circ=\widehat{A_2}\Rightarrow AD>ED$, tức là $a>b$.\hfill$(1)$\\
+		Mặt khác, vì $\widehat{AED}>75^\circ$ nên $\widehat{E_2}<60^\circ$.\\
+		Tam giác $CED$ cân tại $E$ mà $\widehat{E_2}<60^\circ\Rightarrow \widehat{C_1}=\widehat{D_1}>60^\circ$.\\
+		$\Rightarrow \widehat{C_1}>\widehat{E_2}\Rightarrow ED>CD$, tức là $b>a$, mâu thuẫn với $(1)$.\\
+		Trường hợp 2: $\widehat{AED}<75^\circ$.\\
+		Chứng minh tương tự cũng dẫn đến mâu thuẫn.\\
+		Vậy $\widehat{AED}=75^\circ$. Từ đó suy ra tam giác $CDE$ đều.
+	}
+	{
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth]
+		\tkzInit[xmin=-1,xmax=6,ymin=-7,ymax=1]
+		\tkzClip
+		\tkzDefPoints{0/0/A,5/0/B,5/-5/C,0/-5/D,0/-6/x,5/-6/y}
+		\tkzDefPointBy[rotation= center A angle -15](B) \tkzGetPoint{a}
+		\tkzDefPointBy[rotation= center B angle 15](A) \tkzGetPoint{b}
+		\tkzInterLL(A,a)(B,b) \tkzGetPoint{E}
+		\tkzDrawPoints[fill=black](A,B,C,E)
+		\tkzDrawSegments(A,B B,y C,D x,A E,A E,B E,C E,D)
+		\tkzLabelPoints[above](E) \tkzLabelPoints[left](A,D,x)
+		\tkzLabelPoints[right](B,C,y)
+		\tkzLabelAngle[pos=.5](C,D,E){$1$} \tkzLabelAngle[pos=.5](D,A,E){$2$}
+		\tkzLabelAngle[pos=.5](E,C,D){$1$} \tkzLabelAngle[pos=.5](E,B,C){$2$}
+		\tkzLabelAngle[pos=-.5](A,E,D){$1$} \tkzLabelAngle[pos=.5](D,E,C){$2$}
+		\tkzLabelAngle[pos=.5](C,E,B){$3$} \tkzLabelAngle[pos=1.2](E,A,B){$1$}
+		\tkzLabelAngle[pos=-1.2](A,B,E){$1$}
+		\end{tikzpicture}
+	}
+		
+	}
+\end{bt}
+\Closesolutionfile{ans}

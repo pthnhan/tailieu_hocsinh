@@ -1,0 +1,545 @@
+\section{Đường tròn ngoại tiếp. Đường tròn nội tiếp}
+\subsection{Tóm tắt lí thuyết}
+\begin{dn}
+	\begin{itemize}
+		\item Đường tròn đi qua tất cả các đỉnh của một đa giác gọi là \textit{đường tròn ngoại tiếp} đa giác và đa giác được gọi là \textit{đa giác nội tiếp đường tròn}
+		\item Đường tròn tiếp xúc với tất cả các cạnh của đa giác được gọi là \textit{đường tròn nội tiếp đa giác} và đa giác gọi là \textit{đa giác ngoại tiếp đường tròn}.
+	\end{itemize}
+\end{dn}
+
+
+\begin{dl}
+	Bất kì đa giác đều nào cũng có một và chỉ một đường tròn ngoại tiếp, có một và chỉ một đường tròn nội tiếp.
+\end{dl}
+
+\begin{note}
+	Trong đa giác đều, tâm của đường tròn nội tiếp trùng với tâm của đường tròn ngoại tiếp và được gọi là tâm của đa giác đều.
+\end{note}
+
+\subsection{Các ví dụ}
+
+
+
+\begin{vd} \begin{enumerate}
+		\item Vẽ đường tròn tâm $ (O) $, bán kính $ 2 $ cm.
+		\item Vẽ hình vuông nội tiếp đường tròn $ (O) $ ở câu a).
+		\item Tính bán kính $ r $ đường tròn nội tiếp hình vuông ở câu b) rồi vẽ đường tròn $ (O;r) $.
+	\end{enumerate}
+	\loigiai{\immini{\begin{enumerate}
+				\item 
+				\item 
+				\item $ ABCD $ là hình vuông có đường chéo $ AC = 4 $ (cm)\\  $\Rightarrow AB =\dfrac{AC}{\sqrt{2}} = 2\sqrt{2} $. Vậy hình vuông có cạnh $ 2\sqrt{2} $.\\
+				Đường tròn nội tiếp hình vuông $ ABCD $ có bán kính $$ r = \dfrac{AB}{2} = \sqrt{2} \text{ cm}.$$
+				
+		\end{enumerate}}{ \begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+		%Phan Khai Bao Mac Dinh
+		\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=4.5]
+		%\tkzAxeXY
+		%\tkzGrid
+		\tkzClip
+		\tkzSetUpPoint[color=black,fill=black,size=6]
+		%Dinh Hinh
+		\tkzDefPoints{2/2/O,0/2/A,4/2/C}
+		\tkzDrawCircle[R](O,2cm)
+		\tkzDefLine[mediator](C,A)\tkzGetPoints{F}{E}
+		\tkzInterLC(F,E)(O,A)\tkzGetPoints{D}{B}
+		\tkzDrawPolygon(A,B,C,D)
+		\tkzDrawAltitude(A,B)(O)\tkzGetPoint{H}
+		\tkzDrawCircle[radius](O,H)
+		\tkzDrawPoints(O,A,B,C,D)
+		%GanLabel
+		\tkzLabelPoints[above](B)
+		\tkzLabelPoints[below](D)
+		\tkzLabelPoints[left](O,A)
+		\tkzLabelPoints[right](C)
+		\end{tikzpicture}}}
+\end{vd}
+
+\begin{vd}
+	Cho một đa giác đều $ n $ cạnh có độ dài mỗi cạnh là $ a $. Hãy tính bán kính $ R $ của đường tròn ngoại tiếp và bán kính $ r $ của đường tròn nội tiếp đa giác đều đó.
+	\loigiai{\immini{Gọi $ A $, $ B $ là 2 đỉnh liên tiếp của đa giác đều $ n $ cạnh. Gọi $ O $ là tâm đa giác đều.\\
+	Ta có $ \widehat{AOB} = \dfrac{360^\circ}{n} $.\\
+Kẻ $ OH $ vuông góc $ AB $, $ H \in AB $. Ta có $ \triangle OHA $ vuông tại $ H $ và $$ HA =\dfrac{AB}{2} = \dfrac{a}{2}. $$
+Hơn nữa ta có $ \widehat{HOA} = \dfrac{\widehat{AOB}}{2} = \dfrac{180^\circ}{n}$.\\
+Khi đó \begin{itemize}
+	\item Bán kính đường tròn ngoại tiếp bằng $ R= OA = \dfrac{HA}{\sin \frac{180^\circ}{n}} $.
+	\item Bán kính đường tròn nội tiếp bằng $ r = OH = HA \cot \dfrac{180^\circ}{n} $.
+\end{itemize}}{	\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=3,xmin=-0.5,xmax=3]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Hinh Tron Ngoai Tiep Luc Giac Deu
+			\tkzDefPoints{2/2/A,1/1/O}		
+			\tkzDrawCircle[radius](O,A)
+			\tkzDefPointBy[rotation= center O angle 60](A) \tkzGetPoint{B}
+			\tkzDefPointBy[rotation= center O angle 120](A) \tkzGetPoint{C}
+			\tkzDefPointBy[rotation= center O angle 180](A) \tkzGetPoint{D}
+			\tkzDefPointBy[rotation= center O angle 240](A) \tkzGetPoint{E}
+			\tkzDefPointBy[rotation= center O angle 300](A) \tkzGetPoint{F}
+			\coordinate (H) at ($(A)!0.5!(B)$);
+			\tkzDrawPolygon(A,B,C,D,E,F)
+			\tkzDrawSegments(A,O B,O O,H)
+			\tkzDrawPoints[size=6pt,color=black](A,B,O,H)
+			\tkzLabelPoints[left](O,B)
+			\tkzLabelPoints[right](A)
+			\tkzLabelPoints[above](H)
+			\end{tikzpicture}}  }
+\end{vd}
+
+\begin{vd}
+	Tính diện tích lục giác đều nội tiếp đường tròn bán kính $ R $.
+	\loigiai{\immini{Ta có $ AB = R $ nên suy ra tam giác $ OAB $ đều. Tương tự  ta có các tam giác $ OBC $, $ OCD $, $ ODE $, $ OEF $, $ OAF $ là các tam giác đều cạnh $R$.\\ Vậy diện tích lục giác $ ABCDEF $ là $$ 6 \cdot S_{OAB} = 6 \cdot \dfrac{R^2 \sqrt{3}}{4} = \dfrac{3\sqrt{3}R^2}{2 }.$$ }{\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=4.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]	
+			%Hinh Tron Ngoai Tiep Luc Giac Deu
+			\tkzDefPoints{0/2/A,2/2/O}		
+			\tkzDrawCircle[radius](O,A)
+			\tkzDefPointBy[rotation= center O angle -60](A) \tkzGetPoint{B}
+			\tkzDefPointBy[rotation= center O angle -120](A) \tkzGetPoint{C}
+			\tkzDefPointBy[rotation= center O angle -180](A) \tkzGetPoint{D}
+			\tkzDefPointBy[rotation= center O angle -240](A) \tkzGetPoint{E}
+			\tkzDefPointBy[rotation= center O angle -300](A) \tkzGetPoint{F}
+			\tkzDrawPolygon(A,B,C,D,E,F)	
+			\tkzDrawPoints(O,A,B,C,D,E,F)
+			%GanLabel
+			\tkzLabelPoints[left](O,A)
+			\tkzLabelPoints[right](D)
+			\tkzLabelPoints[above right](C)
+			\tkzLabelPoints[above left](B)
+			\tkzLabelPoints[below right](E)
+			\tkzLabelPoints[below left](F)
+			\end{tikzpicture}}}
+\end{vd}
+
+\begin{vd}
+	Cho ngũ giác đều $ ABCDE $. Gọi $ I $ là giao điểm của $ AD $ và $ BE $. Chứng minh rằng \begin{enumerate}
+		\item $ DIBC $ là hình bình hành;
+		\item $ DI^2 = AI \cdot AD $.
+	\end{enumerate}
+	\loigiai{ \immini{ \begin{enumerate}
+				\item Ta có $ \widehat{EID} = \dfrac{1}{2}\left(  \text{sđ} \wideparen {AB} +  \text{sđ} \wideparen {DE}  \right) = \dfrac{1}{2} \text{sđ} \wideparen {EC} = \widehat{EBC}  $.\\
+				Suy ra $ AD \parallel BC $, chứng minh tương tự, ta có $ BE \parallel CD $.
+				Vậy $ DIBC $ là hình bình hành.
+				\item Xét tam giác $ AIE $ và tam giác $ AED $, ta có \begin{itemize}
+					\item Góc $ A $ chung;
+					\item $ \widehat{AEI} = \widehat{ADE} $.
+				\end{itemize}
+			$ \Rightarrow   \triangle AIE \backsim \triangle AED $ (g - g) suy ra $ \dfrac{AI}{AE} =\dfrac{AE}{AD} $ suy ra $$ AI \cdot AD =AE^2 \cdot BC^2 = DI^2 $$
+		\end{enumerate} }{\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=4.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]	
+			%Hinh Tron Ngoai Tiep Luc Giac Deu
+			\tkzDefPoints{2/4/A,2/2/O}		
+			\tkzDefPointBy[rotation= center O angle -72](A) \tkzGetPoint{B}
+			\tkzDefPointBy[rotation= center O angle -144](A) \tkzGetPoint{C}
+			\tkzDefPointBy[rotation= center O angle -216](A) \tkzGetPoint{D}
+			\tkzDefPointBy[rotation= center O angle -288](A) \tkzGetPoint{E}
+			\tkzDrawPolygon(A,B,C,D,E)	
+			\tkzInterLL(A,D)(B,E)\tkzGetPoint{I}
+			\tkzDrawSegments(A,D B,E)
+			\tkzDrawPoints(O,A,B,C,D,E,I)
+			%GanLabel
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[above left](I)
+			\tkzLabelPoints[left](O,E)
+			\tkzLabelPoints[right](B)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[below left](D)
+			\end{tikzpicture}}} 
+\end{vd}
+
+\begin{vd}
+	Cho tứ giác $ ABCD $ nội tiếp một đường tròn và ngoại tiếp một đường tròn khác. Gọi các tiếp điểm với đường tròn nội tiếp theo thứ tự là $ M $, $ P $, $ Q $, $ N $. Chứng minh rằng $ QM $ vuông góc $ PN $.
+	\loigiai{ \immini{Ta có $ \text{sđ} \wideparen {PM} = 2 \widehat{AMP} = 180^\circ - \widehat{A} $. \tagEX{1}
+		$ \text{sđ} \wideparen {QN} = 2 \widehat{QNC} = 180^\circ - \widehat{C} $. \tagEX{2}
+	Lại có $ ABCD $ nội tiếp suy ra $ \widehat{A} + \widehat{C} =180^\circ $. \tagEX{3}
+	Từ (1), (2) và (3) suy ra $ \text{sđ} \wideparen {PM} + \text{sđ} \wideparen {QN} = 180^\circ $ do đó $ QM \perp PN  $.}{	\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-2,ymax=5.5,xmin=-1,xmax=6.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]	
+			\tkzDefPoints{2/4/M,2/2/I}
+			\tkzDrawCircle[radius](I,M)
+			\tkzDefPointBy[rotation= center I angle 130](M) \tkzGetPoint{Q}
+			\tkzDefPointBy[rotation= center I angle 70](M) \tkzGetPoint{P}
+			\tkzDefLine[orthogonal=through P](M,Q) \tkzGetPoint{H}
+			\tkzInterLC(P,H)(I,M)\tkzGetPoints{N}{}
+			
+			\tkzTangent[at=M](I)\tkzGetPoint{m}
+			\tkzTangent[at=N](I)\tkzGetPoint{n}
+			\tkzTangent[at=P](I)\tkzGetPoint{p}
+			\tkzTangent[at=Q](I)\tkzGetPoint{q}
+			
+			\tkzInterLL(M,m)(P,p)\tkzGetPoint{A}
+			\tkzInterLL(M,m)(N,n)\tkzGetPoint{B}
+			\tkzInterLL(Q,q)(P,p)\tkzGetPoint{D}
+			\tkzInterLL(N,n)(Q,q)\tkzGetPoint{C}
+			\tkzCircumCenter(A,B,C)\tkzGetPoint{O}
+			\tkzDrawCircle[radius](O,A)
+			\tkzDrawPolygon(A,B,C,D)
+			\tkzDrawSegments(M,Q N,P)
+			\tkzDrawPoints(O,I,A,B,C,D,M,N,P,Q)
+			%GanLabel
+			\tkzLabelPoints[above](M)
+			\tkzLabelPoints[above right](B,P)
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[below](C)
+			\tkzLabelPoints[left](D,I,O)
+			\tkzLabelPoints[below left](Q)
+			\tkzLabelPoints[below right](N)
+			\end{tikzpicture}} }
+\end{vd}
+
+
+\subsection{Luyện tập}
+
+\begin{bt} $ $
+\begin{enumerate}
+	\item Vẽ $ \triangle ABC $ đều cạnh $ a $.
+	\item Vẽ đường tròn $ (O;R) $ ngoại tiếp $ \triangle ABC $. Tính $ R $.
+	\item Vẽ đường tròn $ (O;r) $ nội tiếp $ \triangle ABC $. Tính $ r $.
+	\item Vẽ tam giác đều $ IJK $ ngoại tiếp $ (O;R) $.
+\end{enumerate}
+\loigiai{
+	%HinhVeBai 1.1 c-d
+	\begin{center}
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+		%Phan Khai Bao Mac Dinh
+		\tkzInit[ymin=-0.5,ymax=6.5,xmin=-2,xmax=6]
+		%\tkzAxeXY
+		%\tkzGrid
+		\tkzClip
+		\tkzSetUpPoint[color=black,fill=black,size=6]
+		%Cau a. Ve tam giac deu
+		\tkzDefPoints{2/4/C,2/2/O}		
+		\tkzDefPointBy[rotation= center O angle 120](C) \tkzGetPoint{B}
+		\tkzDefEquilateral(C,B)\tkzGetPoint{A}
+		\tkzDrawPolygon(A,B,C)	
+		\tkzDrawPoints(O,A,B,C)
+		%Cau b. 
+		\tkzDrawCircle[radius](O,C)
+		\tkzDefPointBy[projection = onto C--B](O) \tkzGetPoint{H}
+		\tkzDrawSegments(O,H)
+		\tkzDrawCircle[radius](O,H)
+		\tkzLabelSegment[above](O,H){$r$}
+		%Cau d.
+		\tkzDefPointBy[rotation= center O angle 180](C) \tkzGetPoint{M}
+		\tkzDefPointBy[rotation= center O angle 120](M) \tkzGetPoint{N}
+		\tkzDefPointBy[rotation= center O angle 240](M) \tkzGetPoint{P}
+		\tkzTangent[at=M](O)\tkzGetPoint{m}
+		\tkzTangent[at=N](O)\tkzGetPoint{n}
+		\tkzTangent[at=P](O)\tkzGetPoint{p}
+		\tkzInterLL(M,m)(N,n)\tkzGetPoint{K}
+		\tkzInterLL(M,m)(P,p)\tkzGetPoint{J}
+		\tkzInterLL(N,n)(P,p)\tkzGetPoint{I}
+		\tkzDrawPolygon(I,J,K)
+		%GanLabel
+		\tkzLabelPoints[right](O)
+		\tkzLabelPoints[above](C,I)
+		\tkzLabelPoints[below left](B,J)
+		\tkzLabelPoints[below right](A,K)
+		
+		
+		
+		\end{tikzpicture}
+	\end{center}
+}	
+\end{bt}
+
+\begin{bt}
+Cho đường tròn tâm $ O $ bán kính $ R $ và điểm $ M $ nằm bên ngoài đường tròn đó. Qua điểm $ M $ kẻ hai tiếp tuyến $ MA $, $ MB $ với $ (O) $. Qua điểm $ M $ kẻ cát tuyến $ MCD $ với đường tròn $ (O) $ (đường thẳng qua $ M $ cắt $ (O) $ tại $ C $, $ D $). Gọi $ I $ là trung điểm dây $ CD $. Khi đó ngũ giác $ MAOIB $ có phải là ngũ giác nội tiếp không?
+\loigiai{\begin{center}
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+		%Phan Khai Bao Mac Dinh
+		\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=7.5]
+		%\tkzAxeXY
+		%\tkzGrid
+		\tkzClip
+		\tkzSetUpPoint[color=black,fill=black,size=6]	
+		\tkzDefPoints{2/4/N,2/2/O,7/2/M}
+		\tkzDrawCircle[radius](O,N)
+		\tkzTangent[from=M](O,N)\tkzGetPoints{A}{B}
+		\tkzDefPointBy[rotation= center O angle -51](A) \tkzGetPoint{C}
+		\tkzInterLC(M,C)(O,N)\tkzGetPoints{D}{}
+		\tkzDefMidPoint(C,D)\tkzGetPoint{I}
+		\tkzDrawPolygon(M,A,I,O,B)
+		\tkzDrawSegments(M,D)
+		\tkzMarkSegments[mark=|](I,D I,C)
+		
+		
+		
+		\tkzDrawPoints(O,M,A,B,C,D,I)
+		%GanLabel
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[below](B)
+		\tkzLabelPoints[left](O)
+		\tkzLabelPoints[right](M)
+		\tkzLabelPoints[above right]()
+		\tkzLabelPoints[above left](I,D)
+		\tkzLabelPoints[below left](C)
+		\tkzLabelPoints[below right]()
+		\end{tikzpicture}
+\end{center}
+Ta có $ MA $, $ MB $ là hai tiếp tuyến của $ (O) $ suy ra $ \widehat{MAO} = \widehat{MBO} =90^\circ $;\\
+Xét đường tròn $ (O) $, \begin{itemize}
+	\item $ OI $ là một phần đường kính;
+	\item  $ CD $ là dây;
+	\item  $ IC = ID $
+\end{itemize}
+$ \Rightarrow OI \perp CD  \Rightarrow \widehat{OIM} =90^\circ $. Vậy $ MAIOB $ nội tiếp đường tròn đường kính $ OM $.}
+\end{bt}
+
+
+
+\begin{bt}
+	Cho hình thang vuông $ ABCD $ ($ \widehat{A}=\widehat{D}=90^\circ $) ngoại tiếp đường tròn $ (O) $, $ OB =15 $ cm và $ OC =  20  $ cm.
+	\begin{enumerate}
+		\item Chứng minh rằng $ \triangle BOC $ vuông;
+		\item Tính bán kính $ R $ của đường tròn $ (O) $;
+		\item Tính độ dài các cạnh $ AB $ và $ CD $.
+	\end{enumerate}
+\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+		%Phan Khai Bao Mac Dinh
+		\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=5.5]
+		%\tkzAxeXY
+		%\tkzGrid
+		\tkzClip
+		\tkzSetUpPoint[color=black,fill=black,size=6]	
+		\tkzDefPoints{2/4/M,2/2/O,2/0/N}
+		\tkzDefPointBy[rotation= center O angle -70](M) \tkzGetPoint{K}
+		\tkzDefPointBy[rotation= center O angle 90](M) \tkzGetPoint{Q}
+		\tkzTangent[at=M](O)\tkzGetPoint{m}
+		\tkzTangent[at=N](O)\tkzGetPoint{n}
+		\tkzTangent[at=K](O)\tkzGetPoint{p}
+		\tkzTangent[at=Q](O)\tkzGetPoint{q}
+		\tkzInterLL(M,m)(K,p)\tkzGetPoint{B}
+		\tkzInterLL(M,m)(Q,q)\tkzGetPoint{A}
+		\tkzInterLL(N,n)(K,p)\tkzGetPoint{C}
+		\tkzInterLL(N,n)(Q,q)\tkzGetPoint{D}
+		\tkzDrawPolygon(A,B,C,D)
+		
+		\tkzDrawCircle[radius](O,M)
+		\tkzDrawSegments(O,B O,C O,K)
+		
+		
+		\tkzDrawPoints(O,A,B,C,D,K)
+		%GanLabel
+		\tkzLabelPoints[above]()
+		\tkzLabelPoints[below]()
+		\tkzLabelPoints[left](O)
+		\tkzLabelPoints[right](K)
+		\tkzLabelPoints[above right](B)
+		\tkzLabelPoints[above left](A)
+		\tkzLabelPoints[below left](D)
+		\tkzLabelPoints[below right](C)
+		\end{tikzpicture}
+	\end{center}
+	\begin{enumerate}
+		\item Ta có $ BA $, $ BC $ là hai tiếp tuyến của $ (O) $\\  $\Rightarrow BO $ là phân giác góc $ BOC $ suy ra $ \widehat{BOC} = \dfrac{1}{2} \widehat{ABC} $. \hfill (1)\\
+		Chứng minh tương tự ta có $ \widehat{BCO} = \dfrac{1}{2}\widehat{BCD} $. \hfill (2)\\
+		Lại có tứ giác $ ABCD $ là hình thang nên $ \widehat{ABC} + \widehat{BCD} = 180^\circ $. \hfill (3)\\
+		Từ (1), (2) và (3) ta có $ \widehat{BOC} + \widehat{BCO} = 90^\circ$. Vậy tam giác $ BOC $ vuông tại $ O $.
+		\item Tam giác $ OBC $ vuông tại $ BC^2 = OB^2 + OC^2 = 625 $. Do đó  $ BC = 25 $.\\
+		Gọi $ K $ là hình chiếu của $ O $ lên $ BC $. Xét tam giác $ OBC $ vuông tại $ O $, ta có \\
+		$$ OB \cdot OC = OK \cdot BC \Rightarrow OK = \dfrac{OB \cdot OC}{BC} = \dfrac{15 \cdot 20}{25} = 12. $$
+		Vậy $ R = 24 $.
+		\item Gọi $ H $ là hình chiếu của $ B $ lên $ CD $. Ta có $ BH = AD = 2R = 24 $.\\
+		Tam giác $ BHR $ vuông tại $ H $, ta có $ HC = \sqrt{BC^2 - BH^2 } = \sqrt{ 25^2 - 24^2 } = 7$.\\
+		Ta có $ HC = CD - AB $. Suy ra $ CD - AB = 7 $.\\
+		Tứ giác $ ABCD $ ngoại tiếp nên $ AB + CD = AD + BC $ suy ra $ AB + CD = 49 $.
+		Do đó $ AB = 21 $, $ CD =  28 $.
+\end{enumerate}}
+\end{bt}
+
+\begin{bt}
+	Cho một lục giác đều bán kính $ R $. Kẻ các đường chéo nối các đỉnh cách nhau một đỉnh. Tính diện tích lục giác có đỉnh là giao điểm của các đường chéo đó.
+	\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+		%Phan Khai Bao Mac Dinh
+		\tkzInit[ymin=-0.5,ymax=6.5,xmin=-0.5,xmax=6.5]
+		%\tkzAxeXY
+		%\tkzGrid
+		\tkzClip
+		\tkzSetUpPoint[color=black,fill=black,size=6]	
+		%Hinh Tron Ngoai Tiep Luc Giac Deu
+		\tkzDefPoints{0/3/A,3/3/O}		
+		\tkzDefPointBy[rotation= center O angle -60](A) \tkzGetPoint{B}
+		\tkzDefPointBy[rotation= center O angle -120](A) \tkzGetPoint{C}
+		\tkzDefPointBy[rotation= center O angle -180](A) \tkzGetPoint{D}
+		\tkzDefPointBy[rotation= center O angle -240](A) \tkzGetPoint{E}
+		\tkzDefPointBy[rotation= center O angle -300](A) \tkzGetPoint{F}
+		\tkzDrawSegments(A,C B,D C,E D,F E,A F,B)
+		\tkzInterLL(A,C)(B,D)\tkzGetPoint{I}
+		\tkzInterLL(E,C)(B,D)\tkzGetPoint{K}
+		\tkzInterLL(E,C)(F,D)\tkzGetPoint{L}
+		\tkzInterLL(E,A)(F,D)\tkzGetPoint{M}
+		\tkzInterLL(E,A)(F,B)\tkzGetPoint{N}
+		\tkzInterLL(C,A)(F,B)\tkzGetPoint{P}
+		\tkzDrawPolygon(A,B,C,D,E,F)	
+		\tkzDrawPoints(A,B,C,D,E,F,I,K,L,M,N,P)
+		%GanLabel
+		\tkzLabelPoints[above](I)
+		\tkzLabelPoints[below](M)
+		\tkzLabelPoints[left](A)
+		\tkzLabelPoints[right](D)
+		\tkzLabelPoints[above right](C,K)
+		\tkzLabelPoints[above left](B,P)
+		\tkzLabelPoints[below right](E,L)
+		\tkzLabelPoints[below left](F,N)
+		\end{tikzpicture}
+	\end{center}	
+		Kí hiệu các đỉnh như hình bên. Ta có $ \triangle AMN $ đều (vì các góc bằng $ 60^\circ $).\\
+	$ \triangle ANB $ cân vì $ \widehat{ABN} = \widehat{BAN} = 30^\circ $; tương tự ta có $ \triangle AMF $ cân do đó $$ FM = MN = NB = \dfrac{BF}{3} = \dfrac{R}{\sqrt{3}}. $$
+	$ MNPQ $ là lục giác đều có diện tích bằng $ \dfrac{MN^2\sqrt{3}}{4} \cdot 6 =\dfrac{R^2\sqrt{3}}{2}$.}
+\end{bt}
+
+\begin{bt}
+	Đường tròn tâm $ O $ nội tiếp hình vuông $ ABCD $, tiếp điểm trên $ AB $ là $ M $. Một tiếp tuyến  với $ (O) $ cắt các cạnh  $ BC $, $ CD $ lần lượt ở $ E  $,  $F$. Chứng minh rằng
+	\begin{enumerate}
+		\item Các tam giác $ DFO $ và $ BOE $ đồng dạng.
+		\item $ ME $ song song với $ AF $.
+	\end{enumerate}
+\loigiai{\begin{center}
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+		%Phan Khai Bao Mac Dinh
+		\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=4.5]
+		%\tkzAxeXY
+		%\tkzGrid
+		\tkzClip
+		\tkzSetUpPoint[color=black,fill=black,size=6]	
+		%Hinh Tron Ngoai Tiep Luc Giac Deu
+		\tkzDefPoints{0/4/A,2/2/O,4/4/B,4/0/C,0/0/D}
+		\tkzDrawPolygon(A,B,C,D)
+		\tkzDefPointBy[projection = onto A--B](O) \tkzGetPoint{M}
+		\tkzDrawCircle[radius](O,M)
+		\tkzDefPointBy[rotation= center O angle -145](M) \tkzGetPoint{N}
+		\tkzTangent[at=N](O)\tkzGetPoint{n}
+		\tkzInterLL(N,n)(C,B)\tkzGetPoint{E}
+		\tkzInterLL(N,n)(C,D)\tkzGetPoint{F}
+		\tkzDrawPoints(O,A,B,C,D,N,E,F)
+		\tkzDrawPolygon(D,F,O)
+		\tkzDrawPolygon(B,O,E)
+		\tkzDrawSegments(M,E A,F E,F)
+		
+		%GanLabel
+		\tkzLabelPoints[above](O,M,N)
+		\tkzLabelPoints[below](F)
+		\tkzLabelPoints[left]()
+		\tkzLabelPoints[right](E)
+		\tkzLabelPoints[above right](B)
+		\tkzLabelPoints[above left](A)
+		\tkzLabelPoints[below right](C)
+		\tkzLabelPoints[below left](D)
+		\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+	\item Xét tam giác $ \triangle DFO $, ta có $ \widehat{DOF} +\widehat{DFO}+ \widehat{ODF} = 180^\circ$ \\
+	 $\Rightarrow \widehat{DOF}+ \widehat{DFO}=145^\circ $ (do $ \widehat{ODF}=45^\circ $). \hfill (1) \\
+	 Xét tứ giác $ DBEF $, ta có $ \widehat{D}+\widehat{B}+\widehat{E}+\widehat{F}=360^\circ \Rightarrow \widehat{DEF}+ \widehat{BEF}=270^\circ$.\\ Mặt khác ta có $ FO $, $ EO $ lần lượt là phân giác góc $ DFE $ và $ BEF $ nên ta có
+	 $$ \widehat{DFO}=\dfrac{1}{2} \widehat{DFE} \text{ và } \widehat{BEO}=\dfrac{1}{2}\widehat{BEF}$$
+	 Suy ra $ \widehat{DFO}+\widehat{BEO}=145^\circ $ \hfill (2)\\
+	 Từ (1) và (2) suy ra $ \widehat{DOF} =\widehat{BEO} $.\\
+	 Xét tam giác $ DOF $ và tam giác $ BEO $, ta có
+	 \begin{itemize}
+	 	\item $ \widehat{ODF}=\widehat{OBE}=45^\circ $;
+	 	\item $ \widehat{DOF} =\widehat{BEO} $ (chứng minh trên).
+	 \end{itemize}
+ $\Rightarrow \triangle DOF \backsim \triangle BEO $ (g - g). 
+\item $ \triangle DOF \backsim \triangle BEO \Rightarrow \dfrac{DF}{BO}=\dfrac{DO}{BE}  \Rightarrow DF \cdot BE = DO \cdot BO =\dfrac{BD^2}{4}=\dfrac{AB^2}{2} = BM \cdot AD$.
+$$ \Rightarrow  \dfrac{BM}{DF} = \dfrac{BE}{AD} $$
+Xét tam giác $ ADF $ và $ EBM $, ta có
+\begin{itemize}
+	\item $ \widehat{ADF}=\widehat{MBE} $;
+	\item $ \dfrac{BM}{DF} = \dfrac{BE}{AD} $.
+\end{itemize}
+Suy ra $ \triangle ADF \backsim \triangle EBM  \Rightarrow \widehat{BME}=\widehat{AFD}$.\\
+Mặt khác ta có $ \widehat{BAF}=\widehat{AFD} $  ($ AB \parallel CD $).\\
+Duy ra $ \widehat{BME}= \widehat{BAF} $ suy ra $ ME \parallel AF$.
+\end{enumerate}}
+\end{bt}
+
+\begin{bt}
+	Cho hình thang cân $ ABCD $ ($ AB \parallel CD $) ngoại tiếp đường tròn $ (O;r) $ và $ CD =4AB $. \begin{enumerate}
+		\item Gọi $ H $ là hình chiếu của $ O $ lên $ AD $. Chứng minh rằng $ HD = 4 HA $;
+		\item  Tính $ AB $ và $ CD $ theo $ r $.
+	\end{enumerate}
+	\loigiai{
+		
+		
+		\immini{\begin{enumerate}
+				\item Gọi $ I $, $ K $ lần lượt là hình chiếu của $ O $ lên $ AB $ và $ CD $. Ta có $ AI = \dfrac{AB}{2} $; $ DK = \dfrac{CD}{2} $. \hfill (1) \\
+				Theo tính chất hai tiếp tuyến cắt nhau, ta có $ HA = AI $, $ HD = DK $. \hfill (2)\\
+				Lại có $ CD = 4AB $. \hfill (3)\\
+				Từ (1), (2) và (3) suy ra $ HD = 4HA $.
+				\item Tam giác $ AOD $ vuông tại $ O $ có đường cao $ OH $, ta có $$ r^2= OH^2 = HA \cdot HD =4 \cdot HA^2 .$$ Vậy $ HA = \dfrac{r}{2} $.
+		\end{enumerate}}{				\begin{tikzpicture}[>=stealth,scale=0.7, line join = round, line cap = round]
+				\tkzInit[xmin=-2,xmax=6,ymin=-3,ymax=5]
+				%\tkzAxeXY
+				%\tkzAxeX
+				%\tkzAxeY
+				\tkzClip
+				\tkzSetUpPoint[color=black,fill=black,size=6]	
+				\tkzDefPoints{2/4/I,2/2/O,2/0/K}
+				\tkzDefPointBy[rotation= center O angle -65](I) \tkzGetPoint{P}
+				\tkzDefPointBy[rotation= center O angle 65](I) \tkzGetPoint{H}
+				\tkzTangent[at=I](O)\tkzGetPoint{m}
+				\tkzTangent[at=K](O)\tkzGetPoint{n}
+				\tkzTangent[at=P](O)\tkzGetPoint{p}
+				\tkzTangent[at=H](O)\tkzGetPoint{q}
+				\tkzInterLL(I,m)(P,p)\tkzGetPoint{B}
+				\tkzInterLL(I,m)(H,q)\tkzGetPoint{A}
+				\tkzInterLL(K,n)(P,p)\tkzGetPoint{C}
+				\tkzInterLL(K,n)(H,q)\tkzGetPoint{D}
+				\tkzDrawSegments(A,B B,C I,K O,H)
+				\tkzDrawPolygon(A,B,C,D)
+				\tkzDrawCircle[radius](O,I)
+				\tkzDrawPoints(A,B,C,D,I,K,H,O)
+				\tkzLabelPoints[above](I)
+				\tkzLabelPoints[left](A,D,H)
+				\tkzLabelPoints[right](B,C,O)
+				\tkzLabelPoints[below](K)
+				\end{tikzpicture}}}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ ABC $, các đường trung tuyến $ BD $ và $ CE $ cắt nhau tại $ I $. Cho biết tứ giác $ ADIE $ ngoại tiếp được một đường tròn. Chứng minh rằng tam giác $ ABC $ cân.
+	\loigiai{\immini{
+	Ta có $ ADIE $ là tứ giác ngoại tiếp suy ra $ AD + IE  = AE +ID$.\\
+	Không mất tính tổng quát giả sử $ AB < AC $ khi đó ta chứng minh được $ BD <CE $ suy ra $ ID < IE $. Do đó $ AE +ID < AD+ EI $ (mâu thuẩn). Vậy $ AB = AC $.}{\begin{tikzpicture}[>=stealth,scale=0.7, line join = round, line cap = round]
+\tkzInit[xmin=-2,xmax=6,ymin=-2,ymax=5]
+\tkzClip
+\tkzDefPoints{0/0/B,6/0/C,2/4/A}%Định nghĩa điểm cố định
+\tkzDrawPolygon(A,B,C)
+\tkzDrawMedian(A,B)(C)		\tkzGetPoint{E}
+\tkzDrawMedian(A,C)(B)		\tkzGetPoint{D}
+\tkzMarkSegments[pos=0.5,mark=|](A,E E,B)
+\tkzMarkSegments[pos=0.5,mark=||](A,D C,D)
+\tkzDrawSegments(B,D C,E)
+\tkzInterLL(B,D)(C,E) \tkzGetPoint{I}
+\tkzDrawPoints(A,B,C,D,E,I)%Vẽ điểm A, B, C
+%\tkzLabelPoints(A,B,C,D,E,I)
+\tkzLabelPoints[above](A) %Ghi tên điểm ở trên
+\tkzLabelPoints[below](I)
+\tkzLabelPoints[left](E,B)
+\tkzLabelPoints[right](C,D)
+\end{tikzpicture}}
+}
+\end{bt}
+
+

@@ -1,0 +1,745 @@
+\section{TỨ GIÁC NGOẠI TIẾP ĐƯỜNG TRÒN. CHU VI VÀ DIỆN TÍCH HÌNH TRÒN}
+
+\begin{center}
+\large \textbf{TỔNG QUAN VỀ CHUYÊN ĐỀ}
+\end{center}
+Nội dung của chuyên đề này bao gồm:
+\begin{itemize}
+\item[-] Tứ giác ngoại tiếp đường tròn, tính chất và dấu hiệu nhận biết.
+\item[-] Độ dài đường tròn, độ dài cung tròn.
+\item[-] Diện tích hình tròn, hình quạt tròn, hình viên phân, hình vành khăn.
+\end{itemize}
+
+
+\noindent
+\textbf{Đố vui}\\
+Bạn hãy tìm hiểu ý nghĩa toán học của bài thơ dưới đây:
+\begin{center}
+{\bf CÂY LÚA VIỆT NAM}\\
+Ba miền đất Bắc - Trung - Nam\\
+Một vùng lãnh thổ Việt Nam anh hùng.\\
+Bốn mùa xuân hạ thu đông\\
+Một năm thu hoạch cây trồng tốt tươi.\\
+Năm nay đất chẳng phụ người\\
+Chín vàng thảm lúa chân trời cò bay.\\
+Hai sương một nắng chung tay\\
+Sáu tấn một mẫu bõ ngày chăm lo.\\
+Năm xưa ăn chẳng đủ no\\
+Ba miền nay đã thành kho thóc đầy.\\
+Năm châu nhập gạo từ đây\\
+Tám thơm hạt dẻo, mê say lòng người.
+\end{center}
+\loigiai{Các chữ đầu của $12$ câu thơ cho ta $12$ số dầu tiên của số $\pi$, đó là $3{,}14159265358$.}
+
+\subsection{TỨ GIÁC NGOẠI TIẾP ĐƯỜNG TRÒN}
+
+\begin{enumerate}
+\item Tứ giác ngoại tiếp đường tròn là tứ giác có các cạnh tiếp xúc với đường tròn ấy.
+\item Nếu một tứ giác ngoại tiếp đường tròn thì tổng các cạnh đối bằng nhau.
+\item Đảo lại, nếu một tứ giác có tổng các cạnh đối bằng nhau thì tứ giác đó ngoại tiếp một đường tròn.
+\item Đa giác có chu vi $2p$ ngoại tiếp đường tròn bán kính $r$ thì diện tích $S=pr$.
+\end{enumerate}
+
+\begin{vd}
+Cho hình thang cân $ABCD$ ($AB\parallel CD$) có diện tích $192$ cm$^2$ ngoại tiếp đường tròn $(O)$ bán kính $6$ cm. Gọi các tiếp điểm trên $AD$, $BC$ theo thứ tự là $M$, $N$. Tính độ dài $MN$.
+\loigiai{
+\immini{Kẻ $AH\perp CD$. Hình thang cân $ABCD$ ngoại tiếp $(O)$ nên $AB+CD=AD+BC=2AD$.\\
+Ta có \begin{align*}
+&S_{ABCD}=\dfrac{AB+CD}{2}\cdot AH=AD\cdot AH\\
+\Rightarrow& 192=AD\cdot 12\\
+\Rightarrow& AD=16\text{ cm}.
+\end{align*}
+Kẻ $OK\perp MN$ thì $OK\perp AB$ (do hình thang $ABCD$ cân)\\
+$\Rightarrow \triangle AHD \backsim \triangle MKO$ (g-g)$\Rightarrow \dfrac{AD}{MO}=\dfrac{AH}{MK}\\
+\Rightarrow \dfrac{16}{6}=\dfrac{12}{MK}\Rightarrow MK=4{,}5$ (cm).\\
+$\Rightarrow MN=2MK=9$ (cm).}{\begin{tikzpicture}[scale=0.5,>=stealth]
+\tkzDefPoints{0/0/O,3/2/N,-3/2/M}
+\tkzDrawCircle(O,M)
+\tkzDefMidPoint(M,N)\tkzGetPoint{K}
+\tkzInterLC(O,K)(O,M)\tkzGetPoints{E}{F}
+\tkzDefLine[orthogonal=through M](O,M) \tkzGetPoint{c}
+\tkzDefLine[orthogonal=through F](O,F) \tkzGetPoint{d}
+\tkzInterLL(c,M)(F,d)\tkzGetPoint{A}
+\tkzDefLine[orthogonal=through N](O,N) \tkzGetPoint{e}
+\tkzInterLL(e,N)(F,d)\tkzGetPoint{B}
+\tkzDefLine[orthogonal=through E](O,E) \tkzGetPoint{f}
+\tkzInterLL(f,E)(e,N)\tkzGetPoint{C}
+\tkzInterLL(f,E)(c,M)\tkzGetPoint{D}
+\tkzDefPointBy[projection=onto C--D](A)\tkzGetPoint{H}
+\tkzMarkRightAngles(A,H,C O,K,M)
+\tkzDrawPoints(M,N,O,H,K,A,C,D,B)
+\tkzLabelPoints[above](K)\tkzLabelPoints[below](H,O)\tkzLabelPoints[left](A,D,M)\tkzLabelPoints[right](B,C,N)
+\tkzDrawSegments(A,B B,C A,H O,K C,D O,M O,N A,D M,N)
+\end{tikzpicture}}    
+}
+\end{vd}
+
+
+\begin{vd}
+Cho hình thang cân $ABCD$ $(AB\parallel CD)$ nội tiếp đường tròn $(O)$ đường kính $20$ cm và ngoại tiếp đường tròn $(I)$ đường kính $9$ cm.
+\begin{enumerate}
+\item Tính các độ dài $AD$ và $OI$.
+\item Tính chu vi và diện tích hình thang.
+\end{enumerate}
+\loigiai{\begin{enumerate}
+\item  $\widehat{A}_1+\widehat{D}_1=\dfrac{\widehat{A}+\widehat{D}}{2}=\dfrac{180^\circ}{2}=90^\circ$. Gọi $M$ là trung điểm của $AD$, đặt $AM=MD=MI=x$. 
+Gọi $E$ là tiếp điểm của $(I)$ trên $AD$. Ta có $IE\parallel OM$ (cùng vuông góc với $AD$).
+\immini{
+$\Rightarrow \widehat{I}_1=\widehat{OMI}$\\
+$\Rightarrow \triangle MIE \backsim \triangle OMI$ (g-g)\\
+$\Rightarrow \dfrac{IE}{MI}=\dfrac{MI}{OM}\\
+\Rightarrow MI^2=IE\cdot OM\Rightarrow x^2=4\cdot 5\cdot \sqrt{10^2-x^2}$.
+Đặt $x^2=a$ thì \\
+$a=4\cdot 5\sqrt{100-a} \Leftrightarrow 4a^2+81a-8100=0.$
+Nghiệm dương của phương trình là $a=36$ nên $x=6$ (cm), suy ra $AD=12$ cm.\\
+$OM^2=OD^2-MD^2=10^2-6^2=64$.\\
+$OI^2=OM^2-MI^2=64-6^2=28$.\\
+Suy ra $ OI=2\sqrt{7}$ (cm).}{\begin{tikzpicture}[scale=0.7,>=stealth]
+\tkzInit[xmin=-5,xmax=5 ,ymin=-3.8 ,ymax=3] 
+\tkzClip[space=.5]
+\tkzDefPoints{0/0/I, 0/-2/F}
+\tkzDrawCircle(I,F)
+\tkzDefPointBy[rotation=center I angle 110](F)\tkzGetPoint{J}
+\tkzDefPointBy[rotation=center I angle -110](F)\tkzGetPoint{L}
+\tkzDefPointBy[rotation=center I angle 180](F)\tkzGetPoint{K}
+\tkzTangent[at=J](I)\tkzGetPoint{c}
+\tkzTangent[at=K](I)\tkzGetPoint{d}
+\tkzTangent[at=L](I)\tkzGetPoint{e}
+\tkzTangent[at=F](I)\tkzGetPoint{f}
+\tkzInterLL(J,c)(F,f)\tkzGetPoint{C}
+\tkzInterLL(J,c)(K,d)\tkzGetPoint{B}
+\tkzInterLL(F,f)(L,e)\tkzGetPoint{D}
+\tkzInterLL(L,e)(K,d)\tkzGetPoint{A}
+\tkzCircumCenter(B,C,D)\tkzGetPoint{O}
+\tkzDrawCircle(O,D)
+\tkzDrawAltitude(A,D)(O)\tkzGetPoint{M}
+\tkzDrawAltitude(A,D)(I)\tkzGetPoint{E}
+\tkzMarkRightAngles(I,E,M O,M,D)
+\tkzLabelAngles[pos=1.2](E,I,M){\footnotesize $1$}
+\tkzLabelAngles[pos=1.2](I,D,M D,A,I){\footnotesize $1$}
+\tkzMarkAngles(I,D,M E,I,M D,A,I)
+\tkzDrawPoints(I,A,B,C,D,O,E,M)
+\tkzLabelPoints[above left](A)\tkzLabelPoints[below right](I,O,C)\tkzLabelPoints[above right](B)\tkzLabelPoints[below left](D)\tkzLabelPoints[left](M,E)
+\tkzDrawSegments(A,B B,C C,D D,A I,E O,M I,D I,A I,O I,M)\tkzDrawSegments[dashed](O,D)
+\end{tikzpicture}}
+\item Hình thang cân $ABCD$ ngoại tiếp $(I)$ nên $AB+CD=2AD$. Chu vi hình thang $ABCD$ bằng $4AD=4\cdot 12=48$ (cm), $S_{ABCD}=p\cdot r=24\cdot 4{,}5=108$ (cm$^2$).
+\end{enumerate}
+}
+\end{vd}
+
+
+\begin{vd}
+Cho tứ giác $ABCD$ nội tiếp đường tròn $(O)$ có đường kính $BD=24$ cm. Đường tròn nội tiếp tứ giác $ABCD$ có tâm $I$ nằm trên đoạn $OB$ và có bán kinh $7$ cm.
+\begin{enumerate}
+\item Tính $AB+AD$.
+\item Tính $AB$ và $AD$.
+\item Tính $OI$.
+\end{enumerate}
+\loigiai{\begin{enumerate}
+\item Đặt $AD=a$, $AB=b$ ($a>b$) và $a+b=x$. Tam giác $ABD$ vuông tại $A$ nên 
+\immini{$a^2+b^2=BD^2=24^2=576.$
+Ta có \\
+$x^2=(a+b)^2=a^2+b^2+2ab=576+2ab$.\hfill$(1)$\\
+Kẻ $IE\perp AD$, $IF\perp AB$.\\ Do $FI\parallel AD$ nên $\dfrac{BF}{BA}=\dfrac{FI}{AD}\Rightarrow \dfrac{b-7}{b}=\dfrac{7}{a}$.\\
+Do đó $ ab-7a=7b\Rightarrow ab=7(a+b)=7x$.\hfill$(2)$\\
+Từ $(1)$ và $(2)$ suy ra \\
+$x^2=576+14x\Leftrightarrow x^2-14x-576=0$. \\
+Nghiệm dương của phương trình là $x=32$.  \\
+Vậy $AB+AD=32$ cm.}
+{
+\begin{tikzpicture}[scale=0.7,>=stealth] 
+\clip (-5,-5) rectangle (5,4);
+\tkzDefPoints{-4/0/B,4/0/D}
+\tkzDefMidPoint(B,D)\tkzGetPoint{O}
+\coordinate (I) at ($(B)!2/3!(O)$);
+\tkzDrawCircle(O,B)
+\tkzCalcLength[cm](O,B) \tkzGetLength{rOB}
+\tkzDefPointBy[rotation=center O angle -45](B)\tkzGetPoint{A}
+\tkzDefPointBy[rotation=center O angle 40](B)\tkzGetPoint{C}
+\tkzDefPointBy[projection=onto A--D](O)\tkzGetPoint{M}
+\tkzDefPointBy[projection=onto A--B](O)\tkzGetPoint{N}
+\tkzDefPointBy[projection=onto A--D](I)\tkzGetPoint{E}
+\tkzDefPointBy[projection=onto A--B](I)\tkzGetPoint{F}
+\tkzInterLL(O,N)(I,E)\tkzGetPoint{K}
+\tkzDrawPoints(A,C,B,D,O,M,N,I,E,F,K,C)
+\tkzMarkRightAngles(O,N,A I,F,A I,E,A O,M,A O,K,I B,A,D)
+\tkzDrawSegments(B,D A,B A,D C,B C,D O,M O,N I,E I,F)
+\tkzLabelPoints[above](A,M,E,K)\tkzLabelPoints[left](B)\tkzLabelPoints[right](D,N)\tkzLabelPoints[below](C,O,I,F)
+\end{tikzpicture}
+}
+\item $a+b=32$ và $ab=7\cdot 32=224$ nên $a$ và $b$ là nghiệm của phương trình $X^2-32X+224=0$. Suy ra $X_1=16+4\sqrt{2}$; $X_2=16-4\sqrt{2}$.\\
+Vậy $AD=16+4\sqrt{2}$; $AB=16-4\sqrt{2}$.
+\item Kẻ $OM\perp AD$, kẻ $ON\perp AB$ cắt $IE$ ở $K$.\\
+$\Delta OIK$ vuông tại $K$ nên
+{\allowdisplaybreaks
+	\begin{align*}
+	OI^2&=IK^2+OK^2=FN^2+ME^2\\
+	&=\left(7-\dfrac{b}{2}\right)^2+\left(\dfrac{a}{2}-7\right)^2=98+\dfrac{a^2+b^2}{4}-7(a+b)\\
+	&=98+\dfrac{576}{4}-7\cdot 32=18.
+\end{align*}}Suy ra $ OI=3\sqrt{2}$ cm.
+\end{enumerate}
+}
+\end{vd}
+
+
+\begin{vd}
+Cho tam giác $ABC$ có $AB<BC$. Dựng điểm $D$ sao cho $ABCD$ vừa là tứ giác nội tiếp vừa là tứ giác ngoại tiếp.
+\loigiai{\immini{\textit{Phân tích:} Giả sử đã dựng được điểm $D$ thỏa mãn bài toán.\\
+Để $ABCD$ là tứ giác nội tiếp thì $D$ nằm trên cung $AC$ của đường tròn $(C)$ ngoại tiếp $\Delta ABC$. Đặt $\widehat{ABC}=\alpha$. Lấy $E$ trên $BC$ sao cho $BE=BA$ thì \\
+$CE=BC-BE=BC-AB=m$.\\
+Lấy $F$ trên $CD$ sao cho $DF=DA$. \\
+$\Delta ADF$ cân tại $D$ nên\\ $\widehat{AFC}=90^\circ+\dfrac{\widehat{D}}{2}=90^\circ+\dfrac{180^\circ-\alpha
+}{2}=180^\circ-\dfrac{\alpha}{2}$.\hfill$(1)$\\
+Tứ giác $ABCD$ ngoại tiếp $\Rightarrow AB+CD=BC+AD$.\\
+Do đó $ CD-AD=BC-AB\Rightarrow CF=m$.\hfill$(2)$
+}{\begin{tikzpicture}
+\clip (-1,-2) rectangle (6,4);
+\tkzDefPoints{0/0/A, 5/0/C, 1/3/B}
+\tkzDrawCircle[circum](A,B,C)
+\tkzCircumCenter(A,B,C)\tkzGetPoint{O}
+\tkzFindAngle(A,B,C)\tkzGetAngle{a}\tkzMarkAngle(A,B,C)\tkzLabelAngle[pos=0.3](A,B,C){$\alpha$}
+\tkzDefPointBy[rotation= center B angle \a](A)
+\tkzGetPoint{E}
+\tkzDefPointBy[rotation= center C angle 60](E)
+\tkzGetPoint{F}
+\tkzInterLC(C,F)(O,A)\tkzGetSecondPoint{D}
+\tkzMarkSegments[mark=|](A,D D,F)
+\tkzMarkSegments[mark=||](A,B B,E)
+\tkzLabelSegments(C,E){$m$}
+\tkzDrawArc[delta=10](C,E)(F)
+\tkzCircumCenter(A,F,C)\tkzGetPoint{O'}
+\tkzDrawArc[delta=10](O',A)(C)
+\tkzDrawPoints(A,B,C,O,E,F,D)
+\tkzDrawSegments(A,B B,C A,C C,D A,D A,F)
+\tkzLabelPoints[above](E,B,O)\tkzLabelPoints[below](F,D)\tkzLabelPoints[right](C)\tkzLabelPoints[left](A)
+\end{tikzpicture}}
+\noindent{Từ} $(1)$ và $(2)$ suy ra $F$ là giao điểm của cung chứa góc $180^\circ-\dfrac{\alpha}{2}$ dựng trên $AC$ (cung nằm khác phía với $B$ đối với $AC$) và đường tròn $(C;m)$, $D$ là giao điểm của $CF$ và $(O)$.
+}
+\end{vd}
+
+\subsection{CHU VI VÀ DIỆN TÍCH HÌNH TRÒN}
+
+\begin{enumerate}[1.]
+\item Chu vi hình tròn (độ dài đường tròn) có bán kính $R$ là $C=2\pi R$.
+\item Độ dài cung $n^\circ$ của đường tròn bán kính $R$ là $l=\dfrac{\pi R n}{180}$.
+\item Diện tích hình tròn bán kính $R$ là $S=\pi R^2$.
+\item Diện tích hình quạt tròn bán kính $R$, cung $n^\circ$, độ dài cung $l$ là $S=\dfrac{\pi R^2 n}{360}=\dfrac{lR}{2}$.
+\end{enumerate}
+
+\begin{vd}
+Trong thực tế, nhiều khi ta phải tìm độ dài một cung $AB$ nhưng khó xác định được bán kính đường tròn. Khi đó ta có thể dùng cách sau: Gọi $M$ là điểm chính giữa của cung $AB$. Độ dài $l$ của cung $AB$ được tính gần đúng theo công thức Huy-ghen: $$l\approx \dfrac{8b-a}{3}\text{ với } AB=a, AM=b.$$
+(\textit{Huygens}, nhà toán học và vật lý học Hà Lan, 1629-1295).\\
+Tính tỉ số phần trăm của độ dài cung $AB$ tính theo công thức Huy-ghen so với tính theo công thức đúng, nếu số đo của cung $AB$ bằng $90^\circ$.
+\begin{center}
+\begin{tikzpicture}[>=stealth]
+\tkzDefPoints{3/-2/B, 1/-4/O}
+\tkzDefPointBy[rotation=center O angle 90](B)\tkzGetPoint{A}
+\tkzDrawArc(O,B)(A)
+\tkzDefMidPoint(A,B)\tkzGetPoint{c}
+\tkzDefPointBy[rotation=center O angle 45](B)\tkzGetPoint{M}
+\tkzDrawPoints(O,A,B,M)
+\tkzLabelPoints[above](A,O,B,M)
+\tkzDrawSegments(A,B c,M A,M)
+\tkzDrawSegments[dashed](O,A O,B)
+\tkzLabelSegments[below](A,B){$a$}\tkzLabelSegments[below](A,M){$b$}
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\immini{Gọi $I$ là trung điểm của $AM$. Đặt $OA=OB=R$, ta có $AB=R\sqrt{2}$. 
+$$AM=2AI=2R\sin 22^\circ30'\approx 0{,}76537R.$$
+Độ dài cung $AB$ tính theo công thức Huy-ghen bằng $$\dfrac{8b-a}{3}=\dfrac{(8\cdot 0{,}76537-\sqrt{2})R}{3}\approx 1{,}5696R.$$
+Độ dài cung $AB$ tính theo công thức đúng bằng $$\dfrac{2\pi R}{4}=\dfrac{\pi R}{2}=1{,}5708R.$$
+Độ dài cung $AB$ tính theo công thức Huy-ghen so với tính theo công thức đúng bằng $$1{,}5696\div 1{,}5708\approx 99{,}92\%$$.}{\begin{tikzpicture}[>=stealth]
+\tkzDefPoints{3/-2/B, 1/-4/O}
+\tkzDefPointBy[rotation=center O angle 90](B)\tkzGetPoint{A}
+\tkzDrawArc(O,B)(A)
+\tkzDrawCircle(O,A)
+\tkzDefMidPoint(A,B)\tkzGetPoint{c}
+\tkzDefPointBy[rotation=center O angle 45](B)\tkzGetPoint{M}
+\tkzDefMidPoint(A,M)\tkzGetPoint{I}
+\tkzMarkRightAngles(O,I,M O,c,A)
+\tkzDrawPoints(O,A,B,M)
+\tkzLabelPoints[above](A,B,M,I)\tkzLabelPoints[below](O)
+\tkzDrawSegments(A,B O,M A,M O,I)
+\tkzDrawSegments(O,A O,B)
+\tkzLabelSegments[below](O,A){$R$}\tkzLabelSegments[below](O,B){$R$}
+\end{tikzpicture}}
+}
+\end{vd}
+
+
+\begin{vd}
+Theo hình bên dưới, ta có tam giác đều $ABC$ với tâm $O$, các điểm $D$ và $E$ theo thứ tự là trung điểm của $AB$ và $AC$, biết $OD=R$. Gọi $S_1$ là diện tích phần giới hạn bởi hai đoạn $AD$, $AE$ và cung nhỏ $DE$ của đường tròn $(O;R)$. Gọi $S_2$ là diện tích viên phân giới hạn bởi dây $BC$ và cung nhỏ $BC$ của đường tròn $(O;OB)$. Tính tổng $S_1+S_2$.\begin{center}
+\begin{tikzpicture}[>=stealth]
+\tkzDefPoints{0/0/B, 4/0/C}
+\tkzDefTriangle[equilateral](B,C)\tkzGetPoint{A}
+\tkzDefMidPoint(A,B)\tkzGetPoint{D}
+\tkzDefMidPoint(A,C)\tkzGetPoint{E}
+\tkzCentroid(A,B,C)\tkzGetPoint{O}
+\tkzDrawArc(O,E)(D)
+\tkzDrawArc(A,B)(C)
+\tkzDrawPoints(A,B,C,O,D,E)
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegments[dashed](O,D O,E)
+\tkzDrawSegments(D,E)
+\tkzLabelSegment[below](B,C){$2$}\tkzLabelSegment[below left](O,D){$R$}
+\tkzLabelSegment[below left,pos=0.2](A,E){$1$}
+\tkzMarkSegments[mark=|](A,D D,B A,E E,C)
+\tkzLabelPoints[above left](A,D,B)\tkzLabelPoints[above right](E,C)\tkzLabelPoints[below](O)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\immini{Vẽ đủ các cung còn lại cua các đường tròn nội tiếp và ngoại tiếp $\Delta ABC$. Khi dó $S_1+S_2$ bằng $\dfrac{1}{3}$ diện tích hình vành khăn. Diện tích hình vành khăn bằng:
+$$\pi OB^2-\pi OD^2=4\pi R^2-\pi R^2=3\pi R^2.$$
+$$S_1+S_2=\dfrac{1}{3}\cdot 3\pi R^2=\pi R^2.$$}{\begin{tikzpicture}[>=stealth]
+\tkzDefPoints{0/0/B, 4/0/C}
+\tkzDefTriangle[equilateral](B,C)\tkzGetPoint{A}
+\tkzDefMidPoint(A,B)\tkzGetPoint{D}
+\tkzDefMidPoint(A,C)\tkzGetPoint{E}
+\tkzCentroid(A,B,C)\tkzGetPoint{O}
+\tkzDrawCircle(O,A)
+\tkzDrawCircle(O,D)
+\tkzDrawPoints(A,B,C,O,D,E)
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegments[dashed](O,D B,E)
+\tkzLabelSegment[below](B,C){$S_2$}\tkzLabelSegment[below left](O,D){$R$}
+\tkzLabelSegment[below left,pos=0.3](A,E){$S_1$}
+\tkzLabelPoints[above left](A,D,B)\tkzLabelPoints[above right](E,C)\tkzLabelPoints[below](O)
+\end{tikzpicture}}
+}
+\end{vd}
+
+
+\begin{vd}
+Tứ giác $ABCD$ nội tiếp đường tròn có diện tích $S_1$ và ngoại tiếp một đường tròn có diện tích $S_2$. Tìm giá trị nhỏ nhất của $\dfrac{S_1}{S_2}$.
+\loigiai{
+\immini{Gọi $R$ và $r$ theo thứ tự là các bán kính của đường tròn ngoại tiếp và nội tiếp tứ giác $ABCD$. Ta có \\
+$\dfrac{S_1}{S_2}=\dfrac{\pi R^2}{\pi r^2}=\dfrac{R^2}{r^2}.$\hfill$(1)$\\
+Gọi $S$ là diện tích tứ giác $ABCD$. Ta có \\
+$S\le \dfrac{1}{2}AC\cdot BD\le \dfrac{1}{2}\cdot 2R\cdot 2R=2R^2$.\\
+Suy ra $ 2R^2\ge S$.\hfill$(2)$\\
+Gọi $a$, $b$, $c$, $d$ là bốn cạnh liên tiếp của tứ giác $ABCD$. Do tứ giác ngoại tiếp nên $a+c=b+d$.
+Ta có $S=\dfrac{a+b+c+d}{2}\cdot r=(a+c)\cdot r.$\hfill$(3)$\\
+Ta lại có $ab+cd\ge 2S$, $bc+ad\ge 2S$ nên \\
+$ab+cd+bc+ad\ge 4S$.\\
+Suy ra $ (a+c)(b+d)\ge 4S\Rightarrow (a+c)^2\ge 4S$.\hfill$(4)$
+}{
+\begin{tikzpicture}[scale=0.5,>=stealth]
+	\clip (-8,-8) rectangle (8,8);
+	\tkzDefPoints{-2/6/A, 6/-4/C, -6/-4/D, 4.93/4.22/B}
+	\tkzCircumCenter(A,D,C)\tkzGetPoint{O}
+	\tkzDrawCircle(O,A)
+	\tkzDrawBisector[color=white](B,A,D)\tkzGetPoint{a}
+	\tkzDrawBisector[color=white](A,D,C)\tkzGetPoint{d}
+	\tkzInterLL(A,a)(D,d)\tkzGetPoint{O'}
+	\tkzDrawAltitude[dashed](B,C)(O')\tkzGetPoint{M}
+	\tkzCalcLength[cm](O',M) \tkzGetLength{r}
+	\tkzDrawCircle[R](O',\r cm)
+	\tkzDrawPoints(A,D,C,O,B,O')
+	\tkzDrawSegments(A,B C,D A,D C,B A,C B,D)
+	\tkzDrawSegments[dashed](O,D)
+	\tkzLabelPoints[above left](A,O')\tkzLabelPoints[above right](B)
+	\tkzLabelPoints[below left](D)\tkzLabelPoints[below right](C,O)
+	\tkzLabelSegment[above](A,B){$a$}\tkzLabelSegment[below](C,D){$c$}
+	\tkzLabelSegment[right](B,C){$b$}\tkzLabelSegment[left](D,A){$d$}
+	\tkzLabelSegment[pos=0.5,below](D,O){$R$}\tkzLabelSegment[above](O',M){$r$}
+	\end{tikzpicture}
+}
+\noindent{Từ} $(3)$ và $(4)$ suy ra $S^2=(a+c)^2r^2\ge 4Sr^2\Rightarrow S\ge 4r^2$.\hfill$(5)$\\
+Từ $(2)$ và $(5)$ suy ra $2R^2\ge 4r^2 \Rightarrow \dfrac{R^2}{r^2}\ge 2$.\hfill$(6)$\\
+Từ $(1)$ và $(6)$ suy ra $\dfrac{S_1}{S_2}\ge 2$; $\min \dfrac{S_1}{S_2}=2\Leftrightarrow ABCD$ là hình vuông.
+}
+\end{vd}
+
+%-----------------
+
+\begin{center}
+\large \textbf{BÀI TẬP}
+\end{center}
+
+\noindent
+{\bf Tứ giác ngoại tiếp đường tròn}
+
+\begin{bt}
+Tính diện tích hình thang cân ngoại tiếp có các cạnh đáy bằng $a$ và $b$.
+\loigiai{
+\immini{
+Xét hình thang $ABCD$ ($AB\parallel CD$) ngoại tiếp đường tròn $(O)$, các tiếp điểm $H$, $E$, $F$ như hình vẽ.\\
+$\triangle BOC$ vuông tại $O$\\
+$\Rightarrow OH^2=HB\cdot HC=EB\cdot FC=\dfrac{ab}{4}$\\
+$\Rightarrow OH=\dfrac{\sqrt{ab}}{2}\Rightarrow EF=2OH=\sqrt{ab}$.\\
+$S_{\text{ABCD}}=\dfrac{AB+CD}{2}\cdot EF=\dfrac{a+b}{2}\cdot\sqrt{ab}$.
+}
+{
+\begin{tikzpicture}[scale=1]
+\coordinate (O) at (0,0);
+\coordinate (E) at (0,2);
+\coordinate (A) at (-1.5,2);
+\coordinate (B) at (1.5,2);
+\coordinate (C) at (2.67,-2);
+\coordinate (D) at (-2.67,-2);
+\coordinate (H) at (1.92,0.56);
+\coordinate (F) at (0,-2);
+\draw (O) circle (2cm);
+\draw (A) node[above left] {$A$}--(B) node[above right] {$B$}--(C) node[right] {$C$}--(D)node[left] {$D$}--cycle;
+\draw (E)node[above] {$E$}--(F)node[below] {$F$} (B)--(O)node[left] {$O$}--(C) (O)--(H)node[above right] {$H$};
+\tkzMarkRightAngle(O,E,B)
+\tkzMarkRightAngle(C,F,O)
+\tkzMarkRightAngle(B,H,O)
+\tkzMarkRightAngle(C,O,B)
+\filldraw (A) circle (1pt); \filldraw (B) circle (1pt);
+\filldraw (C) circle (1pt); \filldraw (D) circle (1pt);
+\filldraw (E) circle (1pt); \filldraw (F) circle (1pt);
+\filldraw (H) circle (1pt); \filldraw (O) circle (1pt);
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+
+\begin{bt}
+Cho hình thang vuông $ABCD$ ngoại tiếp đường tròn $(O;r)$, $\widehat{A}=\widehat{D}=90^\circ$, $AB<CD$, các tiếp điểm trên $AB,\ CD$ theo thứ tự là $E,\ F$. Gọi $I$ là giao điểm của $BD$ và $EF$. Tính diện tích tam giác $BIC$.
+\loigiai{
+\immini{
+Gọi $G,\ H$ là tiếp điểm trên $AD,\ BC$.\\
+Ta có $OH=OE=OG=AE=DF$.\\
+$\triangle BOC$ vuông tại $O$\\
+$\Rightarrow OH^2=HB\cdot HC=EB\cdot FC$\\
+$\Rightarrow AE\cdot DF=EB\cdot FC\Rightarrow \dfrac{AE}{FC}=\dfrac{EB}{DF}=\dfrac{IE}{IF}$\\
+$\Rightarrow \triangle AIE \backsim \triangle CIF$ (c.g.c) $\Rightarrow \widehat{AIE}=\widehat{CIF}$. \\
+Từ đó $A,\ I,\ C$ thẳng hàng.\\
+Do $A,\ I,\ C$ thẳng hàng nên \\
+$S_{BIC}=S_{AID}=\dfrac{1}{2}AD\cdot AE=\dfrac{1}{2}\cdot 2rr=r^2$.
+}
+{
+\begin{tikzpicture}[scale=1]
+\coordinate (O) at (0,0);
+\coordinate (E) at (0,2);
+\coordinate (A) at (-2,2);
+\coordinate (B) at (1,2);
+\coordinate (C) at (4,-2);
+\coordinate (D) at (-2,-2);
+\coordinate (H) at (1.6,1.2);
+\coordinate (F) at (0,-2);
+\coordinate (G) at (-2,0);
+\coordinate (I) at (0,0.67);
+\draw (O) circle (2cm);
+\draw (A) node[above left] {$A$}--(B) node[above right] {$B$}--(C) node[right] {$C$}--(D)node[left] {$D$}--cycle;
+\draw (E)node[above] {$E$}--(F)node[below] {$F$} (B)--(O)node[below left] {$O$}--(C) (O)--(H)node[above right] {$H$};
+\draw (B)--(D) (A)--(C) (O)--(G) node[left] {$G$};
+\filldraw (I) circle (1.2pt) node[left] {$I$};
+\tkzMarkRightAngle(O,E,B) \tkzMarkRightAngle(C,F,O) \tkzMarkRightAngle(B,H,O) \tkzMarkRightAngle(C,O,B)
+\tkzMarkRightAngle(G,A,E) \tkzMarkRightAngle(F,D,G) \tkzMarkRightAngle(O,G,A)
+\filldraw (A) circle (1pt); \filldraw (B) circle (1pt);
+\filldraw (C) circle (1pt); \filldraw (D) circle (1pt);
+\filldraw (E) circle (1pt); \filldraw (F) circle (1pt);
+\filldraw (H) circle (1pt); \filldraw (O) circle (1pt);
+\filldraw (G) circle (1pt);
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+
+\begin{bt}
+Cho đường tròn $(O)$, hai dây $AC$ và $BD$ cắt nhau tại $I$. Gọi $E,\ F,\ G,\ H$ theo thứ tự là hình chiếu của $I$ trên $AB,\ BC,\ CD,\ DA$.
+\begin{enumerate}
+\item[a)] Chứng minh rằng $EFGH$ là tứ giác ngoại tiếp.
+\item[b)] Các dây $AC$ và $BD$ có điều kiện gì thì $EFGH$ là tứ giác nội tiếp?
+\end{enumerate}
+\loigiai{
+\immini{
+\begin{enumerate}
+\item  $\widehat{IFE}=\widehat{IBE}=\widehat{ICD}=\widehat{IFG}$ nên $FI$ là tia phân giác của góc $\widehat{EFG}$.\\
+Tương tự $I$ cũng là giao điểm các tia phân giác của các góc $\widehat{E},\ \widehat{H},\ \widehat{G}$ của tứ giác $EFGH$.\\
+Vậy tứ giác $EFGH$ ngoại tiếp đường tròn $(I)$.
+\item $\widehat{EFG}=2\widehat{IFE}=2\widehat{IBE}$. Tương tự $\widehat{EHG}=2\widehat{IAE}$.\\
+Tứ giác $EFGH$ nội tiếp\\
+$\Leftrightarrow \widehat{EFG}+\widehat{EHG}=180^\circ\Leftrightarrow \widehat{IAE}+\widehat{IBE}=90^\circ$\\
+$\Leftrightarrow AC\perp BD$.
+\end{enumerate}
+}
+{
+\begin{tikzpicture}[scale=1.1]
+\coordinate (O) at (0,0);
+\coordinate (A) at (-2,1);
+\coordinate (B) at (1,2);
+\coordinate (C) at (2,-1);
+\coordinate (D) at (-2,-1);
+\coordinate (I) at (-0.67,0.33);
+\coordinate (E) at (-1,1.33);
+\coordinate (F) at (1.33,1);
+\coordinate (G) at (-0.67,-1);
+\coordinate (H) at (-2,0.33);
+\draw (O) circle (2.236 cm);
+\draw (A)--(B)--(C)--(D)--cycle (E)--(F)--(G)--(H)--cycle;
+\draw (A)--(C) (B)--(D) (I)--(E) (I)--(F) (I)--(G) (I)--(H);
+\filldraw (I) circle (1pt) node[below right] {$I$};
+\filldraw (A) circle (1pt) node[above left] {$A$};
+\filldraw (B) circle (1pt) node[above right] {$B$};
+\filldraw (C) circle (1pt) node[below right] {$C$};
+\filldraw (D) circle (1pt) node[below left] {$D$};
+\filldraw (E) circle (1pt) node[above] {$E$};
+\filldraw (F) circle (1pt) node[right] {$F$};
+\filldraw (G) circle (1pt) node[below] {$G$};
+\filldraw (H) circle (1pt) node[left] {$H$};
+\tkzMarkAngle[size=0.5cm](E,F,I) \tkzMarkAngle[size=0.5cm](E,B,I) 
+\tkzMarkAngle[size=0.5cm](I,C,D) \tkzMarkAngle[size=0.6cm](I,F,G)
+\tkzMarkRightAngle(I,E,B) \tkzMarkRightAngle(I,F,C) \tkzMarkRightAngle(C,G,I) \tkzMarkRightAngle(D,H,I) 
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+
+\begin{bt}
+Cho hình thang cân $ABCD$ ($AB\parallel CD$) nội tiếp đường tròn $(O)$ đường kính $AB=2$ và ngoại tiếp đường tròn $(I)$. Tính $BC$ và $CD$.
+\loigiai{
+\immini{
+Gọi $K$ là tiếp điểm của $(I)$ với $CD$. Kẻ $CH\perp AB$. Đặt $BC=x$.\\
+Hình thang cân $ABCD$ ngoại tiếp\\
+$\Leftrightarrow AB+CD=2BC$\\
+$\Rightarrow 2+CD=2x\Rightarrow CD=2x-2$\\
+$\Rightarrow OH=KC=x-1$\\
+$\Rightarrow BH=OB-OH=1-(x-1)=2-x$.\\
+$\triangle ABC$ vuông tại $C$ nên $BC^2=AB\cdot BH$\\
+$\Leftrightarrow x^2=2(2-x)\Leftrightarrow x^2+2x-4=0$.\\
+Do $x>0$ nên $x=\sqrt{5}-1$.\\
+$BC=\sqrt{5}-1$; $CD=2x-2=2\sqrt{5}-4$.
+}
+{
+\begin{tikzpicture}[scale=0.7]
+\coordinate (O) at (0,0);
+\coordinate (A) at (-3.9,0);
+\coordinate (B) at (3.9,0);
+\coordinate (C) at (0.94,3.79);
+\coordinate (D) at (-0.94,3.79);
+\coordinate (K) at (0,3.8);
+\coordinate (H) at (0.94,0);
+\coordinate (I) at (0,1.9);
+\draw (O) circle (3.9cm);
+\draw (I) circle (1.9cm);
+\draw (A)--(B)--(C)--(D)-- cycle (A)--(C) (K)--(O) (C)--(H);
+\filldraw (A) circle (1pt) node[left] {$A$};
+\filldraw (B) circle (1pt) node[right] {$B$};
+\filldraw (C) circle (1pt) node[above right] {$C$};
+\filldraw (D) circle (1pt) node[above left] {$D$};
+\filldraw (O) circle (1pt) node[below] {$O$};
+\filldraw (I) circle (1pt) node[left] {$I$};
+\filldraw (H) circle (1pt) node[below] {$H$};
+\filldraw (K) circle (1pt) node[above] {$K$};
+\tkzMarkRightAngle(B,O,K) \tkzMarkRightAngle(B,H,C)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+
+\begin{bt}
+Chứng minh rằng trong các tứ giác ngoại tiếp cùng một đường tròn, hình vuông có chu vi nhỏ nhất.
+\loigiai{
+\immini{Xét tứ giác $ABCD$ ngoại tiếp đường tròn $(O;r)$. Gọi $S$ là diện tích, $p$ là nửa chu vi của tứ giác, ta có $S=pr$.\hfill$(1)$\\
+Gọi $a,\ b,\ c,\ d$ lần lượt là độ dài các cạnh $AB$, $BC$, $CD$ và $DA$. Ta có\\
+$ab\geq \mathrm{d}(A,BC)\cdot BC=2S_{ABC}$.
+Tương tự \\
+$ad\geq 2S_{ABD},\ bc\geq 2S_{BCD},\ cd\geq 2S_{ACD}$.\\
+Từ $4$ bất đẳng thức trên suy ra\\
+$ab+ad+bc+cd\geq 4S\Leftrightarrow (a+c)(b+d)\geq 4S$.\\
+}
+{
+\begin{tikzpicture}[scale=1]
+\coordinate (O) at (0,0);
+\coordinate (A) at (-1.47,1.67);
+\coordinate (B) at (1.17,2.4);
+\coordinate (C) at (3,-2);
+\coordinate (D) at (-3,-2);
+\coordinate (E) at (-0.53,1.93);
+\coordinate (F) at (1.85,0.77);
+\coordinate (G) at (0,-2);
+\coordinate (H) at (-1.85,0.77);
+\draw (O) circle (2 cm);
+\draw (A)--(B)--(C)--(D)--cycle (O)--(E) (O)--(F) (O)--(G) (O)--(H);
+\filldraw (O) circle (1pt) node[below left] {$O$};
+\filldraw (A) circle (1pt) node[above left] {$A$};
+\filldraw (B) circle (1pt) node[above right] {$B$};
+\filldraw (C) circle (1pt) node[below right] {$C$};
+\filldraw (D) circle (1pt) node[below left] {$D$};
+\filldraw (E) circle (1pt) node[above] {$E$};
+\filldraw (F) circle (1pt) node[right] {$F$};
+\filldraw (G) circle (1pt) node[below] {$G$};
+\filldraw (H) circle (1pt) node[left] {$H$};
+\tkzMarkRightAngle(O,E,B) \tkzMarkRightAngle(O,F,C) \tkzMarkRightAngle(C,G,O) \tkzMarkRightAngle(D,H,O) 
+\end{tikzpicture}
+}
+Xảy ra đẳng thức khi và chỉ khi $ABCD$ là hình chữ nhật.\hfill$(2)$\\
+Do $ABCD$ là tứ giác ngoại tiếp nên $a+c=b+d=p$, do đó từ $(2)$ 
+suy ra $p^2\geq 4S$.\hfill$(3)$
+Từ $(1)$ và $(3)$ suy ra $p^2\geq 4pr$ nên $p\geq 4r$.
+Tứ giác $ABCD$ có chu vi nhỏ nhất bằng $8r$ khi và chỉ khi $ABCD$ là hình chữ nhật ngoại tiếp đường tròn $(O;r)$ tức là $ABCD$ là hình vuông.
+}
+\end{bt}
+
+\noindent
+{\bf Chu vi và diện tích hình tròn}
+
+
+\begin{bt}
+Cho đường tròn $(O;R)$ và dây $AB$ không đi qua $O$. Điểm $C$ di chuyển trên dây $AB$. Gọi $(O_1)$ là đường tròn đi qua $C$ và tiếp xúc với đường tròn $(O)$ tại $A$. Gọi $(O_2)$ là đường tròn đi qua $C$ và tiếp xúc với đường tròn $(O)$ tại $B$.
+\begin{enumerate}
+\item[a)] Chứng minh rằng tổng các chu vi của hai đường tròn $(O_1)$ và $(O_2)$ không đổi.
+\item[b)] Tìm vị trí của điểm $C$ để tổng diện tích của hai hình tròn $(O_1)$ và $(O_2)$ có giá trị nhỏ nhất.
+\item[c)] Tìm quỹ tích giao điểm thứ hai $I$ của hai đường tròn $(O_1)$ và $(O_2)$.
+\item[d)] Chứng minh rằng khi điểm $C$ di chuyển trên dây $AB$ thì đường thẳng $IC$ luôn đi qua một điểm cố định.
+\end{enumerate}
+\loigiai{
+\immini{
+\begin{enumerate}
+\item Ba điểm $O,\ O_1,\ A$ thẳng hàng; ba điểm $O,\ O_2,\ B$ thẳng hàng; $OO_1CO_2$ là hình bình hành.\\
+Gọi $R_1$, $R_2$ là bán kính của các đường tròn $(O_1)$, $(O_2)$. Ta có $R_1+R_2=O_1A+O_2C=O_1A+OO_1=R$.\\
+Tổng các chu vi của hai hình tròn trên bằng\\
+$2\pi R_1+2\pi R_2=2\pi (R_1+R_2)=2\pi R$.
+\item Gọi $S_1$ và $S_2$ lần lượt là diện tích của các hình tròn $(O_1)$ và $(O_2)$. Ta có
+\begin{align*}
+S_1+S_2&= \pi\left(R_1^2+R_2^2\right) \geq \dfrac{\pi\left(R_1+R_2\right)^2}{2}\\
+&=\dfrac{\pi R^2}{2}.
+\end{align*}
+$\min(S_1+S_2)=\dfrac{\pi R^2}{2}\Leftrightarrow R_1=R_2\Leftrightarrow C$ là trung điểm của $AB$.
+\end{enumerate}
+}
+{
+\begin{tikzpicture}[scale=0.7]
+\coordinate (O) at (0,0);
+\coordinate (A) at (-4,-3);
+\coordinate (B) at (4,-3);
+\coordinate (C) at (1,-3);
+\coordinate (O1) at (-1.5,-1.12);
+\coordinate (O2) at (2.5,-1.88);
+\coordinate (I) at (1.51,-0.28);
+\coordinate (K) at (0,-8.33);
+\draw (O) circle (5cm); 
+\draw[dashed] (O1) circle (3.13cm);
+\draw[dashed] (O2) circle (1.87cm);
+\draw (I)--(K) (A)--(B)--(O)--(A)--(I)--(B) (O1)--(C)--(O2);
+\tkzCircumCenter(A,B,I) \tkzGetPoint{O'}
+\tkzDrawCircle[dashed](O',A)
+\filldraw (O) circle (1pt) node[above] {$O$};
+\filldraw (I) circle (1pt) node[above] {$I$};
+\filldraw (A) circle (1pt) node[left] {$A$};
+\filldraw (B) circle (1pt) node[right] {$B$};
+\filldraw (C) circle (1pt) node[below right] {$C$};
+\filldraw (K) circle (1pt) node[below] {$K$};
+\filldraw (O1) circle (1pt) node[left] {$O_1$};
+\filldraw (O2) circle (1pt) node[below] {$O_2$};
+\node[right] at (2.5,-7.6) {$m$};
+\tkzMarkAngle[size=0.8cm](O,B,C) \tkzMarkAngle[size=0.8cm](O1,C,A)
+\tkzMarkAngle[size=0.8cm](B,C,O2) \tkzMarkAngle[size=0.8cm](B,A,O)
+\end{tikzpicture}
+}
+\begin{enumerate}
+\item[c)] Ta có $\widehat{CIA}=\dfrac{1}{2}\widehat{CO_1A},\ \widehat{CIB}=\dfrac{1}{2}\widehat{CO_2B}$, từ đó $\widehat{AIB}=\widehat{AOB}$, dẫn đến quỹ tích của $I$ là cung $\wideparen{AOB}$ của đường tròn ngoại tiếp $\triangle AOB$.
+\item[d)] Từ $\widehat{CIA}=\widehat{CIB}$ dẫn đến đường thẳng $IC$ đi qua điểm $K$ chính giữa cung $\wideparen{AmB}$ của đường tròn ngoại tiếp $\triangle AOB$.
+
+\end{enumerate}
+}
+\end{bt}
+
+
+\begin{bt}
+Trên hình $1)$ dưới đây, hình vành khăn bên ngoài có diện tích $S_1$ và hình vành khăn bên trong có diện tích $S_2$.
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\coordinate (O) at (0,0);
+\coordinate (O') at (10,0);
+\draw (0,0) circle (1.5cm);
+\draw (0,0) circle (2.5cm);
+\draw (0,0) circle (3.5cm);
+\filldraw (O) circle (1.5pt) node[below right] {$O$};
+\node at (0.2,-4.5) {Hình 1)};
+\node[right] at (-2,1) {$S_2$};
+\node[right] at (-3,1.5)  {$S_1$};
+\draw (10,0) circle (1.5cm);
+\draw (10,0) circle (2.5cm);
+\draw (10,0) circle (3.5cm);
+\filldraw (O') circle (1.5pt) node[below right] {$O$};
+\node at (10.2,-4.5) {Hình 2)};
+\coordinate (P) at (10,1.5);
+\coordinate (Q) at (10,2.5);
+\coordinate (C) at (8,1.5);
+\coordinate (D) at (12,1.5);
+\coordinate (A) at (7.55,2.5);
+\coordinate (B) at (12.45,2.5);
+\filldraw (C) circle (1.2pt) node[above left] {$C$}; \filldraw (D) circle (1.2pt) node[above right] {$D$}; 
+\filldraw (A) circle (1.2pt) node[above left] {$A$}; \filldraw (B) circle (1.2pt) node[above right] {$B$}; 
+\draw (C)--(D) (A)--(B);
+\draw[dashed] (O')--(Q);
+\end{tikzpicture}
+\end{center}
+Dùng một chiếc que, đo đoạn tiếp tuyến $AB$ và đoạn tiếp tuyến $CD$ (hình $2)$), ta thấy $AB>CD$. Hãy chứng minh $S_1>S_2$.
+\loigiai{
+\immini{
+Kẻ $OH\perp AB$, $OI\perp CD$ (không nhất thiết $AB\parallel CD$).\\
+Ta có $S_1=\pi\cdot OA^2-\pi\cdot OH^2$\\
+$=\pi\left(OA^2-OH^2\right)=\pi\cdot AH^2=\pi\left(\dfrac{AB}{2}\right)^2$.\\
+Tương tự $S_2=\pi\left(\dfrac{CD}{2}\right)^2$.\\
+Do $AB>CD$ nên $S_1>S_2$.
+}
+{
+\begin{tikzpicture}[scale=0.6]
+\coordinate (O') at (10,0);
+\draw (10,0) circle (1.5cm);
+\draw (10,0) circle (2.5cm);
+\draw (10,0) circle (3.5cm);
+\filldraw (O') circle (1.5pt) node[below] {$O$};
+\coordinate (I) at (10,1.5);
+\coordinate (H) at (10,2.5);
+\coordinate (C) at (8,1.5);
+\coordinate (D) at (12,1.5);
+\coordinate (A) at (7.55,2.5);
+\coordinate (B) at (12.45,2.5);
+\filldraw (C) circle (1.2pt) node[left] {$C$}; \filldraw (D) circle (1.2pt) node[right] {$D$}; 
+\filldraw (A) circle (1.2pt) node[above left] {$A$}; \filldraw (B) circle (1.2pt) node[above right] {$B$}; 
+\draw (C)--(D) (A)--(B);
+\draw[dashed] (O')--(H);
+\node[right] at (11.2,-1) {$S_2$};
+\node[right] at (12.1,-1.5)  {$S_1$};
+\filldraw (I) circle (1.2pt) node[above left] {$I$}; \filldraw (H) circle (1.2pt) node[above] {$H$};
+\tkzMarkRightAngle(O',I,D) \tkzMarkRightAngle(O',H,B)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+
+\begin{bt}
+Một hình quạt có chu vi (tức là tổng của độ dài cung và hai bán kính) bằng $12$ dm. Tính diện tích lớn nhất của hình quạt.
+\loigiai{
+\immini{
+Gọi $R$ là bán kính, $l$ là độ dài cung của hình quạt,\\ theo đề bài $2R+l=12$.\\
+Gọi $S$ là diện tích hình quạt, ta có $S=\dfrac{Rl}{2}$\\
+$\Rightarrow 4S=2Rl$\\
+$\Rightarrow 2\sqrt{S}=\sqrt{2Rl}\leq \dfrac{2R+l}{2}=\dfrac{12}{2}=6$\\
+$\Rightarrow \sqrt{S}\leq 3\Rightarrow S\leq 9$.\\
+$\max S=9$ dm$^2 \Leftrightarrow \heva{& R=3\ \text{dm}\\ & l=6\ \text{dm}}$ (khi đó $\widehat{AOB}\simeq 115^\circ$).
+}
+{
+\begin{tikzpicture}[scale=1]
+\coordinate (O) at (0,0);
+\coordinate (A) at (3,0);
+\coordinate (B) at (-1.52,2.59);
+\draw (A) arc (0:120:3cm);
+\draw (O)--(A) (O)--(B);
+\filldraw (A) circle (1.2pt) node[below right] {$A$};
+\filldraw (B) circle (1.2pt) node[left] {$B$};
+\filldraw (O) circle (1.2pt) node[below left] {$O$};
+\node[above] at (1.5,0) {$R$}; \node[above] at (1.9,2.32) {$l$};
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+
+
+
+
+
+

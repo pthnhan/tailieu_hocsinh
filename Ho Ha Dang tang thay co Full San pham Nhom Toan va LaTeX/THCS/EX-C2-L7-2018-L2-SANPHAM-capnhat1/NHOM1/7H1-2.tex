@@ -1,0 +1,848 @@
+%GV soạn: Dương BùiĐức
+%GV phản biện: Cường Nguyễn
+\Opensolutionfile{ans}[ans/ans7H1-2]
+\section{Hai đường thẳng song song}
+\subsection{Tóm tắt lí thuyết}
+\begin{dn}
+	Hai đường thẳng $ a $ và $ b $ gọi là song song với nhau nếu chúng không có điểm chung.\\
+	Kí hiệu $ a\parallel b $.
+\end{dn}
+\begin{tc}
+	Hai đường thẳng song song thì
+	\immini{
+\begin{enumerate}
+	\item các góc đồng vị bằng nhau;
+	\item các góc so le trong bằng nhau;
+	\item các góc so le ngoài bằng nhau;
+	\item các góc trong cùng phía bù nhau.
+\end{enumerate}	
+}{
+\begin{tikzpicture}[line join=round, line cap=round]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{2}
+\pgfmathsetmacro\goc{20}
+\pgfmathsetmacro\xmin{-1.5*\h}
+\pgfmathsetmacro\xmax{1.5*\h}
+\pgfmathsetmacro\ymin{-\h}
+\pgfmathsetmacro\ymax{0.8*\h}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](\goc:\h){a}
+\tkzDefShiftPoint[A](-2*\goc:\h){B}
+\tkzDefShiftPoint[B](\goc:\h){b}
+\tkzDrawLines[add = 0.5 and 0.1,end=$a$](A,a)
+\tkzDrawLines[add = 0.8 and -0.4,end=$b$](B,b)
+\tkzDrawLines[add = 0.5 and 1,start=$c$](A,B)
+\tkzLabelPoints[above](A,B)
+\tkzDrawPoints[fill=black](A,B)
+\draw($(A)+(-90:10pt)$)node{$4$};
+\draw($(A)+(-15:10pt)$)node{$1$};
+\draw($(A)+(50:10pt)$)node{$2$};
+\draw($(A)+(180:10pt)$)node{$3$};
+\draw($(B)+(-90:10pt)$)node{$4$};
+\draw($(B)+(-15:10pt)$)node{$1$};
+\draw($(B)+(50:10pt)$)node{$2$};
+\draw($(B)+(180:10pt)$)node{$3$};
+\end{tikzpicture}
+}
+\end{tc}\noindent
+\textbf{Dấu hiệu nhận biết:}
+\begin{enumerate}
+	\item Nếu có một cặp góc so le trong (hoặc đồng vị) bằng nhau hoặc trong cùng phía bù nhau thì hai đường thẳng tương ứng song song;
+	\item Hai đường thẳng phân biệt cùng song song với đường thẳng thứ ba thì song song với nhau.
+\end{enumerate}
+\begin{dn}
+	Hai góc có cạnh tương ứng song song là hai góc có đường thẳng chứa mỗi cạnh của góc này tương ứng song song với đường thẳng chứa một cạnh của góc kia.
+\end{dn}
+\subsection{Hỏi đáp nhanh}
+\begin{ex}%[7H1Y4]
+	Cho đường thẳng $ c $ cắt hai đường thẳng $ a,\ b $. Nếu có một cặp góc so le trong bằng nhau thì ta có kết luận được các cặp góc so le còn lại bằng nhau và các cặp góc đồng vị cũng bằng nhau hay không? Vì sao?
+	\loigiai{
+	Nếu có một cặp góc so le trong bằng nhau thì $ a\parallel b $, do đó các cặp góc so le còn lại bằng nhau và các cặp góc đồng vị cũng bằng nhau.
+}
+\end{ex}
+
+\begin{ex}%[7H1Y4]
+	Cho hai đường thẳng $ a$ và $ b $ song song với nhau, đường thẳng $ c $ cắt $ a,\ b $ tương ứng tại $ A,\ B $. Biết rằng hai góc trong cùng phía bằng nhau, hỏi có tính được các góc còn lại với đỉnh $ A $ và $ B $ hay không?
+	\loigiai{
+	\immini{
+		Vì hai góc trong cùng phía bằng nhau nên $ \widehat{A}_{1}=\widehat{B}_{1}$.\\
+		Lại có $ a\parallel b $ nên
+		\begin{eqnarray*}
+			\widehat{A}_{1}+\widehat{B}_{1}&=&180^{\circ}\\
+			2\widehat{A}_{1}&=&180^{\circ}\\
+			\widehat{A}_{1}&=&90^{\circ}.
+		\end{eqnarray*}
+	Vậy các góc còn lại của đỉnh $ A $ và $ B $ đều bằng $ 90^{\circ} $.
+	}{
+		\begin{tikzpicture}[line join=round, line cap=round]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\pgfmathsetmacro\h{2}
+		\pgfmathsetmacro\goc{0}
+		\pgfmathsetmacro\xmin{-1.5*\h}
+		\pgfmathsetmacro\xmax{1.5*\h}
+		\pgfmathsetmacro\ymin{-\h}
+		\pgfmathsetmacro\ymax{0.8*\h}
+		\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+		\tkzDefPoint(0,0){A}
+		\tkzDefShiftPoint[A](\goc:\h){a}
+		\tkzDefShiftPoint[A](-90:0.6*\h){B}
+		\tkzDefShiftPoint[B](\goc:\h){b}
+		\tkzDrawLines[add = 0.5 and 0.1,end=$a$](A,a)
+		\tkzDrawLines[add = 0.5 and 0.1,end=$b$](B,b)
+		\tkzDrawLines[add = 0.8 and 0.5,start=$c$](A,B)
+		\tkzLabelPoints[above left](A,B)
+		\tkzDrawPoints[fill=black](A,B)
+		\draw($(A)+(-45:10pt)$)node{$1$};
+		\draw($(B)+(45:10pt)$)node{$1$};
+		\end{tikzpicture}
+	}
+}
+\end{ex}
+\begin{ex}%[7H1B4]
+	\immini{
+Cho đường thẳng $ c $ cắt hai đường thẳng $ a$ và $ b $. Biết rằng hai góc trong cùng phía bằng nhau, hỏi $ a $ và $ b $ có song song với nhau hay không? Để $ a $ và $ b $ song song với nhau thì hai góc trong cùng phía phải cùng bằng bao nhiêu độ?	
+}{
+\begin{tikzpicture}[line join=round, line cap=round]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{2}
+\pgfmathsetmacro\goc{0}
+\pgfmathsetmacro\xmin{-2*\h}
+\pgfmathsetmacro\xmax{1.5*\h}
+\pgfmathsetmacro\ymin{-\h}
+\pgfmathsetmacro\ymax{0.5*\h}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](\goc:\h){a}
+\tkzDefShiftPoint[A](-120:0.6*\h){B}
+\tkzDefShiftPoint[B](\goc:\h){b}
+\tkzDrawLines[add = 0.8 and 0.1,end=$a$](A,a)
+\tkzDrawLines[add = 0.5 and 0.4,end=$b$](B,b)
+\tkzDrawLines[add = 0.8 and 0.5,start=$c$](A,B)
+\tkzLabelPoints[below right](A,B)
+\tkzDrawPoints[fill=black](A,B)			
+\draw($(A)+(135:10pt)$)node{$1$};
+\draw($(A)+(-140:10pt)$)node{$2$};
+\draw($(B)+(30:10pt)$)node{$1$};
+\draw($(B)+(135:10pt)$)node{$2$};
+\end{tikzpicture}
+}
+\loigiai{
+	Nếu hai góc trong cùng phía bằng nhau thì hai đường thẳng $ a $, $ b $ không song song với nhau nếu tổng của hai góc đó nhỏ hơn $ 180^{\circ}$.\\
+	Để $ a\parallel b $ thì
+	\begin{eqnarray*}
+		\widehat{A}_{2}+\widehat{B}_{2}&=&180^{\circ}\\
+		2\widehat{A}_{2}&=&180^{\circ}\\
+		\widehat{A}_{2}&=&90^{\circ}.
+	\end{eqnarray*}
+Vậy để $ a\parallel b $ thì $ \widehat{A}_{2}=\widehat{B}_{2}=90^{\circ} $.
+}
+\end{ex}
+\subsection{Học giải toán}
+\begin{vd}%[7H1B4]
+	\immini{
+		Cho hình vẽ bên, biết $ \widehat{A}_{1}+\widehat{B}_{1}=180^{\circ} $. Chứng minh rằng $ a\parallel b $.
+	}{
+		\begin{tikzpicture}[line join=round, line cap=round]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\pgfmathsetmacro\h{2}
+		\pgfmathsetmacro\goc{0}
+		\pgfmathsetmacro\xmin{-2*\h}
+		\pgfmathsetmacro\xmax{1.5*\h}
+		\pgfmathsetmacro\ymin{-\h}
+		\pgfmathsetmacro\ymax{0.5*\h}
+		\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+		\tkzDefPoint(0,0){A}
+		\tkzDefShiftPoint[A](\goc:\h){a}
+		\tkzDefShiftPoint[A](-120:0.6*\h){B}
+		\tkzDefShiftPoint[B](\goc:\h){b}
+		\tkzDefPointsBy[symmetry = center A](a,B){a',b'}
+		\tkzDrawLines[add = 0.8 and 0.1,end=$a$](A,a)
+		\tkzDrawLines[add = 0.5 and 0.4,end=$b$](B,b)
+		\tkzDrawLines[add = 0.8 and 0.5,start=$c$](A,B)
+		\tkzLabelPoints[below right](B)
+		\tkzLabelPoints[above right](A)
+		\tkzDrawPoints[fill=black](A,B)			
+		\draw($(A)+(125:15pt)$)node{$1$};
+		\draw($(A)+(-140:10pt)$)node{$2$};
+		\draw($(A)+(-40:10pt)$)node{$3$};
+		\draw($(B)+(30:15pt)$)node{$1$};
+		\draw($(B)+(135:10pt)$)node{$2$};
+		\tkzMarkAngles[size=0.3cm,arc=ll](b,B,A)
+		\tkzMarkAngles[size=0.3cm,arc=l](b',A,a')
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\begin{enumerate}[Cách 1.]
+			\item Ta có $ \widehat{A}_{1}+\widehat{A}_{2}=180^{\circ} $ (hai góc kề bù). Mà $ \widehat{A}_{1}+\widehat{B}_{1}=180^{\circ} $ (giả thiết) nên $ \widehat{A}_{2}=\widehat{B}_{1} $.\\
+			Vì $ \widehat{A}_{2}$ và $\widehat{B}_{1} $ là hai góc so le trong nên $ a\parallel b $.
+			\item Ta có $ \widehat{B}_{1}+\widehat{B}_{2}=180^{\circ} $ (hai góc kề bù). Mà $ \widehat{A}_{1}+\widehat{B}_{1}=180^{\circ} $ (giả thiết) nên $ \widehat{A}_{1}=\widehat{B}_{2} $.\\
+			Vì $ \widehat{A}_{1}$ và $\widehat{B}_{2} $ là hai góc đồng vị nên $ a\parallel b $.
+			\item Ta có $ \widehat{A}_{1}=\widehat{A}_{3} $ (hai góc đối đỉnh). Mà $ \widehat{A}_{1}+\widehat{B}_{1}=180^{\circ} $ (giả thiết) nên $ \widehat{A}_{3}+\widehat{B}_{1}=180^{\circ} $.\\
+			Vì $ \widehat{A}_{3}$ và $\widehat{B}_{1} $ là hai góc trong cùng phía nên $ a\parallel b $.
+		\end{enumerate}
+	}
+\end{vd}
+\begin{note}
+	Muốn chứng minh hai đường thẳng song song, ta có thể chứng minh một trong các khẳng định sau:
+	\begin{enumerate}
+		\item Hai góc đồng vị bằng nhau;
+		\item Hai góc so le trong bằng nhau;
+		\item Hai góc trong cùng phía bù nhau.
+	\end{enumerate}
+\end{note}
+\begin{vd}%[7H1B4]
+	\immini{
+		Cho hình vẽ bên, biết $ \widehat{P}_{4}=\widehat{Q}_{2}$ và $\widehat{M}_{4}=100^{\circ} $. Tính các góc còn lại đỉnh $ M $ và $ N $.
+	}{
+		\begin{tikzpicture}[line join=round, line cap=round]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\pgfmathsetmacro\h{2}
+		\pgfmathsetmacro\goc{80}
+		\pgfmathsetmacro\xmin{-2*\h}
+		\pgfmathsetmacro\xmax{\h}
+		\pgfmathsetmacro\ymin{-\h}
+		\pgfmathsetmacro\ymax{0.4*\h}
+		\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+		\tkzDefPoint(0,0){M}
+		\tkzDefShiftPoint[M](0:0.5*\h){a}
+		\tkzDefShiftPoint[M](-\goc:0.8*\h){N}
+		\tkzDefShiftPoint[N](0:0.8*\h){b}
+		\tkzDefPointsBy[symmetry = center M](a){P}
+		\tkzDefPointsBy[symmetry = center N](b){Q}
+		\tkzDrawLines[add = 0.5 and 0,end=$a$](P,a)
+		\tkzDrawLines[add = 0.2 and -0.2,end=$b$](Q,b)
+		\tkzDrawLines[add = 0.3 and 0.5](M,N P,Q)
+		\tkzLabelPoints[below left](Q)
+		\tkzLabelPoints[above left](P)
+		\tkzDrawPoints[fill=black](M,N,P,Q)			
+		\draw($(M)+(20:15pt)$)node{$M$};
+		\draw($(M)+(125:10pt)$)node{$3$};
+		\draw($(M)+(-140:10pt)$)node{$4$};
+		\draw($(M)+(-40:10pt)$)node{$1$};
+		\draw($(M)+(70:10pt)$)node{$2$};
+		\draw($(N)+(20:15pt)$)node{$N$};
+		\draw($(N)+(125:10pt)$)node{$3$};
+		\draw($(N)+(-140:10pt)$)node{$4$};
+		\draw($(N)+(-40:10pt)$)node{$1$};
+		\draw($(N)+(70:10pt)$)node{$2$};
+		\draw($(P)+(-135:10pt)$)node{$4$};
+		\draw($(Q)+(40:10pt)$)node{$2$};
+		\end{tikzpicture}
+	}
+	\loigiai{
+		Ta có $ \widehat{P}_{4}=\widehat{Q}_{2} $ (giả thiết) nên $ a\parallel b $ (do hai góc này ở vị trí so le trong).\\
+		Ta tính các góc tại đỉnh $ M $ và $ N $:
+		\begin{enumerate}[TH1.]
+			\item Tại $ M $, ta có $ \widehat{M}_{2}=\widehat{M}_{4}=100^{\circ} $ (hai góc đối đỉnh). Mà $ \widehat{M}_{2}+\widehat{M}_{3}=180^{\circ} $ (hai góc kề bù) nên 
+			\begin{eqnarray*}
+				\widehat{M}_{3}&=&180^{\circ}-\widehat{M}_{2}\\
+				\widehat{M}_{3}&=&80^{\circ}.
+			\end{eqnarray*}
+			Vì $ \widehat{M}_{1}$ và $\widehat{M}_{3} $ là hai góc đối đỉnh nên $ \widehat{M}_{1}=\widehat{M}_{3}=80^{\circ} $.
+			\item Tại $ N $, ta có $ \widehat{N}_{2}=\widehat{M}_{4}=100^{\circ} $ (hai góc so le trong), do đó $ \widehat{N}_{4}=\widehat{N}_{2}=100^{\circ} $ (hai góc đối đỉnh). Vì $ \widehat{N}_{2} $ và $ \widehat{3} $ là hai góc kề bù nên
+			\begin{eqnarray*}
+				\widehat{N}_{2}+\widehat{N}_{3}&=&180^{\circ}\\
+				\widehat{N}_{3}&=&180^{\circ}-\widehat{N}_{2}\\
+				\widehat{N}_{3}&=&80^{\circ}.
+			\end{eqnarray*}
+			Vì $ \widehat{N}_{1}$ và $\widehat{N}_{3} $ là hai góc đối đỉnh nên $ \widehat{N}_{1}=\widehat{N}_{3}=80^{\circ} $.
+		\end{enumerate}
+	}
+\end{vd}
+\subsection{Bài tập}
+\subsubsection{Cơ bản}
+\begin{bt}%[7H1Y4]
+	\immini{
+		Cho hình vẽ bên, khẳng định nào đúng? Biết đường thẳng $ a $ cắt hai đường thẳng $ x\parallel y $ tại $ M$ và $ N $, ta có
+		\begin{enumEX}{2}
+			\item $ \widehat{M}_{4}=\widehat{N}_{1} $;
+			\item $ \widehat{M}_{2}=\widehat{N}_{2} $;
+			\item $ \widehat{M}_{3}=\widehat{N}_{2} $;
+			\item $ \widehat{M}_{1}=\widehat{N}_{3} $.
+		\end{enumEX}
+	}{
+		\begin{tikzpicture}[line join=round, line cap=round]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\pgfmathsetmacro\h{2}
+		\pgfmathsetmacro\goc{0}
+		\pgfmathsetmacro\xmin{-2*\h}
+		\pgfmathsetmacro\xmax{1.5*\h}
+		\pgfmathsetmacro\ymin{-\h}
+		\pgfmathsetmacro\ymax{0.5*\h}
+		\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+		\tkzDefPoint(0,0){M}
+		\tkzDefShiftPoint[M](\goc:\h){x}
+		\tkzDefShiftPoint[M](-120:0.8*\h){N}
+		\tkzDefShiftPoint[N](\goc:\h){y}
+		\tkzDefPointsBy[symmetry = center M](x,N){x',y'}
+		\tkzDefPointsBy[symmetry = center N](M,y){m,y''}
+		\tkzDrawLines[add = 0.8 and 0.1,end=$x$](M,x)
+		\tkzDrawLines[add = 0.5 and 0.4,end=$y$](N,y)
+		\tkzDrawLines[add = 0.6 and 0.5,start=$a$](M,N)
+		\tkzDrawPoints[fill=black](M,N)
+		\draw($(M)+(-25:15pt)$)node{$M$};
+		\draw($(N)+(-25:15pt)$)node{$N$};
+		\draw($(M)+(125:12pt)$)node{$3$};
+		\draw($(M)+(-90:12pt)$)node{$1$};
+		\draw($(M)+(-140:15pt)$)node{$4$};
+		\draw($(M)+(30:15pt)$)node{$2$};
+		\draw($(N)+(125:12pt)$)node{$3$};
+		\draw($(N)+(-90:12pt)$)node{$1$};
+		\draw($(N)+(-140:15pt)$)node{$4$};
+		\draw($(N)+(30:15pt)$)node{$2$};
+		\tkzMarkAngles[size=0.3cm,arc=ll](y,N,M y'',N,m)
+		\tkzMarkAngles[size=0.2cm,arc=l](M,N,y'' m,N,y)
+		\tkzMarkAngles[size=0.2cm,arc=l](y',M,x' N,M,x)
+		\tkzMarkAngles[size=0.3cm,arc=ll](x',M,N x,M,y')
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\begin{enumerate}
+			\item \TF{S} vì $ x\parallel y $ nên $ \widehat{M}_{1}=\widehat{N}_{1} $ (hai góc đồng vị).
+			\item \TF{Đ} vì $ x\parallel y $ nên $ \widehat{M}_{2}=\widehat{N}_{2} $ (hai góc đồng vị).
+			\item \TF{S} vì $ x\parallel y $ nên $ \widehat{M}_{3}=\widehat{N}_{3} $ (hai góc đồng vị).
+			\item \TF{Đ} vì $ x\parallel y $ nên $ \widehat{M}_{1}=\widehat{N}_{3} $ (hai góc so le trong).
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[7H1B4]
+	\immini{
+		Cho hình vẽ bên, chứng minh rằng $ AB\parallel CD $.
+	}{
+		\begin{tikzpicture}[line join=round, line cap=round]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\pgfmathsetmacro\h{2}
+		\pgfmathsetmacro\goc{120}
+		\pgfmathsetmacro\xmin{-0.5*\h}
+		\pgfmathsetmacro\xmax{1.5*\h}
+		\pgfmathsetmacro\ymin{-\h}
+		\pgfmathsetmacro\ymax{0.5*\h}
+		\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+		\tkzDefPoint(0,0){A}
+		\tkzDefShiftPoint[A](0:\h){B}
+		\tkzDefShiftPoint[A](-\goc:0.8*\h){C}
+		\tkzDefShiftPoint[A](\goc:0.5*\h){E}
+		\tkzDefShiftPoint[C](0:\h){D}
+		\tkzDrawLines[add = 0 and 0.1,end=$B$](A,B)
+		\tkzDrawLines[add = 0 and 0.4,end=$D$](C,D)
+		\tkzDrawLines[add = 0 and 0,end=$E$](A,E)
+		\tkzDrawPoints[fill=black](A,C)
+		\tkzLabelPoints[below right](A,C)
+		\draw (A)--(C);
+		\draw($(A)+(35:15pt)$)node{$120^{\circ}$};
+		\draw($(A)+(180:15pt)$)node{$140^{\circ}$};
+		\draw($(C)+(25:15pt)$)node{$80^{\circ}$};
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\immini{
+			Kẻ tia $ Ax $ là tia đối của tia $ AB $. Ta có 
+		\begin{eqnarray*}
+			\widehat{BAE}+\widehat{EAx}&=&180^{\circ}\\
+			120^{\circ}+\widehat{EAx}&=&180^{\circ}\\
+			\widehat{EAx}&=&180^{\circ}-120^{\circ}\\
+			\widehat{EAx}&=&60^{\circ}.
+		\end{eqnarray*}		
+	}{
+\begin{tikzpicture}[line join=round, line cap=round]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{2}
+\pgfmathsetmacro\goc{120}
+\pgfmathsetmacro\xmin{-0.7*\h}
+\pgfmathsetmacro\xmax{1.5*\h}
+\pgfmathsetmacro\ymin{-\h}
+\pgfmathsetmacro\ymax{0.5*\h}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:\h){B}
+\tkzDefShiftPoint[A](180:0.3*\h){x}
+\tkzDefShiftPoint[A](-\goc:0.8*\h){C}
+\tkzDefShiftPoint[A](\goc:0.5*\h){E}
+\tkzDefShiftPoint[C](0:\h){D}
+\tkzDrawLines[add = 0 and 0.1,end=$B$](A,B)
+\tkzDrawLines[add = 0 and 0.4,end=$D$](C,D)
+\tkzDrawLines[add = 0 and 0,end=$E$](A,E)
+\tkzDrawLines[add = 0 and 0.3](A,x)
+\tkzDrawPoints[fill=black](A,C)
+\tkzLabelPoints[below right](A,C)
+\tkzLabelPoints[above](x)
+\draw (A)--(C);
+\draw($(A)+(35:15pt)$)node{$120^{\circ}$};
+\draw($(A)+(-150:15pt)$)node{$140^{\circ}$};
+\draw($(C)+(25:15pt)$)node{$80^{\circ}$};
+\end{tikzpicture}
+}\noindent
+Vì tia $ Ax $ nằm giữa tia $ AE $ và tia $ AC $ nên 
+\begin{eqnarray*}
+	\widehat{EAx}+\widehat{xAC}&=&140^{\circ}\\
+	\widehat{xAC}&=&140^{\circ}-60^{\circ}\\
+	\widehat{xAC}&=&80^{\circ}.
+\end{eqnarray*}
+Do đó $ \widehat{xAC}=\widehat{ACD}=80^{\circ} $ và hai góc này ở vị trí so le trong nên $ AB\parallel CD $.
+}
+\end{bt}
+\begin{bt}%[7H1Y4]%[7H1Y4]%[7H1Y4]
+	\immini{
+		Cho hình vẽ bên, có $ AD\parallel BC $, $ EF\parallel AD $. Hãy cho biết
+		\begin{enumerate}
+			\item $ \widehat{CAD} $ so le trong với góc nào?
+			\item $ \widehat{ADC} $ đồng vị với góc nào?
+			\item Tìm góc trong cùng phía với $ \widehat{ABC},\ \widehat{EFD} $.
+		\end{enumerate}
+	}{
+	\begin{tikzpicture}[line join=round, line cap=round]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1}
+\pgfmathsetmacro\goc{70}
+\pgfmathsetmacro\x{3*\h}
+\pgfmathsetmacro\y{2*\h}
+\pgfmathsetmacro\xmin{-0.2*\x}
+\pgfmathsetmacro\xmax{1.5*\x}
+\pgfmathsetmacro\ymin{-0.2*\y}
+\pgfmathsetmacro\ymax{1.5*\y}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:1.2*\x){D}
+\tkzDefShiftPoint[A](\goc:\y){B}
+\tkzDefShiftPoint[B](0:0.5*\x){C}
+\tkzDefMidPoint(A,C)\tkzGetPoint{E}
+\tkzDefMidPoint(D,C)\tkzGetPoint{F}
+\tkzDrawPoints[fill=black](A,B,C,D,E,F)
+\tkzDrawSegments(A,C E,F)
+\draw (A)--(B)--(C)--(D)--cycle;
+\tkzLabelPoints[below](A,D)
+\tkzLabelPoints[above](C,B,E)
+\tkzLabelPoints[right](F)
+\end{tikzpicture}
+	}
+	\loigiai{
+		\begin{enumerate}
+			\item $ \widehat{CAD} $ so le trong với góc $ \widehat{ACB} $.
+			\item $ \widehat{ADC} $ đồng vị với góc $ \widehat{EFC} $.
+			\item Góc trong cùng phía với $ \widehat{ABC}$ là góc $ \widehat{BAD} $ và góc trong cùng phía với $ \widehat{EFD} $ là góc $ \widehat{ADC} $.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[7H1K4]
+Cho tam giác $ ABC $ có tia $ AM $ là tia đối của tia $ AB $. Tia $ AN $ là tia phân giác của góc $ \widehat{MAC} $. Trên cạnh $ AC $ lấy điểm $ F $ tùy ý. Từ $ F $ kẻ $ FP $ song song $ AB $ ($ P $ thuộc cạnh $ BC $) và kẻ $ FE $ song song với $ AN $ ($ E $ thuộc cạnh $ AB $). Hãy chứng tỏ $ FE $ là tia phân giác góc $ \widehat{AFP} $.
+\loigiai{
+\immini{
+Vì $ AN $ là tia phân giác góc $ \widehat{MAC} $ nên\\
+$ \widehat{MAN}=\widehat{NAC}=\dfrac{1}{2}\widehat{MAC} $.\\
+Vì $ FP\parallel AB $ nên $ \widehat{PFA}=\widehat{MAC} $ (hai góc so le trong).\\
+Vì $ FE\parallel AN $ nên $ \widehat{EFA}=\widehat{NAC} $ (hai góc so le trong).\\
+Suy ra $ \widehat{EFA}=\widehat{NAC}=\dfrac{1}{2}\widehat{MAC}=\dfrac{1}{2}\widehat{PFA} $.
+}{
+\begin{tikzpicture}[line join=round, line cap=round]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1}
+\pgfmathsetmacro\goc{70}
+\pgfmathsetmacro\x{3*\h}
+\pgfmathsetmacro\y{2*\h}
+\pgfmathsetmacro\xmin{-0.6*\x}
+\pgfmathsetmacro\xmax{1.2*\x}
+\pgfmathsetmacro\ymin{-0.2*\y}
+\pgfmathsetmacro\ymax{1.2*\y}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:\x){B}
+\tkzDefShiftPoint[A](180:0.5*\x){M}
+\tkzDefShiftPoint[A](\goc:\y){C}
+\tkzDefLine[bisector](C,A,M)\tkzGetPoint{N}
+\coordinate (F) at ($(A)!2/3!(C)$);
+\tkzDefLine[parallel=through F](A,B)\tkzGetPoint{ab}
+\tkzDefLine[parallel=through F](A,N)\tkzGetPoint{an}
+\tkzInterLL(F,ab)(B,C)\tkzGetPoint{P}
+\tkzInterLL(F,an)(A,B)\tkzGetPoint{E}
+\tkzDrawPoints[fill=black](A,B,C,F,P,E)
+\draw (A)--(B)--(C)--cycle (A)--(M) (E)--(F)--(P);
+\tkzDrawLines[add = 0 and -0.5,end=$N$](A,N)
+\tkzLabelPoints[below](A,B,M,E)
+\tkzLabelPoints[above](C)
+\tkzLabelPoints[left](F)
+\tkzLabelPoints[right](P)
+\tkzMarkAngles[size=0.3cm,arc=l](N,A,M)
+\tkzMarkAngles[size=0.35cm,arc=l](C,A,N)
+\end{tikzpicture}
+}\noindent
+Lại có tia $ FE $ nằm giữa hai tia $ FP $ và $ FA $ nên $ FE $ là tia phân giác của góc $ \widehat{AFP} $.
+}
+\end{bt}
+\subsubsection{Nâng cao}
+\begin{bt}%[7H1K4]
+	Ba đường thẳng phân biệt trên mặt phẳng có thể chia mặt phẳng thành bao nhiêu miền?
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line join=round, line cap=round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1}		
+			\pgfmathsetmacro\xmin{-0.5*\h}
+			\pgfmathsetmacro\xmax{0.9*\textwidth}
+			\pgfmathsetmacro\ymin{-2.4*\h}
+			\pgfmathsetmacro\ymax{0.3*\h}
+			\pgfmathsetmacro\xs{4*\h}
+			\pgfmathsetmacro\ys{0.5*\h}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\begin{scope}
+			\pgfmathsetmacro\goca{-90}
+			\tkzDefPoint(0,0){M}
+			\tkzDefShiftPoint[M](0:\h){a}
+			\tkzDefShiftPoint[M](\goca:0.8*\h){N}
+			\tkzDefShiftPoint[M](\goca:1.6*\h){P}
+			\tkzDefShiftPoint[N](0:\h){b}
+			\tkzDefShiftPoint[P](0:\h){c}
+			\tkzDrawLines[add = 0.5 and 0.5](M,a N,b P,c)
+			\tkzLabelSegment[pos=0.7,yshift=-2.4*\h cm](a,M){Hình 1}
+			\end{scope}
+			\begin{scope}[xshift=\xs cm,yshift=0 cm]
+			\pgfmathsetmacro\goca{120}
+			\pgfmathsetmacro\gocb{70}
+			\tkzDefPoint(0,0){M}
+			\tkzDefShiftPoint[M](0:\h){a}
+			\tkzDefShiftPoint[M](\gocb-180:\h){N}
+			\tkzDefShiftPoint[N](0:\h){b}
+			\tkzDrawLines[add = 0.5 and 0.5](M,a N,b M,N)
+			\tkzLabelSegment[pos=0.7,yshift=-2.4*\h cm](a,M){Hình 2}
+			\end{scope}
+			\begin{scope}[xshift=2.2*\xs cm,yshift=-\h cm]
+			\pgfmathsetmacro\gocm{130}
+			\pgfmathsetmacro\gocp{75}
+			\tkzDefPoint(0,0){M}
+			\tkzDefShiftPoint[M](0:0.8*\h){a}
+			\tkzDefShiftPoint[M](\gocm:\h){m}
+			\tkzDefShiftPoint[M](\gocp:\h){p}
+			\tkzDrawLines[add = 1 and 0.3](M,m M,a M,p)
+			\tkzLabelSegment[pos=0.5,yshift=-1.4*\h cm](M,a){Hình 3}
+			\end{scope}
+			\begin{scope}[xshift=3.5*\xs cm,yshift=0 cm]
+			\pgfmathsetmacro\gocm{130}
+			\pgfmathsetmacro\gocp{75}
+			\tkzDefPoint(0,0){M}
+			\tkzDefShiftPoint[M](-\gocm:\h){N}
+			\tkzDefShiftPoint[N](0:\h){b}
+			\tkzDefShiftPoint[M](180:1.5*\h){P}
+			\tkzDrawLines[add = 0.8 and 0.9](M,P P,N N,b M,N)
+			\tkzLabelSegment[pos=0.7,yshift=-2.4*\h cm](M,P){Hình 4}
+			\end{scope}
+			\end{tikzpicture}
+		\end{center}
+	Ta xét các trường hợp sau:
+	\begin{enumerate}[TH1.]
+		\item Ba đường thẳng song song: mặt phẳng được chia thành $ 4 $ miền (Hình 1).
+		\item Hai đường thẳng song song bị cắt bởi đường thẳng thứ $ 3 $: mặt phẳng được chia thành $ 6 $ miền (Hình 2).
+		\item Ba đường thẳng cắt nhau tại một điểm: mặt phẳng được chia thành $ 6 $ miền (Hình 3).
+		\item Ba đường thẳng cắt nhau từng đôi một tại các điểm khác nhau: mặt phẳng được chia thành $ 7 $ miền (Hình 4).
+	\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[7H1B4]
+	Cho hai đường thẳng $ AB $ và $ CD $. Đường thẳng $ MN $ cắt $ AB $, $ CD $ lần lượt tại $ P,\ Q $. Biết rằng $ \widehat{APM}+\widehat{MPB}+\widehat{PQD}=210^{\circ} $ và $ \widehat{APM}=5\widehat{MPB} $. Hãy chứng minh $ AB\parallel CD $.
+	\loigiai{
+		\immini{
+			Vì hai góc $ \widehat{APM} $, $ \widehat{MPB} $ kề bù và $ \widehat{APM}=5\widehat{MPB} $ nên
+		\begin{eqnarray*}
+			\widehat{APM}+\widehat{MPB}&=&180^{\circ}\\
+			6\widehat{MPB}&=&180^{\circ}\\
+			\widehat{MPB}&=&30^{\circ}.
+		\end{eqnarray*}
+	
+	}{
+\begin{tikzpicture}[line join=round, line cap=round]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{2}		
+\pgfmathsetmacro\xmin{-2*\h}
+\pgfmathsetmacro\xmax{1.5*\h}
+\pgfmathsetmacro\ymin{-\h}
+\pgfmathsetmacro\ymax{0.5*\h}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\pgfmathsetmacro\gocb{30}
+\tkzDefPoint(0,0){P}
+\tkzDefShiftPoint[P](0:0.5*\h){B}
+\tkzDefShiftPoint[P](\gocb-180:\h){Q}
+\tkzDefShiftPoint[Q](0:\h){D}
+\tkzDefShiftPoint[P](180:1.5*\h){A}
+\tkzDrawLines[add = 0.5 and 0.5,end=$M$,start=$N$](P,Q)
+\tkzDrawLines[add = 2.5 and 0.5,end=$A$,start=$B$](P,B)
+\tkzDrawLines[add = 0.5 and 0.5,end=$D$,start=$C$](Q,D)
+\tkzDrawPoints[fill=black](P,Q)
+\tkzLabelPoints[below right](P)
+\tkzLabelPoints[above left](Q)
+\end{tikzpicture}
+}\noindent
+Do $ \widehat{APM}+\widehat{MPB}+\widehat{PQD}=210^{\circ} $ nên
+\begin{eqnarray*}
+	180^{\circ}+\widehat{PQD}&=&210^{\circ}\\
+	\widehat{PQD}&=&30^{\circ}.
+\end{eqnarray*}
+Ta thấy $ \widehat{MPB}=\widehat{PQD}=30^{\circ} $ và hai góc này ở vị trí so le trong nên $ AB\parallel CD $.
+	}
+\end{bt}
+\begin{bt}%[7H1B4]
+	Tìm góc $ x $ trong các hình a, b, c.
+	\begin{center}
+		\begin{tikzpicture}[line join=round, line cap=round]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\pgfmathsetmacro\h{1}		
+		\pgfmathsetmacro\xmin{-2.5*\h}
+		\pgfmathsetmacro\xmax{12*\h}
+		\pgfmathsetmacro\ymin{-2*\h}
+		\pgfmathsetmacro\ymax{0.3*\h}
+		\pgfmathsetmacro\xs{5*\h}
+		\pgfmathsetmacro\ys{0.5*\h}
+		\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+		
+		\begin{scope}
+		\pgfmathsetmacro\goca{70}
+		\pgfmathsetmacro\gocb{45}
+		\tkzDefPoint(0,0){M}
+		\tkzDefShiftPoint[M](0:0.8*\h){a}
+		\tkzDefShiftPoint[M](\gocb-180:\h){N}
+		\tkzDefShiftPoint[N](0:\h){b}
+		\tkzDefShiftPoint[M](180:1.2*\h){P}
+		\tkzDefShiftPoint[P](\goca-180:\h){p}
+		\tkzInterLL(P,p)(N,b)\tkzGetPoint{Q}
+		\tkzDrawLines[add = 0.5 and 0,end=$a$](P,a)
+		\tkzDrawLines[add = 0.5 and 0,end=$b$](Q,b)
+		\tkzDrawLines[add = 0.8 and 0.8](M,N P,Q)
+		\tkzDrawPoints[fill=black](M,N,P,Q)
+		\draw($(M)+(20:10pt)$)node{\fontsize{8pt}{0pt}$x$};
+		\draw($(N)+(-160:12pt)$)node{\fontsize{8pt}{0pt}$45^{\circ}$};
+		\draw($(P)+(150:10pt)$)node{\fontsize{8pt}{0pt}$110^{\circ}$};
+		\draw($(Q)+(150:10pt)$)node{\fontsize{8pt}{0pt}$110^{\circ}$};
+		\tkzLabelSegment[pos=0.7,yshift=-1.8*\h cm](a,P){Hình a}
+		\end{scope}
+		\begin{scope}[xshift=\xs cm,yshift=0 cm]
+		\pgfmathsetmacro\goca{120}
+		\pgfmathsetmacro\gocb{70}
+		\tkzDefPoint(0,0){M}
+		\tkzDefShiftPoint[M](0:0.8*\h){a}
+		\tkzDefShiftPoint[M](\gocb-180:\h){N}
+		\tkzDefShiftPoint[N](0:\h){b}
+		\tkzDefShiftPoint[M](180:1.5*\h){P}
+		\tkzDefShiftPoint[P](\goca-180:\h){p}
+		\tkzInterLL(P,p)(N,b)\tkzGetPoint{Q}
+		\tkzDrawLines[add = 0.5 and 0,end=$a$](P,a)
+		\tkzDrawLines[add = 0.5 and 0,end=$b$](Q,b)
+		\tkzDrawLines[add = 0.8 and 0.3](M,N P,Q)
+		\tkzDrawPoints[fill=black](M,N,P,Q)
+		\draw($(M)+(150:7pt)$)node{\fontsize{8pt}{0pt}$x$};
+		\draw($(N)+(20:12pt)$)node{\fontsize{8pt}{0pt}$70^{\circ}$};
+		\draw($(P)+(25:10pt)$)node{\fontsize{8pt}{0pt}$120^{\circ}$};
+		\draw($(Q)+(155:12pt)$)node{\fontsize{8pt}{0pt}$60^{\circ}$};
+		\tkzLabelSegment[pos=0.7,yshift=-1.8*\h cm](a,P){Hình b}
+		\end{scope}
+		\begin{scope}[xshift=2*\xs cm,yshift=0 cm]
+		\pgfmathsetmacro\gocm{130}
+		\pgfmathsetmacro\gocp{75}
+		\tkzDefPoint(0,0){M}
+		\tkzDefShiftPoint[M](0:0.8*\h){a}
+		\tkzDefShiftPoint[M](-\gocm:\h){N}
+		\tkzDefShiftPoint[N](0:\h){b}
+		\tkzDefShiftPoint[M](180:1.5*\h){P}
+		\tkzDefShiftPoint[P](\gocp:\h){p}
+		\tkzInterLL(P,p)(N,b)\tkzGetPoint{Q}
+		\tkzDrawLines[add = 0.5 and 0,end=$a$](P,a)
+		\tkzDrawLines[add = 0.5 and 0,end=$b$](Q,b)
+		\tkzDrawLines[add = 0.8 and 0.6](M,N P,Q)
+		\tkzDrawPoints[fill=black](M,N,P,Q)
+		\draw($(M)+(-50:8pt)$)node{\fontsize{8pt}{0pt}$130^{\circ}$};
+		\draw($(N)+(20:15pt)$)node{\fontsize{8pt}{0pt}$50^{\circ}$};
+		\draw($(P)+(-150:8pt)$)node{\fontsize{8pt}{0pt}$x$};
+		\draw($(Q)+(25:12pt)$)node{\fontsize{8pt}{0pt}$75^{\circ}$};
+		\tkzLabelSegment[pos=0.7,yshift=-1.8*\h cm](a,P){Hình c}
+		\end{scope}
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line join=round, line cap=round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1}		
+			\pgfmathsetmacro\xmin{-3.5*\h}
+			\pgfmathsetmacro\xmax{12*\h}
+			\pgfmathsetmacro\ymin{-3*\h}
+			\pgfmathsetmacro\ymax{1.2\h}
+			\pgfmathsetmacro\xs{5*\h}
+			\pgfmathsetmacro\ys{0.5*\h}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			
+			\begin{scope}
+			\pgfmathsetmacro\goca{70}
+			\pgfmathsetmacro\gocb{45}
+			\tkzDefPoint(0,0){M}
+			\tkzDefShiftPoint[M](0:0.5*\h){a}
+			\tkzDefShiftPoint[M](\gocb-180:\h){N}
+			\tkzDefShiftPoint[N](0:\h){b}
+			\tkzDefShiftPoint[M](180:1.5*\h){P}
+			\tkzDefShiftPoint[P](\goca-180:\h){p}
+			\tkzInterLL(P,p)(N,b)\tkzGetPoint{Q}
+			\tkzDrawLines[add = 0.5 and 0,end=$a$,start=$a'$](P,a)
+			\tkzDrawLines[add = 0.5 and 0,end=$b$,start=$b'$](Q,b)
+			\tkzDrawLines[add = 1 and 1,end=$m$,start=$m'$](M,N)
+			\tkzDrawLines[add = 1 and 1,end=$y$,start=$y'$](P,Q)
+			\tkzDrawPoints[fill=black](M,N,P,Q)
+			\tkzLabelPoints[below left](Q)
+			\tkzLabelPoints[below right](M,N,P)
+			\draw($(M)+(20:10pt)$)node{\fontsize{8pt}{0pt}$x$};
+			\draw($(N)+(-160:12pt)$)node{\fontsize{8pt}{0pt}$45^{\circ}$};
+			\draw($(P)+(150:10pt)$)node{\fontsize{8pt}{0pt}$110^{\circ}$};
+			\draw($(Q)+(150:10pt)$)node{\fontsize{8pt}{0pt}$110^{\circ}$};
+			\tkzLabelSegment[pos=0.7,yshift=-2.5*\h cm](a,P){Hình a}
+			\end{scope}
+			\begin{scope}[xshift=\xs cm,yshift=0 cm]
+			\pgfmathsetmacro\goca{120}
+			\pgfmathsetmacro\gocb{70}
+			\tkzDefPoint(0,0){M}
+			\tkzDefShiftPoint[M](0:0.8*\h){a}
+			\tkzDefShiftPoint[M](\gocb-180:\h){N}
+			\tkzDefShiftPoint[N](0:\h){b}
+			\tkzDefShiftPoint[M](180:2.2*\h){P}
+			\tkzDefShiftPoint[P](\goca-180:\h){p}
+			\tkzInterLL(P,p)(N,b)\tkzGetPoint{Q}
+			\tkzDrawLines[add = 0.3 and 0,end=$a$,start=$a'$](P,a)
+			\tkzDrawLines[add = 0.5 and 0,end=$b$,start=$b'$](Q,b)
+			\tkzDrawLines[add = 0.7 and 0.7,end=$m$,start=$m'$](M,N)
+			\tkzDrawLines[add = 0.7 and 0.7,end=$y$,start=$y'$](P,Q)
+			\tkzDrawPoints[fill=black](M,N,P,Q)
+			\tkzLabelPoints[below left](Q,P)
+			\tkzLabelPoints[below right](M,N)
+			\draw($(M)+(150:7pt)$)node{\fontsize{8pt}{0pt}$x$};
+			\draw($(N)+(20:12pt)$)node{\fontsize{8pt}{0pt}$70^{\circ}$};
+			\draw($(P)+(25:10pt)$)node{\fontsize{8pt}{0pt}$120^{\circ}$};
+			\draw($(Q)+(155:12pt)$)node{\fontsize{8pt}{0pt}$60^{\circ}$};
+			\tkzLabelSegment[pos=0.7,yshift=-2.5*\h cm](a,P){Hình b}
+			\end{scope}
+			\begin{scope}[xshift=2.1*\xs cm,yshift=0 cm]
+			\pgfmathsetmacro\gocm{130}
+			\pgfmathsetmacro\gocp{75}
+			\tkzDefPoint(0,0){M}
+			\tkzDefShiftPoint[M](0:0.8*\h){a}
+			\tkzDefShiftPoint[M](-\gocm:\h){N}
+			\tkzDefShiftPoint[N](0:\h){b}
+			\tkzDefShiftPoint[M](180:1.5*\h){P}
+			\tkzDefShiftPoint[P](\gocp:\h){p}
+			\tkzInterLL(P,p)(N,b)\tkzGetPoint{Q}
+			\tkzDrawLines[add = 0.5 and 0,end=$a$,start=$a'$](P,a)
+			\tkzDrawLines[add = 0.5 and 0,end=$b$,start=$b'$](Q,b)
+			\tkzDrawLines[add = 1 and 1,end=$m$,start=$m'$](M,N)
+			\tkzDrawLines[add = 1 and 1,end=$y$,start=$y'$](P,Q)
+			\tkzDrawPoints[fill=black](M,N,P,Q)
+			\tkzLabelPoints[below left](Q)
+			\tkzLabelPoints[below right](N)
+			\tkzLabelPoints[above left](M,P)
+			\draw($(M)+(-50:8pt)$)node{\fontsize{8pt}{0pt}$130^{\circ}$};
+			\draw($(N)+(20:15pt)$)node{\fontsize{8pt}{0pt}$50^{\circ}$};
+			\draw($(P)+(-150:8pt)$)node{\fontsize{8pt}{0pt}$x$};
+			\draw($(Q)+(25:12pt)$)node{\fontsize{8pt}{0pt}$75^{\circ}$};
+			\tkzLabelSegment[pos=0.7,yshift=-2.5*\h cm](a,P){Hình c}
+			\end{scope}
+			\end{tikzpicture}
+		\end{center}
+	\begin{enumerate}
+		\item Ta có $ \widehat{y'Pa'}=\widehat{y'Qb'}=110^{\circ} $ và hai góc này ở vị trí đồng vị nên $ a\parallel b $. Do đó
+		\[ 
+		x=\widehat{PMN}=45^{\circ}.
+		\]
+		\item Ta có $ \widehat{aPQ}=180^{\circ}-\widehat{y'Pa}=60^{\circ}=\widehat{PQb'} $ và hai góc này ở vị trí đồng vị nên $ a\parallel b $. Do đó
+		\[ 
+		x=\widehat{aMN}=\widehat{bNm}=70^{\circ}.
+		\]
+		\item Ta có $ \widehat{aMN}+\widehat{bNM}=180^{\circ} $ và hai góc này ở vị trí trong cùng phía nên $ a\parallel b $. Do đó
+		\[ 
+		x=\widehat{PQN}=75^{\circ}.
+		\]
+	\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[7H1K4]
+	Trên đường thẳng $ aa' $ lấy hai điểm $ M $ và $ N $ ($ N $ thuộc tia $ Ma' $). Trên nửa mặt phẳng đối nhau có bờ là $ aa' $, ta dựng hai tia $ Mp $ và $ Nq $ sao cho $ \widehat{aMp}=120^{\circ} $ và $ \widehat{aNq}=60^{\circ} $. Chứng minh rằng
+	\begin{enumerate}
+		\item $ Mp $ song song với $ Nq $.
+		\item Các đường thẳng chứa tia phân giác của các góc $ \widehat{pMa'} $ và $ \widehat{aNq} $ song song với nhau.
+	\end{enumerate}
+\loigiai{
+\immini{
+	\begin{enumerate}
+		\item Vì $ \widehat{aMp} $ và $ \widehat{pMa'} $ là hai góc kề bù nên $ \widehat{aMp} + \widehat{pMa'}=180^{\circ} $, do đó
+		\begin{eqnarray*}
+			120^{\circ}+\widehat{pMa'}&=&180^{\circ}\\
+			\widehat{pMa'}&=&60^{\circ}.
+		\end{eqnarray*}
+	Suy ra $ \widehat{pMa'}=\widehat{aNq}=60^{\circ} $. Mà hai góc này ở vị trí so le trong nên $ Mp\parallel Nq $.
+	\item Gọi $ Mx,\ Ny $ lần lượt là tia phân giác các góc $ \widehat{a'Mp},\ \widehat{aNq} $. Khi đó
+	\begin{eqnarray*}
+		\widehat{a'Mx}&=&\dfrac{1}{2}\cdot 60^{\circ}=30^{\circ}\\
+		\widehat{aNy}&=&\dfrac{1}{2}\cdot 60^{\circ}=30^{\circ}.
+	\end{eqnarray*}
+	\end{enumerate}
+}{
+\begin{tikzpicture}[line join=round, line cap=round]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1}		
+\pgfmathsetmacro\gocb{60}
+\pgfmathsetmacro\xmin{-3*\h}
+\pgfmathsetmacro\xmax{2*\h}
+\pgfmathsetmacro\ymin{-2*\h}
+\pgfmathsetmacro\ymax{2*\h}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){N}
+\tkzDefShiftPoint[N](0:1.5*\h){a'}
+\tkzDefShiftPoint[N](\gocb-180:1.5*\h){q}
+\tkzDefShiftPoint[N](180:1.5*\h){M}
+\tkzDefShiftPoint[M](\gocb:1.5*\h){p}
+\tkzDrawLines[add = 0 and 0.5](a',M)
+\tkzDrawLines[add = 0 and 0](N,q M,p)
+\tkzDefLine[bisector](a',M,p)\tkzGetPoint{x}
+\tkzDrawLines[add = 0 and -0.5,end=$x$](M,x)
+\tkzDefLine[bisector](M,N,q)\tkzGetPoint{y}
+\tkzDrawLines[add = 0 and 0,end=$y$](N,y)
+\tkzDrawPoints[fill=black](M,N)
+\tkzLabelPoints[below](a',M,q)
+\tkzLabelPoints[above](N,p)
+\draw($(M)+(-170:\h)$)node{$a$};
+\tkzMarkAngles[size=0.5cm,arc=l](a',M,x)
+\tkzMarkAngles[size=0.6cm,arc=l](x,M,p)
+\tkzMarkAngles[size=0.5cm,arc=l,mark=|](M,N,y)
+\tkzMarkAngles[size=0.6cm,arc=l,mark=|](y,N,q)
+\end{tikzpicture}
+}\noindent
+Suy ra $ \widehat{a'Mx}=\widehat{aNy}=30^{\circ} $. Mà hai góc này ở vị trí so le trong nên $ Mx\parallel Ny $.
+}
+\end{bt}
+\begin{note}\hfill\null
+	\begin{enumerate}[1)]
+		\item Một đường thẳng cắt hai đường thẳng song song thì các tia phân giác của một cặp góc so le trong cũng song song với nhau.
+		\item Tương tự: các tia phân giác của một cặp góc so le ngoài và các tia phân giác của một cặp góc đồng vị cũng song song với nhau.
+	\end{enumerate}
+\end{note}
+\begin{bt}%[7H1K4]
+Cho hai đường thẳng $ a $ và $ b $ cắt nhau tại $ O $ ở ngoài phạm vi tờ giấy. Hãy nêu cách đo góc nhọn tạo bởi hai đường thẳng $ a,\ b $ đã cho.
+\loigiai{
+	\immini{
+		Lấy điểm $ M $ tùy ý trên đường thẳng $ a $, kẻ $ Mx\parallel b $. Khi đó góc giữa $ a $ và $ b $ bằng góc giữa $ Mx $ và $ a $, do vậy ta chỉ cần đo góc giữa $ Mx $ và $ a $ thì sẽ suy ra góc giữa $ a $ và $ b $.
+	}{
+		\begin{tikzpicture}[line join=round, line cap=round]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\pgfmathsetmacro\h{1}		
+		\pgfmathsetmacro\goc{40}
+		\pgfmathsetmacro\xmin{-3*\h}
+		\pgfmathsetmacro\xmax{2*\h}
+		\pgfmathsetmacro\ymin{-2*\h}
+		\pgfmathsetmacro\ymax{2*\h}
+		\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+		\tkzDefPoint(0,0){M}
+		\tkzDefShiftPoint[M](0:1.5*\h){a}
+		\tkzDefShiftPoint[M](\goc:1.5*\h){m}
+		\tkzDefShiftPoint[M](160:\h){b}
+		\tkzDefShiftPoint[b](\goc:\h){b'}
+		\tkzDrawLines[add = 0 and 0,end=$x$](M,m)
+		\tkzDrawLines[add = 0 and 1,end=$b$](b,b')
+		\tkzDrawLines[add = 0 and 0.3](a,M)
+		\tkzDrawPoints[fill=black](M)
+		\tkzLabelPoints[below](a,M)
+		\end{tikzpicture}
+	}
+}
+\end{bt}
+\Closesolutionfile{ans}

@@ -1,0 +1,2331 @@
+\section{Toán cực trị hình học}
+\subsection{Bài toán cực trị}
+Các bài toán cực trị trong hình học có dạng chung như sau: Trong tất cả các hình có chung một tính chất, tìm những hình sao cho một đại lượng nào đó (như độ dài đoạn thẳng, số đo góc, số đo diện tích...) có giá trị lớn nhất hoặc giá trị nhỏ nhất.\\
+Bài toán cực trị thường được trình bày theo hai cách:\\
+\textit{Cách 1:} Trong các hình có tính chất của đề bài, chỉ ra một hình, rồi chứng minh rằng mọi hình khác đều có giá trị (của đại lượng phải tìm cực trị) lớn hơn (hoặc nhỏ hơn) giá trị của đại lượng đó ở hình đã chỉ ra.\\
+\textit{Cách 1:} Thay điều kiện một đại lượng đạt cực trị (lớn nhất hoặc nhỏ nhất) bằng các điều kiện tương đương, cuối cùng dẫn đến một điều kiện mà ta xác định được vị trí của các điểm để đạt cực trị.\\
+Lời giải trình bày theo cách 2 tự nhiên hơn vì nó mang tính chất tìm kiếm. Dưới đây là một số ví dụ giải theo hai cách trên.
+
+\begin{vd}%[Nguyễn Kim Huệ, dự án EX-C2 lớp 8 - 2018]%[8H1K6]
+	Trong các tam giác $ABC$ có cùng cạnh $BC$ và cùng diện tích, hãy tìm tam giác có chu vi nhỏ nhất.
+	\loigiai{
+		\immini{
+			\textit{Cách 1.} Xét $\triangle EBC$ cân tại $E$ và $\triangle ABC$ bất kì có cùng diện tích. ($A$ và $E$ nằm cùng phía đối với $BC$, $A$ khác $E$), ta có $AE \parallel BC$. Ta sẽ chứng minh rằng chu vi $\triangle EBC$ nhỏ hơn chu vi $\triangle ABC$, bằng cách chứng minh $BE+EC<BA+AC.$ Gọi $D$ là điểm đối xứng với $C$ qua $E$, ta có $$BE+EC=DC \quad \quad (1).$$
+		}{
+			\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzInit[ymin=-3,ymax=3,xmin=-2,xmax=6]
+			\tkzClip
+			\tkzDefPoints{0/0/O, 0/2/D, 0/-2/B, -1/0/A, 4/-2/C}
+			\tkzDrawSegments(B,D B,C)
+			\tkzInterLL(A,O)(D,C)\tkzGetPoint{E}
+			\tkzDrawSegments(D,E E,C B,E A,E)
+			\tkzDrawSegments[dashed](A,D A,B A,C)
+			\tkzDrawLine(O,E)
+			\tkzMarkSegments[pos=0.5, mark= | ](D,E E,B E,C)
+			\tkzDrawPoints[fill=black](A,B,C,D,E)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[above](D)
+			\tkzLabelPoints[above right](E)
+			\tkzLabelPoints[below](B)
+			\end{tikzpicture}
+		}
+		\noindent $\triangle BCD$ có $DE=EC$, $EA \parallel BC$ nên $EA$ đi qua trung điểm của $BD$. Ta lại có $DB \perp BC$ (vì tam giác $BCD$ có đường trung tuyến $BE$ bằng nửa $CD$) nên $EA \perp BD$. Suy ra $EA$ là đường trung trực của $BD$, nên $AB=AD$. Do đó $BA+AC=DA+AC. \quad (2)$\\
+		$\triangle ACD \text{ có } DC<DA+AC. \quad (3)$\\
+		Từ $(1), (2), (3)$ suy ra $BE+EC<BA+AC.$ Vậy trong các tam giác $ABC$ có cùng cạnh $BC$ và cùng diện tích, tam giác cân đáy $BC$ có chu vi nhỏ nhất.
+		
+		\immini{
+			\textit{Cách 2.} Xét các $\triangle ABC$ có cạnh đáy $BC$ không đổi và có cùng diện tích. Do chiều cao ứng với $BC$ không đổi nên $A$ chuyển động trên đường thẳng $d \parallel BC$.\\ Gọi $D$ là điểm đối xứng với $B$ qua $d$, ta có $AB=AD$.\\ Chu vi $\triangle ABC$ nhỏ nhất $\Leftrightarrow AB+AC$ nhỏ nhất.\\
+			Ta có $$AB+AC=DA+AC \geq DC \text{ (không đổi) ;}$$
+			$$AB+AC=DC \Leftrightarrow D,A,C \text{ thẳng hàng.}$$
+		}{
+			\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzInit[ymin=-3,ymax=3,xmin=-1,xmax=5]
+			\tkzClip
+			\tkzDefPoints{0/0/O, 0/2/D, 0/-2/B, 1/0/A, 4/-2/C, 4/0/M}
+			\tkzInterLL(D,C)(A,M)\tkzGetPoint{E}
+			\tkzDrawSegments(A,D D,E A,B E,B E,C A,C B,C)
+			\tkzDrawSegments[dashed](D,B)
+			\tkzMarkSegments[mark=|](D,O O,B)
+			\tkzLabelLine[above right, pos=1](A,M){d}
+			\tkzDrawLine(O,M)
+			\tkzDrawPoints[fill=black](A,D,E,B,C)
+			\tkzMarkRightAngles(A,O,D)
+			\tkzLabelPoints[above right](E)
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[below](B,C)
+			\tkzLabelPoints[above](D)
+			\end{tikzpicture}
+		}
+		\noindent Khi đó $A$ ở vị trí giao điểm $E$ của $DC$ và $d$, $\triangle EBC$ cân tại $E$.\\
+		Vậy trong các tam giác $ABC$ có cùng cạnh $BC$ và cùng diện tích, tam giác cân với cạnh đáy $BC$ có chu vi nhỏ nhất.
+	}
+\end{vd}
+
+\begin{vd}%[Nguyễn Kim Huệ, dự án EX-C2 lớp 8 - 2018]%[8H1K8]%[8H1K10]%[8H3B5]
+	Cho góc $xOy$ khác góc bẹt và một điểm $M$ thuộc miền trong của góc. Dựng đường thẳng đi qua $M$ và cắt hai cạnh của góc thành một tam giác có diện tích nhỏ nhất.
+	\loigiai{
+		\immini{
+			\textit{Cách 1.} Qua $M$ đường thẳng song song với $Ox$, cắt $Oy$ ở $D$. Dựng $B$ đối xứng với $O$ qua $D$; $BM$ cắt $Ox$ ở $A$. Ta sẽ chứng minh rằng $\triangle OAB$ có diện tích nhỏ nhất. Qua $M$ vẽ đường thẳng bất kì (không trùng với $AB$), cắt $Ox$, $Oy$ theo thứ tự ở $A'$, $B'$. Ta sẽ chứng minh rằng $S_{OAB}<S_{OA'B'}.$ Thật vậy, có duy nhất một đường thẳng qua $M$ cắt $Ox$, $Oy$ ở $A$, $B$ sao cho $M$ là trung điểm của $AB$ nên $MA'$, $MB'$ không bằng nhau. Giả sử $MA'>MB'.$ Trên tia $MA'$ ta lấy $ME=MB'$ thì $S_{MBB'}=S_{MAE} <S_{MAA'}.$ Do đó $S_{OAB}<S_{OA'B'}.$ 
+		}{
+			\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzInit[ymin=-1,ymax=5,xmin=-1,xmax=6]
+			\tkzClip
+			\tkzDefPoints{0/0/O, 2/0/A, 1.5/1.5/D}
+			\tkzDefPointBy[homothety=center O ratio 2](D)\tkzGetPoint{B}
+			\tkzDefPointBy[homothety=center O ratio 2](A)\tkzGetPoint{A'}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+			\tkzInterLL(A',M)(O,D)\tkzGetPoint{B'}
+			\tkzDrawLines[add=0 and 0.5](D,B A,A')
+			\tkzLabelLine[pos=1.5, above](D,B){$y$}
+			\tkzLabelLine[pos=1.5, below](A,A'){$x$}
+			\tkzDefLine[parallel=through A](B,O) \tkzGetPoint{d}
+			\tkzDefPointBy[symmetry=center M](B') \tkzGetPoint{E}
+			\tkzDrawSegments(O,B O,A' B',A' B,A A,E)
+			\tkzDrawSegments[dashed](D,M)
+			\tkzMarkSegments[pos=0.5, mark=|](M,B M,A)
+			\tkzDrawPoints[fill=black](D,B',B,O,A,A',M,E)
+			\tkzLabelPoints[above left](D,B',B)
+			\tkzLabelPoints[below](O,A,A')
+			\tkzLabelPoints[right](M,E)
+			\end{tikzpicture}
+		}
+		\immini{
+			\textit{Cách 2.} Vẽ $MH \parallel OH$, $MK \parallel OB$ thì $S_{OHMK}$ không đổi. Đặt $S_{OHMK}=S_3$, $S_{AMK}=S_1$, $S_{MBH}=S_2$, $S_{ABC}=S.$ \\Đặt $MA=a$, $MB=b.$ Ta có $$S_3=S-\left(S_1+S_2\right)$$
+			nên $$\frac{S_3}{S}=S-\frac{S_1+S_2}{S}.$$
+		}{
+			\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzInit[ymin=-1,ymax=4,xmin=-1,xmax=5]
+			\tkzClip
+			\tkzDefPoints{0/0/O, 4/0/A, 1.5/3/B}
+			\tkzDefMidPoint(O,A)\tkzGetPoint{K}
+			\tkzDefMidPoint(O,B)\tkzGetPoint{H}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+			\tkzDrawLines[add=0 and 0.3](O,A O,B)
+			\tkzLabelLine[pos=1.3, above](H,B){$y$}
+			\tkzLabelLine[pos=1.3, below](K,A){$x$}
+			\tkzDrawSegments(O,B O,A H,M M,K A,B)
+			\tkzLabelSegment[above](H,M){$2$}
+			\tkzLabelSegment[above](O,K){$3$}
+			\tkzLabelSegment[above](K,A){$1$}
+			\tkzLabelSegment[right](B,M){$b$}
+			\tkzLabelSegment[right](A,M){$a$}
+			\tkzDrawPoints[fill=black](H,B,O,K,A,M)
+			\tkzLabelPoints[left](H,B)
+			\tkzLabelPoints[below](O,K,A)
+			\tkzLabelPoints[right](M)
+			\end{tikzpicture}
+		}
+		Các tam giác $AKM, MHB, AOB$ đồng dạng nên $$\frac{S_1}{S}=\left(\frac{a}{a+b}\right)^2 \frac{S_2}{S}=\left(\frac{b}{a+b}\right)^2.$$
+		$$\Rightarrow \frac{S_3}{S}=1-\frac{a^2+b^2}{\left(a+b \right)^2}=\frac{2ab}{\left(a+b\right)^2} \Rightarrow \frac{S}{S_3}=\frac{\left(a+b\right)^2}{2ab}\geq 2.$$
+		(áp dụng bất đẳng thức $\left( a+b\right)^2 \geq 4ab$, xảy ra đẳng thức khi và chỉ khi $a=b$).\\
+		Vậy $S\geq 2S_3$, do đó diện tích $OAB$ nhỏ nhất khi và chỉ khi $a=b$, khi đó $M$ là trung điểm của $AB$.
+	}
+\end{vd}
+\subsection{Các bất đẳng thức thường dùng để giải toán cực trị}
+\subsubsection{Quan hệ giữa đường vuông góc và đường xiên}
+Quan hệ này thường được sử dụng dưới dạng:
+\begin{itemize}
+	\item Trong các tam giác vuông (có thể suy biến thành đoạn thẳng) có các cạnh góc vuông $AH$ và cạnh huyền $AB$ thì $AB \geq AH$, xảy ra dấu bằng khi và chỉ khi $B$ trùng $H$.
+	\item Trong các đoạn thẳng nối từ một điểm đến các điểm thuộc một đường thẳng, đoạn thẳng vuông góc với đường thẳng có độ dài nhỏ nhất.
+	\item Trong các đoạn thẳng nối hai điểm nằm trên hai đường thẳng song song, đoạn thẳng vuông góc với hai đường thẳng song song có độ dài nhỏ nhất.
+\end{itemize}
+\begin{vd}%[Nguyễn Kim Huệ, dự án EX-C2 lớp 8 - 2018]%[7H3K2]
+	Cho hình vuông $ABCD$. Hãy nội tiếp trong hình vuông đó một hình vuông có diện tích nhỏ nhất.
+	\loigiai{
+		\immini{Gọi $EFGH$ là hình vuông nội tiếp trong hình vuông $ABCD$. Tâm cả hai hình vuông này phải trùng nhau tại một điểm $O$.\\
+			Ta có $$S_{EFGH}=\frac{EG\cdot FH}{2}=\frac{2OE\cdot 2OE}{2}=2OE^2.$$ Như vậy $S$ nhỏ nhất $\Leftrightarrow OE$ nhỏ nhất. Gọi $K$ là trung điểm của $AB$, ta có $OE \geq OK$ (hằng số); $OE=OK \Leftrightarrow E$ trùng $K$.\\
+			Vậy diện tích $EFGH$ nhỏ nhất khi các đỉnh $E, F, G, H$ là trung điểm các cạnh của hình vuông $ABCD$.
+		}{
+			\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzInit[ymin=-3,ymax=3,xmin=-3,xmax=3]
+			\tkzClip
+			\tkzDefPoints{0/0/O, 2/2/B, -2/2/A, -2/-2/D, 2/-2/C, -1/2/E, 2/1/F, 1/-2/G, -2/-1/H}
+			\tkzDrawSegments(A,B B,C C,D D,A E,G H,F)
+			\tkzDefMidPoint(A,B)\tkzGetPoint{K}
+			\tkzDrawSegment(O,K)
+			\tkzMarkRightAngles(O,K,B D,A,B A,B,C B,C,D C,D,A)
+			\tkzDrawPoints[fill=black](A,E,K,B,D,G,C,O,H,F)
+			\tkzLabelPoints[above](A,E,K,B)
+			\tkzLabelPoints[below](D,G,C,O)
+			\tkzLabelPoints[left](H)
+			\tkzLabelPoints[right](F)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\subsubsection{Quan hệ giữa đường xiên và hình chiếu}
+Trong hai đường xiên cùng kẻ từ một điểm nằm ngoài một đường thẳng lên đường thẳng đó, đường xiên nào có hình chiếu lớn hơn thì lớn hơn.
+\begin{vd}%[Nguyễn Kim Huệ, dự án EX-C2 lớp 8 - 2018]%[7H3K2]
+	Cho tam giác $ABC.$ Qua $A$ dựng đường thẳng $d$ cắt cạnh $BC$ của tam giác sao cho tổng các khoảng cách từ $B$ và $C$ đến $d$ có giá trị nhỏ nhất.
+	\loigiai{
+		\immini{
+			Gọi $D$ là giao điểm của $d$ và cạnh $BC$. Vẽ $BB'$, $CC'$ vuông góc với $d$. Với mọi vị trí của $D$ trên cạnh $BC$ ta có $$S_{ABD}+S_{CAD}=S_{ABC}$$
+			$$\Rightarrow \frac{1}{2}AD\cdot BB' + \frac{1}{2} AD \cdot CC' = S \Rightarrow BB'+CC'=\frac{2S}{AD}.$$
+			Do đó $BB'+CC'$ nhỏ nhất $\Leftrightarrow \dfrac{2S}{AD}$ nhỏ nhất $\Leftrightarrow AD$ lớn nhất.
+		}{
+			\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzInit[ymin=-3,ymax=3,xmin=-2,xmax=4]
+			\tkzClip
+			\tkzDefPoints{-1/-1/B, 2/-1/D, 3/-1/C, 0.5/2/A}
+			\tkzDrawSegments(A,B B,C C,A)
+			\tkzDefPointBy[projection=onto A--D](B)\tkzGetPoint{B'}
+			\tkzDefPointBy[projection=onto A--D](C)\tkzGetPoint{C'}
+			\tkzDrawSegments(B,B' C,C' A,C')
+			\tkzMarkRightAngles(B,B',D D,C',C)
+			\tkzDrawPoints[fill=black](B,D,C',A,B',C)
+			\tkzLabelPoints[below left](B,D)
+			\tkzLabelPoints[below](C')
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[left](B')
+			\end{tikzpicture}
+		}
+		Giả sử $AC \geq AB$ thì trong hai đường xiên $AD$, $AC$, đường xiên $AD$ có hình chiếu nhỏ hơn, do đó $AD \leq AC$ (hằng số); $AD=AC \Leftrightarrow D$ trùng $C$.\\
+		Vậy đường thẳng $d$ phải dựng là đường thẳng chứa cạnh lớn nhất trong hai cạnh $AB$, $AC$. \\
+	}
+	\begin{note}
+		Bỏ điều kiện đường thẳng $d$ cắt cạnh $BC$, xem bài 369.
+	\end{note}
+\end{vd}%[Nguyễn Kim Huệ, dự án EX-C2 lớp 8 - 2018]%[7H3K3]
+\subsubsection{Bất đẳng thức tam giác}
+Với ba điểm $A$, $B$, $C$ bất kì, ta có $AC+CB \geq AB$; $AC+CB = AB \Leftrightarrow C$ thuộc đoạn thẳng $AB$.\\ Để sử dụng bất đẳng thức tam giác, đôi khi ta phải thay đổi phía của một đoạn thẳng đối với một đường thẳng.
+\begin{vd}
+	Cho tam giác $ABC$ cân tại $A$ và điểm $D$ cố định thuộc cạnh đáy $BC$. Hãy dựng một đường thẳng song song với $BC$, cắt hai cạnh bên ở $E$ và $F$ sao cho $DE+DF$ có giá trị nhỏ nhất.
+	\loigiai{
+		\immini{
+			\textit{Phân tích cách giải:} Ta đổi phía của đoạn thẳng $DE$ với đường thẳng $AC$ bằng cách tạo ra một đoạn thẳng $D'E'$ sao cho $D'E'=DE$, $E'$ trùng $F$ và $D'$ cố định. Muốn vậy ta quay $D$ quanh $A$ một góc bằng góc $BAC$ (trên nửa mặt phẳng không chứa $D$, có bờ $AC$, dựng tia $Ax$ sao cho $\widehat{CAx}=\widehat{BAD}$, trên tia $Ax$ lấy $D'$ sao cho $AD'=AD$). Như vậy $D'$ là điểm cố định và $D'F=DE$ (vì $\triangle D'AF = \triangle DAE$ theo trường hợp cạnh - góc - cạnh).
+		}{
+			\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzInit[ymin=-1,ymax=4,xmin=-2,xmax=4]
+			\tkzClip
+			\tkzDefPoints{-1.5/0/B, 1.5/0/C, 0/3/A, -0.5/0/D}
+			\tkzDefPointWith[linear, K=0.3](B,A)\tkzGetPoint{E}
+			\tkzDefPointWith[linear, K=0.3](C,A)\tkzGetPoint{F}
+			\tkzDefPointBy[rotation= center A angle 53](D) \tkzGetPoint{D'}
+			\tkzDrawSegments(A,B B,C C,A A,D E,F)
+			\tkzDrawSegments[dashed](E,D D,F F,D')
+			\tkzMarkAngles(B,A,D C,A,D')
+			\tkzDrawLines[add=0 and 0.3](A,D')
+			\tkzLabelLine[pos=1.3, right](A,D'){$x$}
+			\tkzDrawPoints[fill=black](A,B,C,D,E,D',F)
+			\tkzLabelPoints[left](E)
+			\tkzLabelPoints[below](B,D,C)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[above left](F)
+			\tkzLabelPoints[above right](D')
+			\end{tikzpicture}
+		}
+		\noindent Ta có $DF+DE=DF+FD' \geq DD'$ (hằng số).\\
+		Do đó $DF+DE$ nhỏ nhất $\Leftrightarrow DF+FD'$ nhỏ nhất $\Leftrightarrow F$ là giao điểm của $DD'$ và $AC$.
+	}
+\end{vd}
+\subsubsection{Các bất đẳng thức đại số}
+Các bất đẳng thức thường được sử dụng là:
+\begin{itemize}
+	\item Bất đẳng thức về lũy thừa bậc chẵn:
+	$$x^2 \geq 0. \quad \quad (1)$$
+	$$-x^2 \leq 0. \quad \quad (2)$$
+	\item Bất đẳng thức Cô-si: $\left(x+y \right)^2 \geq 4xy$ hay $x+y \geq 2 \sqrt{xy} \quad (3)$
+	với $x, y$ không âm, xảy ra đẳng thức khi và chỉ khi $x=y$.
+\end{itemize}
+Chú ý rằng từ bất đẳng thức $(3)$, ta còn suy ra với hai số không âm $x, y:$
+\begin{itemize}
+	\item Nếu $x+y$ là hằng số thì $xy_\text{max} \Leftrightarrow x=y;$
+	\item Nếu $xy$ là hằng số thì $\left(x+y\right)_\text{min} \Leftrightarrow x=y.$
+\end{itemize}
+Để sử dụng các bất đẳng thức đại số, ta thường đặt một độ dài thay đổi bằng $x$, biểu thị đại lượng cần tìm cực trị bằng một biểu thức của $x$, rồi tìm điều kiện để biểu thức có cực trị.
+\begin{vd}%[Nguyễn Kim Huệ, dự án EX-C2 lớp 8 - 2018]%[8H2B2]
+	Cho hình vuông $ABCD$. Hãy nội tiếp trong hình vuông đó một hình vuông có diện tích nhỏ nhất.
+	\loigiai{ Xét hình vuông $EFGH$ nội tiếp hình vuông $ABCD$, ta có $AE=BF=CG=DH$. Gọi $AB=a$, $AE=x$ thì $$EB=FC=DG=HA=a-x.$$
+		\immini{
+			\textit{Cách 1.} Gọi diện tích hình vuông $EFGH$ là $S$, ta có:
+			\begin{eqnarray*}
+				S&=&a^2-4 \cdot \dfrac{x\left(a-x\right)}{2}=\\
+				&=&a^2-2ax+2x^2=\\
+				&=&2 \left(x-\dfrac{a}{2}\right)^2+\dfrac{a^2}{2} \geq \dfrac{a^2}{2};
+			\end{eqnarray*}
+			$\min S = \dfrac{a^2}{2} \Leftrightarrow x=\dfrac{a}{2} \Leftrightarrow E$ là trung điểm của $AB$.
+		}{\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzInit[ymin=-3,ymax=3,xmin=-4,xmax=3]
+			\tkzClip
+			\tkzDefPoints{-2/2/A, 2/2/B, -0.5/2/E, 2/-2/C, -2/-2/D, 0/0/O}
+			\tkzDefPointBy[rotation= center O angle 90](E) \tkzGetPoint{H}
+			\tkzDefPointBy[rotation= center O angle 90](H) \tkzGetPoint{G}
+			\tkzDefPointBy[rotation= center O angle 90](G) \tkzGetPoint{F}
+			\tkzDrawSegments(A,B B,C C,D D,A E,F F,G G,H H,E)
+			\tkzLabelSegments[pos=0.5, above](A,E){$x$}
+			\tkzLabelSegments[pos=0.5, left](A,H){$a-x$}
+			\tkzDrawPoints[fill=black](A,H,G,D,C,E,B,F)
+			\tkzLabelPoints[left](A,H)
+			\tkzLabelPoints[below](G,D,C)
+			\tkzLabelPoints[above](E)
+			\tkzLabelPoints[right](B,F)
+			\end{tikzpicture}
+		}
+		\textit{Lưu ý:} Ta kí hiệu $\min S$ là giá trị nhỏ nhất của $S$, $\max S$ là giá trị lớn nhất của $S$.\\
+		\textit{Cách 2.} $S_{EFGH}$ nhỏ nhất $\Leftrightarrow 4S_{AEH}$ lớn nhất $\Leftrightarrow 4 \cdot \dfrac{x \left( a-x \right)}{2}$ lớn nhất $\Leftrightarrow x \left(a-x \right)$ lớn nhất.\\
+		Chú ý rằng $x$ và $a-x$ là hai số dương có tổng không đổi (bằng $a$) nên tích của chúng lớn nhất khi và chỉ khi hai số ấy bằng nhau. Khi đó $$x=a-x \Leftrightarrow x=\dfrac{a}{2} \Leftrightarrow E \text{ là trung điểm của } AB.$$
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Kim Huệ, dự án EX-C2 lớp 8 - 2018]%[7H2B7]
+	Cho tam giác $ABC$ vuông cân có $AB=AC=10$ cm. Tam giác $DEF$ vuông cân ở $D$ nội tiếp tam giác $ABC$ ($D$ thuộc $AB$, $F$ thuộc $AC$, $E$ thuộc $BC$). Xác định vị trí của điểm $D$ để diện tích tam giác $DEF$ nhỏ nhất.
+	\loigiai{
+		\immini{ Ta có, tam giác $\triangle DEF$ vuông cân ở $D$ nên
+			\begin{eqnarray*}
+				S_{DEF}&=&\frac{1}{2}DE \cdot DF = \frac{1}{2} DE^2=\\
+				&=&\frac{1}{2}\left(EH^2+DH^2 \right)=\frac{1}{2} \left[x^2+\left(10-2x\right)^2 \right]=\\
+				&=&\frac{1}{2}\left(5x^2-40x+100\right)=\frac{5}{2}\left(x^2-8x+20\right)=\\
+				&=&\frac{5}{2}\left(x-4\right)^2+10 \geq 10.
+			\end{eqnarray*}
+			$\min S_{DEF}=10$ (cm$^2) \Leftrightarrow x=4.$ \\
+			Do đó $AD=4$ cm.\\
+			\begin{note}
+				Tổng quát, $\min S_{DEF} = \dfrac{1}{5} S_{ABC}.$
+			\end{note}
+		}{\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzInit[ymin=-1,ymax=6,xmin=-1,xmax=5]
+			\tkzClip
+			\tkzDefPoints{0/0/A, 4/0/C, 0/4/B, 1.5/2.5/E, 0/1.5/D}
+			\tkzDefPointBy[projection=onto A--B](E)\tkzGetPoint{H}
+			\tkzDefPoints{1/0/F}
+			\tkzDrawSegments(A,B B,C C,A H,E E,F D,E D,F)
+			\tkzMarkSegments[pos=0.5, mark=|](D,E D,F)
+			\tkzMarkRightAngles(D,H,E E,D,F B,A,C)
+			\tkzLabelSegments[pos=0.5, left](H,B D,A){$x$}
+			\tkzLabelSegment[pos=0.5, above](H,E){$x$}
+			\tkzDrawPoints[fill=black](H,D,A,F,C,B,E)
+			\tkzLabelPoints[left](H,D)
+			\tkzLabelPoints[below](A,F,C)
+			\tkzLabelPoints[above](B)
+			\tkzLabelPoints[right](E)
+			\end{tikzpicture}\\ \centering \textit{Hình 51}
+		}
+	}
+\end{vd}
+
+\begin{vd}%[Nguyễn Kim Huệ, dự án EX-C2 lớp 8 - 2018]%[8H2G6]
+	Các đường chéo của tứ giác $ABCD$ cắt nhau ở $O$. Tính diện tích nhỏ nhất của tứ giác, biết $S_{AOB} = 4$ cm$^2$, $S_{COD}=9$ cm$^2$.
+	\loigiai{Kí hiệu như hình 52. Ta có: $$\frac{S_4}{S_2}=\frac{OA}{OC}=\frac{S_1}{S_3} \Rightarrow S_1S_2=S_3S_4. \quad \quad (1)$$
+		Theo bất đẳng thức Cô-si: $$S_3 +S_4 \geq 2 \sqrt{S_3S_4}=2\sqrt{4 \cdot 9}=12.$$
+		\immini{ 	$\max S = 25$ (cm$^2$) khi và chỉ khi: $$S_3=S_4 \Leftrightarrow S_{ADC}=S_{BCD} \Leftrightarrow AB \parallel CD.$$
+			Ta có $$S=S_1+S_2+S_3+S_4 \geq 4+9 +12 = 25.$$
+		}{
+			\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzInit[ymin=-4,ymax=2,xmin=-3,xmax=3]
+			\tkzClip
+			\tkzDefPoints{-1/1/A, 1/1.25/B, 2.4/-3/C, -2.5/-2/D}
+			\tkzDrawSegments(A,B B,C C,D D,A A,C B,D)
+			\tkzCentroid(A,O,B) \tkzGetPoint{1}
+			\tkzCentroid(C,O,B) \tkzGetPoint{3}
+			\tkzCentroid(D,O,C) \tkzGetPoint{2}
+			\tkzCentroid(A,O,D) \tkzGetPoint{4}
+			\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+			\tkzDrawPoints[fill=black](A,B,C,D,O)
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[below](C,D,O)
+			\tkzLabelPoints[left](1,2,3)
+			\tkzLabelPoints[right](4)
+			\end{tikzpicture}\\ \centering \textit{Hình 52}
+		}
+		\noindent \textit{Chú ý:} Tổng quát, thay $4$ và $9$ bởi $a$ và $b$, ta có $\max S = \left(\sqrt{a}+\sqrt{b} \right)^2.$
+	}
+\end{vd}
+\subsection{Các chú ý khi giải toán cực trị}
+\begin{note} Khi giải các bài toán cực trị, nhiều khi ta cần biến đổi tương đương điều kiện cực trị của đại lượng này thành điều kiện cực trị của đại lượng khác.
+\end{note}
+\begin{vd}%[Nguyễn Kim Huệ, dự án EX-C2 lớp 8 - 2018]%[7H2B6]
+	Cho tam giác $ABC$ có ba góc nhọn, $M$ là một điểm bất kì nằm trên cạnh $BC$. Gọi $E$, $F$ theo thứ tự là hình chiếu của $M$ lên $AB$, $AC$. Tìm vị trí của $M$ để $EF$ có độ dài nhỏ nhất.
+	\loigiai{
+		\immini{Chú ý đến hai tam giác vuông chung cạnh huyền là $AEM, AFM$, ta gọi $I$ là trung điểm của $AM$, ta có $IA=IE=IM=IF$. Như vậy $EF$ là cạnh đáy của tam giác cân $IEF$. Dễ thấy $\widehat{EIF}=2 \widehat{EAF}$, mà $\widehat{EAF}$ không đổi nên $\widehat{EIF}$ không đổi. Tam giác cân $EIF$ có số đo góc ở đỉnh không đổi nên cạnh đáy nhỏ nhất khi và chỉ khi cạnh bên nhỏ nhất. Do đó $EF$ nhỏ nhất $\Leftrightarrow IE$ nhỏ nhất $\Leftrightarrow AM$ nhỏ nhất. Khi đó $M$ là chân đường vuông góc kẻ từ $A$ đến $BC$.
+		}{
+			\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzInit[ymin=-2,ymax=4,xmin=-2,xmax=5]
+			\tkzClip
+			\tkzDefPoints{0/3/A, -1/-1/B, 4/-1/C, 0.5/-1/M}
+			\tkzDefPointBy[projection=onto A--B](M) \tkzGetPoint{E}\tkzDefPointBy[projection=onto A--C](M) \tkzGetPoint{F}
+			\tkzDefMidPoint(A,M) \tkzGetPoint{I}
+			\tkzDrawSegments(A,B A,C B,C E,F E,M M,F)
+			\tkzDrawSegments[dashed](A,M I,E I,F)
+			\tkzMarkRightAngles(B,E,M M,F,C)
+			\tkzDrawPoints[fill=black](A,B,C,E,F,M,I)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B,C,M)
+			\tkzLabelPoints[left](E)
+			\tkzLabelPoints[right](F)
+			\tkzLabelPoints[above right](I)
+			\end{tikzpicture} \\ \centering \textit{Hình 53}
+		}
+	}
+\end{vd}
+\begin{note} Nhiều bài toán cực trị có liên quan đến bài toán tìm tập hợp điểm: Trong tập hợp các hình có chung một tính chất, khi ta cố định một yếu tố không đổi của hình, các điểm còn lại có thể chuyển động trên một đường nhất định, việc theo dõi vị trí của chúng giúp ta tìm được cực trị của bài toán.
+\end{note}
+\begin{vd}%[Nguyễn Kim Huệ, dự án EX-C2 lớp 8 - 2018]%[8H1B6]%[8H1B6]%[8H2B3]
+	Trong các hình bình hành có diện tích và một đường chéo không đổi, hình nào có chu vi nhỏ nhất?
+	\loigiai{Xét các hình bình hành $ABCD$ có $BD$ cố định. Diện tích hình bình hành không đổi nên diện tích tam gác $ABD$ không đổi, do đó $A$ chuyển động trên đường thẳng $d \parallel BD$.
+		\immini{
+			Cần xác định vị trí của $A$ trên $d$ để $BA+AD$ nhỏ nhất. Ta đổi phía cỉa $BA$ đối với $d$ bằng cách lấy $B'$ đối xứng với $B$ qua $d$. Khi đó $B'$ cố định, $$BA+AD = B'A+AD \geq B'D \text{ (hằng số).}$$
+			$BA+AD$ nhỏ nhất $\Leftrightarrow B'A+AD$ nhỏ nhất $\Leftrightarrow A$ là giao điểm của $d$ và đoạn $B'D$. Khi đó $AB=AD$.\\
+			Vậy hình bình hành có chu vi nhỏ nhất khi nó là hình thoi.
+		}{
+			\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzInit[ymin=-1.5,ymax=5,xmin=-2,xmax=4.5]
+			\tkzClip
+			\tkzDefPoints{2/2/A, -1/1/B, 3/0.5/D}
+			\tkzDefLine[parallel=through A](B,D)\tkzGetPoint{d}
+			\tkzDefPointBy[reflection=over A--d](B)\tkzGetPoint{B'}
+			\tkzDefLine[parallel=through B](A,D)\tkzGetPoint{x}
+			\tkzDefLine[parallel=through D](B,A)\tkzGetPoint{y}
+			\tkzInterLL(B,x)(D,y)\tkzGetPoint{C}
+			\tkzInterLL(B,B')(A,d)\tkzGetPoint{M}
+			\tkzDrawLine[add=1 and -0.5](A,d)
+			\tkzLabelLine[above](A,d){$d$}
+			\tkzDrawSegments(A,B A,D B,D B,C D,C)
+			\tkzDrawSegments[dashed](B,B' B',A)
+			\tkzMarkRightAngle(B',M,A)
+			\tkzDrawPoints[fill=black](B',A,C,B,D)
+			\tkzLabelPoints[above](B',A)
+			\tkzLabelPoints[below](C)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](D)
+			\end{tikzpicture} 
+		}
+	}
+\end{vd}
+\begin{note}
+	Khi giải các bài toán cực trị, có khi ta phải tìm giá trị lớn nhất (nhỏ nhất) trong từng trường hợp, rồi so sánh các giá trị ấy với nhau để tìm giá trị lớn nhất (nhỏ nhất) của cả bài toán.
+\end{note}
+\begin{vd}%[Nguyễn Kim Huệ, dự án EX-C2 lớp 8 - 2018]%[7H3B2]%[8H1K8]
+	Cho tam giác $ABC$. Dựng đường thẳng $d$ đi qua $A$ sao cho tổng các khoảng cách từ $B$ và $C$ đến $d$ có giá trị lớn nhất.
+	\loigiai{
+		\immini{Gọi $BB', CC'$ là khoảng cách từ $B$ và $C$ đến $d$. Xét hai trường hợp:
+			\begin{enumerate}
+				\item Đường thẳng $d$ cắt cạnh $BC$ tại $D$ (hình 55): $$BB'+CC' \leq BD+CD=BC.$$ (Chú ý rằng nếu $\widehat B$ hoặc $\widehat C$ lớn hơn $90^{\circ}$ thì dấu bằng không đạt được, nhưng điều đó không ảnh hưởng đến bài toán).
+				\item Đường thẳng $d$ không cắt cạnh $BC$. Khi đó $d$ cắt cạnh $CE$ với $E$ là điểm đối xứng với $B$ qua $A$.
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzInit[ymin=-2,ymax=5,xmin=-3,xmax=5]
+			\tkzClip
+			\tkzDefPoints{-2/0/B, 1/0/D, 3/0/C, -1/2/A}
+			\tkzDefPointBy[symmetry= center A](B) \tkzGetPoint{E}
+			\tkzDefPointBy[projection= onto A--D](B) \tkzGetPoint{B'}
+			\tkzDefPointBy[projection= onto A--D](C) \tkzGetPoint{C'}
+			\tkzDefPointBy[projection= onto E--C](A) \tkzGetPoint{a}
+			\tkzDrawSegments(A,B B,C C,A B,B' C,C')
+			\tkzDrawSegments[dashed](A,E E,C)
+			\tkzMarkSegments[pos=0.5, mark=|](A,B A,E)
+			\tkzDrawLine[add=0.5 and 0.5, dashed](A,a)
+			\tkzDrawLine[add=0 and 0.2](A,C')
+			\tkzLabelLine[pos=1.2, right](A,C'){$d$}
+			\tkzMarkRightAngles(A,B',B D,C',C)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,B',C')
+			\tkzLabelPoints[above](A,E)
+			\tkzLabelPoints[below](B,B',D)
+			\tkzLabelPoints[left](C')
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+		\noindent Giải như trường hợp $1$, ta được $BB' +CC' \leq CE.$\\
+		Bây giờ ta so sánh $BC$ và $CE$:
+		\begin{enumEX}{3}
+			\item \immini{}{\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\tkzInit[ymin=-2,ymax=5,xmin=-3,xmax=5]
+				\tkzClip
+				\tkzDefPoints{-2/0/B, 1/0/D, 3/0/C, -1/1.5/A}
+				\tkzDefPointBy[symmetry= center A](B) \tkzGetPoint{E}
+				\tkzDefPointBy[projection= onto B--C](A) \tkzGetPoint{d}
+				\tkzDefPointBy[projection= onto A--E](C) \tkzGetPoint{H}
+				\tkzDrawSegments(E,B B,C C,A)
+				\tkzDrawSegments[dashed](C,E C,H)
+				\tkzMarkSegments[pos=0.5, mark=|](A,B A,E)
+				\tkzDrawLine[add=0.7 and 0.5](A,d)
+				\tkzLabelLine[pos=-0.7, left](A,d){$d$}
+				\tkzMarkRightAngles(A,d,C C,H,E)
+				\tkzDrawPoints[fill=black](A,B,C,E,H)
+				\tkzLabelPoints[above](H,E)
+				\tkzLabelPoints[below](B,C)
+				\tkzLabelPoints[left](A)
+				\end{tikzpicture}
+			}
+			\item \immini{}{\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\tkzInit[ymin=-2,ymax=5,xmin=-3,xmax=5]
+				\tkzClip
+				\tkzDefPoints{-2/0/B, 1/0/D, 2/0/C, -2/2/A}
+				\tkzDefPointBy[symmetry= center A](B) \tkzGetPoint{E}
+				\tkzDefPointBy[projection= onto E--C](A) \tkzGetPoint{d}
+				\tkzDrawSegments(E,B B,C C,A)
+				\tkzDefMidPoint(B,C) \tkzGetPoint{M}
+				\tkzDrawSegments[dashed](C,E A,M)
+				\tkzMarkSegments[pos=0.5, mark=|](A,B A,E)
+				\tkzDrawLine[add=0.7 and 0.7](A,d)
+				\tkzLabelLine[pos=1.7, above](A,d){$d$}
+				\tkzMarkRightAngles(A,d,E)
+				\tkzDrawPoints[fill=black](A,B,C,E,M)
+				\tkzLabelPoints[above](E)
+				\tkzLabelPoints[below](B,M,C)
+				\tkzLabelPoints[left](A)
+				\end{tikzpicture}\\
+				\textit{Hình 56}}
+			\item \immini{}{
+				\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\tkzInit[ymin=-1,ymax=5,xmin=-3,xmax=3]
+				\tkzClip
+				\tkzDefPoints{-2/0/B, 1/0/D, 2/0/C, -1/1.7/A}
+				\tkzDefPointBy[symmetry= center A](B) \tkzGetPoint{E}
+				\tkzDefPointBy[projection= onto E--C](A) \tkzGetPoint{a}
+				\tkzDefPointBy[projection= onto B--C](A) \tkzGetPoint{b}
+				\tkzDrawSegments(E,B B,C C,A)
+				\tkzDefMidPoint(B,C) \tkzGetPoint{M}
+				\tkzDrawSegments[dashed](C,E A,M)
+				\tkzMarkSegments[pos=0.5, mark=|](A,B A,E)
+				\tkzDrawLine[add=0.3 and 0.7](A,a)
+				\tkzDrawLine[add=0.7 and 0.3](A,b)
+				\tkzLabelLine[pos=1.7, below](A,a){$d_2$}
+				\tkzLabelLine[pos=-0.7, left](A,b){$d_1$}
+				\tkzMarkRightAngles(A,a,C A,b,C B,A,C)
+				\tkzDrawPoints[fill=black](A,B,C,E,M)
+				\tkzLabelPoints[above](E)
+				\tkzLabelPoints[below](B,M,C)
+				\tkzLabelPoints[left](A)
+				\end{tikzpicture}}
+		\end{enumEX}
+		\begin{enumerate}
+			\item Trường hợp $\widehat{BAC} > 90^{\circ}$ (Hình 56.a). Nếu kẻ $CH \perp BE$ thì $H$ thuộc tia đối của tia $AB$ nên $HB>HE$, do đó $BC>CE$. Ta có $$\max \left(BB'+CC'\right)=BC \Leftrightarrow d \perp BC.$$
+			\item Trường hợp $\widehat{BAC} < 90^{\circ}$ (Hình 56.b). Nếu kẻ $CH \perp BE$ thì $H$ thuộc tia đối của tia $AE$ nên $HE>HB$, do đó $CE>CB$. Ta có $$\max \left(BB'+CC'\right)=CE \Leftrightarrow d \perp CE.$$
+			\item Trường hợp $\widehat{BAC} = 90^{\circ}$ (Hình 56.c). Ta có $CE=CB$. Do đó $$\max \left(BB'+CC'\right)=CE=BC \Leftrightarrow d \perp BC \text{ hoặc } d \perp CE.$$
+		\end{enumerate}
+	}
+\end{vd}
+\begin{note}
+	\begin{enumerate}
+		\item Nếu gọi $M$ là trung điểm của $BC$ thì $CE \parallel AM$, $CE=2AM$ nên kết luận của bài toán được diễn đạt như sau:
+		\begin{itemize}
+			\item Nếu $\widehat{BAC} > 90^{\circ}$ thì $\max \left(BB'+CC'\right)=BC \Leftrightarrow d \perp BC.$
+			\item Nếu $\widehat{BAC} < 90^{\circ}$ thì $\max \left(BB'+CC'\right)=2AM \Leftrightarrow d \perp AM.$
+			\item Nếu $\widehat{BAC} = 90^{\circ}$ thì $\max \left(BB'+CC'\right)=BC =2AM \Leftrightarrow d \perp BC \text{ hoặc } d \perp AM.$
+		\end{itemize}
+		\item Đặc biệt hóa ví dụ trên khi tam giác $ABC$ vuông cân tại $A$, ta có bài toán: Cho hình vuông $ABCD$. Dựng đường thẳng $d$ đi qua tâm của hình vuông sao cho tổng khoảng cách từ bốn đỉnh của hình vuông đến đường thẳng đó có giá trị lớn nhất.\\
+		Trả lời: Các đường thẳng phải dựng gồm hai đường thẳng chứa đường trung bình của hình vuông.
+	\end{enumerate}
+\end{note}
+\subsubsection{Bài tập}
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Tính diện tích lớn nhất của tứ giác $ABCD$, biết $AB=AD=a$ và $BC=CD=b$.
+\loigiai{
+\immini
+{
+	Ta có $\triangle ABC=\triangle ADC\,(c-c-c)$ nên $S_{ABC}=S_{ADC}$.\\
+	Do đó: $S_{ABCD}=2S_{ABC}$.
+	Kẻ $CE\perp AB$ với $E\in AB$.\\
+	Khi đó $S_{ABCD}=2S_{ABC}=AB\cdot CE\le AB\cdot BC=ab$.\\
+	Dấu bằng xảy ra $\Leftrightarrow AB\perp BC$, hay $\widehat{B}=\widehat{D}=90^\circ$.\\
+	Vậy $\max S_{ABCD}=ab\Leftrightarrow \widehat{B}=\widehat{D}=90^\circ$.
+}
+{
+	\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-2.5,ymax=3,xmin=-1,xmax=6]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/A,2/2/B,5/0/C,2/-2/D,2.5/2.5/E}
+	
+	\tkzDrawSegments(A,B B,C C,D D,A A,C C,E)
+	\tkzDrawSegments[dashed](B,E)
+	\tkzDrawPoints(A,B,C,D,E)
+	\tkzLabelPoints[left](A,B)
+	\tkzLabelPoints[right](C,D,E)
+	%\tkzLabelPoints[above]()
+	%\tkzLabelPoints[below]()
+	\tkzMarkRightAngles(B,E,C)
+	\tkzMarkSegments[mark=|](A,B A,D)
+	\tkzMarkSegments[mark=||](C,B C,D)
+	\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Trong các hình chữ nhật có đường chéo bằng $d$ không đổi, hình nào có diện tích lớn nhất? Tính diện tích lớn nhất đó.
+\loigiai{
+Gọi chiều dài, chiều rộng của hình chữ nhật thứ tự là $a$ và $b$ ($0<b\le a$).\\
+Khi đó: $a^2+b^2=d^2$ và $S_{\text{hcn}}=a.b\le\dfrac{a^2+b^2}{2}=\dfrac{d^2}{2}$ không đổi.\\
+Dấu bằng xảy ra $\Leftrightarrow a=b$ hay đó là hình vuông.
+Vậy diện tích lớn nhất của hình chữ nhật có độ dài dường chéo $d$ không đổi là $\dfrac{d^2}{2}$, xảy ra khi nó là hình vuông.
+}
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Cho tam giác $ABC$ vuông tại $A$, điểm $M$ nằm giữa $B$ và $C$. Gọi $D$, $E$ thứ tự là hình chiếu của $M$ lên $AC$, $AB$. Tìm vị trí của $M$ để $DE$ có độ dài nhỏ nhất.
+\loigiai{
+\immini
+{
+	Xét tứ giác $ADME$ có $\widehat{A}=\widehat{D}=\widehat{E}=90^\circ$ nên ta có tứ giác $ADME$ là hình chữ nhật, do đó $DE=AM$.\\
+	Khi đó $DE\,\min\Leftrightarrow AM\,\min$.\\
+	Kẻ $AH\perp BC$ với $H\in BC$, ta được $AM\ge AH$.\\
+	Suy ra $AM\,\min \Leftrightarrow AM=AH\Leftrightarrow M\equiv H\Leftrightarrow AM\perp BC$.\\
+	Vậy $DE\,\min\Leftrightarrow AM\perp BC$.
+}
+{
+	\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-0.5,ymax=3,xmin=-0.5,xmax=5.5]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/B,1.8/2.4/A,5/0/C,3/0/M}
+	
+	\tkzDefPointBy[projection=onto A--C](M)\tkzGetPoint{D}
+	\tkzDefPointBy[projection=onto A--B](M)\tkzGetPoint{E}
+	\tkzDefPointBy[projection=onto C--B](A)\tkzGetPoint{H}
+	\tkzDrawSegments(A,B B,C C,A A,M M,D M,E D,E A,H)
+	\tkzDrawPoints(A,B,C,M,D,E,H)
+	\tkzLabelPoints[left](A,B,E)
+	\tkzLabelPoints[right](C)
+	\tkzLabelPoints[above](D)
+	\tkzLabelPoints[below](M,H)
+	\tkzMarkRightAngles(B,A,C B,E,M M,D,C C,H,A)
+	\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Cho tam giác $ABC$ vuông tại $A$, đường cao $AH$. Gọi $D$, $E$ thứ tự thuộc các cạnh $AC$, $AB$ sao cho $\widehat{DHE}=90^\circ$. Tìm vị trí của $D,E$ để $DE$ có độ dài nhỏ nhất.
+\loigiai{
+\immini
+{
+	Do $\widehat{DHE}=\widehat{AHB}=90^\circ$ nên $\widehat{EHB}=\widehat{DHA}$.\\
+	Do $\widehat{BAC}=\widehat{AHB}=90^\circ$ nên $\widehat{EBH}=\widehat{DAH}$.\\
+	Từ 2 điều trên ta được $\triangle EBH\backsim \triangle DAH$.\\
+	Do đó $\dfrac{AB}{DE}=\dfrac{HB}{HE}$ hay $DE=\dfrac{HB}{AB}\cdot HE$.\\
+	Suy ra $DE\,\min\Leftrightarrow HE\,\min\Leftrightarrow HE\perp AB$, khi đó tứ giác $ADHE$ là hình chữ nhật hay $HD\perp BC$.\\
+	Vậy $DE\,\min\Leftrightarrow HD\perp BC\,\text{và}\,HE\perp BC$.
+}
+{
+	\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-0.5,ymax=3,xmin=-0.5,xmax=5.5]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/B,1.8/2.4/A,5/0/C}
+	
+	\tkzDefPointBy[homothety=center B ratio 0.3](A)\tkzGetPoint{E}
+	\tkzDefPointBy[homothety=center A ratio 0.3](C)\tkzGetPoint{D}
+	\tkzDefPointBy[projection=onto C--B](A)\tkzGetPoint{H}
+	\tkzDrawSegments(A,B B,C C,A H,D H,E D,E A,H)
+	\tkzDrawPoints(A,B,C,D,E,H)
+	\tkzLabelPoints[left](A,B,E)
+	\tkzLabelPoints[right](C)
+	\tkzLabelPoints[above](D)
+	\tkzLabelPoints[below](H)
+	\tkzMarkRightAngles(B,A,C C,H,A D,H,E)
+	\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Cho tam giác $ABC$ vuông cân tại $A$, $BC=2a$. Một đường thẳng $d$ bất kì đi qua $A$ và không cắt cạnh $BC$. Gọi $I$ và $K$ theo thứ tự là hình chiếu vuông góc của $B$ và $C$ lên đường thẳng $d$, gọi $H$ là trung điểm $BC$. Tính diện tích lớn nhất của tam giác $HIK$. 
+\loigiai{
+\immini
+{
+	Xét hai tam giác $BIA$ và $AKC$ có $\widehat{I}=\widehat{K}=90^\circ$, $AB=AC$ và $\widehat{BAI}=\widehat{ACK}\,(=90^\circ-\widehat{KAC})$ nên $\triangle BIA=\triangle AKC$.\\
+	Khi đó: $BI=AK$ và $AI=KC$ hay $IK=BI+CK$.\\
+	Kẻ $HM\perp IK\,(M\in IK)$.\\
+	Theo tính chất đường trung bình trong hình thang $BIKC$ với $H$ là trung điểm $BC$ và $BI\parallel MH\parallel CK$ thì $M$ là trung điểm $IK$ và $MH=\dfrac{IB+CK}{2}=\dfrac{IK}{2}$.\\
+	Suy ra $S_{HIK}=\dfrac{MH\cdot IK}{2}=MH^2\le MA^2=a^2$.\\
+	Vậy $\max S_{HIK}=a^2\Leftrightarrow d\perp AH\Leftrightarrow d\parallel BC$.
+}
+{
+	\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-0.5,ymax=3,xmin=-1.5,xmax=4.5]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/B,2/2/A,4/0/C,-1/1/d}
+	
+	\tkzDefPointBy[projection=onto A--d](B)\tkzGetPoint{I}
+	\tkzDefPointBy[projection=onto A--d](C)\tkzGetPoint{K}
+	\tkzDefMidPoint(B,C)\tkzGetPoint{H}
+	\tkzDefMidPoint(I,K)\tkzGetPoint{M}
+	\tkzDrawLines(d,K)
+	\tkzDrawSegments(A,B B,C C,A B,I C,K H,I H,K M,H M,A)
+	\tkzDrawPoints(A,B,C,H,I,K,M)
+	\tkzLabelPoints[above](I,M,K,A,d)
+	\tkzLabelPoints[below](H,B,C)
+	\tkzMarkRightAngles(B,A,C B,I,A A,K,C H,M,K)
+	\tkzMarkSegments[mark=|](A,B A,C)
+	\tkzMarkSegments[mark=||](H,B C,H)
+	\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Cho hình chữ nhật $ABCD$. Trên các cạnh $AB$, $BC$, $CD$, $DA$ lấy theo thứ tự các điểm $E$, $F$, $G$, $H$ sao cho $AE=AH=CF=CG$. Xác định vị trí các điểm $E$, $F$, $G$, $H$ để tứ giác $EFGH$ có diện tích lớn nhất, nếu:
+	\begin{enumerate}
+		\item $AB=40$ cm, $BC=20$ cm.
+		\item $AB=a$, $BC=b$ ($b<a<3a$).
+	\end{enumerate} 
+\loigiai{
+\immini
+{
+	Ta thấy câu (a) là trường hợp đặc biệt của câu (b) do đó ta chỉ cần giải quyết câu (b) là đủ.\\
+	Đặt $AE=AH=CF=CG=x$ ($0\le x\le b$).
+	Khi đó 
+	\begin{eqnarray*}
+	&S_{EFGH}&=S_{ABCD}-S_{AEH}-S_{BEF}-S_{CFG}-S_{DHG}\\
+	& &= ab-\dfrac{1}{2}[x^2+(a-x)(b-x)+x^2+(b-x)(a-x)]\\
+	& &=(a+b)x-2x^2\\
+	& &=\dfrac{(a+b)^2}{8}-2\left(x-\dfrac{a+b}{4}\right)^2 \le \dfrac{(a+b)^2}{8}. 
+	\end{eqnarray*}
+}
+{
+	\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-0.5,ymax=3.5,xmin=-1.5,xmax=4.5]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/D,0/3/A,4/3/B,4/0/C,1/3/E,4/1/F,3/0/G,0/2/H}
+	
+	\tkzDrawSegments(A,B B,C C,D D,A E,F F,G G,H H,E)
+	\tkzDrawPoints(A,B,C,D,E,F,G,H)
+	\tkzLabelPoints[above](A,E,B)
+	\tkzLabelPoints[below](C,G,D)
+	\tkzLabelPoints[left](H)
+	\tkzLabelPoints[right](F)
+	\tkzMarkRightAngles(D,A,B A,B,C B,C,D C,D,A)
+	\tkzMarkSegments[mark=|](A,B C,D)
+	\tkzMarkSegments[mark=||](A,D B,C)
+	\tkzMarkSegments[mark=x](A,E A,H C,F C,G)
+	\end{tikzpicture}
+}
+	Suy ra $\max S_{EFGH}=\dfrac{(a+b)^2}{8}\Leftrightarrow x=\dfrac{a+b}{4}$, giá trị $x$ thỏa mãn $0\le x\le b$ do $b<a<3b$.\\
+	Vậy $S_{EFGH}$ lớn nhất khi $E,F,G,H$ thỏa mãn $AE=AH=CF=CG=\dfrac{a+b}{4}.$  
+}
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Người ta dùng một đoạn dây căng thành 3 đoạn thẳng tạo với một bức tường làm thành một hình chữ nhật. Hãy chỉ ra cách căng dây để hình chữ nhật đó có diện tích lớn nhất.
+\loigiai{
+Do có một cạnh của hình chữ nhật bức tường nên trong hai chiều của hình chữ nhật thì một chiều có độ dài $a$ ($a>0$) bao gồm 1 đoạn dây và 1 đoạn tường còn một chiều có độ dài $b$ ($b>0$) bao gồm 2 đoạn dây. Khi đó diện tích hình chữ nhật là $S=a.b$.\\
+Gọi độ dài đoạn dây là $l$ không đổi thì ta được $a+2b=l$.\\
+Theo bất đẳng thức Cauchy ta có $l=a+2b\ge 2\sqrt{2ab}=2\sqrt{2S}$ hay $S\le \dfrac{l^2}{8}$.\\
+Suy ra diện tích hình chữ nhật lớn nhất là $\dfrac{l^2}{8}$ xảy ra khi $a=2b\Leftrightarrow a=\dfrac{l}{2}\,\text{và}\,b=\dfrac{l}{4}$.\\
+Vậy ta có cách căng dây là: chia đoạn dây thành 4 phần bằng nhau; tính từ 2 đầu mút lấy vào mỗi đầu $\frac{1}{4}$ đoạn dây để làm 2 chiều rộng, $\frac{1}{2}$ phần dây còn lại cùng với bức tường làm thành 2 chiều dài.  
+} 
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Tìm điểm $M$ sao cho tổng khoảng cách từ $M$ đến các đỉnh của một lục giác đều cho trước là nhỏ nhất.
+\loigiai{
+\immini
+{
+	Xét lục giác đều $ABCDEF$ có $AD$, $BE$, $CF$ đồng quy tại $O$ hay $O$ là tâm của lục giác đều.\\
+	Ta có: $MA+MB+MC+MD+ME+MF\ge AD+BE+CF$.\\
+	Dấu bằng xảy ra khi và chỉ khi $M$ cùng thuộc các đoạn thẳng $AD$, $BE$, $CF$ hay $M\equiv O$.\\
+	Vậy vị trí điểm $M$ cần tìm là tâm của lục giác đều.
+}
+{
+	\begin{tikzpicture}[scale=0.8, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-0.5,ymax=4,xmin=-1.5,xmax=3.5]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/E,2/0/D,0.5/1.5/M}
+	
+	\tkzDefMidPoint(B,E)\tkzGetPoint{O}
+	\tkzDefPointBy[rotation=center D angle -120](E)\tkzGetPoint{C}
+	\tkzDefPointBy[rotation=center C angle -120](D)\tkzGetPoint{B}
+	\tkzDefPointBy[rotation=center B angle -120](C)\tkzGetPoint{A}
+	\tkzDefPointBy[rotation=center A angle -120](B)\tkzGetPoint{F}
+	\tkzDrawSegments(A,B B,C C,D D,E E,F F,A A,D B,E C,F M,A M,B M,C M,D M,E M,F)
+	\tkzDrawPoints(A,B,C,D,E,F,M,O)
+	\tkzLabelPoints[left](A,E,F)
+	\tkzLabelPoints[right](B,C,D)
+	\tkzLabelPoints[above right=0mm and 2mm](O)
+	\tkzLabelPoints[below left=0mm and 2mm](M)
+	\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Chứng minh rằng trong các tam giác có cùng cạnh đáy và cùng chu vi, tam giác cân có diện tích lớn nhất.
+\loigiai{
+Xét tam giác có độ dài các cạnh là $a$, $b$, $c$ với $a,b,c>0$; $a$ không đổi và chu vi $2p=a+b+c$ không đổi. Khi đó: $b+c=2p-a$ không đổi.\\
+Theo công thức Hê-rông về diện tích ta có:
+\begin{align*}
+	S_{\triangle} &= \sqrt{p(p-a)(p-b)(p-c)}\\
+	&= \sqrt{p(p-a)}\sqrt{(p-b)(p-c)}.
+\end{align*}
+Theo bất đẳng thức Cô-si cho hai số dương $p-b$, $p-c$ ta có:\\
+$$\sqrt{(p-b)(p-c)}\le \dfrac{p-b+p-c}{2}=\dfrac{a}{2}.$$
+Do đó $S_\triangle\le\dfrac{a\sqrt{p(p-a)}}{2}$ không đổi.\\
+Dấu bằng có khi và chỉ khi $p-b=p-c$ hay $b=c$ và khi đó tam giác này là tam giác cân.
+}
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	\begin{enumerate}
+		\item Trong các hình chữ nhật có cùng chu vi, hình nào có diện tích lớn nhất?
+		\item Trong các hình chữ nhật có cùng diện tích, hình nào có chu vi nhỏ nhất?
+	\end{enumerate}
+\loigiai{
+Ta có: $(x-y)^2\ge 0\,\forall x,y\in \mathbb{R}$ nên $4xy\le(x+y)^2\,\forall x,y\in\mathbb{R}\,(*)$. Dấu bằng có $\Leftrightarrow x=y$.\\
+Gọi $a$, $b$ thứ tự là chiều dài và chiều rộng của hình chữ nhật.
+\begin{enumerate}
+	\item Hình chữ nhật có chu vi không đổi $\Leftrightarrow a+b=p$ không đổi.\\
+	Theo $(*)$, diện tích hình chữ nhật là $S=ab$ lớn nhất bằng $\dfrac{p^2}{4}\Leftrightarrow a=b$.\\
+	Khi đó, hình chữ nhật trở thành hình vuông.\\
+	Vậy trong các hình chữ nhật có cùng chu vi, hình vuông có diện tích lớn nhất.
+	\item Hình chữ nhật có diện tích không đổi $\Leftrightarrow ab=S$ không đổi.\\
+	Theo $(*)$, chu vi hình chữ nhật là $P=2(a+b)$ nhỏ nhất bằng $4\sqrt{S}\Leftrightarrow a=b$.\\
+	Khi đó, hình chữ nhật trở thành hình vuông.\\
+	Vậy trong các hình chữ nhật có cùng diện tích, hình vuông có chu vi nhỏ nhất. 
+\end{enumerate}
+}
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Trong các hình thoi có cùng chu vi, tìm hình có diện tích lớn nhất?
+\loigiai{
+\immini
+{
+	Xét hình thoi $ABCD$ có chu vi là $4a$ không đổi.\\
+	Suy ra $AB=BC=CD=DA=a$ không đổi và $S_{ABCD}=2S_{ABC}$.\\
+	Kẻ $CE\perp AB\,(E\in AB)$, ta có $$S_{ABC}=\dfrac{CE\cdot AB}{2}\le \dfrac{CA\cdot AB}{2}=\dfrac{a^2}{2}.$$
+	Do đó $S_{ABCD}\le a^2$, dấu bằng xảy ra $\Leftrightarrow \widehat{B}=90^\circ$ hay $ABCD$ là hình vuông.\\
+	Vậy trong các hình thoi có cùng chu vi thì hình vuông có diện tích lớn nhất. 
+}
+{
+	\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-2.5,ymax=3,xmin=-1,xmax=7]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/A,3/2/B,6/0/C,3/-2/D}
+	
+	\tkzDefPointBy[projection=onto B--A](C)\tkzGetPoint{E}
+	\tkzDrawSegments(A,B B,C C,D D,A A,C C,E)
+	\tkzDrawSegments[dashed](B,E)
+	\tkzDrawPoints(A,B,C,D,E)
+	\tkzLabelPoints[left](A,B)
+	\tkzLabelPoints[right](C,D,E)
+	%\tkzLabelPoints[above]()
+	%\tkzLabelPoints[below]()
+	\tkzMarkRightAngles(B,E,C)
+	\tkzMarkSegments[mark=|](A,B A,D C,B C,D)
+	\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Trong các hình thoi có cùng diện tích, hình nào có chu vi nhỏ nhất?
+\loigiai{
+	\immini
+	{
+		Xét hình thoi $ABCD$ có diện tích là $S$ không đổi và chu vi là $P$, hiển nhiên $S_{ABCD}=2S_{ABCD}$.\\
+		Kẻ $CE\perp AB\,(E\in AB)$, ta có $$S_{ABC}=\dfrac{CE\cdot AB}{2}\le \dfrac{CA\cdot AB}{2}=\dfrac{P^2}{32}.$$
+		Do đó $P\ge 4\sqrt{S}$, dấu bằng xảy ra $\Leftrightarrow \widehat{B}=90^\circ$ hay $ABCD$ là hình vuông.\\
+		Vậy trong các hình thoi có cùng diện tích thì hình vuông có chu vi nhỏ nhất. 
+	}
+	{
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\tkzInit[ymin=-2.5,ymax=3,xmin=-1,xmax=7]
+		\tkzClip
+		\tkzSetUpPoint[color=black,fill=white,size=6]
+		\tkzDefPoints{0/0/A,3/2/B,6/0/C,3/-2/D}
+		
+		\tkzDefPointBy[projection=onto B--A](C)\tkzGetPoint{E}
+		\tkzDrawSegments(A,B B,C C,D D,A A,C C,E)
+		\tkzDrawSegments[dashed](B,E)
+		\tkzDrawPoints(A,B,C,D,E)
+		\tkzLabelPoints[left](A,B)
+		\tkzLabelPoints[right](C,D,E)
+		%\tkzLabelPoints[above]()
+		%\tkzLabelPoints[below]()
+		\tkzMarkRightAngles(B,E,C)
+		\tkzMarkSegments[mark=|](A,B A,D C,B C,D)
+		\end{tikzpicture}
+	}
+}
+
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Chứng minh rằng: 
+	\begin{enumerate}
+		\item Trong các tứ giác có cùng chu vi, hình vuông có diện tích lớn nhất.
+		\item Trong các tứ giác có cùng diện tích, hình vuông có chu vi nhỏ nhất.
+	\end{enumerate}
+\loigiai{
+Với mọi số thực dương $a,b,c,d$ ta có: $4(ab+bc+cd+da)=4(a+c)(b+d)\le(a+b+c+d)^2\,(*)$.
+\immini
+{
+	Xét tứ giác $ABCD$ có diện tích $S$, chu vi $P$ và độ dài các cạnh $AB=a$, $BC=b$, $CD=c$, $DA=d$.\\
+	Kẻ $CE\perp AB\,(E\in AB)$, ta có $2S_{ABC}=AB\cdot CE\le AB\cdot BC=ab.$\\
+	Tương tự $2S_{BCD}\le bc$, $2S_{CDA}\le cd$ và $2S_{DAB}\le da$.\\
+	Do đó $4S=2(S_{ABC}+S_{CDA}+S_{BCD}+S_{DAB})\le ab+cd+bc+da$.\\
+	Theo $(*)$ ta được $16S\le P^2$.\\
+	Dấu \lq\lq=\rq\rq có $\Leftrightarrow \heva{&\hat{A}=\hat{B}=\hat{C}=\hat{D}=90^\circ\\
+	&a+c=b+d}\Leftrightarrow ABCD\, \text{là hình vuông}.$\\
+	Áp dụng vào bài toán ta có:
+}
+{
+	\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-2.5,ymax=3,xmin=-1,xmax=4]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/A,2/2/B,3/-1/C,1/-2/D}
+	
+	\tkzDefPointBy[projection=onto B--A](C)\tkzGetPoint{E}
+	\tkzDrawSegments(A,B B,C C,D D,A A,C C,E)
+	\tkzDrawPoints(A,B,C,D,E)
+	\tkzLabelPoints[left](A,B,E,D)
+	\tkzLabelPoints[right](C)
+	%\tkzLabelPoints[above]()
+	%\tkzLabelPoints[below]()
+	\tkzMarkRightAngles(C,E,B)
+	\end{tikzpicture}
+}
+\noindent a) Trong các tứ giác có cùng chu vi $P$ không đổi thì hình vuông có diện tích lớn nhất là $\dfrac{P^2}{16}$.\\
+b) Trong các tứ giác có diện tích $S$ không đổi thì hình vuông có chu vi nhỏ nhất là $4\sqrt{S}$.
+}
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Tứ giác $ABCD$ có $\widehat{C}+\widehat{D}=90^\circ$, $AD=BC$, $AB=b$, $CD=a$ ($a>b$). Gọi $E$, $F$, $G$, $H$ theo thứ tự là trung điểm của $AB$, $AC$, $CD$, $DB$. Tính diện tích nhỏ nhất của tứ giác $EFGH$.
+\loigiai{
+\immini
+{
+	Do $EH$ là đường trung bình của tam giác $ABD$ nên $EH\parallel AD$ và $EH=\dfrac{AD}{2}$.\\
+	Tương tự với chú ý $AD=BC$ ta được: $$\heva{&HE=EF=FG=GH=\dfrac{AD}{2}=\dfrac{BC}{2}\\ &EH\parallel AD\,\text{và}\,EF\parallel BC}.$$
+}
+{
+	\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-1,ymax=5.5,xmin=-0.7,xmax=10.7]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/D,3.6/4.8/a,10/0/C}
+	
+	\tkzDefMidPoint(B,A)\tkzGetPoint{E}
+	\tkzDefMidPoint(C,A)\tkzGetPoint{F}
+	\tkzDefMidPoint(D,C)\tkzGetPoint{G}
+	\tkzDefMidPoint(B,D)\tkzGetPoint{H}
+	\tkzDefMidPoint(A,D)\tkzGetPoint{K}
+	\tkzDefPointBy[homothety=center D ratio 0.666](a)\tkzGetPoint{A}
+	\tkzDefPointBy[homothety=center C ratio 0.5](a)\tkzGetPoint{B}
+	\tkzDrawSegments(A,B B,C C,A A,D C,D D,B E,F F,G G,H H,E H,K F,K E,G H,F)
+	\tkzDrawSegments[dashed](A,a B,a)
+	\tkzDrawPoints(A,B,C,D,a,E,F,G,H,K)
+	\tkzLabelPoints[left](A,D)
+	\tkzLabelPoints[right](C)
+	\tkzLabelPoints[above](E,B,K)
+	\tkzLabelPoints[below](G,F,H)
+	\tkzMarkRightAngles(D,a,C)
+	\tkzMarkSegments[mark=|](A,D C,B)
+	\end{tikzpicture}
+}
+Do $\widehat{C}+\widehat{D}=90^\circ$ nên $AD\perp BC$, suy ra $EH\perp EF$.\\
+Kết hợp với $HE=EF=FG=GH$ ta được $EFGH$ là hình vuông hay $S_{EFGH}=\dfrac{HF^2}{2}$.\\
+Gọi $K$ là trung điểm $AD$, ta có $KH=\dfrac{AB}{2}=\dfrac{b}{2}$ và $KF=\dfrac{CD}{2}=\dfrac{a}{2}$.\\
+Khi đó $HF\ge |KF-KH|=\dfrac{a-b}{2}$ hay $S_{EFGH}\ge\dfrac{(a-b)^2}{8}$.\\
+Dấu bằng xảy ra khi và chỉ khi $K,H,F$ thẳng hàng hay $ABCD$ là hình thang.\\
+Vậy $\min S_{EFGH}=\dfrac{(a-b)^2}{8}$.
+}  
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Trong các tứ giác có tổng hai đường chéo bằng $s$. Tứ giác nào có diện tích lớn nhất?
+\loigiai{
+\immini
+{
+	Xét tứ giác $ABCD$ có $AC+BD=s$ không đổi.\\
+	Kẻ $AH\perp BD,\,CK\perp BD\,(H,K\in BD)$.\\
+	Ta có $2S_{ABCD}=2(S_{ABD}+S_{CBD})=BD(AH+CK)\le BD(AO+CO)=BD\cdot AC\le \dfrac{(AC+BD)^2}{4}=\dfrac{s^2}{4}$.
+	Dấu bằng có $\Leftrightarrow \heva{&AC\perp BD\\ &AC=BD.}$\\
+	Vậy trong các tứ giác có tổng hai đường chéo bằng $s$ thì tứ giác có hai đường chéo bằng và vuông góc với nhau là tứ giác có diện tích lớn nhất.
+}
+{
+	\begin{tikzpicture}[scale=1.2, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-2.5,ymax=1.5,xmin=-1,xmax=4]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/A,3/1/B,3/-1/C,1/-2/D}
+	
+	\tkzDefPointBy[projection=onto B--D](A)\tkzGetPoint{H}
+	\tkzDefPointBy[projection=onto B--D](C)\tkzGetPoint{K}
+	\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+	\tkzDrawSegments(A,B B,C C,D D,A A,C B,D A,H C,K)
+	\tkzDrawPoints(A,B,C,D,H,K,O)
+	\tkzLabelPoints[left](A,D)
+	\tkzLabelPoints[right](C,B)
+	\tkzLabelPoints[above](K)
+	\tkzLabelPoints[below](O,H)
+	\tkzMarkRightAngles(C,K,B A,H,D) 
+	\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Cho góc nhọn $xOy$ và điểm $A$ thuộc miền trong của góc. Dựng điểm $B$ thuộc tia $Ox$, điểm $C$ thuộc tia $Oy$ sao cho tam giác $ABC$ có chu vi nhỏ nhất.
+\loigiai{
+\immini
+{
+	Gọi $D$ và $E$ thứ tự là điểm đối xứng của $A$ qua $Ox$ và $Oy$.\\
+	Khi đó $AB=DB$ và $AC=EC$, do đó $$P_{ABC}=AB+BC+CA=DB+BC+CE\ge DE.$$
+	Dấu bằng có $\Leftrightarrow D,B,C,E\,\text{thẳng hàng theo đúng thứ tự.}$.\\
+	Do đó ta có cách dựng $B,C$ như sau: Lấy hai điểm đối xứng với $A$ qua $Ox$ và $Oy$; đoạn thẳng nối hai điểm này cắt $Ox$ tại $B$ và $Oy$ tại $C$.
+}
+{
+	\begin{tikzpicture}[scale=1.2, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-1.5,ymax=3,xmin=-0.5,xmax=4.5]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/O,3/2.25/x,4/0/y,3/1/A}
+	
+	\tkzDefPointBy[reflection=over O--x](A)\tkzGetPoint{D}
+	\tkzDefPointBy[reflection=over O--y](A)\tkzGetPoint{E}
+	\tkzInterLL(D,E)(O,x)\tkzGetPoint{b}
+	\tkzInterLL(D,E)(O,y)\tkzGetPoint{c}
+	\tkzInterLL(D,A)(O,x)\tkzGetPoint{e}
+	\tkzInterLL(A,E)(O,y)\tkzGetPoint{f}
+	\tkzDefPointBy[homothety=center O ratio 0.4](x)\tkzGetPoint{B}
+	\tkzDefPointBy[homothety=center O ratio 0.4](y)\tkzGetPoint{C}
+	\tkzDrawSegments(O,x O,y A,B C,A B,C B,D C,E)
+	\tkzDrawSegments[dashed](D,E A,b A,c b,c A,D A,E)
+	\tkzDrawPoints(A,B,C,D,E,b,c)
+	\tkzLabelPoints[left](B,D)
+	\tkzLabelPoints[right](A,x,E)
+	%\tkzLabelPoints[above](K)
+	\tkzLabelPoints[below](O,C,y)
+	\tkzMarkRightAngles(A,e,x y,f,A) 
+	\tkzMarkSegments[mark=|](A,e D,e)
+	\tkzMarkSegments[mark=||](A,f E,f)
+	\tkzMarkSegments[mark=|||](A,B D,B)
+	\tkzMarkSegments[mark=x](A,C E,C)
+	\end{tikzpicture}
+}
+} 
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Cho hình chữ nhật $ABCD$. Tìm tứ giác có bốn đỉnh thuộc bốn cạnh của hình chữ nhật sao cho chu vi tứ giác có giá trị nhỏ nhất.
+\loigiai{
+\immini
+{
+	Xét bốn điểm $E,F,G,H$ theo thứ tự thuộc các cạnh $AB,BC,CD,DA$ của hình chữ nhật $ABCD$.\\
+	Gọi $M,N,P$ thứ tự là trung điểm $EH,FH,FG$.\\
+	Khi đó do hai tam giác $AHE$, $CFG$ theo thứ tự vuông tại $A$ và $C$ nên $EH=2MA$ và $FG=2CP$.\\
+	Lại có theo tính chất đường trung bình trong hai tam giác $EHF$ và $GFH$ ta được $EF=2MN$ và $HG=2PN$.\\
+	Do đó $P_{EFGH}=2(AM+MN+NP+PC)\ge 2AC$.\\
+	Dấu bằng xảy ra $\Leftrightarrow A,M,N,P,C\,\text{thẳng hàng theo thứ tự đó}\\ \Leftrightarrow \heva{&EF\parallel AC\parallel HG\\ &HE\parallel BD\parallel FG}$
+}
+{
+	\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=5.5]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/D,0/4/A,5/4/B,5/0/C,2/4/E,5/2.5/F,3/0/G,0/1/H}
+	
+	\tkzDefMidPoint(E,H)\tkzGetPoint{M}
+	\tkzDefMidPoint(H,F)\tkzGetPoint{N}
+	\tkzDefMidPoint(F,G)\tkzGetPoint{P}
+	\tkzDrawSegments(A,B B,C C,D D,A E,F F,G G,H H,E A,M M,N N,P P,C H,F A,C B,D)
+	\tkzDrawPoints(A,B,C,D,E,F,G,H,M,N,P)
+	\tkzLabelPoints[left](A,M,D,H)
+	\tkzLabelPoints[right](B,F,C,P)
+	\tkzLabelPoints[above](E)
+	\tkzLabelPoints[below](G,N)
+	\tkzMarkRightAngles(D,A,B A,B,C B,C,D C,D,A)
+	\tkzMarkSegments[mark=|](M,H M,E)
+	\tkzMarkSegments[mark=||](N,H N,F)
+	\tkzMarkSegments[mark=x](P,G P,F)
+	\end{tikzpicture}
+}
+\noindent hay $EFGH$ là hình bình hành có cạnh song song với đường chéo hình chữ nhật.
+}
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Cho điểm $E$ nằm trên cạnh $AB$ của hình chữ nhật $ABCD$. Dựng các điểm $F,G,H$ theo thứ tự thuộc các cạnh $BC,CD,DA$ sao cho tứ giác $EFGH$ có chu vi nhỏ nhất.
+\loigiai{
+\immini
+{
+	Theo bài 352 ta chỉ ra rằng: Hình bình hành có các cạnh song song với đường chéo của hình chữ nhật là tứ giác có chu vi nhỏ nhất với các đỉnh thứ tự thuộc bốn cạnh của hình chữ nhật. Do đó ta có cách dựng như sau:
+	\begin{itemize}
+		\item Dựng đường thẳng qua $E$ song song với $AC$ cắt $BC$ tại $F$.
+		\item Dựng đường thẳng qua $F$ song song với $BD$ cắt $CD$ tại $G$.
+		\item Dựng đường thẳng qua $G$ song song với $AC$ cắt $DA$ tại $H$.
+	\end{itemize}
+}
+{
+	\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=5.5]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/D,0/4/A,5/4/B,5/0/C,2/4/E,3/0/G}
+	
+	\tkzDefPointBy[homothety=center C ratio 0.4](B)\tkzGetPoint{F}
+	\tkzDefPointBy[homothety=center A ratio 0.4](D)\tkzGetPoint{H}
+	\tkzDrawSegments(A,B B,C C,D D,A E,F F,G G,H H,E A,C B,D)
+	\tkzDrawPoints(A,B,C,D,E,F,G,H)
+	\tkzLabelPoints[left](A,D,H)
+	\tkzLabelPoints[right](B,F,C)
+	\tkzLabelPoints[above](E)
+	\tkzLabelPoints[below](G)
+	\tkzMarkRightAngles(D,A,B A,B,C B,C,D C,D,A)
+	\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Cho hình chữ nhật $ABCD$ có diện tích $S$. Tìm diện tích nhỏ nhất của các tứ giác $EFGH$ có bốn đỉnh lần lượt thuộc bốn cạnh $AB$, $BC$, $CD$, $DA$ của hình chữ nhật và $AE+CG\le AB$, $AH+CF\ge AD$.
+\loigiai{
+\immini
+{
+	Đặt $AE=x$, $CF=y$, $CG=z$, $AH=t$, $AB=a$ và $AD=b$.\\
+	Khi đó: $x,y,z,t,a,b>0$ và $x+z\le a$, $y+t\ge b$.\\
+	Ta có \begin{eqnarray*}
+	&2S_{EFGH}&=2(S_{ABCD}-S_{AEH}-S_{BEF}-S_{CFG}-S_{DGH})\\
+	& &=2ab-xt-(a-x)(b-y)-yz-(a-z)(b-t)\\
+	& &=-(xt+xy+yz+zt)+a(y+t)+b(z+x)\\
+	& &=ab+(a-x-z)(y+t-b)\ge ab=S.
+	\end{eqnarray*} 
+}
+{
+	\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=5.5]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/D,0/4/A,5/4/B,5/0/C,2/4/E,5/2.2/F,3/0/G,0/1.5/H}
+	
+	\tkzDrawSegments(A,B B,C C,D D,A E,F F,G G,H H,E)
+	\tkzDrawPoints(A,B,C,D,E,F,G,H)
+	\tkzLabelPoints[left](A,D,H)
+	\tkzLabelPoints[right](B,F,C)
+	\tkzLabelPoints[above](E)
+	\tkzLabelPoints[below](G)
+	\tkzMarkRightAngles(D,A,B A,B,C B,C,D C,D,A)
+	\tkzLabelSegment(A,E){$x$}
+	\tkzLabelSegment[right](C,F){$y$}
+	\tkzLabelSegment(C,G){$z$}
+	\tkzLabelSegment[left](A,H){$t$}
+	\end{tikzpicture}
+}
+Do đó $\min S_{EFGH}=\dfrac{S}{2}$, dấu bằng có $\Leftrightarrow\hoac{&x+z=a\\ &y+t=b} \Leftrightarrow \hoac{&EG\parallel AD\\ &HF\parallel AB.}$
+} 
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Cho hình vuông $ABCD$ cạnh $a$. Tìm diện tích lớn nhất của các hình thang có bốn đỉnh thuộc bốn cạnh của hình vuông và hai cạnh đáy song song với một đường chéo của hình vuông.
+\loigiai{
+\immini
+{
+	Xét hình thang $EFGH$ có $EH\parallel BD\parallel FG$, khi đó hai tam giác $AEH$ và $CFG$ thứ tự vuông cân tại $A$ và $C$.\\
+	Đặt $AE=AH=x$ và $CF=CG=y$ ($0<x,y<a$). Ta có 
+	\begin{eqnarray*}
+		&2S_{EFGH}&=2(S_{ABCD}-S_{AEH}-S_{BEF}-S_{CFG}-S_{DGH})\\
+		& &=2a^2-x^2-(a-x)(a-y)-y^2-(a-x)(a-y)\\
+		& &=2a(x+y)-(x+y)^2\\
+		& &=a^2-[a-(x+y)]^2 \le a^2.
+	\end{eqnarray*}
+	Vậy $\max S_{EFGH}=\dfrac{a^2}{2}$, dấu \lq\lq=\rq\rq có $\Leftrightarrow x+y=a \Leftrightarrow EG\parallel AD$.
+}
+{
+	\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-0.5,ymax=5.5,xmin=-0.5,xmax=5.5]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/D,0/5/A,5/5/B,5/0/C,2/5/E,5/4/F,1/0/G,0/3/H}
+	
+	\tkzDrawSegments(A,B B,C C,D D,A E,F F,G G,H H,E B,D)
+	\tkzDrawPoints(A,B,C,D,E,F,G,H)
+	\tkzLabelPoints[left](A,D,H)
+	\tkzLabelPoints[right](B,F,C)
+	\tkzLabelPoints[above](E)
+	\tkzLabelPoints[below](G)
+	\tkzMarkRightAngles(D,A,B A,B,C B,C,D C,D,A)
+	\tkzLabelSegment(A,E){$x$}
+	\tkzLabelSegment[right](C,F){$y$}
+	\tkzLabelSegment(C,G){$y$}
+	\tkzLabelSegment[left](A,H){$x$}
+	\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Cho hình vuông $ABCD$ cạnh $6$ cm. Điểm $E$ thuộc cạnh $AB$ sao cho $AE=2$ cm, điểm $F$ thuộc cạnh $BC$ sao cho $BF=3$ cm. Dựng các điểm $G$, $H$ theo thứ tự thuộc các cạnh $CD$, $AD$ sao cho $EFGH$ là hình thang:
+	\begin{enumerate}
+		\item có đáy $EH$, $FG$ và có diện tích nhỏ nhất.
+		\item có đáy $EF$, $GH$ và có diện tích lớn nhất.
+	\end{enumerate}
+\loigiai{
+\immini
+{
+	a) Do $EH\parallel FG$ nên $\widehat{AEH}=\widehat{CGF}$.\\
+	Suy ra $\triangle AEH\backsim\triangle CGF$, từ đó $AH\cdot CG=AE\cdot CF=6$.\\
+	Đặt $AH=x$, $CG=y$ ($0<x,y<6$), ta có $xy=6$ và 
+	\begin{eqnarray*}
+		&2S_{EFGH}&=2(S_{ABCD}-S_{AEH}-S_{BEF}-S_{CFG}-S_{DGH})\\
+		& &=2\cdot 36-2x-4\cdot 3-3y-(6-x)(6-y)\\
+		& &=18+4x+3y\ge18+2\sqrt{4x\cdot3y}=18+12\sqrt{2}.
+	\end{eqnarray*}
+	Dấu \lq\lq=\rq\rq có $\Leftrightarrow \heva{&xy=6\\ &4x=3y}\Leftrightarrow \heva{&x=\dfrac{3\sqrt{2}}{2}\\ &y=2\sqrt{2}.}$ 
+}
+{
+	\begin{tikzpicture}[scale=0.8, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-0.8,ymax=6.8,xmin=-0.8,xmax=6.8]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/D,0/6/A,6/6/B,6/0/C,2/6/E,6/3/F,4.5/0/G,0/2/H}
+	
+	\tkzDrawSegments(A,B B,C C,D D,A E,F F,G G,H H,E B,D)
+	\tkzDrawPoints(A,B,C,D,E,F,G,H)
+	\tkzLabelPoints[left](A,D,H)
+	\tkzLabelPoints[right](B,F,C)
+	\tkzLabelPoints[above](E)
+	\tkzLabelPoints[below](G)
+	\tkzMarkRightAngles(D,A,B A,B,C B,C,D C,D,A)
+	\tkzLabelSegment(A,E){$2$}
+	\tkzLabelSegment(B,E){$4$}
+	\tkzLabelSegment[right](B,F){$3$}
+	\tkzLabelSegment[right](C,F){$3$}
+	\tkzLabelSegment[below](C,G){$y$}
+	\tkzLabelSegment[left](A,H){$x$}
+	\end{tikzpicture}
+}
+\immini
+{
+	b) Do $EF\parallel HG$ nên $\widehat{BEF}=\widehat{DGH}$.\\
+	Suy ra $\triangle BEF\backsim\triangle DGH$, từ đó $\dfrac{DH}{3}=\dfrac{DG}{4}$.\\
+	Đặt $DH=x$, $DG=y$ ($0<x,y<6$), ta có $\dfrac{x}{3}=\dfrac{y}{4}$ và 
+	\begin{eqnarray*}
+		&2S_{EFGH}&=2(S_{ABCD}-S_{AEH}-S_{BEF}-S_{CFG}-S_{DGH})\\
+		& &=2\cdot 36-2(6-x)-12-3(6-y)-xy\\
+		& &=2x+3y-xy+30\\
+		& &=-\dfrac{4}{3}x^2+6x+30\\
+		& &=-\dfrac{4}{3}\left(x-\dfrac{9}{4}\right)^2+\dfrac{147}{4}\le \dfrac{147}{4}.
+	\end{eqnarray*}
+	Dấu \lq\lq=\rq\rq có $\Leftrightarrow \heva{&\dfrac{x}{3}=\dfrac{y}{4}\\ &x=\dfrac{9}{4}}\Leftrightarrow \heva{&x=\dfrac{9}{4}\\ &y=3.}$ 
+}
+{
+	\begin{tikzpicture}[scale=0.8, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-0.8,ymax=6.8,xmin=-0.8,xmax=6.8]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/D,0/6/A,6/6/B,6/0/C,2/6/E,6/3/F,4.8/0/G,0/3.6/H}
+	
+	\tkzDrawSegments(A,B B,C C,D D,A E,F F,G G,H H,E B,D)
+	\tkzDrawPoints(A,B,C,D,E,F,G,H)
+	\tkzLabelPoints[left](A,D,H)
+	\tkzLabelPoints[right](B,F,C)
+	\tkzLabelPoints[above](E)
+	\tkzLabelPoints[below](G)
+	\tkzMarkRightAngles(D,A,B A,B,C B,C,D C,D,A)
+	\tkzLabelSegment(A,E){$2$}
+	\tkzLabelSegment(B,E){$4$}
+	\tkzLabelSegment[right](B,F){$3$}
+	\tkzLabelSegment[right](C,F){$3$}
+	\tkzLabelSegment[below](D,G){$y$}
+	\tkzLabelSegment[left](D,H){$x$}
+	\end{tikzpicture}
+}
+}  
+\end{bt}
+
+\begin{bt}%[8H0G7]%[Thái Văn Đạt]
+	Cho hình chữ nhật $ABCD$ có các kích thước là $a$ và $b$. Tìm diện tích lớn nhất của hình chữ nhật $EFGH$ ngoại tiếp hình chữ nhật $ABCD$ (mỗi đỉnh của hình chữ nhật $ABCD$ nằm trên một cạnh của hình chữ nhật $EFGH$).
+\loigiai{
+\immini
+{
+	Dễ thấy $\triangle FAB=\triangle HCD$ và $\triangle GCB=\triangle EAD$.\\
+	Gọi độ dài các đoạn như hình vẽ. Khi đó 
+	\begin{eqnarray*}
+		&S_{EFGH}&=S_{ABCD}+2S_{EAD}+2S_{FAB}\\
+		& &=ab+xy+zt\\
+		& &\le ab+\dfrac{x^2+y^2}{2}+\dfrac{z^2+t^2}{2}\\
+		& &=ab+\dfrac{a^2+b^2}{2}. 
+	\end{eqnarray*}
+	(Do theo định lí Py-ta-go ta có $x^2+y^2=b^2$ và $z^2+t^2=a^2$)
+}
+{
+	\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[ymin=-2.5,ymax=5.5,xmin=-2,xmax=6]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/D,0/3/A,4/3/B,4/0/C,-1.44/1.08/E}
+	
+	\tkzDefPointBy[projection=onto A--E](B)\tkzGetPoint{F}
+	\tkzDefPointBy[projection=onto B--F](C)\tkzGetPoint{G}
+	\tkzDefPointBy[projection=onto C--G](D)\tkzGetPoint{H}
+	\tkzDrawSegments(A,B B,C C,D D,A E,F F,G G,H H,E)
+	\tkzDrawPoints(A,B,C,D,E,F,G,H)
+	\tkzLabelPoints[left](F)
+	\tkzLabelPoints[right](H)
+	\tkzLabelPoints[above](G,A,B)
+	\tkzLabelPoints[below](E,C,D)
+	\tkzMarkRightAngles(D,A,B A,B,C B,C,D C,D,A D,E,A A,F,B B,G,C C,H,D)
+	\tkzLabelSegment[above](A,E){$x$}
+	\tkzLabelSegment[above](A,B){$a$}
+	\tkzLabelSegment[below](E,D){$y$}
+	\tkzLabelSegment[left](A,D){$b$}
+	\tkzLabelSegment[left](A,F){$z$}
+	\tkzLabelSegment[right](F,B){$t$}
+	\end{tikzpicture}
+}
+\noindent Dấu bằng xảy ra $\Leftrightarrow x=y\,\text{và}\,z=t\Leftrightarrow EFGH\,\text{là hình vuông}.$
+}
+\end{bt}
+\begin{bt}%[7H2G5]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Cho tam giác $ABC$. Xác định vị trí các điểm $D, E$ trên các cạnh $AB, AC$ sao cho $BD + CE = BC$ và $DE$ có độ dài nhỏ nhất.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -0.5, ymin=-.7,xmax = 6.5,ymax=4.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,6/0/C,2/4/A}
+			\tkzDrawPolygon(A,B,C)
+			\tkzInCenter(A,B,C) \tkzGetPoint{O}
+			\tkzDefPointBy[homothety = center B ratio .45](A)
+			\tkzGetPoint{D}
+			\tkzCalcLength[cm](B,D) \tkzGetLength{rBD}
+			%\tkzDrawCircle[R](B,\rBD cm)
+			\tkzInterLC[R](B,C)(B,\rBD cm)
+			\tkzGetPoints{F'}{F}
+			\tkzInterLC(C,A)(C,F)
+			\tkzGetPoints{E'}{E}
+			\tkzDrawPoints(A,B,C,O,D,F,E)
+			\tkzDrawSegments(B,O C,O)
+			\tkzDrawSegments[dashed](O,D O,F O,E)
+			\tkzMarkSegments[mark=|](B,D B,F)
+			\tkzMarkSegments[mark=||](C,E C,F)
+			\tkzMarkAngles[size=0.5](O,B,D)
+			\tkzMarkAngles[size=0.6](F,B,O)
+			\tkzMarkAngles[size=0.7,mark=|](O,C,F)
+			\tkzMarkAngles[size=0.8,mark=|](E,C,O)
+			\tkzLabelAngle[pos=0.7](C,A,B){\footnotesize $\alpha$}%
+			%\tkzMarkRightAngles(C,H,O O,K,C)
+			\tkzLabelPoints[below](C,B)
+			\tkzLabelPoints[above](A,O)
+			\tkzLabelPoints[left](D)
+			\tkzLabelPoints[below left](F)
+			%\tkzLabelPoints[below right](H)
+			\tkzLabelPoints[above right](E)
+			%\tkzLabelPoints[right](K)
+			\end{tikzpicture}
+		\end{center}
+		Trên $BC$ lấy $F$ sao cho $BD = BF$, mà $BD+CE = BC$ suy ra $CF = CE$.\\
+		Gọi $O$ là giao điểm của tia phân giác góc $B$ và góc $C$. \\
+		Ta có $\triangle OCE = \triangle OCF$ (c.g.c); $\triangle OBD =\triangle OBF$ (c.g.c) suy ra $OE = OF = OD$ hay $\triangle EOD$ cân tại $O$.\\
+		Đặt $\widehat{A}=\alpha\Rightarrow \widehat{BOC} = 90^\circ+\dfrac{\alpha}{2}$ nên $\widehat{DOE} = 360^\circ-2\left(90^\circ+\dfrac{\alpha}{2}\right)=180^\circ-\alpha$. \\
+		Xét $\triangle DOE$ có $\widehat{DOE}$ là góc không đổi, $DO = EO$ nên $DE$ nhỏ nhất khi và chỉ khi $OD$ nhỏ nhất $\Leftrightarrow OF$ nhỏ nhất $\Leftrightarrow OF\perp BC\Rightarrow OD\perp AB, OE\perp AC$.\\
+		Vậy $D, E$ là hình chiếu của $O$ trên $AB, AC$.
+	}
+\end{bt}
+
+
+
+
+
+
+
+
+
+
+\begin{bt}%[7H2G7]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Trong các tam giác vuông có tổng hai cạnh góc vuông không đổi, tam giác nào có chu vi nhỏ nhất? 
+	\loigiai{
+		\immini{Để thuận tiện, ta gọi tam giác vuông là $ABC$, gọi $b, c$ là cạnh góc vuông của tam giác vuông $ABC$, ta có $b+c = 2m$ không đổi $\Rightarrow$ chu vi tam giác vuông $ABC$ nhỏ nhất $\Leftrightarrow$ cạnh huyền $BC$ nhỏ nhất $\Leftrightarrow b^2+c^2$ nhỏ nhất.\\
+			Đặt $b=m+x$ thì $c=m-x$. Khi đó $$b^2+c^2=(m+x)^2+(m-x)^2=2m^2+2x^2\geq 2m^2.$$
+			Vậy $b^2+c^2$ nhỏ nhất bằng $2m^2$ khi và chỉ khi $b=c$ hay tam giác vuông cân có chu vi nhỏ nhất.
+		}{\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -0.5, ymin=-.7,xmax = 4.5,ymax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/A,4/0/B,0/3/C}
+			\tkzDrawSegments(A,B B,C C,A)
+			\tkzDrawPoints(A,B,C)
+			%\tkzLabelPoints[below](B)
+			\tkzLabelPoints[above](C)
+			\tkzLabelPoints[below](A,B)
+			\tkzLabelSegments[below](A,B){$\Large c$}
+			\tkzLabelSegments[left](A,C){$\Large b$}
+			\tkzMarkRightAngles[size=0.5](B,A,C)
+			\end{tikzpicture}}
+	}
+\end{bt}
+
+
+
+
+
+\begin{bt}%[7H2G7]%[9D5G1]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Chứng minh rằng trong các tam giác vuông có cạnh huyền không đổi, tam giác vuông cân có chu vi lớn nhất.
+	\loigiai{Vì cạnh huyền của tam giác vuông có độ dài không đổi nên chu vi tam giác lớn nhất khi tổng độ dài hai cạnh góc vuông lớn nhất.\\
+		Gọi độ dài cạnh huyền là $a$, gọi $b, c$ là độ dài hai cạnh góc vuông. Ta có
+		$$(b+c)^2\leq 2(b^2+c^2)\Rightarrow b+c\leq a\sqrt{2}.$$
+		Giá trị lớn nhất của $b+c = a\sqrt{2}$ xảy ra khi $b=c$.\\
+		Vậy chu vi tam giác vuông lớn nhất bằng $\left(\sqrt{2}+1\right)a$ khi và chỉ khi tam giác đó vuông cân.
+	}
+\end{bt}
+
+
+
+
+
+\begin{bt}%[8H1G9]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Cho $\triangle ABC$ có các góc $B$ và $C$ nhọn, $BC = a$, đường cao $AH = h$. Xét hình chữ nhật $MNPQ$ nội tiếp tam giác có $M$ thuộc cạnh $AB$, $N$ thuộc cạnh $AC$, $P$ và $Q$ thuộc cạnh $BC$. Hình chữ nhật $MNPQ$ ở vị trí nào thì diện tích của nó có giá trị lớn nhất?
+	
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -0.5, ymin=-.7,xmax = 6.5,ymax=4.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,6/0/C,2/4/A}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDefPointBy[homothety = center B ratio .55](A)
+			\tkzGetPoint{M}
+			\tkzDefLine[parallel=through M](B,C)\tkzGetPoint{m}
+			\tkzInterLL(C,A)(M,m)
+			\tkzGetPoint{N}
+			\tkzDefPointBy[projection = onto B--C](M)
+			\tkzGetPoint{Q}
+			\tkzDefPointBy[projection = onto B--C](A)
+			\tkzGetPoint{H}
+			\tkzDefPointBy[projection = onto B--C](N)
+			\tkzGetPoint{P}
+			\tkzDrawPoints(B,C,M,N,Q,H,P,A)
+			\tkzDrawSegments(M,N M,Q A,H N,P)
+			\tkzLabelPoints[below](B,C,Q,H,P)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[left](M)
+			\tkzLabelPoints[right](N)
+			\tkzLabelSegments[pos=0.6,above](M,N){y}
+			\tkzLabelSegments[left](N,P){x}
+			\tkzMarkRightAngles[size=0.3](C,Q,M C,H,A C,P,N)
+			\end{tikzpicture}
+		\end{center}
+		Đặt $NP =x, MN = y$. Ta có 
+		\begin{eqnarray*}
+			& & S_{AMN}+S_{BMNC}=S_{ABC}\\
+			&\Rightarrow & y(h-x)+x(a+y)=ah\\
+			&\Rightarrow &hy+ax=ah\Rightarrow y = \dfrac{a}{h}(h-x).
+		\end{eqnarray*}	 
+		\noindent Gọi diện tích tứ giác $MNPQ$ là $S$. Ta có $S = xy = x\cdot\dfrac{a}{h}\cdot (h-x)\leq \dfrac{a}{4h}\left(x+h-x\right)^2=\dfrac{a\cdot h}{4}.$\\
+		Vậy $S$ lớn nhất bằng $\dfrac{a\cdot h}{4}$ khi $x=\dfrac{h}{2}.$ Khi đó $MN$ là đường trung bình của $\triangle ABC$.
+	}
+\end{bt}
+
+
+
+
+
+
+\begin{bt}%[8H2G12]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Từ một tấm kim loại hình tam giác vuông, cắt ra một hình vuông theo hai cách:
+	\begin{enumerate}[]
+		\item Cách 1: Một góc của hình vuông trùng với góc vuông của tam giác, đỉnh đối diện thuộc cạnh huyền của tam giác.
+		\item Cách 2: Một cạnh của hình vuông nằm trên cạnh huyền của tam giác, hai đỉnh kia thuộc hai cạnh góc vuông của tam giác.
+	\end{enumerate} 
+	Cách cắt nào cho hình vuông có diện tích lớn hơn?
+	\loigiai{
+		\newpage
+		\begin{multicols}{2}
+			\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -0.7, xmax = 6.4,ymin = -1,ymax = 4] 
+			\tkzClip
+			\tkzDefPoint(0,0){B} \tkzDefPoint(6,0){C}
+			\tkzDefTriangle[two angles= 55 and 35](B,C)\tkzGetPoint{A}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDefPointBy[homothety = center B ratio .4](C)
+			\tkzGetPoint{E}
+			\tkzDefPointBy[projection = onto B--A](E)
+			\tkzGetPoint{D}
+			\tkzDefPointBy[projection = onto C--A](E)
+			\tkzGetPoint{F}
+			\tkzDrawSegments(E,D E,F)
+			\tkzMarkRightAngles[size=.3](B,A,C B,D,E E,F,C)
+			\tkzDrawPoints(A,B,C,D,E,F)
+			\tkzLabelPoints[below](B,C,E) 
+			\tkzLabelPoints[above right](F) 
+			\tkzLabelPoints[left](D) 
+			\tkzLabelPoints[above](A)
+			\end{tikzpicture}
+			
+			\columnbreak
+			
+			\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -0.7, xmax = 6.4,ymin = -1,ymax = 4] 
+			\tkzClip
+			\tkzDefPoint(0,0){B} \tkzDefPoint(6,0){C}
+			\tkzDefTriangle[two angles= 55 and 35](B,C)\tkzGetPoint{A}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDefPointBy[homothety = center B ratio .65](A)
+			\tkzGetPoint{D}
+			\tkzDefLine[parallel=through D](B,C)\tkzGetPoint{d}
+			\tkzInterLL(C,A)(D,d)
+			\tkzGetPoint{E}
+			\tkzDefPointBy[projection = onto B--C](D)
+			\tkzGetPoint{G}
+			\tkzDefPointBy[projection = onto C--B](E)
+			\tkzGetPoint{F}
+			\tkzDrawSegments(D,E E,F D,G)
+			\tkzMarkRightAngles[size=.3](B,A,C D,G,B C,F,E)
+			\tkzDrawPoints(A,B,C,D,E,F,G)
+			\tkzLabelPoints[below](B,C,G,F) 
+			\tkzLabelPoints[above left](D)
+			\tkzLabelPoints[above right](E) 
+			\tkzLabelPoints[above](A)
+			\end{tikzpicture}
+		\end{multicols}
+		Gọi $b, c$ là độ dài cạnh góc vuông, $a$ là độ dài cạnh huyền.\\
+		Trong cách cắt thứ nhất ta có cạnh hình vuông bằng $\dfrac{bc}{b+c}$ (ví dụ 31a). \\
+		Trong cách cắt thứ hai, cạnh hình vuông bằng $\dfrac{ah}{a+h}$ (ví dụ 41).\\
+		Vì $b\cdot c = a\cdot h$ ta chứng minh được $ \dfrac{bc}{b+c}>\dfrac{ah}{a+h}$.
+	}
+	
+\end{bt}
+
+
+
+\begin{bt}%[8H2G4]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Cho tam giác $ABC$ vuông cân có cạnh huyền  $BC = a$. Các điểm $D, E$ theo thứ tự chuyển động trên các cạnh $AB, AC$. Gọi $H$ và $K$ theo thứ tự là  hình chiếu của $D$, $E$ trên $BC$. Tính diện tích lớn nhất của tứ giác $DEKH$. 
+	\loigiai{
+		\begin{center}
+			
+			
+			\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -0.7, xmax = 6.4,ymin = -1,ymax = 4] 
+			\tkzClip
+			\tkzDefPoint(0,0){B} \tkzDefPoint(6,0){C}
+			\tkzDefTriangle[two angles= 55 and 35](B,C)\tkzGetPoint{A}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDefPointBy[homothety = center B ratio .45](A)
+			\tkzGetPoint{D}
+			\tkzDefPointBy[homothety = center C ratio .55](A)
+			\tkzGetPoint{E}
+			\tkzDefPointBy[projection = onto B--C](D)
+			\tkzGetPoint{H}
+			\tkzDefPointBy[projection = onto C--B](E)
+			\tkzGetPoint{K}
+			\tkzDrawSegments(D,E E,K D,H)
+			\tkzMarkRightAngles[size=.3](B,A,C D,H,B C,K,E)
+			\tkzDrawPoints(A,B,C,D,E,K,H)
+			\tkzLabelPoints[below](B,C,H,K) 
+			\tkzLabelPoints[above left](D)
+			\tkzLabelPoints[above right](E) 
+			\tkzLabelPoints[above](A)
+			\end{tikzpicture}
+		\end{center}
+		Ta có $$S_{DHKE} = \left(DH+EK\right)\cdot \dfrac{HK}{2}=\left(BH+KC\right)\cdot \dfrac{HK}{2}.$$
+		Vì $\left(BH+KC\right)+HK = a$ không đổi nên tích $(BH+KC)HK$ lớn nhất khi và chỉ khi $BH + KC = KH = \dfrac{a}{2}$. Khi đó diện tích lớn nhất $DEKH$ lớn nhất bằng $\dfrac{1}{2}\cdot \dfrac{a}{2}\cdot \dfrac{a}{2}$ khi và chỉ khi $HK = \dfrac{a}{2}$. \\
+		Có vô số tứ giác thỏa mãn tính chất trên.
+	}
+\end{bt}
+
+
+\begin{bt}%[8H2G3]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018] 
+	Cho tam giác $ABC$. Tìm điểm $M$ thuộc miền trong hoặc nằm trên cạnh của tam giác sao cho tổng các khoảng cách từ $M$ đến ba cạnh của tam giác có giá trị nhỏ nhất. 
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -.5, ymin=-.7,xmax = 5.5,ymax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,2/3/A,5/0/C}
+			\tkzDefBarycentricPoint(A=3,B=2,C=2)
+			\tkzGetPoint{M}
+			
+			\tkzDrawAltitude[draw =black](B,C)(M)
+			\tkzGetPoint{A'}
+			\tkzDrawAltitude[draw =black](A,C)(M)
+			\tkzGetPoint{B'}
+			\tkzDrawAltitude[draw =black](B,A)(M)
+			\tkzGetPoint{C'}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawPoints(A,B,C, M)
+			\tkzMarkRightAngles[size=0.2](M,A',B C,B',M B,C',M)
+			\tkzLabelPoints[below](B,C) 
+			\tkzLabelSegments[right](A,C){b}
+			\tkzLabelSegments[below](B,C){a}
+			\tkzLabelSegments[left](A,B){c}
+			\tkzLabelSegments[left](M,A'){x}
+			\tkzLabelSegments[above](M,B'){y}
+			\tkzLabelSegments[above](M,C'){z}
+			\tkzLabelPoints[above right]() 
+			\tkzLabelPoints[below left]() 
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[above](A,M)
+			\end{tikzpicture}
+		\end{center}
+		Đặt $BC = a,\; AC = b,\; AB = c,$ khoảng cách từ $M$ đến các cạnh theo thứ tự là $x, y, z$ đường cao tương ứng với $BC$ là $h$.\\
+		Ta có 
+		\begin{eqnarray*}
+			& S_{MBC}+S_{MAC}+S_{MAB}=S_{ABC}\\
+			\Rightarrow & \dfrac{a}{2}\cdot x+\dfrac{b}{2}\cdot y
+			+\dfrac{c}{2}\cdot z =\dfrac{a}{2}\cdot h\\
+			\Rightarrow & ax+by+cz = ah.
+		\end{eqnarray*}
+		Giả sử $a\geq b\geq c$ thì 
+		\begin{eqnarray*}
+			& ax+ay+az \geq ax+by+cz = ah\\
+			\Rightarrow & x + y + z \geq h.
+		\end{eqnarray*}
+		Dấu bằng xảy ra khi $ay+az = by + cz\Rightarrow y(a-b)+ z(a-c) = 0$\\
+		$\Leftrightarrow y = z = 0$ hoặc $a = b, z = 0$ hoặc $a = b = c$.\\
+		Nếu $y =z = 0$ thì $M$ trùng $A$, nếu $a = b, z = 0$ thì $\triangle ABC$ cân tại $C$ (góc $C$ là góc nhỏ nhất) và $M$ thuộc đáy $AB$; nếu $a= b =c$ thì $\triangle  ABC$ đều, $M$ bất kì.\\
+		Vậy tổng các khoảng cách từ $M$ đến ba cạnh của tam giác có giá trị nhỏ nhất bằng đường cao ứng với cạnh lớn nhất. nếu tam giác đều thì $M$ là điểm bất kfi nằm bên trong hoặc nằm trên cạnh của tam giác. nếu tam giác cân có cạnh bên lớn hơn cạnh đáy thì $M$ thuộc cạnh đáy.\\
+		Các trường còn lại, $M$ trùng với đỉnh của góc lớn nhất trong tam giác.
+	}
+\end{bt}
+
+
+\begin{bt} %[8H2G3]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Cho tam giác $ABC$. Tìm điểm $M$ thuộc cạnh $BC$ sao cho tổng các khoảng cách từ $M$ đến $AB$ và đến $AC$ có giá trị nhỏ nhất. 
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -.5, ymin=-.7,xmax = 5.5,ymax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,2/3/A,5/0/C}
+			\tkzDefPointBy[homothety = center B ratio .55](C)
+			\tkzGetPoint{M}
+			
+			
+			\tkzDrawAltitude[draw =black](A,C)(M)
+			\tkzGetPoint{B'}
+			\tkzDrawAltitude[draw =black](B,A)(M)
+			\tkzGetPoint{C'}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawPoints(A,B,C, M)
+			\tkzMarkRightAngles[size=0.2](C,B',M B,C',M)
+			\tkzLabelPoints[below](B,C) 
+			\tkzLabelSegments[right,pos=0.4](A,C){b}
+			\tkzLabelSegments[below,pos=0.4](B,C){a}
+			\tkzLabelSegments[left,pos=0.4](A,B){c}
+			\tkzLabelSegments[above](M,B'){y}
+			\tkzLabelSegments[above](M,C'){x}
+			\tkzLabelPoints[above right]() 
+			\tkzLabelPoints[below left]() 
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](M)
+			\end{tikzpicture}
+		\end{center}
+		Đặt $AB = c;\; AC = b;\; BC = a$, gọi khoảng cách từ $M$ đến cạnh $AB = x$, khoảng các từ $M$ đến cạnh $AC$ là $y$, gọi $h_a;\; h_b;\;h_c$ lần lượt là độ dài đường cao tương ứng với các cạnh $BC;\; AC;\; AB$.
+		\begin{enumerate}[]
+			\item Nếu $a$ lớn nhất, ta có $S_{MAB}+S_{MAC}=S_{ABC} \Rightarrow cx+by =ah_a \Rightarrow ax+ay \geq cx+by = ah_a \Rightarrow x+y\geq h_a.$
+			\item Chứng minh tương tự nếu $b$ (hoặc $c$) lớn nhất suy ra $x+y\geq h_b$ (hoặc $x+y \geq h_c$).
+		\end{enumerate}
+		Vậy tổng khoảng cách từ $M$ đến $AB$ và $AC$ lớn nhất bằng độ dài đường cao tương ướng với cạnh lớn nhất.\\
+		Vậy nếu $b = c$ thì điểm $M$ bất kì trên cạnh đáy $BC$. Nếu $b\ne c$ thì $M$ trùng với đỉnh đối diện với cạnh lớn nhất trong hai cạnh $AB$ và $AC$.
+	}
+	
+	
+\end{bt}
+
+
+
+
+
+
+\begin{bt}%[8H1G3]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Cho hình thang $ABCD$. Tìm điểm $M$ nằm trong hoặc trên cạnh của hình thang sao cho tổng khoảng cách từ $M$ đến các cạnh của hình thang có giá trị nhỏ nhất. 
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -.5, ymin=-.7,xmax = 7.5,ymax=7.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,1/3/A,7/0/C}
+			\tkzDefLine[parallel=through A](B,C)\tkzGetPoint{d}
+			\tkzDefPointBy[homothety = center A ratio .55](d)
+			\tkzGetPoint{D}
+			\tkzDefBarycentricPoint(A=3,B=4,C=5,D=2)
+			\tkzGetPoint{M}
+			
+			\tkzDrawAltitude[dashed](A,D)(M)
+			\tkzGetPoint{d}
+			\tkzDrawAltitude[dashed](D,C)(M)
+			\tkzGetPoint{c}
+			\tkzDrawAltitude[dashed](C,B)(M)
+			\tkzGetPoint{b}
+			\tkzDrawAltitude[dashed](A,B)(M)
+			\tkzGetPoint{a}
+			\tkzMarkRightAngles[size=0.3](A,d,M M,c,C C,b,M B,a,M)
+			\tkzInterLL(B,A)(C,D)
+			\tkzGetPoint{O}
+			\tkzDrawPoints(A,B,C,D,M,O)
+			\tkzDrawSegments(A,D D,C C,B B,A)
+			\tkzDrawSegments[dashed](O,A O,D)
+			\tkzLabelSegments[left](M,d){x}
+			\tkzLabelSegments[above](M,c){y}
+			\tkzLabelSegments[left](M,b){z}
+			\tkzLabelSegments[above](M,a){t}
+			\tkzLabelPoints[above right]() 
+			\tkzLabelPoints[left](A) 
+			\tkzLabelPoints[right](M,D)
+			\tkzLabelPoints[above](O)
+			\tkzLabelPoints[below](B,C)
+			\end{tikzpicture}
+			
+		\end{center}
+		Đặt khoảng cách từ $M$ đến $AD;\; DC;\; CB;\; AB$ lần lượt là $x, y, z, t$.\\
+		Vì $y+z$ không đổi suy ra khoảng cách từ $M$ đến các cạnh của hình thang nhỏ nhất khi $y+z$ nhỏ nhất.\\
+		Gọi $O$ là giao điểm của hai cạnh bên $AB$ và $CD$. Khi đó bài toán quay trở về tìm vị trí của điểm $M$ nằm rên cạnh $AD$ sao cho $t+y$ nhỏ nhất.\\
+		Khi đó có hai khả năng.\\
+		Nếu $ABCD$ là hình thang cân thì $M$ là điểm bất kì nằm trên đáy nhỏ.\\
+		Nếu $ABCD$ không là hình thang cân thì $M$ trùng với đỉnh cảu góc lớn hơn trong hai góc kề đáy nhỏ.
+		
+		
+	}
+\end{bt}
+
+\begin{bt}%[8H2G3]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Cho tam giác $ABC$. Qua $A$ dựng đường thẳng $d$ sao cho tổng khoảng cách từ $B$ và $C$ đến $d$ là nhỏ nhất.  
+	\loigiai{
+		\immini{Trường hợp 1: Nếu $d$ cắt $BC$. Khi đó đường thẳng $d$ phải dựng là đường thẳng chứa cạnh lớn nhất trong hai cạnh $AB$ và $AC$.}{\begin{tikzpicture}
+			\tkzInit[xmin = -.5, ymin=-1.3,xmax = 4.5,ymax=2.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,1/2/A,4/0/C}
+			\tkzDefPointBy[homothety = center B ratio .55](C)
+			\tkzGetPoint{D}
+			\tkzDrawLine[add = 0 and 0.8](A,D)
+			\tkzDrawAltitude[dashed](A,D)(B)
+			\tkzGetPoint{B'}
+			\tkzDrawAltitude[dashed](A,D)(C)
+			\tkzGetPoint{C'}
+			\tkzMarkRightAngles[size=0.3](B,B',D C,C',D)
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawPoints(A,B,C, D,B')
+			\tkzLabelPoints[below](B,C) 
+			\tkzLabelPoints[above right](D) 
+			\tkzLabelPoints[left](C') 
+			\tkzLabelPoints[right](B')
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below]()
+			\end{tikzpicture}}
+		\immini{Trường hợp 2: Nếu $d$ không cắt $BC$.\\
+			Ta lấy $E$ đối xứng với $B$ qua $A$, khi đó đường thẳng $d$ cắt đoạn $CE$.\\
+			Trong cả hai trường hợp, đường thẳng $d$ phải dựng chứa cạnh lớn nhất trong hai cạnh $AC,AB$.
+		}{\begin{tikzpicture}[scale = 0.6]
+			\tkzInit[xmin = -.5, ymin=-1.3,xmax = 5.5,ymax=7]
+			\tkzClip
+			\tkzDefPoints{0/0/B,2/3/A,5/0/C}
+			\tkzDefPointBy[symmetry = center A](B)
+			\tkzGetPoint{E}
+			\tkzDefPointBy[homothety = center C ratio .55](E)
+			\tkzGetPoint{D}
+			\tkzDrawLine[add = 0 and 0.4](A,D)
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawPoints(A,B,C, D)
+			\tkzDrawSegments(A,E E,C)
+			\tkzMarkSegments[size=3,mark=|,pos=.5](A,B A,E)
+			\tkzLabelPoints[below](B,C) 
+			\tkzLabelPoints[above right](D) 
+			\tkzLabelPoints[left](A) 
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[above](E)
+			\tkzLabelPoints[below]()
+			\end{tikzpicture}}
+		
+	}
+\end{bt}
+
+\begin{bt}%[8H1G12]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Cho hình vuông $ABCD$ và điểm $K$ nằm bên trong không trùng với tâm hình vuông. Dựng qua $K$ một đường thẳng sao cho nó cắt hình vuông thành hai phần có hiệu các diện tích lớn nhất. 
+	\loigiai{
+		\immini{Không mất tính tổng quát ta giả sử $K$ nằm trong tam giác $AOB$. Qua $K$ dựng đường thẳng song song với $AB$ cắt $BC$ tại $P$, Gọi $Q$ là điểm đối xứng của $B$ qua $P$, $KQ$ cắt $AB$ tại $T$ khi đó ta chứng minh được diện tích tam giác $BQT$ nhỏ nhất.\\
+			Vậy đường thẳng $TQ$ chia hình vuông thành hai phần có hiệu diện tích lớn nhất.}{\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -0.6, ymin=-.5,xmax = 3.5,ymax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/A,3/0/B}
+			\tkzDefSquare(A,B)
+			\tkzGetPoints{C}{D}
+			
+			\tkzDrawSquare(A,B)
+			
+			\tkzInterLL(A,C)(B,D)
+			\tkzGetPoint{O}
+			\tkzDefBarycentricPoint(A=1,B=3,O=1)
+			\tkzGetPoint{K}
+			\tkzDefLine[parallel=through K](B,A)\tkzGetPoint{k}
+			\tkzInterLL(C,B)(K,k)
+			\tkzGetPoint{P}
+			\tkzDefPointBy[symmetry = center P](B)
+			\tkzGetPoint{Q}
+			\tkzInterLL(B,A)(K,Q)
+			\tkzGetPoint{T}
+			\tkzDrawSegments(A,C B,D Q,T P,K)
+			\tkzDrawPoints(A,B,C,D,O,K,P,Q,T)
+			\tkzLabelPoints[below](A,B,T) 
+			\tkzLabelPoints[above](C,D,O,K)
+			\tkzLabelPoints[left]()
+			\tkzLabelPoints[above right](Q)
+			\tkzLabelPoints[right](P)
+			\tkzLabelPoints[below left]()
+			%\tkzMarkRightAngles[size=0.3](F,H,M C,G,M)
+			\end{tikzpicture}}
+		
+		
+	} 
+\end{bt}
+
+
+\begin{bt}%[8H2G3]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Cho tam giác $ABC$ cân tại $A$. Các điểm $M, N$ theo thứ tự chuyển động trên cách cạnh $AB, CA$ sao cho $AM = CN$. Xác định vị trí $M, N$ để 
+	\begin{enumerate}
+		\item $MN$ có giá trị nhỏ nhất.
+		\item Diện tích tam giác $AMN$ có giá trị lớn nhất.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -0.5, ymin=-.7,xmax = 6.5,ymax=4.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,6/0/C,3/3.5/A}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDefPointBy[homothety = center B ratio .55](A)
+			\tkzGetPoint{P}
+			\tkzDefLine[parallel=through P](B,C)\tkzGetPoint{q}
+			\tkzInterLL(C,A)(P,q)
+			\tkzGetPoint{Q}
+			
+			\tkzDefPointBy[homothety = center B ratio .75](A)
+			\tkzGetPoint{M}
+			\tkzDefPointBy[homothety = center C ratio .35](A)
+			\tkzGetPoint{N}
+			
+			\tkzDefPointBy[projection = onto B--C](M)
+			\tkzGetPoint{M'}
+			
+			\tkzDefPointBy[projection = onto B--C](N)
+			\tkzGetPoint{N'}
+			
+			\tkzInterLL(M,N)(P,Q)
+			\tkzGetPoint{I}
+			
+			\tkzDrawPoints(B,C,M,N,M',N',P,Q,I)
+			\tkzDrawSegments(M,N P,Q)
+			\tkzDrawSegments[dashed](M,M' N,N')
+			\tkzLabelPoints[below](B,C,M',N')
+			\tkzLabelPoints[above](A,I)
+			\tkzLabelPoints[left](M,P)
+			\tkzLabelPoints[right](N,Q)
+			
+			\tkzMarkRightAngles[size=0.3](M,M',B C,N',N)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}[a)]
+			\item Vẽ $MM'$ và $NN'$ vuông góc với $BC$. Ta có $MN\geq M'N' = \dfrac{BC}{2}$.
+			Do đó $MN$ nhỏ nhất bằng $\dfrac{BC}{2}$ khhi và chỉ khi $MN\parallel M'N' \Leftrightarrow M,N$ là trung điểm của $AB, AC$.
+			\item Gọi $I$ là trung điểm của $MN$. Qua $I$ kẻ đường thẳng song song với $BC$, cắt $AB, AC$. Ta luôn có $S_{AMN}\leq S_{APQ}$ (tương tự ví dụ 59) nên $S_{AMN}\leq \dfrac{1}{4}S_{ABC}$. Dấu bằng xảy ra khi $MN$ là đường trung bình của $PQ$.
+			
+		\end{enumerate}
+	}
+\end{bt}
+
+
+
+
+
+
+
+
+
+
+
+\begin{bt}%[7H2G8]%[8H1G12]%[8H2G3]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Cho tam giác $ABC$ vuông cân tại $A$. Điểm $M$ thuộc cạnh $BC$, gọi $E$ và $F$ theo thứ tự là hình chiếu của $M$ trên $AB$ và $AC$. Chứng minh rằng khi $M$ chuyển động trên cạnh $BC$ thì:
+	\begin{enumerate}
+		\item Chu vi tứ giác $MEAF$ không đổi.
+		\item Đường thẳng đi qua $M$ và vuông góc với $EF$ luôn luôn đi qua một điểm $K$ cố định.
+		\item Tam giác $KEF$ có diện tích nhỏ nhất khi $M$ là trung điểm của $BC$.
+	\end{enumerate} 
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -0.6, ymin=-.5,xmax = 5.5,ymax=5.5]
+			\tkzClip
+			\tkzDefPoints{0/0/A,5/0/C}
+			\tkzDefSquare(A,C)
+			\tkzGetPoints{K}{B}
+			\tkzDefPointBy[homothety = center B ratio .35](C)
+			\tkzGetPoint{M}
+			\tkzDrawAltitude[draw =black](A,B)(M)
+			\tkzGetPoint{E}
+			\tkzDrawAltitude[draw =black](A,C)(M)
+			\tkzGetPoint{F}
+			\tkzDrawAltitude[draw =black,dashed](E,F)(M)
+			\tkzGetPoint{H}
+			\tkzDrawAltitude[draw =black,dashed](C,K)(M)
+			\tkzGetPoint{G}
+			\tkzDrawSegments(B,C E,F)
+			\tkzDrawSegments[dashed](M,K K,E K,F)
+			\tkzDrawSquare(A,C)
+			\tkzDrawPoints(A,C,K,B,M,E,F,H,F,G)
+			\tkzLabelPoints[below](A,C,F) 
+			\tkzLabelPoints[above](B,K,M)
+			\tkzLabelPoints[left](E)
+			\tkzLabelPoints[right](G)
+			\tkzLabelPoints[below left](H)
+			\tkzMarkRightAngles[size=0.3](F,H,M C,G,M)
+			\end{tikzpicture}
+			
+		\end{center}
+		\begin{enumerate}[a)]
+			\item Vì $\triangle ABC$ vuông cân suy ra $\widehat{ABC} = 45^\circ \Rightarrow \triangle EBM$ vuông cân $\Rightarrow EB = EM$.\\
+			Chứng minh tương tự ta được $\triangle EFC$ vuông cân suy ra $MF = FC$.\\
+			Chu vi hình chữ nhật $MEAF$ bằng $2(AE+AF) = 2AB$.
+			\item Gọi $K$ là giao điểm của $HM$ và đường thẳng vuông góc với $AC$ tại $C$ suy ra $CK = CA$ suy ra $K$ là điểm cố định thỏa mãn đề bài.\\ 
+			Thật vậy, kéo dài tia $EM$ cắt $CK$ tại $G$, ta chứng minh được $CG = EA$ (do tứ giác $EGCA$ là hình chữ nhật). Tam giác $KGM$ bằng tam giác $EMF$ suy ra $KG = EM = EB$. Vậy $Ck = EA + EB = AB = AC$.
+			
+			\item Ta có $S_{KEM} = S_{BEM},\; S_{KMF} = S_{CMF}\Rightarrow S_{KEF} = S_{BEFC}$.
+			Do đó $S_{KEF}$ nhỏ nhất khi và chỉ khi $S_{KEF}$ lớn nhất khi $AE.AF$ lớn nhất $\Leftrightarrow AB = AF$ (chú ý $AE+AF$ không đổi). Khi đó $M$ là trung điểm của $BC$. 
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[8H2G3]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Cho tam giác $ABC$ có diện tích $S$. Các điểm $D, E, F$ theo thứ tự thuộc các cạnh $AB, BC, CA$ sao cho $\dfrac{AD}{AB}=\dfrac{BE}{BC}=\dfrac{CF}{CA} = k$. Với giá trị nào của $k$ thì diện tích tam giác $DEF$ có giá trị nhỏ nhất.
+	\loigiai{
+		\immini{Dùng $S_{BDC}$ làm trung gian, ta có $S_{BDE} = k\cdot S_{BDC}$, $S_{BDC} = (1-k)S$ nên $$S_{BDE}=k(k-1)S.$$
+			Tương tự đối với $S_{ADF}, S_{CEF}$. \\
+			Đặt $S_1 = S_{\triangle ADE};\; S_2=S_{\triangle BDE}; \; S_3 = S_{\triangle CEF}.$\\
+			suy ra $S_1+S_2+S_3=3k(1-k)S.$
+		}{\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -1.5, ymin=-.7,xmax = 5.5,ymax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,2/3/A,5/0/C}\tkzDrawPolygon(A,B,C)
+			\tkzDefPointBy[homothety = center A ratio .35](B)
+			\tkzGetPoint{D}
+			\tkzDefPointBy[homothety = center B ratio .35](C)
+			\tkzGetPoint{E}
+			\tkzDefPointBy[homothety = center C ratio .35](A)
+			\tkzGetPoint{F}
+			\tkzDrawPolygon(D,E,F)
+			\tkzDrawPoints(A,B,C,D,E,F)
+			\tkzLabelPoints[below](B,C,E) 
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[left](D)
+			\tkzLabelPoints[right](F)
+			\end{tikzpicture}}
+		
+		Ta thấy $S_{DEF}$ nhỏ nhất khi và chỉ khi $S_1+S_2+S_3$ lớn nhất khi $k(1-k)$. Do $k$ và $1-k$ có tổng không đổi nên tích $k(1-k)$ lớn nhất khi và chỉ khi $k = 1-k$, tức là $k = \dfrac{1}{2}$.
+	}
+\end{bt}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{bt}%[8H2G3]%[9D5G1]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Cho tam giác $ABC$ có $BC = a$, $AC = b$, $AB = c$. Tìm điểm $M$ nằm trong tam giác sao cho $\dfrac{a}{x}+\dfrac{b}{y}+\dfrac{c}{z}$ có giá trị nhỏ nhất, trong đó $x, y, x$ theo thứ tự là khoảng cách từ điểm $M$ đến các cạnh $BC, AC, AB$. 
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -.5, ymin=-.7,xmax = 5.5,ymax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,2/3/A,5/0/C}
+			\tkzDefBarycentricPoint(A=3,B=2,C=2)
+			\tkzGetPoint{M}
+			
+			\tkzDrawAltitude[draw =black](B,C)(M)
+			\tkzGetPoint{A'}
+			\tkzDrawAltitude[draw =black](A,C)(M)
+			\tkzGetPoint{B'}
+			\tkzDrawAltitude[draw =black](B,A)(M)
+			\tkzGetPoint{C'}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawPoints(A,B,C, M)
+			\tkzMarkRightAngles[size=0.2](M,A',B C,B',M B,C',M)
+			\tkzLabelPoints[below](B,C) 
+			\tkzLabelSegments[right](A,C){b}
+			\tkzLabelSegments[below](B,C){a}
+			\tkzLabelSegments[left](A,B){c}
+			\tkzLabelSegments[right](M,A'){x}
+			\tkzLabelSegments[above,pos=0.5](M,B'){y}
+			\tkzLabelSegments[above](M,C'){z}
+			\tkzLabelPoints[above right]() 
+			\tkzLabelPoints[below left](M) 
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[above](A)
+			\end{tikzpicture}
+		\end{center}
+		
+		Ta nghĩ đến biểu thức $ax + by +cz$ có giá trị không đổi bằng $2S$. Ta chứng minh bất đẳng thức 
+		$$\left(ax+by+cz\right)\left(\dfrac{a}{x}+\dfrac{b}{y}+\dfrac{c}{z}\right)\geq \left(a+b+c\right)^2$$
+		suy ra $\dfrac{a}{x}+\dfrac{b}{y}+\dfrac{c}{z}\geq \dfrac{\left(a+b+c\right)^2}{2S}$. Dấu bằng xảy ra khi và chỉ khi $x = y =z$, tức là $M$ là giao điểm các đường phân giác của tam giác.
+		
+	}
+\end{bt}
+
+
+
+\begin{bt}%[7H2G6]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Cho tam giác $ABC$ có các góc nhỏ hơn $120^\circ$. Tìm điểm $M$ nằm bên trong tam giác sao cho tổng $MA+MB+MC$ có giá trị nhỏ nhất.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -2.6, ymin=-.7,xmax = 7,ymax=4.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,2/3/A,5/0/C}
+			\tkzDefTriangle[equilateral](B,A)
+			\tkzGetPoint{b1}
+			\tkzDefTriangle[equilateral](A,C)
+			\tkzGetPoint{C'}
+			\tkzDefBarycentricPoint(A=3,B=2,C=2)
+			\tkzGetPoint{M}
+			\tkzDefTriangle[equilateral](A,M)
+			\tkzGetPoint{M'}
+			\tkzDefTriangle[equilateral](M,A)
+			\tkzGetPoint{m1}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawPolygon(B,A,b1)
+			\tkzDrawPolygon(A,C,C')
+			\tkzDrawPolygon(A,M,M')
+			\tkzDrawPolygon(A,M,m1)
+			
+			
+			\tkzDrawPoints(A,B,C,C',M',M)
+			\tkzLabelPoint[below](m1){$M_1$}
+			\tkzLabelPoint[left](b1){$B_1$}
+			\tkzDrawSegments[dashed](M,C M,B M',C' b1,m1)
+			\tkzLabelPoints[below](B,C,M,M') 
+			\tkzLabelPoints[above right]() 
+			\tkzLabelPoints[left]() 
+			\tkzLabelPoints[right](C')
+			\tkzLabelPoints[above](A)
+			\end{tikzpicture}
+		\end{center}
+		Ở phía ngoài tam giác $ABC$ vẽ các tam giác đều $ACC'$ và $ABB_1$. Vẽ các tam giác đều $AMM'$ và $AMM_1$. Ta có $\triangle AM'C' = \triangle AMC$ (c-g-c). Khi đó $MA = MM'$, $MC = M'C' \Rightarrow BM+MA+MC = BM + MM' +M'C' \geq BC$. Vì thế $M$ thuộc đoạn $BC'$.\\
+		Lập luận tương tự như trên, $M$ phải thuộc đoạn thẳng $CB_1$. Như vậy $M$ là giao điểm của hai đoạn thẳng $BC'$ và $CB_1$. Chú ý rằng $$\widehat{BAC} +\widehat{CAC'} < 120^\circ + 60^\circ = 180^\circ,$$
+		
+		$$\widehat{BCA}+\widehat{ACC'} < 120^\circ + 60^\circ = 180^\circ$$
+		nên đoạn thẳng $BC'$ cắt cạnh $AC$ tại một điểm nằm giữa $A$ và $C$. Tương tự, đoạn thẳng $CB_1$ cắt cạnh $AB$ tại một điểm nằm giữa $A$ và $B$. Do đó tồn tại giao điểm $M$ của đoạn thẳng $BC',\; CB_1$ và điểm $M$ nằm bên trong tam giác $ABC$.
+	}
+\end{bt}
+
+
+\begin{bt}%[8H3G1]%[8H3G7]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Cho hình vuông $ABCD$ cạnh $a$, điểm $E$ thuộc cạnh $BC$, điểm $F$ thuộc cạnh $AD$ sao cho $CE = AF$. Các đường thẳng $AE, BF$ cắt đường thẳng $CD$ theo thứ tự ở $M$ và $N$.
+	\begin{enumerate}
+		\item Chứng minh $CM\cdot DN = a^2$.
+		\item Gọi $K$ là giao điểm của $NA$ và $MB$. Chứng minh $\widehat{MKN} = 90^\circ$.
+		\item Các điểm $E$ và $F$ có vị trí như thế nào thì $MN$ có độ dài nhỏ nhất?
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -6, ymin=-.5,xmax = 5,ymax=5]
+			\tkzClip
+			\tkzDefPoints{0/0/D,3/0/C}
+			\tkzDefSquare(D,C)
+			\tkzGetPoints{B}{A}
+			\tkzDefPointBy[homothety = center A ratio .35](D)
+			\tkzGetPoint{F}
+			\tkzDefPointBy[homothety = center C ratio .35](B)
+			\tkzGetPoint{E}
+			
+			\tkzInterLL(A,E)(D,C)
+			\tkzGetPoint{M}
+			
+			\tkzInterLL(B,F)(D,C)
+			\tkzGetPoint{N}
+			\tkzInterLL(N,A)(M,B)
+			\tkzGetPoint{K}
+			\tkzDrawSegments(B,N A,M D,N C,M K,N K,M)
+			\tkzDrawPoints(A,B,C,D, F, E, M, N,K)
+			\tkzMarkRightAngles[size=0.3](C,D,A B,C,D)
+			\tkzLabelPoints[above left](F,A)
+			\tkzMarkSegments[size=3,mark=|,color=red,pos=.5](A,F C,E)
+			\tkzLabelPoints[right](E,B)
+			\tkzLabelPoints[above](K)
+			\tkzLabelPoints[below](C, D,M,N)
+			\tkzDrawSquare(D,C)
+			\end{tikzpicture}
+		\end{center}
+		
+		\begin{enumerate}[a)]
+			\item Vì $AB\parallel MN\Rightarrow \dfrac{CM}{BA}=\dfrac{CE}{BE}=\dfrac{AF}{FD}=\dfrac{BA}{DN}\Rightarrow CM.DN = AB^2 = a^2.$
+			\item Theo câu a) ta có $\dfrac{CM}{AB}=\dfrac{AB}{DN}$ nên $\dfrac{CM}{CB}=\dfrac{AD}{DN}$.\\
+			Do đó $\triangle CMB$ và $\triangle DAN$ đồng dạng (c.g.c) nên $\widehat{CMB}=\widehat{DAN}$. Suy ra $\widehat{CMB}+\widehat{DNA} = 90^\circ$. Vậy $\widehat{MKN} = 90^\circ$.
+			\item $MN$ nhỏ nhất khi và chỉ khi $CM+DN$ nhỏ nhất. Các độ dài $Cm, DN$ có tích không đổi (câu a)) nên tổng của chúng nhỏ nhất khi và chỉ khi $CM = DN$.
+		\end{enumerate}
+	}
+\end{bt}
+
+
+
+
+
+\begin{bt}%[8H3G7]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Cho tam giác $ABC$. Qua một điểm bất kì thuộc cạnh $BC$, vẽ các đường thẳng song song với hai cạnh kia tạo với hai cạnh ấy một hình bình hành. Tìm vị trí của điểm $M$ để hình bình hành có diện tích lớn nhất. 
+	\loigiai{
+		
+		\immini{Kí hiệu như hình trên. Đặt $S_{ABC} = S,\; S_{DBM}=S_1,\; S_{EMC} = S_2,\; S_{ADME} = S_3$. Đặt $BM = x,\; MC = y,\; BC = a$, ta có $x + y = a$.\\
+			Do $S_3=S-(S_1+S_2)$ nên $\dfrac{S_3}{S} = 1-\dfrac{S_1+S_2}{S}$. Các tam giác $DBM$, $EMC$, $ABC$ đồng dạng nên $$\dfrac{S_1}{S}=\dfrac{x^2}{a^2};\; \dfrac{S_2}{S} = \dfrac{y^2}{a^2}.$$
+		}{\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -0.5, ymin=-.7,xmax = 5.5,ymax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,3/3/A,5/0/C}
+			
+			\tkzDrawPolygon(A,B,C)
+			\tkzDefPointBy[homothety = center B ratio .65](C)
+			\tkzGetPoint{M}
+			\tkzDefLine[parallel=through M](A,C)\tkzGetPoint{d}
+			\tkzInterLL(M,d)(A,B)
+			\tkzGetPoint{D}
+			\tkzDefLine[parallel=through M](A,D)\tkzGetPoint{e}
+			\tkzInterLL(M,e)(A,C)
+			\tkzGetPoint{E}
+			
+			
+			\tkzDrawSegments(M,D M,E)
+			
+			\tkzDrawPoints(A,B,C,D,M,E)
+			\tkzLabelPoints[below](B,C,M) 
+			\tkzLabelPoints[above right](E) 
+			\tkzLabelPoints[left](D) 
+			\tkzLabelPoints[above](A)
+			\tkzLabelSegments[below](B,M){x}
+			\tkzLabelSegments[below](C,M){y}
+			
+			\end{tikzpicture}}
+		
+		Do đó $$\dfrac{S_3}{S}=1-\dfrac{x^2+y^2}{a^2}=\dfrac{a^2-(x^2+y^2)}{a^2}=\dfrac{\left(x+y\right)^2-\left(x^2+y^2\right)}{a^2}=\dfrac{2xy}{a^2}.$$
+		
+		$S_3$ lớn nhất khi $xy$ lớn nhất. Các số $xy$ có tổng bằng $a$ không đổi nên tích của chúng lớn nhất khi và chỉ chi $x= y$. Khi đó $ M $ là trung điểm của cạnh $BC$, và diện tích hình bình hành $ADME$ bằng nửa diện tích của tam giác $ABC$.
+	}
+\end{bt}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{bt}%[8H3G7]%[8H2G3]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	Cho tam giác $ABC$. Qua điểm $O$ nằm bên trong tam giác, vẽ các đường thẳng song song với các cạnh của tam giác, chia tam giác thành ba hình bình hành và ba tam giác nhỏ.
+	\begin{enumerate}
+		\item Biết diện tích tam giác $ABC$ bằng 81 cm$^2$, hai trong ba tam giác nhỏ có diện tích bằng 4 cm$^2$ và 16 cm$^2$. Tính diện tích tam giác còn lại.
+		\item Chứng minh rằng tổng diện tích của ba tam giác nhỏ nhỏ lớn hơn hoặc bằng $\dfrac{1}{3}$ diện tích tam giác $ABBC$. Điểm $O$ ở vị trí nào thì xảy ra dấu bằng?
+	\end{enumerate} 
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -0.5, ymin=-.7,xmax = 5.5,ymax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,3/3/A,5/0/C}
+			
+			\tkzDefBarycentricPoint(A=3,B=2,C=2)
+			\tkzGetPoint{O}
+			
+			
+			\tkzDefLine[parallel=through O](B,C)\tkzGetPoint{O1}
+			\tkzInterLL(O,O1)(A,B)
+			\tkzGetPoint{D}
+			\tkzInterLL(O,O1)(A,C)
+			\tkzGetPoint{E}
+			
+			
+			\tkzDefLine[parallel=through O](A,B)\tkzGetPoint{O2}
+			\tkzInterLL(O,O2)(A,C)
+			\tkzGetPoint{I}
+			\tkzInterLL(O,O2)(B,C)
+			\tkzGetPoint{K}
+			
+			
+			\tkzDefLine[parallel=through O](A,C)\tkzGetPoint{O3}
+			\tkzInterLL(O,O3)(A,B)
+			\tkzGetPoint{F}
+			\tkzInterLL(O,O3)(B,C)
+			\tkzGetPoint{G}
+			
+			\tkzDrawPoints(A,B,C,O,D,E,F,G,I,K)
+			\tkzDrawSegments(A,C C,B A,B F,G I,K D,E)
+			\tkzLabelPoints[below](B,C,O, K,G)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[left](F,D)
+			\tkzLabelPoints[right](I,E)
+			\tkzLabelPoints[above]()
+			\tkzLabelPoints[above]()
+			\tkzLabelSegments[below](D,O){x}
+			\tkzLabelSegments[below](E,O){y}
+			\tkzLabelSegments[below](K,G){z}
+			
+			
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}[a)]
+			\item Đặt $BC = a$; đặt $x = DO, y = OE, z = KG$; $S_1=S_{\triangle DOF};\; S_2=S_{\triangle OIE};\; S_3=S_{\triangle OKG}$, $S$ là diện tích của tam giác $ABC$. Các tam giác nhỏ đồng dạng với tam giác $ABC$ nên:
+			$$\left(\dfrac{x}{a}\right)^2=\dfrac{S_1}{S}=\dfrac{4}{81}=\left(\dfrac{2}{9}\right)^2\Rightarrow \dfrac{x}{a}=\dfrac{2}{9}.$$
+			%\null
+			$$\left(\dfrac{y}{a}\right)^2=\dfrac{S_2}{S}=\dfrac{16}{81}=\left(\dfrac{4}{9}\right)^2\Rightarrow\dfrac{y}{a}=\dfrac{4}{9}.$$
+			Chú ý rằng $x+y+z = a$ nên $\dfrac{x}{a}+\dfrac{y}{b}+\dfrac{z}{c} = 1$ suy ra $\dfrac{z}{a} = \dfrac{1}{3}$.\\
+			Do đó $$\dfrac{S_3}{S}  =\left(\dfrac{z}{a}\right)^2 =\dfrac{1}{9}\Rightarrow S_3 = 9 \mbox{ cm}^2.$$
+			\item Ta có 
+			\begin{equation}
+			\dfrac{S_1+S_2+S_3}{S}=\dfrac{x^2+y^2+z^2}{a^2}.\tag{ 1}
+			\end{equation}
+			Vì $x+y+z = a$ suy ra $x^2+y^2+z^2 +2(xy+yz+zx) = a^2.$\\
+			Mặt khác $x^2+y^2+z^2 \geq xy+yz+zx$ nên
+			\begin{equation}
+			(x^2+y^2+z^2)\geq a^2 \tag{2}
+			\end{equation}
+			Từ $(1)$ và $(2)$ suy ra $S_1+S_2+S_3 \geq \dfrac{1}{3}S_{ABC}$. Dấu bằng xảy ra khi và chỉ khi $OD = OE, OF = OG,\; OI = OK \Leftrightarrow O$ là trọng tâm của tam giác $ABC$. 
+		\end{enumerate}
+		
+	}
+	
+	
+	
+\end{bt}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{bt}%[8H3G1]%[Biên soạn: Thầy Nguyen Duy Khanh, Phản biện: Thầy Lê Văn Thiện, Dự án: EX-C2-8-2018]
+	
+	\hfill
+	\begin{enumerate}
+		\item Cho hình thang $ABCD$ và một điểm $N$ thuộc cạnh đáy $AD$. Chứng minh rằng nếu điểm $M$ thuộc cạnh đáy $BC$ sao cho $\dfrac{MB}{MC}=\dfrac{NA}{ND}$ thì phần chung của hai tam giác $AMD$, $BNC$ có diện tích lớn nhất. 
+		\item Cho hình thang $ABCD$. Dựng các điểm $M, N$ theo thứ tự thuộc cạnh đáy $BC, AD$ sao cho phần chung của hai tam giác $AMD, BNC$ có diện tích lớn nhất.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}%[tight background, show background rectangle]
+			\tkzInit[xmin = -0.5, ymin=-.7,xmax = 7.5,ymax=5.5]
+			\tkzClip
+			\tkzDefPoints{0/0/A,7/0/D,2/5/B}
+			\tkzDefLine[parallel=through B](A,D)\tkzGetPoint{c}
+			
+			\tkzDefPointBy[homothety = center B ratio 0.55](c)
+			\tkzGetPoint{C}
+			\tkzDefPointBy[homothety = center A ratio 0.75](D)
+			\tkzGetPoint{N}
+			\tkzDefPointBy[homothety = center B ratio 0.75](C)
+			\tkzGetPoint{M}
+			\tkzInterLL(B,N)(A,M)
+			\tkzGetPoint{E}
+			\tkzInterLL(C,N)(D,M)
+			\tkzGetPoint{F}
+			\tkzDefPointBy[homothety = center B ratio 0.45](C)
+			\tkzGetPoint{M'}
+			\tkzInterLL(E,F)(D,M')
+			\tkzGetPoint{H}
+			\tkzInterLL(E,F)(A,M')
+			\tkzGetPoint{G}
+			
+			\tkzInterLL(B,N)(A,M')
+			\tkzGetPoint{I}
+			
+			\tkzInterLL(D,M')(A,M)
+			\tkzGetPoint{O}
+			
+			\tkzInterLL(C,N)(D,M')
+			\tkzGetPoint{K}
+			\tkzDrawPolygon[color=black,pattern=dots,pattern color=black, opacity=.4](O,E,I,M')
+			\tkzDrawPolygon[color=black,pattern=dots,pattern color=black, opacity=.4](F,H,O,M)
+			\tkzDrawSegments(A,B B,C C,D D,A C,N B,N A,M C,N D,M E,F A,M' D,M' G,E)
+			\tkzDrawPoints(A,B,C,D,N,M,E,F,M', H,G,I,K,O)
+			\tkzLabelPoints[below](A,D,N,E,H,O) 
+			\tkzLabelPoints[above right]() 
+			\tkzLabelPoints[left](K,G) 
+			\tkzLabelPoints[right](F) 
+			\tkzLabelPoints[above](B,C,M,M',I)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Gọi $E$ là giao điểm của $AM$ và $BN$, $F$ là giao điểm của $DM$ và $CN$. Trước hết ta thấy $EF\parallel AD$. Thật vậy $$\dfrac{ME}{EA} = \dfrac{BM}{AN}=\dfrac{MC}{ND}=\dfrac{MF}{FD}\Rightarrow EF\parallel AD.$$
+			Gọi $M'$ là điểm bất kì khác $M$ thuộc đáy $BC$, giả sử $M'$ nằm giữa $B$ và $M$. Gọi $I$ là giao điểm  của $AM'$ và $BN$, gọi $K$ là giao điểm của $DM'$ và $CN$. Với điều giả sử trên, $I$ nằm giữa $B$ và $E$, $K$ nằm giữa $N$ và $F$. Ta sẽ chứng minh rằng $S_{MENF} > S_{M'INK}$. Muốn vậy chỉ cần chứng minh $S_{MOKF} > S_{M'OEI}$ ($O$ là giao điểm của $AM$ và $DM'$).\\
+			Gọi giao điểm của $EF$ với $M'A$ và $M'D$ là $G$ và $H$. Ta sẽ chứng minh $GE = HF$. Thật vậy, do $EF \parallel BC\parallel AD$ nên
+			$$\dfrac{GE}{M'M}=\dfrac{AE}{AM}=\dfrac{DF}{DM}=\dfrac{HF}{M'M}\Rightarrow GE = HF.$$
+			Do đó $S_{AGE} = S_{DHF}$ suy ra $S_{MM'GE} = S_{MM'HF}$ (vì $S{AMM'}=S_{DMM'}$) $\Rightarrow S_{M'OEG}=S_{MOHF}$. Ta có $S_{MOKF} > S_{MOHF} = S_{M'OEG} > S_{M'OEI}$. Suy ra điều phải chứng minh.
+			\item 
+			
+			\hfill
+			\begin{center}
+				
+				
+				\begin{tikzpicture}%[tight background, show background rectangle]
+				\tkzInit[xmin = -0.5, ymin=-.7,xmax = 7.5,ymax=5.5]
+				\tkzClip
+				\tkzDefPoints{0/0/A,7/0/D,2/5/B}
+				\tkzDefLine[parallel=through B](A,D)\tkzGetPoint{c}
+				
+				\tkzDefPointBy[homothety = center B ratio 0.55](c)
+				\tkzGetPoint{C}
+				\tkzDefPointBy[homothety = center A ratio 0.75](D)
+				\tkzGetPoint{N}
+				\tkzDefPointBy[homothety = center B ratio 0.75](C)
+				\tkzGetPoint{M}
+				\tkzInterLL(B,N)(A,M)
+				\tkzGetPoint{E}
+				\tkzInterLL(C,N)(D,M)
+				\tkzGetPoint{F}
+				\tkzDefPointBy[homothety = center B ratio 0.45](C)
+				\tkzGetPoint{M'}
+				\tkzDefPointBy[homothety = center A ratio 0.45](D)
+				\tkzGetPoint{N'}
+				
+				\tkzInterLL(B,N')(A,M')
+				\tkzGetPoint{E'}
+				\tkzInterLL(C,N')(D,M')
+				\tkzGetPoint{F'}
+				
+				
+				
+				
+				
+				
+				
+				\tkzDrawSegments(A,B B,C C,D D,A C,N B,N A,M C,N D,M E,F A,M' D,M' E',E B,N' C,N')
+				\tkzDrawPoints(A,B,C,D,N,M,E,F,M', F',E',N')
+				\tkzLabelPoints[below](A,D,N,E,F',N') 
+				\tkzLabelPoints[above right]() 
+				\tkzLabelPoints[left](E') 
+				\tkzLabelPoints[right](F) 
+				\tkzLabelPoints[above](B,C,M,M')
+				\end{tikzpicture}
+			\end{center}
+			Cố định điểm $N$ thuộc cạnh đáy $AD$, ta dựng $M$ thuộc cạnh đáy $BC$ sao cho $\dfrac{BM}{BC}=\dfrac{AN}{AD}$. Theo câu a) thì diện tích tứ giác $MENF$ lớn nhất.\\
+			Ứng với điểm $N'$ bất kì thuộc cạnh đáy $AD$, dựng điểm $M'$ thuộc cạnh đáy $BC$ sao cho $\dfrac{BM'}{BC}=\dfrac{AN'}{AD}$, ta được tứ giác $M'E'N'F'$ có diện tích lớn nhất. Ta sẽ chứng minh rằng $S_{MENF}=S_{M'E'N'F'}$. Theo câu a) ta có $EF \parallel AD, E'F' \parallel AD$. Bây giờ ta sẽ chứng minh $E', E, F', F$ thẳng hàng. Thật vậy, $$\dfrac{BE'}{E'N}=\dfrac{BM'}{AN'}=\dfrac{BM}{AN}=\dfrac{BE}{EN}\Rightarrow E'E \parallel AD.$$
+			Vậy $E, E', F, F'$ thẳng hàng. \\
+			Ta lại có $$\dfrac{E'F'}{AD}=\dfrac{M'E'}{M'A}=\dfrac{ME}{MA}=\dfrac{EF}{AD}\Rightarrow EF = E'F'.$$
+			Do đó $S_{M'E'F'} = S_{MEF}$ và $S_{N'E'F'}=S_{NEF}\Rightarrow S_{M'E'N'F'}=S_{MENF}$
+			Như vậy các điểm $M, N$ phải dựng là các điểm chia trong $BC$ và $AD$ theo cùng một tỉ số. Bài toán có vô số nghiệm hình.\\
+			Để dựng được các điểm $M, N$ nói trên, ta chú ý rằng nếu $AB\parallel CD$ ở $P$ thì $P, M, N$ thẳng hàng, còn nếu $AB\parallel CD$ thì $MN\parallel AB\parallel CD$.
+		\end{enumerate}
+	}
+\end{bt}

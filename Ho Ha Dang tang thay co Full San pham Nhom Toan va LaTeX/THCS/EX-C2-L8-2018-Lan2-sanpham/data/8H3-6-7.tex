@@ -1,0 +1,878 @@
+%GV Biên soạn: Dương BùiĐức
+%GV Phản biện: Võ Tấn Đạt
+\section{Trường hợp đồng dạng thứ hai}
+\subsection{Trọng tâm kiến thức}
+	\immini
+	{
+		Nếu hai cạnh của tam giác này tỉ lệ với hai cạnh của tam giác kia và hai góc tạo bởi các cặp cạnh đó bằng nhau thì hai tam giác đó đồng dạng.\\
+		Nếu $\triangle ABC$ và $\triangle A'B'C'$ có $ \heva{&\dfrac{AB}{A'B'} = \dfrac{AC}{A'C'}\\ &\widehat{A}=\widehat{A'}} $
+		thì $\triangle ABC \backsim \triangle A'B'C'$.
+	}
+	{
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.6]
+		\tkzDefPoints{0/0/B}
+		\coordinate (C) at ($(B)+(6,0)$);
+		\tkzDefShiftPoint[B](70:4){A}
+		%
+		\pgfresetboundingbox
+		\tkzDrawSegments(A,B B,C C,A)
+		\tkzDrawPoints[fill=black](A,B,C)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](C)
+		\tkzMarkAngles[size=0.5cm,arc=l](B,A,C)
+		\end{tikzpicture}
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.4]
+		\tkzDefPoints{0/0/B'}
+		\coordinate (C') at ($(B')+(6,0)$);
+		\tkzDefShiftPoint[B'](70:4){A'}
+		%
+		\pgfresetboundingbox
+		\tkzDrawSegments(A',B' B',C' C',A')
+		\tkzDrawPoints[fill=black](A',B',C')
+		\tkzLabelPoints[above](A')
+		\tkzLabelPoints[left](B')
+		\tkzLabelPoints[right](C')
+		\tkzMarkAngles[size=0.5cm,arc=l](B',A',C')
+		\end{tikzpicture}
+	}
+	
+\subsection{Các dạng bài tập và phương pháp giải}
+\begin{dang}{Chứng minh hai tam giác đồng dạng}
+	\emph{Phương pháp giải:}\\
+	Xét hai tam giác, chọn ra hai góc bằng nhau, xét tỉ số hai cạnh tạo nên mỗi góc đó. Nếu hai tỉ số bằng nhau thì hai tam giác đồng dạng.
+\end{dang}
+\begin{vd}%[8H3B6]
+	Cho $\triangle ABC$ có $AB = 15$ cm, $AC = 20$ cm. Trên hai cạnh $ AB $ và $ AC $ lần lượt lấy điểm $ D $ và $ E $ sao cho $ AD=8 $ cm, $ AE=6 $ cm. Chứng minh rằng $\triangle ABC\backsim\triangle A'B'C'$.
+	\loigiai{
+		\immini{
+		Xét $ \triangle ADE $ và $ \triangle ABC $ có
+		\[
+		\heva{& \widehat{BAC}\text{ chung}\\
+			&\dfrac{AD}{AC}=\dfrac{AE}{AB}\ \left( \text{ vì }\dfrac{8}{20}=\dfrac{6}{15}\right).}
+		\]
+		Suy ra $ \triangle ADE\backsim\triangle ACB $ (c.g.c).
+	}{
+\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1}
+\pgfmathsetmacro\goc{70}
+\pgfmathsetmacro\x{3*\h}
+\pgfmathsetmacro\y{2*\h}
+\pgfmathsetmacro\xmin{-0.2*\x}
+\pgfmathsetmacro\xmax{1.5*\x}
+\pgfmathsetmacro\ymin{-0.2*\y}
+\pgfmathsetmacro\ymax{1.2*\y}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){B}
+\tkzDefShiftPoint[B](0:\x){C}
+\tkzDefShiftPoint[B](\goc:\y){A}
+\coordinate (D) at ($(A)!3/5!(B)$);
+\coordinate (E) at ($(A)!2/5!(C)$);
+\tkzDrawPoints[fill=black](A,B,C,E,D)
+\draw (A)--(B)--(C)--cycle (D)--(E);
+\tkzLabelPoints[below](C,B)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](D)
+\tkzLabelPoints[above right](E)
+\end{tikzpicture}
+}
+	}
+\end{vd}
+\begin{dang}{Tính độ dài đoạn thẳng}
+	\emph{Phương pháp giải:}
+	\begin{itemize}
+		\item Chứng minh hai tam giác (chứa cạnh cần tính độ dài) đồng dạng.
+		\item Lập tỉ số cặp cạnh tương ứng và dùng tính chất của tỉ lệ thức.
+	\end{itemize}
+\end{dang}
+\begin{vd}%[8H3K6]
+	Cho $\triangle ABC$ có $AB = 4$ cm, $AC = 6$ cm, $ BC=9 $ cm. Trên cạnh $ BC $ lấy điểm $ D $ sao cho $ CD=4 $ cm. Tính độ dài cạnh $ AD $.
+	\loigiai{
+		\immini{
+			Ta có $ \dfrac{CD}{CA}=\dfrac{4}{6}=\dfrac{2}{3} $ và $ \dfrac{CA}{CB}=\dfrac{6}{9}=\dfrac{2}{3} $ nên $ \dfrac{CA}{CB}=\dfrac{CD}{CA} $.\\
+			Mà $ \widehat{ACB} $ chung nên $ \triangle CAD\backsim\triangle CBA $ (c.g.c).\\
+			Do đó $ \dfrac{AD}{BA}=\dfrac{AC}{BC}\Rightarrow AD=\dfrac{AC\cdot AB}{BC}=\dfrac{4\cdot 6}{9}=\dfrac{8}{3} $ cm.
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1}
+			\pgfmathsetmacro\goc{50}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{2*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{2*\x}
+			\pgfmathsetmacro\ymin{-0.2*\y}
+			\pgfmathsetmacro\ymax{\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){B}
+			\tkzDefShiftPoint[B](0:1.8*\x){C}
+			\tkzDefShiftPoint[B](\goc:\y){A}
+			\coordinate (D) at ($(C)!2/5!(B)$);
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\draw (A)--(B)--(C)--cycle (D)--(A);
+			\tkzLabelPoints[below](C,B,D)
+			\tkzLabelPoints[above](A)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{dang}{Nhận biết hai tam giác đồng dạng để tính góc}
+	\emph{Phương pháp giải:}\\
+	Xét hai tam giác, chọn ra hai góc bằng nhau, xét tỉ số hai cạnh tạo nên mỗi góc đó. Nếu hai tỉ số bằng nhau thì hai tam giác đồng dạng.\\
+	Từ hai tam giác đồng dạng, suy ra các cặp góc tương ứng bằng nhau.
+\end{dang}
+\begin{vd}%[8H3K6]
+	Cho hình thang $ ABCD $ có $ \widehat{A}=\widehat{D}=90^{\circ} $, $ AB=10 $ cm, $ CD=30 $ cm, $ AD=35 $ cm. Trên cạnh $ AD $ lấy điểm $ M $ sao cho $ AM=15 $ cm. Tính số đo góc $ \widehat{BMC} $.
+	\loigiai{
+		\immini{
+			Xét $ \triangle ABM $ và $ \triangle DMC $ có
+			\[
+			\heva{
+		& \widehat{A}=\widehat{D}=90^{\circ}\\
+		&\dfrac{AB}{DM}=\dfrac{AM}{DC}\ \left( \text{ vì }\dfrac{10}{20}=\dfrac{15}{30}\right).	
+		}
+			\]
+			Suy ra $ \triangle ABM\backsim\triangle DMC $ (c.g.c), do đó $ \widehat{ABM}=\widehat{DMC} $.\\
+			Mà $ \widehat{ABM}+\widehat{AMB}=90^{\circ} $ nên
+			\[
+			\widehat{DMC}+\widehat{AMB}=90^{\circ}\Rightarrow \widehat{BMC}=90^{\circ}.
+			\]
+		}{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/D}
+			\coordinate (C) at ($(D)+(6,0)$);
+			\tkzDefShiftPoint[D](90:6.5){A}
+			\coordinate (B) at ($(A)+(2,0)$);
+			\coordinate (M) at ($(A)!3/7!(D)$);
+			\pgfresetboundingbox
+			\tkzDrawPolygon(A,B,C,D)
+			\draw (B)--(M)--(C);
+			\tkzDrawPoints[fill=black](D,C,A,B,M)
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[left](D,M)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{vd}%[8H3B6]
+	Cho hình thang $ ABCD $ có $ AB\parallel CD $, $ AB=4 $ cm, $ BD=6 $ cm, $ CD=9 $ cm và góc $ \widehat{ADB}=35^{\circ} $. Tính góc $ \widehat{BCD} $.
+	\loigiai{
+		\immini{
+			Ta có
+			\[
+			\heva{& \widehat{ABD}=\widehat{BDC}\\
+				&\dfrac{AB}{BD}=\dfrac{BD}{DC}\ \left( \text{ vì }\dfrac{4}{6}=\dfrac{6}{9}\right).}
+			\]
+			Suy ra $ \triangle ABD\backsim\triangle BDC $ (c.g.c), do đó $ \widehat{ADB}=\widehat{BCD}=35^{\circ}$.
+		}{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/D}
+			\coordinate (C) at ($(D)+(6,0)$);
+			\tkzDefShiftPoint[D](70:2.5){A}
+			\coordinate (B) at ($(A)+(3.5,0)$);
+			\pgfresetboundingbox
+			\tkzDrawPolygon(A,B,C,D)
+			\draw (B)--(D);
+			\tkzDrawPoints[fill=black](D,C,A,B)
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[left](D)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\subsection{Bài tập tự luyện}
+\begin{bt}%[8H3B6]
+	Cho $\triangle ABC$ có $ AB=\dfrac{BC}{2} $. Gọi $ M $ là trung điểm của $ BC $, $ D $ là trung điểm của $ BM $. Chứng minh rằng $ AD=\dfrac{AC}{2} $.
+	\loigiai{
+	\immini{
+	Ta có $ \triangle BAD\backsim\triangle BCA $ (c.g.c), do đó
+	\[
+	\dfrac{AD}{CA}=\dfrac{BA}{BC}=\dfrac{1}{2}\Rightarrow AD=\dfrac{AC}{2}.
+	\]
+}{
+\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1}
+\pgfmathsetmacro\goc{55}
+\pgfmathsetmacro\x{2*\h}
+\pgfmathsetmacro\y{2*\h}
+\pgfmathsetmacro\xmin{-0.2*\x}
+\pgfmathsetmacro\xmax{2.1*\x}
+\pgfmathsetmacro\ymin{-0.2*\y}
+\pgfmathsetmacro\ymax{1.2*\x}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){B}
+\tkzDefShiftPoint[B](0:2*\x){C}
+\tkzDefShiftPoint[B](\goc:\x){A}
+\tkzDefMidPoint(C,B)\tkzGetPoint{M}
+\tkzDefMidPoint(M,B)\tkzGetPoint{D}
+\tkzDrawPoints[fill=black](A,B,C,D,M)
+\draw (A)--(B)--(C)--cycle (D)--(A)--(M);
+\tkzLabelPoints[below](C,B,M,D)
+\tkzLabelPoints[above](A)
+\end{tikzpicture}
+}
+}
+\end{bt}
+\begin{bt}%[8H3K6]
+	Giả sử $ D $ là một điểm nằm trong tam giác nhọn $ ABC $ sao cho $ \widehat{ADB}=\widehat{ACB}+90^{\circ} $ và $ AC\cdot BC=AD\cdot BC $. Chứng minh rằng $ \dfrac{AB\cdot CD}{AD\cdot BC}=\sqrt{2} $.
+	\loigiai{
+\immini{
+Về phía ngoài tam giác $ ABC $, vẽ tam giác $ BCE $ vuông cân tại $ C $. Khi đó $ \widehat{ADB}=\widehat{ACE}=\widehat{ACB}+90^{\circ} $.\\
+Mà $ \dfrac{AD}{AC}=\dfrac{BD}{BC} $ (vì $ AC\cdot BD=AD\cdot BC $) nên $ \dfrac{AD}{AC}=\dfrac{BD}{CE} $, do đó $ \triangle ABD\backsim\triangle AEC $ (c.g.c). Suy ra $ \widehat{A}_{1}=\widehat{A}_{2}\Rightarrow \widehat{BAE}=\widehat{DAC} $.\\
+Lại có do $ \triangle ABD\backsim\triangle AEC $ nên $ \dfrac{AB}{AD}=\dfrac{AE}{AC} $, suy ra\\
+$ \triangle ABE\backsim\triangle ADC $ (c.g.c) $ \Rightarrow \dfrac{AB}{AD}=\dfrac{BE}{DC}\Rightarrow AB\cdot CD=AD\cdot BE $.\\
+Mặt khác $ \triangle BCE $ vuông cân tại $ C $ nên $ BE=\sqrt{2}BC $, do đó
+\[
+AB\cdot CD=\sqrt{2}AD\cdot BC\Rightarrow \dfrac{AB\cdot CD}{AD\cdot BC}=\sqrt{2}.
+\]
+}{
+\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1}
+\pgfmathsetmacro\goc{70}
+\pgfmathsetmacro\x{3*\h}
+\pgfmathsetmacro\y{2*\h}
+\pgfmathsetmacro\xmin{-0.2*\x}
+\pgfmathsetmacro\xmax{1.5*\x}
+\pgfmathsetmacro\ymin{-2*\y}
+\pgfmathsetmacro\ymax{1.2*\y}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){B}
+\tkzDefShiftPoint[B](0:\x){C}
+\tkzDefShiftPoint[B](\goc:\y){A}
+\tkzDefShiftPoint[B](\goc/3:0.5*\y){D}
+\tkzCalcLength[cm](B,C)\tkzGetLength{dBC}
+\tkzDefShiftPoint[C](-90:\dBC){E}
+\tkzDrawPoints[fill=black](A,B,C,D,E)
+\draw (A)--(B)--(C)--cycle (C)--(E)--(B)--(D)--cycle (D)--(A)--(E);
+\tkzLabelPoints[below](B,E,D)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[right](C)
+\tkzMarkRightAngles[size=0.2](B,C,E)
+\tkzLabelAngles[pos=0.5](B,A,D){$1$}
+\tkzLabelAngles[pos=0.6](E,A,C){$2$}
+\end{tikzpicture}
+}	
+}
+\end{bt}
+\begin{bt}%[Đề thi hsg Lớp 9, tỉnh Quảng Nam, năm học 2008-2009]%[8H3B6]%[8H3K6]
+	Cho hình thang $ABCD$ có $AB\parallel CD$ ($ AB\parallel CD $) và $ AB\perp BD$. Hai đường chéo $ AC $ và $ BD $ cắt nhau tại $ G $. Trên đường thẳng vuông góc với $ AC $ tại $ C $ lấy điểm $ E $ sao cho $ CE=AG $ và đoạn $ GE $ không cắt đường thẳng $ CD $. Trên đoạn $ CD $ lấy điểm $ F $ sao cho $ DF=GB $. Chứng minh rằng
+	\begin{enumEX}{2}
+		\item $ \triangle FDG\backsim\triangle ECG $.
+		\item $ GF\perp EF $.
+	\end{enumEX}
+\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1.5}
+\pgfmathsetmacro\goc{70}
+\pgfmathsetmacro\x{3*\h}
+\pgfmathsetmacro\y{2*\h}
+\pgfmathsetmacro\xmin{-\x}
+\pgfmathsetmacro\xmax{1.5*\x}
+\pgfmathsetmacro\ymin{-0.2*\y}
+\pgfmathsetmacro\ymax{1.2*\y}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){D}
+\tkzDefShiftPoint[D](0:\x){C}
+\tkzDefShiftPoint[D](90:\y){B}
+\tkzDefShiftPoint[B](180:0.5*\x){A}
+\tkzInterLL(A,C)(B,D)\tkzGetPoint{G}
+\tkzCalcLength[cm](A,G)\tkzGetLength{dAG}
+\tkzCalcLength[cm](B,G)\tkzGetLength{dBG}
+\tkzFindAngle(G,C,D)\tkzGetAngle{dcg}
+\tkzDefShiftPoint[C](90-\dcg:\dAG){E}
+\tkzDefShiftPoint[D](0:\dBG){F}
+\tkzDrawPoints[fill=black](A,B,C,D,E,F,G)
+\draw (A)--(B)--(C)--(D)--cycle (A)--(C)--(E) (B)--(D) (G)--(F)--(E)--cycle;
+\tkzLabelPoints[below](C,D,F)
+\tkzLabelPoints[below left](G)
+\tkzLabelPoints[above](A,B,E)
+\tkzMarkRightAngles[size=0.2](A,B,D A,C,E B,D,C)
+\tkzLabelAngles[pos=0.6](D,G,F){$1$}
+\tkzLabelAngles[pos=0.8](C,G,E){$2$}
+\end{tikzpicture}
+	\end{center}
+\begin{enumerate}
+	\item Ta có $ AB\parallel CD $ nên $ \dfrac{BG}{AG}=\dfrac{GD}{GC} $. Mà $ AG=CE $, $ BG=DF $ nên $ \dfrac{DF}{CE}=\dfrac{GD}{GC} $.\\
+	Xét $ \triangle FDG $ và $ \triangle ECG $ có\\
+	$ \dfrac{DF}{CE}=\dfrac{GD}{CG} $ và $ \widehat{GDF}=\widehat{GCE}=90^{\circ} $ nên $ \triangle FDG\backsim\triangle ECG $ (c.g.c).
+	\item Vì $ \triangle FDG\backsim\triangle ECG $ nên $ \widehat{G}_{1}=\widehat{G}_{2} $ và $ \dfrac{GD}{GF}=\dfrac{GC}{GE} $.\\
+	Xét $ \triangle GDC $ và $ \triangle GFE $ có $ \dfrac{GD}{GF}=\dfrac{GC}{GE} $ và $ \widehat{DGC}=\widehat{FGE} $ nên $ \triangle GDC\backsim\triangle GFE $ (c.g.c), suy ra $ \widehat{GFE}=\widehat{GDC}=90^{\circ} $.\\
+	Vậy $ GF\perp EF $.
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}%[8H3B6]
+	Cho hình thang $ ABCD $ ($ AB\parallel CD $) có $ AB=4 $ cm, $ BD=8 $ cm, $ CD=16 $ cm. Chứng minh rằng $ BC=2AD $.
+	\loigiai{
+		\immini{
+			Ta có
+			\[
+			\heva{& \widehat{ABD}=\widehat{BDC}\\
+				&\dfrac{AB}{BD}=\dfrac{BD}{DC}\ \left( \text{ vì }\dfrac{4}{8}=\dfrac{8}{16}\right).}
+			\]
+			Suy ra $ \triangle ABD\backsim\triangle BDC $ (c.g.c), do đó $BC=2AD$.
+		}{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/D}
+			\coordinate (C) at ($(D)+(6,0)$);
+			\tkzDefShiftPoint[D](70:2.5){A}
+			\coordinate (B) at ($(A)+(3,0)$);
+			\pgfresetboundingbox
+			\tkzDrawPolygon(A,B,C,D)
+			\draw (B)--(D);
+			\tkzDrawPoints[fill=black](D,C,A,B)
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[left](D)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\section{Trường hợp đồng dạng thứ ba}
+\subsection{Trọng tâm kiến thức}
+\immini
+{
+	Nếu hai góc của tam giác này lần lượt bằng hai góc của tam giác kia thì hai tam giác đó đồng dạng.\\
+	Nếu $\triangle ABC$ và $\triangle A'B'C'$ có $ \heva{&\widehat{A}=\widehat{A'}\\ &\widehat{B}=\widehat{B'}} $
+	thì $\triangle ABC \backsim \triangle A'B'C'$.
+}
+{
+	\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.6]
+	\tkzDefPoints{0/0/B}
+	\coordinate (C) at ($(B)+(6,0)$);
+	\tkzDefShiftPoint[B](70:4){A}
+	%
+	\pgfresetboundingbox
+	\tkzDrawSegments(A,B B,C C,A)
+	\tkzDrawPoints[fill=black](A,B,C)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[left](B)
+	\tkzLabelPoints[right](C)
+	\tkzMarkAngles[size=0.5cm,arc=l](B,A,C)
+	\tkzMarkAngles[size=0.6cm,arc=ll](C,B,A)
+	\end{tikzpicture}
+	\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.4]
+	\tkzDefPoints{0/0/B'}
+	\coordinate (C') at ($(B')+(6,0)$);
+	\tkzDefShiftPoint[B'](70:4){A'}
+	%
+	\pgfresetboundingbox
+	\tkzDrawSegments(A',B' B',C' C',A')
+	\tkzDrawPoints[fill=black](A',B',C')
+	\tkzLabelPoints[above](A')
+	\tkzLabelPoints[left](B')
+	\tkzLabelPoints[right](C')
+	\tkzMarkAngles[size=0.5cm,arc=l](B',A',C')
+	\tkzMarkAngles[size=0.6cm,arc=ll](C',B',A')
+	\end{tikzpicture}
+}
+
+\subsection{Các dạng bài tập và phương pháp giải}
+\begin{dang}{Chứng minh hai tam giác đồng dạng}
+	\emph{Phương pháp giải:}\\
+	Chứng minh hai tam giác có hai cặp góc bằng nhau.
+\end{dang}
+\begin{vd}%[8H3B7]
+	Cho $\triangle ABC$ có $ \widehat{B}>\widehat{C} $. Trên $ AC $ lấy điểm $ D $ sao cho $ \widehat{ABD}=\widehat{C} $. Chứng minh rằng $\triangle ABC\backsim\triangle ADB$.
+	\loigiai{
+		\immini{
+			Xét $ \triangle ADB $ và $ \triangle ABC $ có $ \widehat{BAC}$ chung, $\widehat{ABD}=\widehat{ACB}$\\
+			nên $ \triangle ADB\backsim\triangle ABC $ (g.g).
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1}
+			\pgfmathsetmacro\goc{70}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{2*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.5*\x}
+			\pgfmathsetmacro\ymin{-0.2*\y}
+			\pgfmathsetmacro\ymax{1.2*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){B}
+			\tkzDefShiftPoint[B](0:\x){C}
+			\tkzDefShiftPoint[B](\goc:\y){A}
+			\tkzCalcLength[cm](A,B)\tkzGetLength{dAB}
+			\tkzCalcLength[cm](A,C)\tkzGetLength{dAC}
+			\coordinate (D) at ($(A)!{\dAB^2/\dAC^2}!(C)$);
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\draw (A)--(B)--(C)--cycle (D)--(B);
+			\tkzLabelPoints[below](C,B)
+			\tkzLabelPoints[above](A,D)
+			\tkzMarkAngles[size=0.6cm,arc=l](D,B,A A,C,B)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{dang}{Chứng minh hệ thức hình học}
+	\emph{Phương pháp giải:}
+	\begin{itemize}
+		\item Chứng minh hai tam giác đồng dạng;
+		\item Vận dụng tính chất của hai tam giác đồng dạng và tỉ lệ thức.
+	\end{itemize}
+\end{dang}
+\begin{vd}%[8H3B7]
+	Cho $\triangle ABC$. Lấy $ D $ thuộc $ AB $, $ E $ thuộc $ AC $ sao cho $ \widehat{ACD}=\widehat{ABE} $. Chứng minh rằng $\dfrac{AB}{AC}=\dfrac{AE}{AD}$.
+	\loigiai{
+		\immini{
+			Xét $ \triangle ABE $ và $ \triangle ACD $ có $ \widehat{BAC}$ chung, $\widehat{ACD}=\widehat{ABE}$\\
+			nên $ \triangle ABE\backsim\triangle ACD $ (g.g).\\
+			Do đó $\dfrac{AB}{AC}=\dfrac{AE}{AD}$.
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1.5}
+			\pgfmathsetmacro\goc{70}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{2*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.2*\x}
+			\pgfmathsetmacro\ymin{-0.2*\y}
+			\pgfmathsetmacro\ymax{\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){B}
+			\tkzDefShiftPoint[B](0:\x){C}
+			\tkzDefShiftPoint[B](\goc:\y){A}
+			\coordinate (D) at ($(A)!2/3!(B)$);
+			\tkzCalcLength[cm](A,B)\tkzGetLength{dAB}
+			\tkzCalcLength[cm](A,C)\tkzGetLength{dAC}
+			\tkzCalcLength[cm](A,D)\tkzGetLength{dAD}			
+			\coordinate (E) at ($(A)!{\dAB*\dAD/\dAC^2}!(C)$);
+			\tkzDrawPoints[fill=black](A,B,C,D,E)
+			\draw (A)--(B)--(C)--cycle (E)--(B) (C)--(D);
+			\tkzLabelPoints[below](C,B)
+			\tkzLabelPoints[above](A,E)
+			\tkzLabelPoints[left](D)
+			\tkzMarkAngles[size=0.6cm,arc=l](E,B,A A,C,D)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{vd}%[8H3B7]
+	Cho hình thang $ ABCD $ ($ AB\parallel CD $) có $ \widehat{A}=\widehat{CBD} $. Chứng minh rằng $ BD^{2}=AB\cdot CD $.
+	\loigiai{
+		\immini{
+			Xét $ \triangle ABD $ và $ \triangle BDC $ có $\widehat{A}=\widehat{CBD}$, $\widehat{ABD}=\widehat{BDC}$ nên $ \triangle ABD\backsim\triangle BDC $ (g.g), do đó $\dfrac{AB}{BD}=\dfrac{BD}{DC}\Rightarrow BD^{2}=AB\cdot CD$.
+		}{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/D}
+			\coordinate (C) at ($(D)+(6,0)$);
+			\tkzDefShiftPoint[D](70:2.5){A}
+			\coordinate (B) at ($(A)+(2.8,0)$);
+			\pgfresetboundingbox
+			\tkzDrawPolygon(A,B,C,D)
+			\draw (B)--(D);
+			\tkzDrawPoints[fill=black](D,C,A,B)
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[left](D)
+			\tkzLabelPoints[right](C)
+			\tkzMarkAngles[size=0.4cm,arc=l](D,B,C D,A,B)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{vd}%[8H3K7]
+	Cho tam giác $ ABC $ vuông tại $ B $ với $ AB=2BC $. Lấy điểm $ D $ thuộc cạnh $ AC $ sao cho $ BC=CD $, điểm $ E $ thuộc cạnh $ AB $ sao cho $ AD=AE $. Chứng minh rằng $ AD^{2}=AB\cdot AE $.
+	\loigiai{
+		\immini{
+			Trên tia đối của tia $ CA $ lấy điểm $ F $ sao cho $ CF=CD=BC $, suy ra $ \triangle BDF $ vuông tại $ B $ và $ DF=AB $.\\
+			Ta có $ \widehat{FBD}=\widehat{CBA}=90^{\circ} $ nên $ \widehat{FBC}=\widehat{DBA} $.\\
+			Mà $ \widehat{FBC}=\widehat{CFB} $ nên $ \widehat{CFB}=\widehat{DBA} $, hay $ \widehat{ABD}=\widehat{AFB} $.\\
+			Từ đó suy ra $ \triangle ABD\backsim\triangle AFB $ (g.g).
+		}{
+		\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1}
+\pgfmathsetmacro\goc{90}
+\pgfmathsetmacro\x{4*\h}
+\pgfmathsetmacro\y{2*\h}
+\pgfmathsetmacro\xmin{-\x}
+\pgfmathsetmacro\xmax{1.5*\x}
+\pgfmathsetmacro\ymin{-0.2*\y}
+\pgfmathsetmacro\ymax{1.6*\y}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){B}
+\tkzDefShiftPoint[B](0:\x){A}
+\tkzDefShiftPoint[B](\goc:\y){C}
+\coordinate (D) at ($(A)!1/2!(C)$);
+\tkzDefPointsBy[symmetry = center C](D){F}
+\tkzCalcLength[cm](A,B)\tkzGetLength{dAB}
+\tkzCalcLength[cm](A,D)\tkzGetLength{dAD}
+\coordinate (E) at ($(A)!{\dAD/\dAB}!(B)$);
+\tkzDrawPoints[fill=black](A,B,C,D,E,F)
+\draw (A)--(B)--(C)--cycle (C)--(F)--(B)--(D)--(E);
+\tkzLabelPoints[below](A,B,E)
+\tkzLabelPoints[above](C,D)
+\tkzLabelPoints[left](F)
+\tkzMarkRightAngles[size=0.2](C,B,A)
+\end{tikzpicture}
+		}\noindent
+	Do vậy
+	\[
+	\dfrac{AB}{AF}=\dfrac{AD}{AB}\Rightarrow \dfrac{DF}{AF}=\dfrac{AD}{DF}=\dfrac{DF-AD}{AF-DF}=\dfrac{AB-AE}{AD}=\dfrac{BE}{AD}\ (\text{vì }AB=DF, AD=AE).
+	\]
+	Từ đó suy ra $ \dfrac{AD}{DF}=\dfrac{BE}{AD}\Rightarrow AD^{2}=DF\cdot BE=AB\cdot BE $.
+	}
+\end{vd}
+\begin{vd}%[8H3B7]
+	Cho tam giác $ ABC $ vuông tại $ A $ có $ AD $ là đường cao. Đường phân giác góc $ \widehat{B} $ lần lượt cắt $ AD $, $ AC $ tại $ F $, $ E $. Chứng minh rằng $ \dfrac{DF}{FA}=\dfrac{AE}{EC} $.
+	\loigiai{
+		\immini{
+			Ta có $ \widehat{B}_{1}=\widehat{B}_{2} $ (tính chất đường phân giác) và $ \widehat{A}_{1}=\widehat{C} $ (cùng phụ với $ \widehat{A}_{2} $) nên $ \triangle BAF\backsim\triangle BCE $ (g.g) $ \Rightarrow \dfrac{AF}{EC}=\dfrac{BF}{BE} $.\hfill(1)\\
+			Lại có $ \widehat{B}_{1}=\widehat{B}_{2} $ và $ \widehat{BDF}=\widehat{BAE}=90^{\circ} $ nên\\
+			$ \triangle BAE\backsim\triangle BDF $ (g.g) $ \Rightarrow \dfrac{DF}{AE}=\dfrac{BF}{BE} $.\hfill(2)\\
+			Từ (1) và (2) suy ra $ \dfrac{AF}{EC}=\dfrac{DF}{AE}\Rightarrow \dfrac{DF}{AF}=\dfrac{AE}{EC} $.
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1}
+			\pgfmathsetmacro\goc{90}
+			\pgfmathsetmacro\x{4*\h}
+			\pgfmathsetmacro\y{2*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.3*\x}
+			\pgfmathsetmacro\ymin{-0.2*\y}
+			\pgfmathsetmacro\ymax{1.6*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){A}
+			\tkzDefShiftPoint[A](0:\x){C}
+			\tkzDefShiftPoint[A](\goc:\y){B}
+			\tkzDefLine[bisector](A,B,C)\tkzGetPoint{be}
+			\tkzDrawAltitude(C,B)(A)\tkzGetPoint{D}
+			\tkzInterLL(A,D)(B,be)\tkzGetPoint{F}
+			\tkzInterLL(A,C)(B,be)\tkzGetPoint{E}
+			\tkzDrawPoints[fill=black](A,B,C,D,E,F)
+			\draw (A)--(B)--(C)--cycle (B)--(E);
+			\tkzLabelPoints[below](A,C,E)
+			\tkzLabelPoints[above](B,D)
+			\tkzLabelPoints[right](F)
+			\tkzMarkRightAngles[size=0.2](B,A,C A,D,C)
+			\tkzMarkAngles[size=0.5cm,arc=l](A,B,E)
+			\tkzMarkAngles[size=0.55cm,arc=l](E,B,C)
+			\tkzLabelAngles[pos=0.7](A,B,E){$1$}
+			\tkzLabelAngles[pos=0.7](E,B,C){$2$}
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{vd}%[8H3K7]
+	Cho tam giác $ MNP $ thỏa mãn $ 3\widehat{M}+2\widehat{N}=180^{\circ} $. Chứng minh rằng $ PN^{2}+MP\cdot MN-MN^{2}=0 $.
+	\loigiai{
+		\immini{
+			Lấy điểm $ Q $ trên cạnh $ MN $ sao cho $ MQ=MP $. Khi đó $ \widehat{PQM}=\widehat{MPQ} $ và $ \widehat{PQN}=180^{\circ}-\widehat{MQP} $.\\
+			Vì $ 3\widehat{M}+2\widehat{N}=180^{\circ} $ nên
+			\[ \widehat{PQN}=180^{\circ}-\dfrac{180^{\circ}-\widehat{M}}{2}=180^{\circ}-\widehat{M}-\widehat{N}=\widehat{MPN}.
+			\]
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1}
+			\pgfmathsetmacro\goc{50}
+			\pgfmathsetmacro\x{5*\h}
+			\pgfmathsetmacro\y{2*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.2*\x}
+			\pgfmathsetmacro\ymin{-0.3*\y}
+			\pgfmathsetmacro\ymax{\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){M}
+			\tkzDefShiftPoint[M](0:\x){N}
+			\tkzDefShiftPoint[M](\goc:\y){P}
+			\tkzCalcLength[cm](M,P)\tkzGetLength{dMP}
+			\tkzCalcLength[cm](M,N)\tkzGetLength{dMN}
+			\coordinate (Q) at ($(M)!{\dMP/\dMN}!(N)$);
+			\tkzDrawPoints[fill=black](M,N,P,Q)
+			\draw (M)--(N)--(P)--cycle (P)--(Q);
+			\tkzLabelPoints[below](M,N,Q)
+			\tkzLabelPoints[above](P)
+			\end{tikzpicture}
+		}\noindent
+	Xét $ \triangle NQP $ và $ \triangle NPM $ có $ \widehat{PQN}=\widehat{MPN} $ và $ \widehat{N} $ chung nên $ \triangle NQP\backsim\triangle NPM $ (g.g). Suy ra
+	\[
+	\dfrac{MN}{PN}=\dfrac{PN}{NQ}\Rightarrow \dfrac{MN}{PN}=\dfrac{PN}{MN-MP}\Rightarrow PN^{2}+MP\cdot MN-MN^{2}=0.
+	\]
+	}
+\end{vd}
+\begin{note}
+	Vận dụng kỹ thuật trên, ta có thể làm được bài toán đảo sau đây\\
+	``Cho tam giác $ MNP $ thỏa mãn $ PN^{2}+MP\cdot MN-MN^{2}=0 $. Chứng minh $ 3\widehat{M}+2\widehat{N}=180^{\circ} $''.
+\end{note}
+\begin{dang}{Tính độ dài đoạn thẳng}
+	\emph{Phương pháp giải:}
+	\begin{itemize}
+		\item Chứng minh hai tam giác đồng dạng;
+		\item Lập tỉ số cặp cạnh tương ứng rồi sử dụng tỉ lệ thức.
+	\end{itemize}
+\end{dang}
+\begin{vd}%[8H3B7]
+	Cho $\triangle ABC $ và $ \triangle MNP $ có $ \widehat{A}=\widehat{M} $, $ \widehat{B}=\widehat{N} $, $ AB=5 $ cm, $ BC=7 $ cm, $ MN=10 $ cm, $ MP=8 $ cm. Tính độ dài các cạnh còn lại của hai tam giác.
+	\loigiai{
+	Xét $\triangle ABC $ và $ \triangle MNP $ có $ \widehat{A}=\widehat{M} $, $ \widehat{B}=\widehat{N} $ nên $\triangle ABC\backsim \triangle MNP $ (g.g). Suy ra
+	\[
+		\dfrac{AB}{MN}=\dfrac{BC}{NP}=\dfrac{CA}{PM}\Rightarrow \dfrac{5}{10}=\dfrac{7}{NP}=\dfrac{CA}{8}\Rightarrow\heva{&NP=\dfrac{10\cdot 7}{5}=14\text{ cm}\\ &CA=\dfrac{8\cdot 5}{10}=4\text{ cm}.}
+	\]
+}
+\end{vd}
+\begin{vd}%[8H3K7]
+	Cho $\triangle ABC$ có $ \widehat{A}>\widehat{C} $. Trên $ BC $ lấy điểm $ D $ sao cho $ \widehat{BAD}=\widehat{C} $. Biết $ AB=5 $ cm, $ BC=10 $ cm. Tính độ dài các cạnh $ BD $, $ CD $.
+	\loigiai{
+		\immini{
+			Xét $ \triangle BAD $ và $ \triangle BCA $ có $ \widehat{ABC}$ chung, $\widehat{BAD}=\widehat{C}$ nên\\
+			$ \triangle BAD\backsim\triangle BCA $ (g.g). Suy ra
+			\[
+			\dfrac{BA}{BC}=\dfrac{BD}{BA}\Rightarrow \dfrac{5}{10}=\dfrac{BD}{5}.
+			\]
+			Do đó $ BD=2,5 $ cm và $ CD=BC-BD=7,5 $ cm.
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1}
+			\pgfmathsetmacro\goc{70}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{2*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.5*\x}
+			\pgfmathsetmacro\ymin{-0.2*\y}
+			\pgfmathsetmacro\ymax{1.2*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){B}
+			\tkzDefShiftPoint[B](0:\x){C}
+			\tkzDefShiftPoint[B](\goc:\y){A}
+			\tkzCalcLength[cm](A,B)\tkzGetLength{dAB}
+			\tkzCalcLength[cm](B,C)\tkzGetLength{dBC}
+			\coordinate (D) at ($(B)!{\dAB^2/\dBC^2}!(C)$);
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\draw (A)--(B)--(C)--cycle (D)--(A);
+			\tkzLabelPoints[below](C,B,D)
+			\tkzLabelPoints[above](A)
+			\tkzMarkAngles[size=0.6cm,arc=l](B,A,D A,C,B)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\subsection{Bài tập tự luyện}
+\begin{bt}%[8H3B7]
+	Cho $\triangle ABC$ đều có $ O $ là trung điểm cạnh $ BC $. Vẽ góc $ \widehat{xOy}=60^{\circ} $ sao cho các tia $ Ox $, $ Oy $ cắt các cạnh $ AB $, $ AC $ lần lượt tại $ E $, $ F $. Chứng minh rằng
+	\begin{enumEX}{2}
+		\item $ BC^{2}=4BE\cdot FC $.
+		\item $ EO $ là phân giác $ \widehat{BEF} $.
+	\end{enumEX}
+\loigiai{
+\immini{
+\begin{enumerate}
+	\item Ta có $ \triangle BEO\backsim\triangle COF $ (g.g) nên $ OB\cdot OC=BE\cdot CF $.\\
+	Suy ra $ BC^{2}=4BE\cdot FC $.
+	\item Vì $ \triangle BEO\backsim\triangle COF $ nên $ \dfrac{OE}{FO}=\dfrac{BO}{CF}\Rightarrow \dfrac{OE}{FO}=\dfrac{BE}{BO} $.\\
+	Mà $ \widehat{EBO}=\widehat{FOE} $ nên $ \triangle EOF\backsim\triangle EBO $ (c.g.c),\\
+	do đó $ \widehat{OEB}=\widehat{FEO} $. Suy ra $ EO $ là phân giác $ \widehat{BEF} $.
+\end{enumerate}
+}{
+\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1}
+\pgfmathsetmacro\goc{60}
+\pgfmathsetmacro\x{3*\h}
+\pgfmathsetmacro\y{\x}
+\pgfmathsetmacro\xmin{-0.2*\x}
+\pgfmathsetmacro\xmax{1.2*\x}
+\pgfmathsetmacro\ymin{-0.2*\y}
+\pgfmathsetmacro\ymax{\y}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){B}
+\tkzDefShiftPoint[B](0:\x){C}
+\tkzDefPointsBy[rotation = center B angle \goc](C){A}
+\coordinate (O) at ($(B)!1/2!(C)$);
+\coordinate (F) at ($(A)!2/5!(C)$);
+\tkzDefPointsBy[rotation = center O angle \goc](F){f}
+\tkzInterLL(A,B)(O,f)\tkzGetPoint{E}
+\tkzDrawPoints[fill=black](A,B,C,E,F)
+\draw (A)--(B)--(C)--cycle (O)--(E)--(F)--cycle;
+\tkzLabelPoints[below](B,C,O)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[right](F)
+\tkzLabelPoints[left](E)
+\tkzLabelAngles[pos=0.4](B,E,O){$1$}
+\tkzLabelAngles[pos=0.4](F,O,C){$1$}
+\tkzMarkAngles[size=0.3cm,arc=l](A,C,B C,B,A F,O,E)
+\end{tikzpicture}
+}
+}
+\end{bt}
+\begin{bt}%[8H3B7][8H3K7]
+	Cho $\triangle ABC$ vuông tại $ A $, đường cao $ AH $. Gọi $ M $, $ N $ lần lượt là trung điểm các đoạn thẳng $ BH $, $ AH $. Chứng minh rằng
+	\begin{enumEX}{2}
+		\item $ \triangle ABM\backsim\triangle CAN $.
+		\item $ AM\perp CN $.
+	\end{enumEX}
+\loigiai{
+\immini{
+\begin{enumerate}
+	\item Ta có $ \triangle ABH\backsim\triangle CAH $ (g.g) nên\\
+	$ \dfrac{AB}{CA}=\dfrac{BH}{AH}=\dfrac{2BM}{2AN} $. Do đó
+	$ \dfrac{AB}{AC}=\dfrac{BM}{AN}$,\\
+	suy ra $\triangle ABM\backsim\triangle CAN $ (c.g.c).
+	\item Gọi $ I $ là giao điểm của $ AM $ và $ CN $.\\
+	Vì $ \triangle ABM\backsim\triangle CAN $ nên $ \widehat{BAM}=\widehat{ACN} $.\\
+	Mà $ \widehat{BAM}+\widehat{MAC}=90^{\circ} $ nên $ \widehat{MAC}+\widehat{ACN}=90^{\circ} $, suy ra $ \widehat{AIC}=90^{\circ} $.\\
+	Vậy	$ AM\perp CN $.
+\end{enumerate}
+}{
+\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1.5}
+\pgfmathsetmacro\goc{90}
+\pgfmathsetmacro\x{3*\h}
+\pgfmathsetmacro\y{2*\h}
+\pgfmathsetmacro\xmin{-0.2*\x}
+\pgfmathsetmacro\xmax{1.2*\x}
+\pgfmathsetmacro\ymin{-0.2*\y}
+\pgfmathsetmacro\ymax{1.2*\y}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:\x){C}
+\tkzDefShiftPoint[A](\goc:\y){B}
+\coordinate (H) at ($(B)!(A)!(C)$);
+\coordinate (M) at ($(B)!1/2!(H)$);
+\coordinate (N) at ($(A)!1/2!(H)$);
+\tkzInterLL(A,M)(C,N)\tkzGetPoint{I}
+\tkzDrawPoints[fill=black](A,B,C,H,M,N,I)
+\draw (A)--(B)--(C)--cycle (M)--(A)--(H) (C)--(I);
+\draw (A)--(H);
+\tkzLabelPoints[below](A,C,N)
+\tkzLabelPoints[above](B,M,H)
+\tkzLabelPoints[left](I)
+\tkzMarkRightAngles(A,H,C C,A,B)
+\end{tikzpicture}
+}
+}
+\end{bt}
+\begin{bt}%[8H3K7]
+	Cho $ \triangle ABC $ có $ \widehat{C}=2\widehat{A} $ và $ AC=2BC $. Chứng minh rằng $ \triangle ABC $ vuông.
+	\loigiai{
+		\immini{
+			Trên tia đối của tia $ CB $ lấy điểm $ D $ sao cho $ CD=CA$\\
+			$\Rightarrow \triangle CAD $ cân tại $ C $, suy ra $ \triangle ADB\backsim\triangle CAB $ (g.g).\\
+			Do đó $ \dfrac{BD}{BA}=\dfrac{BA}{BC}\Rightarrow BA^{2}=BD\cdot BC $.\\
+			Do $ AC=2CB $ nên $ CD=2CB\Rightarrow BD=3BC $.\\
+			Suy ra $ BA^{2}=3BC^{2}\Rightarrow AB^{2}+BC^{2}=4BC^{2}=AC^{2} $.\\
+			Vậy $ \triangle ABC $ vuông tại $ B $.
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{0.6}
+			\pgfmathsetmacro\goc{90}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{1.7*\h}
+			\pgfmathsetmacro\xmin{-0.5*\x}
+			\pgfmathsetmacro\xmax{1.2*\x}
+			\pgfmathsetmacro\ymin{-0.5*\y}
+			\pgfmathsetmacro\ymax{3.5*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){B}
+			\tkzDefShiftPoint[B](0:\x){A}
+			\tkzDefShiftPoint[B](\goc:\y){C}
+			\tkzCalcLength[cm](C,A)\tkzGetLength{dCA}
+			\tkzCalcLength[cm](C,B)\tkzGetLength{dCB}
+			\tkzDefPointsBy[homothety = center C ratio {-\dCA/\dCB}](B){D}
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\draw (A)--(B)--(C)--cycle (C)--(D)--(A);
+			\tkzLabelPoints[below](A,B)
+			\tkzLabelPoints[above](D)
+			\tkzLabelPoints[left](C)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[8H3K7]
+	Cho $ \triangle ABC $ có $ \widehat{B}=2\widehat{C} $ và $ AB=8 $ cm, $ AC=12 $ cm. Tính độ dài cạnh $ BC $.
+	\loigiai{
+		\immini{
+			Kẻ phân giác $ BD $, suy ra $ \triangle ABD\backsim\triangle ACB $ (g.g). Do đó
+			\[
+			\dfrac{AB}{AC}=\dfrac{AD}{AB}\Rightarrow \dfrac{AD}{8}=\dfrac{8}{12}\Rightarrow AD=\dfrac{16}{3}\text{ (cm).}
+			\]
+			Suy ra $ CD=\dfrac{20}{3} $ cm. Theo tính chất đường phân giác, ta có
+			\[
+			\dfrac{BC}{BA}=\dfrac{CD}{AD}\Rightarrow BC=\dfrac{BA\cdot CD}{AD}=\dfrac{8\cdot \dfrac{20}{3}}{\dfrac{16}{3}}=10\text{ (cm).}
+			\]
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1}
+			\pgfmathsetmacro\goc{55}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{2*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.2*\x}
+			\pgfmathsetmacro\ymin{-0.5*\y}
+			\pgfmathsetmacro\ymax{\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){A}
+			\tkzDefShiftPoint[A](0:\x){C}
+			\tkzDefShiftPoint[A](\goc:\y){B}
+			\tkzDefLine[bisector](A,B,C)\tkzGetPoint{b}
+			\tkzInterLL(A,C)(B,b)\tkzGetPoint{D}
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\draw (A)--(B)--(C)--cycle (B)--(D);
+			\tkzLabelPoints[below](A,C,D)
+			\tkzLabelPoints[above](B)
+			\tkzMarkAngles[size=0.3cm,arc=l](D,B,C B,C,D)
+			\tkzMarkAngles[size=0.35cm,arc=l](A,B,D)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[8H3K7]
+	Cho hình bình hành $ ABCD $. Gọi $ M $ là điểm trong hình bình hành sao cho $ \widehat{MAB}=\widehat{MCB} $. Chứng minh rằng $ \widehat{MBC}=\widehat{MDC} $.
+	\loigiai{
+\immini{
+Kẻ từ $ M $ các đường thẳng song song với các cạnh $ AB $, $ BC $ cắt các cạnh $ AD $, $ BC $, $ AB $, $ DC $ lần lượt tại $ E $, $ F $, $ G $, $ H $.\\
+Ta có $ \widehat{AGM}=\widehat{CFM}=\widehat{ABC} $. Mà $ \widehat{MAB}=\widehat{MCB} $ nên $ \triangle AGM\backsim\triangle CFM $ (g.g). Suy ra $ \dfrac{AG}{CF}=\dfrac{MG}{MF} $.\\
+Mặt khác $ AG=DH $, $ CF=MH $, $ MG=FB $ nên $ \dfrac{DH}{MH}=\dfrac{BF}{MF} $.\hfill(1)\\
+Ta lại có $ \widehat{DHM}=\widehat{BFM}=\widehat{BCD} $.\hfill(2)\\
+Từ (1) và (2) suy ra $ \triangle DHM\backsim\triangle BFM$\\
+$\Rightarrow \widehat{MDH}=\widehat{MBF} $, hay $ \widehat{MBC}=\widehat{MDC} $.
+}{
+\begin{tikzpicture}[line join=round, line cap=round]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1.5}
+\pgfmathsetmacro\goc{70}
+\pgfmathsetmacro\x{3*\h}
+\pgfmathsetmacro\y{2*\h}
+\pgfmathsetmacro\xmin{-0.2*\x}
+\pgfmathsetmacro\xmax{1.3*\x}
+\pgfmathsetmacro\ymin{-0.2*\y}
+\pgfmathsetmacro\ymax{1.5*\y}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:\x){B}
+\tkzDefShiftPoint[A](\goc:\y){D}
+\coordinate (C) at ($(B)+(D)-(A)$);
+\tkzDefShiftPoint[A](0.3*\goc:1.6*\y){M}
+\tkzDefLine[parallel=through M](B,C)\tkzGetPoint{bc}
+\tkzDefLine[parallel=through M](A,B)\tkzGetPoint{ab}
+\tkzInterLL(M,ab)(A,D)\tkzGetPoint{E}
+\tkzInterLL(M,ab)(B,C)\tkzGetPoint{F}
+\tkzInterLL(M,bc)(A,B)\tkzGetPoint{G}
+\tkzInterLL(M,bc)(C,D)\tkzGetPoint{H}
+\tkzDrawPoints[fill=black](A,B,C,D,E,F,G,H,M)
+\draw (A)--(B)--(C)--(D)--cycle (E)--(F) (G)--(H) (A)--(M)--(B) (C)--(M)--(D);
+\tkzLabelPoints[below](A,B,G)
+\tkzLabelPoints[above](C,D,H)
+\tkzLabelPoints[above left](M)
+\tkzLabelPoints[left](E)
+\tkzLabelPoints[right](F)
+\tkzMarkAngles[size=0.6cm,arc=l](B,A,M M,C,B)
+\end{tikzpicture}
+}	
+}
+\end{bt}

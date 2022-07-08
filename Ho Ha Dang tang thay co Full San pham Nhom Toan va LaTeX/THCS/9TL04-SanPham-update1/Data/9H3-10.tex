@@ -1,0 +1,505 @@
+%%Biên soạn: Trần Hòa. Phản biện: Thầy Hóa
+\section{Diện tích hình tròn, hình quạt tròn}
+\subsection{Tóm tắt lí thuyết}
+\begin{dn}
+Hình quạt tròn là một phần hình tròn giới hạn bởi một cung tròn và hai bán kính đi qua hai mút của cung đó.
+\end{dn}
+\begin{dn}
+Hình viên phân là phần hình tròn giới hạn bởi một cung và dây căng cung ấy.
+\end{dn}
+\begin{dn}
+Hình vành khăn là phần hình tròn nằm giưa hai đường tròn đồng tâm.
+\end{dn}
+\begin{tc}
+Công thức tính diện tích hình tròn
+\immini{Diện tích $S$ của một hình tròn bán kính $R$ được tính theo công thức $$S = \pi R^2.$$}{\begin{tikzpicture}[scale=0.4,font=\footnotesize,line join=round, line cap=round,>=stealth]
+\tkzDefPoints{0/0/O, 4/0/B}
+\tkzCalcLength[cm](O,B)
+\tkzGetLength{r}
+\tkzDrawCircle[R,fill=black!5](O,\r cm)
+\tkzDefPointBy[rotation = center O angle 10](B)
+\tkzGetPoint{C}
+\tkzDrawPoints[fill=black](O)
+\tkzDrawSegments[](O,C)
+\tkzLabelPoints[left](O)
+\draw ($(O)+(1.7,.3)$) node[above]{$R$};
+\end{tikzpicture}}
+\end{tc}
+\begin{tc}
+Công thức tính diện tích hình quạt tròn
+\immini{Diện tích hình quạt tròn bán kính $R$, cung $n^\circ$ được tính theo công thức $$S=\dfrac{\pi R^2 n}{360}\,\,\text{hay}\,\, S=\dfrac{lR}{2}.$$
+($l$ là độ dài cung $n^\circ$ của hình quạt tròn).}{\begin{tikzpicture}[scale=0.4,font=\footnotesize,line join=round, line cap=round,>=stealth]
+\tkzDefPoints{0/0/O, 4/0/A}
+\tkzCalcLength[cm](O,A)
+\tkzGetLength{r}
+\tkzDrawCircle[R](O,\r cm)
+\tkzDefPointBy[rotation = center O angle 60](A)
+\tkzGetPoint{B}
+\tkzDefPointBy[rotation = center O angle 30](A)
+\tkzGetPoint{m}
+\tkzDrawPoints[fill=black](O)
+\tkzLabelPoints[left](O)
+\path[draw,pattern=north east lines,pattern color=gray!50!brown] (O)--(A) arc(0:60:4)--cycle;
+\draw ($(O)+(1,2)$) node[above]{$R$};
+\draw (m) node[right]{$n^\circ$};
+\draw (A) node[right]{$A$};
+\draw (B) node[above right]{$B$};
+\tkzMarkAngle[arc=l,size=0.7cm](A,O,B)
+\end{tikzpicture}
+}
+\end{tc}
+{\bf Tính chất bổ sung}
+\begin{tc}
+Công thức tính diện tích hình vành khăn
+\immini{Diện tích hình vành khăn nằm giữa hai đường tròn đồng tâm bán kính $R_1$, $R_2$ ($R_2>R_1$) được tính theo công thức
+$$S=\pi (R_2^2 -R_1^2).$$}{\begin{tikzpicture}[scale=0.4,font=\footnotesize,line join=round, line cap=round,>=stealth]
+\tkzDefPoints{0/0/O, 2.5/0/A1, 4/0/A2}
+\tkzCalcLength[cm](O,A1)
+\tkzGetLength{a}
+\tkzCalcLength[cm](O,A2)
+\tkzGetLength{b}
+\tkzDrawCircle[R,pattern=north east lines,pattern color=gray](O,\b cm)
+\tkzDrawCircle[R,fill=white](O,\a cm)
+\tkzDefPointBy[rotation = center O angle 160](A2)
+\tkzGetPoint{B2}
+\coordinate (m1) at ($(O)!1/2!(A1)$);
+\draw (m1) node[above]{$R_1$};
+\coordinate (m2) at ($(O)!1/4!(B2)$);
+\draw (m2) node[above]{$R_2$};
+\draw (A1)--(O)--(B2);
+\tkzDrawPoints[fill=black](O)
+\draw (O) node[below]{$O$};
+\end{tikzpicture}
+}
+\end{tc}
+\begin{tc}
+Công thức tính diện tích hình viên phân
+\immini{
+Diện tích hình viên phân của đường tròn bán kính $R$ giới hạn bởi cung nhỏ $AB$ và dây $AB$ (hình vẽ)
+$$S=S_{\text{quạt}AOB}-S_{\triangle AOB}.$$
+}{\begin{tikzpicture}[scale=0.4,font=\footnotesize,line join=round, line cap=round,>=stealth]
+\tkzDefPoints{0/0/O, 4/0/A}
+\tkzCalcLength[cm](O,A)
+\tkzGetLength{r}
+\tkzDrawCircle[R](O,\r cm)
+\tkzDefPointBy[rotation = center O angle 60](A)
+\tkzGetPoint{B}
+\tkzDefPointBy[rotation = center O angle 30](A)
+\tkzGetPoint{m}
+\tkzDrawPoints[fill=black](O)
+\tkzLabelPoints[left](O)
+\path[draw,pattern=north east lines,pattern color=gray!50!brown] (A) arc(0:60:4)--cycle;
+\draw (A)--(O)--(B);
+\draw ($(O)+(1,2)$) node[above]{$R$};
+\draw (m) node[right]{$m$};
+\draw (A) node[right]{$A$};
+\draw (B) node[above right]{$B$};
+\tkzMarkAngle[arc=l,size=0.7cm](A,O,B)
+\end{tikzpicture}}
+\end{tc}
+\subsection{Các ví dụ}
+\begin{vd}%Dang toán điển hình VD1
+	Tính diện tích hình tròn nội tiếp một hình vuông có cạnh là $4$ cm.
+	\loigiai{
+	\immini{Hình tròn nội tiếp hình vuông có đường kính $d$ bằng cạnh hình vuông, nên $d=4$ cm.
+	Vậy diện tích hình tròn nội tiếp hình vuông cạnh $4$ cm là
+	$$S=\dfrac{\pi d^2}{4}=\dfrac{\pi 4^2}{4}=4\pi \approx 12{,}56\,\, (\text{cm}^2).$$}{\begin{tikzpicture}[scale=0.4,font=\footnotesize,line join=round, line cap=round,>=stealth]
+\tkzDefPoints{0/0/O, 4/0/B}
+\tkzCalcLength[cm](O,B)
+\tkzGetLength{r}
+\draw[] (-4,-4) rectangle (4,4);
+\tkzDrawCircle[R,fill=white](O,\r cm)
+\tkzDefPointBy[rotation = center O angle 10](B)
+\tkzGetPoint{C}
+\tkzDrawPoints[fill=black](O)
+%\tkzDrawSegments[](O,C)
+\tkzLabelPoints[left](O)
+%\draw ($(O)+(1.7,.3)$) node[above]{$R$};
+\end{tikzpicture}}}
+\end{vd}
+\begin{vd}%Dang toán điển hình VD2
+	Tính diện tích hình tròn, biết
+	\begin{enumerate}
+	\item Bán kính bằng $8$ cm.
+	\item Đường kính bằng $12$ cm.
+	\item Chu vi của đường tròn bằng $18\pi$ cm.
+        \end{enumerate}
+	\loigiai{
+	\begin{enumerate}
+	 \item Với giả thiết ta có $R=8$ cm $\Rightarrow S=\pi \cdot 8^2=64\pi$ (cm$^2$).
+        \item Với giả thiết ta có $2R=8$ cm $\Leftrightarrow R=4$ cm $\Rightarrow S=\pi \cdot 4^2=16\pi$ (cm$^2$).
+        \item Với giả thiết ta có $2\pi R=18\pi \Leftrightarrow R=9$ cm $\Rightarrow S=\pi \cdot 9^2=81\pi$ (cm$^2$).
+        \end{enumerate}
+}
+\end{vd}
+\begin{vd}%Dang toán điển hình VD4
+	Tính diện tích hình tròn quạt tròn có bán kính bằng $6$ cm và góc ở tâm tương ứng là $36^\circ$.
+	\loigiai{
+	Áp dụng công thức tính diện tích hình quạt ta có
+	$$S_{\text{quạt}}=\dfrac{\pi R^2 n}{360}=\dfrac{\pi \cdot 6^2\cdot 360}{360}\approx 11{,}3\,\,(\text{cm}^2).$$}
+\end{vd}
+\begin{vd}%Dang toán điển hình VD5/273
+	\immini{Tính diện tích hình viên phân $\wideparen{AmB}$, biết $\widehat{AOB}=60^\circ$ và bán kính đường tròn bằng $8$ cm.}{
+	
+\begin{tikzpicture}[scale=0.3,font=\footnotesize,line join=round, line cap=round,>=stealth]
+\tkzDefPoints{0/0/O, 4/0/A}
+\tkzCalcLength[cm](O,A)
+\tkzGetLength{r}
+\tkzDrawCircle[R](O,\r cm)
+\tkzDefPointBy[rotation = center O angle 60](A)
+\tkzGetPoint{B}
+\tkzDefPointBy[rotation = center O angle 30](A)
+\tkzGetPoint{m}
+\tkzDrawPoints[fill=black](O)
+\tkzLabelPoints[left](O)
+\path[draw,pattern=north east lines,pattern color=gray!50!brown] (A) arc(0:60:4)--cycle;
+\draw (A)--(O)--(B);
+\draw ($(O)+(.7,1.7)$) node[above]{$R$};
+\draw (m) node[right]{$m$};
+\draw (A) node[right]{$A$};
+\draw (B) node[above right]{$B$};
+\tkzMarkAngle[arc=l,size=0.7cm](A,O,B)
+\end{tikzpicture}}
+\loigiai{
+	\immini{Ta có $S_{AmB}=S_{\text{quạt}AOB}-S_{\triangle AOB}=\dfrac{\pi \cdot 8^2\cdot 60}{360}-\dfrac{8^2\sqrt{3}}{4} \approx 5{,}79$ (cm$^2$).}{}
+	}
+\end{vd}
+\begin{vd}%Dang toán điển hình VD7/274
+	Cho $\triangle ABC$ vuông tại $A$ có $AB=10$ m, $B=60^\circ$. Vẽ nửa đường tròn $(O)$ đường kính $BC$ và đi qua điểm $A$. Tính tổng diện tích hai hình viên phân ứng với cung $AB$ và $AC$.
+	\loigiai{
+	\immini{Tổng diện tích hai hình viên phân bằng diện tích nửa hình tròn trừ đi diện tích $\triangle ABC$.\\
+	Diện tích nửa hình tròn: $\dfrac{\pi \cdot OB^2}{2}=\dfrac{\pi \cdot 100}{2}=50\pi$ (m$^2$).\\
+	Với $\triangle ABC$ ta có $AC=AB\cdot \tan 60^\circ =10\sqrt{3}$ m; $BC=2AB=20$ m.
+	$$S_{\triangle ABC}=\dfrac{1}{2}AB\cdot AC=\dfrac{1}{2}\cdot10\cdot 10\sqrt{3} =50\sqrt{3}\,\,(\text{m}^2).$$
+	Tổng diện tích hai hình viên phân là
+	$$50\pi -50\sqrt{3}=50(\pi-\sqrt{3})\,\,(\text{m}^2).$$}{\begin{tikzpicture}[scale=1,font=\footnotesize,line join=round, line cap=round,>=stealth]
+\tkzDefPoints{0/0/O, 2/0/B}
+\tkzCalcLength[cm](O,B)
+\tkzGetLength{r}
+%\tkzDrawCircle[R](A,\r cm)
+\tkzDefPointBy[rotation = center O angle 60](B)
+\tkzGetPoint{A}
+\tkzDefPointBy[rotation = center O angle 180](B)
+\tkzGetPoint{C}
+\path[draw,pattern=north east lines,pattern color=gray!50!brown] (B) arc(0:60:\r)--(B);
+\path[draw,pattern=north east lines,pattern color=gray!50!brown] (A) arc(60:180:\r)--(A);
+\draw (B) arc(0:180:\r)--(B);
+\draw (O) node[below]{$O$};
+\draw (C) node[below]{$C$};
+\draw (B) node[below]{$B$};
+\draw (A) node[above]{$A$};
+\draw (O)--(A);
+\tkzDrawPoints[fill=black](O,A,B,C)
+\end{tikzpicture}}
+	}
+\end{vd}
+\begin{vd}%PP giai toan VD2/149
+	\immini{Tính diện tích hình vành khăn giới hạn bởi hai đường tròn có bán kính là $R_1=7,8$ cm và $R_2=10,5$ cm.}{\begin{tikzpicture}[scale=0.4,font=\footnotesize,line join=round, line cap=round,>=stealth]
+\tkzDefPoints{0/0/O, 3/0/A1, 4/0/A2}
+\tkzCalcLength[cm](O,A1)
+\tkzGetLength{a}
+\tkzCalcLength[cm](O,A2)
+\tkzGetLength{b}
+\tkzDrawCircle[R,pattern=north east lines,pattern color=gray](O,\b cm)
+\tkzDrawCircle[R,fill=white](O,\a cm)
+\tkzDefPointBy[rotation = center O angle 160](A2)
+\tkzGetPoint{B2}
+\coordinate (m1) at ($(O)!1/2!(A1)$);
+\draw (m1) node[above]{$R_1$};
+\coordinate (m2) at ($(O)!1/3!(B2)$);
+\draw (m2) node[above]{$R_2$};
+\draw (A1)--(O)--(B2);
+\tkzDrawPoints[fill=black](O)
+\draw (O) node[below]{$O$};
+\end{tikzpicture}
+}
+	\loigiai{
+	Khi $R_1=7,8$ cm và $R_2=10,5$ cm thì diện tích hình vành khăn là
+	$$S=\pi(10{,}5^2 - 7{,}8^2) \approx 155{,1} \,\,(\text{cm}^2).$$}
+\end{vd}
+\begin{vd}%PP giai toan VD5/150
+	\immini{\everymath{\allowdisplaybreaks \displaystyle}
+	Cho đường tròn có đường kính $AB$. Trên đoạn $AB$ lấy hai điểm $C$ và $D$ sao cho $AC=CD=DB$. Vẽ về một phía của $AB$ hai nửa đường tròn đường kính $AC$ và $AD$. Vẽ về phía bên khia $AB$ hai nửa đường tròn đường kính $CB$, $DB$. So sánh diện tích phần tô đen và diện tích mỗi phần còn lại.}{\begin{tikzpicture}[scale=1,font=\footnotesize,line join=round, line cap=round,>=stealth]
+\tkzDefPoints{0/0/O, -2/0/A, 2/0/B}
+\coordinate (C) at ($(A)!1/3!(B)$);
+\coordinate (D) at ($(A)!2/3!(B)$);
+\tkzCalcLength[cm](O,A)
+\tkzGetLength{r}
+\tkzDrawCircle[R](O,\r cm)
+
+\tkzDrawPoints[fill=black](O)
+\tkzLabelPoints[left](O)
+%\path[draw,pattern=north east lines,pattern color=gray!50!brown] (A) arc(180:0:2*\r/3)--(D) arc(-180:0:\r/3)--(B) arc(0:-180:2*\r/3)--(C) arc(0:180:\r/3)--cycle;
+\path[draw,fill=black] (A) arc(180:0:2*\r/3)--(D) arc(-180:0:\r/3)--(B) arc(0:-180:2*\r/3)--(C) arc(0:180:\r/3)--cycle;
+\draw (A) node[left]{$A$};
+\draw (B) node[above right]{$B$};
+\draw (C) node[below left]{$C$};
+\draw (D) node[above right]{$D$};
+\draw (A)--(B);
+%\tkzMarkAngle[arc=l,size=0.7cm](A,O,B)
+\end{tikzpicture}}
+	\loigiai{
+	Đặt $AC=CD=DB=2a$ thì $AB=6a$.\\
+	 Diện tích nửa hình tròn đường kính $AB$ là $S_1=\dfrac{1}{2}\pi (3a)^2=\dfrac{9\pi a^2}{2}$ (đvdt).\\
+	 Diện tích nửa hình tròn đường kính $AC=DB=2a$ là $S_2=\dfrac{1}{2}\pi a^2$ (đvdt).\\
+	 Diện tích nửa hình tròn đường kính $AD=CB=4a$ là $S_3=\dfrac{1}{2}\pi (2a)^2=2\pi a^2$ (đvdt).\\
+	 Diện tích hình tròn đường kính $AB$ là $S=\pi (3a)^2=9\pi a^2$ (đvdt).\\
+	 Nên diện tích mỗi phần còn lại của hình tròn bằng
+	 $$S_1 +S_2 -S_3= \dfrac{3\pi a^2}{2}+\dfrac{\pi a^2}{2}- 2\pi a^2=3\pi a^2 =\dfrac{1}{3}S.$$
+	 Diện tích phần tô đen bằng $S-\dfrac{2}{3}S=\dfrac{1}{3}S$.\\
+	 Vậy diện tích mỗi phần bằng $\dfrac{1}{3}$ diện tích hình tròn đường kính $AB$. }
+\end{vd}
+
+\subsection{Luyện tập}
+\begin{bt}%45 PPGT/148
+	Tính diện tích hình tròn bán kính $4$ cm và các hình quạt tròn có góc ở tâm $30^\circ$ và $150^\circ$ của hình tròn đó.
+	\loigiai{
+	Áp dụng công thức $S_{\text{quạt}}=\dfrac{\pi R^2n}{360}$\\
+	$+$ Với $R=4$ cm và $n^\circ = 30^\circ$ ta có $S_{\text{quạt}}=\dfrac{\pi \cdot 4^2\cdot 30}{360}=\dfrac{4\pi}{3}$ (cm$^2$).\\
+	$+$ Với $n^\circ = 150^\circ$ ta có $S_{\text{quạt}}=\dfrac{\pi \cdot 4^2 \cdot 150}{360}=\dfrac{20\pi}{3}$ (cm$^2$).}
+\end{bt}
+\begin{bt}%47 PPGT/148
+	Ở vườn quốc gia Cúc Phương (tỉnh Ninh Bình) có Cây Chò ngàn năm tuổi thân to đến mức $8$ người ôm mới xuể. Hãy tính thiết diện ngang của thân cây (coi như hình tròn và mỗi sải tay khoảng $1{,}5$ m).
+	\loigiai{
+	Gọi $d$ là đường kính thân cây. Chu vi thân cây là $\pi \cdot d= 8\cdot 1{,}5=12\Rightarrow d=\dfrac{12}{\pi} \approx 3{,}82$ (m).\\
+	Vậy diện tích thiết diện ngang của thân cây là $S=\dfrac{\pi \cdot (3{,}82)^2}{4 }\approx 11{,46}$ (m$^2$).\\
+	\emph{Cách khác}\\
+	Trong dân gian lưu truyền một quy tắc tìm đường kính khi biết chu vi đường tròn\\
+	``Quân bát, phát tam, tồn ngũ, quân nhị'', áp dụng quy tắc này ta được 
+	đường kính $$d=\dfrac{5}{16}\cdot 8 \cdot 1{,}5 =3{,}75\,\, (\text{m}).$$
+	Vậy $S=\dfrac{\pi \cdot 3{,}75^2}{4}\approx 11{,}46$ (m$^2$).
+	
+	}
+\end{bt}
+\begin{bt}%BT1 toán điển hình/275
+	Một hình vuông và một hình tròn có cùng chu vi. Hỏi hình nào có diện tích lớn hơn?
+	\loigiai{Gọi $C$ là độ dài chu vi của hình vuông và hình tròn.\\
+	Gọi $a$ là độ dài cạnh hình vuông, suy ra $C=4a\Leftrightarrow a=\dfrac{C}{4}\Rightarrow S_{hv}=a^2=\dfrac{C^2}{16}$.\\
+	Gọi $R$ là bán kính của hình tròn, suy ra\\
+	$C=2\pi R\Leftrightarrow R=\dfrac{C}{2\pi}\Rightarrow S_{ht}=\pi R^2=\pi \cdot \dfrac{C^2}{4{\pi}^2}=\dfrac{C^2}{4\pi}>\dfrac{C^2}{16}$.\\
+	Vậy hình tròn có diện tích lớn hơn diện tích hình vuông.}
+\end{bt}
+\begin{bt}%VD3 PPGT/149
+	\immini{Biết diện tích miền gạch sọc là $86$ cm$^2$. Tính diện tích hình tròn.}{\begin{tikzpicture}[scale=0.3,font=\footnotesize,line join=round, line cap=round,>=stealth]
+\tkzDefPoints{0/0/O, 4/0/B}
+\tkzCalcLength[cm](O,B)
+\tkzGetLength{r}
+\draw[pattern=north east lines,pattern color=gray] (-4,-4) rectangle (4,4);
+\tkzDrawCircle[R,fill=white](O,\r cm)
+\tkzDefPointBy[rotation = center O angle 10](B)
+\tkzGetPoint{C}
+\tkzDrawPoints[fill=black](O)
+%\tkzDrawSegments[](O,C)
+\tkzLabelPoints[left](O)
+%\draw ($(O)+(1.7,.3)$) node[above]{$R$};
+\end{tikzpicture}}
+	\loigiai{Ta có $S_{\text{ht}}= S_{\text{hv}}-S_{\text{gạch sọc}}= S_{\text{hv}}-86$.\\
+	Gọi độ dài cạnh hình vuông là $2a$ cm thì $S_{\text{hv}}=(2a)^2 =4a^2$.
+	Khi đó bán kính hình tròn nội tiếp hình vuông là $a$ và $S_{\text{ht}}=\pi a^2 $.\\
+	Do đó $\pi a^2 =4a^2-86\Leftrightarrow 86=a^2(4-{\pi}^2) \approx 0{,}86 a^2$.\\
+	Suy ra $a^2 \approx 100$.\\
+	Vậy $S_{\text{ht}}=\pi a^2 =100\pi$ (cm$^2$). }
+\end{bt}
+\begin{bt}%VD2 PPGT/147
+	Tính diện tích các hình tròn nội tiếp, ngoại tiếp tam giác đều cạnh bằng $3$ cm và nêu nhận xét kết quả tìm được.
+	\loigiai{
+	\immini{Kẻ đường cao $AH$. Vì $\triangle ABC$ đều nên trực tâm, trọng tâm, tâm vòng tròn nội tiếp trùng với $O$ là tâm đường tròn ngoại tiếp.\\
+	Do đó $R=OA=\dfrac{2}{3}AH$, $r=OH=\dfrac{1}{3}AH$.\\
+	Vì $AH$ đối diện với góc $60^\circ$ trong $\triangle ABH$ vuông tại $H$ có cạnh huyền $AB=3$ cm nên
+	$$\sin 60^\circ =\dfrac{AH}{AB}\Leftrightarrow AH=3\cdot \sin 60^\circ =\dfrac{3\sqrt{3}}{2}\,\,(\text{cm}).$$
+	}{\begin{tikzpicture}[scale=1,font=\footnotesize,line join=round, line cap=round,>=stealth]
+\tkzDefPoints{0/0/A, 4/0/C}
+%\tkzDrawCircle[R](A,\r cm)
+\tkzDefPointBy[rotation = center A angle 60](C)
+\tkzGetPoint{B}
+\coordinate (K) at ($(B)!.5!(C)$);
+\coordinate (L) at ($(A)!.5!(B)$);
+\coordinate (H) at ($(A)!.5!(C)$);
+\coordinate (O) at ($(B)!2/3!(H)$);
+\tkzCalcLength[cm](A,O)
+\tkzGetLength{R}
+\tkzCalcLength[cm](O,H)
+\tkzGetLength{r}
+\draw (B) arc(90:450:\R); 
+\draw (H) arc(-90:270:\r);
+%\draw (B) arc(0:180:\r)--(B);
+\draw ($(O)+(0.1,-.1)$) node[below left]{$O$};
+\draw (B) node[above]{$B$};
+\draw (H) node[below]{$H$};
+\draw (A) node[below left]{$A$};
+\draw (C) node[below right]{$C$};
+\draw (A)--(B)--(C)--(A) (C)--(L) (B)--(H) (A)--(K);
+\tkzDrawPoints[fill=black](O,A,B,C)
+\tkzMarkRightAngle(A,K,C) 
+\tkzMarkRightAngle(B,H,C)
+\tkzMarkRightAngle(B,L,C)
+\end{tikzpicture}}
+Suy ra $R=\dfrac{2}{3}\cdot \dfrac{3\sqrt{3}}{2}=\sqrt{3}$ (cm); $r=\dfrac{1}{3}\cdot \dfrac{3\sqrt{3}}{2}=\dfrac{\sqrt{3}}{2}$ (cm).\\
+	Diện tích hình tròn ngoại tiếp tam giác đều là
+	$$S_2=\pi R^2=\pi \cdot (\sqrt{3})^2=3\pi \,\,(\text{cm}^2).$$
+	Diện tích hình tròn nội tiếp tam giác đều là
+	$$S_1=\pi R^2=\pi \cdot \left(\dfrac{\sqrt{3}}{2}\right)^2 =\dfrac{3\pi}{4} \,\,(\text{cm}^2).$$
+	Ta thấy $S_2=4S_1$ nên có nhận xét trong một tam giác đều diện tích hình tròn ngoại tiếp gấp bốn lần diện tích hình tròn nội tiếp của nó.
+}
+\end{bt}
+
+\begin{bt}%Bai 6 Cac dang toan /276
+	Cho đường tròn $(O)$ bán kính bằng $2$ cm. Từ một điểm $M$ có $MO=2\sqrt{2}$ cm. Qua $M$ vẽ hai tiếp tuyến $MA$, $MB$ với đường tròn ($A$, $B$ là các tiếp điểm). Tính diện tích hình giới hạn bởi các đoạn thẳng $MA$, $MB$ và cung nhỏ $AB$.
+	\loigiai{
+	\immini{Do $MA$ là tiếp tuyến nên $\triangle MAO$ vuông tại $A$ ta có $$MA^2=OM^2-OA^2=(2\sqrt{2})^2-2^2=4$$
+	 $\Rightarrow MA=2$ cm. Suy ra $AOBM$ là hình vuông.\\
+	Diện tích hình vuông $AOBM$ là $S_1=OA^2=4$ cm$^2$.\\
+	Diện tích quạt tròn tạo bởi cung nhỏ $AB$ là 
+	$$S_2=\dfrac{\pi \cdot 2^2 \cdot 90}{360}=\pi \,\,(\text{cm}^2).$$
+	Vậy diện tích hình giới hạn bởi các đoạn thẳng $MA$, $MB$ và cung nhỏ $AB$ là
+	$$ S=S_1 -S_2=(4-\pi)\,\,\text{cm}^2.$$}{\begin{tikzpicture}[scale=1,font=\footnotesize,line join=round, line cap=round,>=stealth]
+\tkzDefPoints{0/0/O, -2/0/I}
+\coordinate (M) at ($(O)!1.41!(I)$);
+\tkzCalcLength[cm](O,I)
+\tkzGetLength{r}
+\tkzDefPointBy[rotation = center O angle -45](I)
+\tkzGetPoint{A}
+\tkzDefPointBy[rotation = center O angle 45](I)
+\tkzGetPoint{B}
+\tkzDrawCircle[R](O,\r cm)
+\draw (A)--(M)--(B)--(O)--(A) (M)--(O);
+\path[draw,pattern=north east lines,pattern color=gray!50!brown] (A)--(M)--(B) arc(225:135:\r)--(A);
+\draw (O) node[below]{$O$};
+\draw (M) node[left]{$M$};
+\draw (B) node[below]{$B$};
+\draw (A) node[above]{$A$};
+\tkzDrawPoints[fill=black](O,A,B,M)
+\tkzMarkRightAngle(M,A,O)
+\end{tikzpicture}}
+	}
+	\end{bt}
+\begin{bt}%49-PP giai         
+	\immini{
+	Hãy xem biểu đồ hình quạt biểu diễn xếp loại học lực học sinh một trường THCS theo ba loại: giỏi, khá, trung bình (hình vẽ).\\
+	 Hãy trả lời các câu hỏi sau
+	\begin{enumerate}
+	 \item Có phải $\dfrac{1}{2}$ số học sinh xếp loại học lực giỏi không?
+        \item Có phải $\dfrac{1}{3}$ số học sinh xếp loại học lực khá không?
+        \item Số học sinh xếp loại học lực trung bình chiếm bao nhiêu phần trăm?
+        \item Tính số học sinh mỗi loại, biết tổng số học sinh là $900$ em.
+        \end{enumerate}}{\begin{tikzpicture}[scale=0.8,font=\footnotesize,line join=round, line cap=round,>=stealth]
+\tkzDefPoints{0/0/O, 3/0/A}
+\tkzCalcLength[cm](O,A)
+\tkzGetLength{r}
+\path[draw](A) arc(0:180:\r)--cycle;
+%\tkzDrawCircle[R](O,\r cm)
+\tkzDefPointBy[rotation = center O angle 30](A)
+\tkzGetPoint{B}
+\tkzDefPointBy[rotation = center O angle 120](A)
+\tkzGetPoint{C}
+\tkzDrawPoints[fill=black](O)
+\tkzLabelPoints[below](O)
+\path[draw,pattern=north east lines,pattern color=gray!50!brown] (B) arc(30:120:\r)--(O)--cycle;
+\draw (B)--(O)--(C);
+\draw ($(O)+(.5,1)$) node[above]{$\text{Giỏi}$};
+\draw ($(O)+(2.1,.25)$) node[above]{$\text{TB}$};
+\draw ($(O)+(1.1,0)$) node[above]{$30^\circ$};
+\draw ($(O)+(-2,.5)$) node[above]{$\text{Khá}$};
+\tkzMarkAngle[arc=l,size=0.7cm](A,O,B)
+\end{tikzpicture}}
+\loigiai{Tổng số học sinh được biểu diễn bởi một hình quạt có góc $180^\circ$.\\
+Hình quạt tròn biểu diễn số học sinh xếp loại học lực trung bình có góc $30^\circ$.\\
+Hình quạt tròn biểu diễn số học sinh xếp loại học lực giỏi có góc $90^\circ$.\\
+Hình quạt tròn biểu diễn số học sinh xếp loại học lực khá có góc là
+ $$180^\circ -(30^\circ +60^\circ)=90^\circ.$$
+ \begin{enumerate}
+\item Tỉ lệ học sinh xếp loại học lực giỏi so với học sinh toàn trường là
+$$ \dfrac{90}{180}=\dfrac{1}{2}.$$
+Vậy câu trả lời là có.
+\item Tỉ lệ học sinh xếp loại học lực khá so với học sinh toàn trường là
+$$\dfrac{60}{90}=\dfrac{1}{3}.$$
+Vậy câu trả lời là có.
+\item Tỉ lệ phần trăm học sinh xếp loại học lực trung bình là
+$$\dfrac{30}{180}\approx 0{,}1667 = 16{,}67\%.$$
+\item Số học sinh giỏi là $900\cdot \dfrac{1}{2}=450$ (học sinh).\\
+Số học sinh khá là $900\cdot \dfrac{1}{3}=300$ (học sinh).\\
+Số học sinh trung bình là $900\cdot \dfrac{1}{6}=150$ (học sinh).
+\end{enumerate}}
+\end{bt}
+\begin{bt}%50-PP giai toan 151
+	Người ta muốn may một chiếc khăn để phủ một chiếc bàn tròn đường kính $76$ cm sao cho khăn rủ xuống khỏi mép bàn $10$ cm (khăn có dạng hình tròn). Hãy tính diện tích vải cần để làm khăn (không kể viền, mép, phần thừa và phần diện tích vải rủ xuống khỏi mép bàn.
+	\loigiai{
+	Gọi $R_1$ là bán kính của chiếc bàn tròn thì $R_1 =38$ cm.\\
+	$R_2$ là bán kính của chiếc khăn trải bàn thì $R_2=48$ cm.\\
+	Vậy diện tích vải cần có để làm khăn là
+	$$S_2=\pi R^2=\pi \cdot 48^2 =2304\pi\,\,(\text{cm}^2).$$
+	Phần diện tích vải rủ khỏi mép bàn là diện tích hình vành khăng có diện tích là
+	$$ S_2-S_1=\pi \left(R_2^2 -R_1^2\right)=860\pi \,\,(\text{cm}^2).$$ }
+\end{bt}
+\begin{bt}%50-PPT 151
+	Cho hai đường tròn đồng tâm tạo thành một hình vành khăn. Biết rằng đường tròn nhỏ có bán kính là $4$ cm và hình vành khăn có diện tích là $20\pi$ cm$^2$. Tìm đường kính của đường tròn lớn.
+	\loigiai{
+	Gọi bán kính đường tròn lớn là $R$ thì đường kính của nó là $d=2R$.\\
+	Diện tích của hình vành khăn tạo bởi $2$ đường tròn đó là
+	$$S=\pi \left(R^2-4^2\right)=20\pi \Leftrightarrow R^2=6^2\Rightarrow R=6\,\,\text{cm}\,\,\text{(vì $R>0$)}.$$
+	Vậy đường kính của đường tròn lớn là $d=12$ cm.
+	}
+\end{bt}
+\begin{bt}%VD4-PP/150
+	\immini{Cho tam giác $ABC$ nội tiếp đường tròn đường kính $BC$. Vẽ ra phía ngoài của tam giác các nửa đường tròn đường kính $AB$ và $AC$. Chứng minh rằng tổng diện tích hai hình trăng khuyết giới hạn bởi ba nửa đường tròn bằng diện tích $\triangle ABC$ (hình trăng khuyết Hy-pô-crát).}{\begin{tikzpicture}[scale=1,font=\footnotesize,line join=round, line cap=round,>=stealth]
+\tkzDefPoints{0/0/O, 2/0/C}
+\tkzDefPointBy[rotation = center O angle 130](C)
+\tkzGetPoint{A}
+\tkzDefPointBy[rotation = center O angle 180](C)
+\tkzGetPoint{B}
+\coordinate (M) at ($(C)!.5!(A)$); 
+\coordinate (N) at ($(B)!.5!(A)$);
+\tkzCalcLength[cm](O,C)
+\tkzGetLength{r}%bk cua BC
+\tkzCalcLength[cm](M,C)
+\tkzGetLength{m}%bk cua AC
+\tkzCalcLength[cm](N,B)
+\tkzGetLength{n}%bk cua AB
+\tkzFindAngle(A,C,B)
+\tkzGetAngle{c}%goc ACB
+\draw (C) arc(0:180:\r)--(C);
+\path[draw,pattern=north east lines,pattern color=gray!50!brown] (C) arc(0:180-2*\c:\r)--(A) arc(180-\c:-\c:\m);
+\path[draw,pattern=north east lines,pattern color=gray!50!brown] (A) arc(180-2*\c:180:\r)--(B) arc(270-\c:90-\c:\n);
+\draw (C) node[below]{$C$};
+\draw (B) node[below]{$B$};
+\draw (A) node[above left]{$A$};
+\draw (B)--(A)--(C);
+\tkzDrawPoints[fill=black](A,B,C)
+\end{tikzpicture}}  
+	\loigiai{
+	\immini{Vì $\triangle ABC$ nội tiếp nửa đường tròn đường kính $BC$ nên nó vuông tại $A$. Đặt $BC=2a$, $CA=2b$, $CB=2c$ thì diện tích là
+	$$S_1=\dfrac{1}{2}\cdot 2b\cdot 2c = 2bc.$$
+	Diện tích ba nửa hình tròn đường kính $AB$, $AC$ và $BC$ lần lượt là
+	$$S_2 =\dfrac{1}{2}\pi c^2, S_2=\dfrac{1}{2}\pi b^2, S_4=\dfrac{1}{2}\pi a^2.$$
+	Nên tổng diện tích hai hình trăng khuyết là
+	$$S=S_1 +S_2 +S_3 -S_4=2bc+\dfrac{1}{2}\pi \left(b^2+c^2-a^2\right)=2bc=S_{ABC}.$$
+	(do $b^2+c^2=a^2$ theo định lí Py-ta-go).}{\begin{tikzpicture}[scale=1,font=\footnotesize,line join=round, line cap=round,>=stealth]
+\tkzDefPoints{0/0/O, 2/0/C}
+\tkzDefPointBy[rotation = center O angle 130](C)
+\tkzGetPoint{A}
+\tkzDefPointBy[rotation = center O angle 180](C)
+\tkzGetPoint{B}
+\coordinate (M) at ($(C)!.5!(A)$); 
+\coordinate (N) at ($(B)!.5!(A)$);
+\tkzCalcLength[cm](O,C)
+\tkzGetLength{r}%bk cua BC
+\tkzCalcLength[cm](M,C)
+\tkzGetLength{m}%bk cua AC
+\tkzCalcLength[cm](N,B)
+\tkzGetLength{n}%bk cua AB
+\tkzFindAngle(A,C,B)
+\tkzGetAngle{c}%goc ACB
+\draw (C) arc(0:180:\r)--(C);
+\path[draw,pattern=north east lines,pattern color=gray!50!brown] (C) arc(0:180-2*\c:\r)--(A) arc(180-\c:-\c:\m);
+\path[draw,pattern=north east lines,pattern color=gray!50!brown] (A) arc(180-2*\c:180:\r)--(B) arc(270-\c:90-\c:\n);
+\draw (C) node[below]{$C$};
+\draw (B) node[below]{$B$};
+\draw (A) node[above left]{$A$};
+\draw (O) node[below]{$2a$};
+\draw (N) node[right]{$2b$};
+\draw (M) node[above right]{$2c$};
+\draw (B)--(A)--(C);
+\tkzMarkRightAngle(B,A,C)
+\tkzDrawPoints[fill=black](A,B,C)
+\end{tikzpicture}} }
+\end{bt}

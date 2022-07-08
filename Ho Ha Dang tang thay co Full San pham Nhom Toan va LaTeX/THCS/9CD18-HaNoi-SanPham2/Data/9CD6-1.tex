@@ -1,0 +1,409 @@
+
+\section{Tứ giác nội tiếp, các điểm thuộc đường tròn}
+
+\subsection*{Chứng minh tứ giác nội tiếp}
+
+\begin{bt}%[Cao Thành Thái]
+ Cho đường tròn tâm $O$. Từ điểm $A$ ở bên ngoài đường tròn $(O)$ vẽ hai tiếp tuyến $AB$ và $AC$ với đường tròn ($B$, $C$ là hai tiếp điểm). Trên $BC$ lấy điểm $M$, vẽ đường thẳng vuông góc với $OM$ tại $M$, cắt $AB$ và $AC$ lần lượt tại $E$ và $D$. Chứng minh các tứ giác $EBMO$ và $DCOM$ nội tiếp được trong đường tròn. Xác định tâm các đường tròn đó.
+ \loigiai
+  {
+  \immini
+  {
+  Xét tứ giác $EBMO$ có $\widehat{OME}=\widehat{OBE}=90^\circ$ và hai góc này cùng nhìn cạnh $OE$ nên tứ giác $EBMO$ nội tiếp trong đường tròn đường kính $OE$, tâm là trung điểm của $OE$.\\
+  Xét tứ giác $DCOM$ có $\widehat{OMD}+\widehat{OCD}=180^\circ$ và hai góc này là hai góc đối trong tứ giác $DCOM$ nên tứ giác $DCOM$ nội tiếp trong đường tròn đường kính $OD$, tâm là trung điểm của $OD$. 
+  }
+  {
+  \begin{tikzpicture}
+   \def\r{1.7}
+   \tkzDefPoints{0/0/O}
+   \coordinate(B) at ([shift={(O)}]110:\r cm and \r cm);
+   \coordinate(C) at ([shift={(O)}]250:\r cm and \r cm);
+   \tkzDefLine[perpendicular=through B](O,B)\tkzGetPoint{b}
+   \tkzDefLine[perpendicular=through C](O,C)\tkzGetPoint{c}
+   \tkzInterLL(B,b)(C,c)\tkzGetPoint{A}
+   \tkzDefBarycentricPoint(B=4,C=1.5)\tkzGetPoint{M}
+   \tkzDefLine[perpendicular=through M](O,M)\tkzGetPoint{m}
+   \tkzInterLL(M,m)(A,B)\tkzGetPoint{E}
+   \tkzInterLL(M,m)(A,C)\tkzGetPoint{D}
+   \tkzDrawPoints[fill=black](A,B,C,D,E,M,O)
+   \tkzDrawCircle[radius](O,B)
+   \tkzDrawSegments(A,C A,E B,C O,B O,C D,E O,M)
+   \tkzMarkRightAngles(O,B,E O,C,A O,M,D)
+   \tkzLabelPoints[above](B)
+   \tkzLabelPoints[below](C,D)
+   \tkzLabelPoints[left](A,M)
+   \tkzLabelPoints[right](E,O)
+  \end{tikzpicture}
+  }
+  }
+\end{bt}
+
+\begin{bt}%[Cao Thành Thái]
+ Cho đường tròn tâm $O$ đường kính $AB = 2R$. $CD$ là đường kính di động. Gọi $d$ là tiếp tuyến tại $B$ của đường tròn $(O)$, các đường thẳng $AC$, $AD$ cắt $d$ lần lượt tại $P$ và $Q$. Chứng minh tứ giác $CPQD$ nội tiếp được đường tròn.
+ \loigiai
+  {
+  \immini
+  {
+  Ta có $\widehat{ACD}=\widehat{ABD}$ (hai góc nội tiếp cùng chắn $\wideparen{AD}$).\\
+  Lại có $\widehat{ADB}=90^\circ$ (góc nội tiếp chắn nửa đường tròn).\\
+  Khi đó $\widehat{ABD}=\widehat{BQD}$ (cùng phụ $\widehat{BAD}$).\\
+  Suy ra $\widehat{ACD}=\widehat{BQD}$.\\
+  Tứ giác $CPQD$ có
+  $$\widehat{DCP}+\widehat{PQD} = \widehat{DCP}+\widehat{ACD} = 180^\circ.$$
+  Mà hai góc $\widehat{DCP}$, $\widehat{PQD}$ ở vị trí đối nhau nên tứ giác $CPQD$ nội tiếp trong đường tròn.
+  }
+  {
+  \begin{tikzpicture}[scale=0.8]
+   \def\r{1.7}
+   \tkzDefPoints{0/\r/A,0/-\r/B}
+   \tkzDefMidPoint(A,B)\tkzGetPoint{O}
+   \coordinate(C) at ([shift={(O)}]205:\r cm and \r cm);
+   \coordinate(D) at ([shift={(O)}]25:\r cm and \r cm);
+   \tkzDefLine[perpendicular=through B](O,B)\tkzGetPoint{b}
+   \tkzInterLL(B,b)(A,C)\tkzGetPoint{P}
+   \tkzInterLL(B,b)(A,D)\tkzGetPoint{Q}
+   \tkzDrawPoints[fill=black](A,B,C,D,O,P,Q)
+   \tkzDrawCircle[radius](O,A)
+   \tkzDrawSegments(A,P A,Q A,B P,Q C,D B,D)
+   \tkzMarkRightAngles(A,B,Q C,A,D)
+   \tkzLabelPoints[above](A)
+   \tkzLabelPoints[below](P,B,Q)
+   \tkzLabelPoints[left](C)
+   \tkzLabelPoints[below right](O)
+   \tkzLabelPoints[above right](D)
+  \end{tikzpicture}
+  }
+  }
+\end{bt}
+
+\begin{bt}%[Cao Thành Thái]
+ Cho hình thang cân $ABCD$ ($AB > CD$, $AB \parallel CD$) nội tiếp trong đường tròn $(O)$. Kẻ các tiếp tuyến với đường tròn $(O)$ tại $A$ và $D$ chúng cắt nhau ở $E$. Gọi $M$ là giao điểm của hai đường chéo $AC$ và $BD$. Chứng minh tứ giác $AEDM$ nội tiếp được trong một đường tròn.
+ \loigiai
+  {
+  \immini
+  {
+  Ta có $AD=BC$ nên $\wideparen{AD}=\wideparen{BC}$.\\
+  Tương tự $AC=BD$ nên $\wideparen{AC}=\wideparen{BD}$.\\
+  Xét tứ giác $AEDM$ có
+  \allowdisplaybreaks
+  \begin{eqnarray*}
+   \widehat{EAM} &=& \widehat{EAD}+\widehat{DAM} = \dfrac{1}{2}\text{sđ}\wideparen{AD}+\dfrac{1}{2}\text{sđ}\wideparen{DC}\\
+   &=& \dfrac{1}{2}\text{sđ}\wideparen{BC}+\dfrac{1}{2}\text{sđ}\wideparen{DC} = \dfrac{1}{2}\text{sđ}\wideparen{BD} = \widehat{xDB}.
+  \end{eqnarray*}
+  Vậy tứ giác $AEDM$ nội tiếp được trong một đường tròn.
+  }
+  {
+  \begin{tikzpicture}[scale=1]
+   \def\r{2.2}
+   \tkzDefPoints{0/0/O}
+   \coordinate(A) at ([shift={(O)}]200:\r cm and \r cm);
+   \coordinate(B) at ([shift={(O)}]340:\r cm and \r cm);
+   \coordinate(C) at ([shift={(O)}]50:\r cm and \r cm);
+   \coordinate(D) at ([shift={(O)}]130:\r cm and \r cm);
+   \tkzDefLine[perpendicular=through A](O,A)\tkzGetPoint{a}
+   \tkzDefLine[perpendicular=through D](O,D)\tkzGetPoint{d}
+   \tkzInterLL(A,a)(D,d)\tkzGetPoint{E}
+   \tkzInterLL(A,C)(B,D)\tkzGetPoint{M}
+   \tkzDefPointBy[symmetry=center D](E)\tkzGetPoint{x}
+   \tkzDrawPoints[fill=black](A,B,C,D,E,M,O)
+   \tkzDrawCircle[radius](O,A)
+   \tkzDrawPolygon(A,B,C,D)
+   \tkzDrawSegments(A,C B,D O,A O,D A,E E,x)
+   \tkzMarkRightAngles(O,A,E O,D,E)
+   \tkzLabelPoints[above](M)
+   \tkzLabelPoints[below](O)
+   \tkzLabelPoints[left](A,E,D)
+   \tkzLabelPoints[right](B,C,x)
+  \end{tikzpicture}
+  }
+  }
+\end{bt}
+
+\begin{bt}%[Cao Thành Thái]
+ Cho hai điểm $A$, $B$ cố định và $\widehat{xAy}=60^\circ$  ($B$ thuộc miền trong $\widehat{xAy}$, $B$ không thuộc $Ax$, $Ay$). Đường thẳng $BN$ vuông góc với $Ay$ tại $N$ cắt $Ax$ tại $H$ và đường thẳng $BM$ vuông góc với $Ax$ tại $M$ cắt $Ay$ tại $K$. Gọi $I$, $J$ lần lượt là trung điểm của $AB$, $HK$.
+ \begin{enumerate}
+  \item Chứng minh $HK = 2MN$.
+  \item Chứng minh tứ giác $MINJ$ nội tiếp được đường tròn.
+ \end{enumerate}
+ \loigiai
+  {
+  \begin{enumerate}
+   \item
+   \immini
+   {
+   Xét tứ giác $MNKH$ có $\widehat{HMK}=\widehat{HNK}=90^\circ$ và hai góc này cùng nhìn cạnh $HK$ nên tứ giác $MNKH$ nội tiếp đường tròn đường kính $HK$.\\
+   Suy ra $\widehat{ANM}=\widehat{AHK}$.\\
+   Xét hai tam giác $AMN$ và $AKH$ có $\widehat{MAN}=\widehat{KAH}$ (góc chung) và $\widehat{ANM}=\widehat{AHK}$ nên $\triangle AMN \backsim \triangle AKH$ (g-g).\\
+   Suy ra $\dfrac{MN}{HK}=\dfrac{AM}{AK}$.\\
+   Mặt khác, trong tam giác vuông $AMK$ có $\widehat{MAK}=60^\circ$ ta có
+   
+   }
+   {
+   \begin{tikzpicture}[scale=0.8]
+    \tkzInit[xmin=-0.2,xmax=6.2,ymin=-0.6,ymax=5.5]
+    \tkzClip
+    \tkzDefPoints{0/0/A, 6/0/y, 2.5/1.2/B}
+    \tkzDefPointBy[rotation=center A angle 60](y)\tkzGetPoint{x}
+    \tkzDefLine[perpendicular=through B](A,y)\tkzGetPoint{b}
+    \tkzDefLine[perpendicular=through B](A,x)\tkzGetPoint{b'}
+    \tkzInterLL(B,b)(A,y)\tkzGetPoint{N}
+    \tkzInterLL(B,b)(A,x)\tkzGetPoint{H}
+    \tkzInterLL(B,b')(A,x)\tkzGetPoint{M}
+    \tkzInterLL(B,b')(A,y)\tkzGetPoint{K}
+    \tkzDefMidPoint(A,B)\tkzGetPoint{I}
+    \tkzDefMidPoint(H,K)\tkzGetPoint{J}
+    \tkzDrawPoints[fill=black](A,B,H,I,J,K,M,N)
+    \tkzDrawSegments(A,x A,y H,N M,K H,K A,B M,I N,I M,J N,J M,N)
+    \tkzMarkSegments[mark=||,size=0.1cm](H,J K,J)
+    \tkzMarkRightAngles(B,N,K B,M,H)
+    \tkzLabelPoints[below](A,N,K,y,I)
+    \tkzLabelPoints[left](M,H,x)
+    \tkzLabelPoints[right](J)
+    \tkzLabelPoints[above right](B)
+   \end{tikzpicture}
+   }
+   \noindent
+   \begin{eqnarray*}
+    \cos \widehat{MAK}=\dfrac{AM}{AK} \Leftrightarrow \dfrac{AM}{AK}=\cos 60^\circ \Leftrightarrow \dfrac{AM}{AK}=\dfrac{1}{2}.
+   \end{eqnarray*}
+   Do đó $\dfrac{MN}{HK}=\dfrac{1}{2}$ hay $HK=2MN$.
+   \item Tứ giác $AMBN$ nội tiếp đường tròn đường kính $AB$ nên $I$ là tâm đường tròn ngoại tiếp tứ giác $AMBN$.\\
+   Khi đó $\widehat{MIN}=2\widehat{MAN}=120^\circ$ (góc ở tâm và góc nội tiếp cùng $\wideparen{MN}$ của đường tròn ngoại tiếp tứ giác $AMBN$).\\
+   Tứ giác $MNKH$ nội tiếp đường tròn tâm $J$ đường kính $HK$ nên
+   $$JM=JN=MN=\dfrac{HK}{2}.$$
+   Vậy tam giác $MNJ$ là tam giác đều, do đó $\widehat{MJN}=60^\circ$.\\
+   Tứ giác $MINJ$ có $\widehat{MIN}+\widehat{MJN}=180^\circ$ nên tứ giác $MINJ$ nội tiếp được đường tròn.
+  \end{enumerate}
+  }
+\end{bt}
+
+\begin{bt}%[Cao Thành Thái]
+ Cho đường tròn tâm $O$ đường kính $AB$. Trên tia đối của tia $BA$ lấy điểm $C$ ($AB>BC$). Vẽ đường tròn tâm $O’$ đường kính $BC$. Gọi $I$ là trung điểm của $AC$. Vẽ dây cung $MN$ vuông góc với $AC$ tại $I$, $MC$ cắt đường tròn tâm $O’$ tại $D$.
+ \begin{enumerate}
+  \item Tứ giác $AMCN$ là hình gì? Tại sao?
+  \item Chứng minh tứ giác $NIDC$ nội tiếp.
+ \end{enumerate}
+ \loigiai
+  {
+  \begin{enumerate}
+   \item
+   \immini
+   {
+   Trong đường tròn $(O)$ ta có $AB \perp MN$ tại $I$ nên $I$ là trung điểm của $MN$.\\
+   Lại có $I$ là trung điểm của $AC$.\\
+   Vậy tứ giác $AMCN$ là hình thoi vì có hai đường chéo $AC$ và $MN$ vuông góc với nhau tại trung điểm của mỗi đường.
+   }
+   {
+   \begin{tikzpicture}
+    \tkzInit[xmin=-0.5,xmax=6.9,ymin=-2.1,ymax=2.1]
+    \tkzClip
+    \tkzDefPoints{0/0/A, 4/0/B, 6.4/0/C}
+    \tkzDefMidPoint(A,B)\tkzGetPoint{O}
+    \tkzDefMidPoint(B,C)\tkzGetPoint{O'}
+    \tkzDefMidPoint(A,C)\tkzGetPoint{I}
+    \tkzDefLine[perpendicular=through I](A,C)\tkzGetPoint{i}
+    \tkzInterLC(I,i)(O,A)\tkzGetPoints{M}{N}
+    \tkzInterLC(M,C)(O',B)\tkzGetFirstPoint{D}
+    \tkzDrawPoints[fill=black](A,B,C,D,I,M,N,O,O')
+    \tkzDrawCircle[radius](O,A)\tkzDrawCircle[radius](O',B)
+    \tkzDrawPolygon(A,M,C,N)
+    \tkzDrawSegments(A,C M,N D,N O',D I,D)
+    \tkzMarkRightAngle(M,I,A)
+    \tkzLabelPoints[above](D,M)
+    \tkzLabelPoints[below](N,O,O')
+    \tkzLabelPoints[left](A)
+    \tkzLabelPoints[right](C)
+    \tkzLabelPoints[below right](B)
+    \tkzLabelPoints[below left](I)
+   \end{tikzpicture}
+   }
+   \item Ta có $\widehat{ANB}=90^\circ$ nên $AN \perp BN$.\\
+   Lại có $AN \parallel MC$ nên $BN \perp MC$.\\
+   Mặt khác $\widehat{BDC}=90^\circ$ nên $BD \perp MC$.\\
+   Vậy ba điểm $N$, $B$, $D$ thẳng hàng.\\
+   Suy ra $\widehat{NDC}=90^\circ$.\\
+   Tứ giác $NIDC$ có $\widehat{NIC}=\widehat{NDC}=90^\circ$ cùng nhìn đoạn $NC$ nên tứ giác $NIDC$ nội tiếp đường tròn đường kính $NC$.
+  \end{enumerate}
+  }
+\end{bt}
+
+\subsection*{Chứng minh các điểm thuộc đường tròn}
+
+\begin{bt}%[Cao Thành Thái]
+ Cho hình chữ nhật $ABCD$, $I$ là trung điểm của $CD$, $E$ thuộc cạnh $AB$. Qua $I$ kẻ $IM$ vuông góc với $DE$, cắt $AD$ tại $H$. Qua $I$ kẻ $IN$ vuông góc với $CE$, cắt $BC$ tại $K$. Gọi $G$ là giao điểm của $EI$ và $HK$.
+ \begin{enumerate}
+  \item Chứng minh rằng bốn điểm $H$, $M$, $N$, $K$ cùng nằm trên một đường tròn.
+  \item Chứng minh rằng năm điểm $E$, $G$, $N$, $K$, $B$ cùng thuộc một đường tròn.
+  \item Chứng minh rằng năm điểm $E$, $G$, $M$, $H$, $A$ cùng thuộc một đường tròn.
+ \end{enumerate}
+ \loigiai
+  {
+  \begin{center}
+  \begin{tikzpicture}
+   \def\a{5.5}\def\b{3}
+   \tkzInit[xmin=-0.5,xmax=6,ymin=-\b.5,ymax=1]
+   \tkzClip
+   \tkzDefPoints{0/0/A,\a/0/B}
+   \tkzDefShiftPoint[B](270:\b){C}
+   \tkzDefPointBy[translation=from B to A](C)\tkzGetPoint{D}
+   \tkzDefMidPoint(C,D)\tkzGetPoint{I}
+   \tkzDefBarycentricPoint(A=3,B=1.3)\tkzGetPoint{E}
+   \tkzDefPointBy[projection=onto D--E](I)\tkzGetPoint{M}
+   \tkzInterLL(I,M)(A,D)\tkzGetPoint{H}
+   \tkzDefPointBy[projection=onto C--E](I)\tkzGetPoint{N}
+   \tkzInterLL(I,N)(B,C)\tkzGetPoint{K}
+   \tkzInterLL(E,I)(H,K)\tkzGetPoint{G}
+   \tkzDrawPoints[fill=black](A,B,C,D,E,G,H,I,K,M,N)
+   \tkzDrawPolygon(A,B,C,D)
+   \tkzDrawSegments(E,D E,H E,I E,C E,K H,K M,N K,B H,I K,I)
+   \tkzMarkRightAngles(I,M,D K,N,C)
+   \tkzMarkSegments[mark=|,size=0.1cm](D,I C,I)
+   \tkzLabelPoints[above](A,E,K,N)
+   \tkzLabelPoints[below](D,I,C)
+   \tkzLabelPoints[left](H)
+   \tkzLabelPoints[right](B)
+   \tkzLabelPoints[below right](G)
+   \draw ($(M)-(0.3,0.1)$) node{$M$};
+  \end{tikzpicture}
+  \end{center}
+  \begin{enumerate}
+   \item Sử dụng hệ thức lượng cho các tam giác vuông $IDH$ và $ICK$ ta có
+   \begin{align}
+    ID^2 &= IM \cdot IH. \tag{1}\\
+    IC^2 &= IN \cdot IK. \tag{2}
+   \end{align}
+   Mà $IC=ID$ nên từ $(1)$ và $(2)$ suy ra $IM \cdot IH = IN \cdot IK$.\\
+   Suy ra bốn điểm $H$, $M$, $N$, $K$ cùng nằm trên đường tròn.
+   \item Từ kết quả câu trên suy ra $\widehat{IMN}=\widehat{IKH}$.\hfill$(3)$\\
+   Lại có tứ giác $EMIN$ nội tiếp (do $\widehat{M}=\widehat{N}=90^\circ$) nên $\widehat{IMN}=\widehat{IEN}$.\hfill$(4)$\\
+   Từ $(3)$ và $(4)$ suy ra $\widehat{IEN}=\widehat{IKH}$, do đó tứ giác $EGNK$ nội tiếp.\\
+   Từ đó suy ra $\widehat{EGK}=\widehat{ENK}=90^\circ$. Kết hợp với $\widehat{EBK}=90^\circ$ ta thấy năm điểm $E$, $G$, $N$, $B$, $K$ cùng nằm trên đường tròn đường kính $EK$.
+   \item Ta có $\widehat{EGH}=\widehat{EMH}=\widehat{EAH}=90^\circ$ và cùng nhìn đoạn $EH$ nên năm điểm $E$, $G$, $M$, $H$, $A$ cùng thuộc đường tròn đường kính $EH$.
+  \end{enumerate}
+  }
+\end{bt}
+
+\begin{bt}%[Cao Thành Thái]
+ Cho tam giác nhọn $ABC$ với đường cao $AD$. Gọi $M$ là điểm đối xứng của $D$ qua $AB$, $N$ là điểm đối xứng của $D$ qua $AC$, $E$ và $F$ theo thứ tự là giao điểm của $MN$ với $AB$ và $AC$. Chứng minh rằng năm điểm $A$, $E$, $D$, $C$, $N$ cùng thuộc một đường tròn.
+ \loigiai
+  {
+  \immini
+  {
+  Từ giả thiết ta có $\widehat{ADC}=\widehat{ANC}$ (tính đối xứng), mà $\widehat{ADC}=90^\circ$ nên $\widehat{ANC}=90^\circ$. Do đó tứ giác $ADCN$ nội tiếp. \hfill $(1)$\\
+  Lại vì $D$ đối xứng với $M$ qua $AB$ nên $\widehat{AME}=\widehat{ADE}$. Do tam giác $AMN$ cân tại $A$ nên $\widehat{AME}=\widehat{ANE}$. Do đó $\widehat{ADE}=\widehat{ANE}$. Vậy tứ giác $AEDN$ nội tiếp.\hfill $(2)$\\
+  Từ $(1)$ và $(2)$ suy ra năm điểm $A$, $E$, $D$, $C$, $N$ cùng thuộc một đường tròn.
+  }
+  {
+  \begin{tikzpicture}
+   \tkzInit[xmin=-1.2,xmax=5.2,ymin=-0.5,ymax=4.5]
+   \tkzClip
+   \tkzDefPoints{0/0/B, 5/0/C, 1/4/A}
+   \tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{D}
+   \tkzDefPointBy[reflection=over A--B](D)\tkzGetPoint{M}
+   \tkzDefPointBy[reflection=over A--C](D)\tkzGetPoint{N}
+   \tkzInterLL(M,N)(A,B)\tkzGetPoint{E}
+   \tkzInterLL(M,N)(A,C)\tkzGetPoint{F}
+   \tkzInterLL(D,M)(A,B)\tkzGetPoint{m}
+   \tkzInterLL(D,N)(A,C)\tkzGetPoint{n}
+   \tkzDrawPoints[fill=black](A,B,C,D,E,F,M,N)
+   \tkzDrawPolygon(A,B,C)
+   \tkzDrawSegments(A,M A,D A,N M,N M,D D,N D,F B,F C,E N,C)
+   \tkzMarkRightAngles(A,D,C A,m,M A,n,N)
+   \tkzLabelPoints[above](A,N,F)
+   \tkzLabelPoints[below](B,D,C,M)
+   \tkzLabelPoints[left](E)
+   %\tkzLabelPoints[]
+  \end{tikzpicture}
+  }
+  }
+\end{bt}
+
+\begin{bt}%[Cao Thành Thái]
+	Cho tam giác $ABC$ có $H$ là trực tâm. Lấy $M$, $N$ thuộc tia $BC$ sao cho $MN=BC$ và $M$ nằm giữa $B$, $C$. Gọi $D$ là hình chiếu của $M$ lên $AC$ và $E$ là hình chiếu của $N$ lên $AB$. Chứng minh rằng các điểm $A$, $D$, $E$, $H$ cùng thuộc một đường tròn.
+	\loigiai
+	{
+		\immini
+		{
+			Gọi $K$ là giao điểm của $MD$, $NE$.\\
+			Ta thấy $HB \parallel MK$ do cùng vuông góc $AC$ suy ra cặp góc đồng vị $\widehat{HBC}=\widehat{KMN}$.\\
+			Tương tự $\widehat{HCB}=\widehat{KNM}$.\\
+			Kết hợp giả thiết $BC=MN$ suy ra $\triangle BHC = \triangle MKN$.\\
+			Do đó $S_{BHC}=S_{MKN}$, suy ra $HK \parallel BC$.\\
+			Mà $AH \perp BC$ nên $AH \perp HK$, suy ra $H$ thuộc đường tròn đường kính $AK$.\\
+			Vì tam giác $ADK$ vuông tại $D$ nên ba điểm $A$, $D$, $K$ thuộc đường tròn đường kính $AK$.
+		}
+		{
+			\begin{tikzpicture}[scale=0.8]
+			\tkzInit[xmin=-0.5,xmax=8,ymin=-0.7,ymax=5.7]
+			\tkzClip
+			\tkzDefPoints{0/0/B, 6/0/C, 2/5/A}
+			\tkzDefShiftPoint[B](0:1.5){M}
+			\tkzDefPointBy[translation=from B to C](M)\tkzGetPoint{N}
+			\tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{a1}
+			\tkzDefPointBy[projection=onto A--C](B)\tkzGetPoint{b1}
+			\tkzInterLL(A,a1)(B,b1)\tkzGetPoint{H}
+			\tkzDefPointBy[projection=onto A--C](M)\tkzGetPoint{D}
+			\tkzDefPointBy[projection=onto B--A](N)\tkzGetPoint{E}
+			\tkzInterLL(M,D)(N,E)\tkzGetPoint{K}
+			\tkzDefMidPoint(A,K)\tkzGetPoint{O}
+			\tkzDrawPoints[fill=black](A,B,C,D,E,H,K,M,N,O)
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(A,H A,K B,H C,H M,D N,E H,K C,N)
+			\tkzDrawCircle(O,A)
+			\tkzMarkRightAngles[size=0.15](A,D,M A,E,N)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B,H,M,C,N,K)
+			\tkzLabelPoints[left](E)
+			\tkzLabelPoints[right](D)
+			\end{tikzpicture}
+		}
+		\noindent Vì tam giác $AEK$ vuông tại $E$ nên ba điểm $A$, $E$, $K$ thuộc đường tròn đường kính $AK$.\\
+		Vậy các điểm $A$, $D$, $E$, $H$ cùng thuộc đường tròn đường kính $AK$.
+	}
+\end{bt}
+
+\begin{bt}%[Cao Thành Thái]
+	Cho tam giác $ABC$ nhọn, các đường cao $AA_1$, $BB_1$, $CC_1$ đồng quy tại $H$. Gọi $A_2$, $B_2$, $C_2$ lần lượt thuộc đoạn thẳng $AA_1$, $BB_1$, $CC_1$ sao cho $S_{A_2BC}+S_{B_2CA}+S_{C_2AB}=S_{ABC}$. Chứng minh rằng $A_2$, $B_2$, $C_2$, $H$ cùng thuộc một đường tròn.
+	\loigiai
+	{
+		\begin{center}
+			\begin{tikzpicture}[scale=0.8]
+			\tkzInit[xmin=-0.5,xmax=8.5,ymin=-7.1,ymax=7.1]
+			\tkzClip
+			\tkzDefPoints{0/0/B, 8/0/C, 2.5/6.5/A}
+			\tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{A_1}
+			\tkzDefPointBy[projection=onto A--C](B)\tkzGetPoint{B_1}
+			\tkzDefPointBy[projection=onto A--B](C)\tkzGetPoint{C_1}
+			\tkzInterLL(A,A_1)(B,B_1)\tkzGetPoint{H}
+			\tkzDefMidPoint(B,B_1)\tkzGetPoint{B_2}
+			\tkzDefBarycentricPoint(C=2,C_1=3)\tkzGetPoint{C_2}
+			\tkzDefLine[perpendicular=through B_2](B,B_1)\tkzGetPoint{b1}
+			\tkzDefLine[perpendicular=through C_2](C,C_1)\tkzGetPoint{c1}
+			\tkzInterLL(B_2,b1)(C_2,c1)\tkzGetPoint{P}
+			\tkzDefLine[parallel=through P](B,C)\tkzGetPoint{p1}
+			\tkzInterLL(P,p1)(A,A_1)\tkzGetPoint{A_2}
+			\tkzDefPointBy[translation=from A to C](B)\tkzGetPoint{D}
+			\tkzDrawPoints[fill=black](A,B,C,D,A_1,B_1,C_1,A_2,B_2,C_2,H,P)
+			\tkzDrawPolygon(A,B,D,C)
+			\tkzDrawSegments(A,A_1 B,B_1 C,C_1 B,A_2 B,P B_2,P C_2,P H,P A_2,P A_2,C B,C C,P)
+			\tkzMarkRightAngles[size=0.15](A,A_1,C B,B_1,C A,C_1,C P,B_2,B P,C_2,C)
+			\tkzLabelPoints[above](A,C_2)
+			\tkzLabelPoints[below](D,A_1,P)
+			\tkzLabelPoints[left](B,C_1)
+			\tkzLabelPoints[right](C,B_1)
+			\draw ($(H)+(0.2,0.5)$) node{$H$};
+			\draw ($(B_2)-(0.5,-0.1)$) node{$B_2$};
+			\draw ($(A_2)-(0.5,-0.2)$) node{$A_2$};
+			\end{tikzpicture}
+		\end{center}
+		Qua $B_2$, $C_2$ lần lượt dựng các đường thẳng vuông góc với $BB_1$, $CC_1$ chúng cắt nhau tại $P$. Dựng hình bình hành $ABDC$. Vì $B_2$, $C_2$ lần lượt thuộc đoạn $BB_1$, $CC_1$ nên $P$ nằm ở miền trong hình bình hành $ABDC$.\\
+		Ta dễ thấy $PB_2 \parallel CA$, $PC_2 \parallel AB$ nên 
+		\begin{equation}\label{9H2-1.bt.1}
+		S_{PCA}= S_{B_2CA} \text{ và } S_{PAB}=S_{C_2AB}.
+		\end{equation}
+		Nếu $P$ nằm ở miền trong tam giác $BCD$ thì $S_{B_2CA}+S_{C_2AB}= S_{PCA}+S_{PAB} > S_{ABC}$ vô lý vì trái với giả thiết, vậy $P$ nằm ở miền trong tam giác $ABC$.\\
+		Khi đó kết hợp giả thiết $S_{PCA}+S_{PBA}+S_{PBC}=S_{ABC}=S_{A_2BC}+S_{B_2CA}+S_{C_2AB}$. Theo \eqref{9H2-1.bt.1} suy ra $S_{PBC}=S_{A_2BC}$, suy ra $PA_2 \parallel BC$ hay $PA_2 \perp AA_1$.\\
+		Từ đây dễ thấy $A_2$, $B_2$, $C_2$ thuộc đường tròn đường kính $PH$ hay $A_2$, $B_2$, $C_2$, $H$ cùng thuộc một đường tròn.
+	}
+\end{bt}
+

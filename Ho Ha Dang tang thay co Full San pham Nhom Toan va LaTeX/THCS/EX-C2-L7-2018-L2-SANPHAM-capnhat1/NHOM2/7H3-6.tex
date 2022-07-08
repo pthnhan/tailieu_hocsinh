@@ -1,0 +1,863 @@
+%GV soạn: Cao Đình Tới
+%GV phản biện: Điệp Nguyễn
+\Opensolutionfile{ans}[ans/ans7H3-6]
+\section{Đường trung trực của một đoạn thẳng. Tính chất ba đường trung trực của tam giác}
+\subsection{Hỏi đáp nhanh}
+\begin{ex}%[7H3B7]
+\begin{enumerate}
+\item Cho ba điểm phân biệt $A$, $B$, $C$. Khi nào thì các đường trung trực của các đoạn thẳng $AB$, $AC$ cắt nhau? Song song?
+\item Tại sao trong tam giác, giao điểm ba đường trung trực của ba cạnh cách đều ba đỉnh của tam giác đó?
+\item Trong tam giác vuông thì giao điểm ba đường trung trực là điểm nào?
+\item Trong tam giác đều, giao điểm của ba đường trung trực trùng với giao điểm của ba đường phân giác. Tại sao? Trong tam giác bất kì, tính chất ấy còn đúng không? Lấy ví dụ minh họa.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Khi $A$, $B$, $C$ không thẳng hàng thì các đường trung trực của các đoạn thẳng $AB$, $AC$ cắt nhau.
+\begin{center}
+\begin{tikzpicture}[scale=0.8, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-1,xmax=5,ymin=-1.0,ymax=5.5] \tkzClip
+\tkzDefPoints{0/0/B,3/0/A, 5/3/C}
+
+\tkzCircumCenter(A,B,C)    \tkzGetPoint{O}
+\tkzDefMidPoint(A,B){M} \tkzGetPoint{M}
+\tkzDefMidPoint(A,C){N} \tkzGetPoint{N}
+
+\tkzMarkSegments[mark=||](M,A M,B)
+\tkzMarkSegments[mark=|](N,A N,C)
+
+\tkzMarkRightAngles[](A,M,O)
+\tkzMarkRightAngles[](A,N,O)
+
+\tkzDrawSegments(A,B A,C O,M O,N)
+
+\tkzDrawPoints(A,B,C,M,N,O)
+\tkzLabelPoints[above](O)
+\tkzLabelPoints[below](A,B,M)
+\tkzLabelPoints[right](C,N)
+\end{tikzpicture}
+\end{center}
+Khi $A$, $B$, $C$ không thẳng hàng thì các đường trung trực của các đoạn thẳng $AB$, $AC$ song song.
+\begin{center}
+\begin{tikzpicture}[scale=0.8, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-1,xmax=5.5,ymin=-1.0,ymax=4.0] \tkzClip
+\tkzDefPoints{0/0/B,3/0/A,5/0/C}
+
+\tkzDefMidPoint(A,B){M} \tkzGetPoint{M}
+\tkzDefMidPoint(A,C){N} \tkzGetPoint{N}
+\tkzDefPointWith[orthogonal,K=1.5](M,A)    \tkzGetPoint{M'}
+\tkzDefPointWith[orthogonal,K=1.5](N,C)    \tkzGetPoint{N'}
+
+\tkzMarkSegments[mark=||](M,A M,B)
+\tkzMarkSegments[mark=|](N,A N,C)
+
+\tkzMarkRightAngles[](A,M,M')
+\tkzMarkRightAngles[](A,N,N')
+
+\tkzDrawSegments(A,B A,C M',M N',N)
+
+\tkzDrawPoints(A,B,C,M,N)
+\tkzLabelPoints[below](A,B,C,M,N)
+\end{tikzpicture}
+\end{center}
+\item Do tính chất của đường trung trực.
+\item Trong tam giác vuông thì giao điểm ba đường trung trực là trung điểm của cạnh huyền.
+\begin{center}
+\begin{tikzpicture}[scale=0.8, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-1,xmax=4,ymin=-1.0,ymax=5.0] \tkzClip
+\tkzDefPoints{0/0/A,3/0/B,0/4/C}
+\tkzDefMidPoint(B,C){O}
+\tkzGetPoint{O}
+\tkzDefMidPoint(A,B){M} \tkzGetPoint{M}
+\tkzDefMidPoint(A,C){N} \tkzGetPoint{N}
+\tkzMarkSegments[mark=||](M,A M,B)
+\tkzMarkSegments[mark=|](N,A N,C)
+\tkzMarkSegments[mark=x](O,B O,C)
+\tkzMarkRightAngles[](A,M,O)
+\tkzMarkRightAngles[](A,N,O)
+\tkzInCenter(A,B,C)    \tkzGetPoint{I}
+
+\tkzDrawSegments(A,B A,C B,C)
+\tkzDrawSegments[dashed](O,M O,N I,B I,C)
+\tkzMarkAngles[arc=ll](A,C,I)
+\tkzMarkAngles[arc=ll](I,C,B)
+\tkzMarkAngles[arc=l](I,B,A)
+\tkzMarkAngles[arc=l](C,B,I)
+
+\tkzDrawPoints(A,B,O,M,N,I)
+\tkzLabelPoints[above](C)
+\tkzLabelPoints[below](A,B,M)
+\tkzLabelPoints[left](N)
+\tkzLabelPoints[right](O)
+\tkzLabelPoints[below left](I)
+\end{tikzpicture}
+\end{center}
+\item Trong tam giác đều, giao điểm của ba đường trung trực trùng với giao điểm của ba đường phân giác do tính chất của tam giác đều.
+\begin{center}
+\begin{tikzpicture}[scale=0.8, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-1,xmax=5,ymin=-1.0,ymax=4.0] \tkzClip
+\tkzDefPoints{0/0/A,4/0/B}
+\tkzDefEquilateral(A,B)    \tkzGetPoint{C}
+\tkzCircumCenter(A,B,C)    \tkzGetPoint{O}
+\tkzDefMidPoint(A,B){M} \tkzGetPoint{M}
+\tkzDefMidPoint(A,C){N} \tkzGetPoint{N}
+\tkzDefMidPoint(B,C){E} \tkzGetPoint{E}
+
+\tkzMarkSegments[mark=||](M,A M,B)
+\tkzMarkSegments[mark=|](N,A N,C)
+\tkzMarkSegments[mark=x](E,B E,C)
+\tkzMarkRightAngles[](A,M,O)
+\tkzMarkRightAngles[](A,N,O)
+\tkzMarkRightAngles[](B,E,O)
+
+\tkzDrawSegments(A,B A,C B,C)
+\tkzDrawSegments[dashed](O,M O,N O,E O,A O,B O,C)
+\tkzMarkAngles[size=0.7cm,arc=ll](A,C,O)
+\tkzMarkAngles[size=0.7cm,arc=ll](O,C,B)
+\tkzMarkAngles[size=0.9cm,arc=l](O,B,A)
+\tkzMarkAngles[size=0.9cm,arc=l](C,B,O)
+
+\tkzDrawPoints(A,B,O,M,N,E)
+\tkzLabelPoints[above](C)
+\tkzLabelPoints[below](A,B,M)
+\tkzLabelPoints[left](N)
+\tkzLabelPoints[right](E)
+\tkzLabelPoints[below left](O)
+\end{tikzpicture}
+\end{center}
+Trong tam giác bất kì, tính chất ấy không còn đúng. Ví dụ tam giác vuông có giao của  ba đường trung trực nằm trên cạnh huyền còn giao điểm của ba đường phân giác nằm bên trong tam giác.
+\begin{center}
+\begin{tikzpicture}[scale=0.8, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-1,xmax=4,ymin=-1.0,ymax=5.0] \tkzClip
+\tkzDefPoints{0/0/A,3/0/B,0/4/C}
+\tkzDefMidPoint(B,C){O}
+\tkzGetPoint{O}
+\tkzDefMidPoint(A,B){M} \tkzGetPoint{M}
+\tkzDefMidPoint(A,C){N} \tkzGetPoint{N}
+\tkzMarkSegments[mark=||](M,A M,B)
+\tkzMarkSegments[mark=|](N,A N,C)
+\tkzMarkSegments[mark=x](O,B O,C)
+\tkzMarkRightAngles[](A,M,O)
+\tkzMarkRightAngles[](A,N,O)
+\tkzInCenter(A,B,C)    \tkzGetPoint{I}
+
+\tkzDrawSegments(A,B A,C B,C)
+\tkzDrawSegments[dashed](O,M O,N I,B I,C)
+\tkzMarkAngles[arc=ll](A,C,I)
+\tkzMarkAngles[arc=ll](I,C,B)
+\tkzMarkAngles[arc=l](I,B,A)
+\tkzMarkAngles[arc=l](C,B,I)
+
+\tkzDrawPoints(A,B,O,M,N,I)
+\tkzLabelPoints[above](C)
+\tkzLabelPoints[below](A,B,M)
+\tkzLabelPoints[left](N)
+\tkzLabelPoints[right](O)
+\tkzLabelPoints[below left](I)
+\end{tikzpicture}
+\end{center}
+\end{enumerate}
+}
+\end{ex}
+
+\subsection{Học giải toán}
+\begin{vd}%[7H3B7]
+Cho góc $\widehat{xOy}$ nhọn, trên $Ox$ lấy điểm $A$; trên $Oy$ lấy điểm $B$ sao cho $OA=OB$. Đường trung trực của $OA$ và đường trung trực của $OB$ cắt nhau tại $I$. Chứng minh:
+\begin{enumerate}
+\item $OI$ là tia phân giác của góc $\widehat{xOy}$.
+\item $OI$ là đường trung trực của đoạn $AB$.
+\end{enumerate}
+\loigiai
+{
+\immini{
+\begin{enumerate}
+\item $HI$ là trung trực của $OA$ nên $IO=IA$ (tính chất).\\
+$KI$ là trung trực của $OB$ nên $IO=IB$ (tính chất).\\
+Vậy $IO=IA=IB$ và $OA=OB$ (giả thiết).\\
+Suy ra $\triangle OIA =\triangle OIB$ (c.c.c).\\
+ Vậy $\widehat{O_1}=\widehat{O_2}$ (góc tương ứng).\\
+  Do đó $OI$ là tia phân giác của góc $\widehat{xOy}$.
+\item Theo giả thiết $OA=OB \Rightarrow O$ cách đều hai mút $A$ và $B$.\\
+Theo chứng minh trên: $IA=IB \Rightarrow I$ cách đều hai mút $A$ và $B$.\\
+Vậy $OI$ là đường trung trực của đoạn $AB$ (có hai điểm cách đều hai mút $A$ và $B$).
+\end{enumerate}
+}{
+\begin{tikzpicture}[scale=0.6, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-1,xmax=8.5,ymin=-3.0,ymax=3.0] \tkzClip
+\tkzDefPoints{0/0/O,8/0/E}
+\tkzDefPointBy[rotation = center O angle 20](E)    \tkzGetPoint{x}
+\tkzDefPointBy[rotation = center O angle -20](E)    \tkzGetPoint{y}
+\tkzDefPointWith[linear,K=5/6](O,x) \tkzGetPoint{A}
+\tkzDefPointWith[linear,K=5/6](O,y) \tkzGetPoint{B}
+\tkzDefMidPoint(O,A){H}    \tkzGetPoint{H}
+\tkzDefMidPoint(O,B){K}    \tkzGetPoint{K}
+\tkzDefLine[mediator](O,A)    \tkzGetPoints{C}{D}
+\tkzDefLine[mediator](O,B)    \tkzGetPoints{M}{N}
+\tkzInterLL(C,D)(M,N)    \tkzGetPoint{I}
+
+\tkzMarkSegments[mark=x](H,A K,B)
+\tkzMarkAngles[size=1.5cm,arc=l](E,O,A)
+\tkzMarkAngles[size=1.4cm,arc=l](B,O,E)
+\tkzLabelAngles[pos=1.7, scale=0.6](E,O,A){$1$}
+\tkzLabelAngles[pos=1.8, scale=0.6](B,O,E){$2$}
+
+\tkzDrawSegments(O,x O,y H,I K,I A,I B,I)
+\tkzDrawSegments[dashed](O,E A,B)
+\tkzDrawPoints(A,B,O,H,K,I)
+\tkzLabelPoints[above](A,H,x)
+\tkzLabelPoints[below](B,K,y)
+\tkzLabelPoints[left](O)
+\tkzLabelPoints[below left](I)
+%\tkzLabelPoints[right](x,y)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+\begin{vd}%[7H3B7]
+Cho góc vuông $mOn$ và điểm $A$ nằm trong góc đó. Một góc vuông $xAy$ quay quanh $A$, các cạnh của nó cắt $Om$, $On$ tại $P$ và $Q$. Chứng minh rằng trung điểm $M$ của $PQ$ nằm trên một đường thẳng cố định.
+\loigiai
+{
+\immini{
+Ta có $AM$ là trung tuyến của tam giác vuông $APQ$ nên $AM=\dfrac{1}{2}PQ$, tương tự $OM=\dfrac{1}{2}PQ$, suy ra $MO=MA$. Điểm $M$ luôn cách đều $O$ và $A$, vậy nó nằm trên đường trung trực của $OA$, đó là một đường cố định.
+}{
+\begin{tikzpicture}[scale=0.6, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-1.6,xmax=6.5,ymin=-1.5,ymax=6.5] \tkzClip
+\tkzDefPoints{0/0/O,6/0/m}
+\tkzDefPointBy[rotation = center O angle 90](m)    \tkzGetPoint{n}
+\tkzDefPointWith[linear,K=5/6](O,m) \tkzGetPoint{Q}
+\tkzDefPointBy[rotation = center Q angle -70](O)    \tkzGetPoint{z}
+\tkzDefPointWith[linear,K=2/3](Q,z) \tkzGetPoint{A}
+\tkzDefPointWith[orthogonal,K=1](A,Q)    \tkzGetPoint{D}
+\tkzInterLL(A,D)(O,n)    \tkzGetPoint{P}
+\tkzDefPointWith[linear,K=7/5](A,Q) \tkzGetPoint{y}
+\tkzDefPointWith[linear,K=7/5](A,P) \tkzGetPoint{x}
+
+\tkzDefMidPoint(P,Q){M}    \tkzGetPoint{M}
+\tkzMarkSegments[mark=|](M,P M,Q)
+\tkzMarkRightAngles[](m,O,n)
+\tkzMarkRightAngles[](P,A,Q)
+\tkzDrawSegments(O,m O,n A,x A,y A,M O,M P,Q)
+\tkzDrawPoints(A,P,O,Q,M)
+\tkzLabelPoints[below](O,M)
+\tkzLabelPoints[below right](x)
+\tkzLabelPoints[below left](Q)
+\tkzLabelPoints[left](n,P)
+\tkzLabelPoints[above](A,m)
+\tkzLabelPoints[right](y)
+%\tkzLabelPoints[right](x,y)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+\begin{vd}%[7H3K7]
+Cho góc  $xOy$ có đỉnh nằm ngoài tờ giấy. Hãy dựng đường phân giác của góc $xOy$.
+\loigiai
+{
+\immini{
+Từ điểm $A$ trên $Oy$ kẻ $Ax' \parallel Ox$ (tia này nằm trong tờ giấy). Dựng tia phân giác $Am$ của góc $x'Ay$. Từ điểm $B$ trên $Ay$ dựng đường vuông góc với $Am$, cắt $Ox$ tại $C$. Dựng đường trung trực của $BC$, đường trung trực này chính là đường phân giác của góc $xOy$.\\
+Thật vậy, theo cách dựng ta có tam giác $OBC$ là tam giác cân tại $O$, do đó đường trung trực của $BC$ cũng là đường phân giác tại đỉnh $O$, hay là đường phân giác của góc $xOy$.
+}{
+\begin{tikzpicture}[scale=0.6, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-1.5,xmax=9,ymin=-3.0,ymax=3.5] \tkzClip
+\tkzDefPoints{0/0/z,8/0/O}
+\tkzDefPointBy[rotation = center O angle -20](z)    \tkzGetPoint{y}
+\tkzDefPointBy[rotation = center O angle 15](z)    \tkzGetPoint{x}
+\tkzDefPointWith[linear,K=0.4](O,y) \tkzGetPoint{A}
+\tkzDefPointWith[linear,K=0.7](O,y) \tkzGetPoint{B}
+
+\tkzDefPointWith[linear,K=0.4](O,x) \tkzGetPoint{A'}
+\tkzDefPointBy[translation = from A' to x](A){x'}
+\tkzGetPoint{x'}
+
+\tkzDefLine[bisector](y,A,x')    \tkzGetPoint{u}
+\tkzDefPointWith[linear,K=0.6](A,u) \tkzGetPoint{m}
+
+\tkzDefPointBy[projection = onto A--m](B)    \tkzGetPoint{H}
+\tkzInterLL(B,H)(O,x)    \tkzGetPoint{C}
+
+\tkzDefMidPoint(B,C){D} \tkzGetPoint{D}
+\tkzDefPointWith[orthogonal,K=1](D,B)  \tkzGetPoint{E}
+
+\tkzDefPointWith[linear,K=0.2](O,y) \tkzGetPoint{M}
+\tkzDefPointBy[projection = onto D--E](M)    \tkzGetPoint{M'}
+\tkzInterLL(M,M')(O,x)    \tkzGetPoint{N}
+
+\tkzMarkRightAngles[](C,D,M')
+\tkzMarkRightAngles[](A,H,B)
+
+\tkzDrawSegments(M,y N,x A,x' A,m B,C D,M')
+\tkzDrawSegments[dashed](O,M O,N)
+\tkzDrawLine[dashed,add = 1.5 and 1.5](M,N)
+\tkzDrawPoints(A,B,O,C,D,M,N,M')
+\tkzLabelPoints[above](A,B,y,m,x')
+\tkzLabelPoints[below](C,x)
+\tkzLabelPoints[below left](D)
+\tkzLabelPoints[right](O)
+%\tkzLabelPoints[right](x,y)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+\begin{vd}%[7H3K7]
+Cho $\triangle ABC$ cân tại $A$. Đường phân giác $AH$ và đường trung trực của cạnh $AB$ cắt nhau tại $O$. Trên cạnh $AB$ và $AC$ lấy điểm $E$ và $F$ sao cho $AE=CF$.
+\begin{enumerate}
+\item Chứng minh: $OE=OF$.
+\item Chứng minh khi $E$ và $F$ di động trên hai cạnh $AB$ và $AC$ nhưng $AE=CF$ thì đường trung trực của $EF$ đi qua một điểm cố định.
+\end{enumerate}
+\loigiai
+{
+\immini{
+\begin{enumerate}
+\item $AE+AF=AC=AB$ (giả thiết) mà $AE+BE=AB$.\\ Vậy: $AF=BE$.
+Xét $\triangle BOE$ và $\triangle AOF$ có:\\
+$AF=BE$ (chứng minh trên)\\
+$\widehat{A_1}=\widehat{A_2} $ (giả thiết) mà $\widehat{A_1}=\widehat{B_1} $ ($O$ nằm trên đường trung trực của $AB$) nên $\widehat{A_2}=\widehat{B_1} $ (cùng bằng $\widehat{A_1}$);\\
+$OB=OA$ (vì $O$ nằm trên trung trực của $AB$).\\
+Vậy $\triangle BOE =\triangle AOF$ (c.g.c) $\Rightarrow OE=OF$ (cạnh tương ứng).
+\item Vì $OE=OF$ nên $O$ nằm trên đường trung trực của $EF$.\\
+$\triangle ABC$ cố định nên $O$ cũng cố định. vậy đường trung trực của $EF$ luôn đi qua điểm $O$ cố định.
+\end{enumerate}
+}{
+\begin{tikzpicture}[scale=0.6, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-3.5,xmax=3.5,ymin=-0.5,ymax=8] \tkzClip
+\tkzDefPoints{0/0/O,0/7/A}
+\tkzDefPointBy[rotation = center A angle 25](O)    \tkzGetPoint{C}
+\tkzDefPointBy[rotation = center A angle -25](O)    \tkzGetPoint{B}
+\tkzInterLL(A,O)(C,B)    \tkzGetPoint{H}
+\tkzDefMidPoint(A,B){M} \tkzGetPoint{M}
+\tkzDefPointWith[orthogonal,K=1](M,B)    \tkzGetPoint{N}
+\tkzInterLL(A,H)(M,N)    \tkzGetPoint{O}
+\tkzDefPointWith[linear,K=1/3](A,B) \tkzGetPoint{E}
+\tkzDefPointWith[linear,K=1/3](C,A) \tkzGetPoint{F}
+
+\tkzMarkRightAngles[](O,M,B)
+\tkzMarkRightAngles[](A,H,C)
+
+\tkzMarkAngles[](O,B,A)
+\tkzMarkAngles[](B,A,H)
+\tkzMarkAngles[](H,A,C)
+
+\tkzLabelAngles[scale=0.6](O,B,A){$1$}
+\tkzLabelAngles[scale=0.6](B,A,H){$1$}
+\tkzLabelAngles[scale=0.6](H,A,C){$2$}
+
+\tkzDrawSegments(A,B A,C B,C O,E O,F O,M O,B)
+\tkzDrawSegments[dashed](A,H)
+\tkzDrawPoints(A,B,C,H,O,E,F)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](B,C,H)
+\tkzLabelPoints[left](E)
+\tkzLabelPoints[right](F)
+\tkzLabelPoints[above right](O)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+\begin{vd}%[7H3G7]
+Cho $\triangle ABC$ có $\widehat{A}=140^\circ$. Các đường trung trực của các cạnh $AB$ và $AC$ cắt nhau tại $I$. Tính số đo của góc $BIC$.
+\loigiai
+{
+\immini{
+Gọi $E$, $F$ là giao điểm của $BC$ lần lượt với các đường trung trực của $AB$, $AC$.\\
+Ta có $\triangle ABE$ cân tại $E$, $\triangle AFC$ cân tại $F$.\\
+Vì $I$ là giao điểm của hai đường trung trực của tam giác $ABC$ nên $IA=IB=IC$.\\
+Tổng các góc trong của hai tam giác $ABI$ và $AIC$ là $360^\circ $, tức là:\\
+$\widehat{IBA}+\widehat{BAI}+\widehat{IAC}+\widehat{ACI}+\widehat{BIC}=360^\circ $.\\
+$\Rightarrow \left(\widehat{IBA}+\widehat{ICA} \right)+\left( \widehat{BAI}+ \widehat{IAC}\right) +\widehat{BIC}=360^\circ $.\\
+Ta có: $\widehat{IBA}= \widehat{BAI}$ và $\widehat{ICA}=\widehat{IAC}$ (các góc ở đáy của tam giác cân).\\
+Vậy $\widehat{IBA}+\widehat{ICA}=\widehat{BAI}+\widehat{IAC}=\widehat{BAC}=140^\circ$ (giả thiết).\\
+Thay vào tổng trên có: $140^\circ +140^\circ +\widehat{BIC} =360^\circ$\\
+$ \Rightarrow  \widehat{BIC} =80^\circ$.
+}{
+\begin{tikzpicture}[scale=0.6, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-6,xmax=4.5,ymin=-6,ymax=3] \tkzClip
+\tkzDefPoints{-5/0/B,0/2/A}
+\tkzDefPointBy[rotation = center A angle 140](B)    \tkzGetPoint{B'}
+\tkzDefPointWith[linear,K=2/3](A,B') \tkzGetPoint{C}
+\tkzDefMidPoint(A,B){M} \tkzGetPoint{M}
+\tkzDefPointWith[orthogonal,K=1](M,B)    \tkzGetPoint{M'}
+\tkzDefMidPoint(A,C){N} \tkzGetPoint{N}
+\tkzDefPointWith[orthogonal,K=1](N,C)    \tkzGetPoint{N'}
+
+\tkzInterLL(M,M')(N,N')    \tkzGetPoint{I}
+\tkzInterLL(M,M')(B,C)    \tkzGetPoint{E}
+\tkzInterLL(N,N')(B,C)    \tkzGetPoint{F}
+
+\tkzDefPointBy[projection = onto B--C](I)    \tkzGetPoint{H}
+
+\tkzMarkRightAngles[](I,M,A)
+\tkzMarkRightAngles[](I,N,A)
+\tkzMarkRightAngles[](I,H,B)
+\tkzMarkSegments[mark=||](M,A M,B)
+\tkzMarkSegments[mark=x](N,A N,C)
+
+\tkzDrawSegments(A,B A,C B,C A,E A,F I,M I,N)
+\tkzDrawSegments[dashed](A,I I,H I,B I,C)
+\tkzDrawPoints(A,B,C,I,E,F)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](I)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[below right](F)
+\tkzLabelPoints[below left](E)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+\subsection{Bài tập}
+\subsubsection{Cơ bản}
+\begin{bt}%[7H3B7]
+Cho điểm $A$ nằm trong góc nhọn $xOy$. Từ $A$ kẻ các đoạn thẳng $AB$ và $AC$ vuông góc với các tia $Ox$ và $Oy$. Chứng minh rằng đường thẳng đi qua các trung điểm của $OA$ và $BC$ thì vuông góc với $BC$.
+\loigiai
+{
+\immini{
+Gọi $M$ và $N$ thứ tự là trung điểm của $OA$ và $BC$.\\
+Trong tam giác vuông $OBA$, $BM$ là đường trung tuyến ứng với cạnh huyền nên $BM=\dfrac{1}{2}OA$. \qquad (1)\\
+Tương tự, ta cũng có $CM=\dfrac{1}{2}OA$. \qquad (2)\\
+Từ (1) và (2) suy ra $BM=CM$, tức là điểm $M$ cách đều hai đầu của đoạn thẳng $BC$, $N$ lại là trung điểm của $BC$ nên $MN$ là đường trung trực của $BC$, vậy $MN \perp BC$.
+}{
+\begin{tikzpicture}[scale=0.8, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-1,xmax=7.5,ymin=-1,ymax=5] \tkzClip
+\tkzDefPoints{0/0/O,7/0/y}
+\tkzDefPointBy[rotation = center O angle 40](y)    \tkzGetPoint{x}
+\tkzDefPointBy[rotation = center O angle 30](y)    \tkzGetPoint{z}
+
+\tkzDefPointWith[linear,K=5/6](O,z) \tkzGetPoint{A}
+\tkzDefPointBy[projection = onto O--x](A)    \tkzGetPoint{B}
+\tkzDefPointBy[projection = onto O--y](A)    \tkzGetPoint{C}
+\tkzDefMidPoint(O,A){M} \tkzGetPoint{M}
+\tkzDefMidPoint(B,C){N} \tkzGetPoint{N}
+
+\tkzMarkRightAngles[](A,B,x)
+\tkzMarkRightAngles[](A,C,y)
+
+\tkzDrawSegments(O,x O,y O,A A,B A,C B,C)
+\tkzDrawSegments[dashed](M,B M,C)
+\tkzDrawLine[add = 0.9 and 0.9](M,N)
+\tkzDrawPoints(A,B,C,O,M,N)
+\tkzLabelPoints[above](B,x)
+\tkzLabelPoints[below](C,y,M)
+\tkzLabelPoints[below left](N)
+\tkzLabelPoints[left](O)
+\tkzLabelPoints[right](A)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[7H3K7]
+Cho tam giác $ABC$ cân tại $A$. Đường trung trực của cạnh $AC$ cắt tia $CB$ tại $D$ nằm ngoài đoạn $BC$. Trên tia đối của tia $AD$ lấy điểm $E$ sao cho $AE=BD$. Chứng minh rằng $AD=CE$.
+\loigiai
+{
+\immini{
+Vì $D$ nằm trên đường trung trực của cạnh $AC$ nên $DA=DC$\\
+$ \Rightarrow \triangle DAC$ cân tại $D$\\
+$ \Rightarrow \widehat{DAC}=\widehat{DCA}=\widehat{ABC}$.\\
+$\Rightarrow \widehat{ABD}=\widehat{CAE}$. (cùng kề bù với hai góc bằng nhau)\\
+Xét $\triangle ABD$ và $\triangle CAE$ có:\\
+$AB=AC$ ($\triangle ABC$ cân tại $A$)\\
+$\widehat{ABD}=\widehat{CAE}$\\
+$AE=BD$ \\
+Suy ra $\triangle ABD=\triangle CAE \Rightarrow AD=CE$.
+}{
+\begin{tikzpicture}[scale=0.4, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-7,xmax=4,ymin=-1.5,ymax=9.5] \tkzClip
+\tkzDefPoints{-2/0/B,0/1/P, 0/0/Q}
+\tkzDefPointBy[symmetry = center Q](B)    \tkzGetPoint{C}
+\tkzDefPointBy[rotation = center B angle 70](Q)    \tkzGetPoint{B'}
+\tkzInterLL(B,B')(P,Q)    \tkzGetPoint{A}
+\tkzCircumCenter(A,B,C)    \tkzGetPoint{O}
+\tkzDefMidPoint(A,C){M} \tkzGetPoint{M}
+\tkzInterLL(C,B)(O,M)    \tkzGetPoint{D}
+
+\tkzDefPointBy[rotation = center D angle 40](B)    \tkzGetPoint{B'}
+\tkzDefPointBy[translation = from D to B'](A){E}
+\tkzGetPoint{E}
+
+\tkzMarkRightAngles[](D,M,C)
+
+\tkzMarkSegments[mark=s||](M,A M,C)
+\tkzDrawSegments(A,B A,C B,C A,D A,E B,D D,M C,E)
+%\tkzDrawSegments[dashed](O,M)
+
+\tkzDrawPoints(A,B,C,M,D,E)
+\tkzLabelPoints[above](A,E)
+\tkzLabelPoints[right](M)
+%\tkzLabelPoints[left](I)
+\tkzLabelPoints[below](B,C,D)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[7H3K7]
+Cho tam giác $ABC$ vuông tại $A$. Qua $A$ kẻ đường thẳng $xy$ sao cho $xy$ hợp với $AB$ nột góc $\widehat{BAx}=45^\circ $ (góc $\widehat{BAx}$ nằm ngoài $\triangle ABC$). Từ $B$ và $C$ hạ $BK \perp xy$, $CI \perp xy$, $M$ là trung điểm của cạnh huyền $BC$. Chứng minh:
+\begin{enumerate}
+\item $MI$ và $MK$ thứ tự là đường trung trực của đoạn thẳng $AC$ và $AB$;
+\item $\widehat{IMK} =90^\circ $.
+\end{enumerate}
+\loigiai
+{
+\immini{
+\begin{enumerate}
+\item Do $MA=MB$ nên $M$ nằm trên đường trung trực của $AB$.\\
+$\triangle AKB$ vuông tại $K$ và $\widehat{A} =45^\circ $.\\
+Vậy $\triangle AKB$ vuông cân $\Rightarrow KA=KB \Rightarrow K$ nằm trên đường trung trực của $AB$.\\
+Vậy $KM$ có hai điểm nằm trên đường trung trực của $AB$ nên $KM$ chính là đường trung trực của $AB$.\\
+Tương tự $IM$ là đường trung trực của $AC$.
+\item $AB \parallel MI$ (cùng vuông góc với $AC$) $\Rightarrow \widehat{B} =\widehat{M_1}$.\\
+$AC \parallel MK$ (cùng vuông góc với $AC$) $\Rightarrow \widehat{C} =\widehat{M_2}$.\\
+mà $\widehat{B}+\widehat{C}=90^\circ$.\\
+Vậy $\widehat{M_1}+\widehat{M_2}=90^\circ \Rightarrow \widehat{IMK} =90^\circ $.
+\end{enumerate}
+}{
+\begin{tikzpicture}[scale=0.9, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-2.5,xmax=4.5,ymin=-1,ymax=3.5] \tkzClip
+\tkzDefPoints{0/0/C,1/2/A}
+\tkzDefPointBy[rotation = center A angle 90](C)    \tkzGetPoint{C'}
+\tkzDefPointWith[linear,K=1.4](A,C') \tkzGetPoint{B}
+\tkzDefMidPoint(B,C){M} \tkzGetPoint{M}
+\tkzDefPointBy[rotation = center A angle 45](B)    \tkzGetPoint{x}
+\tkzDefPointBy[symmetry = center A](x)    \tkzGetPoint{y}
+\tkzDefPointBy[projection = onto x--y](B)    \tkzGetPoint{K}
+\tkzDefPointBy[projection = onto x--y](C)    \tkzGetPoint{I}
+
+\tkzMarkRightAngles[](C,A,B)
+\tkzMarkRightAngles[](B,K,x)
+\tkzMarkRightAngles[](C,I,y)
+\tkzMarkSegments[mark=s||](M,C M,B)
+%\tkzLabelAngles[scale=0.6](C,M,I){$1$}
+\node[scale=0.6] at ($(M)+(-0.6,0.1)$) {$1$};
+\tkzLabelAngles[scale=0.6](B,M,K){$2$}
+\tkzLabelAngles[scale=0.6,pos=0.9](B,A,K){$45^\circ $}
+
+\tkzDrawSegments(A,B A,C B,C x,y)
+\tkzDrawSegments[dashed](C,I B,K A,M M,I M,K)
+\tkzDrawPoints(A,B,C,I,K,M)
+\tkzLabelPoints[above](A,K,I,x,y)
+\tkzLabelPoints[below](C,M,B)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+\subsubsection{Nâng cao}
+\begin{bt}%[7H3G7]
+Cho $\triangle ABC$ có góc $A$ tù. Tia phân giác của góc $B$ và góc $C$ cắt nhau tại $O$. Lấy điểm $E$ trên cạnh $AB$. Từ $E$ hạ $EP \perp BO$ ($P \in BC$). Từ $P$ hạ $PF \perp OC$ ($F \in AC$). Chứng minh rằng:
+\begin{enumerate}
+\item $OB$ và $OC$ theo thứ tự là đường trung trực của đoạn thẳng $EP$ và $PF$.
+\item  $BE+CF=BC$.
+\item Khi $E$ di chuyển trên cạnh $AB$ thì đường trung trực của $EF$ luôn luôn đi qua một điểm cố định.
+\end{enumerate}
+\loigiai
+{
+\immini{
+\begin{enumerate}
+\item $\triangle BEF$ có $BO$ là tia phân giác của góc $B$ và $BO \perp EP$ nên là tam giác cân.\\
+Vậy $BO$ là trung trực của $EP$.\\
+Tương tự, $CO$ là trung trực của $PF$.
+\item Vì $BE=BP$, $CF=PC$ nên $BE+CF=BC$.
+\item Theo chứng minh ở ý a): $O$ nằm trên trung trực của $EP$ nên: $OE=OP$, $O$ nằm trên trung trực của $FP$ nên: $OP=OF$.\\
+Suy ra $OE=OF$, do đó $O$ nằm trên đường trung trực của $EF$. Vì $\triangle ABC$ cố định nên $O$ cố định.\\
+ Vậy đường trung trực của $EF$ luôn đi qua $O$ cố định.
+\end{enumerate}
+}{
+\begin{tikzpicture}[scale=0.8, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-1,xmax=9,ymin=-1,ymax=3.5] \tkzClip
+\tkzDefPoints{0/0/B,2/3/A, 2/0/D}
+\tkzDefPointBy[rotation = center A angle 100](B)    \tkzGetPoint{B'}
+\tkzInterLL(A,B')(B,D)    \tkzGetPoint{C}
+\tkzDefLine[bisector](A,B,C)    \tkzGetPoint{U}
+\tkzDefLine[bisector](A,C,B)    \tkzGetPoint{V}
+\tkzInterLL(B,U)(C,V)    \tkzGetPoint{O}
+
+\tkzDefPointWith[linear,K=0.5](A,B) \tkzGetPoint{E}
+\tkzDefPointBy[projection = onto B--O](E)    \tkzGetPoint{I}
+\tkzInterLL(E,I)(B,C)    \tkzGetPoint{P}
+\tkzDefPointBy[projection = onto C--O](P)    \tkzGetPoint{K}
+\tkzInterLL(P,K)(A,C)    \tkzGetPoint{F}
+
+\tkzInterLL(A,B)(C,O)    \tkzGetPoint{M}
+\tkzInterLL(A,C)(B,O)    \tkzGetPoint{N}
+
+\tkzMarkRightAngles[](E,I,B)
+\tkzMarkRightAngles[](F,K,C)
+
+\tkzDrawSegments(A,B A,C B,C E,P P,F)
+\tkzDrawSegments[dashed](C,M B,N)
+\tkzDrawPoints(A,B,C,I,K,E,P,F,O)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[above left](K)
+\tkzLabelPoints[left](E)
+\tkzLabelPoints[above right](F)
+\tkzLabelPoints[below](C,P,B,O,I)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[7H3G7]
+Cho $\triangle ABC$, đường phân giác $AI$ ($I \in BC$). Trên đoạn thẳng $IC$ lấy điểm $H$. Từ $H$ kẻ đường thẳng song song với $AI$ cắt $AB$ kéo dài tại $E$ và cắt $AC$ tại $F$. Chứng minh:
+\begin{enumerate}
+\item Đường trung trực của đoạn thẳng $EF$ qua đỉnh $A$ của $\triangle ABC$.
+\item  Đường trung trực của đoạn thẳng $EF$ vuông góc với $AI$.
+\item Khi $H$ di chuyển trên tia $IC$ của $\triangle ABC$ cố định thì đường trung trực của $EF$ cố định.
+\end{enumerate}
+\loigiai
+{
+\immini{
+\begin{enumerate}
+\item Ta có:
+$\widehat{AEF}=\widehat{A_1} $ (đồng vị)\\
+$\widehat{AFE}=\widehat{A_2} $ (so le trong)\\
+do $\widehat{A_1}=\widehat{A_2}$ nên $\widehat{AEF}=\widehat{AFE}$
+Suy ra tam giác $AEF$ cân $\Rightarrow A$ nằm trên đường trung trực của $EF$.
+\item  $\triangle AEF$ cân nên $AK$  vừa là trung trực của $EF$ vừa là phân giác của $\widehat{EAF}$ mà $\widehat{EAF}$ và $\widehat{BAC}$ kề bù nên $AI \perp AK$.
+\item $\triangle ABC$ cố định nên $AI$ cố định $\Rightarrow AK \perp AI$ cố định.\\
+Vậy khi $H$ chuyển động trên $IC$ thì đường trung trực của $EF$ là $AK$ luôn cố định.
+\end{enumerate}
+}{
+\begin{tikzpicture}[scale=0.9, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-1,xmax=6,ymin=-1,ymax=5.5] \tkzClip
+\tkzDefPoints{0/0/B,2/3/A, 2/0/D}
+\tkzDefPointBy[rotation = center A angle 80](B)    \tkzGetPoint{B'}
+\tkzInterLL(A,B')(B,D)    \tkzGetPoint{C}
+\tkzDefLine[bisector](B,A,C)    \tkzGetPoint{U}
+\tkzInterLL(A,U)(B,C)    \tkzGetPoint{I}
+
+\tkzDefPointWith[linear,K=0.4](I,C) \tkzGetPoint{H}
+\tkzDefPointBy[translation = from I to A](H){H'}
+\tkzGetPoint{H'}
+\tkzInterLL(A,B)(H,H')    \tkzGetPoint{E}
+\tkzInterLL(A,C)(H,H')    \tkzGetPoint{F}
+\tkzDefMidPoint(E,F){K} \tkzGetPoint{K}
+
+\tkzDrawSegments(A,B A,C B,C A,I H,E A,E)
+\tkzDrawLine[dashed,add = 0.0 and 0.5](A,K)
+
+\tkzMarkAngles[size=0.8cm](B,A,I)
+\tkzMarkAngles[size=0.9cm](I,A,C)
+\tkzLabelAngles[scale=0.6](B,A,I){$1$}
+\tkzLabelAngles[scale=0.6](I,A,C){$2$}
+\tkzMarkAngles[size=0.5cm](A,E,K)
+\tkzMarkAngles[size=0.5cm](K,F,A)
+
+\tkzDrawPoints(A,B,C,I,H,E,F,K)
+\tkzLabelPoints[above left](A,E)
+\tkzLabelPoints[right](F)
+\tkzLabelPoints[above right](K)
+\tkzLabelPoints[below](B,C,I,H)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[7H3G7]
+Cho $\triangle ABC$ cân tại $A$, có $\widehat{B}=36^\circ $. Gọi $O$ là giao điểm ba đường trung trực và $I$ là giao điểm ba đường phân giác của tam giác $ABC$. Chứng minh rằng $BC$ là đường trung trực của đoạn thẳng $OI$.
+\loigiai
+{
+\immini{
+Gọi $E$ là trung điểm của $BC \Rightarrow AE \perp BC$ và $\widehat{A_1} =\widehat{A_2}$.\\
+Vì $\widehat{B_1}=36^\circ $ nên $\widehat{A_1}=54^\circ$.\\
+Vì $\triangle AOB$ cân tại $O$ nên: $\widehat{B_1}+\widehat{B_2}=\widehat{A_1} \Rightarrow \widehat{B_2}=18^\circ $.\\
+Mặt khác: $\widehat{C_1}=\widehat{C_2}=\dfrac{36^\circ }{2}=18^\circ \Rightarrow \widehat{B_2}=\widehat{C_1}$.\\
+Do vậy $\triangle BEO=\triangle CEI$ (g.c.g) $\Rightarrow EO=EI$ (hai cạnh tương ứng).\\
+Vậy $BC$ là đường trung trực của đoạn $OI$.
+}{
+\begin{tikzpicture}[scale=0.8, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-3.5,xmax=3.5,ymin=-1.5,ymax=3] \tkzClip
+\tkzDefPoints{-3/0/B,0/1/P, 0/0/Q}
+\tkzDefPointBy[symmetry = center Q](B)    \tkzGetPoint{C}
+\tkzDefPointBy[rotation = center B angle 36](Q)    \tkzGetPoint{B'}
+\tkzInterLL(B,B')(P,Q)    \tkzGetPoint{A}
+\tkzCircumCenter(A,B,C)    \tkzGetPoint{O}
+\tkzDefMidPoint(A,B){M} \tkzGetPoint{M}
+\tkzInCenter(A,B,C)    \tkzGetPoint{I}
+\tkzInterLL(A,O)(B,C)    \tkzGetPoint{E}
+
+\tkzDrawSegments(A,B A,C B,C A,O C,I O,B)
+\tkzDrawSegments[dashed](O,M)
+
+\tkzLabelAngles[scale=0.6](B,A,O){$1$}
+\tkzLabelAngles[scale=0.6](O,A,C){$2$}
+\tkzLabelAngles[pos=1.5,scale=0.6](A,C,I){$2$}
+\tkzLabelAngles[pos=1.5,scale=0.6](I,C,E){$1$}
+\tkzLabelAngles[pos=1.5,scale=0.6](O,B,C){$2$}
+\tkzLabelAngles[scale=0.6](C,B,A){$1$}
+\tkzMarkSegments[mark=s||](M,A M,B)
+\tkzMarkRightAngles[](O,M,A)
+\tkzMarkRightAngles[](A,E,C)
+
+\tkzDrawPoints(A,B,C,I,O,E)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below right](E)
+\tkzLabelPoints[left](I)
+\tkzLabelPoints[below](O,B,C)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[7H3G7]
+Cho $\triangle ABC$ có góc $A$ tù. Các đường trung trực của $AB$ và $AC$ cắt nhau tại $O$ và cắt $BC$ theo thứ tự tại $M$ và $N$. Chứng minh rằng $AO$ là tia phân giác của góc $MAN$.
+\loigiai
+{
+\immini{
+Vì $M$, $O$ thuộc đường trung trực của $AB$ nên $MA=MB$, $OA=OB$.\\
+Do vậy $\triangle AMO=\triangle BMO$ (c.c.c)\\
+$\Rightarrow \widehat{MAO}=\widehat{MBO} $ (hai góc tương ứng) . \qquad (1)\\
+Tương tự $\widehat{NAO}=\widehat{NCO} $. \qquad (2)\\
+Vì $OB=OC$ ($O$ là giao ba đường trung trực của $\triangle ABC$) nên $\triangle BOC$ cân tại $O$.\\
+$\Rightarrow \widehat{MBO}= \widehat{NCO}$. \qquad (3)\\
+Từ (1), (2) và (3) suy ra: $ \widehat{MAO}= \widehat{NAO}$ hay $AO$ là tia phân giác của góc $MAN$.
+}{
+\begin{tikzpicture}[scale=0.8, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-1,xmax=10,ymin=-1.5,ymax=3.5] \tkzClip
+\tkzDefPoints{0/0/B,2/3/A, 2/0/D}
+\tkzDefPointBy[rotation = center A angle 100](B)    \tkzGetPoint{B'}
+\tkzInterLL(A,B')(B,D)    \tkzGetPoint{C}
+\tkzCircumCenter(A,B,C)    \tkzGetPoint{O}
+
+\tkzDefPointBy[projection = onto A--B](O)    \tkzGetPoint{E}
+\tkzDefPointBy[projection = onto A--C](O)    \tkzGetPoint{F}
+
+\tkzInterLL(O,E)(B,C)    \tkzGetPoint{M}
+\tkzInterLL(O,F)(B,C)    \tkzGetPoint{N}
+
+\tkzMarkRightAngles[](O,E,A)
+\tkzMarkRightAngles[](O,F,C)
+\tkzMarkSegments[mark=|](E,A E,B)
+\tkzMarkSegments[mark=||](F,A F,C)
+
+\tkzDrawSegments(A,B A,C B,C O,A O,B O,C O,E O,F A,M A,N)
+\tkzDrawPoints(A,B,C,E,F,M,N,O)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[below](O)
+\tkzLabelPoints[below left](M)
+\tkzLabelPoints[below right](N)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[7H3G7]
+Cho $\triangle ABC$  cân tại $A$ có $\widehat{A}=40^\circ $. Đường trung trực của $AB$ cắt $BC$ ở $D$.
+\begin{enumerate}
+\item Tính $\widehat{CAD}$.
+\item Trên tia đối của tia $AD$ lấy điểm $M$ sao cho $AM=CD$. Chứng minh $\triangle BMD$ là tam giác cân.
+\end{enumerate}
+\loigiai
+{
+\immini{
+\begin{enumerate}
+\item $\triangle ABC$ cân tại $A$ có $\widehat{A} =40^\circ $.\\
+Vậy $\widehat{B}=\widehat{C}=\dfrac{180^\circ -40^\circ }{2}=70^\circ $.\\
+$D$ nằm trên đường trung trực của $AB$ nên $DA=DB$\\
+$\Rightarrow \triangle ADB$ cân tại $D$\\
+$\Rightarrow \widehat{B}= \widehat{BAD}=70^\circ$.\\
+Vậy $\widehat{CAD}=70^\circ -40^\circ =30^\circ  $.
+\item Xét $\triangle AMB$ và $\triangle CDA$ có:\\
+$AM=CD$ (giả thiết)\\
+$\widehat{MAB}= \widehat{ACD}$ (cùng bù với góc $70^\circ $)\\
+$AB=AC$ ($\triangle ABC$ cân)\\
+Vậy $\triangle AMB=\triangle CDA$ (c.g.c) suy ra $BM=AD$, mà $AD=BD$ (ý a),\\
+suy ra $BM=BD$\\
+$\Rightarrow \triangle BMD$ cân tại $B$.
+\end{enumerate}
+}{
+\begin{tikzpicture}[scale=0.8, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-3.5,xmax=5,ymin=-1.5,ymax=4.5] \tkzClip
+\tkzDefPoints{0/0/B,0/3/A}
+
+\tkzDefPointBy[rotation = center A angle 40](B)    \tkzGetPoint{C}
+
+\tkzDefMidPoint(A,B){E} \tkzGetPoint{I}
+\tkzCircumCenter(A,B,C)    \tkzGetPoint{O}
+\tkzInterLL(E,I)(B,C)    \tkzGetPoint{D}
+\tkzDefPointBy[symmetry = center A](D)    \tkzGetPoint{D'}
+\tkzDefPointBy[rotation = center D angle -40](C) \tkzGetPoint{C'}
+\tkzDefPointBy[translation = from D to C'](A){M}
+\tkzGetPoint{M}
+
+\tkzDrawSegments(A,B A,C B,D M,D M,B)
+\tkzDrawSegments[dashed](I,D)
+
+\tkzLabelAngles[pos=1.3,scale=0.6](B,A,C){$40^\circ$}
+
+\tkzMarkAngles[](B,A,C)
+
+\tkzMarkSegments[mark=s||](M,A C,D)
+\tkzMarkRightAngles[](D,I,B)
+
+\tkzDrawPoints(A,B,C,I,D,M)
+\tkzLabelPoints[above](A,M)
+\tkzLabelPoints[left](I)
+\tkzLabelPoints[below](B,C)
+\tkzLabelPoints[right](D)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[7H3G7]
+Cho hai điểm $A$, $B$ phân biệt, cố định nằm cùng phía đối với đường thẳng $d$. Hãy tìm trên đường thẳng $d$ điểm $C$ để tam giác $ABC$ có chu vi nhỏ nhất.
+\loigiai
+{
+\immini{
+Lấy điểm $A'$ sao cho $d$ là đường trung trực của đoạn $AA'$. Gọi $C$ là giao điểm của đường thẳng $d$ và đoạn $A'B$. Ta có $C$ là điểm cần tìm.\\
+Thật vậy, giả sử trên đường thẳng $d$ lấy một điểm $C'$ tùy ý khác điểm $C$.\\
+Chu vi tam giác $ABC'$ là: $AB+AC'+C'B>AB+A'B$. (quan hệ giữa ba cạnh của tam giác)\\
+Lại có: $A'B=A'C+CB=AC+CB$\\
+suy ra: $AB+AC'+C'B>AB+AC+CB$
+Vậy chu vi tam giác $ABC'$ lớn hơn chu vi tam giác $ABC$.
+}{
+\begin{tikzpicture}[scale=0.8, line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-0.5,xmax=7.5,ymin=-3.5,ymax=4.5] \tkzClip
+\tkzDefPoints{0/0/O,7/0/d, 0/3/A, 5/4/B}
+\tkzDefPointBy[projection = onto O--d](A)    \tkzGetPoint{H}
+\tkzDefPointBy[symmetry = center H](A)    \tkzGetPoint{A'}
+\tkzInterLL(A',B)(O,d)    \tkzGetPoint{C}
+\tkzDefPointWith[linear,K=1.5](O,C)
+\tkzGetPoint{C'}
+
+\tkzDrawSegments(A,B A,C B,C C',A' A',C)
+\tkzDrawSegments[dashed](A,A' A,C' B,C')
+\tkzDrawLine[add = 0.3 and 0.0](O,d)
+
+\tkzDrawPoints(A,B,C,A',C')
+\tkzLabelPoints[above](A,B,d)
+%\tkzLabelPoints[below right](C)
+\tkzLabelPoints[below](A',C',C)
+%\tkzLabelPoints[right](D)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+
+\Closesolutionfile{ans}

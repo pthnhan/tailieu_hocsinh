@@ -1,0 +1,1484 @@
+%Người soạn: Thầy Nguyễn Ngọc Dũng, Phản biện: Thầy Phan Chiến Thắng.
+\Opensolutionfile{ans}[ans/ans7H1-4]
+\section{TIÊN ĐỀ Ơ-CLIT VỀ ĐƯỜNG THẲNG SONG SONG. TỪ VUÔNG GÓC ĐẾN SONG SONG}
+\subsection{Tóm tắt lí thuyết}
+\begin{enumerate}[\tickEX]
+\item Qua một điểm ở ngoài một đường thẳng chỉ có một đường thẳng song song với đường thẳng đó.
+\begin{center}
+\begin{tikzpicture}[line join=round, line cap=round]
+\tkzInit[xmin=-3.2,xmax=2.2,ymin=-1.5,ymax=1]
+\tkzClip
+\def\d{5}
+\coordinate[label={below}:{\footnotesize $a$}] (a) at (-3,-1);
+\coordinate (a') at ($(a)+(\d,0)$);
+\coordinate[label={above}:{\footnotesize $A$}] (A) at (-1,0.5);
+\tkzDefLine[parallel=through A](a,a') \tkzGetPoint{x}
+\coordinate[label={above}:{\footnotesize $b$}] (b) at ($(x)!1.4!(A)$);
+\tkzDrawLine[add = 0.4 and -0.4](A,x)
+\draw (a)--(a');
+\tkzDrawPoints[fill=black](A)
+\end{tikzpicture}
+\end{center}
+\item Nếu một đường thẳng cắt hai đường thẳng song song thì:
+\immini{
+\begin{itemize}
+\item Hai góc so le trong bằng nhau;
+\item Hai góc đồng vị bằng nhau;
+\item Hai góc trong cùng phía bù nhau.
+\end{itemize}
+Trên hình vẽ bên ta có
+$$a\parallel b\Rightarrow \heva{&\widehat{A_1}=\widehat{B_1}&&\text{(hai góc so le trong)}\\ &\widehat{A_2}=\widehat{B_1}&&\text{(hai góc đồng vị)}\\&\widehat{A_2}+\widehat{B_1}=180^\circ&&\text{(hai góc trong cùng phía).}}$$
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-3.5,xmax=2.2,ymin=-4.7,ymax=1.7]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{-3/-2/a,2/-2/a',-3/0/b,0/1.5/d,-1.5/-3.5/d'}
+\tkzDefPointBy[translation = from a to a'](b) \tkzGetPoint{b'}
+\tkzInterLL(a,a')(d,d')    \tkzGetPoint{B}
+\tkzInterLL(b,b')(d,d')    \tkzGetPoint{A}
+\draw (a)--(a') (b)--(b') (d)--(d');
+\tkzLabelPoints[above](a,b)
+\tkzLabelPoints[above left](A)
+\tkzLabelPoints[below right](B)
+\tkzMarkAngles[size=0.4cm,arc=l](b',A,d b,A,d' a',B,A)
+\tkzLabelAngles[pos=-0.7](b,A,d'){\small $1$}
+\tkzLabelAngles[pos=0.7](b',A,d){\small $2$}
+\tkzLabelAngles[pos=0.7](a',B,A){\small $1$}
+\tkzDrawPoints[fill=black](A,B)
+\end{tikzpicture}
+}
+\item Quan hệ giữa tính vuông góc với tính song song
+\begin{itemize}
+\item Một đường thẳng vuông góc với một trong hai đường thẳng song song thì nó vuông góc với đường còn lại.
+\immini{
+Trên hình bên ta có
+$$\heva{&d\perp b\\&a\parallel b}\Rightarrow d\perp a.$$
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-2.5,xmax=2.2,ymin=-2.2,ymax=1.1]
+\tkzClip
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{-2/-1.5/a,2/-1.5/a',-2/0/b}
+\tkzDefPointBy[translation = from a to a'](b) \tkzGetPoint{b'}
+\coordinate (A) at ($(a)!0.8!(a')$);
+\tkzDefPointWith[orthogonal](A,a) \tkzGetPoint{h}
+\tkzInterLL(A,h)(b,b')    \tkzGetPoint{B}
+\draw (a)--(a') (b)--(b');
+\tkzDrawLine[add = 0.5 and 0.5](A,B)
+\tkzLabelPoints[above](a,b)
+\tkzLabelSegment[right,pos=1.5](A,B){$d$}
+\tkzMarkRightAngles(b,B,A)
+\tkzDrawPoints[fill=black](A,B)
+\end{tikzpicture}
+}	
+\item Hai đường thẳng phân biệt cùng vuông góc với một đường thẳng thứ ba thì song song với nhau.
+\immini{
+Trên hình bên ta có
+$$\heva{&a\perp d\\&b\perp d}\Rightarrow a\parallel b.$$
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-2.5,xmax=2.2,ymin=-2.2,ymax=1.1]
+\tkzClip
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{-2/-1.5/a,2/-1.5/a',-2/0/b}
+\tkzDefPointBy[translation = from a to a'](b) \tkzGetPoint{b'}
+\coordinate (A) at ($(a)!0.8!(a')$);
+\tkzDefPointWith[orthogonal](A,a) \tkzGetPoint{h}
+\tkzInterLL(A,h)(b,b')    \tkzGetPoint{B}
+\draw (a)--(a') (b)--(b');
+\tkzDrawLine[add = 0.5 and 0.5](A,B)
+\tkzLabelPoints[above](a,b)
+\tkzLabelSegment[right,pos=1.5](A,B){$d$}
+\tkzMarkRightAngles(b,B,A a,A,B)
+\tkzDrawPoints[fill=black](A,B)
+\end{tikzpicture}
+}	
+\item  Hai đường thẳng phân biệt cùng song song với một đường thẳng thứ ba thì song song với nhau.
+\immini{
+Trên hình bên ta có
+$$\heva{&a\parallel b\\&b\parallel c}\Rightarrow a\parallel c.$$
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-2.1,xmax=2.1,ymin=-2.2,ymax=0.5]
+\tkzClip
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{-2/-2/a,2/-2/a',-2/0/c,-2/-1/b}
+\tkzDefPointsBy[translation = from a to a'](b,c){b',c'}
+\draw (a)--(a') (b)--(b') (c)--(c');
+\tkzLabelPoints[above](a,b,c)
+\end{tikzpicture}
+}	
+\end{itemize}
+\end{enumerate}
+
+
+
+\subsection{Các dạng toán}
+\begin{dang}[Tính số đo góc trên hình vẽ]
+\begin{enumerate}[\tickEX]
+\item Chứng minh hai đường thẳng song song, sau đó dựa vào tính chất của hai đường thẳng song song để tính.
+\item Đôi khi ta cần vẽ thêm các đường phụ để bổ sung giả thiết cho bài toán.
+\item Hai đường thẳng phân biệt cùng song song với một đường thẳng thứ ba thì song song với nhau.
+\item Hai đường thẳng phân biệt cùng vuông góc với một đường thẳng thứ ba thì song song với nhau.
+\end{enumerate}
+\end{dang}
+
+\begin{vd}
+Tìm $x$ trong hình vẽ sau?
+\begin{center}
+\begin{tikzpicture}[line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{-2/1/A, -2.5/-1.5/B, 2.5/-1.5/D}
+\coordinate[label={above right}:{\footnotesize $C$}] (C) at ($(A)+(3,0)$);
+\tkzLabelPoints[above right](A)
+\tkzLabelPoints[above left](B)
+\tkzLabelPoints[above right](D)
+\tkzDrawLine[add = 0.2 and 0.25](B,D)
+\tkzDrawLine[add = 0.35 and 0.35](A,C)
+\tkzDrawLine[add = 0.35 and 0.35](A,B)
+\tkzDrawLine[add = 0.3 and 0.4](C,D)
+\tkzLabelAngles[pos=-0.4, xshift=-1mm](B,A,C){\footnotesize $100^\circ$}
+\tkzLabelAngles[pos=0.5](A,B,D){\footnotesize $80^\circ$}
+\tkzLabelAngles[pos=-0.4](D,C,A){\footnotesize $135^\circ$}
+\tkzLabelAngles[pos=0.5, yshift=-5mm, xshift=8mm](C,D,B){\footnotesize $x$}
+\tkzDrawPoints[fill=black](A,B,C,D)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\immini{
+Đặt tên các đường thẳng như trên hình vẽ.\\
+Ta có $\widehat{BAC}=\widehat{xAt}=100^\circ$ (đối đỉnh).\\
+$\Rightarrow \widehat{BAC}+\widehat{ABD}=100^\circ +80^\circ=180^\circ$.\\
+Mà $\widehat{BAC}$ và $\widehat{ABD}$ nằm ở vị trí trong cùng phía.\\
+Suy ra $AC\parallel BD$.\\
+$\Rightarrow \widehat{ACD}+\widehat{CDB}=180^\circ$ (cặp góc trong cùng phía).\\
+$\Rightarrow \widehat{CDB}=180^\circ -\widehat{ACD}=180^\circ -135^\circ=45^\circ$.\\
+$\Rightarrow x=\widehat{CDB}=45^\circ$ (đối đỉnh).\\
+Vậy $x=45^\circ$.
+}{
+\begin{tikzpicture}[line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{-2/1/A, -2.5/-1.5/B, 2.5/-1.5/D}
+\coordinate[label={above right}:{\footnotesize $C$}] (C) at ($(A)+(3,0)$);
+\tkzLabelPoints[above right](A)
+\tkzLabelPoints[above left](B)
+\tkzLabelPoints[above right](D)
+\tkzDrawLine[add = 0.2 and 0.25](B,D)
+\tkzDrawLine[add = 0.35 and 0.35](A,C)
+\tkzDrawLine[add = 0.35 and 0.35](A,B)
+\tkzDrawLine[add = 0.3 and 0.4](C,D)
+\tkzLabelAngles[pos=-0.4, xshift=-1mm](B,A,C){\footnotesize $100^\circ$}
+\tkzLabelAngles[pos=0.5](A,B,D){\footnotesize $80^\circ$}
+\tkzLabelAngles[pos=-0.4](D,C,A){\footnotesize $135^\circ$}
+\tkzLabelAngles[pos=0.5, yshift=-5mm, xshift=8mm](C,D,B){\footnotesize $x$}
+\tkzLabelSegment[below, pos=-0.2](B,D){$y$}
+\tkzLabelSegment[below, pos=1.3](B,D){$y'$}
+\tkzLabelSegment[below, pos=-0.4](A,C){$t$}
+\tkzLabelSegment[below, pos=1.4](A,C){$t'$}
+\tkzLabelSegment[above left, pos=-0.3](A,B){$x$}
+\tkzLabelSegment[below, pos=1.3](A,B){$x'$}
+\tkzLabelSegment[above, pos=-0.3](C,D){$z$}
+\tkzLabelSegment[below, pos=1.4](C,D){$z'$}
+\tkzDrawPoints[fill=black](A,B,C,D)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+\begin{vd}
+\immini{
+Cho hình vẽ sau, biết rằng tia $Cx$ là tia phân giác của góc $ACy$. Chứng tỏ rằng:
+\begin{enumerate}
+\item $Cx\parallel AB$;
+\item Tính số đo của góc $A$.
+\end{enumerate}	
+}{
+\begin{tikzpicture}[line cap=round, line join =round, >=stealth]
+\tkzInit[xmax=5, xmin=-3.8, ymax=1.8, ymin=-2.8]
+\tkzClip
+\coordinate[label={below left}:$B$] (B) at (-3,-2);
+\coordinate[label={above}:$A$] (A) at ($(B)+(1.5,3)$);
+\coordinate[label={below right}:$C$] (C) at ($(B)+(5,0)$);
+\coordinate[label={below}:{\footnotesize $y$}] (y) at ($(B)!1.5!(C)$);
+\tkzDefLine[bisector](y,C,A) \tkzGetPoint{X} 
+\coordinate[label={above right}:{\footnotesize $x$}] (x) at ($(C)!0.7!(X)$);
+\draw (A)--(B)--(C)--cycle;
+\draw (x)--(C)--(y);
+\tkzMarkAngles[size=0.4cm,arc=l](y,C,x)
+\tkzMarkAngles[size=0.5cm,arc=l](x,C,A)
+\tkzDrawPoints[fill=black](A,B,C)
+\tkzLabelAngles[pos=0.6, xshift=1mm](A,B,C){\footnotesize $65^\circ$}
+\tkzLabelAngles[pos=0.6, xshift=-1mm](A,C,B){\footnotesize $50^\circ$}
+\end{tikzpicture}	
+}
+\loigiai{
+\begin{enumerate}
+\item 
+\immini{
+Ta có $\widehat{ACy}$ và $\widehat{ACB}$ là hai góc kề bù nên
+$$\widehat{ACy}=180^\circ -\widehat{ACB}=180^\circ -50^\circ =130^\circ.$$
+Mà tia $Cx$ là tia phân giác của $\widehat{ACy}$ nên
+$$\widehat{xCy}=\dfrac{\widehat{ACy}}{2}=\dfrac{130^\circ}{2}=65^\circ.$$
+}{
+\begin{tikzpicture}[line cap=round, line join =round, >=stealth]
+\tkzInit[xmax=5, xmin=-3.8, ymax=1.8, ymin=-2.8]
+\tkzClip
+\coordinate[label={below left}:$B$] (B) at (-3,-2);
+\coordinate[label={above}:$A$] (A) at ($(B)+(1.5,3)$);
+\coordinate[label={below right}:$C$] (C) at ($(B)+(5,0)$);
+\coordinate[label={below}:{\footnotesize $y$}] (y) at ($(B)!1.5!(C)$);
+\tkzDefLine[bisector](y,C,A) \tkzGetPoint{X} 
+\coordinate[label={above right}:{\footnotesize $x$}] (x) at ($(C)!0.7!(X)$);
+\draw (A)--(B)--(C)--cycle;
+\draw (x)--(C)--(y);
+\tkzMarkAngles[size=0.4cm,arc=l](y,C,x)
+\tkzMarkAngles[size=0.5cm,arc=l](x,C,A)
+\tkzDrawPoints[fill=black](A,B,C)
+\tkzLabelAngles[pos=0.6, xshift=1mm](A,B,C){\footnotesize $65^\circ$}
+\tkzLabelAngles[pos=0.6, xshift=-1mm](A,C,B){\footnotesize $50^\circ$}
+\end{tikzpicture}
+}
+Do đó $\widehat{xCy}=\widehat{B}$ (cùng bằng $65^\circ$).\\
+Suy ra $AB\parallel Cx$ (vì có cặp góc đồng vị bằng nhau).
+\item Ta có $AB\parallel Cx\Rightarrow \widehat{A}=\widehat{ACx}$ (cặp góc so le trong).\\
+Mà $\widehat{ACx}=\widehat{xCy}=65^\circ$.\\
+Nên $\widehat{A}=65^\circ$.
+\end{enumerate}
+}
+\end{vd}
+
+\begin{vd}
+Cho hình vẽ sau, biết $AB\parallel EF$. Tính số đo $\widehat{ACE}$.
+\begin{center}
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-4.8,xmax=5.5,ymin=-2.8,ymax=2.8]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-4/-2/y,1/-2/E,-1.5/0/C,0/2/A}
+\tkzDefPointsBy[translation= from y to E](A){x} \tkzLabelPoints[above right](x)
+\tkzLabelPoints[above left](A,C)
+\tkzLabelPoints[below right](E)
+\tkzLabelPoints[below left](y)
+\draw (y)--(E)--(C)--(A)--(x);
+\tkzMarkAngles[size=0.4cm,arc=l](C,A,x)
+\tkzLabelAngles[pos=0.8](C,A,x){$120^\circ$}
+\tkzMarkAngles[size=0.6cm,arc=ll](C,E,y)
+\tkzLabelAngles[pos=0.9](C,E,y){$30^\circ$}
+\tkzDrawPoints[fill=black](E,C,A)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\begin{phantich}
+Ta thấy đề cho $Ax\parallel Ey$ mà chưa có cát tuyến nào giữa chúng, do đó ta sẽ nghĩ đến việc kẻ thêm đường phụ để liên kết giả thiết $Ax\parallel Ey$ và góc $\widehat{ACE}$.
+\end{phantich}
+\immini{
+Qua $C$, dựng $Ct\parallel Ax$. Khi đó, do $Ax\parallel Ey$ nên $Ct\parallel Ey$.\\
+Do $Ax\parallel Ct$ nên $\widehat{xAC} + \widehat{ACt}=180^\circ$ (hai góc trong cùng phía). Suy ra \\
+$\begin{aligned}
+\widehat{ACt}&=180^\circ -\widehat{xAC}\\
+&=180^\circ -120^\circ =60^\circ.
+\end{aligned}$\\
+Do $Ey\parallel Ct$ nên $\widehat{tCE}=\widehat{CEy}$ (hai góc so le trong). Suy ra 
+$\widehat{tCE}=30^\circ$.\\
+\noindent Vậy $\widehat{ACE}=\widehat{ACt}+\widehat{tCE}=60^\circ +30^\circ=90^\circ$.
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=0.8]
+\tkzInit[xmin=-4.8,xmax=5.5,ymin=-2.8,ymax=2.8]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-4/-2/y,1/-2/E,-1.5/0/C,0/2/A}
+\tkzDefPointsBy[translation= from y to E](A,C){x,t} \tkzLabelPoints[above right](x,t)
+\tkzLabelPoints[above left](A,C)
+\tkzLabelPoints[below right](E)
+\tkzLabelPoints[below left](y)
+\draw (y)--(E)--(C)--(A)--(x) (C)--(t);
+\tkzMarkAngles[size=0.4cm,arc=l](C,A,x)
+\tkzLabelAngles[pos=0.8](C,A,x){$120^\circ$}
+\tkzMarkAngles[size=0.6cm,arc=ll](C,E,y)
+\tkzLabelAngles[pos=0.9](C,E,y){$30^\circ$}
+\tkzDrawPoints[fill=black](E,C,A)
+\end{tikzpicture}
+}
+}
+\begin{note}
+Từ một điểm vẽ một đường thẳng song song với đường thẳng khác là kỹ năng thường gặp khi giải toán hình học.
+\end{note}
+\end{vd}
+
+\begin{dang}[Các bài toán chứng minh]
+\begin{enumerate}[\tickEX]
+\item Vận dụng các tính chất của hai đường thẳng song song.
+\item Đôi khi ta cần vẽ thêm đường phụ để bổ sung thêm giải thiết cho bài toán.
+\end{enumerate}
+\end{dang}
+
+\begin{vd}
+Cho hình vẽ sau, biết $\widehat{B}=\widehat{C}$ và $Ay\parallel BC$. Chứng tỏ rằng tia $Ay$ là tia phân giác  của $\widehat{CAx}$.
+\begin{center}
+\begin{tikzpicture}[line cap=round, line join =round, scale=0.8]
+\tkzInit[xmin=-2.8,xmax=4,ymin=-3.8,ymax=3.8]
+\tkzClip
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{0/1/A,-2/-3/B,2/-3/C}
+\coordinate[label={above left}:{\footnotesize $x$}] (x) at ($(B)!1.5!(A)$);
+\tkzDefLine[bisector](C,A,x) \tkzGetPoint{y'}
+\coordinate[label={above}:{\footnotesize $y$}] (y) at ($(A)!0.4!(y')$);
+\tkzLabelPoints[above left](A)
+\tkzLabelPoints[below left](B)
+\tkzLabelPoints[below right](C)
+\draw (A)--(B)--(C)--cycle;
+\draw (y)--(A)--(x);
+\tkzMarkAngles[size=0.4cm,arc=l](C,B,A A,C,B)
+\tkzDrawPoints[fill=black](A,B,C)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\immini{
+Ta có $Ay\parallel BC$.\\
+Suy ra $\heva{&\widehat{xAy}=\widehat{ABC} \quad \text{(hai góc đồng vị)}\\ &\widehat{yAC}=\widehat{ACB} \quad \text{(hai góc so le trong).}}$\\
+Mặt khác $\widehat{ABC}=\widehat{ACB}$ (đề bài).\\
+Suy ra $\widehat{xAy}=\widehat{yAC}$.\\
+Mà tia $Ay$ nằm giữa hai tia $Ax$ và $AC$.\\
+Vậy tia $Ay$ là tia phân giác  của $\widehat{CAx}$.
+}{
+\begin{tikzpicture}[line cap=round, line join =round, scale=0.8]
+\tkzInit[xmin=-2.8,xmax=4,ymin=-3.8,ymax=3.8]
+\tkzClip
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{0/1/A,-2/-3/B,2/-3/C}
+\coordinate[label={above left}:{\footnotesize $x$}] (x) at ($(B)!1.5!(A)$);
+\tkzDefLine[bisector](C,A,x) \tkzGetPoint{y'}
+\coordinate[label={above}:{\footnotesize $y$}] (y) at ($(A)!0.4!(y')$);
+\tkzLabelPoints[above left](A)
+\tkzLabelPoints[below left](B)
+\tkzLabelPoints[below right](C)
+\draw (A)--(B)--(C)--cycle;
+\draw (y)--(A)--(x);
+\tkzMarkAngles[size=0.4cm,arc=l](C,B,A A,C,B)
+\tkzDrawPoints[fill=black](A,B,C)
+\end{tikzpicture}
+}}
+\end{vd}
+
+\begin{vd}
+Cho góc $\widehat{xOy}$. Lấy điểm $A$ trên tia $Ox$, điểm $B$ trên tia $Oy$. Vẽ ra ngoài góc $\widehat{xOy}$ các tia $Am$ và $Bn$ song song với nhau thỏa mãn $\widehat{OAm}=30^\circ$ và $\widehat{OBn}=60^\circ$. Chứng tỏ rằng $Ox\perp Oy$.
+\loigiai{
+\begin{phantich}
+Đề bài cho $Am\parallel Bn$ nhưng chưa có đường thẳng nào cắt chúng nên ta chưa vận dụng được tính chất của hai đường thẳng song song. Ta nghĩ đến việc vẽ thêm đường phụ $Ot\parallel Am$. Vẽ như vậy giúp ta tận dụng được $Ox$ làm cát tuyến cho $Ot$ và $Am$, vừa tận dụng được $Oy$ làm cát tuyến cho $Ot$ và $Bn$.
+\end{phantich}
+\immini{
+Trong góc $\widehat{xOy}$ ta vẽ tia $Ot\parallel Am$. Khi đó, do $Am\parallel Bn$ nên $Ot\parallel Bn$.\\
+Do $Ot\parallel Am$ nên $\widehat{tOA}= \widehat{mOA}=30^\circ$ (hai góc so le trong).\\
+Do $Ot\parallel Bn$ nên $\widehat{tOB}= \widehat{nOB}=60^\circ$ (hai góc so le trong).\\
+Mà tia $Ot$ nằm giữa hai tia $Ox$ và $Oy$.\\
+Suy ra $\widehat{xOy}=\widehat{xOt}+\widehat{tOy}=30^\circ +60^\circ =90^\circ$.\\
+Vậy $Ox\perp Oy$.
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-3.1,xmax=4.8,ymin=-2,ymax=3.5]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{0/0/O,3/0/A,0/2/B}
+\tkzDefPointBy[rotation = center A angle 30](O) \tkzGetPoint{m} \tkzLabelPoints[below left](m)
+\tkzDefLine[parallel=through B](A,m) \tkzGetPoint{n} \tkzLabelPoints[above left](n,B)
+\tkzDefPointBy[translation = from n to B](O) \tkzGetPoint{t} \tkzLabelPoints[below right](t)
+\tkzDrawLines[add = 0 and 0.5](O,A O,B)
+\tkzLabelPoints[below left](O)
+\tkzLabelPoints[below right](A)
+\draw (A)--(m) (B)--(n) (O)--(t);
+\tkzLabelSegment[above,pos=1.5](O,A){$x$}
+\tkzLabelSegment[right,pos=1.5](O,B){$y$}
+\tkzMarkAngles[size=0.5cm,arc=l](O,A,m)
+\tkzMarkAngles[size=0.4cm,arc=ll](n,B,O)
+\tkzLabelAngles[pos=-0.8](m,A,O){\scriptsize $30^\circ$}
+\tkzLabelAngles[pos=0.7](n,B,O){\scriptsize $60^\circ$}
+\tkzDrawPoints[fill=black](A,B,O)
+\end{tikzpicture}
+}}
+\end{vd}
+
+\begin{vd}[Giữa kỳ 1, THPT Chuyên Trần Đại Nghĩa 2016 - 2017]
+\immini{
+Cho hình vẽ sau, biết rằng $DE$ song song với $AB$, $\widehat{ECF}=40^\circ$, $\widehat{CFG}=100^\circ$, $\widehat{BAC}=60^\circ$.
+\begin{enumerate}
+\item Tính số đo góc $\widehat{DEC}$;
+\item Chứng minh rằng $DE\parallel FG$.
+\end{enumerate}
+}{
+\begin{tikzpicture}[line join = round, line cap = round, font=\footnotesize, scale=0.8]
+%\tkzInit[xmin=-6,xmax=6,ymin=-6,ymax=6]
+%\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\coordinate[label={below}:{$C$}] (C) at (0,0);
+\coordinate[label={above left}:{$A$}] (A) at (-2,3.5);
+\coordinate[label={above}:{$B$}] (B) at (1,3.5);
+\coordinate[label={below left}:{$E$}] (E) at ($(A)!0.35!(C)$);
+\coordinate[label={below}:{$D$}] (D) at ($(E)+(-2.5,0)$);
+\coordinate[label={above right}:{$F$}] (F) at (1.5,2.8);
+\coordinate[label={below}:{$G$}] (G) at ($(F)+(3,0)$);
+
+\draw (B)--(A)--(C)--(F)--(G) (E)--(D);
+\tkzLabelAngles[pos=0.7](F,C,E){\scriptsize $40^\circ$}
+\tkzLabelAngles[pos=0.5](C,F,G){\scriptsize $100^\circ$}
+\tkzLabelAngles[pos=0.7](C,A,B){\scriptsize $60^\circ$}
+\tkzDrawPoints[fill=black](A,B,C,D,E,F,G)
+\end{tikzpicture}
+}
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[line join = round, line cap = round, font=\footnotesize, scale=0.8]
+%\tkzInit[xmin=-6,xmax=6,ymin=-6,ymax=6]
+%\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\coordinate[label={below}:{$C$}] (C) at (0,0);
+\coordinate[label={above left}:{$A$}] (A) at (-2,3.5);
+\coordinate[label={above}:{$B$}] (B) at (1,3.5);
+\coordinate[label={below left}:{$E$}] (E) at ($(A)!0.35!(C)$);
+\coordinate[label={below}:{$D$}] (D) at ($(E)+(-2.5,0)$);
+\coordinate[label={above right}:{$F$}] (F) at (1.5,2.8);
+\coordinate[label={below}:{$G$}] (G) at ($(F)+(3,0)$);
+\coordinate[label={below}:{$x$}] (x) at ($(C)+(-3,0)$);
+\coordinate[label={below}:{$x'$}] (x') at ($(C)+(3,0)$);
+\draw (B)--(A)--(C)--(F)--(G) (E)--(D) (x)--(x');
+\tkzLabelAngles[pos=0.7](F,C,E){\scriptsize $40^\circ$}
+\tkzLabelAngles[pos=0.5](C,F,G){\scriptsize $100^\circ$}
+\tkzLabelAngles[pos=0.7](C,A,B){\scriptsize $60^\circ$}
+\tkzDrawPoints[fill=black](A,B,C,D,E,F,G)
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+\item Ta có $AB\parallel DE\Rightarrow \widehat{DEA}=\widehat{BAE}=60^\circ$ (so le trong).\\
+Mặt khác $\widehat{DEC}+\widehat{DEA}=180^\circ$ (kề bù).\\
+Suy ra $\widehat{DEC}=180^\circ -\widehat{DEA}=180^\circ -60^\circ= 120^\circ$.
+\item Qua $C$, kẻ $xCx' \parallel DE$. Khi đó  $\widehat{xCE}+\widehat{DEC}=180^\circ$ (trong cùng phía).\\
+$\Rightarrow \widehat{xCE}=180^\circ -120^\circ =60^\circ\Rightarrow \widehat{x'CF}=180^\circ - \widehat{FCE}-\widehat{ECx}= 180^\circ- 40^\circ- 60^\circ = 80^\circ$.\\
+$\Rightarrow \widehat{x'CF}+\widehat{CFG}=80^\circ + 100^\circ=180^\circ$.\\
+Mà $\widehat{x'CF}$ và $\widehat{CFG}$ nằm ở vị trí trong cùng phía.\\
+Suy ra $xCx'\parallel FG$. \tagEX{1}
+Ta lại có $DE\parallel xCx'$ (cách dựng). \tagEX{2}
+Từ $(1)$ và $(2)$ suy ra $DE\parallel FG$.
+\end{enumerate}
+}
+\end{vd}
+
+\begin{dang}[Chứng minh ba điểm thẳng hàng, hai tia đối nhau, hai tia trùng nhau]
+\begin{enumerate}[\tickEX]
+\item Để chứng minh ba điểm $A,B,C$ thẳng hàng, ta làm theo các bước sau
+\begin{itemize}
+\item Chứng minh $AB \parallel d$ (với $d$ là một đường thẳng cố định).
+\item Chứng minh $AC \parallel d$.
+\item Kết luận được $A, B, C$ thẳng hàng.
+\end{itemize}
+\item  Nếu hai tia $Ax$ và $Ay$ cùng song song với một đường thẳng và nằm khác phía thì đối nhau.
+\item Nếu hai tia $Ax$ và $Ay$ cùng song song với một đường thẳng và nằm cùng phía thì trùng nhau.
+\end{enumerate}
+\end{dang}
+
+\begin{vd}
+Cho $\widehat{xOy}$ khác góc bẹt, $M$ là điểm tùy ý trên tia $Oy$ ($M$ khác $O$). Vẽ tia $Mz$ sao cho $\widehat{yMz}$ và $\widehat{xOy}$ là hai góc đồng vị, đồng thời $\widehat{yMz} = \widehat{xOy}$; vẽ tia $Mt$ sao cho $\widehat{OMt}$ và $\widehat{xOy}$ là hai góc so le trong, đồng thời $\widehat{OMt} = \widehat{xOy}$. Trên $Mz$ lấy điểm $A$, trên $Mt$ lấy điểm $B$. Chứng minh $A, B, M$ thẳng hàng.
+\loigiai{
+\immini{
+Ta có $\widehat{yMz} = \widehat{xOy}$ (giả thiết).\\
+Mà $\widehat{yMz}$ và $\widehat{xOy}$ là hai góc đồng vị.\\
+Suy ra $Mz \parallel Ox$ hay $MA\parallel Ox$. \tagEX{1}
+Ta có $\widehat{OMt} = \widehat{xOy}$ (giả thiết).\\
+Mà $\widehat{OMt}$ và $\widehat{xOy}$ là hai góc so le trong.\\
+Suy ra $Mt \parallel Ox$  hay $MB\parallel Ox$. \tagEX{2}
+Từ $(1)$ và $(2)$ suy ra $A$, $B$, $M$ thẳng hàng.}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=0.9]
+\tkzInit[xmin=-3,xmax=5,ymin=-1,ymax=4.5]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{0/0/O,3.5/-0.3/x,1/2.5/M}
+\tkzDefPointBy[translation = from O to x](M) \tkzGetPoint{z} \tkzLabelPoints[below right](z)
+\tkzDefPointBy[translation = from x to O](M) \tkzGetPoint{t} \tkzLabelPoints[below left](t)
+\coordinate[label={above left}:{\footnotesize $y$}] (y) at ($(O)!1.5!(M)$);
+\coordinate[label={above}:{\footnotesize $A$}] (A) at ($(M)!0.4!(z)$);
+\coordinate[label={above}:{\footnotesize $B$}] (B) at ($(M)!0.7!(t)$);
+\draw (x)--(O)--(y) (t)--(z);
+\tkzLabelPoints[below left](O)
+\tkzLabelPoints[below right](x)
+\tkzLabelPoints[above left, xshift=1mm](M)
+\tkzMarkAngles[size=0.4cm,arc=l](t,M,O z,M,y x,O,y)
+\tkzDrawPoints[fill=black](O,M,A,B)
+\end{tikzpicture}}
+}
+\end{vd}
+
+\begin{vd}
+Cho góc nhọn $\widehat{xOy}$, $A$ là điểm trên tia $Ox$. Gọi $Oz$ là tia đối của tia $Oy$. Vẽ tia $At$ sao cho $\widehat{OAt} = \widehat{xOy}$ và hai tia $At$, $Oz$ nằm cùng phía với bờ là đường thẳng chứa tia $Ox$. Vẽ tia $Ah$ sao cho $\widehat{OAh}$ và $\widehat{AOz}$ là hai góc trong cùng phía thỏa $\widehat{OAh} + \widehat{AOz} = 180^\circ$. Chứng tỏ rằng hai tia $Ah$ và $At$ trùng nhau.
+\loigiai{
+\immini{
+Ta có $\widehat{OAt} = \widehat{xOy}$ (giả thiết).\\
+Mà $\widehat{OAt}$ và $\widehat{xOy}$ là hai góc ở vị trí so le trong.\\
+Suy ra $At \parallel Oy$. \tagEX{1}
+Ta có $\widehat{OAh} + \widehat{AOz} = 180^\circ$ (giả thiết).\\
+Mà $\widehat{OAh}$ và  $\widehat{AOz}$ là hai góc trong cùng phía.\\
+Suy ra $Ah \parallel Oy$. \tagEX{2}
+Từ $(1)$ và $(2)$ suy ra hai đường thẳng chứa hai tia $At, Ah$ trùng nhau (tiên đề Ơ-clit).\\
+Mà hai tia $At, Ah$ nằm cùng phía với bờ là đường thẳng chứa tia $Ox$.\\
+Suy ra hai tia $Ah$ và $At$ trùng nhau.}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-3,xmax=5,ymin=-1.8,ymax=4]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\coordinate[label={below left}:{$O$}] (O) at (0,0);
+\coordinate[label={above}:{\footnotesize $A$}] (A) at (3,2);
+\coordinate (h) at (4.5,1);
+\tkzDefPointBy[translation = from A to h](O) \tkzGetPoint{y} \tkzLabelPoints[below right](y)
+\coordinate[label={above left}:{\footnotesize $t$}] (t) at ($(h)!2.5!(A)$);
+\tkzDrawLine[add = 0 and 0.5](O,A)
+\tkzDrawLine[add = 0 and 1.5](y,O)
+\draw (A)--(t);
+\tkzLabelSegment[above left,pos=2.5](y,O){$z$}
+\tkzMarkAngles[size=0.5cm,arc=l](y,O,A t,A,O)
+\tkzLabelSegment[above right, pos=1.5](O,A){$x$}
+\tkzDrawPoints[fill=black](A,O)
+\end{tikzpicture}
+}}
+\end{vd}
+
+\begin{dang}[Chứng minh hai đường thẳng song song]
+\begin{enumerate}[\bf Cách 1.]
+\item Hai đường thẳng phân biệt cùng song song với một đường thẳng thứ ba thì song song với nhau.
+\immini{
+$$\heva{&a\parallel b\\&b\parallel c}\Rightarrow a\parallel c.$$
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-2.1,xmax=2.1,ymin=-2.2,ymax=0.5]
+\tkzClip
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{-2/-2/a,2/-2/a',-2/0/c,-2/-1/b}
+\tkzDefPointsBy[translation = from a to a'](b,c){b',c'}
+\draw (a)--(a') (b)--(b') (c)--(c');
+\tkzLabelPoints[above](a,b,c)
+\end{tikzpicture}
+}	
+\item Hai đường thẳng phân biệt cùng vuông góc với một đường thẳng thứ ba thì song song với nhau.
+\immini{
+$$\heva{&a\perp d\\&b\perp d}\Rightarrow a\parallel b.$$
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-2.5,xmax=2.2,ymin=-2.2,ymax=1.1]
+\tkzClip
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{-2/-1.5/a,2/-1.5/a',-2/0/b}
+\tkzDefPointBy[translation = from a to a'](b) \tkzGetPoint{b'}
+\coordinate (A) at ($(a)!0.8!(a')$);
+\tkzDefPointWith[orthogonal](A,a) \tkzGetPoint{h}
+\tkzInterLL(A,h)(b,b')    \tkzGetPoint{B}
+\draw (a)--(a') (b)--(b');
+\tkzDrawLine[add = 0.5 and 0.5](A,B)
+\tkzLabelPoints[above](a,b)
+\tkzLabelSegment[right,pos=1.5](A,B){$d$}
+\tkzMarkRightAngles(b,B,A a,A,B)
+\tkzDrawPoints[fill=black](A,B)
+\end{tikzpicture}
+}
+\end{enumerate}
+\end{dang}
+
+\begin{vd}
+Cho hình vẽ sau, biết $AB\perp AD$, $CD\perp AD$, $\widehat{CDE} = 130^\circ$ và $\widehat{E} = 130^\circ$. Chứng minh rằng $AB \parallel EF$.
+\begin{center}
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-1/1/A,3/1/B,-1/-0.5/D,0.5/-2/E}
+\coordinate (C) at ($(D)+(-2.5,0)$);
+\coordinate[label={below}:{\footnotesize $F$}] (F) at ($(E)+(2.5,0)$);
+\tkzLabelPoints[above left](A,C)
+\tkzLabelPoints[above right](D,B)
+\tkzLabelPoints[below left](E)
+\draw (B)--(A)--(D)--(E)--(F) (D)--(C);
+\tkzMarkAngles[size=0.3cm,arc=l](C,D,E F,E,D)
+\tkzLabelAngles[pos=-0.6](C,D,E){\scriptsize $130^\circ$}
+\tkzLabelAngles[pos=0.6](F,E,D){\scriptsize $130^\circ$}
+\tkzMarkRightAngles[size=0.3](B,A,D A,D,C)
+\tkzDrawPoints[fill=black](A,D,E)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\immini{
+Ta có $\heva{&AB \perp AD\\ &CD \perp AD}$ (giả thiết).\\
+Suy ra $AB \parallel CD$. \tagEX{1}
+Ta có $\widehat{CDE} = \widehat{E} = 130^\circ$ (giả thiết).\\
+Mà $\widehat{CDE}$ và $\widehat{E}$ nằm ở vị trí so le trong.\\
+Suy ra $EF \parallel CD$. \tagEX{2}
+Từ $(1)$ và $(2)$ suy ra $AB \parallel EF$.
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-1/1/A,3/1/B,-1/-0.5/D,0.5/-2/E}
+\coordinate (C) at ($(D)+(-2.5,0)$);
+\coordinate[label={below}:{\footnotesize $F$}] (F) at ($(E)+(2.5,0)$);
+\tkzLabelPoints[above left](A,C)
+\tkzLabelPoints[above right](D,B)
+\tkzLabelPoints[below left](E)
+\draw (B)--(A)--(D)--(E)--(F) (D)--(C);
+\tkzMarkAngles[size=0.3cm,arc=l](C,D,E F,E,D)
+\tkzLabelAngles[pos=-0.6](C,D,E){\scriptsize $130^\circ$}
+\tkzLabelAngles[pos=0.6](F,E,D){\scriptsize $130^\circ$}
+\tkzMarkRightAngles[size=0.3](B,A,D A,D,C)
+\tkzDrawPoints[fill=black](A,D,E)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+\begin{vd}
+Cho hình vẽ sau, biết $\widehat{M} = 130^\circ$, $\widehat{P} = 120^\circ$, $\widehat{MOP} = 110^\circ$ và $Ot \parallel MN$. Chứng minh rằng $MN \parallel PQ$.
+\begin{center}
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-0.8,xmax=5.4,ymin=-2.1,ymax=2.8]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{0/0/O,1.5/2/M,5/2/N,1/-1.5/P}
+\tkzDefPointsBy[translation= from M to N](O,P){t,Q} \tkzLabelPoints[below right](t,Q)
+\tkzLabelPoints[above](M,N)
+\tkzLabelPoints[left](O)
+\tkzLabelPoints[below left](P)
+\draw (N)--(M)--(O)--(P)--(Q) (O)--(t);
+\tkzLabelAngles[pos=0.4](N,M,O){\scriptsize $130^\circ$}
+\tkzLabelAngles[pos=0.4](O,P,Q){\scriptsize $120^\circ$}
+\tkzLabelAngles[pos=0.5,rotate=30](M,O,t){\scriptsize $1$}
+\tkzLabelAngles[pos=0.5,rotate=-30](t,O,P){\scriptsize $2$}
+\tkzDrawPoints[fill=black](M,O,P)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\immini{
+Do $Ot \parallel MN$ nên $\widehat{M} +\widehat{O_1} = 180^\circ$ (cặp góc trong cùng phía). \\
+Suy ra $\widehat{O_1} =180^\circ - \widehat{M}= 180^\circ -130^\circ = 50^\circ$.\\
+Mặt khác $\widehat{MOP}= 110^\circ$ nên $\widehat{O_2} =110^\circ -50^\circ = 60^\circ$.\\
+Ta có $\widehat{O_2} + \widehat{P} = 60^\circ +120^\circ = 180^\circ$.\\
+Mà $\widehat{O_2}$ và $\widehat{P}$ nằm ở vị trí trong cùng phía.\\
+Suy ra $Ot \parallel PQ$.\\
+Ta lại có $Ot \parallel MN$ (giả thiết).\\
+Vậy $MN \parallel PQ$.
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-0.8,xmax=5.4,ymin=-2.1,ymax=2.8]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{0/0/O,1.5/2/M,5/2/N,1/-1.5/P}
+\tkzDefPointsBy[translation= from M to N](O,P){t,Q} \tkzLabelPoints[below right](t,Q)
+\tkzLabelPoints[above](M,N)
+\tkzLabelPoints[left](O)
+\tkzLabelPoints[below left](P)
+\draw (N)--(M)--(O)--(P)--(Q) (O)--(t);
+\tkzLabelAngles[pos=0.4](N,M,O){\scriptsize $130^\circ$}
+\tkzLabelAngles[pos=0.4](O,P,Q){\scriptsize $120^\circ$}
+\tkzLabelAngles[pos=0.5,rotate=30](M,O,t){\scriptsize $1$}
+\tkzLabelAngles[pos=0.5,rotate=-30](t,O,P){\scriptsize $2$}
+\tkzDrawPoints[fill=black](M,O,P)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+
+\begin{dang}[Chứng minh hai đường thẳng vuông góc]
+\begin{enumerate}[\tickEX]
+\item Một đường thẳng vuông góc với một trong hai đường thẳng song song thì nó vuông góc với đường còn lại.
+\immini{
+Trên hình bên ta có
+$$\heva{&d\perp b\\&a\parallel b}\Rightarrow d\perp a.$$
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-2.5,xmax=2.2,ymin=-2.2,ymax=1.1]
+\tkzClip
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{-2/-1.5/a,2/-1.5/a',-2/0/b}
+\tkzDefPointBy[translation = from a to a'](b) \tkzGetPoint{b'}
+\coordinate (A) at ($(a)!0.8!(a')$);
+\tkzDefPointWith[orthogonal](A,a) \tkzGetPoint{h}
+\tkzInterLL(A,h)(b,b')    \tkzGetPoint{B}
+\draw (a)--(a') (b)--(b');
+\tkzDrawLine[add = 0.5 and 0.5](A,B)
+\tkzLabelPoints[above](a,b)
+\tkzLabelSegment[right,pos=1.5](A,B){$d$}
+\tkzMarkRightAngles(b,B,A)
+\tkzDrawPoints[fill=black](A,B)
+\end{tikzpicture}
+}	
+\item Hai tia phân giác của hai góc kề bù thì vuông góc với nhau.
+\end{enumerate}
+
+\end{dang}
+
+\begin{vd}
+Cho hình vẽ sau, biết $\widehat{A_1} = \widehat{B_1}$ và $\widehat{C_1} = \widehat{C_2}$. Chứng minh rằng $m \perp b$.
+\begin{center}
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-2.3,xmax=3.2,ymin=-2,ymax=2.6]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-2/1/a,3/1/a',-2/-1/b}
+\tkzDefPointBy[translation = from a to a'](b) \tkzGetPoint{b'}
+\coordinate[label={above left}:{\footnotesize $A$}] (A) at ($(a)!0.4!(a')$);
+\coordinate[label={above right}:{\footnotesize $C$}] (C) at ($(a)!0.8!(a')$);
+\coordinate[label={below right}:{\footnotesize $B$}] (B) at ($(b)!0.2!(b')$);
+\coordinate[label={below left}:{\footnotesize $D$}] (D) at ($(b)!0.8!(b')$);
+\coordinate[label={above right}:{\footnotesize $n$}] (n) at ($(B)!1.5!(A)$);
+\tkzLabelPoints[above](a,b)
+\draw (a)--(a') (b)--(b');
+\tkzDrawLine[add = 0.3 and 0](B,n)
+\tkzDrawLine[add = 0.5 and 0.5](C,D)
+\tkzLabelSegment[above right,pos=1.5](D,C){\footnotesize $m$}
+\tkzMarkAngles[size=0.4cm,arc=l](C,A,n D,B,n)
+\tkzLabelAngles[pos=0.6](C,A,n D,B,n){\scriptsize $1$}
+\tkzLabelAngles[pos=-0.4](a,C,D){\scriptsize $1$}
+\tkzLabelAngles[pos=0.4](a',C,D){\scriptsize $2$}
+\tkzDrawPoints[fill=black](A,B,C,D)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\immini[0.2]{
+Ta có $\widehat{A_1} = \widehat{B_2}$ (giả thiết).\\
+Mà $\widehat{A_1}$ và $\widehat{B_2}$ nằm ở vị trí đồng vị.\\
+Suy ra $a \parallel b$. \tagEX{1}
+Ta có $\widehat{C_1} + \widehat{C_2} =180^\circ$ (kề bù).\\
+Mà $\widehat{C_1} = \widehat{C_2}$ (giả thiết). \\
+Suy ra $\widehat{C_1} =\dfrac{180^\circ}{2} = 90^\circ$.\\
+Do đó $m \perp a$.  \tagEX{2}
+Từ $(1)$ và $(2)$ suy ra $m \perp b$.
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-2.3,xmax=3.2,ymin=-2,ymax=2.6]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-2/1/a,3/1/a',-2/-1/b}
+\tkzDefPointBy[translation = from a to a'](b) \tkzGetPoint{b'}
+\coordinate[label={above left}:{\footnotesize $A$}] (A) at ($(a)!0.4!(a')$);
+\coordinate[label={above right}:{\footnotesize $C$}] (C) at ($(a)!0.8!(a')$);
+\coordinate[label={below right}:{\footnotesize $B$}] (B) at ($(b)!0.2!(b')$);
+\coordinate[label={below left}:{\footnotesize $D$}] (D) at ($(b)!0.8!(b')$);
+\coordinate[label={above right}:{\footnotesize $n$}] (n) at ($(B)!1.5!(A)$);
+\tkzLabelPoints[above](a,b)
+\draw (a)--(a') (b)--(b');
+\tkzDrawLine[add = 0.3 and 0](B,n)
+\tkzDrawLine[add = 0.5 and 0.5](C,D)
+\tkzLabelSegment[above right,pos=1.5](D,C){\footnotesize $m$}
+\tkzMarkAngles[size=0.4cm,arc=l](C,A,n D,B,n)
+\tkzLabelAngles[pos=0.6](C,A,n D,B,n){\scriptsize $1$}
+\tkzLabelAngles[pos=-0.4](a,C,D){\scriptsize $1$}
+\tkzLabelAngles[pos=0.4](a',C,D){\scriptsize $2$}
+\tkzDrawPoints[fill=black](A,B,C,D)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+\begin{vd}
+Cho tam giác $ABC$ có $\widehat{B} = \widehat{C}$. Tia phân giác của góc $\widehat{BAC}$ cắt $BC$ tại $D$. Vẽ tia $Ay$ nằm trong nửa mặt phẳng bờ $AB$ có chứa điểm $C$ sao cho $Ay \parallel BC$. Chứng minh rằng $Ay \perp AD$.
+\loigiai
+{
+\immini{
+Vẽ tia $Ax$ là tia đối của tia $AB$. Kí hiệu các góc như hình bên.\\
+Ta có $Ay \parallel BC$ (giả thiết).\\
+Suy ra $\heva{&\widehat{A_4} = \widehat{B} \quad \text{(cặp góc đồng vị)}\\ & \widehat{A_3} =\widehat{C} \text{(cặp góc so le trong)}}$.\\
+Mà $\widehat{B} = \widehat{C}$ (giả thiết).\\
+Suy ra $\widehat{A_3} = \widehat{A_4}$. \tagEX{1}
+Mặt khác tia $Ay$ nằm giữa hai tia $Ax$ và $AC$. \tagEX{2}
+Từ $(1)$ và $(2)$ suy ra tia $Ay$ là tia phân giác của $\widehat{CAx}$.\\
+Ta lại có tia $AD$ là tia phân giác của góc $\widehat{BAC}$ (giả thiết).\\
+Suy ra $Ay \perp AD$ (tính chất hai tia phân giác của hai góc kề bù).}{
+\begin{tikzpicture}[line cap=round, line join =round, scale=0.8]
+\tkzInit[xmin=-2.8,xmax=4,ymin=-3.8,ymax=3.8]
+\tkzClip
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{0/1/A,-2/-3/B,2/-3/C}
+\coordinate[label={above left}:{\footnotesize $x$}] (x) at ($(B)!1.5!(A)$);
+\tkzDefLine[bisector](C,A,x) \tkzGetPoint{y'}
+\coordinate[label={above}:{\footnotesize $y$}] (y) at ($(A)!0.4!(y')$);
+\tkzDefPointBy[projection = onto B--C](A) \tkzGetPoint{D} \tkzLabelPoints[below](D)
+\tkzLabelPoints[above left](A)
+\tkzLabelPoints[below left](B)
+\tkzLabelPoints[below right](C)
+\draw (A)--(B)--(C)--cycle;
+\draw (y)--(A)--(x) (A)--(D);
+\tkzMarkAngles[size=0.4cm,arc=l](C,B,A A,C,B)
+\tkzMarkAngles[size=0.5cm,arc=ll](B,A,D)
+\tkzMarkAngles[size=0.7cm,arc=ll](D,A,C)
+\tkzMarkAngles[size=0.7cm,arc=l](y,A,x)
+\tkzMarkAngles[size=0.5cm,arc=l](C,A,y)
+\tkzLabelAngles[pos=0.8](B,A,D){\scriptsize $1$}
+\tkzLabelAngles[pos=1](D,A,C){\scriptsize $2$}
+\tkzLabelAngles[pos=1.1](y,A,x){\scriptsize $4$}
+\tkzLabelAngles[pos=0.9](C,A,y){\scriptsize $3$}
+\tkzDrawPoints[fill=black](A,B,C)
+\end{tikzpicture}}
+}
+\end{vd}
+
+\begin{vd}[Đề 1 tiết chương 1, THCS Trường Chinh, Tân Bình 2016 - 2017]
+Cho góc nhọn $\widehat{mOn}$ và điểm $H$ thuộc tia $Om$. Vẽ tia $Hx$ song song với tia $On$ và nằm ngoài góc $mOn$. Vẽ tia $Oy$ và $Ht$ lần lượt là phân giác của $\widehat{mOn}$ và $\widehat{xHm}$. Chứng minh rằng $Oy\perp Ht$.
+\loigiai{
+\immini{
+Qua $H$ dựng $Hz$ là tia phân giác của $\widehat{xHO}$.\\
+Khi đó $Hz\perp Ht$ (hai tia phân giác của hai góc kề bù). \tagEX{1}
+Do $Hx\parallel On$ nên $\widehat{xHO}=\widehat{HOn}$ (so le trong).\\
+$\Rightarrow \dfrac{\widehat{xHO}}{2} = \dfrac{\widehat{HOn}}{2}\Rightarrow \widehat{zHO}= \widehat{HOy}$.\\
+Mà $\widehat{zHO}$ và $\widehat{HOy}$ nằm ở vị trí so le trong.\\
+Suy ra $Hz\parallel Oy$. \tagEX{2}
+Từ $(1)$ và $(2)$ suy ra $Ht\perp Oy$.	
+}{
+\begin{tikzpicture}[line join = round, line cap = round, scale=0.8, font=\footnotesize]
+\tkzInit[xmin=-3.7,xmax=4.6,ymin=-0.7,ymax=5.6]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\coordinate[label={below left}:{$O$}] (O) at (0,0);
+\coordinate[label={right}:{$H$}] (H) at (1,3);
+\coordinate[label={below right}:{$n$}] (n) at (4,0);
+\tkzDefPointBy[translation = from n to O](H) \tkzGetPoint{x} \tkzLabelPoints[above left](x)
+\coordinate[label={above right}:{$m$}] (m) at ($(O)!1.4!(H)$);
+
+\tkzDefLine[bisector](m,H,x) \tkzGetPoint{t} \tkzLabelPoints[above](t)
+\tkzDefLine[bisector](n,O,H) \tkzGetPoint{Y}
+\coordinate[label={above right}:{$y$}] (y) at ($(O)!0.6!(Y)$);
+\tkzInterLL(H,t)(O,y)    \tkzGetPoint{i}
+
+\tkzDefPointBy[translation = from y to O](H) \tkzGetPoint{z} \tkzLabelPoints[below](z)
+
+\draw (x)--(H)--(O)--(n) (m)--(H)--(t) (O)--(y) (H)--(z);
+\draw[dashed] (H)--(i);
+
+\tkzMarkAngles[size=0.5cm,arc=l](m,H,t)
+\tkzMarkAngles[size=0.7cm,arc=l](t,H,x)
+\tkzMarkAngles[size=0.5cm,arc=ll](n,O,y x,H,z)
+\tkzMarkAngles[size=0.7cm,arc=ll](y,O,m z,H,O)
+
+\tkzDrawPoints[fill=black](O,H)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+\begin{vd}[Đề 1 tiết, THCS Ngô Quyền 2016 - 2017]
+Cho hình vẽ sau, hãy chứng minh $\widehat{B}=\widehat{HAC}$.
+\begin{center}
+\begin{tikzpicture}[line join = round, line cap = round, font=\footnotesize, scale=1]
+\tkzInit[xmin=-0.6,xmax=4.8,ymin=-0.7,ymax=3.2]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\coordinate[label={below left}:{$A$}] (A) at (0,0);
+\coordinate[label={above left}:{$B$}] (B) at (0,2.5);
+\coordinate[label={below right}:{$C$}] (C) at (4,0);
+\tkzDefPointBy[projection = onto B--C](A) \tkzGetPoint{H} \tkzLabelPoints[above right](H)
+\draw (A)--(B)--(C)--cycle;
+\draw (A)--(H);
+\tkzMarkRightAngles[size=0.3](B,A,C A,H,C)
+\tkzDrawPoints[fill=black](A,B,C)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\immini{
+Qua $B$ dựng $Bx\parallel AH$. Khi đó\\
+$$\heva{&\widehat{xBA}=\widehat{BAH} \quad \text{(so le trong)}\\ &Bx\perp BC \quad (AH\perp BC).}$$
+Từ đó suy ra $\left. \begin{array}{l}
+\widehat{xBA}+\widehat{ABC}=90^\circ\\ 
+\widehat{CAH}+\widehat{HAB}=90^\circ\\ 
+\widehat{xBA}=\widehat{BAH}
+\end{array}  \right\}$\\
+$\Rightarrow \widehat{CAH}=\widehat{ABC}$.
+}{
+\begin{tikzpicture}[line join = round, line cap = round, font=\footnotesize, scale=1]
+\tkzInit[xmin=-1.6,xmax=4.8,ymin=-0.7,ymax=3.2]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\coordinate[label={below left}:{$A$}] (A) at (0,0);
+\coordinate[label={above left}:{$B$}] (B) at (0,2.5);
+\coordinate[label={below right}:{$C$}] (C) at (4,0);
+\tkzDefPointBy[projection = onto B--C](A) \tkzGetPoint{H} \tkzLabelPoints[above right](H)
+\tkzDefPointBy[translation = from H to A](B) \tkzGetPoint{x} \tkzLabelPoints[below](x)
+
+\draw (A)--(B)--(C)--cycle;
+\draw (A)--(H) (B)--(x);
+\tkzMarkRightAngles[size=0.3](B,A,C A,H,C)
+\tkzDrawPoints[fill=black](A,B,C)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+%BÀI TẬP VỀ NHÀ, TỰ LUYỆN
+\btvn
+
+\begin{vn} 
+Cho hình vẽ sau, tính số đo góc $\widehat{D_1}$.
+\begin{center}
+\begin{tikzpicture}[line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-1.5/1/A, -2.5/-1.5/B, 2.5/-1.5/D}
+\coordinate[label={above left}:{\footnotesize $C$}] (C) at ($(A)+(3.5,0)$);
+\tkzLabelPoints[above left](A)
+\tkzLabelPoints[below right](B)
+\tkzLabelPoints[below left](D)
+\tkzDrawLine[add = 0.2 and 0.25](B,D)
+\tkzDrawLine[add = 0.4 and 0.35](A,C)
+\tkzDrawLine[add = 0.35 and 0.35](A,B)
+\tkzDrawLine[add = 0.3 and 0.4](C,D)
+\tkzLabelAngles[pos=-0.4, xshift=-3mm, yshift=-0.7cm](B,A,C){\footnotesize $70^\circ$}
+\tkzLabelAngles[pos=0.6](A,B,D){\footnotesize $70^\circ$}
+\tkzLabelAngles[pos=0.5, xshift=1mm](D,C,A){\footnotesize $100^\circ$}
+\tkzLabelAngles[pos=0.3](C,D,B){\scriptsize $1$}
+\tkzLabelAngles[pos=0.3, xshift=0.5cm](C,D,B){\scriptsize $2$}
+\tkzDrawPoints[fill=black](A,B,C,D)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\immini{
+Ta có $\widehat{A_1}=\widehat{B_1}=70^\circ$ (giả thiết).\\
+Mà $\widehat{A_1}$ và $\widehat{B_1}$ nằm ở vị trí so le trong.\\
+Suy ra $AC\parallel BD$.\\
+Ta có $\widehat{C_1}=\widehat{C_2}=100^\circ$ (đối đỉnh).\\
+Do $AC\parallel BD$ nên $\widehat{C_2}+\widehat{D_1}=180^\circ$ (cặp góc trong cùng phía).\\
+Suy ra $\widehat{D_1}=180^\circ -\widehat{C_2}=180^\circ -100^\circ =80^\circ$.
+}{
+\begin{tikzpicture}[line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-1.5/1/A, -2.5/-1.5/B, 2.5/-1.5/D}
+\coordinate[label={above left}:{\footnotesize $C$}] (C) at ($(A)+(3.5,0)$);
+\tkzLabelPoints[above left](A)
+\tkzLabelPoints[below right](B)
+\tkzLabelPoints[below left](D)
+\tkzDrawLine[add = 0.2 and 0.25](B,D)
+\tkzDrawLine[add = 0.4 and 0.35](A,C)
+\tkzDrawLine[add = 0.35 and 0.35](A,B)
+\tkzDrawLine[add = 0.3 and 0.4](C,D)
+\tkzLabelAngles[pos=0.3](C,D,B){\scriptsize $1$}
+\tkzLabelAngles[pos=0.3, xshift=0.5cm](C,D,B){\scriptsize $2$}
+\tkzLabelAngles[pos=0.3, xshift=-5mm](B,A,C){\scriptsize $1$}
+\tkzLabelAngles[pos=0.4](A,B,D A,C,D){\scriptsize $1$}
+\tkzLabelAngles[pos=-0.4](A,C,D){\scriptsize $2$}
+\tkzDrawPoints[fill=black](A,B,C,D)
+\end{tikzpicture}
+}
+}
+\end{vn}
+
+\begin{vn}
+Cho hình vẽ sau, biết $\widehat{DAB}=40^\circ$; $\widehat{DBA}=90^\circ$. Tính số đo góc $\widehat{ADB}$.
+\begin{center}
+\begin{tikzpicture}[line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-3.2,xmax=3.2,ymin=-0.8,ymax=1.8]
+\tkzClip
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-3/1/x', 3/1/x}
+\tkzLabelPoints[above](x)
+\coordinate[label={above}:{\footnotesize $A$}] (A) at ($(x')!0.3!(x)$);
+\coordinate[label={above}:{\footnotesize $D$}] (D) at ($(x')!0.7!(x)$);
+\tkzDefPointBy[rotation = center A angle -40](D) \tkzGetPoint{b}
+\tkzDefPointBy[projection = onto A--b](D) \tkzGetPoint{B} \tkzLabelPoints[below right](B)
+\draw (x)--(x') (A)--(B)--(D);
+\tkzMarkAngles[size=0.5cm,arc=l](B,A,D)
+\tkzLabelAngles[pos=0.8,rotate=-40](B,A,D){\scriptsize $40^\circ$}
+\tkzMarkRightAngles[size=0.3](A,B,D)
+\tkzDrawPoints[fill=black](A,B,D)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\immini{
+Dựng $By\parallel AD$. Khi đó $\widehat{ABy}=\widehat{DAB}=40^\circ$ (hai góc so le trong).\\
+Suy ra $\widehat{DBy}=\widehat{DBA}+\widehat{ABy}=90^\circ + 40^\circ=130^\circ$.\\
+Do $By\parallel AD$ nên $\widehat{ADB}+\widehat{DBy}=180^\circ$ (hai góc trong cùng phía).\\
+Suy ra $\widehat{ADB}=180^\circ - \widehat{DBy}=180^\circ-130^\circ=50^\circ$.
+}{
+\begin{tikzpicture}[line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-2.5,xmax=2.5,ymin=-0.8,ymax=1.8]
+\tkzClip
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-2.2/1/x', 2.2/1/x}
+\tkzLabelPoints[above](x)
+\coordinate[label={above}:{\footnotesize $A$}] (A) at ($(x')!0.2!(x)$);
+\coordinate[label={above}:{\footnotesize $D$}] (D) at ($(x')!0.8!(x)$);
+\tkzDefPointBy[rotation = center A angle -40](D) \tkzGetPoint{b}
+\tkzDefPointBy[projection = onto A--b](D) \tkzGetPoint{B} \tkzLabelPoints[below right](B)
+\tkzDefPointBy[translation = from D to A](B) \tkzGetPoint{y} \tkzLabelPoints[below](y)
+\draw (x)--(x') (A)--(B)--(D) (B)--(y);
+\tkzMarkAngles[size=0.5cm,arc=l](B,A,D)
+\tkzLabelAngles[pos=0.8,rotate=-40](B,A,D){\scriptsize $40^\circ$}
+\tkzMarkRightAngles[size=0.3](A,B,D)
+\tkzDrawPoints[fill=black](A,B,D)
+\end{tikzpicture}
+}}
+\end{vn}
+
+\begin{vn}
+Cho hình vẽ sau, biết $AB\parallel DE$; $\widehat{ABC}=110^\circ$; $\widehat{CDE}=130^\circ$. Tính góc $\widehat{BCD}$.
+\begin{center}
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-3.3,xmax=4.3,ymin=-2,ymax=1.1]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-3/0/A,0/0/B,2/0.5/D,4/0.5/E}
+\tkzDefPointBy[rotation = center B angle 110](A) \tkzGetPoint{x}
+\tkzDefPointBy[rotation = center D angle -130](E) \tkzGetPoint{x'}
+\tkzInterLL(B,x)(D,x') \tkzGetPoint{C} \tkzLabelPoints[below](C)
+\tkzLabelPoints[above](A,B,D,E)
+\draw (A)--(B)--(C)--(D)--(E);
+\tkzMarkAngles[size=0.4cm,arc=l](A,B,C)
+\tkzMarkAngles[size=0.4cm,arc=ll](C,D,E)
+\tkzLabelAngles[pos=-0.7](A,B,C){\scriptsize $110^\circ$}
+\tkzLabelAngles[pos=0.7](C,D,E){\scriptsize $130^\circ$}
+\tkzDrawPoints[fill=black](B,C,D)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\immini{
+Dựng $x'Cx\parallel AB$. Do $AB\parallel DE$ nên $x'Cx\parallel DE$.\\
+Do $Cx'\parallel AB$ nên $\widehat{ABC}+\widehat{BCx'}=180^\circ$ (hai góc trong cùng phía).\\
+$\Rightarrow \widehat{BCx'}=180^\circ -110^\circ=70^\circ$.\\
+Do $Cx\parallel DE$ nên $\widehat{EDC}+\widehat{DCx}=180^\circ$ (hai góc trong cùng phía).\\
+$\Rightarrow \widehat{DCx}=180^\circ -130^\circ=50^\circ$.\\
+Mặt khác $\widehat{x'CB}+\widehat{BCD}+\widehat{DCx}=180^\circ$ (góc bẹt).\\
+Suy ra $70^\circ+\widehat{BCD}+50^\circ=180^\circ\Rightarrow \widehat{BCD}=60^\circ$.
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-3.3,xmax=4.3,ymin=-2,ymax=1.1]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-3/0/A,0/0/B,2/0.5/D,4/0.5/E}
+\tkzDefPointBy[rotation = center B angle 110](A) \tkzGetPoint{x}
+\tkzDefPointBy[rotation = center D angle -130](E) \tkzGetPoint{x'}
+\tkzInterLL(B,x)(D,x') \tkzGetPoint{C} \tkzLabelPoints[below](C)
+\tkzDefPointBy[translation = from B to A](C) \tkzGetPoint{x'} \tkzLabelPoints[below](x')
+\tkzDefPointBy[translation = from A to B](C) \tkzGetPoint{x} \tkzLabelPoints[below](x)
+\tkzLabelPoints[above](A,B,D,E)
+\draw (A)--(B)--(C)--(D)--(E) (x)--(x');
+\tkzMarkAngles[size=0.4cm,arc=l](A,B,C)
+\tkzMarkAngles[size=0.4cm,arc=ll](C,D,E)
+\tkzLabelAngles[pos=-0.7](A,B,C){\scriptsize $110^\circ$}
+\tkzLabelAngles[pos=0.7](C,D,E){\scriptsize $130^\circ$}
+\tkzDrawPoints[fill=black](B,C,D)
+\end{tikzpicture}
+}}
+\end{vn}
+
+\begin{vn}
+Cho góc $\widehat{MON}$ có số đo bằng $70^\circ$. Lấy điểm $A$ trên tia $OM$, điểm $B$ trên tia $ON$. Vẽ các tia $Ax$ và $By$ ở trong góc $\widehat{MON}$ sao cho $\widehat{MAx}=30^\circ$ và $\widehat{NBy}=40^\circ$. Chứng tỏ rằng $Ax\parallel By$.
+\loigiai{
+\immini{
+Dựng $Ot \parallel By$, ($Ot$ ở trong góc $\widehat{MON}$). Khi đó\\
+$\widehat{tOB}=\widehat{yBN}=40^\circ$ (hai góc đồng vị).\\
+Suy ra $\widehat{tOA}=\widehat{BOA}-\widehat{BOt}=70^\circ -40^\circ=30^\circ$.\\
+$\Rightarrow \widehat{tOA}=\widehat{xAM}=30^\circ$.\\
+Mà $\widehat{tOA}$ và $\widehat{xAM}$ nằm ở vị trí đồng vị.\\
+Suy ra $Ot\parallel Ax$.\\
+Ta lại có $Ot\parallel By$.\\
+Vậy $Ax\parallel By$.
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-0.8,xmax=6,ymin=-0.8,ymax=5.5]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\coordinate[label={below left}:{\footnotesize $O$}] (O) at (0,0);
+\coordinate[label={below right}:{\footnotesize $M$}] (M) at (5,0);
+\tkzDefPointBy[rotation = center O angle 70](M) \tkzGetPoint{N} \tkzLabelPoints[above left](N)
+\coordinate[label={below}:{\footnotesize $A$}] (A) at ($(O)!0.7!(M)$);
+\coordinate[label={above left}:{\footnotesize $B$}] (B) at ($(O)!0.5!(N)$);
+\tkzDefPointBy[rotation = center A angle 30](M) \tkzGetPoint{x} \tkzLabelPoints[above right](x)
+\tkzDefPointBy[rotation = center B angle -40](N) \tkzGetPoint{y} \tkzLabelPoints[above right](y)
+\tkzDefLine[parallel=through O](B,y) \tkzGetPoint{t'}
+\coordinate[label={above right}:{\footnotesize $t$}] (t) at ($(O)!2!(t')$);
+\draw (N)--(O)--(M) (A)--(x) (B)--(y) (O)--(t);
+\tkzMarkAngles[size=0.5cm,arc=l](y,B,N t,O,N)
+\tkzMarkAngles[size=0.7cm,arc=ll](M,A,x M,O,t)
+\tkzLabelAngles[pos=0.9,rotate=30](y,B,N){\scriptsize $40^\circ$}
+\tkzLabelAngles[pos=1,rotate=30](M,A,x){\scriptsize $30^\circ$}
+\tkzDrawPoints[fill=black](O,A,B)
+\end{tikzpicture}
+}}
+\end{vn}
+
+\begin{vn}
+Cho hai đường thẳng $a,b$ song song với nhau, một cát tuyến $d$ cắt $a,b$ lần lượt tại $A$ và $B$. Vẽ tia $Ax$, $By$ theo thứ tự là tia phân giác của $\widehat{aAB}$ và $\widehat{bBA}$. Chứng minh $Ax\perp By$.
+\loigiai{
+\immini[0.1]{
+Dựng $Bt\parallel Ax$. Khi đó\\
+$\widehat{xAB}=\widehat{ABt}$ (hai góc so le trong). \tagEX{1}
+Do $Aa\parallel Bb$ nên $\widehat{aAB}=\widehat{ABb'}$.\\
+$\Rightarrow \dfrac{\widehat{aAB}}{2}=\dfrac{\widehat{ABb'}}{2}$.\\
+$\Rightarrow \widehat{xAB}=\dfrac{\widehat{ABb'}}{2}$. \tagEX{2}
+Từ $(1)$ và $(2)$ suy ra $\widehat{ABt}=\dfrac{\widehat{ABb'}}{2}$.\\
+Suy ra $Bt$ là tia phân giác của $\widehat{ABb'}$.\\
+Mặt khác $By$ là tia phân giác của $\widehat{ABb}$.\\
+Mà $\widehat{ABb'}$ và $\widehat{ABb}$ kề bù.\\
+Suy ra $Bt\perp By$.\\
+Ta lại có $Bt\parallel Ax$.\\
+Vậy $Ax\perp By$.
+}{
+\begin{tikzpicture}[line join = round, line cap = round]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzInit[xmin=-3.2,xmax=3.2,ymin=-3.8,ymax=2.8]
+\tkzClip
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-3/1/a, -3/-1.5/b, 3/-1.5/b'}
+\tkzDefPointBy[translation = from b to b'](a) \tkzGetPoint{a'} \tkzLabelPoints[above](a,b,b')
+\coordinate[label={above left}:{\footnotesize $A$}] (A) at ($(a)!0.7!(a')$);
+\coordinate[label={below right}:{\footnotesize $B$}] (B) at ($(b)!0.5!(b')$);
+\tkzDrawLine[add = 0.5 and 0.5](A,B)
+\tkzDefLine[bisector](a,A,B) \tkzGetPoint{x'}
+\coordinate[label={below left}:{\footnotesize $x$}] (x) at ($(A)!0.5!(x')$);
+\tkzDefLine[bisector](A,B,b) \tkzGetPoint{y'}
+\coordinate[label={above right}:{\footnotesize $y$}] (y) at ($(B)!0.7!(y')$);
+\tkzDefLine[bisector](b',B,A) \tkzGetPoint{t'} \coordinate[label={above right}:{\footnotesize $t$}] (t) at ($(B)!0.5!(t')$);
+\draw (a)--(a') (b)--(b') (A)--(x) (B)--(y) (B)--(t);
+\tkzLabelSegment[right, pos=1.5](B,A){$d$}
+\tkzMarkAngles[size=0.5cm,arc=ll](a,A,x)
+\tkzMarkAngles[size=0.7cm,arc=ll](x,A,B)
+\tkzMarkAngles[size=0.4cm,arc=l](A,B,y)
+\tkzMarkAngles[size=0.6cm,arc=l](y,B,b)
+%\tkzMarkAngles[size=0.4cm,arc=l,mark=|](b',B,t)
+%\tkzMarkAngles[size=0.6cm,arc=l,mark=|](t,B,A)
+\tkzDrawPoints[fill=black](A,B)
+\end{tikzpicture}
+}}
+\end{vn}
+
+\begin{vn}
+Cho tam giác $ABC$. Vẽ điểm $D$ sao cho $\widehat{BAD}$ và $\widehat{ABC}$ là hai hóc so le trong, đồng thời $\widehat{BAD} = \widehat{ABC}$. Vẽ điểm $E$ sao cho $\widehat{EAC}$ và $\widehat{ACB}$ là hai góc so le trong, đồng thời $\widehat{EAC} = \widehat{ACB}$. Chứng tỏ rằng ba điểm $D, A, E$ thẳng hàng.
+\loigiai{
+\immini[0.05]{
+Ta có $\widehat{BAD} = \widehat{ABC}$ (giả thiết).\\
+Mà $\widehat{BAD}$ và $\widehat{ABC}$ là hai góc ở vị trí so le trong.\\
+Suy ra $AD \parallel BC$. \tagEX{1}
+Ta có $\widehat{EAC} = \widehat{ACB}$ (giả thiết).\\
+Mà $\widehat{EAC}$ và $\widehat{ACB}$ là hai góc ở vị trí so le trong.\\
+Suy ra $AE \parallel BC$. \tagEX{2}
+Từ $(1)$ và $(2)$ suy ra $A$, $D$, $E$ thẳng hàng.}{
+\begin{tikzpicture}[line cap=round, line join =round, >=stealth]
+\tkzInit[xmin=-4.2,xmax=4.2,ymin=-2.8,ymax=1.8]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\coordinate[label={below left}:$B$] (B) at (-3,-2);
+\coordinate[label={above}:$A$] (A) at ($(B)+(1.5,3)$);
+\coordinate[label={below right}:$C$] (C) at ($(B)+(5,0)$);
+\tkzDefPointBy[translation = from B to C](A) \tkzGetPoint{E} \tkzLabelPoints[above right](E)
+\coordinate[label={above}:{\footnotesize $D$}] (D) at ($(E)!1.5!(A)$);
+\draw (A)--(B)--(C)--cycle;
+\draw (D)--(E);
+\tkzMarkAngles[size=0.5cm,arc=l](D,A,B C,B,A)
+\tkzMarkAngles[size=0.5cm,arc=ll](C,A,E A,C,B)
+\tkzDrawPoints[fill=black](A,B,C,D,E)
+\end{tikzpicture}
+}
+}
+\end{vn}
+
+\begin{vn}
+Cho $\widehat{xOy}$ khác góc bẹt, $M$ là một điểm tùy ý trên tia $Oy$ với $M \ne O$. Vẽ tia $Ma$ sao cho $\widehat{yMa}$ và $\widehat{xOy}$ đồng vị, đồng thời $\widehat{yMa} = \widehat{xOy}$. Vẽ tia $Mb$ sao cho $\widehat{OMb}$ và $\widehat{xOy}$ là hai góc so le trong, đồng thời $\widehat{OMb} = \widehat{xOy}$. Chứng tỏ rằng hai tia $Ma$ và $Mb$ là hai tia đối nhau.
+\loigiai
+{
+\immini{
+Ta có $\widehat{yMa} = \widehat{xOy}$ (giả thiết).\\
+Mà $\widehat{yMa}$ và $\widehat{xOy}$ là hai góc ở vị trí đồng vị.\\
+Suy ra $Ma \parallel Ox$. \tagEX{1}
+Ta có $\widehat{OMb} = \widehat{xOy}$ (giả thiết).\\
+Mà $\widehat{OMb}$ và $\widehat{xOy}$ là hai góc ở vị trí so le trong.\\
+Suy ra $Mb \parallel Ox$. \tagEX{2}
+Từ $(1)$ và $(2)$, theo tiên đề Ơ-clit, ta có hai đường thẳng chứa hai tia $Ma$, $Mb$ trùng nhau. \\
+Mà hai tia $Ma$, $Mb$ nằm khác phía với bờ là đường thẳng chứa tia $Oy$.\\
+Vậy hai tia $Ma$ và $Mb$ đối nhau.}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-0.8,xmax=5,ymin=-3.1,ymax=2.1]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\coordinate[label={above left}:{$O$}] (O) at (0,0);
+\coordinate[label={above right}:{$x$}] (x) at (4.5,1.5);
+\coordinate[label={below left}:{$b$}] (b) at (0,-2.5);
+\tkzDefPointBy[translation = from O to x](b) \tkzGetPoint{a} \tkzLabelPoints[below right](a)
+\coordinate[label={below}:{\footnotesize $M$}] (M) at ($(b)!0.5!(a)$);
+\coordinate[label={below right}:{\footnotesize $y$}] (y) at ($(O)!1.5!(M)$);
+\draw (O)--(x) (b)--(a) (O)--(y);
+\tkzMarkAngles[size=0.5cm,arc=l](M,O,x O,M,b y,M,a)
+\tkzDrawPoints[fill=black](O,M)
+\end{tikzpicture}}
+}
+\end{vn}
+
+\begin{vn}
+Cho hình vẽ sau, biết $MN \perp NP$, $\widehat{ABM} = \widehat{BMN} = 135^\circ$. Chứng minh rằng $AB \parallel NP$.
+\begin{center}
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-3/1/A,0/1/B,1.5/-0.5/M,1.5/-2/N,-3/-2/P}
+\tkzLabelPoints[above](A,B)
+\tkzLabelPoints[below](P,N)
+\tkzLabelPoints[right](M)
+\draw (A)--(B)--(M)--(N)--(P);
+\tkzMarkAngles[size=0.3cm,arc=l](A,B,M B,M,N)
+\tkzLabelAngles[pos=-0.7](A,B,M B,M,N){\scriptsize $135^\circ$}
+\tkzMarkRightAngles[size=0.3](M,N,P)
+\tkzDrawPoints[fill=black](B,M,N)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\immini{
+Vẽ tia $Mt$ ở trong góc $\widehat{BMN}$ sao cho $Mt \parallel AB$.\\
+Ta có $\widehat{ABM} +\widehat{M_1} = 180^\circ$ (cặp góc trong cùng phía).\\
+Suy ra $\widehat{M_1} = 180^\circ - 135^\circ = 45^\circ$.\\
+Do đó $\widehat{M_2} = 135^\circ - 45^\circ = 90^\circ$.\\
+$\Rightarrow Mt\perp MN$.\\
+Mặt khác $NP \perp MN$ (giả thiết).\\
+Suy ra $Mt \parallel NP$ (vì cùng vuông góc với $MN$).\\
+Ta lại có $Mt\parallel AB$.\\
+Vậy $AB \parallel NP$.}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-3.8,xmax=2.2,ymin=-2.8,ymax=1.8]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-3/1/A,0/1/B,1.5/-0.5/M,1.5/-2/N,-3/-2/P}
+\tkzDefPointBy[translation = from N to P](M) \tkzGetPoint{t} \tkzLabelPoints[below left](t)
+\tkzLabelPoints[above](A,B)
+\tkzLabelPoints[below](P,N)
+\tkzLabelPoints[right](M)
+\draw (A)--(B)--(M)--(N)--(P);
+\draw[dashed] (M)--(t);
+\tkzLabelAngles[pos=0.5](B,M,t){\scriptsize $1$}
+\tkzLabelAngles[pos=-0.4](t,M,N){\scriptsize $2$}
+\tkzMarkRightAngles[size=0.3](M,N,P)
+\tkzDrawPoints[fill=black](B,M,N)
+\end{tikzpicture}}
+}
+\end{vn}
+
+\begin{vn}
+Cho hình vẽ sau, biết $\widehat{B} = \widehat{O} = \widehat{C} =120^\circ$. Chứng minh rằng $AB \parallel CD$.
+\begin{center}
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-3.5,xmax=2.8,ymin=-2.8,ymax=1.7]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-3/-2/D,1/-2/C,-3/1/A}
+\tkzDefPointBy[translation = from D to C](A) \tkzGetPoint{B}
+\coordinate[label={right}:{\footnotesize $O$}] (O) at (2,-0.5);
+\draw (A)--(B)--(O)--(C)--(D);
+\tkzLabelPoints[above](A,B)
+\tkzLabelPoints[below left](D)
+\tkzLabelPoints[below right](C)
+\tkzMarkAngles[size=0.35cm,arc=l](A,B,O B,O,C O,C,D)
+\tkzLabelAngles[pos=0.7](O,C,D){\scriptsize $120^\circ$}
+\tkzLabelAngles[pos=-0.7](A,B,O B,O,C){\scriptsize $120^\circ$}
+\tkzDrawPoints[fill=black](B,O,C)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\immini{
+Ở trong góc $BOC$ vẽ tia $Ot \parallel AB$. \\
+Ta có $\widehat{ABO} + \widehat{BOt} = 180^\circ$ (cặp góc trong cùng phía) suy ra $\widehat{BOt} = 60^\circ$.\\
+Ngoài ra, $\widehat{BOC} = \widehat{BOt} + \widehat{COt}$\\
+$\Rightarrow \widehat{COt} = 120^\circ - 60^\circ = 60^\circ$.\\
+$\Rightarrow \widehat{COt} + \widehat{C} = 60^\circ +120^\circ =180^\circ$.\\
+Mà $\widehat{COt}$ và $\widehat{C}$ nằm ở vị trí trong cùng phía.\\
+Suy ra $Ot \parallel CD$.\\
+Ta lại có $AB \parallel Ot$.\\
+Vậy $AB \parallel CD$.
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-3.5,xmax=2.8,ymin=-2.8,ymax=1.7]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-3/-2/D,1/-2/C,-3/1/A}
+\tkzDefPointBy[translation = from D to C](A) \tkzGetPoint{B}
+\coordinate[label={right}:{\footnotesize $O$}] (O) at (2,-0.5);
+\coordinate[label={below left}:{\footnotesize $t$}] (t) at ($(O)+(-5,0)$);
+\draw (A)--(B)--(O)--(C)--(D) (O)--(t);
+\tkzLabelPoints[above](A,B)
+\tkzLabelPoints[below left](D)
+\tkzLabelPoints[below right](C)
+\tkzMarkAngles[size=0.35cm,arc=l](A,B,O B,O,C O,C,D)
+\tkzDrawPoints[fill=black](B,O,C)
+\end{tikzpicture}
+}}
+\end{vn}
+
+\begin{vn}
+Cho hình vẽ sau, biết $\widehat{ABy}=60^\circ$; $\widehat{BAC}=20^\circ$; $\widehat{CAx}=40^\circ$; $\widehat{ACt}=140^\circ$. Chứng tỏ $Ct\parallel By$.
+\begin{center}
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-3.5,xmax=5.5,ymin=-1.8,ymax=2.8]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-1/-1/A,0.5/2/B,-3/2/y,1.5/1/C}
+\tkzDefPointsBy[translation= from y to B](A,C){x,t} \tkzLabelPoints[below right](x,t)
+\tkzLabelPoints[below](A)
+\tkzLabelPoints[above](B,y,C)
+\draw (A)--(B)--(y) (x)--(A)--(C)--(t);
+\tkzLabelAngles[pos=-0.8](y,B,A){\scriptsize $60^\circ$}
+\tkzLabelAngles[pos=1.2](B,A,C){\scriptsize $20^\circ$}
+\tkzLabelAngles[pos=0.9](C,A,x){\scriptsize $40^\circ$}
+\tkzLabelAngles[pos=0.6](A,C,t){\scriptsize $140^\circ$}
+\tkzMarkAngles[size=0.5cm,arc=l](y,B,A)
+\tkzMarkAngles[size=0.5cm,arc=l,mark=|](x,A,C)
+\tkzMarkAngles[size=0.7cm,arc=ll](C,A,B)
+\tkzMarkAngles[size=0.4cm,arc=ll,mark=|](A,C,t)
+\tkzDrawPoints[fill=black](A,B,C)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\immini{
+Ta có\\
+$\begin{aligned}
+\widehat{BAx}&=\widehat{BAC}+\widehat{CAx}\\
+&=20^\circ+40^\circ =60^\circ.
+\end{aligned}$\\
+Suy ra $\widehat{BAx}=\widehat{ABy}$.\\
+Mà $\widehat{BAx}$ và $\widehat{ABy}$ nằm ở vị trí so le trong.\\
+Suy ra $By\parallel Ax$. \tagEX{1}
+Ta có $\widehat{CAx}+\widehat{ACt}=140^\circ +40^\circ=180^\circ$.\\
+Mà $\widehat{CAx}$ và $\widehat{ACt}$ nằm ở vị trí trong cùng phía.
+Suy ra $Ct\parallel Ax$. \tagEX{2}
+Từ $(1)$ và $(2)$ suy ra $By\parallel Ct$.
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-3.5,xmax=5.5,ymin=-1.8,ymax=2.8]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-1/-1/A,0.5/2/B,-3/2/y,1.5/1/C}
+\tkzDefPointsBy[translation= from y to B](A,C){x,t} \tkzLabelPoints[below right](x,t)
+\tkzLabelPoints[below](A)
+\tkzLabelPoints[above](B,y,C)
+\draw (A)--(B)--(y) (x)--(A)--(C)--(t);
+\tkzLabelAngles[pos=-0.8](y,B,A){\scriptsize $60^\circ$}
+\tkzLabelAngles[pos=1.2](B,A,C){\scriptsize $20^\circ$}
+\tkzLabelAngles[pos=0.9](C,A,x){\scriptsize $40^\circ$}
+\tkzLabelAngles[pos=0.6](A,C,t){\scriptsize $140^\circ$}
+\tkzMarkAngles[size=0.5cm,arc=l](y,B,A)
+\tkzMarkAngles[size=0.5cm,arc=l,mark=|](x,A,C)
+\tkzMarkAngles[size=0.7cm,arc=ll](C,A,B)
+\tkzMarkAngles[size=0.4cm,arc=ll,mark=|](A,C,t)
+\tkzDrawPoints[fill=black](A,B,C)
+\end{tikzpicture}
+}}
+\end{vn}
+
+\begin{vn}
+Xem hình dưới rồi cho biết hai góc $\widehat{M_1}$ và $\widehat{N_1}$ phải có điều kiện gì để cho $c \perp a$.
+\begin{center}
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-2.3,xmax=3.2,ymin=-2,ymax=2.6]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-2/1/a,3/1/a',-2/-1/b}
+\tkzDefPointBy[translation = from a to a'](b) \tkzGetPoint{b'}
+\coordinate[label={above right}:{\footnotesize $M$}] (M) at ($(a)!0.6!(a')$);
+\coordinate (C) at ($(a)!0.2!(a')$);
+\coordinate[label={below left}:{\footnotesize $N$}] (N) at ($(b)!0.8!(b')$);
+\coordinate (D) at ($(b)!0.2!(b')$);
+\tkzLabelPoints[above](a,b)
+\draw (a)--(a') (b)--(b');
+\tkzDrawLine[add = 0.5 and 0.5](M,N)
+\tkzDrawLine[add = 0.5 and 0.5](C,D)
+\tkzLabelSegment[above right,pos=1.5](D,C){\footnotesize $c$}
+\tkzLabelAngles[pos=0.4](a',M,N M,N,b'){\scriptsize $1$}
+\tkzMarkRightAngles[size=0.3](C,D,N)
+\tkzDrawPoints[fill=black](M,N)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\immini{
+Giả sử $c \perp a$. Khi đó $a \parallel b$ (vì cùng vuông góc với $c$).\\
+Suy ra $\widehat{M_1} + \widehat{N_1} =180^\circ$ (cặp góc ở vị trí trong cùng phía).\\
+Vậy để $c \perp a$ thì $\widehat{M_1} + \widehat{N_1} =180^\circ$.
+}{
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, scale=1]
+\tkzInit[xmin=-2.3,xmax=3.2,ymin=-2,ymax=2.6]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\tkzDefPoints{-2/1/a,3/1/a',-2/-1/b}
+\tkzDefPointBy[translation = from a to a'](b) \tkzGetPoint{b'}
+\coordinate[label={above right}:{\footnotesize $M$}] (M) at ($(a)!0.6!(a')$);
+\coordinate (C) at ($(a)!0.2!(a')$);
+\coordinate[label={below left}:{\footnotesize $N$}] (N) at ($(b)!0.8!(b')$);
+\coordinate (D) at ($(b)!0.2!(b')$);
+\tkzLabelPoints[above](a,b)
+\draw (a)--(a') (b)--(b');
+\tkzDrawLine[add = 0.5 and 0.5](M,N)
+\tkzDrawLine[add = 0.5 and 0.5](C,D)
+\tkzLabelSegment[above right,pos=1.5](D,C){\footnotesize $c$}
+\tkzLabelAngles[pos=0.4](a',M,N M,N,b'){\scriptsize $1$}
+\tkzMarkRightAngles[size=0.3](C,D,N)
+\tkzDrawPoints[fill=black](M,N)
+\end{tikzpicture}
+}}
+\end{vn}
+
+\begin{vn}
+Cho hình vẽ sau, biết $\widehat{A} = \widehat{B} = \widehat{C} = 90^\circ$. Chứng tỏ rằng $\widehat{D} = 90^\circ$.
+\begin{center}
+\begin{tikzpicture}[line cap=round, line join =round, >=stealth]
+\def\r{2.5} \def\d{4}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\coordinate[label={below left}:$B$] (B) at (-3,-2);
+\coordinate[label={above left}:$A$] (A) at ($(B)+(0,\r)$);
+\coordinate[label={below right}:$C$] (C) at ($(B)+(\d,0)$);
+\coordinate[label={above  right}:$D$] (D) at ($(A)+(\d,0)$);
+\draw (A)--(B)--(C)--(D)--cycle;
+\tkzMarkRightAngles(A,B,C B,C,D D,A,B)
+\tkzDrawPoints[fill=black](A,B,C,D)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+\immini{
+Ta có $\heva{&AB \perp AD \quad \text{(vì $\widehat{A} = 90^\circ$)}\\ &AB \perp BC \quad \text{(vì $\widehat{B} = 90^\circ$)}}$.\\
+Suy ra $AD \parallel BC$.\\
+Mà $BC \perp DC$ (vì $\widehat{C} = 90^\circ$).\\
+Suy ra $AD \perp DC$.\\
+Vậy $\widehat{D} = 90^\circ$. 
+}{
+\begin{tikzpicture}[line cap=round, line join =round, >=stealth]
+\def\r{2.5} \def\d{4}
+%\draw[cyan,dashed] (-5,-5) grid (5,5);
+\coordinate[label={below left}:$B$] (B) at (-3,-2);
+\coordinate[label={above left}:$A$] (A) at ($(B)+(0,\r)$);
+\coordinate[label={below right}:$C$] (C) at ($(B)+(\d,0)$);
+\coordinate[label={above  right}:$D$] (D) at ($(A)+(\d,0)$);
+\draw (A)--(B)--(C)--(D)--cycle;
+\tkzMarkRightAngles(A,B,C B,C,D D,A,B)
+\tkzDrawPoints[fill=black](A,B,C,D)
+\end{tikzpicture}
+}}
+\end{vn}
+
+\Closesolutionfile{ans}

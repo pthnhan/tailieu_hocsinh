@@ -1,0 +1,288 @@
+\begin{bt}%[Nguyễn Thế Anh]%[EX-TS10-ToanTT-2019]%[8H4B3]
+	Một miếng bìa hình chữ nhật có chiều dài và chiều rộng lần lượt là $60$ cm và $40$ cm. Người ta cắt $4$ góc của miếng bìa này ra thành 4 hình chữ nhật bằng nhau (dài $15$ cm và rộng $8$ cm). Sau đó gấp miếng bìa lên để được hình hộp như hình vẽ. Hỏi nếu dùng hình hộp này để đựng nước thì nó chứa được thể tích nước là bao nhiêu?
+\dapso {$5760$ cm$^3$}
+\begin{center}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzDefPoints{0/0/A, 0/4/B, 6/4/C,6/0/D, 1.5/0/A1, 4.5/0/A2, 1.5/4/B1, 4.5/4/B2, 0/0.8/C1, 0/3.2/C2, 6/0.8/D1, 6/3.2/D2, 1.5/0.8/E1,4.5/0.8/E2, 4.5/3.2/E3, 1.5/3.2/E4}
+\draw[<->] ($(C2)+(-0.3,0)$)--($(B)+(-0.3,0)$) node[midway, left ]{8 cm};
+\draw[<->] ($(B)+(0,0.3)$)--($(B1)+(0,0.3)$) node[midway,  above ]{15cm};
+\draw[<->] ($(A)+(0,-1)$)--($(D)+(0,-1)$) node[midway,  below ]{60 cm};
+\draw[<->] ($(A)+(-2,0)$)--($(B)+(-2,0)$)node[midway, left]{40 cm};
+\tkzDrawSegments(C1,C2 C2,E4 E4,B1 B1,B2 B2,E3 E3,D2 D2,D1 D1,E2 E2,A2 A2,A1 A1,E1 E1,C1)
+\tkzDrawSegments[dashed](C2,B B,B1 B2,C C,D2 D1,D D,A2 A1,A  A,C1 E4,E3 E3,E2 E2,E1 E1,E4)
+\tkzFillPolygon[color=black,fill opacity=0.1](E4,E3,E2,E1)
+\end{tikzpicture}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzDefPoints{0/0/A, 1/2/B, 3/0/D,4/2/C, 0/1.5/A1, 1/3.4/B1, 4/3.4/C1, 3/1.5/D1,0/0.8/A2, 1/2.8/B2, 4/2.8/C2, 3/0.8/D2}
+\draw[<->] ($(C)+(0.3,0)$)--($(C1)+(0.3,0)$) node[midway, right ]{15 cm};
+\draw[<->] ($(A)+(-0.3,0)$)--($(A2)+(-0.3,0)$) node[midway,  left ]{8cm};
+\draw[<->] ($(A)+(0,-0.5)$)--($(D)+(0,-0.5)$) node[midway,  below ]{30cm};
+%\draw[<->] ($(A)+(-2,0)$)--($(B)+(-2,0)$)node[midway, left]{40 cm};
+\tkzInterLL(B2,C2)(D1,C1)
+\tkzGetPoint{G1}
+\tkzInterLL(B,C)(D1,C1)
+\tkzGetPoint{G2}
+\tkzInterLL(B,A)(A2,D2)
+\tkzGetPoint{G3}
+\tkzDrawSegments(A,D A2,D2 D,C C,C1 C1,D1 D1,D D2,C2 A,A1 A1,B1 A2,B2 B1,B B2,G1 G2,B G3,B)
+\tkzDrawSegments[dashed](G1,C2 G2,C G3,A)
+%\tkzDrawPoints(A,B,C,D,A1,B1,C1,D1)
+%\tkzLabelPoints[below](A,B,C,D,A1,B1,C1,D1,A2,B2,C2,D2)
+\tkzFillPolygon[color=black,fill opacity=0.1](A,B,C,D)
+%\tkzLabelPoints[left](A)
+%\tkzLabelPoints[right](B)
+\end{tikzpicture}
+\end{center}
+\loigiai {
+	Thể tích của phần hình hộp chữ nhật dùng để chứa nước:\\
+	$V=a\cdot b\cdot c=30\cdot 24\cdot 8=5760$(cm$^3$).\\
+	Do đó hình hộp chữ nhật chứa được $5760$ cm$^3$ nước.	
+		}
+\end{bt}
+
+\begin{bt}%[EX-TS10-ToanTT-2019]%[Phạm Tuấn]%[8H4B3]
+Các khối Rubic hình lập phương có kích thước $\textrm{5,7cm x 5,7cm x 5,7cm}$ được đựng trong một hộp hình chữ nhật có diện tích đáy lòng hộp là $\textrm{17,1cm x 28,5cm}$ và hộp chứa đầy được $60$ khối Rubic. Tính chiều cao $AA’$ của lòng hình hộp (làm tròn đến hàng đơn vị).  \dapso{$22{,}8$ cm}
+\begin{center}
+\begin{minipage}[h]{0.45 \textwidth}
+\begin{tikzpicture}[scale=1.2]
+   \clip (-3,-3) rectangle (3,3);
+   \coordinate (tf) at (0,0);
+   \coordinate (bf) at (0,-3);
+   \coordinate (tr) at (15:2.5cm);
+   \coordinate (tl) at (165:2.5cm);
+
+   % You can change the perspective by playing with the 5, 5, 15:
+   \coordinate (fr) at ($ (tf)!5!(tr) $);
+   \coordinate (fl) at ($ (tf)!5!(tl) $);
+   \coordinate (fb) at ($ (tf)!15!(bf) $);
+
+   \path[name path=brpath] (bf) -- (fr);
+   \path[name path=rbpath] (tr) -- (fb);
+   \path[name path=blpath] (bf) -- (fl);
+   \path[name path=lbpath] (tl) -- (fb);
+   \path[name path=trpath] (tl) -- (fr);
+   \path[name path=tlpath] (tr) -- (fl);
+
+   \draw[name intersections={of=brpath and rbpath}] (intersection-1)coordinate (br){}; 
+   \draw[name intersections={of=blpath and lbpath}] (intersection-1)coordinate (bl){}; 
+   \draw[name intersections={of=trpath and tlpath}] (intersection-1)coordinate (tb){}; 
+
+   \shade[right color=gray!10, left color=black!50, shading angle=105] (tf) -- (bf) -- (bl) -- (tl) -- cycle;
+   \shade[left color=gray!10, right color=black!50, shading angle=75] (tf) -- (bf) -- (br) -- (tr) -- cycle;
+
+   \begin{scope}
+      \clip (tf) -- (tr) -- (tb) -- (tl) -- cycle;
+      \shade[inner color = gray!5, outer color=black!50, shading=radial] (tf) ellipse (3cm and 1.5cm);
+   \end{scope}
+
+   \draw (tf) -- (bf);
+   \draw (tf) -- (tr);
+   \draw (tf) -- (tl);
+   \draw (tr) -- (br);
+   \draw (bf) -- (br);
+   \draw (tl) -- (bl);
+   \draw (bf) -- (bl);
+   \draw (tb) -- (tr);
+   \draw (tb) -- (tl);
+
+   %set the sizes of the little cubes:
+   \def\tone{.4}\def\ttwo{.75}\def\fone{.36}\def\ftwo{.70}
+   \draw ($ (bf)!\tone!(br) $) -- ($ (tf)!\tone!(tr) $) -- ($ (tl)!\tone!(tb) $);
+   \draw ($ (bf)!\ttwo!(br) $) -- ($ (tf)!\ttwo!(tr) $) -- ($ (tl)!\ttwo!(tb) $);
+   \draw ($ (bf)!\tone!(bl) $) -- ($ (tf)!\tone!(tl) $) -- ($ (tr)!\tone!(tb) $);
+   \draw ($ (bf)!\ttwo!(bl) $) -- ($ (tf)!\ttwo!(tl) $) -- ($ (tr)!\ttwo!(tb) $);
+   \draw ($ (tl)!\fone!(bl) $) -- ($ (tf)!\fone!(bf) $) -- ($ (tr)!\fone!(br) $);
+   \draw ($ (tl)!\ftwo!(bl) $) -- ($ (tf)!\ftwo!(bf) $) -- ($ (tr)!\ftwo!(br) $);
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}[h]{0.45 \textwidth}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{2/-0.5/A,0/-2/B,5/-2/C,2/3/A'}
+\tkzDefPointBy[translation=from B to C](A) \tkzGetPoint{D}
+\tkzDefPointBy[translation=from A to A'](B) \tkzGetPoint{B'}
+\tkzDefPointBy[translation=from A to A'](C) \tkzGetPoint{C'}
+\tkzDefPointBy[translation=from A to A'](D) \tkzGetPoint{D'}
+\tkzDrawSegments(A',B' B',C' C',D' D',A' B,B' C,C' D,D' B,C C,D)
+\tkzDrawSegments[dashed](A,B A,D A,A')
+%\tkzMarkRightAngle[size=0.3](B',B,O)
+%\tkzMarkRightAngle[size=0.3](B,O,A)
+\tkzDrawPoints[fill=black,size=6](A,B,C,D,A',B',C',D')
+\tkzLabelPoints[below](B,C)
+\tkzLabelPoints[above](A',D')
+\tkzLabelPoints[left](A,B')
+\tkzLabelPoints[right](D,C')
+\end{tikzpicture}
+\end{minipage}
+\end{center}
+\loigiai{
+Thể tích của khối Rubic là  $5{,7}^3$. \\
+Thể tích của khối hộp là $AB \cdot AD \cdot AA' = 17{,}1 \cdot 28{,}5 \cdot AA'$. \\
+Thể tích của khối hộp bằng $60$ lần thể tích của khối Rubic suy ra 
+\begin{align*}
+17{,}1 \cdot 28{,}5 \cdot AA' = 60 \cdot 5{,7}^3 \Rightarrow  AA' = \dfrac{ 60 \cdot 5{,7}^3}{17{,}1 \cdot 28{,}5} = 22{,}8 \textrm{ (cm).}
+\end{align*}
+}
+\end{bt}
+
+\begin{bt}%[Nguyễn Văn Sơn]%[EX-TS10-ToanTT-2019]%[8H4K3]
+Có ba thùng hình hộp chữ nhật. Thùng thứ nhất có đáy là hình chữ nhật có chiều dài gấp đôi chiều rộng, chiều cao của thùng bằng một nửa chiều rộng của đáy. Thùng thứ hai có các kích thước gấp đôi thùng thứ nhất. Thùng thứ ba có các kích thước gấp $2,1$ lần các kích thước của thùng thứ nhất. Cho biết thùng thứ nhất và thùng thứ hai chứa đầy nước. Hỏi thùng thứ ba có thể chứa hết lượng nước của cả thùng thứ nhất và thùng thứ hai không? Nếu chứa được thì độ cao của nước trong thùng thứ ba bằng bao nhiêu lần độ cao của thùng này?
+\dapso{$\dfrac{1000}{1029}$}
+\loigiai{
+Gọi chiều rộng của thùng thứ nhất bằng $a$. Ta có:\\
+* Thùng thứ nhất có: \\
+Chiều rộng: $r_1=a$; Chiều dài: $d_1=2a$; Chiều cao $h_1=\dfrac{a}{2}.$\\
+Thể tích của thùng thứ nhất là $V_1=a^3$.\\
+* Thùng thứ hai có: \\
+Chiều rộng: $r_2=2a$; Chiều dài: $d_2=4a$; Chiều cao $h_2=a$.\\
+Thể tích của thùng thứ hai là $V_2=8a^3$.\\
+* Thùng thứ ba có: \\
+Chiều rộng: $r_3=2,1a$; Chiều dài: $d_3=4,2a$; Chiều cao $h_3=\dfrac{2,1a}{2}$.\\
+Thể tích của thùng thứ hai là $V_3=9,261a^3$.\\
+Tổng thể tích của hai thùng thứ nhất và thứ hai là $V_1+V_2=9a^3$.\\
+Vậy thùng thứ ba có thể đựng hết số nước của hai thùng thứ nhất và thứ hai.\\
+
+Chiều cao mà lượng nước chiếm trong thùng thứ ba là $h=\dfrac{9a^3}{9,261a^3} \cdot h_3 = \dfrac{1000}{1029}h_3.$
+
+}
+\end{bt}
+
+\begin{bt}%[Bùi Quốc Hoàn]%[EX-TS10-ToanTT-2019]%[8H4T5]
+ Một phòng học hình hộp chữ nhật $8\, \mathrm{m}$, chiều rộng $6\, \mathrm{m}$ và chiều cao $3{,}8\, \mathrm{m}$. Thầy hiệu trưởng muốn thuê người quét sơn trần phòng học và bốn bức tường. Người thợ sơn báo giá sơn trọn gói $68000\, \mathrm{\text{VNĐ}}/\mathrm{m}^2$. Biết rằng tổng diện tích các cửa không cần sơn là $6{,}8\, \mathrm{m}^2$. Tính số tiền thầy hiệu trưởng cần trả cho người thợ sơn.
+	\dapso{Số tiền cần trả là $10036800\, \mathrm{\text{đồng}}$}
+	\loigiai{Do giả thiết suy ra số diện tích cần quét sơn là 
+		$$\left(6\cdot 8 + 2\cdot 8\cdot 3{,}8 +  2\cdot 6\cdot 3{,}8\right) - 6{,}8 = 147{,}6\, \left(\mathrm{m}^2\right).$$
+	Suy ra số tiền cần phải trả người thợ sơn là $147{,}6\cdot 68000 = 10036800\, \left(\mathrm{\text{đồng}}\right)$.\\
+	Vậy số tiền cần phải trả là $10036800\, \mathrm{\text{đồng}}$.\\
+	}
+\end{bt}
+
+\begin{bt}%[EX-TS10-ToanTT-2019]%[Phạm Tuấn]%[8H4K6]
+Bể bơi là một khối hộp hình chữ nhật, đáy lòng có chiều dài $AB = 25$ m, chiều ngang $AD = 15$ m, có độ sâu $AA’ = 2,5$ m. Người ta đúc một khối xi măng hình lăng trụ đứng $AIB. DKC$, đáy là tam giác $AIB$ vuông tại $A$, $AI = 1,2$ m, $AB = 25$ m, chiều cao $AD$ để khi bơm nước vào bể thì có chỗ nông, có chỗ sâu. Người ta bơm nước vào bể sao cho mặt nước cách mặt bể $0,5$ m. Hãy tính xem bể lúc đó chứ bao nhiêu lít nước ($1\mathrm{dm}^3$ nước  = $1$ lít nước). \dapso{$525000$ lít}
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\tkzDefPoints{2/-0.5/A,0/-2/B,5/-2/C,2/3/A'}
+\tkzDefPointBy[translation=from B to C](A) \tkzGetPoint{D}
+\tkzDefPointBy[translation=from A to A'](B) \tkzGetPoint{B'}
+\tkzDefPointBy[translation=from A to A'](C) \tkzGetPoint{C'}
+\tkzDefPointBy[translation=from A to A'](D) \tkzGetPoint{D'}
+\tkzDefBarycentricPoint(A'=5,A=1) \tkzGetPoint{M}
+\tkzDefPointBy[translation=from A' to M](B') \tkzGetPoint{N}
+\tkzDefPointBy[translation=from A' to M](C') \tkzGetPoint{P}
+\tkzDefPointBy[translation=from A' to M](D') \tkzGetPoint{Q}
+\tkzDefBarycentricPoint(A'=2,A=4) \tkzGetPoint{I}
+\tkzDefPointBy[translation=from B to C](I) \tkzGetPoint{K}
+\tkzDrawPolygon[dashed, fill=black!50!cyan!20!](M,N,P,Q)
+\tkzDrawSegments(A',B' B',C' C',D' D',A' B,B' C,C' D,D' B,C C,D C,K N,P P,Q)
+\tkzDrawSegments[dashed](A,B A,D A,A' I,K I,B)
+\tkzDrawPoints[fill=black,size=6](A,B,C,D,A',B',C',D')
+\tkzLabelPoints[below](B,C)
+\tkzLabelPoints[above](A',D')
+\tkzLabelPoints[left](A,B')
+\tkzLabelPoints[above right](I)
+\tkzLabelPoints[right](K,D,C')
+\end{tikzpicture}
+\end{center}
+Thể tích nước trong bể bơi bằng thể tích của bể bơi trừ đi thể tích của phần không chứa nước và thể tích của khối lăng trụ  $AIB. DKC$. \\
+Thể tích của bể bơi là $AB \cdot AD \cdot AA' = 15 \cdot 25 \cdot 2,5 =937,5$.  \\
+Thể tích của phần không chứa nước là $0,5 \cdot AB \cdot AD = 0,5 \cdot 25 \cdot 15 = 187,5$.  \\
+Thể tích của khối lăng trụ $AIB. DKC$ là $AD \cdot S_{ABI} = \dfrac{1}{2}AD \cdot AB \cdot AI = \dfrac{1}{2} \cdot 15 \cdot 25 \cdot 1,2 = 225$.  \\
+Vậy thể tích nước trong bể bơi là  $937,5-187,5-225 =525~ \mathrm{m^3} = 525000 \textrm{ lít}$. 
+}
+
+\end{bt}
+
+\begin{bt}%[]%[EX-TS10-ToanTT-2019]%[8H4K6]
+	Để ước lượng khối lượng một cây trong rừng, người ta chỉ cần xác định: ”Chiều cao ($h$) của cây, chu vi ($CV$) vòng tròn thân (ngang tầm ngực)”. Áp dụng công thức tính thể tích hình trụ ($V$), tính thể tích cây. Nếu biết khối lượng của gỗ trên $1$ m$^3$, ta tính được khối lượng của cây.\\
+	Giả sử ta đo được một cây cao $h=24$ m, chu vi vòng tròn thân (ngang tầm ngực) là $CV=1{,}32$ m và cho biết loại cây này có khối lượng $700$ kg/m$^3$. Tính khối lượng của cây? Lấy $\pi=3{,}14$) (làm tròn đến hau chữ số thập phân).
+	
+	\dapso{$2310$ kg}
+	\loigiai{
+		Ta có công thức tính thể tích hình trụ khi có chu vi đáy và chiều cao là: $V=\left(\dfrac{CV}{2\pi}\right)^2\cdot\pi\cdot h$.\\
+		Áp dụng ta có $V=\left(\dfrac{1{,}32}{2\cdot3{,}14}\right)^2\cdot3{,}14\cdot 24=3{,}3 \text{ m}^3$.\\
+		Vậy khối lương gỗ của cây là $3{,}3\cdot 700=2310$ kg.
+	}
+\end{bt}
+
+\begin{bt}%[]%[EX-TS10-ToanTT-2019]%[8H4K7]
+	Để làm một cái mũ chú hề có hình nón với đường kính đáy là $160$ mm và chiều cao là $400$ mm như hình bên trái,. Bạn An cần một tờ giấy thủ công màu và cắt ra thành một hình quạt tròn $OAB$ như hình bên phải.
+(Độ dài làm tròn đến một chữ số thập phân).
+	\begin{center}
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+		\tkzInit[ymin=-0.5,ymax=6,xmin=-0.1,xmax=12.1]
+		%\tkzAxeXY
+		%\tkzGrid
+		\tkzClip
+		\tkzSetUpPoint[color=black,fill=black,size=6]
+		%\draw  (2,2) ellipse(2cm and 1cm);
+		\draw  (0,1) arc (180:360:2 and 0.6);
+		\draw  (0,1) [dashed] arc (180:0:2 and 0.6);
+		\shade[ball color=blue!30,opacity=0.5] (2,5)--(0,1)arc (180:360:2 and 0.6)--(4,1);
+		\draw (2,5)--(0,1) (2,5)--(4,1);
+		\draw (8,5)--(5,1) (8,5)--(11,1);
+		\draw[fill=blue!30,opacity=0.5]  (5,1) arc (180:360:3 and 1)--(8,5)--(5,1);
+		\node at (8,5) [above]{$O$};
+		\node at (5,1) [left]{$A$};
+		\node at (11,1) [right]{$B$};
+		
+		\end{tikzpicture}
+	\end{center}
+	Hãy xác định bán kính hình quạt và góc $\widehat{AOB}$ (làm tròn đến độ, lấy $\pi =3{,}14$).
+	\dapso{$430{,}8 \text{ cm}$ và $49{,}7^\circ$}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			\tkzInit[ymin=-0.5,ymax=6,xmin=-0.5,xmax=12.1]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%\draw  (2,2) ellipse(2cm and 1cm);
+			\draw  (0,1) arc (180:360:2 and 1);
+			\draw  (0,1) [dashed] arc (180:0:2 and 1);
+			\draw (2,5)--(0,1) (2,5)--(4,1);
+			\draw (8,5)--(5,1) (8,5)--(11,1);
+			\draw  (5,1) arc (180:360:3 and 1);
+			\node at (8,5) [above]{$O$};
+			\node at (5,1) [left]{$A$};
+			\node at (11,1) [right]{$B$};
+			\tkzDefPoints{2/1/O',2/5/O,0/1/A}
+			\tkzDrawPoints(O',O,A)
+			\tkzLabelPoints[below](O')
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[above](O)
+			\tkzDrawSegments[dashed](O',A O,O')
+			\tkzLabelSegment[above](A,O'){$160$ mm}
+			\tkzLabelSegment[sloped](O,O'){$400$ mm}
+			\end{tikzpicture}
+		\end{center}
+		Gọi $O'$ là tâm của đường tròn đáy như hình trên. \\
+		Xét $\triangle OAO'$ vuông tại $O'$, theo định lý Pythagore ta có\\
+		$OA^2=OO'^2+AO'^2=400^2+160^2=185\ 600\Leftrightarrow OA=430{,}8 \text{ cm}$.\\
+		Góc ở tâm $\widehat{AOB}$ là
+		$\dfrac{AO'^2\cdot\pi}{OA^2\cdot\pi}\cdot360^\circ=\dfrac{25\ 600}{185\ 600}\cdot360^\circ=49{,}7^\circ$.
+	}
+\end{bt}
+
+\begin{bt}%[Phạm An Bình]%[EX-TS10-ToanTT-2019]%[8H4B9]
+	\immini{
+		Trong một khu vui chơi, người ta dựng một mô hình kim tự tháp bằng bê tông cốt thép. Kim tự tháp là hình chóp đều, đáy là hình vuông mỗi cạnh $3$ m, chiều cao hình chóp $4$ m. Tính khối lượng bê tông cốt thép đã sử dụng (biết rằng khối lượng bê tông cốt thép là $2{,}5$ tấn/mét khối (m$^3$).
+	}{
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\tkzDefPoints{0/0/A, 1.5/0/B, 0.6/.7/D}
+		\coordinate (C) at ($(B)+(D)-(A)$);
+		\coordinate (O) at ($(A)!0.5!(C)$);
+		\coordinate (S) at ($(A)!(O)!(B)!6!(O)$);
+		
+		\tkzDrawPolygon(S,A,B,C)
+		\tkzDrawSegments(S,B)
+		\tkzDrawSegments[dashed](S,D D,A D,C)
+		\end{tikzpicture}
+	}
+	\dapso{$30$ tấn}
+	\loigiai{
+		Diện tích mặt đáy là $3^2=9$ m$^2$.\\
+		Thể tích kim tự tháp là $\dfrac{1}{3}\cdot 4\cdot 9=12$ m$^3$.\\
+		Vậy khối lượng bê tông cốt thép đã sử dụng là $12\cdot 2{,}5=30$ tấn.
+	}
+\end{bt}

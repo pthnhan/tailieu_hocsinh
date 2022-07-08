@@ -1,0 +1,590 @@
+\subsection{Tỉ số các đường cao, tỉ số diện tích của hai tam giác đồng dạng}
+Nếu hai tam giác đồng dạng thì: 
+\begin{itemize}
+\item[$-$] Tỉ số các đường cao tương ứng bằng tỉ số đồng dạng.
+\item[$-$] Tỉ số các diện tích bằng bình phương của tỉ số đồng dạng.
+\end{itemize}
+\begin{vd}%[EX-L8-2018,Phạm Tuấn]%[8H3K4]
+Cho tam giác $ABC$ có các góc $B$ và $C$ nhọn, $BC=a$, đường cao $AH=h$. Tính cạnh của hình vuông $MNPQ$ có $M$ thuộc $AB$, $N$ thuộc $AC$, $P,Q$ thuộc $BC$.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzInit[xmin=-2,ymin=0,xmax=3.5,ymax=4.5]
+\tkzClip
+\tkzDefPoints{0/4/A,-1/1/B,3/1/C,-1/-3/D,3/-3/E}
+\tkzInterLL(A,D)(B,C) \tkzGetPoint{Q}
+\tkzInterLL(A,E)(B,C) \tkzGetPoint{P}
+\tkzDefMidPoint(B,C)  \tkzGetPoint{I}
+\tkzDefPointBy[rotation=center Q angle 90](P) \tkzGetPoint{M}
+\tkzDefPointBy[rotation=center P angle -90](Q) \tkzGetPoint{N}
+\tkzDefPointBy[projection=onto B--C](A) \tkzGetPoint{H}
+\tkzDefPointBy[projection=onto M--N](A) \tkzGetPoint{K}
+\tkzDrawSegments(A,B B,C C,A M,N N,P P,Q Q,M A,H)
+\tkzDrawPoints[fill=black](A,B,C,M,N,P,Q,H,K)
+\tkzLabelPoints[below](B,C,P,Q,H)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[above right](N)
+\tkzLabelPoints[above left](M)
+\tkzLabelPoints[below right](K)
+\tkzMarkRightAngle(M,Q,C)
+\tkzMarkRightAngle(A,K,N)
+\tkzMarkRightAngle(A,H,C)
+%\tkzLabelPoint[below=15pt](I){Hình 18}
+\end{tikzpicture}
+\end{center}
+Gọi giao điểm của $AH$ và $MN$ là $K$. Do $MN \parallel BC$ nên $AK \perp MN$. \\
+Ta có $MN \parallel BC$ nên $\Delta AMN$ và $\Delta ABC$ đồng dạng, do đó tỉ số hai đường cao tương ứng bằng tỉ số đồng dạng:
+\[\dfrac{AK}{AH}=\dfrac{MN}{BC}.\]
+Đặt $MN=KH=x$, ta có
+\begin{align*}
+& \dfrac{h-x}{h}=\dfrac{x}{a} \Rightarrow  xh=ah-ax \\
+\Rightarrow~ & x(h+a)=ah\\
+\Rightarrow~ & x=\dfrac{ah}{a+h}.
+\end{align*}
+Cạnh của hình vuông $MNPQ$ bằng $\dfrac{ah}{a+h}.$
+}
+\end{vd}
+
+\begin{vd}%[EX-L8-2018,Phạm Tuấn]%[8H3K4]
+Cho tam giác $ABC$ và hình bình hành $AEDF$ với $E$ thuộc $AB$, $D$ thuộc $BC$, $F$ thuộc $AC$. Tính diện tích hình bình hành, biết rằng $S_{EBD} = 3 ~\mathrm{cm^2}$, $S_{FDC} = 12 ~\mathrm{cm^2}$.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzInit[xmin=0,ymin=0,xmax=5.5,ymax=4.5]
+\tkzClip
+\tkzDefPoints{2/4/A,1/1/B,5/1/C}
+\tkzDefMidPoint(B,C)  \tkzGetPoint{I}
+\tkzDefPointBy[projection=onto B--C](A) \tkzGetPoint{D}
+\tkzDefLine[parallel=through D](A,B) \tkzGetPoint{f}
+\tkzInterLL(A,C)(D,f) \tkzGetPoint{F}
+\tkzDefLine[parallel=through D](A,C) \tkzGetPoint{e}
+\tkzInterLL(A,B)(D,e) \tkzGetPoint{E}
+\tkzDrawSegments(A,B B,C C,A A,D D,E D,F)
+\tkzLabelPoints[below](B,D,C)
+\tkzLabelPoints[above right](F)
+\tkzLabelPoints[above left](E)
+\tkzLabelPoints[above](A)
+\tkzDrawPoints[fill=black](A,B,C,D,E,F)
+%\tkzLabelPoint[below=15pt](I){Hình 19}
+\end{tikzpicture}
+\end{center}
+$\Delta EBD$ và $\Delta FDC$ đồng dạng (g.g) nên 
+\[\dfrac{S_{EBD}}{S_{FDC}} = \left (\dfrac{BE}{DF}\right )^2 = \left (\dfrac{ED}{FC}\right )^2.\]
+Ta có $S_{EBD} : S_{FDC}=3:12 =1:4 = \dfrac{1}{4}.$ \\
+Do đó $\dfrac{BE}{DF}=\dfrac{ED}{FC}=\dfrac{1}{2}$. 
+Suy ra 
+$AE=DF=2BE$;  $AF=ED=\dfrac{1}{2}FC.$ \\
+Vậy 
+\begin{align*}
+&S_{ADE} =2S_{BED} = 2 \cdot 3 = 6~(\mathrm{cm^2})\\
+&S_{ADF} =\dfrac{1}{2} S_{FDC} = \dfrac{1}{2} \cdot 12 = 6~(\mathrm{cm^2})\\
+&S_{AEDF} =S_{ADE} + S_{ADF} = 6+6 = 12~(\mathrm{cm^2}).
+\end{align*} 
+Chú ý: Tổng quát, nếu $S_{EBD}= m \cdot S_{FDC}=n$ thì $S_{AEDF} =2\sqrt{mn}$.
+}
+\end{vd}
+\begin{center}
+\textbf{BÀI TẬP} 
+\end{center}
+\textbf{Tỉ số các đường cao}
+\begin{bt}%[EX-L8-2018,Phạm Tuấn]%[8H3K4]
+Hình thang $ABCD$ có cạnh đáy $AB$ dài $8~\mathrm{cm}$, cạnh đáy $CD$ dài $12~\mathrm{cm}$. Điểm $M$ nằm trên đường thẳng $AB$ sao cho đường thẳng $DM$ chia hình thang thành hai phần có diện tích bằng nhau. Tính độ dài $BM$.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzInit[xmin=1,ymin=-1,xmax=6,ymax=4]
+\tkzClip
+\tkzDefPoints{2/3/A,3.5/3/B,5.5/0/C,1.5/0/D,4.5/3/M}
+\tkzInterLL(B,C)(D,M) \tkzGetPoint{E}
+\tkzDefPointBy[projection=onto D--C](E) \tkzGetPoint{K}
+\tkzDefPointBy[projection=onto A--B](E) \tkzGetPoint{H}
+\tkzDefMidPoint(C,D) \tkzGetPoint{I}
+\tkzDrawSegments(A,D D,C C,B D,M M,A)
+\tkzDrawSegments[dashed](H,K)
+\tkzMarkRightAngle(E,K,C)
+\tkzMarkRightAngle(M,H,E)
+\tkzLabelPoints[above](A,B,H,M)
+\tkzLabelPoints[below](D,K,C)
+\tkzLabelPoints[right](E)
+\tkzDrawPoints[fill=black](A,B,C,D,H,K,E,M)
+%\tkzLabelPoint[below=15pt](I){Hình 159}
+\end{tikzpicture}
+\end{center}
+Chú ý rằng
+\[S_{ABD} : S_{ABCD} =\dfrac{8}{20}< \dfrac{1}{2}\]
+nên $M$ thuộc tia đối của tia $BA$. Gọi $E$ là giao  điểm của $DM$ và $BC$, đặt $EH=h_1$, $EK=h_2$, $HK=h$ ($EH$ là đường cao của $\Delta BEM$, $HK$ là đường cao của hình thang).
+\[S_{DEC} = \dfrac{1}{2}S_{ABCD} \Rightarrow \dfrac{12h_2}{20h} =\dfrac{1}{2}\Rightarrow \dfrac{h_2}{h}=\dfrac{5}{6}.\]
+$\Delta BEM \backsim \Delta CED$
+\[ \Rightarrow \dfrac{BM}{CD} = \dfrac{EH}{EK} \Rightarrow \dfrac{BM}{12}=\dfrac{h_1}{h_2}=\dfrac{1}{5}.\]
+Vậy $BM=2{,}4 ~\mathrm{cm}.$
+}
+\end{bt}
+
+\begin{bt}%[EX-L8-2018,Phạm Tuấn]%[8H3K4]
+Điểm $M$ chuyển động trên đáy nhỏ $AB$ của hình thang $ABCD$. Gọi $O$ là giao điểm của các đường thẳng chứa các cạnh bên của hình thang, $G$ là giao điểm của $OA$ và $CM$, $H$ là giao điểm của $OB$ và $DM$. Chứng minh rằng khi điểm $M$ chuyển động trên cạnh $AB$ thì tổng $\dfrac{OG}{GD}+\dfrac{OH}{HC}$ không đổi.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzInit[xmin=0.5,ymin=0,xmax=6.5,ymax=4.5]
+\tkzClip
+\tkzDefPoints{5/1/C,1/1/D,2/4/I,3/4/O,4.5/4/K,6/4/X,6/1/Z}
+\tkzDefMidPoint(X,Z) \tkzGetPoint{Y}
+\tkzDefMidPoint(X,Y) \tkzGetPoint{E}
+\tkzDefMidPoint(Y,Z) \tkzGetPoint{F}
+\tkzDefMidPoint(C,D) \tkzGetPoint{W}
+\tkzInterLL(C,I)(D,K) \tkzGetPoint{M}
+\tkzInterLL(C,I)(D,O) \tkzGetPoint{G}
+\tkzInterLL(C,O)(D,K) \tkzGetPoint{H}
+\tkzDefLine[parallel=through M](C,D) \tkzGetPoint{m}
+\tkzInterLL(M,m)(O,D) \tkzGetPoint{A}
+\tkzInterLL(M,m)(O,C) \tkzGetPoint{B}
+\tkzInterLL(M,m)(X,Z) \tkzGetPoint{Y}
+\tkzDrawSegments(I,K I,C O,D O,C K,D A,B D,C)
+\tkzDrawSegments[dashed](K,X B,Y C,Z)
+\tkzDrawPoints[fill=black](A,B,C,D,I,O,K,G,H,M)
+\tkzLabelPoints[above](I,O,K,H)
+\tkzLabelPoints[below](D,M,C)
+\tkzLabelPoints[left](G,A)
+\tkzLabelPoints[above right](B)
+\draw[<->] (X) --(Y) node [midway,fill=white] {$h_1$};
+\draw[<->] (Z) --(Y) node [midway,fill=white] {$h_2$};
+%\tkzLabelPoint[below=10pt](W){Hình 160}
+\end{tikzpicture}
+\end{center}
+Qua $O$ vẽ đường thẳng song song với $AB$, cắt $CM$, $DM$ thứ tự tại $I,K$. $CI$ cắt $OD$ tại $G$, $DK$ cắt $OC$ tại $H$. 
+Ta có \[\dfrac{OG}{GD}+\dfrac{OH}{HC} = \dfrac{OI}{CD}+\dfrac{OK}{CD} = \dfrac{IK}{CD}.\]
+Tổng không đổi bằng $h_1 : h_2$ ($h_1$ là khoảng cách từ $O$ đến $AB$, $h_2$ là chiều cao hình thang).
+}
+\end{bt}
+
+\begin{bt}%[EX-L8-2018,Phạm Tuấn]%[8H3K4]
+Cho ba đường thẳng song song $a,b,c$ theo thứ tự ấy, điểm $A$ thuộc $a$, điểm $B$ thuộc $b$. Gọi $M$ là một điểm bất kì thuộc $c$. $MA$ cắt $b$ tại $B'$, $MB$ cắt $a$ tại $A'$. Chứng minh rằng khi điểm $M$ chuyển động trên $c$ thì đường thẳng $A'B'$ luôn đi qua một điểm cố định.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzInit[xmin=-0.5,ymin=0,xmax=6,ymax=4]
+\tkzClip
+\tkzDefPoints{1/1/A,4/1/A',2/3.5/M,0/0/P,0/1/Q,4/0/S,4/2/T,5/1/X,5/2/Y}
+\tkzDefBarycentricPoint(M=17,A=10) \tkzGetPoint{B'}
+\tkzDefBarycentricPoint(M=17,A'=10) \tkzGetPoint{B}
+\tkzDefMidPoint(A,A') \tkzGetPoint{W}
+\tkzInterLL(A,B)(A',B') \tkzGetPoint{O}
+\tkzDefLine[parallel=through M](A,A') \tkzGetPoint{m}
+\tkzInterLL(M,m)(P,Q) \tkzGetPoint{c}
+\tkzInterLL(B,B')(P,Q) \tkzGetPoint{b}
+\tkzInterLL(M,m)(S,T) \tkzGetPoint{E}
+\tkzInterLL(B,B')(S,T) \tkzGetPoint{F}
+\tkzInterLL(M,m)(X,Y) \tkzGetPoint{Z}
+\tkzDefMidPoint(E,F) \tkzGetPoint{N}
+\draw (c) -- ++(3.8,0) ; \draw (b) -- ++(3.8,0) ; 
+\tkzDrawSegments(M,A Q,A' M,A' A,B A',B')
+\draw[<->] (E)--(F); 
+\draw[<->] (X) --(Z) node [midway,fill=white] {$h_1$};
+\tkzLabelPoint[right](N){$h_2$}
+\tkzDrawPoints[fill=black](M,A,B,A',B',O)
+\tkzLabelPoints[above right](c)
+\tkzLabelPoints[above right](b)
+\tkzLabelPoint[above right](Q){$a$}
+\tkzLabelPoints[above](M)
+\tkzLabelPoints[below](O,A,A')
+\tkzLabelPoints[above right](B)
+\tkzLabelPoints[above left](B')
+%\tkzLabelPoint[below=10pt](W){Hình 161}
+\end{tikzpicture}
+\end{center}
+Gọi giao điểm của $A'B'$ với $AB$ là $O$. Hãy  chứng minh rằng $O$ là điểm cố định ($O$ chia trong đoạn thẳng $AB$ theo tỉ số $\dfrac{OA}{OB}=\dfrac{AA'}{BB'} = \dfrac{h_1}{h_2}$)
+}
+\end{bt}
+\textbf{Tỉ số diện tích}
+\begin{bt}%[EX-L8-2018,Phạm Tuấn]%[8H3K4]
+Cho tam giác $ABC$ có diện tích $S$, các đường trung tuyến $AD,BE,CF$. Gọi $S'$ là diện tích tam giác có độ dài ba cạnh bằng $AD,BE,CF$. Chứng minh rằng $S'=\dfrac{3}{4}S$.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzInit[xmin=0,ymin=1,xmax=4.5,ymax=5]
+\tkzClip
+\tkzDefPoints{2/4.5/A,0.5/2/B,4/2/C}
+\tkzDefMidPoint(A,B) \tkzGetPoint{F}
+\tkzDefMidPoint(B,C) \tkzGetPoint{D}
+\tkzDefMidPoint(A,C) \tkzGetPoint{E}
+\tkzDefMidPoint(A,C) \tkzGetPoint{E}
+\tkzCentroid(A,B,C) \tkzGetPoint{G}
+\tkzDefMidPoint(G,C) \tkzGetPoint{H}
+\tkzDrawSegments(A,B B,C C,A A,D B,E C,F H,D)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](B,D,C)
+\tkzLabelPoints[above right](E)
+\tkzLabelPoints[above left](F)
+\draw (G) node[shift={(-0.15,-0.3)}] {$G$};
+\tkzLabelPoints[above](H)
+\tkzDrawPoints[fill=black](A,B,C,D,G,H)
+%\tkzLabelPoint[below=15pt](D){Hình 162}
+\end{tikzpicture}
+\end{center}
+Gọi $G$ là trọng tâm của tam giác $ABC$, $H$ là trung điểm của $CG$. Lấy $S_{GDH}$ làm trung gian: $S'=9S_{GDH}$ và $S=12S_{GDH}.$
+}
+\end{bt}
+ 
+\begin{bt}%[EX-L8-2018,Phạm Tuấn]%[8H3K4]
+Đường cao của một tam giác dài $16~\mathrm{cm}$, nó chia cạnh đáy thành hai đoạn thẳng tỉ lệ $1:8$. Tính độ dài đoạn thẳng song song với đường cao ấy và chia tam giác đã cho ra hai phần có diện tích bằng nhau.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzInit[xmin=0,ymin=0,xmax=5.5,ymax=3.5]
+\tkzClip
+\tkzDefPoints{2/3/A,1/1/B,5/1/C}
+\tkzDefPointBy[projection=onto B--C](A) \tkzGetPoint{H}
+\tkzDefBarycentricPoint(H=4,C=1) \tkzGetPoint{M}
+\tkzDefBarycentricPoint(A=4,C=1) \tkzGetPoint{N}
+\tkzDrawSegments(A,B B,C C,A A,H M,N)
+\tkzDrawPoints[fill=black](A,B,C,H,M,N)
+\tkzMarkRightAngle(A,H,C)
+\tkzMarkRightAngle(N,M,C)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](B,H,M,C)
+\tkzLabelPoints[above right](N)
+%\tkzLabelPoint[below=15pt](M){Hình 163}
+\end{tikzpicture}
+\end{center}
+Kí hiệu như hình 163, $S_{NMC}=\dfrac{1}{2}S_{ABC}$, $S_{AHC}=\dfrac{8}{9}S_{ABC}$. Suy ra 
+\[\dfrac{S_{NMC}}{S_{AHC}} = \left (\dfrac{NM}{AH}\right )^2 =\dfrac{9}{16}\Rightarrow NM=12~\mathrm{cm}.\]
+}
+\end{bt}
+
+\begin{bt}%[EX-L8-2018,Phạm Tuấn]%[8H3K4]
+Hình thang $ABCD$ có các đáy $AB=b$, $CD=a$ ($a>b$). Đoạn thẳng $MN$ song song với đáy, có hai đầu thuộc hai cạnh bên chia hình thang ra hai phần có diện tích bằng nhau. Chứng minh rằng $MN^2=\dfrac{a^2+b^2}{2}.$
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1,>=stealth]
+\tkzInit[xmin=0,ymin=0,xmax=5.5,ymax=4.5]
+\tkzClip
+\tkzDefPoints{1/1/D,2/4/O,5/1/C}
+\tkzDefBarycentricPoint(O=3,D=1) \tkzGetPoint{A}
+\tkzDefBarycentricPoint(O=3,C=1) \tkzGetPoint{B}
+\tkzDefBarycentricPoint(O=1,D=3) \tkzGetPoint{M}
+\tkzDefBarycentricPoint(O=1,C=3) \tkzGetPoint{N}
+\tkzDefMidPoint(A,B) \tkzGetPoint{b}
+\tkzDefMidPoint(M,N) \tkzGetPoint{x}
+\tkzDefMidPoint(C,D) \tkzGetPoint{a}
+\tkzDrawSegments(A,B M,N O,D O,C D,C)
+\tkzDrawPoints[fill=black](A,B,C,D,M,N,O)
+\tkzLabelPoints[above](O,x)
+\tkzLabelPoints[below](C,D,a,b)
+\tkzLabelPoints[above right](B,N)
+\tkzLabelPoints[above left](A,M)
+%\tkzLabelPoint[below=15pt](a){Hình 164}
+\end{tikzpicture}
+\end{center}
+Gọi $O$ lầ giao điểm của $AD$ và $BC$. Đặt $S_{ABNM} =S_{MNCD}=S$ và $MN=x$. 
+\begin{align*}
+& \Delta OAB \backsim \Delta OMN \Rightarrow \dfrac{S_{OAB}}{S_{OMN}} = \left (\dfrac{b}{x}\right )^2. \\
+& \Delta ODC \backsim \Delta OMN \Rightarrow \dfrac{S_{ODC}}{S_{OMN}} = \left (\dfrac{a}{x}\right )^2.
+\end{align*}
+Do đó 
+\begin{align*}
+\dfrac{a^2+b^2}{x^2}=\dfrac{S_{OCD}+S_{OAB}}{S_{OMN}} = \dfrac{(S_{OMN}+S)+(S_{OMN}-S)}{S_{OMN}}=2.
+\end{align*}
+Vậy $MN^2 = \dfrac{a^2+b^2}{2}.$
+}
+\end{bt}
+
+\begin{bt}%[EX-L8-2018,Phạm Tuấn]%[8H3K4]
+Cho hình vuông $ABCD$ có độ dài cạnh bằng $2~\mathrm{cm}$. Gọi $E,F$ theo thứ tự là trung điểm của $AD$, $DC$. Gọi $I,H$ theo thứ tự là giao điểm của $AF$ với $BE$, $BD$. Tính diện tích tứ giác $EIHD$.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzInit[xmin=0,ymin=0,xmax=5,ymax=5]
+\tkzClip
+\tkzDefPoints{1/4/A,4/4/B}
+\tkzDefPointBy[rotation=center B angle 90](A) \tkzGetPoint{C}
+\tkzDefPointBy[rotation=center A angle -90](B) \tkzGetPoint{D}
+\tkzDefMidPoint(A,D) \tkzGetPoint{E}
+\tkzDefMidPoint(C,D) \tkzGetPoint{F}
+\tkzInterLL(B,D)(A,F) \tkzGetPoint{H}
+\tkzDefPointBy[projection=onto C--D](H) \tkzGetPoint{H'}
+\tkzInterLL(E,B)(A,F) \tkzGetPoint{I}
+\tkzMarkSegment[size=2pt,color=black,pos=0.5,mark=|](A,E)
+\tkzMarkSegment[size=2pt,color=black,pos=0.5,mark=|](D,E)
+\tkzDrawSegments(A,D D,C C,B B,A A,F B,E B,D)
+\tkzDrawPoints[size=6,fill=black](A,B,C,D,E,F,I,H,H')
+\tkzDrawSegments[dashed](H,H')
+\tkzLabelPoints[above](A,B,I)
+\tkzLabelPoints[below](D,H',F,C)
+\tkzLabelPoints[right](H)
+\tkzLabelPoints[left](E)
+%\tkzLabelPoint[below=15pt](F){Hình 165}
+\end{tikzpicture}
+\end{center}
+Trước hết ta tính diện tích các tam giác $AIE$, $DHF$. \\
+Dễ dàng chứng minh được $AF \perp BE$. $\Delta AIE \backsim \Delta ADF$ nên
+\[\dfrac{S_{AIE}}{S_{ADF}} = \dfrac{AE^2}{AF^2} = \dfrac{1}{5}.\]
+Ta có $S_{ADF}=1~\mathrm{cm^2}$ nên $S_{AIE}=\dfrac{1}{5}~\mathrm{cm^2}$. \\
+$\Delta DHF$ và $\Delta BHA$ đồng dạng theo tỉ số $\dfrac{1}{2}$ nên ta tính được đường cao $HH'$ của $\Delta DHF$ bằng $\dfrac{2}{5}~\mathrm{cm}$. Do đó $S_{DHF} = \dfrac{1}{3}~\mathrm{cm^2}$. Từ đó ta tính được $S_{EIHD} = \dfrac{7}{15}~\mathrm{cm^2}.$
+}
+\end{bt}
+
+\begin{bt}%[EX-L8-2018,Phạm Tuấn]%[8H3K4]
+Cho hai tam giác đồng dạng có tỉ số đồng dạng là một số tự nhiên. Một cạnh của tam giác nhỏ bằng $3~\mathrm{cm}$, diện tích của tam giác  nhỏ này cũng là một số tự nhiên (đơn vị $\mathrm{cm^2}$). Tính diện tích của mỗi tam giác, biết hiệu diện tích của chúng bằng $18~\mathrm{cm^2}$. 
+\loigiai{
+Gọi diện tích của tam giác nhỏ là $x$, tỉ số đồng dạng của hai tam giác là $k$, ($x,k \in \mathbb{N}$). \\
+Ta có $\dfrac{x+18}{x}=k^2$ nên $\dfrac{18}{x}=k^2-1$ và $k^2-1$ là ước của $18$. Từ đó tìm được $k=2$, $x=6$.\\
+Diện tích của hai tam giác là $6~\mathrm{cm^2}$ và $24~\mathrm{cm^2}$.
+}
+\end{bt}
+
+\begin{bt}%[EX-L8-2018,Phạm Tuấn]%[8H3K4]
+Tam giác $ABC$ có $B=60^\circ$, $C=20^\circ$, $BC=4~\mathrm{cm}$. Gọi $D$ là trung điểm của $AC$. Trên cạnh $CB$ lấy điểm $E$ sao cho $CE=CD$. Tính tổng diện tích các tam giác $ECD$ và $ABD$.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzInit[xmin=0.5,ymin=0.5,xmax=5.5,ymax=5]
+\tkzClip
+\tkzDefPoints{1/1/B,5/1/C}
+\tkzDefPointBy[rotation=center B angle 60](C) \tkzGetPoint{F}
+\tkzDefPointBy[rotation=center C angle -20](B) \tkzGetPoint{X}
+\tkzDefPointBy[rotation=center C angle -40](B) \tkzGetPoint{Y}
+\tkzInterLL(B,F)(C,X) \tkzGetPoint{A}
+\tkzInterLL(B,F)(C,Y) \tkzGetPoint{G}
+\tkzDefMidPoint(A,C) \tkzGetPoint{D}
+\tkzDefPointBy[rotation=center C angle 20](D) \tkzGetPoint{E}
+\tkzCentroid(A,B,D) \tkzGetPoint{I}
+\tkzCentroid(E,C,D) \tkzGetPoint{J}
+\tkzDrawSegments(B,C C,F F,B C,A C,G B,D D,E)
+\tkzMarkSegment[size=2pt,color=black,pos=0.5,mark=||](G,F)
+\tkzMarkSegment[size=2pt,color=black,pos=0.5,mark=||](A,B)
+\tkzMarkSegment[size=2pt,color=black,pos=0.5,mark=|](A,D)
+\tkzMarkSegment[size=2pt,color=black,pos=0.5,mark=|](D,C)
+\tkzMarkSegment[size=2pt,color=black,pos=0.5,mark=|](E,C)
+\draw (I) node {$2$}; 
+\draw (J) node {$1$}; 
+\tkzLabelPoints[above](F,D)
+\tkzLabelPoints[below](B,E,C)
+\tkzLabelPoints[above left](A,G)
+\tkzDrawPoints[fill=black,size=6](A,B,C,E,F,D,G)
+\end{tikzpicture}
+\end{center}
+Vẽ tam giác đều $BCF$ ($F$ và $A$ cùng phía đối với $BC$). Trên cạnh $FB$ lấy điểm $G$ sao cho $FG=AB$. Ta có $\Delta ACG$ cân có góc ở đỉnh bằng $20^\circ$, $\Delta ABC = \Delta GFC$ (c.g.c). \\
+Đặt $S_{ECD}=S_1$, $S_{ABD}=S_2$. Ta có $\Delta ECD$ và $\Delta ACG$ đồng dạng (g.g)
+\begin{align*}
+& S_1 = \dfrac{1}{2} S_{ACG} \tag{1}\\
+& S_2=\dfrac{1}{2}S_{ABC}=\dfrac{1}{4} (S_{ABC}+S_{GFC}) \tag{2}
+\end{align*}
+Từ (1) và (2) suy ra 
+\begin{align*}
+S_1+S_2 &= \dfrac{1}{4} (S_{ACG}+S_{ABC}+S_{GFC}) \\
+                &=\dfrac{1}{2} S_{BFC}=\dfrac{1}{2} \cdot \dfrac{4^2\sqrt{3}}{4} = \sqrt{3} ~\mathrm{cm^2}.
+\end{align*}
+}
+\end{bt}
+
+\begin{bt}%[EX-L8-2018,Phạm Tuấn]%[8H3K4]
+Cho tam giác $ABC$ cân tại $A$, trực tâm $H$ chia đường cao $AE$ theo  tỉ số $7 : 1$. Giao điểm $I$ các đường phân giác của tam giác chia $AE$ theo tỉ số nào?
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzInit[xmin=0.5,ymin=0.5,xmax=4.5,ymax=5]
+\tkzClip
+\tkzDefPoints{1/1/B,4/1/C,2.5/4.24/A}
+\tkzDefMidPoint(B,C) \tkzGetPoint{E}
+\tkzInCenter(A,B,C) \tkzGetPoint{I}
+\tkzOrthoCenter(A,B,C) \tkzGetPoint{H}
+\tkzDrawSegments(A,B B,C C,A A,E B,I C,I B,H)
+\tkzDrawPoints[fill=black,size=6](A,B,C,E,H,I)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](B,E,C)
+\tkzLabelPoints[below right=-2pt](H)
+\tkzLabelPoints[above right=-2pt](I)
+\end{tikzpicture}
+\end{center}
+Theo tính chất đường phân giác 
+\[\dfrac{AI}{IE}=\dfrac{AB}{BE} \Rightarrow \left (\dfrac{AI}{IE}\right )^2 = \dfrac{AB^2}{BE^2} = \dfrac{AE^2+BE^2}{BE^2} = \left (\dfrac{AE}{BE}\right )^2+1 \tag{1}\] 
+$\Delta AEB$ và $\Delta BEH$ đồng dạng (g.g) suy ra
+\[\left (\dfrac{AE}{BE}\right )^2 = \dfrac{S_{AEB}}{S_{BEH}}=\dfrac{AE}{HE}=8. \tag{2}\]
+Từ (1) và (2) suy ra 
+\[\left (\dfrac{AI}{IE}\right )^2 =8+1=9 \Rightarrow \dfrac{AI}{IE}=3.\]
+}
+\end{bt}
+
+\begin{bt}%[EX-L8-2018,Phạm Tuấn]%[8H3K4]
+Cho tam giác $ABC$.Trên cạnh $AB$ lấy điểm $I$ và $K$ sao cho $AI=IK=KB$, trên cạnh $BC$ lấy các điểm $D$ và $E$ sao cho $BD=DE=EC$, trên cạnh $AC$ lấy các điểm $F$  và $G$ sao cho $AF=FG=GC$. Gọi $M$ là giao điểm của $AD$ và $BF$, $N$ là giao điểm của $BG$ và $CK$, $P$ là giao điểm của $AE$ và $CI$.
+\begin{itemize}
+\item[a)] Chứng minh rằng các cạnh của tam giác $MNP$ song song với các cạnh của tam giác $ABC$. 
+\item[b)] Tính diện tích tam giác $MNP$ theo diện tích tam giác $ABC$. 
+\end{itemize}
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzInit[xmin=0.5,ymin=0.5,xmax=5.5,ymax=5.5]
+\tkzClip
+\tkzDefPoints{1/1/B,5/1/C,2.6/5/A}
+\tkzDefBarycentricPoint(A=2,B=1)  \tkzGetPoint{I}
+\tkzDefBarycentricPoint(A=1,B=2)  \tkzGetPoint{K}
+\tkzDefBarycentricPoint(A=2,C=1)  \tkzGetPoint{F}
+\tkzDefBarycentricPoint(A=1,C=2)  \tkzGetPoint{G}
+\tkzDefBarycentricPoint(B=2,C=1)  \tkzGetPoint{D}
+\tkzDefBarycentricPoint(B=1,C=2)  \tkzGetPoint{E}
+\tkzInterLL(B,F)(A,D) \tkzGetPoint{M}
+\tkzInterLL(B,G)(C,K) \tkzGetPoint{N}
+\tkzInterLL(A,E)(C,I) \tkzGetPoint{P}
+\tkzDrawSegments(A,B B,C C,A A,D A,E B,F B,G C,I C,K M,N N,P M,P) 
+\tkzDrawPoints[fill=black,size=6](A,B,C,D,E,F,I,K,G,M,N,P)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](B,D,E,C,N)
+\tkzLabelPoints[above right=-2pt](F,G,P)
+\tkzLabelPoints[above left=-2pt](I,K,M)
+\end{tikzpicture}
+\end{center}
+\begin{itemize}
+\item[a)] Ta có $\dfrac{AK}{AB} = \dfrac{AG}{AC}=\dfrac{2}{3}$ nên $KG \parallel BC$ và $KG=\dfrac{2}{3}BC$. Do đó $NK=\dfrac{2}{3}NC$, suy ra $CN=\dfrac{3}{5}CK$. \\
+Chứng minh tương tự, $CP=\dfrac{3}{5}CI$ . Suy ra $NP \parallel IK$ và $NP =\dfrac{3}{4}IK$. \\
+Chứng minh tương tự, $MP \parallel BC$, $MN \parallel AC$. 
+\item[b)] $NP=\dfrac{3}{5}IK = \dfrac{3}{5} \cdot \dfrac{1}{3} AB = \dfrac{1}{5} AB$. Do đó $S_{MNP}=\dfrac{1}{25}S_{ABC}$.
+\end{itemize}
+}
+\end{bt}
+
+\begin{bt}%[EX-L8-2018,Phạm Tuấn]%[8H3K4]
+Cho tam giác $ABC$ vuông cân tại $A$, đường cao $AH$ và đường phân giác $BE$. Đường vuông góc với $BE$ tại $E$ cắt cạnh $BC$ tại $G$, cắt tia đối của tia $AB$ tại $D$. Kẻ $EF$ vuông góc với $BC$. Cho biết $AD=15~\mathrm{cm}$, $HF=20~\mathrm{cm}$, tính diện tích tam giác $ABC$. 
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzInit[xmin=0.5,ymin=0.5,xmax=7.5,ymax=5.5]
+\tkzClip
+\tkzDefPoints{4/4/A,1/1/B}
+\tkzDefPointBy[rotation=center A angle 90](B) \tkzGetPoint{C}
+\tkzInCenter(A,B,C) \tkzGetPoint{I}
+\tkzInterLL(B,I)(A,C) \tkzGetPoint{E}
+\tkzDefPointBy[projection=onto B--C](A) \tkzGetPoint{H}
+\tkzDefPointBy[projection=onto B--C](E) \tkzGetPoint{F}
+\tkzDefLine[orthogonal=through E](B,E) \tkzGetPoint{e}
+\tkzInterLL(A,B)(E,e) \tkzGetPoint{D}
+\tkzInterLL(B,C)(E,e) \tkzGetPoint{G}
+\tkzDefLine[parallel=through E](B,C) \tkzGetPoint{e'}
+\tkzInterLL(A,B)(E,e') \tkzGetPoint{N}
+\tkzInterLL(A,H)(E,e') \tkzGetPoint{M}
+\tkzDrawPoints[fill=black,size=6](A,B,C,D,E,F,M,N,H,G)
+\tkzDrawSegments(B,D D,G B,C E,N A,H B,E A,C E,F)
+\tkzMarkRightAngle(C,A,B)
+\tkzMarkRightAngle(A,M,E)
+\tkzMarkRightAngle(A,H,C)
+\tkzMarkRightAngle(G,E,B)
+\tkzLabelPoints[above](D)
+\tkzLabelPoints[above left](N,A,M)
+\tkzLabelPoints[below](B,C,H,F,G)
+\tkzLabelPoints[above right](E)
+\end{tikzpicture}
+\end{center}
+Kẻ $EN \parallel BC$, cắt $AH$ tại $M$, cắt $AB$ tại $N$. Ta thấy $\Delta ABC$ và $\Delta ANE$ đồng dạng. \\ Trước hết ta tính $S_{ANE}$. \\
+$\Delta BDG$ cân tại $B$. Do $NE \parallel BG$ nên $\Delta NDE$ cân tại $N$. Ta dễ dàng tính được 
+\[EN=2EM=2 \cdot 20 =40 ~(\mathrm{cm})\]
+Suy ra $NE=40~\mathrm{cm}$, $NA=25~\mathrm{cm}$. \\
+Ta có $AM^2 =AN^2-NM^2 =25^2-20^2=225$ nên $AM=15~\mathrm{cm}$. 
+\[S_{ANE}= \dfrac{1}{2} \cdot NE \cdot AM = \dfrac{1}{2} \cdot 40 \cdot 15 =300~(\mathrm{cm^2}).\]
+Bây giờ ta tính tỉ số đồng dạng $\dfrac{AB}{AN}$ của $\Delta ABC$ và $\Delta ANE$.\\
+$\Delta BDG$ có $DE=EG$, $EN \parallel BC$ nên $BN=ND=40~\mathrm{cm}$, do đó 
+\begin{align*}
+&AB=25+40=65~(\mathrm{cm}), \dfrac{AB}{AN}=\dfrac{65}{25}=\dfrac{13}{5}. \\
+&S_{ABC}=S_{ANE} \cdot \left (\dfrac{13}{5}\right )^2 = 300 \cdot \dfrac{169}{25} =2028 ~(\mathrm{cm^2}).
+\end{align*}
+}
+\end{bt}
+\subsection{Ứng dụng thực tế của tam giác đồng dạng}
+Nhờ các tam giác đồng dạng, ta có thể xác định được các chiều cao, các khoảng cách . . . mà không cần đo trực tiếp.
+\begin{vd}%[EX-L8-2018,Phạm Tuấn]%[8H3K9]
+Một ngọn đèn đặt trên cao ở vị trí $A$, hình chiếu vuông góc của nó trên mặt đất là $H$. Người ta đặt một chiếc cọc dài $1{,}6 ~\mathrm{m}$ thẳng đứng ở hai vị trí $B$ và $C$ thẳng hàng với $H$, khi đó bóng của chiếc cọc dài $0{,}4 ~\mathrm{m}$ và $0{,}6 ~\mathrm{m}$. Biết $BC=1{,}4 ~\mathrm{m}$, tính độ cao $AH$. 
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzInit[xmin=0,ymin=0,xmax=5.5,ymax=4.5]
+\tkzClip
+\tkzDefPoints{2.5/4/A,1/1/D,5/1/E}
+\tkzDefPointBy[projection=onto D--E](A) \tkzGetPoint{H}
+\tkzDefMidPoint(D,H) \tkzGetPoint{B}
+\tkzDefMidPoint(E,H) \tkzGetPoint{C}
+\tkzDefLine[orthogonal=through B](D,E) \tkzGetPoint{b}
+\tkzDefLine[orthogonal=through C](D,E) \tkzGetPoint{c}
+\tkzInterLL(A,D)(B,b) \tkzGetPoint{B'}
+\tkzInterLL(A,E)(C,c) \tkzGetPoint{C'}
+\tkzInterLL(A,H)(B',C') \tkzGetPoint{I}
+\coordinate (B1) at ($(B)+(0,-0.8)$); 
+\coordinate (C1) at ($(C)+(0,-0.8)$); 
+\tkzDrawSegments(A,D D,E E,A B',C' A,H B,B' C,C')
+\draw[<->] (B1) --(C1) node [midway,fill=white] {$d$};
+\tkzMarkRightAngle(A,H,E)
+\tkzMarkRightAngle(A,I,C')
+\tkzDrawPoints[fill=black,size=6](A,B,C,H,D,E,B',C',I)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](D,B,C,E,H)
+\tkzLabelPoints[above right=-2pt](C')
+\tkzLabelPoints[above left=-2pt](I,B')
+\tkzLabelSegment[below](D,B){$b$}
+\tkzLabelSegment[below](C,E){$c$}
+\tkzLabelSegment[right](B,B'){$a$}
+\tkzLabelSegment[right](C,C'){$a$}
+\end{tikzpicture}
+\end{center}
+Gọi $BD$, $CE$ là bóng của cọc và $B'$, $C'$ là vị trí ngang tương ứng của đỉnh cọc. Đặt $BB'=CC'=a$, $BD=b$, $CE=a$, $BC=d$, $AH=x$. Gọi $I$ là giao điểm của $AH$ và $B'C'$. \\
+$\Delta AB'C'$ và $\Delta ABC$  đồng dạng 
+\begin{align*}
+ & \Rightarrow ~ \dfrac{AI}{AH} = \dfrac{B'C'}{BC} \\
+ & \Rightarrow ~ \dfrac{x-a}{x}=\dfrac{d}{b+d+c} \\
+ & \Rightarrow ~ xb+xd+xc-ab-ad-ac=xd \\
+ & \Rightarrow ~ x=\dfrac{ab+ac-ad}{b+c} \\
+ & \Rightarrow ~ x= a\left (1+\dfrac{d}{b+c}\right )
+\end{align*}
+Áp dụng thay số: $AH= 1{,}6 \left (1+\dfrac{1{,}4}{0{,}4+0{,}6}\right )=3{,}84 ~ (\mathrm{m})$.
+}
+\end{vd}
+\begin{center}
+\textbf{BÀI TẬP} 
+\end{center}
+\begin{bt}%[EX-L8-2018,Phạm Tuấn]%[8H3K9]
+Một người đứng cách một ngôi nhà $200~\mathrm{m}$, đặt một que dài $5~\mathrm{m}$, cách mắt $40~\mathrm{m}$ theo phương thẳng đứng thì vừa vặn che lấp chiều cao của ngôi nhà. Tính chiều cao của ngôi nhà.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzInit[xmin=0,ymin=0,xmax=5.5,ymax=4.5]
+\tkzClip
+\tkzDefPoints{2.5/4/A,1/1/B,5/1/C}
+\tkzDefBarycentricPoint(A=3,B=1)  \tkzGetPoint{B'}
+\tkzDefBarycentricPoint(A=3,C=1)  \tkzGetPoint{C'}
+\tkzDefPointBy[projection=onto B--C](A) \tkzGetPoint{H}
+\tkzDefPointBy[projection=onto B'--C'](A) \tkzGetPoint{I}
+\tkzDrawSegments(A,B B,C C,A B',C' A,H)
+\tkzMarkRightAngle(A,H,C)
+\tkzMarkRightAngle(A,I,C')
+\tkzDrawPoints[fill=black,size=6](A,B,C,H,B',C',I)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](B,C,H)
+\tkzLabelPoints[above right](C')
+\tkzLabelPoints[above left](B')
+\tkzLabelPoints[below left](I)
+\end{tikzpicture}
+\end{center}
+Gọi vị trí mắt là $A$, $BC$ là chiều cao của ngôi nhà, $B'C'$ là chiều dài của chiếc que. \\
+$\Delta AB'C' \backsim \Delta ABC$ suy ra
+\[\dfrac{B'C'}{BC}=\dfrac{AI}{AH} \Rightarrow BC= \dfrac{AH \cdot B'C'}{AI}= \dfrac{200 \cdot 5}{40}=25 ~(\mathrm{m}).\]
+}
+\end{bt}
+
+\begin{bt}%[EX-L8-2018,Phạm Tuấn]%[8H3K9]
+Một giếng nước có đường kính $DE=0{,}8~\mathrm{m}$. Để xác định độ sâu $BD$ của giếng, người ta đặt một chiếc gậy ở vị trí $AC$, $A$ chạm miệng giếng, $AC$ nhìn thẳng tới vị trí $E$ ở góc của đáy giếng. Biết $AB=0{,}9~\mathrm{m}$, $BC=0{,}2~\mathrm{m}$. Tính độ sâu của giếng.
+\begin{center}
+\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzInit[xmin=0.5,ymin=0.5,xmax=2.5,ymax=5.5]
+\tkzClip
+\tkzDefPoints{1/5/A,1/1/D,2/1/E,2/5/H,1/4/B,2/4/F}
+\tkzInterLL(B,F)(A,E) \tkzGetPoint{C}
+\tkzDrawSegments(A,D D,E E,H A,E B,F)
+\tkzLabelPoints[left](A,B,D)
+\tkzLabelPoints[right](E)
+\tkzLabelPoints[above right=-2pt](C)
+\tkzDrawPoints[fill=black,size=6](A,B,C,D,E)
+\end{tikzpicture}
+\end{center}
+\loigiai{
+$\Delta ABC \backsim \Delta ADE$ suy ra 
+\[\dfrac{AB}{AD}=\dfrac{BC}{DE} \Rightarrow AD=\dfrac{AB \cdot DE}{BC} = \dfrac{0{,}9 \cdot 0{,}8}{0{,}2} =3{,}6 ~(\mathrm{m}).\]
+Vậy độ sâu của giếng là $BD=AD-AB=3{,}6-0{,}9=2{,}7~(\mathrm{m}).$
+} 
+\end{bt}

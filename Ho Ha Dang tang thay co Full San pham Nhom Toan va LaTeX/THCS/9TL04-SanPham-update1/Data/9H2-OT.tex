@@ -1,0 +1,1152 @@
+%%Biên soạn: Tuấn Nguyễn, Nguyễn Minh. Phản biện: Nguyễn Minh, Tuấn Nguyễn
+\section{Ôn tập chương II}
+\subsection{Các ví dụ}
+\begin{vd}	
+	Cho hình vẽ bên, biết đường kính $AB=10$ cm; $OM=3$ cm.
+	\immini
+	{
+		\begin{enumerate}
+			\item Tính số đo góc $\widehat{ACB}$;
+			\item Tính độ dài dây $AC$;
+			\item Tiếp tuyến tại $B$  của đường tròn cắt tia $AC$ ở $D$. Tính độ dài $CD$.
+		\end{enumerate}
+	}
+	{
+		\begin{tikzpicture}[scale=.4, line join=round, line cap=round]
+		%%%%%%%%
+		\tkzDefPoints{0/0/O,-5/0/A'}
+		\tkzDefPointBy[rotation = center O angle -30](A')\tkzGetPoint{A}
+		\tkzDefPointBy[symmetry = center O](A)\tkzGetPoint{B}
+		\tkzDefPointBy[rotation = center O angle -120](A)    \tkzGetPoint{C}
+		\tkzDefMidPoint(A,C)\tkzGetPoint{M}
+		\tkzDrawSegment(O,M)
+		\tkzDrawCircle(O,A)
+		\tkzDrawPolygon(A,B,C)
+		\tkzLabelPoints[above](M)
+		\tkzLabelPoints[below](O)
+		\tkzLabelPoints[left](A)
+		\tkzLabelPoints[right](B,C)
+		\tkzMarkSegments[mark=||](M,A M,C)
+		\tkzDrawPoints[fill=black](A,B,C,O,M)
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\begin{enumerate}
+			\item Theo bài ra ta thấy $OC=OA=\dfrac{AB}{2}$.\\
+			Tam giác $ABC$ có trung tuyến $CO$ bằng nửa cạnh đối $AB$ nên $\triangle ABC$ vuông tại $C$.\\
+			Vậy $\widehat{ACB}=90^\circ$.
+			\item Vì $M$ là trung điểm của $AC$ nên $OM\perp AC$ (bán kính đi qua trung điểm của dây cung).\\
+			Suy ra tam giác $AOM$ vuông tại $M$ nên $$AM^2=OA^2-OM^2=5^2-3^2=16\Rightarrow AM=4\text{ (cm)}.$$
+			Vậy $AC=2\cdot AM=8$ (cm).
+			\item 
+			\immini
+			{Vì $BD$ là tiếp tuyến của đường tròn $O$ nên $BD\perp AB$. Suy ra tam giác $ABD$ vuông tại $B$.\\
+				Lại có $\widehat{ACB}=90^\circ\Rightarrow BC\perp AD$ nên $BC$ là đường cao ứng với cạnh huyền $AD$ của tam giác vuông $ABD$, ta có\\
+				$AB^2=AC\cdot AD\Rightarrow
+				AD=\dfrac{AB^2}{AC}=\dfrac{10^2}{8}=12\text{,}5$ (cm).\\
+				Từ đó suy ra $CD=AD-AC=12\text{,}5-8=4\text{,}5$ (cm).
+			}
+			{
+				\begin{tikzpicture}[scale=.4, line join=round, line cap=round]
+				%%%%%%%%
+				\tkzDefPoints{0/0/O',-5/0/A'}
+				\tkzDefPointBy[rotation = center O angle -30](A')\tkzGetPoint{A}
+				\tkzDefPointBy[symmetry = center O](A)\tkzGetPoint{B}
+				\tkzDefPointBy[rotation = center O angle -120](A)    \tkzGetPoint{C}
+				%\tkzDefCircle[circum](A,B,C)\tkzGetPoint{O}
+				\tkzDefMidPoint(A,C)\tkzGetPoint{M}
+				\tkzTangent[at=B](O)\tkzGetPoint{x}
+				\tkzInterLL(A,C)(B,x)\tkzGetPoint{D}
+				\tkzDrawLines[add=0.5 and 0](B,D)
+				\tkzDrawSegments(O,M C,D)
+				\tkzDrawCircle(O,A)
+				\tkzDrawPolygon(A,B,C)
+				\tkzLabelPoints[above](M,C)
+				\tkzLabelPoints[below](O)
+				\tkzLabelPoints[left](A)
+				\tkzLabelPoints[right](B,D)
+				\tkzMarkSegments[mark=||](M,A M,C)
+				\tkzMarkRightAngles[size=.5](A,C,B A,B,D)
+				\tkzDrawPoints[fill=black](A,B,C,O,M,D)
+				\end{tikzpicture}
+			}
+		\end{enumerate}
+		
+	}
+\end{vd}
+\begin{vd}	
+	Cho đường tròn $\left(O\right)$ đường kính $AB=12$ cm, dây $MN$  vuông góc với $AB$  tại trung điểm $I$ của $OB$. Các tiếp tuyến của $(O)$ tại $M$ và $N$ cắt nhau tại $C$. Vẽ đường tròn tâm $I$ đường kính $OB$.
+	\begin{enumerate}
+		\item Xác định vị trí tương đối của $(O)$ và $(I)$;
+		\item Tính độ dài dây $MN$;
+		\item Tứ giác $BMON$ là hình gì? Vì sao?
+		\item Chứng minh: $CO\bot MN$;
+		\item Tính diện tích tứ giác $MONC$;
+		\item Chứng minh  $\dfrac{4}{MN^2}=\dfrac{1}{OM^2}+\dfrac{1}{NC^2}$. 
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=.9, line join=round, line cap=round]
+			%%%%%%%%
+			\tkzInit[xmin=-3.8,xmax=8,ymin=-3.5,ymax=3.5]
+			\tkzClip
+			\tkzDefPoints{-3/0/A,3/0/B}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{O}
+			\tkzDefMidPoint(O,B)\tkzGetPoint{I}
+			\tkzDefLine[perpendicular=through I,K=2](A,B)    \tkzGetPoint{x}
+			\tkzInterLC(I,x)(O,A)\tkzGetPoints{M}{N}
+			\tkzTangent[at=M](O)\tkzGetPoint{y}
+			\tkzTangent[at=N](O)\tkzGetPoint{z}
+			\tkzInterLL(M,y)(N,z)\tkzGetPoint{C}
+			\tkzDrawCircle(O,A)
+			\tkzDrawCircle(I,B)
+			\tkzDrawPolygon(M,O,N,B)
+			\tkzDrawSegments(O,M M,N A,C C,M C,N)
+			\tkzLabelPoints[above](M)
+			\tkzLabelPoints[below](N)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above right](B)
+			\tkzLabelPoints[above left](O,I)
+			%\tkzMarkSegments[mark=||](M,A M,C)
+			\tkzMarkRightAngles[size=.4](C,M,O C,N,O M,I,B)
+			\tkzDrawPoints[fill=black](A,B,C,O,M,N)
+			\end{tikzpicture}	
+		\end{center}
+		\begin{enumerate}
+			\item $(O)$ và $(I)$ có bán kính lần lượt là $OA$ và $IB$.\\
+			Ta có $OI=OB-IB$.\\
+			Vậy $(O)$ tiếp xúc trong với $(I)$ tại $B$.
+			\item Theo bài ra $MN\perp AB\Rightarrow MI\perp OI$ nên tam giác $MIO$ là tam giác vuông tại $I$. Mặt khác $AB=12$ cm $\Rightarrow OM=OB=6$ cm, $IO=IB=3$ cm. Ta có \\
+			$MI^2=OM^2-OI^2=6^2-3^2=27\Rightarrow MI=3\sqrt{3}$ (cm).\\
+			Vì $OB\perp MN$ tại $I$ nên $I$ cũng là trung điểm của $MN$.\\
+			Vậy $MN=2MI=6\sqrt{3}$ (cm).
+			\item Từ giả thiết và kết quả của câu b) ta có $I$ là trung điểm của $OB$ và $MN$ nên tứ giác $OMBN$ là hình bình hành.\\
+			Mặt khác ta có $OM=ON$ (đều là bán kính) suy ra $OMBN$ là hình thoi.
+			\item Theo tính chất hai tiếp tuyến cắt nhau tại $C$,
+			ta có $CM = CN$.\\
+			Mặt khác $OM = ON = R$, do đó $CO$ là đường trung trực của $MN$.\\
+			Vậy $CO \perp MN$.
+			\item Tam giác $MOC$ vuông tại $M$ vì $OM\perp CM$ (bán kính vuông góc với tiếp tuyến tại tiếp điểm). Mặt khác từ câu c) ta có $CO\perp MN$ nên $OI$ là hình chiếu của cạnh góc vuông $OM$ lên cạnh huyền $OC$ của tam giác vuông $OCM$.\\
+			Vậy ta có $OM^2=OI\cdot CO\Rightarrow OC=\dfrac{OM^2}{OI}=\dfrac{36}{3}=12$ (cm).\\
+			Tứ giác $OMCN$ có hai đường chéo vuông góc nên có diện tích là\\
+			${S}_{CMON}=\dfrac{1}{2}CO\cdot MN=\dfrac{1}{2}9\cdot 6\sqrt{3}=27\sqrt{3}$ (cm$^2$).
+			\item Ta có $MI=\dfrac{MN}{2}\Rightarrow \dfrac{4}{MN^2}=\dfrac{1}{MI^2}.\hfill (1)$\\
+			$OM=ON$ (tính chất hai tiếp tuyến cắt nhau tại $C$). $\hfill (2)$\\
+			Tam giác $OMC$ vuông tại $M$ có đường cao $MI$ nên ta có 
+			$$\dfrac{1}{MI^2}=\dfrac{1}{OM^2}+\dfrac{1}{MC^2}.\qquad (3)$$
+			Từ $(1)$, $(2)$, $(3)$ suy ra  $$\dfrac{4}{MN^2}=\dfrac{1}{OM^2}+\dfrac{1}{NC^2}.$$ 
+		\end{enumerate}
+		
+	}
+\end{vd}
+
+\begin{vd}	
+	Cho hai đường tròn $\left(O;R\right)$ và $\left(O';R'\right)$ tiếp xúc ngoài tại	$A$ ($R>R'$). Vẽ các đường kính $AOB$, $AO'C$. Dây $DE$ của đường tròn $\left(O\right)$ vuông góc với $BC$ tại trung điểm $K$ của $BC$.
+	\begin{enumerate}
+		\item Tứ giác $BDCE$  là hình gì? Vì sao?
+		\item Gọi $I$ là giao điểm của $DA$ và đường tròn $ (O')$. Chứng minh rằng ba điểm $E$, $I$, $C$ thẳng hàng;
+		\item Chứng minh rằng $KI$ là tiếp tuyến của $ (O')$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=.8, line join=round, line cap=round]
+			%%%%%%%%
+			\tkzInit[xmin=-4.2,xmax=8,ymin=-4,ymax=4.2]
+			\tkzClip
+			\tkzDefPoints{0/0/O,5/0/O'}
+			\tkzDefPointBy[homothety = center O ratio 0.7](O')    \tkzGetPoint{A}
+			\tkzDrawCircle(O,A)
+			\tkzDrawCircle(O',A)
+			\tkzInterLC(O,A)(O,A)\tkzGetPoints{B}{}
+			\tkzInterLC(O',A)(O',A)\tkzGetPoints{C}{}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{K}
+			\tkzDefLine[perpendicular=through K,K=2](B,C)    \tkzGetPoint{x}
+			\tkzInterLC(K,x)(O,A)\tkzGetPoints{D}{E}
+			\tkzInterLC(D,A)(O',A)\tkzGetPoints{I}{}
+			\tkzDrawPolygon(B,D,C,E)
+			\tkzDrawSegments(B,C D,E D,I I,K I,O')
+			\tkzLabelPoints[above](D,O')
+			\tkzLabelPoints[below](O,I,E)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above right](A)
+			\tkzLabelPoints[below left](K)
+			\tkzMarkSegments[mark=||](K,B K,C)
+			\tkzMarkRightAngles(D,K,C)
+			\tkzDrawPoints[fill=black](A,B,C,O,O',D,E,I,K)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Tứ giác $BDCE$ có $BK = KC$, $DK = KE$ nên là hình bình hành.\\
+			Lại có $BC\perp DE$ nên $BDCE$ là hình thoi.
+			\item Ta có $\triangle AIC$ có $O’I=\dfrac{1}{2}AC$ nên $\widehat{AIC}=90^\circ$ hay $AI\perp IC$.\\
+			Tương tự $AD\perp BD$. Suy ra $BD\parallel IC$.\\
+			Lại có $BD\parallel EC$ (tính chất hình thoi). Suy ra $E$, $I$, $C$ thẳng hàng(Ơ-clit).
+			\item Nối $KI$ và $IO’$ ta có
+			$KI = KD = KE$ ($KI$ là đường  trung tuyến ứng với cạnh huyền). Do đó $\widehat{KIA}=\widehat{KDA}.\hfill(1)$\\
+			Tam giác $O’IA$ cân tại $O’$ nên $ \widehat{O'IA}=\widehat{O'AI}=\widehat{DAK}.\hfill(2)$\\
+			Từ $(1)$ và $(2)$ suy ra $ \widehat{KIA}+\widehat{O'IA}=\widehat{KDA}+\widehat{DAK}=90^\circ$.\\
+			Vậy $KI$ là tiếp tuyến của đường tròn $(O’)$.
+		\end{enumerate}
+		
+	}
+\end{vd}
+
+\begin{vd}	
+	Cho đường tròn $\left(O;13\text{ cm}\right)$, dây $AB=24$ cm.
+	\begin{enumerate}
+		\item Tính khoảng cách từ tâm $O$ đến dây $AB$;
+		\item Gọi $M$ là điểm thuộc dây $AB$. Qua $M$, vẽ dây $CD$ vuông góc với dây $AB$ tại điểm $M$. Xác định vị trí điểm $M$ trên dây $AB$ để $AB=CD$.
+	\end{enumerate}
+	\loigiai{
+		\immini
+		{
+			\begin{enumerate}
+				\item Hạ $OH\bot AB$. 
+				Xét $\triangle OHA$ có $\widehat{H}=90^\circ$. Ta có
+				\begin{itemize}
+					\item $AH = HB=\dfrac{AB}{2}=\dfrac{24}{2}=12$ (cm). 
+					\item $OH=\sqrt{OA^2-AH^2}=\sqrt{13^2-12^2}=5$ (cm).
+				\end{itemize}
+				\item Hạ $OK\bot CD$. Áp dụng định lí về quan hệ giữa dây và khoảng cách từ tâm đến dây ta có\\ $AB=CD\Leftrightarrow OH=OK$.\\
+				Mặt khác tứ giác $OHMK$ có $\widehat{H}=\widehat{K}=\widehat{M}=90^\circ$ và $OH = OK$ nên $OHMK$ là hình vuông.\\
+				Vậy để $AB = CD$ thì điểm $M\in AB$ và $HM = 5$ (cm).
+			\end{enumerate}	
+		}
+		{
+			\begin{tikzpicture}[scale=.8, line join=round, line cap=round]
+			%%%%%%%%
+			\tkzInit[xmin=-3.5,xmax=3.5,ymin=-3.5,ymax=3.5]
+			\tkzClip
+			\def \goc{70}
+			\tkzDefPoints{0/0/O}
+			\coordinate (A) at ($(O)+(\goc:3cm)$);
+			\tkzDrawCircle(O,A)
+			\tkzDefPointBy[rotation=center O angle -2*(\goc)](A)\tkzGetPoint{B}
+			\coordinate (M) at ($(A)!0.3!(B)$);
+			\tkzDefLine[perpendicular=through M,K=2](A,B)    \tkzGetPoint{x}
+			\tkzInterLC(M,x)(O,A)\tkzGetPoints{C}{D}
+			\tkzDefPointBy[projection = onto A--B](O)    \tkzGetPoint{H}
+			\tkzDefPointBy[projection = onto C--D](O)    \tkzGetPoint{K}
+			\tkzDrawSegments(A,B C,D O,A O,B O,K O,H)
+			\tkzLabelPoints[above](A,K)
+			\tkzLabelPoints[below](B)
+			tkzLabelPoints[below left](O)
+			\tkzLabelPoints[left](C)
+			\tkzLabelPoints[right](D,H)
+			\tkzLabelPoints[below right](M)
+			%\tkzMarkSegments[mark=||](M,A M,C)
+			\tkzMarkRightAngles(O,K,D O,H,B A,M,D)
+			\tkzDrawPoints[fill=black](A,B,C,O,D,M,K,H)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\begin{vd}
+	Cho nửa đường tròn tâm $O$, đường kính $AB$. Kẻ các tiếp tuyến $Ax$, $By$ cùng phía với nửa đường tròn đối với $AB$. Từ điểm $M$ trên nửa đường tròn kẽ tiếp tuyến thứ ba với đường tròn, nó cắt $Ax$ và $By$ lần lượt tại $C$ và $D$.
+	\begin{enumerate}
+		\item Chứng minh tam giác $COD$ là tam giác vuông;
+		\item Chứng minh $AC\cdot BD=OM^2$;
+		\item Cho biết $OC=BA=12$ cm. Tính độ dài $AC$ và $BD$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=.8, line join=round, line cap=round]
+			%%%%%%%%
+			\tkzInit[xmin=-4,xmax=4,ymin=-0.5,ymax=6]
+			\tkzClip
+			\tkzDefPoints{-3/0/A,3/0/B}
+			\coordinate (O) at ($(A)!0.5!(B)$);
+			\tkzDrawArc[rotate](O,A)(-180)
+			\tkzTangent[at=A](O)\tkzGetPoint{x}
+			\tkzTangent[at=B](O)\tkzGetPoint{y}
+			\tkzDefPointBy[rotation=center O angle 120](B)\tkzGetPoint{M}
+			\tkzTangent[at=M](O)\tkzGetPoint{t}
+			\tkzInterLL(M,t)(A,x)\tkzGetPoint{C}
+			\tkzInterLL(M,t)(B,y)\tkzGetPoint{D}
+			\tkzDefPointBy[homothety = center A ratio 1.5](C)    \tkzGetPoint{x'}
+			\tkzDefPointBy[homothety = center B ratio 1.1](D)    \tkzGetPoint{y'}
+			\tkzDrawSegments(A,B C,D O,M O,C O,D)
+			\tkzDrawLines[add=0 and 0.5](B,D A,C)
+			\tkzLabelPoints[above](M)
+			\tkzLabelPoints[below](A,B,O)
+			\tkzLabelPoints[left](C)
+			\tkzLabelPoint[right](x'){$x$}
+			\tkzLabelPoint[left](y'){$y$}
+			\tkzLabelPoints[right](D)
+			\tkzMarkRightAngles(C,A,B O,B,D)
+			\tkzDrawPoints[fill=black](A,B,C,O,D,M)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có $CA$ và $CM$ là hai tiếp tuyến của $(O)$ nên $\widehat{AOC}=\widehat{MOC}$.\\
+			Tương tự $\widehat{BOD}=\widehat{MOD}$, mà $\widehat{AOM}+\widehat{MOB}=180^\circ$ (hai góc kề bù).\\
+			Suy ra $\widehat{COD}=90^\circ$ hay $\triangle COD$ vuông.
+			\item Áp dụng tính chất hai tiếp tuyến cắt nhau ta có $AC = MC$; $BD = MD$.\\
+			Mặt khác, xét $\triangle COD$, $\widehat{COD}=90^\circ$ ta có \\
+			$OM^2 = MC\cdot MD$ (hệ thức lượng trong tam giác vuông).\\
+			Suy ra $AC\cdot BD = OM^2$ (điều phải chứng minh).
+			\item Từ $AB = 12$ cm $\Rightarrow OA=6$ cm nên  $AC=\sqrt{OC^2-AO^2}=\sqrt{12^2-6^2}=6\sqrt{3}$ (cm).\\
+			$BD = MD = \dfrac{OM^2}{MC}=\dfrac{OA^2}{AC}=\dfrac{6^2}{6\sqrt{3}}=2\sqrt{3}$ (cm).
+		\end{enumerate}	
+	}
+\end{vd}
+
+\begin{vd}	
+	Cho hai đường tròn $\left(O;R\right)$  và $\left(O';r\right)$ tiếp xúc ngoài tại $A$. Một đường thẳng $(d)$ tiếp xúc với cả hai đường tròn trên tại $B$ và $C$ với $B\in \left(O\right)$, $C\in \left(O'\right)$.
+	\begin{enumerate}
+		\item Chứng minh tam giác $ABC$ vuông;
+		\item Gọi $M$ là trung điểm của $BC$. Chứng minh $MA$ là tiếp tuyến chung của hai đường tròn $(O)$ và $(O')$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=.8, line join=round, line cap=round]
+			%%%%%%%%
+			\tkzInit[xmin=-5,xmax=6,ymin=-3,ymax=4]
+			\tkzClip
+			\tkzDefPoints{-2/0/O',3/0/O}
+			\coordinate (A) at ($(O')!0.6!(O)$);
+			\tkzDrawCircle(O',A)
+			\tkzDrawCircle(O,A)
+			\tkzDefPointBy[rotation=center O' angle 80](A)\tkzGetPoint{C}
+			\tkzDefLine[parallel=through O](O',C)\tkzGetPoint{x}
+			\tkzInterLC(O,x)(O,A)\tkzGetPoints{}{B}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+			\tkzDrawSegments(O',O A,B A,C B,C A,M O',C O,B)
+			\tkzLabelPoints[above](M,C,B)
+			\tkzLabelPoints[below](O,O')
+			\tkzLabelPoints[below left](A)
+			\tkzMarkSegments[mark=|](M,B M,C)
+			\tkzMarkRightAngles(O',C,B O,B,C)
+			\tkzDrawPoints[fill=black](A,B,C,O,O',M)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item 
+			Ta có $OB \parallel O'C$ (cùng vuông góc với $BC$).\\
+			$\Rightarrow$ Tứ giác $OBCO'$ là hình thang vuông.\\
+			$\Rightarrow \widehat{BOO'}+ \widehat{CO'O}= 180^\circ$.\\
+			$\triangle CO'A$ cân tại $O'$ có $\widehat{CAO’}=\dfrac{180^\circ-\widehat{CO’O}}{2}=90^\circ-\dfrac{\widehat{CO’O}}{2}. \hfill(1)$\\
+			$\triangle BOA$ cân tại $O$ có 	$\widehat{BAO}=\dfrac{180^\circ-\widehat{BOO’}}{2}=90^\circ-\dfrac{\widehat{BOO’}}{2}.\hfill(2)$\\ 
+			Từ $(1$) và $(2)$ 
+			$\begin{aligned}[t]
+			\Rightarrow\widehat{CAO’}+\widehat{BAO}&=90^\circ-\dfrac{\widehat{CO’O}}{2}+90^\circ-\dfrac{\widehat{BOO’}}{2}\\
+			&=180^\circ-\dfrac{\widehat{BOO’}+\widehat{CO’O}}{2}\\
+			&=180^\circ-90^\circ=90^\circ.\end{aligned}$.\\
+			Lại có $\widehat{CAO'}+\widehat{BAO}+\widehat{BAC}= 180^\circ \Rightarrow \widehat{BAC}= 180^\circ-90^\circ = 90^\circ$.\\
+			$\Rightarrow \triangle ABC$ vuông tại $A$.
+			\item Ta có $M$ là trung điểm của cạnh huyền $BC$
+			$\Rightarrow MA = MB = MC$
+			$\Rightarrow \triangle MAB$ cân tại $M\Rightarrow \widehat{MAB}= \widehat{MBA}$.\\
+			Lại có $\triangle OAB$ cân tại $O$ $\begin{aligned}[t]&\Rightarrow \widehat{OAB}= \widehat{OBA}\\
+			&\Rightarrow\widehat{MAB}+ \widehat{OAB}= \widehat{MBA}+ \widehat{OBA}\\
+			&\Leftrightarrow \widehat{MAO}=\widehat{MBO}= 90^\circ.
+			\end{aligned}$\\
+			$\Rightarrow MA$ là tiếp tuyến của $(O)$.\\
+			Chứng minh tương tự $MA$ là tiếp tuyến của $(O')$.\\
+			Vậy $MA$ là tiếp tuyến chung của hai đường tròn $(O)$ và $(O')$.
+		\end{enumerate}	
+	}
+\end{vd}
+
+\begin{vd}	
+	Cho đường tròn $(O)$ đường kính $AB$. Trên tiếp tuyến $Ax$ lấy điểm $C\neq A$. Đoạn thẳng $BC$ cắt $(O)$ tại $M$. Gọi $I$ là trung điểm của $MB$, $K$ là trung điểm của $AC$.
+	\begin{enumerate}
+		\item Chứng minh $AM$ là đường cao của tam giác $ABC$ và $AC^2=CM\cdot CB$;
+		\item Chứng minh $A$, $I$, $C$, $M$ cùng nằm trên một đường tròn;
+		\item Chứng minh KM là tiếp tuyến của đường tròn $(O)$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=.8, line join=round, line cap=round]
+			%%%%%%%%
+			\tkzInit[xmin=-5,xmax=4,ymin=-3.2,ymax=5]
+			\tkzClip
+			\tkzDefPoints{-3/0/A,3/0/B}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{O}
+			\tkzDrawCircle(O,A)
+			\tkzTangent[at=A](O)\tkzGetPoint{x}
+			\coordinate (C) at ($(A)!-3.8!(x)$);
+			\tkzInterLC(C,B)(O,A)\tkzGetPoints{M}{}
+			\tkzTangent[at=M](O)    \tkzGetPoint{t}
+			\tkzInterLL(M,t)(C,A)\tkzGetPoint{K}
+			\tkzDefMidPoint(M,B)\tkzGetPoint{I}
+			\tkzDrawSegments(A,C A,B B,C A,M K,M O,K O,M O,I O,C)
+			\tkzLabelPoints[above](C,M,I)
+			\tkzLabelPoints[below](O)
+			\tkzLabelPoints[left](A,K)
+			\tkzLabelPoints[right](B)
+			\tkzMarkSegments[mark=|](I,M I,B)
+			\tkzMarkSegments[mark=||](K,C K,A)
+			\tkzMarkRightAngles(C,A,B)
+			\tkzDrawPoints[fill=black](A,B,C,O,I,M,K)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Tam giác $AMB$ nội tiếp đường tròn $(O)$ có $AB$ là đường kính
+			$\Rightarrow \triangle AMB$ vuông tại $M$ hay $\widehat{AMB}= 90^\circ\Rightarrow AM$ là đường cao của tam giác $ABC$.\\
+			Xét tam giác $ABC$ vuông tại $A$ có $AM$ là đường cao
+			$\Rightarrow AC^2 = CM\cdot CB$ (hệ thức liên hệ giữa cạnh và đường cao).
+			\item Tam giác $ACO$ vuông tại $A\Rightarrow$ tâm đường tròn ngoại tiếp tam giác $ACO$ là trung điểm của $CO$. $\hfill(1)$\\
+			Xét tam giác $AMB$ có $I$ là trung điểm của $AM$,
+			$O$ là trung điểm của $AB$
+			$\Rightarrow IO$ là đường trung bình của tam giác $AMB\Rightarrow IO\parallel AM$.\\
+			Mà $AM\perp MB \Rightarrow IO\perp MB$.\\
+			Tam giác $CIO$ vuông tại $I \Rightarrow$ tâm đường tròn ngoại tiếp tam giác $CIO$ là trung điểm của $CO$. $\hfill(2)$\\
+			Từ $(1)$ và $(2)\Rightarrow$ bốn điểm $A$, $I$, $C$, $O$ cùng thuộc một đường tròn.
+			\item Tam giác $CMA$ vuông tại $M$ có $MK$ là trung tuyến $\Rightarrow MK = KA = KC$.\\
+			Xét $\triangle KAO$ và $\triangle KMO$ có\\
+			$\heva{&KA = KM\\&KO \text{ là cạnh chung}\\&AO = MO\text{ (bằng bán kính $(O)$)}} \Rightarrow \triangle KAO = \triangle KMO$ (c.c.c)
+			$\Rightarrow \widehat{KAO}= \widehat{KMO}$.\\
+			Mà $\widehat{KAO}= 90^\circ\Rightarrow \widehat{KMO}= 90^\circ \Rightarrow KM$ là tiếp tuyến của $(O)$.
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}	
+	Cho đường tròn $(O)$, đường kính $AB$, điểm $C$ nằm giữa $A$ và $O$. Vẽ đường tròn $(O')$ có đường kính $CB$.
+	\begin{enumerate}
+		\item Hai đường tròn $(O)$ và $(O')$ có vị trí tương đối như thế nào?
+		\item Kẻ dây $DE$ của đường tròn $(O)$ vuông góc với $AC$ tại trung điểm $H$ của $AC$. Tứ giác $ADCE$ là hình gì? Vì sao?
+		\item Gọi $K$ là giao điểm của $DB$ và đường tròn $(O')$. Chứng minh rằng 3 điểm $E$, $C$, $K$ thẳng hàng;
+		\item Chứng minh $HK$ là tiếp tuyến của đường tròn $(O')$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round]
+			%%%%%%%%
+			\tkzInit[xmin=-3.5,xmax=3.5,ymin=-3.2,ymax=3.5]
+			\tkzClip
+			\tkzDefPoints{-3/0/A,3/0/B}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{O}
+			\tkzDrawCircle(O,A)
+			\tkzDefMidPoint(A,O)\tkzGetPoint{C}
+			\tkzDefMidPoint(C,B)\tkzGetPoint{O'}
+			\tkzDrawCircle(O',B)
+			\tkzDefMidPoint(A,C)\tkzGetPoint{H}
+			\tkzDefLine[perpendicular= through H](A,C)\tkzGetPoint{t}
+			\tkzInterLC(H,t)(O,A)\tkzGetPoints{E}{D}
+			\tkzInterLC(D,B)(O',C)\tkzGetPoints{K}{}
+			\tkzDrawSegments(A,B D,E E,K D,C K,O' K,H D,B A,D)
+			\tkzLabelPoints[above](D,K)
+			\tkzLabelPoints[below](O,O',E)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](B)
+			\tkzLabelPoints[below left](H,C)
+			%\tkzMarkSegments[mark=|](I,M I,B)
+			\tkzMarkRightAngles(D,H,B)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,O,O',K,H)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có $OO'= OB-O'B\Rightarrow$ hai đường tròn $(O)$ và $(O')$ tiếp xúc trong tại $B$.
+			\item Dây $DE$ của $(O)$ vuông góc với đường kính $AB\Rightarrow AB$ đi qua trung điểm của $DE$ hay $H$ là trung điểm của $AB$.\\
+			Xét tứ giác $ADCE$ có $H$ là trung điểm của $AB$, $H$ cũng là trung điểm của $AC\Rightarrow$ tứ giác $ADCE$ là hình bình hành.\\
+			Lại có $AC\perp DE \Rightarrow$ tứ giác $ADCE$ là hình thoi.
+			\item $\triangle KCB$ có trung tuyến $KO'=\dfrac{BC}{2}$ nên vuông tại $K\Rightarrow\widehat{CKB}= 90^\circ$ hay $CK\perp BD$. $\hfill (1)$\\
+			Chứng minh tương tự ta có $\widehat{ADB}= 90^\circ$ hay $AD\perp BD$. $\hfill (2)$\\
+			Từ $(1)$và $(2)\Rightarrow CK\parallel AD$.\\
+			Lại có $CE\parallel AD$ (vì tứ giác $ADCE$ là hình thoi)
+			$\Rightarrow C$, $E$, $K$ thẳng hàng.
+			\item Xét tam giác $DEK$ vuông tại $K$ có $KH$ là trung tuyến nên $KH = HE$.\\
+			Tam giác $KHE$ có $KH = HE \Rightarrow \triangle KHE$ cân tại $H\Rightarrow \widehat{HKE}=\widehat{KEH}$.\\
+			Lại có $\triangle O'CK$ cân tại $O'$ 
+			\begin{eqnarray*}
+				&\Rightarrow& \widehat{O'CK}=\widehat{O'KC}\\
+				&\Rightarrow& \widehat{HKE}+ \widehat{O'KC}=\widehat{KEH}+ \widehat{O'CK}\\
+				&\Leftrightarrow& \widehat{O'KH}= \widehat{KEH}+ \widehat{O'CK}.
+			\end{eqnarray*}
+			Mặt khác $\widehat{O'CK}= \widehat{HCE}$(đối đỉnh)\\
+			Tam giác $HEC$ vuông tại $H$ nên $\widehat{KEH}+ \widehat{HCE}= 90^\circ\Rightarrow\widehat{KEH}+ \widehat{O'CK}= 90^\circ$
+			hay $\widehat{O'KH}= 90^\circ\Rightarrow KH$ là tiếp tuyến của $(O')$.
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}	
+	Cho đường tròn $(O)$ đường kính $AB$. Lấy điểm $C$ thuộc $(O)$. Tiếp tuyến tại $A$ của $(O)$ cắt đường thẳng $BC$ tại $D$. Gọi $E$ là trung điểm của $AD$.
+	\begin{enumerate}
+		\item Chứng minh $EC$ là tiếp tuyến của $(O)$;
+		\item Chứng minh $EO$ vuông góc với $AC$ tại trung điểm $I$ của $AC$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=0.8, line join=round, line cap=round]
+			%%%%%%%%
+			\tkzInit[xmin=-3.5,xmax=3.5,ymin=-3.2,ymax=5]
+			\tkzClip
+			\tkzDefPoints{-3/0/A,3/0/B}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{O}
+			\tkzDrawCircle(O,A)
+			\tkzDefPointBy[rotation = center O angle -70](A)    \tkzGetPoint{C}
+			\tkzTangent[at=A](O)\tkzGetPoint{t}
+			\tkzInterLL(A,t)(B,C)\tkzGetPoint{D}
+			\tkzDefMidPoint(A,D)\tkzGetPoint{E}
+			\tkzInterLL(E,O)(A,C)\tkzGetPoint{I}
+			\tkzDrawSegments(A,B A,C B,D E,C E,O O,C A,D)
+			\tkzLabelPoints[above](D,C)
+			\tkzLabelPoints[below](O,I)
+			\tkzLabelPoints[left](A,E)
+			\tkzLabelPoints[right](B)
+			\tkzMarkSegments[mark=|](E,A E,D)
+			\tkzMarkRightAngles(D,A,B)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,O,I)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có $\widehat{ACB}=90^\circ$ (góc nội tiếp chắn nửa đường tròn) $\Rightarrow AC\perp BD$.\\
+			Tam giác $ACD$ vuông tại $C$ có $CE$ là trung tuyến nên $CE = EA =\dfrac{1}{2}AD$.\\
+			Xét tam giác $AEO$ và tam giác $CEO$ có\\
+			$\heva{&AE = CE\\&EO \text{ là cạnh chung}\\&AO = CO}\Rightarrow \triangle AEO =\triangle CEO$ (c.c.c)\\
+			$\Rightarrow \widehat{EAO}= \widehat{ECO}= 90^\circ \Rightarrow CE$ là tiếp tuyến của $(O)$.
+			\item $EA$ và $EC$ là $2$ tiếp tuyến của $(O)$ cắt nhau tại $E\Rightarrow EA = EC$.\\
+			Lại có $OA = OC\Rightarrow OE$ là đường trung trực của đoạn $AC$ hay $OE$ vuông góc với $AC$ tại trung điểm $I$ của $AC$
+		\end{enumerate}
+	}
+\end{vd}
+\begin{vd}	
+	Cho nửa đường tròn $(O)$ đường kính $AB=2R$, $N$ là điểm trên nửa đường tròn. Trên cùng một nửa mặt phẳng bờ $AB$, vẽ hai tiếp tuyến $Ax$ và $By$ và một tiếp tuyến tại $N$ cắt hai tiếp tuyến $Ax$ và $By$ lần lượt tại $C$ và $D$.
+	\begin{enumerate}
+		\item Chứng minh $AC+BD=CD$ và $AC\cdot BD$ không đổi;
+		\item Chứng minh $AB$ tiếp xúc với đường tròn đường kính $CD$;
+		\item Biết $AC=\dfrac{R}{2}$. Tính $NA$ và $NB$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=.8, line join=round, line cap=round]
+			%%%%%%%%
+			\tkzInit[xmin=-4,xmax=4,ymin=-0.5,ymax=6]
+			\tkzClip
+			\tkzDefPoints{-3/0/A,3/0/B}
+			\coordinate (O) at ($(A)!0.5!(B)$);
+			\tkzDefPointBy[rotation = center O angle 70](B)   \tkzGetPoint{N}
+			\tkzDrawArc[rotate](O,A)(-180)
+			\tkzTangent[at=A](O)\tkzGetPoint{x}
+			\tkzTangent[at=B](O)\tkzGetPoint{y}
+			\tkzTangent[at=N](O)\tkzGetPoint{t}
+			\tkzInterLL(A,x)(N,t)\tkzGetPoint{C}
+			\tkzInterLL(B,y)(N,t)\tkzGetPoint{D}
+			\tkzDefMidPoint(C,D)\tkzGetPoint{I}
+			\tkzDrawSegments(A,B C,D O,C O,D O,I N,A N,B N,O A,C B,D)
+			\tkzLabelPoints[above](C,I,N,D)
+			\tkzLabelPoints[below](A,B,O)
+			\tkzMarkRightAngles(C,A,O O,B,D)
+			\tkzDrawPoints[fill=black](A,B,C,O,D,N,I)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có $DN$ và $DB$ là hai tiếp tuyến cắt nhau tại $D \Rightarrow DN = DB$.\\
+			Lại có $CA$ và $CN$ là hai tiếp tuyến cắt nhau tại $C \Rightarrow CA = CN$ nên $DB + CA = DN + CN = DC$.\\
+			Mặt khác $OC$ và $OD$ lần lượt là hai phân giác của hai góc $\widehat{AON}$ và $\widehat{BON}$ kề bù nên $\widehat{COD}= 90^\circ$.\\
+			Trong tam giác vuông $COD$ có $ON$ là đường cao nên $DN\cdot CN = ON^2 = R^2$.\\
+			Hay $AC\cdot BD = R^2$ (không đổi).
+			\item Gọi $I$ là tâm của đường tròn đường kính $CD$.\\
+			Tứ giác $CABD$ là hình thang vuông $(AC\perp AB;BD\perp AB)$ có $OI$ là đường trung bình $\Rightarrow OI\parallel AC$ mà $AC\perp AB \Rightarrow OI\perp AB$ tại $O$ và $OI=\dfrac{AC+BD}{2}=\dfrac{CD}{2}=IC$.\\
+			Vậy $AB$ tiếp xúc với đường tròn đường kính $CD$.
+			\item Ta có $OA = ON=R$, $CA = CN$ (tính chất hai tiếp tuyến cắt nhau).\\
+			Do đó $OC$ là đường trung trực của $AN$.\\
+			Gọi $H$ là giao điểm của $OC$ và $AN$.\\
+			Xét tam giác vuông $CAO$ có $AH$ là đường cao nên\\
+			$\dfrac{1}{AH^2}=\dfrac{1}{AO^2}+\dfrac{1}{CA^2}=\dfrac{1}{R^2}+\dfrac{1}{\left(\dfrac{R}{2}\right)^2}=\dfrac{1}{R^2}+\dfrac{4}{R^2}=\dfrac{5}{R^2}\Rightarrow AH=\dfrac{R\sqrt{5}}{5}\Rightarrow AN=\dfrac{2R\sqrt{5}}{5}$.\\
+			$AN^2+NB^2=AB^2$ (theo Py-ta-go).\\
+			$NB^2=AB^2-NA^2=(2R)^2-\dfrac{4R^2}{5}=\dfrac{16R^2}{5}\Rightarrow NB=\dfrac{4R}{\sqrt{5}}=\dfrac{4\sqrt{5}R}{5}$.\\
+			Vậy $AN=\dfrac{2\sqrt{5}R}{5}$ và $BN=\dfrac{4\sqrt{5}R}{5}$.
+		\end{enumerate}
+	}
+\end{vd}
+
+\subsection{Luyện tập}
+
+\begin{bt}[Kiểm tra Học kì 1 Toán 9, Thừa Thiên Huế, năm học 2015 - 2016]
+	Cho đường tròn tâm $O$, bán kính $R$, kẻ đường kính $AB$ và dây cung $AM$ có độ dài bằng $R$. Tia $OM$ cắt tiếp tuyến $Ax$ $(A$ là tiếp điểm $)$ của đường tròn $(O)$ tại $P$. Tiếp tuyến $PN$ của $(O)$ $(N$ là tiếp điểm, $N$ khác $A)$ cắt đường thẳng $AB$ ở $Q$.
+	\begin{enumerate}
+		\item Chứng minh $OP$ là đường trung trực của $AN$.
+		\item Chứng minh $AM$ song song với $ON$ và tính $AP$ theo $R$.
+		\item Chứng minh tam giác $APN$ đều và tính diện tích tam giác $APQ$ theo $R$.
+		\item Gọi $H$ là giao điểm của $AM$ và $PQ$. Chứng minh rằng $AP$ và $AN$ là hai tiếp tuyến của đường tròn $(M;MH)$.
+	\end{enumerate}
+	\loigiai
+	{
+		\begin{center}
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round]
+		\tkzDefPoints{0/0/A,6/0/B,3/0/O}
+		\tkzDrawCircle[color=blue](O,A)
+		\tkzDefShiftPoint[O](120:3){M}
+		\tkzTangent[at=A](O)
+		\tkzGetPoint{h}
+		\tkzInterLL(A,h)(O,M) \tkzGetPoint{P}
+		\tkzTangent[from=P](O,A) \tkzGetPoints{e}{f}
+		\tkzInterLC(P,f)(O,A) \tkzGetPoints{N}{J}
+		\tkzInterLL(P,N)(A,B) \tkzGetPoint{Q}
+		\tkzInterLL(P,Q)(A,M) \tkzGetPoint{H}
+		\tkzDrawPoints(A,B,O,M,P,N,Q,H)
+		\draw (P)--(A)--(Q)--(P) (A)--(M)--(B) (O)--(M) (O)--(P) (A)--(N) (M)--(N) (N)--(B) (O)--(N) (M)--(H);
+		\tkzLabelPoints[right](Q)
+		\tkzLabelPoints[left](A,P)
+		\tkzLabelPoints[below](O)
+		\tkzLabelPoints[below right](B)
+		\tkzLabelPoints[above right](N,H)
+		\draw (M) node[shift={(160:.4)}]{$M$};
+		\tkzMarkRightAngles(P,A,B P,N,O A,M,B)
+		\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có $\heva{&PA=PB&\text{(tính chất tiếp tuyến)}\\&OA=ON=R}$  suy ra $OP$ là đường trung trực của $AN$.
+			\item Tam giác $OAM$ đều $\left(AM=OA=OM=R\right)\Rightarrow \widehat{AMO}=\widehat{AOM}=60^\circ$.\\*
+			Mà $\widehat{MON}=\widehat{AOM}$ (tính chất hai tiếp tuyến cắt nhau)\\*
+			Suy ra $\widehat{AMO}=\widehat{MON}=60^\circ$. \\
+			Vậy $AM\parallel ON$.\\*
+			Ta có $AP\perp OA$ (vì $AP$ là tiếp tuyến)
+			$\Rightarrow \widehat{OAP}=90^\circ$.\\*
+			Tam giác $PAO$ vuông tại $A$ nên $AP=OA\cdot
+			\tan\widehat{AOP}=R\cdot \tan60^\circ=R\sqrt{3}$.
+			\item Ta có $\widehat{PAN}=\widehat{AOM}$ (cùng phụ với $\widehat{OAN}$) do đó $\widehat{PAN}=60^\circ$.\\
+			Mà $PA=PN$ suy ra tam giác $PAN$ đều suy ra $\widehat{APQ}=60^\circ$.\\*
+			Tam giác $APQ$ vuông tại $A$, nên $AQ=AP\cdot \tan\widehat{APQ}=R\sqrt{3}\cdot \tan60^\circ=3R$.\\
+			Vậy $S_{APQ}=\dfrac{1}{2}\cdot PA\cdot AQ=\dfrac{1}{2}\cdot R\sqrt{3}\cdot 3R=\dfrac{3R^{2}\sqrt{3}}{2}$(đvdt).
+			\item Ta có $ON\perp PN$ (vì $PN$ là tiếp tuyến), $AM\parallel ON$ suy ra $MH\perp PN$. Do đó, $MH$ là khoảng cách từ $M$ đến $PN$.\\*
+			Tam giác $APN$ đều có $AH$ là đường cao nên $AH$ cũng là đường phân giác của tam giác $APN$.\\*
+			Mặt khác $PO$ là phân giác của $\widehat{APN}$ (tính chất hai tiếp tuyến cắt nhau).\\*
+			Suy ra đường tròn $(M;MH)$ là đường tròn nội tiếp tam giác $APN$.\\*
+			Vậy $AP$ và $AN$ là hai tiếp tuyến của đường tròn $(M;MH)$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}[Kiểm tra Học kì 1 Toán 9, Thừa Thiên Huế, năm học 2014 - 2015]
+	Cho đường tròn $(O)$ đường kính $AB=2R$. Gọi $M$ là một điểm trên đường tròn $(O)$ ($M$ không trùng với $A$ và $B$). Vẽ đường tròn tâm $M$ tiếp xúc với $AB$ tại $H$. Từ $A$ và $B$ kẻ hai tiếp tuyến $AC$ và $BD$ với đường tròn tâm $M$ ($C, D$ là hai tiếp điểm).
+	\begin{enumerate}
+		\item Chứng minh $AC+BD=AB$.
+		\item Chứng minh $CD$ là tiếp tuyến của đường tròn $(O)$.
+		\item Gọi $K$ là giao điểm của $AD$ và $BC$. Chứng minh rằng $KH \parallel AC$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round]
+		\clip (-0.7,-3.7) rectangle (8,6);
+		\tkzDefPoints{0/0/A,6/0/B,3/0/O}
+		\tkzDrawCircle[color=blue](O,A)
+		\tkzDefShiftPoint[O](60:3){M}
+		\tkzDrawAltitude(A,B)(M)\tkzGetPoint{H}
+		\tkzDrawCircle(M,H)
+		\tkzTangent[from=A](M,H) \tkzGetPoints{e}{f}
+		\tkzInterLC(A,f)(M,H) \tkzGetPoints{C}{t}
+		\tkzTangent[from=B](M,H) \tkzGetPoints{e1}{f1}
+		\tkzInterLC(B,e1)(M,H) \tkzGetPoints{D}{t}
+		\tkzInterLL(A,D)(C,B) \tkzGetPoint{K}
+		\tkzDrawPoints(A,B,O,C,H,M,D,K)
+		\tkzLabelPoints[above left](C)
+		\tkzLabelPoints[below](O,H,K)
+		\tkzLabelPoints[left](A)
+		\tkzLabelPoints[right](B,D)
+		\tkzLabelPoints[above](M)
+		\draw (A)--(B)--(D) (A)--(C)--(M)--(B) (A)--(M) (B)--(C) (M)--(D) (M)--(O) (A)--(D);
+		\tkzMarkRightAngles(A,C,M M,D,B M,H,A)
+		\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Chứng minh $AC+BD=AB$.\\
+			Ta có $AC$ và $AH$ là 2 tiếp tuyến cắt nhau tại $A$ của $(M)$ $\Rightarrow AH = AC$ (tính chất 2 tiếp tuyến cắt nhau).\\
+			Tương tự ta có $BH=BD$.\\
+			$\Rightarrow AH + BH = AC + BD \Leftrightarrow AC + BD = AB$ (điều phải chứng minh).
+			\item  Chứng minh $CD$ là tiếp tuyến của đường tròn $(O)$.\\
+			Ta có $AC$ và $AH$ là 2 tiếp tuyến cắt nhau tại $A$ của $(M)$\\
+			$\Rightarrow MA$ là tia phân giác của $\widehat {CMH}$ (tính chất của 2 tiếp tuyến cắt nhau).\\
+			$\Leftrightarrow \widehat {HMA} = \dfrac{1}{2} \widehat {CMH}$.\\
+			Tương tự ta có $\widehat {HMB} = \dfrac{1}{2} \widehat {DMH}$.\\
+			Suy ra \begin{eqnarray*}
+				& & \widehat {HMA} + \widehat {HMB} = \dfrac{1}{2} \widehat {CMH} + \dfrac{1}{2} \widehat {DMH}\\
+				& \Leftrightarrow &  \widehat {AMB} = \dfrac{1}{2} \widehat {DMC}\\
+				& \Leftrightarrow & \widehat {CMD} = 180^\circ\\
+				& \Leftrightarrow & C, D, M \quad \text{thẳng hàng.}
+			\end{eqnarray*}
+			Suy ra $M$ là trung điểm của $CD$ hay tứ giác $ACDB$ là hình thang vuông, đáy $AC, BD$.\\
+			Mặt khác $AC$ và $BD$ là tiếp tuyến của $(M)$ (giả thiết)\\
+			$\Leftrightarrow AC\perp CD; BD\perp CD \Leftrightarrow AC\parallel BD$.\\
+			Lại có $O$ là trung điểm của $AB$ nên $OM$ là đường trung bình của hình thang $ACDB$ suy ra $OM\parallel BD$.\\
+			$OM\perp CD \Leftrightarrow CD$ là tiếp tuyến của $(O)$ (điều phải chứng minh).
+			\item Gọi $K$ là giao điểm của $AD$ và $BC$. Chứng minh rằng $KH \parallel AC$.\\
+			Ta có $AC \parallel BD \Rightarrow \dfrac{CK}{KB} = \dfrac{AC}{BD}$ (định lý Talet).\\
+			Mà $AC=AH$, $BD=BH$ (chứng minh trên)\\
+			$\Rightarrow \dfrac{CK}{KB} = \dfrac{AH}{HB} \Rightarrow HK \parallel AC$ (định lí Talet đảo).\\
+			Xét $\triangle ACM$ và $\triangle AHM$ có:
+			$\begin{cases}
+			AC=AH & \quad \text{(tính chất hai tiếp tuyến cắt nhau)}\\
+			OE=OD & \quad \text{(bán kính)}.
+			\end{cases}$
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}[Kiểm tra Học kì 1 Toán 9, Thừa Thiên Huế, năm học 2013-2014]
+	Cho đường tròn $(O;R)$ đường kính $AB$ và điểm $C$ thuộc đường tròn $(O)$ ($C$ khác $A$ và $B$), kẻ $CH$ vuông góc với $AB$ tại $H$.
+	\begin{enumerate}
+		\item Chứng minh tam giác $ABC$ vuông tại $C$ và $CH^2=AC\cdot BC\cdot \sin A\cdot \cos A$.
+		\item Tiếp tuyến tại $A$ của đường tròn $(O)$ cắt tia $BC$ ở $D$. Gọi $I$ là trung điểm của $AD$. Chứng minh đường thẳng $IC$ là tiếp tuyến của đường tròn $(O)$.
+		\item Tiếp tuyến tại $B$ của đường tròn $(O)$ cắt tia $IC$ ở $K$. Chứng minh $IA\cdot BK=R^2$.
+		\item Xác định vị trí điểm $C$ trên đường tròn $(O)$ để diện tích tứ giác $ABKI$ nhỏ nhất.
+	\end{enumerate}
+	\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round]
+		\tkzDefPoints{0/0/A,6/0/B,3/0/O}
+		\tkzDrawCircle[color=blue](O,A)
+		\tkzDefShiftPoint[O](60:3){C}
+		\tkzDrawAltitude(A,B)(C)\tkzGetPoint{H}
+		\tkzTangent[at=A](O)
+		\tkzGetPoint{h}
+		\tkzInterLL(A,h)(C,B) \tkzGetPoint{D}
+		\tkzDefMidPoint(A,D) \tkzGetPoint{I}
+		\tkzTangent[at=B](O)
+		\tkzGetPoint{h1}
+		\tkzInterLL(B,h1)(C,I) \tkzGetPoint{K}
+		\tkzDrawPoints(A,B,O,C,H,K,D)
+		\tkzLabelPoints[above right](C)
+		\tkzLabelPoints[below](O,H)
+		\tkzLabelPoints[left](A,I)
+		\tkzLabelPoints[right](B,K,D)
+		\draw (A)--(B)--(K)--(C) (A)--(C)--(B) (O)--(C) (A)--(I)--(C) (O)--(I) (O)--(K) (I)--(D)--(C);
+		\tkzMarkRightAngles(I,A,B K,B,A C,H,A)
+		\end{tikzpicture}
+	\end{center}
+		\begin{enumerate}
+			\item Chứng minh tam giác $ABC$ vuông tại $C$ và $CH^2=AC\cdot BC\cdot \sin A\cdot \cos A$.\\
+			Điểm $C$ thuộc đường tròn $(O)$ ($C$ khác $A$ và $B$) nên $OC = OA = OB = R = \dfrac{AB}{2}$.\\
+			Tam giác $ABC$ có trung tuyến $CO = \dfrac{AB}{2}$ suy ra $\triangle ABC$ vuông tại $C$ (dấu hiệu nhận biết).\\
+			Áp dụng hệ thức lượng trong tam giác vuông $ACB$ vuông tại $C$, đường cao $CH$ ta có:
+			\begin{eqnarray*}
+				& &{CH}^2= AH \cdot BH\\
+				& \Leftrightarrow & {CH}^2 = AC \cdot \cos A \cdot BC \cdot \sin A\\
+				& \Leftrightarrow & {CH}^2 = AC\cdot BC\cdot \sin A\cdot \cos A\\
+				& \Rightarrow & \text{Điều phải chứng minh.}
+			\end{eqnarray*}
+			\item Tiếp tuyến tại $A$ của đường tròn $(O)$ cắt tia $BC$ ở $D$. Gọi $I$ là trung điểm của $AD$. Chứng minh đường thẳng $IC$ là tiếp tuyến của đường tròn $(O)$.\\
+			Xét $\triangle ACD$ vuông tại $C$ có $I$ là trung điểm của cạnh huyền $AD$ (giả thiết)\\
+			$\Rightarrow IA = IC = \dfrac{AD}{2}$.\\
+			Xét $\triangle AIO$ và $\triangle CIO$ có:\\
+			$\begin{cases}
+			IA = IC & \quad \text{(Chứng minh trên)}\\
+			OA = OC & \quad \text{(bán kính của đường tròn)}\\
+			OI \quad \text{chung}.
+			\end{cases}$\\
+			$\Rightarrow \triangle AIO = \triangle CIO $ (cạnh - cạnh - cạnh).\\
+			$\Rightarrow \widehat{IAO} = \widehat{ICO}$ (2 góc tương ứng của $2$ tam giác bằng nhau).\\
+			$\Rightarrow \widehat{ICO} = 90^\circ \Rightarrow OC \perp IC$ hay $IC$ là tiếp tuyến của $(O)$.\\
+			Suy ra điều phải chứng minh.
+			\item Tiếp tuyến tại $B$ của đường tròn $(O)$ cắt tia $IC$ ở $K$. Chứng minh $IA\cdot BK=R^2$.
+			Ta có $IA$, $IC$ là tiếp tuyến của $(O)$ cắt nhau tại $I$\\ 
+			$\Rightarrow IA=IC$ và $OI$ là tia phân giác của $\widehat {ACO}$ (tính chất của 2 tiếp tuyến cắt nhau).\\
+			$\Rightarrow IA=IC$ và $\widehat{IOC} = \dfrac{\widehat{AOC}}{2}$.\\
+			Tương tự ta có $KC = KB$ và $\widehat{KOC} = \dfrac{\widehat{BOC}}{2}$.\\
+			\begin{eqnarray*}
+				& \Rightarrow & \widehat{IOC} + \widehat{KOC} = \dfrac{\widehat{AOC}}{2} + \dfrac{\widehat{BOC}}{2} \\
+				& \Leftrightarrow & \widehat{IOK} = \dfrac{\widehat{AOB}}{2}\\
+				& \Leftrightarrow & \widehat{IOK} = \dfrac{180^\circ}{2}\\
+				& \Leftrightarrow & \widehat{IOK} = 90^\circ\\
+				& \Leftrightarrow & \triangle IOK \text{ vuông tại } O.
+			\end{eqnarray*}
+			Áp dụng hệ thức lượng cho tam giác vuông $\triangle IOK$ vuông tại $O$, đường cao $OC$ ta có:
+			\begin{eqnarray*}
+				& & {OC}^2=IC\cdot KC\\
+				& \Leftrightarrow & {OC}^2=IA \cdot BK\\
+				& \Leftrightarrow & R^2 = IA \cdot BK\\
+				& \Rightarrow & \text{điều phải chứng minh.}
+			\end{eqnarray*}
+			\item Xác định vị trí điểm $C$ trên đường tròn $(O)$ để diện tích tứ giác $ABKI$ nhỏ nhất.
+			Ta có $ \triangle AIO = \triangle CIO $ (chứng minh trên).\\
+			Tương tự ta có: $\Rightarrow \triangle KBO = \triangle KCO $.\\
+			Suy ra $S_{AIKB}=2\cdot (S_{CIO}+S_{KOC})=2\cdot S_{IOK} = OC\cdot KI = R \cdot KI$.\\
+			Mà $KI\ge AB \Rightarrow S_{AIKB} \ge R \cdot AB = 2 \cdot R^2$.\\
+			Dấu bằng xảy ra $\Leftrightarrow KI=AN \Leftrightarrow C$ là điểm chính giữa cung $AB$.\\
+			Vậy $S_{AIKB}$ đạt GTLN là $2R^2$ khi $C$ là điểm chính giữa cung $AB$.
+		\end{enumerate}
+	}
+\end{bt}
+
+
+\begin{bt}[Đề thi Toán 9 Học kỳ 1 năm học 2017-2018, Quận 12, HCM]
+	Cho đường tròn $(O)$ đường kính $AB$. Lấy $C$ thuộc $(O)$, gọi $E$ là trung điểm $BC$. Tiếp tuyến tại $C$ của $O$ cắt $OE$ ở $D$.
+	\begin{enumerate}
+		\item Chứng minh $\triangle ACB$ vuông và $OE$ vuông góc với $BC$.
+		\item Chứng minh $DB$ là tiếp tuyến của $(O)$.
+		\item Kẻ $CH$ vuông góc với $AB$. Chứng minh $CB\cdot OC=OD\cdot HC$.
+	\end{enumerate}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item Vì $C$ thuộc đường tròn đường kính $AB$ nên $\widehat{ACB}=90^\circ$ hay $\triangle ABC$ vuông tại $C$.\\
+				Vì $E$ là trung điểm $BC$ nên $OE \perp BC$ (liên hệ đường kính và dây cung).
+				\item Tam giác $OCB$ cân tại $O$ có $OE \perp BC$ nên $OE$ cũng là tia phân giác của góc $BOC$ suy ra $\widehat{COE}=\widehat{BOE}$.\\
+				Xét $\triangle ODC$ và $\triangle ODB$ có\\
+				$OD$ là cạnh chung\\
+				$OC=OD=R$\\
+				$\widehat{COE}=\widehat{BOE}$ (cmt)\\
+				$\Rightarrow \triangle ODC=\triangle ODB$ (c.g.c)\\
+				$\Rightarrow \widehat{DBO}=\widehat{DCO}$ (hai góc tương ứng).\\
+				Mặt khác $\widehat{DCO}=90^\circ$ (tính chất tiếp tuyến) nên $\widehat{DBO}=90^\circ$ hay $DB \perp OB$, mặt khác $OB$ là bán kính của $(O)$.\\
+				Vậy $DB$ là tiếp tuyến của đường tròn $(O)$.
+			\end{enumerate}
+		}
+		{
+			\begin{tikzpicture}[scale=.8]
+			\tkzDefPoints{0/0/A, 6/0/B}
+			\tkzDefMidPoint(A,B) \tkzGetPoint{O}
+			\tkzDrawCircle[radius](O,A)
+			\tkzDefPointBy[rotation=center O angle 120](B)\tkzGetPoint{C}
+			\tkzDefMidPoint(C,B) \tkzGetPoint{E}
+			\tkzTangent[at=C](O) \tkzGetPoint{d}
+			\tkzInterLL(C,d)(O,E)	\tkzGetPoint{D}
+			\tkzDrawAltitude(A,B)(C) \tkzGetPoint{H}
+			\tkzDrawPoints(A,B,O,C,D,H,E)
+			\tkzLabelPoints[below](O,H)
+			\tkzLabelPoints[above](C,D)
+			\tkzLabelPoints[right](E,B)
+			\tkzLabelPoints[left](A)
+			\tkzDrawSegments(A,B B,C C,A B,D C,D D,O O,C)
+			\tkzMarkRightAngles(C,H,B A,C,B O,C,D)
+			\tkzMarkSegments[mark=|](E,B E,C)
+			\end{tikzpicture}
+		}
+		
+		\begin{enumerate}
+			\item[c)] Ta có $\widehat{CBH}=\widehat{ODB}$ (cùng phụ góc $\widehat{DBE}$), mà $\widehat{ODC}=\widehat{ODB}$ suy ra $\widehat{ODC}=\widehat{CBH}$.\\
+			Xét hai tam giác vuông $CHB$ và $OCD$ có $\widehat{OHC}=\widehat{OCD}=90^\circ$ và $\widehat{ODC}=\widehat{CBH}$ nên 
+			$\triangle CHB \backsim \triangle OCD$ (g.g)\\
+			suy ra $\dfrac{CH}{OC}=\dfrac{BC}{OD} \Rightarrow CH\cdot OD=OC\cdot BC$ (đpcm).
+		\end{enumerate}
+	}
+\end{bt}
+
+
+\begin{bt}[Đề thi Toán 9 Học kỳ 1 năm học 2017-2018, Thủ Đức, Hồ Chí Minh]
+	Cho nửa đường tròn $(O; R)$, đường kính $AB$. Vẽ các tiếp tuyến $Ax$ và $By$ của đường tròn $(O)$.
+	\begin{enumerate}
+		\item Chứng minh $Ax \parallel By$.
+		\item  Trên $(O)$ lấy điểm $M$. Tiếp tuyến tại $M$ của đường tròn $(O)$ lần lượt cắt $Ax$ và $By$ tại $D, E$. Chứng minh $DE = DA+BE$.
+		\item Chứng minh $\widehat{DOE} = 90^\circ$ và $DA \cdot BE = R^2$.
+	\end{enumerate}
+	\loigiai
+	{
+		\immini 
+		{
+			\begin{enumerate}
+				\item[a)]  $Ax, By$ là $2$ tiếp tuyến của nửa đường tròn $\Rightarrow Ax \perp AB$ và $By \perp AB \Rightarrow Ax \parallel By$.
+				\item[b)]  Theo tính chất của hai tiếp tuyến cắt nhau, ta có \\ $DA=DM$ và $BE=EM$. Suy ra $DE=DM+EM=DA+BE$.
+			\end{enumerate}
+		}
+		{
+			\begin{tikzpicture}[scale = 0.7]
+			\tkzInit[xmin=-4.5,xmax=4.2,ymin=-1,ymax=6.7]
+			\tkzClip
+			\tkzDefPoints{-3.5/0/A,3.5/0/B}
+			\tkzDefMidPoint(A,B)		\tkzGetPoint{O}
+			\tkzDrawArc(O,B)(A)
+			\tkzDefPointWith[orthogonal,K=0.8](A,B)		\tkzGetPoint{x}
+			\tkzDefPointWith[orthogonal,K=-0.9](B,A)		\tkzGetPoint{y}
+			\tkzDefPointBy[rotation = center O angle 110](B)	\tkzGetPoint{M}
+			\tkzDefPointWith[orthogonal,K=1](M,O)		\tkzGetPoint{t}
+			\tkzInterLL(M,t)(A,x)		\tkzGetPoint{D}
+			\tkzInterLL(M,t)(B,y)		\tkzGetPoint{E}
+			\tkzMarkRightAngles[size=0.4](O,A,x O,B,y O,M,D D,O,E)
+			\tkzMarkAngle[size=0.6cm](D,O,A)
+			\tkzMarkAngle[size=0.7cm](M,O,D)
+			\tkzMarkAngle[size=0.8cm,arc=ll](E,O,M)
+			\tkzMarkAngle[size=0.9cm,arc=ll](B,O,E)
+			\tkzDrawPolygon(A,D,E,B)
+			\tkzDrawSegments(O,D O,M O,E D,x E,y)
+			\tkzDrawPoints(A,B,O,M,D,E)
+			\tkzLabelPoints[left](D,A)
+			\tkzLabelPoints[right](E,B)
+			\tkzLabelPoints[above](M)
+			\tkzLabelPoints[below](O)
+			\tkzLabelPoints[left](x)
+			\tkzLabelPoints[right](y)
+			\end{tikzpicture}
+		}
+		\begin{enumerate}
+			\item[c)] Cũng theo tính chất của hai tiếp tuyến cắt nhau, ta có 		$\widehat{AOD} = \widehat{DOM}$ và $\widehat{MOE} = \widehat{EOB}$. Mà $\widehat{AOD} + \widehat{DOM} + \widehat{MOE} + \widehat{EOB} = \widehat{AOB} = 180^\circ$. \\
+			Suy ra $\widehat{DOE} = \widehat{DOM} + \widehat{MOE} = \dfrac{1}{2} \widehat{AOB} = \dfrac{1}{2} \cdot 180^\circ = 90^\circ$. \\
+			Hơn nữa, $DA \cdot BE = DM \cdot EM = OM^2 = R^2$.
+		\end{enumerate}	
+	}
+\end{bt}
+
+
+\begin{bt}[Đề thi Toán 9 Học kỳ 1 năm học 2017-2018, Trần Đại Nghĩa, HCM]
+	Cho tam giác $ABC$ vuông tại $A$ $ (AB < AC)$. Vẽ đường tròn tâm $O$ đường kính $AC$ cắt cạnh $BC$ tại $D.$ Gọi $H, K$ lần lượt là trung điểm của đoạn thẳng $AD$ và $DC$.
+	\begin{enumerate}
+		\item Chứng minh tứ giác $OHKD$ là hình chữ nhật. 
+		\item  Tia $OH$ cắt cạnh $AB$ tại $E$. Chứng minh $DE$ là tiếp tuyến của đường tròn $(O)$. 
+		\item  Tia $OK$ cắt đường thẳng $DE$ tại $N$ và cắt đường tròn tâm $O$ tại $I$. Gọi $S$ là giao điểm của 
+		$OB$ với $AD$. Đường thẳng đi qua $S$ và vuông góc với $AO$  cắt tia $OH$ tại $T.$ Chứng minh 
+		$AT$ vuông góc với $BO$ và $3$ điểm $A, T, N$ thẳng hàng. 
+	\end{enumerate}
+	\loigiai{
+	\begin{center}
+	\begin{tikzpicture}
+	\tkzDefPoints{0/-3/A, 0/0/O, 0/3/C, 4/-3/B, -3.5/-3/X}
+	\tkzDrawCircle(O,C)
+	\tkzInterLC(C,B)(O,C) \tkzGetSecondPoint{D}
+	\tkzDefMidPoint(A,D) \tkzGetPoint{H}
+	\tkzDefMidPoint(C,D) \tkzGetPoint{K}
+	\tkzInterLL(A,B)(O,H) \tkzGetPoint{E}
+	\tkzInterLL(E,D)(O,K) \tkzGetPoint{N}
+	\tkzInterLL(A,D)(O,B) \tkzGetPoint{S}
+	\tkzInterLL(A,N)(O,B) \tkzGetPoint{M}
+	\tkzInterLL(A,N)(O,E) \tkzGetPoint{T}
+	\tkzDefPointBy[translation = from S to T](T)
+	\tkzGetPoint{T'}
+	\tkzDefPointBy[translation = from T to S](S)
+	\tkzGetPoint{S'}
+	\tkzLabelPoints(A,B,E,N)
+	\tkzLabelPoints[above](C,K,M,S,T)
+	\tkzLabelPoints[right](D)
+	\tkzLabelPoints[left](O)
+	\tkzLabelPoints[below](H)
+	\tkzDrawSegments(A,C A,D C,B A,B O,N A,N E,N O,B O,E S',T' D,N O,D)
+	\tkzMarkRightAngles(C,A,B O,H,D O,K,D)
+	\tkzDrawPoints(A,B,O,N,K,D,M,T,S,H,E)
+	\end{tikzpicture} 
+	\end{center}
+			\begin{enumerate}
+			\item  Ta có $OH \perp AD \Rightarrow \widehat{OHD} = 90^\circ$;  $OK \perp CD \Rightarrow \widehat{KDA} = 90^\circ$.\\
+			Mặt khác, tam giác $ADC$ vuông tại $D$ nên $\widehat{CDA}=90^\circ$. Do đó tứ giác $OHKD$ là hình chữ nhật.\\
+			\item Ta có $\widehat{EDA} = \widehat{EAD}$ ($OE$ là trung trực của $AD$). \\
+			$ \widehat{EAD} =  \widehat{ACD}$ (cùng phụ với góc $\widehat{ABC}$).\\
+			$ \widehat{ACD} =  \widehat{CDO}$ (tam giác $OAD$ cân).\\
+			Suy ra $\widehat{EDA}  =  \widehat{CDO}$.	\\
+		Mặt khác $ \widehat{CDO} +  \widehat{DAO} = 90^\circ \Rightarrow  \widehat{EDO} = \widehat{ADO} +  \widehat{ADO} =  \widehat{ADO}  + \widehat{EDA}  =  90^\circ$. \\
+		Vậy $DE$ là tiếp tuyến của đường tròn $(O)$.
+		\item Tam giác $AOS$ có $OH$ và $ST$ là hai đường cao cắt nhau tại $T$ nên $T$ là trực tâm\\  $\Rightarrow  AT$ là đường cao tam giác $AOS$ hay $AT \perp OB$.\\
+		Gọi $M$ là giao điểm của $AT$ với $OB$. Để chứng minh $A,T,N$ thẳng hàng ta cần chứng minh $MN \perp OB $ tại $M$. \\
+		Tam giác $OAB$ vuông tại $A$ có $AM$ là đường cao $\Rightarrow OM\cdot OB = OA^2$.\\
+		Tam giác $OND$ vuông tại $D$ có $DK$ là đường cao $\Rightarrow OK\cdot ON = OD^2$.\\
+		Vì $OA=OD$ (bán kính đường tròn $(O)$) nên $OM\cdot OB=OK\cdot ON \Rightarrow \dfrac{OM}{ON}=\dfrac{OK}{OB}.$\\
+		Xét tam giác $OMN$ và tam giác $OKB$ có $\widehat{BON}$ chung và $\dfrac{OM}{ON}=\dfrac{OK}{OB}$\\
+		$ \Rightarrow$  $\triangle OMN \backsim \triangle OKB \Rightarrow \widehat{NMO} =  \widehat{OKB} = 90^\circ \Rightarrow NM \perp OB$.\\
+		 Vậy $A, T, N$ thẳng hàng. 
+	\end{enumerate}	
+	}
+\end{bt}
+
+
+\begin{bt}[Đề thi Toán 9 Học kỳ 1 năm học 2017-2018,Bắc Từ Liêm, Hà Nội]
+	Cho đường tròn $(O;R)$ đường tính $AB$. Qua điểm $A$ kẻ tia tiếp tuyến $Ax$ đến đường tròn $(O)$. Trên tai $Ax$ lấy điểm $C$ sao cho $AC > R$. Từ điểm $C$ kẻ tiếp tuyến $CM$ với đường tròn $(O)$ ($M$ là tiếp điểm).
+	\begin{enumerate}
+		\item Chứng minh rằng bốn điểm $A$, $C$, $O$, $M$ cùng thuộc một đường tròn.
+		\item Chứng minh rằng $MB\parallel OC$.
+		\item Gọi $K$ là giao điểm thứ hai của $BC$ với đường tròn $(O)$. Chứng minh rằng $BC\cdot BK=4R^2$.
+		\item Chứng minh rằng $\widehat{CMK}=\widehat{MBC}$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1.2, line join=round, line cap=round]	
+			\clip (-0.7,-2.5) rectangle (4.7,5.5);
+			\tkzDefPoints{0/0/A,2/0/O,4/0/B,0/5/x}
+			\tkzDefShiftPoint[O](60:2){M}
+			\tkzDrawCircle(O,A)
+			\tkzDefLine[perpendicular=through M](O,M) \tkzGetPoint{y}
+			\tkzInterLL(M,y)(A,x) \tkzGetPoint{C}
+			\tkzInterLC(B,C)(O,A) \tkzGetPoints{K}{N}
+			\tkzDefMidPoint(O,C) \tkzGetPoint{I}
+			\tkzDrawPoints(A,B,C,O,M,K,I)
+			\tkzDrawSegments(A,B O,M C,M A,x B,C M,B M,K A,M A,K C,O)
+			\tkzLabelPoints[left](A,C,x)
+			\tkzLabelPoints[right](B)
+			\tkzLabelPoints[above right](M)
+			\tkzLabelPoints[below](O,K,I)
+			\tkzMarkRightAngles(O,M,C O,A,C)
+			\tkzMarkSegments[mark=|,color=red](O,I I,C)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item 
+			Gọi $I$ là trung điểm của $OC$.\\
+			Tam giác vuông $CAO$ có $AI$ là đường trung tuyến nên $AI=IO=IC$. \hfill (1) \\
+			Tương tự $MI=IO=IC$. \hfill (2)\\
+			Từ (1) và (2) suy ra $IC=IO=IA=IM$.\\
+			Vậy bốn điểm $A$, $C$, $O$, $M$ cùng thuộc một đường tròn đường kính $OC$.
+			\item 
+			Ta có $\heva{&CA=CM\\&OA=OM=R} \Rightarrow OC$ là đường trung trực của $AM$ $\Rightarrow OC \perp AM$. \hfill (1) \\
+			Mặt khác, tam giác $AMB$ có $OM$ là đường trung tuyến và $OM=\dfrac{1}{2}AB$ nên $\triangle AMB$ vuông tại $M$ $\Rightarrow BM\perp AM$. \hfill (2)\\
+			Từ (1) và (2) suy ra $MB\parallel OC$.
+			\item Vì $CA$ là tiếp tuyến của $\left( {O;R} \right)$ đường kính $AB$ (giả thiết) $\Rightarrow \widehat {CAB}=90^\circ$ hay tam giác $ABC$ vuông tại $A$. \\
+			$K$ thuộc $\left( {O;R} \right)$ đường kính $AB$ $\Rightarrow \widehat {AKB}=90^\circ$ hay $AK \perp BC$ $\Rightarrow AK$ là đường cao của $\triangle ABC$. \\
+			Xét tam giác $ABC$ vuông tại $A$, đường cao $AK$, áp dụng hệ thức lượng trong tam giác vuông ta có:
+			\begin{eqnarray*}
+				& & AB^2=BK\cdot BC \\
+				& \Leftrightarrow & BC\cdot BK=4R^2.
+			\end{eqnarray*}
+			Suy ra điều phải chứng minh.
+			\item Xét tam giác $ABC$ vuông tại $A$, đường cao $AK$, áp dụng hệ thức lượng trong tam giác vuông ta có:
+			\[AC^2=CK\cdot CB.\]
+			Mà $AC=CM$ 
+			\begin{eqnarray*}
+				& \Rightarrow & CM^2=CK\cdot CB\\
+				& \Rightarrow & \dfrac{CK}{CM}=\dfrac{CM}{CB} \\
+				& \Rightarrow & \triangle CKM \backsim \triangle CMB \quad (\text{cạnh - góc - cạnh})\\
+				& \Rightarrow & \widehat {CMK}=\widehat {MBC}.
+			\end{eqnarray*}
+		\end{enumerate}	
+	}
+\end{bt}
+
+\begin{bt}[Kiểm tra Học kì 1 Toán 9, Đề A, Sở GDĐT Tỉnh Thanh Hóa, năm 2016]
+	Cho đường tròn tâm $O$ bán kính $R$ và một điểm $M$ nằm ngoài đường tròn. Qua $M$ kẻ tiếp tuyến $MA$ với đường tròn ($A$ là tiếp điểm). Tia $Mx$ nằm giữa $MA$ và $MO$ cắt đường tròn $(O; R)$ tại hai điểm $C$ và $D$ ($C$ nằm giữa $M$ và $D$). Gọi $I$ là trung điểm của dây $CD,$ kẻ $AH$ vuông góc với $MO$ tại $H.$ 
+	\begin{enumerate}
+		\item Tính $OH\cdot OM $ theo $R. $
+		\item Chứng minh: Bốn điểm $M, A, I, O $ cùng thuộc một đường tròn. 
+		\item Gọi $K$ là giao điểm của $OI$ với $HA.$ Chứng minh $KC$ là tiếp tuyến của đường tròn $(O; R).$
+	\end{enumerate}
+	\loigiai
+	{
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzInit[xmin=-2,ymin=-3,xmax=4,ymax=4]
+			\tkzDefPoint(0,0){O}
+			\tkzDefShiftPoint[O](15:3){C}
+			\tkzDefShiftPoint[O](0:6){M}
+			\tkzTangent[from=M](O,C) 				\tkzGetPoints{A}{}
+			\tkzInterLC(M,C)(O,C)					\tkzGetPoints{D}{}
+			\tkzDefMidPoint(C,D)					\tkzGetPoint{I}
+			\tkzDefPointBy[projection=onto M--O](A)	\tkzGetPoint{H}
+			\tkzInterLL(O,I)(H,A)					\tkzGetPoint{K}
+			\tkzDrawCircle(O,C)
+			\tkzDrawSegments(O,A M,A D,M M,O A,I K,O K,H K,C O,C)
+			\tkzMarkRightAngle(O,A,M)
+			\tkzMarkRightAngle(K,H,M)
+			\tkzMarkRightAngle(O,I,M)
+			\tkzDrawPoints(O,A,M,C,D,I,H,K)
+			\node at ($(A)+(70:3mm)$){\footnotesize $ A $};
+			\node at ($(O)+(-90:3mm)$){\footnotesize $ O $};
+			\node at ($(C)+(20:3mm)$){\footnotesize $ C $};
+			\node at ($(D)+(160:3mm)$){\footnotesize $ D $};
+			\node at ($(M)+(10:3mm)$){\footnotesize $ M $};
+			\node at ($(I)+(138:3mm)$){\footnotesize $ I $};
+			\node at ($(H)+(-60:3mm)$){\footnotesize $ H$};
+			\node at ($(K)+(160:3mm)$){\footnotesize $ K $};
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Xét tam giác $AMO $ vuông tại $A$ có $AH \perp  MO \Rightarrow OH\cdot OM = OA^2 = R^2. $
+			\item Xét đường tròn $(O) $ có $I$ là trung điểm dây $CD \Rightarrow OI \perp CD. $\\
+			Do đó $ I $ thuộc đường tròn đường kính $ OM.\hfill(1)$ \\
+			Mặt khác ta lại có $ MA $ là tiếp tuyến của đường tròn $ (O) $ nên $ OA \perp AM. $\\
+			Do đó $ A $ thuộc đường tròn đường kính $ OM. \hfill(2)$\\
+			Từ $ (1) $ và $ (2) $ ta có bốn điểm $ A, I, O, M $ thuộc đường tròn đường kính $ OM. $ 
+			\item  Xét $\triangle OHK $ và $ \triangle OIM $ có:\\
+			$ \widehat{OHK}=\widehat{OIM}=90^{\circ};\quad \widehat{O}$ chung.\\
+			$ \Rightarrow  \triangle OHK \backsim \triangle OIM $ (g.g).\\
+			Suy ra $ \dfrac{OH}{OI}=\dfrac{OK}{OM} \Rightarrow OI.OK = OH.OM = AO^2=OC^2 $\\
+			$ \Rightarrow \dfrac{OI}{OC}=\dfrac{OC}{OK} \Rightarrow \triangle OCK \backsim \triangle OIC $ (c.g.c) $ \Rightarrow \widehat{OCK}=\widehat{OIC}=90^{\circ}. $\\
+			$ \Rightarrow OC \perp KC, $ mà $ C $ thuộc đường tròn $ (O). $\\
+			Do đó $ KC $ là tiếp tuyến của đường tròn $ (O) $ (đpcm).
+		\end{enumerate}
+		
+	}
+\end{bt}
+
+
+
+
+
+
+
+\begin{bt}[Kiểm tra Học kì 1 Toán 9, Vĩnh Long, năm 2017]
+	Cho nửa đường tròn tâm $O$, đường kính $AB$ và tia tiếp tuyến $Ax$ cùng phía với nửa đường tròn đối với $AB$. Từ điểm $M$ trên $Ax$ kẻ tiếp tuyến thứ hai $MC$ với nửa đường  tròn ($C$ là tiếp điểm). Kẻ $CH$ vuông góc với $AB$ ($H \in AB$). Chứng minh rằng
+	\begin{enumerate}
+		\item $\widehat{ACB}=90^\circ$.
+		\item $BC \parallel  OM$ .
+		\item $MB$ đi qua trung điểm của đoạn thẳng $CH$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1.5]
+			\tkzInit[xmin=-0.5,xmax=5.5,ymin=-0.5, ymax=7] \tkzClip[space=.1]
+			\draw[thick] (5,0) arc (0:180:2.5);
+			\tkzDefPoints{0/0/A, 5/0/B, 0/6.5/I}
+			\tkzDefMidPoint(A,B) \tkzGetPoint{O}
+			\tkzInterLC(I,B)(O,A)  \tkzGetPoints{C}{B}
+			\tkzTangent[at=C](O) \tkzGetPoint{c}
+			\tkzInterLL(A,I)(C,c)
+			\tkzGetPoint{M}
+			\tkzDefPointBy[projection = onto O--A](C)
+			\tkzGetPoint{H}
+			\coordinate (N) at ($(C)!.5!(H)$);
+			\tkzDrawSegments(A,B B,I I,A  M,C C,H M,B M,H)
+			\tkzDrawSegments[dashed](C,O O,M)
+			\tkzDrawPoints(A,B,C,O,H,N,M,I)
+			\tkzLabelPoints[above](I)
+			\tkzLabelPoints[left](A,M)
+			\tkzLabelPoints[right](B,N)
+			\tkzLabelPoints[above right](C)
+			\tkzLabelPoints[below](H)
+			\tkzLabelPoints[below left](O)
+			\tkzMarkRightAngle(I,A,B)
+			\tkzMarkRightAngle(M,C,O)
+			\tkzMarkRightAngle(C,H,B)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Tam giác $ABC$ có $CO$ là đường trung tuyến và $CO=\dfrac{1}{2}AB$ nên  tam giác $ABC$ vuông tại $C$, do đó $\widehat{ACB}={90}^ \circ$.
+			\item Có $MA = MC$ (tính chất hai tiếp tuyến cắt nhau) suy ra $ \triangle MAC$ cân tại $M$ , mà $MO$ là phân giác của $\widehat{AMC}$ (tính chất hai tiếp tuyến cắt nhau), nên $MO$ cũng là đường cao của tam giác $MAC$. Do đó $MO\bot AC$. Lại có $BC  \bot AC$ ($ABC$ vuông tại $C$) $\Rightarrow  BC  \parallel OM$.
+			\item $MB$ đi qua trung điểm của đoạn thẳng $CH$.\\
+			Gọi $I$ là giao điểm của đường thẳng $BC$ với $Ax$ và $N$ là giao điểm của $MB$ với $CH$.\\
+			Trong tam giác $ABI$ có $OA = OB$ (bán kính) và
+			$OM \parallel BI$  (vì $OM \parallel BC$, $I\in BC$) $\Rightarrow  MA = MI$. \hfill  (1)\\
+			Mà $CH \parallel AI$ (cùng vuông góc với $AB$), do đó\\
+			$\dfrac{NH}{MA}=\dfrac{BN}{BM}$  và   $\dfrac{NC}{MI}=\dfrac{BN}{BM}$ (hệ quả định lý Ta-let) $\Rightarrow $$\dfrac{NH}{MA}=\dfrac{NC}{MI}$. \hfill  (2)\\
+			Từ (1) và (2) suy ra $NH = NC$ hay $BM$ đi qua trung điểm của đoạn thẳng $CH$.
+		\end{enumerate}
+	}
+\end{bt}
+
+
+\begin{bt}
+Hai đường tròn $(O;R)$ và $(O';r)$ tiếp xúc ngoài tại $A$ $(R>r)$. Kẻ tiếp tuyến chung ngoài $BC$, $B\in (O), C\in (O')$. Gọi $M$ là trung điểm của $OO'$. Gọi $H$ là chân đường vuông góc kẻ từ $M$ đến $BC$.
+\begin{enumerate}
+	\item Tính số đo góc $OHO'$.
+	\item Chứng minh rằng $OH$ là tia phân giác của góc $AOB$. 
+	\item Chứng minh rằng $AH$ là tiếp tuyến chung của hai đường tròn $(O)$ và $(O')$.
+	\item Cho $R=5$ cm, $r=2$ cm. Tính độ dài $BC$.
+\end{enumerate}	
+	\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=1, line join=round, line cap=round]
+\clip (-3.7,-3.5) rectangle (7.5,3.7);
+\tkzDefPoints{0/0/O,3/0/A,5/0/O'}
+\tkzDrawCircle(O,A)
+\tkzDrawCircle(O',A)
+\tkzDefShiftPoint[O](80:3){B}
+\tkzDefShiftPoint[O'](80:2){C}
+\tkzDefMidPoint(O,O') \tkzGetPoint{M}
+\tkzDrawAltitude(C,B)(M)\tkzGetPoint{H}
+\tkzDrawPoints(A,B,C,M,H,O,O')
+\tkzLabelPoints[above](B,H,C)
+\tkzLabelPoints[below](O,M,O')
+\tkzLabelPoints[below right](A)
+\draw (O)--(B)--(C)--(O')--(O) (O)--(H)--(O') (H)--(A);
+\tkzLabelAngles[pos=1](M,O,H){$1$}
+\tkzLabelAngles[pos=1](H,O,B){$2$}
+\tkzMarkRightAngles(O,B,C O',C,B M,H,B)
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+	\item Vì $\heva{&OB\perp BC\\&O'C\perp BC\\&MH\perp BC} \Rightarrow OB\parallel O'C \parallel MH$.\\
+	Hình thang $OBCO'$ có $MO=MO'$, $MH\parallel OB\parallel O'C$ nên $HB=HC$ và $MH$ là đường trung bình.\\
+	Suy ra
+	$MH=\dfrac{OB+O'C}{2}=\dfrac{OA+O'A}{2}=\dfrac{OO'}{2}$. \\
+	Tam giác $OHO'$ có $MH=MO=MO'$ nên $\widehat{OHO'}=90^\circ$. 
+	\item $OB\parallel MH$ nên $\widehat{O_1}=\widehat{OHM}$ (so le trong).\\
+	Tam giác $MOH$ cân tại $M$ nên $\widehat{O_2}=\widehat{OHM}$. Suy ra $\widehat{O_1}=\widehat{O_2}$.\\
+	Vậy $OH$ là tia phân giác của góc $AOB$.
+	\item $\triangle AOH=\triangle BOH$ (c.g.c) nên $\widehat{OAH}=\widehat{OBH}=90^\circ$. $AH$ vuông góc vơi $OA$ tại $A$ nên là tiếp tuyến chung của hai đường tròn $(O)$ và $(O')$.
+	\item Tam giác $OHO'$ vuông tại $A$, đường cao $HA$ nên
+	$HA^2=OA\cdot O'A=5\cdot 2=10$. 
+	Suy ra $HA=\sqrt{10}.$ Do đó $BC=2HA=2\sqrt{10}$ cm.
+\end{enumerate}	
+
+	}
+\end{bt}

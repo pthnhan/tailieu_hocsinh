@@ -1,0 +1,215 @@
+\chapter{PHƯƠNG TRÌNH NGHIỆM NGUYÊN MANG TÊN CÁC NHÀ TOÁN HỌC}
+
+\section{THUẬT TOÁN EUCLIDE VÀ PHƯƠNG PHÁP TÌM NGHIỆM RIÊNG ĐỂ GIẢI PHƯƠNG TRÌNH BẬC NHẤT HAI ẨN}
+
+\subsection{Mở đầu}
+Giả sử phương trình bậc nhất hai ẩn $ax+by=c$ $(a,b,c \in \mathbb{Z})$ có nghiệm nguyên. Trong nhiều trường hợp, ta có thể tìm được ngay một nghiệm của phương trình, ta gọi đó là một \textit{nghiệm riêng}. Có công thức biểu thị tất cả các nghiệm của phương trình theo nghiệm riêng nói trên.\\
+Lấy lại ví dụ $23$: Tìm nghiệm nguyên của phương trình 
+\[11x + 18y = 120.\tag{1}\]
+Bằng các thử chọn, ta tìm được $x=6$; $y=3$ là một nghiệm riêng của $(1)$. Ta có
+$$11x + 18y = 120$$
+$$11 \cdot 6 + 18 \cdot 3 = 120$$ 
+Trừ theo từng vế của hai đẳng thức trên được
+$$11(x-6)+18(y-3)=0$$
+$$\Leftrightarrow 11(x-6) = 18 (3-y)$$
+Vì $(11;18)=1$ nên $(x-6) ~\vdots~ 18$. Đặt $x-6 = 18t$ ($t$ nguyên) ta được $x=6+18t$. Thay vào $(2)$ ta được $$11t = 3 - y$$ 
+Suy ra $y= 3 - 11t.$\\
+Có thể chứng minh được rằng công thức cho mọi nghiệm nguyên của phương trình $(1)$ (các hệ sô của $x,y$ nguyên tố cùng nhau) là:
+$$\heva{x &= 6+18t \\ y &= 3 - 11t} (t \text{ là số nguyên tùy ý}).$$
+\subsection{Cách giải tổng quát}
+Xét phương trình $ax + by =c$\\
+trong đó $a,b,c \in \mathbb{Z}, a \neq 0, b \neq 0$ và ƯCLN$(a,b,c) = 1.$\\
+Ta luôn giả thiết được ƯCLN$(a,b,c) =1$, vì nếu ƯCLN$(a,b,c) = d \neq 1$ thì chia hai vế của phương trình cho $d$.\\
+Ta có hai định lý sau:
+\begin{dl}
+Nếu phương trình $(1)$ có nghiệm nguyên thì $(a,b) =1$.\hfill$(*)$
+\end{dl}
+\textit{Chứng minh}\\
+Giả sử $(x_0; y_0)$ là nghiệm nguyên của phương trình $(1)$ thì $ax_0 + by_0 = c.$\\
+Nếu $a$ và $b$ có ước chung là $d \neq 1$ thì $c ~\vdots~ d$, trái với giả thiết ƯCLN$(a,b,c) =1$.\\
+Vậy $(a,b) =1.$
+\begin{dl}
+Nếu $(x_0 ; y_0)$ là một nghiệm nguyên của phương trình $(1)$ thì phương trình $(1)$ có vô số nghiệm nguyên và mọi nghiệm nguyên của phương trình đều có thể biểu diễn dưới dạng
+$$\heva{x &= x_0 + bt \\ y &= y_0 - at}$$
+trong đó $t$ là một số nguyuên tùy ý $\left(t=0,\pm 1, \pm 2, \cdots \right).$
+\end{dl}
+\textit{Chứng minh}
+\begin{enumerate}
+\item Bước $1$: Mỗi cặp số $\left( x;y \right)$ dạng $\left( x_0 + bt ; y_0 - at \right)$ với $t \in \mathbb{Z}$ đều là nghiệm của phương trình $(1)$.\\
+Thật vậy, do $\left( x_0 ; y_0\right)$ là nghiệm của phương trình $(1)$ nên $\left( ax_0 + by_0 = c \right).$\\
+Ta có $ax + by = a (x_0 + bt) + b (y_0 - at) = ax_0 + by_0 =c.$
+\item Bước $2$: Mỗi nghiệm $(x;y)$ của phương trình $(1)$ đều có dạng
+$$(x_0 + bt ; y_0 -at), t \in \mathbb{Z}.$$
+Thật vậy, do $(x_0 ; y_0)$ và $(x;y)$ đều là nghiệm của phương trình $(1)$ nên
+$$ax + by = c$$
+$$ax_0 + by_0 = c \text{ (2)}$$
+Ta có $a(x - x_0) ~\vdots~ b$ mà $a \neq 0$ và $(a,b) =1$ (theo định lý $1$) nên $(x - x_0) ~\vdots~ b.$\\
+Vậy tồn tại số nguyên $t$ sao cho $x - x_0 = bt$, tức là $x = x_0 + bt.$\\
+Thay vào $(2)$ được $abt = b(y_0 -y)$\\
+Vì $b \neq 0$ nên $at = y_0 - y \Rightarrow y = y_0 - at.$\\
+Vậy tồn tại số nguuyên $t$ sao cho 
+$$\heva{x &= x_0 + bt \\ y &= y_0 - at}$$
+\end{enumerate}
+\subsection{Ví dụ}
+\begin{vd}
+   Bằng phương pháp tìm một nghiệm riêng, hãy tìm một nghiệm nguyên của phương trình 
+   $$3x - 2y =5.$$
+    \loigiai{
+Cách 1: Ta thấy $x_0 = 3 ; y_0 = 2 $ là một nghiệm riêng.\\
+Theo định lý $2$, mọi nghiệm nguyên của phương trình là
+$$\heva{x &= 3 - 2t \\
+y &= 2 - 3t} (t \text{ là số nguyên tùy ý})$$ 
+Cách 2: Ta thấy $x_0 = 1 ; y_0 = -1 $ (ứng với $t = 1$ ở cách 1). Mọi nghiệm nguyên của phương trình là
+$$\heva{x &= 1 - 2t \\
+y &= -1 - 3t} (t \text{ là số nguyên tùy ý})$$ 
+Cách 2: Ta thấy $x_0 = 5 ; y_0 = 5 $ (ứng với $t = -1$ ở cách 1). Mọi nghiệm nguyên của phương trình là
+$$\heva{x &= 5 - 2t \\
+y &= 5 - 3t} (t \text{ là số nguyên tùy ý})$$ 
+    }
+\end{vd}
+Lưu ý: Qua ba cách giải trên, ta thấy công thức biểu thị tập hợp các nghiệm của cùng một phương trình có thể có các dạng khác nhau tùy theo cách chọn nghiệm riêng.
+\subsection{Cách tìm một nghiệm riêng của phương trình $ax + by = c$}
+Để tìm một nghiệm riêng của phương trình $ax+by=c$, ta có thể dùng phương pháp thử chọn: Lần lượt cho $x$ bằng các số có giá trị tuyệt đối nhỏ $(0, \pm 1, \pm 2, \cdots )$ rồi tìm giá trị tương ứng của $y$.
+Cách này đơn giản đối với phương trình $3x - 2y = 5$ ở ví dụn $7$ nhưng không thích hợp với những  phương trình mà phép thử chọn phải tiến hành quá nhiều lần.\\
+Có một thuật toán cho phép chúng ta tìm được ngay một nghiệm riêng của phương trình $ax + by = c$. Đó là thuật toán tìm ƯCLN của hai số, mang tên nhà toán học Hy Lạp $Euclide$.\\
+Xét phương trình $40x - 31  y = 1$ (chú ý vế phải của phương trình bằng $1$).\\
+Dùng thuật toán Euclid tìm ƯCLN$(40,31)$ như sau
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+\tkzDefPoints{1/0/A, 1/1/B, 2/1/C, 1/2/D, 2/2/E, 3/2/F, 2/3/G, 3/3/H, 4/3/I, 3/4/J, 4/4/K, 5/4/L, 4/5/M}
+\tkzDrawSegments(A,D G,C J,F M,I B,C E,F H,I K,L)
+\draw (0.5,0.1)node[above]{$0$};
+\draw (1.5,0.1)node[above]{$4$};
+\draw (0.5,1.1)node[above]{$4$};
+\draw (1.5,1.1)node[above]{$1$};
+\draw (2.5,1.1)node[above]{$2$};
+\draw (2.5,2.1)node[above]{$4$};
+\draw (1.5,2.1)node[above]{$9$};
+\draw (3.5,2.1)node[above]{$3$};
+\draw (3.5,3.1)node[above]{$9$};
+\draw (2.5,3.1)node[above]{$31$};
+\draw (3.5,4.1)node[above]{$40$};
+\draw (4.5,4.1)node[above]{$31$};
+\draw (4.5,3.1)node[above]{$1$};
+\end{tikzpicture}
+\end{center}
+Ta viết thương của các phép chia trên theo thứ tự các phép chia, không kể thương cuối cùng là $4$, được $1,3,2$.\\
+Gọi các thuong trên là $a_1, a_2, \cdots , a_k$ (thương cuối cùng là $a_{k+1}$), ta tính giá trị liên phân số
+$$\displaystyle a_1 + \displaystyle \frac{1}{a_2 + \displaystyle \frac{1}{a_3 + \displaystyle \frac{1}{ \vdots + \displaystyle \frac{1}{a_k}}}}$$
+Người ta chứng minh được rằng tồn tại một nghiệm riêng $(x_0;y_0)$ của phương trình mà $\heva{|x_0| &= m \\ |y_0| &= n}$ hoặc $\heva{|x_0| &= n \\ |y_0| &= m}$
+Trong ví dụ trên, $1+ \dfrac{1}{3 + \dfrac{1}{2}}= \dfrac{9}{7}.$\\
+Tồn tại một nghiệm riêng $(x_0;y_0)$ mà $\heva{ | x_0 | &= 7 \\ | y_0| &= 9.}$\\
+(Do $\|40\| > \|-31\|$ nên ta chọn $\|x_0\| < \|y_0\|$). \\
+Ở phương trình $40x-31y=1$, không thể có $x$ và $y$ trái dấu. Ta chỉ cần thử với nhiều nhất là hai cặp số $(7;9)$ và $(-7;-9)$ thì chọn được nghiệm riêng, đó là $(7;9)$.\\
+Các nghiệm nguyên của phương trình $40x-31y=1$ có dạng
+$$\heva{x &=7-31t \\ y &= 9-40t} (t \text{ là số nguyên tùy ý).}$$
+\textit{\textbf{Lưu ý:}} Bằng cách dùng thuật toán Euclid, ta lần lượt  có các thương $1,3,2,4$. ta cũng có thể có các số $1,3,2,4$ bằng cách viết $\dfrac{40}{31}$ dưới dạng liên phân số
+$$\dfrac{40}{31}= 1+ \dfrac{9}{31}= 1 + \dfrac{1}{3+\dfrac{4}{9}}= 1 + \dfrac{1}{3+ \dfrac{1}{2 + \dfrac{1}{4}}}.$$
+\begin{vd}
+Bằng phương pháp tìm một nghiệm riêng, hãy tìm mọi nghiệm nguyên của phương trình \[47x+162y=2.\tag{1}\]
+\loigiai{
+Trước hết ta tìm một nghiệm riêng của phương trình
+\[47x+162y=1.\tag{2}\]
+Dùng thuật toán Euclid tìm ƯCLN$(162,47)$ như sau
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+\tkzDefPoints{1/0/A, 1/1/B, 2/1/C, 1/2/D, 2/2/E, 3/2/F, 2/3/G, 3/3/H, 4/3/I, 3/4/J, 4/4/K, 5/4/L, 4/5/M}
+\tkzDrawSegments(A,D G,C J,F M,I B,C E,F H,I K,L)
+\draw (0.5,0.1)node[above]{$0$};
+\draw (1.5,0.1)node[above]{$5$};
+\draw (0.5,1.1)node[above]{$5$};
+\draw (1.5,1.1)node[above]{$1$};
+\draw (2.5,1.1)node[above]{$4$};
+\draw (2.5,2.1)node[above]{$5$};
+\draw (1.5,2.1)node[above]{$21$};
+\draw (3.5,2.1)node[above]{$2$};
+\draw (3.5,3.1)node[above]{$21$};
+\draw (2.5,3.1)node[above]{$47$};
+\draw (3.5,4.1)node[above]{$162$};
+\draw (4.5,4.1)node[above]{$47$};
+\draw (4.5,3.1)node[above]{$3$};
+\end{tikzpicture}
+\end{center}
+Ta có $3 + \dfrac{1}{2 + \dfrac{1}{4}}= \dfrac{31}{9}.$\\
+Tồn tại một nghiệm riêng của phương trình $(2)$ là $(x_0 ; y_0)$ mà $|x_0|=31$, $|y_0| = 9$ (do $|47| < |162|$ nên ta chọn $|x_0|>|y_0|$).\\
+Ở phương trình $(2)$, không thể có $x_0 ,y_0$ cùng dấu. Bằng thử chọn, ta được $(x_0 ; y_0)=(-62;18)$ là một nghiệm riêng của phương trình
+$$47x + 162y =2.$$
+Các nghiệm nguyên của phương trình $(1)$ có dạng
+$$\heva{x &= -62 + 162t \\ y &= 18 - 47t} (t \text{ là số nguyên tùy ý} ).$$
+
+}
+\end{vd}
+\begin{center}
+    \textbf{BÀI TẬP}
+\end{center}
+
+\begin{bt}
+   Tìm nghiệm nguyên của phương trình $17x - 39y = 4$ bằng hai cách
+   \begin{enumerate}
+   \item Cách 1. Dùng phương pháp tìm một nghiệm riêng.
+   \item Cách 2. Dùng phương pháp biểu thị một ẩn theo ẩn kia. 
+   \end{enumerate}
+    \loigiai{
+         \begin{enumerate}
+   \item Cách 1. Dùng phương pháp tìm một nghiệm riêng.\\
+  Trước hết ta tìm một nghiệm riêng của phương trình
+ \[17x - 39y =1.\tag{1}\]
+  Dùng thuật toán Euclid tìm ƯCLN$(39,17)$ như sau
+ \begin{center}
+\begin{tikzpicture}[scale=.8]
+\tkzDefPoints{1/0/A, 1/1/B, 2/1/C, 1/2/D, 2/2/E, 3/2/F, 2/3/G, 3/3/H, 4/3/I, 3/4/J, 4/4/K, 5/4/L, 4/5/M}
+\tkzDrawSegments(A,D G,C J,F M,I B,C E,F H,I K,L)
+\draw (0.5,0.1)node[above]{$0$};
+\draw (1.5,0.1)node[above]{$2$};
+\draw (0.5,1.1)node[above]{$2$};
+\draw (1.5,1.1)node[above]{$1$};
+\draw (2.5,1.1)node[above]{$2$};
+\draw (2.5,2.1)node[above]{$2$};
+\draw (1.5,2.1)node[above]{$5$};
+\draw (3.5,2.1)node[above]{$3$};
+\draw (3.5,3.1)node[above]{$5$};
+\draw (2.5,3.1)node[above]{$17$};
+\draw (3.5,4.1)node[above]{$39$};
+\draw (4.5,4.1)node[above]{$17$};
+\draw (4.5,3.1)node[above]{$2$};
+\end{tikzpicture}
+\end{center}
+  Khi đó $\displaystyle 2 + \displaystyle \frac{1}{3 + \displaystyle \frac{1}{2}} = 2 + \displaystyle \frac{2}{7} = \dfrac{16}{7}.$\\
+  Tồn tại một nghiệm riêng $(x_0;y_0)$ của $(1)$ mà $|x_0| = 16$, $|y_0| = 7$ (do $|17| < |-39|$ nên ta chọn $|x_0|>|y_0|$).\\
+  Chú ý rằng ở $(1)$, $x_0$ và $y_0$ không thể trái dấu.\\
+  Bằng cách thử chọn ta tìm được $x_0 = -16$; $y_0 = -7$. Do đó $(-64;-28)$ là một nghiệm riêng của phương trình $17x-39y=4$.\hfill$(2)$\\
+  Mọi nghiệm nguyên của phương trình $(2)$ có dạng
+  \[\heva{x &= -64 -39t \\ y &= -28 -17t} \,\, (t \in \mathbb{Z}).\tag{I}\]
+   \item Cách 2. Dùng phương pháp biểu thị một ẩn theo ẩn kia. Từ 
+   $(2)$, ta có
+   $$x= \dfrac{39y +4}{17} = 2y + \dfrac{5y+4}{17}.$$
+   Đặt $\dfrac{5y+4}{17}=k$, $k \in \mathbb{Z}$ thì $5y =17k-4$
+   nên $$y=\dfrac{17k-4}{5} = 3k + \dfrac{2(k-2)}{5}.$$
+   Đặt $\dfrac{k-2}{5}=t$, $t \in \mathbb{Z}$ thì $k=5t+2$. Ta có
+   \begin{align*}
+   y &= 3(5t+2)+2t=17t+6\\
+   x &= 2(17t+6) + (5t+2) = 39t+14.
+   \end{align*}
+   Mọi nghiệm nguyên của phương trình $(2)$ có dạng
+  \[\heva{x &= 14+39t \\ y &= 6+17t} \,\, (t \in \mathbb{Z}).\tag{II}\]
+   \end{enumerate}   
+    }
+\end{bt}
+\begin{bt}
+Cũng câu hỏi trên đối với phương  trình $2x - 7y =3$
+\loigiai{
+\begin{enumerate}
+\item Cách 1:\\
+Tồn tại một nghiệm riêng của phương trình $2x-7y=3$ là $(x;y)=(5;1)$.\\
+Mọi nghiệm nguyên của phương trình có dạng $(5-7t;1-2t)$, $t \in \mathbb{Z}$
+\item Cách 2:\\
+$$ 2x - 7y =3 \Rightarrow x= \dfrac{7y+3}{2} = 3y+1 + \dfrac{y+1}{2}.$$
+Đặt $\dfrac{y+1}{2}=k$, $k \in \mathbb{Z}$ thì $y=2k-1$. \\
+Khi đó  
+ $x=3(2k-1)+1+k=7k-2$, $k \in \mathbb{Z}.$\\
+Khi đó mọi nghiệm của phương trình đã cho có dạng
+$$\heva{x &= 7k-2 \\ y &= 2k-1} , k \in \mathbb{Z}.$$
+
+\end{enumerate}
+}
+\end{bt}

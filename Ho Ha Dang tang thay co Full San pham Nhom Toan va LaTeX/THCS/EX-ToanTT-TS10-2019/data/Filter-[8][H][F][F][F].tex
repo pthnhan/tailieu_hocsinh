@@ -1,0 +1,572 @@
+\begin{bt}%[Nguyễn Thế Anh]%[EX-TS10-ToanTT-2019]%[8H1K4]
+	Bạn Bình cần làm một kệ gỗ hình tam giác đều  như hình vẽ với các thanh gỗ ở trong đi qua trung điểm hai cạnh bên. Biết rằng Bình cần làm kệ gỗ có chiều cao khoảng $50$ cm. Hỏi Bình cần các thanh gỗ có tổng chiều dài là bao nhiêu?
+	\dapso {$230{,}94$ cm}
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\def\r{5}
+\pgfmathsetmacro{\rm}{\r+0.075}
+\coordinate [label =above:$A$] (a) at (90:\r);
+\coordinate [label =left:$B$] (b) at (-150:\r);
+\coordinate [label =right:$C$] (c) at (-30:\r);
+\coordinate [label =left:$E$] (e) at ($(a)!0.5!(b)$);
+\coordinate [label =right:$F$] (f) at ($(a)!0.5!(c)$);
+\coordinate [label =below:$H$] (h) at ($(c)!0.5!(b)$);
+\begin{scope}
+\clip (90:\rm)--(-150:\rm)--(-30:\rm)--cycle;
+\draw[line width=30, color=black!40] (b)--(c)--cycle;
+\draw[line width=15, color=black!40]($(f)+(-0.1,0)$)--($(h)+(-0.1,0)$);
+\draw [line width=15, color=red!20!orange!70] (b)--(a)--(c)--cycle;
+\draw [line width=10, color=red!20!orange!70] (e)--(f)--(h);
+\end{scope}
+\foreach \i in {a,b,c,e,f,h}{\draw[fill=yellow!40] (\i) circle (2pt);}
+\end{tikzpicture}
+	\end{center}
+\loigiai {
+	Ta có $AH$ là chiều cao của đều $\triangle ABC$\\ 
+	$AH=\dfrac{AB\sqrt{3}}{2}\Rightarrow 50=\dfrac{AB\sqrt{3}}{2}\Rightarrow AB=\dfrac{100\sqrt{3}}{3}$ cm.\\
+	$EF=FH=\dfrac{AB}{2}=\dfrac{\dfrac{100\sqrt{3}}{3}}{2}=\dfrac{50\sqrt{3}}{3}$.\\
+	Bình cần các thanh gỗ có tổng chiều dài là:\\
+	$3\cdot AB+2\cdot EF=3\cdot \dfrac{100\sqrt{3}}{3}+2\cdot \dfrac{50\sqrt{3}}{3}=\dfrac{400\sqrt{3}}{3}\approx 230{,}94$ cm.	
+}
+\end{bt}
+
+\begin{bt}%[Hưng Nguyễn]%[EX-TS10-ToanTT-2019]%[8H1T4]
+	Một mảnh đất có dạng hình thang vuông $ABCD$ ($\widehat{A}=\widehat{D}=90^\circ$, như hình vẽ). 
+	Biết $AD=30$ m, $AB=50$ m, $DC=62$ m. Ông An định chia mảnh đất thành ba phần cho ba người con của mình bằng cách sau:\\
+	\textit{Bước 1:} Trên đoạn $AD$ lấy hai điểm $E$, $F$ sao cho $AE=EF=FD$.
+	\immini
+	{
+		\textit{Bước 2:} Dựng $EH\parallel AB$, $FI\parallel AB$ ($H\in BC$, $I\in BC$).\\
+		Biết rằng người con thứ nhất nhận được mảnh đất $(1)$ (tứ giác $ABHE$), người con thứ hai nhận được mảnh đất $(2)$ (tứ giác $EHIF$) và người con thứ ba nhận được mảnh đất $(3)$ (tứ giác $FICD$). Hỏi diện tích đất mỗi người con nhận được là bao nhiêu?
+	}
+	{
+		\begin{tikzpicture}[line join = round, line cap = round, >=stealth, font=\footnotesize, scale=.8]
+		\tkzDefPoints{0/0/D,6.2/0/C,0/1/F,0/2/E,0/3/A,5.8/1/I,5.4/2/H,5/3/B}
+		\tkzDrawSegments(A,B B,C C,D D,A E,H F,I)
+		\tkzDrawPoints[fill=black](A,B,C,D,E,F,H,I)
+		\tkzLabelPoints[left](A,E,F,D) \tkzLabelPoints[right](B,H,I,C)
+		\tkzText(2.5,2.5){$(1)$}
+		\tkzText(2.5,1.5){$(2)$}
+		\tkzText(2.5,0.5){$(3)$}
+		\tkzMarkRightAngles(D,A,B C,D,A)
+		\end{tikzpicture}
+	}
+	\dapso{$S_1=520$ m$^2$; $S_2=560$ m$^2$; $S_3=600$ m$^2$}
+	\loigiai{
+	Gọi độ dài đoạn thẳng $EH$ là $x$ (m) ($x>0$).\\
+	Vì $AB\parallel FI$ nên $ABIF$ là hình thang có $E$ là trung điểm $AF$ và $EH\parallel AB$, suy ra $EH$ là đường trung bình của hình thang $ABIF$.\\
+	Do đó, $EH=\dfrac{AB+FI}{2}\Leftrightarrow FI=2EH-AB=2x-50$.\\
+	Vì $FI\parallel AB\parallel CD$ nên $EHCD$ là hình thang có $F$ là trung điểm của $ED$ và $FI\parallel CD$, suy ra $FI$ là đường trung bình của hình thang $EHCD$.\\
+	Do đó, $FI=\dfrac{EH+CD}{2}$ hay $2x-50=\dfrac{x+62}{2}\Leftrightarrow 4x-100=x+62\Leftrightarrow x=54$ (thỏa mãn).\\
+	Suy ra $EH=54$ m, $FI=58$ m.\\
+	Ta có $AE=EF=FD=\dfrac{AD}{3}=\dfrac{30}{3}=10$ (m).\\
+	Diện tích đất của người con thứ nhất là $$S_1=\dfrac{1}{2}(AB+EH)\cdot AE=\dfrac{1}{2}(50+54)\cdot 10=520\text{ (m$^2$).}$$
+	Diện tích đất của người con thứ hai là $$S_2=\dfrac{1}{2}(EH+FI)\cdot EF=\dfrac{1}{2}(54+58)\cdot 10=560\text{ (m$^2$).}$$
+	Diện tích đất của người con thứ ba là $$S_3=\dfrac{1}{2}(FI+CD)\cdot FD=\dfrac{1}{2}(58+62)\cdot 10=600\text{ (m$^2$).}$$
+	}
+\end{bt}
+
+\begin{bt}%[Trần Hòa]%[EX-TS10-ToanTT-2019]%[8H2B2]
+\immini{Để xây bức tường gạch bao quanh khu vườn, ngoài các trụ bê tông và phía trước làm cổng, có $5$ bức như nhau, chiều dài $5{,}7$ m cao $1{,}6$ m, cần phải sử dụng gạch ống $4$ lỗ kích thước $1920$ mm $\times 80$ mm $\times 80$ mm.
+Hỏi phải dự trù bao nhiêu viên gạch theo diện tích (dự trù theo chiều dài, chiều cao rồi tính), biết rằng bề dày bức tường chưa tô là $80$ mm và phải cần thêm $3\%$ theo tổng số đề phòng số gạch bị vỡ?\dapso{$306$ viên}
+}{\begin{tikzpicture}[scale=.6,font=\footnotesize,line join = round, line cap = round, >= stealth]
+\tkzDefPoints{0/0/O,0.5/0/a, 4/0/x, 0/3/z, 3/2/y, 5/0/B, 0/-5/D, 5/-5/C}
+\coordinate (A) at ($(O)+(a)$);
+\coordinate (B) at ($(A)+(x)$);
+\coordinate (D) at ($(A)+(z)$);
+\coordinate (C) at ($(B)+(z)$);
+%%
+\coordinate (A1) at ($(B)+(a)$);
+\coordinate (B1) at ($(A1)+(x)$);
+\coordinate (D1) at ($(A1)+(z)$);
+\coordinate (C1) at ($(B1)+(z)$);
+%%
+\coordinate (A2) at ($(B1)+(a)$);
+\coordinate (B2) at ($(A2)+(y)$);
+\coordinate (D2) at ($(A2)+(z)$);
+\coordinate (C2) at ($(B2)+(z)$);
+%%
+%%Măt sau1
+\coordinate (O') at ($(O)+(y)$);
+\coordinate (A') at ($(A)+(y)$);
+\coordinate (D') at ($(D)+(y)$);
+\coordinate (C') at ($(C)+(y)$);
+\draw[fill=gray] (O') rectangle (D');
+\draw[pattern=north east lines,pattern color=gray] (A') rectangle (C');
+%%Măt sau2
+\coordinate (B'') at ($(B)+(y)$);
+\coordinate (A'') at ($(A1)+(y)$);
+\coordinate (D'') at ($(D1)+(y)$);
+\coordinate (C'') at ($(C1)+(y)$);
+%\draw(B
+\draw[fill=gray] (B'') rectangle (D'');
+\draw[pattern=north east lines,pattern color=gray] (B'') rectangle (C'');
+\draw[fill=gray] (C'') rectangle (B2);
+%%
+\draw[fill=gray] (O) rectangle (D);
+\draw[fill=gray!70!red] (A) rectangle (C);
+\draw[fill=gray] (B) rectangle (D1);
+\draw[fill=gray!70!red] (A1) rectangle (C1);
+\draw[fill=gray] (B1) rectangle (D2);
+\draw[fill=gray!70!red] (A2)--(B2)--(C2)--(D2)--cycle;
+\draw [<->] ($(A)+(-.75,0)$)--($(D)+(-.75,0)$);
+\draw ($(O)+(-1,1.5)$) node{$1{,}6$m};
+\draw [<->] ($(A)+(0,-.25)$)--($(B)+(0,-.25)$);
+\draw ($(A)+(2,-.75)$) node{$5{,}7$m};
+\end{tikzpicture}}
+\loigiai{
+Tổng diện tích bề mặt $5$ bức tường là $5\cdot 5{,}7\cdot 1{,}6=45{,}6$ (m$^2$).\\
+Diện tích bề mặt (chiều dài và chiều cao) mỗi viên gạch là 
+$$ 1920\cdot 80= 153600\,\, \text{(mm$^2$)}\,\, = 0{,}1536\,\, \text{(m$^2$).}$$
+Do bề dày viên gạch bằng bề dày bức tường, nên số viên gạch cần để xây tường là $$(45{,}6:0{,}1536)\cdot 103\% \approx 306\,\, \text{(viên).}$$
+}
+\end{bt}
+
+\begin{bt}%[]%[EX-TS10-ToanTT-2019]%[8H2T2]
+	Một thấu kính hội tụ $L$, một vật $AB=1$ cm đặt vuông góc với trục chính $MN$ cho ta một ảnh ảo cùng phía với $AB$ là $A’B’=3$ cm.\\
+	Cho biết $AA’=32$ cm. Hãy tính tiêu cự $OF$ của thấu kính.
+
+	\begin{center}
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+		%Phan Khai Bao Mac Dinh
+		\tkzInit[ymin=-0.5,ymax=5.5,xmin=-0.5,xmax=10.5]
+		%\tkzAxeXY
+		%\tkzGrid
+		\tkzClip
+		\tkzSetUpPoint[color=black,fill=black,size=6]
+		%Dinh Hinh
+		
+		\tkzDefPoints{3.5/2/F',4/2/A,5/4/L,4/3/B,5/3/I,5/2/O,0/2/M,10/2/N}
+		\draw [<->,thick] (L) -- (5,0);
+		\tkzDefPointBy[rotation= center O angle 180](F')\tkzGetPoint{F}
+		\tkzInterLL(I,F)(B,O)\tkzGetPoint{B'}
+		\tkzDrawAltitude(A,F')(B')\tkzGetPoint{A'}
+		\tkzDrawSegments(B,I A,B M,N)
+		\tkzDrawSegments[style=dashed](B',B B',I)
+		\tkzDrawLines[add=0 and 1](B,O I,F)
+		\tkzDrawPoints(A,B,A',F',F,B',I,O)
+		\tkzLabelPoints[above](F,B,B',L)
+		\tkzLabelPoints[below](A,A',F',M,N)
+		\tkzLabelPoints[right]()
+		\tkzLabelPoints[left]()
+		\tkzLabelPoints[above right](O,I)
+		\tkzLabelPoints[above left]()
+		\tkzLabelPoints[below right]()
+		\tkzLabelPoints[below left]()
+		\end{tikzpicture}
+	\end{center}
+	
+	\dapso{$\dfrac{1024}{62}$}
+	
+	
+	\loigiai{
+		Ta có: $AB\parallel A'B' \Rightarrow \dfrac{OA}{OA'}=\dfrac{AB}{A'B'}$ (theo hệ quả của định lý Thales)\\
+		$\dfrac{OA}{OA+32}=\dfrac{1}{3}\Rightarrow OA=\dfrac{32}{31}\Rightarrow OA'=OA+AA'=\dfrac{1024}{31}$\\
+		Xét $\triangle FA'B'$ có $OI\parallel A'B'$ ($O\in FA'$, $I\in FB'$).\\
+		Theo hệ quả định lý Thales ta có $\dfrac{OF}{FA'}=\dfrac{IO}{A'B'}\Leftrightarrow \dfrac{OF}{OF+\dfrac{1024}{31}}=\dfrac{1}{3}\Rightarrow 2OF=\dfrac{1024}{31}\Rightarrow OF=\dfrac{1024}{62}$.
+	}
+\end{bt}
+
+\begin{bt}%[Võ Tấn Đạt]%[EX-TS10-ToanTT-2019]%[8H3B1]
+	Một tấm bảng hình vuông có cạnh $ 20 $ cm để trước máy chiếu và thấy được bóng trên tường có diện tích $ 4 $ m$ ^2 $. Hỏi máy chiếu để cách tường bao xa? biết rằng tấm bảng để cách máy chiếu $ 30 $ cm.
+	\dapso{$ 300 $ cm}
+	\loigiai{\immini{Theo đề bài ta có hình vẽ với $ A $ là vị trí máy chiếu, $ DE $ là cạnh của tấm bảng và BC là bóng của nó trên tường, $ AH $ là khoảng cách từ máy chiếu tới bảng và $ AK $ là khoảng cách từ máy chiếu tới bức tường.\\
+			Độ dài cạnh BC là $ \sqrt{4}=2$ m$ =200$ cm. \\	Ta có $DE\parallel BC \Rightarrow \dfrac{DE}{BC}=\dfrac{AH}{AK}  $ (Hệ quả Thales)\\
+			$ \Rightarrow \dfrac{20}{200}=\dfrac{30}{AK}\Rightarrow AK= 300.$\\
+			Vậy máy chiếu để cách bức tường $ 300 $ cm. }{
+			\begin{tikzpicture}[>=stealth,scale=.5, line join = round, line cap = round]
+			\tkzInit[xmin=-3.5,xmax=3.5,ymin=-1,ymax=12.5]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/12/A,3/0/B,-3/0/C,-2/8/M,2/8/N}
+			\tkzInterLL(A,B)(M,N)    \tkzGetPoint{D}
+			\tkzInterLL(A,C)(M,N)    \tkzGetPoint{E}
+			\coordinate (H) at ($(D)!0.5!(E)$);
+			\coordinate (K) at ($(B)!0.5!(C)$);
+			\tkzDrawPoints(A,B,C,D,E,H,K)
+			\tkzLabelPoints[below](C,B)
+			\tkzLabelPoints[left](A,E)
+			\tkzLabelPoints[right](D)
+			\tkzLabelPoints[above left](H,K)
+			\draw (A)--(H) node[midway,sloped]{{\scriptsize$30$ cm}}; 
+			\path(D)--(E) node[below,midway]{$ 20 $cm};
+			\draw(B)--(C) node[below,midway]{$ 200 $cm};
+			\tkzDrawSegments(A,B A,C B,C D,E A,K) 
+			
+			\end{tikzpicture}}
+		
+ 	}
+\end{bt}
+
+\begin{bt}%[Tô Ngọc Thy]%[EX-TS10-ToanTT-2019]%[8H3B2]
+	\immini{Một vật sáng $AB$ đặt vuông góc với trục chính của một thấu kính phân kì cho ta một ảnh ảo $A'B'$, biết tiêu cự của thấu kính là $OF=10$ cm, độ lớn của vật là $AB=10$ cm và $FA'=4$ cm. Tính độ lớn của $A'B'$ của ảnh.
+	\dapso{$4\text{ cm.}$}}
+	{
+		\begin{tikzpicture}[scale=0.45, font=\footnotesize, line join=round, line join=round, line cap = round,>=stealth]
+		\tkzInit[ymin=-6,ymax=8,xmin=-10,xmax=5]
+		\tkzClip
+		\tkzDefPoints{0/0/O, 0/5/I, -5/0/F, -9/0/A, -9/5/B, 0/7/J, -0.5/7.5/K, 0.5/7.5/L, 0/-5/M, -0.5/-5.5/N, 0.5/-5.5/P, 3/8/Q, 4.5/-2.5/S}	
+		\tkzDrawSegments(A,B B,I A,O J,M J,K J,L M,N M,P)
+		\tkzDrawLines(A,O)
+		\tkzDrawLine[add = 0 and 0.35](B,O)
+		\tkzDrawLine[add = 0 and 0.05](I,Q)
+		\tkzInterLL(F,I)(B,O)
+		\tkzGetPoint{B'}
+		\tkzDefPointBy[projection= onto A--O](B')
+		\tkzGetPoint{A'}
+		\tkzDefMidPoint(B,B') \tkzGetPoint{T}
+		\tkzDefMidPoint(B,I) \tkzGetPoint{H}
+		\tkzDefMidPoint(Q,I) \tkzGetPoint{Y}
+		\tkzDefMidPoint(O,S) \tkzGetPoint{G}	
+		\tkzDrawSegments[dashed](A',B' F,I)
+		\tkzLabelPoints[below left](A,F,A',O)
+		\tkzLabelPoints[above](B')
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](I)
+		\tkzDrawPoints(O,I,F,A,B,B',A')
+		\tkzDrawSegments[->](B,T)
+		\tkzDrawSegments[->](B,H)
+		\tkzDrawSegments[->](I,Y)
+		\tkzDrawSegments[->](O,G)
+		\end{tikzpicture}
+}
+	\loigiai{
+		Xét $\triangle IOF$ và $\triangle B'A'F$ có
+		$$\widehat{IFO}\text{ chung.}$$
+		$$\widehat{IOF}=\widehat{B'A'F}=90^\circ.$$
+		Vậy $$\triangle IOF \backsim \triangle B'A'F.$$
+		Suy ra $$\dfrac{IO}{B'A'}=\dfrac{FO}{FA'}\Rightarrow B'A'=\dfrac{IO\cdot FA'}{FO}\Rightarrow B'A'=\dfrac{10\cdot 4}{10}=4\text{ cm.}$$
+	}
+\end{bt}
+
+\begin{bt}%[Thầy Hóa]%[EX-TS10-ToanTT-2019]%[8H3T2]
+	Sau khi được hướng dẫn, Tuấn và nhóm bạn thực hành ngoài trời đo khoảng cách của con kênh $AB$, bằng cách sử dụng cọc tiêu và có cách làm như sau: Chọn mục tiêu bên kia kênh, ví dụ cây $A$, đóng cọc tiêu $B$ gần bờ kênh sao cho thấy cây $A$ gần nhất, sau đó đóng và nhắm cọc $C$ sao cho $A$, $B$, $C$ thẳng hàng $C$ cách $B$ đo được $5$ mét. Dựng và vạch đường thẳng $C$D vuông góc với $BC$ trên đường này đóng cọc $F$, tiếp tục dựng và vạch đường thẳng $FG$ vuông góc với $CD$ và trên đường này đóng cọc $H$, cắm và nhắm cọc $E$ trên đường thẳng $CD$ sao cho $H$, $E$, $A$ thẳng hàng. Các bạn đo và xác định được $FH = 4$ mét, $FE = 5$ mét, $EC = 40$ mét. Hỏi con kênh có bề rộng $AB$ bằng bao nhiêu? (Các cọc đều đóng thẳng đứng). \dapso{$27$ mét}
+	\loigiai{
+	\begin{center}
+	\begin{tikzpicture}[rotate=5,scale=.7, line join=round, line cap=round,>=stealth]
+	\tkzDefPoints{0/0/D}
+	\coordinate (A) at ($(D)+(15,7)$);
+	\coordinate (B) at ($(D)+(15,1)$);
+	\coordinate (C) at ($(D)+(15,0)$);
+	\coordinate (E) at ($(D)+(5,0)$);
+	\tkzDefPointBy[homothety = center E ratio -1/5](A)    \tkzGetPoint{H}
+	\tkzDefPointBy[homothety = center E ratio -1/5](C)    \tkzGetPoint{F}	
+	\draw[dashed,thin,red] (0,1)--(16,1) (16,7)--(0,7);	
+	\foreach \x in {15,14,...,0}{
+		\foreach \y in {7,6,...,1}{
+			\coordinate (G) at ($(\x,\y)$);
+			\draw[blue] ($(G)-(0.3,0)$) to[out=-60,in=110] ($(G)+(0.3,0)$);
+	}}
+	\foreach \x in {14.5,13.5,...,0.5}{
+		\foreach \y in {6.5,5.5,...,1.5}{
+			\coordinate (G) at ($(\x,\y)$);
+			\draw ($(G)-(0.3,0)$) to[out=-60,in=110] ($(G)+(0.3,0)$);
+	}}
+	\tkzDrawPoints[fill=black](A,B,C,E,F,H)
+	\tkzDrawSegments(A,C E,A E,C E,D E,H F,H)
+	\tkzMarkRightAngles[size=0.3,fill=gray!50](B,C,D)
+	\tkzLabelSegments[color=black,right](C,B){$5$m}
+	\tkzLabelSegments[color=black,left](F,H){$4$m}
+	\tkzLabelSegments[color=black,above](F,E){$5$m}
+	\tkzLabelSegments[color=black,above](E,C){$40$m}
+	\tkzLabelPoints[above](A,F)
+	\tkzLabelPoints[below](C,E)
+	\tkzLabelPoints[below left](H,D)
+	\tkzLabelPoints[below left](B)
+	\end{tikzpicture}
+	\end{center}
+	Vì $HE\parallel AC$ (cùng vuông góc với $CD$) nên theo định lí Ta-lét, ta có
+	\[\dfrac{EF}{EC}=\dfrac{FH}{CA}\Rightarrow \dfrac{5}{40}=\dfrac{4}{CA}\Rightarrow CA=\dfrac{4\cdot 40}{5}=32~\text{(m)}.\]
+	Do đó $AB=AC-BC=32-5=27$ (m).\\
+	Vậy khoảng cách giữa hai bên bờ sông là $27$ mét.
+	}
+\end{bt}
+
+\begin{bt}%[Thầy Hóa]%[EX-TS10-ToanTT-2019]%[8H3T2]
+	\immini
+	{
+		Để đo chiều cao của một cái cây bằng ánh nắng mặt trời, bạn An cắm một cọc $CD$ thẳng đứng cách cây $24$ mét khi bóng của cây trùng với bóng của cọc bạn An đánh dấu vị trí $I$. Đo khoảng cách $ID$ được $1{,}6$ mét. Hỏi chiều cao $AB$ của cây? (Biết cọc có chiều cao $1{,}2$ mét). \dapso{$18$ mét}
+	}
+	{
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join = round, line cap = round,>=stealth]
+		\draw[fill=black!70] plot[smooth ] coordinates{(5.3,0)(5.25,1.14)(4.95,1.19) (5,0) };
+		\draw[fill=blue!30] plot[smooth cycle] coordinates{(5.11,1.14)(5.87,1.01) (6.09,1.77) (5.93,2.62) (6.03,3.31)(5.5,3.65)(5.37,4.45)(5,5)(4.66,4.29)(4.29,3.55)(4.5,2.88)(3.94,2.62)(3.81,1.8)(4.23,1.24)(4.82,1.19)};
+		\tkzDefPoints{5/5/A,5/0/B,13/0/I}
+		\tkzDefPointBy[homothety = center A ratio 6.5/8](I)    \tkzGetPoint{C}
+		\tkzDrawAltitude(I,B)(C) \tkzGetPoint{D}
+		\pgfresetboundingbox
+		\tkzDrawPolygon(A,B,I)
+		\tkzDrawSegments(D,C)
+		\tkzLabelSegments[color=black,below](I,D){$1{,}6$ m}
+		\tkzLabelSegments[color=black,below](D,B){$24$ m}
+		\tkzLabelSegments[color=black,rotate=90](D,C){$1{,}2$ m}
+		\tkzLabelPoints[above](A,C)	
+		\tkzLabelPoints[right](I) \tkzLabelPoints[below](D)	
+		\tkzLabelPoints[left](B)
+		\tkzDrawPoints[fill=black](D,A,C,B,I)
+		\end{tikzpicture}
+	}
+	\loigiai{
+	Vì $\heva{&AB\perp BI\\ &CD\perp BI}$ nên $AB\parallel CD$. Theo định lí Ta-lét, trong $\triangle IAB$, ta có
+	\[\dfrac{ID}{IB}=\dfrac{CD}{AB}\Rightarrow \dfrac{1{,}6}{24}=\dfrac{1{,}2}{AB}\Rightarrow AB=\dfrac{24\cdot 1{,}2}{1{,}6}=18~\text{(mét)}.\]
+	Vậy chiều cao của cây là $18$ mét.
+	}
+\end{bt}
+
+\begin{bt}%[Hưng Nguyễn]%[EX-TS10-ToanTT-2019]%[8H3T7]
+	\immini
+	{
+		Bạn Bình đặt thước ê-ke ngay vị trí mắt và di chuyển thước sao cho đường thẳng chứa hai cạnh góc vuông của thước lần lượt đi qua ngọn và gốc của cây (như hình vẽ). Biết rằng khoảng cách từ mắt đến chân của Bình khoảng $160$ cm. Bình đứng cách cây $2{,}4$ m. Hỏi cây cao bao nhiêu mét?
+	}
+	{
+		\begin{tikzpicture}[line join = round, line cap = round, >=stealth, font=\footnotesize, scale=.7]
+		\clip (0,-.7) rectangle (7.5,5.7);
+		\draw[fill=black!70] plot[smooth ] coordinates{(5.3,0)(5.25,1.14)(4.95,1.19) (5,0) };
+		\draw[fill=blue!30] plot[smooth cycle] coordinates{(5.11,1.14)(5.87,1.01) (6.09,1.77) (5.93,2.62) (6.03,3.31)(5.5,3.65)(5.37,4.45)(5,5)(4.66,4.29)(4.29,3.55)(4.5,2.88)(3.94,2.62)(3.81,1.8)(4.23,1.24)(4.82,1.19)};
+		\tkzDefPoints{5/5/C,5/0/B,0/0/O}
+		\tkzDefMidPoint(C,B)\tkzGetPoint{M}
+		\tkzDefPointBy[rotation= center M angle -75](B) \tkzGetPoint{A}
+		\tkzDefPointBy[projection=onto O--B](A)\tkzGetPoint{H}
+		\tkzDrawPoints[fill=black](A,B,C,H)
+		\tkzDrawPolygon(A,B,H)
+		\tkzDrawSegments(A,C)
+		\tkzDefMidPoint(A,H) \tkzGetPoint{4}
+		\tkzDefMidPoint(B,H) \tkzGetPoint{20} 
+		\tkzLabelPoints[below](H,B)
+		\tkzLabelPoints[above](C) 
+		\tkzLabelPoints[left](A) 
+		\tkzMarkRightAngles(B,A,C)
+		\tkzLabelLine[pos=.5,below](B,H){$2{,}4$ m}
+		\tkzLabelLine[pos=.5,left](A,H){$160$ cm}
+		\end{tikzpicture}
+	}
+	\dapso{$5{,}2$ m}
+	\loigiai{
+	Ta có $AH=160\text{ cm}=1{,}6$ m.\\
+	Áp dụng định lí Pi-ta-go cho $\triangle AHB$ vuông tại $H$ ta được $$AB^2=AH^2+HB^2=1{,}6^2+2{,}4^2=8{,}32.$$
+	Ta có $AH\parallel BC$ (cùng vuông góc với $HB$) nên $\widehat{HAB}=\widehat{ABC}$ (so le trong).\\
+	Do đó $\triangle HAB\backsim\triangle ABC$ (g-g). Suy ra $\dfrac{AH}{AB}=\dfrac{AB}{BC}\Rightarrow BC=\dfrac{AB^2}{AH}=\dfrac{8{,}32}{1{,}6}=5{,}2$ (m).\\
+	Vậy cây đó cao $5{,}2$ m.
+	}
+\end{bt}
+
+\begin{bt}%[Trần Hòa]%[EX-TS10-ToanTT-2019]%[8H3K8]
+\immini{Một vật sáng $AB$ đặt vuông góc với trục chính của một thấu kính hội tụ, cho ta một ảnh thật $A'B'$, biết tiêu cự của thấu kính là $OF = 25$ cm, vật đặt cách thấu kính một đoạn $OA = 30$ cm.
+\begin{enumerate}
+\item Tính $OA'$.\dapso{$OA'= 150$ cm}
+\item Ảnh $A'B'$ gấp mấy lần vật $AB$?\dapso{$5$ lần}
+\end{enumerate}
+}{\begin{tikzpicture}[scale=.5,font=\footnotesize,line join = round, line cap = round, >= stealth]
+\tkzDefPoints{-4/0/a, 10/0/a', 0/0/O, -3.5/0/A, -3.5/1/B, 0/1/C, -2.5/0/F, 2.5/0/F'}
+\draw (a)--(a');%Truc
+\draw[<->] (0,3)--(0,-3);
+\tkzInterLL(B,O)(C,F')
+\tkzGetPoint{B'}
+\tkzDefPointBy[projection=onto a--a'](B')
+\tkzGetPoint{A'}
+\pgfresetboundingbox
+\coordinate (D) at ($(O)+(B')-(A')$);
+\draw (A)--(B)--(C)--(B')--(A');
+\draw (B)--(D)--(B')--(B);
+\draw[->] (-3.5,1);\draw[->] (A')--(B');
+\tkzLabelPoints[left](D)
+\tkzLabelPoints[above left](C)
+%\tkzLabelPoints[right](O)
+\tkzLabelPoints[above](B, A',F')
+\tkzLabelPoints[below](A,F,B')
+\tkzLabelPoints[below left](O)
+\tkzDrawPoints[fill=black](A,A',F,F')
+\end{tikzpicture}}
+\loigiai{
+\emph{Cách 1}\\
+Ta có $AF= AO-FO=5$ (cm).\\
+$\triangle FAB \backsim \triangle FOD \Rightarrow \dfrac{AB}{OD}=\dfrac{AF}{OF}=\dfrac{5}{25}=\dfrac{1}{5}$.\\
+Mà $OD=A'B'\Rightarrow \dfrac{AB}{A'B'}=\dfrac{1}{5}\Rightarrow A'B'=5AB$.\\
+$\triangle OA'B' \backsim \triangle OAB \Rightarrow \dfrac{OA'}{OA}=\dfrac{A'B'}{AB}=5\Rightarrow OA' = 5 OA=5\cdot 30 =150$ (cm).\\
+Vậy $OA'= 150$ cm và ảnh $A'B'$ gấp $5$ lần vật $AB$.\\
+\emph{Cách 2}
+\begin{enumerate}
+\item Theo công thức vật lí, ta có\\
+$\dfrac{1}{OF}=\dfrac{1}{OA'}+\dfrac{1}{OA}\Rightarrow \dfrac{1}{OA'}=\dfrac{1}{OF}-\dfrac{1}{OA}=\dfrac{1}{25}-\dfrac{1}{30}=\dfrac{1}{150}$
+$\Rightarrow OA' =150$ (cm).
+\item $\dfrac{A'B'}{AB}=\dfrac{OA'}{OA}=5$.
+\end{enumerate}
+}
+\end{bt}
+
+\begin{bt}%[EX-TS10-ToanTT-2019]%[Phạm Tuấn]%[8H3B9]
+Đo chiều cao của một cái cây $AB$. Người ta đặt gương phẳng tại vị trí $C$ (hình bên dưới). Người đo đi lùi lại (thẳng người) cho đến khi nhìn thấy bóng ngọn cây $A$. Biết khoảng cách từ gương đến gốc cây là $BC = 30$ mét, khoảng cách từ gương đến chỗ đứng là $CD = 1{,}5$ mét, khoảng cách từ mắt người đo $E$ đến mặt đất là $ED = 1{,}6$ mét. Biết $\widehat{BCA}=\widehat{DCE}$, tính chiều cao của cây. \dapso{$32$ mét}
+\begin{center}
+\begin{tikzpicture}
+\coordinate (A) at (2.26,3.2); 
+\coordinate (B) at (2.33,0);
+\coordinate (C) at (6,0);
+\coordinate (D) at (7,0);
+\coordinate (E) at (7,0.85);
+\draw[fill=black] (2.26,3.2)  node[above] {$A$};
+\draw[fill=black] (2.33,0) circle (1.5pt) node[below] {$B$};
+\draw[fill=black] (6,0) circle (1.5pt) node[below] {$C$};
+\draw[fill=black] (7,0) circle (1.5pt) node[below] {$D$};
+\draw[fill=black] (7,0.85) circle (1.5pt) node[above] {$E$};
+\tkzMarkAngle[size=0.6](A,C,B)
+\tkzMarkAngle[size=0.6](D,C,E)
+\draw[fill=green,thick] plot [smooth,tension=1] coordinates{(2.26,3.2) (1.88,2.74) (1.6,2.34)  (1.88,1.42) (2.34,1.56) (2.92,1.5) (2.92,2.56) (2.62,3.04)  (2.26,3.2)}; 
+\draw[fill=brown,thick] plot [smooth,tension=0.5] coordinates{(2.29,1.55) (2.2,0.1) (2.41,0.1) (2.39,1.55) (2.34,1.56) (2.29,1.55)}; 
+\draw[dashed] (2.33,0)--(7,0)  (2.26,3.2)--(6,0) (6,0)--(7,0.85);
+\draw[line width=1.5pt] (7,0.85)--(7,0);
+\end{tikzpicture}
+\end{center}
+\loigiai{
+Hai tam giác vuông $ABC$ và $EDC$ có $\widehat{BCA}=\widehat{DCE}$ nên đồng dạng, suy ra
+\[\dfrac{AB}{ED} =\dfrac{BC}{CD} \Rightarrow AB = \dfrac{ED \cdot BC}{CD} = \dfrac{1{,}6 \cdot 30}{1{,}5}=32 \textrm{ mét}.\] 
+}
+\end{bt}
+
+\begin{bt}%[Trần Hòa]%[EX-TS10-ToanTT-2019]%[8H3B9]
+\immini{Để ước lượng khoảng cách từ chỗ đứng đến một vật ở xa, bạn An sử dụng một cây tăm, duỗi thẳng tay sao cho cây tăm thẳng, ngắm vật làm chuẩn (chiếc xe chẳng hạn), di chuyển ngón cái và khi thấy phần đầu tăm che hết cả xe, bấm dấu trên thân tăm. Biết khoảng cách từ mắt đến cây tăm là $OA = 90$ cm, khoảng cách từ chỗ đánh dấu đến đầu tăm $AB = 5$ mm và chiều cao chiếc xe là $1{,}5$ m. Tính khoảng cách từ bạn An đến chiếc xe (làm tròn đến cm).\dapso{$27000$ cm}}{\begin{tikzpicture}[scale=1,font=\footnotesize,line join = round, line cap = round, >= stealth]
+\tkzDefPoints{0/0/O, 6/0/M, 6/2/N}
+\coordinate (A) at ($(O)!0.3!(M)$);
+\coordinate (B) at ($(O)!0.3!(N)$);
+\draw (O)--(M)--(N)--(O);
+\draw (A)--(B);
+%\tkzLabelPoints[left](O)
+\tkzLabelPoints[above](B,N)
+\tkzLabelPoints[below](A,M,O)
+\tkzMarkRightAngle(O,A,B)
+\tkzMarkRightAngle(O,M,N)
+\tkzDrawPoints[fill=black](A,B,M,N,O)
+\end{tikzpicture}
+}
+\loigiai{
+Ta có $AB=5$ mm $= 0{,}5$ cm; $MN=1{,}5$ m $=150$ cm.\\
+Xét $\triangle OMN \backsim \triangle OAB$, có
+$$\dfrac{OM}{OA}=\dfrac{MN}{AB}\Rightarrow \dfrac{OM}{90}=300\Rightarrow OM=27000\,\,(\text{cm}).$$
+Vậy, khoảng cách từ bạn An đến chiếc xe là $27000$ cm.
+}
+\end{bt}
+
+\begin{bt}%[Đặng Đức Quý]%[EX-TS10-ToanTT-2019]%[8H3B9]
+	Một cột đèn cao $7$ m có bóng trên mặt đất dài $4$ m. Gần đấy có một tòa nhà cao tầng có bóng trên mặt đất là $80$ m. Em hãy cho biết tòa nhà đó có bao nhiêu tầng biết rằng mỗi tầng cao $4$ m.
+	\dapso{$35$ tầng}
+	\loigiai{
+	\immini{\allowdisplaybreaks
+			Xét $\triangle ABC$ và $\triangle DEF$ có $\heva{& \widehat{A} = \widehat{D} = 90^{\circ} \\&\widehat{B} = \widehat{E}}\\
+		\Rightarrow \triangle ABC \backsim \triangle DEF \text{(g.g)}\\
+			\Rightarrow  \dfrac{AB}{AC} = \dfrac{DE}{DF}\\
+			\Rightarrow  AB = \dfrac{AC\cdot DE}{DF} = \dfrac{7\cdot 80}{4} = 140.
+	$\\
+		Khi đó tòa nhà có số tầng là $140: 40 = 35$ tầng.
+	}{\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=0.5]
+	\tkzDefPoints{0/0/A,6/0/C,0/10/B,10/0/D,10/3.5/E,12/0/F}
+		\draw (0,0)--(0,10) --(6,0);
+	\draw (10,0)--(10,3.5)--(12,0);
+	\draw[<->] (-0.75,10)--(-0.75,0) node[midway,sloped,above]{x=?};
+	\draw[<->] (0,-0.5)--(6,-0.5) node[midway,sloped,below]{80 m};
+	\draw[<->] (10,-0.5)--(12,-0.5) node[midway,sloped,below]{4 m};
+	\draw[<->] (8.2,3.5)--(8.2,0) node[midway,sloped,below]{7 m};
+	\draw[dashed] (0,10)--(-1,10) (0,0)--(0,-1) (6,0)--(6,-1);
+	\draw[dashed] (10,3.5)--(8.25,3.5) (10,0)--(10,-1) (12,0)--(12,-1);
+	\fill[pattern=north east lines, draw=none] (-1,-0.25) rectangle (13,0);
+	\draw (-1,0)--(13,0);
+	\draw (0,0) node[above left]{$A$} (0,10)node[right]{$B$} (6,0)node[above right]{$C$};
+	\draw (10.1,0)node[above left]{$D$} (10.1,3.5)node[right]{$E$} (12,0)node[above right]{$F$};
+	\draw (0,0.3)--(0.3,0.3)--(0.3,0) (10,0.3)--(10.3,0.3)--(10.3,0);
+	\tkzDrawPoints[fill=black](A,B,C,D,E,F)
+	\end{tikzpicture}
+
+}
+
+
+	}
+\end{bt}
+
+\begin{bt}%[Lê Mạnh Thắng]%[EX-TS10-ToanTT-2019]%[8H3K9]
+	Kính lão đeo mắt của người già thường là một loại thấu kính hội tụ. Bạn Lan đã dùng một chiếc kính lão của bà ngoại để làm thí nghiệm với một cây nến. Cho rằng cây nến là một vật sáng có hình dạng đoạn thẳng $AB=2\,$cm đặt vuông góc với trục chính $\Delta$ của một thấu kính hội tụ, cách thấu kính đoạn $OA=10\,$cm. Thấu kính có quang tâm là $O$ và tiêu điểm $F'$. Vật $AB$ cho ảnh ảo $A'B'$ cách thấu kính đoạn $OA'=30\,$cm (có đường đi của tia sáng được mô tả như hình vẽ). Tính tiêu cự $OF'$ của thấu kính.
+	\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\draw[-] (-6,0)--(0,0) node[shift={(-.2,-.2)}]{$O$}--(6,0) node[above]{$\Delta$};
+		\draw[<->] (0,-1.5)--(0,1.5);
+		\draw[->] (-2,0) node[below]{$A$}--(-2,1) node[above]{$B$};
+		\draw[->>] (-2,1)--(-1,1);\draw[-] (-1,1)--(0,1) node[shift={(.15,.15)}]{$I$};
+		\draw[dashed,->] (-5,0) node[below]{$A'$} --(-5,2.5) node[above]{$B'$};
+		\draw[dashed] (-5,2.5)--(0,1); \draw[->>] (0,1)--(2,0.4);
+		\draw[-] (2,0.4)--(5,-0.5);
+		\draw[dashed] (-5,2.5)--(-2,1);
+		\draw[->] (-2,1)--(-1,0.5);\draw[->] (-1,0.5)--(2,-1);\draw[-] (2,-1)--(3,-1.5);
+		\fill (0,0) circle (1pt);
+		\draw (3.3,0) node[above]{$F'$};
+		\end{tikzpicture}
+	\end{center}
+	\dapso{$OF'=15\,$cm}
+	\loigiai{
+		$\dfrac{OF'}{F'A'}=\dfrac{AB}{A'B'}=\dfrac{OA}{OA'}=\dfrac{1}{3} \Rightarrow 3OF'=OF'+OA' \Rightarrow OF'=\dfrac{30}{2}=15\,$cm.
+	}
+\end{bt}
+
+\begin{bt}%[Đăng Tạ]%[EX-TS10-ToanTT-2019]%[8H3T9]
+\immini{Một hồ nước yên lặng có bề rộng $EF = 20$ m. Trên bờ hồ có một cột điện $AB =7$ m, cách bờ $3$ m, có treo một bóng đèn ở đỉnh $B$. Một người đứng ở $M$ bờ đối diện cách bờ $1$ m, quan sát ảnh của bóng đèn, mắt $O$ cách mặt đất $1{,}5$ m. Người ấy lùi xa hồ, hỏi bao nhiêu m nữa thì không thấy ảnh của bóng đèn nữa? (làm tròn 2 chữ số thập phân).}
+{	
+	\begin{tikzpicture}[>=stealth,scale=0.8, line join = round, line cap = round]
+	\tkzInit[xmin=-0.5,xmax=6.5,ymin=-0.5,ymax=4.5] \tkzClip
+	%\tkzAxeXY
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/X, 0/2.5/Y, 6/2.5/T, 6/0/W}
+	\coordinate (E) at ($(X)+(1.5,2.5)$);
+	\coordinate (E1) at ($(E)+(0.2,-0.5)$);
+	\coordinate (A) at ($(E)-(1,0)$);
+	\coordinate (F) at ($(T)-(1.5,0)$);
+	\coordinate (F1) at ($(F)-(0.2,0.5)$);
+	\coordinate (M) at ($(F)+(0.5,0)$);
+	\coordinate (B) at ($(A)+(0,1.5)$);
+	\coordinate (O) at ($(M)+(0,0.5)$);
+	\tkzDefPointBy[symmetry = center A](B)   \tkzGetPoint{B'}
+	\tkzInterLL(O,B')(E,F)    \tkzGetPoint{I}
+	\tkzDrawPolygon[line width = 2pt, fill=gray!10](X,Y,E,E1,F1,F,T,W)
+	\tkzDrawSegments(A,B E,F O,M I,B I,O)
+	\tkzDrawSegments[dashed](I,B' A,B')
+	\tkzLabelPoints[above](B,O,I)
+	\tkzLabelPoints[above left](A)
+	\tkzLabelPoints[above right](M)
+	\tkzLabelPoints[below right](F)
+	\tkzLabelPoints[below](B')
+	\tkzLabelPoints[below left](E)
+	\tkzDrawPoints[size=15pt](B)
+	\tkzDrawPoints[fill=black](A,B',O,I,M,F,E)
+	\end{tikzpicture}}
+\dapso{$3{,}93$ m}
+\loigiai{
+Người đó lùi xa không nhìn thấy ảnh bóng đèn thì $I$ trùng với $F$. Khi đó, ta có 
+\begin{eqnarray*}
+	&&\triangle FAB' \sim \triangle FMO \\
+	&\Rightarrow & \dfrac{FA}{FM}=\dfrac{AB'}{OM}\\
+	&\Rightarrow & FM=\dfrac{FA \cdot OM}{AB'}\\
+	&\Rightarrow & FM=\dfrac{\left(FE+EA\right) \cdot OM}{AB'}\\
+	&\Rightarrow & FM=\dfrac{\left(20+3\right) \cdot 1{,}5}{7}=\dfrac{69}{14} \approx 4{,}93 \text{ m.}
+\end{eqnarray*}
+Vậy người đó lùi xa thêm $3{,}93$ m nữa thì sẽ không nhìn thấy được ảnh của bóng đèn.
+}
+\end{bt}
+
+\begin{bt}%[Lê Mạnh Thắng]%[EX-TS10-ToanTT-2019]%[8H3T9]
+	Kính cận thị là một loại thấu kính phân kỳ. Người cận đeo kính cận để có thể nhìn rõ các vật ở xa mắt. Kính cận thích hợp có tiêu điểm $F$ trùng với điểm cực viễn của mắt. Bạn An đã dùng kính cận của mình đặt trước một cây nến $AB$ và tạo ra ảnh ảo $A'B'$ như hình vẽ. Biết rằng $AB$ đặt vuông góc với trục chính của một thấu kính phân kỳ đoạn. Thấu kính có quang tâm $O$ và tiêu điểm $F$, biết $A'B'=\dfrac{1}{3}AB$ và tiêu cự của thấu kính là $25\,$cm (có đường đi tia sáng được mô tả như hình vẽ). Tính khoảng cách từ vật đến thấu kính.
+		\begin{center}
+		\begin{tikzpicture}[scale=.8, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\draw[-] (-10,0)--(0,0) node[shift={(-.2,-.2)}]{$O$}--(3,0);
+		\draw[>-<] (0,-1.5)--(0,3);
+		\draw[->] (-9,0) node[below]{$A$}--(-9,2) node[above]{$B$};
+		\draw[->>] (-9,2)--(-4.5,2); \draw[-] (-4.5,2)--(0,2) node[shift={(-.15,.18)}]{$I$};
+		\draw[dashed] (-3,0) node[below]{$F$}--(0,2); \draw[->>] (0,2)--(1.5,3);
+		\draw[-] (1.5,3)--(2.4,3.6);
+		\draw[->] (-9,2)--(-4.5,1); \draw[->] (-4.5,1)--(1.8,-.4);\draw[-] (1.8,-.4)--(3,-0.667);
+		\draw[dashed,->] (-2.25,0) node[below]{$A'$} --(-2.25,0.5) node[above]{$B'$};
+		\fill (0,0) circle (1pt);
+		\end{tikzpicture}
+	\end{center}
+	\dapso{$50\,$cm}
+	\loigiai{
+		Ta có $\dfrac{A'F}{FO}=\dfrac{A'B'}{OI}=\dfrac{1}{3} \Rightarrow A'F=\dfrac{1}{3}OF \Rightarrow A'O=\dfrac{2}{3}OF=\dfrac{50}{3}\,$cm.\\
+		Mặt khác, $\dfrac{AO}{A'O}=\dfrac{AB}{A'B'}=3 \Rightarrow AO=3A'O=50\,$cm.\\
+		Vậy khoảng cách từ vật đến thấu kính bằng $50\,$cm.
+	}
+\end{bt}
+

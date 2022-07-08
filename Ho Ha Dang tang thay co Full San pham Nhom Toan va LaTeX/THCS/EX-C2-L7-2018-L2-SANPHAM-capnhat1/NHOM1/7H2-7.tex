@@ -1,0 +1,973 @@
+%GV soạn: Nguyễn Tuấn Kiệt
+%GV phản biện: 
+\Opensolutionfile{ans}[ans/ans7H2-7]
+\section{Tam giác cân. Tam giác đều}
+\subsection{Kiến thức cần nhớ}
+\subsubsection{Tam giác cân}
+
+\immini
+{Cách chứng minh $\hoac{& AB = AC. \\ & \widehat{B} = \widehat{C}.}$}
+{\begin{tikzpicture}[>=stealth,scale=0.6, line join = round, line cap = round]
+\tkzInit[xmin=-0.3,xmax=4.5,ymin=0,ymax=3]
+\tkzClip[space=0.3]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,4/0/C,2/3/A}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](A,C)
+
+\tkzMarkAngles[draw=black](C,B,A A,C,B)
+\tkzMarkSegments[mark=s||](A,B C,A)
+\tkzDrawPoints[fill=black](A,B,C)
+\tkzDrawSegments(A,B B,C C,A)
+\end{tikzpicture}
+}
+
+\subsubsection{Tam giác đều}
+
+\immini{Cách chứng minh $\hoac{& AB = AC = BC. \\ & \widehat{A} = \widehat{B} = \widehat{C}. \\ & AB = AC \,\text{and}\, \widehat{A} = 60^\circ.}$}{
+\begin{tikzpicture}[>=stealth,scale=0.6, line join = round, line cap = round]
+\tkzInit[xmin=-0.3,xmax=4.5,ymin=0,ymax=3]
+\tkzClip[space=0.7]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,4/0/C}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzInterCC(C,B)(B,C)\tkzGetSecondPoint{A}\tkzLabelPoint[right](A){$A$}
+
+\tkzMarkAngles[draw=black](C,B,A A,C,B B,A,C)
+\tkzMarkSegments[mark=s||](A,B C,A B,C)
+\tkzDrawPoints[fill=black](A,B,C)
+\tkzDrawSegments(A,B B,C C,A)
+\end{tikzpicture}
+}
+
+\subsubsection{Tam giác vuông cân}
+
+\immini{Cách chứng minh $\hoac{& \widehat{A} = 90^\circ
+ \,\text{and}\, AB = AC. \\ & \widehat{A} = 90^\circ \,\text{and}\, \widehat{B} = 45^\circ \,\text{(or)} \widehat{C} = 45^\circ.}$}{
+\begin{tikzpicture}[>=stealth,scale=0.9, line join = round, line cap = round]
+\tkzInit[xmin=-0.3,xmax=4.5,ymin=0,ymax=2]
+\tkzClip[space=0.4]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,4/0/C}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzDefPointBy[rotation= center B angle 45](C)\tkzGetPoint{b}
+\tkzDefPointBy[rotation= center C angle -45](B)\tkzGetPoint{c}
+\tkzInterLL(B,b)(C,c)\tkzGetPoint{A}\tkzLabelPoint[above](A){$A$}
+
+\tkzMarkRightAngles(C,A,B)
+\tkzMarkAngles[draw=black](C,B,A A,C,B)
+\tkzMarkSegments[mark=s||](A,B C,A)
+\tkzDrawPoints[fill=black](A,B,C)
+\tkzDrawSegments(A,B B,C C,A)
+\end{tikzpicture}
+}
+ 
+\subsection{Hỏi đáp nhanh}
+
+%%Cau 01
+\begin{ex}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2Y6]
+\TF{Đ} Trong tam giác cân, mỗi góc ở đáy đều là góc nhọn.
+\end{ex}
+
+%%Cau 02
+\begin{ex}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2Y6]
+\TF{S} Tam giác cân có góc ở đỉnh bằng $100^\circ$ thì mỗi góc ở đáy là $50^\circ$.
+\end{ex}
+
+%%Cau 03
+\begin{ex}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2Y6]
+\TF{Đ} Các góc nhọn của tam giác vuông cân có số đo bằng $45\circ$.
+\end{ex}
+
+\subsection{Học giải toán}
+
+%%Vidu 01
+\begin{vd}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2B6]
+Trên cạnh huyền $BC$ của tam giác vuông $ABC$, lấy các điểm $D$ và $E$ sao cho $BD = BA$, $CE = CA$. Tính góc $\widehat{DAE}$.
+\loigiai
+{
+\immini{$\triangle{BAD}$ cân tại $B$, $\triangle{CAE}$ cân tại $C$. Ta có \\
+\[ \widehat{BAD} = \dfrac{1}{2} \left( 180^\circ - \widehat{B} \right);\, \widehat{CAE} = \dfrac{1}{2} \left( 180^\circ - \widehat{C} \right). \]
+mà $\widehat{BAD} + \widehat{CAE} = \widehat{EAD} + 90^\circ$.\\
+nên
+\begin{eqnarray*}
+\widehat{DAE} &=& \widehat{BAD} + \widehat{CAE} - 90^\circ \\
+&=& \dfrac{1}{2} \left( 180^\circ - \widehat{B} \right) + \dfrac{1}{2} \left( 180^\circ - \widehat{C} \right) - 90^\circ \\
+&=& 90^\circ - \dfrac{1}{2} \left( \widehat{B} + \widehat{C} \right)\\
+&=& 90^\circ - 45^\circ = 45^\circ.
+\end{eqnarray*}}{
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=0,xmax=4,ymin=0,ymax=3]
+\tkzClip[space=0.5]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/A,4/0/C}
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](C)
+\tkzDefPointBy[rotation= center A angle 90](C)\tkzGetPoint{a}
+\pgfmathsetmacro{\so}{3} % lấy số
+\tkzCalcLength[cm](A,B)\tkzGetLength{rAB}
+\tkzCalcLength[cm](A,C)\tkzGetLength{rAC}
+\tkzInterLC[R](A,a)(A,\so cm)\tkzGetSecondPoint{B}\tkzLabelPoint[left](B){$B$}
+\tkzInterLC[R](B,C)(B,\rAB cm)\tkzGetSecondPoint{D}\tkzLabelPoint[above](D){$D$}
+\tkzInterLC[R](C,B)(C,\rAC cm)\tkzGetSecondPoint{E}\tkzLabelPoint[above](E){$E$}
+
+\tkzDrawPoints[fill=black](A,C,B,D,E)
+\tkzDrawSegments(A,B B,C C,A A,D A,E)
+\tkzMarkRightAngles(C,A,B)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+%%Vidu 02
+\begin{vd}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2B6]
+Cho $\triangle{ABC}$ cân tại $A$. Các tia phân giác của góc $\widehat{B}$ và góc $\widehat{C}$ cắt nhau tại $O$. Qua $O$ kẻ đường thẳng song song với $BC$. Đường thẳng này cắt cạnh $AB$ tại $E$ và cắt cạnh $AC$ tại $F$.
+\begin{enumerate}
+	\item Trong hình vẽ có những tam giác nào là tam giác cân?
+	\item Trong đó có những tam giác cân nào bằng nhau?
+\end{enumerate}
+\loigiai
+{
+\begin{enumerate}
+	\item \immini{Xét $\triangle{ABC}$ cân (gt) nên $\widehat{B} = \widehat{C}$ (t/c). \\
+	Suy ra $\dfrac{1}{2} \widehat{B} = \dfrac{1}{2} \widehat{C}$ hay $\widehat{B}_{2} = \widehat{C}_{2}$. \\
+	Vậy $\triangle{BOC}$ cân tại $O$.\\
+	Xét $\triangle{AEF}$, do $EF \parallel BC$ nên $\widehat{AEF} = \widehat{B} = \widehat{C} = \widehat{AFE}$. \\
+	Vậy $\triangle{AEF}$ cân tại $A$.\\
+	Xét $\triangle{BEO}$ có $\widehat{B}_{2} = \widehat{O}_{1}$ (so le, $EF \parallel BC$). \\
+	Mà $\widehat{B}_{1} = \widehat{B}_{2}$ (gt) nên $\widehat{O}_{1} = \widehat{B}_{1}$ (cùng bằng $\widehat{B}_{2}$). \\
+	Vậy $\triangle{BEO}$ cân tại $E$.\\
+	Tương tự, $\triangle{CFO}$ cân tại $F$.}{
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=-0.3,xmax=4.5,ymin=0,ymax=3]
+\tkzClip[space=0.3]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,4/0/C,2/3/A}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](A,C)
+\tkzDefLine[bisector](B,C,A) \tkzGetPoint{c}
+\tkzDefLine[bisector](A,B,C) \tkzGetPoint{b}
+\tkzInterLL(C,c)(B,b)\tkzGetPoint{O}\tkzLabelPoint[above](O){$O$}
+\tkzDefLine[parallel=through O](B,C) \tkzGetPoint{o}
+\tkzInterLL(O,o)(A,B)\tkzGetPoint{E}\tkzLabelPoint[left](E){$E$}
+\tkzInterLL(O,o)(A,C)\tkzGetPoint{F}\tkzLabelPoint[right](F){$F$}
+
+\tkzLabelAngles[pos=0.6,rotate=0](O,B,E){\footnotesize $1$}
+\tkzLabelAngles[pos=0.6,rotate=0](C,B,O){\footnotesize $2$}
+\tkzLabelAngles[pos=0.6,rotate=0](F,C,O){\footnotesize $1$}
+\tkzLabelAngles[pos=0.6,rotate=0](O,C,B){\footnotesize $2$}
+\tkzLabelAngles[pos=-0.6,rotate=0](B,O,E){\footnotesize $1$}
+\tkzLabelAngles[pos=0.6,rotate=0](C,O,F){\footnotesize $2$}
+
+\tkzDrawPoints[fill=black](A,B,C,O,E,F)
+\tkzDrawSegments(A,B B,C C,A C,O B,O E,F)
+\end{tikzpicture}
+	}
+	\item Xét hai tam giác cân $\triangle{BEO}$ và $\triangle{CFO}$ có $BO = CO$ ($\triangle{BOC}$ cân).\\
+	$\widehat{B}_{1} = \dfrac{1}{2} \widehat{B};\, \widehat{C}_{1} = \dfrac{1}{2} \widehat{C}$, mà $\widehat{B} = \widehat{C}$ (t/c) nên $\widehat{B}_{1} = \widehat{C}_{1}$. Vậy $\triangle{BEO} = \triangle{CFO}$ (g.c.g).
+\end{enumerate}
+}
+\end{vd}
+
+%%Vidu 03
+\begin{vd}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2B6]
+Cho $\triangle{ABC}$ đều. Trên cạnh $AB$ lấy điểm $E$, trên cạnh $AC$ lấy điểm $F$, trên cạnh $BC$ lấy điểm $P$ sao cho $BE = AF = CP$. Chứng minh $\triangle{EFP}$ là tam giác đều.
+\loigiai{
+\immini{Ta có $AB = AC = BC$ ($\triangle{ABC}$ đều) và $BE = AF = CP$ (giả thiết). \\
+Vậy $AB - BE = AC - AF = BC - CP$ hay $AE = CF = BP$. \\
+Xét ba tam giác $\triangle{AEF}; \, \triangle{BPE}$ và $\triangle{CFP}$ có \\
+$AE = CF = BP$ (cmt) \\
+$AF = BE = CP$ (giả thiết).\\
+$\widehat{A} = \widehat{B} = \widehat{C} = 60^\circ$ (tc tam giác đều).\\
+Vậy $\triangle{AEF} = \triangle{BPE} = \triangle{CFP}$ (c.g.c).\\
+Suy ra $EF = PE = FP$.\\
+Do đó $\triangle{EFP}$ là tam giác đều (3 cạnh bằng nhau).}{
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=-0.3,xmax=4,ymin=0,ymax=3]
+\tkzClip[space=0.7]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,4/0/C}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzInterCC(C,B)(B,C)\tkzGetSecondPoint{A}\tkzLabelPoint[right](A){$A$}
+\pgfmathsetmacro{\so}{1.5} % lấy số
+\tkzInterLC[R](B,A)(B,\so cm)\tkzGetSecondPoint{E}\tkzLabelPoint[left](E){$E$}
+\tkzInterLC[R](A,C)(A,\so cm)\tkzGetSecondPoint{F}\tkzLabelPoint[right](F){$F$}
+\tkzInterLC[R](C,B)(C,\so cm)\tkzGetSecondPoint{P}\tkzLabelPoint[below](P){$P$}
+
+\tkzMarkSegments[mark=s||](B,E A,F C,P)
+\tkzDrawPoints[fill=black](A,B,C,E,F,P)
+\tkzDrawSegments(A,B B,C C,A E,F F,P P,E)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+%%Ví dụ 04
+\begin{vd}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2B6]
+Chứng minh định lí \lq\lq Nếu một tam giác vuông có một góc nhọn bằng $30^\circ$ thì cạnh đối diện với góc đó bằng nửa cạnh huyền.\rq\rq{}
+\loigiai{
+\immini{Xét tam giác $\triangle{ABC}$ vuông tại $A$ có góc $\widehat{B} = 30^\circ$. Lấy điểm $M$ trên cạnh $BC$ sao cho $\widehat{BAM} = 30^\circ$.\\
+Xét tam giác $\triangle{AMB}$ có góc $\widehat{BAM} = \widehat{B} = 30^\circ$ nên là tam giác cân, suy ra $MA = MB$. \hfill(1)\\
+Xét tam giác $\triangle{AMC}$ có góc $\widehat{MAC} = \widehat{C} = 60^\circ$ nên là tam giác đều, suy ra $AM = AC = MC = \dfrac{1}{2} BC$. \hfill(2)\\
+Từ (1) và (2) suy ra $AC = \dfrac{1}{2} BC$.}{
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[ymin=-0.5,ymax=3.6,xmin=-0.5,xmax=4.5]
+\tkzClip
+\tkzDefPoints{0/0/A,4/0/B}
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\tkzDefPointBy[rotation= center B angle -30](A)\tkzGetPoint{b}
+\tkzDefPointBy[rotation= center A angle 90](B)\tkzGetPoint{a}
+\tkzInterLL(B,b)(A,a)\tkzGetPoint{C}\tkzLabelPoint[above](C){$C$}
+\tkzDefPointBy[rotation= center A angle 30](B)\tkzGetPoint{c}
+\tkzInterLL(A,c)(C,B)\tkzGetPoint{M}\tkzLabelPoint[above](M){$M$}
+
+\tkzMarkAngles[draw=black](M,B,A B,A,M)
+\tkzDrawPoints[fill=black](A,B,C,M)
+\tkzDrawSegments(A,B B,C C,A A,M)
+\tkzMarkRightAngle(C,A,B)
+\end{tikzpicture}
+} 
+}
+\end{vd}
+
+%%Vi du 05
+\begin{vd}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2B6]
+Tam giác $\triangle{ABC}$ có góc $\widehat{B} = 45^\circ$, $\widehat{C} = 120^\circ$. Trên tia đối của tia $CB$ lấy điểm $D$ sao cho $CD = 2CB$.
+\begin{enumerate}
+	\item Kẻ $DE \perp AC$ ($E \in AC$). Chứng minh rằng $ED = EB = EA$.
+	\item Tính góc $\widehat{ADB}$.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+	\item Vì $\widehat{ECB} = 120^\circ$ nên $\widehat{ECD}= 60^\circ$.\\
+Mặt khác tam giác $\triangle{DEC}$ vuông tại $E$ nên $\widehat{EDC} + \widehat{ECD} = 90^\circ$\\
+Suy ra $\widehat{EDC} = 30^\circ$. Lại có $EC$ là cạnh đối diện với $\widehat{EDC}$ nên
+\[EC = \dfrac{1}{2} CD \Rightarrow EC = CB.\]
+\immini{Vậy tam giác $\triangle{ECB}$ cân tại $C$.\\
+Mặt khác, $\widehat{ECB} = 120^\circ$ nên $\widehat{EBC} = 30^\circ$.\\
+Do đó $\triangle{EBD}$ cân tại $E$ suy ra $EB = ED$. Lại có
+\[\widehat{ABE} + \widehat{EBC} = \widehat{ABC} = 45^\circ\]
+Suy ra $\widehat{ABE} = 15^\circ$.\\
+Áp dụng định lí tổng 3 góc trong tam giác $ABC$ ta có $\widehat{EAB} = 15^\circ$\\
+Suy ra $\triangle{EAB}$ cân tại $E$.
+Suy ra $EA = EB \Rightarrow EA = ED$.}{
+\begin{tikzpicture}[>=stealth,scale=0.7, line join = round, line cap = round]
+\tkzInit[xmin=0,xmax=5.5,ymin=0,ymax=5.5]
+\tkzClip[space=0.7]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,2/0/C,6/0/D}
+\tkzLabelPoints[below](B,C,D)
+\tkzDefPointBy[rotation= center B angle 45](C)\tkzGetPoint{b}
+\tkzDefPointBy[rotation= center C angle -120](B)\tkzGetPoint{c}
+\tkzInterLL(B,b)(C,c)\tkzGetPoint{A}\tkzLabelPoint[above](A){$A$}
+\tkzDefPointBy[projection=onto A--C](D)\tkzGetPoint{E}\tkzLabelPoint[left](E){$E$}
+\tkzMarkRightAngle(D,E,C)
+
+\tkzDrawPoints[fill=black](B,C,A,D,E)
+\tkzDrawSegments(B,C A,B A,C A,D C,D D,E B,E)
+\end{tikzpicture}
+}
+	\item Ta có $EA = ED$ và $EA \perp ED$ suy ra $\triangle{AED}$ vuông cân tại $E$.\\
+	Suy ra $\widehat{ADE} = 45^\circ$.\\
+	Khi đó $\widehat{ADB} = \widehat{ADE} + \widehat{EDC} = 45^\circ + 30^\circ = 75^\circ$.\\
+	Vậy $\widehat{ADB} = 75^\circ$. 
+\end{enumerate}
+}
+\end{vd}
+
+%%Vi du 06
+\begin{vd}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2K6]
+Cho tam giác $ABC$ cân tại $A$ có $\widehat{A} = 100^\circ$, $BC = a$, $AC = b$. Về phía ngoài tam giác $ABC$ vẽ tam giác $ABD$ cân tại $D$ có $\widehat{ADB}  = 140^\circ$. Tính chu vi tam giác $ABD$ theo $a$ và $b$.
+\loigiai{
+\immini{Trên cạnh $BC$ lấy điểm $E$ sao cho $BE = BD$ và ta có
+\[\widehat{DBA} = 20^\circ, \widehat{ABE} = 40^\circ.\]
+Xét $\triangle{BDE}$ cân tại $B$, có $\widehat{DBE} = 60^\circ$ nên $\triangle{BDE}$ đều, do đó $BD = BE = DE = DA$.\\
+Từ đó ta có $\widehat{EDA} = \widehat{BDA} - \widehat{BDE} = 80^\circ$ và $\triangle{DAE}$ cân tại $D$ nên
+\[\widehat{DEA} = \widehat{DAE} = 50^\circ.\]
+Ta có $\widehat{EAC} = \widehat{DAB} + \widehat{BAC} - \widehat{DAE} = 20^\circ + 100^\circ - 50^\circ = 70^\circ$ \hfill(1)\\
+Lại có $\widehat{AEC} = 180^\circ - \widehat{DEA} - \widehat{DEB} = 180^\circ - 50^\circ - 60^\circ = 70^\circ$ \hfill(2)\\
+Từ (1) và (2) suy ra $\triangle{CAE}$ cân tại $C$ suy ra $CA = CE$.\\
+Do đó $AD = BD = BE = BC - EC = BC - AC = a - b$ và $AB = AC = b$.\\
+Vậy chu vi $\triangle{ABD}$ là $AD + DB + BA = a - b + a - b + b = 2a - b$.
+}{
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=0,xmax=4.5,ymin=0,ymax=4]
+\tkzClip[space=0.7]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,4/0/C}
+\tkzLabelPoints[below](B,C)
+\tkzDefPointBy[rotation= center B angle 40](C)\tkzGetPoint{b'}
+\tkzDefPointBy[rotation= center C angle -40](B)\tkzGetPoint{c'}
+\tkzInterLL(B,b')(C,c')\tkzGetPoint{A}\tkzLabelPoint[above](A){$A$}
+\tkzDefPointBy[rotation= center B angle 20](A)\tkzGetPoint{b}
+\tkzDefPointBy[rotation= center A angle -20](B)\tkzGetPoint{a}
+\tkzInterLL(A,a)(B,b)\tkzGetPoint{D}\tkzLabelPoint[left](D){$D$}
+\tkzCalcLength[cm](B,D)\tkzGetLength{rBD}
+\tkzInterLC[R](B,C)(B,\rBD cm)\tkzGetSecondPoint{E}\tkzLabelPoint[below](E){$E$}
+
+\tkzMarkSegments[mark=s||](A,B A,C)
+\tkzMarkSegments[mark=s|](D,A D,B B,E)
+\tkzDrawPoints[fill=black](A,B,C,D,E)
+\tkzDrawSegments(A,B B,C C,A D,A D,B D,E)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+%%Vi du 07
+\begin{vd}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2K6]
+Cho tam giác $ABC$ cân tại $B$, $\widehat{ABC} = 80^\circ$. Lấy $I$ là điểm trong tam giác sao cho $\widehat{IAC} = 10^\circ$, $\widehat{ICA} = 30^\circ$. Hãy tính góc $ABI$.
+\loigiai{
+\immini{Vẽ tam giác $ACM$ đều, $M$ nằm trên nửa mặt phẳng bờ $AC$ chứa điểm $B$. Ta có
+\[\triangle{AMB} = \triangle{CMB} \quad \text{(c.c.c)}\]
+Suy ra $\widehat{AMB} = \widehat{BMC} = 30^\circ$.\\
+Lại có $AM = AC$, $\widehat{BMA} = \widehat{ICA}= 30^\circ$ và $\widehat{MAB} = \widehat{IAC} = 10^\circ$ nên
+\[\triangle{BAM} = \triangle{IAC}\]
+Suy ra $BA = IA$ hay $\triangle{BAI}$ cân tại $A$.\\
+Từ đó suy ra $\widehat{BAI} = 50^\circ - 10^\circ = 40^\circ$.\\
+Do đó $\widehat{ABI} = \dfrac{180^\circ - \widehat{BAI}}{2} = 70^\circ$.}{
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=-0.3,xmax=4.5,ymin=0,ymax=4]
+\tkzClip[space=0.3]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/A,4/0/C}
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[left](A)
+\tkzDefPointBy[rotation= center A angle 50](C)\tkzGetPoint{a}
+\tkzDefPointBy[rotation= center C angle -50](A)\tkzGetPoint{c}
+\tkzInterLL(A,a)(C,c)\tkzGetPoint{B}\tkzLabelPoint[above right](B){$B$}
+\tkzDefPointBy[rotation= center A angle 10](C)\tkzGetPoint{d}
+\tkzDefPointBy[rotation= center C angle -30](A)\tkzGetPoint{d'}
+\tkzInterLL(A,d)(C,d')\tkzGetPoint{I}\tkzLabelPoint[below](I){$I$}
+\tkzDefPointBy[rotation= center A angle 60](C)\tkzGetPoint{d_1}
+\tkzDefPointBy[rotation= center C angle -60](A)\tkzGetPoint{d_2}
+\tkzInterLL(A,d_1)(C,d_2)\tkzGetPoint{M}\tkzLabelPoint[above](M){$M$}
+
+\tkzDrawPoints[fill=black](A,B,C,I)
+\tkzDrawSegments(A,B B,C C,A A,I C,I B,I M,A M,C M,B)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+\subsection{Bài tập}
+\subsubsection{Cơ bản}
+
+%%7.1
+\begin{bt}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2Y6]
+Cho tam giác $ABC$ cân, biết $\widehat{B} = 50^\circ$. Tính số đo các góc còn lại của tam giác $ABC$ (lưu ý xét đủ các trường hợp).
+\loigiai{
+\begin{enumerate}
+	\item Trường hợp $\triangle{ABC}$ cân tại $A$. Ta có $\widehat{B} = \widehat{C} = 50^\circ$, $\widehat{A} = 180^\circ - \widehat{B} - \widehat{C} = 80^\circ$.
+	\item Trường hợp $\triangle{ABC}$ cân tại $B$. Ta có $\widehat{B} = 50^\circ, \widehat{A} = \widehat{C} = \dfrac{180^\circ - \widehat{B}}{2} = 65^\circ$.
+	\item Trường hợp $\triangle{ABC}$ cân tại $C$. Ta có $\widehat{A} = \widehat{B} = 50^\circ$, $\widehat{C} = 180^\circ - \widehat{A} - \widehat{B} = 80^\circ$.
+\end{enumerate}
+}
+\end{bt}
+
+%%7.2
+\begin{bt}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2Y6]
+Chứng minh rằng trong tam giác cân, độ dài các đường trung tuyến, đường cao, phân giác xuất phát từ đỉnh thuộc đáy thì bằng nhau.
+\loigiai{
+\immini{
+\begin{enumerate}
+	\item Xét tam giác $ABC$ cân tại $A$ có $BM$ và $CN$ là hai đường trung tuyến.\\
+Ta có $\triangle{ABM} = \triangle{ACN}$ (c.g.c) suy ra $BM = CN$ (tương ứng).\\
+Hay $BM$ và $CN$ là 2 trung tuyến bằng nhau.
+	\item Xét tam giác cân $ABC$ có $BH$, $CK$ là hai đường cao.\\
+	Xét $\triangle{BHC}$ và $\triangle{CKB}$ có $BC$ cạnh chung và $\widehat{B} = \widehat{C}$.\\
+	Suy ra $\triangle{BHC} = \triangle{CKB}$ (ch-gn), suy ra $BH = CK$ (tương ứng).\\
+	Hay $BH$ và $CK$ là hai đường cao bằng nhau.
+	\item Xét tam giác cân $ABC$ có $BR$, $CS$ là hai đường phân giác.\\
+	Xét $\triangle{BRC}$ và $\triangle{CSB}$ có $\widehat{B} = \widehat{C}$, $BC$ cạnh chung và $\widehat{CBR} = \widehat{BCS}$ (do $\widehat{ABC} = \widehat{ACB}$).\\
+	Suy ra $BR = CS$ (tương ứng).\\
+	Hay $BR$ và $CS$ là hai đường phân giác bằng nhau.
+\end{enumerate}
+}{
+\begin{tikzpicture}[>=stealth,scale=0.6, line join = round, line cap = round]
+\tkzInit[xmin=-0.3,xmax=4.5,ymin=0,ymax=3]
+\tkzClip[space=0.3]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,4/0/C,2/3/A}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](A,C)
+\tkzDefMidPoint(A,C)\tkzGetPoint{M}\tkzLabelPoint[right](M){$M$}
+\tkzDefMidPoint(A,B)\tkzGetPoint{N}\tkzLabelPoint[left](N){$N$}
+
+\tkzMarkAngles[draw=black](C,B,A A,C,B)
+\tkzDrawPoints[fill=black](A,B,C,M,N)
+\tkzDrawSegments(A,B B,C C,A B,M C,N M,N)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+%%7.3
+\begin{bt}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2B6]
+Cho $\triangle{ABC}$ cân tại $A$, có $\widehat{A} = 36^\circ$. Tia phân giác của góc $\widehat{B}$ cắt $AC$ tại $E$. So sánh $BE$ với $AE$ và $BC$?
+\loigiai{
+\immini{$\triangle{ABC}$ có góc ở đỉnh $36^\circ$.\\
+Vậy $\widehat{B} = \widehat{C} = \dfrac{180^\circ - 36^\circ}{2} = 72^\circ$.\\
+$BE$ là tia phân giác nên $\widehat{ABE} = \dfrac{1}{2} \widehat{B} = 36^\circ$.\\
+Vậy $\widehat{A} = \widehat{ABE} = 36^\circ$, suy ra $\triangle{AEB}$ cân tại $E$ hay $EA = EB$.\\
+Ngoài ra, $\widehat{BEC} = 180^\circ - \widehat{C} - \widehat{CBE} = 180^\circ - 36^\circ - 72^\circ = 72^\circ$ nên $\triangle{BCE}$ cân tại $B$ suy ra $BE = BC$. Vậy $AE =  BC$.
+}{
+\begin{tikzpicture}[>=stealth,scale=0.6, line join = round, line cap = round]
+\tkzInit[xmin=-0.3,xmax=4.5,ymin=0,ymax=6]
+\tkzClip[space=0.3]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,4/0/C}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzDefPointBy[rotation= center B angle 72](C)\tkzGetPoint{b}
+\tkzDefPointBy[rotation= center C angle -72](B)\tkzGetPoint{c}
+\tkzInterLL(B,b)(C,c)\tkzGetPoint{A}\tkzLabelPoint[right](A){$A$}
+\tkzDefLine[bisector](A,B,C) \tkzGetPoint{e}
+\tkzInterLL(A,C)(B,e)\tkzGetPoint{E}\tkzLabelPoint[right](E){$E$}
+
+\tkzMarkAngle[mark=|](C,B,E)
+\tkzMarkAngle[mark = |,draw=black](E,B,A)
+\tkzDrawPoints[fill=black](A,B,C,E)
+\tkzDrawSegments(A,B B,C C,A B,E)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+%%7.4
+\begin{bt}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2B6]
+Cho tam giác $ABC$ cân tại $A$, góc $\widehat{B} = 30^\circ$. Trên tia đối của tia $AB$ lấy điểm $E$ sao cho $AE = AB$.
+\begin{enumEX}{2}
+	\item $\triangle{ACE}$ là tam giác gì?
+	\item $\triangle{BCE}$ là tam giác gì?
+\end{enumEX}
+\loigiai{
+\begin{enumerate}
+	\item \immini{$\triangle{ABC}$ cân tại $A$ (gt) suy ra $\widehat{B} = \widehat{ACB} = 30^\circ$.\\
+	$\widehat{CAE} = 60^\circ$ (góc ngoài của $\triangle{ABC}$).\\
+	$\triangle{ACE}$ có $AE = AB$ (giả thiết), $AC = AB$ (giả thiết).\\
+	Vậy $AE = AC$ (cùng bằng $AB$).\\
+	Suy ra $\triangle{ACE}$ cân, lại có $\widehat{CAE}$ bằng $60^\circ$.\\
+	Vậy $\triangle{ACE}$ đều.}{
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=-0.3,xmax=4.5,ymin=0,ymax=3]
+\tkzClip[space=0.3]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,4/0/C}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzDefPointBy[rotation= center B angle 30](C)\tkzGetPoint{b}
+\tkzDefPointBy[rotation= center C angle -30](B)\tkzGetPoint{c}
+\tkzInterLL(B,b)(C,c)\tkzGetPoint{A}\tkzLabelPoint[above](A){$A$}
+\tkzDefPointBy[rotation= center A angle 180](B)\tkzGetPoint{E}\tkzLabelPoint[right](E){$E$}
+
+\tkzMarkAngles[size = 0.7cm](C,B,A A,C,B)
+\tkzMarkSegments[mark=s||](A,B C,A A,E)
+\tkzDrawPoints[fill=black](A,B,C,E)
+\tkzDrawSegments(A,B B,C C,A A,E C,E)
+\end{tikzpicture}
+}
+	\item Xét $\triangle{BCE}$ có $\widehat{B} = 30^\circ$, $\widehat{E} = 60^\circ$ (do $\triangle{ACE}$ đều).\\
+	Suy ra $\widehat{BCE} = 180^\circ - (30^\circ + 60^\circ) = 90^\circ$.\\
+	Vậy $\triangle{BCE}$ vuông tại $C$.
+\end{enumerate}
+}
+\end{bt}
+
+%%7.5
+\begin{bt}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2B6]
+Chứng minh rằng \lq\lq Nếu một tam giác có trung tuyến thuộc một cạnh bằng nửa cạnh ấy thì tam giác đó là tam giác vuông.\rq\rq{}
+\loigiai{
+\immini{Xét tam giác $ABC$ có $M$ là trung điểm $BC$.\\
+Trên tia đối của tia $MA$ lấy điểm $N$ sao cho $MN = MA$.\\
+Ta có $\widehat{AMB} = \widehat{NMC}$ và $BM = CM$ (giả thiết) và $MA = MN$ (dựng hình).\\
+Suy ra $\triangle{MAB} = \triangle{MNC}$ (c.g.c).\\
+Suy ra $NC = AB$ và $\widehat{MBA} = \widehat{MCN}$\\
+Suy ra $AB \parallel CN$.\\
+Ta có $MA = \dfrac{1}{2} AN$ và $MA = \dfrac{1}{2} BC$ nên $AN = BC$.\\
+Suy ra $\triangle{ABC} = \triangle{CNA}$ (c.c.c), suy ra $\widehat{BAC} = \widehat{ACN}$.\\
+Mà $\widehat{BAC} + \widehat{ACN} = 180^\circ$ (vì $AB \parallel NC$) nên $\widehat{BAC} = 90^\circ$. (đpcm)}{
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[ymin=-0.5,ymax=3.6,xmin=-0.5,xmax=4.5]
+\tkzClip
+\tkzDefPoints{0/0/A,4/0/B}
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\pgfmathsetmacro{\so}{3} % lấy số
+\tkzDefPointBy[rotation= center A angle 90](B)\tkzGetPoint{b}
+\tkzInterLC[R](A,b)(A,\so cm)\tkzGetSecondPoint{C}\tkzLabelPoint[above](C){$C$}
+\tkzDefMidPoint(B,C)\tkzGetPoint{M}\tkzLabelPoint[above](M){$M$}
+\tkzDefPointBy[symmetry=center M](A)\tkzGetPoint{N}
+\tkzLabelPoint[right](N){$N$}
+
+\tkzDrawPoints[fill=black](A,B,C,M,N)
+\tkzDrawSegments(A,B B,C C,A A,N B,N C,N)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+%%7.6
+\begin{bt}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2K6]
+Cho tam giác $ABC$ vuông cân tại $A$, $D$ là điểm bất kì trên cạnh $AB$. Trên nửa mặt phẳng bờ $AB$ chứa điểm $C$ vẽ tia $Bx$ sao cho $\widehat{ABx} = 135^\circ$. Đường thẳng vuông góc với $DC$ tại $D$ cắt $Bx$ tại $E$. Chứng minh tam giác $DEC$ vuông cân.
+\loigiai{
+\immini{Lấy $F$ thuộc $AC$ sao cho $AD = AF$. \\
+Khi đó tam giác $ADF$ vuông cân ở $A$, suy ra $\widehat{DFA} = 45^\circ$ và $\widehat{DFC} = 135^\circ$.\\
+Ta có $\widehat{BDE} = 180^\circ - \widehat{EDC} - \widehat{ADC}$\\
+$= 180^\circ - 90^\circ - \widehat{ADC} = 90^\circ - \widehat{ADC}$ \hfill(1)\\
+$\widehat{ACD} = 90^\circ - \widehat{ADC}$. \hfill(2)\\
+Từ (1) và (2) suy ra $\widehat{ACD} = \widehat{BDE}$. Mặt khác
+\[BD = AB - AD,\, CF = AC - AF,\, AB = AC,\, AD = AF\]
+nên $BD = CF$.\\
+Xét tam giác $BDE$ và tam giác $FCD$ có\\
+$BD = FC,\, \widehat{BDE} = \widehat{FCD},\, \widehat{EBD} = \widehat{DFC}$ (cùng bằng $135^\circ$).\\
+Suy ra $\triangle{BDE} = \triangle{FCD}$ (g.c.g) suy ra $DE = DC$. \\
+Mà tam giác $EDC$ vuông ở $D$. \\
+Vậy tam giác $EDC$ vuông cân ở $D$.}{
+\begin{tikzpicture}[>=stealth,scale=0.9, line join = round, line cap = round]
+\tkzInit[xmin=-0.3,xmax=4.5,ymin=-3,ymax=2]
+\tkzClip[space=0.4]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,4/0/C}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzDefPointBy[rotation= center B angle 45](C)\tkzGetPoint{b}
+\tkzDefPointBy[rotation= center C angle -45](B)\tkzGetPoint{c}
+\tkzInterLL(B,b)(C,c)\tkzGetPoint{A}\tkzLabelPoint[above](A){$A$}
+\tkzDefBarycentricPoint(A=3,B=2)
+\tkzGetPoint{D}\tkzLabelPoint[above](D){$D$}
+\tkzDefPointBy[rotation= center B angle -135](A)\tkzGetPoint{x}\tkzLabelPoint[right](x){$x$}
+\tkzDefPointBy[rotation= center D angle -90](C)\tkzGetPoint{d}
+\tkzInterLL(B,x)(D,d)\tkzGetPoint{E}\tkzLabelPoint[right](E){$E$}
+\tkzCalcLength[cm](A,D)\tkzGetLength{rAD}
+\tkzInterLC[R](A,C)(A,\rAD cm)\tkzGetSecondPoint{F}\tkzLabelPoint[right](F){$F$}
+
+\tkzMarkRightAngles(C,A,B C,D,E)
+\tkzMarkAngles[size = 0.7cm, mark = ||](C,B,A A,C,B)
+\tkzMarkAngles[size = 0.5cm](x,B,A)
+\tkzLabelAngle[pos=0.7,rotate=0](x,B,A){\footnotesize $135^\circ$}
+\tkzMarkSegments[mark=s||](A,D A,F)
+\tkzDrawPoints[fill=black](A,B,C,D,E,F)
+\tkzDrawSegments(A,B B,C C,A B,x D,C D,E E,C D,F)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+%%7.7
+\begin{bt}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2K6]
+Cho $\triangle{ABC}$ vuông ($\widehat{ACB} = 90^\circ$). Từ $A$ và $B$ kẻ hai tia phân giác góc $A$, $B$ cắt $AC$ ở $E$, cắt $BC$ ở $D$. Từ $D$, $E$ hạ các đường vuông góc xuống $AB$ cắt $AB$ ở $M$ và $N$. Tính góc $\widehat{MCN}$.
+\loigiai
+{
+\immini{$\triangle{BCE} = \triangle{BNE}$ (ch-gn) suy ra $BC = BN$ \\
+Tương tự $\triangle{ACD} = \triangle{AMD}$ (ch-gn) suy ra $AC = AM$. \\
+$\triangle{CBN}$ cân tại $B$, $\triangle{CAM}$ cân tại $A$. Ta có \\
+\[ \widehat{BCN} = \dfrac{1}{2} \left( 180^\circ - \widehat{B} \right);\, \widehat{ACM} = \dfrac{1}{2} \left( 180^\circ - \widehat{A} \right). \]
+mà $\widehat{BCN} + \widehat{ACM} = \widehat{MCN} + 90^\circ$.\\
+nên
+\begin{eqnarray*}
+\widehat{MCN} &=& \widehat{BCN} + \widehat{ACM} - 90^\circ \\
+&=& \dfrac{1}{2} \left( 180^\circ - \widehat{B} \right) + \dfrac{1}{2} \left( 180^\circ - \widehat{A} \right) - 90^\circ \\
+&=& 90^\circ - \dfrac{1}{2} \left( \widehat{B} + \widehat{A} \right)\\
+&=& 90^\circ - 45^\circ = 45^\circ.
+\end{eqnarray*}}{
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=0,xmax=4,ymin=0,ymax=3]
+\tkzClip[space=0.5]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/C,4/0/A}
+\tkzLabelPoints[left](C)
+\tkzLabelPoints[right](A)
+\tkzDefPointBy[rotation= center C angle 90](A)\tkzGetPoint{c}
+\pgfmathsetmacro{\so}{3} % lấy số
+\tkzInterLC[R](C,c)(C,\so cm)\tkzGetSecondPoint{B}\tkzLabelPoint[left](B){$B$}
+\tkzDefLine[bisector](C,A,B) \tkzGetPoint{d}
+\tkzInterLL(B,C)(A,d)\tkzGetPoint{D}\tkzLabelPoint[left](D){$D$}
+\tkzDefLine[bisector](A,B,C) \tkzGetPoint{e}
+\tkzInterLL(A,C)(B,e)\tkzGetPoint{E}\tkzLabelPoint[below](E){$E$}
+\tkzDefPointBy[projection=onto A--B](D)\tkzGetPoint{M}\tkzLabelPoint[above](M){$M$}
+\tkzDefPointBy[projection=onto A--B](E)\tkzGetPoint{N}\tkzLabelPoint[above](N){$N$}
+
+\tkzDrawPoints[fill=black](A,C,B,D,E,M,N)
+\tkzDrawSegments(A,B B,C C,A A,D B,E M,C C,N D,M E,N)
+\tkzMarkRightAngles(A,C,B E,N,A D,M,B)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+\subsubsection{Nâng cao}
+
+%%7.8
+\begin{bt}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2B6]
+Cho $\triangle{ABC}$ có $\widehat{A} = 90^\circ$. Kẻ $AH \perp BC$ ($H \in BC$). Tia phân giác của góc $\widehat{HAC}$ cắt cạnh $BC$ tại $D$. Tia phân giác của góc $\widehat{HSB}$ cắt cạnh $BC$ tại $E$. Chứng minh rằng
+\begin{enumEX}{2}
+	\item $\triangle{ABD}$ và $\triangle{ACE}$ là các tam giác cân.
+	\item $AC + AB = BC + DE$.
+\end{enumEX}
+\loigiai{
+\begin{enumerate}
+	\item Xét $\triangle{AHD}$ vuông tại $H$ có\\
+	$\widehat{ADB} = 90^\circ - \widehat{A}_3$.\\
+	Lại có $\widehat{DAB} = 90^\circ - \widehat{A}_4$.\\
+	Do đó $\widehat{ADB} = \widehat{DAB}$ nên $\triangle{ABD}$ cân tại B.\\
+	Chứng ming tương tự ta cũng có $\triangle{ACE}$ cân tại $C$.
+	\item \immini{$\triangle{ABD}$ cân tại $B$.\\
+Suy ra $AB = BD = BE + DE$. \hfill(1)\\
+$\triangle{ACE}$ cân tại $C$.\\
+Suy ra $AC = CE$. \hfill(2)\\
+Cộng (1) với (2) ta được
+\[AB + AC = BE + ED + CE = (BE + EC) + ED = BC + ED.\]}{
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[ymin=-0.5,ymax=3.6,xmin=-0.5,xmax=4.5]
+\tkzClip
+\tkzDefPoints{0/0/A,4/0/B}
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\pgfmathsetmacro{\so}{3} % lấy số
+\tkzDefPointBy[rotation= center A angle 90](B)\tkzGetPoint{b}
+\tkzInterLC[R](A,b)(A,\so cm)\tkzGetSecondPoint{C}\tkzLabelPoint[above](C){$C$}
+\tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{H}\tkzLabelPoint[right](H){$H$}
+\tkzDefLine[bisector](H,A,C) \tkzGetPoint{a}
+\tkzInterLL(B,C)(A,a)\tkzGetPoint{D}\tkzLabelPoint[right](D){$D$}
+\tkzDefLine[bisector](B,A,H) \tkzGetPoint{a'}
+\tkzInterLL(B,C)(A,a')\tkzGetPoint{E}\tkzLabelPoint[right](E){$E$}
+
+\tkzMarkAngles[mark = |](D,A,C H,A,D)
+\tkzLabelAngle[pos=1.5,rotate=0](D,A,C){\footnotesize $4$}
+\tkzLabelAngle[pos=1.5,rotate=0](H,A,D){\footnotesize $3$}
+\tkzMarkAngles[size = 0.7cm, mark = ||](E,A,H B,A,E)
+\tkzLabelAngle[pos=1,rotate=0](E,A,H){\footnotesize $2$}
+\tkzLabelAngle[pos=1,rotate=0](B,A,E){\footnotesize $1$}
+\tkzDrawPoints[fill=black](A,B,C,H,D,E)
+\tkzDrawSegments(A,B B,C C,A A,H A,D A,E)
+\tkzMarkRightAngles(C,A,B B,H,A)
+\end{tikzpicture}
+}
+\end{enumerate}
+}
+\end{bt}
+
+%%7.9
+\begin{bt}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2K6]
+Cho tam giác $ABC$ có $BC = 2AB$, $M$ là trung điểm của cạnh $BC$, $D$ là trung điểm của cạnh $BM$. Chứng minh rằng $AC = 2AD$.
+\loigiai{
+\immini{Vẽ tia đối của tia $DA$, trên tia này lấy điểm $E$ sao cho $DE = DA$.\\
+Nhận thấy $\triangle{DAB} = \triangle{DEM}$ (c.g.c).\\
+Suy ra $AB = ME$ và $\widehat{BAD} = \widehat{MED}$.\\
+Ta có $\widehat{BAD} = \widehat{MED}$ (so le trong).\\
+Suy ra $AB \parallel ME \Rightarrow \widehat{BAM} + \widehat{AME} = 180^\circ$.\\
+Mặt khác $AB = MB$ (cùng bằng $\dfrac{1}{2}BC$).\\
+Suy ra $\triangle{BAM}$ cân tại $B$ suy ra $\widehat{BAM} = \widehat{BMA}$.\\
+Mà $\widehat{BMA} + \widehat{AMC} = 180^\circ$ (hai góc kề bù), suy ra $\widehat{AME} = \widehat{AMC}$.\\
+Ta có $MC = ME$ (cùng bằng $\dfrac{1}{2} BC = AB$).\\
+Xét $\triangle{AME}$ và $\triangle{AMC}$ có $AM$ cạnh chung, $\widehat{AME} = \widehat{AMC}$ (cmt), $ME = MC$ (cmt).\\
+Do đó $\triangle{AME} = \triangle{AMC}$ (c.g.c) suy ra $AE = AC$.\\
+Mà $AE = 2AD$, do đó $AC = 2AD$.}{
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[ymin=-3.6,ymax=3.6,xmin=-2.5,xmax=4.5]
+\tkzClip
+\tkzDefPoints{-2/0/B,4/0/C}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzDefMidPoint(B,C)\tkzGetPoint{M}\tkzLabelPoint[below](M){$M$}
+\tkzDefPointBy[rotation= center B angle 50](C)\tkzGetPoint{b}
+\tkzDefPointBy[rotation= center C angle -40](B)\tkzGetPoint{c}
+\tkzInterLL(B,b)(C,c)\tkzGetPoint{A}\tkzLabelPoint[above](A){$A$}
+\tkzDefMidPoint(B,M)\tkzGetPoint{D}\tkzLabelPoint[below left](D){$D$}
+\tkzDefPointBy[symmetry=center D](A)\tkzGetPoint{E}
+\tkzLabelPoint[right](E){$E$}
+
+\tkzMarkSegments[mark=s||](A,D D,E)
+\tkzMarkSegments[mark=s|](B,D D,M)
+\tkzDrawPoints(A,B,C,M,D,E)
+\tkzDrawSegments(A,B B,C C,A A,M A,E E,M)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+%%7.10
+\begin{bt}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2K6]
+Cho tam giác $ABC$ cân tại $A$ có $\widehat{A} = 40^\circ$. Lấy điểm $D$ khác phía $B$ so với $AC$ thỏa mãn $\widehat{CAD} = 60^\circ$, $\widehat{ACD} = 80^\circ$. Chứng minh rằng $BD$ vuông góc với $AC$.
+\loigiai{
+\immini{Vẽ tia $Ax$ (nằm trong $\widehat{CAD}$) sao cho $\widehat{CAx} = 20^\circ$. \\
+Gọi $E$ là giao điểm của tia $Ax$ và $CD$.\\
+Ta có $\triangle{ACE}$ cân tại $A$ suy ra $AC = AE$.\\
+Do đó $\triangle{ABE}$ đều suy ra $EB = EA$.\\
+Ta có $\widehat{EDA} = \widehat{AEC} - \widehat{EAD} = 40^\circ$ suy ra $\triangle{EAD}$ cân tại $E$.\\
+Suy ra $EA = ED$.\\
+Ta có $\triangle{BED}$ cân có $\widehat{BED} = 160^\circ$ nên $\widehat{EDB} = 10^\circ$.\\
+Do đó $\widehat{ACD} + \widehat{EDB} = 90^\circ$, suy ra $BD \perp AC$.}{
+\begin{tikzpicture}[>=stealth,scale=0.6, line join = round, line cap = round]
+\tkzInit[xmin=-0.3,xmax=11,ymin=0,ymax=6]
+\tkzClip[space=0.4]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,4/0/C}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzDefPointBy[rotation= center B angle 70](C)\tkzGetPoint{b}
+\tkzDefPointBy[rotation= center C angle -70](B)\tkzGetPoint{c}
+\tkzInterLL(B,b)(C,c)\tkzGetPoint{A}\tkzLabelPoint[above](A){$A$}
+\tkzDefPointBy[rotation= center A angle 60](C)\tkzGetPoint{a}
+\tkzDefPointBy[rotation= center C angle -80](A)\tkzGetPoint{c}
+\tkzInterLL(A,a)(C,c)\tkzGetPoint{D}\tkzLabelPoint[above](D){$D$}
+\tkzDefPointBy[rotation= center A angle 20](C)\tkzGetPoint{x}\tkzLabelPoint[right](x){$x$}
+\tkzInterLL(A,x)(C,D)\tkzGetPoint{E}\tkzLabelPoint[above](E){$E$}
+
+\tkzMarkAngles[draw=black](B,A,C)
+\tkzLabelAngle[pos=1.5,rotate=0](B,A,C){\footnotesize $40^\circ$}
+\tkzMarkAngles[mark = |,size = 1.2 cm](C,A,D)
+\tkzLabelAngle[pos=1.9](C,A,D){\footnotesize $60^\circ$}
+\tkzMarkSegments[mark=s||](A,B C,A)
+\tkzDrawPoints[fill=black](A,B,C,D,E)
+\tkzDrawSegments(A,B B,C C,A C,D A,D B,D A,x B,E)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+%%7.11
+\begin{bt}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2K6]
+Cho tam giác $ABC$ có $\widehat{A} = 75^\circ$, $\widehat{B} = 35^\circ$. Phân giác góc $\widehat{A}$ cắt cạnh $BC$ tại $D$. Đường thẳng qua $A$ và vuông góc với $AD$ cắt tia $BC$ tại $E$. Gợi $M$ là trung điểm của $DE$. Chứng minh rằng
+\begin{enumerate}
+	\item $\triangle{ACM}$ là tam giác cân.
+	\item Chu vi tam giác $ABC$ bằng độ dài đoạn thẳng $BE$.
+\end{enumerate}
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[>=stealth,scale=0.6, line join = round, line cap = round]
+\tkzInit[ymin=-0.5,ymax=3.6,xmin=-2.5,xmax=11]
+\tkzClip[space=0.5]
+\tkzDefPoints{-2/0/B,3/0/C}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[below](C)
+\tkzDefPointBy[rotation= center B angle 35](C)\tkzGetPoint{b}
+\tkzDefPointBy[rotation= center C angle -70](B)\tkzGetPoint{c}
+\tkzInterLL(B,b)(C,c)\tkzGetPoint{A}\tkzLabelPoint[above](A){$A$}
+\tkzDefLine[bisector](C,A,B) \tkzGetPoint{a}
+\tkzInterLL(B,C)(A,a)\tkzGetPoint{D}\tkzLabelPoint[below](D){$D$}
+\tkzMarkAngles[mark = |](D,A,C B,A,D)
+\tkzDefPointBy[rotation= center A angle -90](D)\tkzGetPoint{d}
+\tkzInterLL(A,d)(B,C)\tkzGetPoint{E}\tkzLabelPoint[above](E){$E$}
+\tkzDefMidPoint(D,E)\tkzGetPoint{M}\tkzLabelPoint[below](M){$M$}
+
+\tkzMarkAngles[draw=black](C,B,A)
+\tkzLabelAngle[pos=1.6,rotate=0](C,B,A){\footnotesize $35^\circ$}
+\tkzDrawPoints(A,B,C,D,E,M)
+\tkzDrawSegments(A,B B,C C,A A,D A,E C,E A,M)
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+	\item Ta có $\widehat{BAD} = \widehat{DAC} = \dfrac{75^\circ}{2} = 37^\circ 30'$, suy ra $\widehat{ADM} = 72^\circ 30'$ (góc ngoài của $\triangle{ABD}$).\\
+	Lại có $\triangle{DAE}$ vuông có $AM$ là trung tuyến nên $\triangle{MAD}$ cân.\\
+	Do đó $\widehat{AMD} = 180^\circ - 2 \widehat{ADM} = 180^\circ - 145^\circ = 35^\circ$. \hfill(1)\\
+	Ta lại có trong $\triangle{ABC}$ góc $\widehat{A} = 75^\circ$, $\widehat{B} = 35^\circ$ suy ra $\widehat{C} = 70^\circ$.\\
+	Suy ra $\widehat{ACM} = 110^\circ$ suy ra $\widehat{CAM} = 180^\circ - 110^\circ - 35^\circ = 35^\circ$.\hfill(2)\\
+	Từ (1) và (2) suy ra $\triangle{ACM}$ cân tại $C$.
+	\item Ta có $AC = CM$ (do $\triangle{ACM}$ cân), $MA = ME$ (do $\triangle{AME}$ cân) và $MA = AB$ ($\triangle{ABM}$ cân vì $\widehat{ABM} = \widehat{AMB} = 35^\circ$).\\
+	Do đó $BE = BC + CA + AB$.
+\end{enumerate}
+}
+\end{bt}
+
+%%7.12
+\begin{bt}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2K6]
+Cho tam giác $ABC$ cân tại $A$ có góc $\widehat{A} = 108^\circ$, $BC = a$, $AC = b$. Về phía ngoài tam giác $ABC$ vẽ tam giác $ABD$ cân tại $A$ có góc $\widehat{BAD} = 36^\circ$. Tính chu vi tam giác $ABD$ theo $a$ và $b$.
+\loigiai{
+\immini{Trên cạnh $BC$ lấy điểm $E$ sao cho $BE = AD$.\\
+Từ giả thiết ta có $\widehat{ABC} = \widehat{ACB} = 36^\circ$.\\
+Lại có $\triangle{ABD} = \triangle{BAE}$ (c.g.c) suy ra $BD = AE$.\\
+Do đó $\widehat{ADB} = \widehat{BEA}$, $\widehat{BEA} = 72^\circ$ và $\widehat{ACE} = 36^\circ$ nên $\widehat{EAC} = 36^\circ$.\\
+$\triangle{EAC}$ cân tại $E$ suy ra $AE = EC$.\\
+Ta có $BD = AE = EC = BC - BE = BC - AB = a - b$.\\
+Vậy chu vi $\triangle{ABD}$ bằng
+\[AB + AD + BD = b + b + a - b = a + b.\]}{
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=-0.3,xmax=4.5,ymin=0,ymax=3]
+\tkzClip[space=0.5]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,4/0/C}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzDefPointBy[rotation= center B angle 36](C)\tkzGetPoint{b}
+\tkzDefPointBy[rotation= center C angle -36](B)\tkzGetPoint{c}
+\tkzInterLL(B,b)(C,c)\tkzGetPoint{A}\tkzLabelPoint[above](A){$A$}
+\tkzDefPointBy[rotation= center A angle -36](B)\tkzGetPoint{D}\tkzLabelPoint[above](D){$D$}
+\tkzInterLC(B,C)(B,A)\tkzGetSecondPoint{E}\tkzLabelPoint[below](E){$E$}
+
+\tkzMarkSegments[mark=s||](A,B C,A A,D B,E)
+\tkzDrawPoints[fill=black](A,B,C,D,E)
+\tkzDrawSegments(A,B B,C C,A A,D B,D A,E)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+%%7.13
+\begin{bt}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2K6]
+Cho tam giác $ABC$ cân tại $A$ có góc $\widehat{A} = 20^\circ$. Trên cạnh $AB$ lấy điểm $D$ sao cho $AD = BC$. Tính góc $\widehat{ACD}$.
+\loigiai{
+\immini{Trên nửa mặt phẳng bờ $BC$ có chứa $A$ vẽ tam giác đều $BCE$.\\
+Từ đó $\triangle{ABE} = \triangle{ACE}$ (c.c.c) suy ra $\widehat{BAE} = \widehat{CAE} = 10^\circ$.\\
+Ta có $\widehat{ACE} = \widehat{ACB} - \widehat{BCE} = 80^\circ - 60^\circ = 20^\circ$.\\
+Lại có $AD = BC = CE$, $\widehat{CEA} = \widehat{DAC} = 20^\circ$ và $AC$ cạnh chung.\\ suy ra $\triangle{EAC} = \triangle{DCA}$ (c.g.c) suy ra $\widehat{ACD} = \widehat{EAC}$.\\
+Vậy $\widehat{ACD} = 10^\circ$.}{
+\begin{tikzpicture}[>=stealth,scale=0.6, line join = round, line cap = round]
+\tkzInit[xmin=-0.3,xmax=4.3,ymin=0,ymax=11]
+\tkzClip[space=0.5]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,4/0/C}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzDefPointBy[rotation= center B angle 80](C)\tkzGetPoint{b}
+\tkzDefPointBy[rotation= center C angle -80](B)\tkzGetPoint{c}
+\tkzInterLL(B,b)(C,c)\tkzGetPoint{A}\tkzLabelPoint[right](A){$A$}
+\tkzCalcLength[cm](B,C)\tkzGetLength{rBC}
+\tkzInterLC[R](A,B)(A,\rBC cm)\tkzGetSecondPoint{D}\tkzLabelPoint[left](D){$D$}
+\tkzInterCC(B,C)(C,B)\tkzGetFirstPoint{E}\tkzLabelPoint[below](E){$E$}
+
+\tkzMarkAngles[mark = |](B,A,C)
+\tkzLabelAngle[pos=2,rotate=0](B,A,C){\footnotesize $20^\circ$}
+\tkzMarkSegments[mark=s||](A,B C,A)
+\tkzDrawPoints[fill=black](A,B,C,D,E)
+\tkzDrawSegments(A,B B,C C,A D,C E,B E,C A,E)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+%%7.14
+\begin{bt}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2K6]
+Cho tam giác $ABC$ cân tại $A$, $\widehat{B} = \widehat{C} = 80^\circ$. Từ $B$ và $C$ vẽ các đường thẳng cắt các cạnh đối diện tương ứng ở $D$ và $E$ sao cho $\widehat{CBD} = 60^\circ$ và $\widehat{BCE} = 50^\circ$. Tính góc $\widehat{BDE}$.
+\loigiai{
+\immini{Từ giả thiết suy ra $\widehat{B} = \widehat{C} = 80^\circ$ và $\widehat{DBE} = 20^\circ$.\\
+Qua $D$ vẽ đường thẳng song song với $BC$ cắt $AB$ ở $F$.\\
+Gọi $M$ là giao điểm của $BD$ và $CF$.\\
+Ta có các tam giác $MBC$, $MDF$ đều và tam giác $BCE$ cân tại $B$, do đó $BC = BM = BE$.\\
+Suy ra $\triangle{BEM}$ cân tại $B$.\\
+Ta tính được $\widehat{BFC} = 180^\circ - \widehat{BCF} = 40^\circ$, $\widehat{BME} = \dfrac{180^\circ -20^\circ}{2} = 80^\circ$ và $\widehat{EMF} = 180^\circ - \widehat{BME} - \widehat{DMF} = 40^\circ$.\\
+Lại có $\triangle{EMF}$ cân tại $E$ (hai góc đáy bằng nhau), suy ra $EM = EF$.\\
+Mặt khác $\triangle{EDM} = \triangle{EDF}$ (c.c.c) suy ra $\widehat{EDM} = \widehat{EDF}$.\\
+Suy ra $\widehat{BDE} = \dfrac{1}{2} \widehat{MDF} = 30^\circ$.\\
+Vậy $\widehat{BDE} = 30^\circ$.}{
+\begin{tikzpicture}[>=stealth,scale=0.6, line join = round, line cap = round]
+\tkzInit[xmin=-0.3,xmax=4.3,ymin=0,ymax=11]
+\tkzClip[space=0.5]
+%\tkzAxeXY
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,4/0/C}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzDefPointBy[rotation= center B angle 80](C)\tkzGetPoint{b}
+\tkzDefPointBy[rotation= center C angle -80](B)\tkzGetPoint{c}
+\tkzInterLL(B,b)(C,c)\tkzGetPoint{A}\tkzLabelPoint[right](A){$A$}
+\tkzDefPointBy[rotation= center B angle 60](C)\tkzGetPoint{b}
+\tkzInterLL(A,C)(B,b)\tkzGetPoint{D}\tkzLabelPoint[right](D){$D$}
+\tkzDefPointBy[rotation= center C angle -50](B)\tkzGetPoint{c}
+\tkzInterLL(A,B)(C,c)\tkzGetPoint{E}\tkzLabelPoint[left](E){$E$}
+\tkzDefLine[parallel=through D](B,C) \tkzGetPoint{d}
+\tkzInterLL(A,B)(D,d)\tkzGetPoint{F}\tkzLabelPoint[left](F){$F$}
+\tkzInterLL(F,C)(B,D)\tkzGetPoint{M}\tkzLabelPoint[right](M){$M$}
+
+\tkzDrawPoints[fill=black](A,B,C,D,E,F,M)
+\tkzDrawSegments(A,B B,C C,A B,D C,E E,D D,F E,M F,C)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+%%7.15
+\begin{bt}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2K6]
+Cho tam giác $ABC$, các đường phân giác $BD$ và $CE$. Tính số đo của góc $\widehat{A}$ biết rằng $BE + CD = BC$.
+\loigiai{
+\immini{Trên cạnh $BC$ lấy điểm $K$ sao cho $BK = BE$ thì $CK = CD$. \\
+Gọi $I$ là giao điểm của $BD$ và $CE$.\\
+Ta có $\triangle{EBI} = \triangle{KBI}$ (c.g.c) suy ra $\widehat{I}_1 = \widehat{I}_2$.\\
+Tương tự $\triangle{DCI} = \triangle{KCI}$ (c.g.c) suy ra $\widehat{I}_3 = \widehat{I}_4$.\\
+Ta lại có $\widehat{I}_1 = \widehat{I}_4$ nên $\widehat{I}_1 = \widehat{I}_2 = \widehat{I}_3 = \widehat{I}_4$.\\
+Từ đó tính được $\widehat{I}_1 = \widehat{I}_2 = \widehat{I}_3 = \widehat{I}_4 = 60^\circ$.\\
+Do đó tính được $\widehat{A} = 60^\circ$.}{
+\begin{tikzpicture}[>=stealth,scale=0.8, line join = round, line cap = round]
+\tkzInit[ymin=-0.5,ymax=4.6,xmin=-2.5,xmax=4]
+\tkzClip
+\tkzDefPoints{-2/0/B,3/0/C}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzDefPointBy[rotation= center B angle 50](C)\tkzGetPoint{b'}
+\tkzDefPointBy[rotation= center C angle -70](B)\tkzGetPoint{c'}
+\tkzInterLL(B,b')(C,c')\tkzGetPoint{A}\tkzLabelPoint[above](A){$A$}
+\tkzDefLine[bisector](C,B,A) \tkzGetPoint{b}
+\tkzInterLL(A,C)(B,b)\tkzGetPoint{D}\tkzLabelPoint[right](D){$D$}
+\tkzDefLine[bisector](A,C,B) \tkzGetPoint{c}
+\tkzInterLL(A,B)(C,c)\tkzGetPoint{E}\tkzLabelPoint[left](E){$E$}
+\tkzCalcLength[cm](B,E)\tkzGetLength{rBE}
+\tkzInterLC[R](B,C)(B,\rBE cm)\tkzGetSecondPoint{K}\tkzLabelPoint[below](K){$K$}
+\tkzInterLL(C,E)(B,D)\tkzGetPoint{I}\tkzLabelPoint[above](I){$I$}
+
+\tkzLabelAngle[pos=-0.7](E,I,B){\footnotesize $1$}
+\tkzLabelAngle[pos=0.7](B,I,K){\footnotesize $2$}
+\tkzLabelAngle[pos=0.7](K,I,C){\footnotesize $3$}
+\tkzLabelAngle[pos=0.7](C,I,D){\footnotesize $4$}
+\tkzMarkSegments[mark=s|](B,E B,K)
+\tkzMarkSegments[mark=s||](C,K C,D)
+\tkzMarkAngles[size = 0.7cm, mark = |](D,B,E C,B,D)
+\tkzMarkAngles[size = 0.7cm, mark = ||](D,C,E E,C,B)
+\tkzDrawPoints(A,B,C,D,E,K,I)
+\tkzDrawSegments(A,B B,C C,A B,D C,E I,K)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+%%7.16
+\begin{bt}%[Dự án sách Bồi dưỡng Toán 7]%[Nguyễn Tuấn Kiệt dự án - EXSA-7]%[7H2K6]
+Cho điểm $M$ thuộc đoạn thẳng $AB$. Trên cùng một nửa mặt phẳng bờ $AB$, vẽ các tam giác đều $AMC$, $BMD$. Gọi $E$, $F$ lần lượt là trung điểm của $AD$ và $CB$. Chứng minh rằng tam giác $MEF$ đều.
+\loigiai{
+\immini{Ta có $\triangle{MAD} = \triangle{MCB}$ (c.g.c) suy ra $\widehat{MAD} = \widehat{MCB}$ và $AD = BC$ nên $AE = CF$.\\
+Lại có $\triangle{MAE} = \triangle{MCF}$ (c.g.c) suy ra $ME = MF$ và $\widehat{AME} = \widehat{CMF}$.\\
+Từ đó ta có $\widehat{EMF} = \widehat{EMC} + \widehat{CMF} = \widehat{EMC} + \widehat{AME} = \widehat{AMC} = 60^\circ$.\\
+Mặt khác $ME = MF$ suy ra $\triangle{MEF}$ cân tại $M$ và $\widehat{EMF} = 60^\circ$.\\
+Do vậy $\triangle{MEF}$ đều.}{
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[ymin=-0.3,ymax=3.6,xmin=-2.5,xmax=3.3]
+\tkzClip[space=0.5]
+\tkzDefPoints{-2/0/A,3/0/B}
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\tkzDefBarycentricPoint(A=2,B=3)
+\tkzGetPoint{M}\tkzLabelPoint[below](M){$M$}
+\tkzDefEquilateral(A,M) \tkzGetPoint{C}\tkzLabelPoint[above](C){$C$}
+\tkzDefEquilateral(M,B) \tkzGetPoint{D}\tkzLabelPoint[above](D){$D$}
+\tkzDefMidPoint(A,D)\tkzGetPoint{E}\tkzLabelPoint[above](E){$E$}
+\tkzDefMidPoint(C,B)\tkzGetPoint{F}\tkzLabelPoint[above](F){$F$}
+
+\tkzDrawPoints(A,B,C,D,E,F)
+\tkzDrawSegments(A,B B,C C,A C,M D,M B,D A,D E,F F,M M,E)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+\Closesolutionfile{ans}

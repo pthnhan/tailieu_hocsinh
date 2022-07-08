@@ -1,0 +1,934 @@
+\section{HAI ĐƯỜNG THẲNG SONG SONG}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Dấu hiệu nhận biết hai đường thẳng song song}
+Nếu đường thẳng $c$ cắt hai đường thẳng $a$, $b$ và trong các góc tạo thành có một cặp góc so le trong bằng nhau (hoặc một cặp góc đồng vị bằng nhau) thì $a$ và $b$ \textbf{song song với nhau.}
+\begin{nx}
+	\immini
+	{
+		Như vậy, ta có hai đường thẳng $a$ và $b$ song song với nhau nếu một trong các điều kiện sau xảy ra: 
+		\begin{align*}
+		&&\widehat{A}_1=\widehat{B}_1;\widehat{A}_2=\widehat{B}_2;\\
+		&&\widehat{A}_3=\widehat{B}_3;\widehat{A_4}=\widehat{B}_4;\\
+		&&\widehat{A}_1=\widehat{B}_3; \widehat{A_4}=\widehat{B}_2.
+		\end{align*} 
+	}
+	{
+		\begin{tikzpicture}[>=stealth,scale=0.7, line join = round, line cap = round]
+		\tkzInit[xmin=-2.5,xmax=2.5,ymin=-2,ymax=2.5]
+		\tkzClip
+		%\tkzAxeXY
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{-1/1/A,1/-1/B,2/1/C,-2/-1/D}
+		\tkzDrawLines[add=0.5 and 0.2](A,C)
+		\tkzDrawLines[add=0.5 and 0.2](B,D)
+		\tkzDrawLines[add=0.5 and 0.5](A,B)
+		\tkzDrawPoints[fill=black](A,B)
+		\tkzLabelPoints[above right](A,B)
+		\tkzLabelPoint[above](A){\footnotesize $2$}
+		\tkzLabelPoint[below](A){\footnotesize $4$}
+		\tkzLabelAngle[pos=0.5](C,A,B){\footnotesize $1$} 
+		\tkzLabelAngle[pos=-0.5](C,A,B){\footnotesize $3$} 
+		\tkzLabelPoint[above](B){\footnotesize $2$}
+		\tkzLabelPoint[below](B){\footnotesize $4$}
+		\tkzLabelAngle[pos=-0.5](D,B,A){\footnotesize $1$} 
+		\tkzLabelAngle[pos=0.5](D,B,A){\footnotesize $3$} 
+		\end{tikzpicture}
+	}	
+	Hai đường thẳng $a$ và $b$ song song thì 
+	\begin{itemize}
+		\item Kí hiệu $a\parallel b$.
+		\item Khi đó ta còn vó thể nói: \lq\lq Đường thẳng $a$ song song với đường thẳng $b$\rq\rq hoặc \lq\lq Đường thẳng $b$ song song với đường thẳng $a$\rq\rq.
+	\end{itemize}
+\end{nx}
+\subsubsection{Vẽ hai đường thẳng song song}
+Qua một điểm $O$ ở ngoài đường thẳng $a$ chỉ kẻ được một và chỉ một đường thẳng song song với đường thẳng $a$.\\
+\textbf{Bài toán:} Cho một điểm $O$ và một đường thẳng $a$ không đi qua $O$. Hãy vẽ đường thẳng $b$ đi qua $O$ và song song với đường thẳng $a$.\\
+\textit{Cách thực hiện}\\
+Ta có thể chọn một trong các cách sau đây:\\
+\textit{Cách 1:} Cách vẽ đường thẳng $b$ được minh họa qua các hình vẽ.\\
+\begin{tabular}{llll}
+	%\hline
+	\begin{tikzpicture}[>=stealth,scale=0.5, line join = round, line cap = round]
+	\tkzInit[xmin=-2.5,xmax=2.5,ymin=-2,ymax=2.5]
+	\tkzClip
+	%\tkzAxeXY
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{-1/1/O,1/-1/B,-2/-1/D}
+	\tkzDrawLines[add=0.5 and 0.2](B,D)
+	\tkzDrawPoints[fill=black](O)
+	\tkzLabelPoints[above left](O)
+	\tkzLabelSegment[pos=1.0,below](B,D){$a$} 
+	\end{tikzpicture}
+	&
+	\begin{tikzpicture}[line join=round,line cap=round,font=\footnotesize,scale=0.7]
+	\coordinate[label=above left:$O$] (O) at (0,0);
+	\coordinate (M) at (-1,-2);
+	\draw (-2,-2)node[below]{$a$}--(2,-2) (M)--(O)coordinate[pos=.6](X);
+	\filldraw[fill=gray!10] ($(M)+(.035,.02)$)coordinate(A)--($-0.5*(M)+(.035,.02)$)coordinate(B)--++(0,-3)coordinate(C)--cycle;
+	\tkzInCenter(A,B,C) \tkzGetPoint{I}
+	\filldraw[fill=white] ($(I)!.6!(A)$)--($(I)!.6!(B)$)--($(I)!.6!(C)$)--cycle;
+	\draw[rotate=20] (X)--++(75.5:.2)--++(90:.25)--++(0:.05)--++(90:1)--++(180:.2)--++(-90:1)--++(0:.05)--++(-90:.25)--cycle;
+	\fill (O)circle(1.5pt);
+	\end{tikzpicture}
+	&
+	\begin{tikzpicture}[line join=round,line cap=round,font=\footnotesize,scale=0.7]
+	\begin{scope}[shift={(5,0)}]
+	\coordinate[label=above left:$O$] (O) at (0,0);
+	\coordinate (M) at (-1,-2);
+	\draw (-2,-2)node[below]{$a$}--(2,-2) (M)--(O)--(-1.4,0)coordinate[pos=.6](X);
+	\filldraw[fill=gray!10] ($(O)+(-.035,-.02)$)coordinate(A)--($1.5*(M)+(-.035,-.02)$)coordinate(B)--++(0,3)coordinate(C)--cycle;
+	\tkzInCenter(A,B,C) \tkzGetPoint{I}
+	\filldraw[fill=white] ($(I)!.6!(A)$)--($(I)!.6!(B)$)--($(I)!.6!(C)$)--cycle;
+	\draw[rotate=20] (X)--++(75.5:.2)--++(90:.25)--++(0:.05)--++(90:1)--++(180:.2)--++(-90:1)--++(0:.05)--++(-90:.25)--cycle;
+	\fill (O)circle(1.5pt);
+	\end{scope}
+	\end{tikzpicture}
+	&
+	\begin{tikzpicture}[line join=round,line cap=round,font=\footnotesize,scale=0.7]
+	\begin{scope}[shift={(10,0)}]
+	\coordinate[label=above left:$O$] (O) at (0,0);
+	\coordinate (M) at (-1,-2);
+	\draw (-2,-2)node[below]{$a$}--(2,-2) (M)--(O)--(1.8,0)node[above]{$b$}coordinate[pos=.6](X) (O)--(-1.8,0);
+	\fill[gray!10,draw=black] (-2.2,-.02) rectangle (2.2,-.52);
+	\foreach \i in {-20,-19,...,20}
+	\draw (\i/10,-.2)--(\i/10,-.02);
+	\foreach \i in {-20,-10,0,10,20}
+	\draw (\i/10,-.3)--(\i/10,-.02);
+	\draw[rotate=20] (X)--++(75.5:.2)--++(90:.25)--++(0:.05)--++(90:1)--++(180:.2)--++(-90:1)--++(0:.05)--++(-90:.25)--cycle;
+	\fill (O)circle(1.5pt);
+	\end{scope}
+	\end{tikzpicture}\\
+	%\hline
+	Hình ban đầu
+	& \begin{minipage}{4cm}
+		\begin{itemize}
+			\item Đặt êke với một cạnh góc vuông trùng với đường thẳng $a$ và cạnh huyền đi qua $O$.
+			\item Dùng bút vạch một tia trên cạnh huyền.
+		\end{itemize}
+	\end{minipage}
+	
+	& 
+	\begin{minipage}{5cm}
+		\begin{itemize}
+			\item Đặt êke với cạnh huyền trùng với tia vừa vẽ và một đỉnh trùng với $O$.
+			\item Dùng bút vạch một tia trên cạnh góc vuông.
+		\end{itemize} 
+	\end{minipage}
+	&
+	\begin{minipage}{4cm}
+		Đặt thước trùng với tia vừa vẽ và dùng thước kéo dài tia.	
+	\end{minipage}
+	\\
+	%\hline
+\end{tabular}\\
+\textit{Cách 2:} Cách vẽ đường thẳng $b$ được minh họa qua các hình vẽ.\\ 
+\begin{tabular}{cccc}
+	\begin{tikzpicture}[>=stealth,scale=0.5, line join = round, line cap = round]
+	\tkzInit[xmin=-2.5,xmax=2.5,ymin=-2,ymax=2.5]
+	\tkzClip
+	%\tkzAxeXY
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{-1/1/O,1/-1/B,-2/-1/D}
+	\tkzDrawLines[add=0.5 and 0.2](B,D)
+	\tkzDrawPoints[fill=black](O)
+	\tkzLabelPoints[above left](O)
+	\tkzLabelSegment[pos=1.0,below](B,D){$a$} 
+	\end{tikzpicture}&\hspace{1cm}
+	\begin{tikzpicture}[line join=round,line cap=round,font=\footnotesize,scale=0.7]
+	\coordinate[label=above left:$O$] (O) at (0,0);
+	\coordinate (M) at (-1,-2);
+	\draw (-2,-2)node[below]{$a$}--(2,-2) (M)--(O)coordinate[pos=.6](X);
+	\filldraw[fill=gray!10] ($(M)+(.035,.02)$)coordinate(A)--($-0.5*(M)+(.035,.02)$)coordinate(B)--++(0,-3)coordinate(C)--cycle;
+	\tkzInCenter(A,B,C) \tkzGetPoint{I}
+	\filldraw[fill=white] ($(I)!.6!(A)$)--($(I)!.6!(B)$)--($(I)!.6!(C)$)--cycle;
+	\draw[rotate=20] (X)--++(75.5:.2)--++(90:.25)--++(0:.05)--++(90:1)--++(180:.2)--++(-90:1)--++(0:.05)--++(-90:.25)--cycle;
+	\fill (O)circle(1.5pt);
+	\end{tikzpicture}&\hspace{1cm}
+	\begin{tikzpicture}[line join=round,line cap=round,font=\footnotesize,scale=0.7]
+	\coordinate[label=above left:$O$] (O) at (0,0);
+	\coordinate (M) at (2,0);
+	\draw (-2,-2)node[below]{$a$}--(2,-2) (M)--(O)coordinate[pos=.6](X);
+	\filldraw[fill=gray!10] ($(O)+(.035,.02)$)coordinate(A)--++($0.5*(M)+(.035,.02)$)coordinate(B)--++(0,2)coordinate(C)--cycle;
+	\draw[fill=black!50](C)--($-1.0*(C)+(O)$)coordinate(D);
+	\tkzInCenter(A,B,C) \tkzGetPoint{I}
+	\filldraw[fill=white] ($(I)!.6!(A)$)--($(I)!.6!(B)$)--($(I)!.6!(C)$)--cycle;
+	\draw[rotate=20] (X)--++(-75.5:.2)--++(-90:.25)--++(0:.05)--++(-90:1)--++(-180:.2)--++(90:1)--++(0:.05)--++(90:.25)--cycle;
+	\fill (O)circle(1.5pt);
+	\end{tikzpicture}&\hspace{1cm}
+	\begin{tikzpicture}[line join=round,line cap=round,font=\footnotesize,scale=0.7]
+	\begin{scope}[shift={(10,0)}]
+	\coordinate[label=above left:$O$] (O) at (0,0);
+	\coordinate (M) at (-1,-2);
+	\draw (-2,-2)node[below]{$a$}--(2,-2) (M)--(O)--(1.8,0)node[above]{$b$}coordinate[pos=.6](X) (O)--(-1.8,0);
+	\fill[gray!10,draw=black] (-2.2,-.02) rectangle (2.2,-.52);
+	\foreach \i in {-20,-19,...,20}
+	\draw (\i/10,-.2)--(\i/10,-.02);
+	\foreach \i in {-20,-10,0,10,20}
+	\draw (\i/10,-.3)--(\i/10,-.02);
+	\draw[rotate=20] (X)--++(75.5:.2)--++(90:.25)--++(0:.05)--++(90:1)--++(180:.2)--++(-90:1)--++(0:.05)--++(-90:.25)--cycle;
+	\fill (O)circle(1.5pt);
+	\end{scope}
+	\end{tikzpicture}
+\end{tabular}
+\subsubsection{Tính chất của hai đường thẳng song song}
+Nếu một đường thẳng cắt hai đường thẳng song song thì 
+\begin{enumerate}
+	\item Hai góc so le trong bằng nhau.
+	\item Hai góc đồng vị bằng nhau.
+	\item Hai góc trong cùng phía bù nhau.
+\end{enumerate}
+\begin{note}\hfill
+	\begin{itemize}
+		\item Nếu $a\parallel b$ thì mỗi đoạn thẳng (mỗi tia) thuộc đường thẳng $a$ sẽ song song với mỗi đoạn (mỗi tia) thuộc đường thẳng $b$.
+		\item Hai đoạn thẳng (hoặc hai tia) không có điểm chung thì chưa chắc song song với nhau.
+	\end{itemize}
+\end{note}
+\subsubsection{Cặp góc có cạnh tương ứng song song}
+Nếu hai góc có cạnh tương ứng song song thì chúng bằng nhau hoặc bù nhau, cụ thể: 
+\begin{enumerate}
+	\item Chúng bằng nhau nếu hai góc cùng nhọn hoặc cùng tù.
+	\item Chúng bù nhau nếu góc này nhọn và góc kia tù.
+	\item Nếu một góc vuông thì góc còn lại cũng vuông.
+\end{enumerate}
+\subsection{Phương pháp giải toán}
+\begin{vd}%[Nguyễn Minh, dự án(EX-C2-L7-2018)]%[7H1B4]
+	Hãy điền vào hình sau số đo của các góc còn lại
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+		\tkzInit[xmin=-2.5,xmax=3.0,ymin=-2,ymax=2.5]
+		\tkzClip
+		%\tkzAxeXY
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{-1.5/1/D,2/-1/B,1/1/A,-2/-1/C}
+		\tkzDrawLines[add=0.7 and 0.5](A,D)
+		\tkzDrawLines[add=0.5 and 0.2](B,C)
+		\tkzDrawLines[add=0.5 and 0.5](D,C)
+		\tkzDrawLines[add=0.5 and 0.5](A,B)
+		\tkzDrawPoints[fill=black](A,B,C,D)
+		\tkzLabelAngle[pos=0.5](D,C,B){\footnotesize $80^\circ$} 
+		\tkzLabelAngle[pos=-0.5](C,B,A){\footnotesize $42^\circ$}
+		\tkzLabelPoint[below right](A){\footnotesize $42^\circ$}
+		\tkzLabelSegment[above =1pt,pos=1.5](D,A){$a$}
+		\tkzLabelSegment[above =1pt,pos=1.2](C,B){$b$}
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Từ hình vẽ ta thấy $a\parallel b$, nên ta nhận được kết quả điền như sau
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-3.5,xmax=3.5,ymin=-2,ymax=2.5]
+			\tkzClip
+			%\tkzAxeXY
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{-1.5/1/D,2/-1/B,1/1/A,-2/-1/C}
+			\tkzDrawLines[add=0.7 and 0.5](A,D)
+			\tkzDrawLines[add=0.5 and 0.2](B,C)
+			\tkzDrawLines[add=0.5 and 0.5](D,C)
+			\tkzDrawLines[add=0.5 and 0.5](A,B)
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\tkzLabelAngle[pos=-0.5](D,A,B){\footnotesize $138^\circ$}
+			\tkzLabelAngle[pos=0.5](D,A,B){\footnotesize $138^\circ$}
+			\tkzLabelAngle[pos=0.5](D,C,B){\footnotesize $80^\circ$} 
+			\tkzLabelAngle[pos=-0.5](D,C,B){\footnotesize $80^\circ$} 
+			\tkzLabelAngle[pos=-0.5](C,B,A){\footnotesize $42^\circ$}
+			\tkzLabelAngle[pos=0.5](C,B,A){\footnotesize $42^\circ$}
+			\tkzLabelAngle[pos=0.5](A,D,C){\footnotesize $100^\circ$}
+			\tkzLabelAngle[pos=-0.5](A,D,C){\footnotesize $100^\circ$}
+			\tkzLabelPoint[below right=1pt](A){\footnotesize $42^\circ$}
+			\tkzLabelPoint[above left](A){\footnotesize $42^\circ$}
+			\tkzLabelPoint[above right](B){\footnotesize $138^\circ$}
+			\tkzLabelPoint[below left](B){\footnotesize $138^\circ$}
+			\tkzLabelPoint[above right](D){\footnotesize $80^\circ$}
+			\tkzLabelPoint[below left](D){\footnotesize $80^\circ$}
+			\tkzLabelPoint[above left](C){\footnotesize $100^\circ$}
+			\tkzLabelPoint[below right](C){\footnotesize $100^\circ$}
+			\tkzLabelSegment[above =1pt,pos=1.5](D,A){$a$}
+			\tkzLabelSegment[above =1pt,pos=1.3](C,B){$b$}
+			\tkzLabelPoints[above right=17pt](A)
+			\tkzLabelPoints[above left=15pt](D)
+			\tkzLabelPoints[below left=15pt](B)
+			\tkzLabelPoints[below left=15pt](C)
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Minh, dự án(EX-C2-L7-2018)]%[7H1B4]
+	Biết rằng hai đường thẳng $a$ và $b$ cùng vuông góc với đường thẳng $c$. Chứng tỏ rằng $a\parallel b$.
+	\loigiai{\immini
+		{
+			Theo giả thiết :
+			\begin{eqnarray*}
+				&&a \perp c \Leftrightarrow \widehat{A}_1=90^\circ;\\
+				&&b \perp c \Leftrightarrow \widehat{B}_1=90^\circ.
+			\end{eqnarray*}	
+		}
+		{
+			\begin{tikzpicture}[>=stealth,scale=0.6, line join = round, line cap = round]
+			\tkzInit[xmin=-3.5,xmax=3.0,ymin=-2,ymax=2.5]
+			\tkzClip
+			%\tkzAxeXY
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{-2/1/A,2/-1/C,1/1/D,-2/-1/B}
+			\tkzDrawLines[add=0.7 and 0.5](A,D)
+			\tkzDrawLines[add=0.5 and 0.2](B,C)
+			\tkzDrawLines[add=0.5 and 0.5](A,B)
+			\tkzDrawPoints[fill=black](A,B)
+			\tkzLabelAngle[pos=0.5](D,A,B){\footnotesize $1$} 
+			\tkzLabelAngle[pos=0.5](C,B,A){\footnotesize $1$}
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelSegment[above =1pt,pos=1.5](A,D){$a$}
+			\tkzLabelSegment[above =1pt,pos=1.2](B,C){$b$}
+			\tkzLabelSegment[right =1pt,pos=1.5](B,A){$c$}
+			\end{tikzpicture}
+		}
+		Khi đó, ta nhận được 
+		$\widehat{A}_1+\widehat{B}_1=90^\circ+90^\circ=180^\circ\Leftrightarrow a\parallel b$, vì có hai góc trong cùng phía bù nhau.
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Minh, dự án(EX-C2-L7-2018)]%[7H1K4]
+	Tính các góc của tứ giác $ABCD$ ($AB\parallel CD$), biết $\widehat{A}=3\widehat{D}$, $\widehat{B}-\widehat{C}=30^\circ$.
+	\loigiai{
+		\immini
+		{
+			Vì $ABCD$ là hình thang với $AB\parallel CD$, ta có 
+			\begin{eqnarray*}
+				&&180^\circ=\widehat{A}+\widehat{D}=3\widehat{D}+\widehat{D}\\
+				&\Leftrightarrow& \widehat{D}=45^\circ \Rightarrow \widehat{A}=135^\circ.\\
+				&&180^\circ\overset{\widehat{B}-\widehat{C}=30^\circ}{=}(30^\circ+\widehat{C})+\widehat{C}=30^\circ+2\widehat{C}\Leftrightarrow \widehat{C}=75^\circ\\
+				&\Rightarrow& \widehat{B}=180^\circ-\widehat{C}=105^\circ.
+			\end{eqnarray*}	
+		}
+		{
+			\begin{tikzpicture}[>=stealth,scale=0.8, line join = round, line cap = round]
+			\tkzInit[xmin=-2,xmax=5.0,ymin=-2,ymax=2.5]
+			\tkzClip
+			%\tkzAxeXY
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{1/1/A,-1/-1/D,3/1/B,4/-1/C}
+			%\tkzDefLine[K=-1,parallel=through D](A,B)\tkzGetPoint{C}
+			\tkzDrawPolygon(A,B,C,D)
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[below](C,D)
+			\end{tikzpicture}	
+		}
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Minh, dự án(EX-C2-L7-2018)]%[7H1B4]
+	\immini
+	{
+		Trên hình vẽ bên, cho $\widehat{AOB}=120^\circ$ và $Ot$ là tia phân giác của góc $\widehat{AOB}$. Chứng minh rằng $Ax \parallel Ot$ và $By\parallel Ot$.
+	}
+	{ \begin{tikzpicture}[>=stealth,scale=0.6, line join = round, line cap = round]
+		\tkzInit[xmin=-4.5,xmax=3.0,ymin=-2.5,ymax=2.5]
+		\tkzClip
+		%\tkzAxeXY
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{0/0/O,-2/0/t,-1/1.5/B,2/1.5/v,-1.2/-1.5/A,-4/-1.5/x}
+		\tkzDrawLines[add=0 and 0.2](B,v)
+		\tkzDrawLines[add=0 and 0.5](O,t)
+		\tkzDrawLines[add=0 and 0.5](A,x)
+		\tkzDrawSegments(O,A O,B)
+		\tkzDrawPoints[fill=black](A,B,O)
+		\tkzLabelAngle[pos=0.9](O,B,v){\footnotesize $60^\circ$} 
+		\tkzLabelAngle[pos=0.5](x,A,O){\footnotesize $120^\circ$}
+		\tkzLabelAngle[pos=0.5](t,O,B){\footnotesize $1$}
+		\tkzLabelAngle[pos=-0.5](t,O,A){\footnotesize $2$}
+		\tkzMarkAngles[size=0.7](B,O,t t,O,A)
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](O)
+		\tkzLabelPoints[right](A)
+		\tkzLabelPoints[above](v)
+		\tkzLabelPoints[above](t)
+		\tkzLabelPoints[above](x)
+		\end{tikzpicture}
+	}
+	\loigiai
+	{
+		Theo giả thiết, $Ot$ là tia phân giác của góc $\widehat{AOB}=120^\circ$ nên $\widehat{O}_1=\widehat{O}_2=60^\circ$.\\
+		Nhận xét rằng: 
+		\begin{itemize}
+			\item Vì $\widehat{O}_1=\widehat{OBy}$ nên $Ot\parallel By$ bởi vì chúng có hai góc so le trong bằng nhau.
+			\item Vì $\widehat{O}_2+\widehat{OAx}=180^\circ$ nên $Ot\parallel Ax$ bởi vì chúng có hai góc trong cùng phía bù nhau.
+		\end{itemize}
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Minh, dự án(EX-C2-L7-2018)]%[7H1B4]
+	Cho tam giác $ABC$. Tính tổng $\widehat{A}+\widehat{B}+\widehat{C}$.
+	\loigiai
+	{
+		\immini
+		{
+			Qua $A$ kẻ đường thẳng $d$ song song với $BC$, ta nhận thấy ngay:\\
+			$\widehat{B}=\widehat{A}_1$ vì là cặp góc so le trong;\\
+			$\widehat{C}=\widehat{A}_3$ vì là cặp góc so le trong.\\
+			Khi đó: \\
+			$\widehat{A}+\widehat{B}+\widehat{C}=\widehat{A}+\widehat{A}_1+\widehat{A}_3=180^\circ$.
+		}
+		{
+			\begin{tikzpicture}[>=stealth,scale=0.8, line join = round, line cap = round]
+			\tkzInit[xmin=-2.5,xmax=4.5,ymin=-3.5,ymax=1.0]
+			\tkzClip
+			%\tkzAxeXY
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/A,-1/-2/B,3/-2/C}
+			\tkzDefPointBy[translation=from B to C](A)\tkzGetPoint{A'}
+			\tkzDrawLines[add=0.5 and 0.2](A,A')
+			\tkzDrawSegments(A,B B,C C,A)
+			\tkzDrawPoints[fill=black](A,B,C)
+			\tkzLabelAngle[pos=0.9](C,A,A'){\footnotesize $3$} 
+			\tkzLabelPoint[below left](A){\footnotesize $1$}
+			\tkzLabelSegment[above,pos=1.0](A,A'){$d$}
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B,C)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{nx}
+	\hfill
+	\begin{itemize}
+		\item Trong ví dụ trên chúng ta đã sử dụng \textit{phương pháp dựng thêm hình phụ} để thực hiện. Nếu biết cách vận dụng phương pháp này thì nhiều bài toán sẽ được giải quyết một cách khá đơn giản. Chúng ta sẽ còn gặp lại phương pháp này trong những chủ đề tiếp theo.
+		\item Qua ví dụ trên ta ghi nhận được một kết quả\\
+		\lq\lq Tổng ba góc của một tam giác luôn bằng  $180^\circ$\rq\rq
+	\end{itemize}
+\end{nx}
+\begin{vd}%[Nguyễn Minh, dự án(EX-C2-L7-2018)]%[7H1B4]
+	Cho $a\parallel b$, chứng tỏ rằng nếu đường thẳng $c$ cắt đường thẳng $a$ thì cũng cắt đường thẳng $b$.
+	\loigiai
+	{
+		\immini
+		{
+			Giả sử đường thẳng $c$ cắt đường thẳng $a$ tại $M$.\\
+			Giả sử ngược lại $c$ không cắt $b$, tức là  $c\parallel b$.\\
+			Khi đó \textit{\lq\lq Qua điểm $M$ kẻ được hai đường thẳng phân biệt $a$ và $c$ song song với $b$\rq\rq}, điều này mâu thuẫn với tiên đề Ơ-clit.\\
+			Vậy $c$ luôn cắt $b$.
+		}
+		{
+			\begin{tikzpicture}[>=stealth,scale=0.6, line join = round, line cap = round]
+			\tkzInit[xmin=-2.5,xmax=4.5,ymin=-3.5,ymax=1.0]
+			\tkzClip
+			%\tkzAxeXY
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/M,-1/-2/B,3/-2/C}
+			\tkzDefPointBy[translation=from B to C](M)\tkzGetPoint{m}
+			\tkzDrawLines[add=0.6 and 0.1](M,m)
+			\tkzDrawLines[add=0.5 and -0.4](M,C)
+			\tkzDrawLines[add=0.5 and 0.2](B,C)
+			\tkzDrawPoints[fill=black](M)
+			\tkzLabelSegment[above,pos=1.0](M,m){$a$}
+			\tkzLabelSegment[left=1pt,pos=1.3](C,M){$c$}
+			\tkzLabelSegment[above,pos=1.3](B,C){$b$}
+			\tkzLabelPoints[above](M)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{nx}
+	\begin{enumerate}[1.]
+		\item Trong ví dụ trên ta đã sử dụng \textit{phương pháp chứng minh bằng phản chứng} để thực hiện. Lược đồ khi sử dụng phương pháp chứng minh phản chứng để chứng minh tính chất K được minh họa theo các bước:\\
+		\textbf{Bước 1:} Giả sử trái lại tính chất K không đúng, khi đó ta có tính chất K'.\\
+		\textbf{Bước 2:} Khai thác tính chất K' dẫn tới mâu thuẫn.\\
+		\textbf{Bước 3:} Kết luận về tính chất K.
+		\item Qua ví dụ trên ta ghi nhận được một kết quả:\\
+		\lq\lq Nếu một đường thẳng cắt một trong hai đường thẳng song song thì nó cắt đường thẳng còn lại\rq\rq.
+	\end{enumerate}
+\end{nx}
+\begin{vd}%[Nguyễn Minh, dự án(EX-C2-L7-2018)]%[7H1K4]
+	Qua điểm $A$ ở ngoài đường thẳng $a$ vẽ $n+1$ đường thẳng phân biệt. Chứng minh rằng ít nhất cũng có $n$ đường thẳng cắt $a$.
+	\loigiai
+	{
+		Giả sử ngược lại, trong số $n+1$ đường thẳng phân biệt kẻ qua $A$ có chưa đến $n$ đường thẳng cắt $a$.\\
+		Suy ra, còn lại ít nhất hai đường thẳng không cắt $a$.
+		Vậy hai đường thẳng đó sẽ cùng đi qua $A$ và song song với $a$, điều này mâu thuẫn với tiên đề Ơ -clít.\\
+		Vậy ít nhất cũng có $n$ đường thẳng cắt $a$. 
+	}
+\end{vd}
+\subsubsection{Bài tập luyện tập}
+\begin{bt}%[Nguyễn Minh, dự án(EX-C2-L7-2018)]%[7H1B4]
+	Biết $a\parallel b$, điền vào hình sau các góc còn lại
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,scale=0.7, line join = round, line cap = round]
+		\tkzInit[xmin=-2.5,xmax=3.0,ymin=-2,ymax=2.5]
+		\tkzClip
+		%\tkzAxeXY
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{-1.5/1/D,1/-1/B,0/1/A,-2/-1/C}
+		\tkzDrawLines[add=1.7 and 0.5](A,D)
+		\tkzDrawLines[add=1.5 and 0.5](B,C)
+		\tkzDrawLines[add=0.5 and 0.5](A,B)
+		\tkzDrawPoints[fill=black](A,B)
+		\tkzLabelAngle[pos=-0.6](D,A,B){\footnotesize $125^\circ$} 
+		\tkzLabelSegment[above =1pt,pos=2.5](D,A){$a$}
+		\tkzLabelSegment[above =1pt,pos=1.5](C,B){$b$}
+		\tkzLabelPoints[above right](A)
+		\tkzLabelPoints[below left](B)
+		\end{tikzpicture} \hspace{1cm}
+		\begin{tikzpicture}[>=stealth,scale=0.7, line join = round, line cap = round]
+		\tkzInit[xmin=-2.5,xmax=3.0,ymin=-2,ymax=2.5]
+		\tkzClip
+		%\tkzAxeXY
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{-1.5/1/D,1/-1/B,0/1/A,-2/-1/C}
+		\tkzDrawLines[add=1.7 and 0.5](A,D)
+		\tkzDrawLines[add=1.5 and 0.5](B,C)
+		\tkzDrawLines[add=0.5 and 0.5](A,B)
+		\tkzDrawPoints[fill=black](A,B)
+		\tkzLabelAngle[pos=-0.7](C,B,A){\footnotesize $33^\circ$} 
+		\tkzLabelSegment[above =1pt,pos=2.5](D,A){$a$}
+		\tkzLabelSegment[above =1pt,pos=1.5](C,B){$b$}
+		\tkzLabelPoints[above right](A)
+		\tkzLabelPoints[below left](B)
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Theo giả thiết $a\parallel b$ nên một đường thẳng cắt hai đường thẳng nói trên tạo ra các cặp góc đồng vị bằng nhau và các cặp góc so le trong bằng nhau. Dựa vào quan hệ đồng vị và so le trong của các góc ta có giá trị các góc được điền như hình vẽ
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-3.5,xmax=3.5,ymin=-2,ymax=2.5]
+			\tkzClip
+			%\tkzAxeXY
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{-1.5/1/D,1/-1/B,0/1/A,-2/-1/C}
+			\tkzDefPointBy[homothety = center D ratio 1.2](A)    \tkzGetPoint{A'}
+			\tkzDefPointBy[homothety = center A ratio 1.2](B)    \tkzGetPoint{B'}
+			%vẽ các đường thẳng
+			\tkzDrawLines[add=1.5 and 0.7](A,D)
+			\tkzDrawLines[add=0.5 and 0.2](B,C)
+			\tkzDrawLines[add=0.5 and 0.5](A,B)
+			\tkzDrawPoints[fill=black](A,B)
+			%Vẽ các đỉnh A, B, C, D
+			\tkzLabelPoints[above right=12pt](A)
+			\tkzLabelPoints[below=15pt](B)
+			%Góc đỉnh B
+			\tkzLabelAngle[pos=-0.6](C,B,A){\footnotesize $125^\circ$}
+			\tkzLabelAngle[pos=0.6](C,B,A){\footnotesize $125^\circ$}
+			\tkzLabelAngle[pos=-0.5](B',B,A){\footnotesize $55^\circ$}
+			\tkzLabelAngle[pos=0.5](B',B,A){\footnotesize $55^\circ$}
+			%Góc đỉnh A
+			\tkzLabelAngle[pos=0.7](B,A,A'){\footnotesize $55^\circ$}
+			\tkzLabelAngle[pos=-0.7](B,A,A'){\footnotesize $55^\circ$}
+			\tkzLabelAngle[pos=0.4](B,A,D){\footnotesize $125^\circ$}
+			\tkzLabelAngle[pos=-0.5](B,A,D){\footnotesize $125^\circ$}
+			\tkzLabelSegment[above =1pt,pos=2.30](D,A){$a$}
+			\tkzLabelSegment[above =1pt,pos=1.5](C,B){$b$}
+			\end{tikzpicture}\hspace{1.5cm}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-3.5,xmax=3.5,ymin=-2,ymax=2.5]
+			\tkzClip
+			%\tkzAxeXY
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{-1.5/1/D,1/-1/B,0/1/A,-2/-1/C}
+			\tkzDefPointBy[homothety = center D ratio 1.2](A)    \tkzGetPoint{A'}
+			\tkzDefPointBy[homothety = center A ratio 1.2](B)    \tkzGetPoint{B'}
+			%vẽ các đường thẳng
+			\tkzDrawLines[add=1.5 and 0.7](A,D)
+			\tkzDrawLines[add=0.5 and 0.2](B,C)
+			\tkzDrawLines[add=0.5 and 0.5](A,B)
+			\tkzDrawPoints[fill=black](A,B)
+			%Vẽ các đỉnh A, B, C, D
+			\tkzLabelPoints[above right=12pt](A)
+			\tkzLabelPoints[below=15pt](B)
+			%Góc đỉnh B
+			\tkzLabelAngle[pos=-0.6](C,B,A){\footnotesize $33^\circ$}
+			\tkzLabelAngle[pos=0.6](C,B,A){\footnotesize $33^\circ$}
+			\tkzLabelAngle[pos=-0.5](B',B,A){\footnotesize $147^\circ$}
+			\tkzLabelAngle[pos=0.5](B',B,A){\footnotesize $147^\circ$}
+			%Góc đỉnh A
+			\tkzLabelAngle[pos=0.7](B,A,A'){\footnotesize $33^\circ$}
+			\tkzLabelAngle[pos=-0.7](B,A,A'){\footnotesize $33^\circ$}
+			\tkzLabelAngle[pos=0.4](B,A,D){\footnotesize $147^\circ$}
+			\tkzLabelAngle[pos=-0.5](B,A,D){\footnotesize $147^\circ$}
+			\tkzLabelSegment[above =1pt,pos=2.30](D,A){$a$}
+			\tkzLabelSegment[above =1pt,pos=1.5](C,B){$b$}
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+\begin{bt}%[Nguyễn Minh, dự án(EX-C2-L7-2018)]%[7H1B4]
+	Hãy điền vào hình sau số đo của các góc còn lại
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+		\tkzInit[xmin=-2.5,xmax=3.0,ymin=-2,ymax=2.5]
+		\tkzClip
+		%\tkzAxeXY
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{-1.5/1/D,2/-1/B,0.5/1/A,-2/-1/C}
+		\tkzDefShiftPoint[A](0:1){A'}
+		\tkzDrawLines[add=0.7 and 0.5](A,D)
+		\tkzDrawLines[add=0.5 and 0.2](B,C)
+		\tkzDrawLines[add=0.5 and 0.5](D,C)
+		\tkzDrawLines[add=0.5 and 0.5](A,B)
+		\tkzDrawPoints[fill=black](A,B,C,D)
+		\tkzLabelAngle[pos=0.5](D,C,B){\footnotesize $78^\circ$} 
+		\tkzLabelAngle[pos=-0.6](C,B,A){\footnotesize $34^\circ$}
+		\tkzLabelAngle[pos=0.7](B,A,A'){\footnotesize $34^\circ$}
+		\tkzLabelSegment[above =1pt,pos=1.5](D,A){$a$}
+		\tkzLabelSegment[above =1pt,pos=1.2](C,B){$b$}
+		\end{tikzpicture}\hspace{1.5cm}
+		\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+		\tkzInit[xmin=-2.5,xmax=4.5,ymin=-2,ymax=2.5]
+		\tkzClip
+		%\tkzAxeXY
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{-1.5/1/D,3/-1/B,1/1/A,-2/-1/C}
+		\tkzDefShiftPoint[A](0:1){A'}
+		\tkzDrawLines[add=0.7 and 0.5](A,D)
+		\tkzDrawLines[add=0.5 and 0.2](B,C)
+		\tkzDrawLines[add=0.5 and 0.5](D,C)
+		\tkzDrawLines[add=0.5 and 0.5](A,B)
+		\tkzDrawPoints[fill=black](A,B,C,D)
+		\tkzLabelAngle[pos=0.5](D,C,B){\footnotesize $63^\circ$} 
+		\tkzLabelAngle[pos=-0.7](C,B,A){\footnotesize $30^\circ$}
+		\tkzLabelAngle[pos=0.7](B,A,A'){\footnotesize $30^\circ$}
+		\tkzLabelSegment[above =1pt,pos=1.5](D,A){$a$}
+		\tkzLabelSegment[above =1pt,pos=1.2](C,B){$b$}
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Dựa vào hình vẽ ta thấy $a\parallel b$ (do có hai góc đồng vị bằng nhau). Dựa vào quan hệ đồng vị và so le trong của các góc ta có giá trị các góc được điền như hình vẽ
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-3.5,xmax=3.5,ymin=-2,ymax=2.5]
+			\tkzClip
+			%\tkzAxeXY
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{-1.5/1/D,2/-1/B,0.5/1/A,-2/-1/C}
+			\tkzDefPointBy[homothety = center D ratio 1.2](A)    \tkzGetPoint{A'}
+			\tkzDefPointBy[homothety = center A ratio 1.2](D)    \tkzGetPoint{D'}
+			\tkzDefPointBy[homothety = center B ratio 1.2](C)    \tkzGetPoint{C'}
+			\tkzDefPointBy[homothety = center A ratio 1.2](B)    \tkzGetPoint{B'}
+			%vẽ các đường thẳng
+			\tkzDrawLines[add=0.7 and 0.5](A,D)
+			\tkzDrawLines[add=0.5 and 0.2](B,C)
+			\tkzDrawLines[add=0.5 and 0.5](D,C)
+			\tkzDrawLines[add=0.5 and 0.5](A,B)
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			%Vẽ các đỉnh A, B, C, D
+			\tkzLabelPoints[above right=12pt](A)
+			\tkzLabelPoints[below=15pt](B)
+			\tkzLabelPoints[above left=15pt](D)
+			\tkzLabelPoints[below right=15pt](C)
+			%góc đỉnh C
+			\tkzLabelAngle[pos=0.5](D,C,B){\footnotesize $78^\circ$} 
+			\tkzLabelAngle[pos=-0.5](D,C,B){\footnotesize $78^\circ$}
+			\tkzLabelAngle[pos=-0.5](D,C,C'){\footnotesize $102^\circ$}
+			\tkzLabelAngle[pos=0.5](D,C,C'){\footnotesize $102^\circ$}
+			%Góc đỉnh B
+			\tkzLabelAngle[pos=-0.6](C,B,A){\footnotesize $34^\circ$}
+			\tkzLabelAngle[pos=0.6](C,B,A){\footnotesize $34^\circ$}
+			\tkzLabelAngle[pos=-0.5](B',B,A){\footnotesize $146^\circ$}
+			\tkzLabelAngle[pos=0.5](B',B,A){\footnotesize $146^\circ$}
+			%Góc đỉnh A
+			\tkzLabelAngle[pos=0.7](B,A,A'){\footnotesize $34^\circ$}
+			\tkzLabelAngle[pos=-0.7](B,A,A'){\footnotesize $34^\circ$}
+			\tkzLabelAngle[pos=0.3](B,A,D){\footnotesize $146^\circ$}
+			\tkzLabelAngle[pos=-0.5](B,A,D){\footnotesize $146^\circ$}
+			%Góc đỉnh D
+			\tkzLabelAngle[pos=-0.5](A,D,C){\footnotesize $102^\circ$}
+			\tkzLabelAngle[pos=0.5](A,D,C){\footnotesize $102^\circ$}
+			\tkzLabelAngle[pos=0.5](D',D,C){\footnotesize $78^\circ$}
+			\tkzLabelAngle[pos=-0.5](D',D,C){\footnotesize $78^\circ$}
+			
+			\tkzLabelSegment[above =1pt,pos=1.5](D,A){$a$}
+			\tkzLabelSegment[above =1pt,pos=1.3](C,B){$b$}
+			\end{tikzpicture}\hspace{1.5cm}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-3.5,xmax=3.5,ymin=-2,ymax=2.5]
+			\tkzClip
+			%\tkzAxeXY
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{-1.5/1/D,2/-1/B,0.5/1/A,-2/-1/C}
+			\tkzDefPointBy[homothety = center D ratio 1.2](A)    \tkzGetPoint{A'}
+			\tkzDefPointBy[homothety = center A ratio 1.2](D)    \tkzGetPoint{D'}
+			\tkzDefPointBy[homothety = center B ratio 1.2](C)    \tkzGetPoint{C'}
+			\tkzDefPointBy[homothety = center A ratio 1.2](B)    \tkzGetPoint{B'}
+			%vẽ các đường thẳng
+			\tkzDrawLines[add=0.7 and 0.5](A,D)
+			\tkzDrawLines[add=0.5 and 0.2](B,C)
+			\tkzDrawLines[add=0.5 and 0.5](D,C)
+			\tkzDrawLines[add=0.5 and 0.5](A,B)
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			%Vẽ các đỉnh A, B, C, D
+			\tkzLabelPoints[above right=12pt](A)
+			\tkzLabelPoints[below=15pt](B)
+			\tkzLabelPoints[above left=15pt](D)
+			\tkzLabelPoints[below right=15pt](C)
+			%góc đỉnh C
+			\tkzLabelAngle[pos=0.5](D,C,B){\footnotesize $63^\circ$} 
+			\tkzLabelAngle[pos=-0.5](D,C,B){\footnotesize $63^\circ$}
+			\tkzLabelAngle[pos=-0.5](D,C,C'){\footnotesize $117^\circ$}
+			\tkzLabelAngle[pos=0.5](D,C,C'){\footnotesize $117^\circ$}
+			%Góc đỉnh B
+			\tkzLabelAngle[pos=-0.6](C,B,A){\footnotesize $30^\circ$}
+			\tkzLabelAngle[pos=0.6](C,B,A){\footnotesize $30^\circ$}
+			\tkzLabelAngle[pos=-0.5](B',B,A){\footnotesize $150^\circ$}
+			\tkzLabelAngle[pos=0.5](B',B,A){\footnotesize $150^\circ$}
+			%Góc đỉnh A
+			\tkzLabelAngle[pos=0.7](B,A,A'){\footnotesize $30^\circ$}
+			\tkzLabelAngle[pos=-0.7](B,A,A'){\footnotesize $30^\circ$}
+			\tkzLabelAngle[pos=0.3](B,A,D){\footnotesize $150^\circ$}
+			\tkzLabelAngle[pos=-0.5](B,A,D){\footnotesize $150^\circ$}
+			%Góc đỉnh D
+			\tkzLabelAngle[pos=-0.5](A,D,C){\footnotesize $117^\circ$}
+			\tkzLabelAngle[pos=0.5](A,D,C){\footnotesize $117^\circ$}
+			\tkzLabelAngle[pos=0.5](D',D,C){\footnotesize $63^\circ$}
+			\tkzLabelAngle[pos=-0.5](D',D,C){\footnotesize $63^\circ$}
+			
+			\tkzLabelSegment[above =1pt,pos=1.5](D,A){$a$}
+			\tkzLabelSegment[above =1pt,pos=1.3](C,B){$b$}
+			\end{tikzpicture}
+		\end{center}
+		
+	}
+\end{bt}
+\begin{bt}%[Nguyễn Minh, dự án(EX-C2-L7-2018)]%[7H1B4]
+	Cho hình $ABCD$ ($AB\parallel CD$). Tính các góc $\widehat{B}$ và $\widehat{D}$, biết $\widehat{A}=60^\circ$ và $\widehat{C}=130^\circ$.
+	\loigiai
+	{
+		\immini
+		{Vì $AB\parallel CD$ nên ta có\\ $\widehat{D}=180^\circ-\widehat{A}=120^\circ$;\\ $\widehat{B}=180^\circ-\widehat{C}=50^\circ$.
+		}
+		{
+			\begin{tikzpicture}[>=stealth,scale=0.8, line join = round, line cap = round]
+			\tkzInit[xmin=-2,xmax=5.0,ymin=-2,ymax=1.5]
+			\tkzClip
+			%\tkzAxeXY
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{1/1/D,-1/-1/A,3/1/C,4/-1/B}
+			%\tkzDefLine[K=-1,parallel=through D](A,B)\tkzGetPoint{C}
+			\tkzDrawPolygon(A,B,C,D)
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\tkzLabelPoints[above](C,D)
+			\tkzLabelPoints[below](A,B)
+			\tkzMarkAngles[size=0.3](D,C,B)
+			\tkzMarkAngles[size=0.5,mark=|](B,A,D)
+			\tkzLabelAngle[pos=-0.7](D,C,B){\footnotesize $130^\circ$} 
+			\tkzLabelAngle[pos=1.0](B,A,D){\footnotesize $60^\circ$} 
+			\end{tikzpicture}	
+		}
+	}
+\end{bt}
+\begin{bt}%[Nguyễn Minh, dự án(EX-C2-L7-2018)]%[7H1B4]
+	Trên hình vẽ bên, cho $\widehat{AOB}=100^\circ$ và $Ot$ là tia phân giác của góc $\widehat{AOB}$. Chứng minh rằng $Ax\parallel Ot$ và $By\parallel Ot$.
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,scale=0.6, line join = round, line cap = round]
+		\tkzInit[xmin=-4.5,xmax=3.0,ymin=-2.5,ymax=2.5]
+		\tkzClip
+		%\tkzAxeXY
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{0/0/O,-2/0/t,-1/1.5/B,2/1.5/y,-1.2/-1.5/A,-4/-1.5/x}
+		\tkzDrawLines[add=0 and 0.2](B,y)
+		\tkzDrawLines[add=0 and 0.5](O,t)
+		\tkzDrawLines[add=0 and 0.5](A,x)
+		\tkzDrawSegments(O,A O,B)
+		\tkzDrawPoints[fill=black](A,B,O)
+		\tkzLabelAngle[pos=0.9](O,B,y){\footnotesize $50^\circ$} 
+		\tkzLabelAngle[pos=0.5](x,A,O){\footnotesize $130^\circ$}
+		%\tkzLabelAngle[pos=0.5](t,O,B){\footnotesize $1$}
+		%\tkzLabelAngle[pos=-0.5](t,O,A){\footnotesize $2$}
+		%\tkzMarkAngles[size=0.7](B,O,t t,O,A)
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](O)
+		\tkzLabelPoints[right](A)
+		\tkzLabelPoints[above](y)
+		\tkzLabelPoints[above](t)
+		\tkzLabelPoints[above](x)
+		\end{tikzpicture}
+	\end{center}
+	\loigiai
+	{
+		Theo giả thiết $\widehat{AOB}=100^\circ$ nên $\widehat{AOt}=\widehat{tOB}=50^\circ$. Từ đó suy ra: 
+		\begin{itemize}
+			\item $\widehat{AOt}+\widehat{AOx}=180^\circ \Rightarrow Ax\parallel Ot$ vì có hai góc trong cùng phía bù nhau.
+			\item $\widehat{tOB}=\widehat{OBy}=50^\circ\Rightarrow By\parallel Ot$ vì có hai góc so le trong bằng nhau (cùng bằng $50^\circ$).
+		\end{itemize}
+	}
+\end{bt}
+\begin{bt}%[Nguyễn Minh, dự án(EX-C2-L7-2018)]%[7H1B4]
+	Cho hai góc $\widehat{xOy}$ và $\widehat{x'O'y'}$, biết $Ox\parallel O'x'$ (cùng chiều) và $Oy\parallel O'y'$ (cùng chiều). Chứng minh rằng $\widehat{xOy}=\widehat{x'O'y'}$.
+	\loigiai
+	{
+		\immini
+		{
+			Nối $O$ và $O'$, ta có nhận xét rằng:
+			\begin{itemize}
+				\item Vì $Ox\parallel O'x'$ nên $\widehat{O}_1=\widehat{O'}_1$ do đồng vị. 
+				\item Vì $Oy\parallel O'y'$ nên $\widehat{O}_2=\widehat{O'}_2$ do đồng vị. 
+			\end{itemize}
+			Khi đó: $\widehat{xOy}=\widehat{O}_1+\widehat{O}_2=\widehat{O'}_1+\widehat{O'}_2=\widehat{x'O'y'}$, điều phải chứng minh.
+		}
+		{
+			\begin{tikzpicture}[>=stealth,scale=0.8, line join = round, line cap = round]
+			\tkzInit[xmin=-4.5,xmax=3.5,ymin=-2.5,ymax=2.5]
+			\tkzClip
+			%\tkzAxeXY
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/O,2/0/O',1/1.5/x,1/-1.5/y}
+			\tkzDefPointBy[translation = from O to O'](x)    \tkzGetPoint{x'}
+			\tkzDefPointBy[translation = from O to O'](y)    \tkzGetPoint{y'}
+			\tkzDefPointBy[translation = from O to O'](O')    \tkzGetPoint{t}
+			\tkzDrawLines[add=0 and 0.5](O,O')
+			\tkzDrawLines[add=0 and 0.2](O,x)
+			\tkzDrawLines[add=0 and 0.2](O,y)
+			\tkzDrawLines[add=0 and 0.2](O',x')
+			\tkzDrawLines[add=0 and 0.2](O',y')
+			\tkzDrawPoints[fill=black](O,O')
+			\tkzLabelAngle[pos=0.9](O',O,x){\footnotesize $1$} 
+			\tkzLabelAngle[pos=0.5](O',O,y){\footnotesize $2$}
+			\tkzLabelAngle[pos=0.9](t,O',x'){\footnotesize $1$} 
+			\tkzLabelAngle[pos=0.5](t,O',y'){\footnotesize $2$}
+			\tkzLabelSegment[below=2pt,pos=1.0](O,y){$y$}
+			\tkzLabelSegment[below=3pt,pos=1.0](O',y'){$y'$}
+			\tkzLabelSegment[left,pos=1.0](O,x){$x$}
+			\tkzLabelSegment[left,pos=1.0](O',x'){$x'$}
+			\tkzLabelPoints[below left](O,O')
+			\end{tikzpicture}
+		}
+		\begin{nx}
+			Qua bài tập trên ta ghi nhận một kết quả: \\
+			\lq\lq Hai góc có cạnh tương ứng song song cùng chiều thì bằng nhau\rq\rq.
+		\end{nx}
+	}
+\end{bt}
+\begin{bt}%[Nguyễn Minh, dự án(EX-C2-L7-2018)]%[7H1K4]
+	Cho hai góc $\widehat{xOy}$ và $\widehat{x'O'y'}$, biết $Ox\parallel O'x'$ (cùng chiều) và $Oy\parallel O'y'$ (ngược chiều). Chứng minh rằng $\widehat{xOy}+\widehat{x'O'y'}=180^\circ$.
+	\loigiai
+	{
+		\immini 
+		{
+			Nối $O$ và $O'$, ta có nhận xét rằng
+			\begin{itemize}
+				\item Vì $Ox\parallel O'x'$ nên $\widehat{O}_1=\widehat{O'}_1$ do đồng vị. 
+				\item Vì $Oy\parallel O'y'$ nên $\widehat{O}_2=\widehat{O'}_2$ do đồng vị. 
+			\end{itemize}
+			Khi đó:  $\widehat{xOy}=\widehat{O}_1+\widehat{O}_2=\widehat{O'}_1+\widehat{O'}_2=180^\circ-\widehat{x'O'y'}\\ \Leftrightarrow \widehat{xOy}+\widehat{x'O'y'}=180^\circ$, điều phải chứng minh.
+			
+		}
+		{
+			\begin{tikzpicture}[>=stealth,scale=0.8, line join = round, line cap = round]
+			\tkzInit[xmin=-1.5,xmax=3.5,ymin=-2.3,ymax=2.5]
+			\tkzClip
+			%\tkzAxeXY
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/O,2/0/O',1.5/1.5/x,1/-1.5/y}
+			\tkzDefPointBy[translation = from O to O'](x)    \tkzGetPoint{x'}
+			\tkzDefPointBy[translation = from y to O](O')    \tkzGetPoint{y'}
+			\tkzDefPointBy[translation = from O to O'](O')    \tkzGetPoint{t}
+			\tkzDrawLines[add=0 and 0.5](O,O')
+			\tkzDrawLines[add=0 and 0.5](O,x)
+			\tkzDrawLines[add=0 and 0.2](O,y)
+			\tkzDrawLines[add=0 and 0.2](O',x')
+			\tkzDrawLines[add=0 and 0.5](O',y')
+			\tkzDrawPoints[fill=black](O,O')
+			\tkzLabelAngle[pos=0.9](O',O,x){\footnotesize $1$} 
+			\tkzLabelAngle[pos=0.5](O',O,y){\footnotesize $2$}
+			\tkzLabelAngle[pos=0.9](t,O',x'){\footnotesize $1$} 
+			\tkzLabelAngle[pos=0.5](O,O',y'){\footnotesize $2$}
+			\tkzLabelSegment[below=2pt,pos=1.0](O,y){$y$}
+			\tkzLabelSegment[left=3pt,pos=1.4](O',y'){$y'$}
+			\tkzLabelSegment[left,pos=1.4](O,x){$x$}
+			\tkzLabelSegment[left,pos=1.0](O',x'){$x'$}
+			\tkzLabelPoints[below left](O,O')
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Nguyễn Minh, dự án(EX-C2-L7-2018)]%[7H1K4]
+	Qua điểm $A$ nằm ngoài đường thẳng $a$ vẽ $100$ đường thẳng phân biệt. Chứng minh rằng ít nhất có $99$ đường thẳng cắt $a$.
+	\loigiai
+	{
+		Giả sử ngược lại, trong số $100$ đường thẳng phân biệt kẻ qua $A$ có chưa đến $99$ đường thẳng cắt $a$.\\
+		Suy ra, còn lại ít nhất hai đường thẳng không cắt $a$.\\
+		Vậy hai đường thẳng đó sẽ cùng đi qua $A$ và song song với $a$, điều này mâu thuẫn với tiên đề Ơ -clít.\\
+		Vậy ít nhất cũng có $99$ đường thẳng cắt $a$. 
+	}
+\end{bt}
+\begin{bt}%[Nguyễn Minh, dự án(EX-C2-L7-2018)]%[7H1B4]
+	Cho góc $\widehat{xOy}$ khác góc bẹt và một điểm $A$ ở trong đó. Một đường thẳng $a$ đi qua $A$ và song song với $Ox$. Chứng minh rằng $a$ cắt $Oy$.
+	\loigiai
+	{
+		Giả sử đường thẳng $a$ đi qua $A$ nhưng không cắt $Oy$, vì $A\not \in Oy $ suy ra $a\parallel Oy$ nên $Ox\parallel Oy$, điều này là vô lí.\\
+		Vậy đường thẳng $a$ cắt $Oy$.
+	}
+\end{bt}
+\begin{bt}%[Nguyễn Minh, dự án(EX-C2-L7-2018)]%[7H1K4]
+	Chứng minh rằng nếu hai đường thẳng song song bị cắt bởi hai cát tuyến thì
+	\begin{enumerate}
+		\item Hai tia phân giác của một cặp góc so le trong song song với nhau.
+		\item Hai tia phân giác của một cặp góc đồng vị bằng nhau.
+		\item Hai tia phan giác của một cặp góc trong cùng phía vuông góc với nhau.
+	\end{enumerate}
+	\loigiai
+	{
+		Không làm mất tính tổng quát ta coi cát tuyến $zz'$ cùng cắt hai đường thẳng song song $xx'$ và $yy'$ tại $A$ và $B$ (như hình vẽ).
+		\begin{enumerate}
+			\item Hai góc so le trong $\widehat{x'AB}$ và $\widehat{yBA}$ có hai tia phân giác lần lượt là $At$ và $Bs$. Ta cần chỉ ra rằng $At\parallel Bs$. Thật vậy\\
+			Vì $xx'\parallel yy'$ nên $\widehat{x'AB}=\widehat{yBA}$ suy ra $\widehat{tAB}=\widehat{sBA}=\dfrac{1}{2}\widehat{x'AB}$. Đường thẳng $zz'$ cắt hai tia $At$ và $Bs$ và có một cặp góc so le trong $\widehat{tAB}=\widehat{sBA}$ nên $At\parallel Bs$.
+			\item Hai góc đồng vị $\widehat{xAz'}$ và $\widehat{yBA}$ có hai tia phân giác lần lượt là $At'$ và $Bs$. Ta cần chỉ ra rằng $At'\parallel Bs$. Thật vậy\\
+			Vì $xx'\parallel yy'$ nên $\widehat{xAz}=\widehat{yBA}$ suy ra $\widehat{z'At'}=\widehat{sBA}=\dfrac{1}{2}\widehat{x'Az'}$. Đường thẳng $zz'$ cắt hai tia $At'$ và $Bs$ và có một cặp góc đồng vị $\widehat{z'At'}=\widehat{sBA}$ nên $At'\parallel Bs$.
+			\item Hai góc trong cùng phía $\widehat{x'AB}$ và $\widehat{y'BA}$ có hai tia phân giác lần lượt là $At$ và $Bs'$. Ta cần chỉ ra rằng $At\perp Bs'$. Thật vậy
+			\immini
+			{Vì $xx'\parallel yy'$ nên $\widehat{x'AB}+\widehat{y'BA}=180^\circ$.\\
+				Gọi $C$ là giao điểm của $At$ và $Bs'$.\\
+				Tam giác $ABC$ có 
+				\begin{eqnarray*}
+					&&\widehat{CAB}+\widehat{CBA}=\widehat{A}_4+\widehat{B}_3\\
+					&=&\widehat{CAB}+\widehat{CBA}\\
+					&=&\dfrac{1}{2}\widehat{x'AB}+\dfrac{1}{2}\widehat{y'BA}\\
+					&=&\dfrac{1}{2}\left(\widehat{x'AB}+\widehat{y'BA}\right)\\
+					&=&\dfrac{1}{2}\cdot 180^\circ=90^\circ
+				\end{eqnarray*}
+				Suy ra $\widehat{ACB}=180^\circ-90^\circ=90^\circ$ hay $At\perp Bs'$. 
+			}
+			{
+				\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+				\tkzInit[xmin=-3.5,xmax=3.5,ymin=-2,ymax=2.5]
+				\tkzClip
+				%\tkzAxeXY
+				\tikzset{label style/.style={font=\footnotesize}}
+				\tkzDefPoints{-1.5/1/D,1/-1/B,0/1/A,-2/-1/C}
+				\tkzDefPointBy[homothety = center D ratio 1.2](A)    \tkzGetPoint{A'}
+				\tkzDefPointBy[homothety = center C ratio 1.2](B)    \tkzGetPoint{B'}
+				\tkzDefLine[bisector](D,A,B)\tkzGetPoint{t}
+				\tkzDefPointBy[homothety = center A ratio -1.0](t)    \tkzGetPoint{t'}
+				\tkzDefLine[bisector](B',B,A)\tkzGetPoint{s}
+				\tkzDefLine[bisector](A,B,C)\tkzGetPoint{s'}
+				\tkzInterLL(A,t)(B,s')\tkzGetPoint{C'}
+				%vẽ các đường thẳng
+				\tkzDrawLines[add=1.5 and 0.7](A,D)
+				\tkzDrawLines[add=0.5 and 0.2](B,C)
+				\tkzDrawLines[add=0.5 and 0.5](A,B)
+				\tkzDrawLines[add=0 and 0](A,t)
+				\tkzDrawLines[add=0 and 0.5](A,t')
+				\tkzDrawLines[add=0 and 0.5](B,s)
+				\tkzDrawLines[add=0 and -0.3](B,s')
+				\tkzDrawPoints[fill=black](A,B,C')
+				%Vẽ các đỉnh A, B, C, D
+				\tkzLabelPoints[above left](A)
+				\tkzLabelPoints[below left](B)
+				\tkzLabelPoints[left](t)
+				\tkzLabelPoint[left](C'){$C$}
+				\tkzLabelPoints[right](s)
+				\tkzLabelAngle[pos=0.4](D,A,t){\footnotesize $1$}
+				\tkzLabelAngle[pos=-0.5](t,A,B){\footnotesize $2$}
+				\tkzLabelAngle[pos=-0.4](D,A,t){\footnotesize $3$}
+				\tkzLabelAngle[pos=0.5](t,A,B){\footnotesize $4$}
+				\tkzLabelAngle[pos=0.4](B',B,s){\footnotesize $1$}
+				\tkzLabelAngle[pos=0.5](s,B,A){\footnotesize $2$}
+				\tkzLabelAngle[pos=0.5](s',B,A){\footnotesize $3$}
+				\tkzLabelAngle[pos=0.5](s',B,C){\footnotesize $4$}
+				\tkzLabelSegment[above =1pt,pos=2.30](D,A){$x$}
+				\tkzLabelSegment[above =1pt,pos=-0.7](D,A){$x'$}
+				\tkzLabelSegment[above =1pt,pos=1.5](C,B){$y$}
+				\tkzLabelSegment[above =1pt,pos=-0.3](C,B){$y'$}
+				\tkzLabelSegment[right =1pt,pos=1.3](A,B){$z$}
+				\tkzLabelSegment[right =1pt,pos=-0.5](A,B){$z'$}
+				\tkzLabelSegment[right =1pt,pos=0.5](A,t'){$t'$}
+				\tkzLabelSegment[right =1pt,pos=0.7](B,s'){$s'$}
+				\end{tikzpicture}
+			}
+		\end{enumerate}
+	}
+\end{bt}

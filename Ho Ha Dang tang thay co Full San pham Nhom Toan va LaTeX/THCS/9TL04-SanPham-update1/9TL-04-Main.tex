@@ -1,0 +1,149 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage{amsmath,amssymb,yhmath,mathrsfs,fancyhdr,tkz-euclide,tikz-3dplot}
+\usepackage{framed,tikz,tkz-tab,tkz-linknodes,pgfplots,currfile,enumerate,icomma}
+\usetikzlibrary{shapes.geometric,arrows,calc,intersections,angles,patterns,snakes,shadings,quotes}
+\usetkzobj{all}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.9}
+\usepackage[top=1.5cm, bottom=1.5cm, left=2.5cm, right=1.5cm] {geometry}
+\usepackage[hidelinks,unicode,pdfencoding=unicode, psdextra]{hyperref}
+\usepackage[dethi]{ex_test}
+\usepackage[most]{tcolorbox}
+\newtheorem{bt}{Bài}[section]
+\newtheorem{vd}{Ví dụ}[section]
+\def\beginbox{\begin{tcolorbox}[colframe=blue,colback=white]}
+	\def\endbox{\end{tcolorbox}}
+\AtBeginEnvironment{vd}{
+	\beginbox
+	\renewcommand{\loigiai}[1]{
+		\renewcommand{\immini}[2]{
+			\setbox\imbox=\vbox{\hbox{##2}}
+			\widthimmini=\wd\imbox
+			\IMleftright{##1}{##2}
+		}
+		\endbox
+		\begin{onlysolution}
+			#1
+		\end{onlysolution}
+		\def\endbox{}
+	}
+}
+\AtEndEnvironment{vd}{
+	\endbox
+}
+\newtcolorbox[auto counter]{dang}[1]{
+	colframe=blue,colback=white, coltitle=black, colbacktitle=blue!8!white,fonttitle=\bfseries, breakable,
+	title={Dạng~\thetcbcounter.\ #1}
+}
+\theorembodyfont{\it}
+\newtheorem{dl}{Định lí}
+\theoremseparator{.}
+\theorembodyfont{\rm}
+\newtheorem{hq}{Hệ quả}
+\newtheorem{tc}{Tính chất}
+\newtheorem{dn}{Định nghĩa}
+\theoremstyle{nonumberplain}
+\newtheorem{kn}{Khái niệm}
+\theoremseparator{}
+\theorembodyfont{\it}
+\usepackage{stackengine}
+\usepackage{scalerel}
+\newcommand\dangersign[1][2ex]{%
+	\renewcommand\stacktype{L}%
+	\scaleto{\stackon[1.3pt]{\color{red}$\triangle$}{\fontsize{4}{0}\selectfont !}}{#1}%
+}
+\newtheorem{note}{{\dangersign[3ex]}}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\usepackage{titlesec}
+\makeatletter
+\renewcommand\thesection{\@arabic\c@section}
+\renewcommand\thesubsection{\@Roman\c@subsection.}
+\renewcommand\thesubsubsection{\@arabic\c@subsubsection.}
+\makeatother
+\titleformat{\section}{\selectfont\color{red!50!blue}\centering\scshape\Large\bfseries}{\S\thesection.}{-2.5em}{
+	\setcounter{vd}{0}
+	\setcounter{ex}{0}
+	\setcounter{bt}{0}
+	\setcounter{dl}{0}
+	\setcounter{dn}{0}
+	\setcounter{hq}{0}
+	\setcounter{tc}{0}
+	\setcounter{\tcbcounter}{0}
+}
+\renewcommand{\vec}[1]{\protect\overrightarrow{#1}}
+\newcommand{\hoac}[1]{\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{\left\{\begin{aligned}#1\end{aligned}\right.}
+\renewcommand{\labelenumi}{\alph{enumi})}
+%Lệnh song song
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\varparallel}{\mathrel}{symbolsC}{9}
+\DeclareMathSymbol{\parallel}{\mathrel}{symbolsC}{9}
+%\renewcommand{\baselinestretch}{1.4}
+\listenumerate{vd,bt}
+
+\begin{document}
+	\thispagestyle{empty}	
+	\begin{tcolorbox}[width=.99\textwidth,height=.99\textheight,arc = 2mm, arc is angular]
+		\begin{center}
+			{\LARGE \bf \color{red} Nhóm Toán và LateX}\\
+			\vspace*{.4cm}
+			{\large \bf \color{red} DỰ ÁN 9TL-04}\\	
+			\vspace*{9cm}	
+			{\bf \fontsize{40}{0}\selectfont T\fontsize{30}{0}\selectfont Ự LUẬN HÌNH HỌC 9\\ CHƯƠNG 2,3,4}\\
+			\vspace*{11cm}
+			{\large \bf \today}
+		\end{center}		
+	\end{tcolorbox}
+	
+	\pagestyle{fancy}
+	\lhead{Facebook ``Nhóm Toán và LaTeX''}
+	\chead{\empty}
+	\rhead{\currfilename}
+	\lfoot{\empty}
+	
+	\tableofcontents
+	
+	\chapter*{Mở đầu}
+	Kính chào các Thầy/Cô.\\
+	\vspace{0.6cm}
+	\noindent Trên tay các Thầy/Cô đang là một trong những tài liệu môn Toán được soạn thảo theo chuẩn \LaTeX{} bởi tập thể các giáo viên của ``Nhóm Toán và LaTeX''.\footnote{Tại địa chỉ https://www.facebook.com/groups/toanvalatex/}\\
+	\vspace{0.6cm}
+	\noindent \textbf{\textit{Mục tiêu của nhóm:}} 
+	\begin{enumerate}[\bfseries 1.]
+		\item Hỗ trợ các giáo viên Toán tiếp cận với \LaTeX{} trong soạn thảo tài liệu Toán nói chung và đề thi trắc nghiệm bằng \LaTeX{} nói riêng với cấu trúc gói đề thi trắc nghiệm là \texttt{ex\_test} của tác giả Trần Anh Tuấn, Đại học Thương Mại.
+		\item Tiến hành các dự án biên soạn tài liệu giảng dạy Toán học.
+		\item Hướng đến việc chia sẻ chuyên đề, viết sách,... bằng \LaTeX,...
+	\end{enumerate}
+
+\setcounter{chapter}{1}
+\chapter{ĐƯỜNG TRÒN}
+\include{Data/9H2-1}
+\include{Data/9H2-2}
+\include{Data/9H2-3}
+\include{Data/9H2-4}
+\include{Data/9H2-5}
+\include{Data/9H2-6}
+\include{Data/9H2-7}
+\include{Data/9H2-OT}
+\chapter{GÓC VỚI ĐƯỜNG TRÒN}
+\include{Data/9H3-1}
+\include{Data/9H3-2}
+\include{Data/9H3-3}
+\include{Data/9H3-4}
+\include{Data/9H3-5}
+\include{Data/9H3-6}
+\include{Data/9H3-7}
+\include{Data/9H3-8}
+\include{Data/9H3-9}
+\include{Data/9H3-10}
+\include{Data/9H3-OT}
+\chapter{HÌNH TRỤ - HÌNH NÓN - HÌNH CẦU}
+\include{Data/9H4-1}
+\include{Data/9H4-2}
+\include{Data/9H4-3}
+\include{Data/9H4-OT}
+	
+\end{document}	
+		
+	

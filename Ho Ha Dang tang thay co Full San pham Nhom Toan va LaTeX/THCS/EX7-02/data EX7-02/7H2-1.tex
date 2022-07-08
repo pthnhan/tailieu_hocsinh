@@ -1,0 +1,721 @@
+%Người soạn: Hứa Đức Sinh. Phản biện: Tuấn Nguyễn.
+\Opensolutionfile{ans}[ans/ans7H2-1]
+\section{TỔNG BA GÓC CỦA MỘT TAM GIÁC}
+\subsection{Tóm tắt lý thuyết}
+	\begin{enumerate}[\tickEX]
+		\item Tổng ba góc của một tam giác bằng $180^\circ$.
+			\begin{center}
+				\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+				\tkzDefPoints{0/0/B}
+				\coordinate (C) at ($(B)+(6,0)$);
+				\tkzDefShiftPoint[B](70:4){A}
+				%
+				\tkzMarkAngles[size=.5cm,arc=l](B,A,C)
+				\tkzMarkAngles[size=.5cm,arc=l,mark=|](C,B,A)
+				\tkzMarkAngles[size=.6cm,arc=ll](A,C,B)
+				\pgfresetboundingbox
+				\tkzDrawSegments(A,B B,C C,A)
+				\tkzDrawPoints[fill=black](A,B,C)
+				\tkzLabelPoints[above](A)
+				\tkzLabelPoints[left](B)
+				\tkzLabelPoints[right](C)
+				\end{tikzpicture}\\
+				$\widehat{A} + \widehat{B} + \widehat{C} = 180^\circ.$
+			\end{center}
+		\item Áp dụng vào tam giác vuông:
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+			\tkzDefPoints{0/0/A}
+			\coordinate (B) at ($(A)+(4,0)$);
+			\coordinate (C) at ($(A)+(0,6)$);
+			\pgfresetboundingbox
+			\tkzMarkAngles[size=.7cm,arc=l](C,B,A)
+			\tkzMarkAngles[size=.7cm,arc=l,mark=|](A,C,B)
+			\tkzMarkRightAngles[size=0.4,fill=gray!50](B,A,C)
+			\tkzDrawSegments(A,B B,C C,A)
+			\tkzDrawPoints[fill=black](A,B,C)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](B)
+			\tkzLabelPoints[above](C)
+			\end{tikzpicture}
+			\hspace{1cm}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefTriangle[two angles = 55 and 35](B,C)    \tkzGetPoint{A}
+			%
+			\pgfresetboundingbox
+			\tkzMarkAngles[size=.7cm,arc=l](C,B,A)
+			\tkzMarkAngles[size=.7cm,arc=l,mark=|](A,C,B)
+			\tkzMarkRightAngles[size=.3,fill=gray!50](B,A,C)
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawPoints[fill=black](A,B,C)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		\end{center}
+		\begin{itemize}
+			\item Tam giác vuông là tam giác có một góc vuông.
+			\item Trong một tam giác vuông, hai góc nhọn phụ nhau.
+			\[\triangle ABC \text{ vuông tại } A \Rightarrow \widehat{B} + \widehat{C} = 90^\circ.\]
+		\end{itemize}
+	\end{enumerate}
+
+\begin{minipage}[c]{.55\textwidth}
+	\begin{enumerate}[\tickEX]
+		\item Góc ngoài của một tam giác:
+		\begin{itemize}
+			\item Góc ngoài của một tam giác là góc kề bù với một góc của tam giác đó.\\
+			Hình bên, $\widehat{ACx}$ là góc ngoài tại đỉnh $C$ của $\triangle ABC$.
+			\item Mỗi góc ngoài của một tam giác bằng tổng của hai góc trong không kề nó.
+		\end{itemize}
+		\begin{note}
+			Góc ngoài của một tam giác lớn hơn mỗi góc trong không kề với nó.
+			\[\widehat{ACx}>\widehat{A},\ \widehat{ACx}>\widehat{B}.\]
+		\end{note}
+	\end{enumerate}
+\end{minipage}
+\begin{minipage}[c]{.35\textwidth}
+	\begin{flushright}
+	\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+	\tkzDefPoints{0/0/B}
+	\coordinate (C) at ($(B)+(6,0)$);
+	\tkzDefShiftPoint[B](70:4){A}
+	\coordinate (x) at ($(B)!1.3!(C)$);
+	%
+	\pgfresetboundingbox
+	\tkzMarkAngles[size=.5cm,arc=ll](x,C,A)
+	\tkzDrawSegments(A,B C,A B,x)
+	\tkzDrawPoints[fill=black](A,B,C)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[below](B,x,C)
+	\end{tikzpicture}
+	\end{flushright}
+\end{minipage}
+
+
+
+
+\subsection{Các dạng toán}
+\begin{dang}[Giải bài toán định lượng]
+	Sử dụng các tính chất
+	\begin{enumerate}[\tickEX]
+		\item Tổng ba góc của một tam giác bằng $180^\circ$.
+		\item Trong tam giác vuông, hai góc nhọn phụ nhau.
+		\item Góc ngoài của một tam giác bằng tổng hai góc trong không kề với nó.
+	\end{enumerate}
+\end{dang}
+\begin{vd}
+	Cho $\triangle ABC$.
+	\begin{enumerate}
+		\item Biết $\widehat{A} = 45^\circ$, $\widehat{B} = 80^\circ$. Tính $\widehat{C}$.
+		\item Biết $\widehat{A} = 60^\circ$ và $\widehat{B} - \widehat{C} = 10^\circ$. Tính $\widehat{B}$, $\widehat{C}$.
+	\end{enumerate}
+	\loigiai
+	{
+		\begin{enumerate}
+			\item Ta có $\widehat{A} + \widehat{B} + \widehat{C} = 180^\circ \Rightarrow \widehat{C} = 180^\circ - \widehat{A} - \widehat{B} = 180^\circ - 45^\circ - 80^\circ = 55^\circ$.
+			\item $\widehat{B} - \widehat{C} = 10^\circ \Rightarrow \widehat{B} = 10^\circ + \widehat{C}$.\\
+			Ta có 
+			{
+				\allowdisplaybreaks	
+				\begin{eqnarray*}
+					&&180^\circ = \widehat{A} + \widehat{B} + \widehat{C} = 60^\circ + 10^\circ + \widehat{C} + \widehat{C} = 70^\circ + 2\widehat{C} \\
+					&\Rightarrow& 2\widehat{C} = 180^\circ - 70^\circ = 110^\circ \Rightarrow \widehat{C} = 55^\circ\\
+					&\Rightarrow& \widehat{B} = 10^\circ + \widehat{C} = 10^\circ + 55^\circ = 65^\circ.
+				\end{eqnarray*}
+			}
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}
+	Tính số đo góc $x$ ở các hình sau
+	\begin{center}
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+		\tkzDefPoints{4/0/I,-1/5/G}
+		\tkzDefTriangle[two angles = 40 and 30](I,G)    \tkzGetPoint{H}
+		\tkzDrawPolygon(H,I,G)
+		\pgfresetboundingbox
+		\tkzLabelAngles[pos=0.3](I,H,G){$x$}
+		\tkzLabelAngles[pos=0.9](G,I,H){$40^\circ$}
+		\tkzLabelAngles[pos=1.3](H,G,I){$30^\circ$}
+		\node at ($(H)!.5!(I)$) [below=.2cm]{Hình a)};
+		\end{tikzpicture}
+		\hspace{.5cm}
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.9]
+		\tkzDefPoints{1/3/A,0/0/B}
+		\tkzDefTriangle[two angles = 90 and 55](A,B)    \tkzGetPoint{C}
+		\tkzDrawPolygon(A,B,C)
+		\pgfresetboundingbox
+		\tkzLabelAngles[pos=-0.8](A,C,B){$x$}
+		\tkzLabelAngles[pos=0.5](B,A,C){$90^\circ$}
+		\tkzLabelAngles[pos=.8](C,B,A){$55^\circ$}
+		\node at ($(B)!.5!(C)$) [below = 1.2cm]{Hình b)};
+		\end{tikzpicture}
+		\hspace{.5cm}
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.9]
+		\tkzDefPoints{0/0/N,4/0/P}
+		\tkzDefTriangle[two angles = 50 and 65](N,P)    \tkzGetPoint{M}
+		\tkzDrawPolygon(N,P,M)
+		\pgfresetboundingbox
+		\tkzLabelAngles[pos=.6](M,P,N){$x$}
+		\tkzLabelAngles[pos=.8](P,N,M){$50^\circ$}
+		\tkzLabelAngles[pos=.6](N,M,P){$x$}
+		\node at ($(N)!.5!(P)$) [below = .2cm]{Hình c)};
+		\end{tikzpicture}
+	\end{center}
+	\loigiai
+	{
+		\begin{itemize}
+			\item Hình a)\\
+			Ta có $x + 40^\circ + 30^\circ = 180^\circ \Rightarrow x = 180^\circ - 30^\circ - 40^\circ = 110^\circ$.
+			\item Hình b)\\
+			Ta có $x + 55^\circ + 90^\circ = 180^\circ \Rightarrow x = 180^\circ - 90^\circ - 55^\circ = 35^\circ$.
+			\item Hình c)\\
+			Ta có $x + x + 50^\circ = 180^\circ \Rightarrow 2x + 50^\circ = 180^\circ \Rightarrow 2x = 180^\circ - 50^\circ = 130^\circ \Rightarrow x = \dfrac{130^\circ}{2} = 65^\circ$.
+		\end{itemize}
+	}
+\end{vd}
+
+\begin{vd}
+	Cho $\triangle ABC$ có số đo các góc $\widehat{A}$, $\widehat{B}$, $\widehat{C}$ lần lượt tỉ lệ với $1,\ 3,\ 5$. Tính số đo các góc của $\triangle ABC$.
+	\loigiai
+	{
+		Ta có $\widehat{A} + \widehat{B} + \widehat{C} = 180^\circ$.\\
+		Từ giả thiết ta có $\dfrac{\widehat{A}}{1} = \dfrac{\widehat{B}}{3} = \dfrac{\widehat{C}}{5} = \dfrac{\widehat{A} + \widehat{B} + \widehat{C}}{1+3+5} = \dfrac{180^\circ}{9} = 20^\circ$.\\
+		Suy ra
+		{
+			\allowdisplaybreaks
+			\begin{align*}
+			&\widehat{A} = 20^\circ,\\
+			&\widehat{B} = 20^\circ \cdot 3 = 60^\circ,\\
+			&\widehat{C} = 20^\circ \cdot 5 = 100^\circ.
+			\end{align*}
+		}
+	}
+\end{vd}
+
+\begin{vd}
+	Ở hình dưới ta có $AB \parallel DE$, $\widehat{ACD} = 90^\circ$. Các tia phân giác của $\widehat{CAB}$ và $\widehat{CDE}$ cắt nhau ở $I$. Tính $\widehat{AID}$.
+	\begin{center}
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+		\tkzDefPoints{0/0/D,2.5/4/A}
+		\tkzDefTriangle[two angles = 55 and 35](A,D)    \tkzGetPoint{C}
+		\coordinate (B) at ($(A)+(5,0)$);
+		\coordinate (E) at ($(D)+(10,0)$);
+		\tkzDefLine[bisector](C,A,B)    \tkzGetPoint{a}
+		\tkzDefLine[bisector](E,D,C)    \tkzGetPoint{d}
+		\tkzInterLL(A,a)(D,d)    \tkzGetPoint{I}
+		\pgfresetboundingbox
+		\tkzDrawPolygon(A,D,C)
+		\tkzDrawPolySeg(B,A,I,D,E)
+		\tkzMarkAngles[size=.8cm,arc=l](C,A,I)
+		\tkzMarkAngles[size=1cm,arc=l](I,A,B)
+		\tkzMarkAngles[size=1.3cm,arc=ll](E,D,I)
+		\tkzMarkAngles[size=1.5cm,arc=ll](I,D,C)
+		\tkzMarkRightAngles[size=.3](A,C,D)
+		\tkzLabelAngles[pos=1.6](E,D,I){$1$}
+		\tkzLabelAngles[pos=1.2](I,A,B){$1$}
+		\tkzLabelAngles[pos=1](C,A,I){$2$}
+		\tkzLabelAngles[pos=1.8](I,D,C){$2$}
+		\tkzLabelAngles[pos=.6](D,A,C C,D,A){$3$}
+		\tkzLabelPoints[above](A,B)
+		\tkzLabelPoints[below](D,E)
+		\tkzLabelPoints[right](C,I)
+		\end{tikzpicture}
+	\end{center}
+	\loigiai
+	{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+				\tkzDefPoints{0/0/D,2.5/4/A}
+				\tkzDefTriangle[two angles = 55 and 35](A,D)    \tkzGetPoint{C}
+				\coordinate (B) at ($(A)+(5,0)$);
+				\coordinate (E) at ($(D)+(10,0)$);
+				\tkzDefLine[bisector](C,A,B)    \tkzGetPoint{a}
+				\tkzDefLine[bisector](E,D,C)    \tkzGetPoint{d}
+				\tkzInterLL(A,a)(D,d)    \tkzGetPoint{I}
+				\tkzInterLL(A,I)(D,E)    \tkzGetPoint{K}
+				\pgfresetboundingbox
+				\tkzDrawPolygon(A,D,C)
+				\tkzDrawPolySeg(B,A,I,D,E)
+				\tkzDrawSegments(I,K)
+				\tkzMarkAngles[size=.8cm,arc=l](C,A,I)
+				\tkzMarkAngles[size=1cm,arc=l](I,A,B I,K,D)
+				\tkzMarkAngles[size=1.3cm,arc=ll](E,D,I)
+				\tkzMarkAngles[size=1.5cm,arc=ll](I,D,C)
+				\tkzMarkRightAngles[size=.3](A,C,D)
+				\tkzLabelAngles[pos=1.6](E,D,I){$1$}
+				\tkzLabelAngles[pos=1.2](I,A,B I,K,D){$1$}
+				\tkzLabelAngles[pos=1](C,A,I){$2$}
+				\tkzLabelAngles[pos=1.8](I,D,C){$2$}
+				\tkzLabelAngles[pos=.6](D,A,C C,D,A){$3$}
+				\tkzLabelPoints[above](A,B,I)
+				\tkzLabelPoints[below](D,E,K)
+				\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $K$ là giao điểm của $AI$ và $DE$.
+		Vì $AB \parallel DE$ nên $\widehat{K_1} = \widehat{A_1}$ (so le trong); $\widehat{AID} = \widehat{D_1} + \widehat{K_1}$ (góc ngoài của $\triangle AID$). Suy ra $\widehat{AID} = \widehat{D_1} + \widehat{A_1}$. \tagEX{1}
+		Vì $AB \parallel DE$ nên $\widehat{BAD} + \widehat{ADE} = 180^\circ$ (góc trong cùng phía) tức là 
+		\[\widehat{A_1} + \widehat{A_2} + \widehat{A_3} + \widehat{D_1} + \widehat{D_2} + \widehat{D_3} = 180^\circ.\]
+		Ta lại có $\widehat{A_3} + \widehat{D_3} = 90^\circ$ nên $\widehat{A_1} + \widehat{A_2} + \widehat{D_1}+ \widehat{D_2} = 90^\circ$.\\
+		Do đó $2\widehat{A_1} + 2\widehat{D_1} = 90^\circ$, suy ra $\widehat{A_1} + \widehat{D_1} = 45^\circ$. \tagEX{2}
+		Từ (1) và (2) suy ra $\widehat{AID} = 45^\circ$.
+	}
+\end{vd}
+
+\begin{vd}
+	Cho $\triangle ABC$ có $\widehat{B} - \widehat{C} = 20^\circ$. Đường phân giác trong của $\widehat{A}$ cắt $BC$ tại $D$. Tính số đo của $\widehat{ADB}$ và $\widehat{ADC}$.
+	\loigiai
+	{
+		\immini
+		{
+			Giả sử $\widehat{ADB} = \widehat{D_1}$ và $\widehat{ADC} = \widehat{D_2}$ (hình vẽ).\\
+			$\triangle ACD$ có $\widehat{D_1}$ là góc ngoài tại đỉnh $D$ của tam giác nên $\widehat{D_1} = \widehat{A_2} + \widehat{C}$. \tagEX{1}
+			$\triangle ABD$ có $\widehat{D_2}$ là góc ngoài tại đỉnh $D$ của tam giác nên $\widehat{D_2} = \widehat{A_1} + \widehat{B}$. \tagEX{2}
+			Từ (1) và (2) ta có
+			\[\widehat{D_2} - \widehat{D_1} = \left(\widehat{A_1} - \widehat{A_2}\right) + \left(\widehat{B} - \widehat{C}\right).\]
+			Vì $\widehat{A_1} = \widehat{A_2}$ và $\widehat{B} - \widehat{C} = 20^\circ$ nên suy ra $\widehat{D_2} - \widehat{D_1} = 20^\circ$. \tagEX{3}
+			Mặt khác ta có $\widehat{D_2} + \widehat{D_1} = 180^\circ$ (kề bù). \tagEX{4}
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefTriangle[two angles = 70 and 50](B,C)    \tkzGetPoint{A}
+			\tkzDefLine[bisector](B,A,C)    \tkzGetPoint{a}
+			\tkzInterLL(A,a)(B,C)    \tkzGetPoint{D}
+			%
+			\pgfresetboundingbox
+			\tkzMarkAngles[size=.7cm,arc=l,mark=|](B,A,D)
+			\tkzLabelAngles[pos=1.2](B,A,D){$1$}
+			\tkzMarkAngles[size=1cm,arc=l,mark=|](D,A,C)
+			\tkzLabelAngles[pos=1.4](D,A,C){$2$}
+			\tkzMarkAngles[size=.5cm,arc=l](A,D,B)
+			\tkzLabelAngles[pos=.8](A,D,B){$1$}
+			\tkzMarkAngles[size=.7cm,arc=ll](C,D,A)
+			\tkzLabelAngles[pos=1](C,D,A){$2$}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(A,D)
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](D)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+		Cộng vế theo vế (3) và (4) và rút gọn ta được $\widehat{D_2} = 100^\circ \Rightarrow \widehat{D_1} = 80^\circ$.
+	}
+\end{vd}
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{dang}[Giải bài toán định tính]
+	\emph{Phương pháp giải:} 
+	\begin{enumerate}[\tickEX]
+		\item Ghép các góc cần xét vào tam giác, sau đó tìm mối liên quan giữa các góc.
+		\item So sánh các góc hoặc tìm sự liên hệ giữa chúng.
+	\end{enumerate}
+	
+\end{dang}
+\begin{vd}
+	Cho $\triangle ABC$ nhọn. Vẽ $BH \perp AC$ ($H \in AC$) và $CK \perp AB$ ($K \in AB$). Chứng minh rằng $\widehat{ABH} = \widehat{ACK}$.
+	\loigiai
+	{
+		\immini
+		{
+			Vì $\triangle ABH$ vuông tại $H$ nên ta có $\widehat{ABH} = 90^\circ - \widehat{A}$. \tagEX{1}
+			Vì $\triangle ACK$ vuông tại $K$ nên ta có $\widehat{ACK} = 90^\circ - \widehat{A}$. \tagEX{2}
+			Từ (1) và (2) suy ra $\widehat{ABH} = \widehat{ACK}$.
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](70:4){A}
+			\tkzDrawAltitude(A,C)(B)  \tkzGetPoint{H}
+			\tkzDrawAltitude(A,B)(C)  \tkzGetPoint{K}
+			%
+			\tkzMarkRightAngles[size=.25,fill=gray!30](C,K,A B,H,A)
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B B,C C,A)
+			\tkzDrawSegments(B,H C,K)
+			\tkzDrawPoints[fill=black](A,B,C,H,K)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[above right](H)
+			\tkzLabelPoints[left](B,K)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+		
+	}
+\end{vd}
+
+\begin{vd}
+	Cho $\triangle ABC$, điểm $M$ nằm trong tam giác đó. Tia $AM$ cắt $BC$ tại $K$. Hãy so sánh các góc
+	\begin{listEX}[2]
+		\item $\widehat{CMK}$ với $\widehat{CAK}$;
+		\item $\widehat{CMB}$ với $\widehat{CAB}$.
+	\end{listEX}
+	\loigiai
+	{
+		\immini
+		{
+			\begin{enumerate}
+				\item Xét $\triangle AMC$ có $\widehat{CMK}$ là góc ngoài tại đỉnh $C$ nên
+				\[\widehat{CMK} = \widehat{CAK} + \widehat{ACM} > \widehat{CAK}. \tag{1} \label{7H2-1-1}\]
+				\item Tương tự câu a) ta cũng có $\widehat{BMK}>\widehat{BAK}$. \tagEX{2}
+				Cộng vế theo vế \eqref{7H2-1-1} và (2) ta được
+			\end{enumerate}
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](70:4){A}
+			\tkzDefBarycentricPoint(A=2,B=3,C=5) \tkzGetPoint{M}
+			\tkzInterLL(A,M)(B,C)    \tkzGetPoint{K}
+			%
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B B,C C,A A,K M,B M,C)
+			\tkzDrawPoints[fill=black](A,B,C,M,K)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](K)
+			\tkzLabelPoints[above right](M)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+		\[\widehat{CMK} + \widehat{BMK} > \widehat{CAK} + \widehat{BAK} \text{ hay } \widehat{CMB}>\widehat{CAB}.\]
+	}
+\end{vd}
+
+\begin{vd}
+	Góc nhọn tạo bởi các tia phân giác của các góc $B,\ C$ của $\triangle ABC$ có số đo bằng $45^\circ$. Chứng minh rằng $\triangle ABC$ vuông.
+	\loigiai
+	{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefTriangle[two angles = 55 and 35](B,C)    \tkzGetPoint{A}
+			\tkzDrawBisector(C,B,A)  \tkzGetPoint{D}
+			\tkzDrawBisector(A,C,B)  \tkzGetPoint{E}
+			\tkzInterLL(B,D)(C,E)    \tkzGetPoint{I}
+			%
+			\pgfresetboundingbox
+			\tkzLabelAngles[pos=.8](C,B,D E,C,B){$1$}
+			\tkzLabelAngles[pos=.8](D,B,A A,C,E){$2$}
+			\tkzLabelAngles[pos=-.5](E,I,B){$45^\circ$}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(B,D C,E)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,I)
+			\tkzLabelPoints[above](A,I)
+			\tkzLabelPoints[above right](D)
+			\tkzLabelPoints[above left](E)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $I$ là giao điểm của $BD$ và $CE$ (hình trên). \\
+		Ta có $\widehat{EIB}$ là góc ngoài của $\triangle IBC$ tại đỉnh $B$ nên $\widehat{B_1} + \widehat{C_1} = \widehat{EIB} = 45^\circ$.\\
+		Ta lại có $\widehat{B_1} = \widehat{B_2}$ và $\widehat{C_1} = \widehat{C_2}$. Suy ra $\widehat{B_2} + \widehat{C_2} = 45^\circ$. Từ đó ta có
+		\[\widehat{B} + \widehat{C} = \widehat{B_1} + \widehat{C_1} + \widehat{B_2} + \widehat{C_2} = 45^\circ + 45^\circ = 90^\circ.\]
+		Suy ra $\widehat{A} = 90^\circ$. Vậy $\triangle ABC$ vuông tại $A$.
+	}
+\end{vd}
+
+\begin{vd}
+	Cho $\triangle ABC$ vuông tại $A$. Vẽ $AH \perp BC$. Các tia phân giác của các góc $\widehat{C}$ và $\widehat{BAH}$ cắt nhau tại $I$. Chứng minh rằng $\widehat{AIC} = 90^\circ$.
+	\loigiai
+	{
+		\immini
+		{
+			Ta có
+			{
+				\allowdisplaybreaks
+				\begin{align*}
+					&\widehat{BAH} = \widehat{C}~(\text{vì cùng phụ với } \widehat{B}) \Rightarrow \widehat{IAH} = \dfrac{1}{2}\widehat{C};\\
+					&\widehat{HAC} = \widehat{B}~(\text{vì cùng phụ với } \widehat{C}).
+				\end{align*}
+			}
+		Suy ra 
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.9]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefTriangle[two angles = 55 and 35](B,C)    \tkzGetPoint{A}
+			\tkzDefPointBy[projection = onto B--C](A)    \tkzGetPoint{H}
+			\tkzDefLine[bisector](A,C,B)    \tkzGetPoint{c}
+			\tkzDefLine[bisector](B,A,H)    \tkzGetPoint{a}
+			\tkzInterLL(A,a)(C,c)    \tkzGetPoint{I}
+			\tkzMarkAngles[size=.8cm,arc=l](A,C,I)
+			\tkzMarkAngles[size=.9cm,arc=l](I,C,B)
+			\tkzMarkAngles[size=.7cm,arc=ll](B,A,I)
+			\tkzMarkAngles[size=.8cm,arc=ll](I,A,H)
+			\tkzMarkAngles[size=.6cm,arc=l,mark=|](H,A,C C,B,A)
+			%
+			\pgfresetboundingbox
+			\tkzMarkRightAngles[size=.3,fill=gray!30](B,A,C A,H,C)
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(A,H A,I C,I)
+			\tkzDrawPoints[fill=black](A,B,C,H,I)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](H,I)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+		{
+			\allowdisplaybreaks
+			\begin{align*}
+			\widehat{AIC} &= 180^\circ - \widehat{IAC} - \widehat{ICA} = 180^\circ - \left(\widehat{IAH} + \widehat{HAC}\right) - \widehat{ICA}\\
+			&= 180^\circ - \left(\dfrac{1}{2}\widehat{C} + \widehat{B}\right) - \dfrac{1}{2}\widehat{C} = 180^\circ - \widehat{B} - \widehat{C} = \widehat{A} = 90^\circ.
+			\end{align*}
+		}
+	}
+\end{vd}
+
+\begin{vd}
+	Cho $\triangle ABC$ vuông tại $A$. Vẽ đường phân giác trong $BD$ của $\widehat{B}$ ($D \in AC$), giả sử $\widehat{ADB} = \alpha$.
+	\begin{enumerate}
+		\item Chứng minh rằng $45^\circ < \alpha < 90^\circ$.
+		\item Tính theo $\alpha$ số đo của $\widehat{C}$.
+	\end{enumerate}
+	\loigiai
+	{
+		\immini
+		{
+			\begin{enumerate}
+				\item Trong $\triangle ABD$ ta có $\alpha < \alpha + \widehat{B_2} = 90^\circ$.\\
+				Giả sử $\alpha \le 45^\circ \Rightarrow \widehat{B_2} \ge 45^\circ \Rightarrow 2\widehat{B_2} \ge 90^\circ$ hay $\widehat{B} \ge 90^\circ$ (vô lý). Suy ra $\alpha < 45^\circ$.\\
+				Vậy ta có $45^\circ < \alpha < 90^\circ$.
+			\end{enumerate}
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefTriangle[two angles = 55 and 35](B,C)    \tkzGetPoint{A}
+			\tkzDrawBisector(C,B,A)  \tkzGetPoint{D}
+			\tkzMarkAngles[size=.6cm,arc=l](C,B,D)
+			\tkzMarkAngles[size=.7cm,arc=l](D,B,A)
+			\tkzLabelAngles[pos=.8](C,B,D){$1$}
+			\tkzLabelAngles[pos=.9](D,B,A){$2$}
+			\tkzMarkAngles[size=.5cm,arc=l,mark=|](A,D,B)
+			\tkzLabelAngles[pos=-.8](A,D,B){$\alpha$}
+			%
+			\pgfresetboundingbox
+			\tkzMarkRightAngles[size=.3,fill=gray!50](B,A,C)
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[above right](D)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+		\begin{enumerate}
+			\item[b)] Ta có $\widehat{B_1} = \widehat{B_2} = 90^\circ - \alpha$.\\
+			Vì $\alpha$ là góc ngoài của $\triangle DBC$ tại đỉnh $D$ nên $\alpha = \widehat{B_1} + \widehat{C} = 90^\circ - \alpha + \widehat{C} \Rightarrow \widehat{C} = 2\alpha - 90^\circ$.
+		\end{enumerate}
+	}
+\end{vd}
+
+
+
+
+
+
+%BÀI TẬP VỀ NHÀ
+\btvn
+\begin{vn}
+	Tính số đo các góc $x,y$ ở các hình dưới
+	\begin{center}
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+		\tkzDefPoints{0/0/E,6/0/K}
+		\tkzDefTriangle[two angles = 60 and 40](E,K)    \tkzGetPoint{D}
+		\coordinate (k) at ($(E)!1.2!(K)$);
+		\coordinate (d) at ($(K)!1.2!(D)$);
+		\tkzLabelAngles[pos=-0.3](d,D,E){$y$}
+		\tkzLabelAngles[pos=0.3](k,K,D){$x$}
+		\tkzLabelAngles[pos=0.7](K,E,D){$60^\circ$}
+		\tkzLabelAngles[pos=0.9](D,K,E){$40^\circ$}
+		\pgfresetboundingbox
+		\tkzDrawSegments(E,k K,d D,E)
+		\tkzDrawPoints[fill=black](D,E,K)
+		\tkzLabelPoints[above right](D)
+		\tkzLabelPoints[below](E,K)
+		\node at ($(E)!.5!(k)$) [below = .5cm]{Hình a)};
+		\end{tikzpicture}
+		\hspace{1cm}
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+		\tkzDefPoints{0/0/B}
+		\coordinate (C) at ($(B)+(5,0)$);
+		\tkzDefTriangle[two angles = 70 and 30](B,C)    \tkzGetPoint{A}
+		\tkzDefLine[bisector](B,A,C)    \tkzGetPoint{a}
+		\tkzInterLL(A,a)(B,C)    \tkzGetPoint{D}
+		\tkzLabelAngles[pos=0.6](B,A,D D,A,C){\scriptsize$40^\circ$}
+		\tkzLabelAngles[pos=0.5](C,B,A){$70^\circ$}
+		\tkzLabelAngles[pos=0.4](C,D,A){$x$}
+		\tkzLabelAngles[pos=0.6](A,C,B){$y$}
+		%
+		\pgfresetboundingbox
+		\tkzDrawPolygon(A,B,C)
+		\tkzDrawSegments(A,D)
+		\tkzDrawPoints[fill=black](A,B,C,D)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[below](B,C,D)
+		\node at ($(B)!.5!(C)$) [below = .5cm]{Hình b)};
+		\end{tikzpicture}
+	\end{center}
+	\loigiai
+	{
+		\begin{itemize}
+			\item \textit{Hình a)}\\
+			Ta có $y = 60^\circ + 40^\circ = 100^\circ$ và $x = 180^\circ - 40^\circ = 140^\circ$.
+			\item \textit{Hình b)}\\
+			Ta có $x = 40^\circ + 70^\circ = 110^\circ$ và $y = 180^\circ - \left(40^\circ + 110^\circ\right) = 180^\circ - 150^\circ = 30^\circ$.
+		\end{itemize}
+	}
+\end{vn}
+
+\begin{vn}
+	Tính tổng số đo các góc ở đỉnh $A,\ B,\ C,\ D,\ E$ của một ngôi sao $5$ cánh ở hình dưới.
+	\begin{center}
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+		\tkzDefPoints{0/0/E}
+		\coordinate (D) at ($(E)+(3,0)$);
+		\tkzDefPointBy[rotation = center E angle 108](D)    \tkzGetPoint{A}
+		\tkzDefPointBy[rotation = center A angle 108](E)    \tkzGetPoint{B}
+		\tkzDefPointBy[rotation = center B angle 108](A)    \tkzGetPoint{C}
+		%
+		\pgfresetboundingbox
+		\tkzDrawPolySeg(E,B,D,A,C,E)
+		\tkzDrawPoints[fill=black](E,D,A,B,C)
+		\tkzLabelPoints[above](B)
+		\tkzLabelPoints[left](A)
+		\tkzLabelPoints[right](C)
+		\tkzLabelPoints[below](D,E)
+		\end{tikzpicture}
+	\end{center}
+	\loigiai
+	{
+		\immini
+		{
+			Gọi $M = AD \cap BE$ và $N = AC \cap BE$.\\
+			Vì $\widehat{AMN}$ là góc ngoài của $\triangle MBD$ tại đỉnh $M$ nên ta có $\widehat{AMN} = \widehat{B} + \widehat{D}$. \tagEX{1}
+			Tương tự, vì $\widehat{ANM}$ là góc ngoài của $\triangle NEC$ tại đỉnh $N$ nên ta có $\widehat{ANM} = \widehat{C} + \widehat{E}$. \tagEX{2}
+			Từ (1) và (2) suy ra
+			\[\widehat{A} + \widehat{B} + \widehat{C} + \widehat{D} + \widehat{E} = \widehat{A} + \widehat{AMN} + \widehat{ANM} = 180^\circ.\]
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+			\tkzDefPoints{0/0/E}
+			\coordinate (D) at ($(E)+(3,0)$);
+			\tkzDefPointBy[rotation = center E angle 108](D)    \tkzGetPoint{A}
+			\tkzDefPointBy[rotation = center A angle 108](E)    \tkzGetPoint{B}
+			\tkzDefPointBy[rotation = center B angle 108](A)    \tkzGetPoint{C}
+			\tkzInterLL(A,D)(B,E)    \tkzGetPoint{M}
+			\tkzInterLL(A,C)(B,E)    \tkzGetPoint{N}
+			%
+			\pgfresetboundingbox
+			\tkzMarkAngles[size=.4cm,arc=l](N,M,A A,N,M)
+			\tkzDrawPolySeg(E,B,D,A,C,E)
+			\tkzDrawPoints[fill=black](E,D,A,B,C,M,N)
+			\tkzLabelPoints[above](B)
+			\tkzLabelPoints[above left](N)
+			\tkzLabelPoints[below left](M)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[below](D,E)
+			\end{tikzpicture}
+		}
+	}
+\end{vn}
+
+\begin{vn}
+	Tính các góc của $\triangle ABC$ biết $\widehat{A} - \widehat{B} = 22^\circ$ và $\widehat{B} - \widehat{C} = 22^\circ$.
+	\loigiai
+	{
+		Từ giả thiết suy ra $\widehat{A} = \widehat{B} + 22^\circ$ và $\widehat{C} = \widehat{B} - 22^\circ$. Do đó
+		\[\widehat{A} + \widehat{B} + \widehat{C} = \left(\widehat{A} + 22^\circ\right) + \widehat{B} + \left(\widehat{B} - 22^\circ\right) = 180^\circ \text{ hay } 3\widehat{B} = \widehat{180^\circ} \Rightarrow \widehat{B} = 60^\circ.\]
+		Từ đó ta tính được $\widehat{A} = 82^\circ$ và $\widehat{C} = 38^\circ$.	
+	}
+\end{vn}
+
+\begin{vn}
+	Tính số đo các góc của $\triangle ABC$ biết $20\widehat{A} = 15\widehat{B} = 12\widehat{C}$.
+	\loigiai
+	{
+		Ta có 
+		\begin{eqnarray*}
+			&& 20\widehat{A} = 15\widehat{B} = 12\widehat{C}\\
+			&\Rightarrow& \dfrac{20\widehat{A}}{60} = \dfrac{15\widehat{B}}{60} = \dfrac{12\widehat{C}}{60} \text{ hay } \dfrac{\widehat{A}}{3} = \dfrac{\widehat{B}}{4} = \dfrac{\widehat{C}}{5}.
+		\end{eqnarray*}
+		Theo tính chất của dãy tỉ số bằng nhau, ta có
+		$\dfrac{\widehat{A}}{3} = \dfrac{\widehat{B}}{4} = \dfrac{\widehat{C}}{5} = \dfrac{\widehat{A} + \widehat{B} + \widehat{C}}{3+4+5} = \dfrac{180^\circ}{12} = 15^\circ$.\\
+		Suy ra $\widehat{A} = 3 \cdot 15^\circ = 45^\circ$, $\widehat{B} = 4 \cdot 15^\circ = 60^\circ$, $\widehat{C} = 5 \cdot 15^\circ = 75^\circ$.
+	}
+\end{vn}
+
+\begin{vn}
+	Cho $\triangle ABC$ có $\widehat{B}>\widehat{C}$. Đường phân giác ngoài của $\triangle ABC$ tại đỉnh $A$ cắt đường thẳng $BC$ tại $E$.
+	\begin{enumerate}
+		\item Chứng minh rằng $\widehat{AEB} = \dfrac{\widehat{ABC} - \widehat{ACB}}{2}$.
+		\item Tính $\widehat{ABC}$ và $\widehat{ACB}$, biết rằng $\widehat{BAC} = 60^\circ$ và $\widehat{AEB} = 15^\circ$.
+	\end{enumerate}
+	\loigiai
+	{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+				\tkzDefPoints{0/0/B}
+				\coordinate (C) at ($(B)+(6,0)$);
+				\tkzDefShiftPoint[B](80:4){A}
+				\coordinate (A') at ($(C)!1.2!(A)$);
+				\tkzDefLine[bisector out](B,A,C)    \tkzGetPoint{a}
+				\tkzInterLL(A,a)(B,C)    \tkzGetPoint{E}
+				%
+				\pgfresetboundingbox
+				\tkzMarkAngles[size=.6cm,arc=l](A',A,E)
+				\tkzLabelAngles[pos=-.8](A',A,E){$1$}
+				\tkzMarkAngles[size=.7cm,arc=l](E,A,B)
+				\tkzLabelAngles[pos=1](E,A,B){$2$}
+				\tkzDrawSegments(A,B E,C C,A' A,E)
+				\tkzDrawPoints[fill=black](A,B,C,E)
+				\tkzLabelPoints[above](A)
+				\tkzLabelPoints[below](E,B,C)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Vì $\widehat{ABC}$ là góc ngoài của $\triangle ABE$ tại đỉnh $B$ nên
+			 \[\widehat{ABC} = \widehat{AEB} + \widehat{A_2} \Rightarrow \widehat{AEB} = \widehat{ABC} - \widehat{A_2}. \tag{1}\]
+			Tương tự, vì $\widehat{A_1}$ là góc ngoài của $\triangle AEC$ tại đỉnh $A$ nên 
+			\[\widehat{A_1} = \widehat{AEB} + \widehat{ACB} \Rightarrow \widehat{AEB} = \widehat{A_1} - \widehat{ACB}. \tag{2}\]
+			Lấy (1) cộng (2) vế theo vế ta được
+			\[2\widehat{AEB} = \widehat{ABC} - \widehat{ACB} + \widehat{A_1} - \widehat{A_2} = \widehat{ABC} - \widehat{ACB} \Rightarrow \widehat{AEB} = \dfrac{\widehat{ABC} - \widehat{ACB}}{2}.\]
+			\item Vì $\widehat{BAC} = 60^\circ$ nên suy ra $\widehat{ABC} + \widehat{ACB} = 120^\circ$. \tagEX{3}
+			Vì $\widehat{AEB} = 15^\circ$ nên từ câu a) ta có $\dfrac{\widehat{ABC} - \widehat{ACB}}{2} = 15^\circ \Rightarrow \widehat{ABC} - \widehat{ACB} = 30^\circ$. \tagEX{4}
+			Từ (3) và (4) ta tính được $\widehat{ABC} = 75^\circ$, $\widehat{ACB} = 45^\circ$.
+		\end{enumerate}
+	}
+\end{vn}
+
+
+
+
+
+\Closesolutionfile{ans}

@@ -1,0 +1,549 @@
+%%Biên soạn: Lục Tường. Phản biện: Le Manh Thang
+\section{Vị trí tương đối của đường thẳng và đường tròn}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Đường thẳng và đường tròn cắt nhau}
+\immini{
+	\begin{itemize}
+		\item Đường tròn và đường thẳng cắt nhau khi bán kính của đường tròn lớn hơn khoảng cách từ tâm đường tròn đó đến đường thẳng đã cho. $ R > d $.
+		\item Đường thẳng cắt đường tròn tại $ 2 $ điểm phân biệt. Số giao điểm bằng $ 2 $.
+	\end{itemize}
+	\begin{note}
+		Số giao điểm lớn nhất của đường thẳng và đường tròn là $ 2 $ giao điểm.
+	\end{note}
+}
+{
+	\begin{tikzpicture}
+	\tkzInit[ymin=-2.05,ymax=2.05,xmin=-2.7,xmax=2.5]
+	\tkzClip
+	\tkzDefPoints{0/0/O,2/0/M,-2.5/-1.5/x,2.5/-1.5/d}
+	\tkzDrawCircle(O,M)	
+	\tkzDrawSegments(x,d O,M)
+	\tkzLabelSegments(O,M){$ R $}
+	\tkzDrawPoint(O)
+	\tkzLabelPoints[above left](O)
+	
+	\tkzDefPointBy[projection = onto x--d](O)\tkzGetPoint{H}
+	\tkzDrawSegments(O,H)
+	\tkzLabelSegments[right](O,H){$ \mathrm{d} $}
+	\tkzMarkRightAngles[size=0.2](x,H,O)
+	
+	\tkzInterLC(x,d)(O,M)\tkzGetFirstPoint{B}
+	\tkzInterLC(x,d)(O,M)\tkzGetSecondPoint{A}	
+	\tkzDrawPoints(A,B)
+	\tkzLabelPoints[below](A,B)
+	\end{tikzpicture}
+}
+
+\subsubsection{Đường thẳng và đường tròn tiếp xúc nhau}
+\immini{
+	\begin{itemize}
+		\item Đường tròn và đường thẳng tiếp xúc nhau khi bán kính của đường tròn bằng khoảng cách từ tâm đường tròn đó đến đường thẳng đã cho. $ R = d $.
+		\item Đường thẳng tiếp xúc đường tròn tại $ 1 $ điểm duy nhất. Số giao điểm bằng $ 1 $.
+	\end{itemize}
+	\begin{note}
+		Đường thẳng tiếp xúc với đường tròn được gọi là tiếp tuyến. Điểm tiếp xúc gọi là tiếp điểm. Một đường thẳng gọi là tiếp tuyến nếu đường thẳng đó vuông góc với bán kính tại tiếp điểm. 
+	\end{note}
+}
+{
+	\begin{tikzpicture}
+	\tkzInit[ymin=-2.5,ymax=2.05,xmin=-2.7,xmax=2.5]
+	\tkzClip
+	\tkzDefPoints{0/0/O,2/0/M,-2.5/-2/x,2.5/-2/d}
+	\tkzDrawCircle(O,M)	
+	\tkzDrawSegments(x,d O,M)
+	\tkzLabelSegments(O,M){$ R $}
+	\tkzDrawPoint(O)
+	\tkzLabelPoints[above left](O)
+	
+	\tkzDefPointBy[projection = onto x--d](O)\tkzGetPoint{H}
+	\tkzDrawSegments(O,H)
+	\tkzLabelSegments[right](O,H){$ \mathrm{d} $}
+	\tkzMarkRightAngles[size=0.2](x,H,O)
+	
+	\tkzDrawPoints(H)
+	\tkzLabelPoints[below right](H)
+	\end{tikzpicture}
+}
+
+\subsubsection{Đường thẳng và đường tròn không cắt nhau}
+\immini{
+	\begin{itemize}
+		\item Đường tròn và đường thẳng không cắt nhau khi bán kính của đường tròn nhỏ hơn khoảng cách từ tâm đường tròn đó đến đường thẳng đã cho. $ R < d $.
+		\item Đường thẳng không cắt đường tròn nên số giao điểm bằng $ 0 $.
+	\end{itemize}
+}
+{
+	\begin{tikzpicture}
+	\tkzInit[ymin=-3,ymax=2.05,xmin=-2.7,xmax=2.5]
+	\tkzClip
+	\tkzDefPoints{0/0/O,2/0/M,-2.5/-2.5/x,2.5/-2.5/d}
+	\tkzDrawCircle(O,M)	
+	\tkzDrawSegments(x,d O,M)
+	\tkzLabelSegments(O,M){$ R $}
+	\tkzDrawPoint(O)
+	\tkzLabelPoints[above left](O)
+	
+	\tkzDefPointBy[projection = onto x--d](O)\tkzGetPoint{H}
+	\tkzDrawSegments(O,H)
+	\tkzLabelSegments[right](O,H){$ \mathrm{d} $}
+	\tkzMarkRightAngles[size=0.2](x,H,O)
+	
+	\tkzDrawPoints(H)
+	\tkzLabelPoints[below right](H)
+	\end{tikzpicture}
+}
+
+\subsection{Các ví dụ}
+\begin{vd}
+	Cho điểm $ A $ nằm trong đường tròn $ (O) $. Chứng minh rằng mọi đường thẳng $ d $ đi qua $ A $ đều cắt $ (O) $ tại hai điểm phân biệt.
+	\loigiai{
+	\immini
+	{
+		Gọi $ d $ là đường thẳng đi qua $ A $. Dựng $ OH $ vuông góc $ d $. Suy ra
+		\begin{align*}
+			\mathrm{d}_{(O,d)} = OH.
+		\end{align*}
+		Xét tam giác vuông $ OAH $ vuông tại $ H $, ta có $ OA $ là cạnh huyền nên
+		\begin{align*}
+			OA \ge OH.
+		\end{align*}
+		Mà $ A $ nawmg bên trong đường tròn nên $ OA < R $. Do đó suy ra
+		\begin{align*}
+			R > OH \Leftrightarrow R > \mathrm{d}_{(O,d)}.
+		\end{align*}
+		Do đó, đường thẳng $ d $ luôn cắt đường tròn tại hai điểm phân biệt.
+	}
+	{
+		\begin{tikzpicture}
+		\tkzInit[ymin=-2.05,ymax=2.05,xmin=-2.7,xmax=2.5]
+		\tkzClip
+		\tkzDefPoints{0/0/O,2/0/M,-2.5/-1.5/x,2.5/-1.5/d,1/-1.5/A}
+		\tkzDrawCircle(O,M)	
+		\tkzDrawSegments(x,d O,A)
+%		\tkzLabelSegments(O,M){$ R $}
+		\tkzDrawPoint(O)
+		\tkzLabelPoints[above left](O)
+		
+		\tkzDefPointBy[projection = onto x--d](O)\tkzGetPoint{H}
+		\tkzDrawSegments(O,H)
+		\tkzLabelSegments[left](O,H){$ \mathrm{d} $}
+		\tkzMarkRightAngles[size=0.2](x,H,O)
+		
+%		\tkzInterLC(x,d)(O,M)\tkzGetFirstPoint{B}
+%		\tkzInterLC(x,d)(O,M)\tkzGetSecondPoint{A}	
+		\tkzDrawPoints(A,H)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[below](H)
+		\end{tikzpicture}
+	}
+	}
+\end{vd}
+
+\begin{vd}
+	Cho đường thẳng $ a $ và một điểm $ O $ cách $ a $ là $ 3 $ cm. Dựng $ (O;5 \text{ cm}) $. 
+	\begin{enumerate}
+		\item Xét vị trí tương đối của $ a $ và đường tròn $ (O) $.
+		\item Gọi $ B $ và $ C $ là các giao điểm của đường thẳng $ a $ và $ (O) $. Tính độ dài $ BC $.
+	\end{enumerate}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item Vì $ \heva{& R = 5\\& \mathrm{d} = 3} $, nên $ R > \mathrm{d} $, do đó $ a $ cắt $ (O) $ tại hai điểm phân biệt $ B $ và $ C $.
+				\item Gọi $ H $ là chân đường vuông góc kẻ từ $ O $ xuống $ a $. Suy ra $ OH = 3 $ cm và $ H $ là trung điểm $ BC $. Do đó 
+				\begin{align*}
+					BH = \sqrt{OB^2 - OH^2} = \sqrt{5^2 - 3^2} = 4 = 8.
+				\end{align*}
+				Vậy $ BC = 8 $ cm.
+			\end{enumerate}
+		}
+		{
+			\begin{tikzpicture}
+			\tkzInit[ymin=-2.05,ymax=2.05,xmin=-2.7,xmax=2.5]
+			\tkzClip
+			\tkzDefPoints{0/0/O,2/0/M,-2.5/-1.5/a,2.5/-1.5/d}
+			\tkzDrawCircle(O,M)	
+			\tkzDrawSegments(a,d O,B)
+			\tkzLabelSegments[right](O,B){$ 5 $}
+			\tkzDrawPoint(O)
+			\tkzLabelPoints[above left](O)
+			
+			\tkzDefPointBy[projection = onto a--d](O)\tkzGetPoint{H}
+			\tkzDrawSegments(O,H)
+			\tkzLabelSegments[left](O,H){$ 3 $}
+			\tkzMarkRightAngles[size=0.2](a,H,O)
+			
+			\tkzInterLC(a,d)(O,M)\tkzGetFirstPoint{B}
+			\tkzInterLC(a,d)(O,M)\tkzGetSecondPoint{C}	
+			\tkzDrawPoints(C,B,H)
+			\tkzLabelPoints[below](C,B,H)
+			\tkzLabelPoints[above](a)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\begin{vd}
+	Cho hình thang vuông $ ABCD (A = D = 90^\circ) $, $ AB = 4 $ cm, $ BC = 13 $ cm và $ CD = 9 $ cm. Tính $ AD $ và chứng minh rằng đường thẳng $ AD $ tiếp xúc với đường tròn có đường kính là $ BC $.
+	\loigiai{
+		\immini{
+			Dựng $ BH \perp CD \Rightarrow ABHD $ là hình chữ nhật. Suy ra
+			\begin{align*}
+				& AD^2 = BH^2 = BC^2 - CH^2 = 13^2 - 5^2 = 144\\
+				& \Rightarrow AD = 12.
+			\end{align*}
+			Gọi $ O $ và $ M $ lần lượt là trung điểm $ BC $ và $ AD $. Ta được $ MO \perp AD $ và
+			\begin{align*}
+				MO = \dfrac{AB + CD}{2} = \dfrac{13}{2} = \dfrac{BC}{2}.
+			\end{align*}
+			Do đó, $ AD $ là đường thẳng vuông góc với bán kính của đường tròn $ (O) $ tại tiếp điểm $ M $. nên $ AD $ là tiếp tuyến của đường tròn đường kính $ BC $.
+ 		}
+		{
+			\begin{tikzpicture}[scale=.5]
+			\tkzDefPoints{0/0/D,9/0/C,0/12/A,4/12/B}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{O}
+			\tkzDefMidPoint(A,D)\tkzGetPoint{M}
+			\tkzDrawCircle[dashed](O,B)
+			\tkzDefPointBy[projection = onto C--D](B)\tkzGetPoint{H}
+			
+			\tkzDrawSegments(A,B B,C C,D D,A O,M B,H)
+			\tkzDrawPoints(A,B,C,D,O,M,H)
+			\tkzLabelPoints[left](A,D,M)
+			\tkzLabelPoints[right](C,B,O)
+			\tkzLabelPoints[below](H)
+			\tkzMarkRightAngles[size=0.5](D,A,B C,D,A D,M,O)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\begin{vd}
+	Cho đường thẳng $ a $. Tâm $ I $ của tất cả các đường tròn bán kính $ 3 $ cm, tiếp xúc với đường thẳng $ a $ nằm trên đường nào?
+	\loigiai{
+		\immini{
+			Ta có đường tròn tâm $ I $ bán kính bằng $ 3 $ cm tiếp xúc với đường thẳng $ a $. Suy ra $ \mathrm{d}_{(I,a)} = 3 $ cm. \\
+			Do mọi điểm $ I $ đều cách $ a $ một khoảng $ 3 $ cm nên mọi điểm $ I $ đều nằm trên đường thẳng $ d $ song song với $ a $ và cách $ a $ là $ 3 $ cm.
+		}
+		{
+			\begin{tikzpicture}
+			\tkzInit[ymin=-2.5,ymax=2.05,xmin=-2.7,xmax=2.5]
+			\tkzClip
+			\tkzDefPoints{0/0/I,2/0/M,-2.5/-2/a,2.5/-2/b,-2.5/0/d,2.5/0/e}
+			\tkzDrawCircle(I,M)	
+			\tkzDrawSegments(a,b d,e)
+			%			\tkzLabelSegments(O,M){$ R $}
+			\tkzDrawPoint(I)
+			\tkzLabelPoints[above left](I)
+			
+			\tkzDefPointBy[projection = onto a--b](I)\tkzGetPoint{H}
+			\tkzDrawSegments(I,H)
+			\tkzLabelSegments[right](I,H){$ 3 $ cm}
+			\tkzMarkRightAngles[size=0.2](a,H,I)
+			
+			\tkzDrawPoints(H)
+			\tkzLabelPoints[above](a,d)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\begin{vd}
+	Cho đường tròn $ (O) $, điểm $ A $ nằm bên ngoài đường tròn. Dựng đường thẳng đi qua $ A $, cắt đường tròn ở $ B $ và $ C $ sao cho tổng $ AB + AC $ có giá trị lớn nhất.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+				\tkzInit[ymin=-3.05,ymax=3.05,xmin=-6,xmax=5]
+				\tkzClip
+				\tkzDefPoints{0/0/O,3/0/L,-5/-2/A,5/-1/K}
+				\tkzDrawCircle(O,L)
+				
+				\tkzInterLC(A,K)(O,L)\tkzGetFirstPoint{C}
+				\tkzInterLC(A,K)(O,L)\tkzGetSecondPoint{B}
+				\tkzDefPointBy[projection = onto A--K](O)\tkzGetPoint{M}
+				
+				\tkzDrawPoints(O,A,B,C,M)
+				\tkzDrawSegments(A,K A,O O,M)
+				\tkzLabelPoints[left](A)
+				\tkzLabelPoints[above](O)
+				\tkzLabelPoints[below](M)
+				\tkzLabelPoints[below left](B)
+				\tkzLabelPoints[below right](C)
+				\tkzMarkRightAngles[size=0.2](O,M,A)
+
+			\end{tikzpicture}
+		\end{center}
+		Gọi $ M $ là trung điểm $ BC $, ta có $ OM \perp BC $ và $ MB = MC $. Suy ra
+		\begin{align*}
+			AB + AC = AM - MB + AM + MC = 2AM.
+		\end{align*}
+		Nên $ AB + AC $ lớn nhất khi $ AM $ lớn nhất. Mà
+		\begin{align*}
+			AM^2 = OA^2 - OM^2.
+		\end{align*}
+		Nên, $ AM $ lớn nhất khi $ OM $ nhỏ nhất $ \Leftrightarrow M \equiv O $. Vậy $ AB + AC $ lớn nhất khi đường thẳng đi qua $ A $ đi qua tâm $ O $.
+	}
+\end{vd}
+
+
+\subsection{Luyện tập}
+\begin{bt}
+	Cho đường thẳng $ xy $ không cắt đường tròn $ (O;R) $. Chứng minh rằng mọi điểm thuộc $ xy $ đều ở bên ngoài đường tròn $ (O) $.
+	\loigiai{
+		\immini{
+			Gọi $ A $ là điểm thuộc đường thẳng $ xy $, $ H $ là chân đường vuông góc hạ từ $ O $ xuống $ xy $. Ta luôn có
+			\begin{align*}
+				OA \ge OH.
+			\end{align*}
+			Mà $ xy $ không cắt $ (O;R) $ nên $ OH > R \Rightarrow OA > R $. Do đó, $ A $ nằm ngoài $ (O;R) $.\\
+			Vậy mọi điểm thuộc $ xy $ đều nằm ngoài $ (O;R) $.
+		}
+		{
+			\begin{tikzpicture}
+			\tkzInit[ymin=-3,ymax=2.05,xmin=-2.7,xmax=2.7]
+			\tkzClip
+			\tkzDefPoints{0/0/O,2/0/M,-2.5/-2.5/x,2.5/-2.5/y,1.5/-2.5/A}
+			\tkzDrawCircle(O,M)	
+			\tkzDrawSegments(x,y O,A)
+			\tkzLabelPoints[above](x,y)
+%			\tkzLabelSegments(O,M){$ R $}
+			\tkzDrawPoints(O,A)
+			\tkzLabelPoints[above left](O)
+			
+			\tkzDefPointBy[projection = onto x--y](O)\tkzGetPoint{H}
+			\tkzDrawSegments(O,H)
+			\tkzLabelSegments[right](O,H){$ \mathrm{d} $}
+			\tkzMarkRightAngles[size=0.2](x,H,O)
+			
+			\tkzDrawPoints(H)
+			\tkzLabelPoints[below](H,A)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}
+	Cho điểm $ O $ cách đường thẳng $ a $ là $ 6 $ cm. Vẽ đường tròn $ (O, 10 \text{ cm}) $.
+	\begin{enumerate}
+		\item Chứng minh rằng $ (O) $ có hai giao điểm với đường thẳng $ a $.
+		\item Gọi hai giao điểm nói trên là $ B $ và $ C $. Tính diện tích tam giác $ OBC $.
+	\end{enumerate}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item Vì $ \heva{& R = 10\\& \mathrm{d} = 6} $, nên $ R > \mathrm{d} $, do đó $ a $ cắt $ (O) $ tại hai điểm phân biệt $ B $ và $ C $.
+				\item Gọi $ H $ là chân đường vuông góc kẻ từ $ O $ xuống $ a $. Suy ra $ OH = 6 $ cm và $ H $ là trung điểm $ BC $. Do đó 
+				\begin{align*}
+				BH = \sqrt{OB^2 - OH^2} = \sqrt{10^2 - 6^2} = 8 \Rightarrow BC = 16.
+				\end{align*}
+				Suy ra diện tích tam giác $ OBC $
+				\begin{align*}
+					S_{\triangle OBC} = \dfrac{1}{2}\cdot OH \cdot BC = \dfrac{1}{2} \cdot 6 \cdot 16 = 48 \text{ cm}^2.
+				\end{align*}
+			\end{enumerate}
+		}
+		{
+			\begin{tikzpicture}
+			\tkzInit[ymin=-2.05,ymax=2.05,xmin=-2.7,xmax=2.5]
+			\tkzClip
+			\tkzDefPoints{0/0/O,2/0/M,-2.5/-1.5/a,2.5/-1.5/d}
+			\tkzDrawCircle(O,M)	
+			
+			\tkzDrawPoint(O)
+			\tkzLabelPoints[above left](O)
+			
+			\tkzDrawSegments(a,d)
+			\tkzInterLC(a,d)(O,M)\tkzGetFirstPoint{B}
+			\tkzInterLC(a,d)(O,M)\tkzGetSecondPoint{C}
+			\tkzDefPointBy[projection = onto a--d](O)\tkzGetPoint{H}
+			\tkzDrawSegments(O,H O,C)
+			\tkzLabelSegments[left](O,H){$ 6 $}
+			\tkzMarkRightAngles[size=0.2](a,H,O)		
+
+			\tkzDrawSegments(a,d O,B)
+			\tkzLabelSegments[right](O,B){$ 10 $}
+			\tkzDrawPoints(C,B,H)
+			\tkzLabelPoints[below](C,B,H)
+			\tkzLabelPoints[above](a)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}
+	Cho đường tròn $ (O;R) $ và một điểm $ A $ chạy trên đường tròn đó. Từ $ A $ vẽ tiếp tuyến $ xy $, trên $ xy $ lấy một điểm $ M $ sao cho $ AM = R\sqrt{3} $. Điểm $ M $ di động trên đường nào?
+	\loigiai{
+		\immini{
+			Ta có $ xy $ là tiếp tuyến của $ (O;R) $ tại $ A $ nên $ OA \perp xy $. Xét tam giác vuông $ OAM $ vuông tại $ A $, ta có
+			\begin{align*}
+			& OM^2 = OA^2 + AM^2 = R^2 + 3R^2 = 4R^2 \\
+			& \Rightarrow OM = 2R.
+			\end{align*}
+			Suy ra khi $ A $ chạy trên $ (O;R) $ thì điểm $ M $ thuộc đường tròn tâm $ O $ bán kính $ 2R $.
+		}
+		{
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-3.1,xmax=3.1,ymin=-3.7,ymax=3.7]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/O,1.5/0/A,1.5/3.5/x,1.5/-3.5/y,3/0/B}		
+			
+			\tkzDrawCircle(O,A)
+			\tkzDrawCircle[dashed](O,B)
+			\tkzDrawSegments(O,A)			
+			\tkzInterLC(x,y)(O,B)\tkzGetFirstPoint{M}
+			\tkzDrawSegments(x,y O,M)
+			\tkzDrawPoints(O,A,M)
+			
+			\tkzLabelPoints[right](x,y,A,M)
+			\tkzLabelPoints[left](O)
+			\tkzMarkRightAngles[size=0.2](O,A,M)
+
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}
+	Cho đường tròn $ (O;R) $ có dây $ AB = R $. Trên tia $ AB $ lấy điểm $ M $ sao cho $ AM = a $. Qua $ M $ vẽ đường thẳng $ xy $ vuông góc với $ AB $. Chứng minh rằng đường thẳng $ xy $ và đường tròn $ (O;R) $ chỉ có điểm chung khi $ a \le \dfrac{3R}{2} $.
+	\loigiai{
+		\immini{
+			Gọi $ N $ là trung điểm $ AB $. Ta có $ ON \perp AM $ và $ NM = a - \dfrac{R}{2} $.\\
+			Gọi $ H $ là chân đường vuông góc dựng từ $ O $ xuống $ xy $, ta có $ OH \perp xy \Rightarrow ONMH $ là hình chữ nhật, do đó
+			\begin{align*}
+				\mathrm{d}_{(O,xy)} = OH = MN = a - \dfrac{R}{2}.
+			\end{align*}
+			Đường thẳng $ xy $ và đường tròn $ (O;R) $ có điểm chung khi và chỉ khi
+			\begin{align*}
+				\mathrm{d}_{(O,xy)} \le R \Leftrightarrow a - \dfrac{R}{2} \le R \Leftrightarrow a \le \dfrac{3R}{2}.
+			\end{align*}
+			Vậy đường thẳng $ xy $ và đường tròn $ (O;R) $ chỉ có điểm chung khi $ a \le \dfrac{3R}{2} $.
+		}
+		{
+			\begin{tikzpicture}
+				[>=stealth,scale=1, line join = round, line cap = round]
+				\tkzInit[xmin=-3.1,xmax=3.1,ymin=-3.7,ymax=3.7]
+				\tkzClip
+				\tikzset{label style/.style={font=\footnotesize}}
+				\tkzDefPoints{0/0/O,2.5/0/L,0/-1.25/E}
+				\tkzDrawCircle[radius](O,L)
+				\tkzLabelPoints[left](O)
+				
+				\tkzDefLine[parallel=through E](O,L)\tkzGetPoint{d}
+				
+				\tkzInterLC(E,d)(O,L)\tkzGetFirstPoint{A}
+				\coordinate (M) at ($ (A) + (0,4.5) $) ;
+				\coordinate (x) at ($ (M) + (-5,0) $) ;
+				
+				\tkzInterLC(A,M)(O,L)\tkzGetFirstPoint{B}
+				\tkzDefMidPoint(A,B)\tkzGetPoint{N}
+				\tkzDefPointBy[projection = onto M--x](O)    \tkzGetPoint{H}
+				
+				\tkzDrawSegments(A,M O,N M,x O,H)
+
+				\tkzDrawPoints(O,A,M,B,N,H)
+				\tkzLabelPoints[above](x,H)
+				\tkzLabelPoints[right](A,B,M)
+				\tkzLabelPoints[below left](N)
+				
+				\tkzMarkRightAngles[size=0.2](O,N,M N,M,H M,H,O)
+
+
+				
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}
+	Cho hình vuông $ ABCD $, lấy điểm $ E $ trên cạnh $ BC $ và điểm $ F $ trên cạnh $ CD $ sao cho $ AB = 3BE = 2DF $. Chứng minh $ EF $ tiếp xúc  với cung tròn tâm $ A $, bán kính $ AB $.
+	\loigiai{
+		\immini{
+			Dựng $ AH \perp EF $ tại $ H $.\\
+			Gọi độ dài cạnh hình vuông bằng $ a $. Ta có
+			\begin{align*}
+			& EF^2 = FC^2 + CE^2 = \dfrac{a^2}{4} + \dfrac{4a^2}{9} = \dfrac{25a^2}{36}\\
+			& \Rightarrow EF = \dfrac{5a}{6}.
+			\end{align*}
+			Mặt khác 
+			\begin{align*}
+			S_{\triangle AEF}
+			& = S_{ABCD} - S_{\triangle ADF} - S_{\triangle CEF} - S_{\triangle AEB}\\
+			& = a^2 - \dfrac{a^2}{4} - \dfrac{a^2}{6} - \dfrac{a^2}{6}
+			= \dfrac{5a^2}{12}.
+			\end{align*}
+			Từ đó suy ra
+			\begin{align*}
+			AH = \dfrac{2S_{\triangle AEF}}{EF} = \dfrac{2 \cdot \dfrac{5a^2}{12}}{\dfrac{5a}{6}} = a.
+			\end{align*}
+			Suy ra $ EF $ vuông góc bán kính đường tròn $ (A,AB) $ tại tiếp điểm $ H $ hay $ EF $ tiếp xúc $ (A,AB) $ tại $ H $.
+		}
+		{
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-3.2,xmax=3.5,ymin=-3.2,ymax=3.5]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/A,3/0/B,0/3/D}
+			\tkzDefPointBy[translation=from A to D](B)\tkzGetPoint{C}
+			\coordinate (E) at ($(B) + (0,1)$);
+			\coordinate (F) at ($(D)!0.5!(C)$);
+			\tkzDefPointBy[projection = onto E--F](A)    \tkzGetPoint{H}
+			
+			\tkzDrawSegments(A,B B,C C,D D,A E,F A,F A,E A,H)
+			\tkzDrawPoints(A,B,C,D,F,E,H)
+			\tkzLabelPoints[below left](A)
+			\tkzLabelPoints[below right](B)
+			\tkzLabelPoints[above left](D)
+			\tkzLabelPoints[above right](C)
+			\tkzLabelPoints[above](F)
+			\tkzLabelPoints[right](E,H)
+			\tkzDrawCircle[radius,dashed](A,B)
+			\tkzMarkRightAngles[size=0.2](A,H,E)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}
+	Cho đường tròn $ (O;R) $ và dây $ AB = \dfrac{8R}{5} $. Vẽ một tiếp tuyến song song với $ AB $, cắt các tia $ OA $, $ OB $ theo thứ tự tại $ M $ và $ N $. Tính diện tích tam giác $ OMN $.
+	\loigiai{
+		\immini{
+			Gọi $ I $ là trung điểm $ AB $, ta có $ AI = \dfrac{4R}{5} $. Suy ra
+			\begin{align*}
+				OM^2 & = OA^2 - AI^2 = R^2 - \dfrac{16R^2}{25} = \dfrac{9R^2}{25} \\
+				& \Rightarrow ON = \dfrac{3R}{5}.\\
+				& \Rightarrow S_{\triangle OAB} = \dfrac{1}{2} \cdot OI \cdot AB = \dfrac{12R^2}{25}.
+			\end{align*}
+			Gọi $ H $ là tiếp điểm của tiếp tuyến $ MN $. Do $ MN \parallel AB $ nên ta có
+			\begin{align*}
+				& \dfrac{S_{\triangle OAB}}{S_{\triangle OMN}} = \dfrac{OI^2}{OH^2} = \dfrac{9}{25}. \\
+				& \Rightarrow S_{\triangle OMN} = \dfrac{25}{9}S_{\triangle OAB} = \dfrac{4R^2}{3}.
+			\end{align*}
+			Vậy diện tích tam giác $ OMN $ bằng $ \dfrac{4R^2}{3} $.
+		}
+		{
+			\begin{tikzpicture}
+			\tkzInit[ymin=-3,ymax=2.05,xmin=-2.7,xmax=2.5]
+			\tkzClip
+			\tkzDefPoints{0/0/O,2/0/K,-2.5/-2/x,2.5/-2/d,-2/-2/M,2/-2/N}
+			\tkzDrawCircle(O,K)	
+			\tkzDrawSegments(x,d)
+			\tkzDrawPoints(O,M,N)
+			\tkzLabelPoints[above left](O)
+			
+			\tkzInterLC(O,M)(O,K)\tkzGetSecondPoint{A}
+			\tkzInterLC(O,N)(O,K)\tkzGetSecondPoint{B}
+			\tkzInterLL(A,B)(O,H)\tkzGetPoint{I}
+			
+			\tkzDefPointBy[projection = onto x--d](O)\tkzGetPoint{H}
+			\tkzDrawSegments(O,H A,B O,M O,N)
+%			\tkzLabelSegments[right](O,H){$ \mathrm{d} $}
+			\tkzMarkRightAngles[size=0.2](x,H,O)
+			
+			\tkzDrawPoints(H,A,B,I)
+			\tkzLabelPoints[below](H, M, N)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](B)
+			\tkzLabelPoints[above right](I)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}

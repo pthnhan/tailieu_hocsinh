@@ -1,0 +1,161 @@
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage{amsmath,amssymb,yhmath,mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{tkz-euclide}
+\usepackage{tikz-3dplot}
+\usepackage{tikz}
+%\usetikzlibrary{shapes.geometric,arrows,calc,intersections,angles,patterns,snakes}
+%\usetkzobj{all}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.9}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=1.5cm] {geometry}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage{currfile}
+\usepackage[loigiai]{ex_test}
+%CÁC GÓI, LỆNH VIẾT TẮT CẦN THÊM
+%CẤU TRÚC TỰ LUẬN
+\usepackage{framed}
+\usepackage[most]{tcolorbox}
+\newtheorem{bt}{Bài}
+\newtheorem{vd}{Ví dụ}
+\def\beginbox{\begin{tcolorbox}[colframe=blue,colback=white]}
+\def\endbox{\end{tcolorbox}}
+\AtBeginEnvironment{vd}{
+\beginbox
+\renewcommand{\loigiai}[1]{
+\renewcommand{\immini}[2]{
+\setbox\imbox=\vbox{\hbox{##2}}
+\widthimmini=\wd\imbox
+\IMleftright{##1}{##2}
+}
+\endbox
+\begin{onlysolution}
+#1
+\end{onlysolution}
+\def\endbox{}
+}
+}
+\AtEndEnvironment{vd}{
+\endbox
+}
+\newtcolorbox[auto counter]{dang}[1]{
+colframe=blue,colback=white,
+title=Dạng~\thetcbcounter.\ \protect{#1}
+\addcontentsline{toc}{subsection}{
+Dạng~\thetcbcounter.\ #1
+}
+}
+\theorembodyfont{\it}
+\newtheorem{dl}{Định lí}
+\theoremseparator{.}
+\theorembodyfont{\rm}
+\newtheorem{hq}{Hệ quả}
+\newtheorem{tc}{Tính chất}
+\newtheorem{dn}{Định nghĩa}
+\theoremstyle{nonumberplain}
+\newtheorem{kn}{Khái niệm}
+\newtheorem{nx}{Nhận xét}
+\theoremseparator{}
+\theorembodyfont{\it}
+\usepackage{stackengine}
+\usepackage{scalerel}
+\newcommand\dangersign[1][2ex]{%
+  \renewcommand\stacktype{L}%
+  \scaleto{\stackon[1.3pt]{\color{red}$\triangle$}{\fontsize{4}{0}\selectfont !}}{#1}%
+}
+\newtheorem{note}{{\dangersign[3ex]}}
+\newcommand{\hoac}[1]{ 
+	\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{
+	\left\{\begin{aligned}#1\end{aligned}\right.}
+%Tiêu đề chương
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{2}
+\usepackage{titlesec}
+\makeatletter
+\renewcommand \thesection{\@arabic\c@section.}
+\renewcommand\thesubsection{\@Roman\c@subsection.}
+\renewcommand\thesubsubsection{\@arabic\c@subsubsection.}
+\makeatother
+\titleformat{\section}{\selectfont\color{red!50!blue}\centering\scshape\Large\bfseries}{\S\thesection}{0em}{
+\setcounter{vd}{0}
+\setcounter{ex}{0}
+\setcounter{bt}{0}
+\setcounter{dl}{0}
+\setcounter{dn}{0}
+\setcounter{hq}{0}
+\setcounter{tc}{0}
+\setcounter{\tcbcounter}{0}
+}
+%HẾT CẤU TRÚC TỰ LUẬN
+\renewcommand{\labelenumi}{\alph{enumi})}
+\newcommand{\dropsign}[1]{\smash{\llap{\raisebox{-.5\normalbaselineskip}{$#1$\hspace{2\arraycolsep}}}}}%
+\begin{document}
+%\begin{titlepage}
+%\pagestyle{empty}
+%\begin{center}
+%	\fontsize{16}{0}\selectfont\textbf{ThS. LÊ ĐỨC}\\
+%\end{center}
+%\vspace{6cm}
+%\begin{center}
+%	\textbf{\fontsize{24}{0}\selectfont CÁC DẠNG TOÁN ĐIỂN HÌNH}\\
+%\end{center}		
+%\begin{center}
+%	\textbf{\fontsize{40}{0}\selectfont TOÁN 7}
+%\end{center}
+%
+%\vfill{
+%	\begin{center}
+%		\fontsize{14}{0}\textbf{NHÀ XUẤT BẢN ĐẠI HỌC QUỐC GIA HÀ NỘI}
+%	\end{center}
+%}
+%\end{titlepage}
+%\tableofcontents
+%\part{ĐẠI SỐ}
+%\chapter{SỐ HỮU TỈ - SỐ THỰC}
+%\input{7D/7D1-TL-1-2}
+%\include{7D/7D1-TL-3-4}
+%\include{7D/7D1-TL-5-6} %
+%\include{7D/7D1-TL-7-8}
+%\chapter{HÀM SỐ VÀ ĐỒ THỊ}
+%\input{7D/7D2-TL-1-2}
+%\include{7D/7D2-TL-3-4-5} 
+%\chapter{THỐNG KÊ}
+%\input{7D/7D3-TL-1-2}
+%\include{7D/7D3-TL-3-4}
+%\chapter{BIỂU THỨC ĐẠI SỐ}
+%\input{7D/7D4-TL-1-2}
+%\include{7D/7D4-TL-3-4}
+%\include{7D/7D4-TL-5-6}
+%\include{7D/7D4-TL-7-8-9} 
+%\part{HÌNH HỌC}
+%\setcounter{chapter}{0}
+%\chapter{ĐƯỜNG THẲNG VUÔNG GÓC. ĐƯỜNG THẲNG SONG SONG}
+%\input{7H/7H1-TL-1}
+%\include{7H/7H1-TL-2}
+%\include{7H/7H1-TL-3}
+%\include{7H/7H1-TL-4}
+%\include{7H/7H1-TL-5}
+%\chapter{TAM GIÁC}
+%\input{7H/7H2-TL-1}
+%\include{7H/7H2-TL-2}
+%\include{7H/7H2-TL-3}
+%\section{HAI TAM GIÁC BẰNG NHAU CẠNH-GÓC-CẠNH}
+%\input{7H/7H2-TL-4}
+%\include{7H/7H2-TL-5}
+\include{7H/7H2-TL-6}
+%\include{7H/7H2-TL-7}
+%\include{7H/7H2-TL-8}
+%\chapter{QUAN HỆ GIỮA CÁC YẾU TỐ TRONG TAM GIÁC. CÁC ĐƯỜNG ĐỒNG QUY CỦA TAM GIÁC}
+%\include{7H/7H3-TL-1}
+%\include{7H/7H3-TL-2}
+%\include{7H/7H3-TL-3}
+%\include{7H/7H3-TL-4}
+%\include{7H/7H3-TL-5}
+%\include{7H/7H3-TL-6}
+%\include{7H/7H3-TL-7}
+%\include{7H/7H3-TL-8}
+%\include{7H/7H3-TL-9}
+\end{document}

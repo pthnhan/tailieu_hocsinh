@@ -1,0 +1,852 @@
+%%Biên soạn: Dương BùiĐức. Phản biện: Cao Thành Thái
+\section{Đường kính và dây của đường tròn}
+\subsection{Tóm tắt lí thuyết}
+\begin{dn}
+	\immini[0.01]{
+\begin{itemize}
+	\item Dây cung là đoạn thẳng nối hai điểm phân biệt cùng nằm trên một đường tròn.
+	\item Dây cung đi qua tâm của đường tròn gọi là đường kính của đường tròn.
+	\item Một dây cung sẽ chia đường tròn thành hai phần, tương ứng với hai cung của đường tròn (cung lớn và cung nhỏ).
+\end{itemize}	
+}{
+\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1.8}
+\pgfmathsetmacro\xmin{-1.1*\h}
+\pgfmathsetmacro\xmax{1.5*\h}
+\pgfmathsetmacro\ymin{-1.2*\h}
+\pgfmathsetmacro\ymax{1.2*\h}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){O}
+\tkzDefShiftPoint[O](40:\h){A}
+\tkzDefShiftPoint[O](10:\h){N}
+\tkzDefShiftPoint[O](-80:\h){M}
+\tkzDefPointsBy[symmetry = center O](A){B}
+\tkzDrawSegments(A,B N,M)
+\tkzDrawCircle[R](O,\h cm)
+\tkzDrawPoints[fill=black](O,A,B,M,N)
+\tkzLabelPoints[above](O)
+\tkzLabelPoints[below](B,M)
+\tkzLabelPoints[right](A,N)
+\end{tikzpicture}
+}
+\end{dn}
+\begin{dl}
+	Trong các dây cung của một đường tròn, đường kính là dây cung lớn nhất.
+\end{dl}
+\begin{dl}
+	Trong một đường tròn
+	\immini[0.01]{
+		\begin{enumerate}[1)]
+			\item Đường kính vuông góc với một dây cung thì đi qua trung điểm của dây đó.
+			\item Đường kính đi qua trung điểm của một dây cung không đi qua tâm của đường tròn thì vuông góc với dây đó.
+		\end{enumerate}	
+	}{
+		\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\pgfmathsetmacro\h{1.5}
+		\pgfmathsetmacro\xmin{-1.3*\h}
+		\pgfmathsetmacro\xmax{1.2*\h}
+		\pgfmathsetmacro\ymin{-1.2*\h}
+		\pgfmathsetmacro\ymax{1.1*\h}
+		\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+		\tkzDefPoint(0,0){O}
+		\tkzDefShiftPoint[O](60:\h){A}
+		\tkzDefPointsBy[symmetry = center O](A){B}
+		\tkzDefShiftPoint[O](-50:\h){M}
+		\tkzDefPointsBy[reflection = over A--B](M){N}
+		\tkzInterLL(A,B)(M,N)\tkzGetPoint{mn}
+		\tkzDrawSegments(A,B N,M)
+		\tkzDrawCircle[R](O,\h cm)
+		\tkzDrawPoints[fill=black](O,A,B,M,N)
+		\tkzLabelPoints[left](N,O)
+		\tkzLabelPoints[below](B,M)
+		\tkzLabelPoints[right](A)
+		\tkzMarkRightAngles[size=0.2](O,mn,M)
+		\tkzMarkSegments[pos=0.5,mark=|](M,mn N,mn)
+		\end{tikzpicture}
+	}
+\end{dl}
+\subsection{Các ví dụ}
+\begin{vd}
+	Cho đường tròn $ (O;10) $. Lấy một điểm $ A $ tùy ý thuộc $ (O) $. Vẽ dây $ MN $ vuông góc với $ OA $ tại trung điểm của $ OA $.
+	\begin{enumEX}{2}
+		\item Chứng minh $ OMAN $ là hình thoi.
+		\item Tính độ dài dây $ MN $.
+	\end{enumEX}
+	\loigiai{
+\immini[0.01]{
+	\begin{enumerate}
+		\item Gọi $ H $ là trung điểm của $ OA $. Vì $ MN\perp OA $ tại $ H $ nên $ H $ cũng là trung điểm của $ MN $, do đó $ OMAN $ là hình thoi.
+		\item Xét $\triangle OHM $ vuông tại $ H $ có $ OH=5 $ và $ OM=10 $, do đó
+		\[ 
+		HM=\sqrt{OM^{2}-OH^{2}}=\sqrt{100-25}=5\sqrt{3}\Rightarrow MN=2MH=10\sqrt{3}.
+		\]
+	\end{enumerate}
+}{
+\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1.5}
+\pgfmathsetmacro\xmin{-1.5*\h}
+\pgfmathsetmacro\xmax{1.5*\h}
+\pgfmathsetmacro\ymin{-1.3*\h}
+\pgfmathsetmacro\ymax{1.3*\h}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){O}
+\tkzDefShiftPoint[O](0:\h){A}
+\coordinate (H) at ($(A)!1/2!(O)$);
+\tkzDefLine[orthogonal=through H](O,A)\tkzGetPoint{h}
+\tkzInterLC(H,h)(O,A)\tkzGetPoints{M}{N}
+\tkzDrawSegments(A,O N,M O,M O,N A,M A,N)
+\tkzDrawCircle[R](O,\h cm)
+\tkzDrawPoints[fill=black](O,A,M,N,H)
+\tkzLabelPoints[left](O)
+\tkzLabelPoints[below](N)
+\tkzLabelPoints[below right](H)
+\tkzLabelPoints[right](A)
+\tkzLabelPoints[above](M)
+\tkzMarkRightAngles[size=0.2](M,H,A)
+\end{tikzpicture}
+}	
+}
+\end{vd}
+\begin{vd}
+	Cho đường tròn $ (O;R) $ và điểm $ M $ nằm trong đường tròn $ (O) $.
+	\begin{enumerate}
+		\item Hãy nêu cách dựng dây $ AB $ của đường tròn $ (O) $ nhận $ M $ làm trung điểm.
+		\item Tính độ dài dây $ AB $ ở câu a) biết $ R=5 $ cm và $ OM=1,4 $ cm.
+	\end{enumerate}
+	\loigiai{
+		\immini[0.01]{
+			\begin{enumerate}
+				\item Dựng đường thẳng $ d $ đi qua $ M $ và vuông góc với $ OM $. Giả sử $ d $ cắt đường tròn $ (O) $ tại $ A,\ B $. Khi đó ta có $ M $ là trung điểm $ AB $.
+				\item Xét tam giác $ AOM $ vuông tại $ M $ có
+				\[ 
+				AM=\sqrt{AO^{2}-OM^{2}}=\sqrt{5^{2}-1,4^{2}}=4,8\Rightarrow AB=9,6\ \text{cm}.
+				\]
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1.5}
+			\pgfmathsetmacro\xmin{-1.5*\h}
+			\pgfmathsetmacro\xmax{1.5*\h}
+			\pgfmathsetmacro\ymin{-1.3*\h}
+			\pgfmathsetmacro\ymax{1.3*\h}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){O}
+			\tkzDefShiftPoint[O](0:\h){o}
+			\tkzDefShiftPoint[O](-90:0.6*\h){I}
+			\tkzDefLine[orthogonal=through I](O,I)\tkzGetPoint{i}
+			\tkzInterLC(I,i)(O,o)\tkzGetPoints{B}{A}
+			\tkzDrawSegments(A,B O,A O,I)
+			\tkzDrawLines[add = 0.1 and 0.2,end=$d$](A,B)
+			\tkzDrawCircle[R](O,\h cm)
+			\tkzDrawPoints[fill=black](O,A,B,I)
+			\tkzLabelPoints[left](O)
+			\tkzLabelPoint[below](I){$M$}
+			\tkzLabelPoints[below right](B)
+			\tkzLabelPoints[below left](A)
+			\tkzMarkRightAngles[size=0.2](O,I,B)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{vd}
+	\immini[0.01]{
+		Trong hình vẽ bên có $ AB\perp CD $, $ AE=2 $, $ EB=6 $, $ EC=4 $ và $ ED=3 $. Tính độ dài đường kính của đường tròn $ (O) $.
+	}{
+	\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\pgfmathsetmacro\h{1.5}
+	\pgfmathsetmacro\goc{-160}
+	\pgfmathsetmacro\xmin{-1.3*\h}
+	\pgfmathsetmacro\xmax{1.2*\h}
+	\pgfmathsetmacro\ymin{-1.2*\h}
+	\pgfmathsetmacro\ymax{1.1*\h}
+	\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+	\tkzDefPoint(0,0){O}
+	\tkzDefShiftPoint[O](\goc:\h){A}
+	\tkzDefShiftPoint[O](-180-\goc:\h){B}
+	\coordinate (E) at ($(A)!1/4.5!(B)$);
+	\tkzDefLine[orthogonal=through E](A,B)\tkzGetPoint{e}
+	\tkzInterLC(E,e)(O,A)\tkzGetPoints{D}{C}
+	\coordinate (I) at ($(A)!1/2!(B)$);
+	\coordinate (H) at ($(C)!1/2!(D)$);
+	\tkzDrawSegments(A,B C,D O,I O,H)
+	\tkzDrawCircle[R](O,\h cm)
+	\tkzDrawPoints[fill=black](O,A,B,C,D,E,I,H)
+	\tkzLabelPoints[left](A,H)
+	\tkzLabelPoints[below](D,I)
+	\tkzLabelPoints[right](B)
+	\tkzLabelPoints[below right](E)
+	\tkzLabelPoints[above](C,O)
+	\tkzMarkRightAngles[size=0.2](B,E,C)
+	\end{tikzpicture}
+	}
+\loigiai{
+	Ta có $ AB=AE+EB=2+6=8 $ cm, $ CD=CE+ED=4+3=7 $ cm.\\
+Kẻ $ OI\perp AB $ tại $ I $ và $ OH\perp CD $ tại $ H $. Khi đó $ I,\ H $ lần lượt là trung điểm của $ AB,\ CD $. Do vậy $ IA=IB=\dfrac{AB}{2}=4 $ và $ HC=HD=\dfrac{CD}{2}=\dfrac{7}{2} $.\\
+Ta có
+\[ 
+OI=HE=CE-CH=4-\dfrac{7}{2}=\dfrac{1}{2}.
+\]
+Do đó $ OB=\sqrt{OI^{2}+IB^{2}}=\sqrt{\dfrac{1}{4}+4^{2}}=\dfrac{\sqrt{65}}{2}\Rightarrow 2R=\sqrt{65}$.
+}
+\end{vd}
+\begin{vd}
+	Cho đường tròn $ (O) $ và dây $ AB=2a $ sao cho khoảng cách từ tâm $ O $ đến $ AB $ bằng $ h $. Gọi $ I $ là trung điểm của $ AB $. Tia $ IO $ cắt đường tròn $ (O) $ tại $ C $.
+	\begin{enumerate}
+		\item Chứng minh rằng tam giác $ ABC $ cân tại $ C $.
+		\item Tính khoảng cách từ $ O $ đến $ BC $.
+	\end{enumerate}
+	\loigiai{
+	\immini[0.01]{
+		\begin{enumerate}
+			\item Vì $ OA=OB $ và $ I $ là trung điểm $ AB $ nên $ OI\perp AB $. Lại có $ CI\perp AB $ nên $ CI $ vừa là đường cao, vừa là đường trung tuyến trong tam giác $ CAB\Rightarrow $ tam giác $ ABC $ cân tại $ C $.
+			\item Hạ $ OH\perp BC $ tại $ H\Rightarrow H $ là trung điểm của $ BC $, do đó $ HB=HC=\dfrac{BC}{2} $.
+		\end{enumerate}
+	}{
+		\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\pgfmathsetmacro\h{1.5}
+		\pgfmathsetmacro\xmin{-1.5*\h}
+		\pgfmathsetmacro\xmax{1.5*\h}
+		\pgfmathsetmacro\ymin{-1.3*\h}
+		\pgfmathsetmacro\ymax{1.3*\h}
+		\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+		\tkzDefPoint(0,0){O}
+		\tkzDefShiftPoint[O](0:\h){o}
+		\tkzDefShiftPoint[O](-90:0.6*\h){I}
+		\tkzDefLine[orthogonal=through I](O,I)\tkzGetPoint{i}
+		\tkzInterLC(I,i)(O,o)\tkzGetPoints{B}{A}
+		\tkzInterLC(I,O)(O,o)\tkzGetSecondPoint{C}
+		\coordinate (H) at ($(B)!1/2!(C)$);
+		\tkzDrawSegments(A,B A,C B,C O,B O,H C,I)
+		\tkzDrawCircle[R](O,\h cm)
+		\tkzDrawPoints[fill=black](O,A,B,C,I,H)
+		\tkzLabelPoints[left](O)
+		\tkzLabelPoints[below](I)
+		\tkzLabelPoints[below right](B)
+		\tkzLabelPoints[right](H)
+		\tkzLabelPoints[below left](A)
+		\tkzLabelPoints[above](C)
+		\tkzMarkRightAngles[size=0.2](O,I,B O,H,C)
+		\end{tikzpicture}
+	}\noindent
+Xét tam giác $ OIB $ vuông tại $ I $ có $ IB=a $, $ OI=h $ nên $ OB=\sqrt{OI^{2}+IB^{2}}=\sqrt{a^{2}+h^{2}} $.\\
+Mà $ CI=CO+OI=h+\sqrt{a^{2}+h^{2}} $.\\
+Xét tam giác $ IBC $ vuông tại $ I $ có
+\[ 
+BC=\sqrt{CI^{2}+IB^{2}}=\sqrt{(h+\sqrt{a^{2}+h^{2}})^{2}+a^{2}}=\sqrt{2(a^{2}+h^{2}+h\sqrt{a^{2}+h^{2}})}.
+\]
+Do đó $ HB=\dfrac{1}{2}\sqrt{2(a^{2}+h^{2}+h\sqrt{a^{2}+h^{2}})} $.\\
+Xét tam giác $ HOB $ vuông tại $ H $ có
+\begin{eqnarray*}
+	OH&=&\sqrt{OB^{2}-HB^{2}}=\sqrt{\left(\sqrt{a^{2}+h^{2}}\right)^{2}-\left[\dfrac{1}{2}\sqrt{2(a^{2}+h^{2}+h\sqrt{a^{2}+h^{2}})}\right]^{2}}\\
+	&=&\sqrt{\dfrac{a^{2}-h\sqrt{a^{2}+h^{2}}+h^{2}}{2}}.
+\end{eqnarray*}
+}
+\end{vd}
+
+\begin{vd}
+	Cho đường tròn $ (O;R) $ và hai bán kính $ OA,\ OB $. Trên các bán kính $ OA,\ OB $ lần lượt lấy các điểm $ M,\ N $ sao cho $ OM=ON $. Vẽ dây $ CD $ đi qua $ M $ và $ N $ ($ M $ nằm giữa $ C $ và $ N $).
+	\begin{enumerate}
+		\item Chứng minh rằng $ CM=DN $.
+		\item Giả sử $ \widehat{AOB}=90^{\circ} $ và $ CM=MN=ND $, hãy tính độ dài $ OM $ theo $ R $.
+	\end{enumerate}
+\loigiai{
+	\begin{enumerate}
+		\item 
+	\immini[0.01]{
+		Hạ $ OE\perp AB $ tại $ E $ và $ OE $ cắt $ CD $ tại $ F $.\\
+		Trong tam giác $ OAB $ cân tại $ O $, ta có
+		\[ 
+		\dfrac{OM}{OA}=\dfrac{ON}{OB}\Rightarrow MN\parallel AB\Rightarrow OF\perp MN \text{ và }MF=NF.
+		\]
+		Vì $ OF\perp MN $ nên $ OF\perp CD\Rightarrow F $ là trung điểm $ CD$, do vậy $ FC=FD $. Ta có
+		\[ 
+		CM=CF-MF=DF-NF=DN\ (\text{đpcm}).
+		\]
+	}{
+		\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\pgfmathsetmacro\h{2}
+		\pgfmathsetmacro\goc{70}
+		\pgfmathsetmacro\xmin{-1.5*\h}
+		\pgfmathsetmacro\xmax{1.5*\h}
+		\pgfmathsetmacro\ymin{-1.3*\h}
+		\pgfmathsetmacro\ymax{1.3*\h}
+		\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+		\tkzDefPoint(0,0){O}
+		\tkzDefShiftPoint[O](0:\h){A}
+		\coordinate (M) at ($(O)!2/3!(A)$);
+		\tkzDefPointsBy[rotation = center O angle \goc](A,M){B,N}
+		\tkzInterLC(M,N)(O,A)\tkzGetPoints{D}{C}
+		\coordinate (E) at ($(B)!1/2!(A)$);
+		\tkzInterLL(O,E)(C,D)\tkzGetPoint{F}
+		\tkzDrawSegments(O,A O,B C,D A,B O,E)
+		\tkzDrawCircle[R](O,\h cm)
+		\tkzDrawPoints[fill=black](O,A,B,C,D,M,N,E,F)
+		\tkzLabelPoints[left](O)
+		\tkzLabelPoints[right](A,C)
+		\tkzLabelPoints[below left](M)
+		\tkzLabelPoints[left](N)
+		\tkzLabelPoints[above](D,B)
+		\draw[below]($(E)+(-90:5pt)$)node{$E$};
+		\draw[below]($(F)+(-90:5pt)$)node{$F$};
+		\tkzMarkRightAngles[size=0.2](O,E,A)
+		\end{tikzpicture}
+	}
+\item 
+\immini{
+	Đặt $ MF=x\Rightarrow CF=CM+MF=3MF=3x $. Vì tam giác $ OAB $ vuông cân tại $ O $ và $ MN\parallel AB $ nên tam giác $ OMN $ vuông cân tại $ O\Rightarrow OF=MF=x $.\\
+	Xét tam giác $ OCF $ vuông tại $ F $, ta có
+	\[ 
+	OF^{2}=OC^{2}-CF^{2}\Leftrightarrow x^{2}=R^{2}-9x^{2}\Leftrightarrow x=\dfrac{R}{\sqrt{10}}.
+	\]
+	Khi đó $ OM=ON=OF\sqrt{2}=\dfrac{R}{\sqrt{5}} $.\\
+	Vậy với $ OM=ON=\dfrac{R}{\sqrt{5}} $ sẽ thỏa mãn đề bài.
+}{
+	\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\pgfmathsetmacro\h{2}
+	\pgfmathsetmacro\goc{90}
+	\pgfmathsetmacro\xmin{-1.2*\h}
+	\pgfmathsetmacro\xmax{1.5*\h}
+	\pgfmathsetmacro\ymin{-1.3*\h}
+	\pgfmathsetmacro\ymax{1.3*\h}
+	\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+	\tkzDefPoint(0,0){O}
+	\tkzDefShiftPoint[O](0:\h){A}
+	\coordinate (M) at ($(O)!1/2.236!(A)$);
+	\tkzDefPointsBy[rotation = center O angle \goc](A,M){B,N}
+	\tkzInterLC(M,N)(O,A)\tkzGetPoints{D}{C}
+	\coordinate (E) at ($(B)!1/2!(A)$);
+	\tkzInterLL(O,E)(C,D)\tkzGetPoint{F}
+	\tkzDrawSegments(O,A O,B C,D A,B O,E)
+	\tkzDrawCircle[R](O,\h cm)
+	\tkzDrawPoints[fill=black](O,A,B,C,D,M,N,E,F)
+	\tkzLabelPoints[left](O)
+	\tkzLabelPoints[right](A,C)
+	\tkzLabelPoints[below](M)
+	\tkzLabelPoints[left](N)
+	\tkzLabelPoints[above](D,B)
+	\draw[below]($(E)+(-90:5pt)$)node{$E$};
+	\draw[above]($(F)+(90:3pt)$)node{$F$};
+	\tkzMarkRightAngles[size=0.2](O,E,A A,O,B)
+	\end{tikzpicture}
+}
+	\end{enumerate}
+}
+\end{vd}
+\begin{vd}
+	Cho đường tròn $ (O;R) $ và hai dây $ AB=R\sqrt{3} $, $ AC=R\sqrt{2} $ ($ B,\ C $ nằm về hai phía đối với đường thẳng $ AO $). Hãy tính các góc của tam giác $ ABC $.
+	\loigiai{
+\immini[0.01]{
+Xét tam giác $ OAC $ có $ OA=OC=R $, $ AC=R\sqrt{2} $ nên $ \triangle OAC $ vuông cân tại $ O\Rightarrow \widehat{OCA}=\widehat{OAC}=45^{\circ} $.\\
+Kẻ $ OI\perp AB $ tại $ I\Rightarrow IA=IB=\dfrac{R\sqrt{3}}{2} $.\\
+Xét tam giác $ OIB $ vuông tại $ I $ có 
+\[ 
+\cos\widehat{OBI}=\dfrac{IB}{OB}=\dfrac{\sqrt{3}}{2}\Rightarrow \widehat{OAI}=\widehat{OBI}=30^{\circ}\Rightarrow \widehat{AOB}=180^{\circ}-2\cdot 30^{\circ}=120^{\circ}.
+\]
+Do vậy $ \widehat{CAB}=45^{\circ}+30^{\circ}=75^{\circ} $.\\
+Lại có
+\[ 
+360^{\circ}=\widehat{COA}+\widehat{AOB}+\widehat{COB}\Rightarrow \widehat{COB}=360^{\circ}-90^{\circ}-120^{\circ}=150^{\circ}.
+\]
+Xét tam giác $ OBC $ cân tại $ O $, ta có
+\[ 
+\widehat{OBC}=\widehat{OCB}=\dfrac{180^{\circ}-150^{\circ}}{2}=15^{\circ}.
+\]
+Do đó $ \widehat{ACB}=45^{\circ}+15^{\circ}=60^{\circ} $ và $ \widehat{ABC}=30^{\circ}+15^{\circ}=45^{\circ} $.
+}{
+\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1.5}
+\pgfmathsetmacro\goc{-160}
+\pgfmathsetmacro\xmin{-1.3*\h}
+\pgfmathsetmacro\xmax{1.2*\h}
+\pgfmathsetmacro\ymin{-1.2*\h}
+\pgfmathsetmacro\ymax{1.3*\h}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){O}
+\tkzDefShiftPoint[O](\goc:\h){A}
+\tkzDefShiftPoint[O](-180-\goc:\h){B}
+\tkzDefLine[orthogonal=through O](A,O)\tkzGetPoint{o}
+\tkzInterLC(O,o)(O,A)\tkzGetSecondPoint{C}
+\coordinate (I) at ($(A)!1/2!(B)$);
+\tkzDrawSegments(A,B C,A O,I B,C O,B)
+\tkzDrawSegments[dashed](O,A O,C)
+\tkzDrawCircle[R](O,\h cm)
+\tkzDrawPoints[fill=black](O,A,B,C,I)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[below](I)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[above](C)
+\tkzLabelPoints[above right](O)
+\tkzMarkRightAngles[size=0.2](B,I,O)
+\end{tikzpicture}
+}	
+}
+\end{vd}
+\begin{vd}
+	Cho nửa đường tròn $ (O) $, đường kính $ AB=10 $ cm. Một dây $ MN=8 $ cm có hai đầu mút di chuyển trên nửa đường tròn $ (O) $ (điểm $ M $ nằm trên cung nhỏ $ \wideparen{AN} $). Gọi $ E,\ F $ theo thứ tự là hình chiếu vuông góc của $ A,\ B $ trên đường thẳng $ MN $.
+	\begin{enumerate}
+		\item Chứng minh $ EF $ và $ MN $ có trung điểm trùng nhau.
+		\item Chứng minh $ ME=NF $.
+		\item Xác định vị trí của $ MN $ để diện tích tứ giác $ ABFE $ lớn nhất.
+	\end{enumerate}
+\loigiai{
+\immini[0.01]{
+\begin{enumerate}
+	\item Kẻ $ OH\perp MN$\\
+	$\Rightarrow H $ là trung điểm của $ NM $ và $ AE\parallel OH\parallel BF $.\tagEX{1}\noindent
+	Do $ O $ là trung điểm $ AB $ nên $ AE\parallel OH\parallel BF $ và cách đều nhau, do đó $ EH=HF $.\tagEX{2}\noindent
+	Từ $ (1) $ và $ (2) $ ta có $ EF $ và $ MN $ có trung điểm trùng nhau.
+	\item Ta có $ ME=EH-HM=FH-HN=NF $.\\
+	Vậy $ ME=NF $.
+\end{enumerate}
+}{
+\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1.8}
+\pgfmathsetmacro\xmin{-1.3*\h}
+\pgfmathsetmacro\xmax{1.5*\h}
+\pgfmathsetmacro\ymin{-1.2*\h}
+\pgfmathsetmacro\ymax{1.2*\h}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){O}
+\tkzDefShiftPoint[O](180:\h){A}
+\tkzDefShiftPoint[O](40:\h){N}
+\tkzDefShiftPoint[O](120:\h){M}
+\tkzDefPointsBy[symmetry = center O](A){B}
+\tkzDefPointsBy[projection = onto M--N](A,B,O){E,F,H}
+\tkzDefPointsBy[projection = onto A--E](B){K}
+\tkzDrawSegments(A,B E,F O,H A,E B,F B,K O,M)
+\tkzDrawCircle[R](O,\h cm)
+\tkzDrawPoints[fill=black](O,A,B,M,N,E,F,H,K)
+\tkzLabelPoints[above](M,N)
+\tkzLabelPoints[below](O)
+\tkzLabelPoints[below right](H)
+\tkzLabelPoints[right](B,F)
+\tkzLabelPoints[left](A,E,K)
+\tkzMarkRightAngles[size=0.2](A,E,M O,H,M B,F,M A,K,B)
+\end{tikzpicture}
+}
+\begin{enumEX}[c)]{1}
+	\item Vì $ H $ là trung điểm của $ MN $ nên $ HM=HN=4 $ cm. Xét tam giác $ OMH $ vuông tại $ H $ có
+	\[ 
+	OH=\sqrt{MO^{2}-HM^{2}}=\sqrt{25-16}=3\ \text{cm}.
+	\]
+	Vì $ ABFE $ là hình thang có $ OH $ là đường trung bình nên $ AE+BF=2OH=6 $ cm.\\
+	Kẻ $ BK\perp AE $ tại $ K\Rightarrow BK\parallel MN $ và $ BK\leq AB $. Do vậy
+	\[ 
+	S_{ABFE}=\dfrac{(AE+BF)BK}{2}=\dfrac{6BK}{2}=3BK\leq 3AB=30\ \text{cm}^{2}.
+	\]
+	Dấu bằng xảy ra khi $ BK= AB $, hay $ MN\parallel AB $.\\
+	Vậy khi $ MN\parallel AB $ thì diện tích tứ giác $ ABFE $ lớn nhất.	
+\end{enumEX}
+}
+\end{vd}
+\subsection{Luyện tập}
+\begin{bt}
+	Cho đường tròn $ (O;5\ \text{cm}) $ và dây $ AB=8 $ cm.
+	\begin{enumerate}
+		\item Tính khoảng cách từ tâm $ O $ đến dây $ AB $.
+		\item Lấy điểm $ I $ trên dây $ AB $ sao cho $ AI=1 $ cm. Qua $ I $ kẻ dây $ CD $ vuông góc với $ AB $. Chứng minh rằng $ AB=CD $.
+	\end{enumerate}
+\loigiai{
+\immini[0.01]{
+	\begin{enumerate}
+		\item Kẻ $ OE\perp AB $ tại $ E $. Khi đó $ E$ là trung điểm của $ AB$, do vậy $ EA=EB=\dfrac{AB}{2}=4 $.\\
+		Ta có
+		$ OE=\sqrt{OB^{2}-EB^{2}}=\sqrt{25-16}=3 $ cm.
+		\item Kẻ $ OF\perp CD $ tại $ F \Rightarrow F $ là trung điểm của $ CD $.\\
+		Do vậy $ FC=FD=\dfrac{CD}{2} $.
+	\end{enumerate}	
+}{
+	\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\pgfmathsetmacro\h{1.5}
+	\pgfmathsetmacro\goc{-160}
+	\pgfmathsetmacro\xmin{-1.3*\h}
+	\pgfmathsetmacro\xmax{1.2*\h}
+	\pgfmathsetmacro\ymin{-1.2*\h}
+	\pgfmathsetmacro\ymax{1.1*\h}
+	\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+	\tkzDefPoint(0,0){O}
+	\tkzDefShiftPoint[O](\goc:\h){A}
+	\tkzDefShiftPoint[O](-180-\goc:\h){B}
+	\coordinate (E) at ($(A)!1/4.5!(B)$);
+	\tkzDefLine[orthogonal=through E](A,B)\tkzGetPoint{e}
+	\tkzInterLC(E,e)(O,A)\tkzGetPoints{C}{D}
+	\coordinate (I) at ($(A)!1/2!(B)$);
+	\coordinate (H) at ($(C)!1/2!(D)$);
+	\tkzDrawSegments(A,B C,D O,I O,H O,B)
+	\tkzDrawCircle[R](O,\h cm)
+	\tkzDrawPoints[fill=black](O,A,B,C,D,E,I,H)
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoint[left](H){$F$}
+	\tkzLabelPoints[below](C)
+	\tkzLabelPoint[below](I){$E$}
+	\tkzLabelPoints[right](B)
+	\tkzLabelPoint[below right](E){$I$}
+	\tkzLabelPoints[above](D,O)
+	\tkzMarkRightAngles[size=0.2](A,E,D)
+	\end{tikzpicture}
+}\noindent
+\begin{itemize}
+	\item[ ] Ta có $ IE=AE-AI=4-1=3 $ cm, suy ra $ OEIF $ là hình vuông. Do đó $ OF=3 $ cm.\\
+	Xét tam giác $ OFD $ vuông tại $ F $, ta có $ FD=\sqrt{OD^{2}-OF^{2}}=\sqrt{25-9}=4\ \text{cm} $.\\
+	Do vậy $ CD=2FD=8 $ cm, suy ra $ AB=CD $.
+\end{itemize}
+}
+\end{bt}
+\begin{bt}
+	\immini[0.01]{
+Trong hình vẽ bên có một mảnh giấy hình chữ nhật che khuất một phần của đường tròn $ (O) $. Cho biết $ AB=1 $ cm, $ BC=4 $ cm và $ MN=2 $ cm.
+\begin{enumerate}
+	\item Tính độ dài đoạn $ DN $.
+	\item Cho $ AM=1 $ cm. Tính bán kính của đường tròn $ (O) $.
+\end{enumerate}	
+}{
+\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1}
+\pgfmathsetmacro\xmin{-1.2*\h}
+\pgfmathsetmacro\xmax{1.5*\h}
+\pgfmathsetmacro\ymin{-1.5*\h}
+\pgfmathsetmacro\ymax{1.5*\h}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint[label=180:$O$](0,0){O}
+\tkzDefShiftPoint[O](0:0.45*\h){H}
+\tkzDefShiftPoint[O](0:\h){o}
+\tkzDefShiftPoint[O](0:0.8*\h){I}
+\tkzDefShiftPoint[H](-90:1.3*\h){A}
+\coordinate (M) at ($(A)+(I)-(H)$);
+\tkzDefPointsBy[symmetry = center H](A){a}
+\coordinate (m) at ($(a)+(M)-(A)$);
+\tkzInterLC(A,a)(O,o)\tkzGetPoints{C}{B}
+\tkzInterLC(M,m)(O,o)\tkzGetPoints{D}{N}
+\tkzDrawCircle[R](O,\h cm)
+\tkzDrawSegments(A,a M,m A,M a,m)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[above left](B,C)
+\tkzLabelPoints[right](M,N,D)
+\fill [color = white](A)--(M)--(m)--(a)--cycle;
+\tkzDrawPoints[fill=black](O,A,B,C,D,M,N)
+\tkzFindAngle(D,O,C)\tkzGetAngle{goca}
+\tkzFindAngle(B,O,N)\tkzGetAngle{gocb}
+\tkzDrawArc[dashed,rotate](O,D)(\goca)
+\tkzDrawArc[dashed,rotate](O,B)(\gocb)
+\end{tikzpicture}
+}
+\loigiai{
+\immini[0.01]{
+\begin{enumerate}
+	\item Kẻ $ OH\perp BC $ tại $ H $, $ OH $ cắt $ DN $ tại $ I $. Khi đó $ H,\ I $ lần lượt là trung điểm của $ BC,\ DN $.\\
+	Ta có $ HB=HC=\dfrac{BC}{2}=2 $ cm. Vì $ AMIH $ là hình chữ nhật nên $ IM=AH=AB+BH=1+2=3 $ cm.\\
+	Do đó $ IN=IM-MN=3-2=1 $ cm.\\
+	Vậy $ DN=2IN=2 $ cm.
+	\end{enumerate}	
+}{
+\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1.5}
+\pgfmathsetmacro\xmin{-1.2*\h}
+\pgfmathsetmacro\xmax{1.5*\h}
+\pgfmathsetmacro\ymin{-1.5*\h}
+\pgfmathsetmacro\ymax{1.5*\h}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint[label=180:$O$](0,0){O}
+\tkzDefShiftPoint[O](0:0.45*\h){H}
+\tkzDefShiftPoint[O](0:\h){o}
+\tkzDefShiftPoint[O](0:0.8*\h){I}
+\tkzDefShiftPoint[H](-90:1.3*\h){A}
+\coordinate (M) at ($(A)+(I)-(H)$);
+\tkzDefPointsBy[symmetry = center H](A){a}
+\coordinate (m) at ($(a)+(M)-(A)$);
+\tkzInterLC(A,a)(O,o)\tkzGetPoints{C}{B}
+\tkzInterLC(M,m)(O,o)\tkzGetPoints{D}{N}
+\tkzDrawCircle[R](O,\h cm)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[above left](B,C)
+\tkzLabelPoints[right](M,N,D)
+\fill [color = white](A)--(M)--(m)--(a)--cycle;
+\tkzDrawSegments(A,a M,m A,M a,m O,I)
+\tkzDrawSegments[dashed](O,N O,B)
+\tkzDrawPoints[fill=black](O,A,B,C,D,M,N,I,H)
+\tkzLabelPoints[below left](I)
+\tkzLabelPoints[above left](H)
+\tkzFindAngle(D,O,C)\tkzGetAngle{goca}
+\tkzFindAngle(B,O,N)\tkzGetAngle{gocb}
+\tkzDrawArc[dashed,rotate](O,D)(\goca)
+\tkzDrawArc[dashed,rotate](O,B)(\gocb)
+\end{tikzpicture}
+}
+\begin{enumEX}[b)]{1}
+\item Xét tam giác $ OHB $ vuông tại $ H $ có $ OB=\sqrt{OH^{2}+4} $.\\
+Xét tam giác $ OIN $ vuông tại $ I $ có $ OI=OH+HI=OH+1 $, do đó
+\[ 
+ON=\sqrt{OI^{2}+IN^{2}}=\sqrt{(OH+1)^{2}+1}.
+\]
+Mà $ ON=OB\Leftrightarrow \sqrt{OH^{2}+4}=\sqrt{(OH+1)^{2}+1}\Leftrightarrow OH^{2}+4=OH^{2}+2OH+2\Leftrightarrow OH=1 $.\\
+Khi đó $ OB=\sqrt{1+4}=\sqrt{5} $ cm.
+\end{enumEX}
+}
+\end{bt}
+\begin{bt}
+	Cho đường tròn $ (O;OA) $ và đường kính $ AD=12,5 $ cm. Lấy điểm $ B $ thuộc đường tròn $ (O;OA) $ sao cho $ AB=10 $ cm. Kẻ dây $ BC $ vuông góc với đường kính $ AD $. Tính các khoảng cách từ tâm $ O $ đến các dây $ AB $ và $ BC $.
+	\loigiai{
+\immini[0.01]{
+	Vì $ OA=OD=OB $ nên tam giác $ ABD $ vuông tại $ B $, do đó
+	\[ 
+	BD=\sqrt{AD^{2}-AB^{2}}=\sqrt{12,5^{2}-10^{2}}=7,5\ \text{cm}.
+	\]
+	Kẻ $ OH\perp AB $ tại $ H\Rightarrow OH=\dfrac{BD}{2}=3,75 $ cm.\\
+	Gọi $ K $ là giao điểm của $ AD $ và $ BC $, khi đó $ OK\perp BC $.\\
+	Xét tam giác $ ABD $ vuông tại $ B $ ta có
+	\[ 
+	AB^{2}=AK\cdot AD\Rightarrow AK=\dfrac{10^{2}}{12,5}=8\ \text{cm}.
+	\]
+	Do đó $ OK=AK-AO=8-\dfrac{12,5}{2}=1,75 $ cm.
+}{
+	\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\pgfmathsetmacro\h{2}
+	\pgfmathsetmacro\xmin{-1.3*\h}
+	\pgfmathsetmacro\xmax{1.5*\h}
+	\pgfmathsetmacro\ymin{-1.2*\h}
+	\pgfmathsetmacro\ymax{1.5*\h}
+	\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+	\tkzDefPoint(0,0){O}
+	\tkzDefShiftPoint[O](180:\h){A}
+	\tkzDefPointsBy[symmetry = center O](A){B}
+	\tkzDefShiftPoint[O](70:\h){M}
+	\tkzDefPointsBy[reflection = over A--B](M){N}
+	\tkzInterLL(A,B)(M,N)\tkzGetPoint{K}
+	\coordinate (H) at ($(A)!1/2!(M)$);
+	\tkzDrawSegments(A,B N,M O,H A,M M,B)
+	\tkzDrawCircle[R](O,\h cm)
+	\tkzDrawPoints[fill=black](O,A,B,M,N,H,K)
+	\tkzLabelPoints[below](O)
+	\tkzLabelPoints[below right](K)
+	\tkzLabelPoint[below](N){$C$}
+	\tkzLabelPoint[above](M){$B$}
+	\tkzLabelPoints[above](H)
+	\tkzLabelPoint[right](B){$D$}
+	\tkzLabelPoints[left](A)
+	\tkzMarkRightAngles[size=0.2](O,K,M)
+	\end{tikzpicture}
+}	
+}
+\end{bt}
+\begin{bt}
+	Cho đường tròn $ (O) $ và đường kính $ AB $. Gọi $ M,\ N $ theo thứ tự là trung điểm của $ OA,\ OB $. Qua $ M,\ N $ lần lượt vẽ các dây $ CD,\ EF $ song song với nhau ($ C,\ E $ cùng nằm trên một nửa đường tròn đường kính $ AB $).
+	\begin{enumerate}
+		\item Chứng minh tứ giác $ CDFE $ là hình chữ nhật.
+		\item Giả sử $ CD $ và $ EF $ cùng tạo với $ AB $ một góc $ 30^{\circ} $. Tính diện tích hình chữ nhật $ CDFE $.
+	\end{enumerate}
+\loigiai{
+	\immini[0.01]{
+		\begin{enumerate}
+			\item Kẻ $ OP\perp CD $ tại $ P$\\
+			$\Rightarrow P $ là trung điểm $ CD $ và $ OP\perp EF $ (do $ CD\parallel EF $). Giả sử $ OP $ cắt $ EF $ tại $ Q\Rightarrow Q $ là trung điểm của $ EF $.\\
+			Xét hai tam giác vuông $ OPM $ và $ OQN $ có\\
+			$ OM=\dfrac{OA}{2}=\dfrac{OB}{2}=ON $ và $ \widehat{MOP}=\widehat{NOQ} $ nên $ \triangle OPM=\triangle OQN $, do đó $ OP=OQ\Rightarrow CD=EF $.\\
+			Xét tứ giác $ CDFE $ có $ CD=EF $ và $ CD\parallel EF $ nên $ CDFE $ là hình bình hành.\\
+			Lại có $ PQ $ là đường trung bình của hình bình hành $ CDFE $ và $ PQ\perp CE\Rightarrow CD\perp CE $.\\
+			Do đó $ CDFE $ là hình chữ nhật.
+		\end{enumerate}
+	}{
+		\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\pgfmathsetmacro\h{2}
+		\pgfmathsetmacro\goc{30}
+		\pgfmathsetmacro\xmin{-1.3*\h}
+		\pgfmathsetmacro\xmax{1.5*\h}
+		\pgfmathsetmacro\ymin{-1.2*\h}
+		\pgfmathsetmacro\ymax{1.5*\h}
+		\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+		\tkzDefPoint(0,0){O}
+		\tkzDefShiftPoint[O](180:\h){A}
+		\tkzDefPointsBy[symmetry = center O](A){B}
+		\coordinate (M) at ($(A)!1/2!(O)$);
+		\coordinate (N) at ($(B)!1/2!(O)$);
+		\tkzDefShiftPoint[M](\goc:\h){m}
+		\tkzDefLine[parallel=through N](M,m)\tkzGetPoint{n}
+		\tkzInterLC(M,m)(O,A)\tkzGetPoints{D}{C}
+		\tkzInterLC(N,n)(O,A)\tkzGetPoints{E}{F}
+		\coordinate (P) at ($(C)!1/2!(D)$);
+		\coordinate (Q) at ($(F)!1/2!(E)$);
+		\tkzDrawSegments(A,B C,D E,F P,Q)
+		\tkzDrawCircle[R](O,\h cm)
+		\tkzDrawPoints[fill=black](O,A,B,M,N,C,D,E,F,P,Q)
+		\tkzLabelPoints[below](O,M,N,F,Q)
+		\tkzLabelPoints[right](B,E,C)
+		\tkzLabelPoints[above](P)
+		\tkzLabelPoints[left](A,D)
+		\tkzMarkRightAngles[size=0.2](O,P,C)
+		\end{tikzpicture}
+	}
+\begin{enumEX}[b)]{1}
+	\item Xét tam giác $ OPM $ vuông tại $ P $ có $ \widehat{OMP}=30^{\circ} $, suy ra
+	\[ 
+	OP=\dfrac{OM}{2}=\dfrac{OA}{4}=\dfrac{R}{4}\Rightarrow CE=PQ=2OP=\dfrac{R}{2}.\tag{1}
+	\]
+	Xét tam giác $ OPC $ vuông tại $ P $, ta có
+	\[ 
+	CP=\sqrt{OC^{2}-OP^{2}}=\sqrt{R^{2}-\dfrac{R^{2}}{16}}=\dfrac{R\sqrt{15}}{4}\Rightarrow CD=2CP=\dfrac{R\sqrt{15}}{2}.\tag{2}
+	\]
+	Từ $ (1) $ và $ (2) $ ta có $ S_{CDFE}=CD\cdot CE=\dfrac{R}{2}\cdot \dfrac{R\sqrt{15}}{2}=\dfrac{R^{2}\sqrt{15}}{4} $.
+\end{enumEX}
+}
+\end{bt}
+\begin{bt}
+	Cho đường tròn $ (O) $ và đường kính $ AB=13 $ cm. Dây $ CD=12 $ cm vuông góc với $ AB $ tại $ H $.
+	\begin{enumerate}
+		\item Tính độ dài các đoạn $ HA,\ HB $.
+		\item Gọi $ M,\ N $ theo thứ tự là hình chiếu của $ H $ lên $ AC,\ BC $. Tính diện tích tứ giác $ CMHN $.
+	\end{enumerate}
+	\loigiai{
+		\immini[0.01]{
+			\begin{enumerate}
+				\item Vì $ CD\perp AB $ tại $ H $ nên $ CH=\dfrac{CD}{2}=6 $ cm.\\
+				Giả sử $ HA<HB $. Xét tam giác $ OCH $ vuông tại $ H $ có
+				\[ 
+				OH=\sqrt{OC^{2}-HC^{2}}=\sqrt{6,5^{2}-6^{2}}=2,5\ \text{cm}.
+				\]
+				Do đó\\
+				$ HA=6,5-2,5=4 $ cm và $ HB=13-4=9 $ cm.
+				\item Vì $ \triangle CHN\backsim \triangle ABC $ nên
+				\[ 
+				\dfrac{S_{CHN}}{S_{ABC}}=\left(\dfrac{CH}{AB}\right)^{2}=\dfrac{6^{2}}{13^{2}}=\dfrac{36}{169}.
+				\]
+				Mà $ S_{ABC}=\dfrac{1}{2}\cdot 13\cdot 6=39 $ cm$ ^{2} $ nên
+				\[ 
+				S_{CHN}=39\cdot \dfrac{36}{169}=\dfrac{108}{13}\text{ cm}^{2}\Rightarrow S_{CMHN}=\dfrac{216}{13}\text{ cm}^{2}.
+				\]
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{2}
+			\pgfmathsetmacro\goc{30}
+			\pgfmathsetmacro\xmin{-1.3*\h}
+			\pgfmathsetmacro\xmax{1.5*\h}
+			\pgfmathsetmacro\ymin{-1.2*\h}
+			\pgfmathsetmacro\ymax{1.5*\h}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){O}
+			\tkzDefShiftPoint[O](180:\h){A}
+			\tkzDefPointsBy[symmetry = center O](A){B}
+			\coordinate (H) at ($(A)!3/5!(O)$);
+			\tkzDefLine[orthogonal=through H](B,A)\tkzGetPoint{h}
+			\tkzInterLC(H,h)(O,A)\tkzGetPoints{D}{C}
+			\tkzDefPointsBy[projection = onto A--C](H){M}
+			\tkzDefPointsBy[projection = onto B--C](H){N}
+			\tkzDrawSegments(A,B C,D A,C B,C H,M H,N O,C)
+			\tkzDrawCircle[R](O,\h cm)
+			\tkzDrawPoints[fill=black](O,A,B,M,N,C,H)
+			\tkzLabelPoints[below](O,D)
+			\tkzLabelPoints[right](B,N)
+			\tkzLabelPoints[above](C)
+			\tkzLabelPoints[left](A)
+			\draw($(M)+(175:15pt)$)node{$M$};
+			\tkzLabelPoints[below left](H)
+			\tkzMarkRightAngles[size=0.2](H,M,C H,N,C)
+			\end{tikzpicture}
+		}
+		
+	}
+\end{bt}
+\begin{bt}
+	Cho đường tròn $ (O;5\ \text{cm}) $ và điểm $ M $ cách $ O $ một đoạn là $ 3 $ cm.
+	\begin{enumerate}
+		\item Tính độ dài dây cung ngắn nhất của $ (O) $ đi qua $ M $.
+		\item Tính độ dài dây cung dài nhất của $ (O) $ đi qua $ M $.
+	\end{enumerate}
+\loigiai{
+\immini[0.01]{
+	Giả sử $ EF $ là một dây cung tùy ý qua $ M $, $ CD $ là dây cung đi qua $ M $ và vuông góc với $ OM $, $ AB $ là đường kính chứa $ M $ của đường tròn $ (O) $. Kẻ $ OH\perp EF $ tại $ H\Rightarrow H $ là trung điểm $ EF $.
+	\begin{enumerate}
+		\item Ta có $ HE=\sqrt{OE^{2}-OH^{2}} $. Vì $ EF=2HE $, $ OE=5 $ cm nên $ EF $ nhỏ nhất khi $ HE $ lớn nhất.\\
+		Lại có tam giác $ OHM $ vuông tại $ H $ nên $ OH\leq OM $.\\
+		Dấu bằng chỉ xảy ra khi $ H\equiv M\Leftrightarrow EF\equiv CD $.\\
+		Ta có $ MC=\sqrt{OC^{2}-OM^{2}}=\sqrt{25-9}=4\Rightarrow CD=8 $ cm.\\
+		Vậy $ EF $ nhỏ nhất bằng $ 8 $ cm khi $ EF\perp OM $.
+		\item Vì $ AB $ là đường kính đi qua $ M\Rightarrow EF\leq AB $. Do vậy $ EF $ lớn nhất bằng $ 10 $ cm khi $ EF $ là đường kính đi qua $ M $.
+	\end{enumerate}	
+}{
+	\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\pgfmathsetmacro\h{1.5}
+	\pgfmathsetmacro\xmin{-1.3*\h}
+	\pgfmathsetmacro\xmax{1.2*\h}
+	\pgfmathsetmacro\ymin{-1.5*\h}
+	\pgfmathsetmacro\ymax{1.5*\h}
+	\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+	\tkzDefPoint(0,0){O}
+	\tkzDefShiftPoint[O](90:\h){A}
+	\tkzDefPointsBy[symmetry = center O](A){B}
+	\tkzDefShiftPoint[O](-35:\h){C}
+	\tkzDefShiftPoint[O](30:\h){E}
+	\tkzDefPointsBy[reflection = over A--B](C){D}
+	\tkzInterLL(A,B)(C,D)\tkzGetPoint{M}
+	\tkzInterLC(E,M)(O,A)\tkzGetSecondPoint{F}
+	\coordinate (H) at ($(E)!1/2!(F)$);
+	\tkzDrawSegments(A,B C,D E,F O,M O,H O,D)
+	\tkzDrawCircle[R](O,\h cm)
+	\tkzDrawPoints[fill=black](O,A,B,C,D,E,F,M,H)
+	\tkzLabelPoints[left](O,D)
+	\tkzLabelPoints[below](B,F,H)
+	\tkzLabelPoints[right](C,E)
+	\tkzLabelPoints[below right](M)
+	\tkzLabelPoints[above](A)
+	\tkzMarkRightAngles[size=0.2](O,H,E O,M,D)
+	\end{tikzpicture}
+}
+}
+\end{bt}
+\begin{bt}
+	Cho tam giác $ ABC $ nhọn nội tiếp đường tròn $ (O) $ và $ M $ là điểm bất kỳ trên cung tròn $ \wideparen{BC} $ không chứa $ A $. Gọi $ D,\ E $ lần lượt là điểm đối xứng của $ M $ qua $ AB,\ AC $. Tìm vị trí của $ M $ để độ dài $ DE $ nhỏ nhất.
+	\loigiai{
+		\immini[0.01]{
+			Gọi $ AA' $ là đường kính của đường tròn $ (O) $.\\
+			Vì $ D,\ E $ lần lượt là điểm đối xứng của $ M $ qua $ AB,\ AC $ nên $ AD=AM=AE $, do đó tam giác $ AED $ cân tại $ A $.\\
+			Lại có $ \widehat{DAE}=\widehat{DAM}+\widehat{MAE}=2(\widehat{BAM}+\widehat{MAC})=2\widehat{BAC} $ (không đổi).\\
+			Vì vậy $ DE $ lớn nhất khi $ AD $ lớn nhất, tức là $ AM $ lớn nhất $ \Leftrightarrow M\equiv A' $.
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1.5}
+			\pgfmathsetmacro\xmin{-2*\h}
+			\pgfmathsetmacro\xmax{1.7*\h}
+			\pgfmathsetmacro\ymin{-1.5*\h}
+			\pgfmathsetmacro\ymax{1.5*\h}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){O}
+			\tkzDefShiftPoint[O](120:\h){A}
+			\tkzDefPointsBy[symmetry = center O](A){A'}
+			\tkzDefShiftPoint[O](-35:\h){C}
+			\tkzDefShiftPoint[O](-140:\h){B}
+			\tkzDefShiftPoint[O](-100:\h){M}
+			\tkzDefPointsBy[reflection = over A--B](M){D}
+			\tkzDefPointsBy[reflection = over A--C](M){E}
+			\tkzInterLL(A,B)(M,D)\tkzGetPoint{ab}
+			\tkzInterLL(A,C)(M,E)\tkzGetPoint{ac}
+			\tkzDrawSegments(A,ab B,C A,C A,D A,E A,M M,D M,E E,D)
+			\tkzDrawSegments[dashed](A,A')
+			\tkzDrawCircle[R](O,\h cm)
+			\tkzDrawPoints[fill=black](O,A,B,C,D,M,E)
+			\tkzLabelPoints[left](D,O)
+			\tkzLabelPoints[below](M,A')
+			\draw($(B)+(-150:8pt)$)node{$B$};
+			\tkzLabelPoints[right](C,E)
+			\tkzLabelPoints[above](A)
+			\tkzMarkRightAngles[size=0.2](A,ab,M A,ac,E)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}

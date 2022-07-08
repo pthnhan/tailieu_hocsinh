@@ -1,0 +1,171 @@
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{fontawesome}
+\usepackage{icomma}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{tkz-euclide}
+\usepackage{tikz-3dplot}
+\usepackage{tikz,tkz-tab,tkz-linknodes}
+\usetikzlibrary{shapes.geometric,arrows,calc,intersections,angles,patterns,snakes}
+\usetkzobj{all}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.9}
+\usepackage[top=1.5cm, bottom=1.5cm, left=2.5cm, right=1.5cm] {geometry}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage[solcolor]{ex_test}
+%\usepackage[dethi]{ex_test}
+\usepackage[framemethod=TikZ]{mdframed}
+\theoremstyle{explain}
+\renewtheorem{ex}{\color{violet}Câu}
+%CÁC GÓI, LỆNH VIẾT TẮT CẦN THÊM
+\usepackage{esvect}
+\def\vec{\protect\vv}
+\def\overrightarrow{\protect\vv}
+%Lệnh của gói mathrsfs
+\DeclareSymbolFont{rsfs}{U}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\mathscr}{rsfs}
+%Lệnh cung
+\DeclareSymbolFont{largesymbols}{OMX}{yhex}{m}{n}
+\DeclareMathAccent{\wideparen}{\mathord}{largesymbols}{"F3}
+%Lệnh song song
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\varparallel}{\mathrel}{symbolsC}{9}
+\DeclareMathSymbol{\parallel}{\mathrel}{symbolsC}{9}
+%Hệ
+\newcommand{\hoac}[1]{ 
+\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{
+\left\{\begin{aligned}#1\end{aligned}\right.}
+%CẤU TRÚC TỰ LUẬN
+\usepackage{framed}
+\usepackage[most]{tcolorbox}
+\newtheorem{bt}{Bài}
+\newtheorem{vn}{VN}
+\newtheorem{vd}{\color{violet}Ví dụ}
+\theorembodyfont{\it}
+\newtheorem{dl}{Định lí}
+\theoremseparator{.}
+\theorembodyfont{\rm}
+\newtheorem{hq}{Hệ quả}
+\newtheorem{dn}{Định nghĩa}
+\theoremstyle{nonumberplain}
+\newtheorem{kn}{Khái niệm}
+\newtheorem{phantich}{\color{cyan}\faQuestionCircle\ \sc Phân tích}
+\AtEndEnvironment{phantich}{{\par\noindent\color{red} \faMailReply\ \sc Quay trở lại bài toán. \vspace*{-0.3\baselineskip}}}
+\def\beginbox{\begin{tcolorbox}[colframe=blue,colback=white]}
+\def\endbox{\end{tcolorbox}}
+\AtBeginEnvironment{vd}{
+\beginbox
+\renewcommand{\loigiai}[1]{
+\labelex
+\def\labelex{}
+\endbox
+\begin{onlysolution}
+#1
+\end{onlysolution}
+\def\endbox{}
+}
+}
+\AtEndEnvironment{vd}{
+\labelex
+\endbox
+}
+\AtEndEnvironment{bt}{
+\labelex
+}
+%Dạng toán
+\newcounter{dang}\setcounter{dang}{0}
+\renewcommand{\thedang}{\arabic{dang}}
+\newenvironment{dang}[1][]{%
+	\refstepcounter{dang}%
+	\ifstrempty{#1}%
+	{\mdfsetup{%
+			frametitle={%
+				\tikz[baseline=(current bounding box.east),outer sep=0pt]
+				\node[anchor=east,rectangle,fill=cyan]
+				{\color{white}\strut \faFolderOpen\ Dạng~\thedang};}}
+	}%
+	{\mdfsetup{%
+			frametitle={%
+				\tikz[baseline=(current bounding box.east),outer sep=0pt,text width=\textwidth-3\fboxsep]
+				\node[anchor=east,rectangle,fill=cyan]
+				{\color{white}\strut \faFolderOpen\ Dạng~\thedang.~#1};}}%
+	}%
+	\mdfsetup{innertopmargin=10pt,linecolor=blue!20,%
+		linewidth=2pt,topline=true,%
+		frametitleaboveskip=-\ht\strutbox
+	}
+	\begin{mdframed}[]\relax%
+	\addcontentsline{toc}{subsection}{Dạng~\thedang.\ #1}
+}
+{\end{mdframed}}
+%
+\newtcolorbox{note}[1][]{enhanced,
+before skip=2mm,after skip=3mm,
+boxrule=0.4pt,left=4mm,right=2mm,top=1mm,bottom=1mm,
+colback=yellow!50,
+colframe=yellow!20!black,
+sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+underlay={%
+\path[fill=tcbcol@back!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+\path[draw=tcbcol@frame,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+\path[fill=yellow!50!black,draw=none] (interior.south west) rectangle node[white]{\Huge\bfseries !} ([xshift=4mm]interior.north west);
+},
+drop fuzzy shadow,#1}
+%HẾT CẤU TRÚC TỰ LUẬN
+% Định nghĩa tick
+\def\tickEX{\color{blue}\faArrowCircleRight}
+%Tương thích môi trường liệt kê
+\listenumerate{ex,bt,vd,dl,dn,vn,nx,tc,phantich}
+\renewcommand{\labelenumi}{\alph{enumi})}
+%Bài tập về nhà
+\newcounter{vnso}
+\def\vnso{\stepcounter{vnso}{\arabic{vnso}}}
+\def\btvn{
+\setcounter{vn}{0}
+\newpage
+\begin{center}
+\textbf{BÀI TẬP VỀ NHÀ SỐ \vnso}
+\end{center}
+\begin{center}
+\begin{tabular}{p{0.5\textwidth}p{0.47\textwidth}}
+Họ và tên:\dotfill&Lớp: \dotfill\\
+Ngày \dots\dots\dots\dots tháng \dotfill năm \the\year&Chữ kí PHHS:\dotfill
+\end{tabular}
+\end{center}
+}
+%Reset lại bộ đếm qua các section
+\renewcommand\section{%
+									\setcounter{vd}{0}\setcounter{dang}{0}%
+									\setcounter{bt}{0}\setcounter{dl}{0}%
+									\setcounter{hq}{0}\setcounter{dn}{0}%
+									\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\Large\bfseries}}
+%\dotlineans{6}{vd}
+%\dotlineans{6}{vn}
+%\dotlineans{6}{bt}
+\begin{document}
+%\pagestyle{fancy}
+\tableofcontents
+\chapter{SỐ HỮU TỈ - SỐ THỰC}
+	\input{data/7D1-1}
+	\input{data/7D1-2}
+	\input{data/7D1-3}
+	\input{data/7D1-4}
+	\input{data/7D1-5}
+	\input{data/7D1-6}
+	\input{data/7D1-OT}
+\chapter{ĐƯỜNG THẲNG VUÔNG GÓC. ĐƯỜNG THẲNG SONG SONG}
+	\input{data/7H1-1}
+	\input{data/7H1-2}
+	\input{data/7H1-3}
+	\input{data/7H1-4}
+	\input{data/7H1-OT}
+\chapter{MỘT SỐ CHỦ ĐỀ NÂNG CAO}
+	\input{data/7D1G-1}
+	\input{data/7D1G-2}
+\end{document}

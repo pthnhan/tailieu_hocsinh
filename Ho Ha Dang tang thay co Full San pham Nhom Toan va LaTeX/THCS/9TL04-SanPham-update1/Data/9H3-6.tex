@@ -1,0 +1,731 @@
+%%Biên soạn: Phú Thạch. Phản biện: Phạm Ngọc Trung
+\section{Cung chứa góc}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Bài toán quỹ tích cung chứa góc}
+\begin{dl}
+	Quỹ tích những điểm nhìn đoạn thẳng $AB$ dưới một góc không đổi $\alpha$ $(0^\circ<\alpha <180^\circ)$ là hai cung chứa góc $\alpha$ vẽ trên đoạn $AB$ (quỹ tích cơ bản).
+\end{dl}
+\immini
+{\begin{note} \text{}
+	\begin{itemize}
+		\item Hai cung chứa góc $\alpha$ nói trên là hai cung tròn đối xứng nhau qua $AB$.
+		\item Hai điểm $A$ và $B$ được coi là thuộc quỹ tích.
+		\item Khi $\alpha =90^\circ$ thì hai cung chứa góc $\alpha$ là hai nửa đường tròn dường kính $AB$. Như vậy quỹ tích các điểm nhìn đoạn thẳng $AB$ cho trước dưới một góc vuông là đường tròn đường kính $AB$.
+	\end{itemize}
+\end{note}}
+{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.9,font=\footnotesize]
+\tkzInit[ymin=-3.5,ymax=3.5,xmin=-2,xmax=6]
+\tkzClip
+\tkzDefPoints{0/0/A,4/0/B,3/3/M}
+\tkzDefPointBy[reflection=over A--B](M)\tkzGetPoint{N}
+\tkzCircumCenter(A,B,M)\tkzGetPoint{I}
+\tkzCircumCenter(A,B,N)\tkzGetPoint{K}
+\tkzDrawArc[color=black](I,B)(A)
+\tkzDrawArc[color=black](K,A)(B)
+\tkzDrawPoints[fill=black](A,B,M,N)
+\tkzDrawSegments(A,B B,M M,A N,A N,B)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\tkzLabelPoint(N){$M$}
+\tkzLabelPoints[above](M)
+\tkzMarkAngles[size=0.4cm,arc=l](A,M,B)
+\tkzLabelAngles[pos=0.6](A,M,B){$\alpha$}
+\tkzMarkAngles[size=0.4cm,arc=l](B,N,A)
+\tkzLabelAngles[pos=0.6](B,N,A){$\alpha$}
+\end{tikzpicture}}
+\subsubsection{Cách vẽ cung chứa góc}
+Để vẽ cung chứa góc $\alpha$ ta thực hiện các bước sau
+\begin{multicols}{2}
+{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.9,font=\footnotesize]
+	\tkzInit[ymin=-3.5,ymax=5,xmin=-2,xmax=5.5]
+	\tkzClip
+	\tkzDefPoints{0/0/A,4/0/B,3/4/M}
+	\tkzDefMidPoint(A,B)\tkzGetPoint{H}
+	\tkzCircumCenter(A,B,M)\tkzGetPoint{O}
+	\tkzDrawArc[color=black](O,B)(A)
+	\tkzDrawArc[dashed,color=black](O,A)(B)
+	\tkzDefPointBy[homothety=center A ratio 2.3](O)\tkzGetPoint{E}
+	\tkzDefPointBy[homothety=center A ratio -0.3](O)\tkzGetPoint{F}
+	\tkzDefPointBy[homothety=center H ratio 1.3](O)\tkzGetPoint{K}
+		\tkzDefPointBy[homothety=center H ratio -0.3](O)\tkzGetPoint{G}
+	\tkzDefPointBy[rotation= center A angle -90](O)\tkzGetPoint{T}
+	\tkzDefPointBy[homothety=center T ratio 1.3](A)\tkzGetPoint{P}
+	\tkzDefPointBy[rotation= center O angle 40](M)\tkzGetPoint{S}
+	\tkzDrawPoints[fill=black](A,B,M,O,H)
+	\tkzDrawSegments(A,B B,M M,A E,F G,K T,P)
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoints[right](B,O)
+	\tkzLabelPoints[above](M)
+	\tkzLabelPoint[above,rotate=10](S){$m$}
+	\tkzLabelPoint[right](T){$x$}
+	\tkzLabelPoint[right](E){$y$}
+	\tkzLabelPoints[above right](H)
+	\tkzLabelPoint[above right](K){$d$}
+	\tkzMarkAngles[size=0.4cm,arc=l](A,M,B)
+	\tkzMarkRightAngles(O,H,A)
+	\tkzMarkRightAngles(T,A,O)
+	\tkzLabelAngles[pos=0.6](A,M,B){$\alpha$}
+	\tkzMarkAngles[size=0.4cm,arc=l](T,A,B)
+	\tkzLabelAngles[pos=0.6](T,A,B){$\alpha$}
+	\tkzMarkSegments[mark=|](H,A H,B)
+	\end{tikzpicture}}
+
+{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.9,font=\footnotesize]
+	\tkzInit[ymin=-5,ymax=3,xmin=-1.5,xmax=6.5]
+	\tkzClip
+	\tkzDefPoints{0/0/A,6/0/B,4/2/M}
+	\tkzDefMidPoint(A,B)\tkzGetPoint{H}
+	\tkzCircumCenter(A,B,M)\tkzGetPoint{O}
+	\tkzDrawArc[color=black](O,B)(A)
+	\tkzDrawArc[dashed,color=black](O,A)(B)
+	\tkzDefPointBy[homothety=center A ratio 2.2](O)\tkzGetPoint{E}
+	\tkzDefPointBy[homothety=center A ratio -0.3](O)\tkzGetPoint{F}
+	\tkzDefPointBy[homothety=center H ratio 1.3](O)\tkzGetPoint{K}
+	\tkzDefPointBy[homothety=center H ratio -0.3](O)\tkzGetPoint{G}
+	\tkzDefPointBy[rotation= center A angle -90](O)\tkzGetPoint{T}
+	\tkzDefPointBy[homothety=center T ratio 1.3](A)\tkzGetPoint{P}
+	\tkzDefPointBy[rotation= center O angle 40](M)\tkzGetPoint{S}
+	\tkzDrawPoints[fill=black](A,B,M,O,H)
+	\tkzDrawSegments(A,B B,M M,A E,F G,K T,P)
+	\tkzLabelPoints[xshift=-0.5 cm,yshift=0.6 cm](A)
+	\tkzLabelPoints[right](B,O)
+	\tkzLabelPoints[above](M)
+	\tkzLabelPoint[above,rotate=12](S){$m$}
+	\tkzLabelPoint[right](T){$x$}
+	\tkzLabelPoint[right](E){$y$}
+	\tkzLabelPoints[above right](H)
+	\tkzLabelPoint[below](K){$d$}
+	\tkzMarkAngles[size=0.4cm,arc=l](A,M,B)
+	\tkzMarkRightAngles(O,H,A)
+	\tkzMarkRightAngles(T,A,O)
+	\tkzLabelAngles[pos=0.6](A,M,B){$\alpha$}
+	\tkzMarkAngles[size=0.4cm,arc=l](T,A,B)
+	\tkzLabelAngles[pos=0.6](T,A,B){$\alpha$}
+	\tkzMarkSegments[mark=|](H,A H,B)
+	\end{tikzpicture}}
+\end{multicols}
+\begin{itemize}
+	\item Vẽ đường trung trực $d$ của đoạn thẳng $AB$.
+	\item Vẽ tia $Ax$ tạo với đoạn thẳng $AB$ một góc $\alpha$.
+	\item Vẽ tia $Ay$ vuông góc với $Ax$. Gọi $O$ là giao điểm của $Ay$ với $d$.
+	\item Vẽ cung $AmB$, tâm $O$, bán kính $OA$ sao cho cung này nằm ở nửa mặt phẳng bờ $AB$ không chứa tia $Ax$.
+\end{itemize}
+$\wideparen{AmB}$ vẽ được như trên là cung chứa góc $\alpha$.
+\subsubsection{Cách giải bài toán quỹ tích}
+Muốn chứng minh quỹ tích (tập hợp) điểm $M$ thỏa mãn tính chất $\mathscr{T}$ là một hình $ \mathcal{H} $ nào đó, ta phải chứng minh hai phần
+\begin{itemize}	
+	\item Phần thuận: Mọi điểm có tính chất $\mathscr{T}$ đều thuộc hình $ \mathcal{H} $.
+	\item Phần đảo: Mọi điểm thuộc hình $ \mathcal{H} $ đều có tính chất $\mathscr{T}$.
+	\item Kết luận: Quỹ tích (hay tập hợp) các điểm $M$ có tính chất $\mathscr{T}$ là hình $ \mathcal{H} $.
+\end{itemize}
+\subsection{Các ví dụ}
+\begin{vd}
+Cho tam giác $ABC$ vuông tại $A$ có cạnh $BC$ cố định. Gọi $I$ là giao điểm của ba đường phân giác trong. Tìm quỹ tích $I$ khi điểm $A$ thay đổi.
+	\loigiai{
+\immini
+	{	Ta có
+		{\allowdisplaybreaks
+			\begin{eqnarray*}
+		\widehat{BIC}&=&180^\circ -(\widehat{ICB}+\widehat{IBC})=180^\circ -\left(\dfrac{\widehat{B}}{2}+\dfrac{\widehat{C}}{2}\right)\\
+	&=&180^\circ -\dfrac{1}{2}(\widehat{B}+\widehat{C})=180^\circ-\dfrac{90^\circ}{2}=135^\circ.
+	\end{eqnarray*}}
+Ta thấy rằng $B,\,C$ cố định, $A$ thay đổi, $I$ luôn nhìn cạnh $BC$ dưới một góc $135^\circ$.\\
+Vậy quỹ tích điểm $I$ là cung chứa góc $135^\circ$ dựng trên cạnh $BC$ đối xứng nhau qua $BC$.}
+{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.9,font=\footnotesize]
+\tkzInit[ymin=-3.3,ymax=4,xmin=-1.5,xmax=7]
+\tkzClip
+\coordinate(b)at(0,0);
+\coordinate(c)at(5,0);
+\draw(b)node[left]{$B$}--(c)node[right]{$C$};
+\tkzDefTriangle[two angles = 60 and 30](b,c)
+\tkzGetPoint{A}
+\tkzInCenter(A,b,c)\tkzGetPoint{I}
+\tkzDefPointBy[reflection=over b--c](I)\tkzGetPoint{K}
+\tkzDrawSegments(b,I A,I c,I)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[above right](I)
+\draw(b)--(A)--(c);
+\tkzMarkRightAngles (b,A,c)
+\tkzCircumCenter(c,b,I)\tkzGetPoint{O}
+\tkzCircumCenter(c,b,K)\tkzGetPoint{P}
+\tkzDrawArc[color=black](O,c)(b)
+\tkzDrawArc[color=black](P,b)(c)
+%\tkzDrawArc[dashed,color=black](O,b)(c)
+\end{tikzpicture}}
+	}
+\end{vd}
+\begin{vd}
+Cho hai điểm $A,\,B$ cố định. Từ $A$ vẽ các tiếp tuyến với đường tròn tâm $B$ có bán kính không lớn hơn $AB$. Tìm quỹ tích các tiếp điểm.
+	\loigiai{
+		\immini
+	{	Theo tính chất tiếp tuyến ta có $AT\perp BT$.\\
+		Do đó $A,\,B$ cố định, $T$ nhìn $AB$ dưới một góc vuông. \\
+		Vậy quỹ tích điểm $T$ là đường tròn đường kính $AB$.}
+{	\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1,font=\footnotesize]
+	\tkzInit[ymin=-2.5,ymax=3,xmin=-1,xmax=8]
+	\tkzClip
+	\tkzDefPoints{0/0/A,5/0/B,3/4/M}
+	\tkzDefMidPoint(A,B)\tkzGetPoint{I}
+	\tkzDrawSegments(A,B)
+	\tkzDefTriangle[two angles = 20 and 70](A,B)
+	\tkzGetPoint{T}
+	\tkzDrawCircle(B,T)
+	\tkzDrawCircle(I,A)
+	\tkzDrawSegments(A,T B,T)
+		\tkzDrawPoints[fill=black](A,B,T)
+		\tkzLabelPoints[above](T)
+		\tkzLabelPoints[left](A)
+		\tkzLabelPoints[right](B)
+		\tkzMarkRightAngles (A,T,B)
+	\end{tikzpicture}}
+}
+\end{vd}
+\begin{vd}
+Cho $I,\,O$ lần lượt là tâm đường tròn nội tiếp, tâm đường tròn ngoại tiếp của tam giác $ABC$ với $\widehat{A}=60^\circ$. Gọi $H$ là giao điểm của các đường cao $BB'$ và $CC'$. Chứng minh các điểm $B,\,O,\,C,\,H,\,I$ cùng thuộc một đường tròn.
+	\loigiai{
+		\immini
+	{	Xét tứ giác $AB'HC'$, ta có
+			{\allowdisplaybreaks
+		\begin{eqnarray*}
+	&&	\widehat{B'HC'}=360^\circ -(\widehat{A}+\widehat{B'}+\widehat{C'})\\
+	&=&360^\circ-(60^\circ+90^\circ+90^\circ)=120^\circ.\\
+&\Rightarrow & \widehat{BHC}=\widehat{B'HC'}=120^\circ.
+		\end{eqnarray*}
+}
+	Xét $\triangle BIC$ ta có
+	{\allowdisplaybreaks
+		\begin{eqnarray*}
+&&	\widehat{BIC}=180^\circ -(\widehat{IBC}+\widehat{ICB})\\
+	&=&180^\circ-\left(\dfrac{\widehat{B}}{2}+\dfrac{\widehat{C}}{2}\right)=180^\circ-\dfrac{1}{2}(180^\circ-\widehat{A})=120^\circ.
+		\end{eqnarray*}}
+	Mặt khác, $\triangle ABC$ nội tiếp trong đường tròn $(O)$ nên góc nội tiếp $\widehat{BAC}$ trong đường tròn $(O)$ có số đo là
+	$60^\circ=\widehat{BAC}=\dfrac{1}{2}\text{sđ}\wideparen{BC}=\dfrac{1}{2}\widehat{BOC}\Rightarrow \widehat{BOC}=120^\circ.$\\
+Từ đó suy ra $H,\,I,\,$ đều nằm trên cung chứa góc $120^\circ$ dựng trên $BC$. Vậy các điểm $B,\,O,\,C,\,H,\,I$ cùng thuộc một đường tròn.
+}
+{	\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1,font=\footnotesize]
+	\tkzInit[ymin=-4.5,ymax=5,xmin=-1,xmax=6]
+	\tkzClip
+	\tkzDefPoints{0/0/B,5/0/C}
+	\tkzDefTriangle[two angles = 75 and 45](B,C)	\tkzGetPoint{A}
+		\tkzDrawAltitude(A,C)(B)\tkzGetPoint{B'}\tkzLabelPoints[above right](B')
+			\tkzDrawAltitude(A,B)(C)\tkzGetPoint{C'}\tkzLabelPoints[above left](C')
+	\tkzCircumCenter(A,B,C)\tkzGetPoint{O}\tkzLabelPoints[above](O)
+ \tkzDefLine[bisector](B,A,C) \tkzGetPoint{d}
+  \tkzDefLine[bisector](A,B,C) \tkzGetPoint{e}
+  	\tkzInterLL(A,d)(B,e) \tkzGetPoint{I}\tkzLabelPoints[above right](I)
+	\tkzInterLL(B',B)(C,C') \tkzGetPoint{H}
+	\tkzDrawPoints[fill=black](A,B,C,B',C',I,O,H)
+	\tkzLabelPoints[above](A,H)
+	\tkzLabelPoints[left](B)
+	\tkzLabelPoints[right](C)
+		\tkzDrawSegments(A,B B,C A,C I,B I,C)
+	\tkzMarkRightAngles (B,C',C B,B',C)
+		\tkzDrawCircle[circum](B,H,C)
+		\tkzMarkAngles[size=0.4cm,arc=l](B,A,C)
+\tkzLabelAngles[pos=0.7,rotate=10](B,A,C){$60^\circ$}
+
+		\end{tikzpicture}}
+	}
+\end{vd}
+\begin{vd}
+Dựng cung chứa góc  $60^\circ$ trên đoạn $AB=4$ cm.
+	\loigiai{
+		\immini
+	{	Ta lần lượt thực hiện
+		\begin{itemize}
+			\item Dựng đoạn thẳng $AB=4$ cm và đường trung trực $d$ của $AB$.
+			\item Dựng tia $Ax$ sao cho $\widehat{xAB}=60^\circ$.
+			\item Dựng tia $Ay$ vuông góc với $Ax$ cắt $d$ tại $O$.
+			\item Dựng đường tròn $(O,OA)$ và chỉ lấy phần cung cùng phía với $O$, kí hiệu là $\wideparen{AmB}$.
+			\item Lấy đối xứng cung $\wideparen{AmB}$ qua $AB$ và kí hiệu là $\wideparen{Am_1B}$.
+					\end{itemize}
+Vậy hai cung $\wideparen{AmB}$ và $\wideparen{Am_1B}$ là cung chứa góc cần dựng.}
+{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.9,font=\footnotesize]
+	\tkzInit[ymin=-3.5,ymax=5,xmin=-2,xmax=6]
+	\tkzClip
+	\tkzDefPoints{0/0/A,4/0/B}
+	\tkzDefMidPoint(A,B)\tkzGetPoint{H}
+		\tkzDefTriangle[two angles = 45 and 75](A,B)	\tkzGetPoint{M}
+	\tkzCircumCenter(A,B,M)\tkzGetPoint{O}
+	\tkzDefPointBy[reflection=over A--B](O)\tkzGetPoint{I}
+	\tkzDrawArc[color=black](O,B)(A)
+	\tkzDrawArc[dashed,color=black](O,A)(B)
+		\tkzDrawArc[color=black](I,A)(B)
+	\tkzDefPointBy[homothety=center A ratio 2.3](O)\tkzGetPoint{E}
+	\tkzDefPointBy[homothety=center A ratio -0.3](O)\tkzGetPoint{F}
+	\tkzDefPointBy[homothety=center H ratio 1.3](O)\tkzGetPoint{K}
+	\tkzDefPointBy[homothety=center H ratio -0.3](O)\tkzGetPoint{G}
+	\tkzDefPointBy[rotation= center A angle -90](O)\tkzGetPoint{T}
+	\tkzDefPointBy[homothety=center T ratio 1.3](A)\tkzGetPoint{P}
+	\tkzDefPointBy[rotation= center O angle 30](M)\tkzGetPoint{S}
+		\tkzDefPointBy[reflection=over A--B](S)\tkzGetPoint{U}
+	\tkzDrawPoints[fill=black](A,B,O,H)
+	\tkzDrawSegments(A,B E,F G,K T,P)
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoints[right](B,O)
+	\tkzLabelPoint[above,rotate=5](S){$m$}
+	\tkzLabelPoint[above,rotate=5](U){$m_1$}
+	\tkzLabelPoint[right](T){$x$}
+	\tkzLabelPoint[right](E){$y$}
+	\tkzLabelPoints[above right](H)
+	\tkzLabelPoint[above right](K){$d$}
+	\tkzMarkRightAngles(O,H,A)
+	\tkzMarkRightAngles(T,A,O)
+	\tkzMarkAngles[size=0.4cm,arc=l](T,A,B)
+	\tkzLabelAngles[pos=0.7](T,A,B){$60^\circ$}
+	\tkzMarkSegments[mark=|](H,A H,B)
+	\end{tikzpicture}}
+	}
+\end{vd}
+\begin{vd}
+	Dựng tam giác $ABC$ biết $BC=6$ cm, $\widehat{A}=40^\circ$ và đường cao $AH=4$ cm.
+	\loigiai{
+		\immini
+{	Phân tích
+	\begin{itemize}
+		\item 	Giả sử dựng được $\triangle ABC$ thỏa mãn điều kiện $BC=6$ cm, $\widehat{A}=40^\circ$, $AH=4$ cm.
+		\item Khi đó, điểm $A$ nằm trên đường thẳng $d$ song song với đường thẳng $BC$ và cách $BC$ một đoạn bằng $4$ cm.
+		\item Mặt khác, $\widehat{BAC}=40^\circ$ nên $A$ nằm trên cung chứa góc $40^\circ$ dựng trên $BC$.
+	\end{itemize}
+Cách dựng
+\begin{itemize}
+	\item Dựng đoạn thẳng $BC=6$ cm.
+	\item Dựng các đường thẳng $d_1 \parallel \Delta$ và $d_2\parallel \Delta$ và cách $\Delta$ một khoảng $4$ cm.
+	\item Dựng các cung chứa góc $40^\circ$ dựng trên $BC$ là $\wideparen{BmC}$ và $\wideparen{BnC}$. Hai cung này lần lượt cắt $d_1$ và $d_2$ tại $A_1,\,A_2,\,A_3,\,A_4$.
+\end{itemize}
+Vậy $\triangle A_1BC,\,\triangle A_2BC,\,\triangle A_3BC,\,\triangle A_4BC$ là các tam giác cần dựng.
+	}
+{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.8,font=\footnotesize]
+\tkzInit[ymin=-7,ymax=7,xmin=-2,xmax=7.5]
+\tkzClip
+\tkzDefPoints{0/0/B,4.5/0/C,-2/3/J,6.5/3/N,-2/-3/R,6.5/-3/Q}
+\tkzDefMidPoint(C,B)\tkzGetPoint{H}
+\tkzDefTriangle[two angles = 70 and 70](B,C)	\tkzGetPoint{M}
+\tkzCircumCenter(C,B,M)\tkzGetPoint{O}
+\tkzDefPointBy[reflection=over C--B](O)\tkzGetPoint{I}
+\tkzDrawArc[color=black](O,C)(B)
+\tkzDrawArc[color=black](I,B)(C)
+\tkzDefPointBy[homothety=center B ratio 2.3](O)\tkzGetPoint{E}
+\tkzDefPointBy[homothety=center B ratio -0.3](O)\tkzGetPoint{F}
+\tkzDefPointBy[homothety=center H ratio 1.3](O)\tkzGetPoint{K}
+\tkzDefPointBy[homothety=center H ratio -0.3](O)\tkzGetPoint{G}
+\tkzDefPointBy[rotation= center B angle -90](O)\tkzGetPoint{T}
+\tkzDefPointBy[homothety=center T ratio 1.3](A)\tkzGetPoint{P}
+\tkzDefPointBy[rotation= center O angle 30](M)\tkzGetPoint{S}
+\tkzDefPointBy[reflection=over C--B](M)\tkzGetPoint{W}
+\tkzInterLC(J,N)(O,B) \tkzGetPoints{A_1}{A_2}
+\tkzInterLC(R,Q)(I,B) \tkzGetPoints{A_3}{A_4}
+\tkzDrawPoints[fill=black](C,B, A_1, A_2)
+\tkzDrawSegments(C,B J,N R,Q A_1,B A_1,C A_2,B A_2,C A_3,B A_3,C A_4,B A_4,C)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[above right](A_1)
+\tkzLabelPoints[below left](A_3)
+\tkzLabelPoints[below right](A_4)
+\tkzLabelPoints[above left](A_2)
+\tkzLabelPoint[above](M){$m$}
+\tkzLabelPoint[above](W){$n$}
+\tkzLabelPoint[right](N){$d_1$}
+\tkzLabelPoint[right](Q){$d_2$}
+\end{tikzpicture}}
+}
+\end{vd}
+\begin{vd}
+	Cho trước điểm $A$ trên đường thẳng $d$ và hai điểm $C,\,D$ thuộc hai nửa mặt phẳng đối nhau, bờ $d$. Hãy dựng một điểm $B$ trên $d$ sao cho $\widehat{ACB}=\widehat{ADB}$.
+	\loigiai{
+		\immini
+{Phân tích\\
+Giả sử dựng được điểm $B$ trên $d$ sao cho $\widehat{ACB}=\widehat{ADB}$. Gọi $D'$ là điểm đối xứng của $D$ qua $d$. Khi đó $\widehat{ADB}=\widehat{AD'B}$, vậy $\widehat{ACB}=\widehat{AD'B}$		\\
+Suy ra $C$ và $D'$ cùng nằm trên một cung chứa góc dựng trên đoạn $AB$. Từ đó ta thấy giao điểm của $d$ với đường tròn ngoại tiếp $\Delta ACD'$.\\
+Cách dựng
+\begin{itemize}
+	\item Dựng điểm $D'$ là điểm đối xứng của $D$ qua đường thẳng $d$. Dựng đường tròn ngoại tiếp tam giác $ACD'$.
+	\item Dựng giao điểm $B$ của đường thẳng $d$ với đường tròn $(ACD')$.
+\end{itemize}}
+{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.9,font=\footnotesize]
+\tkzInit[ymin=-3,ymax=6,xmin=-2,xmax=7]
+\tkzClip
+\tkzDefPoints{0/0/A,4/0/B,6/0/E,5/2/D}
+\tkzCircumCenter(A,B,D)\tkzGetPoint{O}
+\tkzDrawCircle(O,A);
+\tkzDefPointBy[rotation=center O angle 280](A)\tkzGetPoint{C}
+\tkzDefPointBy[reflection=over A--B](D)\tkzGetPoint{I}
+\tkzInterLL(A,E)(D,I) \tkzGetPoint{F}
+\tkzMarkRightAngles(E,F,D)
+\tkzLabelPoints[above left](C)
+\tkzLabelPoint[above right](D){$D'$}
+\tkzLabelPoints[xshift =-0.4 cm,yshift=0.7 cm](B)
+\tkzLabelPoints[below left](A)	
+\tkzLabelPoint[below right](I){$D$}
+\tkzLabelPoint[right](E){$d$}		
+\tkzDrawPoints[fill=black](C,B,A,D,I,O)
+\tkzDrawSegments(A,E A,C C,B B,D A,D D,I B,I A,I)
+\tkzMarkAngles[size=0.4cm,arc=l](A,D,B)
+\tkzMarkAngles[size=0.4cm,arc=l](B,I,A)
+\end{tikzpicture}}
+\noindent
+Chứng minh: Rõ ràng với cách dựng trên , ta có $\widehat{ACB}=\widehat{AD'B}=\widehat{ADE}$.\\
+Biện luận: Nếu ba điểm $A,\,C,\,D$ không thẳng hàng, hoặc nếu ba điểm này thẳng hàng nhưng $CD$ không vuông góc với $d$ thì bài toán có một nghiệm hình.\\
+Nếu ba điểm $A,\,C,\,D$ thẳng hàng và $d$ là đường trung trực của đoạn $CD$ thì bài toán có vô số nghiệm hình.
+Nếu ba điểm $A,\,C,\,D$ thẳng hàng, $d\perp CD$ nhưng $d$ không phải là đường trung trực của $CD$ thì bài toán không có nghiệm hình.  
+
+	}
+\end{vd}
+\subsection{Luyện tập}
+\begin{bt}
+	Dựng tam giác $ABC$ biết:
+	\begin{enumerate}
+		\item  $BC=3$ cm, $AB=2$ cm và $\widehat{A}=50^\circ$.
+		\item $BC=6$ cm, $\widehat{A}=45^\circ$ và trung tuyến $AM=5$ cm.
+	\end{enumerate}	
+	\loigiai{
+		\begin{enumerate}
+			\item 
+			\immini
+	{Phân tích:	Giả sử đã dựng được $\triangle ABC$ thỏa mãn yêu cầu bài toán, ta có
+		\begin{itemize}
+			\item $\widehat{BAC}=50^\circ$ nên $A$ nằm trên cung chứa góc $50^\circ$ dựng trên đoạn thẳng $BC$.
+			\item $AB=2$ cm nên $A$ nằm trên đường tròn tâm $B$ bán kính $2$ cm.
+		\end{itemize}
+	Cách dựng. Ta lần lượt thực hiện
+	\begin{itemize}
+		\item Dựng đoạn $BC=3$ cm.
+		\item Dựng cung chứa góc $50^\circ$ dựng trên đoạn $BC$.
+		\item Dựng đường tròn tâm $B$ bán kính $2$ cm cắt cung chứa góc ở trên tại $A$.
+		\item Nối $AB,\,AC$ ta được $\triangle ABC$ phải dựng.
+	\end{itemize}}
+{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.9,font=\footnotesize]
+	\tkzInit[ymin=-5,ymax=5,xmin=-2.5,xmax=5]
+	\tkzClip
+	\tkzDefPoints{0/0/B,3/0/C,2/0/D}
+	\tkzDefMidPoint(C,B)\tkzGetPoint{H}
+	\tkzDefTriangle[two angles = 70 and 60](B,C)	\tkzGetPoint{M}
+	\tkzCircumCenter(C,B,M)\tkzGetPoint{O}
+	\tkzDefPointBy[reflection=over C--B](O)\tkzGetPoint{I}
+	\tkzDrawArc[color=black](O,C)(B)
+	\tkzDrawArc[color=black](I,B)(C)
+	\tkzDrawCircle(B,D);
+	\tkzDefPointBy[homothety=center B ratio 2.3](O)\tkzGetPoint{E}
+	\tkzDefPointBy[homothety=center B ratio -0.3](O)\tkzGetPoint{F}
+	\tkzDefPointBy[homothety=center H ratio 1.3](O)\tkzGetPoint{K}
+	\tkzDefPointBy[homothety=center H ratio -0.3](O)\tkzGetPoint{G}
+	\tkzDefPointBy[rotation= center B angle -90](O)\tkzGetPoint{T}
+	\tkzDefPointBy[homothety=center T ratio 1.3](A)\tkzGetPoint{P}
+	\tkzDefPointBy[rotation= center O angle 30](M)\tkzGetPoint{S}
+	\tkzDefPointBy[reflection=over C--B](M)\tkzGetPoint{W}
+	\tkzInterCC(O,C)(B,D) \tkzGetPoints{A_1}{A}
+	\tkzInterCC(I,B)(B,D) \tkzGetPoints{A'}{A_2}
+	\tkzDrawPoints[fill=black](C,B,A, A')
+	\tkzDrawSegments(C,B A,B A,C A',B A',C)
+	\tkzLabelPoints[left](B)
+	\tkzLabelPoints[above left](A)
+	\tkzLabelPoints[below left](A')
+	\tkzLabelPoints[right](C)
+	\end{tikzpicture}}
+Chứng minh. Ta có ngay
+\begin{itemize}
+	\item $BC=3$ cm theo cách dựng.
+	\item $\widehat{A}=50^\circ$ vì $A$ nằm trên cung chứa góc $50^\circ$ dựng trên cạnh $BC$.
+	\item $AB=2$ cm, $A$ nằm trên đường tròn tâm $B$ đường kính $2$ cm.
+\end{itemize}
+Vậy tam giác $ABC$ thỏa mãn điều kiện bài toán.\\
+Biện luận: Ta dựng được hai tam giác thỏa mãn yêu cầu là $\triangle ABC$ và $\triangle A'BC$, nhưng hai tam giác này bằng nhau (đối xứng qua $BC$) nên bài toán này chỉ có một nghiệm hình (bài toán này là bài toán dựng hình về kích thước).
+\item 
+\immini
+{Phân tích: Giả sử dựng được $\triangle ABC$ thỏa mãn điều kiện đề bài, ta có
+\begin{itemize}
+	\item $A$ nằm trên cung chứa góc $45^\circ$ dựng trên đoạn $BC$.
+	\item $A$ nằm trên đường tròn tâm $M$ bán kính $5$ cm với $M$ là trung điểm $BC$.
+\end{itemize}
+Vậy $A$ là giao điểm của đường tròn tâm $M$ bán kính $5$ cm với cung chứa góc $45^\circ$.\\
+Cách dựng
+\begin{itemize}
+	\item Dựng đoạn $BC=6$ cm.
+	\item Dựng đường tròn tâm $M$ bán kính $5$ cm cắt cung chứa góc $45^\circ$ tại $A$.
+	\item Nối $AB,\,AC$ ta được $\triangle ABC$ cần dựng.
+\end{itemize}}
+{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1,font=\footnotesize]
+\tkzInit[ymin=-5,ymax=5,xmin=-2,xmax=5]
+\tkzClip
+\tkzDefPoints{0/0/B,3/0/C,4/0/D}
+\tkzDefMidPoint(C,B)\tkzGetPoint{H}
+\tkzDefTriangle[two angles = 80 and 55](B,C)	\tkzGetPoint{M}
+\tkzCircumCenter(C,B,M)\tkzGetPoint{O}
+\tkzDefPointBy[reflection=over C--B](O)\tkzGetPoint{I}
+\tkzDrawArc[color=black](O,C)(B)
+\tkzDrawArc[color=black](I,B)(C)
+\tkzDrawCircle(H,D);
+\tkzDefPointBy[homothety=center B ratio 2.3](O)\tkzGetPoint{E}
+\tkzDefPointBy[homothety=center B ratio -0.3](O)\tkzGetPoint{F}
+\tkzDefPointBy[homothety=center H ratio 1.3](O)\tkzGetPoint{K}
+\tkzDefPointBy[homothety=center H ratio -0.3](O)\tkzGetPoint{G}
+\tkzDefPointBy[rotation= center B angle -90](O)\tkzGetPoint{T}
+\tkzDefPointBy[homothety=center T ratio 1.3](A)\tkzGetPoint{P}
+\tkzDefPointBy[rotation= center O angle 30](M)\tkzGetPoint{S}
+\tkzDefPointBy[reflection=over C--B](M)\tkzGetPoint{W}
+\tkzInterCC(O,C)(H,D) \tkzGetPoints{A_1}{A}
+\tkzInterCC(I,B)(H,D) \tkzGetPoints{A'}{A_2}
+\tkzDrawPoints[fill=black](C,B,A,H)
+\tkzDrawSegments(C,B A,B A,C A_1,B A_1,C A_2,B A_2,C A,H A',B A',C)
+\tkzLabelPoint[above](H){$M$}
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[above left](A)
+\tkzLabelPoints[right](C)
+\end{tikzpicture}}
+Chứng minh: Ta có
+$BC=6$ cm theo cách dựng.\\
+$\widehat{A}=45^\circ$ vì $A$ nằm trên cung chứa góc $45^\circ$ dựng trên đoạn $BC$. Mặt khác
+$AM=5$ cm vì $A$ thuộc đường tròn tâm $B$ bán kính $5$ cm.
+Vậy $\Delta ABC$ thỏa mãn yêu cầu bài toán.\\
+Biện luận: Để xác định xem bài toán có bao nhiêu nghiệm hình ta cần tính độ dài $A_0M$, trong đó $A_0$ là điểm chính giữa cung chứa góc $45^\circ$.
+Trong $\Delta A_0BM$ vuông tại $M$, ta có:
+{\allowdisplaybreaks
+	\begin{eqnarray*}
+&&\widehat{BA_0M}=\dfrac{1}{2}\widehat{A}=22{,}5^\circ.\\
+&&\widehat{A_0BM}=90^\circ-\widehat{BA_0M}=67{,}5^\circ.\\
+&&A_0M=BM\tan \widehat{A_0BM}=3\tan 67{,}5^\circ \approx 7,24 >AM.
+\end{eqnarray*}}
+\noindent
+Do đó đường tròn tâm $M$ bán kính $5$ cm cắt mỗi cung chứa góc tại hai điểm phân biệt. Vậy bài toán có hai nghiệm hình.
+\end{enumerate}
+	}
+\end{bt}
+\begin{bt}
+	Xét các tam giác $ABC$ có $BC=6$ cm cố định, $\widehat{A}=120^\circ$.
+\begin{enumerate}
+	\item Tìm quỹ tích các điểm $A$.
+	\item Điểm $A$ ở vị trí nào thì tam giác $ABC$ có diện tích lớn nhất? Tính giá trị lớn nhất đó.
+\end{enumerate}
+	\loigiai{
+	\begin{enumerate}
+		\item 
+		\immini
+		{Phần thuận: Do $BC$ cố định, $\widehat{BAC}=120^\circ$ nên $A$ di chuyển trên hai cung chứa góc $120^\circ$ dựng trên $BC$.\\
+		Phần đảo: Lấy điểm $A$ thuộc cung chứa góc $120^\circ$ dựng trên $BC$, ta thấy ngay $120^\circ$.\\
+		Kết luận: Quỹ tích điểm $A$ là hai cung chứa góc $120^\circ$ dựng trên đoạn $BC$.}
+		{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1,font=\footnotesize]
+		\tkzInit[ymin=-1.5,ymax=1.5,xmin=-2,xmax=5]
+		\tkzClip
+		\tkzDefPoints{0/0/B,4/0/C}
+		\tkzDefTriangle[two angles = 40 and 20](B,C)\tkzGetPoint{M}
+		\tkzDefPointBy[reflection=over B--C](M)\tkzGetPoint{N}
+		\tkzCircumCenter(B,C,M)\tkzGetPoint{I}
+		\tkzCircumCenter(B,C,N)\tkzGetPoint{K}
+		\tkzDrawArc[color=black](I,C)(B)
+		\tkzDrawArc[color=black](K,B)(C)
+		\tkzDrawPoints[fill=black](B,C,M)
+		\tkzDrawSegments(B,C C,M M,B)
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](C)
+		\tkzLabelPoint[above](M){$A$}
+		\tkzMarkAngles[size=0.2cm,arc=l](B,M,C)
+		\tkzLabelAngles[pos=0.5](B,M,C){$120^\circ$}
+		\end{tikzpicture}}
+		\item 
+		\immini
+		{Hạ $AH$ vuông góc với $BC$, ta có ngay\\
+		$S_{ABC}=\dfrac{1}{2}AH\cdot BC$.\\
+		Do đó, $S_{ABC}$ có giá trị lớn nhất khi $AH$ lớn nhất $\Leftrightarrow A$ là điểm chính giữa cung chứa góc.
+	}
+	{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1,font=\footnotesize]
+	\tkzInit[ymin=-1,ymax=2,xmin=-1.5,xmax=6]
+	\tkzClip
+	\tkzDefPoints{0/0/B,5/0/C}
+	\tkzDefTriangle[two angles = 40 and 20](B,C)\tkzGetPoint{A}
+	\tkzDrawSegments(B,C C,A A,B)	
+	\tkzDrawAltitude(B,C)(A)\tkzGetPoint{H}\tkzLabelPoints[below](H)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[left](B)
+	\tkzLabelPoints[right](C)
+	\tkzDrawPoints[fill=black](B,C,A,H)
+	\tkzMarkRightAngles(A,H,B)
+	\end{tikzpicture}}
+\noindent
+	Khi đó xét $\triangle ABH$ vuông tại $H$, ta có
+	{\allowdisplaybreaks
+		\begin{eqnarray*}
+&&\widehat{BAH}=60^\circ \Rightarrow  AB=\dfrac{AH}{\cos 60^\circ}=2AH.\\
+&&AB^2=AH^2+BH^2 \Leftrightarrow (2AH)^2=\left(\dfrac{BC}{2}\right)^2\Leftrightarrow3AH^2=9\Leftrightarrow AH=\sqrt{3}.
+\end{eqnarray*}
+}
+Do đó $S_{ABC}=\dfrac{1}{2}\sqrt{3}\cdot 6=3\sqrt{3}$ cm$^2$.\\
+		Nhật xét: Trong ví dụ trên, việc chỉ ra quỹ tích của điểm $A$ được suy ra ngay từ giả thiết, do đó các bước thực hiện là rất đơn giản. Tuy nhiên, trong nhiều trường hợp chúng ta cần chỉ ra được cung chứa góc trong hình vẽ.
+	\end{enumerate}
+	}
+\end{bt}
+\begin{bt}
+	Cho hình thang cân $ABCD$ ($AB\parallel CD$). Chứng minh rằng bốn điểm $A,\,B,\,C,\,D$ cùng thuộc một đường tròn.
+	\loigiai{
+		\immini
+		{Xét hai tam giác $\triangle ABD$ và $\triangle BAC$, ta có\\
+		$\heva{&AB\text{ chung}\\ &\widehat{BAD}=\widehat{ABC}\\& AD=BC \text{ (cạnh bên hình thang cân) }}$\\
+		$\Rightarrow  \triangle ABD = \triangle BAC$ (c.g.c)$\\
+		 \Rightarrow \widehat{ADB}=\widehat{ACB}$.\\
+		Vậy các điểm $C,\,D$ nằm cùng một phía đối với $AB$ và thỏa mãn $\widehat{ADB}=\widehat{ACB}$ nên bốn điểm $A,\,B,\,C,\,D$ thuộc cùng một đường tròn.}
+			{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1,font=\footnotesize]
+			\tkzInit[ymin=-1,ymax=4,xmin=-1,xmax=6.5]
+			\tkzClip
+			\tkzDefPoints{0/0/D,6/0/C,2/2.5/A,4/2.5/B}
+		\tkzDrawSegments(B,C C,D A,B D,A A,C B,D)	
+		\tkzDrawPoints[fill=black](B,C,A,D)	
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[above right](B)
+			\tkzLabelPoints[left](D)
+				\end{tikzpicture}}
+	}
+\end{bt}
+\begin{bt}
+Cho tam giác $ABC$ có $\widehat{A}=60^\circ$, nội tiếp đường tròn $(O)$. Trên cung nhỏ $AC$ lấy một điểm $D$. Trên dây $BD$ lấy điểm $M$ sao cho $DM=DC$.
+\begin{enumerate}
+	\item Chứng minh rằng tam giác $MCD$ là tam giác đều.
+	\item Tìm quỹ tích các điểm $M$ khi điểm $D$ di động trên cung nhỏ $AC$.
+\end{enumerate}	
+\loigiai{
+	\begin{enumerate}
+		\item 
+		Xét $\triangle MCD$, ta có $DM=DC$ và $\widehat{CDM}=\widehat{CDB}=\widehat{CAB}=60^\circ$. Do đó $\triangle MCD$ là tam giác đều.
+		\item 
+		\immini
+	{	Phần thuận: Từ kết quả câu trên ta có\\
+		$\widehat{BMC}=180^\circ-\widehat{CMD}=180^\circ-60^\circ =120^\circ$.\\
+		Do $BC$ cố định, $\widehat{BMC}=120^\circ$ nên $M$ di chuyển trên cung chứa góc $120^\circ$ dựng trên $BC$.\\
+		Giới hạn: Vì $D$ chỉ chạy trên cung $\wideparen{AC}$ nên $M$ chỉ chạy trên một cung chứa góc $120^\circ$ dựng trên $BC$ thuộc nửa mặt phẳng bờ $BC$ có chứa điểm $A$.\\
+		Phần đảo: Lấy điểm $M$ thuộc cung chứa góc $120^\circ$ dựng trên $BC$ thuộc nửa mặt phẳng bờ $BC$ có chứa điểm $A$. Ta chứng minh $DM=DC$.
+	}
+	{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1,font=\footnotesize]
+	\tkzInit[ymin=-1.5,ymax=4,xmin=-2,xmax=5]
+	\tkzClip
+	\tkzDefPoints{0/0/B,4/0/C}
+	\tkzDefTriangle[two angles = 40 and 20](B,C)\tkzGetPoint{M}
+\tkzDefTriangle[two angles = 75 and 45](B,C)\tkzGetPoint{A}
+	\tkzCircumCenter(B,C,M)\tkzGetPoint{I}
+	\tkzCircumCenter(B,C,A)\tkzGetPoint{O}
+	\tkzDrawArc[color=black](I,C)(B)
+\tkzDrawCircle(O,B);
+\tkzInterLC(B,M)(O,B)\tkzGetSecondPoint{D}
+	\tkzDrawPoints[fill=black](B,C,M,A,D,O)
+	\tkzDrawSegments(B,C C,M B,D A,B A,C D,C)
+	\tkzLabelPoints[left](B)
+	\tkzLabelPoints[right](C,D)
+	\tkzLabelPoints[above](M,A,O)
+	\tkzMarkAngles[size=0.2cm,arc=l](B,M,C)
+	\tkzLabelAngles[pos=0.4](B,M,C){$120^\circ$}
+\tkzMarkAngles[size=0.4cm,arc=ll](B,A,C)
+\tkzLabelAngles[pos=0.6](B,A,C){$60^\circ$}
+	\end{tikzpicture}}
+\noindent
+	Thật vậy, xét $\Delta MCD$, ta có
+\begin{flushleft}
+	$\heva{&\widehat{CDM}=\widehat{CAB}=60^\circ\\
+&\widehat{CMD}=180^\circ-\widehat{BMC}=180^\circ-120^\circ=60^\circ}\Rightarrow \Delta MCD$ là tam giác đều.
+\end{flushleft}
+$\Rightarrow DM=DC$.\\
+Kết luận: Quỹ tích điểm $M$ là một cung chứa góc $120^\circ$ dựng trên $BC$ thuộc nửa mặt phẳng bờ $BC$ chứa điểm $A$.
+	\end{enumerate}
+}
+\end{bt}
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$. Vẽ hai nửa đường tròn đường kính $AB$ và $AC$ ra phía ngoài của tam giác. Qua $A$ vẽ cát tuyến $MAN$ ($M$ thuộc nửa đường tròn đường kính $AB$, $N$ thuộc nửa đường tròn đường kính $AC$).
+	\begin{enumerate}
+		\item Tứ giác $BCNM$ là hình gì?
+		\item Tìm quỹ tích trung điểm $I$ của $MN$ khi cát tuyến $MAN$ quay quanh $A$.
+	\end{enumerate}
+\loigiai{
+	\begin{enumerate}
+		\item 
+		Xét tứ giác $BCNM$, ta có
+		\begin{itemize}
+			\item 	$\widehat{AMB}=90^\circ$, góc nội tiếp chắn nửa đường tròn $\Rightarrow BM \perp MN$.
+			\item $\widehat{ANC}=90^\circ$, góc nội tiếp chắn nửa đường tròn $\Rightarrow CM \perp MN$.
+		\end{itemize}	
+	 $\Rightarrow BM \parallel CN$. Vậy tứ giác $BCNM$ là hình thang vuông.
+		\item 	Phần thuận: Gọi $E$ là trung điểm $BC$, ta có
+		\immini
+	{ $EI$ là đường trung bình của hình thang $BCNM$ $\Rightarrow EI \parallel CN \Rightarrow EI \perp MN \Leftrightarrow\widehat{AIE}=90^\circ$.\\
+		Vậy điểm $I$ nằm trên đường tròn đường kính $AE$.\\
+		Giới hạn: Ta có
+		\begin{itemize}
+			\item Nếu $M \equiv B \Rightarrow N \equiv A \Rightarrow I \equiv P$ là trung điểm của $AB$.
+			\item Nếu $M \equiv A \Rightarrow N \equiv B \Rightarrow I \equiv Q$ là trung điểm của $AC$.	
+		\end{itemize}
+	Do đó $I$ chỉ nằm trên cung $\wideparen{PQ}$ của đường tròn đường kính $AE$.\\
+	Phần đảo: Lấy điểm $I$ nằm trên cung $\wideparen{PQ}$ của đường tròn đường kính $AE$. Nối $AI$ cắt $(AB)$ và $(AC)$ theo thứ tự tại $M$ và $N$. Ta chứng minh $MI=NI$.
+	}
+	{\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1,font=\footnotesize]
+		\tkzInit[ymin=-2.5,ymax=5.5,xmin=-3,xmax=4]
+		\tkzClip
+		\tkzDefPoints{0/0/A,3.5/0/B,0/5/C}
+		\tkzDefMidPoint(A,B)\tkzGetPoint{P}
+		\tkzDefMidPoint(A,C)\tkzGetPoint{Q}
+		\tkzDefMidPoint(B,C)\tkzGetPoint{E}
+		\tkzDrawArc[color=black](P,A)(B)
+		\tkzDrawArc[color=black](Q,C)(A)
+		\tkzDefPointBy[rotation=center Q angle -50](A)\tkzGetPoint{N}
+		\tkzInterLC(A,N)(P,A)\tkzGetFirstPoint{M}
+		\tkzDefMidPoint(M,N)\tkzGetPoint{I}
+		\tkzDrawPoints[fill=black](B,C,M,A,P,Q,N,E,I)
+		\tkzDrawSegments(B,C C,A B,A M,N C,N M,B E,I A,E)	
+		\tkzLabelPoints[left](Q)
+		\tkzLabelPoints[below left](N)
+		\tkzLabelPoints[below right](B,M)
+		\tkzLabelPoints[right](E)
+		\tkzLabelPoints[below left](A)
+		\tkzLabelPoints[below](I)
+		\tkzLabelPoints[above](P,C)
+		\tkzMarkRightAngles(B,A,C B,M,A A,N,C M,I,E)
+		\end{tikzpicture}}
+	\noindent
+	Thật vậy, $\widehat{AIE}=90^\circ$, góc nội tiếp chắn nửa đường tròn $\Leftrightarrow EI \perp MI$.
+	$\Leftrightarrow EI \parallel BM \Rightarrow EI$ là đường trung bình của hình thang $BCNM \Rightarrow MI =NI$.\\
+	Kết luận: Quỹ tích các đểm $I$ nằm trên cung $\wideparen{PQ}$ của đường tròn đường kính $AE$.
+	\end{enumerate}
+}
+\end{bt} 
+\begin{bt}
+	Cho tam giác $ABC$ có $\widehat{B}$ và $\widehat{C}$ là các góc nhọn, đường cao $AH$, trung tuyến $AM$ thỏa mãn $\widehat{BAH}=\widehat{MAC}$. Goi $E$ là trung điểm $AB$.
+	\begin{enumerate}
+		\item Tam giác $AEH$ là tam giác gì? Vì sao?
+		\item Chứng minh $A,\,E,\,H,\,M$ cùng thuộc một đường tròn.
+		\item Chứng minh tam giác $ABC$ vuông.
+	\end{enumerate}
+\loigiai{	
+	\begin{center}
+			\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1,font=\footnotesize]
+	\tkzInit[ymin=-1,ymax=3,xmin=-1.5,xmax=6.5]
+	\tkzClip
+	\tkzDefPoints{0/0/B,6/0/C}
+	\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+	\tkzDefTriangle[two angles = 60 and 30](B,C)\tkzGetPoint{A}
+	\tkzDefMidPoint(A,B)\tkzGetPoint{E}
+	\tkzDrawAltitude(B,C)(A)\tkzGetPoint{H}\tkzLabelPoints[below](H)
+	\tkzDrawSegments(B,C C,A B,A A,H A,M M,E E,H)	
+	\tkzDrawPoints[fill=black](B,C,M,A,E,H)
+	\tkzLabelPoints[left](B)
+	\tkzLabelPoints[right](C)
+	\tkzLabelPoints[above left](E)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[below](M)
+	\tkzMarkRightAngles(C,H,A)
+	\tkzMarkAngle[size=0.5cm,arc=l](B,A,H)
+	\tkzMarkAngles[size=0.5cm,arc=l](M,A,C)
+	\end{tikzpicture}
+	\end{center}
+	\begin{enumerate}
+		\item Xét $\triangle ABH$ vuông tại $H$, ta có
+		$EH=\dfrac{1}{2}AB$, trung tuyến ứng với cạnh huyền $\Leftrightarrow EH=EA \Leftrightarrow \Delta EAH$ cân tại $E$.
+		\item    
+		 Nhận xét rằng 
+\begin{flushleft}
+			 $\heva{&\widehat{AHE}=\widehat{EAH} \text{ do } \triangle EAH \text { cân tại } E\\
+		&\widehat{EAH}=\widehat{MAC} \text{ theo giả thiết }\\
+		&\widehat{MAC}=\widehat{AME} \text{ (hai góc so le trong do } ME \parallel AC\text{)}}$
+\end{flushleft}
+		Suy ra $\widehat{AHE}=\widehat{AME}$. Vậy các điểm $M,\,H$ nằm cùng một phía đối với $AE$ và thỏa mãn $\widehat{AHE}=\widehat{AME}$ nên bốn điểm $A,\,E,\,H,\,M$ thuộc cùng một đường tròn.
+		\item Từ kết quả câu trên, ta suy ra $\widehat{AEM}=\widehat{AHM}=90^\circ$ (góc nội tiếp cùng chắn cung $\wideparen{AM}$).\\
+		$\Rightarrow ME \perp AB$. Mặt khác ta cũng có $ME \parallel AC$,
+		suy ra $AB \perp AC \Rightarrow \Delta ABC$ vuông tại $A$.
+	\end{enumerate}
+}
+\end{bt}
+

@@ -1,0 +1,1079 @@
+\section{Đối xứng tâm}
+\subsection{Lý thuyết}
+Hai điểm gọi là đối xứng với nhau qua điểm $ O $ nếu $ O $ là trung điểm của đoạn thẳng nối hai điểm đó. Điểm đối xứng của điểm $ O $ qua điểm $ O $ chính là điểm $ O $.\\
+Nếu hai đoạn thẳng (góc, tam giác) đối xứng nhau qua một điểm thì chúng bằng nhau.\\
+Hình bình hành nhận giao điểm của hai đường chéo làm tâm đối xứng.
+\begin{vd}%[Dương BùiĐức, Dự án EX-C2-L8-2018]%[8H1K8]
+	Một hình bình hành có bốn đỉnh nằm trên bốn cạnh của một hình bình hành khác. Chứng minh rằng các tâm của hai hình bình hành đó là trùng nhau.
+	\loigiai{
+\immini[0.01]{
+Gọi $ EFGH $ là hình bình hành có bốn đỉnh nằm trên bốn cạnh của hình bình hành $ ABCD $ (như hình vẽ bên). Gọi $ O $ là tâm của hình bình hành $ EFGH $, ta sẽ chứng minh $ O $ cũng là tâm của hình bình hành $ ABCD $. Thật vậy\\
+Gọi $ P,\ Q $ lần lượt là trung điểm của các cạnh $ AD,\ BC $.\\
+Ta có $ OP $ là đường trung bình của hình thang $ AEGD $ nên $ OP\parallel DG $.\tagEX{1}
+}{
+\begin{tikzpicture}[line join=round, line cap=round]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1.5}
+\pgfmathsetmacro\goc{55}
+\pgfmathsetmacro\x{3*\h}
+\pgfmathsetmacro\y{2*\h}
+\pgfmathsetmacro\xmin{-0.2*\x}
+\pgfmathsetmacro\xmax{1.5*\x}
+\pgfmathsetmacro\ymin{-0.2*\y}
+\pgfmathsetmacro\ymax{1.2*\y}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:\x){B}
+\tkzDefShiftPoint[A](\goc:\y){D}
+\coordinate (C) at ($(B)+(D)-(A)$);
+\coordinate (E) at ($(A)!1/3!(B)$);
+\coordinate (G) at ($(A)+(C)-(E)$);
+\coordinate (F) at ($(B)!1/4!(C)$);
+\coordinate (H) at ($(B)+(D)-(F)$);
+\coordinate (P) at ($(A)!1/2!(D)$);
+%\coordinate (R) at ($(A)!1/2!(B)$);
+\coordinate (Q) at ($(B)!1/2!(C)$);
+%\coordinate (S) at ($(D)!1/2!(C)$);
+\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+\tkzDrawPoints[fill=black](A,B,C,D,O,E,F,G,H,P,Q)
+\tkzDrawSegments(A,C B,D E,G F,H)
+\tkzDrawSegments[dashed](P,Q)
+\draw (A)--(B)--(C)--(D)--cycle;
+\draw (E)--(F)--(G)--(H)--cycle;
+\tkzLabelPoints[below](A,B,E)
+\draw($(O)+(-90:10pt)$)node{$O$};
+\tkzLabelPoints[above](C,D,G)
+\tkzLabelPoints[right](F,Q)
+\tkzLabelPoints[left](H,P)
+\end{tikzpicture}
+}\noindent
+Tương tự ta có\\
+$ OQ $ là đường trung bình của hình thang $ CGEB $ nên $ OQ\parallel GC $.\tagEX{2}\noindent
+Từ $ (1) $ và $ (2) $ ta suy ra $ O,\ P,\ Q $ thẳng hàng.\\
+Vì $ EFGH $ là hình bình hành nên $ GF\parallel EH $, $ GF=EH $ và $ \widehat{GFC}=\widehat{EHA} $, $ \widehat{FFC}=\widehat{HEA} $ (do $ AD\parallel BC $). Từ đó suy ra $ \triangle AEH=\triangle CGF $ (g-c-g), do vậy $ CG=AE $.\\
+Mà $ OQ=\dfrac{CG+BE}{2}=\dfrac{AE+EB}{2}=\dfrac{AB}{2} $.\\
+Lại có $ AB=PQ $ nên $ OP=\dfrac{PQ}{2} $, do vậy $ O $ là trung điểm của $ PQ $.\\
+Vì $ PQ $ là đường trung bình của hình bình hành $ ABCD $ nên $ O $ cũng là trung điểm của $ AC,\ BD $. Do vậy $ O $ là tâm của hình bình hành $ ABCD $.
+%Từ $ (3) $ và $ (4) $ ta suy ra $ O,\ R,\ S $ thẳng hàng.
+}
+\end{vd}
+\begin{vd}%[Dương BùiĐức, Dự án 8TL]%[8H1G8]
+	Cho tứ giác $ ABCD $, điểm $ E $ thuộc đoạn $ AD $ và điểm $ G $ thuộc đoạn $ BC $. Dựng điểm $ F $ thuộc đoạn $ AB $ và điểm $ H $ thuộc đoạn $ CD $ sao cho $ EFGH $ là hình bình hành.
+	\loigiai{
+\immini[0.01]{
+\begin{enumEX}[+)]{1}
+	\item \textit{Phân tích:} Gọi $ O $ là trung điểm $ EG $ thì $ O $ là điểm xác định và $ O $ là trung điểm của $ FH $.\\
+	Vì $ F $ thuộc cạnh $ CD $ nên $ H $ sẽ nằm trên đường thẳng $ d $ là ảnh của đường thẳng $ CD $ qua phép đối xứng tâm $ O $, do đó $ F $ là giao điểm của $ d $ và $ AB $.
+	\item \textit{Cách dựng:}\\
+	Dựng trung điểm $ O $ của đoạn $ EG $.
+\end{enumEX}
+}{
+\begin{tikzpicture}[line join=round, line cap=round]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1}
+\pgfmathsetmacro\goca{75}
+\pgfmathsetmacro\gocd{20}
+\pgfmathsetmacro\x{3*\h}
+\pgfmathsetmacro\y{2*\h}
+\pgfmathsetmacro\xmin{-0.1*\x}
+\pgfmathsetmacro\xmax{2*\x}
+\pgfmathsetmacro\ymin{-0.5*\y}
+\pgfmathsetmacro\ymax{2*\y}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:1.8*\x){B}
+\tkzDefShiftPoint[A](\goca:\y){D}
+\tkzDefShiftPoint[D](\gocd:1.1*\x){C}
+\coordinate (E) at ($(A)!3/5!(D)$);
+\coordinate (G) at ($(B)!1/3!(C)$);
+\coordinate (O) at ($(E)!1/2!(G)$);
+\tkzDefLine[orthogonal=through O](D,C)\tkzGetPoint{o}
+\tkzInterLL(O,o)(C,D)\tkzGetPoint{M}
+\tkzDefPointsBy[symmetry = center O](M){N}
+\tkzDefLine[orthogonal=through N](M,N)\tkzGetPoint{n}
+\tkzInterLL(N,n)(A,B)\tkzGetPoint{F}
+\coordinate(H) at ($(E)+(G)-(F)$);
+\tkzDrawPoints[fill=black](A,B,C,D,E,F,G,H,O,M,N)
+\draw (A)--(B)--(C)--(D)--cycle;
+\draw (E)--(F)--(G)--(H)--cycle;
+\tkzDrawSegments(E,G F,H)
+\tkzDrawSegments[dashed](M,N)
+\tkzDrawLines[add = 0 and 1.5, end =$d$](F,N)
+\tkzLabelPoints[below](B,A,F,N)
+\draw($(O)+(-110:10pt)$)node{$O$};
+\tkzLabelPoints[above](C,D,H,M)
+\tkzLabelPoints[left](E)
+\tkzLabelPoints[right](G)
+\tkzMarkRightAngles[size=0.2](O,M,D)
+\tkzMarkSegments[pos=0.5,mark=|](O,E O,G)
+\end{tikzpicture}
+}
+\begin{enumEX}[+)]{1}
+	\item[]	Hạ $ OM\perp CD $ tại $ M $. Lấy đối xứng của $ M $ qua $ O $ ta được điểm $ N $. Qua $ N $ kẻ đường thẳng $ d $ song song với $ CD $, cắt $ AB $ tại $ F $. Nối $ FO $ cắt $ CD $ tại $ H $.\\
+	Vậy $ EFGH $ là hình cần dựng.
+	\item \textit{Chứng minh:}\\
+	Vì $ \triangle OMH=\triangle ONF $ (g-c-g) nên $ OH=OF $.\\
+	Tứ giác $ EFGH $ có $ OE=OG,\ OH=OF $ nên $ EFGH $ là hình bình hành.
+	\item \textit{Biện luận:}\\
+	Nếu $ d $ trùng với $ AB $: khi đó $ AB\parallel CD,\ O $ cách đều $ AB $ và $ CD $ thì bài toán có vô số nghiệm hình.\\
+	Nếu $ d $ song song với $ AB $: khi đó $ AB\parallel CD,\ O $ không cách đều $ AB $ và $ CD $ thì bài toán không có nghiệm hình.\\
+	Nếu $ d $ cắt $ AB $: khi đó $ AB$ không song song với $ CD$ thì bài toán có một nghiệm hình.
+\end{enumEX}
+}
+\end{vd}
+
+\subsection{Bài tập}
+\begin{bt}%[Dương BùiĐức, Dự án 8TL]%[8H1K8]
+Cho tam giác $ ABC $. Gọi $ D,\ E,\ F $ theo thứ tự là trung điểm của $ BC,\ AC,\ AB $ và $ O $ là điểm tùy ý. Lấy $ A' $ là điểm đối xứng với $ O $ qua $ D $, $ B' $ là điểm đối xứng với $ O $ qua $ E $, $ C' $ là điểm đối xứng với $ O $ qua $ F $. Chứng minh rằng các đường thẳng $ AA',\ BB',\ CC' $ đồng quy.
+\loigiai{
+\immini{
+Vì $ AB' $ song song và bằng $ A'B $ (do cùng song song và bằng $ OC $) nên $ ABA'B' $ là hình bình hành, do đó $ AA' $ cắt $ BB' $ tại trung điểm mỗi đường.\tagEX{1}\noindent
+Tương tự, $ BCB'C' $ là hình bình hành, do đó $ BB' $ cắt $ CC' $ tại trung điểm mỗi đường.\tagEX{2}\noindent
+Từ $ (1) $ và $ (2) $ ta suy ra các đường thẳng $ AA',\ BB',\ CC' $ đồng quy (tại trung điểm mỗi đường).
+}{
+\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1.8}
+\pgfmathsetmacro\goc{70}
+\pgfmathsetmacro\x{3*\h}
+\pgfmathsetmacro\y{2*\h}
+\pgfmathsetmacro\xmin{-0.2*\x}
+\pgfmathsetmacro\xmax{1.1*\x}
+\pgfmathsetmacro\ymin{-0.5*\y}
+\pgfmathsetmacro\ymax{1.2*\y}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:\x){B}
+\tkzDefShiftPoint[A](\goc:\y){C}
+\tkzDefMidPoint(A,B)\tkzGetPoint{F}
+\tkzDefMidPoint(C,B)\tkzGetPoint{D}
+\tkzDefMidPoint(C,A)\tkzGetPoint{E}
+\tkzDefShiftPoint[A](\goc/1.8:0.5*\y){O}
+\tkzDefPointsBy[symmetry = center D](O){A'}
+\tkzDefPointsBy[symmetry = center E](O){B'}
+\tkzDefPointsBy[symmetry = center F](O){C'}
+\tkzDrawPoints[fill=black](A,B,C,D,E,F,O,A',B',C')
+\draw (A)--(B)--(C)--cycle;
+\tkzDrawSegments(A,A' A,B' A,O B,A' B,B' C,B' C,O C,C')
+\tkzDrawSegments[dashed](O,A' O,B' O,C')
+\tkzLabelPoints[below](A,B,F,C')
+\tkzLabelPoints[above](C,D,B',A')
+\tkzLabelPoints[left](E,O)
+
+\end{tikzpicture}
+}
+}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, Dự án 8TL]%[8H1K8][8H1G8]
+	Cho góc $ \widehat{xOy} $ khác góc bẹt và $ M $ là điểm thuộc miền trong của góc.
+	\begin{enumerate}
+		\item Qua $ M $ dựng đường thẳng cắt các tia $ Ox,\ Oy $ theo thứ tự ở $ A $ và $ B $ sao cho $ M $ là trung điểm của $ AB $.
+		\item Chứng minh rằng tam giác $ OAB $ nhận được trong cách dựng trên có diện tích nhỏ nhất trong tất cả các tam giác tạo bởi tia $ Ox,\ Oy $ và một đường thẳng bất kỳ đi qua $ M $.
+	\end{enumerate}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item Ta có hai cách dựng như sau:\\
+				\textit{Cách 1.} Qua $ M $ dựng đường thẳng song song với $ Ox $, cắt $ Oy $ ở $ D $. Dựng $ B $ đối xứng với $ O $ qua $ D $, đường thẳng $ BM $ cắt $ Ox $ tại $ A $.\\
+				\textit{Cách 2.} Dựng $ N $ đối xứng với $ O $ qua $ M $. Qua $ N $ dựng các đường thẳng song song với $ Oy,\ Ox $ và lần lượt cắt $ Ox,\ Oy $ tại $ A,\ B $.
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1.8}
+			\pgfmathsetmacro\goc{70}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{2*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.5*\x}
+			\pgfmathsetmacro\ymin{-0.15*\y}
+			\pgfmathsetmacro\ymax{1.5*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){O}
+			\tkzDefShiftPoint[O](0:0.8*\x){A'}
+			\tkzDefShiftPoint[O](\goc:1.1*\y){y}
+			\tkzDefShiftPoint[O](\goc/1.8:0.7*\y){M}
+			\tkzDefPointsBy[symmetry = center M](O){N}
+			\tkzDefLine[parallel=through N](y,O)\tkzGetPoint{n}
+			\tkzInterLL(n,N)(A',O)\tkzGetPoint{A}
+			\tkzInterLL(A,M)(y,O)\tkzGetPoint{B}
+			\tkzDefMidPoint(O,B)\tkzGetPoint{D}
+			\tkzInterLL(O,B)(A',M)\tkzGetPoint{B'}
+			\tkzInterLL(n,N)(A',B')\tkzGetPoint{E}
+			\tkzDrawPoints[fill=black](A,B,D,A',B',M,N,O,E)
+			\tkzDrawSegments(A,B A',B')
+			\tkzDrawSegments[dashed](O,N M,D A,N N,B)
+			\tkzDrawLines[add = 0 and 0.2,end=$ x $](O,A')
+			\tkzDrawLines[add = 0 and 0.2,end=$ y $](O,y)
+			\tkzLabelPoints[below](O,A,A')
+			\tkzLabelPoints[left](D,B,B')
+			\draw($(E)+(10:10pt)$)node{$E$};
+			\draw($(M)+(80:12pt)$)node{$M$};
+			\tkzLabelPoints[right](N)
+			
+			\end{tikzpicture}
+		}
+	\begin{enumerate}
+		\item[b)] Qua $ M $, vẽ đường thẳng bất kỳ (không trùng với $ AB $), cắt $ Ox,\ Oy $ lần lượt tại $ A',\ B' $. Ta sẽ chứng minh $ S_{\triangle OAB}<S_{\triangle OA'B'} $. Thật vậy,\\
+		Có duy nhất một đường thẳng đi qua $ M $ và cắt $ Ox,\ Oy $ lần lượt tại $ A,\ B $ sao cho $ M $ là trung điểm $ AB $ nên $ MA',\ MB' $ không bằng nhau (giả sử $ MA'>MB' $).\\
+		Trên tia $ MA' $ ta lấy điểm $ E $ sao cho $ MB'=ME $, khi đó $ S_{\triangle MBB'}=S_{\triangle MAE}<S_{\triangle MAA'} $.
+	\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, Dự án 8TL]%[8H1G8]
+	Dựng tam giác biết một đỉnh, trọng tâm và hai đường thẳng đi qua hai đỉnh còn lại.
+	\loigiai{
+	\immini{
+	Giả sử cần dựng tam giác $ ABC $, ta biết đỉnh $ A $, trọng tâm $ G $ và hai đỉnh $ B,\ C $ lần lượt nằm trên hai đường thẳng $ d_{1},\ d_{2} $. Lấy điểm $ B $ bất kỳ trên $ d_{1} $.\\
+	Do $ A,\ G $ xác định nên trung điểm $ M $ của $ BC $ xác định. Vì $ B,\ C $ đối xứng nhau qua $ M $ nên $ C $ nằm trên đường thẳng $ d'_{1} $ là ảnh của $ d_{1} $ qua phép đối xứng tâm $ M $. Do vậy $ C $ là giao điểm của $ d'_{1} $ và $ d_{2} $.
+}{
+\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1.8}
+\pgfmathsetmacro\goc{70}
+\pgfmathsetmacro\x{3*\h}
+\pgfmathsetmacro\y{2*\h}
+\pgfmathsetmacro\xmin{-0.2*\x}
+\pgfmathsetmacro\xmax{1.5*\x}
+\pgfmathsetmacro\ymin{-0.2*\y}
+\pgfmathsetmacro\ymax{1.2*\y}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){B}
+\tkzDefShiftPoint[B](0:\x){C}
+\tkzDefShiftPoint[B](\goc:\y){A}
+\tkzDefShiftPoint[C](\goc:\y){c'}
+\tkzDefShiftPoint[B](1.5*\goc:\y){b}
+\tkzDefMidPoint(C,B)\tkzGetPoint{M}
+\coordinate (G) at ($(A)!2/3!(M)$);
+\tkzDefLine[parallel=through C](B,b)\tkzGetPoint{c}
+\tkzDrawPoints[fill=black](A,B,C,G,M)
+\draw (A)--(B)--(C)--cycle;
+\tkzDrawSegments(A,M)
+\tkzDrawLines[add = 0.5 and 0,end=$d_{1}$](B,b)
+\tkzDrawLines[add = 0.5 and 0,end=$d'_{1}$](C,c)
+\tkzDrawLines[add = 0.2 and 0,end=$d_{2}$](C,c')
+\tkzLabelPoints[below](M)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[left](G,B)
+\tkzLabelPoints[right](C)
+\tkzMarkSegments[pos=0.5,mark=|](M,B M,C)
+\end{tikzpicture}
+}	
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, Dự án 8TL]%[8H1G8]
+	Cho tứ giác $ ABCD $ và một điểm $ O $ nằm bên trong tứ giác. Dựng hình bình hành $ EFGH $ nhận $ O $ làm tâm đối xứng, có bốn đỉnh nằm trên bốn đường thẳng chứa cạnh của tứ giác $ ABCD $.
+	\loigiai{
+		\immini{
+		Giả sử cần dựng hình bình hành $ EFGH $ có tâm $ O $, $ E\in AB,\ F\in AD,\ G\in CD,\ H\in BC $ (như hình vẽ bên). Gọi $ a,\ b $ lần lượt là ảnh của $ AB,\ AD $ qua phép đối xứng tâm $ O $. Khi đó ta thấy $ G $ là giao điểm của $ a $ và $ CD $, $ H $ là giao điểm của $ b $ và $ BC $.\\
+		\textit{Biện luận:}
+		\begin{itemize}
+			\item[+)] Nếu $ ABCD $ là hình bình hành thì bài toán có vô số nghiệm hình (khi $ O $ là tâm của $ ABCD $) hoặc không có nghiệm hình (khi $ O $ không là tâm của $ ABCD $).
+		\end{itemize}
+	}{
+\begin{tikzpicture}[line join=round, line cap=round]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1}
+\pgfmathsetmacro\goca{70}
+\pgfmathsetmacro\gocd{15}
+\pgfmathsetmacro\x{3*\h}
+\pgfmathsetmacro\y{2*\h}
+\pgfmathsetmacro\xmin{-0.1*\x}
+\pgfmathsetmacro\xmax{2*\x}
+\pgfmathsetmacro\ymin{-0.2*\y}
+\pgfmathsetmacro\ymax{1.5*\y}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:1.8*\x){B}
+\tkzDefShiftPoint[A](\goca:\y){D}
+\tkzDefShiftPoint[D](\gocd:0.8*\x){C}
+\coordinate (E) at ($(A)!1/3!(B)$);
+\coordinate (G) at ($(D)!3/5!(C)$);
+\coordinate (O) at ($(E)!1/2!(G)$);
+\coordinate (ad) at ($(A)!1/2!(D)$);
+\tkzDefPointsBy[symmetry = center O](ad){bc}
+\tkzDefLine[parallel=through G](A,B)\tkzGetPoint{g}
+\tkzDefLine[parallel=through bc](A,D)\tkzGetPoint{h}
+\tkzInterLL(B,C)(bc,h)\tkzGetPoint{H}
+\tkzDefPointsBy[symmetry = center O](H){F}
+\tkzDrawPoints[fill=black](A,B,C,D,E,F,G,H,O)
+\draw (A)--(B)--(C)--(D)--cycle;
+\draw (E)--(F)--(G)--(H)--cycle;
+\tkzDrawSegments[dashed](F,H E,G)
+\tkzDrawLines[add = 0.2 and -0.3,end=$b$](bc,h)
+\tkzDrawLines[add = 0.2 and -0.5,end=$a$](G,g)
+\tkzLabelPoints[below](B,A,E)
+\tkzLabelPoints[above](C,D,G)
+\tkzLabelPoints[left](F)
+\tkzLabelPoints[right](H)
+\draw($(O)+(-30:10pt)$)node{$O$};
+\end{tikzpicture}
+}
+\begin{itemize}
+	\item[+)] Nếu $ ABCD $ là hình thang mà không là hình bình hành thì bài toán có vô số nghiệm hình (khi $ O $ cách đều hai đáy) hoặc không có nghiệm hình (khi $ O $ không cách đều hai đáy).
+	\item[+)] Các trường hợp còn lại thì bài toán có một nghiệm hình.
+\end{itemize}
+}
+\end{bt}
+
+
+\section{Hình chữ nhật}
+\subsection{Lý thuyết}
+Hình chữ nhật là một tứ giác có bốn góc vuông.\\
+Hình chữ nhật có đầy đủ tính chất của hình thang cân và hình bình hành, trong đó đặc biệt chú ý đến tính chất: ``Trong hình chữ nhật, hai đường chéo bằng nhau và cắt nhau tại trung điểm mỗi đường''.\\
+Để chứng minh một tứ giác là hình chữ nhật, ta chứng minh tứ giác đó có ba góc vuông hoặc chứng minh tứ giác đó là hình bình hành có một trong các tính chất
+\begin{enumEX}[1)]{2}
+	\item Có một góc vuông;
+	\item Có hai đường chéo bằng nhau.
+\end{enumEX}
+Áp dụng vào tam giác, ta có
+\begin{enumerate}
+	\item Trong tam giác vuông, đường trung tuyến ứng với cạnh huyền bằng nửa cạnh huyền;
+	\item Nếu một tam giác có đường trung tuyến ứng với một cạnh bằng nửa cạnh đó thì tam giác đó vuông.
+\end{enumerate}
+\begin{vd}%[Dương BùiĐức, Dự án 8TL]%[8H1B9]
+	Tính các cạnh $ AB,\ AD $ của hình chữ nhật $ ABCD $ biết rằng đường vuông góc $ AH $ kẻ từ $ A $ đến $ BD $ chia thành hai đoạn $ HD=9 $ cm, $ HB=16 $ cm.
+	\loigiai{
+		\immini[0.01]{
+			Ta có $ BD=BH+HD=16+9=25 $ cm.\\
+			Xét tam giác $ ABD $ vuông tại $ A $ có
+			\[ 
+			AB^{2}+AD^{2}=25^{2}=625.\tag{1}
+			\]
+			Xét tam giác $ AHD $ vuông tại $ H $ có
+			\[ 
+			AH^{2}+HD^{2}=AD^{2}\Leftrightarrow AD^{2}=AH^{2}+9^{2}.\tag{2}
+			\]
+			Xét tam giác $ AHB $ vuông tại $ H $ có
+			\[ 
+			AH^{2}+HB^{2}=AB^{2}\Leftrightarrow AB^{2}=AH^{2}+16^{2}.\tag{3}
+			\]
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1}
+			\pgfmathsetmacro\goc{90}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{2*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.5*\x}
+			\pgfmathsetmacro\ymin{-0.2*\y}
+			\pgfmathsetmacro\ymax{1.5*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){A}
+			\tkzDefShiftPoint[A](0:\x){B}
+			\tkzDefShiftPoint[A](\goc:\y){D}
+			\coordinate (C) at ($(B)+(D)-(A)$);
+			\tkzDrawAltitude(D,B)(A)\tkzGetPoint{H}
+			\tkzDrawPoints[fill=black](A,B,C,D,H)
+			\tkzDrawSegments(B,D)
+			\draw (A)--(B)--(C)--(D)--cycle;
+			\tkzLabelPoints[below](A,B)
+			\tkzLabelPoints[above](C,D)
+			\tkzLabelPoints[right](H)
+			\tkzMarkRightAngles[size=0.2](A,H,B)
+			\end{tikzpicture}
+		}\noindent
+		Từ $ (2) $ và $ (3) $ ta có
+		\[ 
+		AB^{2}-AD^{2}=16^{2}-9^{2}=175.\tag{4}
+		\]
+		Từ $ (1) $ và $ (4) $ ta được 
+		\begin{itemize}
+			\item[] $ AB^{2}=(625+175):2=400\Rightarrow AB=20 $ cm.
+			\item[] $ AD^{2}=(625-175):2=225\Rightarrow AD=15 $ cm.
+		\end{itemize}
+	}
+\end{vd}
+\begin{vd}%[Dương BùiĐức, Dự án 8TL]%[8H1K9]
+	Cho tam giác $ ABC $ cân tại $ A $. Từ một điểm $ D $ trên đáy $ BC $, ta vẽ đường thẳng vuông góc với $ BC $, cắt các cạnh $ AB,\ AC $ lần lượt tại $ E,\ F $. Vẽ các hình chữ nhật $ BDEH,\ CDFK $. Chứng minh rằng $ A $ là trung điểm của $ HK $.
+	\loigiai{
+		\immini[0.01]{
+			Gọi $ I,\ O $ lần lượt là tâm của hình chữ nhật $ BDEH,\ CDFK $.\\
+			Ta có $ \widehat{IBD}=\widehat{IDB},\ \widehat{OCD}=\widehat{ODC} $ (tính chất hình chữ nhật).\\
+			Mà $ \widehat{IBD}=\widehat{OCD} $ (do tam giác $ ABC $ cân tại $ A $) nên
+			\[ 
+			\widehat{IBD}=\widehat{IDB}=\widehat{OCD}=\widehat{ODC}.
+			\] 
+			Do đó $ BE\parallel DK,\ DH\parallel CA $, suy ra $ AIDO $ là hình bình hành $\Rightarrow AO=ID $. Mà $ HI=ID $ nên $ AO=HI $.\\
+			Lại có $ AO\parallel HI $ nên $ AOIH $ là hình bình hành, do đó
+			\[ 
+			AH\parallel IO,\ AH=IO.\tag{1}
+			\]
+			Chứng minh tương tự ta được $ AIOK $ là hình bình hành nên
+			\[ 
+			AK\parallel IO,\ AK=IO.\tag{2}
+			\]
+			Từ $ (1) $ và $ (2) $ ta suy ra $ A,\ H,\ K $ thẳng hàng và $ AH=AK $.\\
+			Vậy $ A $ là trung điểm của $ HK $.
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{4*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.2*\x}
+			\pgfmathsetmacro\ymin{-0.2*\y}
+			\pgfmathsetmacro\ymax{1.5*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){B}
+			\tkzDefShiftPoint[B](0:\x){C}
+			\tkzDefMidPoint(C,B)\tkzGetPoint{bc}
+			\tkzDefShiftPoint[bc](90:\y){A}
+			\coordinate (D) at ($(B)!2/3!(C)$);
+			\tkzDefLine[orthogonal=through D](B,C)\tkzGetPoint{d}
+			\tkzInterLL(A,B)(d,D)\tkzGetPoint{E}
+			\tkzInterLL(A,C)(d,D)\tkzGetPoint{F}
+			\coordinate(K) at ($(C)+(F)-(D)$);
+			\coordinate(H) at ($(B)+(E)-(D)$);
+			\tkzInterLL(A,B)(H,D)\tkzGetPoint{I}
+			\tkzInterLL(A,C)(K,D)\tkzGetPoint{O}
+			\tkzDrawPoints[fill=black](A,B,C,D,E,F,K,H,I,O)
+			\draw (A)--(B)--(C)--cycle;
+			\draw (B)--(H)--(E);
+			\draw (C)--(K)--(F);
+			\tkzDrawSegments[dashed](H,K)
+			\tkzDrawSegments(H,D D,K A,E D,E I,O)
+			\tkzLabelPoints[below](B,C,D)
+			\tkzLabelPoints[above](H,E)
+			\tkzLabelPoints[left](I,A)
+			\tkzLabelPoints[right](K,O)
+			\tkzLabelPoints[above right](F)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{vd}%[Dương BùiĐức, Dự án 8TL]%[8H1K9]
+	Cho hình bình hành $ ABCD $ có các đường cao $ AE,\ AF $. Tính khoảng cách từ $ A $ đến trực tâm $ H $ của tam giác $ AEF $ biết $ AC=25 $ cm, $ EF=24 $ cm.
+	\loigiai{
+		\immini{
+			Kẻ $ CN\perp AB $ tại $ N \Rightarrow AECN$ là hình chữ nhật nên $ AN=EC $.\\
+			Xét tứ giác $ EHFC $ có $ EH\parallel CF,\ HF\parallel EC $ nên $ EHFC $ là hình bình hành, do vậy $ EC=HF \Rightarrow AN=HF $.\\
+			Xét tứ giác $ ANFH $ có $ AN\parallel FH,\ AN=FH $ nên $ ANFH $ là hình bình hành, do đó $ AH=NF $ và $ AH\parallel NF $.\\
+			Lại có $ AH\perp EF $ nên $ FN\perp EF $.
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1}
+			\pgfmathsetmacro\goc{110}
+			\pgfmathsetmacro\x{3.5*\h}
+			\pgfmathsetmacro\y{2.5*\h}
+			\pgfmathsetmacro\xmin{-0.4*\x}
+			\pgfmathsetmacro\xmax{1.3*\x}
+			\pgfmathsetmacro\ymin{-1.5*\y}
+			\pgfmathsetmacro\ymax{0.2*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){A}
+			\tkzDefShiftPoint[A](0:1.2*\x){B}
+			\tkzDefShiftPoint[A](-\goc:\y){D}
+			\coordinate (C) at ($(B)+(D)-(A)$);
+			\tkzDrawAltitude(C,B)(A)\tkzGetPoint{F}
+			\tkzDrawAltitude(C,D)(A)\tkzGetPoint{E}
+			\tkzDrawAltitude(A,B)(C)\tkzGetPoint{N}
+			\tkzDrawAltitude(A,E)(F)\tkzGetPoint{f}
+			\tkzDrawAltitude(A,F)(E)\tkzGetPoint{e}
+			\tkzInterLL(E,e)(F,f)\tkzGetPoint{H}
+			\tkzDrawPoints[fill=black](A,B,C,D,E,F,H,N)
+			\tkzDrawSegments(A,C E,N E,e F,f N,F A,H E,F)
+			\draw (A)--(B)--(C)--(D)--cycle;
+			\tkzLabelPoints[below](C,D,E)
+			\tkzLabelPoints[above](A,B,N)
+			\tkzLabelPoints[right](F)
+			\draw($(H)+(-75:10pt)$)node{$H$};
+			\tkzMarkRightAngles[size=0.2](A,E,D E,e,F F,f,A)
+			\end{tikzpicture}
+		}\noindent
+		Xét tam giác $ ENF $ vuông tại $ F $ có $ EF=24 $ cm, $ NE=AC=25 $ cm nên
+		\[ 
+		NF^{2}=NE^{2}-EF^{2}=25^{2}-24^{2}=49\Rightarrow NF=7\ \text{cm}.
+		\]
+		Vậy $ AH=7 $ cm.
+	}
+\end{vd}
+
+\subsection{Bài tập}
+\begin{bt}%[Dương BùiĐức, Dự án 8TL]%[8H1B9]
+	Cho tam giác $ ABC $ vuông tại $ A $, đường cao $ AH $. Gọi $ I,\ K $ lần lượt là hình chiếu vuông góc của $ H $ lên $ AB,\ AC $ và $ M $ là trung điểm của $ BC $. Chứng minh rằng $ AM\perp IK $.
+	\loigiai{
+		\immini{
+			Gọi $ O,\ N $ lần lượt là giao điểm của $ AH,\ AM $ với $ IK $. Ta có
+			\[ 
+			\widehat{MAK}=\widehat{MCK},\ \widehat{OKA}=\widehat{OAK}
+			\]
+			nên
+			\[ 
+			\widehat{MAK}+\widehat{OKA}=\widehat{MCK}+\widehat{OAK}=90^{\circ}.
+			\]
+			Do đó $ AM\perp IK $.
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1.5}
+			\pgfmathsetmacro\goc{63}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{2*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.5*\x}
+			\pgfmathsetmacro\ymin{-0.2*\y}
+			\pgfmathsetmacro\ymax{1.2*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){B}
+			\tkzDefShiftPoint[B](0:\x){b}
+			\tkzDefShiftPoint[B](\goc:\y){A}
+			\tkzDefLine[orthogonal=through A](A,B)\tkzGetPoint{a}
+			\tkzInterLL(A,a)(B,b)\tkzGetPoint{C}
+			\coordinate (H) at ($(B)!(A)!(C)$);
+			\coordinate (K) at ($(A)!(H)!(C)$);
+			\coordinate (I) at ($(A)!(H)!(B)$);
+			\tkzDefMidPoint(C,B)\tkzGetPoint{M}
+			\tkzInterLL(A,H)(I,K)\tkzGetPoint{O}
+			\tkzInterLL(A,M)(I,K)\tkzGetPoint{N}
+			\tkzDrawPoints[fill=black](A,B,C,H,I,K,O,M,N)
+			\draw (A)--(B)--(C)--cycle;
+			\tkzDrawSegments(A,H H,K H,I I,K A,M)
+			\tkzLabelPoints[below](B,C,H,M)
+			\tkzLabelPoints[above](A,K,N)
+			\tkzLabelPoints[left](I,O)
+			\tkzMarkRightAngles(A,H,C C,A,B H,K,C H,I,B)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, Dự án 8TL]%[8H1B9]
+	Cho hình bình hành $ ABCD $ có $ O $ là giao điểm của hai đường chéo, $ H $ là hình chiếu vuông góc của $ A $ lên $ OD $. Biết $ \widehat{DAH}=\widehat{HAO}=\widehat{OAB} $, chứng minh rằng $ ABCD $ là hình chữ nhật.
+	\loigiai{
+		\immini{
+			Kẻ $ OK\perp AB $ tại $ K $. Ta sẽ chứng minh $ \widehat{BAD}=90^{\circ} $.\\
+			Thật vậy, ta có\\
+			$ \widehat{AOK}=90^{\circ}-\widehat{OAK}=90^{\circ}-\widehat{OAH}=\widehat{AOH} $. Do đó $ \triangle AOH=\triangle AOK $ (g-c-g), suy ra $ OK=OH $.\\
+			Vì $ OH\perp OD $, $ \widehat{DAH}=\widehat{OAH} $ nên $ \triangle ADO $ cân tại $ A $, do đó $ OH=\dfrac{1}{2}OD $.
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1.2}
+			\pgfmathsetmacro\goc{90}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{1.72*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.5*\x}
+			\pgfmathsetmacro\ymin{-0.2*\y}
+			\pgfmathsetmacro\ymax{1.2*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){A}
+			\tkzDefShiftPoint[A](0:\x){B}
+			\tkzDefShiftPoint[A](\goc:\y){D}
+			\coordinate (C) at ($(B)+(D)-(A)$);
+			\tkzInterLL(A,C)(B,D)\tkzGetPoint{O}
+			\coordinate (H) at ($(B)!(A)!(D)$);
+			\coordinate (K) at ($(B)!(O)!(A)$);
+			\tkzDrawPoints[fill=black](A,B,C,D,O,H,K)
+			\tkzDrawSegments(A,C B,D A,H O,K)
+			\draw (A)--(B)--(C)--(D)--cycle;
+			\tkzLabelPoints[below](A,B,K)
+			\tkzLabelPoints[above](C,D,H,O)
+			\tkzMarkRightAngles[size=0.2](A,H,B O,K,A)
+			\tkzMarkAngles[size=0.5cm,arc=l](H,A,D)
+			\tkzMarkAngles[size=0.55cm,arc=l](O,A,H)
+			\tkzMarkAngles[size=0.45cm,arc=l](B,A,O)
+			\end{tikzpicture}
+		}\noindent
+		Mà $ ABCD $ là hình bình hành nên $ OB=OD $, do vậy $ OK=OH=\dfrac{1}{2}OB $.\\
+		Xét tam giác $ OKB $ vuông tại $ K $ có $ OK=\dfrac{1}{2}OB $ nên $ \widehat{OBK}=30^{\circ}\Rightarrow \widehat{OAB}=30^{\circ} $.\\
+		Do đó $ \widehat{BAH}=60^{\circ} $, $ \widehat{BAD}=90^{\circ} $. Vậy $ ABCD $ là hình chữ nhật.
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, Dự án 8TL]%[8H1B9]
+	Cho tam giác $ ABC $ có trực tâm $ H $ và $ I $ là giao điểm của các đường trung trực. Gọi $ E $ là điểm đối xứng của $ A $ qua $ I $. Chứng minh rằng $ BHCE $ là hình bình hành.
+	\loigiai{
+		\immini{
+			Vì $ I $ là giao điểm của các đường trung trực của $ \triangle ABC $ nên $ IA=IB=IC $.\\
+			Mà $ IA=IE $ nên $ IA=IB=IC=IE $.\\
+			Xét tam giác $ AEC $ có $ I $ là trung điểm $ AE $, $ CI=\dfrac{1}{2}AE $ nên $ \triangle ACE $ vuông tại $ C\Rightarrow CE\perp AC $.\\
+			Mà $ BH\perp AC $ nên $ BH\parallel CE $.\tagEX{1}\noindent
+			Xét tam giác $ AEB $ có $ I $ là trung điểm $ AE $, $ BI=\dfrac{1}{2}AE $ nên $ \triangle ABE $ vuông tại $ B\Rightarrow BE\perp AB $.\\
+			Mà $ CH\perp AB $ nên $ CH\parallel BE $.\tagEX{2}\noindent
+			Từ $ (1) $ và $ (2) $ ta suy ra $ BHCE $ là hình bình hành.
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1.5}
+			\pgfmathsetmacro\goc{65}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{2*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.2*\x}
+			\pgfmathsetmacro\ymin{-0.2*\y}
+			\pgfmathsetmacro\ymax{1.3*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){A}
+			\tkzDefShiftPoint[A](0:\x){B}
+			\tkzDefShiftPoint[A](\goc:\y){C}
+			\tkzOrthoCenter(A,B,C)\tkzGetPoint{H}
+			\tkzDrawAltitude(C,B)(A)\tkzGetPoint{a}
+			\tkzCircumCenter(A,B,C)\tkzGetPoint{I}
+			\tkzDefPointsBy[symmetry = center I](A){E}
+			\tkzDrawPoints[fill=black](A,B,C,H,I,E)
+			\draw (A)--(B)--(C)--cycle;
+			\tkzDrawSegments[dashed](I,B I,C)
+			\tkzDrawSegments(A,a A,E B,H C,H E,B E,C)
+			\tkzLabelPoints[below](A,B,H,I)
+			\tkzLabelPoints[above](C,E)
+			\tkzMarkRightAngles[size=0.2](A,a,B)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, Dự án 8TL]%[8H1K9]
+	Cho tam giác $ ABC $ vuông tại $ A $ ($ AB<AC $) có đường cao $ AH $. Trên cạnh $ AC $ lấy điểm $ E $ sao cho $ AE=AB $. Gọi $ M $ là trung điểm của $ BE $. Chứng minh rằng $ HM $ là tia phân giác của góc $ \widehat{AHC} $.
+	\loigiai{
+		\immini{
+			Kẻ $ EK\perp BC $ tại $ K $, $ EI\perp AH $ tại $ I\Rightarrow IHKE $ là hình chữ nhật, do đó $ IE=HK $.\\
+			Mà $ \widehat{EAI}+\widehat{HAB}=90^{\circ}=\widehat{HAB}+\widehat{HBA} $ nên $ \widehat{HBA}=\widehat{EAI} $.\\
+			Lại có $ AB=AE $ nên $ \triangle AHB=\triangle EIA$\\
+			$\Rightarrow AH=IE=HK $.\\
+			Vì các tam giác $ BAE,\ BKE $ lần lượt vuông tại $ A,\ K $ và $ M $ là trung điểm $ BE $ nên $ AM=KM=\dfrac{1}{2}BE $. Do vậy $ \triangle AHM=\triangle KHM $ (c-c-c)\\
+			$\Rightarrow \widehat{AHM}=\widehat{KHM} $, suy ra $ HM $ là tia phân giác của góc $ \widehat{AHC} $.
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1.5}
+			\pgfmathsetmacro\goc{60}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{2*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.5*\x}
+			\pgfmathsetmacro\ymin{-0.2*\y}
+			\pgfmathsetmacro\ymax{1.2*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){B}
+			\tkzDefShiftPoint[B](0:\x){b}
+			\tkzDefShiftPoint[B](\goc:\y){A}
+			\tkzDefLine[orthogonal=through A](A,B)\tkzGetPoint{a}
+			\tkzInterLL(A,a)(B,b)\tkzGetPoint{C}
+			\coordinate (H) at ($(B)!(A)!(C)$);
+			\tkzDefPointsBy[rotation = center A angle 90](B){E}
+			\coordinate (I) at ($(A)!(E)!(H)$);
+			\coordinate (K) at ($(B)!(E)!(C)$);
+			\coordinate (M) at ($(B)!1/2!(E)$);
+			\tkzDrawPoints[fill=black](A,B,C,H,E,I,K,M)
+			\draw (A)--(B)--(C)--cycle;
+			\tkzDrawSegments(B,E E,I E,K A,M M,H M,K A,H)
+			\tkzLabelPoints[below](B,C,H,K,M)
+			\tkzLabelPoints[above](A,E)
+			\tkzLabelPoints[left](I)
+			\tkzMarkRightAngles(A,H,C C,A,B E,I,A E,K,C)
+			\tkzMarkSegments[pos=0.5,mark=|](A,B A,E)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, Dự án 8TL]%[8H1K9]
+	Cho hình thang cân $ ABCD $ có $ AB\parallel CD,\ \widehat{ACD}=60^{\circ} $ và $ O $ là giao điểm của hai đường chéo. Gọi $ E,\ F,\ G $ theo thứ tự là trung điểm của $ OA,\ OD,\ BC $. Tam giác $ EFG $ là tam giác gì? Vì sao?
+	\loigiai{
+		\immini{
+			Vì $ ABCD $ là hình thang cân nên $ \triangle ACD=\triangle BDC $ (c.g.c). Mà $ \widehat{ACD}=60^{\circ} $ nên $ \widehat{BDC}=60^{\circ} $. Khi đó các tam giác $ OAB,\ OCD $ là các tam giác đều.\\
+			Vì $ E,\ F $ lần lượt là trung điểm của $ OA,\ OD $ nên\\
+			$ BE\perp OA,\ CF\perp OD $ và $ EF=\dfrac{1}{2}AD=\dfrac{1}{2}BC $.\tagEX{1}\noindent
+			Xét các tam giác $ BEC,\ BFC $ lần lượt vuông tại $ E,\ F $ có $ G $ là trung điểm của $ BC $ nên $ EG=FG=\dfrac{1}{2}BC $.\tagEX{2}\noindent
+			Từ $ (1) $ và $ (2) $ ta suy ra $ \triangle EFG $ là tam giác đều.
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{1.7273/2*\x}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.2*\x}
+			\pgfmathsetmacro\ymin{-0.2*\y}
+			\pgfmathsetmacro\ymax{1.5*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){D}
+			\tkzDefShiftPoint[D](0:\x){C}
+			\tkzDefMidPoint(C,D)\tkzGetPoint{H}
+			\tkzDefShiftPoint[H](90:\y){O}
+			\tkzDefPointsBy[homothety = center O ratio -1/3](C,D){A,B}
+			\tkzDefMidPoint(A,O)\tkzGetPoint{E}
+			\tkzDefMidPoint(D,O)\tkzGetPoint{F}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{G}
+			\tkzDrawPoints[fill=black](A,B,C,D,O,E,F,G)
+			\draw (A)--(B)--(C)--(D)--cycle;
+			\tkzDrawSegments(A,C B,D B,E E,F C,F F,G E,G)
+			\tkzLabelPoints[below](C,D,F,O)
+			\tkzLabelPoints[above](A,B,E)
+			\tkzLabelPoints[right](G)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, Dự án 8TL]%[8H1B9][8H1B9]
+	Gọi $ H $ là hình chiếu vuông góc của đỉnh $ B $ lên đường chéo $ AC $ của hình chữ nhật $ ABCD $ và $ M,\ K $ lần lượt là trung điểm của $ AH,\ CD $.
+	\begin{enumerate}
+		\item Gọi $ I,\ O $ lần lượt là trung điểm của $ AB,\ IC $. Chứng minh rằng $ MO=\dfrac{1}{2}IC $.
+		\item Tính số đo góc $ \widehat{BMK} $.
+	\end{enumerate}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item Vì $ ABCD $ là hình chữ nhật và $ I,\ K $ lần lượt là trung điểm của $ AB,\ CD $ nên $ BIKC $ là hình chữ nhật. Do đó $ O $ là trung điểm của $ CI,\ BK $.\\
+				Xét tam giác $ IMC $ vuông tại $ M $ có\\
+				$ MO=\dfrac{1}{2}IC $.
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1.5}
+			\pgfmathsetmacro\goc{90}
+			\pgfmathsetmacro\x{3.5*\h}
+			\pgfmathsetmacro\y{1.7*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.2*\x}
+			\pgfmathsetmacro\ymin{-0.2*\y}
+			\pgfmathsetmacro\ymax{1.2*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){A}
+			\tkzDefShiftPoint[A](0:\x){B}
+			\tkzDefShiftPoint[A](\goc:\y){D}
+			\coordinate (C) at ($(B)+(D)-(A)$);
+			\coordinate (H) at ($(A)!(B)!(C)$);
+			\coordinate (M) at ($(A)!1/2!(H)$);
+			\coordinate (K) at ($(C)!1/2!(D)$);
+			\coordinate (I) at ($(A)!1/2!(B)$);
+			\coordinate (O) at ($(I)!1/2!(C)$);
+			\tkzDrawPoints[fill=black](A,B,C,D,O,H,M,K,I)
+			\tkzDrawSegments(A,C I,M M,K B,H)
+			\tkzDrawSegments[dashed](I,C B,K I,K)
+			\draw (A)--(B)--(C)--(D)--cycle;
+			\tkzLabelPoints[below](A,B,O,I)
+			\tkzLabelPoints[above](C,D,H,K)
+			\draw($(M)+(-100:10pt)$)node{$M$};
+			\tkzMarkRightAngles[size=0.2](B,H,C)
+			\end{tikzpicture}
+		}
+		\begin{enumerate}
+			\item[b)] Xét tam giác $ MBK $ có $ MO=\dfrac{1}{2}IC=\dfrac{1}{2}BK $ nên $ \widehat{BMK}=90^{\circ} $.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, Dự án 8TL]%[8H1B6]
+	Cho tam giác $ ABC $ có độ dài các cạnh bằng $ a,\ b,\ c $, chu vi bằng $ 2p $ và các đường cao tương ứng lần lượt là $ h,\ m,\ n $. Chứng minh rằng
+	\begin{enumEX}{3}
+		\item $ (b+c)^{2}\geq a^{2}+4h^{2} $.
+		\item $ h^{2}\leq p(p-a) $.
+		\item $ h^{2}+m^{2}+n^{2}\leq p^{2} $.
+	\end{enumEX}
+	\loigiai{
+		\immini{
+			Qua $ A $ kẻ đường thẳng $ d $ song song với $ BC $ và gọi $ D $ là điểm đối xứng của $ B $ qua $ d $.
+			\begin{enumerate}
+				\item Ta có $ BD=2h $. Xét tam giác $ BCD $ vuông tại $ B $ có
+				\[ 
+				BD^{2}+BC^{2}=CD^{2}\leq (AD+AC)^{2}\Rightarrow 4h^{2}+a^{2}=(b+c)^{2}.\tag{1}
+				\]
+				\item Từ $ (1) $ suy ra
+				\[ 
+				4h^{2}\leq (b+c)^{2}-a^{2}=(b+c+a)(b+c-a)=4p(p-a).
+				\]
+				Do đó
+				\[ 
+				h^{2}\leq p(p-a).
+				\]
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1}
+			\pgfmathsetmacro\goc{70}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{2*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.1*\x}
+			\pgfmathsetmacro\ymin{-0.2*\y}
+			\pgfmathsetmacro\ymax{2.2*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){B}
+			\tkzDefShiftPoint[B](0:\x){C}
+			\tkzDefShiftPoint[B](\goc:\y){A}
+			\tkzDefLine[parallel=through A](B,C)\tkzGetPoint{a}
+			\tkzDefPointsBy[reflection = over A--a](B){D}
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\draw (A)--(B)--(C)--cycle;
+			\tkzDrawSegments[dashed](B,D)
+			\tkzDrawSegments(A,D D,C)
+			\tkzDrawLines[add = 0.4 and -0.3,end=$d$](A,a)
+			\tkzLabelPoints[below](C,B)
+			\tkzLabelPoints[above right](A)
+			\tkzLabelPoints[above](D)
+			\tkzLabelSegments[below](B,C){$a$}
+			\tkzLabelSegments[left](A,C){$b$}
+			\tkzLabelSegments[right](A,B){$c$}
+			\end{tikzpicture}
+		}
+		\begin{enumerate}
+			\item[c)] Tương tự câu b) ta có $ m^{2}\leq p(p-b) $ và $ n^{2}\leq p(p-c) $.\\
+			Cộng các kết quả trên ta được $ h^{2}+m^{2}+n^{2}\leq p(p-a+p-b+p-c)= p^{2} $.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, Dự án 8TL]%[8H1B10]
+	Cho hình thang vuông $ ABCD $ có $ \widehat{A}=\widehat{D}=90^{\circ} $, $ AB=AD=\dfrac{CD}{2} $. Qua điểm $ E $ thuộc cạnh $ AB $, kẻ đường thẳng vuông góc với $ DE $, cắt $ BC $ tại $ F $. Chứng minh rằng $ ED=EF $.
+	\loigiai{
+		\immini{
+			Kẻ $ BH\perp CD $ tại $ H\Rightarrow ABHD $ là hình vuông, do đó $ BH=a $ và $ DH=a\Rightarrow CH=a $.\\
+			Ta có $ BH=HD=CH=a\Rightarrow \triangle BCD $ vuông tại $ B $.\\
+			Gọi $ M $ là trung điểm của $ DF $,\\
+			ta có $ EM=BM=\dfrac{DF}{2}\Rightarrow $ các tam giác $ MEB,\ MFB $ cân tại $ M $.\\
+			Vì $ ABHD $ là hình vuông nên $ \widehat{DBH}=45^{\circ}$\\
+			$\Rightarrow \widehat{ABC}=135^{\circ} $.
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1.5}
+			\pgfmathsetmacro\goca{90}
+			\pgfmathsetmacro\gocd{0}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{1.5*\h}
+			\pgfmathsetmacro\xmin{-0.1*\x}
+			\pgfmathsetmacro\xmax{1.2*\x}
+			\pgfmathsetmacro\ymin{-0.2*\y}
+			\pgfmathsetmacro\ymax{1.3*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){D}
+			\tkzDefShiftPoint[D](0:\x){C}
+			\tkzDefShiftPoint[D](\goca:\y){A}
+			\tkzDefShiftPoint[A](\gocd:\y){B}
+			\coordinate (E) at ($(A)!1/3!(B)$);
+			\tkzDefLine[orthogonal=through E](D,E)\tkzGetPoint{e}
+			\tkzInterLL(E,e)(B,C)\tkzGetPoint{F}
+			\tkzDefMidPoint(D,F)\tkzGetPoint{M}
+			\tkzDefMidPoint(D,C)\tkzGetPoint{H}
+			\tkzDrawPoints[fill=black](A,B,C,D,E,F,M,H)
+			\draw (A)--(B)--(C)--(D)--cycle;
+			\tkzDrawSegments(D,E E,F D,F E,M D,B)
+			\tkzDrawSegments[dashed](B,M B,H)
+			\tkzLabelPoints[below](C,D,M,H)
+			\tkzLabelPoints[above](A,B,E)
+			\tkzLabelPoints[right](F)
+			\tkzMarkRightAngles[size=0.2](C,D,A D,A,B D,E,F B,H,C)
+			\end{tikzpicture}
+		}\noindent
+		Lại có $ \widehat{MEB}+\widehat{MFB}=\widehat{MBE}+\widehat{MBF}=\widehat{EBF}=135^{\circ} $, do đó $ \widehat{EMF}=360^{\circ}-2\cdot 135^{\circ}=90^{\circ} $.\\
+		Xét tam giác $ DEF $ có $ EM $ là trung tuyến, đồng thời là đường cao nên $ \triangle DEF $ cân tại $ E$ nên $ ED=EF $.
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, Dự án 8TL]%[8H1K9][8H1G9]
+	Cho hình chữ nhật $ ABCD $ có $ \widehat{BDC}=30^{\circ} $. Qua $ C $ kẻ đường thẳng vuông góc với $ BD $ tại $ E $ và cắt tia phân giác của góc $ \widehat{ADB} $ tại $ M $. Gọi $ N,\ K $ lần lượt là hình chiếu của $ M $ lên $ AD,\ AB $.
+	\begin{enumerate}
+		\item Chứng minh rằng $ AMBD $ là hình thang cân.
+		\item Chứng minh rằng ba điểm $ N,\ K,\ E $ thẳng hàng.
+	\end{enumerate}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item Vì $ N,\ K $ lần lượt là hình chiếu của $ M $ lên $ AD,\ AB $ nên $ ANMK $ hình chữ nhật.\\
+				Vì $ \widehat{BDC}=30^{\circ} $ nên $ \widehat{ADB}=60^{\circ}$\\
+				$\Rightarrow \widehat{ADM}=\widehat{MDB}=\widehat{BDC}=30^{\circ} $ (do $ DM $ là tia phân giác $ \widehat{BDC} $).\\
+				Vì $ DE $ là phân giác $ \widehat{MDC} $ và $ DE\perp MC $ nên $\triangle DMC $ là tam giác cân tại $ D\Rightarrow DE $ là đường trung trực của $ MC\Rightarrow BM=BC $.
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1.2}
+			\pgfmathsetmacro\goc{90}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{1.72*\h}
+			\pgfmathsetmacro\xmin{-0.2*\x}
+			\pgfmathsetmacro\xmax{1.5*\x}
+			\pgfmathsetmacro\ymin{-0.7*\y}
+			\pgfmathsetmacro\ymax{1.2*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){A}
+			\tkzDefShiftPoint[A](0:\x){B}
+			\tkzDefShiftPoint[A](\goc:\y){D}
+			\coordinate (C) at ($(B)+(D)-(A)$);
+			\coordinate (E) at ($(B)!(C)!(D)$);
+			\tkzDefLine[bisector](A,D,B)\tkzGetPoint{d}
+			\tkzInterLL(D,d)(C,E)\tkzGetPoint{M}
+			\coordinate (K) at ($(B)!(M)!(A)$);
+			\coordinate (N) at ($(D)!(M)!(A)$);
+			\tkzDrawPoints[fill=black](A,B,C,D,E,M,N,K)
+			\tkzDrawSegments(B,D M,N M,K M,A M,B M,C M,D A,N)
+			\tkzDrawSegments[dashed](N,E)
+			\draw (A)--(B)--(C)--(D)--cycle;
+			\tkzLabelPoints[below](B,N,M)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](E)
+			\tkzLabelPoints[above](C,D,K)
+			\tkzMarkRightAngles[size=0.2](C,E,D)
+			\tkzMarkAngles[size=0.5cm,arc=l](A,D,M)
+			\tkzMarkAngles[size=0.55cm,arc=l](M,D,B)
+			\end{tikzpicture}
+		}
+		\begin{enumerate}
+			\item[] Vì $ \widehat{BDC}=30^{\circ} $ nên $ \widehat{DBC}=60^{\circ} $. Mà $ \widehat{CEB}=90^{\circ} $ nên $ \widehat{BCE}=30^{\circ} $.\\
+			Do đó $ \widehat{CBM}=180^{\circ}-2\cdot 30^{\circ}=120^{\circ}\Rightarrow \widehat{MBA}=30^{\circ} $.\\
+			Vì $ \widehat{MCB}=\widehat{MDA}=30^{\circ} $ nên $ \widehat{MCD}=\widehat{MDC}=60^{\circ} $, do vậy $ \triangle MCD $ cân tại $ M\Rightarrow MK $ là đường trung trực của $ CD $ (vì $ MD\perp AB $ nên $ MD\perp CD $).\\
+			Từ đó ta có $ MK $ là trục đối xứng của hình chữ nhật $ ABCD\Rightarrow MK $ là đường trung trực của $ AB $, vì vậy $ MA=MB $. Do đó $ MA=MB=BC=AD $.\tagEX{1}\noindent
+			Lại có $ \widehat{AMD}=\widehat{ADM}=\widehat{MDB}=30^{\circ} $ nên $ AM\parallel BD $.\tagEX{2}\noindent
+			Từ $ (1) $ và $ (2) $ ta suy ra $ AMBD $ là hình thang cân.
+			\item[b)] Vì $ M $ nằm trên tia phân giác góc $ \widehat{NDE} $ nên $ MN=ME $. Mà $ \triangle NME $ cân tại $ M $ có $ \widehat{NME}=120^{\circ} $ nên $ \widehat{MNE}=30^{\circ} $.\tagEX{3}\noindent
+			Lại có $ MNAK $ là hình chữ nhật nên $ \widehat{MNK}=\widehat{MAK}=\widehat{ABD}=30^{\circ} $\tagEX{4}\noindent
+			Từ $ (3) $ và $ (4) $ ta suy ra $ N,\ K,\ E $ thẳng hàng.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, Dự án 8TL]%[8H1B9]
+	Cho hình chữ nhật $ ABCD $.
+	\begin{enumerate}
+		\item Chứng minh rằng nếu $ M $ là điểm bất kỳ nằm trong $ ABCD $ thì
+		\[ 
+		MA^{2}+MC^{2}=MB^{2}+MD^{2}.
+		\]
+		\item Kết quả trên có thay đổi không nếu điểm $ M $ nằm ngoài hình chữ nhật?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item \immini{
+				Kẻ các đường $ ME\perp AD $, $ MG\perp AB $, $ MF\perp BC $, $ MH\perp CD $ (như hình vẽ bên).\\
+				Ta có
+				\begin{align}
+				& MA^{2}+MC^{2}=ME^{2}+MG^{2}+MF^{2}+MH^{2}.\tag{1}\\
+				& MB^{2}+MD^{2}=MF^{2}+MG^{2}+ME^{2}+MH^{2}.\tag{2}
+				\end{align}
+				Từ $ (1) $ và $ (2) $ suy ra $ MA^{2}+MC^{2}=MB^{2}+MD^{2} $.
+			}{
+				\begin{tikzpicture}[line join=round, line cap=round]
+				\tikzset{label style/.style={font=\footnotesize}}
+				\pgfmathsetmacro\h{1}
+				\pgfmathsetmacro\goc{90}
+				\pgfmathsetmacro\x{3*\h}
+				\pgfmathsetmacro\y{2*\h}
+				\pgfmathsetmacro\xmin{-0.2*\x}
+				\pgfmathsetmacro\xmax{1.5*\x}
+				\pgfmathsetmacro\ymin{-0.2*\y}
+				\pgfmathsetmacro\ymax{1.3*\y}
+				\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+				\tkzDefPoint(0,0){A}
+				\tkzDefShiftPoint[A](0:\x){B}
+				\tkzDefShiftPoint[A](\goc:\y){D}
+				\tkzDefShiftPoint[A](0.4*\goc:0.8*\x){M}
+				\coordinate (C) at ($(B)+(D)-(A)$);
+				\coordinate (G) at ($(A)!(M)!(B)$);
+				\coordinate (F) at ($(C)!(M)!(B)$);
+				\coordinate (H) at ($(C)!(M)!(D)$);
+				\coordinate (E) at ($(A)!(M)!(D)$);
+				\tkzDrawPoints[fill=black](A,B,C,D,G,H,E,F)
+				\tkzDrawSegments(A,M B,M C,M D,M)
+				\tkzDrawSegments[dashed](E,F G,H)
+				\draw (A)--(B)--(C)--(D)--cycle;
+				\tkzLabelPoints[below](A,B,G)
+				\tkzLabelPoints[above](C,D,H)
+				\tkzLabelPoints[left](E)
+				\tkzLabelPoints[right](F)
+				\draw($(M)+(-20:15pt)$)node{$M$};
+				\end{tikzpicture}	
+			}
+			\item \immini{
+				Trường hợp $ M $ nằm ngoài hình chữ nhật $ ABCD $ ta có hình vẽ bên. Khi đó
+				\begin{align}
+				& MA^{2}+MC^{2}=ME^{2}+EA^{2}+MF^{2}+FC^{2}.\tag{3}\\
+				& MB^{2}+MD^{2}=MF^{2}+FB^{2}+ME^{2}+ED^{2}.\tag{4}
+				\end{align}
+				Từ $ (3) $ và $ (4) $ suy ra $ MA^{2}+MC^{2}=MB^{2}+MD^{2} $.\\
+				Vậy nếu $ M $ nằm ngoài hình chữ nhật $ ABCD $ thì kết quả không thay đổi.
+			}{
+				\begin{tikzpicture}[line join=round, line cap=round]
+				\tikzset{label style/.style={font=\footnotesize}}
+				\pgfmathsetmacro\h{1}
+				\pgfmathsetmacro\goc{90}
+				\pgfmathsetmacro\x{3*\h}
+				\pgfmathsetmacro\y{2*\h}
+				\pgfmathsetmacro\xmin{-0.2*\x}
+				\pgfmathsetmacro\xmax{1.5*\x}
+				\pgfmathsetmacro\ymin{-0.2*\y}
+				\pgfmathsetmacro\ymax{2*\y}
+				\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+				\tkzDefPoint(0,0){A}
+				\tkzDefShiftPoint[A](0:\x){B}
+				\tkzDefShiftPoint[A](\goc:\y){D}
+				\tkzDefShiftPoint[A](0.7*\goc:1.2*\x){M}
+				\coordinate (C) at ($(B)+(D)-(A)$);
+				\coordinate (G) at ($(A)!(M)!(B)$);
+				\coordinate (F) at ($(C)!(M)!(B)$);
+				\coordinate (H) at ($(C)!(M)!(D)$);
+				\coordinate (E) at ($(A)!(M)!(D)$);
+				\tkzDrawPoints[fill=black](A,B,C,D,G,H,E,F)
+				\tkzDrawSegments(A,M B,M C,M D,M)
+				\tkzDrawSegments[dashed](E,F G,M E,D F,C)
+				\draw (A)--(B)--(C)--(D)--cycle;
+				\tkzLabelPoints[below](A,B,G)
+				\tkzLabelPoints[above](M)
+				\tkzLabelPoints[left](E,D)
+				\tkzLabelPoints[right](F,C)
+				\draw($(H)+(-120:10pt)$)node{$H$};
+				\end{tikzpicture}	
+			}
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dương BùiĐức, Dự án 8TL]%[8H1G9]
+	Cho tam giác $ ABC $. Vẽ ra phía ngoài tam giác $ ABC $ các hình chữ nhật $ ABDE$, $ACFG$, $BCHK $. Chứng minh rằng các đường trung trực của $ EG,\ FH,\ KD $ đồng quy.
+	\loigiai{
+		\immini{
+			Gọi $ M $ là giao điểm của các đường trung trực của các đoạn thẳng $ FH,\ DK $. Ta có
+			\begin{eqnarray*}
+				MA^{2}+MD^{2}&=&ME^{2}+MB^{2};\\
+				MB^{2}+MH^{2}&=&MK^{2}+MC^{2};\\
+				MC^{2}+MG^{2}&=&MF^{2}+MA^{2}.
+			\end{eqnarray*}
+			Cộng các kết quả trên ta được
+			\[ 
+			MD^{2}+MH^{2}+MG^{2}=ME^{2}+MK^{2}+MF^{2}.
+			\]
+			Vì $ MD=MK,\ MH=MF $ nên\\
+			$ MG=ME $. Do đó, $ M $ nằm trên đường trung trực của đoạn $ GE $.\\
+			Vậy các đường trung trực của $ EG$, $FH,\ KD $ đồng quy.
+		}{
+			\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\pgfmathsetmacro\h{1.5}
+			\pgfmathsetmacro\goc{75}
+			\pgfmathsetmacro\x{3*\h}
+			\pgfmathsetmacro\y{2*\h}
+			\pgfmathsetmacro\xmin{-0.5*\x}
+			\pgfmathsetmacro\xmax{1.5*\x}
+			\pgfmathsetmacro\ymin{-1.2*\y}
+			\pgfmathsetmacro\ymax{2*\y}
+			\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+			\tkzDefPoint(0,0){A}
+			\tkzDefShiftPoint[A](0:1.1*\x){B}
+			\tkzDefShiftPoint[A](\goc:\y){C}
+			\tkzDefShiftPoint[B](-90:0.5*\y){D}
+			\coordinate (E) at ($(A)+(D)-(B)$);
+			\tkzDefShiftPoint[A](\goc+90:0.6*\y){G}
+			\coordinate (F) at ($(G)+(C)-(A)$);
+			\tkzDefPointWith[orthogonal,K=0.4](C,B)\tkzGetPoint{H}
+			\coordinate (K) at ($(B)+(H)-(C)$);
+			\tkzDefMidPoint(D,K)\tkzGetPoint{dk}
+			\tkzDefMidPoint(F,H)\tkzGetPoint{fh}
+			\tkzDefLine[orthogonal=through dk](D,K)\tkzGetPoint{a}
+			\tkzDefLine[orthogonal=through fh](F,H)\tkzGetPoint{b}
+			\tkzInterLL(dk,a)(fh,b)\tkzGetPoint{M}
+			\tkzDrawPoints[fill=black](A,B,C,D,E,F,G,H,K,M)
+			\draw (A)--(B)--(C)--cycle;
+			\draw (A)--(E)--(D)--(B);
+			\draw (A)--(C)--(F)--(G)--(A);
+			\draw (C)--(B)--(K)--(H)--(C);
+			\tkzDrawSegments(F,H D,K G,E M,dk M,fh)
+			\tkzDrawSegments[dashed](M,E M,G M,F M,H M,K M,D)
+			\tkzLabelPoints[below](E,D)
+			\tkzLabelPoints[below left](A,B,C)
+			\tkzLabelPoints[above](H,F)
+			\tkzLabelPoints[right](K)
+			\tkzLabelPoints[left](G)
+			\draw($(M)+(-75:15pt)$)node{$M$};
+			\tkzMarkRightAngles[size=0.2](M,dk,K M,fh,H)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}

@@ -1,0 +1,873 @@
+%GV soạn: Phạm An Bình
+%GV phản biện: 
+\Opensolutionfile{ans}[ans/ans7H3-5]
+\section{Tính chất ba đường phân giác trong tam giác}
+
+\subsection{Hỏi đáp nhanh}
+\begin{ex}%[7H3Y5]
+	Muốn tìm điểm nằm trong tam giác và cách đều ba cạnh, ta làm thế nào?
+	\loigiai{
+		\immini{
+		Kẻ tia phân giác của hai góc trong bất kỳ của tam giác và tìm giao điểm của chung.\\
+		Xét $\triangle ABC$ như hình bên.\\
+		Ta có $BM$ là tia phân giác góc $\widehat{ABC}$ nên tất cả các điểm nằm trên $BM$ cách đều hai cạnh $BA$ và $BC$.\\
+		Ta có $CN$ là tia phân giác góc $\widehat{ACB}$ nên tất cả các điểm nằm trên $CN$ cách đều hai cạnh $CA$ và $CB$.\\
+		Vậy giao điểm $I$ của $BN$ và $CM$ sẽ là điểm thỏa mãn cách đều ba cạnh $AB$, $AC$ và $BC$.
+		}
+		{
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=6.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{0/0/A,1/4/B,6/0/C}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawBisector(A,B,C)\tkzGetPoint{M}
+			\tkzDrawBisector(A,C,B)\tkzGetPoint{N}
+			%\tkzDrawBisector(B,A,C)\tkzGetPoint{P}
+			\tkzInterLL(B,M)(C,N)\tkzGetPoint{I}
+			\tkzDrawAltitude[dashed](A,C)(I)\tkzGetPoint{L}
+			\tkzDrawAltitude[dashed](A,B)(I)\tkzGetPoint{K}
+			\tkzDrawAltitude[dashed](C,B)(I)\tkzGetPoint{H}
+			\tkzMarkRightAngles[fill=gray!20](A,K,I A,L,I I,H,B)
+			\tkzMarkAngles[size=0.7](A,B,M)
+			\tkzMarkAngles[size=0.5](M,B,C)
+			\tkzMarkAngles[size=0.8,mark=|](B,C,N)
+			\tkzMarkAngles[size=0.9,mark=|](N,C,A)
+			\tkzDrawCircle[radius](I,L)
+			
+			\tkzDrawPoints(A,B,C,M,N,I,H,K,L)
+			\tkzDrawSegments(B,M C,N)
+			%
+			\tkzLabelPoints[above](B)
+			\tkzLabelPoints[below](M,L)
+			\tkzLabelPoints[right](I)
+			\tkzLabelPoints[left](K)
+			\tkzLabelPoints[above right](H)
+			\tkzLabelPoints[above left](N)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[below left](A)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+
+\begin{ex}%[7H3B5]
+	Tại sao trong tam giác cân, đỉnh, trọng tâm và giao điểm ba đường phân giác thẳng hàng?
+	\loigiai{
+		Trong tam giác cân $ABC$ cân tại $A$. Ta có đường trung tuyến xuất phát tại $A$ cũng chính là đường phân giác. Nghĩa là nếu $AM$ là đường trung tuyến trong tam giác cân tại $A$, trọng tâm cũng sẽ nằm trên đường này và giao điểm ba đường phân giác cũng nằm trên đường này.
+	}
+\end{ex}
+
+\begin{ex}%[7H3B5]
+	Tại sao trong tam giác cân đường phân giác của góc ngoài ở đỉnh song song với cạnh đáy?
+	\loigiai{
+		\immini{
+			Cho $\triangle ABC$ cân tại $B$. Ta chứng minh phân giác của góc ngoài tại đỉnh $B$ (tia $Bt$) sẽ song song với cạnh đáy $AC$.\\
+			Ta có $\widehat{CBy}=\widehat{BAC}+\widehat{BCA}$, mà tam giác $\triangle BAC$ cân tại $A$ nên ta có $\widehat{BAC}=\widehat{BCA}$ (tính chất tam giác cân). Vậy $\widehat{CBy}=2\widehat{BCA}$.\\
+			Đồng thời $Bt$ là tia phân giác góc $\widehat{yBC}$ nên ta có $\widehat{CBt}=\dfrac{1}{2}\widehat{yBC}=\widehat{BCA}$. Mà hai góc này nằm ở vị trí sole-trong nên $BC\parallel Bt$.
+		}
+		{
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=6.5,xmin=-0.5,xmax=5.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{0/0/A,2/4/B,4/0/C}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawBisector(A,B,C)\tkzGetPoint{M}
+			\tkzDefPointBy[rotation= center B angle 180](A)\tkzGetPoint{c}
+			\tkzDefPointBy[rotation= center B angle 90](M)\tkzGetPoint{b}
+			\tkzDrawLines[add=0 and 1](B,c B,b)
+			\tkzMarkAngles[size=0.5](C,B,b C,A,B B,C,A)
+			\tkzMarkAngles[size=0.7](b,B,c)
+			\tkzLabelLine[pos=0.5,above](B,c){$y$}
+			\tkzLabelLine[pos=0.75,above](B,b){$t$}
+			\tkzDrawPoints(A,B,C,M)
+			\tkzDrawSegments(B,M)
+			%
+			\tkzLabelPoints[above]()
+			\tkzLabelPoints[below](M)
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[left]()
+			\tkzLabelPoints[above right]()
+			\tkzLabelPoints[above left](B)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[below left](A)
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+\begin{note}
+	Lưu ý tính chất góc ngoài tam giác.
+\end{note}
+
+
+\subsection{Học giải toán}
+\begin{vd}%[7H3B5]
+	Cho góc $\widehat{xOy}$, trên $Ox$ lấy hai điểm $A$ và $B$. Trên tia $Oy$ lấy hai điểm $C$ và $D$ sao cho $OA=OC$; $OB=OD$. Kẻ $Cm$ và $Dm'$ song song với $Ox$. Kẻ $An$ và $Bn'$ song song với $Oy$. Biết $An$ và $Cm$ cắt nhau tại $E$; $Bn'$ cắt $Dm$ tại $F$. Chứng minh $O$, $E$, $F$ thẳng hàng.
+	\loigiai{
+		\immini{
+			Nối $OE$, xét $\triangle OAE$ và $\triangle OCE$ có $OE$ chung; $\widehat{AOE}=\widehat{CEO}$ (sole-trong) và $\widehat{COE}=\widehat{AEO}$ (sole-trong). Vậy $\triangle OAE=\triangle OCE$ (góc-cạnh-góc).\\
+			Vậy $AE=OC$ (hai cạnh tương ứng). Mà $OA=OC$ nên $OA=AE$ (cùng bằng $OC$). Vậy $\triangle OAE$ cân tại $A \Rightarrow \widehat{AOE}=\widehat{AEO}$ mà $\widehat{COE}=\widehat{AEO}$ nên $\widehat{AOE}=\widehat{COE}$. Suy ra $OE$ là tia phân giác của góc $\widehat{xOy}$.\\
+			Tương tự $OF$ là tia phân giác của $\widehat{xOy}$.\\
+			Vậy $OE$ và $OF$ cùng là tia phân giác của góc $\widehat{xOy}$ nên tia $OE$ trùng tia $OF$ hay ba điểm $O$, $E$, $F$ thẳng hàng.
+		}
+		{
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=8.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{0/0/O,4/0/D}
+			\tkzDefBarycentricPoint(O=1,D=2)\tkzGetPoint{C}
+			\tkzDefPointBy[rotation= center O angle 40](C)\tkzGetPoint{A}
+			\tkzDefPointBy[rotation= center O angle 40](D)\tkzGetPoint{B}
+			\tkzDrawLines[add=0 and 0.7](O,B O,D)
+			\tkzDefLine[parallel=through A](O,D)\tkzGetPoint{n}
+			\tkzDefLine[parallel=through B](O,D)\tkzGetPoint{n'}
+			\tkzDefLine[parallel=through C](O,B)\tkzGetPoint{m}
+			\tkzDefLine[parallel=through D](O,B)\tkzGetPoint{m'}
+			\tkzDrawLines[add=0 and 0.3](A,n C,m)
+			\tkzDrawLines[add=0 and 0.25](B,n' D,m')
+			\tkzInterLL(A,n)(C,m)\tkzGetPoint{E}
+			\tkzInterLL(B,n')(D,m')\tkzGetPoint{F}
+			\tkzLabelLine[pos=1.6,above](O,B){$x$}
+			\tkzLabelLine[pos=1.6,below](O,D){$y$}
+			\tkzLabelLine[pos=1.85,below](A,E){$n$}
+			\tkzLabelLine[pos=1.2,below](B,F){$n'$}
+			\tkzLabelLine[pos=1.85,above left](C,E){$m$}
+			\tkzLabelLine[pos=1.2,above left](C,F){$m'$}
+			\tkzDrawLines[dashed,add=0 and 0.25](O,F)
+			\tkzMarkAngles[size=0.7](E,O,A)
+			\tkzMarkAngles[size=0.8](C,O,E)
+			%
+			\tkzDrawPoints(O,C,D,A,B,E,F)
+			%\tkzDrawSegments()
+			%
+			\tkzLabelPoints[above]()
+			\tkzLabelPoints[below](C,D,E,F)
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[left]()
+			\tkzLabelPoints[above right]()
+			\tkzLabelPoints[above left](A,B)
+			\tkzLabelPoints[below right]()
+			\tkzLabelPoints[below left](O)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{vd}%[7H3B5]
+	Cho $\triangle ABC$ có $\widehat{A}=120^\circ$. Hai đường phân giác $BD$ và $CE$ cắt nhau tại $I$.
+		\begin{enumerate}
+			\item Tính số đo góc $\widehat{BIC}$.
+			\item Nối $AI$ kéo dài cắt $BC$ tại $F$. Chứng minh $DF \perp FE$.
+		\end{enumerate}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item Ta có
+					\begin{eqnarray*}
+						\widehat{BIC}&=&180^\circ -\left( \widehat{IBC}+\widehat{ICB}\right)\\ 
+						&=& 180^\circ -\dfrac{\widehat{ABC}+\widehat{ACB}}{2}\\
+						&=& 180^\circ -\dfrac{180^\circ -\widehat{BAC}}{2}\\
+						&=& 90^\circ +\dfrac{\widehat{BAC}}{2}.
+					\end{eqnarray*}
+					Vậy $\widehat{BIC}=90^\circ +60^\circ=150^\circ$.
+			\end{enumerate}
+		}
+		{
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=3.5,xmin=-0.5,xmax=7.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{0/0/B,3/2/A,1/0/b}
+			\tkzDefPointBy[rotation= center A angle 120](B)\tkzGetPoint{c}
+			\tkzInterLL(B,b)(A,c)\tkzGetPoint{C}
+			\tkzDrawPolygon(A,B,C)
+			
+			\tkzDrawBisector(A,B,C)\tkzGetPoint{D}
+			\tkzDrawBisector(A,C,B)\tkzGetPoint{E}
+			\tkzInterLL(B,D)(C,E)\tkzGetPoint{I}
+			\tkzInterLL(A,I)(B,C)\tkzGetPoint{F}
+			\tkzDrawLines[add=0 and 0.5](B,A C,A)
+			\tkzLabelLine[pos=1.45,above](B,A){$x$}
+			\tkzLabelLine[pos=1.45,above](C,A){$y$}
+			\tkzMarkAngles[size=1](I,B,A)
+			\tkzMarkAngles[size=1.1](C,B,I)
+			\tkzMarkAngles[size=1,mark=|](A,C,E)
+			\tkzMarkAngles[size=1.1,mark=|](E,C,B)
+			
+
+			
+			
+			\tkzDrawPoints(A,B,C,D,E,I,F)
+			\tkzDrawSegments(A,F E,F D,F)
+			%
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](F)
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[left]()
+			\tkzLabelPoints[above right](I,D)
+			\tkzLabelPoints[above left](E)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[below left](B)
+			\end{tikzpicture}
+		}
+		
+		\begin{enumerate}
+			\setcounter{enumi}{1}
+			\item Xét $\triangle ABC$ có $BI$ và $CI$ là hai đường phân giác của góc $\widehat{ABC}$ và $\widehat{ACB}$ nên $AI$ cũng là phân giác góc $\widehat{BAC}$. Vậy $\widehat{BAI}=\widehat{IAC}=60^\circ$.\hfill$(1)$\\
+			Mà $\widehat{xAC}=180^\circ -120^\circ=60^\circ$ (hai góc bù nhau).\hfill$(2)$\\
+			Từ $(1)$, $(2)$ suy ra $AC$ là tia phân giác của góc $\widehat{FAx}$.\\
+			Xét $\triangle ABF$ có $BD$ là tia phân giác của góc $\widehat{ABC}$ (giả thiết), $AC$ là tia phân giác góc $\widehat{FAx}$ (góc ngoài tại $A$) vậy $FD$ phải là đường phân giác của góc $AFC$ (góc ngoài tại $F$).\\
+			Chứng minh tương tự, ta có $FE$ là đường phân giác của góc $\widehat{AFB}$.\\
+			Ta có $FE$ và $FD$ là hai tia phân giác của hai góc kề bù. Vậy $FE\perp FD$.
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[7H3K5]
+	Cho tam giác $\triangle ABC$ có $\widehat{B}=120^\circ$. Kẻ đường phân giác $BM$. Đường phân giác của góc ngoài ở đỉnh $C$ cắt đường thẳng $AB$ ở $P$. Đoạn thẳng $MP$ cắt cạnh $BC$ ở $K$. Tính số đo góc $\widehat{AKM}$.
+	\loigiai{
+		\immini{
+			Theo giả thiết ta có $CP$ và $BP$ là các tia phân giác của các góc ngoài ở đỉnh $C$ và $B$ của tam giác $\triangle MBC$, suy ra $MP$ là tia phân giác của góc $\widehat{BMC}$.\\
+			Ta cũng có $BK$ và $MK$ là các tia phân giác của các góc ngoài ở đỉnh $B$ và $M$ của tam giác $\triangle AMB$, suy ra $AK$ là tia phân giác của góc $\widehat{BAC}$.\\
+			Như vậy 
+			\begin{eqnarray*}
+				\widehat{AKM}&=&\widehat{KMC}-\widehat{KAM}\\
+				&=&\dfrac{1}{2}\left( \widehat{BMC}-\widehat{BAM}\right)\\
+				&=&\dfrac{1}{2}\widehat{ABM}=\dfrac{1}{2}60^\circ=30^\circ. 
+			\end{eqnarray*}
+			
+		}
+		{
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=6,xmin=-0.5,xmax=9]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{0/0/A,3/2/B,1/0/b}
+			\tkzDefPointBy[rotation= center B angle 120](A)\tkzGetPoint{c}
+			\tkzInterLL(A,b)(B,c)\tkzGetPoint{C}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawBisector(A,B,C)\tkzGetPoint{M}
+			\tkzDefBarycentricPoint(M=1,B=-2)\tkzGetPoint{m}
+			\tkzDefBarycentricPoint(A=1,C=-5)\tkzGetPoint{x}
+			\tkzDrawBisector(B,C,x)\tkzGetPoint{c}
+			\tkzInterLL(C,c)(A,B)\tkzGetPoint{P}
+			\tkzInterLL(M,P)(B,C)\tkzGetPoint{K}
+			\tkzMarkAngles[size=0.4](P,B,m M,B,C)
+			\tkzMarkAngles[size=0.5](A,B,M C,B,P)
+			\tkzLabelAngles[pos=0.8](P,B,m M,B,C A,B,M C,B,P){$60^{\circ}$}
+			
+			
+			
+			
+			\tkzDrawPoints(A,B,C,M,P,K)
+			\tkzDrawSegments(B,M B,m B,P C,P C,x M,P A,K)
+			%
+			\tkzLabelPoints[above]()
+			\tkzLabelPoints[below](M)
+			\tkzLabelPoints[right](K)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[above right](P)
+			\tkzLabelPoints[above left]()
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[below left](A)
+			\end{tikzpicture}
+		}
+		
+	}
+\end{vd}
+
+\begin{vd}%[7H3K5]
+	Cho tam giác $\triangle ABC$ có phân giác $AD$ thỏa mãn $BD=2DC$. Trên tia đối của tia $CB$ lấy điểm $E$ sao cho $BC=CE$. Chứng minh tam giác $\triangle ADE$ là tam giác vuông.
+	\loigiai{
+		\immini{
+			Kéo dài $AC$ lấy điểm $M$ sao cho $CM=CA$, ta có $\triangle ACE=\triangle MCB$ (cạnh-góc-cạnh).\\
+			Trong tam giác $\triangle ABM$ có $BC$ là trung tuyến, $BD=2DC$ nên $D$ là trọng tâm của $\triangle ABM$.\\
+			Đường thẳng $AD$ chứa trung tuyến, đồng thời là phân giác nên $\triangle ABM$ cân, do đó $AD\perp BM$.\\
+			Ta lại có $\widehat{AEC}=\widehat{MBC}$ (hai góc tương ứng). $\Rightarrow AE\parallel BM \Rightarrow AD\perp AE$.\\
+			Vậy tam giác $ADE$ vuông.
+			
+		}
+		{
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=6.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{0/0/B,2/4/A,4/0/M}
+			\tkzDrawPolygon(A,B,M)
+			\tkzDrawBisector(B,A,M)\tkzGetPoint{a}
+			\tkzDefMidPoint(A,M)\tkzGetPoint{C}
+			\tkzDefPointBy[rotation= center C angle 180](B)\tkzGetPoint{E}
+			\tkzInterLL(A,a)(C,B)\tkzGetPoint{D}
+			\tkzMarkAngles[size=0.8](B,A,D)
+			\tkzMarkAngles[size=0.7](D,A,M)
+			\tkzMarkRightAngles[fill= gray!20](A,a,M)
+			\tkzMarkSegments[mark=|](A,C C,M)
+					
+			\tkzDrawPoints(A,B,M,C,E,D)
+			\tkzDrawSegments(B,E A,E)
+			%
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below]()
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[left]()
+			\tkzLabelPoints[above right](E)
+			\tkzLabelPoints[above left](D)
+			\tkzLabelPoints[below right](M)
+			\tkzLabelPoints[below left](B)
+			\end{tikzpicture}
+		}
+		
+	}
+\end{vd}
+
+
+\subsection{Bài tập}
+\subsubsection{Cơ bản}
+\begin{bt}%[7H3K5]
+	Cho $\triangle ABC$ có đường trung tuyến $AM$ đồng thời là phân giác của góc $\widehat{A}$. Chứng minh $\triangle ABC$ cân tại $A$.
+	\loigiai
+	{
+		\immini{
+			Từ $M$ kẻ $MH \perp AB$ $(H\in AB)$ và $MK \perp ABC$ $(K\in AC)$.\\
+			Vì $AM$ là tia phân giác góc $\widehat{BAC}$ và $M\in AM$ nên $MH=MK$ (điểm nằm trên đường trung tuyến cách đều hai cạnh của góc).\\
+			Xét $\triangle BMH$ vuông tại $H$ và $\triangle CMK$ vuông tại $K$, ta có $HM=KM$ (cmt) và $BM=CM$ ($AM$ cũng là trung tuyến). Vậy $\triangle BMH=\triangle CMK$ (cạnh huyền - cạnh góc vuông).\\
+			Vậy $\widehat{HBM}=\widehat{KCM}$ (hai góc tương ứng) $\Rightarrow \widehat{ABC}=\widehat{ACB}$. Vậy $\triangle ABC$ là tam giác cân tại $A$.
+			
+		}
+		{
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=4.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{0/0/B,2/4/A,4/0/C}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawBisector(B,A,C)\tkzGetPoint{M}
+			\tkzMarkAngles[size=0.8](B,A,M)
+			\tkzMarkAngles[size=0.7](M,A,C)
+			\tkzMarkSegments[mark=|](B,M C,M)
+			\tkzDrawAltitude(A,B)(M)\tkzGetPoint{H}
+			\tkzDrawAltitude(A,C)(M)\tkzGetPoint{K}
+			\tkzMarkRightAngles[fill=gray!20](B,H,M C,K,M)
+			
+			\tkzDrawPoints(A,B,M,C,H,K)
+			%\tkzDrawSegments(B,E A,E)
+			%
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](M)
+			\tkzLabelPoints[right](K)
+			\tkzLabelPoints[left](H)
+			\tkzLabelPoints[above right]()
+			\tkzLabelPoints[above left]()
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[below left](B)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[7H3K5]
+	Cho $\triangle ABC$ có $\widehat{B}=2\widehat{C}$, các đường phân giác của góc $\widehat{B}$ và $\widehat{C}$ cắt nhau tại $I$. Chứng minh rằng $AC=AB+IB$.
+	\loigiai
+	{
+		\immini{
+			Trên tia đối của tia $BA$ lấy điểm $E$ sao cho $BI=BE$. Ta đi chứng minh $\triangle IAC=\triangle IAE$,
+			
+		}
+		{
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-3,ymax=4,xmin=-2,xmax=8.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{0/0/B,8/0/C}
+			\def\gocB{60} 
+			\tkzDefPointBy[rotation= center B angle \gocB](C)\tkzGetPoint{b}
+			\tkzDefPointBy[rotation= center C angle -\gocB/2](B)\tkzGetPoint{c}
+			\tkzInterLL(B,b)(C,c)\tkzGetPoint{A}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawBisector(C,B,A)\tkzGetPoint{M}
+			\tkzDrawBisector(A,C,B)\tkzGetPoint{N}
+			\tkzInterLL(B,M)(C,N)\tkzGetPoint{I}
+			\tkzInterLC(A,B)(B,I)\tkzGetPoints{}{E}
+			
+			\tkzDrawPoints(A,B,C,I,E)
+			\tkzDrawSegments(B,E C,E A,I I,E)
+			%
+			
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](I,E)
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[left]()
+			\tkzLabelPoints[above right]()
+			\tkzLabelPoints[above left]()
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[below left](B)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[7H3K5]
+	Cho góc nhọn $\widehat{xOy}$. Lấy điểm $M$ trên $Ox$, điểm $N$ trên $Oy$ sao cho $OM=ON$. Qua $M$ kẻ đường thẳng vuông góc với $Ox$, đường thẳng này cắt $Oy$ tại $Q$. Qua $Q$ kẻ $Qn\perp Oy$. Qua $N$ kẻ đường thẳng vuông góc với $Oy$, đường thẳng này vuông góc với $Ox$ tại $P$. Từ $P$ kẻ $Pm\perp Ox$. Hai đường thẳng $On$ và $Pm$ cắt nhau tại $F$; $NP$ và $QM$ cắt nhau tại $E$ Chứng minh $Q$, $E$, $F$ thẳng hàng.
+	\loigiai
+	{
+		\immini{
+		\begin{itemize}
+			\item Xét $\triangle ONE$ vuông tại $N$ và $\triangle OME$ vuông tại $M$ có $OE$ là cạnh chung và $OM=ON$ (giả thiết). Vậy $\triangle ONE=\triangle OME$ (cạnh huyền - cạnh góc vuông). $\Rightarrow \widehat{EON}=\widehat{EOM}$ (hai góc tương ứng). Mà tia $OE$ nằm giữa tia $OM$ và $ON$ nên $OE$ là tia phân giác góc $\widehat{xOy}$.\hfill $(1)$
+			\item Xét $\triangle OMQ$ vuông tại $M$ và $\triangle ONP$ vuông tại $N$ có góc $\widehat{O}$ chung và $OM=ON$ (giả thiết). Vậy $\triangle OMQ=\triangle ONP$ (cạnh góc vuông - góc nhọn). Vậy $OP=OQ$ (hai cạnh tương ứng).
+		\end{itemize}
+			
+		}
+		{
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=6,xmin=-0.5,xmax=7]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{0/0/O,3/0/M}
+			\def\gocXOY{55}
+			\tkzDefPointBy[rotation= center O angle \gocXOY](M)\tkzGetPoint{N}
+			\tkzDefLine[orthogonal=through
+			M](O,M) \tkzGetPoint{m}
+			\tkzInterLL(M,m)(O,N)\tkzGetPoint{Q}
+			\tkzDefLine[orthogonal=through
+			Q](N,O) \tkzGetPoint{q}
+			\tkzDrawPoints(O,M,N)
+			
+			
+			\tkzDefLine[orthogonal=through
+			N](O,N) \tkzGetPoint{n}
+			\tkzInterLL(N,n)(O,M)\tkzGetPoint{P}
+			\tkzDefLine[orthogonal=through
+			P](O,M) \tkzGetPoint{p}
+			\tkzInterLL(Q,q)(P,p)\tkzGetPoint{F}
+			\tkzInterLL(N,P)(M,Q)\tkzGetPoint{E}
+			\tkzDrawLines[add=0 and 0.5](P,F Q,F)
+			\tkzDrawLines[add=0 and 0.5](O,Q O,P)
+			\tkzDrawSegment[style=dashed](O,F)
+			\tkzLabelLine[pos=1.3,above left](O,Q){$y$}
+			\tkzLabelLine[pos=1.3,below](O,P){$x$}
+			\tkzLabelLine[pos=1.45,right](P,F){$m$}
+			\tkzLabelLine[pos=1.45,above](Q,F){$n$}
+			\tkzMarkRightAngles[fill=gray!20](O,N,E O,M,E O,P,F O,Q,F)
+			\tkzDrawPoints(O,M,N,Q,P,F,E)
+			\tkzDrawSegments(Q,M P,N)
+			%
+			
+			\tkzLabelPoints[above]()
+			\tkzLabelPoints[below](M,P)
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[left]()
+			\tkzLabelPoints[above right](F)
+			\tkzLabelPoints[above left](N,Q)
+			\tkzLabelPoints[below right]()
+			\tkzLabelPoints[below left](O,E)
+			\end{tikzpicture}
+		}
+		\begin{itemize}
+			\item Xét $\triangle OQF$ vuông tại $Q$ và $\triangle OPF$ vuông tại $P$ có $OF$ (cạnh chung) và $OP=OQ$ (chứng minh trên). Vậy $\triangle OPF=\triangle OQF$ (cạnh huyền - cạnh góc vuông). Vậy $\widehat{QOF}=\widehat{POF}$ (hai góc tương ứng). Mà tia $OF$ nằm giữa hai tia $OP$ và $OQ$ nên $OF$ là tia phân giác góc $\widehat{xOy}$.\hfill $(2)$
+		\end{itemize}
+		Từ $(1)$ và $(2)$ ta có $OE$ và $OF$ đồng thời là phân giác của $\widehat{xOy}$ nên $E$, $O$, $F$ thẳng hàng.
+	}
+\end{bt}
+
+\begin{bt}%[7H3K5]
+	Cho hai đường thẳng $AB$ và $CD$ cắt nhau tại $O$. Tìm tập hợp các điểm cách đều hai đường thẳng $AB$ và $CD$.
+	\loigiai
+	{
+		\immini{
+			Ta có tia phân giác của $\widehat{COA}$, $\widehat{AOD}$, $\widehat{DOB}$ và $\widehat{BOC}$ sẽ cách đều các cạnh tạo nên góc. Vậy nên tập hợp điểm cần tìm là hai đường thẳng phân giác của các góc trên.
+			
+		}
+		{
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=0,ymax=6,xmin=-0.2,xmax=6.2]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{3/3/O,1/3/A}
+			\def\gocAOC{55}
+			\tkzDefPointBy[rotation= center O angle 180](A)\tkzGetPoint{B}
+			\tkzDefPointBy[rotation= center O angle \gocAOC](A)\tkzGetPoint{C}
+			\tkzDefPointBy[rotation= center O angle 180](C)\tkzGetPoint{D}
+			\tkzDrawLines[add=0.3 and 0.3](A,B C,D)
+			\tkzDefLine[bisector](A,O,C)\tkzGetPoint{c}
+			\tkzDrawLines[dashed,add=1 and 0](O,c)
+			\tkzDefLine[bisector](B,O,C)\tkzGetPoint{b}
+			\tkzDrawLines[dashed,add=1 and 0](O,b)
+			\tkzDrawPoints(O,A,B,C,D)
+			%\tkzDrawSegments()
+			%
+			
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[below](O)
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[left]()
+			\tkzLabelPoints[above right]()
+			\tkzLabelPoints[above left](D)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[below left]()
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[7H3K5]
+	Cho $\triangle ABC$. Trên tia đối của tia $BC$ lấy điểm $E$ sao cho $EB=BA$. Trên tia đối của tia $CB$ lấy điểm $F$ sao cho $FC=CA$. Qua $E$ kẻ đường thẳng song song với $AB$, qua $F$ kẻ đường thẳng song song với $AC$, hai đường thẳng này cắt nhau tại $P$.
+	\begin{enumerate}
+		\item Chứng minh $EA$ là tia phân giác của góc $\widehat{FEB}$, $FA$ là tia phân giác của góc $\widehat{PFC}$.
+		\item $PA$ kéo dài cắt $BC$ tại $Q$. Chứng minh $AQ$ là tia phân giác của góc $\widehat{BAC}$.
+	\end{enumerate}
+	\loigiai
+	{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=6,xmin=-3,xmax=6.2]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{0/0/B,1/2/A,3/0/C}
+			\tkzDrawPolygon(A,B,C)
+			\tkzFindAngle(A,B,C) \tkzAngleResult\tkzGetAngle{gocABC}
+			\tkzDefPointBy[rotation= center B angle -(180-\gocABC)](A)\tkzGetPoint{E}
+			\tkzFindAngle(A,C,B) \tkzAngleResult\tkzGetAngle{gocACB}
+			\tkzDefPointBy[rotation= center C angle -(180-\gocACB)](A)\tkzGetPoint{F}
+			\tkzDefLine[parallel=through E](A,B)\tkzGetPoint{e}
+			\tkzDefLine[parallel=through F](A,C)\tkzGetPoint{f}
+			\tkzInterLL(E,e)(F,f)\tkzGetPoint{P}
+			\tkzInterLL(P,A)(B,C)\tkzGetPoint{Q}
+			\tkzMarkSegments[mark=|](A,B E,B)
+			\tkzMarkSegments[mark=||](A,C F,C)
+			\tkzDrawPoints(A,B,C,E,F,P,Q)
+			\tkzDrawSegments(P,E P,F E,B F,C P,Q E,A F,A)
+			%
+			
+			\tkzLabelPoints[above](P)
+			\tkzLabelPoints[below](B,C,Q)
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[left]()
+			\tkzLabelPoints[above right]()
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[below right](F)
+			\tkzLabelPoints[below left](E)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Xét $\triangle BEA$ có $BA=BE$ (giả thiết) $\Rightarrow \triangle BEA$ cân tại $B$. Vậy $\widehat{BAE}=\widehat{BEA}$ (tính chất tam giác cân). Mà $\widehat{BAE}=\widehat{AEP}$ (sole-trong), nên $\widehat{BEA}=\widehat{PEA}$ (cùng bằng $\widehat{BAE}$). Đồng thời tia $EA$ nằm giữa hai tia $EB$ và $EP$ nên $EA$ là tia phân giác góc $\widehat{BEP}$.\\
+			Xét $\triangle CAF$ có $CA=CF$ (giả thiết) $\Rightarrow \triangle CAF$ cân tại $C$. Vậy $\widehat{CAF}=\widehat{CFA}$ (tính chất tam giác cân). Mà $\widehat{CAF}=\widehat{AFP}$ (sole-trong), nên $\widehat{CFA}=\widehat{AFP}$ (cùng bằng $\widehat{CAF}$). Đồng thời tia $FA$ nằm giữa hai tia $FC$ và $FP$ nên $FA$ là tia phân giác góc $\widehat{CFP}$.\\
+			\item Xét $\triangle PEF$ có $EA$ và $FA$ là tia phân giác và cắt nhau tại $A$. Vậy $PA$ cũng là một tia phân giác (ba đường phân giác đồng quy). Vậy $\widehat{EPA}=\widehat{FPA}$.\\
+			Ta có $\widehat{EPA}=\widehat{BAQ}$ (đồng vị) và $\widehat{CAQ}=\widehat{FPA}$ (đồng vị). Vậy $\widehat{BAQ}=\widehat{CAQ}$. Mà $AQ$ là tia nằm giữa hai tia $AB$ và $AC$ nên $AQ$ là tia phân giác góc $\widehat{BAC}$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\subsubsection{Nâng cao}
+\begin{bt}%[7H3G5]
+	Cho tam giác $ABC$ có $\widehat{A}=45^\circ$, $M$ là trung điểm của $BC$ sao cho $\widehat{MAC}=2\widehat{MAB}$. Tính số đo các góc của tam giác $ABC$.
+	\loigiai
+	{
+		\immini{
+			Dựng tam giác đều $\triangle ACE$ ($E$ và $B$ cùng phía đói với $AC$), ta có $AM$ là phân giác của góc $\widehat{CAE}$.\\
+			Xét $\triangle AEM$ và $\triangle ACM$ có $\widehat{EAM}=\widehat{CAM}=30^\circ$; $EA=AC$ (cạnh của tam giác đều) và $AM$ là cạnh chung. Vậy $\triangle EAM=\triangle CAM$ (cạnh-góc-cạnh). $\Rightarrow EM=MC$ (hai cạnh tương ứng). Vậy $EM=MC=BM$.\\
+			Do $EM=MC=BM$ nên $\triangle BEC$ vuông tại $E$. $\triangle \widehat{BEC}=90^\circ \Rightarrow \widehat{BEA}=150^\circ$. Xét $\triangle AEB$ có $\widehat{BEA}=150^\circ$ và $\widehat{EAB}=15^\circ$. Vậy $\widehat{EBA}=15^\circ$. Vậy $\triangle EBA$ cân tại $E$. Ta có $EB=EA$. Suy ra $EB=EC$ (cùng bằng $EA$) nên tam giác $\triangle EBC$ vuông cân.\\
+			Vậy ta có $\widehat{ABC}=30^\circ$ và $\widehat{ACB}=105^\circ$.
+			
+		}
+		{
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=4.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{0/0/A,4/0/a}
+			\tkzDefPointBy[rotation= center A angle 30](a)\tkzGetPoint{M}
+			\tkzDefPointBy[rotation= center A angle 45](a)\tkzGetPoint{b}
+			\tkzDefPointBy[rotation= center M angle 180](A)\tkzGetPoint{D}
+			\tkzDefLine[parallel=through D](A,a)\tkzGetPoint{c'}
+			\tkzInterLL(D,c')(A,b)\tkzGetPoint{B}
+			\tkzInterLL(B,M)(A,a)\tkzGetPoint{C}
+			\tkzDefEquilateral(A,C)\tkzGetPoint{E}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawPoints(A,M,B,C,D,E)
+			\tkzDrawSegments(A,M A,E E,C E,M E,B)
+			\tkzMarkSegments[mark=|](B,M M,C E,M)
+			
+			
+			
+			%
+			
+			\tkzLabelPoints[above](B,E)
+			\tkzLabelPoints[below](C)
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[left]()
+			\tkzLabelPoints[above right](D)
+			\tkzLabelPoints[above left]()
+			\tkzLabelPoints[below right](M)
+			\tkzLabelPoints[below left](A)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[7H3G5]
+	Cho $\triangle ABC$ $(AB>AC)$, tia phân giác góc $A$ là $AD$ và $I$ là giao điểm của ba đường phân giác trong $\triangle ABC$. Từ $I$ hạ $IH\perp BC$ $(H\in BC)$. Chứng minh $\widehat{BIH}=\widehat{CID}$.
+	\loigiai
+	{
+		\immini{
+			Xét $\triangle BIH$ vuông tại $H$. Ta có $\widehat{BIH}=90^\circ -\widehat{HBI}=90^\circ -\dfrac{\widehat{ABC}}{2}$.\hfill$(1)$\\
+			Xét $\triangle AIC$ có $\widehat{DIC}$ là góc ngoài ta có \\$ DIC=\widehat{IAC}+\widehat{ICA}=\dfrac{\widehat{BAC}}{2}+\dfrac{\widehat{ACB}}{2}=\dfrac{180^\circ - \widehat{ABC}}{2}=90^\circ-\dfrac{\widehat{ABC}}{2}$.\hfill$(2)$\\
+			Từ $(1)$ và $(2)$ ta có $\widehat{BIH}=\widehat{CID}$.
+			
+		}
+		{
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=6.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{1/4/A,0/0/B,6/0/C}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawBisector(B,A,C)\tkzGetPoint{D}
+			\tkzDefLine[bisector](A,B,C)\tkzGetPoint{b}
+			\tkzInterLL(B,b)(A,D)\tkzGetPoint{I}
+			\tkzDrawAltitude(B,C)(I)\tkzGetPoint{H}
+			\tkzDrawPoints(A,B,C,D,I,H)
+			\tkzMarkRightAngles[fill= gray!20](I,H,B)
+			\tkzDrawSegments(B,I C,I)
+
+			%
+			
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](D,H)
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[left](I)
+			\tkzLabelPoints[above right]()
+			\tkzLabelPoints[above left]()
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[below left](B)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[7H3G5]
+	Cho $\triangle ABC$ vuông tại $A$. Gọi $D$ và $E$ lần lượt là hai điểm nằm trên $AC$ và $AB$ sao cho $\widehat{ABD}=\dfrac{1}{3}\widehat{ABC}$; $\widehat{ACE}=\dfrac{1}{3}\widehat{ACB}$. Gọi $I$ là giao điểm của $BD$ và $CE$. Chứng minh rằng $IDE$ là tam giác cân.
+	\loigiai
+	{
+		\immini{
+			Kẻ các tia phân giác của $\triangle IBC$ cắt nhau tại $J$.\\
+			Xét $\triangle IBC$ có 
+			\begin{eqnarray*}
+				\widehat{BIC}&=&180^\circ -\widehat{IBC}-\widehat{ICB}\\
+				&=&180^\circ -\dfrac{2}{3}\widehat{ABC}-\dfrac{2}{3}\widehat{ACB}\\
+				&=&180^\circ -\dfrac{2}{3}\left( \widehat{ABC}+\widehat{ACB}\right) \\
+				&=&180^\circ -\dfrac{2}{3}\left( 180^\circ -\widehat{BAC}\right) \\
+				&=&120^\circ.
+			\end{eqnarray*}
+			Vậy $\widehat{EIB}=\widehat{BIJ}=\widehat{JIC}=\widehat{CID}=60^\circ$.\\
+			Vậy ta chứng minh được $\triangle DIC=\triangle JIC$ (góc - cạnh - góc) $\Rightarrow ID=IJ$ (hai cạnh tương ứng).\\
+			Và $\triangle EIB=\triangle JIB$ (góc - cạnh - góc) $\Rightarrow IE=IJ$ (hai cạnh tương ứng).\\
+			Vậy $\triangle IED$ cân tại $I$.
+			
+		}
+		{
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=6.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{0/0/A,0/4/B,6/0/C}
+			\tkzDrawPolygon(A,B,C)
+			\tkzFindAngle(A,B,C) \tkzAngleResult\tkzGetAngle{gocABC}
+			\tkzDefPointBy[rotation= center B angle (\gocABC/3)](A)\tkzGetPoint{b}
+			\tkzInterLL(B,b)(A,C)\tkzGetPoint{D}
+			
+			\tkzFindAngle(A,C,B) \tkzAngleResult\tkzGetAngle{gocACB}
+			\tkzDefPointBy[rotation= center C angle (\gocACB/3)](A)\tkzGetPoint{c}
+			\tkzInterLL(C,c)(A,B)\tkzGetPoint{E}
+			\tkzInterLL(B,D)(C,E)\tkzGetPoint{I}
+			\tkzDefLine[bisector](B,I,C)\tkzGetPoint{j1}
+			\tkzDefLine[bisector](I,B,C)\tkzGetPoint{j2}
+			\tkzInterLL(I,j1)(B,j2)\tkzGetPoint{J}
+			
+			\tkzDrawPoints(A,B,C,D,E,I)
+			\tkzMarkRightAngles[fill= gray!20](B,A,C)
+			\tkzDrawSegments(B,D C,E E,D)
+			\tkzDrawSegments[style=dashed](B,J I,J C,J)
+			
+			%
+			
+			\tkzLabelPoints[above]()
+			\tkzLabelPoints[below](D)
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[left](E)
+			\tkzLabelPoints[above right](J)
+			\tkzLabelPoints[above left](B)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[below left](A,I)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[7H3G5]
+	Cho $\triangle ABC$ có góc $\widehat{A}=120^\circ$. Các tia phân giác $AD$ và $CE$ của các góc $\widehat{A}$ và $\widehat{C}$ cắt nhau tại $O$. Đường phân giác góc ngoài của tam giác tại đỉnh $B$ cắt đường thẳng $AC$ tại $F$. Chứng minh
+	\begin{enumerate}
+		\item $BO\perp BF$.
+		\item $\widehat{BDF}=\widehat{ADF}$.
+		\item Các điểm $D$, $E$, $F$ thẳng hàng.
+	\end{enumerate}
+	\loigiai
+	{
+		\immini{
+			\begin{enumerate}
+				\item Xét $\triangle ABC$ có hai tia phân giác $CE$ và $AD$ cắt nhau tại $O$. Ta có $BO$ là phân giác trong của góc $\triangle ABC$ và $BF$ là phân giác ngoài. Vậy $BO\perp BF$.
+				\item Với góc $\widehat{BAC}=120^\circ$ ta có $\widehat{BAF}=60^\circ$ (hai góc kề bù). Từ đó ta có $\widehat{xAF}=\widehat{FAB}$. Vậy $AF$ là tia phân giác góc $\widehat{xAB}$.
+			\end{enumerate}
+			
+		}
+		{
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=5,xmin=-2,xmax=7.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{0/0/B,1/0/b,3/2/A}
+			\tkzDefPointBy[rotation= center A angle 120](B)\tkzGetPoint{a}
+			\tkzInterLL(B,b)(A,a)\tkzGetPoint{C}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawBisector(B,A,C)\tkzGetPoint{D}
+			\tkzDrawBisector(A,C,B)\tkzGetPoint{E}
+			\tkzInterLL(A,D)(C,E)\tkzGetPoint{O}
+			
+			\tkzDefPointBy[rotation= center B angle 180](D)\tkzGetPoint{y}
+			\tkzDefLine[bisector](y,B,A)\tkzGetPoint{x}
+			\tkzInterLL(B,x)(A,C)\tkzGetPoint{F}
+			\tkzDefPointBy[rotation= center A angle 180](D)\tkzGetPoint{z}
+			\tkzLabelLine[pos=0.9,right](A,z){$x$}
+			
+			\tkzDrawPoints(A,B,C,D,E,O,F)
+			%\tkzMarkRightAngles[fill= gray!20](B,A,C)
+			\tkzDrawSegments(A,D C,E B,F A,F B,O A,z B,y)
+			\tkzDrawSegments[style=dashed](F,D)
+			
+			%
+			
+			\tkzLabelPoints[above]()
+			\tkzLabelPoints[below](D)
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[left](E,F)
+			\tkzLabelPoints[above right](A)
+			\tkzLabelPoints[above left]()
+			\tkzLabelPoints[below right](C,O)
+			\tkzLabelPoints[below left](B)
+			\end{tikzpicture}
+		}
+		Xét $\triangle ABD$ có $AF$ và $BF$ là các phân giác ngoài. Vậy $DF$ là phân giác góc $\widehat{ADB}$.
+		\begin{enumerate}
+			\setcounter{enumi}{2}
+			\item Xét $\triangle ADC$ có CE là tia phân giác góc $\widehat{ACD}$ và $AE$ là tia phân giác góc ngoài tại đỉnh $A$. Vậy $DE$ cũng phải là tia phân giác góc ngoài tại đỉnh $D$. Từ đó ta có $D$, $E$, $F$ thẳng hàng.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[7H3G5]
+	Cho tam giác $ABC$ nhọn và đường trung tuyến $CM$, đường phân giác $BK$, đường cao $AH$. Chứng minh rằng nếu $MHK$ là tam giác đều thì $ABC$ cũng là tam giác đều.
+	\loigiai
+	{
+		\immini{
+			Xét $\triangle ABH$ vuông tại $H$ nên $HM=\dfrac{1}{2}AB$. Vì $\triangle MHK$ đều nên $KM=\dfrac{1}{2}AB \Rightarrow BK\perp AC$. Nghĩa là $BK$ vừa đóng vai trò là phân giác vừa đóng vai trò là đường cao. Vậy $\triangle ABC$ cân tại $B$.\\
+			Lại có $HK=\dfrac{1}{2}AC\Rightarrow KM=\dfrac{1}{2}AC\Rightarrow AC=AB$. Vậy $\triangle ABC$ đều.
+			
+		}
+		{
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=4.5,xmin=-0.5,xmax=6.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{0/0/B,2/4/A,6/0/C}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+			\tkzDrawAltitude(B,C)(A)\tkzGetPoint{H}
+			\tkzDrawBisector(A,B,C)\tkzGetPoint{K}
+			\tkzDrawPoints(A,B,C)
+			\tkzDrawPolygon(M,H,K)
+			%\tkzMarkRightAngles[fill= gray!20](B,A,C)
+			\tkzDrawSegments(C,M)
+			%\tkzDrawSegments[style=dashed](F,D)
+			
+			%
+			
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](H)
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[left]()
+			\tkzLabelPoints[above right](K)
+			\tkzLabelPoints[above left](M)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[below left](B)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+
+
+
+\Closesolutionfile{ans}

@@ -1,0 +1,642 @@
+% Người soạn: Bui Dung Bui Dung. Phản biện: Đặng Đức Quý
+\section{Hình nón - Hình nón cụt - Diện tích xung quanh và thể tích của hình nón, hình nón cụt}
+\subsection{Tóm tắt lí thuyết}
+\begin{itemize}
+	\item Mô tả hình nón 
+	\immini
+	{
+		\begin{enumerate}[+)]
+			\item Đáy của hình nón là hình tròn $(O)$;
+			\item $SA$ là một đường sinh;
+			\item $S$ là đỉnh, $SO$ là đường cao.
+		\end{enumerate}
+	}
+	{
+		\begin{tikzpicture}[scale=.5, x = 1cm, y = 1cm, line join = round, line cap = round]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\def \x{3} %bán kính trục lớn elip
+		\def \y{1} %bán kính trục bé elip
+		\def \h{6} %chiều cao hình nón
+		\coordinate (A) at (0,0);
+		\coordinate (B) at (2*\x,0);
+		\coordinate (O) at ($(A)!0.5!(B)$);
+		\coordinate (S) at ($(O)+(0,\h)$);
+		\draw[dashed] (B) arc (0:180:\x cm and \y cm);
+		\draw (B) arc (0:-180:\x cm and \y cm);
+		\tkzDrawSegments(S,A S,B)
+		\tkzDrawSegments[dashed](A,B S,O)
+		\tkzDrawPoints[fill=black](A,B,O,S)
+		\tkzLabelPoints[above](S);
+		\tkzLabelPoints[below](O);
+		\tkzLabelPoints[left](A);
+		\tkzLabelPoints[right](B);
+		\tkzLabelLine[pos=0.5,above](O,B){$r$}
+		\tkzLabelLine[pos=0.5,left](O,S){$h$}
+		\tkzLabelLine[pos=0.5,right](S,B){$l$}
+		\end{tikzpicture}
+	}
+	\item Diện tích xung quanh và diện tích toàn phần của hình nón
+	\begin{eqnarray*}
+		S_\text{xq}&=&\pi rl \\
+		S_\text{tp}&=&\pi rl+\pi r^2
+	\end{eqnarray*}
+	\centerline{($r,\ l$ lần lượt là bán kính đáy và độ dài đường sinh của hình nón).}
+	\item Thể tích hình nón \[V=\dfrac{1}{3}\pi r^2h~(h \text{ là chiều cao}).\]
+	\item Hình nón cụt 
+	\immini
+	{
+		Khi cắt hình nón bởi một mặt phẳng song song với đáy thì phần mặt phẳng bị giới hạn bởi hình nón là một hình tròn. Phần hình tròn nằm giữa mặt phẳng nói trên và đáy là một hình nón cụt.	
+	}
+	{
+		\begin{tikzpicture}[scale=.5, x = 1cm, y = 1cm, line join = round, line cap = round]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\def \x{4.5} %bán kính trục lớn elip
+		\def \y{1.5} %bán kính trục bé elip
+		\def \h{8} %chiều cao hình nón
+		\coordinate (A) at (0,0);
+		\coordinate (B) at (2*\x,0);
+		\coordinate (O) at ($(A)!0.5!(B)$);
+		\coordinate (S) at ($(O)+(0,\h)$);
+		\coordinate (A') at ($(S)!0.4!(A)$);
+		\coordinate (B') at ($(S)!0.4!(B)$);
+		\coordinate (O') at ($(S)!0.4!(O)$);
+		\draw[dashed] (B) arc (0:180:\x cm and \y cm);
+		\draw (B) arc (0:-180:\x cm and \y cm);
+		\draw(B') arc (0:180:0.4*\x cm and 0.4*\y cm);
+		\draw (B') arc (0:-180:0.4*\x cm and 0.4*\y cm);
+		\tkzDrawSegments(A',A B',B A',B')
+		\tkzDrawSegments[dashed](A,B O',O)
+		\tkzDrawPoints[fill=black](A,B,O,A',B',O')
+		%\tkzLabelPoints[above](S);
+		\tkzLabelPoints[below](O);
+		\tkzLabelPoints[left](A);
+		\tkzLabelPoints[right](B);
+		\tkzLabelPoints[left](A');
+		\tkzLabelPoints[right](B');
+		\tkzLabelPoints[ above](O');
+		%\tkzLabelLine[pos=0.5,above](O,A){$7$}
+		%\tkzLabelLine[pos=0.5,left](O,S){$24$}
+		\end{tikzpicture}
+	}
+	\item Diện tích xung quanh, diện tích toàn phần của hình nón cụt
+	\begin{eqnarray*}
+		S_\text{xq}&=&\pi(R+r)l \\
+		S_\text{tp}&=&\pi(R+r)l+\pi R^2+\pi r^2
+	\end{eqnarray*}
+	\centerline{$R,\ r$ lần lượt là bán kính hai đáy, $l$ là độ dài đường sinh của hình nón cụt).}
+	\item Thể tích hình nón cụt: 
+	\[V=\dfrac{\pi}{3}h(R^2+r^2+Rr)\]
+	\centerline{($h$ là đường cao của hình nón cụt).}
+\end{itemize}
+
+\begin{note} 
+	Hình khai triển mặt xung quanh của một hình nón là một hình quạt.
+\end{note}
+\begin{note} 
+	Một hình nón được xác định khi biết $2$ trong $3$ yếu tố: bán kính đáy, chiều cao, đường sinh. 
+\end{note}
+
+\subsection{Các ví dụ}
+\begin{vd}
+	Một hình nón có bán kính đáy bằng $r$, diện tích xung quanh gấp đôi diện tích đáy. Tính theo $r$
+	\begin{enumerate}
+		\item Diện tích xung quanh của hình nón;
+		\item Thể tích của hình nón.
+	\end{enumerate}
+	\loigiai
+	{
+		\immini
+		{
+			\begin{enumerate}
+				\item Diện tích xung quanh gấp đôi diện tích đáy nên $\pi r l=2\pi r^2$ suy ra $l=2r$.\\ Vậy $\pi rl=\pi r\cdot 2r=2\pi r^2$. Diện tích xung quanh bằng $2\pi r^2$.
+				\item Xét tam giác $SOA$ vuông tại $O$, ta có $h^2=l^2-r^2=(2r)^2-r^2=3r^2$ nên $h=r\sqrt{3}$.\\
+				Thể tích hình nón bằng $V=\dfrac{1}{3}\pi r^2 h=\dfrac{1}{3}\pi r^2\cdot r\sqrt3=\dfrac{\pi r^3\sqrt3}{3}.$
+			\end{enumerate}	
+		}
+		{
+			\begin{tikzpicture}[scale=.5, x = 1cm, y = 1cm, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\def \x{3} %bán kính trục lớn elip
+			\def \y{1} %bán kính trục bé elip
+			\def \h{8} %chiều cao hình nón
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (2*\x,0);
+			\coordinate (O) at ($(A)!0.5!(B)$);
+			\coordinate (S) at ($(O)+(0,\h)$);
+			\draw[dashed] (B) arc (0:180:\x cm and \y cm);
+			\draw (B) arc (0:-180:\x cm and \y cm);
+			\tkzDrawSegments(S,A S,B)
+			\tkzDrawSegments[dashed](A,B S,O)
+			\tkzDrawPoints[fill=black](A,B,O,S)
+			\tkzLabelPoints[above](S);
+			\tkzLabelPoints[below](O);
+			\tkzLabelPoints[left](A);
+			\tkzLabelPoints[right](B);
+			\tkzLabelLine[pos=0.5,above](O,B){$r$}
+			\tkzLabelLine[pos=0.5,left](O,S){$h$}
+			\tkzLabelLine[pos=0.5,right](S,B){$l$}
+			\end{tikzpicture}
+		}	
+	}
+\end{vd}
+
+\begin{vd} 
+	Một hình nón có bán kính đáy bằng $r$, đường sinh bằng $l$. Khai triển mặt xung quanh hình nón ta được một hình quạt. Tính số đo cung của hình quạt theo $r$ và $l$.
+	\loigiai
+	{
+		\immini
+		{
+			Khi cắtmặt xung quanh của một hình nón theo một đường sinh và trải phẳng ra thành một hình quạt. Khi đó bán kính hình quạt tròn $SBC$ bằng độ dài đường sinh $SB=l$ và độ dài $\wideparen{BC}$ bằng chu vi đáy.  Độ dài $\wideparen{BC}$ của hình quạt bằng chu vi đáy của hình nón bằng $2\pi r$.\\
+			Độ dài đường tròn $(S;\ SA)$ bằng $2\pi l$.\\ Ta có $S_\text{quạt}=\dfrac{2\pi\cdot l^2\cdot n}{360}=l\cdot 2\pi \cdot r\Rightarrow \dfrac{2\pi\cdot l^2\cdot n}{360}=l\cdot 2\pi\cdot r$\\ $\Rightarrow\dfrac{l\cdot n}{360}=r.$ Do đó, số đo cung $AB$ của hình quạt là \[n^\circ=360^\circ\cdot\dfrac{2\pi r}{2\pi l}=360^\circ\cdot\dfrac{r}{l}.\]
+		}
+		{
+			\begin{tikzpicture}[scale=.7, x = 1cm, y = 0.8cm, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\def \x{3} %bán kính trục lớn elip
+			\def \y{1} %bán kính trục bé elip
+			\def \h{5} %chiều cao hình nón
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (2*\x,0);
+			\coordinate (O) at ($(A)!0.5!(B)$);
+			\coordinate (S) at ($(O)+(0,\h)$);
+			\draw[dashed] (B) arc (0:180:\x cm and \y cm);
+			\draw (B) arc (0:-180:\x cm and \y cm);
+			%\coordinate (B) at ($(S)+(30:2cm)$);
+			\coordinate (C) at ($(S)+(60:2cm)$);
+			%\tkzDrawArc[towards](S,B)(B)
+			%\tkzDrawArc[rotate](S,B)(40)
+			\tkzDefPointBy[rotation = center S angle 45](B)    \tkzGetPoint{C}
+			\tkzDrawSegments(S,A S,B S,C)
+			\tkzDrawSegments[dashed](A,B S,O)
+			\tkzDrawPoints[fill=black](A,B,O,S,C)
+			\tkzLabelPoints[above](S);
+			\tkzLabelPoints[below](O);
+			\tkzLabelPoints[left](A);
+			\tkzLabelPoints[right](B);
+			\tkzLabelPoints[right](C);
+			\tkzDrawArc[towards](S,B)(C)
+			\tkzMarkAngles[size=1cm,arc=ll,mark=|](B,S,C)
+			\tkzLabelLine[pos=0.5,below](O,B){$r$}
+			%\tkzLabelLine[pos=0.5,left](O,S){$h$}
+			\tkzLabelLine[pos=0.5,right](S,B){$l$}
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\begin{vd}
+	Một hình nón cụt có các bán kính đáy bằng $a$ và $2a$, chiều cao bằng $a$. 
+	\begin{enumerate}
+		\item Tính diện tích xung quanh của hình nón cụt;
+		\item Tính thể tích của hình nón cụt.
+	\end{enumerate}
+	\loigiai
+	{
+		\immini
+		{
+			\begin{enumerate}
+				\item Trong mặt phẳng $OABO'$, kẻ $AH\perp O'B$. Ta có $O'H=OA=a$ nên $HB=a$. Tam giác $AHB$ vuông cân nên $AB=HB\sqrt2=a\sqrt2$. \\ Ta có $S_\text{xq}=\pi(r_1+r_2)l=\pi(a+2a)\cdot a\sqrt2=3\pi a^2\sqrt2$.
+				\item Tính thể tích của hình nón cụt: \[V=\dfrac{1}{3}\pi a[a^2+(2a)^2+a\cdot 2a]=\dfrac{7}{3}\pi a^3.\]
+			\end{enumerate}
+		}
+		{
+			\begin{tikzpicture}[scale=.6, x = 1cm, y = 1cm, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\def \x{4.5} %bán kính trục lớn elip
+			\def \y{1.5} %bán kính trục bé elipd
+			\def \h{8} %chiều cao hình nón
+			\coordinate (M) at (0,0);
+			\coordinate (B) at (2*\x,0);
+			\coordinate (O') at ($(M)!0.5!(B)$);
+			\coordinate (S) at ($(O')+(0,\h)$);
+			\coordinate (N) at ($(S)!0.4!(M)$);
+			\coordinate (A) at ($(S)!0.4!(B)$);
+			\coordinate (O) at ($(S)!0.4!(O')$);
+			\draw[dashed] (B) arc (0:180:\x cm and \y cm);
+			\draw (B) arc (0:-180:\x cm and \y cm);
+			\draw(A) arc (0:180:0.4*\x cm and 0.4*\y cm);
+			\draw (A) arc (0:-180:0.4*\x cm and 0.4*\y cm);
+			\tkzDefPointBy[projection = onto O'--B](A)    \tkzGetPoint{H} 
+			\tkzDrawPoints[fill=black](M,B,O',N,A,O,H)
+			\tkzDrawSegments(N,M A,B N,A)
+			\tkzDrawSegments[dashed](M,B O,O' A,H)
+			%\tkzLabelPoints[above](S);
+			\tkzLabelPoints[below](O');
+			%\tkzLabelPoints[left](M);
+			\tkzLabelPoints[right](B);
+			%\tkzLabelPoints[left](N);
+			\tkzLabelPoints[right](A);
+			\tkzLabelPoints[ above](O);
+			\tkzLabelPoints[below](H);
+			\tkzMarkRightAngles[size=0.3,50](A,H,B)
+			\tkzLabelLine[pos=0.5,above](O,A){$a$}
+			\tkzLabelLine[pos=0.5,below right](O',B){$2a$}
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\begin{vd} 
+	Một hình nón có bán kính đáy bằng $20\ \mathrm{cm}$, số đo thể tích (tính bằng $\mathrm{cm}^2$) bằng bốn lần số đo diện tích xung quanh (tính bằng $\mathrm{cm}^2$). Tính chiều cao của hình nón.
+	\loigiai
+	{
+		\immini
+		{
+			Gọi $h$ là chiều cao của hình nón. Thể tích của hình nón bằng \[V=\dfrac{1}{3}\pi\cdot 20^2\cdot h=\dfrac{400}{3}\pi h.\] 
+			Đường sinh $SA$ bằng $\sqrt{h^2+20^2}$.\\ Diện tích xung quanh của hình nón bằng\\ $S_\text{xq}=\pi\cdot 20\sqrt{h^2+400}$. \\ 
+			Do 	$V=4S_\text{xq}$ nên 
+			{
+				\allowdisplaybreaks 
+				\begin{eqnarray*}
+					\dfrac{400}{3}\pi h& =&4\cdot 20\pi\sqrt{h^2+400}\\
+					&\Leftrightarrow&5h=3\sqrt{h^2+400}\Leftrightarrow 25h^2=9(h^2+400)\\
+					&\Leftrightarrow& h^2=225 \Leftrightarrow h=15.
+				\end{eqnarray*}
+			} 
+			Vậy chiều cao của hình nón bằng $15$ cm
+		}
+		{
+			\begin{tikzpicture}[scale=.6, x = 1cm, y = 1cm, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\def \x{4} %bán kính trục lớn elip
+			\def \y{1} %bán kính trục bé elip
+			\def \h{8} %chiều cao hình nón
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (2*\x,0);
+			\coordinate (O) at ($(A)!0.5!(B)$);
+			\coordinate (S) at ($(O)+(0,\h)$);
+			\draw[dashed] (B) arc (0:180:\x cm and \y cm);
+			\draw (B) arc (0:-180:\x cm and \y cm);
+			\tkzDrawSegments(S,A S,B)
+			\tkzDrawSegments[dashed](A,B S,O)
+			\tkzDrawPoints[fill=black](A,B,O,S)
+			\tkzLabelPoints[above](S);
+			\tkzLabelPoints[below](O);
+			\tkzLabelPoints[left](A);
+			\tkzLabelPoints[right](B);
+			\tkzLabelLine[pos=0.5,above](O,A){$20$}
+			\tkzLabelLine[pos=0.5,left](O,S){$h$}
+			\end{tikzpicture} 
+		}
+	}
+\end{vd}
+
+\begin{vd} 
+	Cho tam giác $ABC$ vuông tại $A$, $BC=10$ cm, đường cao $AH=4$ cm. Quay tam giác $ABC$ một vòng quanh cạnh $BC$. Tính thể tích hình tạo thành. 
+	\loigiai
+	{
+		\immini
+		{
+			Khi quay tam giác $ABC$ một vòng quanh cạnh $BC$, hình tạo thành gồm hai hình nón có đường cao theo thứ tự là $HB$ và $HC$. \\ Thể tích của hình tạo thành bằng
+			{
+				\allowdisplaybreaks
+				\begin{eqnarray*}
+					\dfrac{1}{3}\pi\cdot AH^2\cdot BH+\dfrac{1}{3}\pi\cdot AH^2\cdot CH&=&\dfrac{1}{3}\pi\cdot AH^2(BH+CH) \\
+					&=&\dfrac{1}{3}\pi\cdot AH^2\cdot BC\\
+					&=& \dfrac{1}{3}\pi\cdot 4^2\cdot 10=\dfrac{160}{3}\pi (\mathrm{cm}^3).
+				\end{eqnarray*}
+			} 
+		}
+		{
+			\begin{tikzpicture}[scale=.5, x = 1cm, y = 0.8cm, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\def \x{4} %bán kính trục lớn elip
+			\def \y{1} %bán kính trục bé elip
+			\def \h{8} %chiều cao hình nón
+			\coordinate (A) at (0,0);
+			\coordinate (M) at (2*\x,0);
+			\coordinate (H) at ($(A)!0.5!(M)$);
+			\coordinate (C) at ($(H)+(0,\h)$);
+			\coordinate (B) at ($(H)+(0,-0.8*\h)$);
+			\draw[dashed] (M) arc (0:180:\x cm and \y cm);
+			\draw (M) arc (0:-180:\x cm and \y cm);
+			\tkzDrawSegments(C,A C,M A,B M,B)
+			\tkzDrawSegments[dashed](A,M C,H H,B)
+			\tkzDrawPoints[fill=black](A,M,C,H,B)
+			\tkzLabelPoints[left](A);
+			\tkzLabelPoints[right](M);
+			\tkzLabelPoints[above](C);
+			\tkzLabelPoints[above right](H);
+			\tkzLabelPoints[right](B);
+			\tkzLabelLine[pos=0.5,above](A,H){$4$}
+			\tkzLabelLine[pos=0.7,left](B,C){$10$}
+			\tkzMarkRightAngles[size=0.4,50](C,A,B)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\begin{vd}
+	Cho tam giác $ABC$ vuông cân, $\widehat{A}=90^\circ,\ BC=3\sqrt2\ \mathrm{cm}$. Quay tam giác $ABC$ một vòng quanh cạnh góc vuông $AB$ cố định.  Tính diện tích xung quanh và thể tích hình tạo thành. 
+	\loigiai
+	{
+		\immini
+		{
+			Quay tam giác vuông cân $ABC$ một vòng quanh cạnh góc vuông $AB$ cố định, ta được hình nón đỉnh $B$, đường sinh $BC$, bán kính đường tròn đáy là $AC$. \\ Tam giác $ABC$ vuông cân tại $A$, theo định lý Pitago ta có
+			$AB^2+AC^2=BC^2$ hay $2AC^2=(3\sqrt2)^2=18$, suy ra $AC^2=9$, do đó $AC=3\ (\mathrm{cm})$.\\
+			Diện tích xung quanh của nón là $S_\text{xq}=\pi\cdot AC\cdot BC=\pi\cdot 3\cdot3\sqrt2=9\sqrt2\pi\approx 39,85\ (\mathrm{cm}^2).$\\ Thể tích hình nón là $V=\dfrac{1}{3}AC^2\cdot AB=\dfrac{1}{3}\cdot AC^3=\dfrac{1}{3}\cdot 3^3=9\ (\mathrm{cm}^3).$
+		}
+		{
+			\begin{tikzpicture}[scale=.6, x = 1cm, y = 1cm, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\def \x{4} %bán kính trục lớn elip
+			\def \y{1} %bán kính trục bé elip
+			\def \h{8} %chiều cao hình nón
+			\coordinate (C) at (0,0);
+			\coordinate (M) at (2*\x,0);
+			\coordinate (A) at ($(C)!0.5!(M)$);
+			\coordinate (B) at ($(A)+(0,\h)$);
+			\draw[dashed] (M) arc (0:180:\x cm and \y cm);
+			\draw (M) arc (0:-180:\x cm and \y cm);
+			\tkzDrawSegments(B,C B,M)
+			\tkzDrawSegments[dashed](C,M B,A)
+			\tkzDrawPoints[fill=black](A,B,C,M)
+			\tkzLabelPoints[above](B);
+			\tkzLabelPoints[below](A);
+			\tkzLabelPoints[right](M);
+			\tkzLabelPoints[left](C);
+			\tkzLabelLine[pos=0.5,left](B,C){$3\sqrt2$}
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\subsection{Luyện tập}
+\begin{bt} 
+	Cho tam giác $ABC$ vuông tại $A$, $\widehat{B}=60^\circ$ và $BC=2a\ (\mbox{đơn vị độ dài}).$ Quay xung quanh tam giác một vòng quanh cạnh huyền $BC$. Tìm diện tích xung quanh và thể tích hình tạo thành.
+	\loigiai
+	{
+		\immini
+		{
+			Khi quay tam giác vuông $ABC$ một vòng xung quanh cạnh huyền $BC$, ta được hai hình nón có các đáy úp vào nhau, bán kính đường tròn đáy bằng đường cao $AH$ kẻ từ $A$ đến cạnh huyền $BC$. Ta có $AH=\dfrac{a\sqrt3}{2}\ (\mbox{đơn vị độ dài}).$ \\ Diện tích xung quanh hình tạo thành là $S=\pi\cdot AH(AB+AC)=\dfrac{\pi a^2(3+\sqrt3)}{2}\ (\mbox{đơn vị diện tích}).$\\ Thể tích hình tạo thành là $V=\dfrac{1}{3}\pi\cdot AH^2\cdot BC=\dfrac{\pi a^3}{2}\ (\mbox{đơn vị thể tích}).$
+		}
+		{
+			\begin{tikzpicture}[scale=.5, x = 1cm, y = 0.7cm, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\def \x{4} %bán kính trục lớn elip
+			\def \y{1} %bán kính trục bé elip
+			\def \h{8} %chiều cao hình nón
+			\coordinate (A) at (0,0);
+			\coordinate (M) at (2*\x,0);
+			\coordinate (H) at ($(A)!0.5!(M)$);
+			\coordinate (C) at ($(H)+(0,\h)$);
+			\coordinate (B) at ($(H)+(0,-0.8*\h)$);
+			\draw[dashed] (M) arc (0:180:\x cm and \y cm);
+			\draw (M) arc (0:-180:\x cm and \y cm);
+			\tkzDrawSegments(C,A C,M A,B M,B)
+			\tkzDrawSegments[dashed](A,M C,H H,B)
+			\tkzDrawPoints[fill=black](A,M,C,H,B)
+			\tkzLabelPoints[left](A);
+			\tkzLabelPoints[right](M);
+			\tkzLabelPoints[above](C);
+			\tkzLabelPoints[above right](H);
+			\tkzLabelPoints[right](B);
+			\tkzLabelLine[pos=0.7,left](B,C){$2a$}
+			\tkzMarkAngles[size=1cm,arc=ll,mark=|](C,B,A)
+			\tkzLabelAngles[pos=2,rotate=45](C,B,A){$60^\circ$}
+			\tkzMarkRightAngles[size=0.4,50](C,A,B)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt} Một hình nón có bán kính đáy bằng $7\ \mathrm{cm}$, chiều cao bằng $24\ \mathrm{cm}$. 
+	\begin{enumerate}
+		\item Tính số đo cung hình quạt khi khai triển mặt xung quanh của hình nón;
+		\item Tính diện tích toàn phần của hình nón;
+		\item Tính thể tích của hình nón.
+	\end{enumerate}
+	\loigiai
+	{
+		\immini
+		{
+			\begin{enumerate}
+				\item Đường sinh bằng $l=25\ \mathrm{cm}$. Số đo cung của hình quạt là\\ $n^\circ=360^\circ\cdot\dfrac{r}{l}=360^\circ\cdot\dfrac{7}{25}=100,8^\circ$. 
+				\item Diện tích toàn phần của hình nón\\ $S_\text{tp}=\pi rl+\pi r^2=\pi r(l+r)=224\pi$.
+				\item Tính thể tích của hình nón $V=\dfrac{1}{3}\pi r^2h=\dfrac{1}{3}\cdot\pi\cdot 7^2\cdot 27=392\pi$.
+			\end{enumerate}
+		}
+		{
+			\begin{tikzpicture}[scale=.5, x = 1cm, y = 1cm, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\def \x{3} %bán kính trục lớn elip
+			\def \y{1} %bán kính trục bé elip
+			\def \h{8} %chiều cao hình nón
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (2*\x,0);
+			\coordinate (O) at ($(A)!0.5!(B)$);
+			\coordinate (S) at ($(O)+(0,\h)$);
+			\draw[dashed] (B) arc (0:180:\x cm and \y cm);
+			\draw (B) arc (0:-180:\x cm and \y cm);
+			\tkzDrawSegments(S,A S,B)
+			\tkzDrawSegments[dashed](A,B S,O)
+			\tkzDrawPoints[fill=black](A,B,O,S)
+			\tkzLabelPoints[above](S);
+			\tkzLabelPoints[below](O);
+			\tkzLabelPoints[left](A);
+			\tkzLabelPoints[right](B);
+			\tkzLabelLine[pos=0.5,above](O,A){$7$}
+			\tkzLabelLine[pos=0.5,left](O,S){$24$}
+			\end{tikzpicture}
+		}
+	}  
+\end{bt}
+
+\begin{bt} 
+	Một hình nón có bán kính đáy bằng $6\ \mathrm{cm}$, đường sinh bằng $10\ \mathrm{cm}$.
+	\begin{enumerate}
+		\item Tính diện tích  xung quanh của hình nón;
+		\item Tính thể tích của hình nón;
+		\item Một mặt phẳng đi qua trung điểm của đường cao và song song với đáy hình nón chia hình nón thành một hình nón nhỏ và một hình nón cụt. Tính thể tích hình nón cụt.
+	\end{enumerate}
+	\loigiai
+	{
+		\immini
+		{
+			\begin{enumerate}
+				\item Diện tích xung quanh của hình nón\\ $S_\text{xq}=\pi rl=60\pi\ (\mathrm{cm}^2).$
+				\item Áp dụng định lý Pytago trong tam giác vuông $SAO$, ta có $SO=\sqrt{SA^2-AO^2}=8$. Thể tích của hình nón\\ $V=\dfrac{1}{3}\pi r^2h=\dfrac{1}{3}\pi\cdot 6^2\cdot 8=96\pi\ (\mathrm{cm}^3).$
+				\item Trong $\triangle SOA$, ta có $SI=IO,\ IB\parallel OA$ nên $IB=\dfrac{1}{2}OA=3\ \mathrm{cm}$.  Thể tích hình nón nhỏ bằng\\ $\dfrac{1}{3}\pi \cdot r'^2\cdot h'=\dfrac{1}{3}\pi\cdot 3^2\cdot 4=12\pi\ (\mathrm{cm}^3)$.
+			\end{enumerate} 
+		}
+		{
+			\begin{tikzpicture}[scale=.6, x = 1cm, y = 1cm, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\def \x{4.5} %bán kính trục lớn elip
+			\def \y{1.5} %bán kính trục bé elip
+			\def \h{8} %chiều cao hình nón
+			\coordinate (A) at (0,0);
+			\coordinate (M) at (2*\x,0);
+			\coordinate (O) at ($(A)!0.5!(M)$);
+			\coordinate (S) at ($(O)+(0,\h)$);
+			\coordinate (B) at ($(S)!0.4!(A)$);
+			\coordinate (B') at ($(S)!0.4!(M)$);
+			\coordinate (I) at ($(S)!0.4!(O)$);
+			\draw[dashed] (M) arc (0:180:\x cm and \y cm);
+			\draw (M) arc (0:-180:\x cm and \y cm);
+			\draw(B') arc (0:180:0.4*\x cm and 0.4*\y cm);
+			\draw (B') arc (0:-180:0.4*\x cm and 0.4*\y cm);
+			\tkzDrawSegments(B,A B',M S,B S,B')
+			\tkzDrawSegments[dashed](A,M I,O B,B' S,I)
+			\tkzDrawPoints[fill=black](A,M,O,B,B',I,S)
+			\tkzLabelPoints[above](S);
+			\tkzLabelPoints[below](O);
+			\tkzLabelPoints[left](A);
+			\tkzLabelPoints[right](M);
+			\tkzLabelPoints[left](B);
+			\tkzLabelPoints[right](B');
+			\tkzLabelPoints[ above left](I);
+			\tkzLabelLine[pos=0.5,above](O,A){$6$}
+			\tkzLabelLine[pos=0.5,left](A,S){$10$}
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}
+	Một hình nón cụt có bán kính đáy lớn bằng $8\ \mathrm{cm}$, chiều cao bằng $12\ \mathrm{cm}$ và đường sinh bằng $13\ \mathrm{cm}$.
+	\begin{enumerate}
+		\item Tính bán kính đáy nhỏ của hình nón cụt;
+		\item Tính diện tích xung quanh của hình nón cụt;
+		\item Tính thể tích của hình nón cụt.
+	\end{enumerate}
+	\loigiai
+	{
+		\immini
+		{
+			\begin{enumerate}
+				\item Vẽ $AH\perp OB$ ta được $OH=O'A=r$, \\
+				$ HB=\sqrt{AB^2-AH^2}=\sqrt{13^2-12^2}=5\ (\mathrm{cm}),$\\
+				suy ra $r=8-5=3\ (\mathrm{cm}).$ 
+				\item Tính diện tích xung quanh của hình nón cụt\\ $S_\text{xq}=\pi rl=143\pi\ (\mathrm{cm}^2).$
+				\item Tính thể tích của hình nón cụt $V=\dfrac{1}{3}\pi r^2h=388\pi\ (\mathrm{cm}^3).$
+			\end{enumerate}
+		}
+		{
+			\begin{tikzpicture}[scale=.5, x = 1cm, y = 1cm, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\def \x{4} %bán kính trục lớn elip
+			\def \y{1.5} %bán kính trục bé elipd
+			\def \h{8} %chiều cao hình nón
+			\coordinate (M) at (0,0);
+			\coordinate (B) at (2*\x,0);
+			\coordinate (O) at ($(M)!0.5!(B)$);
+			\coordinate (S) at ($(O)+(0,\h)$);
+			\coordinate (N) at ($(S)!0.4!(M)$);
+			\coordinate (A) at ($(S)!0.4!(B)$);
+			\coordinate (O') at ($(S)!0.4!(O)$);
+			\draw[dashed] (B) arc (0:180:\x cm and \y cm);
+			\draw (B) arc (0:-180:\x cm and \y cm);
+			\draw(A) arc (0:180:0.4*\x cm and 0.4*\y cm);
+			\draw (A) arc (0:-180:0.4*\x cm and 0.4*\y cm);
+			\tkzDefPointBy[projection = onto O--B](A)    \tkzGetPoint{H} 
+			\tkzDrawPoints[fill=black](M,B,O,N,A,O',H)
+			\tkzDrawSegments(N,M A,B N,A)
+			\tkzDrawSegments[dashed](M,B O',O A,H)
+			%\tkzLabelPoints[above](S);
+			\tkzLabelPoints[below](O);
+			%\tkzLabelPoints[left](M);
+			\tkzLabelPoints[right](B);
+			%\tkzLabelPoints[left](N);
+			\tkzLabelPoints[right](A);
+			\tkzLabelPoints[ above](O');
+			\tkzLabelPoints[below](H);
+			\tkzMarkRightAngles[size=0.3,50](A,H,B)
+			\tkzLabelLine[pos=0.5,left](O',O){$12$}
+			\tkzLabelLine[pos=0.5,below right](O,B){$8$}
+			\end{tikzpicture}
+		}	
+	}
+\end{bt}
+
+\begin{bt}
+	Mặt xung quanh của một hình nón khai triển thành một hình quạt $100^\circ48'$, bán kính $25\ \mathrm{cm}$.
+	\begin{enumerate}
+		\item Tính diện tích toàn phần của hình nón;
+		\item Tính thể tích của hình nón.
+	\end{enumerate} 
+	\loigiai
+	{
+		\immini
+		{
+			\begin{enumerate}
+				\item Độ dài cung $AB$ của hình quạt là \[l=\dfrac{\pi\cdot 25\cdot 100,8}{180}=14\pi\ (\mathrm{cm}).\] Chu vi của hình tròn đáy là $14\pi\ (\mathrm{cm})$.\\ Bán kính của hình tròn đáy là $R=\dfrac{14\pi}{2\pi}=7\ (\mathrm{cm})$.\\ Chiều cao của hình nón là\\ $h=SO=\sqrt{SB^2-OB^2}=\sqrt{25^2-7^2}=24\ (\mathrm{cm})$.\\
+				Diện tích toàn phần của hình nón là\\  $S_\text{tp}=\pi Rl+\pi R^2=\pi\cdot 7\cdot 25+\pi\cdot 7^2=224\pi\ (\mathrm{cm}^2)$.
+				\item Tính thể tích của hình nón là\\ $V=\dfrac{1}{3}\pi R^2h=\dfrac{1}{3}\pi\cdot 7^2\cdot 27=392\pi\ (\mathrm{cm}^3)$.
+			\end{enumerate}
+		}
+		{
+			\begin{tikzpicture}[scale=.6, x = 1cm, y = 1cm, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\def \x{3} %bán kính trục lớn elip
+			\def \y{1} %bán kính trục bé elip
+			\def \h{6} %chiều cao hình nón
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (2*\x,0);
+			\coordinate (O) at ($(A)!0.5!(B)$);
+			\coordinate (S) at ($(O)+(0,\h)$);
+			\draw[dashed] (B) arc (0:180:\x cm and \y cm);
+			\draw (B) arc (0:-180:\x cm and \y cm);
+			%\coordinate (B) at ($(S)+(30:2cm)$);
+			\coordinate (C) at ($(S)+(60:2cm)$);
+			%\tkzDrawArc[towards](S,B)(B)
+			%\tkzDrawArc[rotate](S,B)(40)
+			\tkzDefPointBy[rotation = center S angle 95](B)    \tkzGetPoint{C}
+			\tkzDrawSegments(S,A S,B S,C)
+			\tkzDrawSegments[dashed](A,B S,O)
+			\tkzDrawPoints[fill=black](A,B,O,S,C)
+			\tkzLabelPoints[above](S);
+			\tkzLabelPoints[below](O);
+			\tkzLabelPoints[left](A);
+			\tkzLabelPoints[right](B);
+			\tkzLabelPoints[right](C);
+			\tkzDrawArc[towards](S,B)(C)
+			\tkzMarkAngles[size=1cm,arc=ll,mark=|](B,S,C)
+			\tkzLabelAngles[pos=2.5,rotate=0](B,S,C){$100^\circ48'$}
+			\tkzLabelLine[pos=0.5,below](O,B){$25$}
+			\end{tikzpicture}
+		}	
+	}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$. Gọi $V_1,\ V_2,\ V_3$ theo thứ tự là thể tích của các hình sinh ra khi quay tam giác $ABC$ một vòng xung quanh các cạnh $BC,\ AB,\ AC$. Chứng minh rằng \[\dfrac{1}{V_1^2}=\dfrac{1}{V_2^2}+\dfrac{1}{V_3^2}.\] 
+	\loigiai
+	{ 
+		\immini
+		{
+			Gọi độ dài các cạnh của tam giác là $AC=b,\ BC=a,\ AB=c$ và $AH=h$ là chiều cao dựng từ đỉnh $A$ xuống cạnh huyền $BC$. Ta có $h=\dfrac{bc}{a}$. Theo giả thiết ta có:\\ $V_1=\dfrac{1}{3}\pi\cdot AH^2\cdot HC+\dfrac{1}{3}\pi\cdot AH^2\cdot HB=\dfrac{1}{3}\pi AH^2\cdot BC=\dfrac{\pi b^2c^2}{3a}$, suy ra $\dfrac{1}{V_1^2}=\dfrac{9a^2}{\pi^2b^4c^4}$. \\ Tương tự ta có $\dfrac{1}{V_2^2}=\dfrac{9}{\pi^2b^4c^2}$ và $\dfrac{1}{V_3^2}=\dfrac{9}{\pi^2b^2c^4}$, do đó $\dfrac{1}{V_2^2}+\dfrac{1}{V_3^2}=\dfrac{9}{\pi^2b^4c^2}+\dfrac{9}{\pi^2b^2c^4}=\dfrac{9(b^2+c^2)}{\pi^2b^4c^4}=\dfrac{9a^2}{\pi^2b^4c^4}$. \\ Vậy $\dfrac{1}{V_1^2}=\dfrac{1}{V_2^2}+\dfrac{1}{V_3^2}$.
+		}
+		{
+			\begin{tikzpicture}[scale=.5, x = 1cm, y = 0.7cm, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\def \x{4} %bán kính trục lớn elip
+			\def \y{1} %bán kính trục bé elip
+			\def \h{8} %chiều cao hình nón
+			\coordinate (A) at (0,0);
+			\coordinate (M) at (2*\x,0);
+			\coordinate (H) at ($(A)!0.5!(M)$);
+			\coordinate (C) at ($(H)+(0,\h)$);
+			\coordinate (B) at ($(H)+(0,-0.8*\h)$);
+			\draw[dashed] (M) arc (0:180:\x cm and \y cm);
+			\draw (M) arc (0:-180:\x cm and \y cm);
+			\tkzDrawSegments(C,A C,M A,B M,B)
+			\tkzDrawSegments[dashed](A,M C,H H,B)
+			\tkzDrawPoints[fill=black](A,M,C,H,B)
+			\tkzLabelPoints[left](A);
+			\tkzLabelPoints[right](M);
+			\tkzLabelPoints[above](C);
+			\tkzLabelPoints[above right](H);
+			\tkzLabelPoints[right](B);
+			%\tkzLabelLine[pos=0.7,left](B,C){$2a$}
+			%\tkzMarkAngles[size=1cm,arc=ll,mark=|](C,B,A)
+			%\tkzLabelAngles[pos=2,rotate=45](C,B,A){$60^\circ$}
+			%\tkzMarkRightAngles[size=0.4,50](C,A,B)
+			\tkzLabelLine[pos=0.5,left](A,C){$b$}
+			\tkzLabelLine[pos=0.7,right](B,C){$a$}
+			\tkzLabelLine[pos=0.5,left](A,B){$c$}
+			\tkzLabelLine[pos=0.5,above](A,H){$h$}
+			\end{tikzpicture}
+		}
+	}
+\end{bt}

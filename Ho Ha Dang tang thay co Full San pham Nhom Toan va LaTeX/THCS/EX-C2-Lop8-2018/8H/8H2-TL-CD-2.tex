@@ -1,0 +1,569 @@
+\section{Sử dụng công thức diện tích để thiết lập quan hệ về độ dài của các đoạn thẳng}
+	Các công thức diện tích cho ta các quan hệ về độ dài của các đoạn thẳng, chúng rất có ích để giải nhiều bài toán.
+\subsection{Các ví dụ}
+
+\begin{vd}%[Đinh Thanh Hoàng, Dự án EX-C2-L8]%[8H2K3]
+	Cho tam giác đều $ABC$.
+	\begin{enumerate}
+		\item Chứng minh rằng nếu điểm $M$ thuộc miền trong của tam giác $ABC$ thì tổng các khoảng cách từ $M$ đến ba cạnh của tam giác bằng chiều cao của tam giác.
+		\item Quan hệ trên thay đổi như thế nào nếu điểm $M$ thuộc miền ngoài của tam giác?
+	\end{enumerate}
+	\loigiai{
+		Gọi $a$ và $h$ lần lượt là cạnh và chiều cao của tam giác $ABC$, $MA'$, $MB'$, $MC'$ là các khoảng cách từ $M$ đến $BC$, $AC$, $AB$.
+		\immini{
+			\begin{enumerate}
+			\item Nếu $M$ thuộc miền trong tam giác thì
+					\begin{eqnarray*}
+						& & S_{MBC} + S_{MAC} + S_{MAB} = S_{ABC}\\
+						& \Rightarrow & \dfrac{1}{2}BC \cdot MA' + \dfrac{1}{2}AC \cdot MB' + \dfrac{1}{2}AB \cdot MC' = \dfrac{1}{2}BC \cdot AH\\
+						& \Rightarrow & \dfrac{a}{2}(MA' + MB' + MC') = \dfrac{a}{2} \cdot h\\
+						& \Rightarrow & MA' + MB' + MC' = h.
+					\end{eqnarray*}
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[scale=.9]
+				\clip (-.5,-.5) rectangle (4.5,4.5);	
+				\tkzDefPoints{0/0/B, 4/0/C, 2.8/1/M}%Định nghĩa điểm
+				\tkzDefTriangle[equilateral](B,C) \tkzGetPoint{A}
+				\tkzDrawPolygon(A,B,C)
+				\tkzDrawAltitude(B,C)(A) \tkzGetPoint{H}
+				\tkzDrawAltitude(B,C)(M) \tkzGetPoint{A'}
+				\tkzDrawAltitude(A,C)(M) \tkzGetPoint{B'}
+				\tkzDrawAltitude(A,B)(M) \tkzGetPoint{C'}
+				\tkzDrawSegments[dashed](M,A M,B M,C)%Vẽ đoạn thẳng nét đứt			
+				\tkzDrawPoints(A,B,C,M,H,A',B',C')%Vẽ điểm
+				\tkzLabelPoints[above](A)
+				\tkzLabelPoints[below](H,A')
+				\tkzLabelPoints[above left](C')
+				\tkzLabelPoints[above right](B')
+				\tkzLabelPoints[below left](B,M)
+				\tkzLabelPoints[below right](C)			
+				\tkzMarkRightAngles(A,H,C M,A',C M,B',C M,C',B)%Vẽ góc vuông			
+			\end{tikzpicture}
+		}
+		\immini{
+			\begin{enumerate}
+				\item[b)] Nếu $M$ thuộc miền ngoài tam giác $ABC$ và thuộc miền trong góc $A$ (miền 2) thì
+						\begin{eqnarray*}
+							& & S_{MAC} + S_{MAB} - S_{MBC} = S_{ABC}\\
+							& \Rightarrow & \dfrac{a}{2}\cdot MB' + \dfrac{a}{2}\cdot MC' - \dfrac{a}{2}\cdot MA' = \dfrac{a}{2}\cdot h\\
+							& \Rightarrow & MB' + MC' - MA' = h.
+						\end{eqnarray*}
+						Tương tự
+						\begin{itemize}
+							\item Nếu $M$ thuộc miền ngoài tam giác $ABC$ và thuộc miền trong góc $B$ (miền 3) thì
+									$$MA' + MC' - MB' = h.$$		
+						\end{itemize}
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[scale=.8]
+				\clip (-1.5,-3) rectangle (6,5.5);	
+				\tkzDefPoints{0/0/B, 4/0/C, 2.6/-2/M}%Định nghĩa điểm
+				\tkzDefTriangle[equilateral](B,C) \tkzGetPoint{A}				
+				\tkzDrawLine[add = 0.5 and 0.5](A,B)
+				\tkzDrawLine[add = 0.5 and 0.5](B,C)
+				\tkzDrawLine[add = 0.5 and 0.5](C,A)				
+				\tkzDrawAltitude(B,C)(M) \tkzGetPoint{A'}
+				\tkzDrawAltitude(A,C)(M) \tkzGetPoint{B'}
+				\tkzDrawAltitude(A,B)(M) \tkzGetPoint{C'}
+				\tkzDrawSegments[dashed](M,A M,B M,C)%Vẽ đoạn thẳng nét đứt			
+				\tkzDrawPoints(A,B,C,M,A',B',C')%Vẽ điểm
+				\tkzLabelPoints[above](A')
+				\tkzLabelPoints[below](M)
+				\tkzLabelPoints[left](A,C')
+				\tkzLabelPoints[right](B')
+				\tkzLabelPoints[above left](B)
+				\tkzLabelPoints[above right](C)	
+				\tkzMarkRightAngles(M,A',C M,B',C M,C',B)%Vẽ góc vuông
+				\draw (1.8,1.8)node{$1$} (1,-2)node{$2$} (4.5,2)node{$3$} (-.5,2)node{$4$} (2,4.5)node{$5$} (-1,-1)node{$6$} (5.8,-1)node{$7$};	
+			\end{tikzpicture}
+		}
+		\begin{enumerate}
+			\item[] \begin{itemize}
+							\item Nếu $M$ thuộc miền ngoài tam giác $ABC$ và thuộc miền trong góc $C$ (miền 4) thì
+									$$MA' + MB' - MC' = h.$$	
+							\item Nếu $M$ thuộc miền trong góc đối đỉnh với góc $A$ (miền 5) thì
+									$$MA' - MB' - MC' = h.$$
+							\item Nếu $M$ thuộc miền trong góc đối đỉnh với góc $B$ (miền 6) thì
+									$$MB' - MA' - MC' = h.$$
+							\item Nếu $M$ thuộc miền trong góc đối đỉnh với góc $C$ (miền 7) thì
+									$$MC' - MA' - MB' = h.$$
+						\end{itemize} 
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[Đinh Thanh Hoàng, Dự án EX-C2-L8]%[8H2K3]
+	Các điểm $E$, $F$ nằm trên các cạnh $AB$, $BC$ của hình bình hành $ABCD$ sao cho $AF = CE$. Gọi $I$ là giao điểm của $AF$, $CE$. Chứng minh rằng $ID$ là tia phân giác của góc $AIC$.
+	\loigiai{
+		\immini{
+			Kẻ $DH \perp IA$ tại $H$, $DK \perp IC$ tại $K$.\\
+			Ta có $S_{AFD} = S_{CED} = \dfrac{1}{2}S_{ABCD}$\\
+			$\Rightarrow \dfrac{1}{2}DH \cdot AF = \dfrac{1}{2}DK \cdot CE$\\
+			$\Rightarrow DH = DK$ (Vì $AF = CE$).\\
+			$\Rightarrow D$ thuộc tia phân giác của góc $AIC$.\\
+			Vậy $ID$ là tia phân giác của góc $AIC$.
+		}{
+			\begin{tikzpicture}[scale=.9]	
+				\clip (-1.5,-4) rectangle (4.5,1);	
+				\tkzDefPoints{0/0/A, 4/0/B, -1/-3.5/D}%Định nghĩa điểm
+				\tkzDefPointBy[translation = from A to B](D) \tkzGetPoint{C}%Phép tịnh tiến
+				\tkzInterLC[R](A,B)(C,3.9 cm) \tkzGetPoints{E}{E'}
+				\tkzInterLC[R](B,C)(A,3.9 cm) \tkzGetPoints{F'}{F}
+				\tkzInterLL(A,F)(C,E) \tkzGetPoint{I}
+				\tkzDrawPolygon(A,B,C,D)
+				\tkzDrawSegments(A,F C,E D,I)%Vẽ đoạn thẳng nét liền
+				\tkzDrawAltitude(A,F)(D) \tkzGetPoint{H}
+				\tkzDrawAltitude(C,E)(D) \tkzGetPoint{K}	
+				\tkzDrawPoints(A,B,C,D,E,F,I,H,K)%Vẽ điểm
+				\tkzLabelPoints[above](E)
+				\tkzLabelPoints[below](H)
+				\tkzLabelPoints[right](K,F)
+				\tkzLabelPoints[above left](A)
+				\tkzLabelPoints[above right](B,I)
+				\tkzLabelPoints[below left](D)
+				\tkzLabelPoints[below right](C)			
+				\tkzMarkRightAngles(D,H,A D,K,I)%Vẽ góc vuông			
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\begin{vd}%[Đinh Thanh Hoàng, Dự án EX-C2-L8]%[8H2K3]
+	Cho tam giác $ABC$ có $\widehat{A} \geq 90^\circ$, $D$ là điểm nằm giữa $A$ và $C$. Chứng minh rằng tổng các khoảng cách từ $A$ và từ $C$ đến $BD$ lớn hơn đường cao kẻ từ $A$ và nhỏ hơn đường cao kẻ từ $C$ của tam giác $ABC$.
+	\loigiai{
+		\immini{
+			Gọi $AH$, $CK$ là các đường cao của tam giác $ABC$. Kẻ $AE$ và $CF$ vuông góc với $BD$. Đặt $S_{ABC} = S$. Ta có $AE = \dfrac{2S_{ABD}}{BD}$, $CF = \dfrac{2S_{CBD}}{BD}$ nên
+			$$AE + CF = \dfrac{2S}{BD}.$$			
+		}{
+			\begin{tikzpicture}[scale=.8]	
+				\clip (-.5,-1) rectangle (8,3.5);
+				\tkzDefPoints{0/0/B, 7/0/C, 1.5/2.5/A}%Định nghĩa điểm
+				\coordinate (D) at ($(A)!.3!(C)$);
+				\tkzDrawAltitude(B,C)(A) \tkzGetPoint{H}
+				\tkzDrawAltitude(B,D)(A) \tkzGetPoint{E}
+				\tkzDrawAltitude(A,B)(C) \tkzGetPoint{K}
+				\tkzDrawAltitude(B,D)(C) \tkzGetPoint{F}
+				\tkzDrawSegments(B,K B,C C,A B,F)%Vẽ đoạn thẳng nét liền
+				\tkzDrawPoints(A,B,C,D,E,F,H,K)%Vẽ điểm
+				\tkzLabelPoints[above](F)
+				\tkzLabelPoints[below](D,H)
+				\tkzLabelPoints[left](A,K)
+				\tkzLabelPoints[below left](B)
+				\tkzLabelPoints[below right](E,C)			
+				\tkzMarkRightAngles(A,H,C A,E,D B,K,C B,F,C)%Vẽ góc vuông			
+			\end{tikzpicture}
+		}
+		\noindent Ta lại có $AH = \dfrac{2S}{BC}$, $CK = \dfrac{2S}{BA}$.\\
+		Do $\widehat{A} \geq 90^\circ$ nên $BA < BD < BC$, do đó $AH < AE + CF < CK$.
+	}
+\end{vd}
+
+\subsection{Bài tập}
+\begin{bt}%[Đinh Thanh Hoàng, Dự án EX-C2-L8]%[8H2K3]
+	Có tam giác nào mà độ dài ba đường cao bằng $3$ cm, $4$ cm, $7$ cm không?
+	\loigiai{
+		Giả sử tồn tại tam giác có độ dài ba cạnh lần lượt là $a$, $b$, $c$ thỏa mãn yêu cầu bài toán.\\
+		Khi đó, ta có $3a = 4b = 7c$ (cùng bằng hai lần diện tích tam giác).\\
+		Ta có $3a = 4b = 7c \Leftrightarrow \dfrac{a}{\frac{1}{3}} = \dfrac{b}{\frac{1}{4}} = \dfrac{c}{\frac{1}{7}} = \dfrac{a + b + c}{\frac{1}{3} + \frac{1}{4} + \frac{1}{7}} = \dfrac{84P}{61}$.\\
+		Suy ra $a = \dfrac{28P}{61}$, $b = \dfrac{21P}{61}$, $c = \dfrac{12P}{61}$.\\
+		Do đó, ta có $a + b > c$, $b + c > a$, $c + a > b$ hay $a$, $b$, $c$ là độ dài ba cạnh của một tam giác.\\
+		Vậy tồn tại tam giác mà độ dài ba đường cao bằng $3$ cm, $4$ cm, $7$ cm.
+	}
+\end{bt}
+
+\begin{bt}%[Đinh Thanh Hoàng, Dự án EX-C2-L8]%[8H2K3]
+	Độ dài hai cạnh của một tam giác bằng $6$ cm và $4$ cm, nửa tổng các chiều cao ứng với hai cạnh ấy bằng chiều cao ứng với cạnh thứ ba. Tính độ dài cạnh thứ ba.
+	\loigiai{
+		Giả sử tam giác có độ dài ba cạnh lần lượt là $a$, $b = 6$ cm, $c = 4$ cm và $h_a$, $h_b$, $h_c$ lần lượt là độ dài ba đường cao tương ứng của tam giác. Khi đó, ta có
+		$$ah_a = bh_b = ch_c \Rightarrow \dfrac{a(h_b + h_c)}{2} = 6h_b = 4h_c \Rightarrow \dfrac{h_b + h_c}{\frac{2}{a}} = \dfrac{h_b}{\frac{1}{6}} = \dfrac{h_c}{\frac{1}{4}}.$$
+		Theo tích chất của dãy tỉ số bằng nhau, ta có $\dfrac{2}{a} = \dfrac{1}{6} + \dfrac{1}{4} \Rightarrow a = 4{,}8$ cm.\\
+		Vậy độ dài cạnh thứ ba của tam giác bằng $4{,}8$ cm.
+	}
+\end{bt}
+
+\begin{bt}%[Đinh Thanh Hoàng, Dự án EX-C2-L8]%[8H2K3]
+	Chứng minh rằng một tam giác là tam giác vuông nếu các chiều cao $h_a$, $h_b$, $h_c$ của nó thỏa mãn điều kiện $\left(\dfrac{h_a}{h_b}\right)^2 + \left(\dfrac{h_a}{h_c}\right)^2 = 1$.
+	\loigiai{
+		Gọi $S$ là diện tích của tam giác, ta có
+		$$\left(\dfrac{h_a}{h_b}\right)^2 + \left(\dfrac{h_a}{h_c}\right)^2 = 1 \Rightarrow \left(\dfrac{\dfrac{2S}{a}}{\dfrac{2S}{b}}\right)^2 + \left(\dfrac{\dfrac{2S}{a}}{\dfrac{2S}{c}}\right)^2 = 1 \Rightarrow \left(\dfrac{b}{a}\right)^2 + \left(\dfrac{c}{a}\right)^2 = 1 \Rightarrow b^2 + c^2 = a^2.$$
+		Suy ra tam giác đã cho là tam giác vuông.
+	}
+\end{bt}
+
+\begin{bt}%[Đinh Thanh Hoàng, Dự án EX-C2-L8]%[8H2K3]
+	Tính các cạnh của một tam giác có ba đường cao bằng $12$ cm, $15$ cm, $20$ cm.
+	\loigiai{
+		Giả sử tam giác $ABC$ có độ dài ba đường cao là $h_a = 12$ cm, $h_b = 15$ cm, $h_c = 20$ cm tương ứng với ba cạnh $a$, $b$, $c$. Khi đó, ta có
+		$$\left(\dfrac{b}{a}\right)^2 + \left(\dfrac{c}{a}\right)^2 = \left(\dfrac{h_a}{h_b}\right)^2 + \left(\dfrac{h_a}{h_c}\right)^2 = \left(\dfrac{12}{15}\right)^2 + \left(\dfrac{12}{20}\right)^2 = 1.$$
+		$\Rightarrow b^2 + c^2 = 1 \Rightarrow$ tam giác $ABC$ vuông tại $A$.\\
+		Do đó, ta có $AB = 15$ cm, $AC = 20$ cm và $BC = \sqrt{AB^2 + AC^2} = \sqrt{15^2 + 20^2} = 25$ cm.
+	}
+\end{bt}
+
+\begin{bt}%[Đinh Thanh Hoàng, Dự án EX-C2-L8]%[8H2K3]
+	Gọi $h_a$, $h_b$, $h_c$ là ba đường cao của một tam giác, chứng minh rằng $\dfrac{1}{h_a} < \dfrac{1}{h_b} + \dfrac{1}{h_c}$.
+	\loigiai{
+		Gọi $a$, $b$, $c$ là ba cạnh tương ứng với các đường cao $h_a$, $h_b$, $h_c$ và $S$ là diện tích tam giác. Ta có
+		$$a < b + c \Rightarrow \dfrac{2S}{h_a} < \dfrac{2S}{h_b} + \dfrac{2S}{h_c} \Rightarrow \dfrac{1}{h_a} < \dfrac{1}{h_b} + \dfrac{1}{h_c}.$$
+	}
+\end{bt}
+
+\begin{bt}%[Đinh Thanh Hoàng, Dự án EX-C2-L8]%[8H2K3]
+	Tam giác $ABC$ có độ dài các cạnh là $a$, $b$, $c$, các chiều cao tương ứng là $h_a$, $h_b$, $h_c$. Biết rằng $a + h_a = b + h_b = c + h_c$. Chứng minh rằng tam giác $ABC$ là tam giác đều.
+	\loigiai{
+		Xét $a + h_a = b + h_b$, ta có
+		\begin{eqnarray*}
+			& & a - b = h_b - h_a = \dfrac{2S}{b} - \dfrac{2S}{a} = 2S\left(\dfrac{1}{b} - \dfrac{1}{a}\right) = 2S \cdot \dfrac{a - b}{ab}\\
+			& \Rightarrow & (a - b)\left(1 - \dfrac{2S}{ab}\right) = 0\\
+			& \Rightarrow & a = b \,\,\text{hoặc} \,\,S = \dfrac{1}{2}ab.
+		\end{eqnarray*}
+		Suy ra tam giác $ABC$ cân tại $C$ hoặc vuông tại $C$. \hfill $(1)$\\
+		Tương tự, tam giác $ABC$ cân tại $B$ hoặc vuông tại $B$. \hfill $(2)$\\
+		\phantom{Tương tự,} tam giác $ABC$ cân tại $A$ hoặc vuông tại $A$. \hfill $(3)$\\
+		Xảy ra cả $(1)$, $(2)$ $\&$ $(3)$ khi và chỉ khi tam giác $ABC$ đều.
+	}
+\end{bt}
+
+\begin{bt}%[Đinh Thanh Hoàng, Dự án EX-C2-L8]%[8H2G3]
+	Cho điểm $O$ thuộc miền trong tam giác $ABC$. Các tia $AO$, $BO$, $CO$ cắt các cạnh của tam giác $ABC$ theo thứ tự ở $A'$, $B'$, $C'$. Chứng minh rằng:
+	\begin{enumerate}
+		\item $\dfrac{OA'}{AA'} + \dfrac{OB'}{BB'} + \dfrac{OC'}{CC'} = 1$;
+		\item $\dfrac{OA}{AA'} + \dfrac{OB}{BB'} + \dfrac{OC}{CC'} = 1$ (bài toán của Giec-gôn, nhà toán học Pháp);
+		\item $M = \dfrac{OA}{OA'} + \dfrac{OB}{OB'} + \dfrac{OC}{OC'} \geq 6$. Tìm vị trí của $O$ để tổng $M$ có giá trị nhỏ nhất;
+		\item $N = \dfrac{OA}{OA'} \cdot \dfrac{OB}{OB'} \cdot \dfrac{OC}{OC'} \geq 8$. Tìm vị trí của $O$ để tích $N$ có giá trị nhỏ nhất
+	\end{enumerate}
+	\loigiai{
+		\immini{
+			Gọi $S$ là diện tích tam giác $ABC$, kí hiệu $S_1$, $S_2$, $S_3$ như hình vẽ. Ta có\\
+			$\dfrac{OA}{OA'} = \dfrac{S_2}{S_{OA'C}} = \dfrac{S_3}{S_{OA'B}} = \dfrac{S_2 + S_3}{S_1}$, \hfill $(1)$\\
+			$\dfrac{OA'}{AA'} = \dfrac{S_{OA'C}}{S_{AA'C}} = \dfrac{S_{OA'B}}{S_{AA'B}} = \dfrac{S_{OA'C} + S_{OA'B}}{S_{AA'C} + S_{AA'B}} = \dfrac{S_1}{S}$. \hfill $(2)$\\
+			Từ $(1) \,\,\&\,\, (2)$ suy ra $\dfrac{OA'}{AA'} =  \dfrac{S_2 + S_3}{S}$.
+		}{
+			\begin{tikzpicture}[scale=.9]	
+				\tkzDefPoints{0/0/B, 1/3/A, 4/0/C, 1.3/1/O}%Định nghĩa điểm
+				\tkzInterLL(A,O)(B,C) \tkzGetPoint{A'}
+				\tkzInterLL(B,O)(A,C) \tkzGetPoint{B'}
+				\tkzInterLL(C,O)(A,B) \tkzGetPoint{C'}
+				\tkzDrawPolygon(A,B,C)
+				\tkzDrawSegments(O,A O,B O,C)%Vẽ đoạn thẳng nét liền		
+				\tkzDrawPoints(A,B,C,A',B',C',O)%Vẽ điểm
+				\tkzLabelPoints[above](A)
+				\tkzLabelPoints[below](O,A')
+				\tkzLabelPoints[left](C')
+				\tkzLabelPoints[right](B')
+				\tkzLabelPoints[below left](B)
+				\tkzLabelPoints[below right](C)
+				\draw (2,.4)node{$1$} (.8,1.4)node{$3$} (2,1.4)node{$2$};			
+			\end{tikzpicture}
+		}
+		\begin{enumerate}
+			\item Ta có $\dfrac{OA'}{AA'} + \dfrac{OB'}{BB'} + \dfrac{OC'}{CC'} = \dfrac{S_1}{S} + \dfrac{S_2}{S} + \dfrac{S_3}{S} = 1$.
+			\item Ta có $\dfrac{OA}{AA'} + \dfrac{OB}{BB'} + \dfrac{OC}{CC'} = \dfrac{S_2 + S_3}{S} + \dfrac{S_3 + S_1}{S} + \dfrac{S_1 + S_2}{S} = 2$.
+			\item Ta có $M = \dfrac{OA}{OA'} + \dfrac{OB}{OB'} + \dfrac{OC}{OC'}$\\
+					\phantom{Ta có $M$} $= \dfrac{S_2 + S_3}{S_1} + \dfrac{S_3 + S_1}{S_2} + \dfrac{S_1 + S_2}{S_3}$\\
+					\phantom{Ta có $M$} $= \left(\dfrac{S_1}{S_2} + \dfrac{S_2}{S_1}\right) + \left(\dfrac{S_2}{S_3} + \dfrac{S_3}{S_2}\right) + \left(\dfrac{S_3}{S_1} + \dfrac{S_1}{S_3}\right) \geq 2 + 2 + 2 = 6$.\\
+					Đẳng thức xảy ra khi và chỉ khi $O$ là trọng tâm tam giác $ABC$.
+			\item Ta có $N = \dfrac{OA}{OA'} \cdot \dfrac{OB}{OB'} \cdot \dfrac{OC}{OC'}$\\
+					\phantom{Ta có $N$} $= \dfrac{(S_2 + S_3)(S_3 + S_1)(S_1 + S_2)}{S_1S_2S_3}$\\
+					$\Rightarrow N^2 = \dfrac{(S_2 + S_3)^2(S_3 + S_1)^2(S_1 + S_2)^2}{(S_1S_2S_3)^2}$\\
+					\phantom{$\Rightarrow$} $\geq \dfrac{4S_2S_3 \cdot 4S_1S_3 \cdot 4S_1S_2}{(S_1S_2S_3)^2} = 64$.\\
+					Suy ra $N \geq 8$.\\
+					Đẳng thức xảy ra khi và chỉ khi $O$ là trọng tâm tam giác $ABC$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Đinh Thanh Hoàng, Dự án EX-C2-L8]%[8H2K3]
+	\begin{enumerate}
+		\item Chứng minh rằng tổng các khoảng cách từ điểm $M$ nằm trên đáy một tam giác cân đến hai cạnh bên không phụ thuộc vào vị trí của điểm $M$ trên cạnh đáy;
+		\item Kết quả trên có gì thay đổi nếu điểm $M$ thuộc đường thẳng chứa cạnh đáy nhưng không thuộc cạnh đáy?
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{minipage}{8cm}
+				\begin{tikzpicture}[scale=.9]	
+					\clip (-1,-2) rectangle (7,6);
+					\tkzDefPoints{0/0/B, 3/5/A, 6/0/C, 2/0/M}%Định nghĩa điểm
+					\tkzDrawPolygon(A,B,C)
+					\tkzDrawAltitude(A,B)(M) \tkzGetPoint{H}
+					\tkzDrawAltitude(A,C)(M) \tkzGetPoint{K}
+					\tkzDrawPoints(A,B,C,M,H,K)%Vẽ điểm
+					\tkzDrawSegments(A,M)%Vẽ đoạn thẳng nét liền
+					\tkzLabelPoints[above](A)
+					\tkzLabelPoints[below](M)
+					\tkzLabelPoints[left](H)
+					\tkzLabelPoints[right](K)
+					\tkzLabelPoints[below left](B)
+					\tkzLabelPoints[below right](C)
+					\tkzMarkRightAngles(M,H,A M,K,A)%Vẽ góc vuông	
+				\end{tikzpicture}
+			\end{minipage}
+			\begin{minipage}{8cm}
+				\begin{tikzpicture}[scale=.9]	
+					\clip (-3,-2) rectangle (7,6);
+					\tkzDefPoints{0/0/B, 3/5/A, 6/0/C, -2/0/M}%Định nghĩa điểm
+					\tkzDrawPolygon(A,B,C)
+					\tkzDrawAltitude(A,B)(M) \tkzGetPoint{H}
+					\tkzDrawAltitude(A,C)(M) \tkzGetPoint{K}
+					\tkzDrawPoints(A,B,C,M,H,K)%Vẽ điểm
+					\tkzDrawSegments(A,M M,B B,H)%Vẽ đoạn thẳng nét liền
+					\tkzLabelPoints[above](A)
+					\tkzLabelPoints[below](H)
+					\tkzLabelPoints[left](M)
+					\tkzLabelPoints[right](K)
+					\tkzLabelPoints[above left](B)
+					\tkzLabelPoints[below right](C)
+					\tkzMarkRightAngles(M,H,A M,K,A)%Vẽ góc vuông
+				\end{tikzpicture}
+			\end{minipage}
+		\end{center}
+		Gọi $a$ là độ dài cạnh bên và $h$ là độ dài đường cao ứng với cạnh bên của tam giác $ABC$ cân tại $A$.\\
+		Kẻ $MH \perp AB$ tại $H$, $MK \perp AC$ tại $K$.
+		\begin{enumerate}
+			\item Khi $M$ nằm trong đoạn $BC$, ta có
+					$$S_{AMB} + S_{AMC} = S_{ABC} \Leftrightarrow \dfrac{1}{2}a \cdot MH + \dfrac{1}{2}a \cdot MK = \dfrac{1}{2}ah \Leftrightarrow MH + MK = h.$$
+					Vậy tổng các khoảng cách từ $M$ đến hai cạnh bên luôn bằng chiều cao ứng với cạnh bên.
+			\item Khi $M$ nằm ngoài đoạn $BC$, ta có
+					$$S_{AMC} - S_{AMB} = S_{ABC} \Leftrightarrow \dfrac{1}{2}a \cdot MK - \dfrac{1}{2}a \cdot MH = \dfrac{1}{2}ah \Leftrightarrow MK - MH = h.$$
+					Vậy hiệu các khoảng cách từ $M$ đến hai cạnh bên luôn bằng chiều cao ứng với cạnh bên.
+		\end{enumerate}		
+	}
+\end{bt}
+
+\begin{bt}%[Đinh Thanh Hoàng, Dự án EX-C2-L8]%[8H2G3]
+	Cho tam giác $ABC$ cân tại $A$. Tìm tập hợp các điểm $M$ thuộc miền trong tam giác hoặc nằm trên cạnh của tam giác, sao cho khoảng cách từ điểm $M$ đến $BC$ bằng tổng các khoảng cách từ điểm $M$ đến hai cạnh kia.
+	\loigiai{
+		\immini{
+			Gọi $MD$, $ME$, $MF$ là khoảng cách từ điểm $M$ đến $AB$, $AC$, $BC$. Theo đề bài
+			\begin{align}
+    			MD + ME = MF. \tag{1}
+    		\end{align}
+    		Qua $M$ vẽ $IK \parallel BC$. Vẽ $IH \perp AC$, $II' \perp BC$. Ta có
+    		\begin{align}
+    			MD + ME = IH, \tag{2}\\
+    			MF = II'. \tag{3}
+    		\end{align}    		
+		}{
+			\begin{tikzpicture}[scale=.8]	
+				\clip (-1,-1) rectangle (7,6);
+				\tkzDefPoints{0/0/B, 3/5/A, 6/0/C}%Định nghĩa điểm
+				\tkzDrawPolygon(A,B,C)
+				\tkzDrawBisector(C,B,A)\tkzGetPoint{K}
+				\tkzDrawBisector(B,C,A)\tkzGetPoint{I}
+				\coordinate (M) at ($(I)!.6!(K)$);
+				\tkzDrawAltitude(B,C)(M) \tkzGetPoint{F}
+				\tkzDrawAltitude(A,B)(M) \tkzGetPoint{D}
+				\tkzDrawAltitude(A,C)(M) \tkzGetPoint{E}
+				\tkzDrawAltitude(B,C)(I) \tkzGetPoint{I'}
+				\tkzDrawAltitude(A,C)(I) \tkzGetPoint{H}
+				\tkzDrawPoints(A,B,C,M,H,K,D,E,F,I,I')%Vẽ điểm
+				\tkzDrawSegments(I,K)%Vẽ đoạn thẳng nét liền
+				\tkzLabelPoints[above](A)
+				\tkzLabelPoints[below](I',F)
+				\tkzLabelPoints[left](D,I)
+				\tkzLabelPoints[right](H,E,K)
+				\tkzLabelPoints[below left](B,M)
+				\tkzLabelPoints[below right](C)
+				\tkzMarkRightAngles(M,F,C M,E,A M,D,A I,H,C I,I',C)%Vẽ góc vuông
+			\end{tikzpicture}
+		}
+		\noindent Từ $(1)$, $(2)$ $\&$ $(3)$ suy ra $IH = II' \Rightarrow CI$ là đường phân giác của tam giác $ABC$. Tương tự đối với $BK$.\\
+    	Vậy tập hợp các điểm $M$ là đoạn thẳng $IK$ nối chân hai đường phân giác $BK$, $CI$.
+	}
+\end{bt}
+
+\begin{bt}%[Đinh Thanh Hoàng, Dự án EX-C2-L8]%[8H2G3]
+	Cho tam giác đều $ABC$ cố định có chiều cao $h$. Tìm tập hợp các điểm $M$ có tổng các khoảng cách đến ba cạnh của tam giác bằng độ dài $m$ không đổi ($m > h$).
+	\loigiai{
+		\immini{
+			Xét điểm $M$ thuộc từng miền như ở ví dụ 1, tập hợp phải tìm là các cạnh của một lục giác (như hình vẽ).\\
+			Chẳng hạn với $M$ thuộc miền 2, kẻ $MA' \perp BC$, $MB' \perp AB$, $MC' \perp AC$, ta có
+			\begin{eqnarray*}
+				& & MA' + MB' + MC' = m\\
+				& \Rightarrow & MB' + MC' - MA' + 2MA' = m\\
+				& \Rightarrow & h + 2MA' = m \,\,(\text{do}\,\, MB' + MC' - MA' = h)\\
+				& \Rightarrow & MA' = \dfrac{m - h}{2}.
+			\end{eqnarray*}
+		}{
+			\begin{tikzpicture}[scale=.8]
+				\clip (-1.5,-2.5) rectangle (6,5.5);	
+				\tkzDefPoints{0/0/B, 4/0/C, 2.8/-1/M}%Định nghĩa điểm
+				\tkzDefTriangle[equilateral](B,C) \tkzGetPoint{A}				
+				\tkzDrawLine[add = 0.5 and 0.5](A,B)
+				\tkzDrawLine[add = 0.5 and 0.5](B,C)
+				\tkzDrawLine[add = 0.5 and 0.5](C,A)				
+				\tkzDrawAltitude(B,C)(M) \tkzGetPoint{A'}
+				\tkzDrawAltitude(A,C)(M) \tkzGetPoint{B'}
+				\tkzDrawAltitude(A,B)(M) \tkzGetPoint{C'}
+				\tkzDefLine[parallel=through M](B,C)\tkzGetPoint{m}
+				\tkzInterLL(M,m)(A,B) \tkzGetPoint{A1}
+				\tkzInterLL(M,m)(A,C) \tkzGetPoint{A2}
+				\tkzDefPointBy[rotation = center C angle 60](A2) \tkzGetPoint{A3}
+				\tkzDefPointBy[rotation = center B angle -60](A1) \tkzGetPoint{A6}
+				\tkzDefLine[parallel=through A3](A,C)\tkzGetPoint{x}
+				\tkzInterLL(A3,x)(A,B) \tkzGetPoint{A4}
+				\tkzDefPointBy[rotation = center A angle 60](A4) \tkzGetPoint{A5}
+				\tkzDrawPoints(A,B,C,M,A',B',C',A1,A2,A3,A4,A5,A6)%Vẽ điểm
+				\tkzDrawPolygon(A1,A2,A3,A4,A5,A6)
+				\tkzLabelPoints[above](A')
+				\tkzLabelPoints[below](M)
+				\tkzLabelPoints[left](A)
+				\tkzLabelPoints[right](B')
+				\tkzLabelPoints[above left](B,C')
+				\tkzLabelPoints[above right](C)	
+				\tkzMarkRightAngles(M,A',C M,B',C M,C',B)%Vẽ góc vuông
+				\draw (1.8,1.8)node{$1$} (1,-2)node{$2$} (4.5,2)node{$3$} (-.5,2)node{$4$} (2,5.2)node{$5$} (-1.2,-1)node{$6$} (5.8,-1)node{$7$};	
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[Đinh Thanh Hoàng, Dự án EX-C2-L8]%[8H2K3]
+	$C$ là một điểm thuộc tia phân giác của góc $xOy$ có số đo bằng $60^\circ$, $M$ là điểm bất kì nằm trên đường vuông góc với $OC$ tại $C$ và thuộc miền ngoài của góc $xOy$. Gọi $MA$, $MB$ theo thứ tự là khoảng cách từ $M$ đến $Ox$, $Oy$. Tính độ dài $OC$ theo $MA$, $MB$.
+	\loigiai{
+		\immini{
+			Gọi $E$, $F$ lần lượt là giao điểm của đường thẳng $MC$ với các tia $Ox$, $Oy$ (hình vẽ). Khi đó, tam giác $OEF$ đều.\\
+			Gọi $a$ là độ dài các cạnh của tam giác $OEF$. Ta có
+			\begin{eqnarray*}
+				& & S_{OEF} = S_{OME} - S_{OMF}\\
+				& \Rightarrow & \dfrac{1}{2}a \cdot OC = \dfrac{1}{2}a \cdot MA - \dfrac{1}{2}a \cdot MB\\
+				& \Rightarrow & OC = MA - MB.
+			\end{eqnarray*}
+			Vậy $OC = |MA - MB|$.
+		}{
+			\begin{tikzpicture}[scale=.8]
+				\clip (-1.5,-1) rectangle (6,5.5);	
+				\tkzDefPoints{0/0/O, 4/0/E}%Định nghĩa điểm
+				\tkzDefTriangle[equilateral](O,E) \tkzGetPoint{F}
+				\coordinate (M) at ($(E)!1.4!(F)$);
+				\tkzDrawAltitude(E,F)(O) \tkzGetPoint{C}
+				\tkzDrawAltitude(O,E)(M) \tkzGetPoint{A}
+				\tkzDrawAltitude(O,F)(M) \tkzGetPoint{B}
+				\tkzDrawLine[add = 0 and 0.5](O,E)
+				\tkzDrawLine[add = 0 and 0.5](O,F)
+				\tkzDrawLine[add = 0 and 0.5](O,C)
+				\tkzDrawSegments(M,E)%Vẽ đoạn thẳng nét liền
+				\tkzDrawPoints(A,B,C,M,O,E,F)%Vẽ điểm
+				\tkzLabelPoints[above](M)
+				\tkzLabelPoints[below](A,E)
+				\tkzLabelPoints[right](F,B)
+				\tkzLabelPoints[below left](O)
+				\tkzLabelPoints[below right](C)
+				\tkzMarkRightAngles(M,B,O M,A,E O,C,M)%Vẽ góc vuông
+				\tkzLabelLine[pos=1.4,above](O,E){$x$}
+				\tkzLabelLine[pos=1.5,left](O,F){$y$} 
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[Đinh Thanh Hoàng, Dự án EX-C2-L8]%[8H2K3]
+	Cho tam giác đều $ABC$, các đường cao $AD$, $BE$, $CF$. Gọi $A'$, $B'$, $C'$ là hình chiếu của điểm $M$ (nằm bên trong tam giác $ABC$) trên $AD$, $BE$, $CF$. Chứng minh rằng khi điểm $M$ thay đổi vị trí trong tam giác $ABC$ thì:
+	\begin{enumEX}{2}
+		\item Tổng $A'D + B'E + C'F$ không đổi;
+		\item Tổng $AA' + BB' + CC'$ không đổi.
+	\end{enumEX}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item Kẻ $MH \perp BC$, $MI \perp AC$, $MK \perp AB$. Khi đó, ta có $MH = A'D$, $MI = B'E$, $MK = C'F$.\\
+						Gọi $h$ là độ dài đường cao của tam giác đều $ABC$. Theo ví dụ 1, ta có
+						\begin{eqnarray*}
+							& & MH + MI + MK = h\\
+							& \Rightarrow & A'D + B'E + C'F = h.
+						\end{eqnarray*}
+						Vậy tổng $A'D + B'E + C'F$ không đổi.
+				\item Theo kết quả câu a), ta có
+						\begin{eqnarray*}
+							& AA' + BB' + CC' & = AD - A'D + BE - B'E + CF - C'F\\
+							& & = (AD + BE + CF) - (A'D + B'E + C'F)\\
+							& & = 3h - h = 2h.
+						\end{eqnarray*}
+						Vậy tổng $AA' + BB' + CC'$ không đổi.
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[scale=.8]
+				\clip (-1,-1) rectangle (7,6);	
+				\tkzDefPoints{0/0/B, 6/0/C, 3.3/3/M}%Định nghĩa điểm
+				\tkzDefTriangle[equilateral](B,C) \tkzGetPoint{A}
+				\tkzDrawPolygon(A,B,C)
+				\tkzDrawAltitude(B,C)(A) \tkzGetPoint{D}
+				\tkzDrawAltitude(C,A)(B) \tkzGetPoint{E}
+				\tkzDrawAltitude(A,B)(C) \tkzGetPoint{F}
+				\tkzDrawAltitude(A,D)(M) \tkzGetPoint{A'}
+				\tkzDrawAltitude(B,E)(M) \tkzGetPoint{B'}
+				\tkzDrawAltitude(C,F)(M) \tkzGetPoint{C'}
+				\tkzDrawAltitude(A,B)(M) \tkzGetPoint{K}
+				\tkzDrawAltitude(B,C)(M) \tkzGetPoint{H}
+				\tkzDrawAltitude(C,A)(M) \tkzGetPoint{I}
+				\tkzDrawPoints(A,B,C,M,D,E,F,H,I,K,A',B',C')%Vẽ điểm
+				\tkzLabelPoints[above](A,M)
+				\tkzLabelPoints[below](H)
+				\tkzLabelPoints[left](K,F,A')
+				\tkzLabelPoints[right](I,E)
+				\tkzLabelPoints[below left](D,B,C')
+				\tkzLabelPoints[below right](C,B')
+				\tkzMarkRightAngles(A,D,B B,E,C C,F,B M,H,C M,K,A M,I,A M,A',D M,B',E M,C',F)%Vẽ góc vuông
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[Đinh Thanh Hoàng, Dự án EX-C2-L8]%[8H2K3]
+	Cho tam giác đều $ABC$, $A'$, $B'$, $C'$ theo thứ tự là hình chiếu của điểm $M$ (nằm bên trong tam giác $ABC$) trên $BC$, $AC$, $AB$. Các đường thẳng vuông góc với $AB$ tại $B$, vuông góc với $BC$ tại $C$, vuông góc với $CA$ tại $A$ cắt nhau ở $D$, $E$, $F$. Chứng minh rằng:
+	\begin{enumerate}
+		\item Tam giác $DEF$ là tam giác đều;
+		\item Tổng $AB' + BC' + CA'$ không phụ thuộc vào vị trí của điểm $M$ trong tam giác $ABC$.
+	\end{enumerate}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item Ta có
+						\begin{eqnarray*}
+							& & \widehat{FAB} + \widehat{BAC} + \widehat{CAE} = 180^\circ\\
+							& \Rightarrow & \widehat{FAB} + 60^\circ + 90^\circ = 180^\circ\\
+							& \Rightarrow & \widehat{FAB} = 30^\circ\\
+							& \Rightarrow & \widehat{AFB} = 60^\circ.
+						\end{eqnarray*}
+						Tương tự, ta có $\widehat{AEC} = \widehat{CDB} = 60^\circ$.\\
+						$\Rightarrow$ Tam giác $DEF$ là tam giác đều.
+				\item Kẻ $MH \perp DE$, $MI \perp EF$, $MK \perp FD$. Khi đó, ta có $MH = CA'$, $MI = AB'$, $MK = BC'$.\\
+						Gọi $h$ là độ dài đường cao của tam giác đều $DEF$. Theo ví dụ 1, ta có
+						\begin{eqnarray*}
+							& & MH + MI + MK = h\\
+							& \Rightarrow & AB' + BC' + CA' = h.
+						\end{eqnarray*}						
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[scale=.8]
+				\clip (-3.5,-3.5) rectangle (6,7);	
+				\tkzDefPoints{0/0/B, 5/0/C, 3/2/M}%Định nghĩa điểm
+				\tkzDefTriangle[equilateral](B,C) \tkzGetPoint{A}
+				\tkzDrawPolygon(A,B,C)
+				\tkzDrawAltitude(A,B)(M) \tkzGetPoint{C'}
+				\tkzDrawAltitude(B,C)(M) \tkzGetPoint{A'}
+				\tkzDrawAltitude(C,A)(M) \tkzGetPoint{B'}
+				\tkzDefLine[perpendicular=through B](A,B) \tkzGetPoint{b}
+				\tkzDefLine[perpendicular=through A](A,C) \tkzGetPoint{a}
+				\tkzDefLine[perpendicular=through C](B,C) \tkzGetPoint{c}
+				\tkzDrawAltitude(D,E)(M) \tkzGetPoint{H}
+				\tkzDrawAltitude(E,F)(M) \tkzGetPoint{I}
+				\tkzDrawAltitude(F,D)(M) \tkzGetPoint{K}
+				\tkzInterLL(B,b)(A,a) \tkzGetPoint{F}
+				\tkzInterLL(B,b)(C,c) \tkzGetPoint{D}
+				\tkzInterLL(A,a)(C,c) \tkzGetPoint{E}
+				\tkzDrawPolygon(D,E,F)
+				\tkzDrawPoints(A,B,C,M,D,E,F,H,I,K,A',B',C')%Vẽ điểm
+				\tkzLabelPoints[above](A,E,I)
+				\tkzLabelPoints[below](B,D,A',K)
+				\tkzLabelPoints[left](M,F,C')
+				\tkzLabelPoints[right](C,H,B')
+				\tkzMarkRightAngles(A,B,F C,A,E B,C,D M,A',C M,B',A M,C',B M,H,E M,I,F M,K,D)%Vẽ góc vuông
+			\end{tikzpicture}
+		}
+		\begin{enumerate}
+			\item[] Vậy tổng $AB' + BC' + CA'$ không phụ thuộc vào vị trí của điểm $M$ trong tam giác $ABC$.
+		\end{enumerate}		
+	}
+\end{bt}

@@ -1,0 +1,1719 @@
+\chapter{Tam giác đồng dạng}
+\section{Định lý Ta-lét}
+\subsection{Lí thuyết}\
+
+Chương III bắt đầu bằng việc nghiên cứu \textit{tỉ số của hai đoạn thẳng}, đó là tỉ số các độ dài của chúng theo cùng một đơn vị đo.\
+
+Cho đoạn thẳng $AB$ và một tỉ số $\dfrac{m}{n}>0$, tồn tại duy nhất một điểm $C$ thuộc đoạn thẳng $AB$ sao cho $\dfrac{CA}{CB}=\dfrac{m}{n}$. Điểm $C$ gọi là \textit{điểm chia trong} đoạn thẳng $AB$ theo tỉ số $\dfrac{m}{n}$ (khi đó điểm $C$ chia đoạn thẳng $BA$ theo tỉ số $\dfrac{n}{m}$).\
+
+Cho đoạn thẳng $AB$ và một tỉ số $\dfrac{m}{n}$, $\left( \dfrac{m}{n}>0, \dfrac{m}{n} \neq 1 \right)$, tồn tại duy nhất một điểm $D$ thuộc đường thẳng $AB$ nhưng nằm ngoài đoạn thẳng $AB$ sao cho $\dfrac{DA}{DB}=\dfrac{m}{n}$. Điểm $D$ gọi là \textit{điểm chia ngoài} đoạn thẳng $AB$ theo tỉ số $\dfrac{m}{n}$ (khi đó điểm $D$ chia ngoài đoạn thẳng $BA$ theo tỉ số $\dfrac{n}{m}$).\
+
+Trên hình $1$, điểm $C$ chia trong đoạn thẳng $AB$ theo tỉ số $1:2$, điểm $D$ chia ngoài $AB$ theo tỉ số $1:2$.
+\begin{center}
+	\begin{tikzpicture}
+	\tkzDefPoints{ 0/0/C, -1.5/0/A, 3/0/B, -4/0/D}
+	\tkzDrawSegments(B,D)
+	\tkzLabelPoints[above](A, B, C, D)
+	\tkzDrawPoints[fill=black](A, B, C,D)
+	\end{tikzpicture}
+\end{center}
+\immini{Nếu $\dfrac{AB}{CD}=\dfrac{A'B'}{C'D'}$ thì ta có các \textit{cặp đoạn thẳng tỉ lệ}: cặp đoạn thẳng $AB$ và $CD$ tỉ lệ với cặp đoạn thẳng $A'B'$ và $C'D'$. \textit{Định lí Ta-lét} cho ta các cặp đoạn thẳng tỉ lệ: Đường thẳng song song với một cạnh của tam giác thì định ra trên hai đường thẳng chứa hai cạnh kia các cặp đoạn thẳng tương ứng tỉ lệ (do đó tạo với các đường thẳng chứa hai cạnh kia một tam giác mới có ba cạnh tương ứng tỉ lệ với ba cạnh của tam giác ban đầu).
+	$$ DE \parallel BC \Rightarrow \dfrac{AD}{AB}=\dfrac{AE}{AC}=\dfrac{DE}{BC} $$}
+{\begin{tikzpicture}
+	\tkzDefPoints{ 0/4/A, -1.5/0/B, 3/0/C}
+	\tkzDefPointBy[homothety = center A ratio 0.6](B)
+	\tkzGetPoint{D}
+	\tkzDefPointBy[homothety = center A ratio 0.6](C)
+	\tkzGetPoint{E}
+	\tkzDrawSegments(A,B A,C B,C D,E)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[below left](B)
+	\tkzLabelPoints[below right](C)
+	\tkzLabelPoints[left](D)
+	\tkzLabelPoints[right](E)
+	\tkzDrawPoints[fill=black](A,B,C,D,E)
+	\end{tikzpicture}}
+
+\begin{vd}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Cho hình thoi $BEDF$ nội tiếp tam giác $ABC$ ($E$ thuộc $AB$, $D$ thuộc $AC$, $F$ thuộc $BC$).
+	\begin{enumerate}
+		\item Tính cạnh hình thoi biết $AB=4$cm, $BC=6$cm. Tổng quát với $AB=c$, $BC=a$.
+		\item Chứng minh rằng $BD < \dfrac{2ac}{a+c}$ với $AB=c$, $BC=a$.
+		\item Tính độ dài $AB$, $BC$, biết $AD=m$, $DC=n$, cạnh hình thoi bằng $d$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+			\clip(-7,-.5) rectangle (5.2,4.6);
+			\tkzDefPoints{ 0/3.8/A, -1.5/0/B, 3/0/C}
+			\tkzDefPointBy[homothety = center A ratio 0.47](B)
+			\tkzGetPoint{E}
+			\tkzDefPointBy[homothety = center A ratio 0.47](C)
+			\tkzGetPoint{D}
+			\tkzInterLC(C,B)(B,A) \tkzGetPoints{T}{K}
+			\tkzInterLC(B,C)(B,E) \tkzGetPoints{T}{F}
+			\tkzDrawSegments(A,B A,C K,C D,E D,F B,D)
+			\tkzDrawSegments[dashed](A,K)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](F,B)
+			\tkzLabelPoints[below left](K)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[left](E)
+			\tkzLabelPoints[above right](D)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,F,K)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Gọi cạnh hình thoi là $x$. Áp dụng định lí Ta-lét vào $\triangle ABC$ với $ED \parallel BC$, ta có:
+			$$\dfrac{ED}{BC}=\dfrac{AE}{AB} \Rightarrow \dfrac{x}{6}=\dfrac{4-x}{4} \Rightarrow x=2,4 \text{cm}. $$
+			Tổng quát, $x=\dfrac{ac}{a+c}.$
+			\item Trên tia đối của tia $BC$ lấy điểm $K$ sao cho $BK=BA$. Ta có $\triangle ABK$ cân, từ đó $BD \parallel KA$. Áp dụng định lí Ta-lét vào $\triangle CAK$ với $BD \parallel KA$ ta có:
+			$$ \dfrac{BD}{AK}=\dfrac{CB}{CK} \Rightarrow \dfrac{BD}{AK}=\dfrac{a}{a+c}. \quad (1)$$
+			Trong $\triangle ABK$, ta có:
+			$$ AK<AB+BK =c+c=2c \quad (2) $$
+			Từ $(1)$ và $(2)$ suy ra:
+			$$ BD<\dfrac{a}{a+c}\cdot 2c =\dfrac{2ac}{a+c}. $$
+			\item Áp dụng định lí Ta-lét vào $\triangle ABC$ với $ED \parallel BC$ ta có:
+			$$ \dfrac{ED}{BC}=\dfrac{AD}{AC} \Rightarrow \dfrac{d}{BC}=\dfrac{m}{m+n} \Rightarrow BC=\dfrac{d(m+n)}{m}. $$
+			Tương tự $AB=\dfrac{d(m+n)}{n}$.
+			\begin{note}
+				\textit{Chú ý:} Từ kết quả của câu b, ta có:
+				$$ \dfrac{1}{BD}>\dfrac{a+c}{2ac}=\dfrac{1}{2}\left( \dfrac{1}{a}+\dfrac{1}{c} \right) .  $$
+				Do đó, nếu gọi $AM$, $CN$ là các đường phân giác của $\triangle ABC$ và $AC=b$ thì
+				$$ \dfrac{1}{AM}+\dfrac{1}{BD}+\dfrac{1}{CN}>\dfrac{1}{a}+\dfrac{1}{b}+\dfrac{1}{c}. $$
+			\end{note}
+		\end{enumerate}	
+	}
+\end{vd}
+\begin{vd}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Cho tam giác $ABC$ $(AC>AB)$. Lấy các điểm $D$, $E$ tùy ý theo thứ tự nằm trên các cạnh $AB$, $AC$ sao cho $BD=CE$. Gọi $K$ là giao điểm của các đường thẳng $DE$, $BC$. Chứng minh rằng tỉ số $\dfrac{KE}{KD}$ không phụ thuộc vào cách chọn các điểm $D$ và $E$.
+	\loigiai{
+		\textit{Cách 1:} 
+		\immini{Để làm xuất hiện một tỉ số bằng $\dfrac{KE}{KD}$, ta vẽ qua $D$ đường thẳng $DG \parallel AC $. Theo định lí Ta-lét, ta có:
+			$$ \dfrac{KE}{KD}=\dfrac{KC}{KG}, \dfrac{KE}{KD}=\dfrac{EC}{DG}. $$
+			Trong hai tỉ số trên, ta chú ý đến tỉ số sau, vì độ dài $EC$ được nêu trong giả thiết ($EC=BD$).\
+			
+			Ta thay $\dfrac{EC}{DG}$ bằng $\dfrac{BD}{DG}$ và tỉ số này bằng $\dfrac{BA}{AC}$ (vì $DG \parallel AC$).}{	\begin{tikzpicture}
+			\tkzDefPoints{ 0/3.8/A, -1/0/B, 2.2/0/C, 6/0/K}
+			\tkzDefPointBy[homothety = center A ratio 0.57](B)
+			\tkzGetPoint{D}
+			\tkzDefPointBy[homothety = center C ratio 0.57](B)
+			\tkzGetPoint{G}
+			\tkzInterLL(A,C)(K,D) \tkzGetPoint{E}
+			\tkzDrawSegments(A,B B,K D,G A,C D,K)
+			\tkzLabelPoints[above](A,E)
+			\tkzLabelPoints[below](G,C)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below right](K)
+			\tkzLabelPoints[left](D)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,G,K)
+			\tkzMarkSegments[mark=|](B,D E,C)
+			\end{tikzpicture}}
+		\immini{	\textit{Cách 2:} \\
+			Vẽ $EH \parallel AB$ ta có:
+			$$ \dfrac{KE}{KD}=\dfrac{EH}{BD}=\dfrac{EH}{EC}=\dfrac{AB}{AC}. $$}{\begin{tikzpicture}
+			\clip(-2,-1) rectangle (8.2,4.6);
+			\tkzDefPoints{ 0/3.8/A, -1/0/B, 2.2/0/C, 6/0/K}
+			\tkzDefPointBy[homothety = center A ratio 0.57](B)
+			\tkzGetPoint{D}
+			\tkzDefLine[parallel=through E](A,B) \tkzGetPoint{c}
+			\tkzInterLL(A,C)(K,D) \tkzGetPoint{E}
+			\tkzInterLL(E,c)(B,C) \tkzGetPoint{H}
+			\tkzDrawSegments(A,B B,K A,C D,K E,H)
+			\tkzLabelPoints[above](A,E)
+			\tkzLabelPoints[below](H,C)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below right](K)
+			\tkzLabelPoints[left](D)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,H,K)
+			\tkzMarkSegments[mark=|](B,D E,C)
+			\end{tikzpicture}}
+		\immini{	\textit{Cách 3:} 
+			Vẽ $DM \parallel BC$. Ta có: 
+			$$ \dfrac{KE}{KD}=\dfrac{CE}{CM}=\dfrac{BD}{CM}=\dfrac{AD}{AM}=\dfrac{AB}{AC}. $$}{\begin{tikzpicture}
+			\tkzDefPoints{ 0/3.8/A, -1/0/B, 2.2/0/C, 6/0/K}
+			\tkzDefPointBy[homothety = center A ratio 0.57](B)
+			\tkzGetPoint{D}
+			\tkzDefLine[parallel=through D](B,C) \tkzGetPoint{c}
+			\tkzInterLL(A,C)(K,D) \tkzGetPoint{E}
+			\tkzInterLL(D,c)(A,C) \tkzGetPoint{M}
+			\tkzDrawSegments(A,B B,K A,C D,K D,M)
+			\tkzLabelPoints[above](A,E)
+			\tkzLabelPoints[below](C)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below right](K)
+			\tkzLabelPoints[above right](M)
+			\tkzLabelPoints[left](D)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,M,K)
+			\end{tikzpicture}}
+	}
+\end{vd}
+\textit{Nhận xét:} Trong các bài tập vận dụng định lí Ta-lét, nhiều khi ta cần vẽ thêm một đường thẳng song song với một đường thẳng cho trước.\
+
+Đây là một cách vẽ được phụ hay dùng, vì nhờ đó mà tạo thêm được các cặp đoạn thẳng tỉ lệ.
+\begin{vd}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Cho hình thang $ABCD$ có $AB \parallel CD$, $AB<CD$. Gọi $O$ là giao điểm của hai đường chéo, $K$ là giao điểm của $AD$ và $BC$. Đường thẳng $KO$ cắt $AB$, $CD$ theo thứ tự ở $M$, $N$. Chứng minh rằng:
+	\begin{enumEX}{3}
+		\item $\dfrac{MA}{ND}=\dfrac{MB}{NC};$
+		\item $\dfrac{MA}{NC}=\dfrac{MB}{ND};$
+		\item $MA=MB; NC=ND.$
+	\end{enumEX}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/D, 5/0/C, 1/3/A,3.3/3/B}
+			\tkzInterLL(A,C)(B,D) \tkzGetPoint{O}
+			\tkzInterLL(A,D)(B,C) \tkzGetPoint{K}
+			\tkzInterLL(K,O)(B,A) \tkzGetPoint{M}
+			\tkzInterLL(K,O)(D,C) \tkzGetPoint{N}
+			\tkzDrawSegments(K,D K,C K,N A,B A,C B,D C,D)
+			\tkzLabelPoints[above](K)
+			\tkzLabelPoints[below](N)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[below left](D)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[above right](B,M)
+			\tkzLabelPoints[right](O)
+			\tkzDrawPoints[fill=black](A,B,C,D,O,K,M,N)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Áp dụng định lí Ta-lét vào các tam giác $KDN$, $KNC$ với $AB \parallel CD$, ta có:
+			$$ \dfrac{MA}{ND}=\dfrac{KM}{KN}, \dfrac{MB}{NC}=\dfrac{KM}{KN}, \text{ suy ra } \dfrac{MA}{ND}=\dfrac{MB}{NC} \quad (1). $$
+			\item Áp dụng định lí Ta-lét vào các tam giác $ONC$, $OND$ với $AB \parallel CD$, ta có:
+			$$ \dfrac{MA}{NC}=\dfrac{OM}{ON}, \dfrac{MB}{ND}=\dfrac{OM}{ON}, \text{ suy ra } \dfrac{MA}{NC}=\dfrac{MB}{ND} \quad (2). $$
+			\item Nhân từng vế $(1)$ với $(2)$ ta được:
+			$$ \dfrac{MA^2}{ND \cdot NC}=\dfrac{MB^2}{NC \cdot ND}, \text{ suy ra } MA^2=MB^2 \text{ tức là } MA=MB. $$
+			Từ đó $NC=ND$.
+		\end{enumerate}	
+	}
+\end{vd}
+\textit{Nhận xét:} Từ ví dụ trên, ta suy ra:\
+
+Trong hình thang có hai cạnh đáy không bằng nhau, đường thẳng đi qua giao điểm của các đường chéo và đi qua giao điểm của các đường thẳng chứa hai cạnh bên thì đi qua trung điểm của hai cạnh đáy.\
+
+Tính chất này có nhiều ứng dụng quan trọng, được gọi là \textit{bổ đề hình thang.}
+
+\subsection{Bài tập}
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Trong hình thang $ABCD$ ($AB \parallel CD$) có $AB=28$cm, $CD=70$cm, $AD=35$cm, vẽ một đường thẳng song song với hai cạnh đáy, cắt $AD$, $BC$ theo thứ tự ở $E$ và $F$. Tính độ dài $EF$ biết rằng $DE=10$cm.
+	\loigiai{\immini{Theo giả thiết, vì $DE=10$cm nên $AE=25$cm.\\
+			Gọi $I$ là giao của $AC$ và $EF$. Áp dụng định lí Ta-lét cho $\triangle ACD$ nên ta có:
+			$$ \dfrac{AE}{AD}=\dfrac{EI}{DC}=\dfrac{AI}{AC} \Rightarrow \dfrac{25}{35}=\dfrac{EI}{70} \Rightarrow EI=50 $$
+			Vì 	$\dfrac{AI}{AC}=\dfrac{5}{7} \Rightarrow \dfrac{IC}{AC}=\dfrac{2}{7}$.\\
+			Áp dụng định lí Ta-lét cho tam giác $ABC$ ta có:
+			$$ \dfrac{IC}{CA}=\dfrac{IF}{AB} \Rightarrow \dfrac{2}{7}=\dfrac{IF}{28} \Rightarrow IF=8. $$
+			Vậy $EF=58$cm.}{
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/D, 5/0/C, 1.3/3/A,3.3/3/B}
+			\tkzDefPointBy[homothety = center A ratio 0.7](D)
+			\tkzGetPoint{E}
+			\tkzDefPointBy[homothety = center B ratio 0.7](C)
+			\tkzGetPoint{F}
+			\tkzDefPointBy[homothety = center C ratio 0.4](D)
+			\tkzGetPoint{K}
+			\tkzInterLL(A,K)(E,F) \tkzGetPoint{I}
+			\tkzDrawSegments(A,B B,C A,D D,C E,F A,K)
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[below](K)
+			\tkzLabelPoints[left](E)
+			\tkzLabelPoints[below left](D)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[above right](I)
+			\tkzLabelPoints[right](F)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,F,K,I)
+			\end{tikzpicture}}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Gọi $O$ là giao điểm của các đường thẳng chứa hai cạnh bên $AD$, $BC$ của hình thang $ABCD$. Đường thẳng đi qua $O$ và song song với $AB$ cắt các đường thẳng $AC$, $BD$ theo thứ tự ở $M$, $N$. Chứng minh rằng $OM=ON$.
+	\loigiai{\immini{Vì $MN \parallel CD$ nên ta có
+			$$ \dfrac{OM}{CD}=\dfrac{OA}{AD}; ~\dfrac{ON}{CD}=\dfrac{OB}{BC} \quad (1)$$
+			Áp dụng định lí Ta-lét cho tam giác $OCD$ ta có
+			$$ \dfrac{OA}{AD}=\dfrac{OB}{BC} \quad (2) $$
+			Từ $(1)$ và $(2)$ suy ra $\dfrac{OM}{CD}=\dfrac{ON}{CD} \Rightarrow OM=ON.$	}{
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/D, 5/0/C, 1.3/3/A,3.3/3/B}
+			\tkzInterLL(A,D)(B,C) \tkzGetPoint{O}
+			\tkzDefLine[parallel=through O](A,B) \tkzGetPoint{c} 
+			\tkzInterLL(O,c)(D,B) \tkzGetPoint{N}
+			\tkzInterLL(O,c)(A,C) \tkzGetPoint{M}
+			\tkzDrawSegments(A,B O,D O,C D,C C,M D,N M,N)
+			\tkzLabelPoints[above](O,M,N)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[below left](D)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[right](B)
+			\tkzDrawPoints[fill=black](A,B,C,D,O,M,N)
+			\end{tikzpicture}}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Cho hình thang $ABCD$ có các cạnh đáy $AB=a$, $CD=b$. Qua giao điểm $O$ của hai đường chéo, kẻ đường thẳng song song với $AB$, cắt $AD$ và $BC$ theo thứ tự ở $E$ và $G$. Chứng minh rằng $\dfrac{1}{OE}=\dfrac{1}{OG}=\dfrac{1}{a}+\dfrac{1}{b}.$
+	\loigiai{\begin{center}
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/D, 5/0/C, 1.3/3/A,3.3/3/B}
+			\tkzInterLL(A,C)(B,D) \tkzGetPoint{O}
+			\tkzDefLine[parallel=through O](A,B) \tkzGetPoint{c} 
+			\tkzInterLL(O,c)(B,C) \tkzGetPoint{G}
+			\tkzInterLL(O,c)(A,D) \tkzGetPoint{E}
+			\tkzDrawSegments(A,B A,D D,C B,C E,G A,C B,D)
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[below](O)
+			\tkzLabelPoints[left](E)
+			\tkzLabelPoints[below left](D)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[right](G)
+			\tkzDrawPoints[fill=black](A,B,C,D,O,G,E)
+			\end{tikzpicture}
+		\end{center}
+		Áp dụng định lí Ta-lét cho tam giác $ACD$, ta có
+		$$ \dfrac{OE}{DC}=\dfrac{AO}{AC} \Rightarrow \dfrac{1}{OE}=\dfrac{AC}{AO}\cdot \dfrac{1}{DC}=\left( 1+\dfrac{CO}{AO} \right) \cdot \dfrac{1}{DC}= \left( 1+\dfrac{DC}{AB} \right) \cdot \dfrac{1}{DC} =\dfrac{1}{AB}+\dfrac{1}{CD}. $$	
+		Áp dụng định lí Ta-lét cho tam giác $ABC$, ta có
+		$$ \dfrac{OG}{AB}=\dfrac{OC}{AC} \Rightarrow \dfrac{1}{OG}=\dfrac{AC}{OC}\cdot \dfrac{1}{AB}=\left( 1+\dfrac{AO}{CO} \right) \cdot \dfrac{1}{AB}= \left( 1+\dfrac{AB}{DC} \right) \cdot \dfrac{1}{AB} =\dfrac{1}{AB}+\dfrac{1}{CD}. $$	
+		Vậy $\dfrac{1}{OE}=\dfrac{1}{OG}=\dfrac{1}{a}+\dfrac{1}{b}.$
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Cho hình thang $ABCD$ ($AB \parallel CD$). Một đường thẳng $d$ song song với hai cạnh đáy cắt hai cạnh bên $AD$, $BC$ theo thứ tự ở $M$, $N$ và cắt hai đường chéo $BD$, $AC$ theo thứ tự ở $H$, $K$. 
+	\begin{enumerate}
+		\item Chứng minh rằng $MH=KN$.
+		\item Hãy nêu cách dựng đường thẳng $d$ sao cho $MH=KH=KN$.
+	\end{enumerate}
+	\loigiai{\immini{\begin{enumerate}
+				\item Vì $MN \parallel AB, MN \parallel CD$ nên áp dụng định lý Ta-lét ta có
+				$$ \dfrac{MH}{AB}=\dfrac{MD}{AD}=\dfrac{CN}{CB}=\dfrac{KN}{AB} $$
+				Suy ra $MH=KN$.
+				\item Gọi $I$ là giao điểm của $AH$ và $CD$. Khi đó
+				$$ \dfrac{MH}{DI}=\dfrac{AH}{AI}=\dfrac{HK}{IC}. $$
+				Suy ra $MH=HK \Leftrightarrow DI=IC.$\\
+		\end{enumerate}}{
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/D, 5/0/C, 1.3/3/A,3.3/3/B}
+			\tkzDefPointBy[homothety = center A ratio 0.7](D)
+			\tkzGetPoint{M}
+			\tkzDefPointBy[homothety = center B ratio 0.7](C)
+			\tkzGetPoint{N}
+			\tkzInterLL(M,N)(B,D) \tkzGetPoint{H}
+			\tkzInterLL(M,N)(A,C) \tkzGetPoint{K}
+			\tkzInterLL(D,C)(A,H) \tkzGetPoint{I}
+			\tkzDrawSegments(A,B A,D D,C B,C M,N A,C B,D A,I)
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[below](I,K)
+			\tkzLabelPoints[left](M)
+			\tkzLabelPoints[below left](D)
+			\tkzLabelPoints[below right](H,C)
+			\tkzLabelPoints[right](N)
+			\tkzDrawPoints[fill=black](A,B,C,D,I,K,M,N,H)
+			\end{tikzpicture}}
+		Vậy ta dựng đường thẳng $d$ như sau: Lấy $I$ là trung điểm của $CD$. Gọi $H$ là giao của $AI$ và $BD$. Kẻ đường thẳng $d$ đi qua $H$ và song song với $AB$ ta được đường thẳng cần tìm.}
+\end{bt}
+
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Tam giác $ABC$ có $AC>AB$, $AC=45$cm. Hình chiếu của $AC$ và $AB$ trên $BC$ theo thứ tự là $27$cm và $15$cm. Đường trung trực của $BC$ cắt $AC$ ở $N$. Tính độ dài $CN$.
+	\loigiai{
+		Gọi $M$ là trung điểm của $BC$, $AH \perp BC$. Ta xét hai trường hợp sau
+		\begin{itemize}
+			\item $\widehat{B}<90^{\circ}$. Khi đó, $H$ nằm giữa $B$ và $C$ nên $BC=42$cm, suy ra $CM=BM=21$cm.\\
+			Áp dụng định lí Ta-lét cho tam giác $AHC$ ta có 
+			$$ \dfrac{CI}{CH}=\dfrac{CN}{AC} \Rightarrow CN=35 \text{cm}. $$
+			\begin{center}
+				\begin{tikzpicture}
+				\clip(-1,-1) rectangle (7.2,4.6);
+				\tkzDefPoints{0/0/B, 2/4/A, 6/0/C, 2/0/H}
+				\tkzDefPointBy[homothety = center B ratio 0.5](C)
+				\tkzGetPoint{M}
+				\tkzDefLine[parallel=through M](A,H) \tkzGetPoint{a}
+				\tkzInterLL(M,a)(C,A) \tkzGetPoint{N}
+				\tkzDrawSegments(A,B B,C A,C A,H M,N)
+				\tkzLabelPoints[above](A)
+				\tkzLabelPoints[above right](N)
+				\tkzLabelPoints[below](H,M)
+				\tkzLabelPoints[below right](C)
+				\tkzLabelPoints[below left](B)
+				\tkzDrawPoints[fill=black](A,B,C, H,M,N)
+				\tkzMarkRightAngles(A,H,C)
+				\tkzMarkRightAngles(N,M,C)
+				\end{tikzpicture}
+			\end{center}
+			\item $\widehat{B}>90^{\circ}$. Khi đó, $B$ nằm giữa $H$ và $C$ nên $BC=12$cm, suy ra $CM=BM=6$cm.\\
+			Áp dụng định lí Ta-lét cho tam giác $AHC$ ta có 
+			$$ \dfrac{CI}{CH}=\dfrac{CN}{AC} \Rightarrow CN=10 \text{cm}. $$
+			\begin{center}
+				\begin{tikzpicture}
+				\clip(-1,-1) rectangle (7.2,4.6);
+				\tkzDefPoints{3.5/0/B, 2/4/A, 6/0/C, 2/0/H}
+				\tkzDefPointBy[homothety = center B ratio 0.5](C)
+				\tkzGetPoint{M}
+				\tkzDefLine[parallel=through M](A,H) \tkzGetPoint{a}
+				\tkzInterLL(M,a)(C,A) \tkzGetPoint{N}
+				\tkzDrawSegments(A,B B,C A,C M,N)
+				\tkzDrawSegments[dashed](A,H H,B)
+				\tkzLabelPoints[above](A,N)
+				\tkzLabelPoints[below](H,M,B)
+				\tkzLabelPoints[below right](C)
+				\tkzDrawPoints[fill=black](A,B,C, H,M,N)
+				\tkzMarkRightAngles(A,H,C)
+				\tkzMarkRightAngles(N,M,C)
+				\end{tikzpicture}
+			\end{center}
+		\end{itemize}	
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Cho hình bình hành $ABCD$, điểm $G$ chia trong cạnh $DC$ theo tỉ số $1:2$, điểm $K$ chia trong cạnh $BC$ theo tỉ số $3:2$. Tính độ dài ba đoạn thẳng do $AG$, $AK$ định ra trên $BD$, biết rằng $BD=16$cm.
+	\loigiai{\immini{Gọi $E$, $F$ là giao điểm của $AG$, $AK$ với $BD$. Ta có
+			$$ \dfrac{DE}{EB}=\dfrac{DG}{AB}=\dfrac{DG}{DC}=\dfrac{1}{3} $$
+			nên $DE=\dfrac{1}{3}EB=\dfrac{1}{4}=4$cm.\\
+			Tương tự, $BF=\dfrac{3}{8}BD=6$cm. Vậy $EF=6$cm.}{
+			\begin{tikzpicture}
+			\clip(-1,-1) rectangle (7.5,4.6);
+			\tkzDefPoints{0/0/D, 2/4/A, 5/0/C}
+			\tkzDefLine[parallel=through A](D,C) \tkzGetPoint{a}
+			\tkzDefLine[parallel=through C](D,A) \tkzGetPoint{b}
+			\tkzInterLL(A,a)(C,b) \tkzGetPoint{B}
+			\tkzDefPointBy[homothety = center D ratio 0.3333](C)
+			\tkzGetPoint{G}
+			\tkzDefPointBy[homothety = center B ratio 0.6](C)
+			\tkzGetPoint{K}
+			\tkzInterLL(B,D)(A,G) \tkzGetPoint{E}
+			\tkzInterLL(B,D)(A,K) \tkzGetPoint{F}
+			\tkzDrawSegments(A,B B,C D,C A,D B,D A,G A,K)
+			\tkzLabelPoints[above](A,F)
+			\tkzLabelPoints[above right](B)
+			\tkzLabelPoints[below](D,G)
+			\tkzLabelPoints[below right](E,C)
+			\tkzLabelPoints[right](K)
+			\tkzDrawPoints[fill=black](A,B,C,D,G,E,F,K)
+			\end{tikzpicture}}
+	}
+\end{bt}
+\textbf{Vẽ đường thẳng song song trong các bài tập sau để tạo thành các cặp đoạn thẳng tỉ lệ.}
+
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	\begin{enumerate}
+		\item Cho tam giác $ABC$ có $\widehat{A}=120^{\circ}, AB=3$cm, $AC=6$cm. Tính độ dài đường phân giác $AD$.
+		\item Cho tam giác $ABC$ với đường phân giác $AD$ thỏa mãn $\dfrac{1}{AD}=\dfrac{1}{AB}+\dfrac{1}{AC}.$ Tính số đo góc $BAC.$
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item 
+			Kẻ $DE \parallel AB,$ $\triangle ADE$ đều. Đặt $AD=DE=EA=x$. Ta có
+			$$ \dfrac{DE}{AB}=\dfrac{CE}{CA} \Rightarrow \dfrac{x}{3}=\dfrac{6-x}{6}. $$
+			Từ đó $x=2$. Vậy $AD=2$cm.
+			\begin{center}
+				\begin{tikzpicture}
+				\tkzDefPoints{0/0/B, 2/1.5/A, 5/0/C}
+				\tkzDefPointBy[homothety = center B ratio 0.41](C)
+				\tkzGetPoint{D}
+				\tkzDefLine[parallel=through D](B,A) \tkzGetPoint{a}
+				\tkzInterLL(D,a)(A,C) \tkzGetPoint{E}
+				\tkzDrawSegments(A,B B,C A,C D,E D,A)
+				\tkzLabelPoints[above](A)
+				\tkzLabelPoints[below](D)
+				\tkzLabelPoints[below left](B)
+				\tkzLabelPoints[below right](C)
+				\tkzLabelPoints[right](E)
+				\tkzDrawPoints[fill=black](A,B,C,D,E)
+				\tkzMarkAngle[size=0.4cm](B,A,D)
+				\tkzMarkAngle[size=0.4cm](D,A,C)
+				\end{tikzpicture}
+			\end{center}
+			\item Kẻ $DE \parallel AB$. Đặt $DE=EA=x$. Ta có
+			$$ \dfrac{DE}{AB}=\dfrac{CE}{CA} \Rightarrow \dfrac{x}{AB}=\dfrac{AC-x}{AC}=1-\dfrac{x}{AC} $$
+			$$ \Rightarrow \dfrac{x}{AB}+\dfrac{x}{AC}=1 \Rightarrow \dfrac{1}{AB}+\dfrac{1}{AC}=\dfrac{1}{x}. \quad (1) $$
+			Theo đề bài $\dfrac{1}{AB}+\dfrac{1}{AC}=\dfrac{1}{AD}$. Suy ra $AD=x$, $\triangle ADE$ đều, $\widehat{BAC}=120^{\circ}.$
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Cho tam giác $ABC$. Chứng minh rằng nếu một đường thẳng cắt cạnh $AB$ ở $D$, cắt cạnh $BC$ ở $K$ và cắt tia đối của tia $CA$ ở $E$ sao cho $BD=CE$ thì tỉ số $\dfrac{KE}{KD}$ không đổi.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/B, 3.5/4/A, 5/0/C}
+			\tkzDefPointBy[homothety = center A ratio 0.6](B)
+			\tkzGetPoint{D}
+			\tkzDefPointBy[homothety = center A ratio 1.55](C)
+			\tkzGetPoint{E}
+			\tkzInterLL(D,E)(C,B) \tkzGetPoint{K}
+			\tkzDefLine[parallel=through D](B,C) \tkzGetPoint{a}
+			\tkzInterLL(D,a)(A,C) \tkzGetPoint{G}
+			\tkzDrawSegments(A,B B,C A,E D,E D,G)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[above right](C,G)
+			\tkzLabelPoints[below](E,K)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[above left](D)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,K,G)
+			\tkzMarkSegments[mark=|](D,B C,E)
+			\end{tikzpicture}
+		\end{center}
+		Kẻ $DG \parallel BC$. Ta có $\dfrac{KE}{KD}=\dfrac{CE}{CG}=\dfrac{BD}{CG}=\dfrac{BA}{CA}.$
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Cho tam giác $ABC$, điểm $D$ chia trong cạnh $BA$ theo tỉ số $1:2$, điểm $E$ chia trong cạnh $AC$ theo tỉ số $2:5$. Gọi $F$ là giao điểm của các đường thẳng $ED$ và $BC$. Tính tỉ số $FB:FC$.
+	\loigiai{\begin{center}
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/B, 2/4/A, 5/0/C}
+			\tkzDefPointBy[homothety = center C ratio 0.714](A)
+			\tkzGetPoint{E}
+			\tkzDefPointBy[homothety = center A ratio 0.6667](B)
+			\tkzGetPoint{D}
+			\tkzInterLL(D,E)(C,B) \tkzGetPoint{F}
+			\tkzDefLine[parallel=through B](D,E) \tkzGetPoint{a}
+			\tkzInterLL(B,a)(A,C) \tkzGetPoint{G}
+			\tkzDrawSegments(A,B F,C A,C F,E B,G)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[above right](E,G)
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[below left](F)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[above left](D)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,F,G)
+			\end{tikzpicture}
+		\end{center}
+		Kẻ $BG \parallel DE$. Ta có $\dfrac{FB}{FC}=\dfrac{EG}{EC}=\dfrac{EG}{EA} \cdot \dfrac{EA}{EC}=\dfrac{DB}{DA} \cdot \dfrac{EA}{EC}=\dfrac{1}{2} \cdot \dfrac{2}{5}=\dfrac{1}{5}.$	
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Cho tam giác $ABC$, điểm $D$ chia trong cạnh $BC$ theo tỉ số $1:2$, điểm $O$ chia trong $AD$ theo tỉ số $3:2$. Gọi $K$ là giao điểm của $BO$ và $AC$. Tính tỉ số $AK:KC.$
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/B, 2/4/A, 5/0/C}
+			\tkzDefPointBy[homothety = center B ratio 0.3333](C)
+			\tkzGetPoint{D}
+			\tkzDefPointBy[homothety = center A ratio 0.6](D)
+			\tkzGetPoint{O}
+			\tkzDefLine[parallel=through D](B,O) \tkzGetPoint{a}
+			\tkzInterLL(D,a)(A,C) \tkzGetPoint{G}
+			\tkzInterLL(B,O)(A,C) \tkzGetPoint{K}
+			\tkzDrawSegments(A,B B,C A,C A,D B,K D,G)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[above right](K,G)
+			\tkzLabelPoints[below](D)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[above left](O)
+			\tkzDrawPoints[fill=black](A,B,C,D,O,K,G)
+			\end{tikzpicture}
+		\end{center}
+		Kẻ $DG \parallel BK$. Ta có $\dfrac{AK}{KC} = \dfrac{AK}{KG} \cdot \dfrac{KG}{KC}=\dfrac{AO}{OD} \cdot \dfrac{BD}{BC}=\dfrac{3}{2} \cdot \dfrac{1}{3}=\dfrac{1}{2}.$	
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Cho tam giác $ABC$, đường trung tuyến $AM$. Gọi $I$ là điểm bất kì trên cạnh $BC$. Đường thẳng đi qua $I$ và song song với $AC$ cắt $AB$ ở $K$, đường thẳng đi qua $I$ và song song với $AB$ cắt $AM$, $AC$ theo thứ tự ở $D$, $E$. Chứng minh rằng $DE=BK.$
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+			\clip(-1,-1) rectangle (5.5,4.6);
+			\tkzDefPoints{0/0/B, 1.5/4/A, 5/0/C}
+			\tkzDefPointBy[homothety = center B ratio 0.5](C)
+			\tkzGetPoint{M}
+			\tkzDefPointBy[homothety = center B ratio 0.4](M)
+			\tkzGetPoint{I}
+			\tkzDefLine[parallel=through I](A,C) \tkzGetPoint{a}
+			\tkzInterLL(I,a)(A,B) \tkzGetPoint{K}
+			\tkzDefLine[parallel=through I](A,B) \tkzGetPoint{b}
+			\tkzInterLL(I,b)(A,C) \tkzGetPoint{E}
+			\tkzInterLL(I,E)(A,M)
+			\tkzGetPoint{D}
+			\tkzDefLine[parallel=through M](B,A) \tkzGetPoint{c}
+			\tkzInterLL(M,c)(A,C) \tkzGetPoint{G}
+			\tkzDrawSegments(A,B B,C A,C A,M I,K I,E M,G)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](I,M)
+			\tkzLabelPoints[above left](K)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[left](D)
+			\tkzLabelPoints[above right](E,G)
+			\tkzDrawPoints[fill=black](A,B,C,D,I,K,E,M,G)
+			\end{tikzpicture}
+		\end{center}
+		Kẻ $MG \parallel IE$. Ta có
+		$$ \dfrac{BK}{KI}=\dfrac{BA}{AC};~ \dfrac{DE}{AE}=\dfrac{MG}{AG}=\dfrac{MG}{GC}=\dfrac{BA}{AC} $$	
+		Suy ra $\dfrac{BK}{KI}=\dfrac{DE}{AE}$, mà $KI=AE$ nên $BK=DE$.
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Tứ giác $ABCD$ có $E,~ F$ theo thức tự là trung điểm của $CD$, $CB$, $O$ là giao điểm của $AE$, $DF$; $OA=4OE,OD=\dfrac{2}{3}OF$. Chứng minh rằng $ABCD$ là hình bình hành.
+	\loigiai{\immini{Kẻ $EI \parallel DA$, lấy $K$ là trung điểm của $CF$.\\
+			Đặt $OD=2a$, $OF=3a$. Ta tính được $OI=0.5a$; $IF=2.5a$; $EK=2.5a$. Từ đó $EIFK$ là hình bình hành nên $FK \parallel IE \parallel AD$. Suy ra $BC \parallel AD.$\\
+			Ta lại có $BC=AD$ (cùng bằng $4EI$). Vậy $ABCD$ là hình bình hành.}{
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/D, 1/3/A, 4.5/0/C}
+			\tkzDefLine[parallel=through A](D,C) \tkzGetPoint{a}
+			\tkzDefLine[parallel=through C](D,A) \tkzGetPoint{b}
+			\tkzInterLL(A,a)(C,b) \tkzGetPoint{B}
+			\tkzDefPointBy[homothety = center D ratio 0.5](C)
+			\tkzGetPoint{E}
+			\tkzDefPointBy[homothety = center C ratio 0.5](B)
+			\tkzGetPoint{F}
+			\tkzDefPointBy[homothety = center C ratio 0.5](F)
+			\tkzGetPoint{K}
+			\tkzDefLine[parallel=through E](D,A) \tkzGetPoint{c}
+			\tkzInterLL(E,c)(D,F) \tkzGetPoint{I}
+			\tkzInterLL(A,E)(D,F) \tkzGetPoint{O}
+			\tkzDrawSegments(A,B B,C A,D D,C D,F A,E E,K E,I)
+			\tkzLabelPoints[above](A,B,I)
+			\tkzLabelPoints[below](D,E,C)
+			\tkzLabelPoints[above left](O)
+			\tkzLabelPoints[right](F,K)
+			\tkzDrawPoints[fill=black](A,B,C,D,O,I,E,K,F)
+			\tkzMarkSegments[mark=|](C,K K,F)
+			\tkzMarkSegments[mark=||](D,E C,E)
+			\end{tikzpicture}}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Đường thẳng đi qua trung điểm các cạnh đối $AB$, $CD$ của tứ giác $ABCD$ cắt các đường thẳng $AD$ và $BC$ theo thứ tự ở $I$ và $K$. Chứng minh rằng:
+	$$ IA: ID=KB:KC. $$
+	\loigiai{\begin{center}
+			\begin{tikzpicture}
+			\tkzDefPoints{0.2/0/D, 1/2.5/A, 6/0/C, 3/3.5/B}
+			\tkzDefPointBy[homothety = center D ratio 0.5](C)
+			\tkzGetPoint{N}
+			\tkzDefPointBy[homothety = center A ratio 0.5](B)
+			\tkzGetPoint{M}
+			\tkzInterLL(A,D)(M,N) \tkzGetPoint{I}
+			\tkzInterLL(B,C)(M,N) \tkzGetPoint{K}
+			\tkzDefLine[parallel=through A](D,C) \tkzGetPoint{c}
+			\tkzInterLL(A,c)(M,N) \tkzGetPoint{E}
+			\tkzDefLine[parallel=through B](D,C) \tkzGetPoint{a}
+			\tkzInterLL(B,a)(M,N) \tkzGetPoint{F}
+			\tkzDrawSegments(A,B I,D K,C D,C A,E B,F K,N)
+			\tkzLabelPoints[above](K)
+			\tkzLabelPoints[below](N)
+			\tkzLabelPoints[below left](D,E)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[above right](F)
+			\tkzLabelPoints[left](A,I)
+			\tkzLabelPoints[right](B,M)
+			\tkzDrawPoints[fill=black](A,B,C,D,N,E,M,F,I,K)
+			\tkzMarkSegments[mark=|](B,M A,M)
+			\tkzMarkSegments[mark=||](D,N C,N)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $M,N$ là trung điểm của $AB,CD$. Vẽ $AE,BF \parallel DC$. Ta có
+		$$\dfrac{IA}{ID}=\dfrac{AE}{DN}=\dfrac{BF}{NC}=\dfrac{KB}{KC}$$}
+\end{bt}
+
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	\begin{enumerate}
+		\item Qua điểm $M$ thuộc cạnh $BC$ của tam giác $ABC$, vẽ các đường thẳng song song với hai cạnh kia, chúng cắt $AB$, $AC$ theo thứ tự ở $H$, $K$. Chứng minh rằng tổng $\dfrac{AH}{AB}+\dfrac{AK}{AC}$ không phụ thuộc vào vị trí của điểm $M$ trên cạnh $BC$.
+		\item Xét trường hợp tương tự khi điểm $M$ chạy trên đường thẳng $BC$ nhưng không thuộc đoạn thẳng $BC$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item 
+			\immini{Do $MH\parallel AC$, theo định lí Ta-lét, ta có: $\dfrac{AH}{AB}=\dfrac{CM}{CB}$.
+				\\ Tương tự ta được $\dfrac{AK}{AC}=\dfrac{BM}{CB}$.
+				\\ Do đó $\dfrac{AH}{AB}+\dfrac{AK}{AC}=\dfrac{CM}{CB}+\dfrac{BM}{CB}=\dfrac{BC}{BC}=1$.}{\begin{tikzpicture}
+				\clip(-1,-1) rectangle (4.5,4);
+				\tkzDefPoints{0/0/B, 1/3.5/A, 4/0/C}
+				\tkzDefPointBy[homothety = center B ratio 0.6](C)
+				\tkzGetPoint{M}
+				\tkzDefLine[parallel=through M](A,B) \tkzGetPoint{c}
+				\tkzInterLL(M,c)(A,C) \tkzGetPoint{K}
+				\tkzDefLine[parallel=through M](A,C) \tkzGetPoint{a}
+				\tkzInterLL(M,a)(A,B) \tkzGetPoint{H}
+				\tkzDrawSegments(A,B B,C A,C M,H M,K)
+				\tkzLabelPoints[above](A)
+				\tkzLabelPoints[below](M)
+				\tkzLabelPoints[below left](B)
+				\tkzLabelPoints[below right](C)
+				\tkzLabelPoints[above right](K)
+				\tkzLabelPoints[above left](H)
+				\tkzDrawPoints[fill=black](A,B,C,M,H,K)
+				\end{tikzpicture}}
+			\item \immini{
+				\begin{itemize}
+				\item Nếu $M$ thuộc tia đối của tia $CB$ thì
+				$$\dfrac{AK}{AC}-\dfrac{AH}{AB}=1+\dfrac{CK}{AC}-\dfrac{AH}{AB}=1+\dfrac{MC}{BC}-\dfrac{CM}{BC}=1.$$
+				\item Tương tự nếu điểm $M$ thuộc tia đối của $BC$ thì $\dfrac{AH}{AB}-\dfrac{AK}{AC}=1$.
+				\end{itemize}}{
+				\begin{tikzpicture}
+				\clip(-1.5,-1.5) rectangle (4.5,4);
+				\tkzDefPoints{0/0/B, 1/1.7/A, 2/0/C}
+				\tkzDefPointBy[homothety = center B ratio 1.6](C)
+				\tkzGetPoint{M}
+				\tkzDefLine[parallel=through M](A,B) \tkzGetPoint{c}
+				\tkzInterLL(M,c)(A,C) \tkzGetPoint{K}
+				\tkzDefLine[parallel=through M](A,C) \tkzGetPoint{a}
+				\tkzInterLL(M,a)(A,B) \tkzGetPoint{H}
+				\tkzDrawSegments(H,B B,M A,K M,H M,K)
+				\tkzLabelPoints[left](A)
+				\tkzLabelPoints[right](M)
+				\tkzLabelPoints[below left](C, B)
+				\tkzLabelPoints[below]( K)
+				\tkzLabelPoints[above](H)
+				\tkzDrawPoints[fill=black](A,B,C,M,H,K)
+				\end{tikzpicture}
+			}
+	\end{enumerate}}
+\end{bt}
+
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	\begin{enumerate}
+		\item Cho tam giác $ABC$, đường trung tuyến $AM$. Qua điểm $O$ của $AM$, vẽ đường thẳng cắt các cạnh $AB$, $AC$ theo thứ tự ở $B'$, $C'$. Chứng minh rằng khi đường thẳng thay đổi vị trí mà vẫn đi qua $O$ thì tổng $\dfrac{AB}{AB'}+\dfrac{AC}{AC'}$ không đổi.
+		\item Tổng quát hóa bài toán trên khi $O$ là một điểm cố định trên đoạn thẳng $AM$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item \immini{Kẻ $BI\parallel B'C'$, $CK\parallel B'C'$ ($I,K\in AM$).
+				\\Khi đó $\widehat{IBM}=\widehat{MCK}$ (hai góc so le trong).
+				\\ Xét $\Delta BIM$ và $\Delta CKM$ có:
+				$$\widehat{IBM}=\widehat{MCK}; BM=CM (gt); \widehat{IMB}=\widehat{CMK} (\text{đối đỉnh})$$
+				Suy ra $\Delta BIM = \Delta CKM$ (g.c.g) $\Rightarrow IM=MK$.
+				\\Do $OB'\parallel IB$, theo định lí Ta-lét có $\dfrac{AB}{AB'}=\dfrac{AI}{AO}$
+				\\ Tương tự, ta được $\dfrac{AC}{AC'}=\dfrac{AK}{AO}$.}{\begin{tikzpicture}
+				\tkzDefPoints{0/0/B, 1/3.5/A, 4/0/C}
+				\tkzDefPointBy[homothety = center B ratio 0.5](C)
+				\tkzGetPoint{M}
+				\tkzDefPointBy[homothety = center A ratio 0.5](M)
+				\tkzGetPoint{O}
+				\tkzDefPointBy[homothety = center A ratio 0.7](B)
+				\tkzGetPoint{B'}
+				\tkzInterLL(B',O)(A,C) \tkzGetPoint{C'}
+				\tkzDefLine[parallel=through B](B',O) \tkzGetPoint{c}
+				\tkzInterLL(B,c)(A,M) \tkzGetPoint{I}
+				\tkzDefLine[parallel=through C](B',O) \tkzGetPoint{a}
+				\tkzInterLL(C,a)(A,M) \tkzGetPoint{K}
+				\tkzDrawSegments(A,B B,C A,C B',C' B,I C,K A,K)
+				\tkzLabelPoints[above](A)
+				\tkzLabelPoints[below](K)
+				\tkzLabelPoints[below left](B)
+				\tkzLabelPoints[below right](C)
+				\tkzLabelPoints[above right](C',I)
+				\tkzLabelPoints[above left](O)
+				\tkzLabelPoints[left](B')
+				\tkzLabelPoints[below left](M)
+				\tkzDrawPoints[fill=black](A,B,C,M,K,I,B',C',O)
+				\tkzMarkSegments[mark=|](B,M C,M)
+				\end{tikzpicture}}
+			Suy ra $$\dfrac{AB}{AB'}+\dfrac{AC}{AC'}=\dfrac{AI}{AO}+\dfrac{AK}{AO}=\dfrac{AI+AK}{AO}=\dfrac{(AM-MI)+(AM+MK)}{AO}=\dfrac{2\cdot AM}{AO}=4.$$
+			\item Chỉ cần $O$ là một điểm cố định thuộc đoạn thẳng $AM$, không đòi hỏi $O$ là trung điểm của $AM$. Giá trị không đổi của tổng bằng $2AM:AO$.
+			\\Có thể diễn đạt bài toán này dưới dạng: Cho hình bình hành $ABCD$, điểm $C'$ nằm trên đường chéo $AC$ ($AC'<\dfrac{1}{2}AC$). Qua $C'$ vẽ đường thẳng $d$ cắt các cạnh $AB$, $AD$ ở $B'$, $D'$. Chứng minh rằng $\dfrac{AB}{AB'}+\dfrac{AD}{AD'}=\dfrac{AC}{AC'}$.
+			\begin{center}
+				\begin{tikzpicture}
+				\clip(-1,-0.5) rectangle (5.5,4);
+				\tkzDefPoints{0/0/D, 1/3.5/A, 4/0/C}
+				\tkzDefLine[parallel=through A](D,C) \tkzGetPoint{b}
+				\tkzDefLine[parallel=through C](D,A) \tkzGetPoint{d}
+				\tkzInterLL(A,b)(C,d) \tkzGetPoint{B}
+				\tkzDefPointBy[homothety = center A ratio 0.45](C)
+				\tkzGetPoint{M}
+				\tkzDefPointBy[homothety = center A ratio 0.6](M)
+				\tkzGetPoint{C'}
+				\tkzDefLine[parallel=through C'](D,M) \tkzGetPoint{c}
+				\tkzInterLL(C',c)(A,D) \tkzGetPoint{D'}
+				\tkzInterLL(C',c)(A,B) \tkzGetPoint{B'}
+				\tkzDefLine[parallel=through B](D,M) \tkzGetPoint{a}
+				\tkzInterLL(B,a)(A,C) \tkzGetPoint{N}
+				\tkzDrawSegments(A,B B,C A,C A,D D,C B',D' D,M B,N)
+				\tkzLabelPoints[above](A,B',B)
+				\tkzLabelPoints[below](D,C)
+				\tkzLabelPoints[below left](N)
+				\tkzLabelPoints[above right](M)
+				\tkzLabelPoints[left](D',C')
+				\tkzDrawPoints[fill=black](A,B,C,D,B',D',C',M,N)
+				\end{tikzpicture}
+			\end{center}
+	\end{enumerate}
+}
+\end{bt}
+
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Cho tam giác $ABC$ vuông cân tại $A$, đường trung tuyến $BM$. Trên cạnh $BC$ lấy điểm $D$ sao cho $BD=2DC$. Chứng minh rằng $BM$ vuông góc với $AD$.
+	\loigiai{\immini{Kẻ $CK\parallel AD$ ($K\in AB$)
+			\\ Khi đó theo định lí Ta-lét ta có
+			$$\dfrac{AB}{AK}=\dfrac{BD}{CD}=2 \Rightarrow AB=2\cdot AK.$$
+			\\Lại có: $AB=AC=2\cdot AM$.
+			\\Suy ra $AK=AM$.
+			\\Xét $\Delta CAK$ và $\Delta BAM$ có:
+			$$AK=AM \text{(cmt)}; \widehat{CAK}=\widehat{BAM}=90^\circ; AC=AB$$
+			Suy ra $\Delta CAK= \Delta BAM$ (c.g.c)
+			\\$\Rightarrow \widehat{ACK}=\widehat{ABM}$
+			\\ Mà $\widehat{CKA}=\widehat{BAD}$ (hai góc đồng vị)
+			\\ Suy ra $\widehat{ACK}+\widehat{CKA}=\widehat{ABM}+\widehat{BAD}$
+			\\Hay $\widehat{ABM}+\widehat{BAD}=90^\circ$.
+			\\ Vậy $BM\perp AD$.}{\begin{tikzpicture}
+			\tkzDefPoints{0/0/A, 4/0/B, 0/4/C}
+			\tkzDefPointBy[homothety = center C ratio 0.5](A)
+			\tkzGetPoint{M}
+			\tkzDefPointBy[homothety = center C ratio 0.3333](B)
+			\tkzGetPoint{D}
+			\tkzDefLine[parallel=through C](A,D) \tkzGetPoint{c}
+			\tkzInterLL(C,c)(A,B) \tkzGetPoint{K}
+			\tkzInterLL(B,M)(C,K) \tkzGetPoint{E}
+			\tkzDrawSegments(K,B A,C A,D B,M B,C C,K)
+			\tkzLabelPoints[above](C)
+			\tkzLabelPoints[below](A)
+			\tkzLabelPoints[below left](K,M)
+			\tkzLabelPoints[below right](B)
+			\tkzLabelPoints[above right](D)
+			\tkzDrawPoints[fill=black](A,B,C,D,M,K)
+			\tkzMarkRightAngles(C,A,B)
+			\tkzMarkSegments[mark=|](A,M C,M)
+			\end{tikzpicture}}  }
+\end{bt}
+
+\begin{bt}%[Dự án EX-C2-L8]%[Võ Thị Quỳnh Trang]%[8H3G1]
+	Cho tam giác $ABC$ vuông tại $A$. Các điểm $D$, $E$ thuộc cạnh $BC$ sao cho $BD=DE=EC$. Biết $AD=10$cm, $AE=15$cm. Tính độ dài $BC.$
+	\loigiai{Kẻ $DH\parallel AC$; $EK \parallel AB$ ($K\in AC$; $H\in AB$.
+		\\ Đặt $DH=x$; $EK=y$.
+		\\Do $DH\parallel AC$, theo hệ quả định lý Ta-lét ta có
+		$$\dfrac{DH}{AC}=\dfrac{BD}{BC}=\dfrac{1}{3} \Rightarrow AC=3\cdot DH=3x.$$
+		\immini{Do $EK\parallel AB$, theo định lý Ta-lét ta có
+			$$\dfrac{AK}{AC}=\dfrac{EB}{CB}=\dfrac{2}{3} \Rightarrow AH=2x.$$
+			Tương tự ta được $AB=3y$; $AH=2y$. Suy ra $BH=y$.
+			\\Xét $\Delta ADH$ vuông tại $H$, theo định lý Pitago ta có
+			$$AH^2+DH^2=AD^2 \text{ hay } 4y^2+x^2=100.\quad (1)$$
+			Tương tự ta được $y^2+4x^2=225$.\quad (2)
+			\\Cộng vế theo vế của (1) và (2): $5(x^2+y^2)=325 \Leftrightarrow x^2+y^2=65$.
+			\\Mà $BH=y$ nên $x^2+y^2=DH^2+BH^2=BD^2$ hay $BD=\sqrt{65}$.
+			\\Vậy $BC=3\sqrt{65}$.}{\begin{tikzpicture}
+			\tkzDefPoints{0/0/A, 3/0/B, 0/5/C}
+			\tkzDefPointBy[homothety = center C ratio 0.667](B)
+			\tkzGetPoint{D}
+			\tkzDefPointBy[homothety = center C ratio 0.5](D)
+			\tkzGetPoint{E}
+			\tkzDefLine[parallel=through D](A,C) \tkzGetPoint{c}
+			\tkzInterLL(D,c)(A,B) \tkzGetPoint{H}
+			\tkzDefLine[parallel=through E](A,B) \tkzGetPoint{a}
+			\tkzInterLL(E,a)(A,C) \tkzGetPoint{K}
+			\tkzDrawSegments(A,B A,C A,D A,E A,C B,C E,K D,H)
+			\tkzLabelPoints[above](C)
+			\tkzLabelPoints[below](H)
+			\tkzLabelPoints[left](K)
+			\tkzLabelPoints[above right](E,D)
+			\tkzLabelPoints[below left](A)
+			\tkzLabelPoints[below right](B)
+			\tkzDrawPoints[fill=black](A,B,C,D,K,E,H)
+			\tkzMarkRightAngles(C,A,B C,K,E D,H,B)
+			\tkzMarkSegments[mark=|](B,D E,C E,D)
+			\end{tikzpicture}}}
+\end{bt}
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Cho tam giác $ ABC $ vuông tại $ A $. Vẽ ra phía ngoài tam giác đó các tam giác $ ABD $ vuông cân tại $ B $, $ ACF $ vuông cân tại $ C $. Gọi $ H $ là giao điểm của $ AB $ và $ CD $, $ K $ là giao điểm của $ AC $ và $ BF $. Chứng minh rằng \begin{enumerate}
+		\item $ AH=AK $.
+		\item $ AH^2=BH \cdot CK $.
+	\end{enumerate}
+\loigiai{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=-3,xmax=7.5,ymin=-0.5,ymax=4.5]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/B,5/0/C,1/2/A}
+\tkzDefPointBy[rotation = center B angle 90](A)    \tkzGetPoint{D}
+\tkzDefPointBy[rotation = center C angle -90](A)    \tkzGetPoint{F}
+\tkzInterLL(A,B)(C,D)    \tkzGetPoint{H}
+\tkzInterLL(A,C)(B,F)    \tkzGetPoint{K}
+\tkzMarkRightAngles[size=0.2](A,B,D)
+\tkzMarkRightAngles[size=0.2](A,C,F)
+\tkzDrawPoints[size=6pt,color=black](A,B,C,F,D,K,H)
+\tkzLabelPoints[above](A,D,F,K,H)
+\tkzLabelPoints[below](B,C)
+\tkzDrawSegments(A,B B,C A,C A,D B,D A,F C,F C,D B,F)
+\end{tikzpicture}
+	\end{center}
+	\begin{enumerate}
+		\item Đặt $ AB=c $, $ AC=b $.\\ Ta có $ DB \parallel AC $ suy ra $ \dfrac{HA}{HB}=\dfrac{AC}{DB}=\dfrac{AC}{AB}=\dfrac{c}{b} $, suy ra $$\dfrac{HA}{b}=\dfrac{HB}{c}=\dfrac{HA+HB}{b+c}=\dfrac{c}{b+c} \Rightarrow AH=\dfrac{bc}{b+c}.$$
+		Tương tự, ta được $ \dfrac{KA}{KC}=\dfrac{c}{b} $ và $ AK=\dfrac{bc}{b+c} $. Do đó $ AH=AK $.
+		\item Ta có $ \dfrac{HA}{HB}=\dfrac{b}{c} $; $ \dfrac{KA}{KC}=\dfrac{c}{b} $.\\
+		 Do đó $ \dfrac{HA}{HB}=\dfrac{KC}{KA} $ suy ra $ HA \cdot AK = BH \cdot CK$.\\
+		  Lại  có $ AH=AK $ suy ra $ HA^2=BH \cdot CK $.
+\end{enumerate}}
+\end{bt} 
+
+
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Cho tứ giác $ ABCD $ có $ M $ là trung điểm của $ CD $, $ N $ là trung điểm của $ CB $. Biết rằng $ AM $ và $ AN $ cắt đường chéo $ BD $ thành ba đoạn bằng nhau. Chứng minh rằng $ ABCD $ là hình bình hành.
+	\loigiai{
+		\begin{center}
+				\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-3,xmax=7.5,ymin=-1.2,ymax=2.5]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/B,1/2/A,4/0/C,5/2/D}
+			\coordinate (M) at ($(C)!0.5!(D)$);
+			\coordinate (N) at ($(C)!0.5!(B)$);
+			\tkzInterLL(A,M)(B,D)    \tkzGetPoint{E}
+			\tkzInterLL(A,N)(B,D)    \tkzGetPoint{F}
+			\tkzInterLL(N,M)(B,A)    \tkzGetPoint{H}
+			\tkzInterLL(N,M)(A,D)    \tkzGetPoint{G}
+			\tkzLabelPoints[above](A,D,G,E,F)
+			\tkzLabelPoints[below](M,C,N)
+			\tkzLabelPoints[left](B,H)
+			\tkzDrawPoints[size=6pt,color=black](A,B,C,D,E,F,G,H,M,N)
+			\tkzDrawSegments(A,B B,C C,D D,A B,D H,G A,N A,M B,H D,G)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $ E $, $ F $ là giao điểm của $ AM $, $ AN $ với $ BD $; gọi $ G $, $ H $ là giao điểm của của $ MN $ với $ AD $, $ AB $. \\
+		Ta có 
+		\begin{itemize}
+			\item $ BF \parallel HN \Rightarrow \dfrac{AB}{AH}=\dfrac{BF}{HN}=\dfrac{AF}{AN} $. \hfill (1)\\
+			\item  $ EF \parallel MN \Rightarrow \dfrac{AF}{AN}=\dfrac{EF}{MN} $. \hfill (2)\\
+		\end{itemize}
+		Mặt khác, $ MN $ là đường trung bình tam giác $ CBD $ suy ra $ MN=\dfrac{1}{2}BD $, lại có $ EF =\dfrac{1}{3}BD $ \\
+		Thay vào (2), ta được $ \dfrac{AF}{AN}=\dfrac{EF}{MN}= \dfrac{2}{3} $ \hfill (3)\\
+		Từ (1) và (3) suy ra $ \dfrac{AB}{AH}=\dfrac{BF}{HN}=\dfrac{2}{3} $. \hfill (4) \\
+		Chứng minh tương tự, ta được $ \dfrac{AD}{AG}=\dfrac{DE}{MG}=\dfrac{2}{3} $ \hfill (5)\\
+		Từ  (3), (4) và (5) suy ra $ HN= \dfrac{3}{2}EF $, $ MN=\dfrac{3}{2}EF $, $ MG=\dfrac{3}{2}DE $. Do đó $ HN=MN=MG $.\\
+		Do đó, ta có $ \dfrac{GN}{HN}=\dfrac{2}{3} $, kết hợp với (4) suy ra $ BC $ song song $ AD $. Chứng minh tương tự ta được $ AB $ song song $ CD $ và do đó $ ABCD $ là hình bình hành.}
+\end{bt}
+
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Trên cạnh $ BC $ của hình vuông $ ABCD $ cạnh $ 6 $, lấy điểm $ E $ sao cho $ BE=2 $. Trên tia đối của tia $ CD $ lấy điểm $ F $ sao cho $ CF=3 $. Gọi $ M $ là giao điểm của $ AE $ và $ BF $. Tính $ \widehat{AMC} $.
+	\loigiai{
+				\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-1,xmax=9.2,ymin=-0.5,ymax=3.5]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/D,0/3/A,3/0/C,3/3/B,3/2/E,4.5/0/F}
+			\tkzInterLL(A,E)(B,F)    \tkzGetPoint{M}
+			\tkzInterLL(A,E)(C,D)    \tkzGetPoint{G}
+			\tkzInterLL(C,M)(B,A)    \tkzGetPoint{H}
+			\tkzLabelPoints[above](A,B,H)
+			\tkzLabelPoints[below](C,D,G,F)
+			\tkzLabelPoints[below left](E)
+			\tkzLabelPoints[above right](M)
+			\tkzDrawPoints[size=6pt,color=black](A,B,C,D,E,F,G,H,M)
+			\tkzDrawSegments(A,B B,C C,D D,A B,D C,H B,F A,G B,H C,G)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $ H $ là giao điểm của $ CM $ và $ AB $, $ G $ là giao điểm của $ AM $ và $ DF $. Ta có \begin{itemize}
+			\item  $ AB \parallel CG $ suy ra $ \dfrac{AB}{CG}=\dfrac{BE}{CE} \Rightarrow \dfrac{6}{CG}=\dfrac{2}{4}  \Rightarrow CG=12$, $ FG=CG-CF=9 $.\\
+			\item  $ AH \parallel DG $ suy ra $ \dfrac{HB}{CF}=\dfrac{MB}{MF}=\dfrac{AB}{FG} $, do đó 	
+			$ \dfrac{BH}{AB}=\dfrac{CF}{FG} $ nên $ \dfrac{BH}{6}=\dfrac{3}{9} $, $ BH=2 $.
+		\end{itemize}
+		 Xét $ \triangle BAE $ và $ \triangle BCH $, ta có
+		 \begin{itemize}
+		 	\item $ AB=BC $;
+		 	\item $ \widehat{ABE}=\widehat{CBH} $;
+		 	\item $ BH=BE=2 $
+		 \end{itemize}
+		 $\Rightarrow  \triangle BAE =\triangle BCH \Rightarrow \widehat{AHM}=\widehat{AEB}=\widehat{MEC}$.\\
+	 Ta có $ \widehat{MEC}+\widehat{ECM}=\widehat{BHC}+\widehat{ECM}=90^\circ $ do đó $ \widehat{AMC}=90^\circ $.}
+\end{bt}
+
+\begin{bt}%%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Cho tam giác $ ABC $. Một đường thẳng cắt các cạnh $ BC $, $ CA $ theo thứ tự ở $ D $, $ E $ và cắt đường thẳng $ BA $ ở $ F $. Vẽ hình bình hành $ BDEF $. Đường thẳng đi qua $ F $ và song song với $ BC $ cắt $ HA $ ở $ I $. Chứng minh rằng $ FI=DC $.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-1.5,xmax=6.5,ymin=-0.5,ymax=5.5]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{5/0/D,2/4/A,6/0/C,0/0/B,4/2/E}
+			\tkzInterLL(D,E)(B,A)    \tkzGetPoint{F}
+			\tkzDefPointBy[translation = from D to B](E)    \tkzGetPoint{H}
+			\tkzDefLine[parallel = through F](C,B) \tkzGetPoint{c}
+			\tkzInterLL(F,c)(H,A)    \tkzGetPoint{I}
+			\tkzInterLL(C,A)(F,I)    \tkzGetPoint{K}
+			\tkzInterLL(B,A)(E,H)    \tkzGetPoint{M}
+			\tkzLabelPoints[above](K,F,I)
+			\tkzLabelPoints[below](C,D,B)
+			\tkzLabelPoints[left](H,A)
+			\tkzLabelPoints[right](E)
+			\tkzLabelPoints[below right](M)
+			\tkzDrawPoints[size=6pt,color=black](K,F,I,C,D,B,H,A,E,M)
+			\tkzDrawSegments(B,F K,C K,I H,E H,I D,F B,C B,H)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $ K $ là giao điểm của $ AC $ và $ FI $, $ M $ là giao điểm của $ AB $ và $ EH $. Ta có $ KI \parallel HE $ suy ra $ \dfrac{FI}{FK}=\dfrac{MH}{ME} $. \hfill (1)\\
+		Ta có $ KI \parallel BC $ suy ra $ \dfrac{DC}{FK} = \dfrac{DE}{FE}$. \hfill (2)\\
+		Ta có $ ME \parallel BC $ suy ra $ \dfrac{BD}{ME}=\dfrac{FD}{FE} \Rightarrow \dfrac{BD-ME}{ME}=\dfrac{FD-FE}{FE} \Rightarrow \dfrac{MH}{ME}=\dfrac{DE}{FE} $. \hfill (3)\\
+		Từ (1), (2) và (3) suy ra $ \dfrac{FI}{FK}=\dfrac{DC}{FK} $ nên $ FI=DC $.}
+\end{bt}
+
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Cho tam giác $ ABC $, đường phân giác $ AD $, đường trung tuyến $ AM $. Qua điểm $ I $ thuộc đoạn thẳng $ AD $, kẻ $ IH $ vuông góc với $ AB $, $ IK $ vuông góc với $ AC $. Gọi $ N $ là giao điểm của $ HK $ và $ AM $. Chứng minh rằng $ NI $ vuông góc với $ BC $.
+	\loigiai{
+		\begin{center}
+		\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+		\tkzInit[xmin=-1.5,xmax=6.5,ymin=-0.5,ymax=5.5]
+		\tkzClip
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{5/0/D,0.7/5/A,6/0/C,0/0/B}
+		\tkzDefLine[bisector](B,A,C) \tkzGetPoint{i}
+		\tkzInterLL(A,i)(B,C)    \tkzGetPoint{D}
+		\coordinate (M) at ($(C)!0.5!(B)$);
+		\coordinate (I) at ($(A)!0.7!(D)$);
+		\tkzDefLine[perpendicular=through I](A,B)
+		\tkzGetPoint{b}
+		\tkzDefLine[perpendicular=through I](A,C)
+		\tkzGetPoint{c}
+		\tkzInterLL(I,c)(C,A)    \tkzGetPoint{K}
+		\tkzInterLL(I,b)(A,B)    \tkzGetPoint{H}
+		\tkzInterLL(H,K)(A,M)    \tkzGetPoint{N}
+		\tkzDefLine[parallel = through N](C,B) 
+		\tkzGetPoint{d}
+		\tkzInterLL(N,d)(A,B)    \tkzGetPoint{E}
+		\tkzInterLL(N,d)(A,C)    \tkzGetPoint{F}
+		\tkzDefLine[parallel = through E](H,K) 
+		\tkzGetPoint{e}
+		\tkzInterLL(E,e)(A,C)    \tkzGetPoint{G}
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[below](C,D,B,M)
+		\tkzLabelPoints[left](H,E)
+		\tkzLabelPoints[right](G,K,F)
+		\tkzLabelPoints[below left](I)
+		\tkzLabelPoints[above right](N)
+		\tkzDrawPoints[size=6pt,color=black](K,F,I,C,D,B,H,A,E,G,M,N)
+		\tkzDrawSegments(A,B A,C B,C E,F E,G E,I H,K H,I I,N I,F A,D A,M I,K)
+		\end{tikzpicture}
+	\end{center}
+Qua $ N $ kẻ đường $ EF \parallel BC $, do $ M $ là trung điểm $ BC $ nên $ NE=NF $.\\
+	Kẻ  $ EG \parallel HK $, do $ N $ là trung điểm $ EF $ nên $ GK=KF $. \hfill (1)\\
+Ta có 
+\begin{itemize}
+	\item $ I $ thuộc phân giác $ AD $,
+	\item $ IH \perp AB $,
+	\item $ IK \perp AC $.
+\end{itemize}
+ $\Rightarrow  AH=AK $.\\
+Tam giác $ AHK $ cân, $ EG \parallel HK $ suy ra $ AE=AG $, nên $ EH=GK $. \hfill (2)\\
+Từ (1) và (2) suy ra $ EH=KF $.\\
+Xét tam giác $ IHE $ và $ IKF $ có \begin{itemize}
+	\item $ IH=IK $,
+	\item $ HE=KF $,
+	\item $ \widehat{EHI}=\widehat{FKI}(=90^\circ) $
+\end{itemize}
+ $ \Rightarrow \triangle IHE = \triangle IKF $ (c-g-c) $ \Rightarrow IE=IF $.\\
+$ \triangle IEF $ cân tại $ I $, $ IN $ là đường trung tuyến nên $ IN \perp EF $. Do đó $ IN \perp BC $.}
+\end{bt}
+
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Cho tam giác có ba góc nhọn, trực tâm $ H $. Một đường thẳng đi qua $ H $ cắt $ AB $, $ AC $ theo thứ tự ở $ P $, $ Q $ sao cho $ HP=HQ $. Gọi $ M $ là trung điểm của $ BC $. Chứng minh rằng $ HM $ vuông góc với $ PQ $.
+	\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+		\tkzInit[xmin=-2.5,xmax=6.5,ymin=-4.5,ymax=4.2]
+		\tkzClip
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{2/4/A,6/0/C,0/0/B}
+		\tkzDefLine[perpendicular=through A](B,C) \tkzGetPoint{a}
+		\tkzDefLine[perpendicular=through C](B,A) \tkzGetPoint{c}
+		\tkzInterLL(A,a)(C,c)    \tkzGetPoint{H}
+		\coordinate (M) at ($(C)!0.5!(B)$);
+		\tkzDefLine[perpendicular=through H](H,M) \tkzGetPoint{b}
+		\tkzInterLL(H,b)(A,B)    \tkzGetPoint{P}
+		\tkzInterLL(H,b)(A,C)    \tkzGetPoint{Q}
+		\tkzDefLine[parallel = through C](P,Q) 
+		\tkzGetPoint{e}
+		\tkzInterLL(C,e)(A,H)    \tkzGetPoint{K}
+		\tkzInterLL(C,e)(A,B)    \tkzGetPoint{N}
+		\tkzLabelPoints[above]()
+		\tkzLabelPoints[below](M,K)
+		\tkzLabelPoints[left](A,B,P,N,H)
+		\tkzLabelPoints[right](Q,C)
+		\tkzLabelPoints[below right]()
+		\tkzDrawPoints[size=6pt,color=black](K,C,B,H,A,M,N,P,Q)
+		\tkzDrawSegments(A,N A,C A,K B,C C,H P,Q M,H M,K C,N)
+		\end{tikzpicture}
+	\end{center}
+	Qua $ C $ kẻ đường thẳng song song với $ PQ $ cắt $ AB $ ở $ N $, cắt $ AH $ ở $ K $.\\
+	Ta có $ PQ \parallel NC $ suy ra $ \dfrac{PH}{NK}=\dfrac{QH}{KC}\left(=\dfrac{AH}{AK}\right)$.
+	Do $ HP=HQ $ nên $ KN=KC $. \\
+	Ta có $ MB=MC $, $ KN+KC $ suy ra $ KM $ là đường trung bình của $ \triangle CBN $, $ KM \parallel AB $.\\
+	Mà $ CH \perp AB $ nên $ KM \perp CH $.\\
+	Lại có $ BC \perp AH $, $ KM \perp CH $ suy ra $ M $ là trực tâm của $ \triangle CHK $ nên $ HM \perp NC $.
+	Lại có $ PQ \parallel NC$ suy ra $ HM \perp PQ $.}
+\end{bt}
+
+
+%194
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Hình chữ nhật $ ABCD $ có $ M $, $ N $ theo thứ tự là trung điểm của $ AD $, $ BC $. Gọi $ E $ là một điểm bất kì thuộc tia đối của tia $ DC $, $ K $ là giao điểm của $ EM $ và $ AC $. Chứng minh rằng $ NM $ là tia phân giác của góc $ KNE $.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=0.8, line join = round, line cap = round]
+			\tkzInit[xmin=-2,xmax=9.5,ymin=-0.5,ymax=7]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/6/A,4/6/B,4/0/C,0/0/D,-1/0/E}
+			\tkzDefMidPoint(A,D)		\tkzGetPoint{M}
+			\tkzDefMidPoint(B,C)		\tkzGetPoint{N}
+			\tkzDefMidPoint(M,N)		\tkzGetPoint{I}
+			\tkzInterLL(E,M)(A,C)    \tkzGetPoint{K}
+			\tkzInterLL(K,N)(C,D)    \tkzGetPoint{H}
+			\tkzDrawSegments(A,B B,C C,D D,A D,E E,K K,H M,N N,E A,C C,H)
+			\tkzDrawPoints[size=6pt,color=black](A,B,C,D,E,M,N,I,H)
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[below](C,D,E,H)
+			\tkzLabelPoints[left](M)
+			\tkzLabelPoints[right](N)
+			\tkzLabelPoints[above right](K,I)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $ I $ là giao điểm của $ AC $ và $ MN $, $ H $ là giao điểm $ KN $ và $ DC $.\\
+		Xét tứ giác $ NMCD $ có
+		\begin{itemize}
+			\item $ DM \parallel CN$ ($ AD \parallel BC $, $ M \in AD $, $ N \in BC $),
+			\item $ DM=CN $ ($ DM=\dfrac{1}{2}$, $AD=\dfrac{1}{2}BC $, $ AD=BC $).
+		\end{itemize}
+		$ \Rightarrow $ Tứ giác $ MNCD $ là hình bình hành $ \Rightarrow MN \parallel CD $.\\
+		Xét $ \triangle ADC$ có $ M $ là trung điểm $ AD $, $ MI \parallel DC $ ($ MN \parallel CD $, $ I \in MN $), $ I \in AC $ $ \Rightarrow I$ là trung điểm $ MN $ $ \Rightarrow IM=IN $.\\
+		Xét $ \triangle KEC $ có $ MI \parallel EC $ ($ MN \parallel CD $, $ I \in MN $, $ E \in CD $)\\
+		$ \Rightarrow \dfrac{IM}{EC}=\dfrac{KI}{KC}$ (hệ quả của định lí Talét) \hfill(1)\\
+		Chứng minh tương tự ta có $\dfrac{IN}{HC}=\dfrac{KI}{KC}$. \hfill(2)\\
+		Từ ($ 1 $) và ($ 2 $) suy ra $ \dfrac{IM}{EC}=\dfrac{IN}{HC} \Leftrightarrow \dfrac{EC}{HC}=\dfrac{IM}{IN}=1 $ $ \Rightarrow C $ là trung điểm $ EH $.\\
+		Xét $ \triangle ENH $ có $ NC $ vừa là đường cao vừa là đường trung tuyến nên $ \triangle ENH $ cân tại $ N $. \hfill(3)\\
+		Ta có $ \widehat{KNE} $ là góc ngoài của $ \triangle NEH $. \hfill(4)\\
+		Từ (3) và (4) $ \Rightarrow \widehat{KNE}=2 \widehat{NHE} $. \hfill(5)\\
+		Ta lại có $ \widehat{KNM}=\widehat{NHE} $ ($ MN \parallel EH $, hai góc so le trong) \hfill(6)\\
+		Từ ($ 5 $) và ($ 6 $)$ \Rightarrow \widehat{KNE}=2 \widehat{KNM} \Leftrightarrow NM$ là tia phân giác của góc $ \widehat{KNE} $.
+	}
+\end{bt}
+%195
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Cho hình bình hành $ ABCD $, điểm $ M $ thuộc cạnh $ BC $, điểm $ N $ thuộc tia đối của tia $ BC $ sao cho $ BN=CM $. Các đường thẳng $ DN $, $ DM $ cắt $ AB $ theo thứ tự ở $ E $, $ F $. Chứng minh rằng $ AE^2=EB\cdot EF $.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-0.5,xmax=8.5,ymin=-0.5,ymax=4]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/D,1/2/A,4/0/C,5/2/B}
+			\coordinate (M) at ($(C)!0.6!(B)$);
+			\tkzDefPointBy[translation = from C to B](M)    \tkzGetPoint{N}
+			\tkzInterLL(A,B)(M,D)    \tkzGetPoint{F}
+			\tkzInterLL(A,B)(N,D)    \tkzGetPoint{E}
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](D,C,E)
+			\tkzLabelPoints[above left](B)
+			\tkzLabelPoints[below right](M)
+			\tkzLabelPoints[right](N,F)
+			\tkzDrawPoints[size=6pt,color=black](A,B,C,D,M,N,E,F)
+			\tkzDrawSegments(A,F N,C C,D D,A N,A N,D F,D)
+			\end{tikzpicture}
+		\end{center}
+		Ta có $ MN=BN+BM=CM+BM=BC=AD $ ($ BN=CM $).\\
+		Xét tứ giác $ AMND $ có 
+		\begin{itemize}
+			\item $ AD \parallel MN $ ($ AD \parallel MN $, $ N\in BC $),
+			\item $ AD=MN $ (cmt).
+		\end{itemize}
+		$ \Rightarrow $ Tứ giác $ ANMD $ là hình bình hành (tứ giác có $ 1 $ cặp cạnh vừa song song vừa bằng nhau) $ \Rightarrow AN \parallel DF $.\\
+		Xét $ \triangle DEF $ có $ AN \parallel DF $ $ \Rightarrow \dfrac{EA}{EF}=\dfrac{EN}{ED} $ (hệ quả của định lí Talét). \hfill($ 1 $)\\
+		Xét $ \triangle AED $ có $ AD \parallel BN $ $ \Rightarrow \dfrac{EN}{ED}=\dfrac{EB}{EA} $ (hệ quả của định lí Talét). \hfill($ 2 $)\\
+		Từ ($ 1 $) và ($ 2 $) suy ra $ \dfrac{EA}{EF}=\dfrac{EB}{EA} \Leftrightarrow EA^2=EB\cdot EF $.
+	}
+\end{bt}
+%196
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Một đường thẳng đi qua đỉnh $ A $ của hình bình hành $ ABCD $ cắt $ BD $, $ BC $, $ DC $ theo thứ tự ở $ E $, $ K $, $ G $. Chứng minh rằng:
+	\begin{enumerate}
+		\item $ AE^2=EK \cdot EG $;
+		\item  $ \dfrac{1}{AE} =\dfrac{1}{AK}+\dfrac{1}{AG}$;
+		\item Khi đường thẳng thay đổi vị trí nhưng vẫn đi qua $ A $ thì tích $ BK \cdot DG $ có giá trị không đổi.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-3,xmax=7.5,ymin=-1.2,ymax=2.5]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/D,1/2/A,4/0/C,5/0/G,5/2/B}
+			\coordinate (M) at ($(C)!0.5!(D)$);
+			\coordinate (N) at ($(C)!0.5!(B)$);
+			\tkzInterLL(A,G)(B,D)    \tkzGetPoint{E}
+			\tkzInterLL(A,G)(B,C)    \tkzGetPoint{K}
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[below](D,C,G,E)
+			\tkzLabelPoints[right](K)
+			\tkzDrawPoints[size=6pt,color=black](A,B,C,D,E,K,G)
+			\tkzDrawSegments(A,B B,C G,D D,A B,D A,G)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Xét $ \triangle AEB $ có $ AB \parallel DG $ ($ AB \parallel DC $, $ G \in DC $) $ \Rightarrow \dfrac{EA}{EG}=\dfrac{EB}{ED} $. \hfill($ 1 $)\\
+			Xét $ \triangle AED $ có $ AD \parallel BK $ ($ AD \parallel BC $, $ K \in BC $) $ \Rightarrow \dfrac{EB}{ED}=\dfrac{EK}{EA} $. \hfill($ 2 $)\\
+			Từ ($ 1 $) và ($ 2 $) suy ra $ \dfrac{EA}{EG}=\dfrac{EK}{EA} \Leftrightarrow EA^2=EK\cdot EG $.
+			\item Ta có $ \dfrac{1}{AE} =\dfrac{1}{AK}+\dfrac{1}{AG} \Leftrightarrow \dfrac{AE}{AK}+\dfrac{AE}{AG}=1$.\\
+			Xét $ \triangle AEB $ có $ AB \parallel DG $ ($ AB \parallel DC $, $ G \in DC $) $ \Rightarrow \dfrac{AE}{AG}=\dfrac{BE}{BD} $. \hfill($ 3 $)\\
+			Xét $ \triangle AED $ có $ AD \parallel BK $ ($ AD \parallel BC $, $ K \in BC $) $ \Rightarrow \dfrac{AE}{AK}=\dfrac{DE}{DB} $. \hfill($ 4 $)\\
+			Từ ($ 3 $) và ($ 4 $) ta được $ \dfrac{AE}{AK}+\dfrac{AE}{AG}= \dfrac{DE}{DB}+\dfrac{BE}{BD}=\dfrac{BD}{BD}=1$.
+			\item Xét $ \triangle ABK $ có $ AB \parallel CG $ ($ AB \parallel DC $, $ G \in DC $) $ \Rightarrow \dfrac{KB}{KC}=\dfrac{AB}{CG} $. \hfill($ 5 $)\\
+			Xét $ \triangle AGD $ có $ AD \parallel KC $ ($ AD \parallel BC $, $ K \in BC $) $ \Rightarrow \dfrac{KC}{AD}=\dfrac{CG}{AD} $. \hfill($ 4 $)\\
+			Nhân từng vế ($ 5 $) và ($ 6 $) ta được $ \dfrac{KB}{AD}=\dfrac{AB}{AD} \Leftrightarrow KB \cdot DG=AB \cdot AD$, mà $ AB $, $ AD $ cố định nên $ BK \cdot DG $ có giá trị không đổi.
+		\end{enumerate}
+		
+	}
+\end{bt}
+%197
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Cho tam giác đều $ ABC $. Các điểm $ D $, $ E $ theo thứ tự thuộc các cạnh $ AB $, $ AC $ sao cho $ AD=CE $. Gọi $ M $ là một điểm bất kì thuộc cạnh $ BC $. Vẽ $ MH $ song song với $ CD $ ($ H $ thuộc $ AB $), vẽ $ MK $ song song với $ BE $ ($ K $ thuộc $ AC $). Chứng minh rằng khi điểm $ M $ chuyển động trên cạnh $ BC $ thì tổng $ MH+MK $ có giá trị không đổi.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-0.5,xmax=9.5,ymin=-0.5,ymax=5.7]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/B,6/0/C,4.2/1.4/M}
+			\tkzDefEquilateral(B,C)    \tkzGetPoint{A}
+			\coordinate (M) at ($(B)!0.4!(C)$);
+			\coordinate (D) at ($(B)!0.5!(A)$);
+			\coordinate (E) at ($(C)!0.5!(A)$);
+			\tkzDefLine[perpendicular=through M](A,B) \tkzGetPoint{c}
+			\tkzDefLine[perpendicular=through M](A,C) \tkzGetPoint{b}
+			\tkzInterLL(M,c)(A,B)    \tkzGetPoint{H}
+			\tkzInterLL(M,b)(C,A)    \tkzGetPoint{K}
+			\tkzDrawSegments(A,B B,C C,A M,H M,K B,E C,D)
+			\tkzDrawPoints[size=6pt,color=black](A,B,C,M,E,D,H,K)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B,C,M)
+			\tkzLabelPoints[left](D,H)
+			\tkzLabelPoints[right](E,K)
+			\end{tikzpicture}
+		\end{center}
+		Xét $ \triangle ADC $ và $ \triangle CEB $ có 
+		\begin{itemize}
+			\item $ AD=CE $ (giả thiết),
+			\item $ \widehat{A}=\widehat{C}=60^\circ $ ($ \triangle ABC $ đều),
+			\item $ AC=BC $ ($ \triangle ABC $ đều).
+		\end{itemize}
+		$ \Rightarrow \triangle ADC = \triangle CEB $ (c-g-c) $ \Rightarrow DC=BE $ ($ 2 $ cạnh tương ứng).\\
+		Xét $ \triangle BDC $ có $ MH \parallel DC $ (giả thiết) $ \Rightarrow \dfrac{MH}{DC}=\dfrac{MB}{BC} $ (hệ quả của định lí Talét). \hfill($ 1 $)\\
+		Xét $ \triangle BCE $ có $ MK \parallel BE $ (giả thiết) $ \Rightarrow \dfrac{MK}{BE}=\dfrac{MC}{BC} $ (hệ quả của định lí Talét). \hfill($ 2 $)\\
+		Từ ($ 1 $) và ($ 2 $) ta có $ \dfrac{MH}{DC}+\dfrac{MK}{BE}=\dfrac{MB}{BC}+\dfrac{MC}{BC}=\dfrac{BC}{BC}=1$, mà $ DC=BE $ (chứng minh trên) $ \Rightarrow  \dfrac{MH}{DC}+\dfrac{MK}{DC}=1 \Rightarrow MH+MK=CD$.\\
+		Ta có $ C $, $ D $ cố định nên $ MH+MK $ có giá trị không đổi.
+		
+	}
+\end{bt}
+%198
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Cho tam giác đều $ ABC $, trọng tâm $ G $, $ M $ là một điểm bất kì nằm bên trong tam giác. Đường thẳng $ MG $ cắt các đường thẳng $ BC $, $ AC $, $ AB $ theo thứ tự ở $ A'$, $ B' $, $ C' $. Chứng minh rằng\\
+	$$ \dfrac{A'M}{A'G} +\dfrac{B'M}{B'G}+\dfrac{C'M}{C'G}=3. $$
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-0.5,xmax=9.5,ymin=-0.5,ymax=5.7]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/B,6/0/C,4.2/1.4/M}
+			\tkzDefEquilateral(B,C)    \tkzGetPoint{A}
+			\coordinate (F) at ($(A)!0.5!(B)$);
+			\coordinate (D) at ($(C)!0.5!(B)$);
+			\coordinate (E) at ($(A)!0.5!(C)$);
+			\tkzDefLine[perpendicular=through M](A,B) \tkzGetPoint{c}
+			\tkzDefLine[perpendicular=through M](B,C) \tkzGetPoint{a}
+			\tkzDefLine[perpendicular=through M](A,C) \tkzGetPoint{b}
+			\tkzInterLL(M,c)(A,B)    \tkzGetPoint{F'}
+			\tkzInterLL(M,a)(C,B)    \tkzGetPoint{D'}
+			\tkzInterLL(M,b)(A,C)    \tkzGetPoint{E'}
+			\tkzCentroid(A,B,C)    \tkzGetPoint{G}
+			\tkzInterLL(M,G)(A,B)    \tkzGetPoint{C'}
+			\tkzInterLL(M,G)(C,B)    \tkzGetPoint{A'}
+			\tkzInterLL(M,G)(A,C)    \tkzGetPoint{B'}
+			\tkzDrawSegments(A,B B,A' C,A A',C')
+			\tkzDrawSegments[line width=0.5pt,dashed](A,D B,E C,F M,E' M,F' M,D')
+			\tkzDrawPoints[size=6pt,color=black](A,B,C,M,A',B',C',G,D,F,E,E',D',F')
+			\tkzLabelPoints[above](A,M)
+			\tkzLabelPoints[below](B,D,C,A',D')
+			\tkzLabelPoints[left](F)
+			\tkzLabelPoints[right](E',E)
+			\tkzLabelPoints[above left](F')
+			\tkzLabelPoints[below left](G,C')
+			\tkzLabelPoints[above right](B')
+			\end{tikzpicture}
+		\end{center}
+		Gọi $ 3 $ đường trung tuyến của $ \triangle ABC $ lần lượt là $ AD $, $ BE $, $ CF $, mà $ \triangle ABC $ đều nên $ GD=GE=GF $.\\
+		Vẽ $ D' $, $ E' $, $ F' $ lần lượt là hình chiếu của $ M $ trên $ BC $, $ CA $, $ AB $.\\
+		Vì $ \triangle ABC $ đều, $ AD $ là đường trung tuyến nên $ AD $ cũng là đường cao, suy ra $ AD \perp BC $, mà $ MD' \perp $ ($ D' $ là hình chiếu của $ M $ trên BC). Vậy $ AD \parallel MD' $.\\
+		Xét $\triangle A'GD$ có $ AD \parallel MD' $ (chứng minh trên) $ \Rightarrow \dfrac{A'M}{A'G}=\dfrac{MD'}{GD} $ (hệ quả của định lí Talét).\\
+		Chứng minh tương tự ta có
+		$$ \dfrac{B'M}{B'G}=\dfrac{ME'}{GE} \, \, \dfrac{C'M}{C'G}=\dfrac{MF'}{GF}.$$
+		Vậy $ \dfrac{A'M}{A'G} +\dfrac{B'M}{B'G}+\dfrac{C'M}{C'G}=\dfrac{MD'}{GD}+\dfrac{ME'}{GE}+\dfrac{MF'}{GF}=\dfrac{MD'+ME'+MF'}{GD} $ (vì $ GD=GE=GF $).\\
+		Mặt khác $ S_{\triangle ABC}= S_{\triangle AMB}+S_{\triangle AMC}+S_{\triangle BMC} \Leftrightarrow \dfrac{1}{2} \cdot AD \cdot BC=\dfrac{1}{2} \cdot AB \cdot MF'+ \dfrac{1}{2} \cdot AC \cdot ME' +\dfrac{1}{2} \cdot BC \cdot MD' \Leftrightarrow AD=MF'+ME'+MD'$.\\
+		Vậy $ \dfrac{A'M}{A'G} +\dfrac{B'M}{B'G}+\dfrac{C'M}{C'G}=\dfrac{AD}{GD}=3$.
+		
+		
+	}
+\end{bt}
+%199
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Cho tam giác $ ABC $ vuông cân tại $ A $. Các điểm $ D $, $ E $, $ F $ theo thứ tự chia trong các cạnh $ AB $, $ BC $, $ CA $ theo cùng một tỉ số. Chứng minh rằng
+	\begin{enumerate}
+		\item $ AE=DF $,
+		\item $ AE $ vuông góc với $ DF $.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-0.5,xmax=6.5,ymin=-0.5,ymax=3.5]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{3/3/A,0/0/B,6/0/C,1/1/H,2/2/D,5/1/F,2/0/E}
+			\tkzDrawSegments(A,B B,C C,A A,E D,F H,E)
+			\tkzMarkRightAngles[size=0.2](A,H,E)
+			\tkzMarkRightAngles[size=0.2](D,A,F)
+			\tkzDrawPoints[size=6pt,color=gray!50](A,B,C,H,D,E,F)
+			\tkzLabelPoints[below](B,E,C)
+			\tkzLabelPoints[left](A,B,D,H)
+			\tkzLabelPoints[right](F,C)
+			\end{tikzpicture}
+		\end{center}
+		Theo giả thiết, ta có $ \dfrac{AD}{AB}=\dfrac{BE}{BC} $. \hfill (1) \\
+		Vẽ $ EH \perp AB $, $ (H \in AB) $. Ta có $ HE \parallel AC $ suy ra $ \dfrac{HE}{AC}=\dfrac{BE}{BC}$. \hfill (2) \\
+		Từ (1) và (2) suy ra $ \dfrac{HE}{AC}=\dfrac{AD}{AB} $, lại có $ AB=AC $ suy ra $ HE=AD $.\\
+		Mặt khác tam giác $ BHE $ vuông có $ \widehat{HBE}=45^\circ $ suy ra $ \triangle HBE $ cân $ \Rightarrow HB=HE $. Vậy $ AD=EH=BH $.\\
+		Theo giả thiết ta có $ \dfrac{AD}{AB}=\dfrac{CF}{AC} $ suy ra $ AD=CF $.\\
+		Do đó ta có $ AH=AF $.\\
+		Xét $ \triangle AHE $ và $ \triangle FAD $
+		\begin{itemize}
+			\item $ AH=AF $ (cmt),
+			\item $ HE=AD $ (cmt),
+			\item $ \widehat{AHE}=\widehat{DAE}=90^\circ $.
+		\end{itemize}
+		$\Rightarrow \triangle AHE =\triangle FAD $ (c - g - c) $ \Rightarrow AE=DF $, $ \widehat{AFD}=\widehat{HAE} $.\\
+		Ta có $ \widehat{HAE}+\widehat{ADF}= \widehat{AFD}+\widehat{ADF}=90^\circ \Rightarrow AE \perp DF $. }
+\end{bt}
+%200
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Cho hình thang $ ABCD $ ($ AB \parallel CD $) có diện tích $ S $. $ AB=\dfrac{2}{3}CD $. Gọi $ E $, $ F $ theo thứ tự là trung điểm của $ AB $, $ CD $. Gọi $ M $ là giao điểm của $ AF $ và $ DE $. $ N $ là giao điểm của $ BF $ và $ CE $. Tính diện tích tứ giác $ EMFN $ theo $ S $.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-0.5,xmax=5.5,ymin=-0.5,ymax=3.5]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/D,5/0/C,1/3/A,3.5/3/B}
+			\coordinate (E) at ($(A)!0.5!(B)$);
+			\coordinate (F) at ($(C)!0.5!(D)$);
+			\tkzInterLL(A,F)(E,D)    \tkzGetPoint{M}
+			\tkzInterLL(C,E)(F,B)    \tkzGetPoint{N}
+			\tkzDrawSegments(A,B B,C C,D D,A A,F B,F D,E C,E E,F)
+			\tkzDrawPoints[size=6pt,color=black](A,B,C,D,E,F,M,N)
+			\tkzLabelPoints[above](A,E,B)
+			\tkzLabelPoints[below](D,F,C)
+			\tkzLabelPoints[left](M,N)
+			\end{tikzpicture}
+		\end{center}
+		Đặt $ S_{AEM}=x $. \\
+		Ta có $ AB \parallel CD $, suy ra $ \dfrac{MF}{MA}=\dfrac{MD}{ME}=\dfrac{DF}{AE}=\dfrac{3}{2} $. \hfill (1)\\
+		Do đó $ \dfrac{S_{EMF}}{S_{AME}}=\dfrac{MF}{ME}=\dfrac{3}{2}  \Rightarrow S_{EMF}=\dfrac{3}{2}x$. \\
+		Tương tự, ta có $ S_{AMD}=\dfrac{3}{2}S_{AME}=\dfrac{3}{2}x $, $ S{DMF}=\dfrac{3}{2}S_{AMD}=\dfrac{9}{4}x $.\\
+		Từ đó, ta có $ S_{AEFD}=\dfrac{25}{4}x $. \hfill (2)\\
+		Từ (1) và (2) ta có $ S_{EMF}=\dfrac{6}{25}S_{AEFD} $.\\
+		Tương tự $ S_{ENF}=\dfrac{6}{25}S_{BEFC} $. Suy ra $ S_{EMFN}=\dfrac{6}{25}S_{ABCD}=\dfrac{6}{25}S $.}
+\end{bt}
+
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Cho hình thang $ABCD$ $(AB \parallel CD)$ có diện tích $S$. $AB=\dfrac{2}{3} CD$. Gọi $E$, $F$ theo thứ tự là trung điểm của $AB$ và $CD$. Gọi $M$ là giao điểm của $AF$ và $DE$. $N$ là giao điểm của $BF$ và $CE$. Tính diện tích tứ giác $EMFN$ theo $S$.
+	\loigiai{
+		\immini{
+			Đặt $S_{AEM}=x$.\\
+			Do $\dfrac{MF}{MA}=\dfrac{MD}{ME}=\dfrac{DF}{AE}=\dfrac{3}{2}$ nên $S_{EMF}=\dfrac{3}{2}x \quad\quad (1)$\\
+			Vì $S_{AMD}=S_{EMF}$ và $S_{DMF}=\dfrac{3}{2} S_{AMD}$ nên $S_{DMF}=\dfrac{3}{2} S_{AMD}=\dfrac{9}{4}x$.\\
+			Từ đó $S_{AEFD}=\dfrac{25}{4}x \quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\ \  (2)$\\
+			Từ $(1)$ và $(2)$ suy ra $S_{EMF}=\dfrac{6}{25}S_{AEFD}$.\\
+			Tương tự $S_{ENF}=\dfrac{6}{25}S_{BEFC}$.\\
+			Suy ra $S_{EMFN}=\dfrac{6}{25}S_{ABCD}=\dfrac{6}{25}S$
+			
+		}
+		{	\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			\tkzInit[ymin=-0.5,ymax=3.5,xmin=-0.5,xmax=6.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			\tkzDefPoints{1/3/A,4/3/B,6/0/C,0/0/D}
+			\tkzDrawPolygon(A,B,C,D)
+			\tkzDefMidPoint(A,B)\tkzGetPoint{E}
+			\tkzDefMidPoint(C,D)\tkzGetPoint{F}
+			\tkzInterLL(A,F)(D,E)\tkzGetPoint{M}
+			\tkzInterLL(B,F)(E,C)\tkzGetPoint{N}
+			\tkzDefBarycentricPoint(A=1,M=1,E=1)\tkzGetPoint{I}
+			\tkzLabelPoint[below](I) {$x$}
+			\tkzDrawSegments(A,F D,E E,C B,F)
+			\tkzDrawPoints(A,B,C,D,E,F,M,B)
+			\tkzLabelPoints[above](A,B,E)
+			\tkzLabelPoints[below](C,D,F)
+			\tkzLabelPoints[left](M)
+			\tkzLabelPoints[right](N)
+			\tkzLabelPoints[above right]()
+			\tkzLabelPoints[above left]()
+			\tkzLabelPoints[below left]()
+			\tkzLabelPoints[below right]()		
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang] 
+$ $
+	\begin{enumerate}[a.]
+		\item Cho hình bình hành $ABCD$, $M$ là trung điểm của $BC$. Điểm $N$ trên cạnh $CD$ sao cho $\dfrac{CN}{ND}=2$. Gọi giao điểm của $AM$, $AN$ với $BD$ là $P$, $Q$. Chứng minh rằng $S_{APQ}=\dfrac{1}{2}S_{AMN}$.
+		\item Chứng minh rằng kết luận ở câu a vẫn đúng nếu thay điều kiện \lq\lq$M$ là trung điểm của $BC$, $N$ trên cạnh $CD$ sao cho $\dfrac{CN}{ND}=2$\rq\rq \ bởi điều kiện tổng quát hơn \lq\lq$M$ trên cạnh $BC$. $N$ trên cạnh $CD$ sao cho $\dfrac{CN}{ND}=2\dfrac{BM}{MC}$\rq\rq.
+	\end{enumerate}
+	\loigiai{
+		Trước hết ta có $\dfrac{S_{APQ}}{S_{AMN}}=\dfrac{S_{APQ}}{S_{APN}}\cdot \dfrac{S_{APN}}{S_{AMN}}=\dfrac{AQ}{AN}\cdot\dfrac{AP}{AM}$. Ta cần tính toán tỉ số $\dfrac{AQ}{AN}\cdot\dfrac{AP}{AM}$.
+		\begin{enumerate}		
+			\item Ta có $\dfrac{AQ}{QN}=\dfrac{AB}{DN}=3\Rightarrow \dfrac{AQ}{AQ+QN}=\dfrac{3}{4}\Rightarrow \dfrac{AQ}{AN}=\dfrac{3}{4}$. \\
+			Và $\dfrac{AP}{PM}=\dfrac{AD}{BM}=2\Rightarrow \dfrac{AP}{AP+PM}=\dfrac{2}{3}\Rightarrow \dfrac{AP}{AM}=\dfrac{2}{3}$.\\
+			Do đó $\dfrac{AQ}{AN}\cdot \dfrac{AP}{AM}=\dfrac{3}{4}\cdot\dfrac{2}{3}=\dfrac{1}{2}$.\\
+			Vậy $S_{APQ}=\dfrac{1}{2}S_{AMN}$.
+			\begin{center}
+				\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+				\tkzInit[ymin=-0.5,ymax=3.5,xmin=-0.5,xmax=5.5]
+				%\tkzAxeXY
+				%\tkzGrid
+				\tkzClip
+				\tkzSetUpPoint[color=black,fill=black,size=6]
+				\tkzDefPoints{1/3/A,5/3/B,4/0/C,0/0/D}
+				\tkzDrawPolygon(A,B,C,D)
+				\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+				\tkzDefBarycentricPoint(D=2,C=1)\tkzGetPoint{N}
+				\tkzInterLL(A,M)(B,D)\tkzGetPoint{P}
+				\tkzInterLL(A,N)(B,D)\tkzGetPoint{Q}
+				\tkzDrawSegments(A,M A,N P,N B,D M,N)
+				\tkzDrawPoints(A,B,C,D,M,N,P,Q)
+				\tkzLabelPoints[above](A,B,P)
+				\tkzLabelPoints[below](C,D,N)
+				\tkzLabelPoints[left]()
+				\tkzLabelPoints[right](M)
+				\tkzLabelPoints[above right](Q)
+				\tkzLabelPoints[above left]()
+				\tkzLabelPoints[below left]()
+				\tkzLabelPoints[below right]()		
+				\end{tikzpicture}
+			\end{center}
+			%Bài Giải 201 b
+			\item Ta có $\dfrac{CN}{ND}=2\dfrac{BM}{MC}$. Đặt $\dfrac{BM}{MC}=k$ thì $\dfrac{CN}{ND}=2k$.\\
+			Đặt $MC=x$ thì $BM=kx$. Đặt $ND=y$ thì $CN=2ky$.\\
+			Ta có $\dfrac{AP}{PM}=\dfrac{AD}{BM}=\dfrac{x+kx}{kx}=\dfrac{k+1}{k}\Rightarrow \dfrac{AP}{AP+PM}=\dfrac{k+1}{2k+1}\Rightarrow \dfrac{AP}{AM}=\dfrac{k+1}{2k+1}\quad\quad (1)$\\
+			Mặt khác $\dfrac{AQ}{QN}=\dfrac{AB}{DN}=\dfrac{y+2ky}{y}=\dfrac{2k+1}{1}\Rightarrow \dfrac{AQ}{AQ+QN}=\dfrac{2k+1}{2k+2}\Rightarrow \dfrac{AQ}{AN}=\dfrac{2k+1}{2k+2}\quad (2)$\\
+			Từ $(1)$ và $(2)$ suy ra $\dfrac{AP}{AM}=\dfrac{AQ}{AN}=\dfrac{k+1}{2k+1}\cdot\dfrac{2k+1}{2k+2}=\dfrac{1}{2}$.\\
+			Vậy $S_{APQ}=\dfrac{1}{2}S_{AMN}$.
+		\end{enumerate}
+	}
+\end{bt}
+
+
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Cho góc $xOy$ và điểm $M$ cố định thuộc miền trong của góc. Một đường thẳng thay đổi vị trí nhưng luôn đi qua $M$ cắt các tia $Ox$, $Oy$ theo thứ tự ở $A$, $B$. Gọi $S_1$, $S_2$ theo thứ tự là diện tích các tam giác $MOA$, $MOB$. Chứng minh rằng tổng $\dfrac{1}{S_1}+\dfrac{1}{S_2}$ có giá trị không đổi.\\
+	\textit{\textbf{Hướng dẫn:}} Xét vị trí giới hạn của đường thẳng khi nó song song với $Ox$ để dự đoán giá trị không đổi.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=3.5,xmin=-0.5,xmax=7.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{5/0/A,2/2/B,0/0/O}
+			\tkzDefBarycentricPoint(B=2,A=1)\tkzGetPoint{M}
+			\tkzDefPointBy[projection = onto O--M](B)\tkzGetPoint{B'}
+			\tkzDefPointBy[projection = onto O--M](A)\tkzGetPoint{A'}
+			\tkzDefLine[parallel=through M](A,O)\tkzGetPoint{m}
+			\tkzInterLL(M,m)(O,B)\tkzGetPoint{K}
+			\tkzDrawSegments(O,M A,B)
+			\tkzDrawSegments[style=dashed](B,B' A,A' A',M M,K)
+			\tkzMarkRightAngles(B,B',M M,A',A)
+			\tkzDrawLines[add=0 and 0.4](O,A O,B)
+			\tkzLabelLine[pos=1.4,above](O,B){$y$}
+			\tkzLabelLine[pos=1.4,above](O,A){$x$}
+			\tkzDrawPoints(O,A,B,A',B',M,K)
+			%Gắn Label Cho Các Điểm
+			\tkzLabelPoints[above](A',M)
+			\tkzLabelPoints[below](O,A,B')
+			\tkzLabelPoints[left]()
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[above right]()
+			\tkzLabelPoints[above left](K,B)
+			\tkzLabelPoints[below left]()
+			\tkzLabelPoints[below right]()		
+			\end{tikzpicture}
+		\end{center}
+		Vẽ $MK\parallel OA$, ta có\\
+		\begin{eqnarray*}
+			&&\dfrac{OK}{OB}=\dfrac{AM}{AB}\Rightarrow \dfrac{S_{MOK}}{S_{MOB}}=\dfrac{S_{MOA}}{S_{AOB}}\\
+			&\Rightarrow& \dfrac{S_{MOK}}{S_2}=\dfrac{S_1}{S_1+S_2}\Rightarrow \dfrac{S_1+S_2}{S_1 S_2}=\dfrac{1}{S_{MOK}}\\
+			&\Rightarrow& \dfrac{1}{S_1}+\dfrac{1}{S_2}=\dfrac{1}{S_{MOK}} \text{ (không đổi)}
+		\end{eqnarray*}
+		Chú ý: Nếu vẽ thêm $AA'\perp OM$, $BB'\perp OM$ thì từ $\dfrac{1}{S_1}+\dfrac{1}{s_2}$ không đổi, ta có $\dfrac{1}{\dfrac{1}{2}\cdot OM\cdot AA'}+\dfrac{1}{\dfrac{1}{2}\cdot OM\cdot BB'}$ không đổi, suy ra $\dfrac{1}{AA'}+\dfrac{1}{BB'}$ không đổi. Ta lại có $MA\geq AA'$, $MB \geq BB'$ nên $\dfrac{1}{MA}+\dfrac{1}{MB}\leq \dfrac{1}{AA'}+\dfrac{1}{BB'}$ là hằng số.\\
+		\textbf{Từ đó ta có bài toán:} Cho góc $xOy$ và một điểm $M$ nằm trong góc ấy. Qua $M$ hãy dựng một đường thẳng cắt hai cạnh của góc ở $A$ và $B$ sao cho $\dfrac{1}{MA}+\dfrac{1}{MB}$ lớn nhất.\\
+		Đường thẳng phải dựng là đường vuông góc với $OM$ tại $M$.\\
+		Dự đoán điểm cố định: Nếu lấy $A'$ thuộc $Oy$, $B'$ thuộc $Ox$ sao cho $OA'=OA$, $OB'=OB$ thì $\dfrac{1}{OA'}+\dfrac{1}{OB'}=\dfrac{1}{k}$. Điểm cố định nếu có phải là giao điểm của $AB$ và $A'B'$. Gọi giao điểm đó là $C$, rõ ràng $C$ phải thuộc tia phân giác của góc $xOy$.\\
+		Chứng minh: Vẽ tia phân giác của góc $xOy$, cắt $AB$ ở $C$. Vẽ $CD\parallel Ox$ thì $OD=OC=a$.\\ Ta có $\dfrac{DC}{OA}=\dfrac{BD}{BO}\Rightarrow \dfrac{a}{OA}+\dfrac{a}{OB}=1\dfrac{1}{OA}+\dfrac{1}{OB}=\dfrac{1}{a}$. Mặt khác, theo giả thiết  $1\dfrac{1}{OA}+\dfrac{1}{OB}=\dfrac{1}{k}$. Vậy $DC=k$, $C$ là điểm cố định.
+	}
+\end{bt}
+
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Cho góc $xOy$. Các điểm $A$ và $B$ theo thứ tự chuyển động trên các tia $Ox$ và $Oy$ sao cho $\dfrac{1}{OA}+\dfrac{1}{OB}=\dfrac{1}{k}$ ($k$ là hằng số). Chứng minh rằng đường thẳng $AB$ luôn luôn đi qua một điểm cố định.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=3.5,xmin=-0.5,xmax=7.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{5/0/A,2/2/B,0/0/O}
+			\tkzDefLine[bisector](B,O,A)\tkzGetPoint{o}
+			\tkzInterLL(O,o)(A,B)\tkzGetPoint{C}
+			\tkzDefLine[parallel=through C](A,O)\tkzGetPoint{c}
+			\tkzInterLL(C,c)(O,B)\tkzGetPoint{D}
+			\tkzDrawSegments(O,C A,B D,C)
+			\tkzDrawLines[add=0 and 0.4](O,A O,B)
+			\tkzLabelLine[pos=1.4,above](O,B){$y$}
+			\tkzLabelLine[pos=1.4,above](O,A){$x$}
+			\tkzLabelSegments[above](O,D C,D){$a$}
+			\tkzDrawPoints(O,A,B,C,D)
+			\tkzLabelPoints[above]()
+			\tkzLabelPoints[below](O,A)
+			\tkzLabelPoints[left](B,D)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above right]()
+			\tkzLabelPoints[above left]()
+			\tkzLabelPoints[below left]()
+			\tkzLabelPoints[below right]()		
+			\end{tikzpicture}
+		\end{center}	
+		Dự đoán điểm cố định: Nếu lấy $A'$ thuộc $Oy$, $B'$ thuộc $Ox$ sao cho $OA'=OA$, $OB'=OB$ thì $\dfrac{1}{OA'}+\dfrac{1}{OB'}=\dfrac{1}{k}$. Điểm cố định nếu có phải là giao điểm của $AB$ và $A'B'$. Gọi giao điểm đó là $C$, rõ ràng $C$ phải thuộc tia phân giác của góc $xOy$.\\
+		Chứng minh: Vẽ tia phân giác của góc $xOy$, cắt $AB$ ở $C$. Vẽ $CD\parallel Ox$ thì $OD=OC=a$. Ta có $\dfrac{DC}{OA}=\dfrac{BD}{BO}\Rightarrow \dfrac{a}{OA}=\dfrac{OB-a}{OB}\Rightarrow \dfrac{a}{OA}+\dfrac{a}{OB}=1\Rightarrow\dfrac{1}{OA}+\dfrac{1}{OB}=\dfrac{1}{a}$. Mặt khác, theo giả thiết  $1\dfrac{1}{OA}+\dfrac{1}{OB}=\dfrac{1}{k}$. Vậy $DC=k$, $C$ là điểm cố định.
+	}
+\end{bt}
+
+%204
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	$ $
+	Cho hình thang $ ABCD $ ($ AB \parallel CD $). Điểm $ E $ thuộc cạnh $ AD $, điểm $ F $ thuộc cạnh $ BC $ sao cho $ \dfrac{DE}{DA}=\dfrac{BF}{BC}=\dfrac{1}{3} $. Gọi $ M $, $ N $ theo thứ tự là giao điểm của $ EF $ với $ BD $, $ AC $. Chứng minh rằng $ EM=NF $.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-0.5,xmax=9.5,ymin=-0.5,ymax=5.7]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{1/5/A,4/5/B,6/0/C,0/0/D}
+			\coordinate (E) at ($(D)!0.3!(A)$);
+			\coordinate (F) at ($(B)!0.3!(C)$);
+			\tkzDefLine[perpendicular=through A](B,D) \tkzGetPoint{a}
+			\tkzDefLine[perpendicular=through E](B,D) \tkzGetPoint{e}
+			\tkzDefLine[perpendicular=through F](B,D) \tkzGetPoint{f}
+			\tkzDefLine[perpendicular=through C](B,D) \tkzGetPoint{c}
+			\tkzInterLL(A,a)(B,D)    \tkzGetPoint{A'}
+			\tkzInterLL(E,e)(B,D)    \tkzGetPoint{E'}
+			\tkzInterLL(F,f)(B,D)    \tkzGetPoint{F'}
+			\tkzInterLL(C,c)(B,D)    \tkzGetPoint{C'}
+			\tkzInterLL(A,C)(B,D)    \tkzGetPoint{O}
+			\tkzInterLL(E,F)(B,D)    \tkzGetPoint{M}
+			\tkzInterLL(E,F)(A,C)    \tkzGetPoint{N}
+			\tkzDrawSegments(A,B B,C C,D D,A E,F A,C B,D)
+			\tkzDrawSegments[line width=0.5pt,dashed](A,A' E,E' F,F' C,C')
+			\tkzDrawPoints[size=6pt,color=black](A,B,C,D,E,F,M,N,O,E',A',F',C')
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[below](C,D)
+			\tkzLabelPoints[left](E,C',O)
+			\tkzLabelPoints[right](F,N,A')
+			\tkzLabelPoints[above left](F')
+			\tkzLabelPoints[below right](M,E')
+			\end{tikzpicture}
+		\end{center}
+		Kẻ $ AA' $, $ CC' $, $ EE' $, $ FF' $ vuông góc với $ BD $. Gọi $ O $ là giao điểm của $ AC $ và $ BD $ suy ra $ EE' \parallel CC' \parallel AA' \parallel FF' $.\\
+		Vì $ EE' \parallel AA'$ (cách dựng) $\Rightarrow \dfrac{EE'}{AA'}=\dfrac{DE}{DA}=\dfrac{1}{3} $ (hệ quả của định lí Ta-let).\\
+		%	Chứng minh tương tự $ \dfrac{FF'}{CC'}=\dfrac{BF}{BC}=\dfrac{1}{3} $.\\
+		Vì $ EE' \parallel FF' $ (cách dựng) $\Rightarrow \dfrac{ME}{MF}=\dfrac{EE'}{FF'}=\dfrac{\dfrac{1}{3} \cdot AA'}{\dfrac{1}{3} \cdot CC'}=\dfrac{AA'}{CC'} $ (hệ quả của định lí Ta-let). \hfill($ 1 $)\\
+		Vì $ AA' \parallel CC'$ (cách dựng) $\Rightarrow \dfrac{OA}{OC}=\dfrac{AA'}{CC"} $ (hệ quả của định lí Ta-let). \hfill($ 2 $)\\
+		Từ ($ 1 $) và ($ 2 $) suy ra $ \dfrac{ME}{MF}=\dfrac{OA}{OC} $. \hfill($ 3 $)\\
+		Chứng minh tương tự $ \dfrac{NF}{NE}=\dfrac{OB}{OC} $. \hfill($ 4 $)\\
+		Ta lại có $ AB \parallel CD \Rightarrow \dfrac{OA}{OC}=\dfrac{OB}{OD}$ (định lí Talet). \hfill($ 5 $)\\
+		Từ ($ 3 $), ($ 4 $), ($ 5 $) suy ra 
+		$$ \dfrac{ME}{MF}=\dfrac{NF}{NE} \Rightarrow \dfrac{EM}{ME+MF}=\dfrac{NF}{NE+NF} \Rightarrow \dfrac{ME}{EF}=\dfrac{NF}{EF} \Rightarrow ME=MF.$$
+		
+	}
+\end{bt}
+%205
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	$ $
+	\begin{enumerate}
+		\item Cho tam giác $ ABC $. Trên tia đối của tia $ CB $ lấy điểm $ A' $ sao cho $ \dfrac{BA'}{A'C}=3 $. Trên cạnh $ CA $ lấy điểm $ B' $ sao cho $ \dfrac{CB'}{B'A}=\dfrac{1}{3} $. Gọi $ C' $ là giao điểm của $ A'B' $ và $ AB $. Chứng minh rằng $ C' $ là trung điểm của $ AB $.
+		\item Chứng minh bài toán tổng quát: Nếu một đường thẳng không đi qua các đỉnh của tam giác $ ABC $ và cắt các đường thằng $ BC $, $ CA $, $ AB $ theo thứ tự ở $ A' $, $ B' $, $ C' $ thì $ \dfrac{AB'}{B'C'} \cdot \dfrac{CA'}{A'B'} \cdot \dfrac{BC'}{C'A}=1$ (định lí Mê-nê-la-uýt).
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-0.5,xmax=9.5,ymin=-0.5,ymax=5.7]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{4/4/A,0/0/B,6/0/C}
+			\coordinate (A') at ($(C)!-0.3!(B)$);
+			\coordinate (B') at ($(C)!0.3!(A)$);
+			\tkzInterLL(A',B')(A,B)    \tkzGetPoint{C'}
+			\tkzDefLine[perpendicular=through A](A',C') \tkzGetPoint{a}
+			\tkzDefLine[perpendicular=through B](A',C') \tkzGetPoint{b}
+			\tkzDefLine[perpendicular=through C](A',C') \tkzGetPoint{c}
+			\tkzInterLL(A,a)(A',C')    \tkzGetPoint{H}
+			\tkzInterLL(B,b)(A',C')    \tkzGetPoint{I}
+			\tkzInterLL(C,c)(A',C')    \tkzGetPoint{K}
+			\tkzDrawSegments(A,B B,C C,A A',I C,A')
+			\tkzDrawSegments[line width=0.5pt,dashed](A,H B,I C,K)
+			\tkzDrawPoints[size=6pt,color=black](A,B,C,A',B',C',H,I,K)
+			\tkzLabelPoints[above](A,C',I)
+			\tkzLabelPoints[below](B,C,A',H)
+			\tkzLabelPoints[above right](B',K)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Kẻ $ AH $, $ BI $, $ CK $ vuông góc với $ A'C' $ suy ra $ AH \parallel BI \parallel CCK $.\\
+			Vì $ AH \parallel CK$ (cách dựng) $\Rightarrow \dfrac{AH}{CK}=\dfrac{B'A}{B'C}=3 $ (hệ quả của định lí Ta-let). \hfill($ 1 $)\\
+			Vì $ BI \parallel CK$ (cách dựng) $\Rightarrow \dfrac{BI}{CK}=\dfrac{BA'}{A'C}=3 $ (hệ quả của định lí Ta-let). \hfill($ 2 $)\\
+			Từ ($ 1 $) và ($ 2 $) suy ra $ \dfrac{AH}{BI}=1 $.\\
+			Vì $ AH \parallel BI$ (cách dựng) $\Rightarrow \dfrac{C'A}{C'B}=\dfrac{AH}{BI}=1$. Vậy $ C' $ là trung điểm $ AB $.
+			\item Theo câu a ta có:
+			\begin{itemize}
+				\item $ \dfrac{AB'}{B'C}=\dfrac{AH}{CK} $. \hfill($ 3 $)
+				\item $ \dfrac{CA'}{A'B}=\dfrac{CK}{BI} $. \hfill($ 4 $)
+				\item $ \dfrac{BC'}{C'A}=\dfrac{BI}{AH} $. \hfill($ 5 $)
+			\end{itemize}
+			Nhân ($ 3 $), ($ 4 $), ($ 5 $) ta được 
+			$$ \dfrac{AB'}{B'C} \cdot \dfrac{CA'}{A'B} \cdot \dfrac{BC'}{C'A}=\dfrac{AH}{CK} \cdot \dfrac{CK}{BI} \cdot \dfrac{BI}{AH}=1.$$
+		\end{enumerate}
+		
+	}
+\end{bt}
+
+%206
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	$ $
+	\begin{enumerate}
+		\item Chứng minh rằng nếu trên các cạnh đối diện với các đỉnh $ A $, $ B $, $ C $ của tam giác $ ABC $, ta lấy các điểm tương ứng $ A' $, $ B' $, $ C' $ sao cho $ AA' $, $ BB' $, $ CC' $ đồng quy thì $ \dfrac{AB'}{B'C'} \cdot \dfrac{CA'}{A'B'} \cdot \dfrac{BC'}{C'A}=1$ (định lí Xê-va).
+		\item Chứng minh rằng kết luận trên vẫn đúng nếu các điểm $ A' $, $ B' $, $ C' $ thuộc các đường thẳng chứa các cạnh của tam giác, trong đó có đúng hai điểm nằm ngoài tam giác.
+	\end{enumerate}
+\loigiai{
+\begin{center}
+		\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+	\tkzInit[xmin=-0.5,xmax=5.5,ymin=-0.5,ymax=4.5]
+	\tkzClip
+	%\tkzAxeXY
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/B,5/0/C,2/4/A}
+			\coordinate (C') at ($(B)!0.7!(A)$);
+	\coordinate (B') at ($(C)!0.6!(A)$);
+	\tkzInterLL(B,B')(C,C')    \tkzGetPoint{O}
+	\tkzInterLL(A,O)(B,C)    \tkzGetPoint{A'}
+	\tkzDefLine[parallel = through A](B,C)
+	\tkzGetPoint{a} 
+	\tkzInterLL(A,a)(B,B')    \tkzGetPoint{N}
+	\tkzInterLL(A,a)(C,C')    \tkzGetPoint{M}
+	\tkzLabelPoints[above](M,A,N)
+	\tkzLabelPoints[below](B,A',C)
+	\tkzLabelPoints[left](C')
+	\tkzLabelPoints[right](B',O)
+	\tkzDrawPoints[size=6pt,color=black](A,B,C,A',B',C',O,M,N)
+	\tkzDrawSegments(A,B A,C B,C B,C C,M B,N M,N A,A')
+	\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+	\item Qua $ A $ kẻ đường thẳng song song với $ BC $ cắt $ BB' $, $ CC' $ ở $ N $, $ M $.\\
+	Ta có $ MN \parallel BC $ suy ra $ \dfrac{AB'}{B'C}=\dfrac{AN}{CB} $, $ \dfrac{BC'}{C'A}=\dfrac{BC}{AM}
+	$, $ \dfrac{CA'}{A'B}=\dfrac{MA}{AN}
+	$. \\
+	Nhân các các đẳng thức trên theo từng vế, ta được điều phải chứng minh.
+	\item Chứng minh tương tự câu a).
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+		\tkzInit[xmin=-5,xmax=8.5,ymin=-3,ymax=3.5]
+		\tkzClip
+		%\tkzAxeXY
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{0/0/B,3/0/C,2/3/A}
+		\coordinate (C') at ($(B)!-0.9!(A)$);
+		\coordinate (B') at ($(C)!-0.8!(A)$);
+		\tkzInterLL(B,B')(C,C')    \tkzGetPoint{O}
+		\tkzInterLL(A,O)(B,C)    \tkzGetPoint{A'}
+		\tkzDefLine[parallel = through A](B,C)
+		\tkzGetPoint{a} 
+		\tkzInterLL(A,a)(B,B')    \tkzGetPoint{N}
+		\tkzInterLL(A,a)(C,C')    \tkzGetPoint{M}
+		\tkzLabelPoints[above](M,A,N)
+		\tkzLabelPoints[below](B,C,O)
+		\tkzLabelPoints[left](C')
+		\tkzLabelPoints[above left](A')
+		\tkzLabelPoints[right](B')
+		\tkzDrawPoints[size=6pt,color=black](A,B,C,A',B',C',O,M,N)
+		\tkzDrawSegments(A,C' A,B' B,C B,C C',M B',N M,N A,O)
+		\end{tikzpicture}
+	\end{center}
+\end{enumerate}}
+\end{bt}
+\begin{note}
+	Các hệ thức viết ở định lý Mê-nê-la-uýt và định lí Xê-va như nhau. Chỗ khác nhau là vị trí các điểm $ A' $, $ B' $, $ C' $.
+	\begin{itemize}
+		\item Ở định lí Mê-nê-la-uýt: có đúng một điểm, hoặc cả ba điểm nằm ngoài tam giác.
+		\item Ở định lí Xê-va: không có điểm nào, hoặc có đúng hai điểm nằm ngoài tam giác.
+	\end{itemize}
+\end{note}
+
+%207
+\begin{bt}%[8H3G1]%[GV biên soạn: Thầy Phạm Ngọc Trung GV phản biện: Cô Võ Quỳnh Trang]
+	Cho tam giác $ ABC $. Tâm $ O $ của các hình chữ nhật $ MNPQ $ thay đổi nhưng luôn có $ M $ thuộc $ AB $, $ N $ thuộc $ AC $, $ P $ và $ Q $ thuộc $ BC $, chuyển động trên đường nào?
+	\loigiai{ 
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+		\tkzInit[xmin=-0.5,xmax=5.5,ymin=-0.5,ymax=4.5]
+		\tkzClip
+		%\tkzAxeXY
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{0/0/B,5/0/C,2/4/A}
+		\coordinate (M) at ($(B)!0.5!(A)$);
+		\coordinate (N) at ($(C)!0.5!(A)$);
+		\tkzDefLine[perpendicular=through M](C,B)
+		\tkzGetPoint{m}
+		\tkzDefLine[perpendicular=through A](C,B)
+		\tkzGetPoint{a}
+		\tkzDefLine[perpendicular=through N](C,B)
+		\tkzGetPoint{n}
+		\tkzInterLL(A,a)(B,C)    \tkzGetPoint{H}
+		\tkzInterLL(M,m)(B,C)    \tkzGetPoint{Q}
+		\tkzInterLL(N,n)(B,C)    \tkzGetPoint{P}
+		\coordinate (R) at ($(M)!0.5!(Q)$);
+		\coordinate (S) at ($(N)!0.5!(P)$);
+		\coordinate (E) at ($(A)!0.5!(H)$);
+		\coordinate (O) at ($(R)!0.5!(S)$);
+		\coordinate (F) at ($(B)!0.5!(C)$);
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[below](B,Q,H,F,P,C)
+		\tkzLabelPoints[left](M)
+		\tkzLabelPoints[right](N)
+		\tkzLabelPoints[below right](R,O)
+		\tkzLabelPoints[below left](S)
+		\tkzLabelPoints[above left](E)
+		\tkzDrawPoints[size=6pt,color=black](A,B,C,M,N,P,Q,H,E,R,O,S,F)
+		\tkzDrawSegments(A,B A,C B,C B,C M,N N,P P,Q Q,M A,H)
+		\tkzDrawSegments[line width=0.5pt,dashed](E,B E,C R,S E,F)
+		\end{tikzpicture}
+	\end{center}	
+	Gọi $ R $ là trung điểm của $ MQ $, $ BR $ cắt $ MQ $ tại $ E $.\\
+	Ta có $ MQ \parallel AH $ suy ra $ \dfrac{MR}{AE}=\dfrac{BR}{BE}=\dfrac{QR}{EH} $.\\
+	Lại có $ MR=QR $ suy ra $ AE=HE $. Vậy $ QR $ cắt $ AH $ tại trung điểm $ E $ của $ AH $.\\
+	Tương tự gọi $ S $ là trung điểm của $ NP $, ta cũng có $ CS $ đi qua trung điểm $ E $ của $ AH $.\\
+	Tứ giác $ MRPS $ là hình bình hành (do $ MR \parallel NP $ và $ MR=NP $) lại có $ O $ là trung điểm $ MP $ (tính chất hình chữ nhật) nên $ O $ là trung điểm $ RS $.\\
+	Do $ RS \parallel BC$, chứng minh tương tự trên ta có $ EO $ cắt $ BC $ tại trung điểm $ F $ của $ BC $.\\
+	Ta có $ O \in EF $, mặt khác do $ E $, $ F $ là trung điểm của các đoạn thẳng $ AH $, $ BC $ cố định nên $ EF $ cố định.\\
+	Vậy $ O $ luôn thuộc $ EF $ cố định.
+	}
+\end{bt}
+

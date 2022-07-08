@@ -1,0 +1,894 @@
+\begin{bt}%[EX-TS10-ToanTT-2019]%[Phạm Tuấn]%[9H1B1]
+Hằng ngày, hai anh em An và Bình cùng đi bộ từ nhà ở $A$ để đến trường. Trường của An ở vị trí $B$, trường của Bình ở vị trí $C$ theo hai hướng vuông góc nhau. An đi với vận tốc $4$ km/h và đến trường sau $15$ phút. Bình đi với vận tốc $3$ km/h và đến trường sau $12$ phút. Tính khoảng cách $BC$ giữa hai trường (làm tròn đến mét). \dapso{$1166{,}2$ m}
+\begin{center}
+\begin{tikzpicture}
+\tikzset{%
+	man/.pic={%
+		\begin{scope}[shift={(-0.2,0)}]
+		\fill [rounded corners=1.5] (0,0.4) -- (0,0.8) -- (0.4,0.8) -- (0.4,0.4) --
+		(0.325,0.4) -- (0.325,0.7) -- (0.3,0.7) -- (0.3,0) -- (0.225,0) --
+		(0.225,0.4) -- (0.175,0.4) -- (0.175,0) -- (0.1,0) -- (0.1,0.7) --
+		(0.075,0.7) -- (0.075,0.4) -- cycle;
+		\fill (0.2,0.9) circle (0.1);
+		\coordinate (-head) at (0.2,1);
+		\coordinate (-foot) at (0.2,0);
+		\end{scope}
+	},
+	hoasen/.pic={%
+		\foreach \goc in {0,72,288,360}{
+			\draw[rotate=\goc,scale=0.3] (0,0)..controls (-1.75,1.5) and (0,3)..(0,3.75)  ..controls (0,3) and (1.75,1.5)..(0,0);
+		}
+		\foreach \goc in {36,108,252,324}{
+			\draw[rotate=\goc,scale=0.25] (0,0)..controls (-1.75,1.5) and (0,3)..(0,3.75)  ..controls (0,3) and (1.75,1.5)..(0,0);
+		}
+	},
+	nha/.pic={
+		\begin{scope}[shift={(10,0)},scale=0.5]
+		\draw[fill=green] (-16,3)--(-18,4)--(-21,4)--(-23,3)--cycle;
+		\draw (-17,3)--(-17,0)--(-22,0)--(-22,3);
+		\draw[fill=blue!30] (-18,0) rectangle (-19.5,2);
+		\draw[fill=pink] (-21.75,1) rectangle (-20,2.5);
+		\end{scope}
+	},
+	mattroi/.pic={
+		\begin{scope}[scale=0.5]
+		\fill[red!20!yellow] (0,0) circle (1);
+		\foreach \i in {0,40,...,360}{
+			\draw[shift={(0,0)}, red] (\i:1.2)--(\i:1.6);
+			\draw[shift={(0,0)}, red] (\i+20:1.4)--(\i+20:1.8);
+		}
+		\end{scope}
+	},
+	truonghoc/.pic={
+		\begin{scope}[shift={(-10,0)},scale=0.5]
+		\draw[fill=green] (16,6)--(18,7)--(22,7)--(24,6)--cycle;
+		\draw (17,0)--(17,6) (20,0)--(20,6) (23,0)--(23,6) (17,0)--(23,0) (17,2)--(23,2) (17,4)--(23,4);
+		%\draw($(20,6.4)$)node[scale=0.4]{Trường Trung học};
+		\foreach \i in {0,2,4}{
+			\draw[fill=blue!30] (19,\i) rectangle (20,\i+1.5);
+			\draw[fill=blue!30] (22,\i) rectangle (23,\i+1.5);
+			\draw[fill=pink](17.25,\i+0.75) rectangle (18.75,\i+1.75);
+			\draw[fill=pink](20.25,\i+0.75) rectangle (21.75,\i+1.75);
+		}
+		\end{scope}
+	},
+}
+\begin{scope}
+\pic[scale=0.6] at (0,0) {nha};
+\pic[scale=0.3,red] at (0.2,1.3) {hoasen};
+\pic[scale=0.6,red] at (-0.2,0) {man};
+\end{scope}
+\pic[scale=0.6,blue] at (0.2,0) {man};
+\pic[scale=0.3] at (7,0) {truonghoc};
+\pic[scale=0.3,red] at (0,-5) {truonghoc};
+\pic[scale=0.3] at (8,1) {mattroi};
+%\draw (-1,0)--(8,0);
+\draw(0,0)node[below right]{$A$}--(7,0)node[below]{$B$}--(0,-5)node[below]{$C$}--cycle;
+%\fill[pattern=north east lines] (-1,0) rectangle (8,-0.5);
+\end{tikzpicture}
+\end{center}
+\loigiai{
+Khoảng cách $AB = 4000 \cdot \dfrac{15}{60} = 1000$ (m). \\
+Khoảng cách $AC = 3000 \cdot \dfrac{12}{60} = 600$ (m). \\
+Theo định lí Py-ta-go ta có 
+\[BC=\sqrt{AB^2+AC^2} \approx 1166{,}2 \textrm{ (m).}\]
+}
+\end{bt}
+
+\begin{bt}%[Lê Minh An]%[EX-TS10-ToanTT-2019]%[9H1B2]
+	\immini{
+	Một cái thang khi dựa vào tường thì góc $\alpha$ giữa thang và mặt đất trong khoảng từ $60^\circ$ đến $65^\circ$ thì  an toàn. Hỏi một cái thang AB dài $3$ m dựng vào tường thì chân thang $A$ cách chân tường $C$ trong khoảng nào thì an toàn? (làm tròn đến hai chữ số thập phân).}{
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,thick,font=\footnotesize,scale=1]
+		\tkzDefPoints{0/0/C, -1.5/0/A, 0/4/B, 0/5/B', 2/0/C', 2/5/D'}
+		\tkzDrawLine[add = 0.3 and 0](A,C')
+		\tkzDrawSegments(A,B)
+		\tkzMarkAngles[size=0.5cm,arc=l](C,A,B)
+		\tkzLabelAngles[pos=0.7,rotate=30](C,A,B){$\alpha$}
+		\fill[pattern=bricks, pattern color=black!70](C)--(C')--(D')--(B')--(C);
+		\draw (B')--(C);
+		\tkzLabelPoints[below](A,C)
+		\tkzLabelPoints[above left](B)
+		\end{tikzpicture}
+	}
+	\dapso{Từ $1{,}27$ m đến $1{,}5$ m}
+	\loigiai{
+		Ta có $\triangle ABC$ vuông tại $C$ nên $\cos\alpha=\dfrac{AC}{AB}\Rightarrow AC=AB\cos\alpha$.\\
+		Với $\alpha=60^\circ\Rightarrow AC=3\cdot\cos 60^\circ=1{,}5$ m.\\
+		Với $\alpha=65^\circ\Rightarrow AC=3\cdot\cos 65^\circ\approx 1{,}27$ m.\\
+		Vậy chân thang $A$ cách chân tường $C$ trong khoảng từ $1{,}27$ m đến $1{,}5$ m thì an toàn.
+	}
+\end{bt}
+
+\begin{bt}%[EX-TS10-ToanTT-2019]%[9H1B2]
+	\immini{
+		Một máy bay phản lực cất cánh từ vị trí $A$, bay lên với một góc $x=30^\circ$ so với phương nằm ngang, sau một khoảng thời gian $30$ giây máy bay đạt được cao độ là $BC=3000$ mét. Tính vận tốc trung bình của máy bay (làm tròn đến hàng đơn vị).
+	}{
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round, >=stealth]
+			%Phan Khai Bao Mac Dinh
+			\tkzInit[ymin=-0.5,ymax=3.5,xmin=-0.5,xmax=5.5]
+			%\tkzAxeXY
+			%\tkzGrid
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			%Dinh Hinh
+			\tkzDefPoints{0/0/A,5/0/B}
+			\tkzDefPointBy[rotation= center A angle 30](B) \tkzGetPoint{b}
+			\tkzDefLine[orthogonal=through B](B,A) \tkzGetPoint{c}
+			\tkzInterLL(A,b)(B,c)\tkzGetPoint{C}
+			\tkzMarkRightAngles[fill=gray!20](A,B,C)
+			\tkzLabelAngle(C,A,B){$30^{\circ}$}
+			\tkzLabelSegment[sloped](C,B){$3000$ m}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawPoints(A,B,C)
+			\tkzLabelPoints[above]()
+			\tkzLabelPoints[below]()
+			\tkzLabelPoints[right]()
+			\tkzLabelPoints[left]()
+			\tkzLabelPoints[above right](C)
+			\tkzLabelPoints[above left]()
+			\tkzLabelPoints[below right](B)
+			\tkzLabelPoints[below left](A)
+		\end{tikzpicture}
+	}
+	\dapso{$720$ km/h}
+	\loigiai{
+		Xét $\triangle ABC$ vuông tại $B$ ta có
+		 $$\sin \widehat{CAB}=\dfrac{BC}{AC}\Leftrightarrow \sin 30^\circ=\dfrac{3000}{AC}\Leftrightarrow AC=\dfrac{3000}{\sin 30^\circ}=\dfrac{3000}{\dfrac{1}{2}}=6000 \text{ m}.$$
+		Vậy vận tốc trung bình của máy bay là
+		$$\dfrac{6000}{30}=200 \text{ m/s}=720 \text{ km/h}.$$
+	}
+\end{bt}
+
+\begin{bt}%[Dương BùiĐức]%[EX-TS10-ToanTT-2019]%[9H1B2]
+	Bạn Nam đi xe đạp từ nhà (điểm $ A $) đến trường (điểm $ B $) gồm đoạn lên dốc và đoạn xuống dốc. Biết góc $ \widehat{A}=50^{\circ} $, góc $ \widehat{B}= 40^{\circ} $ và đoạn lên dốc dài $ 325 $ mét.
+	\begin{enumerate}
+		\item Tính chiều cao của dốc và chiều dài quãng đường từ nhà đến trường.
+		\item Biết vận tốc trung bình lên dốc là $ 8 $ km/h và vận tốc trung bình xuống dốc là $ 15 $ km/h. Tính thời gian (phút) bạn Nam đi từ nhà đến trường.
+	\end{enumerate} 
+	(Lưu ý kết quả phép tính làm tròn đến chữ số thập phân thứ nhất).
+	\dapso{a) $ 248{,}9 $ m và $ 387{,}3 $ m b) $ 3{,}4 $ phút}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line join=round, line cap=round]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\pgfmathsetmacro\h{3}
+		\pgfmathsetmacro\goca{50}
+		\pgfmathsetmacro\gocb{40}
+		\tkzDefPoint(0,0){A}
+		\tkzDefShiftPoint[A](0:3*\h){B}
+		\tkzDefShiftPoint[A](\goca:\h){a}
+		\tkzDefShiftPoint[B](180-\gocb:\h){b}
+		\tkzInterLL(A,a)(B,b)\tkzGetPoint{C}
+		\tkzDrawAltitude(A,B)(C)\tkzGetPoint{H}
+		\pgfresetboundingbox
+		\tkzDrawPoints[fill=black](A,B,C,H)
+		\draw (A)--(B)--(C)--cycle;
+		\tkzLabelPoints[below](A,B,H)
+		\tkzLabelPoints[above](C)
+		\tkzMarkRightAngles[size=0.2](C,H,B)
+		\tkzMarkAngles[size=0.5cm,arc=l](B,A,C)
+		\tkzMarkAngles[size=0.5cm,arc=ll](C,B,A)
+		\tkzLabelAngles[pos=0.9](B,A,C){$50^{\circ}$}
+		\tkzLabelAngles[pos=0.8](C,B,A){$40^{\circ}$}
+		\tkzLabelSegment[pos=0.5,xshift=-0.2cm,rotate=\goca](C,A){$325$ m}
+		\end{tikzpicture}
+		\end{center}
+	\begin{enumerate}
+		\item Gọi đỉnh dốc là $ C $ và chiều cao của dốc là $ CH $. Xét tam giác $ ACH $ vuông tại $ H $, ta có
+		\[
+		CH=AC\cdot\sin 50^{\circ}=248{,}9\ \text{m}.
+		\]
+		Xét tam giác $ BCH $ vuông tại $ H $, ta có
+		\[
+		CB=\dfrac{CH}{\sin 40^{\circ}}=387,3\ \text{m}.
+		\]
+		Vậy chiều cao của dốc và chiều dài quãng đường từ nhà đến trường lần lượt là $ 248{,}9 $ m và $ 387{,}3 $ m.
+		\item Đổi $ 248{,}9$ m $=0{,}2489 $ km và $ 387{,}3 $ m = $ 0{,}3873 $ km.\\
+		Thời gian trung bình khi lên dốc là $ \dfrac{0{,}2489}{8}=0{,}03111 $ giờ = $ 1{,}86 $ phút.\\
+		Thời gian trung bình khi xuống dốc là $ \dfrac{0{,}3873}{15}=0{,}02582 $ giờ = $ 1{,}55 $ phút.\\
+		Thời gian (phút) bạn Nam đi từ nhà đến trường là $ 1{,}86+1{,}55=3{,}4 $ phút.
+	\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dương BùiĐức]%[EX-TS10-ToanTT-2019]%[9H1B2]
+	\immini{
+Một máy bay đang ở độ cao $ 10000 $ m so với mặt đất. Khi hạ cánh đường đi của máy bay phải tạo với mặt đất một góc nhất định.
+\begin{enumerate}
+	\item Nếu phi công cho máy bay nghiêng một góc $ 3^{\circ} $ so với mặt phương bay thăng bằng thì cách sân bay bao xa, máy bay đã bắt đầu phải hạ cánh? (Bỏ qua các yếu tố thực tế về thời tiết và gió).
+\end{enumerate}	
+}{
+\begin{tikzpicture}[line join=round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1}
+\tkzDefPoint (0,0){H}
+\tkzDefShiftPoint[H](90:2*\h){A}
+\tkzDefShiftPoint[H](0:5*\h){B}
+\tkzDefShiftPoint[A](0:5*\h){a}
+\draw (H)--(A)--(B);
+\tkzDrawLines[add = 0 and 0.2](H,B A,a)
+\tkzDrawPoints[fill=black](A,B,H)
+\pgfresetboundingbox
+\tkzLabelPoints[below](H,B)
+\tkzLabelPoints[above](A,a)
+\tkzMarkAngles[size=1cm,arc=l](B,A,a)
+\tkzMarkRightAngles[size=0.2](A,H,B)
+\end{tikzpicture}
+}
+\begin{enumerate}[b)]
+	\item Nếu cách sân bay $ 300 $ km máy bay đã bắt đầu hạ cánh thì phi công phải tạo độ nghiêng như thế nào? (Bỏ qua các ảnh hưởng từ thời tiết).
+\end{enumerate}	
+	\dapso{a) $ 191073{,}22\text{ m} $ b) $ 1{,}9^{\circ} $}
+	\loigiai{
+		\begin{enumerate}
+			\item Giả sử máy bay đang ở điểm $ A $, cách mặt đất một khoảng $ AH=10000 $ m và sân bay tại điểm $ B $. Xét tam giác vuông $ ABH $, ta có
+			\[
+			\widehat{aAB}=3^{\circ}\Rightarrow \widehat{HAB}=87^{\circ}\Rightarrow AB=\dfrac{AH}{\cos 87^{\circ}}=\dfrac{10000}{\cos 87^{\circ}}\approx 191073{,}22\text{ m}.
+			\]
+			\item Nếu cách sân bay $ 300 $ km máy bay đã bắt đầu hạ cánh thì $ AB=300 $ km. Xét tam giác vuông $ ABH $, ta có $ AH=10 $ km. Suy ra
+			\[
+			\cos\widehat{HAB}=\dfrac{AH}{AB}=\dfrac{10}{300}=\dfrac{1}{30}\Rightarrow\widehat{HAB}\approx 88{,}1^{\circ}\Rightarrow \widehat{aAB}\approx 1{,}9^{\circ}.
+			\]
+		\end{enumerate}	
+	}
+\end{bt}
+
+\begin{bt}%[Võ Tấn Đạt]%[EX-TS10-ToanTT-2019]%[9H1B2]
+\immini{
+Ca nô kéo một người mang dù bay lên không bằng một sợi dây dài $10$ m tạo với mặt nước biển một góc $60^\circ$. Khi ca nô giảm tốc độ thì độ cao người đó giảm xuống $2$ m. Hỏi lúc ca nô giảm tốc độ thì người đó cách mặt nước biển bao nhiêu mét? (Làm tròn đến chữ số thập phân thứ nhất).
+}{
+\begin{tikzpicture}[scale=.6, line join=round, line cap=round,>=stealth]
+%vẽ thuyền
+\coordinate (E) at ($(-6.5,0.4)$);
+\coordinate (F) at ($(-4.5,0.4)$);
+\draw[fill=brown] (E) to[out=-45,in=-135] (F) -- cycle;
+\draw (E) -- ($(E)!0.25!(F)$) -- ($(E)!0.25!(F)+(0,0.3)$) -- ($(E)!0.75!(F)+(0,0.3)$) -- ($(E)!0.75!(F)$)--(F);
+%gợn sóng
+\foreach \x in {-10,-9,...,-3}{
+\foreach \y in {0,-0.5,-1}{
+\coordinate (A) at ($(\x,\y)$);
+\draw ($(A)-(0.3,0)$) to[out=-60,in=110] ($(A)+(0.3,0)$);
+}}
+%vẽ dù
+\draw[color=green, rotate=60, yshift=8cm, xshift=8cm] (-10,1.5) -- (-8.5,3) (-10,1.5) -- (-9.2,2.8) (-10,1.5) -- (-9.8,2.8) (-10,1.5) -- (-10.2,2.8) (-10,1.5) -- (-10.8,2.8) (-10,1.5) -- (-11.5,3);
+\draw[rotate=60, yshift=8cm, xshift=8cm, fill=blue!50!white] plot[smooth,tension=0.7] coordinates{(-8.5,3) (-9.2,2.8) (-9.8,2.8) (-10.2,2.8) (-10.8,2.8) (-11.5,3)}--(-11.5,3) arc (180:0:1.5cm and 1cm)--cycle;
+%sợi dây
+\coordinate (A) at (-9.23,3);
+\draw[ultra thick, color=red] (A)--(E);
+\coordinate (B) at (-9,0);
+
+\tkzLabelSegment[above,sloped](A,E){\scriptsize $10$ m}
+\tkzMarkAngles[size=0.5cm,arc=l](A,E,B)
+\tkzLabelAngles[pos=0.75,rotate=60](A,E,B){\scriptsize $60^\circ$}
+\end{tikzpicture}
+}
+\dapso{
+$\approx 6{,}7$ (m).
+}
+\loigiai{
+\immini{
+Gọi tên các điểm như hình vẽ.\\
+Xét $\triangle ABE$ vuông tại $B$, ta có 
+\[\sin E = \dfrac{AB}{AE} \Rightarrow AB = \sin E \cdot AE = 5\sqrt{3} \text{ m}.\]
+Vậy lúc ca nô giảm tốc độ thì người đó cách mặt nước
+\[h=AB - 2 = 5\sqrt{3} - 2 \approx 6{,}7 \text{  m}.\]
+}{
+\begin{tikzpicture}[scale=.6, line join=round, line cap=round, >=stealth, font=\footnotesize]
+\tikzset{label style/.style={font=\footnotesize}}
+%vẽ thuyền
+\coordinate[label={above}:{$E$}] (E) at ($(-6.5,0.4)$);
+\coordinate (F) at ($(-4.5,0.4)$);
+\draw[fill=brown] (E) to[out=-45,in=-135] (F) -- cycle;
+\draw (E) -- ($(E)!0.25!(F)$) -- ($(E)!0.25!(F)+(0,0.3)$) -- ($(E)!0.75!(F)+(0,0.3)$) -- ($(E)!0.75!(F)$)--(F);
+%gợn sóng
+\foreach \x in {-10,-9,...,-3}{
+\foreach \y in {0,-0.5,-1}{
+\coordinate (A) at ($(\x,\y)$);
+\draw ($(A)-(0.3,0)$) to[out=-60,in=110] ($(A)+(0.3,0)$);
+}}
+%vẽ dù
+\draw[color=green, rotate=60, yshift=8cm, xshift=8cm] (-10,1.5) -- (-8.5,3) (-10,1.5) -- (-9.2,2.8) (-10,1.5) -- (-9.8,2.8) (-10,1.5) -- (-10.2,2.8) (-10,1.5) -- (-10.8,2.8) (-10,1.5) -- (-11.5,3);
+\draw[rotate=60, yshift=8cm, xshift=8cm, fill=blue!50!white] plot[smooth,tension=0.7] coordinates{(-8.5,3) (-9.2,2.8) (-9.8,2.8) (-10.2,2.8) (-10.8,2.8) (-11.5,3)}--(-11.5,3) arc (180:0:1.5cm and 1cm)--cycle;
+%sợi dây
+\coordinate[label={above right}:{$A$}] (A) at (-9.23,3);
+\draw[ultra thick, color=red] (A)--(E);
+\coordinate[label={below}:{$B$}] (B) at (-9.23,0.4);
+\draw[dashed] (A)--(B)--(E);
+
+\tkzLabelSegment[above,sloped](A,E){\scriptsize $10$ m}
+\tkzMarkAngles[size=0.7cm,arc=l](A,E,B)
+\tkzLabelAngles[pos=1,rotate=60](A,E,B){\scriptsize $60^\circ$}
+\tkzMarkRightAngles(A,B,E)
+\tkzDrawPoints[fill=black](A,B,E)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[Võ Tấn Đạt]%[EX-TS10-ToanTT-2019]%[9H1B2]
+	Một người đi xe máy lên dốc có độ nghiêng $ 4^\circ $ so với phương ngang với vận tốc trung bình lên dốc là $ 9 $ km/h. Hỏi người đó mất bao lâu để lên tới đỉnh dốc? Biết đỉnh dốc cao khoảng $ 15 $ m.
+	\dapso{$ 0{,}024 $ h}
+	\loigiai{
+		\immini{Ta có hình vẽ với $ AC $ là quãng đường lên dốc, $BC $ là độ cao tính từ đỉnh dốc và $ \widehat{BAC}=4^\circ$.\\
+			
+			$\triangle ABC$ vuông tại $ B $ \\
+			$ \sin A =\dfrac{BC}{AC} \Leftrightarrow \sin 4^\circ=\dfrac{15}{AC}$ \\ $\Rightarrow AC=\dfrac{15}{\sin 4^\circ} \approx 215 $ m$ =0{,}215 $km.\\
+			Độ dài quãng đường $ AC $ là $0{,}215 $ km.\\
+			Vậy thời gian để người đó lên đến đỉnh dốc là $ 0,215 : 9 \approx 0{,}024$ h. }{\begin{tikzpicture}[>=stealth,scale=2, line join = round, line cap = round]
+			\tkzInit[xmin=-0.3,xmax=5,ymin=-0.5,ymax=1.5]
+			\tkzClip
+			
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/A,5/0/M}
+			\tkzDefPointBy[rotation = center A angle 10](M)    \tkzGetPoint{C}
+			\tkzDefPointBy[projection = onto A--M](C)    \tkzGetPoint{B}
+			\tkzDrawPoints(A,B,C)
+			\tkzDrawSegments(A,B A,C)
+			\tkzMarkAngles[size=1cm,arc=l](B,A,C) \tkzLabelAngles[pos=1.2,](B,A,C){$4^\circ$}
+			\draw (B)--(C) node[above,midway,sloped]{$ 15 $ m};
+			\tkzMarkRightAngles[size=0.15](C,B,A)
+			
+			\tkzLabelPoints[above](C)
+			\tkzLabelPoints[below](A,B)
+			
+			
+			
+			
+			\end{tikzpicture}}
+	}
+\end{bt}
+
+\begin{bt}%[Tô Ngọc Thy]%[EX-TS10-ToanTT-2019]%[9H1K2]
+	Hôm nay, trong giờ thực hành ngoài trời, Minh và các bạn trong tổ thực hiện bài “Đo chiều cao của cây bằng giác kế và các dụng cụ khác (thước cuộn,$\ldots$). Các bạn thực hiện như sau: Đầu tiên, đặt giác kế ở vị trí $N$, để kính ngắm nằm ngang, chọn vị trí $D$ trên cây sao cho $2$ điểm $K$ trên hai đầu  kính ngắm và $D$ thẳng hàng, xoay kính, ngắm vị trí điểm $C$ sao cho $2$ điểm $K$ trên hai đầu kính ngắm và $C$ thẳng hàng, xác định góc $b$, ghi lại số liệu. Dời giác kế lùi lại vị trí M và thực hiện như bước đầu xác định góc $a$. Hãy tính chiều cao của cây (làm tròn $1$ chữ số thập phân), biết $a=36^\circ$, $b=41^\circ$, $MN=5$ m và khoảng cách từ kính ngắm đến mặt đất là $1{,}2$ m.
+	\dapso{$23{,}3$ m}
+	\begin{center}
+		\begin{tikzpicture}[scale=0.8, font=\footnotesize, line join=round, line join=round, line cap = round,>=stealth]
+		\begin{scope}[shift={(70:2.5)},xscale=0.300,yscale=0.300,fill=black,y=0.3pt, x=0.3pt]
+		\path[fill=green,opacity=0.5] (950,1969) .. controls (869,1954) and (780,1901) .. (731,1839) .. controls (688,1786) and (684,1783) .. (656,1791) .. controls (605,1806) and (526,1801) .. (454,1779) .. controls (398,1762) and (377,1748) .. (330,1701) .. controls (284,1656) and (271,1635) .. (261,1592) .. controls (246,1530) and (253,1481) .. (285,1422) -- (309,1380) -- (279,1365) .. controls (151,1298) and (99,1156) .. (163,1047) .. controls (190,1001) and (241,955) .. (295,927) .. controls (342,903) and (442,880) .. (498,880) -- (548,880) -- (560,830) .. controls (583,733) and (689,651) .. (833,619) -- (890,607) -- (890,303) -- (890,0) -- (1005,0) -- (1120,0) -- (1120,313) -- (1120,626) -- (1174,649) .. controls (1203,661) and (1247,687) .. (1270,708) .. controls (1312,743) and (1316,744) .. (1394,745) .. controls (1491,746) and (1540,759) .. (1603,801) .. controls (1665,842) and (1700,901) .. (1700,966) -- (1700,1015) -- (1751,1033) .. controls (1813,1055) and (1886,1120) .. (1911,1175) .. controls (1923,1201) and (1930,1239) .. (1930,1280) .. controls (1930,1383) and (1873,1466) .. (1768,1516) .. controls (1738,1530) and (1730,1541) .. (1717,1589) .. controls (1685,1704) and (1582,1778) .. (1438,1787) .. controls (1395,1790) and (1360,1796) .. (1360,1800) .. controls (1360,1820) and (1274,1900) .. (1223,1927) .. controls (1136,1974) and (1045,1987) .. (950,1969) -- cycle;
+		\end{scope}
+		\tkzDefPoints{-4/3.5/A, -1/3.5/B, 4/3.5/D, 4/8.6/C, -4/2.3/M, -1/2.3/N}
+		\tkzLabelPoints[above left](A,B,D)
+		\tkzLabelPoints[above left](M,N)
+		\tkzLabelPoints[above](C)
+		\tkzDrawPoints(A,B,C,D,M,N)
+		\draw (A)--(D)--(C)--(A)--(M);
+		\draw (C)--(B)--(N);
+		\tkzMarkAngles[size=0.7](D,B,C)
+		\tkzMarkAngles[size=0.7,mark=|](D,A,C)
+		\tkzLabelAngle[pos=1.1,rotate=10](D,B,C){\footnotesize $b$}%
+		\tkzLabelAngle[pos=1.2,rotate=10](D,A,C){\footnotesize $a$}%
+		\tkzMarkRightAngle(C,D,A)	
+		\shade[left color = black!70, right color=black!30] (-5,0) to (-5,2.3) to (-0.4,2.3) to [out=10,in=90](1,0) to (2,0) to[out=90,in=10] (2.5,2.3) to (5,2.3) to (5,0);
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Xét $\triangle CDB$ vuông tại $D$ ta có $CD=DB\cdot \tan 41^\circ \quad (1)$.\\
+		Xét $\triangle CDA$ vuông tại $D$ ta có $CD=DA\cdot \tan 36^\circ \quad (2)$.\\
+		Từ $(1)$ và $(2)$ suy ra 
+		\begin{eqnarray*}			
+		DB\cdot \tan 41^\circ&=&DA\cdot \tan 36^\circ\\
+		DB\cdot \tan 41^\circ&=&(AB+DB)\cdot \tan 36^\circ\\
+		DB&=&\dfrac{AB\cdot\tan 36^\circ}{\tan 41^\circ -\tan 36^\circ}
+		\end{eqnarray*}
+		Độ dài đoạn $DC$ bằng $$CD=\dfrac{5\cdot\tan 36^\circ\cdot\tan 41^\circ}{\tan 41^\circ -\tan 36^\circ}\cdot  = 22{,}1\text{ m.}$$
+		Vậy chiều cao của cây là $22{,}1+1{,}2=23{,}3$ m.
+	}
+\end{bt}
+
+\begin{bt}%[Dương BùiĐức]%[EX-TS10-ToanTT-2019]%[9H1K2]
+	Cho tam giác $ ABC $ cân tại $ A $ có $ AB=15 $, $ BC=10 $. Kẻ đường cao $ BH $ ($ H $ thuộc $ AC $).
+	\begin{enumerate}
+		\item Tính độ dài $ AH $.
+		\item Gọi $ E $ là trung điểm của $ AC $. Tính số đo góc $ \widehat{AEB} $ (tính gần đúng và làm tròn đến phút).
+	\end{enumerate}
+	\dapso{a) $ AH=10\sqrt{2} $ cm b) $ \widehat{AEB}\approx 113^{\circ}51\ \text{phút} $}
+	\loigiai{
+		\immini{
+		\begin{enumerate}
+			\item Vì $ \triangle ABC $ cân tại $ A $ nên $ H $ là trung điểm của $ BC $, do đó\\
+			$ HB=HC=5 $ cm. Xét tam giác $ ABH $ vuông tại $ H $, ta có
+			\[
+			AH^{2}=AB^{2}-HB^{2}=15^{2}-5^{2}=200\Rightarrow AH=10\sqrt{2}\text{ cm}.
+			\]
+			\item Gọi $ F $ là trung điểm của $ EC $, khi đó $ FC=\dfrac{HC}{2}=2{,}5 $ cm và $ BF=7{,}5 $ cm. Ta có $ EF\parallel AH $ và $ EF=\dfrac{1}{2}AH=5\sqrt{2} $ cm.\\
+			Xét tam giác $ EFC $ vuông tại $ F $, ta có
+		\end{enumerate}
+	}{
+\begin{tikzpicture}[line join=round, line cap=round]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{1.5}
+\pgfmathsetmacro\goc{70.5}
+\tkzDefPoint(0,0){B}
+\tkzDefShiftPoint[B](0:2*\h){C}
+\tkzDefShiftPoint[B](\goc:\h){b}
+\tkzDefShiftPoint[C](180-\goc:\h){c}
+\coordinate (H) at ($(B)!1/2!(C)$);
+\coordinate (E) at ($(A)!1/2!(C)$);
+\coordinate (F) at ($(H)!1/2!(C)$);
+\pgfresetboundingbox
+\tkzInterLL(C,c)(B,b)\tkzGetPoint{A}
+\tkzDrawPoints[fill=black](A,B,C,H,E,F)
+\draw (A)--(B)--(C)--cycle (A)--(H) (B)--(E)--(F);
+\tkzLabelPoints[below](C,B,H,F)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[right](E)
+\tkzMarkRightAngles[size=0.2](A,H,B E,F,C)
+\end{tikzpicture}
+}
+\[
+\tan\widehat{FEC}=\dfrac{FC}{FE}=\dfrac{2{,}5}{5\sqrt{2}}=\dfrac{1}{2\sqrt{2}}\Rightarrow \widehat{FEC}\approx 19{,}47^{\circ}=19^{\circ}28\ \text{phút}.
+\]
+\begin{enumerate}[]
+	\item Xét tam giác $ EFB $ vuông tại $ F $, ta có
+	\[
+	\tan\widehat{FEB}=\dfrac{FB}{FE}=\dfrac{7{,}5}{5\sqrt{2}}=\dfrac{3}{2\sqrt{2}}\Rightarrow \widehat{FEB}\approx 46{,}68^{\circ}=46^{\circ}40\ \text{phút}.
+	\]
+	Do đó $ \widehat{CEB}\approx 19{,}47^{\circ}+46{,}68^{\circ}=66{,}15^{\circ}=66^{\circ}9\ \text{phút}\Rightarrow \widehat{AEB}\approx 113{,}85^{\circ}=113^{\circ}51\ \text{phút} $.
+\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Bùi Quốc Hoàn]%[EX-TS10-ToanTT-2019]%[9H1T2]
+\immini
+{Từ một ví trí trên bờ (như hình vẽ), bạn An có thể tính được khoảng cách giữa hai chiếc thuyền ở vị trí $A$, vị trí $B$ bằng cách như sau: Trước tiên bạn chọn một vị trí trên bờ (điểm $I$) sao cho $I$, $A$, $B$ thẳng hàng. Sau đó bạn di chuyển theo hướng vuông góc với $IA$ đến vị trí điểm $K$ cách điểm $I$ khoảng $380\, \mathrm{m}$ rồi dùng giác kế nhắm vị trí điểm $A$, điểm $B$ thì đo được góc $15^{\circ}$ và nhắm vị trí điểm $A$, điểm $I$ thì đo được góc $50^{\circ}$. Hỏi khoảng cách giữa hai chiếc thuyền là bao nhiêu? 
+}
+{\begin{tikzpicture}[line join = round, line cap = round,>=stealth,
+	font=\footnotesize,scale=.9]
+	\tkzDefPoints{1.5/-1/I,-0.5/1/a,7.5/1/b, -0.5/5/c,7.5/5/d}
+	\coordinate (K) at ($(I)+(3,0)$);
+	\tkzDefShiftPoint[I](90:3.5){A}
+     \coordinate (B) at ($(A)!-0.5!(I)$);
+     %\tkzDefPoint(3,3){A}
+	%
+	\pgfresetboundingbox
+	\tkzDrawSegments(I,B I,K K,A K,B)
+	\tkzDrawPoints[fill=black](A,I,K,B)
+	\tkzLabelPoints[left = 4.5pt](A,B)
+	\tkzLabelPoints[below](I,K)
+	\tkzLabelAngles[pos=0.8,rotate=40](I,K,A){\footnotesize$50^{\circ}$}
+	\tkzMarkAngles[arc=ll,size=0.6cm](A,K,I)
+	\tkzLabelAngles[pos=1.9,rotate=30](A,K,B){\footnotesize $15^{\circ}$}
+	%\tkzMarkAngles[arc=ll,size=0.2 cm](B,K,A)
+	\tkzDrawSegments(a,b c,d)
+	\tkzFillPolygon[pattern = north east lines,pattern color=blue,
+	opacity=0.5](a,c,d,b)
+	\tkzMarkRightAngles(B,I,K)
+\fill plot [smooth cycle] coordinates{(1.25,2.5)(1.75,2.5)(1.8,2.7)(1.65,2.7)(1.65,2.8)(1.55,2.8)(1.55,2.9)(1.45,2.9)(1.45,2.8)(1.35,2.8)(1.35,2.7)(1.2,2.7)};
+\fill plot [smooth cycle] coordinates{(1.25,4)(1.75,4)(1.8,4.2)(1.65,4.2)(1.65,4.3)(1.55,4.3)(1.55,4.4)(1.45,4.4)(1.45,4.3)(1.35,4.3)(1.35,4.2)(1.2,4.2)};
+ \draw(3,-1)node[below]{$380\, \mathrm{m}$};
+	\end{tikzpicture}			
+}
+	\dapso{Khoảng cách bằng $362{,}05\, \mathrm{m}$}
+	\loigiai{Xét $\triangle IBK$, ta có $\widehat{IKB} = \widehat{IKA} + \widehat{AKB} = 50^{\circ} + 15^{\circ} = 65^{\circ}$.\\
+	Khi đó 
+		$IB = IK\cdot\tan\widehat{IKB} = 380\cdot\tan 65^{\circ}\quad (1)$.\\
+	Tương tự xét $\triangle IAK$, ta có 
+	$IA = IK\cdot\tan\widehat{IKA} = 380\cdot\tan 50^{\circ}\quad (2)$.\\
+Từ $(1)$ và $(2)$ suy ra $AB = IB - IA = 380\cdot\tan 65^{\circ} - 380\cdot\tan 50^{\circ}\approx 362{,}05\, \left(\mathrm{m}\right)$.\\
+Vậy khoảng cách giữa hai chiếc thuyền bằng $362{,}05\, \mathrm{m}$. 	
+}
+\end{bt}
+
+\begin{bt}%[Thầy Hóa]%[EX-TS10-ToanTT-2019]%[9H1T2]
+	Từ đài kiểm soát không lưu $K$, kỹ thuật viên đang kiểm soát một máy bay đang hạ cánh. Tại thời điểm kiểm soát, máy bay đang ở độ cao $962$ mét, góc quan sát (Tính theo đơn vị độ, phút, giây) là: $26^\circ42^\prime$. Hỏi máy bay tại thời điểm này cách đài quan sát bao nhiêu? (làm tròn đến mét). Biết rằng đài quan sát cách mặt đất $12$ mét. \dapso{$427$ mét.}
+	\loigiai{
+			\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=.7, line join = round, line cap = round]
+			\tkzInit[xmin=-1,xmax=16,ymin=-1,ymax=8.5]
+			\tkzDefPoints{0/0/A,0/1/B,15/1/K, 0/8/C}
+			\draw[<->,dashed] (15,0)--(15,1) node[rotate=90] at (15.2,0.5) {\tiny $12$m};
+			\draw[<->,dashed] (-0.5,0)--(-0.5,8) node[rotate=90] at (-0.8,4) {$962$m};
+			\draw[-,dashed] (0,8)--(-1,8);
+			\draw[-,dashed] (-1,0)--(16,0);
+			\tkzDrawSegments(A,C B,K C,K)
+			\tkzLabelAngles[pos=1](C,K,B){\tiny $26^\circ42'$}
+			\tkzDrawPoints[fill=black](A,B,C,K)
+			\tkzLabelPoints[below](A)
+			\tkzLabelPoints[above left](C)
+			\tkzLabelPoints[above right](K)
+			\tkzLabelPoints[left](B)
+			\end{tikzpicture}
+		\end{center}
+		Theo tỉ số lượng giác của góc nhọn trong tam giác vuông $CBK$, ta có
+		$$\sin \widehat{K}=\dfrac{BC}{CK}\Leftrightarrow\sin 26^\circ42'=\dfrac{AC-AB}{CK}=\dfrac{962-12}{CK}\Rightarrow CK=\sin 26^\circ42'\cdot 950\approx 427~\text{(m)}.$$
+		Vậy tại thời điểm này thì máy bay cách đài quan sát khoảng $427$ mét.
+	}
+\end{bt}
+
+\begin{bt}%[Thầy Hóa]%[EX-TS10-ToanTT-2019]%[9H1T2]
+	Buổi sáng hàng ngày, bạn An đi bộ từ nhà (ở vị trí A) đến trường (ở vị trí D). Giai đoạn đầu đi trên đoạn đường thẳng $AB = 400$ mét với vận tốc  $4$ km/h, sau đó đi đoạn đường dốc $BD$ với vận tốc $3$ km/h. Hỏi bạn An mất thời gian bao lâu để đi từ nhà đến trường? Biết rằng đoạn đường dốc hợp với phương nằm ngang một góc $\widehat{CBD}=3^\circ 50^\prime$ và chiều cao con dốc $CD = 10$ mét ($CD$ vuông góc với $BC$). \dapso{$18$ phút.}
+	\loigiai{
+			\begin{center}
+				\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			%\tkzInit[xmin=-1,xmax=7,ymin=-1.5,ymax=3]
+			\tkzDefPoints{0/0/A}
+			\coordinate (B) at ($(A)+(10,0)$);
+			\coordinate (C) at ($(A)+(14,0)$);
+			\tkzDefTriangle[two angles = 4 and 86](B,C)    \tkzGetPoint{D}
+			\tkzDrawPolygon(B,C,D)
+			\pgfresetboundingbox
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\tkzDrawSegments(A,B)
+			\tkzMarkRightAngles[size=0.1,fill=gray!50](D,C,B)
+			\tkzLabelSegments[color=black,pos=.5](A,B){$400$m}
+			\tkzLabelSegments[color=black,right](D,C){$10$m}
+			%\tkzMarkAngles[size=1cm,arc=l](C,B,D)
+			\tkzLabelPoints[above](D)
+			\tkzLabelPoints[below](A,B,C)
+			\end{tikzpicture}
+			\end{center}
+		\begin{itemize}
+			\item Thời gian để bạn An đi hết đoạn đường $AB$ là
+			\[0{,}4:4=0{,}1~\text{(giờ)}. \]
+			\item Áp dụng tỉ số lượng giác trong tam giác vuông $BCD$, ta có
+			\[\sin \widehat{B}=\dfrac{CD}{BD}\Rightarrow BD=CD\cdot \sin 3^\circ 50^\prime=10\cdot \sin 3^\circ 50^\prime\approx 150~\text{(m)}. \]
+			Thời gian để bạn An đi hết đoạn đường dốc $BD$ là
+			\[0{,}15:3=0{,}2~\text{(giờ)}. \]
+		\end{itemize}
+	Vậy thời gian để bạn An đi hết quãng đường từ nhà đến trường là
+	\[0{,}1+0{,}2=0{,}3~\text{(giờ)}=18~\text{(phút)}.\]
+	}
+\end{bt}
+
+\begin{bt}%[Lê Mạnh Thắng]%[EX-TS10-ToanTT-2019]%[9H1T2]
+	Bạn Bình cao $1{,}5\,$m đứng trên nóc ngôi nhà cao $8\,$m nhìn thấy một cao ốc như hình vẽ. Tính chiều cao của cao ốc (lấy 1 chữ số thập phân) biết $\alpha=15^\circ$, $\beta=60^\circ$.
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+		\def\x{.2}	\def\y{1.2}	 \def\z{1.65}  \def\h{8.5}
+		\tkzDefPoints{0/0/O, \x/0/E, \x/\y/D, -\x/0/F, -\x/\y/G, 0/\y/I, 0/\z/A}
+		%\tkzDrawSegments[line width=2pt](I,A)
+		%\tkzDrawSegments(E,F E,D F,G G,D)
+		\draw[pattern=dots] (F)--(E)--(D)--(G)--cycle;
+		\tkzDefPoints{5/0/K, 5/\z/H, 5/\h/B}
+		\tkzDrawSegments(A,K A,H A,B K,B)
+		\tkzDefPoints{5.2/0/M, 7.2/0/N, 7.2/\h/P, 5.2/\h/Q}
+		%\tkzDrawSegments[line width=1.5pt](M,N N,P P,Q Q,M)
+		\tkzDrawPoints[fill=black](A,K,H,B)
+		\tkzLabelPoints[above](B)
+		\tkzLabelPoints[shift={(-.55,.5)}](A,H)
+		\tkzLabelPoints[above left](K)
+		\begin{scriptsize}
+		\tkzLabelSegments[right](E,D){$8\,$m}
+		\end{scriptsize}
+		\tkzMarkRightAngles(A,H,K)
+		\tkzMarkAngles[arc=ll,size=0.8cm](K,A,H)
+		\tkzLabelAngles[pos=1.05](K,A,H){$\alpha$}
+		\tkzMarkAngles[size=0.6cm](H,A,B)
+		\tkzLabelAngles[pos=0.8](H,A,B){$\beta$}
+		%%
+		\tikzset{
+			man/.pic={%
+				\begin{scope}[shift={(-0.2,0)}]
+				\fill [rounded corners=1.5] (0,0.4) -- (0,0.8) -- (0.4,0.8) -- (0.4,0.4) --
+				(0.325,0.4) -- (0.325,0.7) -- (0.3,0.7) -- (0.3,0) -- (0.225,0) --
+				(0.225,0.4) -- (0.175,0.4) -- (0.175,0) -- (0.1,0) -- (0.1,0.7) --
+				(0.075,0.7) -- (0.075,0.4) -- cycle;
+				\fill (0.2,0.9) circle (0.1);
+				\coordinate (-head) at (0.2,1);
+				\coordinate (-foot) at (0.2,0);
+				\end{scope}
+		}}
+		\pic[scale=0.6,red] at ($(G)!0.5!(D)$) {man};
+		\coordinate (1) at ($(F)+(-1,0)$);
+		\coordinate (2) at ($(N)+(1,-1)$);
+		\coordinate (3) at ($(N)+(1,0)$);
+		\draw (1)--(3);
+		\fill[pattern=north east lines] (1) rectangle (2);
+		\begin{scope}[shift={(5,-1.4)}]
+		\def\nhathap{6} %so tang nha thap
+		\def\dai{.75} %chieu dai 1 khoi
+		\def\cao{1.415} %chieu cao 1 khoi
+		\newcommand{\xaynha}[2]{
+			\draw[very thick] (#1,#2)rectangle(#1+\dai,#2+\cao);
+			\draw[very thick,fill=black] (#1,#2)rectangle(#1+\dai,#2+0.25*\cao);
+			\draw[very thick] (#1+0.2*\dai,#2+0.25*\cao)rectangle(#1+0.8*\dai,#2+0.9*\cao); 
+		}
+		%Xay nha thap
+		\foreach \j in {1,...,\nhathap}{
+			\foreach \i in {0,...,1}{
+				\xaynha{\i*1.1}{\j*\cao}
+				
+			} 
+		}
+		\draw[line width=0.2cm] (-0.1,\cao*\nhathap+\cao)--(2.4*\dai*1.1,\cao*\nhathap+\cao);
+		\end{scope}
+		\end{tikzpicture}	
+	\end{center}
+	\dapso{$70{,}9\,$m}
+	\loigiai{
+		Ta có $HK=8+1{,}5=9{,}5\,$m.\\
+		Tam giác $AHK$ vuông tại $H$, nên \[\cot{\alpha}=\dfrac{AH}{HK}\Rightarrow AH=HK\cdot\cot{\alpha}=9{,}5\cdot\cot{15^\circ}\approx35{,}5\,\text{m}.\]
+		Tam giác $BHK$ vuông tại $H$, suy ra \[\tan{\beta}=\dfrac{BH}{AH}\Rightarrow BH=AH\cdot\tan{\beta}\approx35{,}5\cdot\tan{60^\circ}\approx61{,}4\,\text{m}.\]
+		Chiều cao của cao ốc là $BK=BH+HK\approx61{,}4+9{,}5\approx 70{,}9\,$m.
+		
+	}
+\end{bt}
+
+\begin{bt}%[Nguyễn Thế Anh]%[EX-TS10-ToanTT-2019]%[9H1K4]
+	Mỗi ngày đi học, An phải đi bộ từ nhà đến trường. Từ nhà bạn phải đi đoạn đường $AB$ dài $200$ mét. Tiếp theo bạn An phải đi qua một chiếc cầu bắt qua sông, gọi đoạn đường trên chiếc cầu này là $BCDE$ ($BCDE$ là hình thang cân, $\widehat {CBE} = 45^{\circ}$, chiều cao chiếc cầu là $2$ mét), khoảng cách giữa hai bờ sông $B$, $E$ là $10$ mét. Cuối cùng An phải đi thêm đoạn đường $EF$ dài $60$ mét nữa là đến trường. Biết vận tốc trung bình cả chuyến đi là $80$ m/phút.  Hỏi mỗi ngày đi học bạn An đi trong bao lâu? (kết quả làm tròn đến chữ số hàng đơn vị).
+\dapso {$3$ phút}
+\begin{center}
+\begin{tikzpicture}[scale=0.35, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\draw[line width=1.5] (-15,0)--(-5,0) coordinate[label=below right :$B$] (b)--(-3,2) coordinate[label=below right :$C$] (c)--(3,2)coordinate[label=below:$D$] (d)--(5,0)coordinate[label=below left:$E$] (e)--(15,0);
+\draw[line width=1.5] (-1.5,0)--(-1.5,2) (1.5,0)--(1.5,2);
+\draw[line width=1] (b)--(e);
+\draw[line width=1] (-6,0)--(-6,1)--(-3,4)--(3,4)--(6,1)--(6,0) (-6,0.5)--(-5,1)--(-3,3)--(3,3)--(5,1)--(6,0.5);
+\foreach \i in {b,c,d,e}\draw[line width=0.75] (\i)--++(0,2);
+\draw [red]($(b)+(0.75,0)$)node[above right]{$45^{\circ}$} arc(0:45:0.75);
+%\draw[<->] (c)--++(0,-2)coordinate[label=above left:$H$] (h) node[midway, right]{2 m};
+\draw[<->] ($(b)+(0,-1.2)$)--($(e)+(0,-1.2)$) node[midway, below]{10 m};
+\draw[<->] ($(b)+(0,-1.5)$)--(-16,-1.5) node[midway, below]{200 m};
+\draw[<->] ($(e)+(0,-1.5)$)--(16,-1.5) node[midway, below]{60 m};
+\draw[dashed] (-15,0)--(-16,0) coordinate[label=above :$A$] (a)--(-16,-1.5) (b)--++(0,-1.5) (e)--++(0,-1.5) (15,0)--(16,0)coordinate[label=above:$F$](f)--(16,-1.5);
+%=======Nhà bên trái=============
+\draw[fill=green] (-16,3)--(-18,4)--(-21,4)--(-23,3)--cycle;
+\draw (-17,3)--(-17,0)--(-22,0)--(-22,3);
+\draw[fill=blue!30] (-18,0) rectangle (-19.5,2);
+\draw[fill=pink] (-21.75,1) rectangle (-20,2.5);
+%=========Nhà bên phải=========
+\draw[fill=green] (16,6)--(18,7)--(22,7)--(24,6)--cycle;
+\draw (17,0)--(17,6) (20,0)--(20,6) (23,0)--(23,6) (17,0)--(23,0) (17,2)--(23,2) (17,4)--(23,4);
+\foreach \i in {0,2,4}{
+	\draw[fill=blue!30] (19,\i) rectangle (20,\i+1.5);
+	\draw[fill=blue!30] (22,\i) rectangle (23,\i+1.5);
+	\draw[fill=pink](17.25,\i+0.75) rectangle (18.75,\i+1.75);
+	\draw[fill=pink](20.25,\i+0.75) rectangle (21.75,\i+1.75);
+}
+%=========Mặt trời=========
+\fill[red!20!yellow] (-16,8) circle (1);
+\foreach \i in {0,40,...,360}{
+	\draw[shift={(-16,8)}, red] (\i:1.2)--(\i:1.6);
+	\draw[shift={(-16,8)}, red] (\i+20:1.4)--(\i+20:1.8);
+}
+\end{tikzpicture}
+\end{center}
+\loigiai {
+	Kẻ $CH\bot BE$, $DI\bot BE$.\\
+	Do $BCDE$ là hình thang cân, $\widehat {CBE} = 45^{\circ}$ nên $\triangle BCH$ và $\triangle DIE$ là hai tam giác vuông cân bằng nhau.\\
+	Suy ra
+	Ta có $CH=BC\cdot \sin {45^{\circ }}\Rightarrow \,BC=\dfrac{CH}{\sin {45^{\circ }}}=\dfrac{2}{\dfrac{\sqrt{2}}{2}}=2\sqrt{2}$ (m).\\
+	Suy ra $DE=BC=2\sqrt{2}$ (m).\\
+	$CD=10-(2+2)=6$ (m).\\
+	Đoạn đường An đi từ nhà đến trường\\
+	$AB+BC+CD+DE+EF=200+2\sqrt{2}+6+2\sqrt{2}+60=266+4\sqrt{2}(m)$.\\
+	Thời gian mỗi ngày bạn An đi được là $\left( 266+4\sqrt{2} \right):80\approx 3$ (phút).	
+		}
+\end{bt}
+
+\begin{bt}%[Nguyễn Thế Anh]%[EX-TS10-ToanTT-2019]%[9H1K4]
+	\immini{Ông $A$ dự định trồng hoa trên một khu đất hình tam giác $ABC$ vuông cân tại $A$. Ông $A$ chia khu đất thành hai phần (như hình vẽ). Phần thứ nhất (tam giác $ADC$) ông $A$ trồng hoa ly, phần thứ hai (tam giác $BCD$) ông $A$ trồng hoa cúc. Tính diện tích khu đất trồng hoa ly và diện tích khu đất trồng hoa cúc. (Biết $AB=AC=4$ m; $\widehat{ACD}=30^{\circ}$).}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzDefPoints{0/0/A, 0/4/B, 4/0/C, 0/2.3/D}
+\tkzDrawSegments(A,B B,C C,A D,C)
+\tkzFillPolygon[color=black,fill opacity=0.1](C,B,D)
+\tkzFillPolygon[color=red,fill opacity=0.1](A,C,D)
+\tkzMarkAngles[size=1.3](D,C,A)
+\tkzLabelAngle[color=black,pos=1](D,C,A){\footnotesize $30^\circ$}
+\tkzDrawPoints(A,B,C,D)
+\tkzLabelPoints[below](C)
+\tkzLabelPoints[left](A,D,B)
+\end{tikzpicture}}
+	\dapso {$\dfrac{8\sqrt{3}}{3}$ m$^2$; $\dfrac{24-8\sqrt{3}}{3}$ m$^2$}
+	\loigiai {
+	Theo tỉ số lượng giác trong tam giác, ta có: 
+	$AD=AC\cdot \tan \widehat{ACD}=4\cdot \tan30^{\circ}=\dfrac{4\sqrt{3}}{3}$ m.\\
+	Diện tích tam giác $ADC$: 
+	${S}_{ADC}=\dfrac{1}{2}AD\cdot AC=\dfrac{1}{2}.\dfrac{4\sqrt{3}}{3}\cdot 4=\dfrac{8\sqrt{3}}{3}$ m$^2$.\\
+	Diện tích tam giác $ABC$: 
+	${S}_{ABC}=\dfrac{1}{2}AB\cdot AC=\dfrac{1}{2}\cdot 4\cdot 4=8$ m$^2$.\\
+	Diện tích tam giác $BDC$
+	${S}_{BDC}={{S}_{ABC}}-{{S}_{ADC}}=8-\dfrac{8\sqrt{3}}{3}=\dfrac{24-8\sqrt{3}}{3}$ m$^2$.\\
+	Vậy diện tích trồng hoa ly là $\dfrac{8\sqrt{3}}{3}$ m$^2$; diện tích trồng hoa cúc là $\dfrac{24-8\sqrt{3}}{3}$ m$^2$.	
+}
+\end{bt}
+
+\begin{bt}%[Nguyễn Thế Anh]%[EX-TS10-ToanTT-2019]%[9H1K4]
+	 Một tàu khách và một tàu hàng cùng xuất phát từ một vị trí ở bến cảng, đi thẳng theo hai hướng tạo với nhau một góc $55^{\circ}$. Tàu hàng chạy với tốc độ $22$ hải lý một giờ. Tàu khách chạy với tốc độ $35$ hải lý một giờ. Sau $2$ giờ, hai tàu cách nhau bao nhiêu hải lý? (Hải lý là đơn vị đo chiều dài hàng hải, được áp dụng trong hàng không và hàng hải, $1$ hải lý bằng $1{,}852$km.)
+ \dapso {$57{,}47$ hải lý}
+\begin{center}
+		\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzDefPoints{-1/2/A, 3/-2/B, 2/-4/C}
+\tkzDrawPoints(A,B,C)
+\tkzMarkAngles[size=2.5](C,A,B)
+\tkzLabelAngle[color=black,pos=2](C,A,B){\footnotesize $55^\circ$}
+\draw (A) node[above]{\text{Bến tàu}} --(3,-2)node[right]{\text{Tàu khách}};
+\draw (-1,2)--(2,-4)node[below]{\text{Tàu hàng}};
+\end{tikzpicture}
+	\end{center}
+\loigiai {
+\immini{
+	Gọi $A$ là vị trí tàu khách, $B$ là bến tàu, $C$ là vị trí tàu hàng.\\
+	Quãng đường $AB$ của tàu khách đi được $2\cdot 35=70$ hải lý.\\
+	Quãng đường $AC$ của tàu hàng đi được $2\cdot 22=44$ hải lý.\\
+	Vẽ $AH\bot BC$, ta có:
+	$BH=AB\cdot \cos B\Rightarrow BH=70\cdot \cos55^{\circ}$\\
+	$HC=BC-BH=44-70\cdot \cos55^{\circ}$\\
+	$\sin B=\dfrac{AH}{AB}\Rightarrow AH=AB\cdot \sin B\Rightarrow AH=70\cdot \sin55^{\circ}$\\
+	$A{{C}^{2}}=A{{H}^{2}}+H{{C}^{2}}$\\
+	$\Rightarrow AC=\sqrt{{\left( 70\cdot \sin 55^{\circ} \right)}^{2}+{{\left( 44-70\cdot \cos55^{\circ} \right)}^2}}$\\
+	$\Rightarrow AC\approx 57{,}47$\\
+	Vậy sau $2$ giờ, hai tàu cách nhau $57{,}47$ hải lý.}
+{
+		\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzDefPoints{-1/2/A, 3/-2/B, 2/-4/C}
+\tkzDefPointBy[projection= onto C--A](B)
+\tkzGetPoint{H}
+\tkzDrawSegments(B,H B,C)
+\tkzDrawPoints(A,B,C,H)
+\tkzMarkAngles[size=2.5](C,A,B)
+\tkzLabelAngle[color=black,pos=2](C,A,B){\footnotesize $55^\circ$}
+\draw (A) node[above]{\text{B}} --(3,-2)node[right]{\text{A}};
+\draw (-1,2)--(2,-4)node[below]{\text{C}};
+\tkzLabelPoints[left](H)
+\tkzMarkRightAngle(A,H,B)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[Hoàng Ngọc Lâm]%[EX-TS10-ToanTT-2019]%[9H1T4]
+	Đảo Trường Sa có dạng hình tam giác vuông, cạnh huyền nằm theo hướng Đông Bắc - Tây Nam. Đường cao ứng với cạnh huyền chia tam giác này ra thành hai phần có diện tích $54000m^2$ và $96000m^2$. Tính độ dài cạnh huyền của tam giác vuông này.
+	\dapso{$25\sqrt{10}\,(m)$}
+	\loigiai{
+			\begin{center}
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/A,5/0/B,0/3/C};
+			\tkzDrawPolygon(A,B,C)
+			\tkzLabelPoints(A,B)
+			\tkzLabelPoints[above](C);
+			\tkzDrawSegments(A,B B,C C,A);
+			\tkzDrawAltitude(B,C)(A);
+			\tkzGetPoint{H};
+			\tkzLabelPoints[above](H);
+			\tkzLabelSegment(C,H){$x$};
+			\tkzLabelSegment(B,H){$y$};
+			\tkzMarkRightAngle[size=.3](A,H,B);
+			\end{tikzpicture}
+		\end{center}
+		Gọi các điểm như hình vẽ.
+		Đặt $CH=x\,(m)$ và $BH=y\,(m)$. (Điều kiện $x,y>0$)\\
+		Xét $\triangle ABC$ vuông tại $A$, đường cao $AH$, ta có $$AH^2=CH\cdot BH=x\cdot y\Rightarrow AH=\sqrt{xy}.$$
+		Không mất tính tổng quát, giả sử:
+		\begin{eqnarray}
+			&&S_{\triangle ACH}=54000=\dfrac{1}{2}\cdot AH \cdot CH=\dfrac{1}{2}\cdot \sqrt{xy}\cdot x.\label{ct3}\\
+			&&S_{\triangle ABH}=96000=\dfrac{1}{2}\cdot AH \cdot BH=\dfrac{1}{2}\cdot \sqrt{xy}\cdot y.\label{ct4}
+		\end{eqnarray}
+	Lấy \eqref{ct3} chia \eqref{ct4} vế theo vế ta được
+	\begin{equation}
+		\dfrac{x}{y}=\dfrac{9}{16}\Leftrightarrow x=\dfrac{9}{16}\cdot y.\label{ct5}
+	\end{equation}
+Thay \eqref{ct5} vào \eqref{ct4} ta được $$96000=\dfrac{1}{2}\cdot \dfrac{3}{4}y^2\Leftrightarrow y^2=256 000\Leftrightarrow \hoac{&y=160\sqrt{10}\,\text{(nhận)}\\&y=-160\sqrt{10}\,\text{(loại)}}\Leftrightarrow y=160\sqrt{10}\,(m).$$
+Suy ra $$x=\dfrac{9}{16}\cdot 160\sqrt{10}=90\sqrt{10}\,(m).$$
+Do đó $$BC=CH+BH=x+y=25\sqrt{10}\,(m).$$
+Vậy cạnh huyền của tam giác vuông đó là $25\sqrt{10}\,(m)$.
+	}
+\end{bt}
+
+\begin{bt}%[Lê Ngọc Hiếu]%[EX-TS10-ToanTT-2019]%[9H1T4]
+Một con lắc được cột cố định một đầu dây vào điểm $M$ trên đà gỗ. Con lắc chuyển động từ vị trí $A$ tới vị trí $B$ và hình chiếu của $B$ trên $MA$ là $C$. Cho biết độ dài dây treo con lắc $MA = 1$ m và $AC = 10$ cm. Tính khoảng cách BC và độ lớn của góc $\widehat{AMB}$. 	
+	\dapso{$BC=44$ cm và $\widehat{BMC}=26^\circ.$}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+\tkzDefPoints{0/0/M, -2/-4/A, 2/-4/B}
+\tkzDefPointBy[projection = onto M--A](B)
+\tkzGetPoint{C}
+\tkzDrawSegments(M,A M,B B,C)
+\tkzMarkRightAngle(B,C,M)
+\tkzMarkAngle[size=5mm](A,M,B)
+\tkzDrawPoints(A,B,C,M)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[above](M)
+\tkzLabelPoints[below left](C)
+\draw [dashed] (-2,0) -- (2,0);
+\tkzLabelSegment[sloped,above](A,M){$100$cm}
+\tkzLabelSegment[sloped,below](A,C){$10$cm}
+\end{tikzpicture}
+		\end{center}
+	
+Do $MA=MB$ nên $MB=100$cm.
+
+$MC=MA-AC=100-10=90$cm.
+
+Tam giác $MBC$ vuông tại $C$ nên
+
+$\cos \widehat{BMC}=\dfrac{MC}{MB}=\dfrac{9}{10} \Rightarrow \widehat{BMC}= 26^\circ$.
+
+$\tan \widehat{BMC}=\dfrac{BC}{MC}\Rightarrow BC=MC \cdot \tan \widehat{BMC} =90 \cdot \tan 26^\circ =44$ cm.
+
+Vậy $BC=44$ cm và $\widehat{BMC}=26^\circ.$
+	}
+\end{bt}
+
+\begin{bt}%[Lê Ngọc Hiếu]%[EX-TS10-ToanTT-2019]%[9H1T4]
+Một chiếc máy bay cất cánh với vận tốc $220$ km/h theo phương có góc nâng $23^\circ$ so với mặt đất. Hỏi sau khi cất cánh $2$ phút thì máy bay ở độ cao bao nhiêu?	
+	\dapso{$2{,}9$ km.}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+\clip(-0.5,-0.5) rectangle (4.5,3);
+\tkzDefPoints{0/0/A, 4/0/B, 4/2.5/C}
+\tkzDrawSegments(A,B B,C C,A)
+\tkzDrawPoints(A,B,C)
+\tkzMarkRightAngle(A,B,C)
+\tkzMarkAngle(B,A,C)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[above](C)
+\end{tikzpicture}
+		\end{center}
+	
+Đổi $2$ phút $= \dfrac{1}{30}$ giờ
+
+Quãng đường máy bay đã bay sau $2$ phút $AC=220\cdot \dfrac{1}{30}=7{,}3$ km.
+
+Độ cao của máy bay $BC=AC \cdot \sin A = 7{,}3\cdot \sin 23^\circ=2{,}9$ km.	
+	}
+\end{bt}
+
+\begin{bt}%[Lê Minh An]%[EX-TS10-ToanTT-2019]%[9H1K2]
+	Một bông sen nhô lên khỏi mặt nước khoảng $BD=\dfrac{1}{2}$ gang tay, có một cơn gió thổi bông sen nằm sát mặt nước cách chỗ cũ khoảng $DB'=2$ gang tay. Tính độ sâu $AD$ của ao nước.
+	\begin{center}
+		\begin{tikzpicture}[scale=0.3, line join=round, line cap=round]
+		\tkzDefPoints{0/-15/A, 0/3.75/B}
+		\clip (-5,-16.5) rectangle (15,6);
+		\tkzDefPointBy[rotation = center A angle -44](B)    \tkzGetPoint{B'}
+		\tkzDefLine[perpendicular=through B'](A,B) \tkzGetPoint{b}
+		\tkzInterLL(A,B)(b,B')    \tkzGetPoint{D}
+		\tkzDrawLine[add = 0 and 0.2,dashed,color=blue](b,B')
+		\tkzLabelPoints[above](B,B')
+		\tkzLabelPoints[below](A)
+		\tkzLabelPoints[below left](D)
+		
+		\begin{scope}
+		\foreach \goc in {0,72,288,360}{
+			\draw[rotate=\goc,draw=red!80!blue] (0,0)..controls (-1.75,1.5) and (0,3)..(0,3.75)  ..controls (0,3) and (1.75,1.5)..(0,0);
+		}
+		\foreach \goc in {36,108,252,324}{
+			\draw[rotate=\goc,draw=red!80!blue,scale=0.8] (0,0)..controls (-1.75,1.5) and (0,3)..(0,3.75)  ..controls (0,3) and (1.75,1.5)..(0,0);
+		}
+		\draw[draw=green!80!blue] (0,0)--(A);
+		\end{scope}
+		
+		\begin{scope}[rotate around={-44:(A)}]
+		\foreach \goc in {0,72,288,360}{
+			\draw[rotate=\goc,draw=red!80!blue] (0,0)..controls (-1.75,1.5) and (0,3)..(0,3.75)  ..controls (0,3) and (1.75,1.5)..(0,0);
+		}
+		\foreach \goc in {36,108,252,324}{
+			\draw[rotate=\goc,draw=red!80!blue,scale=0.8] (0,0)..controls (-1.75,1.5) and (0,3)..(0,3.75)  ..controls (0,3) and (1.75,1.5)..(0,0);
+		}
+		\draw[draw=green!80!blue] (0,0)--(A);
+		\end{scope}
+		\begin{scope}
+		\foreach \x in {-5,-4,...,18}{
+			\foreach \y in {-18,-17,...,-2}{
+				\coordinate (A) at ($(\x,\y)$);
+				\draw[blue!50] ($(A)-(0.3,0)$) to[out=-60,in=110] ($(A)+(0.3,0)$);
+		}}
+		\end{scope}
+		\end{tikzpicture}
+	\end{center}
+	\dapso{$AD=\dfrac{15}{4}$ gang tay}
+	\loigiai{
+		\immini
+		{
+			Ta có $BD=\dfrac{1}{2}$, $DB'=2$.\\
+			$\triangle BDB'$ vuông tại $D$ nên $DC=\sqrt{\dfrac{1}{4}+4}=\dfrac{\sqrt{17}}{2}$.\\
+			Lại có $\cos B=\dfrac{BD}{BB'}=\dfrac{1}{2}:\dfrac{\sqrt{17}}{2}=\dfrac{\sqrt{17}}{17}$.\\
+			Mặt khác $\triangle ABB'$ cân tại $A$, gọi $H$ là trung điểm $BB'\Rightarrow AH\perp BB'$.\\
+			$\Rightarrow \triangle ABH$ vuông tại $H$ và $\cos B=\dfrac{BH}{AB}$\\
+			$\Rightarrow AB=\dfrac{\sqrt{17}}{4}:\dfrac{\sqrt{17}}{17}=\dfrac{17}{4}\Rightarrow AD=AB-BD=\dfrac{15}{4}$.
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1.3]
+			\tkzDefPoints{0/0/D, 0/0.5/B, 2/0/B', 0/-3/A}
+			\coordinate (H) at ($(B)!0.5!(B')$);
+			\draw (B')node[right]{$B'$}--(B)node[above]{$B$}--(A)node[below]{$A$}--(B')--(D)node[left]{$D$};
+			\draw (A)--(H)node[above right]{$H$};
+			\tkzDrawPoints[fill=black](A,B,B',D,H)
+			\tkzMarkRightAngles[size=0.15](A,D,B' A,H,B)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+

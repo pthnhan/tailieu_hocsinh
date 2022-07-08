@@ -1,0 +1,635 @@
+
+
+\section{Hai tam giác bằng nhau cạnh - cạnh - cạnh}
+\subsection{Tóm tắt lí thuyết}
+\subsubsection{Vẽ tam giác biết ba cạnh}
+\textbf{\textit{Bài toán:}} Vẽ $\triangle ABC$ biết $AB = c$, $BC = a$, $AC = b$.\\
+\textit{Cách vẽ}\\
+Ta lần lượt thực hiện:
+\immini{
+\begin{itemize}
+\item Vẽ đoạn thẳng $AB = c$.
+\item Trên nửa mặt phẳng bờ $AB$, vẽ cung tròn tâm $A$ bán kính $b$, vẽ cung tròn tâm $B$, bán kính $a$. Hai cung tròn này cắt nhau ở $C$.
+\item Nối $AC$, $BC$ ta nhận được $\triangle ABC$ thỏa mãn giả thiết.
+\end{itemize}
+}{
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,4/0/B,1/3/C}
+\tkzDrawPolygon(A,B,C)
+\tkzCompass[color=red,length=1.5,dashed](A,C)
+\tkzCompass[color=black,length=1,dashed](B,C)
+%\tkzCompass[color=red,delta=100](A,B)
+\tkzDrawPoints(A,B,C)
+\tkzLabelPoints[above](C)
+\tkzLabelPoints[below](A,B)
+\tkzLabelSegment[below](A,B){$c$}
+\tkzLabelSegment[left](A,C){$b$}
+\tkzLabelSegment[right](C,B){$a$}
+\end{tikzpicture}
+}
+\subsubsection{Trường hợp bằng nhau cạnh – cạnh – cạnh}
+\begin{dl}
+Nếu ba cạnh của tam giác này bằng ba cạnh của tam giác kia thì hai tam giác đó bằng nhau.
+\end{dl}
+\immini{
+Như vậy, nếu hai tam giác $\triangle ABC$ và $\triangle {A_1}{B_1}{C_1}$ thỏa mãn:\\
+$AB = {A_1}{B_1}$; $BC = {B_1}{C_1}$; $CA = {C_1}{A_1}$ thì \break $\triangle ABC = \triangle {A_1}{B_1}{C_1}$\\
+và khi đó ta có ngay: $\widehat {A_1} = \widehat A$; $\widehat {B_1} = \widehat B$; $\widehat {C_1} = \widehat C$
+}{\begin{tikzpicture}[scale=0.7]
+\tkzDefPoints{0/0/B,4/0/C,1/2/A,6/0/B_1,10/0/C_1,7/2/A_1}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawPolygon(A_1,B_1,C_1)
+\tkzDrawPoints(A,B,C,A_1,B_1,C_1)
+\tkzLabelPoints[above](A,A_1)
+\tkzLabelPoints[below](C,B,B_1,C_1)
+\end{tikzpicture}}
+\begin{nx}
+\hfill
+\begin{itemize}
+	\item Như vậy, để chứng tỏ hai tam giác bằng nhau chúng ta chỉ cần khẳng định ba cặp cạnh bằng nhau mà không cần phải nêu đủ $6$ yếu tố bằng nhau ($3$ yếu tố cạnh và $3$ yếu tố góc).
+	\item Bằng việc khẳng định được sự bằng nhau của hai tam giác chúng ta sẽ bắt đầu làm quen với việc chứng minh các tính chất trong tam giác.
+\end{itemize}
+\end{nx}
+
+
+\subsection{Các dạng toán}
+\begin{dang}{Chứng minh hai tam giác bằng nhau}
+\end{dang}
+\begin{vd}%[Tuấn Nguyễn, dự án (EX-C2-L7-2018)]%[7H2Y3]
+Cho đoạn thẳng $AB$. Vẽ hai cung tròn tâm $A$, tâm $B$ bán kính $AB$, chúng cắt nhau tại $C$ và $D$. Chứng minh rằng:
+\begin{listEX}[2]
+	\item $\triangle ABC = \triangle ABD$. 
+	\item $\triangle ACD = \triangle BCD$.
+\end{listEX}
+\loigiai{
+Theo cách dựng của giả thiết, ta có: $AB = AC = BC = AD = BD$.
+\immini{
+\begin{enumerate}
+\item  Xét $\triangle ABC$ và $\triangle ABD$ có
+\begin{itemize}
+	\item $AB$ là cạnh chung;
+	\item $AC=AB$ (cmt);
+	\item $BC=BD$ (cmt).
+\end{itemize}
+$ \Rightarrow \triangle ABC = \triangle ABD$ (c–c–c).
+\item  Xét $\triangle ACD$ và $\triangle BCD$ có
+\begin{itemize}
+	\item $CD$ là cạnh chung;
+	\item $AC=BC$ (cmt);
+	\item $AD=BD$ (cmt).
+\end{itemize}
+$ \Rightarrow \triangle ACD = \triangle BCD$ (c–c–c).
+\end{enumerate}	
+}{
+\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/A,4/0/B}
+\tkzCompass[color=red,delta=100,dashed](A,B)
+\tkzCompass[color=red,delta=100,dashed](B,A)
+\tkzInterCC(A,B)(B,A)\tkzGetPoints{C}{D}
+\tkzDrawPoints(A,B,C,D)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[above](C)
+\tkzLabelPoints[below](D)
+\draw (A)--(D)--(B)--(C)--(A) (A)--(B) (C)--(D);
+\end{tikzpicture}
+}
+\begin{nx}
+\hfill
+\begin{itemize}
+\item Như vậy, để chứng tỏ hai tam giác bằng nhau chúng ta chỉ cần khẳng định ba cặp cạnh bằng nhau mà không cần phải nêu ra đủ $6$ yếu tổ bằng nhau nữa ($3$ yếu tố cạnh và $3$ yếu tố góc).
+\item Bằng việc khẳng định được sự bằng nhau của hai tam giác chúng ta sẽ bắt đầu làm quen với việc chứng minh các tính chất trong tam giác, các ví dụ sau sẽ minh họa điều này.
+\end{itemize}
+\end{nx}
+}
+\end{vd}
+
+
+
+\begin{dang}{Sử dụng hai tam giác bằng nhau để giải toán}
+\end{dang}
+% Ví dụ 2
+\begin{vd}%[Tuấn Nguyễn, dự án (EX-C2-L7-2018)]%[7H2B3]
+Cho $\triangle ABC$ có $AB = AC$. Gọi $M$ là trung điểm của $BC$. Chứng minh rằng $AM$ là đường trung trực của $BC$.
+\loigiai{
+Để chứng minh $AM$ là đường trung trực của $BC$, ta chỉ cần chứng minh $AH \perp BC$.\\
+\immini{
+Xét hai tam giác $\triangle ABM$ và $\triangle ACM$, ta có:
+\begin{itemize}
+\item $AB = AC$ (giả thiết);
+\item $BM = CM$ (vì $M$ là trung điểm của $BC$);
+\item $AM$ chung.
+\end{itemize}
+}{
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B,6/0/C,3/0/M,3/3/A}
+\tkzDrawPoints(A,B,C,M)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](M)
+\draw (A)--(B)--(C)--(A) (A)--(M);
+\tkzLabelAngle[pos=0.6,rotate=0](B,A,M){\footnotesize $1$}
+\tkzLabelAngle[pos=0.6,rotate=0](M,A,C){\footnotesize $2$}
+\tkzLabelAngle[pos=0.3,rotate=0](A,M,C){\footnotesize $2$}
+\tkzLabelAngle[pos=0.3,rotate=0](B,M,A){\footnotesize $1$}
+\end{tikzpicture}}
+\noindent Suy ra: $\triangle ABM = \triangle ACM$ (c.c.c) $ \Rightarrow \widehat {M_1} = \widehat {M_2}$.\\
+Mặt khác, ta lại có:
+	$$\widehat {M_1} + \widehat {M_2} = 180^\circ  \Leftrightarrow \widehat {M_1} + \widehat {M_1} = 180^\circ  \Leftrightarrow 2\widehat {M_1} = 180^\circ 
+	 \Leftrightarrow \widehat {M_1} = 90^\circ  \Leftrightarrow AH \perp BC.$$
+Vậy $AM$ là đường trung trực của $BC$.
+
+\begin{nx}
+\hfill
+\begin{itemize}
+\item Cũng từ kết quả $\triangle ABM = \triangle ACM$, ta suy ra được: 
+$\widehat {A_1} = \widehat {A_2} \Rightarrow AM$ là đường phân giác của góc $\widehat A$.
+\item Như vậy, trong $\triangle ABC$ có $AB = AC$ ($\triangle ABC$ cân tại $A$) thì $AM$ vừa là trung tuyến, vừa là đường cao, vừa là đường trung trực, vừa là đường phân giác – \textit{Đây chính là tính chất cơ bản của tam giác cân.}
+\end{itemize}
+\end{nx}
+}
+\end{vd}
+
+
+% Ví dụ 3
+\begin{vd}%[Tuấn Nguyễn, dự án (EX-C2-L7-2018)]%[7H2B3]
+Cho $\triangle ABC$. Vẽ cung tròn tâm $A$ bán kính $BC$, vẽ cung tròn tâm $C$ bán kính $BA$, chúng cắt nhau tại $D$ ($D$ và $B$ nằm khác phía đối với $AC$). Chứng minh rằng $AD\parallel BC$.
+\loigiai{
+	\immini{
+Từ cách vẽ, ta nhận được: $AD = BC$, $CD = AB$.\\
+Xét hai tam giác $\triangle ABC$ và $\triangle CDA$, ta có:\\
+$AB = CD$, $BC = DA$, $AC$ chung $ \Rightarrow \triangle ABC = \triangle CDA$ (c.c.c)\\
+$ \Rightarrow \widehat {A_1} = \widehat {C_1} \Rightarrow AD\parallel BC$, vì có hai góc so le trong bằng nhau.
+}
+{\begin{tikzpicture}
+	\tkzDefPoints{0/0/A,4/0/B}
+	\tkzDefShiftPoint[A](-60:3){C}
+	\tkzDefPointBy[translation=from B to A](C)\tkzGetPoint{D}
+	\tkzCompass[color=red,length=1.5,dashed](A,D)
+	\tkzCompass[color=black,length=2,dashed](C,D)
+	\tkzDrawPoints(A,B,C,D)
+	\tkzLabelPoints[right](C)
+	\tkzLabelPoints[left](D)
+	\tkzLabelPoints[above](A,B)
+	\draw (A)--(B)--(C)--(D)--(A) (A)--(C);
+	\tkzLabelAngle[pos=0.6,rotate=0](B,C,A){\footnotesize $1$}
+	\tkzLabelAngle[pos=0.6,rotate=0](D,A,C){\footnotesize $1$}
+	\end{tikzpicture}}
+\begin{note}
+Kết quả của ví dụ trên, cho phép chúng ta có thêm một phương pháp "Dựng đường thẳng $a$ đi qua điểm $A$ và song song với đường thẳng $d$ cho trước ($A \notin d$)". Thật vậy:
+\immini{
+\begin{itemize}
+\item Lấy hai điểm $B$, $C$ trên đường thẳng $d$.
+\item Vẽ cung tròn tâm $A$ bán kính $BC$, vẽ cung tròn tâm $C$ bán kính $BA$, chúng cắt nhau tại $D$ ($D$ và $B$ nằm khác phía đối với $AC$).
+\item Khi đó, $a$ chính là đường thẳng đi qua hai điểm $A$ và $D$.
+\end{itemize}
+}{
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,4/0/D}
+\tkzDefShiftPoint[A](-60:3){C}
+\tkzDefPointBy[translation=from D to A](C)\tkzGetPoint{B}
+\tkzCompass[color=red,length=1.5,dashed](A,D)
+\tkzCompass[color=black,length=2,dashed](C,D)
+\tkzDrawPoints(A,B,C,D)
+\tkzLabelPoints[above right](D)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](B,C)
+\tkzDrawLines(A,D C,B)
+\draw (A)--(B);
+\end{tikzpicture}}
+\end{note}
+}
+\end{vd}
+
+
+% Ví dụ 4
+\begin{vd}%[Tuấn Nguyễn, dự án (EX-C2-L7-2018)]%[7H2B3]
+Cho góc $\widehat {xOy}$. Vẽ cung tròn tâm $O$, cung này cắt $Ox$, $Oy$ theo thứ tự tại $A$ và $B$. Vẽ các cung tròn tâm $A$ và tâm $B$ có cùng bán kính sao cho chúng cắt nhau tại điểm $C$. Nối $O$ với $C$. Chứng minh rằng $OC$ là tia phân giác của góc $\widehat {xOy}$.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/O,6/0/C,3/0/I}
+\tkzDefShiftPoint[O](40:3){A}
+\tkzDefShiftPoint[O](40:6){x}
+\tkzDefShiftPoint[O](-40:3){B}
+\tkzDefShiftPoint[O](-40:6){y}
+\tkzCompass[color=red,delta=100,dashed](O,I)
+\tkzCompass[color=red,length=1.5,dashed](A,C)
+\tkzCompass[color=black,length=2,dashed](B,C)
+\tkzDrawPoints(A,B,C,O)
+\tkzLabelPoints[left](O)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[above](A,x)
+\tkzLabelPoints[below](B,y)
+\draw (O)--(x) (O)--(y)  (A)--(C)--(B) (O)--(C);
+\tkzLabelAngle[pos=0.6,rotate=0](C,O,A){\footnotesize $1$}
+\tkzLabelAngle[pos=0.6,rotate=0](B,O,C){\footnotesize $2$}
+\end{tikzpicture}
+\end{center}
+Từ cách vẽ, ta nhận được: $OA = OB$, $CA = CB$.\\
+Xét hai tam giác $\triangle OAC$ và $\triangle OBC$, ta có:\\
+$OA = OB$, $CA = CB$; $OC$ chung $ \Rightarrow \triangle OAC = \triangle OBC$ (c.c.c)\\
+$ \Rightarrow \widehat {{O_1}} = \widehat {{O_2}} \Rightarrow OC$ là tia phân giác của góc $\widehat {xOy}$.
+\begin{nx}
+Kết quả của ví dụ trên, cho phép chúng ta có thêm một phương pháp "Dựng đường phân giác của một góc". Thật vậy, để dựng tia phân giác của góc $\widehat {xOy}$ ta vẽ:
+\begin{itemize}
+\item Vẽ cung tròn tâm $O$, cung này cắt $Ox$, $Oy$ theo thứ tự tại $A$ và $B$.
+\item Vẽ các cung tròn tâm $A$ và tâm $B$ có cùng bán kính sao cho chúng cắt nhau tại điểm $C$.
+\item Nối $O$ với $C$, ta được $OC$ là tia phân giác của góc $\widehat {xOy}$.
+\end{itemize}
+\end{nx}
+}
+\end{vd}
+
+
+
+
+% Dạng 3
+\begin{dang}{Vẽ $\triangle ABC$, biết $AB = c$, $BC = a$, $AC = b$}
+Ta lần lượt thực hiện:
+\begin{itemize}
+\item Vẽ đoạn thẳng $AB = c$.
+\item Trên nửa mặt phẳng bờ $AB$, vẽ cung tròn tâm $A$, bán kính $b$, vẽ cung tròn tâm $B$ bán kính $a$. Hai cung tròn này cắt nhau tại $C$.
+\item Nối $AC$, $BC$, ta nhận được $\triangle ABC$ thỏa mãn giả thiết.
+\end{itemize}
+\end{dang}
+
+% Ví dụ 5
+\begin{vd}%[Tuấn Nguyễn, dự án (EX-C2-L7-2018)]%[7H2B3]
+Vẽ $\triangle ABC$, biết $AB = 3$ cm, $BC = 4$ cm, $CA = 5$ cm. Sau đó hãy thử đo góc $\widehat B$.
+\loigiai{
+Ta lần lượt thực hiện:
+\immini{
+\begin{itemize}
+\item Vẽ đoạn thẳng $AB = 3$ cm.
+\item Trên nửa mặt phẳng bờ AB, vẽ cung tròn tâm $A$, bán kính $5$ cm, vẽ cung tròn tâm $B$ bán kính $4$ cm. Hai cung tròn này cắt nhau tại $C$.
+\item Nối $AC$, $BC$, ta nhận được $\triangle ABC$ thỏa mãn giả thiết.
+\end{itemize}
+}{\begin{tikzpicture}
+\tkzDefPoints{0/0/A,3/0/B,3/4/C}
+\tkzCompass[color=red,length=1.5,dashed](A,C)
+\tkzCompass[color=black,length=2,dashed](B,C)
+\tkzDrawPoints(A,B,C)
+\tkzLabelPoints[above](C)
+\tkzLabelPoints[below](B,A)
+\draw (A)--(C)--(B)--(A);
+\tkzLabelSegment[below](A,B){$3$ cm}
+\tkzLabelSegment[left](A,C){$5$ cm}
+\tkzLabelSegment[right](C,B){$4$ cm}
+\end{tikzpicture}}
+Thực hiện phép đo, ta nhận được $\widehat B = 90^\circ $.
+}
+\end{vd}
+
+
+% Ví dụ 6
+\begin{vd}%[Tuấn Nguyễn, dự án (EX-C2-L7-2018)]%[7H2K3]
+Cho hai tam giác $\triangle ABC$, $\triangle ABD$ biết $AB = 4$ cm, $AC = BC = 3$ cm, $AD = BD = 5$ cm và $C$, $D$ nằm khác phía đối với $AB$.
+\begin{enumerate}
+	\item Hãy vẽ $\triangle ABC$, $\triangle ABD$.
+	\item Chứng minh rằng $\widehat {CAD} = \widehat {CBD}$.
+\end{enumerate}	
+\loigiai{
+\begin{enumerate}
+	\item Ta lần lượt thực hiện:\\
+	Vẽ $\triangle ABC$:
+	\immini{
+	\begin{itemize}
+		\item Vẽ đoạn thẳng $AB = 4$ cm.
+		\item Trên nửa mặt phẳng bờ AB, vẽ cung tròn tâm $A$ bán kính $3$ cm, vẽ cung tròn tâm $B$ bán kính $3$ cm. Hai cung tròn này cắt nhau tại $C$.
+		\item Nối $AC$, $BC$, ta nhận được $\triangle ABC$ thỏa mãn giả thiết.
+	\end{itemize}
+	Vẽ $\triangle ABD$:
+\begin{itemize}
+	\item Trên nửa mặt phẳng bờ $AB$ khác phía với $C$, vẽ cung tròn tâm $A$ bán kính 5 cm, vẽ cung tròn tâm $B$ bán kính $5$ cm. Hai cung tròn này cắt nhau tại $D$.
+	\item Nối $AD$, $BD$, ta nhận được $\triangle ABD$ thỏa mãn giả thiết.
+\end{itemize}
+}{
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A,4/0/B,2/3/C,2/-4/D}
+\tkzCompass[color=red,length=1.5,dashed](A,C)
+\tkzCompass[color=black,length=2,dashed](B,C)
+\tkzCompass[color=red,length=1.5,dashed](A,D)
+\tkzCompass[color=black,length=2,dashed](B,D)
+\tkzDrawPoints(A,B,C,D)
+\tkzLabelPoints[above](C)
+\tkzLabelPoints[below](D)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\draw (A)--(C)--(B)--(D)--(A) (A)--(B) (C)--(D);
+\tkzMarkSegments[mark=|](A,C C,B)
+\tkzMarkSegments[mark=||](A,D D,B)
+\end{tikzpicture}}
+
+\item Xét hai tam giác $\triangle ACD$ và $\triangle BCD$, ta có:
+\begin{itemize}
+	\item $AC = BC$;
+	\item $AD = BD$;
+	\item $CD$ chung.
+\end{itemize}
+$ \Rightarrow \triangle ACD = \triangle BCD \Rightarrow \widehat {CAD} = \widehat {CBD}$ suy ra điều phải chứng minh.
+\end{enumerate}	
+}
+\end{vd}
+
+
+
+
+\subsection{Bài tập tự luyện}
+% Bài 1
+\begin{bt}%[Tuấn Nguyễn, dự án (EX-C2-L7-2018)]%[7H2Y3]
+Vẽ $\triangle ABC$, biết:
+\begin{enumerate}	
+\item  $AB = 6$ cm, $BC = 8$ cm, $CA = 10$ cm. Sau đó hãy thử đo góc $\widehat B$.
+\item  $AB = 5$ cm, $BC = 6$ cm, $CA = 4$ cm.
+\item  $AB = AC = 6$ cm, $BC = 8$ cm.
+\item  $AB = BC = CA = 9$ cm. Sau đó hãy thử đo các góc.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Ta lần lượt thực hiện:
+\immini{
+\begin{itemize}
+\item Vẽ đoạn thẳng $AB = 6$ cm.
+\item Trên nửa mặt phẳng bờ $AB$, vẽ cung tròn tâm $A$ bán kính $10$ cm, vẽ cung tròn tâm $B$ bán kính $8$ cm. Hai cung tròn này cắt nhau tại $C$.
+\item Nối $AC$, $BC$, ta nhận được $\triangle ABC$ thỏa mãn giả thiết.
+\item Thực hiện phép đo ta nhận được $\widehat B = 90^\circ $.
+\end{itemize}
+}
+{\begin{tikzpicture}
+	\clip (-0.5,-0.5) rectangle (4,5);
+	\tkzDefPoints{0/0/A,3/0/B}
+	\tkzInterCC[R](A,5 cm)(B,4 cm) \tkzGetPoints{C}{D}
+	\tkzDrawPolygon(A,B,C)
+	\tkzCompass[color=red,length=1.5,dashed](A,C)
+	\tkzCompass[color=black,length=1,dashed](B,C)
+	%\tkzCompass[color=red,delta=100](A,B)
+	\tkzDrawPoints(A,B,C)
+	\tkzLabelPoints[above](C)
+	\tkzLabelPoints[below](A,B)
+	\tkzLabelSegment[below](A,B){$6$ cm}
+	\tkzLabelSegment[left](A,C){$10$ cm}
+	\tkzLabelSegment[right](C,B){$8$ cm}
+	\end{tikzpicture}}
+
+\item Ta lần lượt thực hiện:
+\immini{
+	\begin{itemize}
+		\item Vẽ đoạn thẳng $AB = 5$ cm.
+		\item Trên nửa mặt phẳng bờ $AB$, vẽ cung tròn tâm $A$ bán kính $4$ cm, vẽ cung tròn tâm $B$ bán kính $6$ cm. Hai cung tròn này cắt nhau tại $C$.
+		\item Nối $AC$, $BC$, ta nhận được $\triangle ABC$ thỏa mãn giả thiết.
+	\end{itemize}
+}
+{\begin{tikzpicture}
+	\clip (-1.5,-0.5) rectangle (3,3);
+	\tkzDefPoints{0/0/A,2.5/0/B}
+	\tkzInterCC[R](A,2 cm)(B,3 cm) \tkzGetPoints{C}{D}
+	\tkzDrawPolygon(A,B,C)
+	\tkzCompass[color=red,length=1.5,dashed](A,C)
+	\tkzCompass[color=black,length=1,dashed](B,C)
+	%\tkzCompass[color=red,delta=100](A,B)
+	\tkzDrawPoints(A,B,C)
+	\tkzLabelPoints[above](C)
+	\tkzLabelPoints[below](A,B)
+	\tkzLabelSegment[below](A,B){$5$ cm}
+	\tkzLabelSegment[left](A,C){$4$ cm}
+	\tkzLabelSegment[right](C,B){$6$ cm}
+	\end{tikzpicture}}
+
+\item Ta lần lượt thực hiện:
+\immini{
+	\begin{itemize}
+		\item Vẽ đoạn thẳng $AB = 6$ cm.
+		\item Trên nửa mặt phẳng bờ $AB$, vẽ cung tròn tâm $A$ bán kính $10$ cm, vẽ cung tròn tâm $B$ bán kính $8$ cm. Hai cung tròn này cắt nhau tại $C$.
+		\item Nối $AC$, $BC$, ta nhận được $\triangle ABC$ thỏa mãn giả thiết.
+	\end{itemize}
+}
+{\begin{tikzpicture}
+	\clip (-1.5,-0.5) rectangle (3.5,4);
+	\tkzDefPoints{0/0/A,3/0/B}
+	\tkzInterCC[R](A,3 cm)(B,4 cm) \tkzGetPoints{C}{D}
+	\tkzDrawPolygon(A,B,C)
+	\tkzCompass[color=red,length=1.5,dashed](A,C)
+	\tkzCompass[color=black,length=1,dashed](B,C)
+	%\tkzCompass[color=red,delta=100](A,B)
+	\tkzDrawPoints(A,B,C)
+	\tkzLabelPoints[above](C)
+	\tkzLabelPoints[below](A,B)
+	\tkzLabelSegment[below](A,B){$6$ cm}
+	\tkzLabelSegment[left](A,C){$6$ cm}
+	\tkzLabelSegment[right](C,B){$8$ cm}
+	\end{tikzpicture}}
+
+\item Ta lần lượt thực hiện:
+\immini{
+	\begin{itemize}
+		\item Vẽ đoạn thẳng $AB = 9$ cm.
+		\item Trên nửa mặt phẳng bờ $AB$, vẽ cung tròn tâm $A$ bán kính $9$ cm, vẽ cung tròn tâm $B$ bán kính $9$ cm. Hai cung tròn này cắt nhau tại $C$.
+		\item Nối $AC$, $BC$, ta nhận được $\triangle ABC$ thỏa mãn giả thiết.
+		\item Thực hiện phép đo ta nhận được $\widehat A =\widehat B=\widehat C =60^\circ $.
+	\end{itemize}
+}
+{\begin{tikzpicture}
+	\clip (-0.5,-0.5) rectangle (5,5);
+	\tkzDefPoints{0/0/A,4.5/0/B}
+	\tkzInterCC[R](A,4.5 cm)(B,4.5 cm) \tkzGetPoints{C}{D}
+	\tkzDrawPolygon(A,B,C)
+	\tkzCompass[color=red,length=1.5,dashed](A,C)
+	\tkzCompass[color=black,length=1,dashed](B,C)
+	%\tkzCompass[color=red,delta=100](A,B)
+	\tkzDrawPoints(A,B,C)
+	\tkzLabelPoints[above](C)
+	\tkzLabelPoints[below](A,B)
+	\tkzLabelSegment[below](A,B){$9$ cm}
+	\tkzLabelSegment[left](A,C){$9$ cm}
+	\tkzLabelSegment[right](C,B){$9$ cm}
+	\end{tikzpicture}}
+\end{enumerate}
+}
+\end{bt}
+% Bài 2
+\begin{bt}%[Tuấn Nguyễn, dự án (EX-C2-L7-2018)]%[7H2Y3]%[7H2B3]
+Cho hai tam giác $\triangle ABC$, $\triangle ABD$, biết $AB = 8$ cm, $AC = BC = 6$ cm, $AD = BD = 10$ cm và $C$, $D$ nằm khác phía đối với $AB$.
+\begin{enumerate}
+	\item Hãy vẽ $\triangle ABC$, $\triangle ABD$.
+	\item Chứng minh rằng $\widehat {CAD} = \widehat {CBD}$.
+\end{enumerate}	
+\loigiai{
+\begin{enumerate}
+\item Ta lần lượt thực hiện:
+\immini{
+	Vẽ $\triangle ABC$:
+\begin{itemize}
+\item Vẽ đoạn thẳng $AB = 8$ cm.
+\item Trên nửa mặt phẳng bờ $AB$, vẽ cung tròn tâm $A$ bán kính $6$ cm, vẽ cung tròn tâm $B$ bán kính $6$ cm. Hai cung tròn này cắt nhau tại $C$.
+\item Nối $AC$, $BC$ ta nhận được $\triangle ABC$ thỏa mãn giả thiết.
+\end{itemize}
+Vẽ $\triangle ABD$:
+\begin{itemize}
+\item Trên nửa mặt phẳng bờ $AB$ khác phía với $C$, vẽ cung tròn tâm $A$ bán kính $10$ cm, vẽ cung tròn tâm $B$ bán kính $10$ cm. Hai cung tròn này cắt nhau tại $D$.
+\item Nối $AD$, $BD$, ta nhận được $\triangle ABD$ thỏa mãn giả thiết.
+\end{itemize}
+}{\begin{tikzpicture}
+\clip (-0.5,-5.5) rectangle (5,3);
+\tkzDefPoints{0/0/A,4/0/B}
+\tkzInterCC[R](A,3 cm)(B,3 cm) \tkzGetPoints{C}{D1}
+\tkzInterCC[R](A,5 cm)(B,5 cm) \tkzGetPoints{C1}{D}
+\tkzDrawPolygon(A,B,C)
+\tkzCompass[color=red,length=1.5,dashed](A,C)
+\tkzCompass[color=black,length=1,dashed](B,C)
+\tkzCompass[color=red,length=1.5,dashed](A,D)
+\tkzCompass[color=black,length=1,dashed](B,D)
+\tkzDrawPoints(A,B,C,D)
+\tkzLabelPoints[above](C)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[below](D)
+\tkzLabelSegment[below](A,B){$8$ cm}
+\tkzLabelSegment[left](A,C){$6$ cm}
+\tkzLabelSegment[right](C,B){$6$ cm}
+\tkzLabelSegment[left](A,D){$10$ cm}
+\tkzLabelSegment[right](D,B){$10$ cm}
+\draw (A)--(D)--(B);
+\tkzDrawSegments[dashed](D,C)
+\end{tikzpicture}}
+
+\item Xét hai tam giác $\triangle ACD$ và $\triangle BCD$, ta có:
+\begin{itemize}
+\item $AC = BC$;
+\item $AD = BD$;
+\item $CD$ chung.
+\end{itemize}
+$ \Rightarrow \triangle ACD = \triangle BCD$ (c-c-c) \\
+$\Rightarrow \widehat {CAD} = \widehat {CBD}$ (điều phải chứng minh).
+\end{enumerate}	
+}
+\end{bt}
+% Bài 3
+\begin{bt}%[Tuấn Nguyễn, dự án (EX-C2-L7-2018)]%[7H2B3]
+Cho hai tam giác $\triangle ABC$, $\triangle ABD$ biết $AB = 8$ cm, $AC = BC = 6$ cm, $AD = BD = 10$ cm.
+\begin{enumerate}
+	\item Hãy vẽ $\triangle ABC$, $\triangle ABD$.
+	\item Chứng minh rằng $\widehat {CAD} = \widehat {CBD}$.
+\end{enumerate}	
+\loigiai{
+\begin{enumerate}
+\item  Ta có hai trường hợp hình:
+\begin{center}
+\begin{tikzpicture}
+\clip (-0.5,-5.5) rectangle (12,3);
+\tkzDefPoints{0/0/A,4/0/B}
+\tkzDefPoints{6/-4/A1,10/-4/B1}
+\tkzInterCC[R](A,3 cm)(B,3 cm) \tkzGetPoints{C}{D1}
+\tkzInterCC[R](A,5 cm)(B,5 cm) \tkzGetPoints{C1}{D}
+\tkzInterCC[R](A1,3 cm)(B1,3 cm) \tkzGetPoints{C4}{D2}
+\tkzInterCC[R](A1,5 cm)(B1,5 cm) \tkzGetPoints{D4}{C2}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawPolygon(A1,B1,C4)
+\tkzCompass[color=red,length=1.5,dashed](A,C)
+\tkzCompass[color=black,length=1,dashed](B,C)
+\tkzCompass[color=red,length=1.5,dashed](A,D)
+\tkzCompass[color=black,length=1,dashed](B,D)
+\tkzCompass[color=red,length=1.5,dashed](A1,C4)
+\tkzCompass[color=black,length=1,dashed](B1,C4)
+\tkzCompass[color=red,length=1.5,dashed](A1,D4)
+\tkzCompass[color=black,length=1,dashed](B1,D4)
+\tkzDrawPoints(A,B,C,D)
+\tkzDrawPoints(A1,B1,C4,D4)
+\tkzLabelPoints[above](C)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[below](D)
+\tkzLabelSegment[below](A,B){$8$ cm}
+\tkzLabelSegment[left](A,C){$6$ cm}
+\tkzLabelSegment[right](C,B){$6$ cm}
+\tkzLabelSegment[left](A,D){$10$ cm}
+\tkzLabelSegment[right](D,B){$10$ cm}
+\draw (A)--(D)--(B);
+\tkzLabelSegment[below](A1,B1){$8$ cm}
+%\tkzLabelSegment[left](A1,C4){$6$ cm}
+%\tkzLabelSegment[right](C4,B1){$6$ cm}
+\tkzLabelSegment[left](A1,D4){$10$ cm}
+\tkzLabelSegment[right](D4,B1){$10$ cm}
+\draw (A1)--(D4)--(B1);
+
+\draw (C4) node[shift={(90:.4)}]{$C$};
+\draw (D4) node[shift={(90:.4)}]{$D$};
+\draw (A1) node[shift={(180:.4)}]{$A$};
+\draw (B1) node[shift={(0:.4)}]{$B$};
+\tkzDrawSegments[dashed](D,C D4,C4)
+\end{tikzpicture}
+\end{center}
+
+\item  Xét hai tam giác $\triangle ACD$ và $\triangle BCD$, ta có:
+\begin{itemize}
+\item $AC = BC$;
+\item $AD = BD$;
+\item $CD$ chung.
+\end{itemize}
+$ \Rightarrow \triangle ACD = \triangle BCD \Rightarrow \widehat {CAD} = \widehat {CBD}$ (điều phải chứng minh).
+\end{enumerate}	
+}
+\end{bt}
+% Bài 4
+\begin{bt}%[Tuấn Nguyễn, dự án (EX-C2-L7-2018)]%[7H2B3]
+Cho $AB = 6$ cm. Vẽ đường tròn tâm $A$ bán kính $2$ cm và đường tròn tâm $B$ bán kính bằng $6$ cm, chúng cắt nhau tại $C$ và $D$. Chứng minh rằng $AB$ là tia phân giác của góc $\widehat {CAD}$.
+\loigiai{
+\immini{
+Xét tam giác $ABC$ và tam giác $ABD$ có
+\begin{itemize}
+	\item $AB$ là cạnh chung;
+	\item $AC=AD=2$ (cm);
+	\item $BC=BD=6$ (cm).
+\end{itemize}
+$ \Rightarrow \triangle ABC=\triangle ABD$ (c.c.c).\\
+$\Rightarrow \widehat{CAB}=\widehat{DAB}$ (hai góc tương ứng).\\
+Vậy $AB$ là tia phân giác của góc $\widehat {CAD}$.
+}{\begin{tikzpicture}
+	\clip (-0.5,-2.5) rectangle (6.5,2.5);
+	\tkzDefPoints{0/0/A,6/0/B}
+	\tkzInterCC[R](A,2 cm)(B,6 cm) \tkzGetPoints{C}{D}
+	\tkzDrawPolygon(A,B,C)
+	\draw (A)--(D)--(B);
+	\tkzCompass[color=red,length=1.5,dashed](A,C)
+	\tkzCompass[color=black,length=1,dashed](B,C)
+	\tkzCompass[color=red,length=1.5,dashed](A,D)
+	\tkzCompass[color=black,length=1,dashed](B,D)
+	\tkzDrawPoints(A,B,C,D)
+	\tkzLabelPoints[above](C)
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoints[right](B)	
+	\tkzLabelPoints[below](D)
+	\tkzMarkSegments[mark=|,color=red](A,D A,C)
+	\tkzMarkSegments[mark=||,color=red](C,B D,B)
+	\end{tikzpicture}}
+}
+\end{bt}
+% Bài 5
+\begin{bt}%[Tuấn Nguyễn, dự án (EX-C2-L7-2018)]%[7H2B3]
+Cho $\triangle ABC$ có $AB = AC$. Gọi $M$ là trung điểm của $BC$. Chứng minh rằng $AM$ là đường phân giác của góc $\widehat A$.
+\loigiai{
+\immini{
+	Xét hai tam giác $\triangle ABM$ và $\triangle ACM$, ta có:
+	\begin{itemize}
+		\item $AB=AC$ (gt);
+		\item $AM$ (cạnh chung);
+		\item $BM=MC$ (vì $M$ là trung điểm của $BC$).
+	\end{itemize}
+	Suy ra: $\triangle ABM = \triangle ACM$ (c.c.c)  \\
+	$\Rightarrow \widehat {BAM} = \widehat {CAM}$ (hai góc tương tứng).\\
+	Vậy $AM$ là đường phân giác của góc $\widehat A$.
+}{
+	\begin{tikzpicture}
+	\tkzDefPoints{0/0/B,6/0/C,3/0/M,3/3/A}
+	\tkzDrawPoints(A,B,C,M)
+	\tkzLabelPoints[right](C)
+	\tkzLabelPoints[left](B)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[below](M)
+	\draw (A)--(B)--(C)--(A) (A)--(M);
+	\tkzMarkSegments[mark=|,color=red](A,B A,C)
+	\tkzMarkSegments[mark=||,color=red](M,B M,C)
+	\end{tikzpicture}}
+}
+\end{bt}

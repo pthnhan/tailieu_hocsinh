@@ -1,0 +1,696 @@
+%GV soạn: Điệp Nguyễn
+%GV phản biện: Phạm An Bình
+\Opensolutionfile{ans}[ans/ans7H3-7]
+\section{Tính chất ba đường cao của tam giác}
+\subsection{Hỏi đáp nhanh}
+\begin{ex}
+Nếu tam giác $ABC$ vuông tại $A$ thì trực tâm tam giác là điểm nào?	
+\begin{center}
+	\begin{tikzpicture}[scale=0.7, line join = round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/A,3/0/B,0/3.2/C}
+\tkzDefPointBy[projection = onto C--B](A)    \tkzGetPoint{K}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegments(A,K)
+\tkzMarkRightAngles[size=0.2](B,A,C)
+\tkzMarkRightAngles[size=0.2](A,K,B)
+\tkzLabelPoints[above](C)
+\tkzLabelPoints[below](B)
+\tkzLabelPoints[right](K)
+\draw (A) node[below] {$A\equiv H$};
+\end{tikzpicture}	
+\end{center}
+\end{ex}
+\begin{ex}
+Tại sao trong tam giác cân, trọng tâm, trực tâm, đỉnh của tam giác cùng nằm trên một đường thẳng?	
+\end{ex}
+\begin{ex}
+Trong tam giác đều, tại sao trực tâm trùng với trọng tâm? Nó còn trùng với các điểm nào nữa?	
+\end{ex}
+\begin{ex}
+Trực tâm tam giác $HBC$ là điểm nào? Điểm $B$ là trực tâm của tam giác nào?	
+\begin{center}
+	\begin{tikzpicture}[scale=0.7, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{-1/0/B,4/0/C,0/3/A,0/0/K}
+	\tkzDefPointBy[projection = onto A--B](C)    \tkzGetPoint{E}
+	\tkzDefPointBy[projection = onto A--C](B)    \tkzGetPoint{F}
+	\tkzInterLL(C,E)(B,F)    \tkzGetPoint{H}
+
+	\tkzDrawPolygon(A,B,C)
+	\tkzDrawSegments(A,K C,E B,F)
+	\tkzMarkRightAngles[size=0.2](B,K,A)
+	\tkzMarkRightAngles[size=0.2](C,E,B)
+	\tkzMarkRightAngles[size=0.2](B,F,C)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[below](C,B,K)
+	\tkzLabelPoints[below right](H)
+	\tkzLabelPoints[right](F)
+	\tkzLabelPoints[left](E)
+	\end{tikzpicture}	
+\end{center}
+\end{ex}				
+\begin{ex}
+Đường thẳng $AK$ có đi qua điểm $H$ không? Tại sao?	
+\begin{center}
+	\begin{tikzpicture}[scale=0.7, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{-1/0/B,4/0/C,0/3/A,0/0/K}
+	\tkzDefPointBy[projection = onto A--B](C)    \tkzGetPoint{E}
+	\tkzDefPointBy[projection = onto A--C](B)    \tkzGetPoint{F}
+	\tkzInterLL(C,E)(B,F)    \tkzGetPoint{H}
+	
+	\tkzDrawPolygon(A,B,C)
+	\tkzDrawSegments(C,E B,F H,K)
+	\tkzMarkRightAngles[size=0.2](B,K,A)
+	\tkzMarkRightAngles[size=0.2](C,E,B)
+	\tkzMarkRightAngles[size=0.2](B,F,C)
+
+	\tkzLabelPoints[below](K)
+	\draw (A) node[above] {H};
+	\draw (H) node[above] {A};
+	\end{tikzpicture}	
+\end{center}
+\end{ex}	
+
+
+\subsection{Học giải toán}
+\begin{vd}%[7H3B9]
+Cho tam giác $\triangle ABC$ vuông cân tại $B$. Trên cạnh $AB$ lấy điểm $H$. Trên tia đối của tia $BC$ lấy điểm $D$ sao cho $BH=BD$. Chứng minh rằng
+\begin{enumerate}
+	\item $DH\perp AC$;
+	\item $CH\perp AD$.
+\end{enumerate}
+\loigiai
+{
+\immini{\begin{enumerate}
+	\item $\triangle ABC$ vuông cân tại $B$, vậy $\widehat{ACB}=45^\circ$. \\$\triangle HBD$ có $\widehat{B}=90^\circ$ (giả thiết); $BH=BD$ (giả thiết).\\
+	Vậy $\triangle DBH$ vuông cân tại $B$, suy ra $\widehat{HDB}=45^\circ$.\\
+	Xét $\triangle DIC$ có $\widehat{IDC}=45^\circ$; $\widehat{ICD}=45^\circ$ (chứng minh trên),\\ vậy $\widehat{ICD}+\widehat{IDC}=90^\circ\Rightarrow \widehat{DIC}=90^\circ$.\\
+	 Vậy $DH\perp AC$.
+	 \item $\triangle ADC$ có $AB\perp DC$ (giả thiết); $DI\perp AC$ (chứng minh a).\\
+	 Vậy $H$ là trực tâm của $\triangle ADC$, suy ra $CH$ là đường cao thứ ba của $\triangle ADC$, vậy $CH\perp AD$. 
+\end{enumerate}}
+{	\begin{tikzpicture}[scale=0.7, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/3/A,0/0/B,3/0/C,-2/0/D,0/3/A,0/2/H}
+	
+	\tkzDrawPolygon(A,D,C)
+	\tkzInterLL(A,C)(H,D)    \tkzGetPoint{I}
+	\tkzDrawSegments(A,B H,C D,I)
+	\tkzMarkRightAngles[size=0.2](A,B,C)
+	\tkzMarkSegments[mark=|](B,H D,B)
+	
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[below](D,B,C)
+	\tkzLabelPoints[right](I,H)
+	\end{tikzpicture}}
+}
+\end{vd}
+\begin{vd}%[7H3K9]
+Cho $\triangle ABC$ vuông tại $A$. Đường cao $AH$. Lấy $I$ là trung điểm của $AC$.
+\begin{enumerate}
+	\item Chứng minh $I$ là giao điểm của ba đường trung trực của $\triangle AHC$.
+	\item Gọi $K$ và $D$ thứ tự là trung điểm của $AH$ và $HC$. Chứng minh $KD\parallel AC$.
+	\item Chứng minh $BK\perp AD$.
+	\item Trong hình vẽ thì $A$ là trực tâm của những tam giác nào?
+\end{enumerate} 
+\loigiai{
+\begin{center}
+	\begin{tikzpicture}[scale=0.8, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	
+	\tkzDefPoints{0/2.5/A,0/0/H,-1/0/B}
+	\tkzDefPointBy[rotation = center A angle 90](B)    \tkzGetPoint{B1}
+	\tkzInterLL(H,B)(A,B1)    \tkzGetPoint{C}
+	
+	\coordinate (D) at ($(H)!0.5!(C)$);
+	\coordinate (I) at ($(A)!0.5!(C)$);
+	\coordinate (K) at ($(A)!0.5!(H)$);
+	\tkzInterLL(D,K)(A,B)    \tkzGetPoint{T}
+	
+	\tkzDrawPolygon(A,B,C)
+	\tkzDrawSegments(A,H D,A)
+	\tkzDrawSegments[dashed](I,H I,D I,K H,I B,K D,T)
+	\tkzMarkSegments[mark=|](I,A I,C)
+	\tkzMarkRightAngles[size=0.2](A,H,B)
+	\tkzMarkRightAngles[size=0.2](B,A,C)
+	\tkzMarkAngles[size=0.9cm,arc=l](K,D,B)
+	\draw ($(D)+(-0.4,-0.10)$) node[above left] {\tiny $1$};	
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[below](D,B,C,H)
+	\tkzLabelPoints[above right](I,K)
+	\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+	\item Do $AI=IC=\dfrac{1}{2}AC$ (giả thiết) nên $I$ nằm trên đường trung trực của $AC$.\\
+	 Mà tam giác $AHI$ vuông tại $H$, có $HI$ là đường trung tuyến nên $HI=\dfrac{1}{2}AC\Rightarrow HI=IA$ và $HI=IC$. Do đó $I$ nằm trên đường trung trực của $AH$ và $HC$.\\
+	Vậy $I$ là giao điểm của ba đường trung trực của $\triangle AHC$.
+	\item  Xét $\triangle KHD$ và $\triangle DIK$
+	 \begin{itemize}
+		\item $KD$ là cạnh chung. 
+		\item $ID$ là đường trung bình của tam giác $AHD$ $\Rightarrow AH\parallel DI\Rightarrow \widehat{HKD}=\widehat{KDI}$ (so le trong).
+	\item $IK$ là đường trung bình của tam giác $AHD$$\Rightarrow KI\parallel BC\Rightarrow \widehat{HDK}=\widehat{IKD}$ (so le trong).
+	\end{itemize}
+	Vậy $\triangle KHD=\triangle DIK$ (g.c.g) $\Rightarrow HK=ID$; $HD=KI$.\\
+	Xét hai tam giác vuông $KHD$ và $IDC$ có
+	\begin{itemize}
+		\item $HK=ID$ (chứng minh trên).
+		\item $HD=DC$ ($DI$ là trung trực)
+	\end{itemize}
+Vậy $\triangle KHD=\triangle IDC$ (hai cạnh góc vuông).
+\\ $\Rightarrow \widehat{D_1}=\widehat{C}$ (góc tương ứng) $\Rightarrow DK\parallel AC$ (hai góc đồng vị bằng nhau).
+\item $KD\parallel AC$ (chứng minh câu b), $AB\perp AC$ (giả thiết) $\Rightarrow KD\perp AB$.\\
+Trong $\triangle ABD$ có $AH\perp BD$ (giả thiết), $KD\perp AB$, vậy $K$ là trực tâm của $\triangle ABD$, suy  ra $BK\perp AD$.
+\item Do tam giác $ABC$ vuông tại $A$ nên $A$ là trực tâm của tam giác $ABC$.\\
+Xét $\triangle BKD$ có $A$ thuộc đường cao $KH$; $A$ thuộc đường cao qua đỉnh $B$.\\
+Vậy $A$ là trực tâm của $\triangle BKD$.
+\end{enumerate}}
+
+\end{vd}
+\begin{vd}%[7H3K9]
+Cho tam giác $ABC$ vuông tại $A$. Trên cạnh $AC$ lấy các điểm $D$, $E$ sao cho $\widehat{ABD}=\widehat{DBE}=\widehat{EBC}$. Trên tia đối của tia $DB$ lấy điểm $F$ sao cho $DF=BC$. Chứng minh $\triangle CDF$ cân.
+\loigiai{\immini{Trên $BF$ đặt đoạn $BD=BC$ thì $G$ nằm giữa $D$ và $F$ và $BD=GF$.\\ Tam giác $BCG$ cân tại $B$ có $BE$ là tia phân giác nên cũng là đường cao, $BE$ vuông góc với $CG$ tại $H$.\\
+Ta có: $\widehat{CDG}=\widehat{CGD}\left(=90^\circ -\dfrac{1}{3}\widehat{B}\right)$, suy ra $CD=CG$.\\
+Hai tam giác $CBD$ và $CGF$ có $CD=CG$, $BD=GF$, $\widehat{CDB}=\widehat{CGF}$ $\left(=90^\circ +\dfrac{1}{3}\widehat{B}\right)$, nên hai tam giác này bằng nhau (c.g.c).\\
+Suy ra $CB=CF$ và do đó $CF=DF$.\\
+ Vậy tam giác $CDF$ cân.}
+{	\begin{tikzpicture}[scale=0.7, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{-2/0/B,0/2/A}
+	
+	\tkzDefTriangle[two angles = 90 and 60](A,B)    \tkzGetPoint{C}
+	\tkzDefPointBy[rotation = center B angle 20](C)    \tkzGetPoint{C1}
+	\tkzInterLL(A,C)(C1,B)    \tkzGetPoint{E}
+	\tkzDefPointBy[rotation = center B angle 20](C1)    \tkzGetPoint{C2}
+	\tkzInterLL(A,C)(C2,B)    \tkzGetPoint{D}
+	\tkzDefPointBy[rotation = center C angle -70](B)    \tkzGetPoint{B1}
+   	\tkzInterLL(B,E)(C,B1)    \tkzGetPoint{H}
+   	\tkzDefTriangle[two angles = 70 and 70](D,C)    \tkzGetPoint{F}
+   	\tkzInterLL(B,D)(C,B1)    \tkzGetPoint{G}
+    \tkzDrawPolygon(A,B,C)
+    
+    \tkzDrawSegments(B,H C,G B,F C,F)
+    \tkzMarkRightAngles[size=0.4](B,A,C)
+	\tkzMarkRightAngles[size=0.4](E,H,G)
+	\tkzMarkAngles[size=0.8cm,arc=l](C,B,E)
+	\tkzMarkAngles[size=0.9cm,arc=l](E,B,D)
+    \tkzMarkAngles[size=1cm,arc=l](D,B,A)
+    
+    \tkzLabelPoints[above](A,B,E,D,F,G)
+    \tkzLabelPoints[right](H)
+    \tkzLabelPoints[below](C)
+	\end{tikzpicture}}
+}
+\end{vd}
+\begin{vd}%[7H3G9]
+Cho tam giác $ABC$ có $H$ là trực tâm. Biết rằng $AH=BC$, hãy tính số đo của góc $BAC$.
+\loigiai{
+Ta thấy $\widehat{BAC}\neq 90^\circ$, vì trái lại thì $H$ trùng với $A\Rightarrow AH=0$: vô lí.
+\begin{enumerate}[\bf TH 1.]
+	\item $\widehat{BAC}<90^\circ$
+	\immini{Xét hai tam giác vuông $AKH$ và $BKC$, có
+	\begin{itemize}
+		\item $AH=BC$ (giả thiết)
+		\item $\widehat{HAK}=\widehat{KBC}\left(=90^\circ -\widehat{C}\right)$.
+	\end{itemize}
+Do vậy $\triangle AKH=\triangle BKC$ (cạnh huyền - góc nhọn) $\Rightarrow AK=BK$ (hai cạnh tương ứng)\\ $\Rightarrow \triangle AKB$ vuông cân tại $K$.\\
+Vậy $\widehat{BAC}=45^\circ$.}
+{\begin{tikzpicture}[scale=0.9, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{-2/0/B,0/4/A,1/0/O}
+	
+	\tkzDefPointBy[rotation = center A angle 45](B)    \tkzGetPoint{B1}
+	\tkzInterLL(A,B1)(B,O)    \tkzGetPoint{C}
+	\tkzDefPointBy[projection = onto C--B](A)    \tkzGetPoint{A1}
+	\tkzDefPointBy[projection = onto C--A](B)    \tkzGetPoint{K}
+	\tkzInterLL(A,A1)(B,K)    \tkzGetPoint{H}
+	\tkzMarkRightAngles[size=0.2](A,K,B)
+	\tkzMarkRightAngles[size=0.2](A,A1,C)
+	\tkzDrawPolygon(A,B,C)
+	\tkzDrawSegments(A,A1 B,K)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[right](K)
+	\tkzLabelPoints[above left](H)
+	\tkzLabelPoints[below](B,C)
+	\end{tikzpicture}
+	}
+\item $\widehat{BAC}>90^\circ$
+\immini{Chứng minh tương tự trường hợp 1 ta được $KH=BK$ và từ đó suy ra $\widehat{BHK}=45^\circ$.\\
+Vì $A$ là trực tâm $\triangle BHC$ nên $CA\perp HB\Rightarrow $ hai góc $\widehat{BAC}$ và $\widehat{BHC}$ có cạnh tương ứng vuông góc.\\
+Lại vì $\widehat{BAC}>90^\circ$ nên $\widehat{BAC}+\widehat{BHC}=180^\circ$.\\
+	Từ đó suy ra $\widehat{BAC}=135^\circ$.}
+{\begin{tikzpicture}[scale=0.6, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzInit[xmin=-2.5, xmax=5.5, ymin=-1, ymax=7.5] \tkzClip
+	\tkzDefPoints{-2/0/B,0/1/A,1/0/O}
+	
+	\tkzDefPointBy[rotation = center A angle 135](B)    \tkzGetPoint{B1}
+	\tkzInterLL(A,B1)(B,O)    \tkzGetPoint{C}
+	\tkzDefPointBy[projection = onto C--B](A)    \tkzGetPoint{A1}
+	\tkzDefPointBy[projection = onto B--A](C)    \tkzGetPoint{K}
+	\tkzInterLL(A,A1)(C,K)    \tkzGetPoint{H}
+	\tkzMarkRightAngles[size=0.2](A,K,H)
+	\tkzMarkRightAngles[size=0.2](A,A1,C)
+	\tkzDrawPolygon(A,B,C)
+	\tkzDrawPolygon(H,B,C)
+	\tkzDrawSegments(A,C B,K H,A1)
+	\tkzLabelPoints[above](H)
+	\tkzLabelPoints[right](K)
+	\tkzLabelPoints[above left](A)
+	\tkzLabelPoints[below](B,C)
+	\end{tikzpicture}}
+\end{enumerate}
+}
+\end{vd}
+\begin{vd}%[7H3G9]
+	Cho tam giác $ABC$, đường cao $AH$. Trên nửa mặt phẳng bờ $AB$ không chứa điểm $C$ lấy điểm $D$ sao cho $BD=BA$ và $BD\perp BA$. Trên nửa mặt phẳng bờ $AC$ không chứa $B$ lấy điểm $E$ sao cho $CE=CA$ và $CE\perp CA$. Chứng minh rằng các đường thẳng $AH$, $BE$, $CD$ đồng qui.
+	\loigiai{
+\immini{Trên tia đối của tia $AH$ lấy điểm $F$ sao cho $AF=BC$. 
+\\Xét $\triangle DBC $ và $\triangle BAF$ 
+\begin{itemize}
+	\item $BD=BA$ (giả thiết).
+	\item $BC=AF$. 
+	\item $\widehat{DBC} = 90^\circ + \widehat{ABC}$,
+	$\widehat{BAF} = 90^\circ + \widehat{ABC}$.\\
+	Suy ra $\widehat{DBC}=\widehat{BAF}$.
+\end{itemize}
+Vậy $\triangle DBC=\triangle BAF$(c.g.c).\\
+Tương tự ta chứng minh được $\triangle BCE=\triangle FAC$ (c.g.c).\\
+Suy ra $BF\perp CD$ và $CF\perp BE$.\\
+Ta có $AH$, $BE$, $CD$ là ba đường cao của $\triangle FBC$ vì vậy chúng đồng qui.}
+{	\begin{tikzpicture}[scale=0.7, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{-1/0/B,2/0/C,0/0/H,0/3/A,0/6/F}
+	
+	\tkzDefPointBy[rotation = center B angle 90](A)    \tkzGetPoint{D}
+	\tkzDefPointBy[rotation = center C angle -90](A)    \tkzGetPoint{E}
+	\tkzMarkRightAngles[size=0.2](A,B,D)
+	\tkzMarkRightAngles[size=0.2](A,C,E)
+	\tkzDrawPolygon(A,B,C)
+	\tkzDrawPolygon(F,B,C)
+	\tkzDrawPolygon(D,B,C)
+	\tkzDrawPolygon(E,B,C)
+	\tkzDrawPolygon(A,B,C)
+	\tkzDrawPolygon(F,H,C)
+	%\tkzDrawSegments(A,H D,A)
+	\tkzLabelPoints[above](F)
+	\tkzLabelPoints[right](A)
+	\tkzLabelPoints[below](B,C,E,D,H)
+	\end{tikzpicture}}
+}
+\end{vd}
+\subsection{Bài tập}
+\subsubsection{Cơ bản}
+\begin{bt}%%[7H3B9]
+Cho tam giác $ABC$ có các đường cao $BE$, $CF$ cắt nhau tại $H$. Gọi $I$ là trung điểm đoạn $AH$ và $K$ là trung điểm cạnh $BC$.
+\begin{enumerate}
+	\item Chứng minh rằng $FK\perp FI$.
+	\item Biết $AH=6$ cm, $BC=8$ cm. Tính $IK$.
+\end{enumerate}
+\loigiai
+{\begin{enumerate}
+	\item \immini{Xét $\triangle AFH$ vuông ở $F$, có $FI$ là trung tuyến nên \\$FI=\dfrac{1}{2}AH=IA$.
+
+	Do đó $\triangle FAI$ cân tại $I$ $\Rightarrow \widehat{IFA}=\widehat{IAF}$. \hfill (1)\\
+	Xét $\triangle BFC$ vuông ở $F$, có trung tuyến $FK$\\ $\Rightarrow FK=\dfrac{1}{2}\cdot BC=BK$. \hfill (2)\\
+	Từ (1) và (2) suy ra $\widehat{IFA}+\widehat{KFB}=\widehat{IAF}+\widehat{KBF}=90^\circ$ (vì $\triangle ADB$ vuông tại $D$).\\
+	Từ đó suy ra $\widehat{IFK}=90^\circ$.\\
+	Vậy $FI\perp FK$.}
+{\begin{tikzpicture}[scale=1, line join = round, line cap=round,>=stealth]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzInit[xmin=-2.5, xmax=3.5, ymin=-0.5, ymax=3.5] \tkzClip
+		\tkzDefPoints{-1/0/B,2/0/C,0/0/D,0/3/A}
+		
+		\tkzDefPointBy[projection = onto A--C](B)    \tkzGetPoint{E}
+		\tkzDefPointBy[projection = onto A--B](C)    \tkzGetPoint{F}
+		\tkzDrawPolygon(A,B,C)
+		\tkzInterLL(C,F)(B,E)    \tkzGetPoint{H}
+		\coordinate (I) at ($(H)!0.5!(A)$);
+		\coordinate (K) at ($(B)!0.5!(C)$);
+		\tkzMarkRightAngles[size=0.2](B,D,A)
+		\tkzMarkRightAngles[size=0.2](K,F,B)
+		\tkzMarkRightAngles[size=0.2](B,E,C)
+		\tkzDrawSegments(B,E C,F A,D I,F I,K F,K)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[right](E,I)
+		\tkzLabelPoints[left](F)
+		\tkzLabelPoints[above left](H)
+		\tkzLabelPoints[below](B,C,D,K)
+		\end{tikzpicture}}
+	\item Từ chứng minh trên ta có $\triangle IFK$ vuông tại $F$ và $FI=\dfrac{1}{2}AH=3$ cm; $FK=\dfrac{1}{2}BC=4$ cm.\\
+	Áp dụng định lí Pitago cho $\triangle IFK $ vuông tại $F$, ta có\\ $IK^2=FI^2+FK^2=3^2+4^2=25\Rightarrow IK=5$ cm.
+\end{enumerate}}
+
+\end{bt}
+\begin{bt}%[7H3K9]
+Cho $\triangle ABC$ có góc $A$ tù. Trên cạnh $BC$ lấy điểm $M$ sao cho $CM=CA$ và lấy điểm $N$ sao cho $BN=BA$. Đường phân giác của góc $B$ cắt $AM$ tại $E$. Đường phân giác của góc $C$ cắt $AN$ tại $F$. Chứng minh rằng đường phân giác của góc $A$ vuông góc với $EF$.
+\loigiai{
+\immini{Góc $A$ tù nên $BC>AB$ và $BC>AC$. Vậy $M$ và $N$ nằm giữa $B$ và $C$.\\
+Mà $BN=AB$ nên $\triangle ABN$ cân tại $B$; $BE$ là phân giác nên $BE$ cũng là đường cao. Vậy $BE\perp AN$.\\
+Tương tự $CF\perp AM$.\\
+Xét $\triangle ABF$ có $BE\perp AN$, $CF\perp AM$. Gọi $H$ là giao của $BE$ và $CF$ thì $H$ là trực tâm của $\triangle AEF$, nên $AH\perp EF$.\\
+$AH$ cũng chính là phân giác của góc $A$ của tam giác $ABC$ vì $BE$, $CF$ là các tia phân giác của tam giác $ABC$.
+}
+{\begin{tikzpicture}[scale=1, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{-1/0/B,4/0/C,1/3/A}
+	\tkzFindAngle(B,C,A)	\tkzGetAngle{ang}	%dùng lệnh \ang khi cần sử dụng đến số đo của góc ABC
+	\tkzDefPointBy[rotation = center C angle -\ang](A)    \tkzGetPoint{M}
+	\tkzFindAngle(A,B,C)	\tkzGetAngle{ang}	%dùng lệnh \ang khi cần sử dụng đến số đo của góc ABC
+	\tkzDefPointBy[rotation = center B angle \ang](A)    \tkzGetPoint{N}
+	\tkzDrawBisector(A,B,N)  \tkzGetPoint{B1}   
+	\tkzDrawBisector(A,C,M)  \tkzGetPoint{C1}    
+	\tkzInterLL(B1,B)(A,M)    \tkzGetPoint{E}
+	\tkzInterLL(B1,B)(A,N)    \tkzGetPoint{B2}
+	\tkzInterLL(C1,C)(A,N)    \tkzGetPoint{F}
+	\tkzInterLL(C1,C)(A,M)    \tkzGetPoint{C2}
+	\tkzInterLL(B1,B)(C1,C)    \tkzGetPoint{H}
+	\tkzDrawPolygon(A,B,C)
+	
+	\tkzDrawSegments(A,M A,N A,H B,B2 C,C2)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[above right](F)
+	\tkzLabelPoints[left](E)
+	\tkzLabelPoints[below](B,C,M,N,H)
+	\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[7H3B9]
+Cho $\triangle ABC$ có góc $A$ nhọn. Kẻ đường cao $BK$ và $CH$. Trên tia đối của tia $BK$ lấy điểm $E$ sao cho $BE=AC$. Trên tia đối của tia $CH$ lấy điểm $F$ sao cho $CF=AB$. Chứng minh tam giác $AEF$ vuông cân tại $A$. 
+\loigiai
+{
+\immini{Xét $\triangle ABE$ và $\triangle FCA$ có
+\begin{itemize}
+	\item $AB=CF$ (giả thiết).\\
+	\item $BE=AC$ (giả thiết).\\
+	\item $\widehat{ABE}+\widehat{ABK}=180^\circ$,\\ $\widehat{ACF}+\widehat{ACH}=180^\circ$.\\
+	Mà $\widehat{ABK}=\widehat{ACH}$ (cùng phụ góc $\widehat{A}$) nên $\widehat{ABE}=\widehat{ACF}$.
+\end{itemize}
+}
+{\begin{tikzpicture}[scale=0.7, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{-1/0/B,2/0/C,0/3/A}
+	\tkzDefPointBy[projection = onto A--B](C)    \tkzGetPoint{H}
+	\tkzDefPointBy[projection = onto A--C](B)    \tkzGetPoint{K}
+	\tkzMarkRightAngles[size=0.2](C,H,A)
+	\tkzMarkRightAngles[size=0.2](B,K,A)
+	\tkzCalcLength[cm](A,C)		\tkzGetLength{dAC}   %dùng lệnh \dAB khi cần sử dụng đến độ dài đoạn AB
+	\tkzInterLC[R](K,B)(B,\dAC cm)    \tkzGetPoints{E1}{E}
+	\tkzDefPointBy[rotation = center A angle 90](E)    \tkzGetPoint{F}
+	\tkzDrawPolygon(A,B,C)
+	
+	\tkzDrawSegments(K,E A,E H,F A,F)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[left](H)
+	\tkzLabelPoints[right](K,F)
+	\tkzLabelPoints[below](B,C,E)
+	\end{tikzpicture}}
+Vậy $\triangle ABE=\triangle FCA$ (c.g.c)\\
+Suy ra $AE=AF$ và $\widehat{AEK}=\widehat{CAF}$. \quad (1)\\
+Ta có $\widehat{AEK}+\widehat{EAK}=90^\circ$ ($\widehat{K}=90^\circ$).\\
+Thay (1) vào ta có: $\widehat{EAK}+\widehat{CAF}=90^\circ$ hay $\widehat{EAK}=90^\circ$.\\
+Vậy $\triangle AEF$ vuông cân.}
+\end{bt}
+
+\subsubsection{Nâng cao}
+\begin{bt}%[7H3K9]
+Cho đoạn thẳng $AB$. Trên cùng một nửa mặt phẳng bờ $AB$, vẽ hai tia $Ax$, $By$ cùng vuông góc với $AB$. Trên hai tia $Ax$, $By$ lần lượt lấy các điểm $C$, $D$ sao cho $AC=\dfrac{1}{2}BD$. Vẽ $BE$ vuông góc với $AD$ ($E$ thuộc $AD$) và gọi $F$ là trung điểm của $ED$. Chứng minh rằng $CF\perp BF$.
+\loigiai
+{
+\immini{Gọi $H$ là trung điểm của $BE\Rightarrow HF \parallel BD$ và $HF=\dfrac{1}{2}BD$.\\
+Mà $BD\perp AB$ (giải thiết) nên suy ra: $HF\perp AB$.\\
+Từ đó ta có $H$ là trực tâm của $\triangle ABF\Rightarrow AH\perp BF$ (tính chất ba đường cao của tam giác). \quad (1)\\
+Từ $HF=\dfrac{1}{2}BD$ (chứng minh trên) và $AC=\dfrac{1}{2}BD$ (giả thiết) suy ra $HF=AC$.\\
+Lại vì $HF\parallel BD$ (chứng minh trên) và $AC\parallel BD$ (cùng vuông góc với $AB$)\\ $\Rightarrow HF\parallel AC\Rightarrow \widehat{CAF}=\widehat{HFA}$ (hai góc so le trong).\\
+Do đó $\triangle ACF=\triangle FHA$ (c.g.c) $\triangle \widehat{CFA}=\widehat{HAF}$ (hai góc tương ứng).\\
+Mà hai góc này ở vị trí so le trong nên suy ra $CF\parallel AH$. \quad (2)\\
+Từ (1) và (2) suy ra $BF\perp CF$.}
+{\begin{tikzpicture}[scale=1, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{-1/0/A,2/0/B,-1/2/C,2/2.5/D,-1/3/A1,2/3/B1}
+	
+	\tkzDrawPolygon(A,B,D)
+	\tkzDefPointBy[projection = onto A--D](B)    \tkzGetPoint{E}
+	\coordinate (F) at ($(E)!0.5!(D)$);
+	\tkzDefPointBy[projection = onto A--B](F)    \tkzGetPoint{F1}
+	\tkzDefPointBy[projection = onto F--B](A)    \tkzGetPoint{A2}
+	\tkzInterLL(F,F1)(A,A2)    \tkzGetPoint{H}
+			\draw (A1) node[right] {$x$};
+		\draw (B1) node[right] {$y$};
+	\tkzMarkRightAngles[size=0.2](B,E,D)
+	\tkzMarkRightAngles[size=0.2](B,A,C)
+	\tkzMarkRightAngles[size=0.2](A,B,D)
+	\tkzMarkSegments[mark=|](E,F F,D)
+	\tkzMarkSegments[mark=||](E,H H,B)
+	\tkzDrawSegments(A,A1 B,B1 C,D C,F F,B B,E)
+	\tkzDrawSegments[dashed](F,F1 A,A2)
+	\tkzLabelPoints[above](E)
+	\tkzLabelPoints[below](B,A)
+	\tkzLabelPoints[below left](H)
+	\tkzLabelPoints[left](C)
+	\tkzLabelPoints[right](D,F)
+	\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[7H3K9]
+	Cho tam giác $ABC$ vuông ở $C$, đường cao $CD$. Từ một điểm $M$ nằm giữa $C$ và $D$, ta kẻ một tia song song với $CB$, cắt $DB$ tại $N$. Chứng minh rằng $AM\perp CN$.
+	\loigiai{
+\immini{Ta có $MN\parallel CB$ mà $CB\perp AC$ (giả thiết) nên $MN\perp AC$.\\
+Gọi giao điểm $MN$ và $AC$ là $E$. \\Tam giác $ACN$ có $CD$ và $NE$ là hai đường cao cắt nhau tại $M$ nên $M$ là trực tâm của tam giác $ACN$.\\
+Suy ra $AM\perp CN$.}
+{\begin{tikzpicture}[scale=1, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzInit[xmin=-0.5, xmax=5, ymin=-.5, ymax=2.5] \tkzClip
+	\tkzDefPoints{0/0/C,4/0/B,0/2/A,2/1/N}
+	\tkzDrawPolygon(A,B,C)
+	\tkzDefPointBy[projection = onto A--B](C)    \tkzGetPoint{D}
+	\tkzDefPointBy[projection = onto C--N](A)    \tkzGetPoint{A1}
+	\tkzInterLL(C,D)(A,A1)    \tkzGetPoint{M}
+	\tkzInterLL(M,N)(A,C)    \tkzGetPoint{E}
+	\tkzMarkRightAngles[size=0.2](A,C,B)
+	\tkzMarkRightAngles[size=0.2](C,D,A)
+	\tkzDrawSegments(A,A1 N,E C,D C,N)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[below](B,C)
+	\tkzLabelPoints[above left](M)
+	\tkzLabelPoints[left](E)
+	\tkzLabelPoints[right](D,N)
+	\end{tikzpicture}}	
+}
+\end{bt}
+\begin{bt}%[7H3K9]
+	Cho tam giác $ABC$. Qua $A$ kẻ đường thẳng $d_1\parallel BC$. Qua $B$ kẻ đường thẳng $d_2\parallel AC$. Qua $C$ kẻ đường thẳng $d_3\parallel AB$. Ba đường thẳng này cắt nhau tại ba điểm $E$, $F$ và $P$.
+	\begin{enumerate}
+		\item Chứng minh các cạnh $AB$, $AC$, $BC$ chia $\triangle EFP$ thành 4 tam giác bằng nhau.
+		\item Các đường cao của tam giác $\triangle ABC$ là các đường trung trực của $\triangle EFP$. 
+	\end{enumerate}
+\loigiai{
+\begin{enumerate}
+	\item Xét $\triangle ABF$ và $\triangle BAC$ có:
+	\immini{\begin{itemize}
+		\item $AB$ chung
+		\item $\widehat{A_1}=\widehat{B_2}$ (so le trong)
+		\item $\widehat{A_2}=\widehat{B_1}$ (so le trong)
+	\end{itemize}
+Vậy $\triangle ABF=\triangle BAC$ (g.c.g)$\Rightarrow AF=BC$; $BF=AC$. (1)\\
+Tương tự ta chứng minh được:\\
+$AE=BC$; $CE=AB$;\quad (2)\\
+$CP=AB$; $BP=AC$;\quad (3)\\
+Vậy $\triangle ABF$, $\triangle CEA$ và $\triangle PCB$ cùng bằng $\triangle BC$\\
+$\Rightarrow$ bốn tam giác đó bằng nhau.}
+{\begin{tikzpicture}[scale=1, line join = round, line cap=round,>=stealth]
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/H,-1/0/B,0/2/A,2/0/C}
+\coordinate (E) at ($(A)+(C)-(B)$);
+\coordinate (F) at ($(B)+(A)-(C)$);
+\coordinate (P) at ($(B)+(C)-(A)$);
+\tkzDrawPolygon(A,B,C)
+\tkzDrawPolygon(E,F,P)
+\tkzDefPointBy[projection = onto C--B](A)    \tkzGetPoint{H}
+\tkzDefPointBy[projection = onto A--B](C)    \tkzGetPoint{K}
+\tkzDefPointBy[projection = onto A--C](B)    \tkzGetPoint{I}
+\tkzDrawSegments[dashed](A,H K,C B,I)
+\tkzMarkAngles[size=0.4cm,arc=l](F,A,B)
+\tkzMarkAngles[size=0.4cm,arc=l](B,A,C)
+\tkzMarkAngles[size=0.4cm,arc=ll](A,B,F)
+\tkzMarkAngles[size=0.4cm,arc=ll](C,B,A)
+\draw ($(B)-(0.,0)$) node[above] {\tiny $1$};
+\draw ($(B)+(0.,0.1)$) node[right] {\tiny $2$};
+\draw ($(A)-(0.,0)$) node[below left] {\tiny $1$};
+\draw ($(A)-(0.,0)$) node[below] {\tiny $2$};
+\tkzLabelPoints[above](A,F,E)
+\tkzLabelPoints[left](B,K)
+\tkzLabelPoints[right](C,I)
+\tkzLabelPoints[below](H,P)
+\end{tikzpicture}}
+\item Từ (1) và (2) suy ra $AF=AE$ (cùng bằng $BC$), lại có $BC\parallel EF$ (giả thiết) nên nếu $AH\perp BC$ thì $AH\perp EF$.\\
+Suy ra đường cao $AH$ của $\triangle ABC$ là tung trực của $FE$ (theo định nghĩa).\\
+Tương tự: đường cao $BI$ của $\triangle ABC$ là trung trực của $FP$, đường cao $CK$ của $\triangle ABC$ là trung trực của $EP$.\\
+Vậy ba đường cao $AH$; $BI$ và $CK$ của $\triangle ABC$ là ba đường trung trực của $\triangle FEP$.
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}%[7H3K9]
+	Cho tam giác $ABC$ có $\widehat{B}+\widehat{C}=60^\circ$. Trên đường phân giác $AD$ của góc $A$ lấy điểm $I$. Trên tia đối của tia $AB$ lấy điểm $F$ sao cho $AF=AI$. Trên tia đối của tia $AC$ lấy điểm $E$ sao cho $AE=AI$. Chứng minh
+	\begin{enumerate}
+		\item $AB$ và $AC$ lần lượt là các đường trung trực của đoạn thẳng $IE$ và $IF$.
+		\item $\triangle IEF$ là tam giác đều.
+		\item $IA\perp EF$.
+	\end{enumerate}
+\loigiai{
+\immini{\begin{enumerate}
+	\item Do $\widehat{B}+\widehat{C}=60^\circ$ (giải thiết) nên $\widehat{BAC}=120^\circ$.\\
+	Mà $AI$ là phân giác nên $\widehat{A_1}=\widehat{A_2}=60^\circ$\\$\Rightarrow \widehat{EAB}=60^\circ=\widehat{A_1}$.\\
+	$\triangle EAI$ cân $(AE=AI)$ mà $AB$ là phân giác nên $AB$ là trung trực của $EI$.\\
+	Tương tự, $AC$ là trung trực của $IF$.
+	\item $E$ nằm trên trung trực của $IF$ nên $EI=EF$.\\
+	$F$ nằm trên trung trực của $EI$ nên $EF=FI$.\\
+	Vậy $EI=EF=FI\Rightarrow \triangle EIF$ đều.
+	\item Trong $\triangle EIF$ có $FB\perp EI$, $EC\perp IF$, vậy $A$ là trực tâm nên $IA\perp EF$.
+\end{enumerate}}
+{\begin{tikzpicture}[scale=1, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzInit[xmin=-1.5, xmax=4.5, ymin=-0.5, ymax=2.5] \tkzClip
+	\tkzDefPoints{-1/0/B,4/0/C}
+	\tkzDefPointBy[rotation = center B angle 35](C)    \tkzGetPoint{C1}
+	\tkzDefPointBy[rotation = center C angle -25](B)    \tkzGetPoint{B1}
+	\tkzInterLL(C1,B)(C,B1)    \tkzGetPoint{A}
+	\tkzDefLine[bisector](B,A,C)    \tkzGetPoint{A1}
+	\tkzInterLL(A1,A)(C,B)    \tkzGetPoint{D}
+	\tkzInterLC[R](A,D)(A,0.9cm)    \tkzGetPoints{I1}{I}
+	\tkzInterLC[R](A,C)(A,0.9cm)    \tkzGetPoints{E}{E1}
+	\tkzInterLC[R](A,B)(A,0.9cm)    \tkzGetPoints{F}{F1}
+	\tkzDrawPolygon(A,B,C)
+	\tkzDrawPolygon(I,E,F)
+	\tkzDrawSegments(A,D A,F A,E)
+	\tkzMarkSegments[mark=|](E,A A,I A,F)
+
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[left](I,E)
+	\tkzLabelPoints[right](F)
+	\tkzLabelPoints[below](B,C,D)
+	\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[7H3B9]
+	Cho tam giác $ABC$ có $\widehat{A}=90^\circ$, $BD$ là tia phân giác của góc $B$ $(D\in AC)$. Từ $D$ hạ $DH\perp BC$ $(H\in BC)$. Tia $BA$ và tia $HD$ cắt nhau tại $M$.
+	\begin{enumerate}
+		\item So sánh độ dài hai đoạn $AD$ và $DC$.
+		\item Chứng minh $BD\perp MC$.
+		\item $\triangle BMC$ là tam giác gì?
+		\item Chứng minh $AH\parallel MC$.
+	\end{enumerate} 
+\loigiai{
+\immini{\begin{enumerate}
+	\item $DA=DH$. Trong $\triangle DHC$ có: $DC>DH$ (cạnh huyền lớn hơn cạnh góc vuông). Vậy $DC>AD$.
+	\item Xét $\triangle BMC$ có $MH\perp BC$ (giả thiết); $CA\perp BM$ (giả thiết). Vậy $D$ là trực tâm của $\triangle BMC$ nên $BD\perp MC$.
+	\item $\triangle BMC$ có $BD$ là phân giác của góc $B$ (giả thiết), $BD$ lại là đường cao(chứng minh b).\\
+	Vậy $\triangle BMC$ là tam giác cân tại $B$.
+	\item Dễ thấy $\triangle BDA=\triangle DBH$ (cạnh huyền - góc nhọn)\\ $\Rightarrow BA=BH$.\\
+	Vậy $\triangle ABH$ cân tại $B$, có $BD$ là phân giác nên $BD$ cũng là đường cao. Vậy $BD\perp AH$. Mà $BD\perp CM$.\\
+	Vậy $AH\parallel CM$ (cùng vuông góc $BD$).
+\end{enumerate}}
+{\begin{tikzpicture}[scale=1, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/A,2/0/B,0/3/C}
+	\tkzDrawBisector(C,B,A)  \tkzGetPoint{D} 
+	\tkzInterLL(A,B)(H,D)    \tkzGetPoint{M}
+	\tkzDrawPolygon(A,B,C)
+	\tkzDrawSegments(B,D B,C M,H M,A M,C)
+	\tkzMarkRightAngles[size=0.2](B,A,C)
+	\tkzMarkRightAngles[size=0.2](D,H,C)
+	\tkzFindAngle(A,B,C)	\tkzGetAngle{ang}	%dùng lệnh \ang khi cần sử dụng đến số đo của góc ABC
+	\tkzDefPointBy[rotation = center B angle \ang](A)    \tkzGetPoint{H}
+	\tkzMarkAngles[size=0.8cm,arc=l](D,B,A)
+	\tkzMarkAngles[size=0.8cm,arc=l](C,B,D)
+	\draw ($(B)+(-0.3,-0.1)$) node[above left] {\tiny $1$};
+	\draw ($(B)+(-0.4,0.2)$) node[above] {\tiny $2$};
+	\tkzLabelPoints[below](A,B,M)
+	\tkzLabelPoints[above left](D)
+	\tkzLabelPoints[above](C)
+	\tkzLabelPoints[right](H)
+	\end{tikzpicture}}
+
+}
+\end{bt}
+\begin{bt}%[7H3G9]
+Cho tam giác $ABC$ nhọn,  trực tâm $H$. Chứng minh rằng
+\begin{enumerate}
+	\item $AB+AC>HA+HB+HC$.
+	\item $AB+BC+CA>\dfrac{3}{2}(HA+HB+HC)$.
+\end{enumerate}                                                      
+\loigiai{
+\begin{enumerate}
+	\item \immini{Qua $H$ kẻ đường thẳng song song với $AC$ cắt $AB$ ở $F$.\\
+	Kẻ đường thẳng song song với $AB$ cắt $AC$ ở $E$. Dễ dàng chứng minh được $AF=EH$, $AE=FH$.\\
+	Vì $BH\perp AC$ và $FH\parallel AC$ nên $BH$\\$\perp FH\Rightarrow BF>BH$ (quan hệ đường xiên - đường vuông góc).\\
+	Tương tự, ta có $CE>CH$.\\
+	Xét $\triangle AEH$, có $AE+EH>HA$ (bất đẳng thức tam giác).\\
+	Từ đó $AB+AC=AE+AF+FB+EC>HA+HB+HC$.}
+{\begin{tikzpicture}[scale=1, line join = round, line cap=round,>=stealth]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzInit[xmin=-0.5, xmax=4.5, ymin=-.5, ymax=3.5] \tkzClip
+		\tkzDefPoints{0/0/B,1/3/A,4/0/C}
+		\tkzDefPointBy[projection = onto A--B](C)    \tkzGetPoint{C1}
+		\tkzDefPointBy[projection = onto A--C](B)    \tkzGetPoint{B1}
+		\tkzInterLL(B1,B)(C,C1)    \tkzGetPoint{H}
+		\tkzFindAngle(C1,A,H)	\tkzGetAngle{ang}	%dùng lệnh \ang khi cần sử dụng đến số đo của góc ABC
+		\tkzDefPointBy[rotation = center H angle -\ang](A)    \tkzGetPoint{A1}
+		\tkzInterLL(A,C)(H,A1)    \tkzGetPoint{E}
+		\coordinate (F) at ($(A)+(H)-(E)$);
+		
+		\tkzDrawPolygon(A,B,C)
+		\tkzDrawSegments(B,B1 C1,C A,H H,E H,F)
+		\tkzMarkRightAngles[size=0.2](B,C1,C)
+		\tkzMarkRightAngles[size=0.2](B,B1,C)
+		\tkzLabelPoints[below](B,C,H)
+		\tkzLabelPoints[left](F)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[right](E)
+		\end{tikzpicture}}
+	\item Chứng minh tương tự câu a) ta được
+	\begin{itemize}
+		\item $AB+BC>HA+HB+HC$.
+		\item $BC+AC>HA+HB+HC$.
+	\end{itemize}
+Khi đó ta được \\
+$AB+AC+AB+BC+BC+AC>HA+HB+HC$\\$\Leftrightarrow AB+BC+CA>\dfrac{3}{2}(HA+HB+HC)$.
+\end{enumerate}}
+                                             
+\end{bt}
+\begin{bt}%[7H3G9]
+Cho tam giác $ABC$, vẽ đường cao $AH$. Lấy các điểm $E$ và $F$ sao cho $AB$ là đường trung trực của $HE$, $AC$ là đường trung trực của $HF$. Nối $EF$ cắt $AB$ tại $M$ và $AC$ tại $N$. Chứng minh rằng $CM$, $BN$ và $AH$ đồng qui.
+\loigiai{
+\immini{\begin{enumerate}[\bf TH 1.]
+	\item Nếu $\widehat{A}=90^\circ$: hiển nhiên vì $M$, $N$ trùng với $A$.
+	\item Nếu $\widehat{A}<90^\circ$. Tam giác $NHF$ cân nên $\widehat{N_1}=\widehat{N_2}$. \\Vì vậy $AC$ là tia phân giác ngoài của $\triangle HMN$. \\
+	Tương tự ta có $AB$ là phân giác ngoài của $\triangle HMN$.\\
+	Suy ra $AH$ là phân giác trong của $\triangle HMN$ ($AH$ đi qua giao điểm hai phân giác ngoài của $\triangle HMN$).\\
+	Suy ra $BC$ là phân giác ngoài của $\triangle HMN$ vì $BC\perp AH$.\\
+	Ta có các phân giác ngoài của $\triangle HMN$ là $BC$ và $AC$ cắt nhau ở $C$. Do đó $MC$ là phân giác trong của $\triangle HMN$. Vì phân giác trong của một góc vuông với phân giác ngoài của của góc đó nên $MC\perp AB$.\\
+	Tương tự ta có $BN\perp AC$.\\
+	Vậy $CM$, $BN$, $AH$ đồng quy (vì là ba đường cao của tam giác $ABC$).
+	\item Nếu $\widehat{A}>90^\circ$, chứng minh tương tự phần trên.
+\end{enumerate}}
+{\begin{tikzpicture}[scale=1, line join = round, line cap=round,>=stealth]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{-1/0/B,0/0/H,4/0/C,0/3/A}
+	\tkzDefPointBy[projection = onto C--B](A)    \tkzGetPoint{H}
+	\tkzDefPointBy[reflection = over A--B](H)    \tkzGetPoint{E}
+	\tkzDefPointBy[reflection = over A--C](H)    \tkzGetPoint{F}
+	\tkzInterLL(E,F)(A,B)    \tkzGetPoint{M}
+	\tkzInterLL(E,F)(A,C)    \tkzGetPoint{N}
+	\tkzMarkRightAngles[size=0.2](A,H,C)
+
+	\tkzDrawPolygon(A,B,C)
+	\tkzDrawSegments(A,H H,E H,F E,F H,M H,N C,M B,N)
+	\tkzLabelPoints[below](B,C,H)
+	\tkzLabelPoints[left](E)
+	\tkzLabelPoints[above](A,M,N)
+	\tkzLabelPoints[right](F)
+	\end{tikzpicture}}
+}
+\end{bt}
+
+\Closesolutionfile{ans}

@@ -1,0 +1,1213 @@
+\chapter{Hình lăng trụ đứng. Hình chóp đều}
+\section{Hình hộp chữ nhật}
+\subsection{Tóm tắt lí thuyết}
+\begin{dn}
+	Hình hộp chữ nhật có $6$ mặt, các mặt là những hình chữ nhật.
+\end{dn}
+\begin{dn}
+	Hình lập phương là hình hộp chữ nhật có các mặt là những hình vuông.
+\end{dn}
+\begin{dn}
+	Cho hình hộp chữ nhật có chiều dài $a$, chiều rộng $b$, chiều cao $c$.
+	\begin{itemize}
+		\item Diện tích xung quanh của hình hộp chữ nhật tính bởi công thức $$S_{\mathrm{xq}}=2(a+b)c.$$
+		\item Diện tích toàn phần của hình hộp chữ nhật tính bởi công thức $$S_{\mathrm{tp}}=2(a+b)c+2ab=2(ab+bc+ca).$$
+		\item Thể tích của hình hộp chữ nhật tính bởi công thức $$V=abc.$$
+	\end{itemize}
+\end{dn}
+
+\begin{tc}
+	Mô hình của hình hộp chữ nhật cho ta hình ảnh các quan hệ không gian sau
+	\begin{center}
+	\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth, font=\footnotesize]
+	%\tkzInit[xmin=-.2, xmax=4.2, ymin=-.2, ymax=3]\tkzClip
+	\tkzDefPoints{0/0/A, 3/0/B, 4/1/C, 0/2/A'}
+	\tkzDefPointBy[translation= from B to C](A) \tkzGetPoint{D}
+	\tkzDefPointsBy[translation=from A to A'](B,C,D){B'}{C'}{D'}
+	
+	\tkzDrawPolygon(A,A',D',C',C,B)
+	\tkzDrawSegments(A',B' B,B' B',C')
+	\tkzDrawSegments[dashed](A,D C,D D,D' A,C)
+	\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D')
+	\tkzLabelPoints[above](C',D')
+	\tkzLabelPoints[left](A')
+	\tkzLabelPoints[below](A,B,D)
+	\tkzLabelPoints[right](B',C)
+	\end{tikzpicture}
+	\end{center}
+	\begin{itemize}
+		\item Hai đường thẳng song song là hai đường thẳng cùng nằm trong một mặt phẳng và không có điểm chung, chẳng hạn $AB\parallel A'B'$.
+		\item Hai đường thẳng phân biệt cùng song song với một đường thẳng thứ ba thì song song với nhau, chẳng hạn $AB\parallel D'C'$ vì chúng cùng song song với $A'B'$.
+		\item Đường thẳng $A'B'$ không nằm trong mặt phẳng $(ABCD)$ và song song với đường thẳng $AB$ của mặt phẳng $(ABCD)$, ta có $A'B'\parallel \text{mp} (ABCD)$.
+		\item Mặt phẳng $(A'B'C'D')$ chứa hai đường thẳng cắt nhau $A'B'$, $B'C'$ cùng song song với mặt phẳng $(ABCD)$, ta có mp$(A'B'C'D')\parallel (ABCD)$.
+		\item Hai mặt phẳng phân biệt có một điểm chung $A$ thì chúng có chung một đường thẳng đi qua $A$, gọi là giao tuyến của hai mặt phẳng. Chẳng hạn $AB$ là giao tuyến của hai mặt phẳng $(ABCD)$ và $(ABB'A')$.
+		\item Đường thẳng $A'A$ vuông góc với hai đường thẳng cắt nhau $AB$, $AD$ của mặt phẳng $(ABCD)$, ta có $A'A\perp \text{mp}(ABCD)$.
+		\item Khi $A'A\perp \text{mp}(ABCD)$ thì $A'A$ vuông góc với mọi đường thẳng đi qua $A$ và nằm trong mặt phẳng $(ABCD)$, chẳng hạn $A'A\perp AC$.
+		\item Mặt phẳng $(A'B'BA)$ chứa đường thẳng $A'A$ vuông góc với mặt phẳng $(ABCD)$, ta có mp$(A'B'BA)\perp \text{mp}(ABCD)$.
+	\end{itemize}
+\end{tc}
+
+\subsection{Các dạng toán}
+\begin{dang}{Hình hộp chữ nhật}
+	Sử dụng các tính chất của hình hộp chữ nhật.
+\end{dang}
+\begin{vd}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Cho hình lập phương $ABCD.A'B'C'D'$. Điểm $E$ chia $DB$ theo tỉ số $1:3$, điểm $F$ chia $B'A$ theo tỉ số $1:3$.
+	\begin{enumerate}
+		\item Chứng minh rằng $A'B'CD$ là hình chữ nhật. Tính diện tích hình chữ nhật đó nếu cạnh hình lập phương bằng $a$.
+		\item Gọi $M$ là điểm chia $DA$ theo tỉ số $1:3$. Chứng minh rằng mặt phẳng $(EMF)$ song song với mặt phẳng $(A'B'CD)$.
+		\item Chứng minh rằng $EF$ song song với mặt phẳng $(A'B'CD)$.
+		\item Chứng minh $EF$ song song với mặt phẳng $(A'B'CD)$ mà không sử dụng kết quả của câu b.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Chứng minh rằng $A'B'CD$ là hình chữ nhật. Tính diện tích hình chữ nhật đó nếu cạnh hình lập phương bằng $a$.
+			\immini{
+				Xét tứ giác $A'B'CD$ ta có\\
+				$A'B'\parallel CD$ (vì cùng song song với $AB$),\\
+				$A'B'=CD$ (vì cùng bằng $AB$).\\
+				Suy ra tứ giác $A'B'CD$ là hình bình hành.\\
+				Ta có $DC\perp CC'$ và $DC\perp CB$ nên $DC\perp \text{mp}(BCC'B')$, suy ra $DC\perp CB'$.\\
+				Hình bình hành $A'B'CD$ có $\widehat{DCB'}=90^\circ$ nên $A'B'CD$ là hình chữ nhật.\\
+				Xét $\triangle B'C'C$ vuông tại $C'$ ta có\\
+				$B'C^2=B'C'^2+C'C^2$ (định lí Py-ta-go).\\
+				$\Rightarrow B'C=a\sqrt{2}$.
+			}{
+				\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth, font=\footnotesize]
+				%\tkzInit[xmin=-.2, xmax=4.2, ymin=-.2, ymax=3]\tkzClip
+				\tkzDefPoints{0/0/A', 3/0/B', 4/1.5/C'}
+				\tkzDefPointBy[rotation= center A' angle 90](B') \tkzGetPoint{A}
+				\tkzDefPointBy[translation= from B' to C'](A') \tkzGetPoint{D'}
+				\tkzDefPointBy[translation=from A' to A](B') \tkzGetPoint{B}
+				\tkzDefPointBy[translation=from A' to A](C') \tkzGetPoint{C}
+				\tkzDefPointBy[translation=from A' to A](D') \tkzGetPoint{D}
+				\tkzDefPointBy[homothety = center D ratio 1/4](B) \tkzGetPoint{E}
+				\tkzDefPointBy[homothety = center B' ratio 1/4](A) \tkzGetPoint{F}
+				\tkzDefPointBy[homothety = center D ratio 1/4](A) \tkzGetPoint{M}
+				
+				\tkzDrawPolygon(A',A,D,C,C',B')
+				\tkzDrawSegments(A,B B',B B,C B,D A,B' M,E B',C)
+				\tkzDrawSegments[dashed](A',D' C',D' D,D' A',D M,F E,F D,B')
+				\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D',E,F,M)
+				\tkzLabelPoints[above](C,D)
+				\tkzLabelPoints[left](A,M)
+				\tkzLabelPoints[below](A',B',D',F)
+				\tkzLabelPoints[right](B,C',E)
+				\end{tikzpicture}
+			}
+			Diện tích hình chữ nhật $A'B'CD$ là $S_{A'B'CD}=A'B'\cdot B'C=a^2\sqrt{2}$.
+			\item Gọi $M$ là điểm chia $DA$ theo tỉ số $1:3$. Chứng minh rằng mặt phẳng $(EMF)$ song song với mặt phẳng $(A'B'CD)$.\\
+			$\triangle DAB$ có $\dfrac{DM}{MA}=\dfrac{DE}{EB}=\dfrac{1}{3}$ nên $ME\parallel AB$ (định lí Ta-lét đảo).\\
+			Mà $AB\parallel A'B'$ nên $ME\parallel A'B'$.\\
+			Suy ra $ME\parallel \text{mp}(A'B'CD)$.\\
+			$\triangle AB'D$ có $\dfrac{DM}{MA}=\dfrac{B'F}{FA}=\dfrac{1}{3}$ nên $MF\parallel B'D$ (định lí Ta-lét đảo).\\
+			Suy ra $MF\parallel \text{mp}(A'B'CD)$.\\
+			Mặt phẳng $(MEF)$ chứa hai đường thẳng cắt nhau cùng song song với mp$(A'B'CD)$ nên mp$(MEF)\parallel \text{mp}(A'B'CD)$.
+			\item Chứng minh rằng $EF$ song song với mặt phẳng $(A'B'CD)$.\\
+			Vì mp$(MEF)\parallel \text{mp}(A'B'CD)$ nên $EF\parallel \text{mp}(A'B'CD)$.
+			\item Chứng minh $EF$ song song với mặt phẳng $(A'B'CD)$ mà không sử dụng kết quả của câu b.
+			\immini{
+				Trong mp$(ABB'A')$, gọi $K$ là giao điểm của $BF$ và $A'B'$.\\
+				Ta có $AB\parallel A'B'$ nên $\dfrac{KF}{FB}=\dfrac{B'F}{FA}$ (định lí Ta-lét).\\
+				$\Rightarrow \dfrac{KF}{FB}=\dfrac{1}{3}$.\\
+				$\triangle BDK$ có $\dfrac{KF}{FB}=\dfrac{DE}{EB}=\dfrac{1}{3}$ nên $EF\parallel DK$ (định lí Ta-lét đảo).\\
+				Mà $DK$ nằm trong mp$(A'B'CD)$ nên $EF\parallel \text{mp}(A'B'CD)$.
+			}{
+				\begin{tikzpicture}[scale=.8, line join=round, line cap=round,>=stealth, font=\footnotesize]
+				%\tkzInit[xmin=-.2, xmax=4.2, ymin=-.2, ymax=3]\tkzClip
+				\tkzDefPoints{0/0/A', 3/0/B', 4/1.5/C'}
+				\tkzDefPointBy[rotation= center A' angle 90](B') \tkzGetPoint{A}
+				\tkzDefPointBy[translation= from B' to C'](A') \tkzGetPoint{D'}
+				\tkzDefPointBy[translation=from A' to A](B') \tkzGetPoint{B}
+				\tkzDefPointBy[translation=from A' to A](C') \tkzGetPoint{C}
+				\tkzDefPointBy[translation=from A' to A](D') \tkzGetPoint{D}
+				\tkzDefPointBy[homothety = center D ratio 1/4](B) \tkzGetPoint{E}
+				\tkzDefPointBy[homothety = center B' ratio 1/4](A) \tkzGetPoint{F}
+				\tkzInterLL(B,F)(A',B') \tkzGetPoint{K}
+				
+				\tkzDrawPolygon(A',A,D,C,C',B')
+				\tkzDrawSegments(A,B B',B B,C B,D A,B' B',C B,K)
+				\tkzDrawSegments[dashed](A',D' C',D' D,D' A',D E,F D,K)
+				\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D',E,F,K)
+				\tkzLabelPoints[above](C,D)
+				\tkzLabelPoints[left](A)
+				\tkzLabelPoints[below](A',B',D',K)
+				\tkzLabelPoints[right](B,C',E,F)
+				\end{tikzpicture}
+			}
+		\end{enumerate}
+	}
+\end{vd}
+
+\subsubsection{Bài tập tự luyện}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Cho hình hộp chữ nhật $ABCD.A'B'C'D'$. Gọi $M$, $N$ theo thứ tự là trung điểm của $AD$, $DC$. Gọi $I$, $K$ theo thứ tự là trung điểm của $B'A'$, $B'C'$. Chứng minh rằng $MN$ song song với $IK$.
+	\loigiai{
+		\immini{
+			$\triangle ACD$ có $M$, $N$ lần lượt là trung điểm của $AD$ và $CD$ nên $MN$ là đường trung bình.\\
+			$\Rightarrow MN\parallel AC$.\hfill (1)\\
+			$\triangle A'B'C'$ có $I$, $K$ lần lượt là trung điểm của $A'B'$ và $B'C'$ nên $IK$ là đường trung bình.\\
+			$\Rightarrow IK\parallel A'C'$.\hfill (2)\\
+			Xét tứ giác $ACC'A'$ ta có\\
+			$AA'\parallel CC'$ (vì cùng song song với $BB'$),\\
+			$AA'=CC'$ (vì cùng bằng $BB'$).
+		}{
+			\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth, font=\footnotesize]
+			%\tkzInit[xmin=-.2, xmax=4.2, ymin=-.2, ymax=3]\tkzClip
+			\tkzDefPoints{0/0/A', 3/0/B', 4/1.5/C'}
+			\tkzDefPointBy[rotation= center A' angle 90](B') \tkzGetPoint{A}
+			\tkzDefPointBy[translation= from B' to C'](A') \tkzGetPoint{D'}
+			\tkzDefPointBy[translation=from A' to A](B') \tkzGetPoint{B}
+			\tkzDefPointBy[translation=from A' to A](C') \tkzGetPoint{C}
+			\tkzDefPointBy[translation=from A' to A](D') \tkzGetPoint{D}
+			\tkzDefMidPoint(A,D) \tkzGetPoint{M}
+			\tkzDefMidPoint(D,C) \tkzGetPoint{N}
+			\tkzDefMidPoint(A',B') \tkzGetPoint{I}
+			\tkzDefMidPoint(B',C') \tkzGetPoint{K}
+			
+			\tkzDrawPolygon(A',A,D,C,C',B')
+			\tkzDrawSegments(A,B B',B B,C A,C M,N)
+			\tkzDrawSegments[dashed](A',D' C',D' D,D' A',C' I,K)
+			\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D',M,N,I,K)
+			\tkzLabelPoints[above](C,D,N)
+			\tkzLabelPoints[left](A,M)
+			\tkzLabelPoints[below](A',B',D',I)
+			\tkzLabelPoints[right](B,C',K)
+			\end{tikzpicture}
+		}
+		\noindent Suy ra tứ giác $ACC'A'$ là hình bình hành.\\
+		Ta có $AA'\perp A'D'$ và $AA'\perp A'B'$ nên $AA'\perp \text{mp}(A'B'C'D')$, suy ra $AA'\perp A'C'$.\\
+		Hình bình hành $ACC'A'$ có $\widehat{AA'C'}=90^\circ$ nên $ACC'A'$ là hình chữ nhật.\hfill (3)\\
+		Từ (1), (2), (3) suy ra $MN\parallel IK$.
+	}
+\end{bt}
+
+\begin{dang}{Diện tích}
+	Diện tích xung quanh của hình hộp chữ nhật tính bởi công thức $$S_{\mathrm{xq}}=2(a+b)c.$$
+	Diện tích toàn phần của hình hộp chữ nhật tính bởi công thức $$S_{\mathrm{tp}}=2(a+b)c+2ab=2(ab+bc+ca).$$
+	Trong đó $a$ là chiều dài, $b$ là chiều rộng và $c$ là chiều cao.
+\end{dang}
+\begin{vd}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	\immini{
+		Hãy điền dấu chấm vào mặt để trống của viên súc sắc hình lập phương ở hình a sao cho viên súc sắc thỏa mãn hình b (chú ý rằng ở viên súc sắc, tổng hai số ở hai mặt đối nhau bao giờ cũng bằng $7$).
+	}{
+		\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth, font=\footnotesize]
+		\tkzInit[xmin=-.1, xmax=7.1, ymin=-.7, ymax=3]\tkzClip
+		\tkzDefPoints{0/0/A, 2/0/B, 3/1/C, 0/2/A', 3.5/0/m, 3.5/3/i}
+		\tkzDefPointBy[translation= from B to C](A) \tkzGetPoint{D}
+		\tkzDefPointsBy[translation=from A to A'](B,C,D){B'}{C'}{D'}
+		\tkzDefPointsBy[reflection=over m--i](A,B,C,D,A',B',C',D'){M,N,P,Q,M',N',P',Q'}
+		
+		\foreach \i in {1/3, 2/3}{
+			\tkzDefPointBy[homothety = center B ratio \i](A')
+			\tkzDrawPoint[fill=black, size=20](tkzPointResult)
+		}
+		\foreach \i in {1/3, 2/3}{
+			\tkzDefPointBy[homothety = center B' ratio \i](C') \tkzGetPoint{C\i}
+			\tkzDefPointBy[homothety = center A' ratio \i](D') \tkzGetPoint{D\i}
+			\foreach \j in {1/4, 2/4, 3/4}{
+				\tkzDefPointBy[homothety = center B' ratio \j](A') \tkzGetPoint{A\j}
+				\tkzDefPointBy[homothety = center C' ratio \j](D') \tkzGetPoint{B\j}
+				\tkzInterLL(C\i,D\i)(A\j,B\j)
+				\tkzDrawPoint[fill=black, size=15](tkzPointResult)
+			}
+		}
+		\foreach \i in {1/3, 2/3}{
+			\tkzDefPointBy[homothety = center N ratio \i](M')
+			\tkzDrawPoint[fill=black, size=20](tkzPointResult)
+		}
+		\foreach \i in {1/2}{
+			\tkzDefPointBy[homothety = center N ratio \i](P')
+			\tkzDrawPoint[fill=black, size=25](tkzPointResult)
+		}
+		\foreach \i in {1/4, 2/4, 3/4}{
+			\tkzDefPointBy[homothety = center N' ratio \i](Q')
+			\tkzDrawPoint[fill=black, size=15](tkzPointResult)
+		}
+		\tkzDrawPolygon(A,A',D',C',C,B)
+		\tkzDrawPolygon(M,M',Q',P',P,N)
+		\tkzDrawSegments(A',B' B,B' B',C')
+		\tkzDrawSegments(M',N' N,N' N',P')
+		\tkzLabelSegment[below](A,B){Hình a}
+		\tkzLabelSegment[below](M,N){Hình b}
+		\end{tikzpicture}
+	}
+	\loigiai{
+		Quan sát hình b ta thấy, khi nhìn thẳng vào mặt chứa số $2$ sao cho mặt chứa số $6$ ở trên thì mặt chứa số $3$ sẽ ở bên trái. Áp dụng nhận xét này vào hình a thì mặt đối diện với mặt để trống là mặt có số $3$. Do đó mặt để trống phải chứa số $4$.
+	}
+\end{vd}
+
+\subsubsection{Bài tập tự luyện}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Tính diện tích toàn phần của một hình hộp chữ nhật có chiều dài $4$ cm, chiều rộng $3$ cm, đường chéo của hình hộp bằng $13$ cm.
+	\loigiai{
+		\immini{
+			Gọi hình hộp chữ nhật đó là $ABCD.A'B'C'D'$.\\
+			Theo đề bài ta có $A'B'=4$ cm, $B'C'=3$ cm, $AC'=13$ cm.\\
+			$\triangle A'B'C'$ vuông tại $B'$ có $A'C'^2=A'B'^2+B'C'^2$ (định lí Py-ta-go).\\
+			$\Rightarrow A'C'=5$ (cm).\\
+			$\triangle AA'C'$ vuông tại $A'$ có $AC'^2=AA'^2+A'C'^2$ (định lí Py-ta-go).\\
+			$\Rightarrow AA'=12$ (cm).\\
+			Diện tích toàn phần là\\ $S_{\mathrm{tp}}=2(A'B'\cdot B'C' + B'C'\cdot AA' + AA'\cdot A'B')=192$ (cm$^2$).
+		}{
+			\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth, font=\footnotesize]
+			%\tkzInit[xmin=-.2, xmax=4.2, ymin=-.2, ymax=3]\tkzClip
+			\tkzDefPoints{0/0/A', 4/0/B', 5/1/C', 0/3/A}
+			\tkzDefPointBy[translation= from B' to C'](A') \tkzGetPoint{D'}
+			\tkzDefPointBy[translation=from A' to A](B') \tkzGetPoint{B}
+			\tkzDefPointBy[translation=from A' to A](C') \tkzGetPoint{C}
+			\tkzDefPointBy[translation=from A' to A](D') \tkzGetPoint{D}
+			
+			\tkzDrawPolygon(A',A,D,C,C',B')
+			\tkzDrawSegments(A,B B',B B,C)
+			\tkzDrawSegments[dashed](A',D' C',D' D,D' A',C' A,C')
+			\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D')
+			\tkzLabelPoints[above](C,D)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[below](A',B',D')
+			\tkzLabelPoints[right](B,C')
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Một hình hộp chữ nhật có tổng độ dài các cạnh bằng $140$ cm, khoảng cách từ một đỉnh đến đỉnh xa nhất bằng $21$ cm. Tính diện tích toàn phần.
+	\loigiai{
+		Gọi $a$, $b$, $c$ là các kích thước của hình hộp chữ nhật, ta có
+		$$\heva{&4(a+b+c)=140\\&\sqrt{a^2+b^2+c^2}=21.}\Leftrightarrow \heva{&a+b+c=35\\&a^2+b^2+c^2=441.}$$
+		Diện tích toàn phần bằng
+		\begin{eqnarray*}
+			S_{\mathrm{tp}}= 2(ab+bc+ca)&= &(a+b+c)^2-(a^2+b^2+c^2)\\
+			&= &35^2-441=784 \text{ cm}^2.
+		\end{eqnarray*}
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Cho hình hộp chữ nhật $ABCD.A'B'C'D'$. Gọi $M$ là trung điểm của $CC'$.
+	\begin{enumerate}
+		\item Xác định giao tuyến của các mặt phẳng $(ABB'A')$ và $(B'C'M)$.
+		\item Xác định giao điểm của đường thẳng $DM$ và mặt phẳng $(A'B'C'D')$.
+		\item Xác định giao điểm của đường thẳng $B'M$ và mặt phẳng $(ABCD)$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Xác định giao tuyến của các mặt phẳng $(ABB'A')$ và $(B'C'M)$.
+			\immini{
+				Mặt phẳng $(B'C'M)$ cũng là mặt phẳng $(BCC'B')$.\\
+				Giao tuyến cần tìm là $BB'$.
+				\item Xác định giao điểm của đường thẳng $DM$ và mặt phẳng $(A'B'C'D')$.\\
+				Trong mp$(CDD'C')$, gọi $I$ là giao điểm của $DM$ và $D'C'$.\\
+				Vậy $I$ là giao điểm cần tìm.
+				\item Xác định giao điểm của đường thẳng $B'M$ và mặt phẳng $(ABCD)$.
+			}{
+				\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth, font=\footnotesize]
+				%\tkzInit[xmin=-.2, xmax=4.2, ymin=-.2, ymax=3]\tkzClip
+				\tkzDefPoints{0/0/A', 2/0/B', 3/1/C', 0/3/A}
+				\tkzDefPointBy[translation= from B' to C'](A') \tkzGetPoint{D'}
+				\tkzDefPointBy[translation=from A' to A](B') \tkzGetPoint{B}
+				\tkzDefPointBy[translation=from A' to A](C') \tkzGetPoint{C}
+				\tkzDefPointBy[translation=from A' to A](D') \tkzGetPoint{D}
+				\tkzDefMidPoint(C,C') \tkzGetPoint{M}
+				\tkzInterLL(D,M)(D',C') \tkzGetPoint{I}
+				\tkzInterLL(B',M)(B,C) \tkzGetPoint{K}
+				
+				\tkzDrawPolygon(A',A,D,C,C',B')
+				\tkzDrawSegments(A,B B',B B,C K,C K,B' I,M I,C')
+				\tkzDrawSegments[dashed](A',D' C',D' D,D' D,M)
+				\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D',M,I,K)
+				\tkzLabelPoints[above](C,D)
+				\tkzLabelPoints[left](A)
+				\tkzLabelPoints[below](A',B',D',C',I)
+				\tkzLabelPoints[right](M,K)
+				\tkzLabelPoints[below left](B)
+				\end{tikzpicture}
+			}
+			Trong mp$(BCC'B')$, gọi $K$ là giao điểm của $BC$ và $B'M$.\\
+			Vậy $K$ là giao điểm cần tìm.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Cho hình hộp chữ nhật $ABCD.A'B'C'D'$. Gọi $M$, $I$ theo thứ tự là trung điểm của $AA'$, $CC'$. Chứng minh rằng các mặt phẳng $(ADI)$ và $(B'C'M)$ song song với nhau.
+	\loigiai{
+		\immini{
+			Ta có
+			\begin{itemize}
+				\item $AD\parallel B'C'$ (vì cùng song song với $BC$) nên $AD\parallel \text{mp}(B'C'M)$.
+				\item $AMC'I$ là hình bình hành nên $AI\parallel MC'$, do đó $AI\parallel \text{mp}(B'C'M)$.
+			\end{itemize}
+			Vậy $\text{mp}(ADI)\parallel \text{mp}(MB'C')$.
+		}{
+			\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth, font=\footnotesize]
+			%\tkzInit[xmin=-.2, xmax=4.2, ymin=-.2, ymax=3]\tkzClip
+			\tkzDefPoints{0/0/A', 5/0/B', 6/1/C', 0/3/A}
+			\tkzDefPointBy[translation= from B' to C'](A') \tkzGetPoint{D'}
+			\tkzDefPointBy[translation=from A' to A](B') \tkzGetPoint{B}
+			\tkzDefPointBy[translation=from A' to A](C') \tkzGetPoint{C}
+			\tkzDefPointBy[translation=from A' to A](D') \tkzGetPoint{D}
+			\tkzDefMidPoint(C,C') \tkzGetPoint{I}
+			\tkzDefMidPoint(A,A') \tkzGetPoint{M}
+			
+			\tkzDrawPolygon(A',A,D,C,C',B')
+			\tkzDrawSegments(A,B B',B B,C B',M)
+			\tkzDrawSegments[dashed](A',D' C',D' D,D' C',M A,I D,I)
+			\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D',M,I)
+			\tkzLabelPoints[above](C,D)
+			\tkzLabelPoints[left](A,M)
+			\tkzLabelPoints[below](A',B',D')
+			\tkzLabelPoints[right](I,C')
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Cho hình hộp chữ nhật $ABCD.A'B'C'D'$. Gọi $H$, $I$, $K$ theo thứ tự là trung điểm của $AB$, $AA'$, $C'D'$. Chứng minh rằng mặt phẳng $(HIK)$ song song với mặt phẳng $(ACD')$.
+	\loigiai{
+		\immini{
+			Ta có
+			\begin{itemize}
+				\item $HI\parallel BA'\parallel CD'$ nên $HI\parallel \text{mp}(ACD')$.
+				\item $HK\parallel AD'$ nên $HK\parallel \text{mp}(ACD')$.
+			\end{itemize}
+			Vậy $\text{mp}(HIK)\parallel \text{mp}(ACD')$.
+		}{
+			\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth, font=\footnotesize]
+			%\tkzInit[xmin=-.2, xmax=4.2, ymin=-.2, ymax=3]\tkzClip
+			\tkzDefPoints{0/0/A', 4/0/B', 5/1.5/C', 0/4/A}
+			\tkzDefPointBy[translation= from B' to C'](A') \tkzGetPoint{D'}
+			\tkzDefPointBy[translation=from A' to A](B') \tkzGetPoint{B}
+			\tkzDefPointBy[translation=from A' to A](C') \tkzGetPoint{C}
+			\tkzDefPointBy[translation=from A' to A](D') \tkzGetPoint{D}
+			\tkzDefMidPoint(A,B) \tkzGetPoint{H}
+			\tkzDefMidPoint(A,A') \tkzGetPoint{I}
+			\tkzDefMidPoint(C',D') \tkzGetPoint{K}
+			
+			\tkzDrawPolygon[dashed, pattern=north west lines](I,H,K)
+			\tkzDrawPolygon(A',A,D,C,C',B')
+			\tkzDrawSegments(A,B B',B B,C A,C H,I A',B)
+			\tkzDrawSegments[dashed](A',D' C',D' D,D' C,D' A,D')
+			\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D',I,H,K)
+			\tkzLabelPoints[above](C,D,H)
+			\tkzLabelPoints[left](A,I,D')
+			\tkzLabelPoints[below](A',B',K)
+			\tkzLabelPoints[right](C',B)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Cho một viên súc sắc thỏa mãn hình a.
+	\begin{enumerate}
+		\item Hãy điền các dấu chấm vào mặt để trống ở hình b.
+		\item Hãy điền các dấu chấm vào các hình khai triển (hình c và d).
+	\end{enumerate}
+	\begin{center}
+	\begin{multicols}{4}
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth, font=\footnotesize]
+		\tkzInit[xmin=-1.1, xmax=2.1, ymin=-.5, ymax=3]\tkzClip
+		\tkzDefPoints{0/0/A, 2/0/B, 1/1/C, 0/2/A'}
+		\tkzDefPointBy[translation= from B to C](A) \tkzGetPoint{D}
+		\tkzDefPointsBy[translation=from A to A'](B,C,D){B'}{C'}{D'}
+		
+		\foreach \i in {1/3, 2/3}{
+			\tkzDefPointBy[homothety = center A ratio \i](B')
+			\tkzDrawPoint[fill=black, size=20](tkzPointResult)
+		}
+		\foreach \i in {1/2}{
+			\tkzDefPointBy[homothety = center A ratio \i](D')
+			\tkzDrawPoint[fill=black, size=25](tkzPointResult)
+		}
+		\foreach \i in {1/4, 2/4, 3/4}{
+			\tkzDefPointBy[homothety = center A' ratio \i](C')
+			\tkzDrawPoint[fill=black, size=15](tkzPointResult)
+		}
+		\tkzDrawPolygon(A,B,B',C',D',D)
+		\tkzDrawSegments(A,A' A',D' A',B')
+		\end{tikzpicture}
+		Hình a.
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth, font=\footnotesize]
+		\tkzInit[xmin=-.1, xmax=3.1, ymin=-.5, ymax=3]\tkzClip
+		\tkzDefPoints{0/0/A, 2/0/B, 3/1/C, 0/2/A'}
+		\tkzDefPointBy[translation= from B to C](A) \tkzGetPoint{D}
+		\tkzDefPointsBy[translation=from A to A'](B,C,D){B'}{C'}{D'}
+
+		\foreach \i in {1/4, 2/4, 3/4}{
+			\tkzDefPointBy[homothety = center B ratio \i](C')
+			\tkzDrawPoint[fill=black, size=15](tkzPointResult)
+		}
+		\foreach \i in {1/4, 2/4, 3/4}{
+			\tkzDefPointBy[homothety = center A' ratio \i](C')
+			\tkzDrawPoint[fill=black, size=15](tkzPointResult)
+		}
+		\foreach \i in {1/4, 2/4, 3/4}{
+			\tkzDefPointBy[homothety = center B' ratio \i](D')
+			\tkzDrawPoint[fill=black, size=15](tkzPointResult)
+		}
+		\tkzDrawPolygon(A,A',D',C',C,B)
+		\tkzDrawSegments(A',B' B,B' B',C')
+		\end{tikzpicture}
+		Hình b.
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth, font=\footnotesize]
+		\tkzInit[xmin=-.1, xmax=4.1, ymin=-.5, ymax=3]\tkzClip
+		\def \rectanglepath{-- ++(1,0)-- ++(0,1)-- ++(-1,0)--cycle}
+		\foreach \i in {0}{
+			\foreach \j in {0, 1, 2}{
+				\draw (\i+\j,\i+\j) \rectanglepath;
+				\draw (\i+\j+1,\i+\j) \rectanglepath;
+			}
+		}
+		\foreach \i in {0, 1, 2, 3, 4}{
+			\foreach \j in {0, 1, 2, 3}{
+				\tkzDefPoint(\i,\j){A\i\j}
+			}
+		}
+		
+		\foreach \i in {1/4, 2/4, 3/4}{
+			\tkzDefPointBy[homothety = center A23 ratio \i](A32)
+			\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+			\tkzDefPointBy[homothety = center A22 ratio \i](A33)
+			\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+		}
+		\foreach \i in {1/3, 2/3}{
+			\tkzDefPointBy[homothety = center A21 ratio \i](A22) \tkzGetPoint{C\i}
+			\tkzDefPointBy[homothety = center A31 ratio \i](A32) \tkzGetPoint{D\i}
+			\foreach \j in {1/4, 2/4, 3/4}{
+				\tkzDefPointBy[homothety = center A21 ratio \j](A31) \tkzGetPoint{A\j}
+				\tkzDefPointBy[homothety = center A22 ratio \j](A32) \tkzGetPoint{B\j}
+				\tkzInterLL(C\i,D\i)(A\j,B\j)
+				\tkzDrawPoint[fill=black, size=12](tkzPointResult)
+			}
+		}
+		\end{tikzpicture}
+		Hình c.
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth, font=\footnotesize]
+		\tkzInit[xmin=-.1, xmax=4.1, ymin=-.5, ymax=3]\tkzClip
+		\def \rectanglepath{-- ++(1,0)-- ++(0,1)-- ++(-1,0)--cycle}
+		\foreach \i in {0, 1, 2, 3}{
+			\draw (\i,1) \rectanglepath;
+		}
+		\foreach \j in {0, 1, 2}{
+			\draw (1,\j) \rectanglepath;
+		}
+		\foreach \i in {0, 1, 2, 3, 4}{
+			\foreach \j in {0, 1, 2, 3}{
+				\tkzDefPoint(\i,\j){A\i\j}
+			}
+		}
+		\foreach \i in {1/4, 2/4, 3/4}{
+			\tkzDefPointBy[homothety = center A12 ratio \i](A23)
+			\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+			\tkzDefPointBy[homothety = center A13 ratio \i](A22)
+			\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+		}
+		\foreach \i in {1/4, 2/4, 3/4}{
+			\tkzDefPointBy[homothety = center A11 ratio \i](A22)
+			\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+		}
+		\end{tikzpicture}
+		Hình d.
+	\end{multicols}
+	\end{center}
+	\loigiai{
+		\begin{center}
+			\begin{multicols}{3}
+				\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth, font=\footnotesize]
+				\tkzInit[xmin=-.1, xmax=3.1, ymin=-.5, ymax=3]\tkzClip
+				\tkzDefPoints{0/0/A, 2/0/B, 3/1/C, 0/2/A'}
+				\tkzDefPointBy[translation= from B to C](A) \tkzGetPoint{D}
+				\tkzDefPointsBy[translation=from A to A'](B,C,D){B'}{C'}{D'}
+				
+				\foreach \i in {1/4, 2/4, 3/4}{
+					\tkzDefPointBy[homothety = center B ratio \i](C')
+					\tkzDrawPoint[fill=black, size=15](tkzPointResult)
+				}
+				\foreach \i in {1/4, 2/4, 3/4}{
+					\tkzDefPointBy[homothety = center A' ratio \i](C')
+					\tkzDrawPoint[fill=black, size=15](tkzPointResult)
+				}
+				\foreach \i in {1/4, 2/4, 3/4}{
+					\tkzDefPointBy[homothety = center B' ratio \i](D')
+					\tkzDrawPoint[fill=black, size=15](tkzPointResult)
+				}
+				\tkzDrawPolygon(A,A',D',C',C,B)
+				\tkzDrawSegments(A',B' B,B' B',C')
+				%Lời giải hình b
+				\foreach \i in {1/2}{
+					\tkzDefPointBy[homothety = center A ratio \i](B')
+					\tkzDrawPoint[fill=black, size=25](tkzPointResult)
+				}
+				\end{tikzpicture}\\
+				Hình b.\\
+				\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth, font=\footnotesize]
+				\tkzInit[xmin=-.1, xmax=4.1, ymin=-.5, ymax=3]\tkzClip
+				\def \rectanglepath{-- ++(1,0)-- ++(0,1)-- ++(-1,0)--cycle}
+				\foreach \i in {0}{
+					\foreach \j in {0, 1, 2}{
+						\draw (\i+\j,\i+\j) \rectanglepath;
+						\draw (\i+\j+1,\i+\j) \rectanglepath;
+					}
+				}
+				\foreach \i in {0, 1, 2, 3, 4}{
+					\foreach \j in {0, 1, 2, 3}{
+						\tkzDefPoint(\i,\j){A\i\j}
+					}
+				}
+				
+				\foreach \i in {1/4, 2/4, 3/4}{
+					\tkzDefPointBy[homothety = center A23 ratio \i](A32)
+					\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+					\tkzDefPointBy[homothety = center A22 ratio \i](A33)
+					\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+				}
+				\foreach \i in {1/3, 2/3}{
+					\tkzDefPointBy[homothety = center A21 ratio \i](A22) \tkzGetPoint{C\i}
+					\tkzDefPointBy[homothety = center A31 ratio \i](A32) \tkzGetPoint{D\i}
+					\foreach \j in {1/4, 2/4, 3/4}{
+						\tkzDefPointBy[homothety = center A21 ratio \j](A31) \tkzGetPoint{A\j}
+						\tkzDefPointBy[homothety = center A22 ratio \j](A32) \tkzGetPoint{B\j}
+						\tkzInterLL(C\i,D\i)(A\j,B\j)
+						\tkzDrawPoint[fill=black, size=12](tkzPointResult)
+					}
+				}
+				%Lời giải hình c
+				\foreach \i in {1/2}{
+					\tkzDefPointBy[homothety = center A00 ratio \i](A11)
+					\tkzDrawPoint[fill=black, size=20](tkzPointResult)
+				}
+				\foreach \i in {1/3, 2/3}{
+					\tkzDefPointBy[homothety = center A10 ratio \i](A21)
+					\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+				}
+				\foreach \i in {1/4, 2/4, 3/4}{
+					\tkzDefPointBy[homothety = center A11 ratio \i](A22)
+					\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+				}
+				\foreach \i in {1/3, 2/3}{
+					\tkzDefPointBy[homothety = center A32 ratio \i](A43)
+					\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+					\tkzDefPointBy[homothety = center A33 ratio \i](A42)
+					\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+				}
+				\end{tikzpicture}\\
+				Hình c.\\
+				\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth, font=\footnotesize]
+				\tkzInit[xmin=-.1, xmax=4.1, ymin=-.5, ymax=3]\tkzClip
+				\def \rectanglepath{-- ++(1,0)-- ++(0,1)-- ++(-1,0)--cycle}
+				\foreach \i in {0, 1, 2, 3}{
+					\draw (\i,1) \rectanglepath;
+				}
+				\foreach \j in {0, 1, 2}{
+					\draw (1,\j) \rectanglepath;
+				}
+				\foreach \i in {0, 1, 2, 3, 4}{
+					\foreach \j in {0, 1, 2, 3}{
+						\tkzDefPoint(\i,\j){A\i\j}
+					}
+				}
+				\foreach \i in {1/4, 2/4, 3/4}{
+					\tkzDefPointBy[homothety = center A12 ratio \i](A23)
+					\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+					\tkzDefPointBy[homothety = center A13 ratio \i](A22)
+					\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+				}
+				\foreach \i in {1/4, 2/4, 3/4}{
+					\tkzDefPointBy[homothety = center A11 ratio \i](A22)
+					\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+				}
+				%Lời giải hình d
+				\foreach \i in {1/2}{
+					\tkzDefPointBy[homothety = center A01 ratio \i](A12)
+					\tkzDrawPoint[fill=black, size=20](tkzPointResult)
+				}
+				\foreach \i in {1/3, 2/3}{
+					\tkzDefPointBy[homothety = center A10 ratio \i](A21)
+					\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+				}
+				\foreach \i in {1/3, 2/3}{
+					\tkzDefPointBy[homothety = center A21 ratio \i](A22) \tkzGetPoint{C\i}
+					\tkzDefPointBy[homothety = center A31 ratio \i](A32) \tkzGetPoint{D\i}
+					\foreach \j in {1/4, 2/4, 3/4}{
+						\tkzDefPointBy[homothety = center A21 ratio \j](A31) \tkzGetPoint{A\j}
+						\tkzDefPointBy[homothety = center A22 ratio \j](A32) \tkzGetPoint{B\j}
+						\tkzInterLL(C\i,D\i)(A\j,B\j)
+						\tkzDrawPoint[fill=black, size=12](tkzPointResult)
+					}
+				}
+				\foreach \i in {1/3, 2/3}{
+					\tkzDefPointBy[homothety = center A31 ratio \i](A42)
+					\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+					\tkzDefPointBy[homothety = center A32 ratio \i](A41)
+					\tkzDrawPoint[fill=black, size=13](tkzPointResult)
+				}
+				\end{tikzpicture}\\
+				Hình d.
+			\end{multicols}
+		\end{center}
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	\immini{
+		Một con nhện đang ở vị trí $E$ trong một gian phòng hình lập phương. $E$ nằm trên $AB$ và $AE=\dfrac{1}{3}AB$. Con nhện muốn bò qua cả sáu mặt của gian phòng rồi trở về $E$. Tìm đường đi ngắn nhất của con nhện.
+	}{
+		\begin{tikzpicture}[scale=.8, line join=round, line cap=round,>=stealth, font=\footnotesize]
+		%\tkzInit[xmin=-.2, xmax=4.2, ymin=-.2, ymax=3]\tkzClip
+		\tkzDefPoints{0/0/A, 2/0/B, 3/1/C}
+		\tkzDefPointBy[rotation= center A angle 90](B) \tkzGetPoint{A'}
+		\tkzDefPointBy[translation= from B to C](A) \tkzGetPoint{D}
+		\tkzDefPointsBy[translation=from A to A'](B,C,D){B'}{C'}{D'}
+		\tkzDefPointBy[homothety = center A ratio 1/3](B) \tkzGetPoint{E}
+		
+		\tkzDrawPolygon(A,A',D',C',C,B)
+		\tkzDrawSegments(A',B' B,B' B',C')
+		\tkzDrawSegments[dashed](A,D C,D D,D')
+		\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D',E)
+		\tkzLabelPoints[above](C',D')
+		\tkzLabelPoints[left](A')
+		\tkzLabelPoints[below](A,B,D,E)
+		\tkzLabelPoints[right](B',C)
+		\end{tikzpicture}
+	}
+	\loigiai{
+		Trải sáu mặt của hình hộp chữ nhật $ABCD.A'B'C'D'$ như trên hình a. $E$ thuộc cạnh $AB$ của mặt $ABB'A'$ và $AE=\dfrac{1}{3}AB$, $E'$ thuộc cạnh $AB$ của mặt $ABCD$. Để đi theo đường ngắn nhất từ $E$ đến $E'$ trên mặt khai triển, con nhện phải đi theo đoạn thẳng $EE'$. Đường đi của con nhện trong phòng là đường $EFGHIKE$ trên hình b.
+		\begin{center}
+			\begin{multicols}{2}
+				\begin{tikzpicture}[scale=1.5, line join=round, line cap=round,>=stealth, font=\footnotesize]
+				\tkzInit[xmin=-.2, xmax=4.2, ymin=-.3, ymax=3.5]\tkzClip
+				\def \rectanglepath{-- ++(1,0)-- ++(0,1)-- ++(-1,0)--cycle}
+				\foreach \i in {0}{
+					\foreach \j in {0, 1, 2}{
+						\draw (\i+\j,\i+\j) \rectanglepath;
+						\draw (\i+\j+1,\i+\j) \rectanglepath;
+					}
+				}
+				\foreach \i in {0, 1, 2, 3, 4}{
+					\foreach \j in {0, 1, 2, 3}{
+						\tkzDefPoint(\i,\j){A\i\j}
+					}
+				}
+				\tkzDefPointBy[homothety = center A00 ratio 1/3](A10) \tkzGetPoint{E}
+				\tkzDefPointBy[homothety = center A33 ratio 1/3](A43) \tkzGetPoint{E'}
+				\tkzInterLL(E,E')(A10,A13) \tkzGetPoint{F}
+				\tkzInterLL(E,E')(A01,A41) \tkzGetPoint{G}
+				\tkzInterLL(E,E')(A20,A23) \tkzGetPoint{H}
+				\tkzInterLL(E,E')(A02,A42) \tkzGetPoint{I}
+				\tkzInterLL(E,E')(A30,A33) \tkzGetPoint{K}
+				
+				\tkzLabelPoint[above](A01){$A'$}
+				\tkzLabelPoint[above](A12){$A'$}
+				\tkzLabelPoint[above](A23){$A'$}
+				\tkzLabelPoint[above](A33){$A$}
+				\tkzLabelPoint[above](A43){$B$}
+				\tkzLabelPoint[below](A00){$A$}
+				\tkzLabelPoint[below](A10){$B$}
+				\tkzLabelPoint[below](A20){$C$}
+				\tkzLabelPoint[below](A31){$C$}
+				\tkzLabelPoint[below](A42){$C$}
+				\tkzLabelPoint[above left](A11){$B'$}
+				\tkzLabelPoint[above left](A22){$D'$}
+				\tkzLabelPoint[below right](A21){$C'$}
+				\tkzLabelPoint[below right](A32){$D$}
+				\tkzLabelPoints[above](E')
+				\tkzLabelPoints[below](E)
+				\tkzLabelPoints(F,G,H,I,K)
+				\tkzDrawPoints[fill=black](E,E',F,G,H,I,K)
+				\tkzDrawSegments(E,E')
+				\end{tikzpicture}\\
+				Hình a.\\
+				\begin{tikzpicture}[scale=1.2, line join=round, line cap=round,>=stealth, font=\footnotesize]
+				\tkzInit[xmin=-.5, xmax=3.2, ymin=-.5, ymax=4.2]\tkzClip
+				\tkzDefPoints{0/0/A, 2/0/B, 3/1/C}
+				\tkzDefPointBy[rotation= center A angle 90](B) \tkzGetPoint{A'}
+				\tkzDefPointBy[translation= from B to C](A) \tkzGetPoint{D}
+				\tkzDefPointsBy[translation=from A to A'](B,C,D){B'}{C'}{D'}
+				\tkzDefPointBy[homothety = center A ratio 1/3](B) \tkzGetPoint{E}
+				\tkzDefPointBy[homothety = center B' ratio 1/3](B) \tkzGetPoint{F}
+				\tkzDefPointBy[homothety = center B' ratio 1/3](C') \tkzGetPoint{G}
+				\tkzDefPointBy[homothety = center D' ratio 1/3](C') \tkzGetPoint{H}
+				\tkzDefPointBy[homothety = center D' ratio 1/3](D) \tkzGetPoint{I}
+				\tkzDefPointBy[homothety = center A ratio 1/3](D) \tkzGetPoint{K}
+				
+				\tkzDrawPolygon(A,A',D',C',C,B)
+				\tkzDrawSegments(A',B' B,B' B',C' E,F F,G G,H)
+				\tkzDrawSegments[dashed](A,D C,D D,D' H,I I,K K,E)
+				\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D',E,F,G,H,I,K)
+				\tkzLabelPoints[above](C',D',H,B')
+				\tkzLabelPoints[left](A',I)
+				\tkzLabelPoints[below](A,B,D,E)
+				\tkzLabelPoints[right](C,F)
+				\tkzLabelPoints[below right](G)
+				\tkzLabelPoints[above left=-.2](K)
+				\end{tikzpicture}\\
+				Hình b.
+			\end{multicols}
+		\end{center}
+	}
+\end{bt}
+
+\begin{dang}{Thể tích}
+	Thể tích của hình hộp chữ nhật tính bởi công thức $$V=abc.$$
+	Trong đó $a$ là chiều dài, $b$ là chiều rộng và $c$ là chiều cao.
+\end{dang}
+\begin{vd}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Trong các hình hộp chữ nhật có các kích thước là số nguyên $a$, $b$, $c$ mà $a+b+c=9$, hình nào có thể tích lớn nhất?
+	\loigiai{
+		Xét tất cả các trường hợp hình hộp chữ nhật có các kích thước nguyên và tổng bằng $9$.
+		\begin{enumEX}{3}
+			\item $V_1=1\cdot 1\cdot 7=7$.
+			\item $V_2=1\cdot 2\cdot 6=12$.
+			\item $V_3=1\cdot 3\cdot 5=15$.
+			\item $V_4=1\cdot 4\cdot 4=16$.
+			\item $V_5=2\cdot 2\cdot 5=20$.
+			\item $V_6=2\cdot 3\cdot 4=24$.
+			\item $V_7=3\cdot 3\cdot 3=27$.
+		\end{enumEX}
+		Ta thấy hình hộp chữ nhật có các kích thước $3$, $3$, $3$ (hình lập phương) có thể tích lớn nhất.
+		\begin{note}
+			Tổng quát, ta chứng minh được: Trong các hình hộp chữ nhật có các kích thước $a$, $b$, $c$ mà $a+b+c=m$ với $m$ là hằng số thì hình lập phương có thể tích lớn nhất.\\
+			Để chứng mính điều này, ta dùng bất đẳng thức Cô-si với ba số dương $a$, $b$, $c$.
+		\end{note}
+	}
+\end{vd}
+
+\subsubsection{Bài tập tự luyện}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Tính diện tích xung quanh và thể tích của hình hộp chữ nhật $ABCD.A'B'C'D'$ có đáy $ABCD$ là hình vuông cạnh $a$ và diện tích hình chữ nhật $ADC'B'$ bằng $2a^2$.
+	\loigiai{
+		\immini{
+			Ta có $S_{ADC'B'}=AB'\cdot B'C'\Rightarrow AB'=2a$.\\
+			$\triangle AA'B'$ vuông tại $A'$ có $AB'^2=AA'^2+A'B'^2$ (định lí Py-ta-go).\\
+			$\Rightarrow AA'=a\sqrt{3}$.\\
+			Diện tích xung quanh là $S_{\mathrm{xq}}=2(A'B'\cdot B'C')AA'=4a^2\sqrt{3}$.\\
+			Thể tích là $V=A'B'\cdot B'C'\cdot AA'=a^3\sqrt{3}$.
+		}{
+			\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth, font=\footnotesize]
+			%\tkzInit[xmin=-.2, xmax=4.2, ymin=-.2, ymax=3]\tkzClip
+			\tkzDefPoints{0/0/A', 2/0/B', 3/1/C', 0/3/A}
+			\tkzDefPointBy[translation= from B' to C'](A') \tkzGetPoint{D'}
+			\tkzDefPointBy[translation=from A' to A](B') \tkzGetPoint{B}
+			\tkzDefPointBy[translation=from A' to A](C') \tkzGetPoint{C}
+			\tkzDefPointBy[translation=from A' to A](D') \tkzGetPoint{D}
+			
+			\tkzDrawPolygon(A',A,D,C,C',B')
+			\tkzDrawSegments(A,B B',B B,C A,B')
+			\tkzDrawSegments[dashed](A',D' C',D' D,D' D,C')
+			\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D')
+			\tkzLabelPoints[above](C,D,B)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[below](A',B',D',C')
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Hình hộp chữ nhật $ABCD.A'B'C'D'$ có đáy $ABCD$ là hình vuông, diện tích mặt chéo $(BDD'B')$ bằng $80$ cm$^2$. $M$ và $N$ theo thứ tự là trung điểm của $AA'$ và $CC'$, $MN=8$ cm. Tính thể tích hình hộp chữ nhật.
+	\loigiai{
+		\immini{
+			Do $AC=MN$ nên $AC=8$ cm.\\
+			Do $BD=AC$ (vì $ABCD$ là hình vuông) nên $BD=8$ cm.\\
+			$S_{BDD'B'}=BB'\cdot BD\Rightarrow BB'=10$ cm.\\
+			$S_{ABCD}=\dfrac{AC\cdot BD}{2}=32$ cm$^2$.\\
+			Thể tích hình hộp chữ nhật là $V=BB'\cdot S_{ABCD}=320$ cm$^3$.
+		}{
+			\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth, font=\footnotesize]
+			%\tkzInit[xmin=-.2, xmax=4.2, ymin=-.2, ymax=3]\tkzClip
+			\tkzDefPoints{0/0/A', 2/0/B', 3/1/C', 0/3/A}
+			\tkzDefPointBy[translation= from B' to C'](A') \tkzGetPoint{D'}
+			\tkzDefPointBy[translation=from A' to A](B') \tkzGetPoint{B}
+			\tkzDefPointBy[translation=from A' to A](C') \tkzGetPoint{C}
+			\tkzDefPointBy[translation=from A' to A](D') \tkzGetPoint{D}
+			\tkzDefMidPoint(A,A') \tkzGetPoint{M}
+			\tkzDefMidPoint(C,C') \tkzGetPoint{N}
+			
+			\tkzDrawPolygon(A',A,D,C,C',B')
+			\tkzDrawSegments(A,B B',B B,C A,C B,D)
+			\tkzDrawSegments[dashed](A',D' C',D' D,D' M,N B',D')
+			\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D',M,N)
+			\tkzLabelPoints[above](C,D)
+			\tkzLabelPoints[left](A,M,D')
+			\tkzLabelPoints[right](B,N)
+			\tkzLabelPoints[below](A',B',C')
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Một cái hòm hình hộp chữ nhật có chiều dài $36$ cm, chiều rộng $15$ cm, chiều cao $16$ cm. Số hình lập phương cạnh $3$ cm nhiều nhất chứa trong hòm đó là bao nhiêu?
+	\loigiai{
+		Ta thấy $36:3=12$; $15:3=5$; $16:3=5\dfrac{1}{3}$.\\
+		Số hình lập phương cạnh $3$ cm nhiều chất chứa trong hòm là $12\cdot 5\cdot 5=300$ (hình).
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Một hình hộp chữ nhật được ghép bởi $42$ hình lập phương cạnh $1$ cm. Biết chu vi đáy của hình hộp chữ nhật là $18$ cm. Tính các cạnh của hình hộp chữ nhật.
+	\loigiai{
+		Gọi chiều dài là $a$, chiều rộng là $b$, chiều cao là $c$.\\
+		Ta có $a+b=9$ và $abc=42$ nên $a$, $b$ là ước của $42$ và nhỏ hơn $9$.\\
+		Các ước của $42$ mà nhỏ hơn $9$ là $1$, $2$, $3$, $6$, $7$.\\
+		Nếu các cạnh đáy là $6$ và $3$ thì $c=\dfrac{42}{6\cdot 3}$ không là số tự nhiên.\\
+		Nếu các cạnh đáy là $7$ và $2$ thì $c=\dfrac{42}{7\cdot 2}=3$. Vậy các cạnh của hình hộp chữ nhật là $7$ cm, $2$ cm và $3$ cm.
+	}
+\end{bt}
+
+\begin{dang}{Các dạng khác}
+\end{dang}
+\begin{vd}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Một hình lập phương lớn cạnh $4$ được ghép lại từ $64$ hình lập phương nhỏ cạnh $1$. Người ta sơn tất cả sáu mặt của hình lập phương lớn. Tính số hình lập phương nhỏ cạnh $1$ mà
+	\begin{enumEX}{2}
+		\item có đúng một mặt được sơn;
+		\item có đúng hai mặt được sơn;
+		\item có đúng ba mặt được sơn;
+		\item không có mặt nào được sơn.
+	\end{enumEX}
+	\loigiai{
+		\begin{enumerate}
+			\item Có đúng một mặt được sơn.
+			\immini{
+				Ở mỗi mặt, có $4$ hình lập phương nhỏ được sơn một mặt (các hình được gạch sọc). Ở sáu mặt có $4\cdot 6=24$ (hình).
+				\item Có đúng hai mặt được sơn.\\
+				Ở mỗi cạnh, có $2$ hình lập phương được sơn hai mặt (các hình được chấm bi). Ở $12$ cạnh có $2\cdot 12=24$ (hình).
+				\item Có đúng ba mặt được sơn.
+			}{
+				\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth, font=\footnotesize]
+				%\tkzInit[xmin=-.1, xmax=3.1, ymin=-.5, ymax=3]\tkzClip
+				\tkzDefPoints{0/0/A, 2/0/B, 3/1/C, 0/2/A'}
+				\tkzDefPointBy[translation= from B to C](A) \tkzGetPoint{D}
+				\tkzDefPointsBy[translation=from A to A'](B,C,D){B'}{C'}{D'}
+				
+				\foreach \i in {1/4, 2/4, 3/4}{
+					%vẽ đường ngang
+					\tkzDefPointBy[homothety = center A ratio \i](A') \tkzGetPoint{A\i}
+					\tkzDefPointBy[homothety = center B ratio \i](B') \tkzGetPoint{B\i}
+					\tkzDefPointBy[homothety = center C ratio \i](C') \tkzGetPoint{C\i}
+					\tkzDrawSegment(A\i,B\i)
+					\tkzDrawSegment(C\i,B\i)
+					%vẽ đường "dọc" phải
+					\tkzDefPointBy[homothety = center B ratio \i](C) \tkzGetPoint{M\i}
+					\tkzDefPointBy[homothety = center B' ratio \i](C') \tkzGetPoint{N\i}
+					\tkzDefPointBy[homothety = center A' ratio \i](D') \tkzGetPoint{P\i}
+					\tkzDrawSegment(M\i,N\i)
+					\tkzDrawSegment(P\i,N\i)
+					%vẽ đường "dọc" trước mặt
+					\tkzDefPointBy[homothety = center A ratio \i](B) \tkzGetPoint{X\i}
+					\tkzDefPointBy[homothety = center A' ratio \i](B') \tkzGetPoint{Y\i}
+					\tkzDefPointBy[homothety = center D' ratio \i](C') \tkzGetPoint{Z\i}
+					\tkzDrawSegment(X\i,Y\i)
+					\tkzDrawSegment(Z\i,Y\i)
+				}
+				\tkzDrawPolygon(A,A',D',C',C,B)
+				\tkzDrawSegments(A',B' B,B' B',C')
+				%vẽ pattern giữa
+				\pattern[pattern=north east lines]	(.5,.5) rectangle (1.5,1.5);
+				\pattern[pattern=north east lines]	(.75,2.25)-- ++(1,0)-- ++(.5,.5)-- ++(-1,0)--cycle;
+				\pattern[pattern=north west lines]	(2.25,.75)-- ++(0,1)-- ++(.5,.5)-- ++(0,-1)--cycle;
+				%vẽ pattern cạnh
+				\def \rectanglepath{-- ++(.5,0)-- ++(0,.5)-- ++(-.5,0)--cycle}
+				\foreach \i in {1/2, 1}{
+					\foreach \j in {0, 1.5}{
+						\pattern[pattern=dots]	(\i,\j) \rectanglepath;
+						\pattern[pattern=dots]	(\j,\i) \rectanglepath;
+					}
+				}
+				\def \parapatha{-- ++(.5,0)-- ++(.25,.25)-- ++(-.5,0)--cycle}
+				\def \parapathb{-- ++(0,.5)-- ++(.25,.25)-- ++(0,-.5)--cycle}
+				\foreach \i in {1/2, 1}{
+					\foreach \j in {2}{
+						\pattern[pattern=dots]	(\i,\j) \parapatha;
+						\pattern[pattern=dots]	(\i+.75,\j+.75) \parapatha;
+						\pattern[pattern=dots]	(\j,\i) \parapathb;
+						\pattern[pattern=dots]	(\j+.75,\i+.75) \parapathb;
+					}
+				}
+				\foreach \i in {.25, 1.75}{
+					\foreach \j in {2.25}{
+						\pattern[pattern=dots]	(\i,\j) \parapatha;
+						\pattern[pattern=dots]	(\i+.25,\j+.25) \parapatha;
+						\pattern[pattern=dots]	(\j,\i) \parapathb;
+						\pattern[pattern=dots]	(\j+.25,\i+.25) \parapathb;
+					}
+				}
+				\end{tikzpicture}
+			}
+			Ở mỗi đỉnh, có một hình lập phương được sơn ba mặt. Ở $8$ đỉnh có $8$ (hình).
+			\item Không có mặt nào được sơn.\\
+			Các hình lập phương nhỏ không có mặt nào được sơn là các hình lập phương nhỏ \lq\lq ở bên trong\rq\rq, chúng tạo thành một hình lập phương có cạnh $2$, gồm $2\cdot 2\cdot 2=8$ (hình).
+		\end{enumerate}
+	}
+\end{vd}
+
+\subsubsection{Bài tập tự luyện}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Cho hình lập phương. Có bao nhiêu đoạn thẳng mà hai mút của nó là hai đỉnh của hình lập phương?
+	\loigiai{
+		Hình lập phương có $8$ đỉnh.\\
+		Số đoạn thẳng có hai mút là hai điểm trong $8$ đỉnh đó là $\dfrac{8\cdot 7}{2}=28$.
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	\immini{
+		Người ta ghi vào các đỉnh của một hình lập phương các số $0$ hoặc $1$ như hình bên. Cứ mỗi bước, ta cộng thêm $1$ đơn vị vào mỗi số thuộc cùng một cạnh của hình lập phương. Sau một số bước, có thể xảy ra tám số bằng nhau ở tám đỉnh của hình lập phương được không?
+	}{
+		\begin{tikzpicture}[scale=.7, line join=round, line cap=round,>=stealth, font=\footnotesize]
+		%\tkzInit[xmin=-.2, xmax=4.2, ymin=-.2, ymax=3]\tkzClip
+		\tkzDefPoints{0/0/A, 2/0/B, 3/1/C}
+		\tkzDefPointBy[rotation= center A angle 90](B) \tkzGetPoint{A'}
+		\tkzDefPointBy[translation= from B to C](A) \tkzGetPoint{D}
+		\tkzDefPointsBy[translation=from A to A'](B,C,D){B'}{C'}{D'}
+		
+		\tkzDrawPolygon(A,A',D',C',C,B)
+		\tkzDrawSegments(A',B' B,B' B',C')
+		\tkzDrawSegments[dashed](A,D C,D D,D')
+		\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',D')
+		\tkzLabelPoint[left](A){$1$}
+		\tkzLabelPoint[right](B){$0$}
+		\tkzLabelPoint[right](C){$1$}
+		\tkzLabelPoint[below](D){$0$}
+		\tkzLabelPoint[left](A'){$1$}
+		\tkzLabelPoint[right](B'){$1$}
+		\tkzLabelPoint[right](C'){$0$}
+		\tkzLabelPoint[left](D'){$1$}
+		\end{tikzpicture}
+	}
+	\loigiai{
+		Lúc đầu, tổng tám số ở các đỉnh của hình lập phương là $5$. Sau mỗi bước, tổng tăng thêm $2$ đơn vị nên tổng các số ở tám đỉnh luôn luôn là số lẻ, không thể chia hết cho $8$. Do đó, không thể xảy ra tám số bằng nhau.
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Người ta viết vào sáu mặt của một hình lập phương sáu số có tổng bằng $21$. Sau đó ở mỗi đỉnh của hình lập phương, ta ghi một số bằng tổng các số ở các mặt chứa đỉnh đó. Tính tổng các số ở các đỉnh.
+	\loigiai{
+		Gọi sáu số ghi trên các mặt của hình lập phương là $a$, $b$, $c$, $d$, $e$, $g$ ta có $a+b+c+d+e+g=21$.\\
+		Gọi $x$ là tổng phải tìm.\\
+		Do hình lập phương có $8$ đỉnh, mỗi đỉnh là tổng của ba số (trong sáu số trên) nên $x$ là tổng của $24$ số.\\
+		Các số $a$, $b$, $c$, $d$, $e$, $g$ có số lần xuất hiện như nhau trong tổng $x$ nên mỗi số có mặt $24:6=4$ (lần).\\
+		Vậy $x=4(a+b+c+d+e+g)=4\cdot 21=84$.
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Mỗi hình lập phương cạnh $5$ được ghép bởi $125$ hình lập phương nhỏ cạnh $1$. Tính số hình lập phương nhỏ giáp với
+	\begin{enumerate}
+		\item $6$ mặt của các hình lập phương nhỏ khác.
+		\item $5$ mặt của các hình lập phương nhỏ khác.
+		\item $4$ mặt của các hình lập phương nhỏ khác.
+		\item $3$ mặt của các hình lập phương nhỏ khác.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item $6$ mặt của các hình lập phương nhỏ khác.
+			\immini{
+				Các hình lập phương nhỏ giáp với $6$ mặt của các hình lập phương nhỏ khác là các hình lập phương nhỏ \lq\lq ở bên trong\rq\rq, chúng tạo thành một hình lập phương có cạnh $3$, gồm $3\cdot 3\cdot 3=27$ (hình).
+				\item $5$ mặt của các hình lập phương nhỏ khác.\\
+				Ở mỗi mặt, có $9$ hình lập phương nhỏ giáp với $5$ mặt của các hình lập phương nhỏ khác (các hình được gạch sọc). Ở sáu mặt có $9\cdot 6=54$ (hình).
+			}{
+				\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth, font=\footnotesize]
+				%\tkzInit[xmin=-.1, xmax=3.1, ymin=-.5, ymax=3]\tkzClip
+				\tkzDefPoints{0/0/A, 2.5/0/B, 3.75/1.25/C, 0/2.5/A'}
+				\tkzDefPointBy[translation= from B to C](A) \tkzGetPoint{D}
+				\tkzDefPointsBy[translation=from A to A'](B,C,D){B'}{C'}{D'}
+				
+				\foreach \i in {1/5, 2/5, 3/5, 4/5}{
+					%vẽ đường ngang
+					\tkzDefPointBy[homothety = center A ratio \i](A') \tkzGetPoint{A\i}
+					\tkzDefPointBy[homothety = center B ratio \i](B') \tkzGetPoint{B\i}
+					\tkzDefPointBy[homothety = center C ratio \i](C') \tkzGetPoint{C\i}
+					\tkzDrawSegment(A\i,B\i)
+					\tkzDrawSegment(C\i,B\i)
+					%vẽ đường "dọc" phải
+					\tkzDefPointBy[homothety = center B ratio \i](C) \tkzGetPoint{M\i}
+					\tkzDefPointBy[homothety = center B' ratio \i](C') \tkzGetPoint{N\i}
+					\tkzDefPointBy[homothety = center A' ratio \i](D') \tkzGetPoint{P\i}
+					\tkzDrawSegment(M\i,N\i)
+					\tkzDrawSegment(P\i,N\i)
+					%vẽ đường "dọc" trước mặt
+					\tkzDefPointBy[homothety = center A ratio \i](B) \tkzGetPoint{X\i}
+					\tkzDefPointBy[homothety = center A' ratio \i](B') \tkzGetPoint{Y\i}
+					\tkzDefPointBy[homothety = center D' ratio \i](C') \tkzGetPoint{Z\i}
+					\tkzDrawSegment(X\i,Y\i)
+					\tkzDrawSegment(Z\i,Y\i)
+				}
+				\tkzDrawPolygon(A,A',D',C',C,B)
+				\tkzDrawSegments(A',B' B,B' B',C')
+				%vẽ pattern giữa
+				\pattern[pattern=north east lines]	(.5,.5) rectangle (2,2);
+				\pattern[pattern=north east lines]	(.75,2.75)-- ++(1.5,0)-- ++(.75,.75)-- ++(-1.5,0)--cycle;
+				\pattern[pattern=north west lines]	(2.75,.75)-- ++(0,1.5)-- ++(.75,.75)-- ++(0,-1.5)--cycle;
+				%vẽ pattern cạnh
+				\def \rectanglepath{-- ++(.5,0)-- ++(0,.5)-- ++(-.5,0)--cycle}
+				\foreach \i in {.5, 1, 1.5}{
+					\foreach \j in {0, 2}{
+						\pattern[pattern=dots]	(\i,\j) \rectanglepath;
+						\pattern[pattern=dots]	(\j,\i) \rectanglepath;
+					}
+				}
+				\def \parapatha{-- ++(.5,0)-- ++(.25,.25)-- ++(-.5,0)--cycle}
+				\def \parapathb{-- ++(0,.5)-- ++(.25,.25)-- ++(0,-.5)--cycle}
+				\foreach \i in {1/2, 1, 1.5}{
+					\foreach \j in {2.5}{
+						\pattern[pattern=dots]	(\i,\j) \parapatha;
+						\pattern[pattern=dots]	(\i+1,\j+1) \parapatha;
+						\pattern[pattern=dots]	(\j,\i) \parapathb;
+						\pattern[pattern=dots]	(\j+1,\i+1) \parapathb;
+					}
+				}
+				\foreach \i in {.25, 2.25}{
+					\foreach \j in {2.75}{
+						\foreach \k in {0, .25, .5}{
+							\pattern[pattern=dots]	(\i+\k,\j+\k) \parapatha;
+							\pattern[pattern=dots]	(\j+\k,\i+\k) \parapathb;
+						}
+					}
+				}
+				\end{tikzpicture}
+			}
+			\item $4$ mặt của các hình lập phương nhỏ khác.\\
+			Ở mỗi cạnh, có $3$ hình lập phương nhỏ giáp với $4$ mặt của các hình lập phương nhỏ khác (các hình được chấm bi). Ở $12$ cạnh có $3\cdot 12=36$ (hình).
+			\item $3$ mặt của các hình lập phương nhỏ khác.\\
+			Ở mỗi đỉnh, có một hình lập phương nhỏ giáp với $3$ mặt của các hình lập phương nhỏ khác. Ở $8$ đỉnh có $8$ (hình).
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Có $125$ hình lập phương đơn vị ghép lại thành một hình lập phương lớn cạnh $5$. Người ta sơn sáu mặt của hình lập phương lớn. Tính số hình lập phương đơn vị có ít nhất một mặt được sơn.
+	\loigiai{
+		Nếu ta lấy ra các hình lập phương đơn vị được sơn thì còn lại hình lập phương cạnh $3$ chứa $3\cdot 3\cdot 3=27$ hình lập phương đơn vị không được sơn.\\
+		Số hình lập phương đơn vị có ít nhất một mặt được sơn là $125-27=98$ (hình).
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Để sơn một hình lập phương sao cho hai mặt kề nhau có màu khác nhau, số màu ít nhất cần dùng là bao nhiêu?
+	\loigiai{
+		Ba mặt chung đỉnh phải sơn bởi ba màu khác nhau. Vậy số màu không thể ít hơn $3$. Số màu là $3$ khi ba mặt còn lại sơn cùng màu với mặt đối diện với nó.\\
+		Vậy số màu ít nhất cần dùng là $3$.
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Một hình lập phương cạnh $10$ được tạo thành bởi $1000$ hình lập phương đơn vị. Ta có thể nhìn thấy nhiều nhất bao nhiêu hình lập phương đơn vị?
+	\loigiai{
+		Giả sử ta bỏ đi các hình lập phương đơn vị được nhìn thấy, nghĩa là bỏ các hình lập phương đơn vị ở lớp ngoài cùng. Ta còn lại một hình lập phương cạnh $9$, gồm $9\cdot 9\cdot 9=729$ hình lập phương đơn vị. Các hình lập phương đơn vị này không thể nhìn thấy.\\
+		Vậy số hình lập phương đơn vị nhiều nhất có thể được nhìn thấy là $1000-729=271$ hình.
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Một hình lập phương cạnh $5$ gồm $125$ hình lập phương đơn vị. Người ta khoan thủng hình lập phương lớn theo ba đường khoan từ mỗi mặt đến mặt đối diện, mũi khoan lọt vào hình lập phương đơn vị chính giữa. Có bao nhiêu hình lập phương đơn vị bị xuyên thủng?
+	\loigiai{
+		\immini{
+			Trong lần khoan thứ nhất có $5$ hình lập phương đơn vị bị xuyên. Trong lần khoan thứ hai có thêm $4$ hình lập phương đơn vị bị xuyên. Trong lần khoan thứ ba có thêm $4$ hình lập phương đơn vị bị xuyên.\\
+			Vậy có tất cả $13$ hình lập phương đơn vị bị xuyên.
+			\begin{note}
+				Hình lập phương đơn vị nằm ở tâm của hình lập phương lớn bị xuyên ba lần.
+			\end{note}
+		}{
+			\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth, font=\footnotesize]
+			%\tkzInit[xmin=-.1, xmax=3.1, ymin=-.5, ymax=3]\tkzClip
+			\tkzDefPoints{0/0/A, 2.5/0/B, 3.75/1.25/C, 0/2.5/A'}
+			\tkzDefPointBy[translation= from B to C](A) \tkzGetPoint{D}
+			\tkzDefPointsBy[translation=from A to A'](B,C,D){B'}{C'}{D'}
+			
+			\foreach \i in {1/5, 2/5, 3/5, 4/5}{
+				%vẽ đường ngang
+				\tkzDefPointBy[homothety = center A ratio \i](A') \tkzGetPoint{A\i}
+				\tkzDefPointBy[homothety = center B ratio \i](B') \tkzGetPoint{B\i}
+				\tkzDefPointBy[homothety = center C ratio \i](C') \tkzGetPoint{C\i}
+				\tkzDrawSegment(A\i,B\i)
+				\tkzDrawSegment(C\i,B\i)
+				%vẽ đường "dọc" phải
+				\tkzDefPointBy[homothety = center B ratio \i](C) \tkzGetPoint{M\i}
+				\tkzDefPointBy[homothety = center B' ratio \i](C') \tkzGetPoint{N\i}
+				\tkzDefPointBy[homothety = center A' ratio \i](D') \tkzGetPoint{P\i}
+				\tkzDrawSegment(M\i,N\i)
+				\tkzDrawSegment(P\i,N\i)
+				%vẽ đường "dọc" trước mặt
+				\tkzDefPointBy[homothety = center A ratio \i](B) \tkzGetPoint{X\i}
+				\tkzDefPointBy[homothety = center A' ratio \i](B') \tkzGetPoint{Y\i}
+				\tkzDefPointBy[homothety = center D' ratio \i](C') \tkzGetPoint{Z\i}
+				\tkzDrawSegment(X\i,Y\i)
+				\tkzDrawSegment(Z\i,Y\i)
+			}
+			\tkzDrawPolygon(A,A',D',C',C,B)
+			\tkzDrawSegments(A',B' B,B' B',C')
+			%khoan hinh lap phuong
+			\tkzDefMidPoint(A,B')\tkzGetPoint{M}
+			\tkzDefMidPoint(B,C')\tkzGetPoint{N}
+			\tkzDefMidPoint(A',C')\tkzGetPoint{P}
+			\tkzDrawPoint[fill=black,size=15](M)
+			\tkzDrawPoints[fill=black,size=10](N,P)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Phạm An Bình, dự án EX-C2-8-2018][8H4K3]
+	Một khối gỗ hình lập phương có cạnh $3$ dm. Ở chính giữa mỗi mặt của hình lập phương, người ta đục một lỗ vuông có cạnh $1$ dm thông sang mặt đối diện, tâm của lỗ vuông là tâm của mặt hình lập phương, các cạnh của lỗ vuông song song với cạnh của hình lập phương. Sau khi đã đục ba lỗ thông, diện tích toàn phần của khối còn lại bằng bao nhiêu?
+	\loigiai{
+		Tổng cộng phải đục bảy khối lập phương đơn vị (cạnh $1$ dm), gồm sáu khối ở sáu mặt và một khối ở chính giữa bên trong (xem hình b).
+		\begin{center}
+			\begin{multicols}{2}
+				\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth, font=\footnotesize]
+				\foreach \k in {0, 1, 2, 3}{
+					\foreach \i in {0, 1, 2, 3}{
+						\foreach \j in {0, 1, 2, 3}{
+							\tkzDefPoint(\i+\k/3,\j+\k/3){A\k\i\j}
+						}
+					}
+				}
+				\tkzDrawPolygon(A000,A030,A330,A333,A303,A003)
+				\tkzDrawSegments(A033,A003 A033,A030 A033,A333)
+				\tkzDrawPolygon(A011,A021,A022,A012)
+				\tkzDrawPolygon(A113,A123,A223,A213)
+				\tkzDrawPolygon(A131,A132,A232,A231)
+				%Vẽ lỗ thứ nhất - mặt chính diện
+				\tkzInterLL(A110,A113)(A002,A032) \tkzGetPoint{B11}
+				\tkzInterLL(A101,A131)(A020,A023) \tkzGetPoint{B12}
+				\tkzDrawSegments(A111,B11 A111,B12 A011,A022)
+				\tkzInterLL(A210,A213)(A002,A032) \tkzGetPoint{B21}
+				\tkzInterLL(A201,A231)(A020,A023) \tkzGetPoint{B22}
+				\tkzDrawSquare[fill=gray](A211,B21)
+				\tkzDrawSquare[fill=gray](B22,A211)
+				%Vẽ lỗ thứ hai - mặt trên
+				\tkzInterLL(A103,A133)(A210,A213) \tkzGetPoint{C}
+				\tkzDrawPolygon[fill=gray](C,A123,A223,A213)
+				%Vẽ lỗ thứ ba - mặt bên
+				\tkzInterLL(A130,A133)(A201,A231) \tkzGetPoint{D}
+				\tkzDrawPolygon[fill=gray](D,A231,A232,A132)
+				\end{tikzpicture}\\
+				Hình a.\\
+				\begin{tikzpicture}[scale=1, line join=round, line cap=round,>=stealth, font=\footnotesize]
+				\foreach \k in {0, 1, 2, 3}{
+					\foreach \i in {0, 1, 2, 3}{
+						\foreach \j in {0, 1, 2, 3}{
+							\tkzDefPoint(\i+\k/3,\j+\k/3){A\k\i\j}
+						}
+					}
+				}
+				%Lớp 3
+				\tkzDrawPolygon[fill=white](A311,A321,A322,A312)
+				%Lớp 3-2
+				\tkzDrawPolygon[fill=white](A212,A222,A322,A312)
+				%Lớp 2
+				\tkzDrawPolygon[fill=white](A210,A220,A221,A231,A232,A222,A223,A213,A212,A202,A201,A211)
+				%Lớp 2-1
+				\foreach \x/\y
+				in {22/32, 02/12, 13/23}{
+					\tkzDrawPolygon[fill=white](A1\x,A1\y,A2\y,A2\x)
+				}
+				\foreach \x/\y
+				in {20/21, 31/32}{
+					\tkzDrawPolygon[fill=white](A1\x,A1\y,A2\y,A2\x)
+				}
+				%Lớp 1
+				\tkzDrawPolygon[fill=white](A110,A120,A121,A131,A132,A122,A123,A113,A112,A102,A101,A111)
+				%Lớp 1-0
+				\foreach \x/\y
+				in {12/22, 21/22}{
+					\tkzDrawPolygon[fill=white](A0\x,A0\y,A1\y,A1\x)
+				}
+				%Lớp 0
+				\tkzDrawPolygon[fill=white](A011,A021,A022,A012)
+				\end{tikzpicture}\\
+				Hình b.
+			\end{multicols}
+		\end{center}
+		Diện tích toàn phần của khối gỗ lúc đầu là $3\cdot 3\cdot 6=54$ (dm$^2$).\\
+		Sau khi đục một khối lập phương đơn vị ở mỗi mặt, mặt ngoài của khối gỗ giảm đi $1$ dm$^2$, nhưng bên trong tăng thêm $5$ dm$^2$. Do đó sau khi đục sáu khối ở sáu mặt thì diện tích của khối gỗ là $54+(5-1)6=78$ (dm$^2$).\\
+		Khi đục nốt khối lập phương đơn vị ở chính giữa, diện tích khối gỗ giảm đi $6$ dm$^2$ (là diện tích toàn của của khối lập phương đơn vị ấy).\\
+		Vậy diện tích toàn phần của khối gỗ còn lại là $78-6=72$ (dm$^2$).
+	}
+\end{bt}

@@ -1,0 +1,972 @@
+%GV Biên soạn: Hứa Đức Sinh
+%GV Phản biện: Dương BùiĐức
+\section{Tính chất đường phân giác của tam giác}
+\subsection{Trọng tâm kiến thức}
+\begin{dl}
+	\immini
+	{
+		Trong tam giác, đường phân giác của một góc trong chia cạnh đối diện thành hai đoạn thẳng tỉ lệ với hai cạnh kề hai đoạn ấy.
+		\begin{equation*}
+		\left.\begin{aligned}
+		& \triangle ABC \\ & \widehat{BAD} = \widehat{CAD}
+		\end{aligned}\right\}
+		\Rightarrow \dfrac{DB}{DC} = \dfrac{AB}{AC}.
+		\end{equation*}
+	}
+	{
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+		\tkzDefPoints{0/0/B}
+		\coordinate (C) at ($(B)+(6,0)$);
+		\tkzDefShiftPoint[B](70:4){A}
+		\tkzDefLine[bisector](B,A,C)    \tkzGetPoint{d}
+		\tkzInterLL(A,d)(B,C)    \tkzGetPoint{D}
+		%
+		\pgfresetboundingbox
+		\tkzMarkAngles[size=.7cm,arc=l,mark=|](B,A,D)
+		\tkzMarkAngles[size=.9cm,arc=l,mark=|](D,A,C)		
+		\tkzDrawSegments(A,B B,C C,A A,D)
+		\tkzDrawPoints[fill=black](A,B,C,D)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[below](D)
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](C)
+		\end{tikzpicture}
+	}
+\end{dl}
+\begin{note}
+	Định lý vẫn đúng với đường phân giác góc ngoài của tam giác.
+	\immini
+	{
+		\begin{equation*}
+		\left.\begin{aligned} &\triangle ABC~(AB \ne AC) \\ & \widehat{BAE} = \widehat{C'AE} \end{aligned}\right\} \Rightarrow \dfrac{EB}{EC} = \dfrac{AB}{AC}.
+		\end{equation*}
+	}
+	{
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.6]
+		\tkzDefPoints{0/0/B}
+		\coordinate (C) at ($(B)+(5,0)$);
+		\tkzDefShiftPoint[B](100:4){A}
+		\coordinate (C') at ($(C)!1.3!(A)$);
+		\tkzDefLine[bisector](C',A,B)    \tkzGetPoint{e}
+		\tkzInterLL(A,e)(B,C)    \tkzGetPoint{E}
+		\tkzMarkAngles[size=.5cm,arc=l,mark=|](C',A,E)
+		\tkzMarkAngles[size=.7cm,arc=l,mark=|](E,A,B)
+		%
+		\pgfresetboundingbox
+		\tkzDrawSegments(A,E E,C C,C' A,B)
+		\tkzDrawPoints[fill=black](A,B,C,E)
+		\tkzLabelPoints[above](A,C')
+		\tkzLabelPoints[below](E,B,C)
+		\end{tikzpicture}
+	}
+	Các định lý trên có định lý đảo
+	\begin{align*}
+		&\dfrac{DB}{DC} = \dfrac{AB}{AC} \Rightarrow AD \text{ là đường phân giác trong của tam giác.}\\
+		&\dfrac{EB}{EC} = \dfrac{AB}{AC} \Rightarrow AE \text{ là đường phân giác ngoài của tam giác.}
+	\end{align*}
+\end{note}
+
+\subsection{Các dạng bài tập và phương pháp giải}
+\begin{dang}{Tính độ dài đoạn thẳng}
+	\emph{Phương pháp giải:} Vận dụng tính chất đường phân giác của một tam giác và các tính chất của tỉ lệ thức.
+\end{dang}
+\begin{vd}%[8H3B3]
+	Cho $\triangle ABC$ có $AB = 30$ cm, $AC = 45$ cm, $BC = 50$ cm, $AD$ là đường phân giác trong. Tính độ dài đoạn thẳng $BD$, $CD$.
+	\loigiai
+	{
+		\immini
+		{
+			$AD$ là đường phân giác của $\triangle ABC$ nên $\dfrac{DB}{DC} = \dfrac{AB}{AC}$.\\
+			Do đó $\dfrac{DB}{AB} = \dfrac{DC}{AC} = \dfrac{DB+DC}{AB+AC} = \dfrac{50}{30+45} = \dfrac{2}{3}.$\\
+			Suy ra $DB = \dfrac{30 \cdot 2}{3} = 20$ (cm), $DC = \dfrac{45\cdot 2}{3} = 30$ (cm).
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](70:4){A}
+			\tkzDefLine[bisector](B,A,C)    \tkzGetPoint{d}
+			\tkzInterLL(A,d)(B,C)    \tkzGetPoint{D}
+			%
+			\pgfresetboundingbox
+			\tkzMarkAngles[size=.7cm,arc=l,mark=|](B,A,D)
+			\tkzMarkAngles[size=.9cm,arc=l,mark=|](D,A,C)		
+			\tkzDrawSegments(A,B B,C C,A A,D)
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](D)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}	
+	}
+\end{vd}
+
+\begin{vd}%[8H3B3]
+	Cho $\triangle ABC$ có $AD$ là đường phân giác. Biết $AB = 15$ cm, $DC = 21$ cm, $BD = 9$ cm. Tính độ dài $AC$.
+	\loigiai
+	{
+		\immini
+		{
+			Theo tính chất đường phân giác ta có $\dfrac{BD}{DC} = \dfrac{AB}{AC}$\\
+			$\Rightarrow \dfrac{BD}{BC} = \dfrac{AB}{AB + AC}$ hay $\dfrac{9}{30} = \dfrac{15}{15+AC} \Rightarrow AC = 35$ (cm).
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](110:2.5){A}
+			\tkzDefLine[bisector](B,A,C)    \tkzGetPoint{d}
+			\tkzInterLL(A,d)(B,C)    \tkzGetPoint{D}
+			%
+			\pgfresetboundingbox
+			\tkzMarkAngles[size=.9cm,arc=l,mark=|](B,A,D)
+			\tkzMarkAngles[size=1.1cm,arc=l,mark=|](D,A,C)		
+			\tkzDrawSegments(A,B B,C C,A A,D)
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](D)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\begin{vd}%[8H3B3]
+	Cho $\triangle ABC$ có $AB = 6$ cm, $BC = 7$ cm, $AC = 8$ cm. Các đường phân giác trong và ngoài của $\widehat{A}$ cắt đường thẳng $BC$ tại $D$ và $E$. Tính độ dài đoạn $DE.$
+	\loigiai
+	{
+		\immini
+		{
+			Theo tính chất đường phân giác ta có $\dfrac{BD}{DC} = \dfrac{AB}{AC}$ nên \\
+			$\dfrac{BD}{BC} = \dfrac{AB}{AB + AC}$
+			hay $\dfrac{BD}{7} = \dfrac{6}{6+8} \Rightarrow BD = 3$ (cm).\\
+			$\dfrac{EB}{EC} = \dfrac{AB}{AC}$ nên $\dfrac{EB}{BC} = \dfrac{AB}{AC - AB}$ hay $\dfrac{EB}{7} = \dfrac{6}{8-6}$\\ $\Rightarrow EB = 21$ (cm).\\
+			$\Rightarrow ED = BD + BE = 24$ (cm).
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.4]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(5,0)$);
+			\tkzDefShiftPoint[B](100:4){A}
+			\coordinate (C') at ($(C)!1.3!(A)$);
+			\tkzDefLine[bisector](C',A,B)    \tkzGetPoint{e}
+			\tkzInterLL(A,e)(B,C)    \tkzGetPoint{E}
+			\tkzMarkAngles[size=1cm,arc=l,mark=|](C',A,E)
+			\tkzMarkAngles[size=1.2cm,arc=l,mark=|](E,A,B)
+			\tkzDrawBisector(B,A,C)  \tkzGetPoint{D}
+			\tkzMarkAngles[size=1.4cm,arc=l](B,A,D)
+			\tkzMarkAngles[size=1.6cm,arc=l](D,A,C)
+			%
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,E E,C C,C' A,B)
+			\tkzDrawPoints[fill=black](A,B,C,E,D)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](E,B,C,D)
+			\end{tikzpicture}
+		}	
+	}
+\end{vd}
+
+\begin{vd}%[8H3B3]
+	Cho $\triangle ABC$ có $AD$ là đường phân giác. Trên $AB$ lấy điểm $M$, trên $AC$ lấy điểm $N$ sao cho $BM = BD$, $CN = CD$. Biết $AB = 7$ cm, $AC = 8$ cm, $BC = 12$ cm. Tính chu vi $\triangle AMN$.
+	\loigiai
+	{
+		\immini
+		{
+			Theo tính chất đường phân giác ta có $\dfrac{BD}{CD} = \dfrac{AB}{AC}$
+			 nên $\dfrac{BD}{BC} = \dfrac{AB}{AB + AC}$ hay $\dfrac{BD}{12} = \dfrac{7}{7+8}$. 
+			 Suy ra $BD = \dfrac{7 \cdot 12}{15} = 5{,}6$ (cm).\\
+			Do đó $CD = 12 - 5{,}6 = 6{,}4$ (cm).\\
+			Suy ra $BM = 5{,}6$ (cm), $CN = 6{,}4$ (cm) nên $AM = 7 - 5{,}6 = 1{,}4$ (cm), $AN = 8 - 6{,}4 = 1{,}6$ (cm).
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](70:4){A}
+			\tkzDefLine[bisector](B,A,C)    \tkzGetPoint{d}
+			\tkzInterLL(A,d)(B,C)    \tkzGetPoint{D}
+			\tkzDuplicateLen(B,D)(B,A)    \tkzGetPoint{M}
+			\tkzDuplicateLen(C,D)(C,A)    \tkzGetPoint{N}
+			%
+			\pgfresetboundingbox
+			\tkzMarkAngles[size=.7cm,arc=l,mark=|](B,A,D)
+			\tkzMarkAngles[size=.9cm,arc=l,mark=|](D,A,C)		
+			\tkzDrawSegments(A,B B,C C,A A,D M,N)
+			\tkzDrawPoints[fill=black](A,B,C,D,M,M,N)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](D)
+			\tkzLabelPoints[left](B,M)
+			\tkzLabelPoints[right](C,N)
+			\end{tikzpicture}
+		}
+		Từ $\dfrac{BD}{CD} = \dfrac{AB}{AC}$ suy ra $\dfrac{BD}{AB} = \dfrac{CD}{AC}$ dẫn tới $\dfrac{BM}{AB} = \dfrac{CN}{AC}$ (do $BM = BD$, $CN = CD$), suy ra $MN \parallel BC$.\\
+		Theo hệ quả định lý Ta-lét ta có $\dfrac{MN}{BC} = \dfrac{AM}{AB}$ hay $\dfrac{MN}{12} = \dfrac{1{,}4}{7} \Rightarrow MN = 2{,}4$ (cm).\\
+		Vậy chu vi $\triangle AMN$ là $1{,}4 + 1{,}6 + 2{,}4 = 5{,}4$ (cm). 
+	}
+\end{vd}
+
+\begin{vd}%[8H3K3]
+	Cho $\triangle ABC$ cân tại $A$ có chu vi bằng $80$ cm. Tia phân giác của $\widehat{B}$ cắt đường cao $AH$ tại $I$. Biết $AI = \dfrac{3}{4}AH$. Tính độ dài các cạnh của $\triangle ABC$.
+	\loigiai
+	{
+		\immini
+		{
+			$\triangle ABC$ cân tại $A$ có $AH$ là đường cao nên $AH$ là đường trung tuyến $\Rightarrow BH = CH$.\\
+			$AI = \dfrac{3}{4}AH \Rightarrow \dfrac{AI}{IH} = 3$.\\
+			$\triangle ABH$ có $BI$ là đường phân giác\\
+			$\Rightarrow \dfrac{AB}{BH} = \dfrac{AI}{IH} \Rightarrow \dfrac{AB}{BH} = 3 \Rightarrow AB = 3BH$.\\
+			Theo đề bài $AB + AC + BC = 80 \Rightarrow 3BH + 3BH + 2BH = 80 \Rightarrow BH = 10$ (cm).\\
+			Từ đó ta có $AB = AC = 30$ cm, $BC = 20$ cm.
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(4,0)$);
+			\tkzDefTriangle[two angles = 70 and 70](B,C)    \tkzGetPoint{A}
+			\tkzDrawAltitude(B,C)(A)  \tkzGetPoint{H}
+			\tkzDrawBisector(C,B,A)  \tkzGetPoint{D}
+			\tkzInterLL(A,H)(B,D)    \tkzGetPoint{I}
+			\tkzMarkAngles[size=.7cm,arc=l,mark=|](C,B,D)
+			\tkzMarkAngles[size=.9cm,arc=l,mark=|](D,B,A)
+			\tkzMarkRightAngles[size=.3,fill=gray!50](A,H,C)
+			%
+			\pgfresetboundingbox
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawPoints[fill=black](A,B,C,D,H,I)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](H)
+			\tkzLabelPoints[below right](I)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C,D)
+			\end{tikzpicture}
+		}		
+	}
+\end{vd}
+
+\begin{vd}%[8H3K3]
+	Cho $\triangle ABC$ có đường phân giác $AD$. Biết rằng $BC = 10$ cm và $2AB = 3AC$. Tính độ dài đoạn thẳng $BD$ và $CD$.
+	\loigiai
+	{
+		\immini
+		{
+			Ta có $2AB = 3AC \Rightarrow \dfrac{AB}{AC} = \dfrac{3}{2}$.\\
+			$AD$ là đường phân giác của $\widehat{BAC}$ nên\\ $\dfrac{BD}{BD + CD} = \dfrac{AB}{AC + AB} = \dfrac{3}{3+2} \Rightarrow \dfrac{BD}{10} = \dfrac{3}{5}$.\\
+			Suy ra $BD = \dfrac{3 \cdot 10}{5} = 6$ cm, $CD = 4$ cm.
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](35:5.2){A}
+			\tkzDefLine[bisector](B,A,C)    \tkzGetPoint{d}
+			\tkzInterLL(A,d)(B,C)    \tkzGetPoint{D}
+			%
+			\pgfresetboundingbox
+			\tkzMarkAngles[size=.7cm,arc=l,mark=|](B,A,D)
+			\tkzMarkAngles[size=.9cm,arc=l,mark=|](D,A,C)		
+			\tkzDrawSegments(A,B B,C C,A A,D)
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](D)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\begin{vd}%[8H3K3]
+	Cho $\triangle ABC$ vuông tại $A$, đường phân giác $AD$. Biết $AB = 10$ cm, $AC = 15$ cm. Qua $D$ kẻ đường thẳng song song với $AB$ cắt $AC$ tại $E$. Tính độ dài đoạn thẳng $AE$, $EC$.
+	\loigiai
+	{
+		\immini
+		{
+			$AD$ là đường phân giác của $\widehat{BAC}$ nên $\dfrac{BD}{CD} = \dfrac{AB}{AC}$ hay \\
+			$\dfrac{BD}{CD} = \dfrac{10}{15} = \dfrac{2}{3}$.\\
+			$DE \parallel AB$ nên $\dfrac{AE}{EC} = \dfrac{BD}{CD} \Rightarrow \dfrac{AE}{EC} = \dfrac{2}{3}$\\
+			$\Rightarrow \dfrac{AE}{AE + EC} = \dfrac{2}{2+3}$ hay $\dfrac{AE}{15} = \dfrac{2}{5}$.\\
+			Vậy $AE = \dfrac{15 \cdot 2}{5} = 6$ (cm), $EC = 9$ (cm).
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+			\tkzDefPoints{0/0/A}
+			\coordinate (C) at ($(A)+(6,0)$);
+			\coordinate (B) at ($(A)+(0,4)$);
+			\tkzDrawBisector(C,A,B)  \tkzGetPoint{D}
+			\tkzDefPointBy[projection = onto A--C](D)    \tkzGetPoint{E}
+			\pgfresetboundingbox
+			\tkzMarkRightAngles[size=0.4,fill=gray!50](C,A,B)
+			\tkzDrawSegments(A,C C,B B,A A,D D,E)
+			\tkzDrawPoints[fill=black](A,C,B,D,E)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above](B)
+			\tkzLabelPoints[above right](D)
+			\tkzLabelPoints[below](E)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\begin{dang}{Chứng minh hệ thức hình học}
+	\emph{Phương pháp giải:} Lập các đoạn thẳng tỉ lệ từ tính chất đường phân giác của tam giác rồi biến đổi.
+\end{dang}
+\begin{vd}%[8H3B3]
+	Cho $\triangle ABC$ có $AD,BE,CF$ là các đường phân giác . Chứng minh rằng
+	\[\dfrac{AE}{EC} \cdot \dfrac{CD}{DB} \cdot \dfrac{BF}{FA} = 1.\]
+	\loigiai
+	{
+		\immini
+		{
+			Áp dụng tính chất đường phân giác, ta có
+			\begin{align}
+			\dfrac{AE}{EC} = \dfrac{AB}{BC} \tag{1}\\
+			\dfrac{CD}{DB} = \dfrac{AC}{AB} \tag{2}\\
+			\dfrac{BF}{FA} = \dfrac{BC}{AC} \tag{3}
+			\end{align}
+			Nhân (1), (2), (3) vế theo vế ta được điều phải chứng minh.
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](70:4){A}
+			\tkzDrawBisector(B,A,C)  \tkzGetPoint{D}
+			\tkzDrawBisector(C,B,A)  \tkzGetPoint{E}
+			\tkzDrawBisector(A,C,B)  \tkzGetPoint{F}
+			\tkzMarkAngles[size=.7cm,arc=l](B,A,D)
+			\tkzMarkAngles[size=.9cm,arc=l](D,A,C)
+			\tkzMarkAngles[size=.7cm,arc=l,mark=|](C,B,E)
+			\tkzMarkAngles[size=.9cm,arc=l,mark=|](E,B,A)
+			\tkzMarkAngles[size=.9cm,arc=ll](A,C,F)
+			\tkzMarkAngles[size=1cm,arc=ll](F,C,B)
+			%
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B B,C C,A A,D B,E C,F)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,F)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](D)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above right](E)
+			\tkzLabelPoints[above left](F)
+			\end{tikzpicture}
+		}	
+	}
+\end{vd}
+
+\begin{vd}%[8H3K3]
+	Đường trung tuyến $BK$ và đường phân giác $CD$ của $\triangle ABC$ cắt nhau tại $P$. Chứng minh rằng $\dfrac{PC}{PD} - \dfrac{AC}{BC} = 1$.
+	\loigiai
+	{
+		\immini
+		{
+			Kẻ $DE \parallel BK$, áp dụng định lý Ta-let ta có $\dfrac{PC}{PD} = \dfrac{KC}{KE}$ và $\dfrac{AE}{KE} = \dfrac{AD}{BD}$.\\
+			$CD$ là đường phân giác nên $\dfrac{AC}{BC} = \dfrac{AD}{BD}$\\
+			$\Rightarrow \dfrac{AC}{BC} = \dfrac{AE}{KE} \Rightarrow \dfrac{PC}{PD} - \dfrac{AC}{BC} = \dfrac{KC}{KE} - \dfrac{AE}{KE} = \dfrac{KA - AE}{KE} = 1$ (vì $KC = KA$).
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.9]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](80:4){A}
+			\tkzDrawMedian(A,C)(B)  \tkzGetPoint{K}
+			\tkzDrawBisector(A,C,B)  \tkzGetPoint{D}
+			\tkzInterLL(B,K)(C,D)    \tkzGetPoint{P}
+			\tkzDefPointBy[translation = from B to K](D)    \tkzGetPoint{e}
+			\tkzInterLL(D,e)(A,C)    \tkzGetPoint{E}
+			\tkzMarkAngles[size=1cm,arc=l,mark=|](A,C,D)
+			\tkzMarkAngles[size=1.2cm,arc=l,mark=|](D,C,B)
+			%
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B B,C C,A B,K C,D D,E)
+			\tkzDrawPoints[fill=black](A,B,C,K,D,P,E)
+			\tkzLabelPoints[above](A,P)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above right](K,E)
+			\tkzLabelPoints[above left](D)
+			\end{tikzpicture}
+		}		
+	}
+\end{vd}
+
+\begin{vd}%[8H3K3]
+	Cho $\triangle ABC$ cân tại $A$ có $BM,CN$ là các đường phân giác. Chứng minh rằng
+	\begin{listEX}[2]
+		\item $MN \parallel BC$.
+		\item $\dfrac{1}{BC} + \dfrac{1}{AB} = \dfrac{1}{MN}$.
+	\end{listEX}
+	\loigiai
+	{
+		\immini
+		{
+			\begin{enumerate}
+				\item Áp dụng tính chất đường phân giác, ta có $\dfrac{AM}{MC} = \dfrac{AB}{BC}$ và $\dfrac{AN}{NB} = \dfrac{AC}{BC}$.\\
+				Mà $AB = AC$ nên $\dfrac{AM}{MC} = \dfrac{AN}{NB} \Rightarrow MN \parallel BC$ (Định lý Ta-lét đảo).
+				\item $MN \parallel BC \begin{aligned}[t]
+				&\Rightarrow \widehat{MNC} = \widehat{NCB} \Rightarrow \widehat{MNC} = \widehat{MCN}\\
+				&\Rightarrow \triangle MNC \text{ cân } \Rightarrow MN = MC.
+				\end{aligned}$\\
+				$MN \parallel BC \Rightarrow \dfrac{MN}{BC} = \dfrac{AM}{AC}$ (hệ quả định lý Ta-lét)
+			\end{enumerate}
+		}
+		{
+				\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.9]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(4,0)$);
+			\tkzDefTriangle[two angles = 70 and 70](B,C)    \tkzGetPoint{A}
+			\tkzDrawBisector(C,B,A)  \tkzGetPoint{M}
+			\tkzDrawBisector(A,C,B)  \tkzGetPoint{N}
+			\tkzMarkAngles[size=.7cm,arc=l](C,B,M)
+			\tkzMarkAngles[size=.9cm,arc=l](M,B,A)
+			\tkzMarkAngles[size=.7cm,arc=l,mark=|](A,C,N)
+			\tkzMarkAngles[size=.9cm,arc=l,mark=|](N,C,B)
+			%
+			\pgfresetboundingbox
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawPolySeg(B,M,N,C)
+			\tkzDrawPoints[fill=black](A,B,C,M,N)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[left](B,N)
+			\tkzLabelPoints[right](C,M)
+			\end{tikzpicture}
+		}
+		$\Rightarrow \dfrac{MN}{BC} = \dfrac{AC - MN}{AC}$ (vì $MC = MN$)
+		hay $\dfrac{MN}{BC} = 1 - \dfrac{MN}{AC} \Rightarrow \dfrac{MN}{BC} + \dfrac{MN}{AC} = 1$.
+		\par Vậy $\dfrac{1}{BC} + \dfrac{1}{AB} = \dfrac{1}{MN}$.
+	}
+\end{vd}
+
+\begin{vd}%[8H3G3]
+	Cho $\triangle ABC$ cân tại $A$ có $\widehat{A} = 36^\circ$. Chứng minh $AB^2 = BC^2 + AC \cdot BC$.
+	\loigiai
+	{
+		\immini
+		{
+			$\triangle ABC$ cân tại $A$ có $\widehat{A} = 36^\circ$ nên $\widehat{B} = \widehat{C} = 72^\circ$.\\
+			Gọi $BD$ là đường phân giác của $\widehat{CBA}$ thì $\widehat{B_1} = \widehat{B_2} = 36^\circ$.\\
+			Từ đó suy ra $\triangle ABD$ cân tại $A$, $\triangle BDC$ cân tại $B$\\
+			$\Rightarrow AD = BD = BC$.\\
+			Theo tính chất đường phân giác ta có $\dfrac{AD}{DC} = \dfrac{AB}{BC}$\\
+			$\Rightarrow \dfrac{AD}{AC} = \dfrac{AB}{AB + BC}$\\
+			$\Rightarrow \dfrac{BC}{AB} = \dfrac{AB}{AC + BC} \Rightarrow AB^2 = BC^2 + AC \cdot BC$.
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(4,0)$);
+			\tkzDefTriangle[two angles = 72 and 72](B,C)    \tkzGetPoint{A}
+			\tkzDrawBisector(C,B,A)  \tkzGetPoint{D}
+			\tkzMarkAngles[size=.7cm,arc=l,mark=|](C,B,D)
+			\tkzMarkAngles[size=.9cm,arc=l,mark=|](D,B,A)
+			\tkzLabelAngles[pos=1](C,B,D){$2$}
+			\tkzLabelAngles[pos=1.2](D,B,A){$1$}
+			\tkzMarkAngles[size=.7cm,arc=l,mark=|](B,A,C)
+			%
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B A,C B,C B,D)
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[above right](D)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\begin{dang}{Liên quan đến tỉ số diện tích tam giác}
+	\emph{Phương pháp giải:} Vân dụng công thức tính diện tích tam giác và tính chất đường phân giác của tam giác.
+\end{dang}
+\begin{vd}%[8H3K3]
+	Cho $\triangle ABC$ có $AB = 4$ cm, $AC = 6$ cm và $AD$ là đường phân giác. Tính tỉ số diện tích của $\triangle ABD$ và $\triangle ACD$.
+	\loigiai
+	{
+		\immini
+		{
+			$\triangle ABD$ và $\triangle ACD$ có chung đường cao $AH$ kẻ từ $A$ nên ta có
+			\[\dfrac{S_{\triangle ABD}}{S_{\triangle ACD}} = \dfrac{BD}{CD}.\]
+			Mà $\dfrac{BD}{CD} = \dfrac{AB}{AC} = \dfrac{4}{6} = \dfrac{2}{3}$ (tính chất đường phân giác) nên $\dfrac{S_{\triangle ABD}}{S_{\triangle ACD}} = \dfrac{2}{3}$.
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.9]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](70:4){A}
+			\tkzDrawBisector(B,A,C)  \tkzGetPoint{D}
+			\tkzDrawAltitude(B,C)(A)  \tkzGetPoint{H}
+			\tkzMarkAngles[size=.7cm,arc=l,mark=|](B,A,D)
+			\tkzMarkAngles[size=.9cm,arc=l,mark=|](D,A,C)
+			\tkzMarkRightAngles[size=.3,fill=gray!50](A,H,C)	
+			%
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B B,C C,A)
+			\tkzDrawPoints[fill=black](A,B,C,D,H)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[below](D,H)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\subsection{Bài tập tự luyện}
+\begin{bt}%[8H3B3]
+	Cho $\triangle ABC$ có $AD$ là đường phân giác, $AB = 4$ cm, $BC = 8$ cm, $AC = 7$ cm. Tính độ dài đoạn thẳng $CD$ (làm tròn kết quả đến chữ số thập phân thứ nhất). 
+	\dapso{$5{,}1$ cm.}
+\end{bt}
+
+\begin{bt}%[8H3B3]
+	Cho $\triangle ABC$ vuông tại $A$, $AB = 3$ cm, $AC = 4$ cm. Đường phân giác $AD$. Tính độ dài cạnh $BD$. 
+	\dapso{$BC = 5$ cm, $BD = \dfrac{15}{7} = 2\dfrac{1}{7}$.}
+\end{bt}
+
+\begin{bt}%[8H3B3]
+	Cho $\triangle ABC$ có $AD$ là phân giác. Kẻ $DE \parallel AB$ ($E \in AC$). Biết $AB = 6$ cm, $AC = 9$ cm. Tìm tỉ số $\dfrac{AE}{AC}$.
+	\dapso{$\dfrac{AE}{AC} = \dfrac{2}{5}$.}
+\end{bt}
+
+\begin{bt}%[8H3K3]
+	Cho $\triangle ABC$ có $AM$ là trung tuyến. Tia phân giác các góc $\widehat{AMB}$, $\widehat{AMC}$ cắt $AB$, $AC$ lần lượt tại $D, E$. Chứng minh rằng $DE \parallel BC$.
+	\loigiai
+	{
+		\immini
+		{
+			Theo tính chất đường phân giác ta có $\dfrac{AD}{BD} = \dfrac{AM}{BM}$ và $\dfrac{AE}{EC}= \dfrac{AM}{CM}$.\\
+			Mà $BM = CM$ nên $\dfrac{AD}{BD} = \dfrac{AE}{CE}$.\\
+			Suy ra $DE \parallel BC$.
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.9]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](70:4){A}
+			\tkzDrawMedian(B,C)(A)  \tkzGetPoint{M}
+			\tkzDrawBisector(A,M,B)  \tkzGetPoint{D}
+			\tkzDrawBisector(C,M,A)  \tkzGetPoint{E}
+			\tkzMarkAngles[size=.7cm,arc=l](A,M,D)
+			\tkzMarkAngles[size=.9cm,arc=l](D,M,B)
+			\tkzMarkAngles[size=.7cm,arc=ll](C,M,E)
+			\tkzMarkAngles[size=.9cm,arc=ll](E,M,A)
+			%
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B B,C C,A D,E)
+			\tkzDrawPoints[fill=black](A,B,C,M,D,E)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](M)
+			\tkzLabelPoints[left](B,D)
+			\tkzLabelPoints[right](C,E)
+			\end{tikzpicture}
+		}
+		\begin{nx}
+			Nếu cho biết độ dài $BC$ và $AM$, ta có thể tính được độ dài $DE$.
+		\end{nx}
+	}
+\end{bt}
+
+\begin{bt}%[8H3B3]
+	Cho $\triangle ABC$ có $AD$ là đường phân giác. Biết $AB = 18$ cm, $DC = 12$ cm, $BD = 8$ cm. Tính chu vi $\triangle ABC$.
+	\dapso{$65$ cm.}
+\end{bt}
+
+\section{Khái niệm hai tam giác đồng dạng. Trường hợp đồng dạng thứ nhất}
+\subsection{Trọng tâm kiến thức}
+\subsubsection{Khái niệm hai tam giác đồng dạng}
+\begin{dn}
+	\immini
+	{
+		$\triangle A'B'C'$ gọi là đồng dạng với $\triangle ABC$ nếu 
+		\[\heva{& \widehat{A'} = \widehat{A};~\widehat{B'} = \widehat{B};~\widehat{C'} = \widehat{C} \\ & \dfrac{A'B'}{AB} = \dfrac{A'C'}{AC} = \dfrac{B'C'}{BC}.}\]
+		Kí hiệu: $\triangle A'B'C' \backsim \triangle ABC$.
+	}
+	{
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.6]
+		\tkzDefPoints{0/0/B}
+		\coordinate (C) at ($(B)+(6,0)$);
+		\tkzDefShiftPoint[B](70:4){A}
+		%
+		\pgfresetboundingbox
+		\tkzDrawSegments(A,B B,C C,A)
+		\tkzDrawPoints[fill=black](A,B,C)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](C)
+		\end{tikzpicture}
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.4]
+		\tkzDefPoints{0/0/B'}
+		\coordinate (C') at ($(B')+(6,0)$);
+		\tkzDefShiftPoint[B'](70:4){A'}
+		%
+		\pgfresetboundingbox
+		\tkzDrawSegments(A',B' B',C' C',A')
+		\tkzDrawPoints[fill=black](A',B',C')
+		\tkzLabelPoints[above](A')
+		\tkzLabelPoints[left](B')
+		\tkzLabelPoints[right](C')
+		\end{tikzpicture}
+	}
+	
+\end{dn}
+\begin{tc}\hfill
+	\begin{itemize}
+		\item Mỗi tam giác đồng dạng với chính nó.
+		\item Nếu $\triangle A'B'C' \backsim \triangle ABC$ thì $\triangle ABC \backsim \triangle A'B'C'$.
+		\item Nếu $\triangle A'B'C' \backsim \triangle A''B''C''$ và $\triangle A''B''C'' \backsim ABC$ thì $\triangle A'B'C' \backsim \triangle ABC$.
+	\end{itemize}
+\end{tc}
+\begin{dl}
+	\immini
+	{
+		Nếu một đường thẳng cắt hai cạnh của tam giác và song song với cạnh còn lại thì nó tạo thành một tam giác mới đồng dạng với tam giác đã cho.
+		\begin{equation*}
+		\left.\begin{aligned}&\triangle ABC \\ & MN \parallel BC\end{aligned}\right\} \Rightarrow \triangle AMN \backsim \triangle ABC.
+		\end{equation*}
+	}
+	{
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+		\tkzDefPoints{0/0/B}
+		\coordinate (C) at ($(B)+(6,0)$);
+		\tkzDefShiftPoint[B](70:4){A}
+		\coordinate (M) at ($(A)!.6!(B)$);
+		\coordinate (N) at ($(A)!.6!(C)$);
+		\tkzDrawLines[add = 0.4 and 0.4](M,N)
+		%
+		\pgfresetboundingbox
+		\tkzDrawSegments(A,B B,C C,A)
+		\tkzDrawPoints[fill=black](A,B,C,M,N)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[above left](M)
+		\tkzLabelPoints[above right](N)
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](C)
+		\end{tikzpicture}
+	}
+	
+\end{dl}
+\begin{note}
+	Định lý cũng đúng cho trường hợp đường thẳng cắt phần kéo dài hai cạnh của tam giác và song song với cạnh còn lại.
+\end{note}
+
+\subsubsection{Trường hợp đồng dạng thứ nhất}
+	\immini
+	{
+		Nếu ba cạnh của tam giác này tỉ lệ với ba cạnh của tam giác kia thì hai tam giác đó đồng dạng.\\
+		Nếu $\triangle ABC$ và $\triangle A'B'C'$ có 
+		\[\dfrac{AB}{A'B'} = \dfrac{BC}{B'C'} = \dfrac{CA}{C'A'}\]
+		thì $\triangle ABC \backsim \triangle A'B'C'$.
+	}
+	{
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.6]
+		\tkzDefPoints{0/0/B}
+		\coordinate (C) at ($(B)+(6,0)$);
+		\tkzDefShiftPoint[B](70:4){A}
+		%
+		\pgfresetboundingbox
+		\tkzDrawSegments(A,B B,C C,A)
+		\tkzDrawPoints[fill=black](A,B,C)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](C)
+		\end{tikzpicture}
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.4]
+		\tkzDefPoints{0/0/B'}
+		\coordinate (C') at ($(B')+(6,0)$);
+		\tkzDefShiftPoint[B'](70:4){A'}
+		%
+		\pgfresetboundingbox
+		\tkzDrawSegments(A',B' B',C' C',A')
+		\tkzDrawPoints[fill=black](A',B',C')
+		\tkzLabelPoints[above](A')
+		\tkzLabelPoints[left](B')
+		\tkzLabelPoints[right](C')
+		\end{tikzpicture}
+	}
+	
+\subsection{Các dạng bài tập và phương pháp giải}
+\begin{dang}{Tìm tỉ số đồng dạng của hai tam giác}
+	\emph{Phương pháp giải:} Sử dụng định nghĩa hoặc định lý hai tam giác đồng dạng.
+\end{dang}
+\begin{vd}%[8H3B4]
+	Cho $\triangle ABC$, lấy điểm $M$ thuộc $AB$ sao cho $\dfrac{AM}{MB} = \dfrac{2}{3}$. Kẻ hai đường thẳng qua $M$ lần lượt song song với $AC$ và $BC$ cắt $BC$ và $AC$ lần lượt tại $D$ và $F$.
+	\begin{enumerate}
+		\item Nêu tất cả các cặp tam giác đồng dạng.
+		\item Với mỗi cặp tam giác đồng dạng, hãy viết tỉ số đồng dạng tương ứng.
+	\end{enumerate}
+	\loigiai 
+	{
+		\immini
+		{
+			\begin{enumerate}
+				\item[a)] Ta có 
+				\begin{align}
+				&MF \parallel BC \text{ nên } \triangle AMF \backsim \triangle ABC \tag{1}\\
+				&MD \parallel AC \text{ nên } \triangle MBD \backsim \triangle ABC \tag{2}
+				\end{align}
+				Từ (1) và (2) suy ra $\triangle AMF \backsim \triangle MBD$.
+			\end{enumerate}
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](70:4){A}
+			\coordinate (M) at ($(A)!2/5!(B)$);
+			\coordinate (F) at ($(A)!2/5!(C)$);
+			\coordinate (D) at ($(M)+(C)-(F)$);
+			%
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B B,C C,A M,F M,D)
+			\tkzDrawPoints[fill=black](A,B,C,M,D,F)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](D)
+			\tkzLabelPoints[left](B,M)
+			\tkzLabelPoints[right](C,F)
+			\end{tikzpicture}
+		}
+		\begin{enumerate}
+			\item[b)] Vì $\dfrac{AM}{MB} = \dfrac{2}{3}$ nên ta có $\dfrac{AM}{AB} = \dfrac{2}{5}$ và $\dfrac{BM}{AB} = \dfrac{3}{5}$.\\
+			$\triangle AMF \backsim \triangle ABC$ có tỉ số đồng dạng $\dfrac{AM}{AB} = \dfrac{2}{5}$.\\
+			$\triangle MBD \backsim \triangle ABC$ có tỉ số đồng dạng là $\dfrac{MB}{AB} = \dfrac{3}{5}$.\\
+			$\triangle AMF \backsim \triangle MBD$ có tỉ số đồng dạng là $\dfrac{AM}{MB} = \dfrac{2}{3}$.
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[8H3B4]
+	Cho $\triangle ABC \backsim \triangle DEF$, tỉ số đồng dạng bằng $\dfrac{2}{3}$. Biết chu vi $\triangle ABC$ là $24$ cm. Tính chu vi $\triangle DEF$.
+	\loigiai
+	{
+		$\triangle ABC \backsim \triangle DEF$, tỉ số đồng dạng bằng $\dfrac{2}{3}$ nên $\dfrac{AB}{DE} = \dfrac{BC}{EF} = \dfrac{CA}{FD} = \dfrac{2}{3}$.\\
+		Suy ra $\dfrac{AB+BC+CA}{DE+EF+FD} = \dfrac{2}{3}$ hay $\dfrac{24}{DE+EF+FD} = \dfrac{2}{3}$.\\
+		Vậy chu vi $\triangle DEF$ là $\dfrac{24\cdot 3}{2} = 36$ (cm).	
+	}
+\end{vd}
+
+\begin{dang}{Tính độ dài đoạn thẳng}
+	\emph{Phương pháp giải:}
+	\begin{itemize}
+		\item Viết hai tam giác đồng dạng.
+		\item Lập tỉ số các cặp cạnh tương ứng rồi sử dụng tỉ lệ thức.
+	\end{itemize}
+\end{dang}
+\begin{vd}%[8H3B4]
+	Cho $\triangle ABC \backsim \triangle A'B'C'$, biết $AB = 8$ cm, $AC = 6$ cm, $BC = 10$ cm. Cạnh lớn nhất của $\triangle A'B'C'$ là $25$ cm. Tính cạnh nhỏ nhất của $\triangle A'B'C'$.
+	\loigiai 
+	{
+		$\triangle ABC$ có cạnh $BC = 10$ cm là lớn nhất. Mà $\triangle ABC \backsim \triangle A'B'C'$ nên $B'C'$ là cạnh lớn nhất của $\triangle A'B'C'$, do đó $B'C' = 25$ cm.\\
+		$AC = 6$ cm là cạnh nhỏ nhất của $\triangle ABC$ nên $A'C'$ là cạnh nhỏ nhất của $\triangle A'B'C'$. Suy ra 
+		\begin{eqnarray*}
+			&&\dfrac{AC}{A'C'} = \dfrac{BC}{B'C'}\\
+			&\Rightarrow& \dfrac{6}{A'C'} = \dfrac{10}{25}\\
+			&\Rightarrow& A'C' = \dfrac{6 \cdot 10}{25} = 15 \text{ cm.}
+		\end{eqnarray*}
+	}
+\end{vd}
+
+\begin{dang}{Chứng minh hai tam giác đồng dạng}
+	\emph{Phương pháp giải:} 
+	\begin{itemize}
+		\item Xếp các cạnh của hai tam giác theo cùng một thứ tự (chẳng hạn từ nhỏ tới lớn).
+		\item Lập ba tỉ số, nếu chúng bằng nhau thì hai tam giác đồng dạng.
+	\end{itemize}
+\end{dang}
+\begin{vd}%[8H3B5]
+	Cho $\triangle ABC$ có $AB = 3$ cm, $BC = 5$ cm, $CA = 7$ cm và $\triangle A'B'C'$ có $A'B' = 4{,}5$ cm, $B'C' = 7{,}5$ cm, $C'A' = 10{,}5$ cm. Hỏi $\triangle ABC$ và $\triangle A'B'C'$ có đồng dạng với nhau không? Tại sao?
+	\loigiai
+	{
+		Ta có $\dfrac{3}{4{,}5} = \dfrac{5}{7{,}5} = \dfrac{7}{10{,}5} \left(=\dfrac{1}{1{,}5}\right)$ nên $\dfrac{AB}{A'B'} = \dfrac{BC}{B'C'} = \dfrac{CA}{C'A'}$.\\
+		Do đó $\triangle ABC \backsim \triangle A'B'C'$ (c.c.c).
+	}
+\end{vd}
+
+\begin{vd}%[8H3G5]
+	Cho điểm $M$ nằm trong $\triangle ABC$. Gọi $G_1,G_1,G_3$ lần lượt là trong tâm các tam giác $MBC, MCA,MAB$. Chứng minh rằng $\triangle G_1G_2G_3 \backsim \triangle ABC$.
+	\loigiai
+	{
+		\immini
+		{
+			Vận dụng tính chất trọng tâm ta có $\dfrac{MG_2}{ME} = \dfrac{2}{3}$ và $\dfrac{MG_1}{MF} = \dfrac{2}{3}$
+			$\Rightarrow \dfrac{MG_2}{ME} = \dfrac{MG_1}{MF} = \dfrac{2}{3}$\\
+			$\Rightarrow G_1G_2 \parallel EF \Rightarrow \dfrac{G_1G_2}{EF} = \dfrac{MG_2}{ME} \Rightarrow \dfrac{G_1G_2}{EF} = \dfrac{2}{3}$. \\
+			Mặt khác ta có $EF = \dfrac{1}{2}AB \Rightarrow G_1G_2 = \dfrac{1}{3}AB$.\\
+			Tương tự ta có $G_2G_3 = \dfrac{1}{3}BC$ và $G_1G_3 = \dfrac{1}{3}AC$.
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.9]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](70:4){A}
+			\tkzDefBarycentricPoint(A=2,B=3,C=4) \tkzGetPoint{M}
+			\tkzCentroid(M,B,C)    \tkzGetPoint{G1}
+			\tkzCentroid(M,C,A)    \tkzGetPoint{G2}
+			\tkzCentroid(M,A,B)    \tkzGetPoint{G3}
+			\tkzInterLL(M,G1)(B,C)    \tkzGetPoint{F}
+			\tkzInterLL(M,G2)(A,C)    \tkzGetPoint{E}
+			\tkzInterLL(M,G3)(A,B)    \tkzGetPoint{D}
+			%
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B B,C C,A G1,G2 G2,G3 G3,G1 M,D M,E M,F M,A M,B M,C)
+			\tkzDrawPoints[fill=black](A,B,C,G1,G2,G3,M,D,E,F)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](F)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above right](E)
+			\tkzLabelPoints[above left](D)
+			\tkzLabelPoint[right](G1){\scriptsize $G_1$}
+			\tkzLabelPoint[below right](G2){\scriptsize $G_2$}
+			\tkzLabelPoint[above](G3){\scriptsize $G_3$}
+			\tkzLabelPoint[above](M){\scriptsize $M$}
+			\end{tikzpicture}
+		}
+		Suy ra $\dfrac{G_1G_2}{AB} = \dfrac{G_1G_3}{AC} = \dfrac{G_2G_3}{BC} \Rightarrow \triangle G_1G_2G_3 \backsim \triangle ABC$ (c.c.c).
+	}
+\end{vd}
+
+\subsection{Bài tập tự luyện}
+\begin{bt}%[8H3B5]
+	Cho $\triangle ABC$ có $M,N,P$ theo thứ tự là trung điểm của $AB,AC,BC$. Chứng minh $\triangle PMN \backsim \triangle ACB$.
+	\loigiai
+	{
+		\immini
+		{
+			Vận dụng tính chất đường trung bình ta có
+			\begin{equation*}
+			\dfrac{MN}{BC} = \dfrac{NP}{AB} = \dfrac{MP}{AC} \left(= \dfrac{1}{2}\right).
+			\end{equation*}
+			Do đó $\triangle PMN \backsim \triangle ACB$.
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](70:4){A}
+			\coordinate (M) at ($(A)!0.5!(B)$);
+			\coordinate (N) at ($(A)!0.5!(C)$);
+			\coordinate (P) at ($(B)!0.5!(C)$);
+			%
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B B,C C,A M,N N,P P,M)
+			\tkzDrawPoints[fill=black](A,B,C,M,N,P)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](P)
+			\tkzLabelPoints[above left](M)
+			\tkzLabelPoints[above right](N)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+		
+	}
+\end{bt}
+
+\begin{bt}%[8H3B5]
+	Cho $\triangle ABC$ có $AB = 6$ cm, $AC = 9$ cm, $BC = 12$ cm và $\triangle DEF$ có $DE = 24$ cm, $EF = 18$ cm, $DF = 12$ cm. $\triangle ABC$ có đồng dạng với $\triangle DEF$ hay không? Vì sao?
+	\loigiai
+	{
+		Ta có $\dfrac{AB}{FD} = \dfrac{AC}{FE} = \dfrac{BC}{DE} = \dfrac{1}{2}$.\\
+		Suy ra $\triangle ABC \backsim \triangle FDE$ (c.c.c).
+	}
+\end{bt}
+
+\begin{bt}%[8H3K5]
+	Cho tứ giác $ABCD$ có $AB = 2$ cm, $BC = 10$ cm, $CD = 12{,}5$ cm, $AD = 4$ cm, $BD = 5$ cm. Chứng minh rằng tứ giác $ABCD$ là hình thang.
+	\loigiai
+	{
+		\immini
+		{
+			Xét $\triangle ABD$ và $\triangle BDC$ có
+			\begin{equation*}
+			\dfrac{AB}{BD} = \dfrac{AD}{BC} = \dfrac{BD}{DC} \left(\text{vì } \dfrac{2}{5} = \dfrac{4}{10} = \dfrac{5}{12{,}5}\right)
+			\end{equation*}
+			$\Rightarrow \triangle ABD \backsim \triangle BDC$ (c.c.c) $\Rightarrow \widehat{ABD} = \widehat{BDC} \Rightarrow AB \parallel CD$.\\
+			Vậy tứ giác $ABCD$ là hình thang.
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/D}
+			\coordinate (C) at ($(D)+(6.2,0)$);
+			\tkzDefShiftPoint[D](70:3){A}
+			\coordinate (B) at ($(A)+(1,0)$);
+			\pgfresetboundingbox
+			\tkzDrawPolygon(A,B,C,D)
+			\tkzDrawPoints[fill=black](D,C,A,B)
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[left](D)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}	
+	}
+\end{bt}
+
+\begin{bt}%[8H3B5]
+	Cho $\triangle ABC$ vuông tại $A$ có $AB = 3$ cm, $AC = 4$ cm và $\triangle DEF$ vuông tại $D$ có $DE = 15$ cm, $EF = 25$ cm.
+	\begin{enumerate}
+		\item Tính độ dài các đoạn thẳng $BC, DF$.
+		\item $\triangle ABC$ và $\triangle DEF$ có đồng dạng với nhau không? Vì sao?
+	\end{enumerate}
+	\loigiai
+	{
+		\begin{enumerate}
+			\item $BC = 5$ cm, $DF = 20$ cm.
+			\item $\dfrac{AB}{DE} = \dfrac{AC}{DF} = \dfrac{BC}{EF} = \dfrac{1}{5}$. Do đó $\triangle ABC \backsim \triangle DEF$ (c.c.c).
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[8H3G5]
+	Cho $\triangle ABC$. Trên cạnh $AB$ lấy các điểm $I,K$ sao cho $AI = IK = KB$. Trên cạnh $BC$ lấy các điểm $E$ và $D$ sao cho $BD = DE = EC$. Trên cạnh $AC$ lấy điểm $F$ và $G$ sao cho $AF = FG = GC$. Gọi $M$ là giao điểm của $AD$ và $BF$, $N$ là giao điểm của $BG$ và $CK$,$P$ là giao điểm của $AE$ và $CI$. Chứng minh $\triangle ABC \backsim \triangle NPM$.
+	\loigiai
+	{
+		\immini
+		{
+			$\dfrac{AF}{AC} = \dfrac{BD}{BC} = \dfrac{1}{3} \Rightarrow DF \parallel AB$.\\
+			$DF \parallel AB \Rightarrow \dfrac{DF}{AB} = \dfrac{CD}{CB} \Rightarrow \dfrac{DF}{AB} = \dfrac{2}{3}$.\\
+			$DF \parallel AB \Rightarrow \dfrac{AM}{MD} = \dfrac{AB}{DF} \Rightarrow \dfrac{AM}{MD} = \dfrac{3}{2} \Rightarrow \dfrac{AM}{AD} = \dfrac{3}{5}$.\\
+			Tương tự ta có $\dfrac{AP}{AE} = \dfrac{3}{5} \Rightarrow \dfrac{AM}{AD} = \dfrac{AP}{AE}$ hay $MP \parallel DE$ hay $MP \parallel BC$.\\
+			Do đó $\dfrac{MP}{DE} = \dfrac{AM}{AD} \Rightarrow \dfrac{MP}{DE} = \dfrac{3}{5}$.\\
+			Mặt khác $DE = \dfrac{1}{3}BC \Rightarrow \dfrac{MP}{BC} = \dfrac{1}{5}$. \hfill (1)\\
+			Tương tự ta có $\dfrac{NP}{AB} = \dfrac{1}{5}$ và $\dfrac{MN}{AC} = \dfrac{1}{5}$. \hfill (2)\\
+			Từ (1) và (2) suy ra $\triangle ABC \backsim \triangle NPM$ (c.c.c).
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.9]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](70:4){A}
+			\coordinate (I) at ($(A)!1/3!(B)$);
+			\coordinate (K) at ($(A)!2/3!(B)$);
+			\coordinate (D) at ($(B)!1/3!(C)$);
+			\coordinate (E) at ($(B)!2/3!(C)$);
+			\coordinate (F) at ($(A)!1/3!(C)$);
+			\coordinate (G) at ($(A)!2/3!(C)$);
+			\tkzInterLL(A,D)(B,F)    \tkzGetPoint{M}
+			\tkzInterLL(B,G)(C,K)    \tkzGetPoint{N}
+			\tkzInterLL(A,E)(C,I)    \tkzGetPoint{P}
+			%
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B B,C C,A N,P P,M M,N A,D B,F B,G C,K A,E C,I)
+			\tkzDrawPoints[fill=black](A,B,C,I,K,D,E,F,G,M,N,P)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](D,E,N)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above right](P,F,G)
+			\tkzLabelPoints[above left](M,I,K)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+
+
+
+
+
+
+

@@ -1,0 +1,597 @@
+%GV soạn: Hứa Đức Sinh
+%GV phản biện: 
+\Opensolutionfile{ans}[ans/ans7H3-4]
+\section{Tính chất ba đường trung tuyến của tam giác}
+\subsection{Kiến thức cần nhớ}
+	\begin{minipage}[c]{0.6\textwidth}
+		\begin{dn}
+			Ba đường trung tuyến của một tam giác cùng đi qua một điểm, điểm này được gọi là \emph{trọng tâm} của tam giác.
+		\end{dn}
+		\begin{dl}
+			Trọng tâm của tam giác cách mỗi đỉnh một khoảng bằng $\dfrac{2}{3}$ độ dài đường trung tuyến đi qua đỉnh ấy.
+		\end{dl}
+		\[AG = \dfrac{2}{3}AN,\ BG = \dfrac{2}{3}BP, \ CG = \dfrac{2}{3} CM.\]
+	\end{minipage}
+	\begin{minipage}[c]{0.4\textwidth}
+		\begin{flushright}
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.9]
+		\tkzDefPoints{0/0/B}
+		\coordinate (C) at ($(B)+(6,0)$);
+		\tkzDefShiftPoint[B](70:4){A}
+		\tkzDefMidPoint(A,B)		\tkzGetPoint{M}
+		\tkzDefMidPoint(B,C)		\tkzGetPoint{N}
+		\tkzDefMidPoint(C,A)		\tkzGetPoint{P}
+		\tkzCentroid(A,B,C)    \tkzGetPoint{G}
+		\pgfresetboundingbox
+		\tkzDrawSegments(A,B B,C C,A A,N B,P C,M)
+		\tkzDrawPoints[fill=black](A,B,C,M,N,P,G)
+		\tkzLabelPoints[above](A,G)
+		\tkzLabelPoints[below](N)
+		\tkzLabelPoints[left](B,M)
+		\tkzLabelPoints[right](C,P)
+		\end{tikzpicture}
+		\end{flushright}
+	\end{minipage}
+	\begin{note}
+		Phương pháp tìm trọng tâm $G$ của $\triangle ABC$ hoặc chứng minh một điểm là trọng tâm của tam giác:
+		\begin{enumerate}[\bfseries Cách 1:]
+			\item Kẻ hai đường trung tuyến, lấy giao điểm $G$.
+			\item Kẻ một đường trung tuyến $AM$. Lấy điểm $G$ trên $AM$ sao cho $AG = 2 AM$.
+		\end{enumerate}
+	\end{note}
+
+\subsection{Hỏi đáp nhanh}
+\setcounter{ex}{0}
+	\begin{ex}%[7H3B4]
+		Hãy so sánh độ dài hai trung tuyến ứng với cạnh bên trong một tam giác cân.
+		\loigiai
+		{
+			Vì tam giác cân có hai cạnh bên bằng nhau và hai góc ở đáy bằng nhau nên suy ra hai trung tuyến ứng với hai cạnh bên bằng nhau.
+		}
+	\end{ex}
+	\begin{ex}%[7H3B4]
+		So sánh độ dài ba trung tuyến trong một tam giác đều.
+		\loigiai
+		{
+			Vì tam giác đều có ba cạnh bằng nhau và ba góc bằng nhau nên ba đường trung tuyến trong một tam giác đều bằng nhau.
+		}
+	\end{ex}
+	
+	\begin{ex}%[7H3B4]
+		Trong tam giác vuông, hãy so sánh trung tuyến ứng với cạnh huyền và cạnh huyền.
+		\loigiai
+		{
+			Trong một tam giác vuông, đường trung tuyến ứng với cạnh huyền bằng một nửa cạnh huyền.
+		}
+	\end{ex}
+	
+	\begin{ex}%[7H3B4]
+		Trọng tâm của tam giác có thể nằm ngoài tam giác được không?
+		\loigiai
+		{
+			Vì ba đường trung tuyến của tam giác đều nằm trong tam giác đó nên giao điểm của chúng, tức là trọng tâm của tam giác phải nằm trong tam giác đó.
+		}
+	\end{ex}
+
+\subsection{Học giải toán}
+\setcounter{vd}{0}
+	\begin{vd}%[7H3K4]
+		Chứng minh rằng nếu một tam giác có hai đường trung tuyến bằng nhau thì tam giác đó là tam giác cân.
+		\loigiai
+		{
+			\immini
+			{
+				Giả sử $\triangle ABC$ có hai đường trung tuyến $BM$ và $CN$ bằng nhau.\\
+				Gọi $G$ là giao điểm của $BM$ và $CN$, theo tính chất trọng tâm tam giác ta có $BG = \dfrac{2}{3}BM$, $CG = \dfrac{2}{3} CN$, do đó $BG = CG$ (vì $BM = CN$).\\
+				$\triangle GBC$ cân tại $G$ nên $\widehat{GBC} = \widehat{GCB}$. Suy ra $\triangle MBC = \triangle NCB$ (c.g.c), từ đó $\widehat{B} = \widehat{C}$ hay $\triangle ABC$ cân.
+			}
+			{
+				\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+				\tkzDefPoints{0/0/B}
+				\coordinate (C) at ($(B)+(4,0)$);
+				\tkzDefTriangle[two angles = 70 and 70](B,C)    \tkzGetPoint{A}
+				%
+				\pgfresetboundingbox
+				\tkzDrawMedian(A,C)(B)  \tkzGetPoint{M}
+				\tkzDrawMedian(A,B)(C)  \tkzGetPoint{N}
+				\tkzInterLL(B,M)(C,N)    \tkzGetPoint{G}
+				\tkzMarkAngles[size=.7cm,arc=l,mark=|](C,B,G G,C,B)
+				\tkzDrawPolygon(A,B,C)
+				\tkzDrawPoints[fill=black](A,B,C,M,N,G)
+				\tkzLabelPoints[above](A)
+				\tkzLabelPoints[below](G)
+				\tkzLabelPoints[left](B,N)
+				\tkzLabelPoints[right](C,M)
+				\end{tikzpicture}
+			}			
+		}
+	\end{vd}
+	
+	\begin{vd}%[7H3G4]
+		Cho $\triangle ABC$. Trên tia đối của tia $BC$ lấy điểm $E$, trên tia đối của tia $CB$ lấy điểm $F$ sao cho $BE = CF$.
+		\begin{enumerate}
+			\item Chứng minh hai tam giác $ABC$ và $AEF$ có cùng trọng tâm $G$.
+			\item $AG$ cắt $BC$ tại $M$. Lấy $H$ là trung điểm của $AG$. Nối $EG$ cắt $AF$ tại $N$. Lấy $I$ là trung điểm của $EG$. Chứng minh $IH \parallel MN$ và $IH = MN$.
+		\end{enumerate}
+		\loigiai
+		{
+			\begin{center}
+				\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.9]
+				\tkzDefPoints{0/0/B}
+				\coordinate (C) at ($(B)+(6,0)$);
+				\tkzDefShiftPoint[B](80:5){A}
+				\coordinate (E) at ($(B)!-.3!(C)$);
+				\coordinate (F) at ($(C)!-.3!(B)$);
+				\tkzDrawMedian(B,C)(A)  \tkzGetPoint{M}
+				\tkzCentroid(A,B,C)    \tkzGetPoint{G}
+				\coordinate (H) at ($(A)!0.5!(G)$);
+				\tkzInterLL(E,G)(A,F)    \tkzGetPoint{N}
+				\coordinate (I) at ($(E)!0.5!(G)$);
+				%
+				\pgfresetboundingbox
+				\tkzMarkSegments[mark=|](H,A H,G)
+				\tkzMarkSegments[mark=||](I,E I,G)
+				\tkzMarkSegments[mark=|||](M,B M,C)
+				\tkzMarkSegments[mark=x](B,E C,F)
+				\tkzDrawSegments(A,B E,F C,A A,E A,F A,M E,N)
+				\tkzDrawSegments[dashed](I,H M,N)
+				\tkzDrawPoints[fill=black](A,B,C,E,F,M,G,H,N,I)
+				\tkzLabelPoints(I)
+				\tkzLabelPoints[above](A)
+				\tkzLabelPoints[above right](G,N)
+				\tkzLabelPoints[below](E,B,M,C,F)
+				\tkzLabelPoints[right](H)
+				\end{tikzpicture}
+			\end{center}
+			\begin{enumerate}
+				\item Kẻ trung tuyến $AM$ của $\triangle ABC$ và trên $AM$ đặt $AG = \dfrac{2}{3}AM$. Khi đó $G$ là trọng tâm của $\triangle ABC$.\\
+				Ta có 
+				\begin{align}
+					&MB=MC \text{ (vì }AM \text{ là trung tuyến)};\tag{1}\\
+					&BE = CF \text{ (giả thiết).}\tag{2} 
+				\end{align}
+				Từ (1) và (2) ta có $MB+BE=MC+CF \Rightarrow ME=MF$.\\
+				Vậy $AM$ là trung tuyến thuộc cạnh $EF$ của $\triangle AEF$. Vì $AG = \dfrac{2}{3}AM$ nên $G$ cũng là trọng tâm của $\triangle AEF$.
+				\item Xét $\triangle GHI$ và $\triangle GMN$ có $HG = \dfrac{1}{2}AG$, mà $AG = \dfrac{2}{3}AM$ nên $HG = \dfrac{1}{2} \cdot \dfrac{2}{3}AM = \dfrac{1}{3}AM$; $GM = \dfrac{1}{3}AM$.
+				Vậy $HG = GM$.\\
+				Tương tự ta có $GI = GN = \dfrac{1}{3}EN$, $\widehat{HGI} = \widehat{NGM}$ (đối đỉnh).\\
+				Vậy $\triangle GHI = \triangle GMN$ (c.g.c). Suy ra $HI = NM$ (cạnh tương ứng) và $\widehat{IHG} = \widehat{NMG}$ (góc tương ứng) $\Rightarrow HI \parallel MN$ (hai góc so le trong bằng nhau).
+			\end{enumerate}
+		}
+	\end{vd}
+	
+	\begin{vd}%[7H3G4]
+		Cho $\triangle ABC$, trung tuyến $AM$. Trên tia đối của tia $MA$ lấy điểm $D$ sao cho $MD = MA$.
+		\begin{enumerate}
+			\item Chứng minh $AB \parallel CD$ và $AB = CD$; $AC \parallel BD$ và $AC = BD$.
+			\item Gọi $E$ và $F$ là trung điểm của $AC$ và $BD$; $AF$ cắt $BC$ tại $I$, $DE$ cắt $BC$ tại $K$. Chứng minh $BI = IK = KC$.
+		\end{enumerate}
+		\loigiai
+		{
+			\immini
+			{
+					\begin{enumerate}
+					\item[a)] Xét $\triangle AMC$ và $\triangle DMB$ có 
+					\begin{align*}
+					&AM=MD \text{ (giả thiết)};\\
+					&MC = MB \text{ (giả thiết)};\\
+					&\widehat{M_1}= \widehat{M_2} \text{ (đối đỉnh)}.
+					\end{align*}
+					Vậy $\triangle AMC = \triangle DMB$ (c.g.c).\\
+					Suy ra $AC = BD$ và $\widehat{A_1} = \widehat{D_1}$ (góc tương ứng)\\
+					$\Rightarrow AC \parallel BD$ (hai góc so le trong bằng nhau).\\
+					Tương tự ta có $AB = CD$ và $AB \parallel CD$.
+					\end{enumerate}
+			}
+			{
+				\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+				\tkzDefPoints{0/0/B}
+				\coordinate (C) at ($(B)+(6,0)$);
+				\tkzDefShiftPoint[B](70:4){A}
+				\tkzDrawMedian(B,C)(A)  \tkzGetPoint{M}
+				\coordinate (D) at ($(M)!-1!(A)$);
+				\coordinate (E) at ($(A)!0.5!(C)$);
+				\coordinate (F) at ($(B)!0.5!(D)$);
+				\tkzInterLL(A,F)(B,C)    \tkzGetPoint{I}
+				\tkzInterLL(D,E)(B,C)    \tkzGetPoint{K}
+				\tkzMarkAngles[size=.3cm,arc=l](B,M,D C,M,A)
+				\tkzLabelAngles[pos=-0.5](B,M,D){$1$}
+				\tkzLabelAngles[pos=0.5](C,M,A){$2$}
+				\tkzMarkAngles[size=1cm,arc=ll](D,A,C)
+				\tkzMarkAngles[size=1cm,arc=ll](A,D,B)
+				\tkzLabelAngles[pos=1.2](D,A,C A,D,B){$1$}
+				%
+				\pgfresetboundingbox
+				\tkzMarkSegments[mark=I](M,B M,C)
+				\tkzDrawSegments(A,B B,C C,A M,D B,D C,D A,F D,E)
+				\tkzDrawPoints[fill=black](A,B,C,M,D,E,F,I,K)
+				\tkzLabelPoints[above](A,E)
+				\tkzLabelPoints[below](D,F)
+				\tkzLabelPoints[below left](I)
+				\tkzLabelPoints[below right](M)
+				\tkzLabelPoints[above right](K)
+				\tkzLabelPoints[left](B)
+				\tkzLabelPoints[right](C)
+				\end{tikzpicture}
+			}
+			\begin{enumerate}
+				\item[b)] Xét $\triangle ABD$ và có $BM$ là trung tuyến ứng với cạnh $AD$ ($AM=MD$ do giả thiết) và $AF$ là trung tuyến ứng với cạnh $BD$.\\
+				Vậy $I$ là trọng tâm của $\triangle ABD$.\\
+				Suy ra $IM = \dfrac{1}{3} BM$. \tagEX{1}
+				Tương tự, $K$ là trọng tâm của $\triangle ACD$. Suy ra
+				\[KM = \dfrac{1}{3}MC, \tag{2}\]
+				mà $BM = MC$. \tagEX{3}
+				Vậy từ (1), (2) và (3) có $BI = IK = KC = \dfrac{1}{3} BC$.
+			\end{enumerate}
+		}
+	\end{vd}
+
+\subsection{Bài tập}
+\setcounter{bt}{0}
+\subsubsection{Cơ bản}
+\begin{bt}%[7H3B4]
+	Chứng minh rằng không tồn tại tam giác có hai đường trung tuyến cùng nhỏ hơn nửa cạnh đối diện.
+	\loigiai
+	{
+		Nếu trung tuyến nhỏ hơn nửa cạnh tương ứng thì góc đối diện với cạnh này là góc tù. Do đó nếu một tam giác có hai đường trung tuyến cùng nhỏ hơn nửa cạnh đối diện thì tam giác đó có hai góc tù. Khi đó tổng ba góc trong tam giác này lớn hơn $180^\circ$ (vô lý).
+	}
+\end{bt}
+
+\begin{bt}%[7H3K4]
+	Cho $\triangle ABC$, trung tuyến $BN$ cắt trung tuyến $AI$ tại $O$. Trên tia đối của tia $IA$ lấy điểm $E$ sao cho $IE = IO$. Chứng minh rằng
+	\begin{enumerate}
+		\item Độ dài các cạnh của $\triangle BOE$ bằng $\dfrac{2}{3}$ độ dài các đường trung tuyến của $\triangle ABC$.
+		\item Ta có thể vẽ được một tam giác có độ dài ba cạnh bằng độ dài ba đường trung tuyến của $\triangle ABC$.
+	\end{enumerate}
+	\loigiai
+	{
+		\immini
+		{
+			\begin{enumerate}
+				\item[a)] Ta chứng minh $\triangle BOE$ có các cạnh bằng $\dfrac{2}{3}$ độ dài ba trung tuyến của $\triangle ABC$. Thật vậy ta có
+				\begin{align}
+				&BO = \dfrac{2}{3}BN. \tag{1}\\
+				&\text{Cạnh } OE \text{ có } OI = IE = \dfrac{1}{3}AI \Rightarrow OE = \dfrac{2}{3}AI. \tag{2}\\
+				&BE = OC = \dfrac{2}{3}CK. \tag{3}
+				\end{align}
+				Từ (1), (2) và (3) suy ra điều phải chứng minh.
+			\end{enumerate}
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.9]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](70:4){A}
+			\tkzDrawMedian(B,C)(A)  \tkzGetPoint{I}
+			\tkzDrawMedian(A,C)(B)  \tkzGetPoint{N}
+			\tkzInterLL(B,N)(A,I)    \tkzGetPoint{O}
+			\tkzDefPointBy[symmetry = center O](A)    \tkzGetPoint{E}
+			\tkzMarkSegments[mark=||](O,I I,E)
+			\tkzMarkAngles[size=.3cm,arc=l](B,I,E)
+			\tkzMarkAngles[size=.3cm,arc=l](C,I,O)
+			\tkzLabelAngles[pos=-0.5](B,I,E){$1$}
+			\tkzLabelAngles[pos=0.5](C,I,O){$2$}
+			%
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B B,C C,A E,I B,E)
+			\tkzDrawPoints[fill=black](A,B,C,I,N,O,E)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](E)
+			\tkzLabelPoints[below right](I)
+			\tkzLabelPoints[left](B,O)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+		\begin{enumerate}
+			\item[b)] $\triangle BOE$ tồn tại nên thỏa mãn bất đẳng thức tam giác
+			\begin{eqnarray*}
+				&&BE - OE<OB<BE+OE\\
+				&\text{hay}&\dfrac{2}{3}CK - \dfrac{2}{3}AI<\dfrac{2}{3}BN<\dfrac{2}{3}CK+\dfrac{2}{3}AI\\
+				&\Rightarrow & CK-AI<BN<CK+AI.
+			\end{eqnarray*}
+			Từ đó suy ra điều phải chứng minh.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[7H3K4]
+	Cho $\triangle ABC$ cân tại $A$. Từ $A$ hạ $AH \perp BC$. Trên tia đối của tia $HA$ lấy điểm $M$ sao cho $HM = AH$. Trên tia đối của tia $CB$ lấy điểm $N$ sao cho $CN = BC$.
+	\begin{enumerate}
+		\item Chứng minh $C$ là trọng tâm của $\triangle AMN$.
+		\item $AC$ cắt $MN$ tại $I$. Chứng minh $HI \parallel AN$.
+	\end{enumerate}
+	\loigiai
+	{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefTriangle[two angles = 50 and 50](B,C)    \tkzGetPoint{A}
+			\tkzDrawAltitude(B,C)(A)  \tkzGetPoint{H}
+			\tkzDefPointBy[symmetry = center H](A)    \tkzGetPoint{M}
+			\tkzDefPointBy[symmetry = center C](B)    \tkzGetPoint{N}
+			\tkzDrawMedian(M,N)(A)  \tkzGetPoint{I}
+			\tkzMarkSegments[mark=|](A,B A,C)
+			\tkzMarkSegments[mark=||](H,A H,M)
+			\tkzMarkAngles[size=1.2cm,arc=l](A,N,H)
+			\tkzMarkAngles[size=1.4cm,arc=l](H,N,M)
+			\tkzMarkRightAngles[size=0.4,fill=gray!50](A,H,C)
+			\tkzMarkAngles[size=1.3cm,arc=l](I,H,N)
+			\tkzLabelAngles[pos=1.5](I,H,N A,N,H){$1$}
+			\tkzLabelAngles[pos=-1.6](H,N,M){$2$}
+			%
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B B,C A,N N,M M,H C,N C,M I,H)
+			\tkzDrawPoints[fill=black](A,B,C,H,M,N,I)
+			\tkzLabelPoints[above](A,C)
+			\tkzLabelPoints[below](M,I)
+			\tkzLabelPoints[below left](H)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](N)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có $NH$ là trung tuyến của $\triangle NAM$ (do $AH=HM$).\\
+			Lại có $CN = \dfrac{2}{3}HN$. Do đó $C$ là trọng tâm của $\triangle ANM$.
+			\item Ta có $\widehat{H_1} = \widehat{N_2}$, mà $\widehat{N_2} = \widehat{N_1}$. Do đó $\widehat{H_1} = \widehat{N_1}$, từ đó suy ra $HI \parallel AN$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[7H3K4]
+	Cho $\triangle ABC$, kẻ ba đường trung tuyến $AI,BE,CF$ cắt nhau tại $G$. Trên tia đối của tia $IA$ lấy điểm $M$ sao cho $IM = IG$. Trên tia đối của tia $EB$ lấy điểm $N$ sao cho $EN = EG$. Trên tia đối của tia $FC$ lấy điểm $P$ sao cho $FP = FG$.
+	\begin{enumerate}
+		\item Chứng minh $\triangle MNP = \triangle ABC$.
+		\item Chứng minh $G$ cũng là trọng tâm của $\triangle MNP$.
+	\end{enumerate}
+	\loigiai
+	{
+		\immini
+		{
+			\begin{enumerate}
+				\item Ta có
+				\begin{align*}
+				&\triangle PGN = \triangle CGB \Rightarrow PN = BC.\\
+				&\triangle PGM = \triangle CGA \Rightarrow PM = CA.\\
+				&\triangle MGN = \triangle AGB \Rightarrow MN = AB.
+				\end{align*}
+				Vậy $\triangle ABC = \triangle MNP$ (c.c.c).
+				\item $PN$ cắt $AM$ tại $Q$. Ta có $PQ=QN$, \\ $QG = GI = IM$ hay $QG = \dfrac{1}{3}QM$.\\
+				Vậy $G$ là trọng tâm của $\triangle MNP$.
+			\end{enumerate}
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.9]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](70:4){A}
+			\tkzDefMidPoint(A,B)		\tkzGetPoint{F}
+			\tkzDefMidPoint(B,C)		\tkzGetPoint{I}
+			\tkzDefMidPoint(C,A)		\tkzGetPoint{E}
+			\tkzCentroid(A,B,C)    \tkzGetPoint{G}
+			\tkzDefPointBy[symmetry = center I](G)    \tkzGetPoint{M}
+			\tkzDefPointBy[symmetry = center E](G)    \tkzGetPoint{N}
+			\tkzDefPointBy[symmetry = center F](G)    \tkzGetPoint{P}
+			\tkzInterLL(P,N)(A,M)    \tkzGetPoint{Q}
+			\tkzMarkSegments[mark=|](I,G I,M)
+			\tkzMarkSegments[mark=||](E,G E,N)
+			\tkzMarkSegments[mark=x](F,P F,G)
+			%
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B B,C C,A A,I B,E C,F M,N N,P P,M I,M E,N F,P)
+			\tkzDrawPoints[fill=black](A,B,C,F,I,E,G,M,N,P,Q)
+			\tkzLabelPoints[above](A,P,N,I,G,Q)
+			\tkzLabelPoints[above right](F)
+			\tkzLabelPoints[below](M)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C,E)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\subsubsection{Nâng cao}
+\begin{bt}%[7H3G4]
+	Chứng minh rằng một tam giác có đường trung tuyến ứng với một cạnh bằng nửa cạnh ấy thì tam giác đó là tam giác vuông.
+	\loigiai
+	{
+		\immini
+		{
+			Giả sử $\triangle ABC$ có $AM$ là trung tuyến và $AM = \dfrac{1}{2}BC$ (hình vẽ). Khi đó ta có $AM=MB=MC$.\\
+			Vậy $\triangle AMB$ cân tại $M \Rightarrow \widehat{A_2} = \widehat{B}$, $\triangle AMC$ cân tại $M \Rightarrow \widehat{A_1} = \widehat{C}$.\\
+			$\Rightarrow \widehat{A_1}+\widehat{A_2} = \widehat{B} + \widehat{C}$.\\
+			Mà $\widehat{A_1}+\widehat{A_2}+\widehat{B}+\widehat{C} = 180^\circ$\\
+			$\Rightarrow \widehat{A_1}+\widehat{A_2} = \widehat{B}+\widehat{C} = 90^\circ$.
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefTriangle[two angles = 55 and 35](B,C)    \tkzGetPoint{A}
+			\tkzDrawMedian(B,C)(A)  \tkzGetPoint{M}
+			\tkzMarkSegments[mark=||](M,B M,C A,M)
+			\tkzLabelAngles[pos=0.5](B,A,M){$2$}
+			\tkzLabelAngles[pos=0.5](M,A,C){$1$}
+			%
+			\pgfresetboundingbox
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawPoints[fill=black](A,B,C,M)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](M)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[7H3G4]
+	Chứng minh rằng trong tam giác, tổng độ dài ba đường trung tuyến nhỏ hơn chu vi nhưng lớn hơn $\dfrac{3}{4}$ chu vi tam giác đó.
+	\loigiai
+	{
+		\immini
+		{
+			Xét $\triangle ABC$ có ba đường trung tuyến $AI,BE,CF$ cắt nhau tại $G$.\\
+			Xét $\triangle BGC$ có $BG+GC>BC$ (bất đẳng thức tam giác) hay
+			\[\dfrac{2}{3}BE + \dfrac{2}{3}CF>BC \Rightarrow BE+CF>\dfrac{3}{2}BC. \tag{1}\]
+			Tương tự ta có 
+			\begin{align}
+			&BE+AI>\dfrac{3}{2}AB, \tag{2}\\
+			&AI+CF>\dfrac{3}{2}AC. \tag{3}
+			\end{align}
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](70:4){A}
+			\tkzDefMidPoint(A,B)		\tkzGetPoint{F}
+			\tkzDefMidPoint(B,C)		\tkzGetPoint{I}
+			\tkzDefMidPoint(C,A)		\tkzGetPoint{E}
+			\tkzCentroid(A,B,C)    \tkzGetPoint{G}
+			\tkzMarkSegments[mark=|](I,B I,C)
+			\tkzMarkSegments[mark=||](E,A E,C)
+			\tkzMarkSegments[mark=x](F,A F,B)
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B B,C C,A A,I B,E C,F)
+			\tkzDrawPoints[fill=black](A,B,C,F,I,E,G)
+			\tkzLabelPoints[above](A,G)
+			\tkzLabelPoints[below](I)
+			\tkzLabelPoints[left](B,F)
+			\tkzLabelPoints[right](C,E)
+			\end{tikzpicture}
+		}	
+		Từ (1), (2) và (3) ta có 
+		\begin{eqnarray*}
+			&&2BE+2CF+2AI>\dfrac{3}{2}(AB+AC+BC)\\
+			&\Rightarrow& BE+CF+AI>\dfrac{3}{4}(AB+AC+BC).
+		\end{eqnarray*}
+		Vậy $\dfrac{3}{4}$ chu vi $\triangle ABC < AI+BE+CF$.\\
+		Tương tự ta chứng minh được $AI+BE+CF<$ chu vi $\triangle ABC$.
+	}
+\end{bt}
+
+\begin{bt}%[7H3G4]
+	Cho $\triangle ABC$ có $AB<AC$, hai trung tuyến $BE,CF$ và trọng tâm $G$. Chứng minh rằng
+	\begin{listEX}[2]
+		\item $BE<CF$;
+		\item $\widehat{GBC} > \widehat{GCB}$.
+	\end{listEX}
+	\loigiai
+	{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[B](70:4){A}
+			\tkzDefMidPoint(A,B)		\tkzGetPoint{F}
+			\tkzDefMidPoint(B,C)		\tkzGetPoint{I}
+			\tkzDefMidPoint(C,A)		\tkzGetPoint{E}
+			\tkzCentroid(A,B,C)    \tkzGetPoint{G}
+			\tkzMarkSegments[mark=|](I,B I,C)
+			\tkzMarkSegments[mark=||](E,A E,C)
+			\tkzMarkSegments[mark=x](F,A F,B)
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B B,C C,A A,I B,E C,F)
+			\tkzDrawPoints[fill=black](A,B,C,F,I,E,G)
+			\tkzLabelPoints[above](A,G)
+			\tkzLabelPoints[below](I)
+			\tkzLabelPoints[left](B,F)
+			\tkzLabelPoints[right](C,E)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Vẽ trung tuyến $AD$ đi qua trọng tâm $G$. Xét $\triangle ADB$ và $\triangle ADC$ có
+			\begin{align*}
+				&AD \text{ là cạnh chung;}\\
+				&AB<AC \text{ (giả thiết);}\\
+				&DB=DC.
+			\end{align*}
+			Do đó $\widehat{ADB}< \widehat{ADC}$.\\
+			Xét $\triangle GDB$ và $\triangle GDC$ có 
+			\begin{align*}
+				&GD \text{ là cạnh chung;}\\
+				&\widehat{GDB}<\widehat{GDC} \text{ (chứng minh trên);}\\
+				&DB=DC \text{ (giả thiết).}
+			\end{align*}
+			Do đó $GB<GC$. Từ đó suy ra điều phải chứng minh.
+			\item Trong $\triangle GBC$ ta có $GB<GC \Rightarrow \widehat{GCB}<\widehat{GBC}$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[7H3G4]
+	Cho $\triangle ABC$ vuông tại $A$ và có $AC = b, AB=c$. Hai trung tuyến $AD,BE$ cắt nhau tại $G$. Tìm hệ thức giữa $b$ và $c$ để $AD \perp BE$.
+	\loigiai
+	{
+		\immini
+		{
+			Đặt $a=BC$. Áp dụng định lý Py-ta-go cho $\triangle ABC$ vuông tại $A$ ta có
+			\[BC^2=AB^2+AC^2 \Leftrightarrow a^2=b^2+c^2.\]
+			Xét $\triangle ABC$ vuông tại $A$, trung tuyến $AD$ ứng với cạnh huyền $BC \Rightarrow AD = \dfrac{1}{2}BC = \dfrac{1}{2}a$.\\
+			Vì $G$ là trong tâm $\triangle ABC$ nên ta có
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,scale=1]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefTriangle[two angles = 55 and 35](B,C)    \tkzGetPoint{A}
+			\tkzMarkRightAngles[size=.3,fill=gray!50](B,A,C)
+			\tkzDrawMedian(B,C)(A)  \tkzGetPoint{D}
+			\tkzDrawMedian(A,C)(B)  \tkzGetPoint{E}
+			\tkzInterLL(A,D)(B,E)    \tkzGetPoint{G}
+			\tkzMarkSegments[mark=|](D,B D,C)
+			\tkzMarkSegments[mark=||](E,A E,C)
+			%
+			\pgfresetboundingbox
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,G)
+			\tkzLabelPoints[above](A,G)
+			\tkzLabelPoints[below](E,D)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\path (B)--(A) node[above left,midway]{$c$};
+			\path (A)--(C) node[above right,midway]{$b$};
+			\end{tikzpicture}
+		}
+		\[AG = \dfrac{2}{3}AD = \dfrac{1}{3}a \text{ và }BG = \dfrac{2}{3}BE.\]
+		Giả sử $BE \perp AD$. Tiếp tục áp dụng định lý Py-ta-go cho các tam giác vuông $GAB$ và $ABE$, ta tìm được hệ thức $b^2 = 2c^2 \Leftrightarrow b^2 = \left(\sqrt{2}\cdot c\right) \Leftrightarrow b = \sqrt{2} \cdot c$.
+	}
+\end{bt}
+
+\begin{bt}%[7H3G4]
+	Về phía ngoài của tam giác nhọn $ABC$ ta dựng các tam giác đều $ABE$ và $BCF$. Gọi $G$ là trọng tâm $\triangle ABE$ và $K$ là trung điểm của $AC$. Tính các góc của $\triangle GKF$.
+	\loigiai
+	{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.7]
+			\tkzDefPoints{0/0/C}
+			\coordinate (A) at ($(C)+(6,0)$);
+			\tkzDefShiftPoint[C](70:4){B}
+			\tkzDefEquilateral(B,A)    \tkzGetPoint{E}
+			\tkzDefEquilateral(C,B)    \tkzGetPoint{F}
+			\tkzCentroid(A,B,E)    \tkzGetPoint{G}
+			\coordinate (K) at ($(A)!0.5!(C)$);
+			\tkzDefPointBy[symmetry = center K](F)    \tkzGetPoint{H}
+			%
+			\pgfresetboundingbox
+			\tkzDrawSegments(A,B B,C C,A E,B E,A F,H B,F C,F H,G H,A K,G F,G G,B G,A)
+			\tkzDrawPoints[fill=black](A,B,C,E,F,G,K,H)
+			\tkzLabelPoints[above](B,E,F,G)
+			\tkzLabelPoints[below](K,C)
+			\tkzLabelPoints[right](A,H)
+			\end{tikzpicture}
+		\end{center}
+		Dựng điểm $H$ sao cho $K$ là trung điểm của $HF$ thì hai tam giác $AKH$ và $CKF$ bằng nhau, suy ra $AH = CF=BF$. \tagEX{1}
+		Vì $G$ là trọng tâm của tam giác đều $ABE$ nên $AG = BG$. \tagEX{2}
+		Lại có
+		\begin{align}
+			\widehat{GAH} &= 360^\circ - \widehat{GAB} - \widehat{BAC} - \widehat{KAH} \nonumber \\
+			&= 270^\circ - \left(\widehat{BAC}+\widehat{ACB}\right) \nonumber \\
+			&= 90^\circ + \widehat{ABC} = \widehat{GBF} \tag{3}
+		\end{align}
+		Từ (1), (2), (3) $\Rightarrow \triangle AGH = \triangle BGF$ (c.g.c) $\Rightarrow GH = GF \Rightarrow \widehat{GKH} = \widehat{GKF} = 90^\circ$.\\
+		Ta lại có $\widehat{HGF} = \widehat{AGB} = 120^\circ$ nên $\widehat{GFK} = 30^\circ$, suy ra $\widehat{KGF} = 60^\circ$.
+	}
+\end{bt}
+\Closesolutionfile{ans}

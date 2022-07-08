@@ -1,0 +1,132 @@
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage{amsmath,amssymb,yhmath,mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{tkz-euclide}
+\usepackage{tikz-3dplot}
+\usepackage{tikz,tkz-tab,tkz-linknodes}
+\usetikzlibrary{shapes.geometric,arrows,calc,intersections,angles,patterns,snakes}
+\usetkzobj{all}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.9}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=1.5cm] {geometry}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage{currfile}
+\usepackage[loigiai]{ex_test}
+%CÁC GÓI, LỆNH VIẾT TẮT CẦN THÊM
+%CẤU TRÚC TỰ LUẬN
+\usepackage{framed}
+\usepackage[most]{tcolorbox}
+\newtheorem{bt}{Bài}
+\newtheorem{vd}{Ví dụ}
+\def\beginbox{\begin{tcolorbox}[colframe=blue,colback=white]}
+\def\endbox{\end{tcolorbox}}
+\AtBeginEnvironment{vd}{
+\beginbox
+\renewcommand{\loigiai}[1]{
+\renewcommand{\immini}[2]{
+\setbox\imbox=\vbox{\hbox{##2}}
+\widthimmini=\wd\imbox
+\IMleftright{##1}{##2}
+}
+\endbox
+\begin{onlysolution}
+#1
+\end{onlysolution}
+\def\endbox{}
+}
+}
+\AtEndEnvironment{vd}{
+\endbox
+}
+\newtcolorbox[auto counter]{dang}[1]{
+colframe=blue,colback=white,
+title=Dạng~\thetcbcounter.\ #1
+\addcontentsline{toc}{subsection}{
+Dạng~\thetcbcounter.\ #1
+}
+}
+\theorembodyfont{\it}
+\newtheorem{dl}{Định lí}
+\theoremseparator{.}
+\theorembodyfont{\rm}
+\newtheorem{hq}{Hệ quả}
+\newtheorem{tc}{Tính chất}
+\newtheorem{dn}{Định nghĩa}
+\theoremstyle{nonumberplain}
+\newtheorem{kn}{Khái niệm}
+\theoremseparator{}
+\theorembodyfont{\it}
+\usepackage{stackengine}
+\usepackage{scalerel}
+\newcommand\dangersign[1][2ex]{%
+  \renewcommand\stacktype{L}%
+  \scaleto{\stackon[1.3pt]{\color{red}$\triangle$}{\fontsize{4}{0}\selectfont !}}{#1}%
+}
+\newtheorem{note}{{\dangersign[3ex]}}
+%Tiêu đề chương
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{2}
+\usepackage{titlesec}
+\makeatletter
+\renewcommand \thesection{\@arabic\c@section.}
+\renewcommand\thesubsection{\@Roman\c@subsection.}
+\renewcommand\thesubsubsection{\@arabic\c@subsubsection.}
+\makeatother
+\titleformat{\section}{\selectfont\color{red!50!blue}\centering\scshape\Large\bfseries}{\S\thesection}{0em}{
+\setcounter{vd}{0}
+\setcounter{ex}{0}
+\setcounter{bt}{0}
+\setcounter{dl}{0}
+\setcounter{dn}{0}
+\setcounter{hq}{0}
+\setcounter{tc}{0}
+\setcounter{\tcbcounter}{0}
+}
+\renewcommand{\labelenumi}{\alph{enumi})}
+\renewcommand{\arraystretch}{2}%độ cao trong bảng
+%Hệ hoặc, hệ và
+\newcommand{\hoac}[1]{
+	\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{
+	\left\{\begin{aligned}#1\end{aligned}\right.}
+%HẾT CẤU TRÚC TỰ LUẬN
+\begin{document}
+\hideansEX{ex}% luôn ẩn lời giải
+\tableofcontents
+\part{ĐẠI SỐ}
+\chapter{Số HỮU TỈ - SỐ THỰC}
+\input{NHOM1/7D1-1-2}
+\input{NHOM1/7D1-3-4}
+\input{NHOM1/7D1-5}
+\chapter{HÀM SỐ VÀ ĐỒ THỊ}
+\input{NHOM1/7D2-6}
+\input{NHOM1/7D2-7-8}
+\chapter{THỐNG KÊ}
+\input{NHOM2/7D3-1}
+\input{NHOM2/7D3-2}
+\chapter{BIỂU THỨC ĐẠI SỐ}
+\input{NHOM2/7D4-3-4}
+\input{NHOM2/7D4-5-6}
+\part{HÌNH HỌC}\setcounter{chapter}{0}
+\chapter{ĐƯỜNG THẲNG VUÔNG GÓC - SONG SONG}
+\input{NHOM1/7H1-1}
+\input{NHOM1/7H1-2}
+\input{NHOM1/7H1-3}
+\input{NHOM1/7H1-4}
+\chapter{TAM GIÁC}
+\input{NHOM1/7H2-5}
+\input{NHOM1/7H2-6}
+\input{NHOM1/7H2-7}
+\input{NHOM1/7H2-8}
+\input{NHOM1/7H2-9}
+\chapter{QUAN HỆ GIỮA CÁC YẾU TỐ TRONG TAM GIÁC - CÁC ĐƯỜNG ĐỒNG QUY TRONG TAM GIÁC}
+\input{NHOM2/7H3-1}
+\input{NHOM2/7H3-2}
+\input{NHOM2/7H3-3}
+\input{NHOM2/7H3-4}
+\input{NHOM2/7H3-5}
+\input{NHOM2/7H3-6}
+\input{NHOM2/7H3-7}
+\end{document}

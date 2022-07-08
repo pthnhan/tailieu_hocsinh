@@ -1,0 +1,909 @@
+%%Biên soạn và phản biện: Lee Rock, Lê Minh Cường.
+\section{Ôn tập chương IV}
+\subsection{Các ví dụ}
+\begin{vd}
+Cho hình tròn $(I,1\,\mathrm{cm})$ nội tiếp hình vuông $ABCD$.
+\begin{enumerate}
+\item Tính thể tích và diện tích của hình cầu tạo thành khi quay hình tròn $(I,1\,\mathrm{cm})$ quanh một đường kính của nó.
+\item Tính thể tích và diện tích toàn phần của hình trụ tạo thành khi quay hình vuông $ABCD$ quanh $OO'$, với $O$, $O'$ lần lượt là trung điểm $BC$ và $AD$. 
+\end{enumerate}
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+\def \a {4}
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(\a,0){J}
+\tkzDefPoint(\a,-\a){A}
+\tkzDefPoint(\a,\a){B}
+\tkzDefPoint(-\a,\a){C}
+\tkzDefPoint(-\a,-\a){D}
+\tkzDefPoint(0,-\a){O'}
+\tkzDefPoint(0,\a){O}
+\draw[dashed]  (J) arc (0:360:4);
+\draw[dashed] (J) arc (0:180:4 and 0.9);
+\draw  (J) arc (0:-180:4 and 0.9);
+\draw[dashed] (A) arc (0:180:4 and 0.9);
+\draw (A) arc (0:-180:4 and 0.9);
+\draw (B) arc (0:180:4 and 0.9);
+\draw (B) arc (0:-180:4 and 0.9);
+\coordinate (I) at ($(O)!.5!(O')$);
+\tkzDrawSegments(A,B C,D B,C)
+\tkzDrawSegments[dashed](A,D O,O')
+\tkzDrawPoints(O,O',A,B,C,D,I)
+\tkzLabelPoints[below](O')
+\tkzLabelPoints[below left](D)
+\tkzLabelPoints[below right](A)
+\tkzLabelPoints[above](O)
+\tkzLabelPoints[above left](C)
+\tkzLabelPoints[above right](B)
+\tkzLabelPoints[right](I)
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+\item Hình cầu tạo thành khi quay hình tròn $(I,1\,\mathrm{cm})$ quanh một đường kính của nó cũng có tâm là $I$ và bán kính $R=1$ cm. Do đó, thể tích của khối cần là $V=\dfrac{4}{3}\pi R^3=\dfrac{4\pi}{3}$ cm$^3$ và diện tích mặt cầu là $S=4\pi R^2=4\pi$ cm$^2$.
+\item Hình trụ tạo thành khi quay hình vuông $ABCD$ quanh $OO'$ có hai đáy là hai hình tròn $(O,OB)$ và $(O',O'A)$.\\
+Vì hình vuông $ABCD$ ngoại tiếp đường tròn $(I,1\,\,\mathrm{cm})$ nên $AB=BC=2$ cm.\\ Do đó $OB=1$ cm.\\
+Suy ra, thể tích hình trụ là $V=\pi \cdot OB^2\cdot AB=2\pi$ cm$^3$. Diện tích toàn phần của hình trụ là $S_{\mathrm{tp}}=2\pi\cdot OB\cdot AB+2\pi\cdot OB^2=6\pi$ cm$^2$.
+\end{enumerate}
+}
+\end{vd}
+
+\begin{vd}%[Lê Minh An, Dự Án 9TL-04]
+Cho $\triangle ABC$ đều cạnh $a$, đường cao $AH$, nội tiếp đường tròn tâm $O$. 
+\begin{enumerate}
+\item Tính thể tích hình nón và hình cầu tạo thành khi quay $\triangle ABC$ và đường tròn $(O)$ quanh trục $AH$, biết $a=2$ cm.
+\item Tính tỉ số diện tích xung quanh hình nón và diện tích mặt cầu tạo thành khi quay $\triangle ABC$ và đường tròn $(O)$ quanh trục $AH$.
+\end{enumerate}
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+\draw (0,0) node[left]{$O$} circle [radius=4cm];
+\draw (0,4) node[above]{$A$};
+\draw (0,-2) [fill=black] circle(1pt) node[below]{$H$};
+\draw (0,0) [fill=black] circle (1pt);
+\draw (-4,0) arc (180:360:4cm and 0.87cm);
+\draw (-4,0)[dashed] arc (180:0:4cm and 0.87cm);
+\draw [dashed] (0,4)circle(1.5pt)--(0,-2);
+\draw (-3.45,-1.97)arc (180:360:3.45cm and 0.6cm);
+\draw (-3.45,-1.97)[dashed] arc (180:0:3.45cm and 0.6cm);
+\draw [dashed] (0,4)--(-3.45,-1.97);
+\draw [dashed] (0,4)--(3.45,-1.97)  circle(1.5pt) node[right]{$C$};
+\draw [dashed] (0,-2)--(3.45,-1.97);
+\draw [dashed] (0,-2)--(-3.45,-1.97)circle(1.5pt) node[left]{$B$};
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+\item Hình nón tạo thành khi quay $\triangle ABC$ quanh trục $AH$ tạo thành hình nón có đáy là hình tròn tâm $O$ bán kính $HB$, chiều cao $AH$.\\
+Hình cầu tạo thành khi quay hình tròn tâm $O$ ngoại tiếp $\triangle ABC$ quanh trục $AH$ là hình cầu tâm $O$ bán kính $OA$.\\
+Lại có $a=2$ cm, $AH=AB\sin 60^\circ=\dfrac{a\sqrt{3}}{2}=\sqrt{3}$ cm, $HB=\dfrac{BC}{2}=\dfrac{a}{2}=1$ cm. Do $\triangle ABC$ đều nên $O$ là tâm đường tròn ngoại tiếp đồng thời là trọng tâm $\triangle ABC$, suy ra $OA=\dfrac{2}{3}AH=\dfrac{2\sqrt{3}}{3}$ cm.\\
+Khi đó thể tích hình nón là $$V_{\text{nón}}=\dfrac{1}{3}\cdot AH\cdot \pi\cdot HB^2=\dfrac{\pi\sqrt{3}}{3}\,\,\mathrm{cm}^3.$$ Thể tích hình cầu $$V_{\text{cầu}}=\dfrac{4}{3}\pi\cdot OA^3=\dfrac{32\pi\sqrt{3}}{27}\,\,\mathrm{cm}^3.$$
+\item Đường sinh của hình nón là $AB=a$. Diện tích xung quanh hình nón là
+$$S_1=\pi\cdot HB\cdot AB=\dfrac{a^2\pi}{2}.$$
+Diện tích mặt cầu là
+$$S_2=4\pi\cdot OA^2=\dfrac{4a^2\pi}{2}.$$
+Do đó tỉ số diện tích xung quanh hình nón và diện tích mặt cầu là
+$$\dfrac{S_1}{S_2}=\dfrac{a^2\pi}{2}:\dfrac{4a^2\pi}{2}=\dfrac{1}{4}.$$
+\end{enumerate}
+}
+\end{vd}
+
+\begin{vd}%[Lê Minh An, Dự Án 9TL-04]
+Cho tam giác $ABC$ vuông tại $A$, đường cao $AH$. Biết $AB=\sqrt{3}$ cm, $\widehat{B}=60^\circ$.
+\begin{enumerate}
+\item Tính $AC$, $BC$ và $AH$.
+\item Tính thể tích khối tạo thành khi quay $\triangle ABC$ quanh trục $AC$.
+\item Tính thể tích khối tạo thành khi quay $\triangle ABC$ quanh trục $BC$.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item 
+\immini{
+Ta có $\triangle ABC$ vuông nên $$AC=AB\cdot\tan B=\sqrt{3}\cdot\tan 60^\circ=3\,\,\mathrm{cm}.$$
+Theo định lí Pi-ta-go lại có $$BC=\sqrt{AB^2+AC^2}=2\sqrt{3}\,\,\mathrm{cm}.$$
+Mặt khác $\triangle AHB$ vuông tại $H$ nên $$AH=AB\cdot\sin B=\dfrac{3}{2}\,\,\mathrm{cm}.$$
+}{
+\begin{tikzpicture}[scale=1,>=stealth]
+\tkzDefPoints{0/0/A, 2/0/B}
+\tkzDefPointBy[rotation = center A angle 90](B)\tkzGetPoint{b}
+\tkzDefPointBy[rotation = center B angle -60](A)\tkzGetPoint{a}
+\tkzInterLL(A,b)(B,a)\tkzGetPoint{C}
+\tkzDefPointBy[projection = onto B--C](A)\tkzGetPoint{H}
+\draw (A)node[below left]{$A$}--(B)node[below right]{$B$}--(C)node[above]{$C$}--(A)--(H)node[above right]{$H$};
+\tkzDrawPoints[fill=black](A,B,C,H)
+\tkzMarkRightAngles(B,A,C A,H,C)
+\end{tikzpicture}
+}
+\item 
+\immini{
+Khi quay $\triangle ABC$ quanh trục $AC$ tạo thành khối nón đỉnh $C$ đáy là hình tròn tâm $A$ bán kính $AB$. Thể tích khối nón là
+$$V_{\text{nón}}=\dfrac{1}{3}\cdot AC\cdot \pi\cdot AB^2=3\pi\,\,\mathrm{cm}^3.$$
+}{
+\begin{tikzpicture}[>=stealth,scale=0.7]
+			\tkzDefPoints{0/0/A, 2/0/B, 0/3.5/C}
+			\coordinate (I) at ($(B)!2!(A)$);
+			\tkzDrawSegments[dashed](A,B A,C)
+			\tkzDrawSegments(B,C C,I)
+			\tkzLabelPoints[above](C)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[below right](B)
+			\tkzMarkRightAngles(B,A,C)
+			\tkzDrawPoints[fill=black](A,B,C)
+			\draw[dashed] (B) arc (0:180:2cm and 0.4cm);
+			\draw (B) arc (0:-180:2cm and 0.4cm);
+			\end{tikzpicture}
+}
+\item 
+\immini{
+Khi quay $\triangle ABC$ quanh trục $BC$ tạo thành hai khối nón đỉnh $B$ và đỉnh $C$ chung đáy là hình tròn tâm $H$, bán kính $HA$ (hình vẽ).\\
+Lại có $AC^2=CH\cdot BC\Rightarrow CH=\dfrac{3\sqrt{3}}{2}\,\,\mathrm{cm}\Rightarrow BH=\dfrac{\sqrt{3}}{2}$ cm.\\
+Khi đó thể tích khối nón đỉnh $C$, đáy hình tròn $(H,HA)$ là
+$$V_1=\dfrac{1}{3}\cdot CH\cdot \pi\cdot AH^2=\dfrac{9\pi\sqrt{3}}{8}\,\,\mathrm{cm}^3.$$
+Thể tích khối nón đỉnh $B$, đáy hình tròn $(H,HA)$ là
+$$V_2=\dfrac{1}{3}\cdot BH\cdot \pi\cdot AH^2=\dfrac{3\pi\sqrt{3}}{8}\,\,\mathrm{cm}^3.$$
+Vậy thể tích khối cần tính là $V=V_1+V_2=\dfrac{3\pi\sqrt{3}}{2}\,\,\mathrm{cm}^3$.
+
+}{
+\begin{tikzpicture}[scale=0.66]
+\coordinate[label=above right:{$H$}] (H) at (0,0);
+\coordinate[label=left:{$A$}] (A) at (-3,0);
+\coordinate (D) at ($(0,0)-(A)$);
+\coordinate[label=below:{$B$}] (B) at ($(H)-(0,sqrt 3)$);
+\coordinate[label=above:{$C$}] (C) at ($(H)+(0,3*sqrt 3)$);
+\draw (A)circle(1.5pt)--(B)circle(1.5pt)--(D)--(C)circle(1.5pt)--(A);
+\draw[dashed] (A)--(D) (B)--(C);
+\draw (H)circle(1.5pt);
+\draw (A)..controls ($(A)+(0.1,-0.5)$) and ($(D)+(-0.1,-0.5)$)..(D);
+\draw[dashed] (A)..controls ($(A)+(0.1,0.5)$) and ($(D)+(-0.1,0.5)$)..(D);
+\end{tikzpicture}
+}
+\end{enumerate}
+}
+\end{vd}
+
+\begin{vd}%[Lê Minh An, Dự Án 9TL-04]
+Cho hình trụ $(T)$ có hai đáy là hình tròn $(O;R)$ và $(O',R)$ và hình nón $(N)$ có đỉnh là $O'$, đáy là hình tròn $(O,R)$.
+\begin{enumerate}
+\item Từ miếng xốp hình trụ $(T)$, người ta gọt bỏ để tạo thành khối xốp hình nón $(N)$. Tính thể tích phần bị gọt bỏ đi. Biết $R=3$ cm và $OO'=4$ cm.
+\item Nếu tăng gấp đôi bán kính $R$ thì thể tích hình trụ $(T)$ và hình nón $(N)$ thay đổi như nào?
+\end{enumerate}
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[>=stealth,scale=1.2]
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (3,0);
+			\coordinate (C) at (3,2);
+			\coordinate (D) at ($(A)+(C)-(B)$);
+			\coordinate[label=below:{$O$}] (O) at ($(A)!1/2!(B)$);
+			\coordinate[label=above:{$O'$}] (O') at ($(C)!1/2!(D)$);
+			\draw (A)--(D) (C)--(B);
+			\draw (O') ellipse (1.5 and 0.5);
+			\draw[dashed] (A)..controls (0.1,0.7) and (2.9,0.7)..(B) (A)--(B)--(O')circle(1.2pt)--(A) (O)circle(1.2pt)--(O');
+			\draw (A)..controls (0.1,-0.7) and (2.9,-0.7)..(B);
+			%\node[rotate=90] at (1.3,1) {$r\sqrt{3}$};
+			\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+\item Thể tích khối xốp hình trụ là $V_{\text{trụ}}=OO'\cdot \pi\cdot R^2=36\pi$ cm$^3$.\\
+Thể tích khối xốp hình nón là $V_{\text{nón}}=\dfrac{1}{3}\cdot OO'\cdot \pi\cdot R^2=12\pi$ cm$^3$.\\
+Vậy thể tích phần xốp bị gọt bỏ là $V=V_{\text{trụ}}-V_{\text{nón}}=24\pi$ cm$^3$.
+\item Thể tích hình trụ với bán kính $R$ là $V_1=OO'\cdot \pi\cdot R^2$.\\
+Thể tích hình trụ với bán kính $R'=2R$ là $V_1=OO'\cdot \pi \cdot (2R)^2=4\cdot OO'\cdot \pi\cdot R^2$.\\
+Khi đó ta có $\dfrac{V_1}{V_1'}=\dfrac{1}{4}$.\\
+Vậy khi tăng gấp đôi bán kính $R$ thì thể tích hình trụ tăng lên $4$ lần.\\
+Thể tích hình nón với bán kính $R$ là $V_2=\dfrac{1}{3}\cdot OO'\cdot \pi\cdot R^2$.\\
+Thể tích ình nón với bán kính $R'=2R$ là $V_2=\dfrac{1}{3}\cdot OO'\cdot \pi \cdot (2R)^2=\dfrac{4}{3}\cdot OO'\cdot \pi\cdot R^2$.\\
+Khi đó ta có $\dfrac{V_2}{V_2'}=\dfrac{1}{4}$.\\
+Vậy khi tăng gấp đôi bán kính $R$ thì thể tích hình nón tăng lên $4$ lần.
+\end{enumerate}
+}
+\end{vd}
+
+\begin{vd}%[Lê Minh An, Dự Án 9TL-04]
+Cho một cái phễu chứa nước hình nón ngược. Miệng phễu là đường tròn đường kính $6$ dm. Khoảng cách từ đáy phễu đến một điểm bất kì trên miệng phễu bằng $5$ dm.
+\begin{enumerate}
+\item Tính lượng nước để đổ đầy phễu (giả thiết rằng thành phễu có độ dày không đáng kể).
+\item Người ta đổ đầy nước vào phễu rồi rút ra sao cho chiều cao của lượng nước còn lại chỉ bằng một nửa lượng nước ban đầu. Tính thể tích lượng nước còn lại trong phễu.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item 
+\immini{
+Gọi $O$ là tâm đường tròn đáy của cái phễu và $A$ là một điểm trên đường tròn ấy, khi đó $SA=5$ dm, $OA=3$ dm và $SO\perp OA$.\\
+Suy ra, chiều cao của cái phễu là $$SO=\sqrt{SA^2-OA^2}=4\,\,\textrm{dm}.$$
+Thể tích của cái phễu là 
+$$V=\dfrac{1}{3}\cdot SO\cdot \pi\cdot OA^2=12\pi\,\,\mathrm{dm}^3.$$
+Lượng nước đổ đầy phễu cũng chính là thể tích của cái phễu, tức là $12\pi$ dm$^3$.
+}{
+\begin{tikzpicture}[scale=1,>=stealth]
+\tkzDefPoints{-3/0/A, 0/0/O, 3/0/B, 0/-4/S}
+\draw (S)node[below]{$S$}--(A)node[left]{$A$}--(B)--(S);
+\draw[dashed] (S)--(O)node[above]{$O$};
+\draw (B) arc (0:360:3cm and 0.4cm);
+\tkzDrawPoints[fill=black](A,O,S)
+\tkzMarkRightAngles(S,O,A)
+\end{tikzpicture}
+}
+\item 
+\immini{
+Gọi $I$ là trung điểm $SO$, $K$ là trung điểm $SA$ thì phần nước còn lại trong phễu cũng là một khối nón đỉnh $S$ đáy là hình tròn tâm $I$ bán kính $IK$.\\
+Ta có $IK$ là đường trung bình $\triangle SOA$ nên $$IK=\dfrac{OA}{2}=\dfrac{3}{2}\,\,\mathrm{dm}.$$
+Do đó thể tích phần nước còn lại trong phễu là
+$$V=\dfrac{1}{3}\cdot SI\cdot \pi \cdot IK^2=\dfrac{3\pi}{2}\,\,\mathrm{dm}.$$
+}{
+\begin{tikzpicture}[scale=1,>=stealth]
+\tkzDefPoints{-3/0/A, 0/0/O, 3/0/B, 0/-4/S}
+\draw (S)node[below]{$S$}--(A)node[left]{$A$}--(B)--(S);
+\draw[dashed] (S)--(O)node[above]{$O$};
+\coordinate (I) at ($(S)!.5!(O)$);
+\tkzDefLine[perpendicular=through I](S,O)\tkzGetPoint{i}
+\tkzInterLL(I,i)(S,A)\tkzGetPoint{K}
+\draw[dashed] (I)node[above right]{$I$}--(K)node[below left]{$K$};
+\draw (B) arc (0:360:3cm and 0.4cm);
+\draw[dashed] (K) arc (180:0:1.5cm and 0.2cm);
+\draw (K) arc (180:360:1.5cm and 0.2cm);
+\tkzDrawPoints[fill=black](A,O,S,I,K)
+\tkzMarkRightAngles(S,O,A S,I,K)
+\end{tikzpicture}}
+\end{enumerate}
+}
+\end{vd}
+\subsection{Luyện tập}
+\begin{bt}%[Lê Minh An, Dự Án 9TL-04]
+Cho hình chữ nhật $ABCD$ có $AB=1$ cm và $AD=2$ cm. Gọi $M, N$ lần lượt là trung điểm $AB$ và $CD$.
+\begin{enumerate}
+\item Khi quay hình chữ nhật $ABCD$ quanh trục $MN$ thì được khối gì? Tính thể tích của khối đó.
+\item Khi quay $\triangle NAB$ quanh trục $MN$ thì được khối gì? Tính diện tích xung quanh của khối đó.
+\end{enumerate}
+\loigiai{
+\immini{
+\begin{enumerate}
+\item Khi quay hình chữ nhật $ABCD$ quanh trục $MN$ thì được khối trụ có đáy là hình tròn tâm $M$ bán kính $MA=\dfrac{AB}{2}=\dfrac{1}{2}$ và hình tròn tâm $N$ bán kính $ND$ có thể tích là
+$$V=AD\cdot \pi\cdot MA^2=\dfrac{\pi}{2}\,\,\mathrm{cm}^3.$$
+\item Khi quay $\triangle NAB$ quanh trục $MN$ thì được khối nón đỉnh $N$ đáy là hình tròn $(M,AM)$, độ dài đường sinh là $AN=\dfrac{\sqrt{17}}{2}$ và có diện tích xung quanh là
+$$S=\pi\cdot AM\cdot AN=\dfrac{\pi\sqrt{17}}{4}\,\,\mathrm{cm}^2.$$ 
+\end{enumerate}
+}{
+\begin{tikzpicture}[scale=1,>=stealth]
+\tkzDefPoints{0/0/A, 2/0/B, 0/4/D}
+\tkzDefPointBy[translation = from A to B](D)\tkzGetPoint{C}
+\coordinate (M) at ($(A)!.5!(B)$);
+\coordinate (N) at ($(C)!.5!(D)$);
+\draw (A)node[below left]{$A$}--(D)node[above left]{$D$}--(C)node[above right]{$C$}--(B)node[below right]{$B$};
+\draw[dashed] (A)--(B)--(N)node[above=0.2 cm]{$N$}--(A) (M)node[below=0.2 cm]{$M$}--(N);
+\draw[dashed] (A) arc (180:0:1cm and 0.2cm);
+\draw (A) arc (180:360:1cm and 0.2cm);
+\draw (C) arc (0:360:1cm and 0.2cm);
+\tkzDrawPoints[fill=black](A,B,C,D,M,N)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[Lê Minh An, Dự Án 9TL-04]
+Cho hình tròn $(O,R)$ có diện tích bằng $4\pi$. Quay hình tròn quanh một đường kính ta được hình cầu tâm $O$ bán kính $R$.
+\begin{enumerate}
+\item Tính thể tích hình cầu.
+\item Nếu diện tích hình tròn giảm một nửa thì diện tích của mặt cầu sẽ thay đổi như nào?
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item 
+\immini{
+Diện tích hình tròn là 
+$$\pi\cdot R^2=4\pi\Leftrightarrow R=2.$$
+Do đó thể tích hình cầu là
+$$V=\dfrac{4}{3}\cdot \pi\cdot R^3=\dfrac{32\pi}{3}.$$
+}{
+\begin{tikzpicture}[scale=1,>=stealth]
+\tkzDefPoints{0/0/O, 2/0/D, -2/0/C}
+\clip (-2.5,-2.5) rectangle (2.5,2.5);
+\tkzDrawCircle[radius](O,C)
+\tkzDefLine[perpendicular=through O](C,D)\tkzGetPoint{o}
+\tkzInterLC(O,o)(O,C)\tkzGetPoints{A}{B}
+\draw[dashed] (A)node[below]{$A$}--(B)node[above]{$B$};
+\draw[dashed] (D) arc (0:180:2cm and 0.5cm);
+\draw (O)node[right]{$O$};
+\draw (D) arc (0:-180:2cm and 0.5cm);
+\tkzDrawPoints[fill=black](A,B,O)
+\end{tikzpicture}
+}
+\item Diện tích mặt cầu là 
+$$S=4\pi\cdot R^2=16\pi.$$
+Nếu diện tích hình tròn giảm một nửa thì được tròn bán kính $R'$ và 
+$$\pi\cdot R'^2=2\pi\Leftrightarrow R'=\sqrt{2}.$$
+Khi đó diện tích của mặt cầu mới là
+$$S'=4\pi\cdot R'^2=8\pi.$$
+Suy ra $\dfrac{S}{S'}=2$. Vậy diện tích mặt cầu cũng giảm đi một nửa.
+\end{enumerate}
+}
+\end{bt}
+
+\begin{bt}%[Lê Minh An, Dự Án 9TL-04]
+Cho một khối xốp hình nón có đường kính đáy bằng $18$ cm và độ dài từ đỉnh đến một điểm trên đường tròn đáy bằng $15$ cm.
+\begin{enumerate}
+\item Tính chiều cao và thể tích của hình nón đó.
+\item Cắt chỏm của khối xốp sao cho phần còn lại là hình nón cụt có chiều cao bằng một nửa chiều cao của hình nón ban đầu. Tính thể tích của phần bị cắt bỏ đi.
+\item Tiếp tục cắt khối nón cụt trên để tạo thành hình trụ có đáy là đáy nhỏ của hình nón cụt. Tính thể tích của hình trụ mới tạo thành.
+\end{enumerate}
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+			\draw [dashed](3,0) arc (0:180:3cm and 1.2cm);
+			\draw (-3,0) arc (180:360:3cm and 1.2cm);
+			\draw (3,0)--(0,6)--(-3,0);
+			\draw [dashed](-3,0) -- (3,0);
+			\draw [dashed](0,0) -- (0,6);
+			\draw [dashed](-1.5,0) -- (-1.5,3)--(1.5,3)--(1.5,0);
+			\draw [dashed](1.5,0) arc (0:360:1.5cm and 0.6cm);
+			\draw [dashed](1.5,3) arc (0:180:1.5cm and 0.6cm);
+			\draw (-1.5,3) arc (180:360:1.5cm and 0.6cm);
+			\draw (0,6)circle(1.2pt) node[above] {$S$};
+			\draw (0,3)circle(1.2pt) node[above right] {$I$};
+			\draw (0,0)circle(1.2pt) node[below] {$O$};
+			\draw (3,0)circle(1.2pt) node[below right] {$A$};
+			\draw (1.5,3)circle(1.2pt) node[right] {$B$};
+			\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+\item Giả sử hình nón có đỉnh là điểm $S$ đáy là đường tròn tâm $O$, $A$ là một điểm trên đường tròn đáy. Khi đó bán kính đáy hình nón là $OA=\dfrac{18}{2}=9$ cm và chiều cao của hình nón là
+$$SO=\sqrt{SA^2-OA^2}=\sqrt{15^2-9^2}=12\,\,\mathrm{cm}.$$
+Thể tích của hình nón là
+$$V=\dfrac{1}{3}\cdot SO\cdot \pi\cdot OA^2=324\,\,\mathrm{cm}^3.$$
+\item Gọi $I$ là trung điểm $SO$, $B$ là trung điểm $SA$. Phần bị cắt bỏ đi cũng là khối nón có đỉnh $S$ đáy là hình tròn $(I,IB)$.\\
+$IB$ là đường trung bình của $\triangle SOA$ nên $IB=\dfrac{OA}{2}=\dfrac{9}{2}$. Thể tích khối nón bị cắt là
+$$\dfrac{1}{3}\cdot SI\cdot \pi\cdot IB^2=\dfrac{81\pi}{2}\,\,\mathrm{cm}^3.$$
+\item Khối trụ có đáy là hình tròn $(I,IB)$ chiều cao $IO$ nên có thể tích là
+$$V'=IO\cdot \pi\cdot IB^2=\dfrac{243\pi}{2}\,\,\mathrm{cm}^3.$$
+\end{enumerate}
+}
+\end{bt}
+
+
+
+%----------------------Thầy Cường
+\begin{bt}
+	Một cái hộp hình trụ chứa vừa khít $4$ quả ten-nít. Biết diện tích toàn phần của hộp là $597\mathrm{ cm}^2$. Tính đường kính và thể tích của mỗi quả ten-nít.
+	\loigiai{		
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=0.7, line join = round, line cap = round]
+			\tkzDefPoints{0/0/O,8/0/A,8/2/B,0/2/C}
+			\tkzDefMidPoint(O,A)\tkzGetPoint{A1}
+			\tkzDefMidPoint(O,A1)\tkzGetPoint{A2}
+			\tkzDefMidPoint(A1,A)\tkzGetPoint{A3}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{B1}
+			\tkzDefMidPoint(B,B1)\tkzGetPoint{B3}
+			\tkzDefMidPoint(B1,C)\tkzGetPoint{B2}
+			\tkzDrawSegments(O,A A,B B,C C,O)
+			\tkzInterLL(O,B2)(C,A2)\tkzGetPoint{I} 
+			\tkzDrawCircle[R](I,1cm)
+			\tkzInterLL(A2,B1)(B2,A1)\tkzGetPoint{J} 
+			\tkzDrawCircle[R](J,1cm)
+			\tkzInterLL(A1,B3)(B1,A3)\tkzGetPoint{K} 
+			\tkzDrawCircle[R](K,1cm)
+			\tkzInterLL(A3,B)(B3,A)\tkzGetPoint{M}
+			\tkzDrawCircle[R](M,1cm)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $R$ là bán kính của mỗi quả ten-nít thì bán kính đáy hộp là $R$, chiều cao của trụ là $8R$.\\ 
+		Ta có $S_{\text{dttp}} = 2\cdot S_{\text{đáy}} + S_{\text{xq}} = 2\pi R^2 + 2\pi R\cdot 8R = 18\pi R^2 $. \\
+		Ta lại có diện tích xung quanh đề bài cho là $597\mathrm{ cm}^2 \Rightarrow R\approx 3,25 \mathrm{ cm}$. \\
+		Vậy $V=\dfrac{4}{3}\pi R\approx\dfrac{4}{3}\pi \cdot (3,25)^3\approx144\mathrm{ cm}^3$. }
+\end{bt}
+\begin{bt}
+	\immini{Cho hình vẽ bên. Tính tổng thể tích của các khối tạo thành khi quay hình bên quanh trục $BD$.}{	\begin{tikzpicture}[scale = 0.5]
+		\tkzDefPoints{3/3/E,8/3/D,8/6/C,3/6/F,8/10/B,5/10/A}
+		\tkzDrawPolygon(A,B,C)
+		\tkzDrawSegments(C,D D,E E,F F,C)
+		\tkzMarkRightAngles(A,B,C F,C,D C,D,E)
+		\tkzLabelPoints[above right](B,C)
+		\tkzLabelPoints[above left](A,F)
+		\tkzLabelPoints[below left](E)
+		\tkzLabelPoints[below right](D)
+		\tkzText[above](6.7,10){$3$}
+		\tkzText[above left](5.8,8){$5$}
+		\tkzText[above right](8.2,4){$3$}
+		\tkzText[below](5.5,2.4){$5$}
+		\end{tikzpicture}
+	}
+	\loigiai{
+		Tam giác $ABC$ quay quanh trục $BD$ sẽ tạo thành hình nón với bán kính đáy bằng cạnh $AB$ và đường cao là $BC$.\\
+		Thể tích hình nón này là
+		{\allowdisplaybreaks
+			\begin{eqnarray*}
+				V_1&=&\dfrac{1}{3}\pi\cdot AB^2\cdot BC \\ &=& \dfrac{1}{3}\pi\cdot AB^2\cdot\sqrt{AC^2-BC^2}\\ &=&\dfrac{1}{3}\pi\cdot3^2\cdot\sqrt{5^2-3^2}\\
+				\\&=&12\pi\text{ (đvtt)}.\\
+			\end{eqnarray*}
+		}
+		Hình chữ nhật $CDEF$ quay quanh trục $BD$ sẽ tạo thành hình trụ với bán kính đáy bằng cạnh $DE$ và đường cao là $CD$.\\
+		Thể tích hình trụ này là
+		{\allowdisplaybreaks
+			\begin{eqnarray*}
+				V_2&=&\pi\cdot DE^2\cdot CD \\ &=& \pi\cdot 5^2\cdot 3\\ &=&75\pi\text{ (đvtt)}.\\
+			\end{eqnarray*}
+		}
+		Thể tính khối tạo thành khi quay hình trên quanh trục $BD$ là
+		$$V=V_1+V_2=87\pi\text{ (đvtt)}.$$
+	}
+\end{bt}
+\begin{bt}
+	Một hình nón có đỉnh là tâm một hình cầu và có đáy là hình tròn tạo bởi một mặt phẳng  cắt hình cầu. Biết diện tích đáy hình nón là $144\pi\mathrm{ cm}^2$ và diện tích xung quanh của nó là $180\pi \mathrm{ cm}^2$. Tính thể tích phần không gian bên trong hình cầu và bên ngoài hình nón.
+	\loigiai{ \immini{Tính bán kính đáy hình nón là
+			$$ \pi\cdot IM^2\cdot144\pi \Leftrightarrow r = IM =12\mathrm{ cm}.$$
+			Tính đường sinh hình nón là $$S_{\text{xq}} = 180\pi \Leftrightarrow \pi\cdot r\cdot l = 180\pi \Leftrightarrow l = OM = 15\mathrm{ cm}.$$
+			Chiều cao hình nón là $$h = OI = \sqrt{OM^2 - IM^2} = \sqrt{l^2 - r^2} =9\mathrm{ cm}.$$
+			Tính hiệu thể tích giữa hình cầu và hình nón được $$V = V_{\text{cầu}} - V_{\text{nón}} = \dfrac{4}{3}\pi\cdot OM^3 - \dfrac{1}{3}\pi\cdot IM^2\cdot h = 4068\pi\mathrm{ cm}^3.$$ }{ \begin{tikzpicture}[>=stealth,scale=0.7, line join = round, line cap = round]
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			\tkzDefPoints{0/0/A,4/0/B}
+			\tkzDrawCircle[R](O,4cm)
+			\tkzDrawPoints(O) 
+			\tkzDefPointBy[rotation= center O angle -40](B)\tkzGetPoint{M} 
+			\tkzDefPointBy[rotation= center O angle -140](B)\tkzGetPoint{N} 
+			\tkzDefMidPoint(M,N)\tkzGetPoint{I} 
+			\tkzMarkRightAngles[size=0.4](M,I,O)
+			\draw[dashed] (M) arc(0:180:3 cm and 0.7 cm);
+			\draw (M) arc(0:-180:3 cm and 0.7 cm);
+			\tkzDrawSegments[dashed](M,N O,M O,N O,I) 
+			\tkzDrawPoints(O,N,M,I)
+			\tkzLabelPoints[above](O)
+			\tkzLabelPoints[right](M)
+			\tkzLabelPoints[left](N)
+			\tkzLabelPoints[below](I)
+			\end{tikzpicture}}}
+\end{bt}
+
+
+\begin{bt}
+	Tam giác đều $ABC$ có độ dài cạnh là $a$, ngoại tiếp một đường tròn. Cho hình quay một vòng xung quanh đường cao $AH$ của tam giác đó, ta được một hình nón ngoại tiếp hình cầu. Tính thể tích phần hình nón nằm ngoài hình cầu.
+	\loigiai{
+		\immini{Gọi $ I $ là tâm của tam giác $ ABC $.
+			Bán kính hình cầu là bán kính đường tròn nội tiếp tam giác đều $ABC$, nghĩa là $ IH $.\\
+			Ta có $AH^2 = CA^2 - CH^2 = \dfrac{3a^2}{4} \Rightarrow AH = \dfrac{a\sqrt{3}}{2}$.\\
+			Vậy $R = IH = \dfrac{1}{3} \cdot AH = \dfrac{1}{3}\cdot\dfrac{a\sqrt{3}}{2} = \dfrac{a\sqrt{3}}{6}$.\\
+			Do đó thể tích hình cầu là $V_c = \dfrac{4}{3}\pi R^3  = \dfrac{a^3\sqrt{3}}{54}$ (đvtt).\\
+			Thể tích hình nón là $$V_n =\dfrac{1}{3}\pi \cdot AH \cdot HB^2 =  \dfrac{1}{3}\pi \cdot \dfrac{a\sqrt{3}}{2} \cdot \left(\dfrac{a}{2}\right)^2 = \dfrac{a^3\sqrt{3}}{8}\text{ (đvtt)}.$$
+		}
+		{		\begin{tikzpicture}[>=stealth,x=1cm,y=1cm,scale=1]
+			\tkzInit[ymin=-1,ymax=5,xmin=-1,xmax=5.5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			\tkzDefPoints{0/0/B,5/0/C}
+			\tkzDefCircle[radius](B,C)
+			\tkzDefCircle[radius](C,B)
+			\tkzInterCC(B,C)(C,B)    \tkzGetPoints{A}{D}
+			\tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{H}
+			\tkzCircumCenter(A,B,C)\tkzGetPoint{I}
+			\tkzDefCircle[radius](I,H)
+			\tkzDrawCircle[radius](I,H)		
+			\tkzDrawSegments(A,B B,C C,A A,H I,C)
+			\tkzDrawPoints(A,B,C,I,H)
+			\tkzMarkRightAngles(C,H,A)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C,I)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[above left]()
+			\tkzLabelPoints[above right]()
+			\tkzLabelPoints[below](H)
+			\tkzLabelPoints[below left]()
+			\tkzLabelPoints[below right]()
+			\end{tikzpicture}
+		}
+		Vậy phần thể tích hình nón nằm ngoài hình cầu là $V' = \dfrac{a^3\sqrt{3}}{8} - \dfrac{a^3\sqrt{3}}{54} = \dfrac{23a^3\sqrt{3}}{216}$ (đvtt).
+	}
+	
+\end{bt}
+
+\begin{bt}
+	Một hình nón cụt có bán kính đáy lớn là $9$ cm và bán kính đáy bé là $6$ cm, chiều cao bằng $4$ cm.
+	\begin{enumerate}
+		\item Tính diện tích xung quanh hình nón cụt.
+		\item Tính thể tích của hình nón sinh ra hình nón cụt đó.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item \immini{Kẻ $CH \perp AB$ (tại $H$). Khi đó $CH = OO' = 4$ (cm).\\
+				Mặt khác, $HA = OA - OH = OA - O'C = 3$ (cm).\\
+				Vậy $l = CA = \sqrt{CH^2 + HA^2} = 5$ (cm).\\
+				Diện tích xung quanh hình nón cụt là $$S_{\mathrm{xq}} = \pi (r_1 + r_2)l = 75\pi.$$}{	\begin{tikzpicture}[scale=.8, x = 1cm, y = 1cm, line join = round, line cap = round]
+				\tkzSetUpPoint[color=black,fill=black,size=6]
+				\tikzset{label style/.style={font=\scriptsize}}
+				\def \x{3}  
+				\def \y{1} 
+				\def \h{8}  
+				\coordinate (A) at (0,0);
+				\coordinate (B) at (2*\x,0);
+				\coordinate (O) at ($(A)!0.5!(B)$);
+				\coordinate (S) at ($(O)+(0,\h)$);
+				\coordinate (H) at (1.5,0);
+				\draw[dashed] (B) arc (0:180:\x cm and \y cm);
+				\draw (B) arc (0:-180:\x cm and \y cm);				
+				\def \z{1.5}  
+				\def \t{0.5}
+				\coordinate (C) at (1.5,4);
+				\coordinate (D) at (4.5,4);
+				\coordinate (O') at ($(C)!0.5!(D)$);				
+				\draw (D) arc (0:360:\z cm and \t cm);
+				\tkzDrawSegments(C,A D,B C,D)
+				\tkzDrawSegments[dashed](A,B O,O' C,H)
+				\tkzMarkRightAngle(C,O',O)
+				\tkzMarkRightAngle(C,H,O)
+				\tkzMarkRightAngle(H,O,O')
+				\tkzMarkRightAngle(H,C,O')
+				\tkzDrawPoints(A,B,O,C,D,O')
+				\tkzLabelPoints[above](O');
+				\tkzLabelPoints[below](O, H);
+				\tkzLabelPoints[left](A,C);
+				\tkzLabelPoints[right](B,D);
+				\end{tikzpicture}}
+			\item  Gọi giao điểm của $OO'$ và $CA$ là $S$.\\
+			Theo hệ quả của định lý Ta-lét, ta có $\dfrac{SO'}{CO'} = \dfrac{SO}{AO}$.\\
+			Gọi $SO' = x$ (cm) $(x > 0)$ thì từ đẳng thức trên ta có
+			$$\dfrac{x}{6} = \dfrac{x + 4}{9}. $$
+			Giải phương trình này ta có nghiệm $x = 8$ (nhận).\\
+			Vậy chiều cao của hình nón sinh ra hình nón cụt đó là $h = SO = SO' + OO' = 12$ (cm).\\
+			Thể tích cần tìm là $V = \dfrac{1}{3}\pi r^2 h = \dfrac{1}{3}\pi \cdot 9^2 \cdot 12 = 324\pi$ (đvtt).
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}
+	Cho hình chữ nhật $ABCD$ ($AB>AD$) có chu vi là diện tích lần lượt là $6$ cm và $2$ cm$^2$. 
+	\begin{enumerate}
+		\item Tính thể tích và diện tích hình trụ được sinh ra khi quay hình chữ nhật quanh cạnh $AB$.
+		\item Hình trụ này có thể chứa vừa khít một khối cầu bán kính $R$. Tính $R$ và phần thể tích giữa hình trụ và khối cầu.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item \immini{
+				Ta có $$\heva{& 2(AB+AD)=6 \\& AB\cdot AD=2 }\Leftrightarrow \heva{& AB + AD=3 \\& AB\cdot AD =2}\Rightarrow \heva{& AB=2 \mathrm{\, (cm)}\\& AD=1 \mathrm{\, (cm)}.}$$
+				Thể tích của hình trụ $$V=AB\cdot \pi AD^2=2\pi \mathrm{\, (cm^3)}.$$
+				Diện tích của hình trụ $$S=AB\cdot 2\pi AD+2\cdot \pi AD^2=4\pi+2\pi=6\pi \mathrm{\, (cm^2)}.$$	
+			}{\begin{tikzpicture}[scale=.8]
+				\tkzInit[xmin=-6,ymin=-6,xmax=1,ymax=2] 
+				\tkzClip
+				\tkzSetUpPoint[color=black,fill=black,size=6]
+				\tkzDefPoints{-2/0/A,-2/-4/B,0/0/D,0/-4/C}
+				\draw (0,0)arc(0:180:2 and 0.8) (0,0)arc(0:-180:2 and 0.8) (0,-4)arc(0:-180:2 and 0.8);
+				\draw[dashed] (0,-4)arc(0:180:2 and 0.8);
+				\draw (-4,-4)--(-4,0)--(0,0)--(0,-4);
+				\draw (-4,0)--(-2,0)--(0,0)--(0,-4);
+				\draw[dashed](-2,-4)--(-2,0) ;
+				\draw[dashed](-4,-4)--(0,-4) ;
+				\draw[dashed] (0,-2)arc(0:360:2 and 2);
+				\draw[dashed] (0,-2)arc(0:180:2 and 0.8);
+				\draw (0,-2)arc(0:-180:2 and 0.8);
+				\tkzDrawPoints(A,B,C,D)
+				\tkzLabelPoints[above](A);
+				\tkzLabelPoints[below](B);
+				\tkzLabelPoints[below right](C);
+				\tkzLabelPoints[above right](D);
+				\end{tikzpicture}}
+			\item Ta có bán kính khối cầu $$R=\dfrac{AB}{2}=1 \mathrm{\, (cm)}.$$
+			Thể tích khối cầu $$V_1=\dfrac{4}{3}\pi R^3=\dfrac{4\pi}{3} \mathrm{\, (cm^3)}.$$
+			Phần thể tích giữa khối trụ và khối cầu bằng $$V-V_1=\dfrac{14}{3}\pi \mathrm{\, (cm^3)}.$$
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}
+	Cho ba điểm $A$, $O$, $B$ thẳng hàng theo thứ tự đó và $OA=a$, $OB=b$. Vẽ hai tia $Ax,By$ vuông góc với $AB$.  Qua $O$ vẽ hai tia vuông góc với nhau tại $O$ và lần lượt cắt $Ax$, $By$ tại $C$, $D$. Cho $\widehat{COA}=30^\circ$.
+	\begin{enumerate}
+		\item Tính tỉ số thể tích của các hình do tam giác $AOC$ và $BOD$ tạo thành khi quay hình này quanh trục $AB$.
+		\item Giả sử $\widehat{BDC}=60^\circ$. Tính thể tích hình nón cụt được tạo thành khi quay hình vẽ quanh trục $AB$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item 
+			\immini{
+				Quay $\triangle AOC$ quanh trục $AB$ ta được hình nón có 
+				\begin{enumerate}[+]
+					\item Chiều cao $h=OA=a$.
+					\item Bán kính đáy $r=AC=OA\cdot \tan 30^\circ=\dfrac{a \sqrt{3}}{3}$.
+				\end{enumerate}
+				Khi đó thể tích của hình nón này là 
+				$$V_1=\dfrac{1}{3} \pi r^2 h= \dfrac{\pi a^3}{9}.$$
+				Quay $\triangle BOD$ quanh trục $AB$ ta được hình nón có 
+				\begin{enumerate}[+]
+					\item Chiều cao $h=OB=b$.
+					\item Bán kính đáy $r=BD=OB\cdot \tan 60^\circ= b \sqrt{3}$.
+				\end{enumerate}
+			}{
+				\begin{tikzpicture}[line join=round, line cap=round, scale=0.9]
+				\tikzset{label style/.style={font=\footnotesize}}
+				\tkzInit[ymin=-0.8, ymax=6.5, xmin=-1, xmax=5.2]
+				\tkzClip
+				\tkzSetUpPoint[color=black,fill=black,size=6]
+				\tkzDefPoints{0/0/A,5/0/B,2/0/O}
+				\tkzDefLine[perpendicular=through A](A,B) \tkzGetPoint{a}
+				\tkzDefLine[perpendicular=through B](A,B) \tkzGetPoint{b}
+				\tkzDefPointBy[rotation = center O angle -30 ](A)
+				\tkzGetPoint{c}
+				\tkzInterLL(O,c)(A,a)\tkzGetPoint{C}
+				\tkzDefPointBy[rotation = center O angle 60 ](B)
+				\tkzGetPoint{d}
+				\tkzInterLL(b,B)(O,d)\tkzGetPoint{D}
+				\tkzDrawSegments(A,B O,C C,A A,a B,b O,D D,B C,D)
+				\tkzLabelPoints[below](B)
+				\tkzLabelPoints[left](C)
+				\tkzLabelPoints[below](A)
+				\tkzLabelPoints[below](O)
+				\tkzLabelPoints[above](D)
+				\tkzMarkRightAngle[size=.2](O,A,C)
+				\tkzMarkRightAngle[size=.2](D,B,O)
+				\tkzMarkRightAngle[size=.2](C,O,D)
+				\tkzLabelAngle[pos=0.9,rotate=40](A,O,C){\scriptsize $30^\circ$}
+				\tkzLabelAngle[pos=0.5,rotate=40](B,O,D){\scriptsize $60^\circ$}
+				\tkzDrawPoints[fill=black](A,B,C,O,D)
+				\end{tikzpicture}
+			}
+			Khi đó thể tích của hình nón này là 
+			$$V_2=\dfrac{1}{3} \pi r^2 h= \pi b^3.$$
+			Vậy thể tích cần tìm là $\dfrac{V_1}{V_2}= \dfrac{a^3}{9b^3}$.
+			\item
+			Quay hình vẽ quanh trục $AB$ ta được hình nón cụt có
+			\begin{enumerate}[+]
+				\item Bán kính đáy lớn $R=BD=b \sqrt{3}$.
+				\item Bán kính đáy nhỏ $r=AC=\dfrac{a \sqrt{3}}{3}$.
+				\item Chiều cao $h=AB=OA+OB=a+b$.
+			\end{enumerate}
+			Suy ra thể tích của hình nón cụt cần tìm là 
+			$$V= \dfrac{1}{3}\pi h \left( R^2+r^2+rR \right)=\dfrac{1}{3}\pi (a+b) \left( 3b^2+\dfrac{1}{3}a^2+ab \right).$$
+		\end{enumerate}
+	}
+\end{bt} 
+
+\begin{bt}
+	Cho hình thang vuông $ABCD$ có $\widehat{A}=\widehat{D}=90^\circ$, $BC=4$ cm, $CD=2$ cm, $\widehat{B}=60^\circ$. Khi quay hình thang vuông $ABCD$ quanh trục AD tạo thành một hình nón cụt. 
+	\begin{enumerate}
+		\item Tính thể tích của hình nón cụt.
+		\item Cắt hình nón cụt trên bởi một mặt phẳng qua trục $AD$ thì mặt cắt tạo thành là hình gì? Tính diện tích của hình đó.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=0.5, line join=round, line cap=round]
+			\tikzset{label style/.style={font=\footnotesize}}			
+			\tkzDefPoints{0/0/A,5/0/B,0/5/D,4/5/C,-4/5/M,-5/0/N}
+			\draw[dashed] (B) arc (0:180:5cm and 1.5cm);
+			\draw (B) arc (0:-180:5cm and 1.5cm);
+			\draw (C) arc (0:-180:4cm and 1.4cm);
+			\draw (C) arc (0:180:4cm and 1.4cm);			
+			\tkzMarkRightAngle[size=0.3,fill=gray!20](A,D,C)
+			\tkzMarkRightAngle[size=0.3,fill=gray!20](D,A,B)			
+			\coordinate (H) at ($(A)+(60:5cm and 1.5cm)$);
+			\coordinate (I) at ($(A)!-1!(H)$);
+			\coordinate (L) at ($(D)+(60:4cm and 1.4cm)$);
+			\coordinate (K) at ($(D)!-1!(L)$);
+			\tkzDrawPoints[size=5,fill=black](A,B,C,D,H)
+			\tkzMarkAngles[size=0.7cm](C,B,A)\tkzLabelAngles[pos=1,rotate=30](C,B,A){\scriptsize $60^\circ$}
+			\tkzDrawSegments[dashed](A,B A,D L,H H,I)
+			\tkzDrawSegments(B,C M,N K,L I,K C,D)
+			\tkzLabelPoints[above](D,K,L)
+			\tkzLabelPoints[right](B,C)
+			\tkzLabelPoints[below](A,H,I)
+			\tkzDrawPolygon[color=black,line width =1pt,pattern=dots,
+			pattern color=gray, opacity=.4](H,I,K,L)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có $r = CD=2$ (cm), $R=AB$, $h=AD$.\\
+			$h=AD = \sin 60^\circ \cdot BC = \dfrac{\sqrt{3}}{2}\cdot 4 = 2\sqrt{3}$ (cm).\\
+			$R=AB = DC + \cos	60^\circ \cdot BC = 2 + \dfrac{1}{2}\cdot 4 = 3$ (cm).\\
+			Vậy $V = \dfrac{1}{3} \pi h \left(r^2 + R^2 +rR \right) = \dfrac{1}{3} \cdot \pi \cdot 2\sqrt{3} \cdot \left(2^2 + 3^2 + 2 \cdot 3 \right) =  \dfrac{38\pi \sqrt{3}}{3}$ (cm$^3$) .
+			\item Cắt hình nón cụt trên bởi một mặt phẳng qua trục $AD$ thì mặt cắt tạo thành là hình thang cân có độ dài 2 đáy lần lượt là $2r$ và $2R$ và chiều cao là $h$.\\
+			Diện tích của hình thang này là 
+			$$S=\dfrac{h(2r+2R)}{2} = h(r+R) =  2\sqrt{3} \cdot (2+3) = 10\sqrt{3} \text{ (cm$^2$)}.$$
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$. Gọi $V_1, V_2, V_3$ theo thứ tự là thể tích của những hình sinh ra khi quay tam giác $ABC$ một vòng xung quanh các cạnh $BC, AB, AC$. Chứng minh rằng $$\dfrac{1}{V_1^2}=\dfrac{1}{V_2^2}+\dfrac{1}{V_3^2}.$$
+	\loigiai{
+		\immini{Gọi $H$ là chân đường cao xuất phát từ $A$. Khi quay $\Delta ABC$ quanh cạnh $BC$, ta thu được hai hình nón có bán kính đáy chung là $HA$, chiều cao lần lượt là $HB$ và $HC$.\\
+			Thể tích của hình sinh ra là tổng thể tích hai hình nón này.\\
+			Vậy $V_1 = \dfrac{1}{3}\pi (CH \cdot AH^2 + BH \cdot AH^2) = \dfrac{1}{3}\pi BC \cdot AH^2$.}
+		{	\begin{tikzpicture}[>=stealth,x=1cm,y=1cm,scale=1]
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			\tkzDefPoints{0/0/A,0/3/B,4/0/C, 1.44/1.92/H, 2.88/3.84/H'}		
+			\tkzDrawSegments(A,B C,A B,H' C,H')
+			\tkzDrawSegments[dashed](B,C A,H)
+			\draw[rotate around={53:(1.44,1.92)}] (3.84,1.92)  arc(0:-180:2.4 and 0.4);
+			\draw[rotate around={53:(1.44,1.92)}, dashed] (3.84,1.92)  arc(0:180:2.4 and 0.4);
+			\tkzDrawPoints(A,B,C,H)
+			\tkzLabelPoints[left](B,A)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above]()
+			\tkzLabelPoints[above left]()
+			\tkzLabelPoints[above right](H)
+			\tkzLabelPoints[below]()
+			\tkzLabelPoints[below left]()
+			\tkzLabelPoints[below right]()
+			\tkzMarkRightAngle(A,H,C)
+			\tkzMarkRightAngle(C,A,B)
+			\end{tikzpicture}}
+		\immini{Khi quay $\Delta ABC$ quanh cạnh $AB$, ta thu được hình nón có bán kính đáy $AC$, chiều cao $AB$. Vậy $V_2 = \dfrac{1}{3}\pi AB \cdot AC^2$.\\}{	\begin{tikzpicture}[>=stealth,x=1cm,y=1cm,scale=1]
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			\tkzDefPoints{0/0/A,0/3/B,4/0/C,-4/0/C'}
+			\draw[dashed] (4,0)  arc(0:180:4 and 0.5);
+			\draw (-4,0)  arc(-180:0:4 and 0.5);
+			\tkzDrawSegments(B,C B,C')
+			\tkzDrawSegments[dashed](A,B C,A)
+			\tkzDrawPoints(A,B,C) 
+			\tkzLabelPoints[left](B,A)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above]()
+			\tkzLabelPoints[above left]()
+			\tkzLabelPoints[above right]()
+			\tkzLabelPoints[below]()
+			\tkzLabelPoints[below left]()
+			\tkzLabelPoints[below right]()
+			\tkzMarkRightAngle(C,A,B)
+			\end{tikzpicture}}
+		
+		\immini{Khi quay $\Delta ABC$ quanh cạnh $AC$, ta thu được hình nón có bán kính đáy $AB$, chiều cao $AC$. Vậy $V_2 = \dfrac{1}{3}\pi AC \cdot AB^2$.\\
+			Do đó
+			\begin{eqnarray*}
+				\dfrac{1}{V_2^2} + \dfrac{1}{V_3^2} &=& \dfrac{9}{\pi^2} \cdot \dfrac{1}{AB^2 \cdot AC^2} \cdot \left(\dfrac{1}{AB^2} + \dfrac{1}{AC^2}\right) \\
+				&=& \dfrac{9}{\pi^2} \cdot \dfrac{1}{AB^2 \cdot AC^2} \cdot \dfrac{1}{AH^2} \\
+				&=& \dfrac{9}{\pi^2} \cdot \dfrac{AB^2 + AC^2}{AB^2 \cdot AC^2} \cdot \dfrac{1}{AH^2} \cdot \dfrac{1}{AB^2 + AC^2} \\
+				&=& \dfrac{9}{\pi^2} \cdot \left(\dfrac{1}{AB^2} + \dfrac{1}{AC^2}\right) \cdot \dfrac{1}{AH^2} \cdot \dfrac{1}{BC^2} \\
+				&=& \dfrac{9}{\pi^2} \cdot \dfrac{1}{AH^2} \cdot \dfrac{1}{AH^2} \cdot \dfrac{1}{BC^2} =  \dfrac{9}{\pi^2} \cdot \dfrac{1}{AH^4} \cdot \dfrac{1}{AH^2} \cdot \dfrac{1}{BC^2} = \dfrac{1}{V_1^2}.\\
+		\end{eqnarray*}}{	\begin{tikzpicture}[>=stealth,x=1cm,y=1cm,scale=1]
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			\tkzDefPoints{0/0/A,0/3/B,4/0/C,0/-3/B'}
+			\draw[rotate around={90:(0,0)}] (3,0)  arc(0:180:3 and 0.4);
+			\draw[rotate around={90:(0,0)},dashed] (-3,0)  arc(-180:0:3 and 0.4);
+			\tkzDrawSegments(B,C C,B') 
+			\tkzDrawSegments[dashed](A,B C,A) 
+			\tkzDrawPoints(A,B,C)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above]()
+			\tkzLabelPoints[above left]()
+			\tkzLabelPoints[above right]()
+			\tkzLabelPoints[below](A)
+			\tkzLabelPoints[below left]()
+			\tkzLabelPoints[below right]()
+			\tkzMarkRightAngle(C,A,B)
+			\end{tikzpicture}}	
+	}
+\end{bt}
+
+\begin{bt}
+	Cho nửa đường tròn $ (O;R) $, đường kính $ AB $.
+	\begin{enumerate}
+		\item Trên $ AB $ lấy điểm $ H $ sao cho $ \dfrac{HA}{HB} = \dfrac{2}{3} $. Tính $ HA, HB $ theo $ R $.
+		\item Qua $ H $ kẻ đường thẳng vuông góc với $ AB $ cắt nửa đường tròn $ (O;R) $ tại $ M $; tiếp tuyến tại $ M $ với nửa đường tròn cắt các tiếp tuyến tại $ A, B $ lần lượt tai $ A', B' $. Chứng minh rằng tam giác $ A'OB' $ vuông và $ AA'\cdot BB' = R^2 $.
+		\item Đặt $ AA' = x; BB' = y $. Tính $ x,y $ theo $ R $.
+		\item Cho nửa hình tròn $ (O;R) $ quay một vòng quanh cạnh $ AB $ được một hình có thể tích là $ V_1 $; cho hình thang vuông $ ABB'A' $ quay quanh $ AB $ ta được một hình có thể tích là $ V_2 $. Tính tỉ số $ \dfrac{V_1}{V_2} $.
+	\end{enumerate}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item Ta có $\dfrac{HA}{HB}=\dfrac{2}{3}$\\
+				$\Rightarrow\dfrac{HA}{2}=\dfrac{HB}{3}=\dfrac{HA+HB}{5}=\dfrac{AB}{5}=\dfrac{2}{5}R$\\
+				$\Rightarrow\heva{HA=\dfrac{4}{5}R\\HB=\dfrac{6}{5}R.}$
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[scale=.5, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/A,10/0/B,5/0/O,4/0/H}
+			\tkzDefLine[perpendicular=through H](A,O) \tkzGetPoint{h}
+			\tkzDefLine[perpendicular=through A](A,O) \tkzGetPoint{a}
+			\tkzDefLine[perpendicular=through B](A,O) \tkzGetPoint{b}
+			\tkzInterLC(H,h)(O,A)    \tkzGetPoints{C}{M}
+			\tkzTangent[at=M](O)    \tkzGetPoint{t}
+			\tkzInterLL(A,a)(M,t)    \tkzGetPoint{A'}
+			\tkzInterLL(B,b)(M,t)    \tkzGetPoint{B'}
+			\tkzDrawPoints(A,B,O,H,M,A',B')
+			\tkzDrawSegments(A,B)
+			\tkzDrawSegments(A,A')
+			\tkzDrawSegments(B,B')
+			\tkzDrawSegments(A',B')
+			\tkzDrawSegments(H,M)
+			\tkzDrawSegments(A',O)
+			\tkzDrawSegments(B',O)
+			\tkzDrawSegments(M,O)
+			\tkzLabelPoints[below left](A)
+			\tkzLabelPoints[below right](B)
+			\tkzLabelPoints[below](O)
+			\tkzLabelPoints[below](H)
+			\tkzLabelPoints[above](M)
+			\tkzLabelPoints[above](A')
+			\tkzLabelPoints[above](B')
+			\tkzDrawArc[rotate](O,B)(180)
+			\tkzMarkRightAngles[size=0.4](A',A,B)
+			\tkzMarkRightAngles[size=0.4](M,H,A)
+			\tkzMarkRightAngles[size=0.4](B',B,O)
+			\tkzMarkRightAngles[size=0.4,color=black](A',O,B')
+			\tkzMarkAngles(A,A',O)
+			\tkzMarkAngles(B,O,B')
+			\tkzLabelSegment[pos=.5,below](O,B){ $R$}
+			\end{tikzpicture}
+		}
+		
+		\begin{enumerate}
+			\item[b)]
+			Hai tam giác $OAA'$ và $B'BO$ có\\
+			$\heva{\widehat{A}=\widehat{B}=90^\circ&&\\\widehat{AOA'}=\widehat{BB'O}&&\text{ (cặp góc có cạnh tương ứng vuông góc)}}$.\\
+			Suy ra $ OAA'\backsim \triangle B'BO.$\\
+			Do đó $\widehat{AA'O}=\widehat{B'OB}$.\\
+			Mà $\widehat{AA'O}+\widehat{A'OA}=90^\circ$.\\
+			Suy ra $\widehat{B'OB}+\widehat{A'OA}=90^\circ.$\\
+			Vậy $\widehat{A'OB'}=90^\circ$ hay tam giác $A'OB'$ là tam giác vuông.\\
+			Mặt khác, do $\triangle OAA'\backsim \triangle B'BO$ nên $\dfrac{AA'}{BO}=\dfrac{OA}{BB'}\Leftrightarrow AA'\cdot BB'=OA\cdot OB=R^2$.\\
+			\immini{
+				\textbf{Cách khác:}\\
+				Gọi $N$ là giao điểm của $AM$ và $OA'$.\\
+				Ta có $\widehat{MAB}=\dfrac{1}{2}\text{sđ}\wideparen{AM}$.\\
+				Mà $\widehat{B'OB}=\dfrac{1}{2}\widehat{BOM}=\dfrac{1}{2}\text{sđ}\wideparen{AM}$.\\
+				Suy ra $\widehat{MAB}=\widehat{B'OB}$.\\
+				Tam giác vuông $AON$ có\\
+				$\widehat{NAO}+\widehat{NOA}=90^\circ$ hay $\widehat{MAB}+\widehat{A'OA}=90^\circ$.\\
+				Do đó $\widehat{B'OB}+\widehat{A'OA}=90^\circ$.\\
+				Suy ra $\widehat{A'OB'}=180^\circ-\left(\widehat{B'OB}+\widehat{A'OA}\right)=90^\circ$.\\
+				Vậy tam giác $A'OB'$ là tam giác vuông.\\
+				Mặt khác, áp dụng hệ thức lượng trong tam giác vuông $OA'B'$, ta có $OM^2=A'M\cdot B'M$.\\
+				Mà theo tính chất của tiếp tuyến thì $\heva{AA'=A'M\\BB'=B'M}$.\\
+				Suy ra $AA'\cdot BB'=OM^2=R^2$.\\
+			}{
+				\begin{tikzpicture}[scale=.5, line join = round, line cap = round]
+				\tikzset{label style/.style={font=\footnotesize}}
+				\tkzDefPoints{0/0/A,10/0/B,5/0/O,4/0/H}
+				\tkzDefLine[perpendicular=through H](A,O) \tkzGetPoint{h}
+				\tkzDefLine[perpendicular=through A](A,O) \tkzGetPoint{a}
+				\tkzDefLine[perpendicular=through B](A,O) \tkzGetPoint{b}
+				\tkzInterLC(H,h)(O,A)    \tkzGetPoints{C}{M}
+				\tkzTangent[at=M](O)    \tkzGetPoint{t}
+				\tkzInterLL(A,a)(M,t)    \tkzGetPoint{A'}
+				\tkzInterLL(B,b)(M,t)    \tkzGetPoint{B'}
+				\tkzInterLL(A,M)(O,A')    \tkzGetPoint{N}
+				\tkzDrawPoints(A,B,O,H,M,A',B',N)
+				\tkzDrawSegments(A,B)
+				\tkzDrawSegments[color=black](A,A')
+				\tkzDrawSegments[color=black](B,B')
+				\tkzDrawSegments(A',B')
+				\tkzDrawSegments(H,M)
+				\tkzDrawSegments(A',O)
+				\tkzDrawSegments(B',O)
+				\tkzDrawSegments(M,O)
+				\tkzDrawSegments(A,M)
+				\tkzLabelPoints[below left](A)
+				\tkzLabelPoints[below right](B)
+				\tkzLabelPoints[below](O)
+				\tkzLabelPoints[below](H)
+				\tkzLabelPoints[above](M)
+				\tkzLabelPoints[above](A')
+				\tkzLabelPoints[above](B')
+				\tkzLabelPoints[above](N)
+				\tkzDrawArc[rotate](O,B)(180)
+				\tkzMarkRightAngles[size=0.4](A',A,B)
+				\tkzMarkRightAngles[size=0.4](M,H,A)
+				\tkzMarkRightAngles[size=0.4](B',B,O)
+				\tkzMarkRightAngles[size=0.4](O,N,A)
+				\tkzMarkRightAngles[size=0.4,color=black](A',O,B')
+				\tkzMarkAngles(B,A,M)
+				\tkzMarkAngles(B,O,B')
+				\tkzLabelSegment[pos=.5,below](O,B){ $R$}
+				\end{tikzpicture}
+			}
+			\item[c)]
+			Ta có $OH=OA-AH=R-\dfrac{4}{5}R=\dfrac{R}{5}$\\
+			$\Rightarrow MH=\sqrt{OM^2-OH^2}=\sqrt{R^2-\left(\dfrac{R}{5}\right)^2}=\dfrac{2\sqrt{6}}{5}R.$\\
+			$\Rightarrow AM=\sqrt{MH^2+AH^2}=\sqrt{\left(\dfrac{2\sqrt{6}}{5}R\right)^2+\left(\dfrac{4}{5}R\right)^2}=\dfrac{2\sqrt{10}}{5}R.$\\
+			$\Rightarrow AN=\dfrac{AM}{2}=\dfrac{\sqrt{10}}{5}R.$\\
+			$\Rightarrow ON=\sqrt{OA^2\triangle-AN^2}=\sqrt{R^2-\left(\dfrac{\sqrt{10}}{5}\right)^2}=\dfrac{\sqrt{15}}{5}R.$\\
+			Áp dụng hệ thức lượng trong tam giác vuông $OAA'$, ta có\\
+			$OA^2=ON.OA'\Rightarrow OA'=\dfrac{OA^2}{ON}=\dfrac{R^2}{\frac{\sqrt{15}}{5}R}=\dfrac{\sqrt{15}}{3}R.$\\
+			$\Rightarrow AA'=x=\sqrt{OA'^2-OA^2}=\sqrt{\left(\dfrac{\sqrt{15}}{3}R\right)^2-R^2}=\dfrac{\sqrt{6}}{3}R.$\\
+			Mặt khác, ta đã chứng minh được\\
+			$AA'\cdot BB'=R^2\Rightarrow BB'=y=\dfrac{R^2}{AA'}=\dfrac{R^2}{\frac{\sqrt{6}}{3}R}=\dfrac{\sqrt{6}}{2}R.$\\
+			Vậy $x=\dfrac{\sqrt{6}}{3}R$ và $y=\dfrac{\sqrt{6}}{2}R$.
+			\item[d)] Nửa hình tròn $ (O;R) $ quay một vòng quanh cạnh $ AB $ được hình cầu bán kính $R$ có thể tích là $$ V_1=\dfrac{4}{3}\pi R^3 .$$
+			Hình thang vuông $ ABB'A' $ quay quanh $ AB $ được hình nón cụt với hai bán kính đáy lần lượt bằng $AA', BB'$ và chiều cao bằng $AB$ có thể tích là
+			{\allowdisplaybreaks
+				\begin{eqnarray*}
+					V_2&=&\dfrac{1}{3}\pi\cdot AB\cdot(AA'^2+BB'^2+AA'\cdot BB') \\ &=& \dfrac{1}{3}\pi\cdot 2R\cdot \left[\left(\dfrac{\sqrt{6}}{3}R\right)^2+\left(\dfrac{\sqrt{6}}{2}R\right)^2+R^2\right]\\ &=&\dfrac{19}{9}\pi R^3.
+				\end{eqnarray*}
+			}
+			Vậy $\dfrac{V_1}{V_2}=\dfrac{12}{19}.$
+		\end{enumerate}
+	}
+\end{bt}

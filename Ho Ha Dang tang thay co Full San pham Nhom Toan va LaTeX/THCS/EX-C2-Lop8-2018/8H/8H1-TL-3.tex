@@ -1,0 +1,570 @@
+\section{Dựng hình bằng thước và compa}
+\textit{Giải bài toán dựng hình} (bằng thước và compa) là chỉ ra một số hữu hạn lần các phép dựng hình cơ bản và các bài toán dựng hình cơ bản rồi chứng tỏ hình dựng được có đủ các điều kiện mà bài toán đòi hỏi.\\
+Lời giải đầy đủ của một bài toán dựng hình gồm bốn phần:
+\begin{enumerate}
+	\item \textit{Phân tích.} Giả sử đã có một hình thỏa mãn các điều kiện của bài toán. Có thể vẽ thêm hình mới làm xuất hiện những yếu tố nêu trong đề bài hoặc làm xuất hiện những hình có thể dựng được ngay. Đưa việc dựng các yếu tố còn lại của hình phải dựng về các phép dựng hình cơ bản và các bài toán dựng hình cơ bản đã biết.
+	\item \textit{Cách dựng.} Nêu thứ tự từng bước dựng hình dựa vào các phép dựng hình cơ bản và các bài toán dựng hình cơ bản, đồng thời thể hiện các bước dựng đó trên hình vẽ.
+	\item \textit{Chứng minh.} Dùng lập luận chứng tỏ rằng với cách dựng như trên, hình đã dựng thỏa mãn các điều kiện của bài toán.
+	\item \textit{Biện luận.} Chỉ rõ trong trường hợp nào bài toán dựng được và dựng được bao nhiêu hình thỏa mãn đề bài (hình thỏa mãn đề bài gọi là nghiệm hình).\\
+\end{enumerate}
+\begin{vd}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Dựng tam giác $ABC$, biết $AC=b$, $AB=c$, $\widehat{B}-\widehat{C}=\alpha$.
+	\loigiai{
+	\begin{center}
+		\begin{tabular}{m{7cm}m{4cm}}
+			\begin{tikzpicture}[scale=0.8]
+			\tkzDefPoints{0/0/A,4/-4/C,-2/-4/m,-1/-5/n,4/0/x,3/1/y}
+			\tkzInterLL(A,x)(C,y)\tkzGetPoint{D}
+			\tkzInterLL(A,n)(C,m)\tkzGetPoint{B}
+			\tkzDrawSegments(A,x A,n C,y C,m A,C)
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\tkzLabelSegments[left](A,n){$c$}
+			\tkzLabelSegments[below](A,C){$b$}
+			\tkzLabelAngle(y,C,A){$\alpha$}
+			\tkzLabelPoints[above](A,m,y)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below](C,n,x)
+			\tkzLabelPoints[above right](D)
+			\end{tikzpicture}&
+			\begin{tikzpicture}
+			\tkzDefPoints{0/3/A,3/3/m,2/4/n,0/2/C,3/2/D,0/1/E,4/1/F}
+			\tkzDrawPoints[fill=black](A,C,D,E,F)
+			\tkzDrawSegments(m,A A,n C,D E,F)
+			\tkzLabelAngle(m,A,n){$\alpha$}
+			\tkzLabelSegments[above](C,D){$c$}
+			\tkzLabelSegments[above](E,F){$b$}
+			\end{tikzpicture}
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item \textit{Phân tích}\\
+		Giả sử đã dựng được $\triangle ABC$ có $AC=b$, $AB=c$, $\widehat{B}-\widehat{C}=\alpha$.\\
+		Kẻ $Ax\parallel BC$, kẻ tia $Cy$ sao $\widehat{BCy}=\widehat{B}$ ($Cy$ và $A$ cùng phía đối với $BC$). $ABCD$ là hình thang nên 
+		$$CD=AB=c,\qquad \widehat{ACD}=\widehat{BCD}-\widehat{BCA}=\widehat{B}-\widehat{BCA}=\alpha.$$
+		Tam giác $ACD$ dựng được (biết hai cạnh và góc xen giữa).\\
+		Điểm $B$ thỏa mãn hai điều kiện: nằm trên đường thẳng qua $C$ song song với $AD$ và $\widehat{DAB}=\widehat{ADC}$.
+		\item \textit{Cách dựng}
+		\begin{itemize}
+			\item Dựng $\triangle ACD$ có $AC=b$, $CD=c$, $\widehat{ACD}=\alpha$.
+			\item Qua $C$ dựng đường thẳng $Cm\parallel AD$.
+			\item Dựng tia $An$ sao cho $\widehat{DAn}=\widehat{ADC}$, cắt $Cm$ ở $B$.
+		\end{itemize}
+		\item \textit{Chứng minh}\\
+		Tứ giác $ABCD$ có $AD\parallel BC$, $\widehat{DAB}=\widehat{ADC}$ nên là hình thang cân, do đó $AB=CD=c$, $\widehat{ABC}=\widehat{DCB}$.\\
+		Ta có $\widehat{ABC}-\widehat{ACB}=\widehat{DCB}-\widehat{ACB}=\widehat{ACD}=\alpha$.
+		\item \textit{Biện luận}\\
+		Bài toán có một nghiệm hình nếu $b>c$ và $\alpha<180^\circ$.
+	\end{enumerate}
+	\textit{Chú ý:} Điểm $B$ được dựng ở ví dụ là giao điểm của hai tia $Cm$ và $An$. Điểm $B$ đã được dựng là giao điểm của hai đường thẳng, hay tổng quát là giao của hai tập hợp (quỹ tích).
+
+}
+\end{vd}
+Phương pháp lấy giaO của hai quỹ tích gọi là phương pháp quỹ tích tương giao. Nội dung của phương pháp là: Để dựng một điểm, ta phân tích điểm đó thỏa mãn hai điều kiện, do điều kiện thức nhất điểm thuộc một quỹ tích, do điều kiện thứ hai điểm thuộc một quỹ tích khác, giao điểm của hai quỹ tích ấy cho ta điểm phải dựng.\\
+Khi phân tích một điểm thuộc đường nào, cần nhớ các kiến thức sau:
+\begin{itemize}
+	\item Điểm cách đều hai đầu của đoạn thẳng $AB$ thì nằm trên đường trung trực của $AB$.
+	\item Điểm cách đều điểm $O$ một khoảng $r$ thì nằm trên đường tròn $(O;r)$.
+	\item Điểm nằm trong góc và cách đều hai cạnh của góc thì nằm trên tia phân giác của góc ấy.
+\end{itemize}
+Cũng cần chú ý đến số giao điểm của hai đường. Hai đường thẳng có thể có $0$, $1$ hoặc vô số giao điểm tùy theo chúng song song, cắt nhau hay trùng nhau. Đường thẳng và đường tròn $(O;r)$ có thể có $0$, $1$ hoặc $2$ giao điểm tùy theo $r<h$, $r=h$ hoặc $r>h$ ($h$ là khoảng cách từ $O$ đến đường thẳng). Hai đường tròn có thể có $O$, $1$, $2$ hoặc vô số giao điểm.\\
+Dựa vào số giao điểm ấy mà ta biện luận bài toán.
+\begin{vd}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Chứng minh rằng tồn tại một hình thang có độ dài bốn cạnh bằng độ dài bốn cạnh của một tứ giác cho trước.
+	\loigiai{
+	\immini{Gọi $a$, $b$, $c$, $d$ là độ dài bốn cạnh của tứ giác $(a\ge b\ge c\ge d)$.\\ Cần chứng minh tồn tại hình thang có bốn cạnh như trên: Chọn đáy lớn bằng $a$, đáy nhỏ bằng $d$.\\ Ta dựng $\triangle BEC$ rồi dưng $D$ và $A$.\\
+	Để chứng minh tồn tại hình thang $ABCD$, ta sẽ chứng tỏ tồn tại $\triangle BEC$ (tam giác này có thể suy biến thành đoạn thẳng).\\ Thật vậy, ta có}{\begin{tikzpicture}[scale=0.8]
+	\tkzDefPoints{0/0/A,2/0/B,5/-4/C,-1/-4/D}
+	\coordinate (E) at ($(B)+(D)-(A)$);
+	\tkzDrawPoints[fill=black](A,B,C,D,E)
+	\tkzDrawSegments(A,B B,C C,D B,E A,D)
+	\tkzLabelSegments[above](A,B){$d$}
+	\tkzLabelSegments[above](B,C){$b$}
+	\tkzLabelSegments[left](A,D B,E){$c$}
+	\tkzLabelSegments[above](E,C){$a-d$}
+	\draw[<-] (-1,-5)--(1.5,-5);
+	\draw[->] (2.5,-5)--(5,-5);
+	\node at (2,-4.7)[below] {$a$};
+	\tkzLabelPoints[above](A,B)
+	\tkzLabelPoints[below](C,D,E)
+	\end{tikzpicture}}
+	$$b+c>a-d\text{ (vì $d+b+c>a$ do $a$, $b$, $c$, $d$ là bốn cạnh của tứ giác)},$$
+	$$a-d+b\ge c\text{ (vì $a\ge c$, $c\ge d$)}, a-d+c\ge b\text{ (vì $a\ge b$, $c\ge d$)}.$$
+}
+\end{vd}
+\subsection{Bài tập}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Dựng hình thang $ABCD$ ($AB\parallel CD$), biết:
+	\begin{enumerate}
+		\item $AB=1$ cm, $AD=2$ cm, $BC=3$ cm, $CD=3$ cm.
+		\item $AB=a$, $CD=b$, $AC=c$, $BD=d$.
+	\end{enumerate}
+\loigiai{
+\begin{enumerate}
+	\item 
+	\immini{Trước hết dựng $\triangle BEC$ biết ba cạnh $BC=3$ cm, $BE=CD=2$ cm. Sau đó dựng điểm $D$ và điểm $A$.}{\begin{tikzpicture}[scale=0.7]
+		\tkzDefPoints{0/0/A,2/0/B,6/-3/C,1/-3/D}
+		\coordinate (E) at ($(B)+(D)-(A)$);
+		\tkzDrawPoints[fill=black](A,B,C,D,E)
+		\tkzDrawSegments(A,B B,C C,D B,E A,D)
+		\tkzLabelSegments[above](A,B){$1$}
+		\tkzLabelSegments[above](B,C){$3$}
+		\tkzLabelSegments[left](A,D B,E){$2$}
+		\tkzLabelSegments[above](E,C){$2$}
+		\tkzLabelPoints[above](A,B)
+		\tkzLabelPoints[below](C,D,E)
+		\end{tikzpicture}}
+	\item 
+	\immini{Trước hết dựng $\triangle BDE$, biết ba cạnh $DE=a+b$, $BE=c$, $BD=d$. Sau đó dựng điểm $A$.}{\begin{tikzpicture}[scale=0.8]
+		\tkzDefPoints{0/0/A,2/0/B,5/-3/C,-1/-3/D}
+		\coordinate (E) at ($(B)+(C)-(A)$);
+		\tkzDrawPoints[fill=black](A,B,C,D,E)
+		\tkzDrawSegments(A,B B,C E,D B,E A,D A,C B,D)
+		\tkzLabelSegments[above](A,B E,C){$a$}
+		\tkzLabelSegments[above](B,D){$d$}
+		\tkzLabelSegments[left](A,C B,E){$c$}
+		\tkzLabelSegments[above](C,D){$b$}
+		\tkzLabelPoints[above](A,B)
+		\tkzLabelPoints[below](C,D,E)
+		\end{tikzpicture}}
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Dựng hình thang cân $ABCD$ ($AB\parallel CD$), biết $AB=a$, $CD=b$, $\widehat{D}=\alpha$.
+	\loigiai{
+	\immini{Trước hết dựng tam giác $\triangle ADE$ có $DE=b-a$, $\widehat{D}=\widehat{AED}=\alpha$. Sau đó dựng các điểm $C$ và $B$.}{\begin{tikzpicture}[scale=0.8]
+		\tkzDefPoints{0/0/A,2/0/B,5/-3/C,-1/-3/D}
+		\coordinate (E) at ($(A)+(C)-(B)$);
+		\tkzDrawPoints[fill=black](A,B,C,D,E)
+		\tkzDrawSegments(A,B B,C C,D A,E A,D)
+		\tkzLabelSegments[above](A,B){$a$}
+		\tkzLabelSegments[below](E,D){$b-a$}
+		\tkzMarkAngles(E,D,A A,E,D B,C,E)
+		\node at (D)[above right]{$\alpha$};
+		\tkzLabelPoints[above](A,B)
+		\tkzLabelPoints[below](C,D,E)
+		\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1-5]
+	Dựng tứ giác $ABCD$, biết ba góc và
+	\begin{enumEX}{2}
+		\item Hai cạnh kề nhau;
+		\item Hai cạnh đối nhau.
+	\end{enumEX}
+\loigiai{
+	 \begin{enumEX}{2}
+	 	\item Cách dựng thể hiện trên hình.
+	 	\begin{center}
+	 		\begin{tikzpicture}[scale=0.6]
+	 		\tkzDefPoints{0/0/B,6/-1/C,1/4/A,6/3/D}
+	 		\coordinate (x) at ($(A)!1.2!(D)$);
+	 		\coordinate (y) at ($(C)!1.3!(D)$);
+	 		\tkzDrawPoints[fill=black](A,B,C,D)
+	 		\tkzLabelPoints[above](A,y,x)\tkzLabelPoints[below](B,C)\tkzLabelPoints[below left](D)
+	 		\tkzMarkAngle[size=0.5](B,A,D)
+	 		\tkzMarkAngle[size=0.5,<->](D,C,B)
+	 		\tkzLabelSegments[left](A,B){$a$}
+	 		\tkzLabelSegments[below](B,C){$b$}
+	 		\tkzDrawSegments(A,x A,B B,C C,y A,C)
+	 		\node at ($(A)+(0,-0.5)$)[below]{$\alpha$};
+	 		\node at ($(C)+(-0.5,0.5)$)[left]{$\gamma$};
+	 		\end{tikzpicture}
+	 	\end{center}
+	 	\item Cách dựng thể hiện trên hình.
+	 	\begin{center}
+	 		\begin{tikzpicture}[scale=0.8]
+	 		\tkzDefPoints{0/0/B,4/-0.1/C,1/3/A,3.5/4/D}
+	 		\coordinate (C') at ($(B)!1.5!(C)$);
+	 		\coordinate (x) at ($(A)!1.4!(D)$);
+	 		\coordinate (a) at ($(B)!1.4!(A)$);
+	 		\coordinate (y) at ($(B)!1.8!(C)$);
+	 		\tkzDefLine[parallel=through C'](C,D)\tkzGetPoint{D'}
+	 		\coordinate (z) at ($(D')!1.5!(D)$);
+	 		\tkzDrawSegments(B,A B,y C',D' A,x D',z C,D)
+	 		\tkzLabelPoints[below](B,C,C',y)
+	 		\tkzLabelPoints[above](A,D,D',x)
+	 		\tkzLabelSegments[left](A,B){$a$}
+	 		\tkzLabelSegments[right](C',D'){$b$}
+	 		\node at (B)[above right]{$\beta$};
+	 		\node at (A)[below right]{$\alpha$};
+	 		\node at (C')[above left]{$\gamma$};
+	 		\end{tikzpicture}
+	 	\end{center}
+	 \end{enumEX}
+
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Dựng tam giác $ABC$, biết $\widehat{B}=\beta$, $\widehat{C}=\alpha$, $BC-AB=d$.
+	\loigiai{
+	\begin{enumerate}
+		\item \immini{\textit{Phân tích.} Giả sử đã dựng được $\triangle ABC$ có $\widehat{B}=\beta$, $\widehat{C}=\alpha$, $BC-AB=d$. Trên $BC$ lấy điểm $D$ sao cho $BD=AB$ thì $DC=BC-BD=BC-AB=d$.\\
+		Ta có $\triangle ABD$ cân nên $\widehat{ADC}=90^\circ+\dfrac{\widehat{B}}{2}=90^\circ+\dfrac{\beta}{2}$ (góc này dựng được bằng thước và compa).
+	\begin{itemize}
+		\item $\triangle ADC$ xác định ngay vì biết một cạnh và hai góc kề với nó.
+		\item Điểm $B$ thuộc tia đối của tia $DC$. Mặt khác do $BA=BD$ nên $B$ thuộc đường trung trực của $AD$.
+\end{itemize}}{\begin{tikzpicture}[scale=0.8]
+			\tkzDefPoints{0/0/B,3/-1/D,1/3/A}
+			\coordinate (C) at ($(B)!3/2!(D)$);
+			\coordinate (M) at ($(A)!0.5!(D)$);
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\tkzDrawSegments(A,B B,C A,D A,C B,M)
+			\tkzMarkSegments[mark=||](A,M M,D)
+			\tkzMarkSegments[mark=|](A,B B,D)
+			\tkzMarkRightAngle(B,M,D)
+			\tkzLabelPoints[below](B,D,C)\tkzLabelPoints[above](A)
+			\tkzLabelSegments[above](D,C){$d$}
+	\end{tikzpicture}}
+		
+		\item \textit{Cách dựng.}
+		\begin{itemize}
+			\item Dựng $\triangle ADC$ có $\widehat{D}=90^\circ+\dfrac{\beta}{2}$, $DC=d$, $\widehat{C}=\alpha$.
+			\item Dựng đường trung trực của $AD$, cắt tia đối của tia $DC$ ở $B$. Nối $AB$.
+		\end{itemize}
+		\item \textit{Chứng minh.} $B$ thuộc đường trung trực của $AD$ nên $AB=BD$. Do đó $$BC-AB=BC-BD=DC=d.$$
+		$\triangle ABD$ cân mà $\widehat{ADC}=90^\circ+\dfrac{\beta}{2}$ nên $\widehat{ADB}=90^\circ-\dfrac{\beta}{2}$, do đó $\widehat{B}=\beta$, còn $\widehat{C}=\alpha$.
+		\item \textit{Biện luận.} Bài toán có một nghiệm hình nếu dựng được $\triangle ADC$, tức là nếu $90^\circ+\dfrac{\beta}{2}+\alpha<180^\circ\Leftrightarrow \alpha<90^\circ-\dfrac{\beta}{2}$.
+	\end{enumerate}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Dựng tam giác $ABC$, biết:
+	\begin{enumerate}
+		\item $\widehat{A}=\alpha$, $BC=a$, $AC-AB=d$;
+		\item $\widehat{B}-\widehat{C}=\alpha$, $BC=a$, $AC-AB=d$.
+	\end{enumerate}
+\loigiai{
+\immini{\begin{enumerate}
+	\item Trên $AC$ lấh điểm $D$ sao cho $AD=AB$ thì $DC=d$, $\widehat{BDC}=90^\circ+\dfrac{\alpha}{2}$. Dựng $\triangle DBC$, rồi dựng điểm $A$.\item Trên $AC$ lấy điểm $D$ sao cho $AD=AB$ thì $DC=AC-AB=d$. Tính \begin{eqnarray*}
+			\widehat{DBC}&=&\widehat{ADB}-\widehat{C}=\left(90^\circ-\dfrac{\widehat{A}}{2}\right)-\widehat{C}\\
+			&=&\dfrac{\widehat{B}}{2}+\dfrac{\widehat{C}}{2}-\widehat{C}=\dfrac{\widehat{B}-\widehat{C}}{2}=\dfrac{\alpha}{2}.
+		\end{eqnarray*}
+		Dựng $\triangle BDC$, rồi dựng điểm $A$. Chú ý rằng có thể dựng được hai điểm $D$ nhưng chỉ chọn $D$ sao cho $\widehat{BDC}>90^\circ$.\end{enumerate}}{\begin{tikzpicture}[scale=0.8]
+			\tkzDefPoints{0/0/B,1/5/A,6/0/C}
+			\coordinate (D) at ($(A)!2/3!(C)$);
+			\tkzMarkSegments[mark=|](A,B A,D)
+			\tkzMarkAngle(B,A,D)
+			\node at ($(A)+(0.2,-1)$) [below] {$\alpha$};
+			\tkzLabelSegments[left](D,C){$d$}
+			\tkzLabelSegments[below](B,C){$a$}
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\tkzDrawSegments(A,B B,C C,A B,D)
+			\tkzLabelPoints[below](B,C)\tkzLabelPoints[right](D)\tkzLabelPoints[above](A)
+%			\node[below] at (3,-0.3){Hình};
+	\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Dựng tam giác $ABC$, biết:
+	\begin{enumerate}
+		\item $\widehat{A}=\alpha$, $BC=a$, $AC+AB=s$;
+		\item $\widehat{B}-\widehat{C}=\alpha$, $BC=a$, $AC+AB=s$.
+	\end{enumerate}
+\loigiai{
+\begin{enumerate}
+	\item \immini{\textit{Phân tích.} Trên tia đối của tia $AC$ lấy điểm $D$ sao cho $AD=AB$ thì $\triangle ABD$ cân nên $\widehat{D}=\dfrac{\alpha}{2}$. Dựng $\triangle BDC$, rồi dựng $A$.\\
+		\textit{Cách dựng.} 
+		\begin{itemize}
+			\item Dựng $\widehat{xDy}=\dfrac{\alpha}{2}$.
+			\item Trên tia $Dx$ lấy $DC=s$.
+			\item Dựng đường tròn $(C;a)$ cắt tia $Dy$ ở $B$.
+			\item Dựng đường trung trực của $BD$ cắt cạnh $DC$ ở $A$.
+		\end{itemize}
+		\textit{Biện luận.} Gọi $h$ là khoảng cách từ $C$ đến $Dy$. Điều kiện để bài toán có nghiệm hình là $h\le a<s$.}{\begin{tikzpicture}[scale=0.8]
+			\tkzDefPoints{0/0/y,-1/4/D,5/-0.5/x}
+			\coordinate (B) at ($(D)!0.8!(y)$);
+			\coordinate (A) at ($(D)!0.3!(x)$);
+			\coordinate (C) at ($(D)!0.8!(x)$);
+			\tkzDrawPoints[fill=black](A,B,C,D)
+			\tkzDrawSegments(y,D x,D B,A B,C)
+			\tkzMarkSegments[mark=|](D,A A,B)
+			\tkzLabelSegments[above](A,D){$c$}
+			\tkzLabelSegments[above](A,C){$b$}
+			\tkzLabelSegments[below](B,C){$a$}
+			\tkzLabelPoints[below](y,x)
+			\tkzLabelPoints[right](A,C)\tkzLabelPoints[above](D)\tkzLabelPoints[left](B)
+	\end{tikzpicture}}
+	\item Trên tia đối của tia $AC$ lấy điểm $D$ sao cho $AD=AB$. Tính $$\widehat{DBC}=\widehat{B}+\dfrac{\widehat{A}}{2}=\widehat{B}+\left(90^\circ-\dfrac{\widehat{B}}{2}-\dfrac{\widehat{C}}{2}\right)=90^\circ+\dfrac{\widehat{B}-\widehat{C}}{2}=90^\circ+\dfrac{\alpha}{2},$$
+	góc này dựng được bằng thước và compa. Dựng $\triangle BDC$, rồi dựng điểm $A$.
+\end{enumerate}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Dựng tam giác $ABC$, biết $\widehat{A}=\alpha$, $AB+AC=s$, đường trung tuyến $AM=m$.
+	\loigiai{
+	\immini{Trên tia đối của tia $AB$ lấy $D$, trên tia đối của tia $AC$ lấy $E$ sao cho $AD=AE=AB$.\\ Ta có $EC=s$, $DC=2m$, $\widehat{DEC}=90^\circ-\dfrac{\alpha}{2}$.\\ Dựng $\triangle EDC$ rồi dựng $A$, sau đó dựng $B$.}{\begin{tikzpicture}[scale=0.8]
+			\tkzDefPoints{0/0/B,5/0/C,2/3/A}
+			\coordinate (D) at ($(B)!2!(A)$);
+			\coordinate (E) at ($(C)!1.8!(A)$);
+			\coordinate (M) at ($(B)!0.5!(C)$);
+			\tkzDrawSegments(B,D E,C A,M C,D E,D B,C)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,M)
+			\tkzLabelSegments[left](A,M){$m$}
+			\tkzLabelSegments[right](C,D){$2m$}
+			\tkzMarkSegments[mark=|](A,B A,D A,E)
+			\tkzMarkSegments[mark=||](B,M M,C)
+			\tkzLabelAngle(D,A,E){$\alpha$}
+			\tkzLabelPoints[above](E,D)\tkzLabelPoints[below](B,M,C)\tkzLabelPoints[left](A)
+	\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Dựng tam giác $ABC$, biết $BC=a$, đường cao $AH=h$, đường trung tuyến $BM=m$.
+	\loigiai{
+	Vẽ $MK$ vuông góc với $BC$ thì $MK=\dfrac{h}{2}$. Dựng $\triangle BMK$, rồi dựng điểm $C$, sau đó dựng điểm $A$.
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Dựng tam giác $ABC$, biết đường cao $AH=h$, đường cao $BI=k$, đường trung tuyến $AM=m$.
+	\loigiai{
+	\immini{Tam giác vuông $AHM$ dựng được. Vẽ $MK\perp AC$ thì $$MK=\dfrac{BI}{2}=\dfrac{k}{2}.$$ Dựng tiếp tam giác vuông $AMK$.\\
+		Điều kiện để có nghiệm hình: $\dfrac{k}{2}<m$, $h\le m$.}{\begin{tikzpicture}
+		\clip (-1,-1) rectangle (6,5);
+			\tkzDefPoints{0/0/B,5/0/C,1/4/A}
+			\coordinate (M) at ($(B)!0.5!(C)$);
+			\tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{H}
+			\tkzDefPointBy[projection=onto A--C](B)\tkzGetPoint{I}
+			\tkzDefPointBy[projection=onto A--C](M)\tkzGetPoint{K}
+			\tkzDrawPoints[fill=black](A,B,C,H,M,I,K)
+			\tkzDrawSegments(A,B B,C A,C A,H A,M B,I M,K)
+			\tkzMarkRightAngles(B,I,C M,K,A)
+			\node at ($(M)+(-0.1,1.5)$) [left]{\footnotesize $m$};
+			\tkzLabelSegments[above](M,K){\footnotesize{$\dfrac{k}{2}$}}
+			\tkzLabelPoints[below](B,H,M,C)\tkzLabelPoints[right](I,K)\tkzLabelPoints[above](A)
+	\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1-5]
+	Dựng tam giác $ABC$ có $\widehat{B}=3\widehat{C}$ biết $AB=c$, $AC=b$.
+	\loigiai{
+	\immini{Lấy $E$ trên $AC$ sao cho $\widehat{CBE}=\widehat{C}$ thì $$\widehat{ABE}=2\widehat{C}, \widehat{AEB}=2\widehat{C}.$$ Do đó $\triangle ABE$ cân.\\ Suy ra $EC=b-c$, $BE=b-c$.\\
+		Dựng $\triangle ABE$ biết độ dài ba cạnh $c$, $c$, $b-c$.\\
+		Sau đó dựng điểm $C$.}{\begin{tikzpicture}
+			\tkzDefPoints{0/0/B,5/-1/C,1/3/A}
+			\coordinate (E) at ($(A)!0.4!(C)$);
+			\tkzDrawPoints[fill=black](A,B,C,E)
+			\tkzDrawSegments(A,B B,C B,E A,C)
+			\tkzMarkSegments[mark=|](B,E E,C)
+			\tkzLabelSegments[left](A,B){$c$}
+			\tkzLabelSegments[right](A,E){$c$}
+			\tkzLabelPoints[above](A)\tkzLabelPoints[below](B,C)\tkzLabelPoints[right](E)
+	\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Dựng tam giác, biết độ dài ba đường trung tuyến.
+	\loigiai{
+	\immini{Gọi $K$ là trung điểm của $CG$. $\triangle GDK$ có các cạnh bên bằng $\dfrac{1}{3}$ độ dài các đường trung tuyến của $\triangle ABC$. Dựng $\triangle GDK$, rồi dựng $F$, $C$. Sau đó dựng $B$, $A$.\\
+	Điều kiện để có nghiệm hình là $|m-n|<p<m+n$ với $m$, $n$, $p$ là độ dài ba đường trung tuyến đã cho.}{\begin{tikzpicture}[scale=0.8]
+		\tkzDefPoints{0/0/B,6/0/C,2/4/A}
+		\coordinate (D) at ($(B)!0.5!(C)$);
+		\coordinate (F) at ($(A)!0.5!(B)$);
+		\coordinate (E) at ($(A)!0.5!(C)$);
+		\tkzInterLL(A,D)(C,F)\tkzGetPoint{G}
+		\coordinate (K) at ($(G)!0.5!(C)$);
+		\tkzDrawPoints[fill=black](A,B,C,D,E,F,G,K)
+		\tkzDrawSegments(A,B B,C C,A B,E C,F A,D D,K)
+		\tkzMarkSegments[mark=|](A,F F,B)
+		\tkzMarkSegments[mark=||](B,D D,C)
+		\tkzLabelPoints[above](A)\tkzLabelPoints[below](B,C,D)\tkzLabelPoints[left](F)\tkzLabelPoints[above](K,E)
+		\node at ($(G)+(0,-0.1)$)[below]{$G$};
+\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Cho góc $xOy$ và điểm $G$ ở trong góc. Dựng tam giác $OAB$ nhận $G$ làm trọng tâm, có $A$ thuộc $Ox$, $B$ thuộc $Oy$.
+	\loigiai{
+	\immini{Trên tia $OG$ lấy $C$ sao cho $OC=3OG$. Qua $C$ vẽ các đường thẳng song song với các cạnh của góc.}{\begin{tikzpicture}[scale=0.6]
+			\tkzDefPoints{0/0/O,5/-1/x,4/5/y}
+			\coordinate (A) at ($(O)!2/3!(x)$);
+			\coordinate (B) at ($(O)!2/3!(y)$);
+			\coordinate (C) at ($(B)+(A)-(O)$);
+			\coordinate (G) at ($(O)!1/3!(C)$);
+			\tkzDrawPoints[fill=black](O,A,B,C)
+			\tkzDrawSegments(O,y O,x O,C B,C C,A B,A)
+			\tkzLabelPoints[left](B,y,O)\tkzLabelPoints[right](C,x)\tkzLabelPoints[below](A)
+	\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Dựng tam giác $ABC$ có $\widehat{B}-\widehat{C}=90^\circ$, biết đường phân giác $AD=d$, $DC=m$.
+	\loigiai{
+	\immini{Vẽ đường vuông góc với $BC$ tại $B$, cắt $AD$ ở $K$, cắt $AC$ ở $H$.\\ Ta có $\widehat{ABH}=\widehat{C}$, $\widehat{ADB}=\widehat{A}_2+\widehat{C}$, $\widehat{BKD}=\widehat{A}_1+\widehat{ABH}$ nên $\widehat{ADB}=\widehat{BKD}$, do đó $\widehat{ADB}=45^\circ$, $\widehat{ADC}=135^\circ$.\\
+	Dựng $\triangle ADC$ (c.g.c) rồi dựng $B$.}{\begin{tikzpicture}[scale=0.8]
+	\clip (-3,-1) rectangle (7,6);
+		\tkzDefPoints{0/0/B,-2/5/A,6/0/C}
+		\tkzDefPointWith[orthogonal,K=2](B,C)    \tkzGetPoint{x}
+		\tkzInterLL(B,x)(A,C)\tkzGetPoint{H}
+		\tkzDefLine[bisector](B,A,C)    \tkzGetPoint{y}
+		\tkzInterLL(A,y)(B,C)\tkzGetPoint{D}
+		\tkzInterLL(A,y)(B,H)\tkzGetPoint{K}
+		\tkzDrawPoints[fill=black](A,B,C,D,H,K)
+		\tkzDrawSegments(A,B B,C C,A B,H A,D)
+		\tkzMarkAngles(B,A,y)\tkzMarkAngle(y,A,C)
+		\tkzLabelPoints[above](A,H)\tkzLabelPoints[below](B,D,C)\tkzLabelPoints[above right](K)
+		\node at ($(A)+(0.7,-0.8)$)[right]{\footnotesize $2$};
+		\node at ($(A)+(0.5,-1.3)$)[right]{\footnotesize $1$};
+\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Cho đường thẳng $m$ và hai điểm $H$, $G$ thuộc cùng một nửa mặt phẳng bờ $m$. Dựng tam giác $ABC$ có $B$ và $C$ thuộc $m$, nhận $H$ làm trực tâm, $G$ làm trọng tâm.
+	\loigiai{
+	\immini{Gọi $O$ là giao điểm các đường trung trực của $\triangle ABC$ thì $G$ nằm giữa $H$ và $O$, đồng thời $HG=2GO$.\\
+	Do đó biết vị trí $H$, $G$ thì dựng được $O$. Sau đó dựng $OM\perp m$. Trên tia $MG$ lấy $MA=3MG$. Dựng $(O;OA)$ cắt $m$ ở $B$ và $C$.\\
+	Bài toán luôn có một nghiệm hình vì đường tròn $(O;OA)$ luôn cắt $m$.}{\begin{tikzpicture}[scale=0.8]
+	\clip (-1,-1) rectangle (8,5);
+		\tkzDefPoints{0/0/B,6/0/C,2/4/A}
+		\coordinate (m) at ($(B)!1.2!(C)$);
+		\coordinate (M) at ($(B)!0.5!(C)$);
+		\tkzCentroid(A,B,C)    \tkzGetPoint{G}
+		\tkzCircumCenter(A,B,C)    \tkzGetPoint{O}
+		\tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{x}
+		\tkzDefPointBy[projection=onto A--B](C)\tkzGetPoint{z}
+		\tkzInterLL(A,x)(C,z)\tkzGetPoint{H}
+		\tkzDrawPoints[fill=black](A,B,C,H,G,M,O)
+		\tkzDrawSegments(A,B B,m A,M A,C H,O A,H O,M)
+		\tkzMarkRightAngle(O,M,C)
+		\tkzLabelPoints[below](B,M,C,m)\tkzLabelPoints[above](A)\tkzLabelPoints[left](H)\tkzLabelPoints[right](O)\tkzLabelPoints[below left](G)
+\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Dựng tam giác $ABC$ vuông tại $A$ có $AC=2AB$, biết $BC=5$ cm.
+	\loigiai{
+	\immini{Gọi $M$ là trung điểm của $AC$. Vẽ $AH$, $MK\perp BC$. $\triangle ABH=\triangle CMK$ (cạnh huyền - góc nhọn) nên $BH=MK$, $AH=CK$.\\ Ta lại có $MK=\dfrac{AH}{2}$. Suy ra $BH=\dfrac{CK}{2}$. Mà $CK=HK$ nên $BH=\dfrac{1}{5}BC=1$ cm, $AH=2$ cm.\\ Dựng được $\triangle ABH$, rồi dựng $C$.}{\begin{tikzpicture}[scale=0.8]
+		\clip (-1,-1) rectangle (7,4);
+			\tkzDefPoints{0/0/B,6/0/C,1.5/3/A}
+			\coordinate (M) at ($(A)!0.5!(C)$);
+			\tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{H}
+			\tkzDefPointBy[projection=onto B--C](M)\tkzGetPoint{K}
+			\tkzMarkRightAngles(A,H,C M,K,C)
+			\tkzDrawPoints[fill=black](A,B,C,M,H,K)
+			\tkzDrawSegments(A,B B,C A,C A,H M,K)
+			\tkzMarkSegments[mark=|](A,B A,M M,C)
+			\tkzLabelPoints[below](B,H,K,C)\tkzLabelPoints[above](A,M)
+	\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Cho tam giác $ABC$. Dựng đường thẳng $DE$ song song với $BC$ ($D$ thuộc $AB$, $E$ thuộc $AC$) sao cho $DE=DB+CE$.
+	\loigiai{
+	\immini{Dựng tia phân giác của các góc $B$ và $C$, chúng cắt nhau ở $I$. Qua $I$ dựng $DE\parallel BC$.}{\begin{tikzpicture}[scale=0.8]
+		\clip (-1,-1) rectangle (9,5);
+			\tkzDefPoints{0/0/B,8/0/C,3/4/A}
+			\tkzDefLine[bisector](C,B,A)    \tkzGetPoint{x}
+			\tkzDefLine[bisector](A,C,B)    \tkzGetPoint{y}
+			\tkzInterLL(B,x)(C,y)\tkzGetPoint{I}
+			\tkzDefLine[parallel=through I](B,C)\tkzGetPoint{z}
+			\tkzInterLL(I,z)(A,B)\tkzGetPoint{D}
+			\tkzInterLL(I,z)(A,C)\tkzGetPoint{E}
+			\tkzMarkAngles[mark=|](I,B,A C,B,I)
+			\tkzMarkAngles[mark=||](I,C,B A,C,I)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,I)
+			\tkzDrawSegments(A,B B,C A,C E,D B,I I,C)
+			\tkzLabelPoints[above](A,I)\tkzLabelPoints[below](B,C)\tkzLabelPoints[left](D)\tkzLabelPoints[right](E)
+	\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1B5]
+	Cho tam giác $ABC$. Dựng đường thẳng $DE$ song song với $BC$ ($D$ thuộc $AB$, $E$ thuộc $AC$) sao cho $AE=BD$.
+	\loigiai{
+	\immini{Qua $E$ vẽ đường thẳng song song với $AB$ cắt $BC$ ở $F$. Chứng minh rằng $AF$ là tia phân giác của góc $A$.\\
+	Trước hết dựng $F$, rồi dựng $E$.}{\begin{tikzpicture}[scale=0.8]
+	\clip (-1,-1) rectangle (9,5);
+		\tkzDefPoints{0/0/B,2/4/A,8/0/C}
+		\tkzDefLine[bisector](B,A,C)    \tkzGetPoint{x}
+		\tkzInterLL(A,x)(B,C)\tkzGetPoint{F}
+		\tkzDefLine[parallel=through F](A,B)\tkzGetPoint{y}
+		\tkzInterLL(F,y)(A,C)\tkzGetPoint{E}
+		\tkzDefLine[parallel=through E](B,C)\tkzGetPoint{z}
+		\tkzInterLL(E,z)(A,B)\tkzGetPoint{D}
+		\tkzDrawPoints[fill=black](A,B,C,D,E,F)
+		\tkzDrawSegments(A,B B,C C,A D,E E,F A,F)
+		\tkzMarkSegments[mark=|](B,D E,F A,E)
+%		\tkzMarkAngles(B,A,F F,A,C)
+		\node at ($(A)+(-0.1,-0.3)$)[below]{$1$};
+		\node at ($(A)+(0.4,-0.3)$)[below]{$2$};
+		\tkzLabelPoints[below](B,F,C)\tkzLabelPoints[above](A)\tkzLabelPoints[left](D)\tkzLabelPoints[right](E)
+\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1K5]
+	Cho hai đường thẳng song song $a$ và $b$, điểm $C$ thuộc $a$, điểm $O$ thuộc nửa mặt phẳng không chứa $b$ có bờ $a$. Qua $O$ dựng đường thẳng $m$ cắt $a$, $b$ theo thứ tự ở $A$, $B$ sao cho $CA=CB$.
+	\loigiai{
+	\immini{\textit{Phân tích:} Qua $C$ vẽ $CH\perp AB$, cắt $b$ ở $D$. $\triangle ACB$ cân nên $\widehat{CAB}=\widehat{CBA}$, mà $\widehat{CAB}=\widehat{ABD}$.\\ Do đó $\widehat{CBA}=\widehat{DBA}$, suy ra $OD=OC$.\\
+	\textit{Cách dựng:} Dựng $(O;OC)$ cắt $b$ ở $D$.\\
+	Qua $O$ dựng đường vuông góc với $CD$ cắt $a$, $b$ ở $A$, $B$.\\
+	\textit{Biện luận:} Gọi $h$ là khoảng cách từ $O$ đến $b$.\\ Tùy theo $OC>h$, $OC=h$, $OC<h$ mà bài toán có $2$, $1$, $0$ nghiệm hình.}{\begin{tikzpicture}[scale=0.8]
+	\clip (-1,-4) rectangle (8,3);
+		\tkzDefPoints{0/0/a,7/0/C,7/-2/b,3/2/O}
+		\tkzDefLine[parallel=through b](C,a)\tkzGetPoint{c}
+		\tkzDrawArc[dashed,rotate](O,C)(-100)
+		\tkzInterLC(b,c)(O,C)\tkzGetPoints{d}{D}
+		\tkzDefPointBy[projection=onto C--D](O)\tkzGetPoint{H}
+		\tkzInterLL(O,H)(a,C)\tkzGetPoint{A}
+		\tkzInterLL(O,H)(b,c)\tkzGetPoint{B}
+		\tkzDrawPoints[fill=black](O,C,D,B,C,A,H)
+		\tkzDrawSegments(a,C b,c O,C O,D O,B B,C C,D)
+		\tkzMarkSegments[mark=|](A,C B,C)
+		\tkzMarkAngles[size=0.3](B,A,C C,B,D)
+		\tkzLabelPoints[above](O,a)\tkzLabelPoints[below](D,B,b)\tkzLabelPoints[right](C)
+		\tkzLabelPoints[above right](A)\tkzLabelPoints[left](H)
+\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1K5]
+	\begin{enumerate}
+		\item Cho đường thẳng $xy$ và hai điểm $A$, $B$ thuộc hai nửa mặt phẳng đối nhau bờ $xy$. Dựng điểm $M$ thuộc $xy$ sao cho $\widehat{AMx}=2\widehat{BMy}$.
+		\item Giải bài toán trên trong trường hợp $A$ và $B$ thuộc cùng một nửa mặt phẳng bờ $xy$.
+	\end{enumerate}
+\loigiai{
+\immini{\begin{enumerate}
+		\item \textit{Phân tích:} Qua $A$ vẽ đường vuông góc với $BM$, cắt $xy$ ở $C$. Ta chứng minh được $BA=BC$, vì thế xác định được $C$, do đó xác định được $M$.
+		\item Dựng $B'$ sao cho $xy$ là đường trung trực của $BB'$. Đưa về ý trên.
+\end{enumerate}}{\begin{tikzpicture}[scale=0.8]
+\clip (-1,-3) rectangle (8,4);
+\tkzDefPoints{0/0/x,7/0/y,7/-2/B,4/3/A}
+\tkzInterLC(x,y)(B,A)\tkzGetPoints{C}{c}
+\tkzDefPointBy[projection=onto A--C](B)\tkzGetPoint{m}
+\tkzInterLL(B,m)(x,y)\tkzGetPoint{M}
+\tkzDrawPoints[fill=black](A,B,C,M)
+\tkzDrawSegments(x,y A,C A,M B,m)
+\tkzMarkAngles(A,M,C B,M,y)
+\tkzMarkRightAngle(A,m,M)
+\tkzLabelPoints[above](A,x,y)\tkzLabelPoints[below](B,C,M)
+\end{tikzpicture}}
+}
+\end{bt}
+\begin{bt}%[Nhật Thiện- EX-C2-L8]%[8H1K5]
+	Cho tam giác $ABC$. Dựng điểm $M$ sao cho nếu vẽ $MA'\perp BC$, $MB'\perp Ac$, $MC'\perp AB$ thì $A'B'=B'C=C'A$.
+	\loigiai{
+	\immini{Để cho ba đoạn thẳng bằng nhau $A'B$, $B'C$, $C'A$ có liên hệ với nhau, ta ``dịch'' chúng đến $M$: Vẽ đường thẳng qua $M$ song song với $A'B$ và đường thẳng qua $B$ song song với $A'M$, chúng cắt nhau ở $H$. Vẽ đường thẳng qua $M$ song song với $B'C$ và đường thẳng qua $C$ song song với $B'M$, chúng cắt nhau ở $I$. Vẽ đường thẳng qua $M$ song song với $C'A$ và đường thẳng qua $A$ song song với $C'M$, chúng cắt nhau ở $K$.\\
+	Các đường thẳng $AK$, $BH$, $CI$ cắt nhau ở $D$, $E$, $F$. $\triangle DEF$ xác định được vì có các cạnh theo thứ tự vuông góc với $AB$ ở $A$, với $BC$ ở $B$, với $CA$ ở $C$. Còn $M$ là điểm cách đều ba cạnh của $\triangle DEF$ nên giao điểm của các đường phân giác (trong hoặc ngoài) của tam giác. Bài toán có bốn nghiệm hình.}{\begin{tikzpicture}
+	\tkzDefPoints{0/0/B,2/3/A,4/0/C}
+	\tkzInCenter(A,B,C)    \tkzGetPoint{M}
+	\tkzDefPointBy[projection=onto B--C](M)\tkzGetPoint{A'}	
+	\tkzDefPointBy[projection=onto A--C](M)\tkzGetPoint{B'}
+	\tkzDefPointBy[projection=onto B--A](M)\tkzGetPoint{C'}
+	\tkzDefLine[parallel=through M](A',B)\tkzGetPoint{x}	
+	\tkzDefLine[parallel=through B](A',M)\tkzGetPoint{y}
+	\tkzInterLL(M,x)(B,y)\tkzGetPoint{H}
+	\tkzDefLine[parallel=through M](B',C)\tkzGetPoint{z}	
+	\tkzDefLine[parallel=through C](B',M)\tkzGetPoint{k}
+	\tkzInterLL(M,z)(C,k)\tkzGetPoint{I}
+	\tkzDefLine[parallel=through M](C',A)\tkzGetPoint{l}	
+	\tkzDefLine[parallel=through A](C',M)\tkzGetPoint{m}
+	\tkzInterLL(M,l)(A,m)\tkzGetPoint{K}
+	\tkzInterLL(A,K)(B,H)\tkzGetPoint{D}
+	\tkzInterLL(A,K)(C,I)\tkzGetPoint{F}
+	\tkzInterLL(B,H)(C,I)\tkzGetPoint{E}
+	\tkzDrawPoints[fill=black](A,B,C,D,A',B',C',H,M,I,K,E,F)
+	\tkzDrawSegments(D,E E,F F,D A,B A,C C,B M,A' M,B' M,C' M,H M,K M,I)
+	\tkzMarkRightAngles(E,B,C A,C,F B,A,D)
+	\tkzLabelPoints[above](A,D,F,M,K,C')
+	\tkzLabelPoints[below](E,I,C,A')\tkzLabelPoints[right](B')\tkzLabelPoints[left](H,B)
+	\end{tikzpicture}}
+}
+\end{bt}
+

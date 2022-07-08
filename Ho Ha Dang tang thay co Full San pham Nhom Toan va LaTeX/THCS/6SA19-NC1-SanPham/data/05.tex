@@ -1,0 +1,441 @@
+	
+	\section{Ước chung lớn nhất. Bội chung nhỏ nhất}	
+	\subsection{KIẾN THỨC CƠ BẢN}
+	\begin{enumerate}
+		\item[\textbf{1.}] Ước chung của hai hay nhiều số là ước của tất cả các số đó.
+		\item[\textbf{2.}] Ước chung lớn nhất (ƯCLN) của hai hay nhiều số là số lớn nhất trong các ước chung của các số đó.
+		\item[\textbf{3.}] Muốn tìm ƯCLN của hai hay nhiều số lớn hơn 1, ta thực hiện ba bước sau:
+		\begin{enumerate}
+			\item [-] Phân tích mỗi số ra thừa số nguyên tố.
+			\item[-] Chọn ra các thừa số nguyên tố chung.
+			\item[-] Lập tích các thừa số đã chọn, mỗi thừa số lấy với số mũ \textit{nhỏ nhất} của nó. Tích đó là ƯCLN phải tìm.  
+		\end{enumerate}
+		\item[\textbf{4.}] Để tìm ước chung của nhiều số, ta có thể tìm ƯCLN của các số đó rồi tìm ước của ƯCLN đó.
+		\item[\textbf{5.}] Bội chung của hai hay nhiều số là bội của tất cả các số đó.
+		\item[\textbf{6.}] Bội chung nhỏ nhất (BCNN) của hai hay nhiều số là số nhỏ nhất khác không trong các bội chung của các số đó.
+		\item[\textbf{7.}] Muốn tìm BCNN của hai hay nhiều số lớn hơn 1, ta thực hiện ba bước sau:  
+		\begin{enumerate}
+			\item [-] Phân tích mỗi số ra thừa số nguyên tố.
+			\item[-] Chọn ra các thừa số nguyên tố chung và riêng.
+			\item[-] Lập tích các thừa số đã chọn, mỗi thừa số lấy với số mũ \textit{lớn nhất} của nó. Tích đó là BCNN phải tìm.  
+		\end{enumerate}
+		\item[\textbf{8.}] Để tìm bội chung của nhiều số, ta có thể tìm BCNN của các số đó rồi nhân BCNN đó lần lượt với 0, 1, 2, 3, \ldots
+	\end{enumerate}
+	\textbf{KIẾN THỨC BỔ SUNG}
+	\begin{enumerate}
+		\item[\textbf{1.}] Khi cần kí hiệu gọn, ta có thể viết ƯCLN$(a,b)$ là $(a,b)$ và BCNN$(a,b)$ là $[a,b]$.
+		\item[\textbf{2.}] Nếu $ab\ \vdots \ c$ và $(b,c) = 1$ thì $a\ \vdots \ c$.
+		\item[\textbf{3.}] Nếu $a\ \vdots \ m$ và $a\ \vdots \ n$ thì $a\ \vdots \ $BCNN$(m,n)$. Đặc biệt. nếu $a\ \vdots \ m$, $a\ \vdots \ nc$ và $(m,n) =1$ thì $a\ \vdots \ mn$.
+		\item[\textbf{4.}] Nếu ƯCLN$(a,b) = d$ thì $a=dm, b = dn$ với $(m,n)=1$.
+		\item[\textbf{5.}] Nếu BCNN$(a,b) = c$ thì $c=am, c = bn$ với $(m,n) = 1$.
+		\item[\textbf{6.}] ƯCLN$(a,b) \cdot$ BCNN$(a,b) = ab$.  
+		\item[\textbf{7.}] Người ta chứng minh được rằng: Cho hai số tự nhiên $a$ và $b$ trong đó $a>b$. Nếu $a$ chia hết cho $b$ thì ƯCLN$(a,b) = b$. Nếu $a$ không chia hết cho $b$ thì ƯCLN$(a,b)$ bằng ƯCLN của $b$ và số dư trong phép chia $a$ cho $b$. Từ đó ta có thuật toán Euclide tìm ƯCLN của hai số mà không cần phân tích mỗi số ra thừa số nguyên tố như sau:
+		\begin{enumerate}
+			\item[-] Chia số lớn cho số nhỏ.
+			\item[-] Nếu phép chia còn dư, lấy số chia đem chia cho số dư.
+			\item[-] Nếu phép chia này còn dư, lại lấy số chia mới chia cho số dư mới.
+			\item[-] Cứ tiếp tục như vậy cho đến khi được số dư bằng $0$ thì số chia cuối cùng là ƯCLN phải tìm. 
+		\end{enumerate}
+		Chẳng hạn tìm ƯCLN(135,105) bằng thuật toán Euclide như sau:
+
+	\begin{center}
+		\begin{tabular}{rc|l}
+			$135$&&$105$\\
+			\cline{3-3}
+			$30$&&$1$\\
+			
+		\end{tabular}
+
+	\begin{tabular}{rc|l}
+	$105$&&$30$\\
+	\cline{3-3}
+	$15$&&$3$\\
+	
+	\end{tabular}
+
+	\begin{tabular}{rc|l}
+	$30$&&$15$\\
+	\cline{3-3}
+	$0$&&$2$\\
+	
+	\end{tabular}
+	\end{center}
+	\end{enumerate}
+\subsection{VÍ DỤ MINH HỌA}
+	\begin{vd} Tìm số tự nhiên $n$ lớn nhất sao cho khi chia $364, 414, 539$ cho $n$, ta được ba số dư bằng nhau.
+		
+		\loigiai{Vì $364, 414, 539$ chia cho $n$ có cùng số dư nên các hiệu của hai trong ba số ấy chia hết cho $n$. Ta có:
+			\begin{center}
+				$539-414\ \vdots \ n$, tức là $125\ \vdots \ n$,\\
+				$539-364\ \vdots \ n$, tức là $175\ \vdots \ n$,\\
+				$414-364\ \vdots \ n$, tức là $50\ \vdots \ n$.
+			\end{center}
+			Để $n$ lớn nhất thì $n$ là ƯCLN$(125,175,50)$.\\
+			Phân tích ra thừa số nguyên tố: $125 = 5^3$, $175 = 5^2\cdot7$, $50 = 5^2\cdot2$.\\
+			Khi đó ƯCLN$(125,175,50)$ = $5^2$.
+		}
+	\end{vd}
+	\begin{vd} Tìm số tự nhiên $n$ nhỏ hơn $30$ để các số $3n+4$ và $5n+1$ có ước chung khác $1$.
+		\loigiai{Gọi $d$ là một ước chung của $3n+4$  và $5n+1$.\\
+			Ta có $3n+4\ \vdots \ d$ và $5n+1\ \vdots \ d$ nên $5(3n+4) - 3(5n+1)\ \vdots \ d$, tức là $17\ \vdots \ d$.\\
+			Suy ra $d \in \left\lbrace 1; 17 \right\rbrace$.\\
+			Để $3n+4$ và $5n+1$ có ước chung khác $1$, ta phải có $3n+4\ \vdots \ 17$, tức là $3n+4-34\ \vdots \ 17$ hay $3(n-10)\ \vdots \ 17$.\\
+			Ta lại có $(3,17)=1$ nên $n - 10\ \vdots \ 17$.\\
+			Do $n <30$ nên $n = 10$ hoặc $n = 27$. }
+	\end{vd}
+	\begin{vd} Tổng của năm số tự nhiên bằng $156$. Ước chung lớn nhất của chúng có thể nhận giá trị lớn nhất bằng bao nhiêu?
+		\loigiai{Gọi năm số tự nhiên đã cho là $a_1, a_2, a_3, a_4, a_5,$ ước chung lớn nhất của chúng là $d$. Ta có $$a_1=dk_1\ ,\ a_2=dk_2\ ,\ a_3=dk_3\ ,\ a_4=dk_4\ ,\ a_5=dk_5$$ nên $a_1+a_2+a_3+a_4+a_5=d(k_1+k_2+k_3+k_4+k_5)$, do đó $156 = d(k_1+k_2+k_3+k_4+k_5).$\\
+			Suy ra $d$ là ước của $156$.\\
+			Ta lại có $k_1+k_2+k_3+k_4+k_5 \geq 5$ nên $5d \leq 156$, suy ra $d \leq 31$.\\
+			Phân tích ra thừa số nguyên tố: $156=2^2\cdot3\cdot13.$\\
+			Ước lớn nhất của $156$ không vượt quá $31$ là $26$.\\
+			Giá trị lớn nhất của $d$ là $26$, xảy ra khi chẳng hạn $a_1=a_2=a_3=a_4=26$ và $a_5= 52$. }
+	\end{vd}
+	\begin{vd}Có ba đèn tín hiệu, chúng phát sáng cùng một lúc vào $8$ giờ sáng. Đèn thứ nhất cứ $4$ phút phát sáng một lần, đèn thứ hai cứ $6$ phút phát sáng một lần, đèn thứ ba cứ $7$ phút phát sáng một lần. Thời gian đầu tiên để cả ba đèn cùng phát sáng sau $12$ giờ trưa là lúc mấy giờ?
+		\loigiai{Gọi thời gian ít nhất để sau đó, cả ba đèn lại cùng phát sáng là $a$ (phút). Ta có $a$ là BCNN$(4,6,7)$.\\
+			Phân tích ra thừa số nguyên tố: $4=2^2\ ,\ 6= 2\cdot3\ ,\ 7=7$ nên BCNN$(4,6,7)$ = $2^2\cdot3\cdot7 = 84$.\\
+			Sau $84$ phút, cả ba đèn cùng phát sáng. Chúng cùng phát sáng vào lúc $9$ giờ $24$ phút, $10$ giờ $48$ phút, $12$ giờ $12$ phút $\ldots$\\
+			Thời gian đầu tiên sau $12$ giờ trưa để cả ba đèn cùng phát sáng là lúc $1$2 giờ $12$ phút.}
+		
+	\end{vd}
+	\begin{vd} Điền các số thích hợp vào dấu $*$ để số $A=\overline{679***}$ chia hết cho tất cả các số $5, 6, 7, 9$.
+		\loigiai{Điều kiện để $A$ chia hết cho tất cả các số $5, 6, 7, 9$ là $A$ chia hết cho BCNN$(5,6,7,9)$.\\
+			Ta có BCNN$(5,6,7,9) = 2\cdot3^2\cdot5\cdot7 = 630$.\\
+			Ta thấy $679999$ chia $630$ được $1079$, dư $229$ nên $679999 - 229 = 579770$ chia hết cho $630$ và $679770 - 630 = 679140$ chia hết cho $630$.
+		}
+		
+	\end{vd}
+	\begin{vd}
+		Tìm các số tự nhiên $a$ và $b$ $(a<b)$ biết ƯCLN $(a, b)=12$, BCNN $(a,b)=240$.
+		\loigiai{
+			Ta có $ab$=ƯCLN $(a, b)$. BCNN $(a,b)=12\cdot 240=2880$ \hfill(1)\\
+			ƯCLN $(a, b)=12$ nên $a=12m ,\, b=12n$ trong đó $(m,n)=1$.\\
+			Suy ra $ab=12m\cdot 12n=144mn$. \hfill(2)\\
+			Từ $(1)$ và $(2)$ suy ra $144mn=2880$ hay $mn=20$.
+			Ta có $a<b$ nên $m<n$. Các số $m,n$ nguyên tố cùng nhau và có tích bằng $20$ nên 
+				\begin{center}
+				\begin{tabular}{|c|c|c|}
+					\hline
+					$m$&$1$&$4$\\
+					\hline
+					$n$&$20$&$5$\\
+					\hline
+				\end{tabular}
+			\end{center}
+		Suy ra
+			\begin{center}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				$a$&$12$&$48$\\
+				\hline
+				$b$&$240$&$60$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		}
+	\end{vd}
+\subsection{BÀI TẬP}
+	\begin{bt}Tìm ước chung của các số $1820, 3080, 4900$ trong khoảng từ $40$ đến $100$.
+		\loigiai{
+			ƯCLN $(1820, 3080, 4900)=140$.
+				\dapso{ $140$.}
+		}
+	\end{bt}
+
+	\begin{bt}
+		Tìm ước chung lớn nhất của các số $121212$ và $181818$.
+		\loigiai{
+			Ta có $a=121212=12\cdot 10101=2\cdot (6\cdot 10101)$, $b=181818=18\cdot 10101=3\cdot (6\cdot10101)$.\\
+			Vậy ƯCLN $(a, b )=6\cdot 10101=60606$.
+		}
+	\end{bt}
+	\begin{bt}
+		Tìm ước chung lớn nhất của các số sau bằng cách dùng thuật toán Euclide:
+		\begin{enumerate}
+			\item $11111$ và $1111$;
+			\item $342$ và $266$.
+		\end{enumerate}
+	
+		\dapso{a) $1$, \hspace{1cm} b) $38$. }
+	
+	\end{bt}
+	\begin{bt}
+		Tìm số tự nhiên $a$,biết rằng $296$ chia cho $a$ thì dư $16$, còn $230$ chia cho $a$ thì dư $10$.
+			\loigiai{
+			Số $296$ chia cho $a$ dư $16$ nên $296-16=280$ chia hết cho $a$ và $a>16$.\\
+			Số $230$ chia cho $a$ dư $10$ nên $230-10=220$ chia hết cho $a$.
+			\dapso{ $a=20$.}	
+		}
+	\end{bt}
+	\begin{bt}
+		Chứng minh rằng các cặp số sau nguyên tố cùng nhau với mọi số tự nhiên $n$:
+		\begin{enumerate}
+			\item $2n+1$ và $6n+5$;
+			\item $3n+2$ và $5n+3$.
+		\end{enumerate}
+	\loigiai{
+	\begin{enumerate}
+		\item Gọi $d$ là ước chung của $2n+1$ và $6n+5$ thì $2n+1\ \vdots\ d$ và $6n+5\ \vdots\ d$.\\
+		Do đó $(6n+5)-3(2n+1)\ \vdots\ d$ nên $2\ \vdots\ d$.\\
+		Vì $d$ là ước của số lẻ $2n+1$ nên $d\ne 2$. Vậy $d=1$, tức là $(2n+1, 6n+5)=1$.
+		\item Xét  biểu thức $5(3n+2)-3(5n+3)$.
+	\end{enumerate}	
+	}
+
+	\end{bt}
+	\begin{bt}
+		Tìm số tự nhiên $n$ để $3n+1$ chia hết cho $7$.
+		\loigiai{
+		Ta có $3n+1 \ \vdots\ 7$ nếu $3n+1-7 \ \vdots\ 7$ tức là $3(n-2)\ \vdots\ 7$.\\
+		Do $(3,7)=1$ nên $n-2\ \vdots\ 7$.\\
+		Vậy $n=7k+2$ với $k$ là số tự nhiên tùy ý.	
+		}
+	\end{bt}
+	\begin{bt}
+		Tìm số tự nhiên $n$ để $2n+1$ và $7n+2$ là hai số nguyên tố cùng nhau.
+		\loigiai{
+		Gọi $d$ là ước chung của 	$2n+1$ và $7n+2$.\\
+		Ta có $7(2n+1)-2(7n+2)\ \vdots\ d$ nên $3\ \vdots\ d$ suy ra $d\in\{1; 3\}$.\\
+		Để $(2n+1, 7n+2)=1$ thì $d\ne 3$.\\
+		Trước hết ta tìm $n$ để $2n+1\ \vdots\ 3$, ta được $2n+1+3\ \vdots\ 3$ tức là $2(n+2)\ \vdots\ 3.$ Do $(2,3)=1$ nên $n+2\ \vdots\ 3$, tức là $n=3k+1$ với $k\in \mathbb{N}$.\\
+		Vậy nếu $n\ne 3k+1$ thì $(2n+1, 7n+2)=1$.
+		}
+	\end{bt}
+	\begin{bt}
+		Tìm các số tự nhiên $a$ và $b$ $(a<b)$ biết:
+		\begin{enumerate}
+			\item $a+b=96$ và ƯCLN$(a,b)=12$;
+			\item $a+b=72$ và ƯCLN$(a,b) = 8$.
+		\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item  ƯCLN$(a,b)=12$ nên $a=12m,\, b=12n$ và $(m,n)=1$.\\
+			Ta có $a+b=96$ nên $12m+12n=96$ suy ra $m+n=8$.\\
+			Do $a<b$ nên $m<n$. Ta có
+			\begin{center}
+				\begin{tabular}{|c|c|c|}
+					\hline
+					$m$&$1$&$3$\\
+					\hline
+					$n$&$7$&$5$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			Suy ra
+			\begin{center}
+				\begin{tabular}{|c|c|c|}
+					\hline
+					$a$&$12$&$36$\\
+					\hline
+					$b$&$84$&$60$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item 	\dapso{\begin{tabular}{|c|c|c|c|}
+					\hline
+					$a$&$8$&$16$&$32$\\
+					\hline
+					$b$&$64$&$56$&$40$\\
+					\hline
+			\end{tabular} }
+		\end{enumerate}
+	}
+	\end{bt}
+	\begin{bt}
+		Tìm các số tự nhiên $a$ và $b$ nhỏ hơn 200, biết:
+		\begin{enumerate}
+			\item $a-b=96$ và ƯCLN$(a,b)=16$;
+			\item $a-b=90$ và ƯCLN$(a,b)=15$.
+		\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item  ƯCLN$(a,b)=16$ nên $a=16m,\, b=16n$ và $(m,n)=1$.\\
+			Ta có $a-b=96$ nên $16m-16n=96$ suy ra $m-n=6$.\\
+			Do $a=16m<200$ nên $m<12$. Chú ý rằng $(m,n)=1$ ta có 
+			\begin{center}
+				\begin{tabular}{|c|c|c|}
+					\hline
+					$m$&$11$&$7$\\
+					\hline
+					$n$&$5$&$1$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			Suy ra
+			\begin{center}
+				\begin{tabular}{|c|c|c|}
+					\hline
+					$a$&$176$&$112$\\
+					\hline
+					$b$&$80$&$16$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item 	\dapso{\begin{tabular}{|c|c|c|c|}
+					\hline
+					$a$&$195$&$165$&$105$\\
+					\hline
+					$b$&$105$&$75$&$15$\\
+					\hline
+			\end{tabular} }
+		\end{enumerate}
+	}
+	\end{bt}
+	\begin{bt}
+		Tìm các số tự nhiên $a$ và $b$ $(a<b)$ biết:
+		\begin{enumerate}
+			\item $ab=448$ và ƯCLN$(a,b)=4$;
+			\item $ab=294$ và UCLN$(a,b)=7$.
+		\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item  ƯCLN$(a,b)=4$ nên $a=4m,\, b=4n$ và $(m,n)=1$.\\
+			Ta có $ab=448$ nên $4m\cdot 4n=448$ suy ra $mn=28$.\\
+			Do $m<n$ và $(m,n)=1$ nên
+			\begin{center}
+				\begin{tabular}{|c|c|c|}
+					\hline
+					$m$&$1$&$4$\\
+					\hline
+					$n$&$28$&$7$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			Suy ra
+			\begin{center}
+				\begin{tabular}{|c|c|c|}
+					\hline
+					$a$&$4$&$16$\\
+					\hline
+					$b$&$112$&$28$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item 	\dapso{\begin{tabular}{|c|c|c|}
+					\hline
+					$a$&$7$&$14$\\
+					\hline
+					$b$&$42$&$21$\\
+					\hline
+			\end{tabular} }
+		\end{enumerate}
+	}
+	\end{bt}
+	\begin{bt}
+		Tìm các số tự nhiên $a$ và $b$ biết rằng ƯCLN$(a,b)=10$ và BCNN$(a,b)=120$.
+			\dapso{$(10;120)$, $(30;40)$. }
+	\end{bt}
+	\begin{bt}
+		Tìm số tự nhiên $n$, biết rằng trong ba số $6, 16, n$, bất cứ số nào cũng là ước của tích hai số kia.
+		\loigiai{
+			Theo đề bài $16n\ \vdots\ 6$ nên $8n\ \vdots\ 3$, mà $(8,3)=1$ nên $n\ \vdots\ 3$.\\
+			Theo đề bài, $6n\ \vdots\ 16$ nên $3n\ \vdots\ 8$, mà $(3,8)=1$ nên $n\ \vdots\ 8$.\\
+			Do $(3,8)=1$ nên $n\ \vdots\ 24$, tức là $n=24k$ với $k\in \mathbb{N}$.\\
+			Theo đề bài $16\cdot6 \ \vdots\ n$ nên $16\cdot 6\ \vdots\ 24$, suy ra $4\ \vdots\ k$.  Ta có 
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|}
+					\hline
+					$k$&$1$&$2$&$4$\\
+					\hline
+					$n$&$24$&$48$&$96$\\
+					\hline
+			\end{tabular} 
+			\end{center}
+		}
+	\end{bt}
+	\begin{bt}
+		Hai anh Tuấn và Tú ở cùng một nhà và làm việc tại hai công ty khác nhau. Anh Tuấn cứ $10$ ngày lại đi trực một lần, anh Tú cứ $15$ ngày lại đi trực một lần. Hai người cùng trực vào ngày chủ nhật $1-1-2012$. Hỏi trong năm $2012$ hai anh cùng trực vào một ngày chủ nhật mấy lần.
+		\loigiai{
+		Thời gian để hai anh lại cùng trực vào một ngày chủ nhật lần tiếp theo là BCNN $(10,15,7)=420$ (ngày).\\
+		Do đó trong năm $2012$, hai anh chỉ cùng trực một lần vào ngày chủ nhật (đó là ngày $1-1-2012$).	
+		}
+	\end{bt}
+	\begin{bt}
+		Có hai chiếc đồng hồ. Trong một ngày, chiếc thứ nhất chạy nhanh $10$ phút, chiếc thứ hai chạy chậm $6$ phút. Cả hai đồng hồ được lấy lại theo giờ chính xác. Hỏi sau ít nhất bao lâu, cả hai đồng hồ lại cùng chỉ giờ chính xác.
+		\loigiai{
+		Đồng hồ thứ nhất lại chỉ giờ chính xác khi nó chạy nhanh được $12$ giờ (tức là $720$ phút), dó đó nó lại chỉ đúng giờ sau $720:6=120$ (ngày).\\
+		Số ngày ít nhất để cả hai đồng hồ cùng chỉ giờ chính xác là BCNN $(72, 120)= 360$.
+			
+		}
+	\end{bt}
+	\begin{bt}
+		Tìm số tự nhiên lớn nhất có ba chữ số, biết rằng chia nó cho $10$ thì dư $3$, chia nó cho $12$ thì dư $5$, chia nó cho $15$ thì dư $8$ và nó chia hết cho $19$.
+		\loigiai{
+		Gọi số phải tìm là $a$. Ta có $a+7$ chia hết cho $10, \, 12,\, 15$ nên là bội chung của $10, \, 12,\, 15$.\\
+		BCNN $10, \, 12,\, 15=60$.\\
+		Do $a$ có ba chữ số nên $a+7 \in \{960;900;\cdots\}$.\\
+		Suy ra $a\in \{953;893\cdots\}$.\\
+		Số $953$ không chia hết cho $19$, còn $893=19\cdot 47$.\\
+		Vậy $a=893$	
+		}
+	\end{bt}
+	\begin{bt}
+		Tìm các số tự nhiên $a, b, c$ nhỏ nhất khác $0$ sao cho $16a=25b=30c$.
+		\loigiai{
+		Đặt $16a=25b=30c=m$.\\
+		Để $a, b, c$ nhỏ nhất khác $0$ thì $m$ là BCNN $(16, 25, 30)$.	\\
+		Ta có BCNN $(16, 25, 30)=1200$. \\
+		Do đó $a=1200:16=75$, $b=1200:25=48$, $c=1200:30=40$.
+		}
+	\end{bt}
+	\begin{bt}
+		Tìm số tự nhiên nhỏ nhất để khi chia cho $5, 8, 12$ thì số dư theo thứ tự là $2, 6, 8$.
+		\loigiai{
+		Gọi $a$ là số tự nhiên phải tìm.\\
+		Số $a$ chia cho $5,\, 8,\, 12$ có số dự là $2,\,6,\, 8$ nên số $2a$ chia cho $5,\, 8,\, 12$ có số dư là $4,\, 4,\, 4$.\\
+		SỐ $2a-4$ chia hết cho $5,\,8,\, 12$, mà BCNN $(5, 8, 12)=120$ nên để $a$ nhỏ nhất thì $2a-4=120$.\\
+		Vậy $a=62$.	
+		}
+	\end{bt}
+	\begin{bt}
+		Điền số thích hợp vào dấu $*$ để số $\overline{456**}$ chia hết cho tất cả các số $4, 5, 6$.
+			\dapso{ $45600$ và $45660$.}
+	\end{bt}
+	\begin{bt}
+		Chứng minh rằng tích của bốn số tự nhiên liên tiếp thì chia hết cho $24$.
+		\loigiai{
+		Trong bốn số tự nhiên liên tiếp, có ít nhất một bội của $3$ nên tích của chúng chia hết cho $3$.\hfill (1)\\
+		Trong bốn số tự nhiên liên tiếp, có hai số chia hết cho $2$, trong đó có một số chia hết cho $4$ nên tích của chúng chia hết cho $8$. \hfill (2)\\
+		Ta lại có $(3,8)=1$ nên từ (1) và (2) suy ra tích của bốn số tự nhiên liên tiếp thì chia hết cho $24$.	
+		}
+	\end{bt}
+	\begin{bt}
+		Tìm các số tự nhiên $a$ và $b$ $(a<b)$, biết rằng:
+		\begin{enumerate}
+			\item BCNN$(a,b)$ $+$ ƯCLN$(a,b) = 19$.
+			\item BCNN$(a,b)$ $-$ ƯCLN$(a,b) = 3$.
+		\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+		\item Đặt ƯCLN $(a,b )=d$ thì $a=dm,\, b=dn$ và $(m,n)=1$.\\
+		BCNN $(a,b)=ab:d= dm\cdot dn :d=dmn$.\\
+		Theo đề bài $dmn+d=19$ nên $d(mn+1)=19$.\\
+		Do $mn+1>1$ nên $mn+1=19$ và $d=1$. Ta có
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|}
+				\hline
+				$d$&$mn+1$&$mn$&$m$&$n$&$a$&$b$\\
+				\hline
+				$1$&$19$&$18$&$1$&$18$&$1$&$18$\\
+				\cline{4-7}
+				&&&$2$&$9$&$2$&$9$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		\item  Làm tương tự ta có
+			\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|}
+				\hline
+				$d$&$mn-1$&$mn$&$m$&$n$&$a$&$b$\\
+				\hline
+				$1$&$3$&$4$&$1$&$4$&$1$&$4$\\
+				\hline
+			$3$	&$1$&$2$&$1$&$2$&$3$&$6$\\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{enumerate}
+	}
+	\end{bt}
+
+

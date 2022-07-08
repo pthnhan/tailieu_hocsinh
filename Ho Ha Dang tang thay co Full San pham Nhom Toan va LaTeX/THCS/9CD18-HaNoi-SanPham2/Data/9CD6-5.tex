@@ -1,0 +1,428 @@
+%Biên soạn: Đặng Đức Quý
+
+\section{Tính toán độ dài, số đo góc, diện tích, khoảng cách}
+
+%bài 1 - 6.2 sách trần văn khải trang 98
+\begin{bt}
+	Cho hình thang vuông $ABCD$ tại $A$ và $D$. Biết rằng $AB= 1$, $CD = 4$ và $AC \perp BD$. 
+	\begin{enumerate}
+		\item Tính diện tích hình thang $ABCD$.
+		\item Tính độ dài các đoạn thẳng $BC$, $AC$, $BD$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item 
+			\immini{
+				Dựng $CE \parallel BD$, $ E \in DC$. Vì $AC \perp BD \Rightarrow AE \perp AC$.\\
+				Xét $\triangle ACE$ vuông tại $A$ có $AD$ là đường cao
+				$\Rightarrow AD^2 = DE\cdot DC \quad (1)$.\\
+				Mặt khác, ta lại có $AB \parallel DE$ (gt) suy ra tứ giác $ABDE$ là hình bình hành. Do vậy $DE = AB = 1$, $CD = 4 \quad (2)$.\\
+				Từ $(1)$ và $(2)$ suy ra $AD = 2 \Rightarrow S_{ABCD} = \dfrac{AD(AB+CD)}{2}=5$.}
+			{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1.3]
+				\tkzInit[xmin=-1,ymin=-1,xmax=7,ymax=6.5]
+				\clip (-1,-1)rectangle(5.5,3.5);
+				\coordinate[label=below :$E$](E) at (0,0);
+				\coordinate[label=below :$D$](D) at (1,0);
+				\coordinate[label=below :$K$](K) at (2,0);
+				\coordinate[label=below :$C$](C) at (5,0);
+				\coordinate[label=above left:$A$](A) at (1,2);
+				\coordinate[label=above right:$B$](B) at (2,2);
+				\tkzDrawSegments(A,B B,C A,C E,C A,D B,K B,D A,E)
+				\tkzMarkRightAngle[size = .15](A,D,K)
+				\tkzMarkRightAngle[size = .15](B,K,C)
+				\tkzMarkRightAngle[size = .15](E,A,C)
+				\tkzInterLL(A,C)(B,D)\tkzGetPoint{I}
+				\tkzMarkRightAngle[size = .15](A,I,B)
+				\tkzDrawPoints[fill=black](A,B,C,D,E,K)
+				\end{tikzpicture}}
+			\item Dựng $BK \perp DC$ suy ra tứ giác $ABKD$ là hình chữ nhật nên \\ $DK = AB = 1, BK = AD = 2$, $CK = CD - DK = 4 - 1 = 3$.\\
+			Xét $\triangle BCK$ vuông tại $K$ ta có $BC^2 = BK^2 + CK^2 \Rightarrow  BC = \sqrt{KB^2+KC^2}=\sqrt{13}$.\\
+			Xét $\triangle ACE$ vuông ở $A$ có $AD$ là đường cao nên 
+			$$AC^2 = CD\cdot CE = 4\cdot (4+1) = 20 \Rightarrow AC = 2\sqrt{5}.$$
+			$$AE^2 = ED\cdot EC = 1\cdot (1+4) = 5 \Rightarrow AE = \sqrt{5} \Rightarrow BD = AE = \sqrt{5}.$$
+		\end{enumerate}
+	}
+\end{bt}
+
+%bài 2- 58 trang 77.PP giải hình 9
+\begin{bt}
+	Cho $(O_1,3$ cm) tiếp xúc với $(O_2,1$ cm) tại $A$. Vẽ hai bán kính $O_1B$, $O_2C$ song song với nhau thuộc cùng một mặt phẳng bờ $O_1O_2$.  
+	\begin{enumerate}
+		\item Tính số đo góc $BAC$.
+		\item Gọi $I$ là giao điểm của $BC$ và $O_1O_2$. Tính độ dài $O_1I$.
+	\end{enumerate}
+	\loigiai{
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+				%\tkzInit[xmin=-0.2,xmax=6.5,ymin=-2,ymax=6.65]
+				%\clip (-1,-1)rectangle(13.5,7.5);
+				\tkzDefPoints{0/0/O_1, 3/0/A,4/0/O_2}
+				\draw[name path=o1] (O_1) circle (3 cm);
+				\draw[name path=o2] (O_2) circle (1 cm);
+				\tkzDefPointBy[rotation = center O_1 angle 50](A)\tkzGetPoint{B}
+				\tkzDefPointBy[rotation = center O_2 angle -130](A)\tkzGetPoint{C}
+				\tkzInterLL(B,C)(O_1,O_2)\tkzGetPoint{I}
+				\tkzLabelAngle[pos=.3](O_1,A,B){1} 
+				\tkzLabelAngle[pos = .55](O_2,A,C){2} 
+				\tkzLabelPoints[below](O_1,I,O_2)
+				\tkzLabelPoints[below left](A)
+				\tkzLabelPoints[above](B, C)
+				\tkzDrawSegments(A,B A,C O_1,A O_2,A I,C I,O_2 B,I O_2,C O_1,B)
+				\tkzDrawPoints[fill=black](A,B,C,I, O_1, O_2)
+				\end{tikzpicture}
+				\end{center}
+			\begin{enumerate}
+			\item Vì $O_1B \parallel O_2C$ nên $\widehat{AO_1B}+\widehat{AO_2C}=180^\circ$.\\
+			Mà $\triangle O_1AB$ cân tại $O_1$, $\triangle O_2AC$ cân tại $O_2$ nên
+			$$\widehat{A_1}+\widehat{A_2} = \dfrac{180^\circ - \widehat{AO_1B}}{2}+ \dfrac{180^\circ - \widehat{AO_2C}}{2} = \dfrac{360^\circ -(\widehat{AO_1B}+\widehat{AO_2C})}{2}=\dfrac{180^\circ}{2} = 90^\circ.$$
+			Vậy $\widehat{BAC} = 90^\circ$.
+			\item Vì $O_1B \parallel O_2C$, áp dụng hệ quả của định lí Ta-lét ta có\\
+			$\dfrac{3}{1} =  \dfrac{O_1B}{O_2C} =\dfrac{IO_1}{IO_2} \Rightarrow \dfrac{IO_1}{3} =\dfrac{IO_2}{1} =  \dfrac{IO_1-IO_2}{3-1} =\dfrac{O_1O_2}{2} = \dfrac{4}{2} = 2 \Rightarrow IO_1 = 6$ (cm).          
+		\end{enumerate}
+	}
+	
+\end{bt}
+
+\begin{bt}
+	Cho các đường tròn $(O;3\ \text{cm})$, $(O';1\ \text{cm})$ tiếp xúc ngoài tại $A$. Vẽ tiếp tuyến chung ngoài $BC\ (B \in (O), C \in (O'))$. Tiếp tuyến chung trong tại $A$ cắt $BC$ ở $I$.
+	\begin{enumerate}
+		\item Tính $\widehat{OIO'}$.
+		\item Tính độ dài $IA$ và $BC$.
+		\item Tính diện tích hình giới hạn bởi đoạn thẳng $BC$ và các cung nhỏ $AB$, $AC$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+			%\tkzInit[xmin=-0.2,xmax=6.5,ymin=-2,ymax=6.65]
+			%\clip (-1,-1)rectangle(13.5,7.5);
+			\tkzDefPoints{0/0/O, 3/0/A,4/0/O'}
+			\draw[name path=o1] (O) circle (3 cm);
+			\draw[name path=o2] (O') circle (1 cm);
+			\tkzDefPointBy[rotation = center O angle 62](A)\tkzGetPoint{B}
+			\tkzDefPointBy[rotation = center O' angle -118](A)\tkzGetPoint{C}
+			\tkzDefPointBy[rotation = center A angle 90](O')\tkzGetPoint{M}
+			\tkzInterLL(B,C)(A,M)\tkzGetPoint{I}
+			\tkzDefPointBy[projection = onto O--B](O')    
+			\tkzGetPoint{H}
+			\tkzMarkRightAngles[size=.15](O,B,C)
+			\tkzMarkRightAngles[size=.15](O',C,B)
+			\tkzMarkRightAngles[size=.15](O',H,O)
+			\tkzMarkRightAngles[size=.15](O,A,I)
+			\tkzLabelPoints[below](O,O')
+			\tkzLabelPoints[below left](A)
+			\tkzLabelPoints[above left](H)
+			\tkzLabelPoints[above](B,I,C)
+			\tkzDrawSegments(O,B O',C B,C I,O I,O' O',H I,A O,O')
+			\tkzDrawPoints[fill=black](A,B,C,I, O, O',H)
+				\filldraw[pattern=north east lines, pattern color=black]
+			(B) arc (62:0:3cm) arc (180:62:1cm)--(C);%Vẽ bắt đầu từ B, cung 62 độ đến điểm A rồi từ đó vẽ thêm cung 118 độ đến C
+			\end{tikzpicture}
+		\end{center}
+		
+		\begin{enumerate}
+			\item Vì $IO$, $IO'$ là tia phân giác của hai góc kề bù $\widehat{AIB}$ và $\widehat{AIC} \Rightarrow \widehat{OIO'} = 90^\circ$.
+			\item Xét $\triangle OIO'$ vuông tại $I$ có $IA$ là đường cao suy ra
+			$IA^2 = AO\cdot AO'= 3\cdot 1 = 3\Rightarrow IA = \sqrt{3}$ cm.\\
+			Áp dụng tính chất của hai tiếp tuyến cắt nhau ta có $IB = IA$, $IA = IC$, nên $BC = 2IA = 2\sqrt{3}$ cm.
+			\begin{note}
+				$BC = 2\sqrt{Rr}$ (với $R$, $r$ lần lượt là bán kính của đường tròn $(O)$ và $(O')$.
+			\end{note}
+			\item Gọi $S$ là diện tích phải tìm.
+			$S = S_{OBCO'} - S_\text{quạt}{AOB} - S_\text{quạt}{AO'C}$.\\
+			Kẻ $O'H \perp OB$.
+			Ta có $OH = OB - O'C = 2$ cm, $OO' = 4$ cm, nên $OH = \dfrac{1}{2}OO' \Rightarrow \widehat{HOO'} = 60^\circ$ và $\widehat{OO'H} = 30^\circ$. Do đó $S_\text{quạt}{AOB} = \dfrac{\pi \cdot 3^2}{6}=\dfrac{\pi}{3}$.\\
+			Ta có $\widehat{AO'C} = 120^\circ$, nên $S_\text{quạt}{AO'C} = \dfrac{\pi\cdot 1^2}{3} = \dfrac{\pi}{3}$.
+			\\ 
+			$S_{OBCO'}=\dfrac{(OB + O'C)\cdot O'H}{2} = \dfrac{(3+1)\cdot 2\sqrt{3}}{2} = 4\sqrt{3}$.\\
+			Từ đó $S = 4\sqrt{3} - \dfrac{3\pi}{2} - \dfrac{\pi}{3} = 4\sqrt{3} - \dfrac{11\pi}{6} \approx 0{,}7\  \text{cm}^2$.
+			
+		\end{enumerate}
+		
+	}
+	
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ ABC $ đều nội tiếp đường tròn $  (O;R)$ có độ dài cạnh bằng $ 6\sqrt{3} $ cm, vẽ đường cao $ AH $ của tam giác $ ABC $.
+	\begin{enumerate}
+		\item Tính độ dài đoạn $ AH $ và bán kính $ R $ của đường tròn $ (O) $.
+		\item Từ $ A $ và $ C $ vẽ hai tiếp tuyến của $ (O) $ cắt nhau tại $ D $. Đoạn thẳng $ OD $ cắt $ (O) $ tại $ I $. Tính số đo góc $ ADC $ và độ dài $ AI $.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item 
+			\immini{
+				Do tam giác $ ABC $ đều nên $ H $ là trung điểm của $ BC $, suy ra $ BH = \dfrac{6\sqrt{3}}{2}=3\sqrt{3} $. \\
+				Áp dụng định lý Pitago cho $\triangle ABH $ vuông tại $H$ ta được 
+				\[ AH = \sqrt{AB^2 - BH^2} = \sqrt{\left( 6\sqrt{3} \right)^2 - \left( 3\sqrt{3} \right)^2} = 9 \text{ cm} .\]
+				Vì tam giác $ ABC $ đều nên tâm $ O $ của đường tròn $ (O;R) $ là trọng tâm của tam giác $ ABC $. Do đó $ R = OA = \dfrac{2}{3} AH = \dfrac{2}{3} \cdot 9 = 6 \text{ cm}$.
+			}{
+				\begin{tikzpicture}[line cap=round, line join=round, scale=1.7]
+				\tkzDefPoints{0/0/A, -1/-1.73/B}
+				\tkzDefPointBy[rotation = center A angle 60](B)
+				\tkzGetPoint{C}    
+				\tkzDrawCircle[circum](A,B,C)
+				\tkzGetPoint{O}
+				\tkzTangent[at=A](O)    \tkzGetPoint{t}
+				\tkzTangent[at=C](O)    \tkzGetPoint{k}
+				\tkzInterLL(A,t)(C,k)    \tkzGetPoint{D}
+				\tkzInterLC(O,D)(O,A)    \tkzGetPoints{X}{I}
+				\tkzDefPointBy[projection = onto C--B](A)    
+				\tkzGetPoint{H}
+				\tkzDrawSegments(A,B C,B A,H A,C A,D C,D O,D O,C A,I)
+				\tkzMarkRightAngles[size=.15](O,A,D)
+				\tkzMarkRightAngles[size=.15](A,H,B)
+				\tkzMarkRightAngles[size=.15](O,C,D)
+				\tkzMarkAngles[arc=l,size=0.2 cm](C,O,A)
+				\tkzMarkAngles[arc=ll,size=0.3 cm](A,D,C)
+				\tkzDrawPoints[fill=black](A,B,C,H,O,D,I)
+				\tkzLabelPoints[above](A,D)
+				\tkzLabelPoints[below left](O,B)
+				\tkzLabelPoints[below right](C)
+				\tkzLabelPoints[above](I)
+				\tkzLabelPoints[below](H)
+				\end{tikzpicture}
+			}
+			\item Vì $\triangle ABC $ đều nên $ O $ là giao của ba đường phân giác. \\
+			Do đó $ \widehat{OAC}=\widehat{OCA}=30^\circ $. Từ đó suy ra $ \widehat{AOC}=120^\circ $. \\
+			Tứ giác $ OADC $ có $ \widehat{O}+\widehat{A}+\widehat{D}+\widehat{C}=360^\circ $ \\
+			Mà $ \widehat{A}=\widehat{C}=90^\circ , \widehat{AOC}=120^\circ $ \\
+			Suy ra $ \widehat{D}=60^\circ  $, hay $ \widehat{ADC}=60^\circ $.\\
+			Do $ OD $ là tia phân giác của $ \widehat{AOC} $ và $ \widehat{AOC}=120^\circ $ nên $ \widehat{AOD}=60^\circ $ hay $ \widehat{AOI}=60^\circ $. \\
+			Khi đó $\triangle AOI $ là cân tại $O$ có $\widehat{AOI}= 60^\circ $ nên $\triangle AOI $ đều. \\
+			Vậy $ AI = AO = R = 6 $ cm.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}
+	Cho nửa đường tròn tâm $O$ có đường kính $AB = 2R$. $M$ là trung điểm của $AO$. Các đường vuông góc với $AB$ tại $M$ và $O$ cắt nửa đường tròn tại $D$ và $C$.
+	\begin{enumerate}
+		\item Tính $AD$, $AC$, $BD$ và $DM$ theo $R$.
+		\item Tính các góc của tứ giác $ABCD$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item 
+			\immini{ Ta có $\widehat {ADC} = 90^\circ$ (tính chất góc nội tiếp chắn nửa đường tròn)$\Rightarrow \triangle ABD$ vuông tại $D$, có $DM$ là đường cao do đó
+			$AD^2 = AM\cdot AB = \dfrac{R}{2}\cdot 2R = R^2 \Rightarrow AD = R$.
+			\\
+			Ta có $\widehat {ADC} = 90^\circ$ (tính chất góc nội tiếp chắn nửa đường tròn) và $\triangle ACB$ vuông cân tại $C$ có $AB^2 = 2AC^2 = 4R^2 \Rightarrow AC = R\sqrt{2}.$\\
+			}	
+		{	\begin{tikzpicture}
+			\def\r{3}%thay đổi bán kính
+			\tkzInit[xmin=-\r.2,xmax=\r0.2,ymin=-0.6,ymax=\r.5]
+			\tkzDefPoints{-\r/0/A,\r/0/B}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{O}
+			\tkzDefMidPoint(A,O)\tkzGetPoint{M}
+			\tkzDefLine[perpendicular=through M](A,B)\tkzGetPoint{m}
+			\tkzDefLine[perpendicular=through O](A,B)\tkzGetPoint{o}
+			\tkzInterLC(M,m)(O,A)\tkzGetSecondPoint{D}
+			\tkzInterLC(O,o)(O,A)\tkzGetSecondPoint{C}
+			\tkzDrawPoints[fill=black](A,B,C,D,M,O)
+			\draw (B) arc(0:180:\r cm and \r cm);
+			\tkzDrawPolygon(A,B,C)
+			\pgfresetboundingbox
+			\tkzDrawSegments(M,D O,C A,D B,D)
+			\tkzMarkRightAngles(A,D,B A,C,B D,M,B C,O,B)
+			\tkzMarkSegments[mark=|,size=0.1cm](A,M M,O)
+			\tkzLabelPoints[above](C,D)
+			\tkzLabelPoints[below](A,M,O,B)
+			\end{tikzpicture}}	
+				Xét $\triangle ABD$ vuông tại $D$ có $AB^2 = AD^2 + BD^2 \Rightarrow BD^2 = AB^2 - AD^2 = 4R^2 - R^2 = 3R^2 \Rightarrow BD = R\sqrt{3}$.\\
+			$\triangle ABD$ vuông tại $D$, có $DM$ là đường cao do đó
+			$DM^2 = AM\cdot MB = \dfrac{R}{2}\cdot\dfrac{3R}{2} = \dfrac{3R^2}{4} \Rightarrow DM = \dfrac{R\sqrt{3}}{2}$.
+	\item $BD = R\sqrt{3} \Rightarrow BD$ là cạnh của tam giác đều nội tiếp nên\\ $\widehat{BAD} = 60^\circ \Rightarrow \widehat{ABD} = 30^\circ$.\\
+			Ta có $\widehat{ABC} = 45^\circ$ (chắn cung $AC$).\\
+			Xét tứ giác $ABCD$ nội tiếp ta có $\widehat{BAD} + \widehat{BCD} = 180^\circ \Rightarrow \widehat{BCD} = 180^\circ - \widehat{BAD} = 180^\circ - 60^\circ = 120^\circ$.\\
+			$\widehat{ABC} + \widehat{ADC} = 180^\circ
+			\Rightarrow \widehat{ADC} = 180^\circ - \widehat{ABC} = 180^\circ - 45^\circ = 135^\circ$.	
+		\end{enumerate}		
+			}
+	
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ABC$ cân tại $A$, đường cao $AH$. Biết $AB = 5$ cm, $BC = 6$ cm.
+	\begin{enumerate}
+		\item Tính các góc và cạnh còn lại của tam giác $ABC$.
+		\item Dựng đường tròn tâm $(O)$ ngoại tiếp tam giác $ABC$. Tính độ dài bán kính của đường tròn tâm $O$.
+		\item Tính diện tích hình tròn $(O)$ và khoảng cách từ $O$ đến $AB$.
+	\end{enumerate}
+	\loigiai{
+			\begin{enumerate}
+					\item 
+						\immini{ 
+							Vì $\triangle ABC$ cân tại $A$ nên $AB = AC = 5$ cm.\\
+			Kẻ $AH \perp BC\ (H \in AB)$, vì $AH \perp BC \Rightarrow HA = HC = \dfrac{1}{2}BC = 3$ cm.\\
+			Xét $\triangle ABH$ vuông tại $H$, áp dụng định lí Py - ta - go ta có\\
+			$AB^2 = AH^2 + BH^2 \Rightarrow AH^2 = AB^2 - BH^2 = 5^2 - 3^2 = 25 - 9 = 16 \Rightarrow AH = 4$ cm, \\
+			$\sin ABH = \dfrac{AH}{AB} = \dfrac{4}{5} = 0{.}8 \Rightarrow \widehat{ABH} \approx 53^\circ$, nên $\widehat{ACB} = 53^\circ$ và $\widehat{BAC} = 74^\circ$.
+			}
+	{ \begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.8]
+		\tkzInit[xmin=-1,ymin=-1,xmax=7,ymax=6]
+%		\clip (-1,-1)rectangle(6.5,6);
+		\coordinate[label=below left:$B$](B) at (0,0);
+		\coordinate[label=above left:$A$](A) at (3,4);
+		\coordinate[label=below right:$C$](C) at (6,0);
+		\coordinate[label=below left:$H$](H) at (3,0);
+		\tkzMarkRightAngle[size = .2](A,H,C)
+		\tkzMarkRightAngle[size = .2](A,B,D)
+        \tkzDefCircle[circum](A,B,C) \tkzGetPoint{O}
+        \tkzDrawCircle[radius](O,A)
+        \tkzDefPointBy[homothety = center A ratio 2](O)\tkzGetPoint{D}
+        \tkzDefPointBy[projection = onto A--B](O)    
+        \tkzGetPoint{I}
+        	\tkzDrawPoints(I)
+        	\tkzMarkRightAngle[size = .2](A,I,O)
+      			\tkzDrawSegments(A,B B,C C,A B,D D,C A,H H,D O,B O,I)
+      			\tkzLabelPoints[below right](D)
+			\tkzLabelPoints[above right](O)
+				\tkzLabelPoints[above left](I)
+			\tkzDrawPoints[fill=black](A,B,C,D,H,O,I)
+			\end{tikzpicture}
+	}
+	\item Gọi $D$ là giao điểm của $AH$ với $(O) \Rightarrow \widehat{ABD} = 90^\circ$ (tính chất góc nội tiếp chắn nửa đường tròn) và $AD = 2R$.\\
+	Xét $\triangle ABD$ vuông tại $B$ có $BH$ là đường cao nên\\
+	$AB^2 = AH\cdot AD \Rightarrow AD =  \dfrac{AB^2}{AH} = \dfrac{25}{4} = 6{.}25$ (cm).\\
+	Suy ra bán kính đường tròn tâm $O$ bằng $R = \dfrac{6{.}25}{2} = 3{.}125$ (cm).\\
+	\item Diện tích hình tròn tâm $O$ là $S = \pi\cdot R^2 \approx 30{.}66\ \text{cm}^2$.\\
+	Kẻ $OI \perp AB \Rightarrow OI$ là khoảng cách từ $O$ đến $AB$.\\
+	Ta có $OI$ là đường trung bình của $\triangle ABD \Rightarrow OI = \dfrac{1}{2}BD$.\\
+	Mà $DH = AD - AH = 2{,}25$ cm, áp dụng hệ thức lượng vào $\triangle ABD$ vuông tại $B$ ta có $BD^2 = DH\cdot DA = 14{,}0625 \Rightarrow BD = 3{,}75 \Rightarrow OI = 1{,}875$ cm.
+\end{enumerate}
+	}
+	
+\end{bt}
+
+\begin{bt}
+	Cho đường tròn $(O)$ có đường kính $AB = 8$ cm. Trên tia $OB$ có các điểm $C$ và $D$ sao cho $OC = 5$cm và $OD = \dfrac{20}{3}$ cm. Kẻ các tiếp tuyến $CM$ và $DN$ của đường tròn $(O)$ sao cho các tiếp điểm $M$, $N$ cùng thuộc một nửa mặt phẳng có bờ là đường thẳng $AB$.
+	\begin{enumerate}
+		\item Tính độ dài của các đoạn thẳng $CM$ và $DN$.
+		\item Đường thẳng $CM$ cắt đoạn thẳng $DN$ ở $E$. Tính độ dài của đoạn thẳng $NE$.
+	\end{enumerate}
+	\loigiai{
+			\begin{enumerate}
+			\item 
+			\immini{ 
+				$MC$ là tiếp tuyến của $(O;R) \Rightarrow MC\perp OM$ hay tam giác $OMC$ vuông tại $M \Rightarrow CM = 3$ cm.\\
+			Tương tự, tam giác $OND$ vuông ở $N \Rightarrow DN = \dfrac{16}{3}$ cm.
+			\item Từ $C$ kẻ tiếp tuyến thứ hai $CK$ của $(O;R)$, trong dó $K$ là tiếp điểm. Tia $KC$ cắt $DN$ ở $H$.\\
+			Dễ dàng chứng minh được: Tứ giác $ONHK$ là hình vuông. Đặt $NE= x \Rightarrow EH = 4 - x$, $HC = HK - CK = 1$.}
+				{\begin{tikzpicture}[scale=0.7]
+		\tkzInit[xmin=-1,ymin=-1,xmax=7,ymax=6.5]
+%		\clip (-1,-1)rectangle(6.5,4.5);
+		\tkzDefPoints{-4/0/A,4/0/B,5/0/C,6.67/0/D,0/0/O,3.2/2.4/M,3.2/-2.4/K,2.39/3.21/N}
+		\draw[] (O) circle (4 cm);
+		\tkzInterLL(C,M)(D,N) \tkzGetPoint{E}
+		\tkzInterLL(C,K)(D,N) \tkzGetPoint{H}
+			\tkzDrawSegments(A,B B,C C,A M,C N,D O,M O,N O,D E,M H,K O,K)
+			\pgfresetboundingbox
+		\tkzDrawPoints(A,B,C,O,D,N,M,E,H,K)
+		\tkzLabelPoints[left](A)
+		\tkzLabelPoints[below left](B)
+		\tkzLabelPoints[above](N,E,H)
+		\tkzLabelPoints[below](M,O,C,D,K)
+		\tkzMarkRightAngles[size=0.2,thin](E,M,O)
+		\tkzMarkRightAngles[size=0.2,thin](D,N,O)
+		\tkzMarkRightAngles[size=0.2,thin](C,K,O)
+		\tkzMarkRightAngles[size=0.2,thin](C,H,E)
+		\tkzDrawPoints[fill=black](A,B,C,D,O, N, H,K,M,E)
+		\end{tikzpicture}
+	}
+	Xét $\triangle CHE$ vuông ở $H$ có $CE^2 = EH^2 + HC^2 \Rightarrow (MC+ME)^2 = EH^2 + HC^2 \Rightarrow (x+3)^2 
+=(4 - x)^2 + 1^2 \Rightarrow x = \dfrac{4}{7}.$
+Vậy $NE = \dfrac{4}{7}\ \text{cm}$.
+\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}
+	Cho đường tròn tâm $O$ bán kính $R$ và hai đường kính $AB$ và $CD$ vuông góc với nhau. Trên $AO$ lấy điểm $E$ sao cho $OE = \dfrac{OA}{3}$, $CE$ cắt $(O)$ ở $M$.
+	\begin{enumerate}
+		\item Tính $CE$ theo $R$
+		\item Tính độ dài đường cao $MH$ của tam giác $CDM$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+		\item 
+			\immini{ $\triangle OCE$ vuông tại $O$, áp dụng định lí Pi-ta-go ta có \\
+			$CE^2 = OC^2 + OE^2 = R^2 + \left(\dfrac{R}{3} \right)^2 = R^2 + \dfrac{R^2}{9} = \dfrac{10R^2}{9}$\\
+			$ \Rightarrow CE = \dfrac{R\sqrt{10}}{3}.$ 
+			\item Xét $\triangle CEO$ và $\triangle CDM$ có $\heva{& \widehat{OCE}\ \text{chung}\\ &\widehat{COE}= \widehat{CMD} = 90^\circ}$\\
+			$\Rightarrow \triangle CEO \backsim \triangle CDM \text({g-g})  \Rightarrow \dfrac{CO}{CM} = \dfrac{CE}{CD}$\\
+			$\Rightarrow CM = \dfrac{CO\cdot CD}{CE} = \dfrac{2R^2}{\dfrac{R\sqrt{10}}{3}}=\dfrac{3R\sqrt{10}}{5}$        .}
+			{\begin{tikzpicture}[scale=0.8]
+			\tkzInit[xmin=-1,ymin=-1,xmax= 5,ymax=4.5]
+		\tkzDefPoints{-3/0/A,3/0/B,0/3/C,0/-3/D,0/0/O,-1/0/E,-1.8/-2.4/M}
+		\draw[] (O) circle (3 cm);
+		\tkzDrawPoints(A,B,C,O,D,M,E,H)
+		\tkzLabelPoints[left](A)
+		\tkzLabelPoints[right](B)
+		\tkzLabelPoints[above](C)
+		\tkzLabelPoints[above left](E)
+		\tkzLabelPoints[below](D)
+		\tkzLabelPoints[below left](M)
+		\tkzLabelPoints[below right](O)
+		\tkzDefPointBy[projection= onto C--D](M)\tkzGetPoint{H}
+		\pgfresetboundingbox
+		\tkzDrawSegments(A,B C,D C,M M,D M,H)
+		\tkzLabelPoints[right ](H)
+		\tkzMarkRightAngle[size = 0.2, thin](M,H,C)
+		\tkzMarkRightAngles[size=0.2,thin](E,O,D)
+		\tkzMarkRightAngles[size=0.2,thin](E,M,D)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,O,M,H)
+	\end{tikzpicture}	}
+	Ta có $\dfrac{MH}{EO} = \dfrac{CM}{CE} \Rightarrow MH = \dfrac{CM\cdot OE}{CE} = \dfrac{\dfrac{3R\sqrt{10}}{5} \cdot\dfrac{R}{3}}{\dfrac{R\sqrt{10}}{3}} = \dfrac{3R}{5}.$
+	\end{enumerate}
+}
+\end{bt}
+
+\begin{bt} 
+	Cho đường tròn tâm $O$, đường kính $AB = 2R$. Trên tia đối của tia $BA$ lấy điểm $C$ sao cho $BC = R$. Vẽ dây $BD = R$. Qua $C$ vẽ đường thẳng vuông góc với $BC$ cắt tia $AD$ tại $M$.
+	\begin{enumerate}
+		\item Tính $AD \cdot AM$.
+		\item Tính chu vi $\triangle ABD$ và dện tích $\triangle ABM$ theo $R$.
+		\item Cung $BD$ chia tam giác $ABM$ thành hai phần. Tính diện tích phần ngoài hình tròn.
+	\end{enumerate}
+	\loigiai{	
+		\begin{center}
+			\begin{tikzpicture}[scale=0.8]
+			\tkzInit[xmin=-1,ymin=-1,xmax=7,ymax=6.5]
+			%		\clip (-1,-1)rectangle(6.5,4.5);
+			\tkzDefPoints{-3/0/A,3/0/B,6/0/C,0/0/O }
+			\draw[] (O) circle (3 cm);
+			\tkzDefPointBy[rotation = center O angle 60](B)\tkzGetPoint{D}
+			\tkzDefPointBy[rotation = center C angle 90](B)\tkzGetPoint{E}
+			\tkzInterLL(A,D)(C,E)\tkzGetPoint{M}
+			\tkzMarkRightAngles[size=.3](A,D,B)
+			\tkzMarkRightAngles[size=.3](A,C,M)
+			\tkzMarkSegments[mark=|](O,B B,D)
+			\tkzDrawPoints(A,B,C,M,O,D)
+			\tkzDrawSegments(A,B B,C C,M A,M O,D B,D B,M)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[below right](B)
+			\tkzLabelPoints[above](D,M)
+			\tkzLabelPoints[below](O,C)
+			\tkzDrawPoints[fill=black](A,B,C,D,O,M)
+			\end{tikzpicture}
+		\end{center}
+	\begin{enumerate}
+		
+			\item Ta có $\widehat{ADB} = 90^\circ$ (tính chất của góc nội tiếp chắn nửa đường tròn).\\
+			Xét $\triangle ADB$ và $\triangle ACM$ có $\widehat{BAD} \, \text{(chung)}$ và $\widehat{ADB}= \widehat{ACM} =90^\circ.$\\
+			$\Rightarrow \triangle ADB \backsim \triangle ACM \text({g-g})\Rightarrow \dfrac{AD}{AC} = \dfrac{AB}{AM}$\\
+			$\Rightarrow AD\cdot AM = AB\cdot AC = 2R \cdot 3R = 6R^2 \quad (1)$.
+			\item Áp dụng định lí Py-ta-go vào $\triangle ABD$ vuông tại $D$ ta có $AB^2 = AD^2 + BD^2 \Rightarrow AD^2 = 4R^2 - R^2 \Rightarrow AD  = R \sqrt{3}$.\\
+			Kết hợp với $(1)$ suy ra $AM = 2R\sqrt{3} \Rightarrow DM = AM - AD = R\sqrt{3} = AD$. Do đó $\triangle ABM$ cân tại $B$ $\Rightarrow AB = BM = 2R$.\\
+			Chu vi $\triangle ABD$ bằng $AD + BD + BA = (3+\sqrt{3})R$.\\
+			Diện tích $\triangle ABM$ bằng $\dfrac{AM\cdot BD}{2} = \sqrt{3}R^2$.
+			\item Diện tích tam giác $BDM$ là $S_{BDM} = \dfrac{1}{2}\cdot BD \cdot DM = \dfrac{\sqrt{3}}{2}R^2$.\\
+			Diện tích hình quạt tròn $BOD$ là $S_{\text{quạt}} = \dfrac{\pi R^2}{6}$.\\
+			Diện tích tam giác đều $BOD$ là $S_{BOD} = \dfrac{\sqrt{3}R^2}{4}$.\\
+			Diện tích hình viên phân cung $BD$ là $S_{\text{VP}} = S_{\text{quạt}} - S_{BOD}= \dfrac{(2\pi - 3\sqrt{3})R^2}{12}$.\\
+			Diện tích cần tìm là $S = S_{BDM} - S_{\text{VP}} = \dfrac{R^2(9\sqrt{3} - 2\pi)}{12} \approx 0{,}8 R^2$.
+	\end{enumerate}
+}
+\end{bt}
+

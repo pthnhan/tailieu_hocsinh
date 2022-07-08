@@ -1,0 +1,572 @@
+%GV soạn: Võ Thị Quỳnh Trang
+%GV phản biện: 
+\Opensolutionfile{ans/ans7H-1}
+\section{Hai góc đối đỉnh. Hai đường thẳng vuông góc}
+\subsection{Hỏi đáp nhanh}
+\begin{ex}%[7H1B1]
+Cho hai góc bằng nhau, có chung đỉnh và một cặp cạnh là hai tia đối nhau. Hỏi cặp cạnh còn lại có là hai tia đối nhau không? Vẽ hình minh họa.
+\loigiai{
+	\immini{Cặp cạnh còn lại chưa chắc đã là hai tia đối nhau.\\
+Ví dụ minh họa như hình vẽ bên.}
+{\begin{tikzpicture}[scale=0.7]
+\tkzDefPoints{-3/0/E, 3/0/F, 0/0/O, -2.5/2.5/M, 2.5/2.5/N}
+\tkzDrawPoints(O)
+\tkzDrawSegments(E,F M,O N,O)
+\tkzMarkAngle(M,O,E)
+\tkzMarkAngle(F,O,N)
+\end{tikzpicture}}
+}
+\end{ex}
+
+\begin{ex}%[7H1B2]
+Một đoạn thẳng có mấy đường trung trực?
+\loigiai{Một đoạn thẳng có duy nhất một đường trung trực.}
+\end{ex}
+
+\begin{ex}%[7H1B2]
+Cho đoạn thẳng $CD$ nằm trên đường trung trực của đoạn thẳng $AB$, $C$ và $D$ nằm ở hai phía của đường thẳng $AB$. Hỏi đường thẳng $AB$ có là đường trung trực của đoạn thẳng $CD$ không?
+\loigiai{\immini{Đường thẳng $AB$ chưa chắc là đường thẳng trung trực của đoạn $CD$.\\
+Vì không có giả thiết $AB$ đi qua trung điểm của $CD$.\\
+Ví dụ minh họa như hình bên.}{\begin{tikzpicture}[scale=0.7]
+\tkzDefPoints{-3/0/A, 3/0/B, 0/1/C, 0/-2/D}
+\tkzInterLL(A,B)(C,D) \tkzGetPoint{O}
+\tkzDrawPoints(A,B,C,D)
+\tkzLabelPoints[below](A,B)
+\tkzLabelPoints[right](C,D)
+\tkzDrawSegments(A,B C,D)
+\tkzMarkRightAngle(C,O,B)
+\tkzMarkSegments[mark=x](A,O O,B)
+\end{tikzpicture}}
+}
+\end{ex}
+
+\subsection{Học giải toán}
+
+\begin{vd}%[7H1B1]
+	Cho hai đường thẳng $AB$ và $CD$ cắt nhau tại $O$.
+	\begin{enumerate}
+		\item Kể tên các cặp góc đối đỉnh (không kể góc bẹt).
+		\item Biết số đo $\widehat{AOC}=40^{\circ}$. Tính các góc còn lại.
+		\item Kẻ $OE$ là tia phân giác của $\widehat{AOC}$ và kẻ $OF$ là tia đối của tia $OE$. Hãy chứng tỏ $OF$ là tia phân giác của góc $BOD$.
+		\item Trong hình vẽ có mấy cặp góc đối đỉnh, là những góc nào? (không kẻ góc bẹt). Tính số đo của các góc đó.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzDefPoints{0/0/A, 7/0/B, 1/2/C, 6/-2/D}
+			\tkzInterLL(A,B)(C,D) \tkzGetPoint{O}\tkzLabelPoints[below](O)
+			\tkzDrawPoints(O)
+			\tkzDefLine[bisector](A,O,C) \tkzGetPoint{d}
+			\tkzDefPointBy[homothety=center O ratio 2.5](d)\tkzGetPoint{E}
+			\tkzDefPointBy[homothety=center O ratio -2.5](d)\tkzGetPoint{F}
+			\tkzLabelPoints[below](A)
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[right](C,F)
+			\tkzLabelPoints[above right](D,E)
+			\tkzDrawSegments(A,B C,D)
+			\tkzDrawSegments[dashed](O,E O,F)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+					\item Các cặp góc đối đỉnh là: $\widehat{AOC}$ đối đỉnh với $\widehat{BOD}$, $\widehat{COB}$ đối đỉnh với $\widehat{AOD}$.
+					\item Vì $\widehat{AOC}$ và $\widehat{BOC}$ là hai góc kề bù nhau 
+					nên $\widehat{AOC}+\widehat{COB}=180^{\circ}.$\\
+					Mà $\widehat{AOC}=40^{\circ}$, vậy ta có:
+					\begin{itemize}
+						\item $\widehat{COB}=\widehat{AOD}=140^{\circ}$.
+						\item $\widehat{DOB}=\widehat{AOC}$ (hai góc đối đỉnh).
+					\end{itemize}
+					$\Rightarrow \widehat{DOB}=40^{\circ}$.
+					\item Ta có $OE$ và $OF$ là hai tia đối nhau (theo giả thiết), $OA$ và $OB$ là hai tia đối nhau ($AB$ là đường thẳng).\\
+					Vậy $\widehat{AOE}$ và $\widehat{BOF}$ là hai góc đối đỉnh (theo định nghĩa).\\
+					Suy ra $\widehat{AOE}=\widehat{BOF}=\dfrac{40^{\circ}}{2}=20^{\circ}$.\\
+					$\widehat{BOF}=20^{\circ}$ mà $OF$ nằm giữa hai tia $OB$ và $OD$ nên $\widehat{BOF}=20^{\circ}=\dfrac{1}{2}\widehat{BOD}.$\\
+					Vậy $OF$ là tia phân giác của góc $BOD$.
+					\item Có sáu cặp góc đối đỉnh
+					\begin{itemize}
+						\item $\widehat{AOC}=\widehat{BOD}=40^{\circ}$ \quad \text{ (câu b).}
+						\item $\widehat{COB}=\widehat{AOD}=140^{\circ}$ \quad \text{ (câu b).}
+						\item $\widehat{COE}=\widehat{FOD}=20^{\circ}$ \quad \text{ (câu c).}
+						\item $\widehat{AOE}=\widehat{BOF}=20^{\circ}$ \quad \text{ (câu c).}
+						\item $\widehat{EOB}=\widehat{AOF}=20^{\circ}+140^{\circ}=160^{\circ}$.
+						\item $\widehat{EOD}=\widehat{COF}=160^{\circ}$.
+					\end{itemize}
+		\end{enumerate}
+		}
+\end{vd}
+
+\begin{vd}%[7H1B2]
+Trên tia $Ox$ đặt các điểm $M$, $N$, $I$ và $P$ sao cho $OP=2OM$, $ON=\dfrac{1}{4}OP$, $OI=3ON$. Biết $OP=10$ cm.
+\begin{enumerate}
+	\item Tìm độ dài các đoạn $OI$, $OM$, $ON$.
+	\item Xác định vị trí các điểm $M$, $N$, $I$, $P$ trên tia $Ox$.
+	\item Lấy $Q$ thuộc nửa mặt phẳng bờ có chứa tia $Ox$ sao cho $QM \perp Ox$. $QM$ là đường trung trực của các đoạn thẳng nào? Tại sao?
+\end{enumerate}
+\loigiai
+{   \begin{center}
+		\begin{tikzpicture}
+		\tkzInit[ymin=-1,ymax=2,xmin=-1,xmax=6]
+		\tkzClip
+		\tkzDefPoints{0/0/O, 1/0/N, 2/0/M, 3/0/I, 4/0/P, 2/1.5/Q}
+		\draw[->,line width = 1pt] (0,0)--(5.5,0)  node[below]{$x$};
+		\tkzDefLine[orthogonal=through M](O,P) \tkzGetPoint{q}
+		\tkzDrawSegments(q,M)
+		\tkzDrawPoints(O,N,M,I,P)
+		\tkzLabelPoints[below](M,N,I,P,O)
+		\tkzLabelPoints[right](Q)
+		\end{tikzpicture}
+	\end{center}
+	\begin{enumerate}
+			\item $OP=10$ cm, $OP=2OM$. Suy ra $OM=5$ cm, lại có $ON=\dfrac{1}{4}OP$.\\
+			Vậy $ON=2.5$ cm, $OI=3ON$ nên $OI=7,5$ cm.
+			\item Các tia $ON$, $OM$, $OI$ và $OP$ có chung gốc $O$ mà $ON<OM<OI<OP$ ($2.5$ cm $<5$ cm $<7.5$ cm $<10$ cm).\\
+			Vậy các điểm nằm trên tia $Ox$ theo thứ tự $N$, $M$, $I$ và $P$.
+			\item Vì $OM<OP$ ($5$ cm $<10$ cm) nên điểm $M$ nằm giữa hai điểm $O$ và $P$.\\
+			Ta có $OM+MP=OP$ hay $5+MP=10 \Rightarrow MP=5$. Vậy $OM=MP=5$ cm.\\
+			$M$ là trung điểm của $OP$ và $MQ \perp OP$.\
+			Vậy $MQ$ là đường trung trực của đoạn thẳng $OP$. Tương tự, $MQ$ là đường trung trực của đoạn thẳng $NI$.
+	\end{enumerate}
+}
+\end{vd}
+
+\begin{vd}%[7H1K2]
+Cho $\widehat{mOn}=80^{\circ}$, $Ot$ là tia phân giác của góc $mOn$. Vẽ tia $Oh$ sao cho $Oh \perp Ot$. Tính số đo góc $mOh$.
+\loigiai
+{
+Xảy ra hai trường hợp:
+\begin{enumerate}
+	\item Tia $Oh$ nằm trên nửa mặt phẳng bờ chứa tia $Ot$ có chứa $Om$.
+	\immini{
+		Ta có $Ot \perp Oh \Rightarrow \widehat{tOh}=90^{\circ}$.\\
+		Theo đề bài, tia $Ot$ là tia phân giác của góc $mOn$ nên $\widehat{tOm}=\dfrac{1}{2}\widehat{mOn}=\dfrac{1}{2} \cdot 80^{\circ}=40^{\circ}.$\\
+		Trên cùng một nửa mặt phẳng bờ chứa tia $Ot$ có chứa tia $Om$, do $\widehat{tOm}<\widehat{tOh}$ nên tia $Om$ nằm giữa hai tia $Ot$, $Oh$.\\
+		Ta có
+		$ \widehat{tOm}+\widehat{mOh}=\widehat{tOh} \Rightarrow 40^{\circ}+\widehat{mOh}=90^{\circ}$.\\
+		Do đó $\widehat{mOh}=90^{\circ}-40^{\circ}=50^{\circ}$.}{\begin{tikzpicture}
+		\tkzDefPoints{0/0/O, 3/0/m}
+		\tkzDefPointBy[rotation=center O angle 80](m) \tkzGetPoint{n}
+        \tkzDefMidPoint(m,n) \tkzGetPoint{t}
+		\tkzDefPointBy[rotation=center O angle 90](t) \tkzGetPoint{h}
+		\tkzLabelPoints [below](O,m)
+		\tkzLabelPoints[above right](n,t,h)
+		\tkzMarkRightAngle(t,O,h)
+		\tkzDrawSegments(O,m O,n O,t O,h)
+		\tkzMarkAngle[size=0.6](m,O,t)
+		\tkzMarkAngle[size=0.5](t,O,n)
+		\end{tikzpicture}}
+	\item Tia $Oh$ nằm trên nửa mặt phẳng bờ chứa tia $Ot$ không chứa tia $Om$.
+	\immini{Ta có $Ot \perp Oh \Rightarrow \widehat{tOh}=90^{\circ}$.\\
+		Mà $Ot$ là tia phân giác của góc $mOn$ nên 
+		$$ \widehat{tOm}=\dfrac{1}{2} \widehat{mOn}= \dfrac{1}{2} \cdot 80^{\circ}=40^{\circ}. $$
+		Tia $Ot$ nằm giữa hai tia $Om$ và $Oh$ nên 
+		$$ \widehat{mOh}=\widehat{tOh}+\widehat{tOm}. $$
+		Vậy $\widehat{mOh}=90^{\circ}+40^{\circ}=130^{\circ}.$}{\begin{tikzpicture}
+		\tkzDefPoints{0/0/O, 3/0/m}
+		\tkzDefPointBy[rotation=center O angle 80](m) \tkzGetPoint{n}
+		\tkzDefMidPoint(m,n) \tkzGetPoint{t}
+		\tkzDefPointBy[rotation=center O angle -90](t) \tkzGetPoint{h}
+		\tkzLabelPoints [below left](O,m)
+		\tkzLabelPoints[above right](n,t,h)
+		\tkzMarkRightAngle(t,O,h)
+		\tkzDrawSegments(O,m O,n O,t O,h)
+		\tkzMarkAngle[size=0.6](m,O,t)
+		\tkzMarkAngle[size=0.5](t,O,n)
+		\end{tikzpicture}}
+\end{enumerate}
+}
+\end{vd}
+
+\begin{vd}%[7H1K2]
+Trên tờ giấy có vẽ góc $xOy$ bằng $54^{\circ}$. Hãy dùng thước kẻ và kéo để cắt góc $xOy$ thành ba góc bằng nhau có chung đỉnh $O$.
+\loigiai
+{ 
+	\immini{Từ $O$ dựng tia $Oz$ sao cho góc $xOz$ vuông, ta được góc $yOz$ bằng $36^{\circ}$. Gấp tờ giấy sao cho tia $Oy$ trùng với tia $Oz$, vết gấp $Ov$ chính là tia phân giác của góc $yOz$, do đó ta có $\widehat{zOv}=18^{\circ}$. Bây giờ ta dùng kéo cắt rời góc $zOv$ ra rồi đặt vào trong góc $xOy$ sao cho một cạnh của chúng trùng nhau, cạnh kia là tia $Om$. Làm tương tự ta được tia $On$. Dùng kéo cắt theo các tia $Om$, $On$ ta được ba góc $xOn$, $nOm$, $mOy$ bằng nhau (mỗi góc bằng $18^{\circ}$).}{\begin{tikzpicture}
+	\tkzDefPoints{0/0/O, 3/0/x}
+	\tkzDefPointBy[rotation=center O angle 54](x) \tkzGetPoint{y}
+	\tkzDefPointBy[rotation=center O angle 90](x) \tkzGetPoint{z}
+	\tkzDefMidPoint(y,z) \tkzGetPoint{v}
+	\tkzDefPointBy[rotation=center O angle 18](x) \tkzGetPoint{n}
+	\tkzDefPointBy[rotation=center O angle 18](n) \tkzGetPoint{m}
+	\tkzLabelPoints[below left](O,x)
+	\tkzLabelPoints[above right](y,z,v,m,n)
+	\tkzDrawSegments(O,x O,y O,z O,v O,m O,n)
+	\end{tikzpicture}}
+}
+\end{vd}
+
+\subsection{Bài tập}
+\subsubsection{Cơ bản}
+\begin{bt}%[7H1K1]
+Cho hai đường thẳng $AB$ và $CD$ cắt nhau tại $M$. Biết rằng $\widehat{BMC}=3\widehat{CMA}$. Tính số đo của $4$ góc $\widehat{AMC}$, $\widehat{BMC}$, $\widehat{BMD}$ và $\widehat{DMA}$ (tính bằng hai cách).
+\loigiai
+{
+\immini{
+	\textbf{Cách 1:} Vì $\widehat{BMC}+\widehat{CMA}=180^{\circ}$ và $\widehat{BMC}=3\widehat{CMA}$ \\nên $\widehat{AMC}=45^{\circ}$ và $\widehat{BMC}=135^{\circ}$.\\
+Lại có $\widehat{AMC}$ và $\widehat{BMD}$ là hai góc đối đỉnh nên $$\widehat{AMC}=\widehat{BMD}=45^{\circ}$$.
+Ta có $\widehat{AMD}$ và $\widehat{BMC}$ là hai góc đối đỉnh nên $$\widehat{AMD}=\widehat{BMC}=135^{\circ}$$.
+   \textbf{Cách 2:} Đặt $\widehat{AMC}=\alpha$.\\
+   Suy ra $\widehat{BMC}=3\alpha$.\\
+   Ta có $\heva{&\widehat{AMC} = \widehat{BMD} \text{ (vì là hai góc đối đỉnh)}\\&\widehat{AMD} = \widehat{BMC} \text{ (vì là hai góc đối đỉnh)} }$ 
+}{\begin{tikzpicture}
+\tkzDefPoints{0/0/M, -2/0/A, 3/0/B}
+\tkzDefPointBy[rotation=center M angle 45](B) \tkzGetPoint{D}
+\tkzDefPointBy[rotation=center M angle -135](B) \tkzGetPoint{C}
+\tkzLabelPoints[below right](A,B,M)
+\tkzLabelPoints[right](C,D)
+\tkzDrawSegments(A,B C,D)
+\tkzDrawPoints(M)
+\end{tikzpicture}}
+\noindent
+ nên $\widehat{AMC} + \widehat{BMD} + \widehat{AMD} + \widehat{BMC} = \alpha +3\alpha +\alpha +3\alpha = 8\alpha$.\\
+Mặt khác $\widehat{AMC} + \widehat{BMD} + \widehat{AMD} + \widehat{BMC}=360^\circ$ nên $8\alpha =360^\circ$. Suy ra $\alpha =45^\circ$.\\
+Do vậy $\widehat{AMC} = \widehat{BMD}=45^\circ$; $\widehat{AMD} = \widehat{BMC}=3\alpha =135^\circ$.
+}
+\end{bt}
+
+\begin{bt}%[7H1K1]
+Cho hai đường thẳng $EF$ và $MN$ cắt nhau tại $O$ tạo thành $4$ góc (không kể góc bẹt). Biết tổng $3$ góc trong $4$ góc đó bằng $250^{\circ}46'$. Tính số đo của $4$ góc đã cho (bằng hai cách).
+\loigiai
+{\immini{Giả sử góc $\widehat{EOM}+\widehat{MOF}+\widehat{FON}=250^{\circ}46'$.\\
+		\textbf{Cách 1:} \\
+		Ta có $\widehat{EOM}+\widehat{MOF}+\widehat{FON}+\widehat{NOE}=360^\circ$.\\
+		Vì $\widehat{EOM}+\widehat{MOF}+\widehat{FON}=250^{\circ}46'$\\
+		nên $\widehat{NOE}=360^\circ-250^{\circ}46'=109^\circ14'$.\\
+		Mặt khác $\widehat{NOE}=\widehat{MOF}$ (hai góc ở vị trí đối đỉnh).\\
+		Nên $\widehat{MOF}=109^\circ14'$.\\
+		Ta có  $\widehat{EOM}+\widehat{MOF}+\widehat{FON}=250^{\circ}46'$.\\
+		Mà $\widehat{EOM}=\widehat{NOF};~ \widehat{MOF}=109^\circ14'$\\
+		nên $2\widehat{EOM}+109^\circ14'=250^\circ46'$.\\
+		Do đó $\widehat{EOM}=70^\circ46'$.\\
+		Suy ra $\widehat{FON}=70^\circ46'$.
+		}{\begin{tikzpicture}
+		\tkzDefPoints{-3/0/E, 4/0/F, 2/2/N, -2.5/-2.5/M}
+		\tkzInterLL(M,N)(E,F) \tkzGetPoint{O}\tkzLabelPoints[below](O)
+		\tkzDrawPoints(O)
+		\tkzLabelPoints[below](M,N,E,F)
+		\tkzDrawSegments(M,N E,F)
+		\end{tikzpicture}}
+	\noindent \textbf{Cách 2:}\\
+	Ta có $\widehat{EOM}+\widehat{MOF}+\widehat{FON}=250^{\circ}46'$.\\
+	Mà $\widehat{EOM}+\widehat{MOF}=\widehat{EOF}=180^\circ$ nên $\widehat{FON}=250^\circ46'-180^\circ=70^\circ46'$.\\
+	Vì $\widehat{EOM}=\widehat{FON}$ (hai góc ở vị trí đối đỉnh) nên $\widehat{EOM}=70^\circ46'$.\\
+	Ta có $\widehat{EOM}+\widehat{MOF}=180^\circ \Leftrightarrow \widehat{MOF}=180^\circ-\widehat{EOM}=180^\circ-70^\circ46'=109^\circ14'$.\\
+	Mặt khác $\widehat{NOE}=\widehat{MOF}$ (hai góc ở vị trí đối đỉnh) nên $\widehat{NOE}=109^\circ14'$.
+}
+\end{bt}
+
+\begin{bt}%[7H1K2]
+Cho hai góc $\widehat{MON}$ và $\widehat{NOP}$ là hai góc kề bù nhau. $OE$ là tia phân giác của góc $\widehat{MON}$. Kẻ tia $OF \perp OE$ ($OF$ nằm trong góc $\widehat{NOP}$). Chứng tỏ $OF$ là tia phân giác của góc $NOP$.
+\loigiai
+{
+	\immini{$OE$ là tia phân giác của $\widehat{MON}$ nên
+		$$ \widehat{MOE}=\widehat{EON}=\alpha ~ (\alpha < 90^{\circ}). $$
+		Vậy $\widehat{NOF}=\widehat{EOF}-\widehat{EON}=90^{\circ}-\alpha \quad (1)$\\
+		và 
+		\begin{align*}
+		\widehat{FOP}&=180^{\circ}-\widehat{MOE}-\widehat{EOF}\\
+		&=180^{\circ}-\alpha-90^{\circ}=90^{\circ}-\alpha \quad (2).
+		\end{align*}
+		}{\begin{tikzpicture}
+		\tkzDefPoints{0/0/O, -2/0/P, 3/0/M}
+		\tkzDefPointBy[rotation=center O angle 70](M) \tkzGetPoint{N}
+		\tkzDefPointBy[rotation=center O angle 35](M) \tkzGetPoint{E}
+		\tkzDefPointBy[rotation=center O angle 90](E) \tkzGetPoint{F}
+		\tkzDrawPoints(O)
+		\tkzLabelPoints[below](M,O,P)
+		\tkzLabelPoints[above](N,E,F)
+		\tkzMarkRightAngle(E,O,F)
+		\tkzMarkAngle[size=0.5](E,O,N)
+		\tkzMarkAngle[size=0.6](M,O,E)
+		\tkzDrawSegments(M,P O,E O,N O,F)
+	\end{tikzpicture}}
+\noindent
+Từ $(1)$ và $(2)$ ta có $\widehat{NOF}=\widehat{FOP}$. Vậy $OF$ là tia phân giác của góc $\widehat{NOP}$.
+}
+\end{bt}
+
+\begin{bt}%[7H1K2]
+Cho $\widehat{AOB}$ tù. Về phía ngoài góc kẻ các tia $OC$ và $OD$ theo thứ tự vuông góc với các tia $OA$ và $OB$. Kẻ tia $Ox$ là tia phân giác của góc $\widehat{COD}$. Tia $Ox'$ là tia đối của tia $Ox$. Hãy chứng tỏ tia $Ox'$ là tia phân giác của góc $\widehat{AOB}$.
+\loigiai
+	{
+		\immini{
+			Ta có $OA \perp OC$; $OB \perp OD$ suy ra $\widehat{BOD}=\widehat{COA}=90^\circ$.\\
+			Mà $\widehat{AOB}+\widehat{BOD}+\widehat{DOC}+\widehat{COA}=360^\circ$\\
+			nên $\widehat{AOB}+\widehat{COD}=180^\circ \quad (1)$.\\
+			Ta có $Ox$ là tia phân giác của $\widehat{COD}$ nên $\widehat{xOC}=\dfrac{1}{2}\widehat{COD} \quad (2)$.\\
+			Ta lại có $\widehat{x'OA}+\widehat{AOC} +\widehat{COx}= \widehat{xOx'}=180^\circ$.\\
+			Mà $\widehat{AOC}=90^\circ$ nên $\widehat{x'OA}+\widehat{xOC}=90^\circ$.\\
+			Suy ra $2\left(\widehat{x'OA}+\widehat{xOC}\right)=180^\circ \quad (3)$. \\
+			Từ $(2), (3)$ ta có $\widehat{COD}+2\widehat{x'OA}=180^\circ \quad (4)$.\\
+			Từ $(1), (4)$ ta có $\widehat{AOB}=2\widehat{AOx'}$.\\
+			Gọi $C',~D'$ lần lượt là điểm đối xứng với $C,~D$ qua $O$.\\
+			Do $\widehat{AOB}$ tù nên $C',~D'$ nằm trong $\widehat{AOB}$.\\
+			Ta có $\widehat{COD}$ và $\widehat{C'OD'}$ là hai góc đối đỉnh.
+		}{\begin{tikzpicture}
+			\tkzDefPoints{0/0/O, 3/0/A}
+			\tkzDefPointBy[rotation=center O angle 120](A) \tkzGetPoint{B}
+			\tkzDefPointBy[rotation=center O angle -90](A) \tkzGetPoint{C}
+			\tkzDefPointBy[rotation=center O angle 90](A) \tkzGetPoint{C'}
+			\tkzDefPointBy[rotation=center O angle -90](B) \tkzGetPoint{D'}
+			\tkzDefPointBy[rotation=center O angle 90](B) \tkzGetPoint{D}
+			\tkzDefPointBy[rotation=center O angle 30](D) \tkzGetPoint{x}
+			\tkzDefPointBy[rotation=center O angle 60](A) \tkzGetPoint{x'}
+			\tkzDrawPoints(O)
+			\tkzLabelPoints[below right](C,x,D,O,A)
+			\tkzLabelPoints[above](B,x',C',D')
+			\tkzMarkRightAngle(B,O,D)
+			\tkzMarkRightAngle(C,O,A)
+			\tkzMarkAngle[size=0.5](D,O,x)
+			\tkzMarkAngle[size=0.6](x,O,C)
+			\tkzDrawSegments(x,x' O,A O,B O,C O,D)
+			\tkzDrawSegments[dashed](O,C' O,D')
+			\end{tikzpicture}}
+		\noindent
+		Mà $Ox$ là tia phân giác của $\widehat{COD}$; $Ox'$ là tia đối của tia $Ox$
+		nên $Ox$ là tia phân giác của $\widehat{C'OD'}$.\\
+		Do vậy tia $Ox'$ nằm trong $\widehat{AOB}$.\\
+		Mặt khác $\widehat{AOB}=2\widehat{AOx'}$ (cmt) nên $Ox'$ là tia phân giác của $\widehat{AOB}$.
+	}
+\end{bt}
+
+\begin{bt}%[7H1K2]
+Qua điểm $O$ cho trước kẻ $4$ đường thẳng phân biệt $a_1$, $a_2$, $a_3$ và $a_4$ sao cho $a_1 \perp a_2$, $a_3 \perp a_4$.
+\begin{enumerate}
+	\item Trong hình vẽ có bao nhiêu góc được tạo thành?
+	\item Trong tổng số các góc đó có bao nhiêu góc vuông? Bao nhiêu góc nhọn? Bao nhiêu góc tù? Bao nhiêu góc bẹt?
+\end{enumerate} 
+\loigiai
+{
+	\begin{center}
+		\begin{tikzpicture}
+		\tkzDefPoints{0/0/O, 3/0/A}
+		\tkzDefPointBy[rotation=center O angle 90](A) \tkzGetPoint{B}
+		\tkzDefPointBy[rotation=center O angle 180](A) \tkzGetPoint{C}
+		\tkzDefPointBy[rotation=center O angle 270](A) \tkzGetPoint{D}
+		\tkzDefPointBy[rotation=center O angle 20](A) \tkzGetPoint{A'}
+		\tkzDefPointBy[rotation=center O angle 90](A') \tkzGetPoint{B'}
+		\tkzDefPointBy[rotation=center O angle 90](B') \tkzGetPoint{C'}
+		\tkzDefPointBy[rotation=center O angle 90](C') \tkzGetPoint{D'}
+		\tkzDrawPoints(O)
+		\tkzLabelPoints[below right](O)
+		\tkzLabelPoint[below](A){$a_1$}
+		\tkzLabelPoint[left](B){$a_2$}
+		\tkzLabelPoint[right](A'){$a_3$}
+		\tkzLabelPoint[left](B'){$a_4$}
+		\tkzMarkRightAngle(A,O,B)
+		\tkzMarkRightAngle(A',O,B')
+		\tkzDrawSegments(C,A D,B C',A' D',B')
+		\end{tikzpicture}
+	\end{center}
+    \begin{enumerate}
+	\item Bốn đường thẳng cắt nhau tại $O$. Chúng bị điểm $O$ chia thành $8$ tia chung gốc $O$. Xét một tia (chẳng hạn tia $OM$) sẽ hợp với $8$ tia còn lại được $7$ góc khác nhau. Vậy có $8$ tia tạo thành $8 \cdot 7$ (góc).\\
+	Nhưng mỗi góc được tính $2$ lần. Vậy tổng số các góc tạo thành là $\dfrac{8 \cdot 7}{2}=28$ (góc).
+	\item Mỗi tia hợp với $7$ tia còn lại tạo thành $2$ góc vuông, $1$ góc bẹt, $2$ góc tù, $2$ góc nhọn.\\
+	Vậy tất cả góc vuông trong hình vẽ là $\dfrac{2 \cdot 8}{2}=8$ (góc).\\
+	Số góc bẹt trong hình vẽ là $\dfrac{1\cdot 8}{2}=4$ (góc).\\
+	Tương tự ta có $8$ góc tù và $8$ góc nhọn.
+\end{enumerate}
+}
+\end{bt}
+
+\begin{bt}%[7H1K2]
+Cho $\widehat{xOy}=90^{\circ}$ và tia $Oz$ nằm trong góc $xOy$. Trên nửa mặt phẳng bờ chứa tia $Ox$ (không chứa tia $Oz$) vẽ góc $\widehat{mOx}=\widehat{zOy}$ và trên nửa mặt phẳng bờ chứa tia $Oy$ (không chứa tia $Oz$) vẽ góc $\widehat{yOn}=\widehat{xOz}$. Trên tia $Om$ đặt điểm $M$, trên tia $On$ đặt điểm $N$ sao cho $OM=ON$.
+\begin{enumerate}
+	\item Chứng tỏ hai tia $Om$ và $On$ là hai tia đối nhau.
+	\item Chứng tỏ $Oz$ là đường trung trực của đoạn $MN$.
+\end{enumerate}
+\loigiai
+{
+\immini{\begin{enumerate}
+		\item Vì $\widehat{mOx}=\widehat{zOy}$ và $\widehat{nOy}=\widehat{xOz}$\\ nên $\widehat{mOx}+\widehat{nOy}=\widehat{xOy}$.\\
+		Mà $\widehat{xOz}+\widehat{yOz}=90^{\circ}$ (gt).\\
+		Vậy $\widehat{mOn}+\widehat{nOy}=90^{\circ}$.\\
+		Ta có $\widehat{mOx}+\widehat{xOz}+\widehat{zOy}+\widehat{yOn}=90^{\circ}+90^{\circ}=180^{\circ}.$\\
+		Suy ra hai tia $Om$ và $On$ nằm trên một đường thẳng có chung gốc $O$. Vậy $Om$ và $On$ là hai tia đối nhau.
+		\item $Oz \perp MN$ mà $OM = ON$. Vậy $Oz$ là đường trung trực của $MN$.
+\end{enumerate}}{\begin{tikzpicture}
+\tkzDefPoints{0/0/O, 3/0/A, 4/0/x}[scale=0.8]
+\tkzDefPointBy[rotation=center O angle 90](x) \tkzGetPoint{y}
+\tkzDefPointBy[rotation=center O angle 35](x) \tkzGetPoint{z}
+\tkzDefPointBy[rotation=center O angle -55](x) \tkzGetPoint{m}
+\tkzDefPointBy[rotation=center O angle 90](z) \tkzGetPoint{n}
+\tkzDefPointBy[rotation=center O angle -55](A) \tkzGetPoint{M}
+\tkzDefPointBy[rotation=center O angle 125](A) \tkzGetPoint{N}
+\tkzDrawPoints(O,M,N)
+\tkzLabelPoints[left](O,M,N)
+\tkzLabelPoints[above right](x,y,z,m,n)
+\tkzMarkRightAngle(x,O,y)
+\tkzMarkAngle[size=0.5](x,O,z)
+\tkzMarkAngle[size=0.5](y,O,n)
+\tkzMarkAngle[size=0.6, mark=|](z,O,y)
+\tkzMarkAngle[size=0.6, mark=|](m,O,x)
+\tkzDrawSegments(O,x O,y O,m O,n O,z)
+\end{tikzpicture}}
+}
+\end{bt}
+
+\begin{bt}%[7H1K2]
+Cho góc $\widehat{AOB}=\alpha ^{\circ}$ ($90^{\circ}< \alpha^{\circ} <180^{\circ}$). Trong góc đó vẽ tia $OM \perp OB$ và $ON \perp OA$.
+\begin{enumerate}
+	\item Chứng tỏ $\widehat{AOM}=\widehat{BON}$.
+	\item Tia $Ox$ và $Oy$ theo thứ tự là tia phân giác của góc $\widehat{AOM}$ và $\widehat{BON}$. Hãy chứng tỏ $Ox \perp Oy$.
+\end{enumerate}
+\loigiai
+{ \begin{center}
+		\begin{tikzpicture}
+		\tkzDefPoints{0/0/O, 3/0/A}
+		\tkzDefPointBy[rotation=center O angle 120](A) \tkzGetPoint{B}
+		\tkzDefPointBy[rotation=center O angle 90](A) \tkzGetPoint{N}
+		\tkzDefPointBy[rotation=center O angle -90](B) \tkzGetPoint{M}
+		\tkzDefPointBy[rotation=center O angle 15](A) \tkzGetPoint{x}
+		\tkzDefPointBy[rotation=center O angle -15](B) \tkzGetPoint{y}
+		\tkzDrawPoints(O)
+		\tkzLabelPoints[below left](O,A,B)
+		\tkzLabelPoints[above right](M,N,x,y)
+		\tkzMarkAngle(A,O,x)
+		\tkzMarkAngle[size=0.9](x,O,M)
+		\tkzMarkAngle(N,O,y)
+		\tkzMarkAngle[size=0.9](y,O,B)
+		\tkzDrawSegments(O,x O,y O,M O,N O,A O,B)
+		\end{tikzpicture}
+	\end{center}
+\begin{enumerate}
+	\item $\widehat{AOB}=\alpha > 90^{\circ}$ nên tia $OM$ và $ON$ nằm trong góc $AOB$.\\
+	$$ ON\perp OA \Rightarrow \widehat{AOM}+\widehat{MON}=90^{\circ} \quad (1) $$
+	$$ OM\perp OB \Rightarrow \widehat{NOB}+\widehat{NOM}=90^{\circ} \quad (2) $$
+	Từ $(1)$ và $(2)$ có $\widehat{AOM}=\widehat{NOB}=\alpha - 90^{\circ}.$
+	\item $Ox$ là tia phân giác của $\widehat{AOM}$ nên 
+	$$ \widehat{xOM}=\dfrac{\widehat{AOM}}{2}=\dfrac{\alpha - 90^{\circ}}{2} \quad (3) $$
+	$Oy$ là tia phân giác của $\widehat{NOB}$ nên 
+	$$ \widehat{yON}=\dfrac{\widehat{NOB}}{2}=\dfrac{\alpha - 90^{\circ}}{2} \quad (4) $$
+	Mà $\widehat{xOy}=\widehat{xOM}+\widehat{MON}+\widehat{NOy}.$\\
+	Thay vào ta có
+	$$ \widehat{xOy}=\dfrac{\alpha -90^{\circ}}{2}+180^{\circ}-\alpha + \dfrac{\alpha-90^{\circ}}{2}=90^{\circ}. $$	
+\end{enumerate}
+}
+\end{bt}
+
+\begin{bt}%[7H1K2]
+Cho góc $\widehat{xOy}=\alpha ^{\circ}$ ($90^{\circ}<\alpha ^{\circ}<180^{\circ}$). Trong nửa mặt phẳng bờ $Oy$ có chứa tia $Ox$ kẻ $Oz \perp Ox$. Gọi $OE$ là tia phân giác của $\widehat{zOy}$. Biết $\widehat{zOE}=20^{\circ}$, tính $\widehat{xOy}$.
+\loigiai
+{\immini{
+	Vì $\widehat{zOE}=20^{\circ}$ và $OE$ là tia phân giác của $\widehat{zOy}$ nên $\widehat{zOy}=40^{\circ}$.\\
+	Vậy $\widehat{xOy}=40^{\circ}+90^{\circ}=130^{\circ}$.		
+	}{
+	\begin{tikzpicture}
+	\tkzDefPoints{0/0/O, 3/0/x}
+	\tkzDefPointBy[rotation=center O angle 130](x) \tkzGetPoint{y}
+	\tkzDefPointBy[rotation=center O angle 90](x) \tkzGetPoint{z}
+	\tkzDefPointBy[rotation=center O angle 20](z) \tkzGetPoint{E}
+	\tkzDrawPoints(O)
+	\tkzLabelPoints[below left](O,x,y,E)
+	\tkzLabelPoints[above right](z)
+	\tkzDrawSegments(O,x O,y O,z O,E)
+	\end{tikzpicture}
+
+}
+}
+\end{bt}
+
+\subsubsection{Bài tập nâng cao}
+
+\begin{bt}%[7H1G1]
+Qua điểm $O$ vẽ $20$ đường thẳng đôi một phân biệt. Hỏi có bao nhiêu cặp góc đối đỉnh nhỏ hơn góc bẹt?
+\loigiai
+{
+Qua $O$ vẽ $20$ đường thẳng phân biệt nên có $2 \cdot 20=40$ (tia).\\
+Có $40$ tia gốc $O$, mỗi tia tạo với một tia trong $39$ tia còn lại thành $39$ góc nên có $39 \cdot 40=1560$ (góc).\\
+Tuy nhiên mỗi góc đã được tính $2$ lần.\\
+Do đó, số góc thực sự có là $1560 : 2=780$ (góc).\\
+Có $20$ đường thẳng nên trên hình có $20$ góc bẹt.\\
+Số các góc nhỏ hơn góc bẹt trong hình có là $780-20=760$ (góc).\\
+Mỗi góc trong $760$ góc này đều có $1$ góc đối đỉnh với nó, tạo thành một cặp góc đối đỉnh.\\
+Vậy số cặp góc đối đỉnh nhỏ hơn góc bẹt có là $760:2=380$ (cặp góc đối đỉnh).
+}
+\end{bt}
+
+\begin{bt}%[7H1G1]
+Qua điểm $M$ vẽ $n$ đường thẳng đôi một phân biệt ($n \in \mathbb{N}, n \ge 2$).
+\begin{enumerate}
+	\item Hãy cho biết trên hình vẽ có bao nhiêu cặp góc đối đỉnh nhỏ hơn góc bẹt.
+	\item Cho biết trên hình vẽ có $930$ cặp góc đối đỉnh nhỏ hơn góc bẹt. Tính $n$.
+\end{enumerate}
+\loigiai
+{
+\begin{enumerate}
+	\item Qua điểm $M$ vẽ $n$ đường thẳng đôi một phân biệt nên có $2 \cdot n=2n$ (tia).\\
+	Có $2n$ tia gốc $M$, mỗi tia tạo với $2n-1$ tia còn lại thành $2n-1$ góc nên có $2n(2n-1)$ góc. Tuy nhiên mỗi góc đã được tính hai lần.\\
+	Số góc thực sự có là $2n(2n-1):2=n(2n-1)$ (góc).\\
+	Các góc nhỏ hơn góc bẹt có trong hình là $n(2n-1)-n=2n(n-1)$ (góc).\\
+	Mỗi góc trong $2n(n-1)$ góc này đều có một góc đối đỉnh với nó, tạo thành một cặp góc đối đỉnh.\\
+	Vậy số cặp góc đối đỉnh nhỏ hơn góc bẹt có là $2n(n-1):2=n(n-1)$ (cặp góc đối đỉnh).
+	\item Từ câu a) ta có $n(n-1)=930 \Rightarrow n=31.$
+\end{enumerate}
+}
+\end{bt}
+
+\begin{bt}%[7H1G1]
+Qua điểm $O$ vẽ $10$ đường thẳng đôi một phân biệt. Xét các góc không có điểm trong chung. Chứng tỏ rằng tồn tại hai góc lớn hơn hoặc bằng $18^{\circ}$, tồn tại hai góc nhỏ hơn hằng bằng $18^{\circ}$.
+\loigiai
+{
+Có $10$ đường thẳng đôi một phân biệt đi qua $O$ nên có $20$ góc không có điểm trong chung, tổng của $20$ góc này bằng $360^{\circ}$.\\
+Nếu mọi góc đều nhỏ hơn $18^{\circ}$ thì tổng của chúng nhỏ hơn $360^{\circ}$, vô lí.\\
+Do vậy tồn tại một góc lớn hơn hoặc bằng $18^{\circ}$ mỗi góc này có một góc đối đỉnh với nó, mà hai góc đổi đỉnh thì bằng nhau. Vậy tồn tại hai góc lớn hơn hoặc bằng $18^{\circ}$.\\
+Lập luận tương tự suy ra cũng tồn tại hai góc nhỏ hơn hoặc bằng $18^{\circ}$.
+}
+\end{bt}
+
+\begin{bt}%[7H1G2]
+Ở phía ngoài góc tù $xOy$ vẽ các tia $Oz$, $Ot$ sao cho $Oz \perp Ox$, $Ot \perp Oy$. Gọi $Om$, $On$ lần lượt là các tia phân giác của các góc $xOy$, $zOt$. Chứng tỏ rằng $Om$, $On$ là hai tia đối nhau.
+\loigiai
+{\immini{Ta có $On$ là tia phân giác của $\widehat{zOt}$ nên $\widehat{nOz}=\dfrac{1}{2}\widehat{tOz}$.\\
+		Ta có $Om$ là tia phân giác của góc $\widehat{xOy}$ nên $\widehat{mOx}=\dfrac{1}{2}\widehat{xOy}$.\\
+		Do vậy $\widehat{mOx}+\widehat{nOz} = \dfrac{1}{2}\left(\widehat{xOy}+\widehat{tOz}\right) \quad (1)$.\\
+		Ta có $\widehat{xOy}+\widehat{yOt}+\widehat{tOz}+\widehat{zOx}=360^\circ$.\\
+		Mà $\widehat{yOt}=\widehat{xOz}=90^\circ$ (vì $Oz \perp Ox$, $On \perp Oy$)\\
+		nên $\widehat{xOy}+\widehat{tOz}=180^\circ \quad (2).$\\
+		Từ $(1), (2)$ ta có $\widehat{mOx}+\widehat{nOz}=\dfrac{1}{2}\cdot 180^\circ=90^\circ$.\\
+		Suy ra $\widehat{mOx}+\widehat{xOz}+\widehat{zOn}=180^\circ$.\\
+		Do đó $\widehat{mOn}=180^\circ$.
+		Vì vậy $Om, On$ là hai tia đối nhau.}{\begin{tikzpicture}
+		\tkzDefPoints{0/0/O, 3/0/x}
+		\tkzDefPointBy[rotation=center O angle 120](x) \tkzGetPoint{y}
+		\tkzDefPointBy[rotation=center O angle -90](x) \tkzGetPoint{z}
+		\tkzDefPointBy[rotation=center O angle 90](y) \tkzGetPoint{t}
+		\tkzDefPointBy[rotation=center O angle 30](t) \tkzGetPoint{m}
+		\tkzDefPointBy[rotation=center O angle 60](x) \tkzGetPoint{n}
+		\tkzDrawPoints(O)
+		\tkzLabelPoints[below right](x,z,t,m)
+		\tkzLabelPoints[above](y,n)
+		\tkzMarkRightAngle(z,O,x)
+		\tkzMarkRightAngle(y,O,t)
+		\tkzMarkAngle[size=0.5](t,O,m)
+		\tkzMarkAngle[size=0.6](m,O,z)
+		\tkzMarkAngle[size=0.5, mark=|](x,O,n)
+		\tkzMarkAngle[size=0.6, mark=|](n,O,y)
+		\tkzDrawSegments(O,x O,y O,z O,t O,m O,n)
+		\end{tikzpicture}}
+}
+\end{bt}
+
+\begin{bt}%[7H1G2]
+Cho đường thẳng $d$ và các điểm $A$, $B$, $C$, $D$, $E$. Biết rằng $AB \perp d$, $BC \perp d$, $CD \perp d$, $DE \perp d$. Chứng tỏ rằng $A$, $B$, $C$, $D$, $E$ thẳng hàng.
+\loigiai
+{
+	\immini{$AB \perp d, BC \perp d \Rightarrow$ hai đường thẳng $AB$, $BC$ trùng nhau.\\          
+		Suy ra $A$, $B$, $C$ thẳng hàng.\\
+		Mặt khác $CD \perp d$.\\
+		Mà $BC \perp d \Rightarrow B$, $C$, $D$ thẳng hàng.\\
+		Suy ra $A$, $B$, $C$, $D$ cùng thuộc đường thẳng $AD$.\\
+		Mà $DE \perp d$ nên $E$ cũng thuộc đường thẳng $AD$. }{\begin{tikzpicture}[scale=0.7]
+		\tkzDefPoints{0/0/O, 5/0/d, 2/1/A, 2/-1/B, 2/3.5/C, 2/-3/D, 2/4/E, 2/4.5/F, 2/-3.5/G}
+		\tkzLabelPoints[below right](d)
+		\tkzDrawPoints(A,B,C,D,E)
+		\tkzLabelPoints[right](A,B,C,D,E)
+		\tkzDrawSegments(O,d F,G)
+		\end{tikzpicture}}
+}
+\end{bt}
+
+
+
+\Closesolutionfile{ans}

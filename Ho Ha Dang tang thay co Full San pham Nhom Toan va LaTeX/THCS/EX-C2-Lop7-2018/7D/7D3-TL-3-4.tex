@@ -1,0 +1,621 @@
+%\chapter{THỐNG KÊ}
+\section{BIỂU ĐỒ}
+\subsection{Tóm tắt lý thuyết}
+\subsubsection{Biểu đồ đoạn thẳng}
+Với bảng:
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+Giá trị của $X$ & Tần số tương ứng \\ 
+\hline 
+$x_1$ & $m_1$ \\ 
+$x_2$ & $m_2$ \\ 
+$x_3$ & $m_3$ \\ 
+\ldots & \ldots \\ 
+$x_k$ & $m_k$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+Nếu ta biểu diễn trên hệ trục tọa độ $xOm$ theo cách:
+\begin{itemize}
+\item Nối điểm $(x_1,0)$ với điểm $(x_1,m_1)$ để được một đoạn thẳng.
+\item Nối điểm $(x_2,0)$ với điểm $(x_2,m_2)$ để được một đoạn thẳng.
+\item \ldots
+\item Nối điểm $(x_k,0)$ với điểm $(x_k,m_k)$ để được một đoạn thẳng.
+\end{itemize}
+Khi đó, ta nhận được một biểu đồ gọi là biểu đồ đoạn thẳng.
+\subsubsection{Biểu đồ hình chữ nhật}
+Nếu ta thay các đoạn thẳng bằng các hình chữ nhật thì ta được một loại biểu đồ mới. Đó là biểu đồ hình chữ nhật.\\
+\textbf{Thí dụ 1:} \textit{Biểu đồ dân số Việt Nam qua tổng điều tra trong thế kỉ} $X{X}$.
+\begin{center}
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzDefPoints{-0.5/0/A, 0/0/B, 1/0/C, 2/0/D, 3/0/E, 4/0/F, 5/0/G, 6/0/H, 7/0/I, 8/0/J, 9/0/K, 9.5/0/L, 0/1/B', 1/1/C', 2/1.9/D', 3/1.9/E', 4/2.8/F', 5/2.8/G', 6/3.3/H', 7/3.3/I', 8/3.9/J', 9/3.9/K'}
+\tkzDrawSegments[thin](A,L B,B' B',C' C',C D,D' D',E' E',E F,F' F',G' G',G H,H' H',I' I',I J,J' J',K' K',K)
+\tkzLabelLine[above](B',C'){$16$ triệu}
+\tkzLabelLine[above](D',E'){$30$ triệu}
+\tkzLabelLine[above](F',G'){$54$ triệu}
+\tkzLabelLine[above](H',I'){$64$ triệu}
+\tkzLabelLine[above](J',K'){$76$ triệu}
+\tkzLabelLine[below](B,C){$1921$}
+\tkzLabelLine[below](D,E){$1960$}
+\tkzLabelLine[below](F,G){$1980$}
+\tkzLabelLine[below](H,I){$1990$}
+\tkzLabelLine[below](J,K){$1999$}
+\tkzFillPolygon[pattern=north east lines,opacity=.7](B,B',C',C)
+\tkzFillPolygon[pattern=north east lines,opacity=.7](D,D',E',E)
+\tkzFillPolygon[pattern=north east lines,opacity=.7](F,F',G',G)
+\tkzFillPolygon[pattern=north east lines,opacity=.7](H,H',I',I)
+\tkzFillPolygon[pattern=north east lines,opacity=.7](J,J',K',K)
+\end{tikzpicture}
+\end{center}
+\subsection{Phương pháp giải toán}
+
+%%Ví dụ 01
+\begin{vd}%[Nguyễn Tuấn Kiệt, EX-C2-7-2018]%[7D3B3]
+Cho bảng tần số
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline 
+Giá trị $x$ & $25$ & $45$ & $28$ & $59$ & $81$ & $99$ &  \\ 
+\hline 
+Tần số $n$ & $2$ & $3$ & $2$ & $4$ & $5$ & $4$ & $n= 20$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+Hãy lập biểu đồ đoạn thẳng để biểu diễn các số liệu trên.
+\loigiai{
+Ta thực hiện các bước sau
+\immini{\begin{description}
+\item[Bước 1] Dựng hệ trục tọa độ. Trên đó, trục hoành biểu diễn các giá trị $x$, trục tung biểu diễn tần số $m$.
+\item[Bước 2] Xác định các điểm có tọa độ là cặp số gồm giá trị và tân số của nó. Ở đây, ta được: $(25,2)$; $(45,3)$; $(28,2)$; $(59,4)$; $(81,5)$; $(99,4)$.
+\item[Bước 3] Từ điểm đó kẻ đường thẳng vuông góc với trục hoành.
+\end{description}
+}{\begin{tikzpicture}[>=stealth,scale=0.7, line join = round, line cap = round]
+\tkzInit[xmin=-1,xmax=7.3,ymin=-1.2,ymax=6.2]
+\tkzClip
+\draw[->,line width = 1pt] (1,0)--(7,0) node[below]{$x$};
+\draw[->,line width = 1pt] (0,0)node[below]{$O$} --(0,6) node[left]{$m$};
+\draw (1,0) node[below]{$25$} circle (1pt);
+\draw (2,0) node[below]{$28$} circle (1pt);
+\draw (3,0) node[below]{$45$} circle (1pt);
+\draw (4,0) node[below]{$59$} circle (1pt);
+\draw (5,0) node[below]{$81$} circle (1pt);
+\draw (6,0) node[below]{$99$} circle (1pt);
+\draw (0,1) node[left]{$1$} circle (1pt);
+\draw (0,2) node[left]{$2$} circle (1pt);
+\draw (0,3) node[left]{$3$} circle (1pt);
+\draw (0,4) node[left]{$4$} circle (1pt);
+\draw (0,5) node[left]{$5$} circle (1pt);
+\tkzDefPoints{-1/0/A, 0/0/O, 1/0/B, 2/0/C, 3/0/D, 4/0/E, 5/0/F, 6/0/G, 7/0/H, 1/2/B', 2/2/C', 3/3/D', 4/4/E', 5/5/F', 6/4/G', 0/2/M, 0/3/N, 0/4/P, 0/5/Q}
+\tkzDrawSegments[thin](B,B' C,C' D,D' E,E' F,F' G,G')
+\tkzDrawSegments[dashed](M,C' N,D' Q,F' P,G' O,B)
+\end{tikzpicture}
+}}
+\end{vd}
+
+%%Ví dụ 02
+\begin{vd}%[Nguyễn Tuấn Kiệt, EX-C2-7-2018]%[7D3B3]
+Trong hồ sơ khảo sát của đài khí tượng thủy văn năm $2004$ có ghi lại nhiệt độ trung bình của từng tháng như sau
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+Tháng & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ & $11$ & $12$ \\ 
+\hline 
+$t^\circ$ & $18$ & $20$ & $24$ & $28$ & $30$ & $31$ & $32$ & $31$ & $28$ & $25$ & $18$ & $17$ \\ 
+\hline 
+\end{tabular}
+\begin{enumerate}
+\item Hãy lập bảng tần số.
+\item Hãy biểu diễn bằng biểu đồ đoạn thẳng.
+\end{enumerate}
+\end{center}
+\loigiai{
+\begin{enumerate}
+\item Ta có, bảng tần số:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+Giá trị & $17$ & $18$ & $20$ & $24$ & $25$ & $28$ & $30$ & $31$ & $32$ & \\ 
+\hline 
+Tần số & $1$ & $2$ & $1$ & $1$ & $1$ & $2$ & $1$ & $2$ & $1$ & $n=12$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\item Biểu đồ đoạn thẳng
+\begin{center}
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=-1,xmax=9.2,ymin=-0.45,ymax=3.1]
+\tkzClip
+\draw[->,line width = 1pt] (1,0)--(9,0) node[below]{$x$};
+\draw[->,line width = 1pt] (0,0)node[below]{$O$} --(0,3) node[left]{$m$};
+\draw (1,0) node[below]{$17$} circle (1pt);
+\draw (1.5,0) node[below]{$18$} circle (1pt);
+\draw (2.2,0) node[below]{$20$} circle (1pt);
+\draw (4,0) node[below]{$24$} circle (1pt);
+\draw (4.7,0) node[below]{$25$} circle (1pt);
+\draw (6,0) node[below]{$28$} circle (1pt);
+\draw (6.8,0) node[below]{$30$} circle (1pt);
+\draw (7.4,0) node[below]{$31$} circle (1pt);
+\draw (8,0) node[below]{$32$} circle (1pt);
+\draw (0,1) node[left]{$1$} circle (1pt);
+\draw (0,2) node[left]{$2$} circle (1pt);
+\tkzDefPoints{-1/0/A, 0/0/O, 1/0/B, 1.5/0/C, 2.2/0/D, 4/0/E, 4.7/0/F, 6/0/G, 6.8/0/H, 7.4/0/I, 8/0/J, 1/1/B', 1.5/2/C', 2.2/1/D', 4/1/E', 4.7/1/F', 6/2/G', 6.8/1/H', 7.4/1/I', 8/1/J', 0/1/M, 0/2/N}
+\tkzDrawSegments[thin](B,B' C,C' D,D' E,E' F,F' G,G' H,H' I,I' J,J')
+\tkzDrawSegments[dashed](M,J' N,G' O,B)
+\end{tikzpicture}
+\end{center}
+\end{enumerate}
+}
+\end{vd}
+
+%%Ví dụ 03
+\begin{vd}%[Nguyễn Tuấn Kiệt, EX-C2-7-2018]%[7D3B3]
+Cho biểu đồ biểu diễn kết quả học tập của học sinh trong một lớp qua một bài kiểm tra.
+\begin{center}
+\begin{tikzpicture}[>=stealth,scale=0.7, line join = round, line cap = round]
+\tkzInit[xmin=-1,xmax=14,ymin=-0.9,ymax=9.4]
+\tkzClip
+\draw[->,line width = 1pt] (0,0)--(11,0) node[below right]{$x$ (điểm)};
+\draw[->,line width = 1pt] (0,0)node[below]{$O$} --(0,9) node[left]{$m$};
+\draw (1,0) node[below]{$1$} circle (1pt);
+\draw (2,0) node[below]{$2$} circle (1pt);
+\draw (3,0) node[below]{$3$} circle (1pt);
+\draw (4,0) node[below]{$4$} circle (1pt);
+\draw (5,0) node[below]{$5$} circle (1pt);
+\draw (6,0) node[below]{$6$} circle (1pt);
+\draw (7,0) node[below]{$7$} circle (1pt);
+\draw (8,0) node[below]{$8$} circle (1pt);
+\draw (9,0) node[below]{$9$} circle (1pt);
+\draw (10,0) node[below]{$10$} circle (1pt);
+\draw (0,1) node[left]{$1$} circle (1pt);
+\draw (0,2) node[left]{$2$} circle (1pt);
+\draw (0,4) node[left]{$4$} circle (1pt);
+\draw (0,6) node[left]{$6$} circle (1pt);
+\draw (0,7) node[left]{$7$} circle (1pt);
+\draw (0,8) node[left]{$8$} circle (1pt);
+\tkzDefPoints{-1/0/A, 0/0/O, 1/0/B, 2/0/C, 3/0/D, 4/0/E, 5/0/F, 6/0/G, 7/0/H, 8/0/I, 9/0/J, 10/0/K, 1/0.5/B', 2/1/C', 3/2/D', 4/4/E', 5/2/F', 6/7/G', 7/8/H', 8/6/I', 9/2/J', 10/1/K', 0/1/M, 0/2/N, 0/4/P, 0/6/Q, 0/7/R, 0/8/S}
+\tkzDrawSegments[thin](C,C' D,D' E,E' F,F' G,G' H,H' I,I' J,J' K,K')
+\tkzDrawSegments[dashed](M,K' N,J' P,E' Q,I' R,G' S,H')
+\end{tikzpicture}
+\end{center}
+Từ biểu đồ trên hãy
+\begin{enumerate}
+\item Nhận xét sơ bộ về tình hình học tập của lớp.
+\item Lập bảng tần số.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Từ biểu đồ trên, ta có một số nhận xét sau
+\begin{itemize}
+\item Tình hình học tập của lớp ở mức khá.
+\item Không có bạn nào bị điểm 1 song vẫn có bạn bị điểm dưới trung bình.
+\item Tỉ lệ đạt điểm $6$, $7$, $8$ là khá cao.
+\end{itemize}
+\item Lập bảng tần số
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+Giá trị & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ & \\ 
+\hline 
+Tần số & $0$ & $1$ & $2$ & $4$ & $2$ & $7$ & $8$ & $6$ & $2$ & $1$ & $n=32$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\end{enumerate}
+}
+\end{vd}
+
+%%Ví dụ 04
+\begin{vd}%[Nguyễn Tuấn Kiệt, EX-C2-7-2018]%[7D3B3]
+Để kiểm tra sức khỏe của một trường trung học cơ sở có $500$ học sinh. Người ta điều tra đã thống kê về chiều cao của các em thông qua bảng sau
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+Chiều cao (tính theo cm) & Giá trị trung tâm & Tần số \\
+\hline 
+$140-144$ & $142$ & $35$ \\ 
+$144-150$ & $146$ & $175$ \\ 
+$150-154$ & $152$ & $200$ \\ 
+$154-158$ & $156$ & $50$ \\ 
+$158-160$ & $159$ & $40$ \\ 
+\hline 
+ &  & Tổng số $=500$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+Hãy lập biểu đồ hình chữ nhật để biểu diễn các số liệu trên.
+\loigiai{ 
+Lập biểu đồ hình chữ nhật
+\begin{center}
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=-0.9,xmax=7.2,ymin=-0.45,ymax=5.1]
+\tkzClip
+\draw[->,line width = 1pt] (1,0)--(7,0) node[below]{$x$};
+\draw[->,line width = 1pt] (0,0)node[below]{$O$} --(0,5) node[left]{$m$};
+\draw (1,0) node[below]{$140$} circle (1pt);
+\draw (3.5,0) node[below]{$150$} circle (1pt);
+\draw (6,0) node[below]{$160$} circle (1pt);
+\draw (0,1) node[left]{$50$} circle (1pt);
+\draw (0,2) node[left]{$100$} circle (1pt);
+\draw (0,3) node[left]{$150$} circle (1pt);
+\draw (0,4) node[left]{$200$} circle (1pt);
+\tkzDefPoints{-1/0/A, 0/0/O, 1/0/B, 2/0/C, 3/0/D, 4/0/E, 5/0/F, 6/0/G, 7/0/H, 1/0.7/B', 2/0.7/C', 2/3.5/C'', 3/3.5/D', 3/4/D'', 4/4/E', 4/1/E'', 5/1/F', 5/0.8/F'', 6/0.8/G'}
+\tkzDrawSegments[thin](B,B' B',C' C,C'' C'',D' D,D'' D'',E' E,E' E'',F' F,F' F'',G' G,G')
+\tkzDrawSegments[dashed](O,B)
+\tkzFillPolygon[pattern=north east lines,opacity=.7](B,B',C',C)
+\tkzFillPolygon[pattern=north east lines,opacity=.7](C,C'',D',D)
+\tkzFillPolygon[pattern=north east lines,opacity=.7](D,D'',E',E)
+\tkzFillPolygon[pattern=north east lines,opacity=.7](E,E'',F',F)
+\tkzFillPolygon[pattern=north east lines,opacity=.7](F,F'',G',G)
+\tkzDefMidPoint(B',C')\tkzGetPoint{M}
+\tkzDefMidPoint(C'',D')\tkzGetPoint{N}
+\tkzDefMidPoint(D'',E')\tkzGetPoint{P}
+\tkzDefMidPoint(E'',F')\tkzGetPoint{Q}
+\tkzDefMidPoint(F'',G')\tkzGetPoint{R}
+\tkzDrawSegments[thin](M,N N,P P,Q Q,R)
+\end{tikzpicture}
+\end{center}
+}
+\end{vd}
+\subsubsection{Bài tập tự luyện}
+
+%%Bài 01
+\begin{bt}%[Nguyễn Tuấn Kiệt, EX-C2-7-2018]%[7D3B3]
+Trong đợt hè vừa qua, nhà trường tổ chức hoạt động trồng cây gây rừng. Kết quả thu được như sau
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Lớp & $7A$ & $7B$ & $7C$ & $7D$ \\ 
+\hline 
+Số cây trồng & $15$ & $17$ & $12$ & $18$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+Hãy vẽ biểu đồ hình chữ nhật để biểu diễn kết quả trên.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=-0.5,xmax=7.5,ymin=-0.6,ymax=2.5]
+\tkzClip
+\tkzDefPoints{-0.5/0/A, 0/0/B, 1/0/C, 2/0/D, 3/0/E, 4/0/F, 5/0/G, 6/0/H, 7/0/I, 0/1.5/B', 1/1.5/C', 2/1.7/D', 3/1.7/E', 4/1.2/F', 5/1.2/G', 6/1.8/H', 7/1.8/I'}
+\tkzDrawSegments[thin](A,L B,B' B',C' C',C D,D' D',E' E',E F,F' F',G' G',G H,H' H',I' I',I)
+\tkzLabelLine[above](B',C'){$15$ cây}
+\tkzLabelLine[above](D',E'){$17$ cây}
+\tkzLabelLine[above](F',G'){$12$ cây}
+\tkzLabelLine[above](H',I'){$18$ cây}
+\tkzLabelLine[below](B,C){$7A$}
+\tkzLabelLine[below](D,E){$7B$}
+\tkzLabelLine[below](F,G){$7C$}
+\tkzLabelLine[below](H,I){$7D$}
+\tkzFillPolygon[pattern=north east lines,opacity=.7](B,B',C',C)
+\tkzFillPolygon[pattern=north east lines,opacity=.7](D,D',E',E)
+\tkzFillPolygon[pattern=north east lines,opacity=.7](F,F',G',G)
+\tkzFillPolygon[pattern=north east lines,opacity=.7](H,H',I',I)
+\end{tikzpicture}\\
+\textit{Biểu đồ biểu diễn số cây trồng trong dịp hè của khối $7$.}
+\end{center}
+}
+\end{bt}
+
+%%Bài 02
+\begin{bt}%[Nguyễn Tuấn Kiệt, EX-C2-7-2018]%[7D3B3]
+Lượng mưa trung bình hàng tháng trong năm $2004$ ở Hà Nội được trạm khí tượng thủy văn ghi lại trong bảng dưới đây (đo theo $mm$ và làm tròn đến $mm$)
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+Tháng & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ & $11$ & $12$ \\ 
+\hline 
+Lượng mưa & $30$ & $30$ & $30$ & $40$ & $80$ & $80$ & $120$ & $150$ & $100$ & $50$ & $40$ & $30$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+Hãy vẽ biểu đồ đoạn thẳng và nhận xét.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[>=stealth,scale=0.7, line join = round, line cap = round]
+\tkzInit[xmin=-1.2,xmax=15,ymin=-0.9,ymax=16.2]
+\tkzClip
+\draw[->,line width = 1pt] (0,0)--(13,0) node[below right]{Tháng};
+\draw[->,line width = 1pt] (0,0)node[below]{$O$} --(0,16) node[left]{mm};
+\draw (1,0) node[below]{$1$} circle (1pt);
+\draw (2,0) node[below]{$2$} circle (1pt);
+\draw (3,0) node[below]{$3$} circle (1pt);
+\draw (4,0) node[below]{$4$} circle (1pt);
+\draw (5,0) node[below]{$5$} circle (1pt);
+\draw (6,0) node[below]{$6$} circle (1pt);
+\draw (7,0) node[below]{$7$} circle (1pt);
+\draw (8,0) node[below]{$8$} circle (1pt);
+\draw (9,0) node[below]{$9$} circle (1pt);
+\draw (10,0) node[below]{$10$} circle (1pt);
+\draw (11,0) node[below]{$11$} circle (1pt);
+\draw (12,0) node[below]{$12$} circle (1pt);
+\draw (0,2) node[left]{$20$} circle (1pt);
+\draw (0,3) node[left]{$30$} circle (1pt);
+\draw (0,4) node[left]{$40$} circle (1pt);
+\draw (0,5) node[left]{$50$} circle (1pt);
+\draw (0,8) node[left]{$80$} circle (1pt);
+\draw (0,10) node[left]{$100$} circle (1pt);
+\draw (0,12) node[left]{$120$} circle (1pt);
+\draw (0,15) node[left]{$150$} circle (1pt);
+\tkzDefPoints{-1/0/A, 0/0/O, 1/0/B, 2/0/C, 3/0/D, 4/0/E, 5/0/F, 6/0/G, 7/0/H, 8/0/I, 9/0/J, 10/0/K, 11/0/L, 12/0/M, 1/3/B', 2/3/C', 3/3/D', 4/4/E', 5/8/F', 6/8/G', 7/12/H', 8/15/I', 9/10/J', 10/5/K', 11/4/L', 12/3/M', 0/3/N, 0/4/P, 0/5/Q, 0/8/R, 0/10/S, 0/12/T, 0/15/V}
+\tkzDrawSegments[thin](B,B' C,C' D,D' E,E' F,F' G,G' H,H' I,I' J,J' K,K' L,L' M,M')
+\tkzDrawSegments[dashed](N,M' P,L' Q,K' R,G' S,J' T,H' V,I')
+\end{tikzpicture}\\
+\textit{Biểu đồ lượng mưa trong năm $2004$ ở Hà Nội.}
+\end{center}
+Từ biểu đồ trên ta có nhận xét ở khu vực Hà Nội, lượng mưa lớn nhất là vào tháng 8 và trời khá hanh khô vào cuối năm và đầu năm.
+}
+\end{bt}
+
+%%Bài 03
+\begin{bt}%[Nguyễn Tuấn Kiệt, EX-C2-7-2018]%[7D3B3]
+Diện tích đất rừng ở nước ta ngày càng bị thu hẹp. Theo thống kê từ năm $1995$ đến $1998$, mỗi năm số diện tích đất rừng bị tàn phá như sau (đơn vị: nghìn ha)
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Năm & $1996$ & $1997$ & $1998$ & $1999$ \\ 
+\hline 
+Diện tích & $25$ & $10$ & $15$ & $18$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+Hãy vẽ biểu đồ hình chữ nhật để biểu diễn kết quả trên.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=-0.5,xmax=7.5,ymin=-0.6,ymax=3]
+\tkzClip
+\tkzDefPoints{-0.5/0/A, 0/0/B, 1/0/C, 2/0/D, 3/0/E, 4/0/F, 5/0/G, 6/0/H, 7/0/I, 0/2.5/B', 1/2.5/C', 2/1/D', 3/1/E', 4/1.5/F', 5/1.5/G', 6/1.8/H', 7/1.8/I'}
+\tkzDrawSegments[thin](A,L B,B' B',C' C',C D,D' D',E' E',E F,F' F',G' G',G H,H' H',I' I',I)
+\tkzLabelLine[above](B',C'){$25$ cây}
+\tkzLabelLine[above](D',E'){$10$ cây}
+\tkzLabelLine[above](F',G'){$15$ cây}
+\tkzLabelLine[above](H',I'){$18$ cây}
+\tkzLabelLine[below](B,C){$1996$}
+\tkzLabelLine[below](D,E){$1997$}
+\tkzLabelLine[below](F,G){$1998$}
+\tkzLabelLine[below](H,I){$1999$}
+\tkzFillPolygon[pattern=north east lines,opacity=.7](B,B',C',C)
+\tkzFillPolygon[pattern=north east lines,opacity=.7](D,D',E',E)
+\tkzFillPolygon[pattern=north east lines,opacity=.7](F,F',G',G)
+\tkzFillPolygon[pattern=north east lines,opacity=.7](H,H',I',I)
+\end{tikzpicture}\\
+\textit{Biểu đồ biểu diễn diện tích rừng bị phá.}
+\end{center}
+}
+\end{bt}
+\section{SỐ TRUNG BÌNH CỘNG}
+\subsection{Tóm tắt lý thuyết}
+\subsubsection{Số trung bình cộng của dấu hiệu}
+\begin{dn}
+Giá trị trung bình của một dấu hiệu là trung bình cộng các giá trị của dấu hiệu đó. Giá trị trung bình $X$ được kí hiệu là $\overline{X}$.
+\end{dn}
+\subsubsection{Công thức tính số trung bình cộng của dấu hiệu}
+Nhận xét rằng, dựa vào bảng tần số, ta có thể tính số trung bình cộng của một dấu hiệu như sau
+\begin{enumerate}
+\item[1.] Nhân từng giá trị với tần số tương ứng.
+\item[2.] Cộng tất cả các tích vừa tìm được.
+\item[3.] Chia tổng đó cho số các giá trị (hay tổng các tần số).
+\end{enumerate}
+Vậy, ta có thể sử dụng ngay công thức khi đã có bảng thực nghiệm
+$$\overline{X}= \dfrac{x_1n_1 + x_2n_2 + \cdots + x_kn_k}{n}$$
+trong đó:
+\begin{itemize}
+\item $n=n_1 + n_2 + \cdots + n_k$.
+\item $x_1$, $x_2$, \ldots, $x_k$ là $k$ giá trị khác nhau của dấu hiệu $X$.
+\item $n_1$, $n_2$, \ldots, $n_k$ là $k$ tần số tương ứng.
+\end{itemize}
+\subsubsection{Ý nghĩa của số trung bình cộng}
+\lq\lq Số trung bình cộng thường được dùng làm đại diện cho dấu hiệu, đặc biệt là khi muốn so sánh các dấu hiệu cùng loại\rq\rq.
+\begin{note}{Chú ý}
+	\begin{itemize}
+		\item[1.] Khi các giá trị của biến lượng có sự chênh lệch quá lớn thì giá trị trung bình không thể đại diện cho biến lượng mà phải kết hợp cùng những số khác.
+		\item[2.] Số trung bình cộng có thể không thuộc dãy giá trị của dấu hiệu.
+	\end{itemize}
+\end{note}
+
+\subsubsection{Mốt của dấu hiệu}
+\begin{dn}
+Mốt của dấu hiệu là giá trị có tần số lớn nhất trong bảng tần số. Kí hiệu: $M_0$
+\end{dn}
+\subsection{Phương pháp giải toán}
+
+%%Ví dụ 01
+\begin{vd}%[Nguyễn Tuấn Kiệt, EX-C2-7-2018]%[7D3B4]
+Điều tra $100$ gia đình chọn ra từ $800$ gia đình trong một khu vực dân cư, người ta có bảng phân phối thực nghiệm sau
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+$X_i$ & $m_i$ \\ 
+\hline 
+$1$ & $13$ \\ 
+$2$ & $20$ \\ 
+$3$ & $17$ \\ 
+$4$ & $12$ \\ 
+$5$ & $15$ \\ 
+$6$ & $11$ \\ 
+$7$ & $5$ \\ 
+$8$ & $7$ \\ 
+\hline 
+ & Tổng số $=100$ \\ 
+\hline 
+\end{tabular}
+\end{center}
+Tìm giá trị trung bình $\overline{X}$ của biến lượng.
+\loigiai{
+Áp dụng công thức, ta được
+$$\overline{X}= \dfrac{1 \cdot 13 + 2 \cdot 20 + 3 \cdot 17 + 4 \cdot 12 + 5 \cdot 15 + 6 \cdot 11 + 7 \cdot 5 + 8 \cdot 7}{100}= \dfrac{384}{100} \approx 3{,}84.$$
+}
+\end{vd}
+
+%%Ví dụ 02
+\begin{vd}%[Nguyễn Tuấn Kiệt, EX-C2-7-2018]%[7D3B4]
+Tìm giá trị trung bình $\overline{X}$ của biến lượng được cho bởi bảng phân phối thực nghiệm sau
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+Điểm số mỗi lần bắn $(\overline{X_i})$ & $m_i$ \\ 
+\hline 
+$10$ & $25$ \\ 
+$9$ & $20$ \\ 
+$8$ & $31$ \\ 
+$7$ & $8$ \\ 
+$6$ & $10$ \\ 
+$5$ & $6$ \\ 
+\hline 
+ & Tổng số $=100$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\loigiai{
+Áp dụng công thức, ta được
+$$\overline{X}= \dfrac{10 \cdot 25 + 9 \cdot 20 + 8 \cdot 31 + 7 \cdot 8 + 6 \cdot 5 + 5 \cdot 6}{100}= \dfrac{824}{100} = 8{,}24.$$
+}
+\end{vd}
+
+%%Ví dụ 03
+\begin{vd}%[Nguyễn Tuấn Kiệt, EX-C2-7-2018]%[7D3B4]
+Chứng minh rằng\\
+%\begin{center}
+\textit{\lq\lq Nếu cộng các giá trị của biến lượng với cùng một số thì số trung bình của biến lượng cũng được cộng với số đó\rq\rq.}
+%\end{center}
+\loigiai{
+Giả sử
+\begin{itemize}
+\item $x_1$, $x_2$, $x_3$, \ldots, $x_k$ là các giá trị của biến lượng.
+\item $m_1$, $m_2$, $m_3$, \ldots, $m_k$ là các tần số tương ứng.
+\end{itemize}
+Ta có
+\begin{eqnarray*}
+&n&= m_1 + m_2 + m_3 + \cdots + m_k\\
+\Rightarrow &\overline{X}&= \dfrac{x_1m_1 + x_2m_2 + x_3m_3 + \cdots + x_km_k}{n}.
+\end{eqnarray*}
+Giả sử $a$ là số được cộng thêm vào mỗi biến lượng.\\
+Vậy giá trị của biến lượng là
+$$(x_1 + a), (x_2 + a), (x_3 + a), \ldots, (x_k + a).$$
+Khi đó
+\begin{eqnarray*}
+&\overline{X}&= \dfrac{(x_1 + a)m_1 + (x_2 + a)m_2 + (x_3 + a)m_3 + \cdots + (x_k + a)m_k}{n}\\
+&&= \dfrac{x_1m_1 + x_2m_2 + x_3m_3 + \cdots + x_km_k + (m_1 + m_2 + m_3 + \cdots + m_k)a}{n}\\
+&&= \dfrac{x_1m_1 + x_2m_2 + x_3m_3 + \cdots + x_km_k + na}{n}\\
+&&= \dfrac{x_1m_1 + x_2m_2 + x_3m_3 + \cdots + x_km_k}{n} + a\\
+&&= \overline{X} + a \qquad \text{(đpcm)}
+\end{eqnarray*}
+}
+\end{vd}
+\subsubsection{Bài tập tự luyện}
+
+%%Bài 01
+\begin{bt}%[Nguyễn Tuấn Kiệt, EX-C2-7-2018]%[7D3B4]
+Tính trung bình cộng của $10$ thùng hàng. Trong đó có $3$ thùng nặng $5$ kg, $2$ thùng nặng $6$ kg, $4$ gói nặng $7{,}5$ kg, $3$ thùng nặng $8$ kg và $1$ thùng nặng $9$ kg.
+\loigiai{
+Ta có bảng phân phối thực nghiệm sau
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Trọng lượng & Tần số $(m)$ & Tích $x \cdot m$ &  \\ 
+\hline 
+$5$ & $3$ & $15$ &  \\ 
+$6$ & $2$ & $12$ &  \\ 
+$7{,}5$ & $4$ & $30$ & \\ 
+$8$ & $3$ & $24$ & \\ 
+$9$ & $1$ & $9$ & \\ 
+\hline 
+ & $N= 10$ & Tổng: $90$ & $\overline{X}= \dfrac{90}{10}= 9$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+Vậy trung bình cộng của $10$ thùng hàng là $9$ kg.
+}
+\end{bt}
+
+%%Bài 02
+\begin{bt}%[Nguyễn Tuấn Kiệt, EX-C2-7-2018]%[7D3B4]
+Người ta điều tra trên $8$ phần tử, các thông số nhận được là: $15$, $30$, $25$, $45$, $35$, $40$, $45$, $50$.
+\begin{enumerate}
+\item Tính tần số của mỗi thông số.
+\item Tính giá trị trung bình của một biến lượng.
+\end{enumerate}
+\loigiai{
+Ta có bảng phân phối thực nghiệm sau
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Thông số & Tần số $(m)$ & Tích $x \cdot m$ &  \\ 
+\hline 
+$15$ & $1$ & $15$ &  \\ 
+$25$ & $1$ & $25$ &  \\ 
+$30$ & $1$ & $30$ &  \\ 
+$35$ & $1$ & $35$ &  \\ 
+$40$ & $1$ & $40$ &  \\ 
+$45$ & $2$ & $90$ &  \\ 
+$50$ & $1$ & $50$ &  \\ 
+\hline 
+ & $N= 8$ & Tổng: $285$ & $\overline{X}= \dfrac{285}{8}= 35{,}625$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+Vậy trung bình cộng của các thông số là $35{,}625$.
+}
+\end{bt}
+
+%%Bài 03
+\begin{bt}%[Nguyễn Tuấn Kiệt, EX-C2-7-2018]%[7D3B4]
+Người ta kiểm tra $10$ em học sinh để đánh giá chất lượng học tập chung của cả lớp. Điểm mà các  em đó đạt được như sau: $9$, $4$, $6$, $5$, $10$, $6$, $8$, $4$, $8$, $9$.
+\begin{enumerate}
+\item Tính tần số của mỗi thông số.
+\item Lập bảng phân phối thực nghiệm.
+\item Tính giá trị trung bình của biến lượng.
+\end{enumerate}
+\loigiai{
+Ta có bảng phân phối thực nghiệm sau
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Điểm số  & Tần số $(m)$ & Tích $x \cdot m$ &  \\ 
+\hline 
+$4$ & $2$ & $8$ & \\ 
+$5$ & $1$ & $5$ & \\ 
+$6$ & $2$ & $12$ & \\ 
+$8$ & $2$ & $16$ & \\ 
+$9$ & $2$ & $18$ & \\
+$10$ & $1$ & $10$ & \\ 
+\hline 
+ & $N= 10$ & Tổng: $69$ & $\overline{X}= \dfrac{69}{10}= 6{,}9$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+Vậy trung bình cộng điểm của các em học sinh là $6{,}9$.
+}
+\end{bt}
+
+%%Bài 04
+\begin{bt}%[Nguyễn Tuấn Kiệt, EX-C2-7-2018]%[7D3B4]
+Chứng minh rằng\\
+%\begin{center}
+\textit{\lq\lq Nếu trừ các giá trị của biến lượng với cùng một số thì số trung bình của biến lượng cũng được trừ với số đó\rq\rq.}
+%\end{center}
+\loigiai{
+Giả sử:
+\begin{itemize}
+\item $x_1$, $x_2$, $x_3$, \ldots, $x_k$ là các giá trị của biến lượng.
+\item $m_1$, $m_2$, $m_3$, \ldots, $m_k$ là các tần số tương ứng.
+\end{itemize}
+Ta có
+\begin{eqnarray*}
+&n&= m_1 + m_2 + m_3 + \cdots + m_k\\
+\Rightarrow &\overline{X}&= \dfrac{x_1m_1 + x_2m_2 + x_3m_3 + \cdots + x_km_k}{n}.
+\end{eqnarray*}
+Giả sử $a$ là số được cộng thêm vào mỗi biến lượng.\\
+Vậy giá trị của biến lượng là
+$$(x_1 - a), (x_2 - a), (x_3 - a), \ldots, (x_k - a).$$
+Khi đó
+\begin{eqnarray*}
+&\overline{X}&= \dfrac{(x_1 - a)m_1 + (x_2 - a)m_2 + (x_3 - a)m_3 + \cdots + (x_k - a)m_k}{n}\\
+&&= \dfrac{x_1m_1 + x_2m_2 + x_3m_3 + \cdots + x_km_k - (m_1 + m_2 + m_3 + \cdots + m_k)a}{n}\\
+&&= \dfrac{x_1m_1 + x_2m_2 + x_3m_3 + \cdots + x_km_k - na}{n}\\
+&&= \dfrac{x_1m_1 + x_2m_2 + x_3m_3 + \cdots + x_km_k}{n} - a\\
+&&= \overline{X} - a \qquad \text{(đpcm)}.
+\end{eqnarray*}
+}
+\end{bt}

@@ -1,0 +1,184 @@
+\begin{bt}%[Thầy Hóa]%[EX-TS10-ToanTT-2019]%[7H2T6]
+Hai bạn An và Bình ở hai địa điểm $A$ và $B$ cách nhau $1200$ m cùng đi đến trường ở địa điểm $C$ cách $A$ $500$ m. An đi bộ với vận tốc $4$ km/h. Bình đi xe đạp với vận tốc $12$ km/h. Hỏi bạn nào đến trường trước (biết $AB$ vuông góc với $AC$).
+\dapso{Bình đến trường trước.}
+\loigiai{
+	\immini
+	{
+		Áp dụng định lí Py-ta-go vào tam giác vuông $ABC$, ta có
+		\begin{eqnarray}
+			BC^2&=&AB^2+AC^2=1200^2+500^2=1690000\notag\\
+			\Rightarrow BC&=&\sqrt{1690000}=1300~\text{(m)}.\notag
+		\end{eqnarray}
+		Thời gian để bạn An đi đến trường là
+		\[0{,}5:4=0{,}125~\text{(giờ)}.\]
+		Thời gian để bạn Bình đi đến trường là
+		\[1{,}3:12\approx 0{,}108~\text{(giờ)}.\]
+		Vậy bạn Bình đi đến trường trước bạn An.
+		
+	}
+	{
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=.8]
+		\tkzDefPoints{0/5/A}
+		\coordinate (B) at ($(A)-(0,5)$);
+		\coordinate (C) at ($(A)+(2,0)$);
+		\pgfresetboundingbox
+		\tkzMarkRightAngles[size=0.4,fill=gray!50](B,A,C)
+		\tkzDrawSegments(A,B B,C C,A)
+		\tkzDrawPoints[fill=black](A,B,C)
+		\tkzLabelPoints[left](A)
+		\tkzLabelPoints[right](C)
+		\tkzLabelPoints[below](B)
+		\end{tikzpicture}
+	}
+
+}
+\end{bt}
+
+\begin{bt}%[Võ Tấn Đạt]%[EX-TS10-ToanTT-2019]%[8H1K9]%[7H2K7]
+Một người đi từ địa điểm $A$ đến địa điểm $B$ theo lộ trình ngắn nhất trên bản đồ (hình bên dưới). Tính khoảng cách $AB$.
+\begin{center}
+\begin{tikzpicture}[line join = round, line cap = round, >=stealth, font=\footnotesize, scale=0.8]
+\tikzset{label style/.style={font=\footnotesize}}
+\draw[fill=brown!20!blue!30!white] (-5,-3) rectangle (4,5);
+\draw[fill=white] (-3.5,-3) rectangle (-2.5,5);
+\draw[fill=white] (-5,0) rectangle (4,1);
+\draw[fill=white] (1,-3) rectangle (2,5);
+\draw[fill=white] (4,3) rectangle (-1,4);
+\draw[draw=none, fill=white] (-2.5,0) rectangle (-3.5,1);
+\draw[draw=none, fill=white] (1,0) rectangle (2,1);
+\draw[draw=none, fill=white] (1,3) rectangle (2,4);
+
+\coordinate[label={below}:{$A$}] (A) at (-3,-2);
+\coordinate (1) at (-3,0.5);
+\coordinate (2) at (1.5,0.5);
+\coordinate (3) at (1.5,3.5);
+\coordinate[label={above}:{$B$}] (B) at (-0.5,3.5);
+
+\draw[->] (A)--(1);
+\draw[->] (1)--(2);
+\draw[->] (2)--(3);
+\draw[->] (3)--(B);
+
+\tkzLabelSegment[above,sloped](A,1){\scriptsize $270$ m}
+\tkzLabelSegment[above](1,2){\scriptsize $400$ m}
+\tkzLabelSegment[above,sloped](2,3){\scriptsize $180$ m}
+\tkzLabelSegment[above](3,B){\scriptsize $120$ m}
+\tkzDrawPoints[fill=black](A,B)
+\end{tikzpicture}
+\end{center}
+\dapso{
+$\approx 317{,}65$ m.	
+}
+\loigiai{
+\immini{
+Gọi tên các điểm như hình vẽ. Dựng hình chữ nhật $MNPD$.\\
+Khi đó $A$, $M$, $D$ thẳng hàng.\\
+Ta có $MNPD$ là hình chữ nhật nên $DP=MN=400$ m và $DM = NP = 180$ m.\\
+Suy ra $DB= DP-BP = 280$ m và $AD = DM + AM = 450$ m.\\
+Xét $\triangle ADB$ vuông tại $D$, ta có
+\[ AB^2 = AD^2 +DB^2 = 100900\Rightarrow AB \approx 317{,}65 \text{ m}.\]
+Vậy khoảng cách $AB$ là $317{,}65$ m.
+}{
+\begin{tikzpicture}[line join = round, line cap = round, font=\footnotesize, scale=0.8]
+\tikzset{label style/.style={font=\footnotesize}}
+
+\coordinate[label={below}:{$A$}] (A) at (-3,-2);
+\coordinate[label={above left}:{$M$}] (M) at (-3,0.5);
+\coordinate[label={below right}:{$N$}] (N) at (1.5,0.5);
+\coordinate[label={above right}:{$P$}] (P) at (1.5,3.5);
+\coordinate[label={above}:{$B$}] (B) at (-0.5,3.5);
+\tkzInterLL(A,M)(B,P) \tkzGetPoint{D} \tkzLabelPoints[above left](D)
+
+\draw (A)--(M)--(N)--(P)--(B)--(A) (M)--(D)--(B);
+
+\tkzLabelSegment[above,sloped](A,M){\scriptsize $270$ m}
+\tkzLabelSegment[above](M,N){\scriptsize $400$ m}
+\tkzLabelSegment[above,sloped](N,P){\scriptsize $180$ m}
+\tkzLabelSegment[above](P,B){\scriptsize $120$ m}
+\tkzMarkRightAngles(A,M,N B,P,N P,N,M A,D,B)
+\tkzDrawPoints[fill=black](A,B,M,N,P,D)
+\end{tikzpicture}
+}
+}
+\end{bt}
+
+\begin{bt}%[Hưng Nguyễn]%[EX-TS10-ToanTT-2019]%[7H2T7]
+	Dùng một mảnh giấy hình vuông $ABCD$ ta gấp được một bì thư hình chữ nhật $EGLK$ như các bước trong hình bên dưới. Trong bước 3, ta chỉ cần gấp theo đường nét đứt $KL$ ($KF=HL=1$ cm) là hoàn tất quá trình gấp bì thư. Biết bì thư có chiều dài là $20$ cm, tính chiều rộng của bì thư và độ dài cạnh của mảnh giấy hình vuông ban đầu.\\
+	\begin{center}
+		\begin{tabular}{cccc}
+		\begin{tikzpicture}[line join = round, line cap = round, >=stealth, font=\footnotesize, scale=1]
+		\tkzDefPoints{0/0/O,1.5/0/G,-1.5/0/F,1.5/1.5/B,0/1.5/E,-1.5/1.5/A,-1.5/-1.5/D,0/-1.5/H, 1.5/-1.5/C}
+		\tkzDrawSegments[dashed](A,C B,D) \tkzDrawSegments(A,B B,C C,D D,A)
+		\tkzDrawPoints[fill=black](A,B,C,D,O,E,F,G,H)
+		\tkzLabelPoints[above](A,B,E) \tkzLabelPoints[right](G)
+		\tkzLabelPoints[left](F) \tkzLabelPoints[below](D,H,C,O)
+		\end{tikzpicture} & 
+		\begin{tikzpicture}[line join = round, line cap = round, >=stealth, font=\footnotesize, scale=1]
+		\tkzDefPoints{0/0/O,1.5/0/G,-1.5/0/F,1.5/1.5/B,0/1.5/E,-1.5/1.5/A,-1.5/-1.5/D,0/-1.5/H, 1.5/-1.5/C}
+		\tkzDrawSegments[dashed](O,C B,D) \tkzDrawSegments(E,B B,C C,D D,F F,E F,O O,E)
+		\tkzDrawPoints[fill=black](B,C,D,O,E,F,G,H)
+		\tkzLabelPoints[above](B,E) \tkzLabelPoints[right](G)
+		\tkzLabelPoints[left](F) \tkzLabelPoints[below](D,H,C,O)
+		\end{tikzpicture} & 
+		\begin{tikzpicture}[line join = round, line cap = round, >=stealth, font=\footnotesize, scale=1]
+		\tkzDefPoints{0/0/O,1.5/0/G,-1.5/0/F,1.5/1.5/B,0/1.5/E,-1.5/1.5/A,-1.5/-1.5/D,0/-1.5/H, 1.5/-1.5/C}
+		\tkzDefPointBy[homothety=center H ratio 0.15](G)\tkzGetPoint{L}
+		\tkzDefPointBy[homothety=center F ratio 0.15](E)\tkzGetPoint{K}
+		\tkzDrawSegments[dashed](K,L) \tkzDrawSegments(E,G G,H H,D D,F F,E E,H F,G)
+		\tkzDrawPoints[fill=black](D,O,E,F,G,H,L,K)
+		\tkzLabelPoints[above](K,E) \tkzLabelPoints[right](G,L)
+		\tkzLabelPoints[left](F) \tkzLabelPoints[below](D,H)
+		\tkzLabelPoints[above right](O)
+		\tkzLabelLine[pos=.5,above right](G,E){$20$ cm}
+		\end{tikzpicture} & 
+		\begin{tikzpicture}[line join = round, line cap = round, >=stealth, font=\footnotesize, scale=1]
+		\tkzDefPoints{0/0/O,1.5/0/G,-1.5/0/F,1.5/1.5/B,0/1.5/E,-1.5/1.5/A,-1.5/-1.5/D,0/-1.5/H, 1.5/-1.5/C}
+		\tkzDefPointBy[homothety=center H ratio 0.08](G)\tkzGetPoint{L}
+		\tkzDefPointBy[homothety=center F ratio 0.08](E)\tkzGetPoint{K}
+		\tkzDefPointBy[reflection=over K--L](F)\tkzGetPoint{F'}
+		\tkzDefPointBy[reflection=over K--L](H)\tkzGetPoint{H'}
+		\tkzDefPointBy[reflection=over K--L](D)\tkzGetPoint{D'}
+		\tkzInterLL(O,E)(F',D') \tkzGetPoint{M}
+		\tkzInterLL(O,G)(H',D') \tkzGetPoint{N}
+		\tkzDrawSegments(E,G G,L L,K K,E F',D' H',D' M,E N,G)
+		\end{tikzpicture}\\
+		Bước 1 & Bước 2 & Bước 3 &
+		\end{tabular}
+	\end{center}
+	\dapso{Chiều rộng: $19$ cm; Cạnh mảnh giấy: $20\sqrt{2}$ cm}
+	\loigiai{
+	Vì $EGHF$ là hình vuông nên $GH=EG=20$ (cm).\\
+	Vậy chiều rộng của bì thư là $GL=GH-HL=20-1=19$ (cm).\\
+	Ta có $EBG$ là tam giác vuông cân với $EB=BG=\dfrac{AB}{2}$.\\
+	Áp dụng định lí Pi-ta-go cho $\triangle EBG$, ta có $$EB^2+BG^2=EG^2\Leftrightarrow 2EB^2=20^2\Leftrightarrow EB=10\sqrt{2}\text{ (cm).}$$
+	Vậy độ dài cạnh của mảnh giấy hình vuông ban đầu là $AB=20\sqrt{2}\approx 28{,}3$ (cm).
+	}
+\end{bt}
+
+\begin{bt}%[Lê Ngọc Hiếu]%[EX-TS10-ToanTT-2019]%[7H2T7]
+Người ta dựng một cột cờ trên mặt đất bằng cách buộc dây từ một điểm $A$ trên thân cột cờ đến $3$ cọc $B$, $C$, $D$ được cắm xuống đất, cách đều nhau. Độ cao $AE$ là $1{,}5$ m. Các khoảng cách $BE$, $CE$, $DE$ bằng nhau và bằng $1$ m. Tính chiều dài dây cần sử dụng, biết rằng để buộc các nút tại các điểm $A$, $B$, $C$, $D$ người ta cần dùng tổng cộng $1{,}2$ m dây. 	
+	\dapso{$6{,}6$ m.}
+	\loigiai{\begin{center}
+		\begin{tikzpicture}[scale=0.7]
+\clip(-3,-1) rectangle (4,8);
+\tkzDefPoints{-2/2/B, 2/0/C, 3/3/D}
+\tkzCircumCenter(B,C,D) \tkzGetPoint{E}
+\coordinate (A) at ($(E)+(0,5)$);
+\tkzDrawSegments(A,B A,C A,D A,E E,B E,C E,D B,C C,D D,B)
+\tkzDrawPoints(A,B,C,D,E)
+\tkzMarkRightAngle(A,E,B)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints(D)
+\tkzLabelPoints[below left](E)
+\tkzLabelSegment[sloped](A,E){$1{,}5$m}
+\tkzLabelSegment[sloped,below](B,E){$1$m}
+\end{tikzpicture}\end{center}
+
+Tam giác $ABE$ vuông tại $E$ nên $AB=\sqrt{BE^2+AE^2}=\sqrt{1^2 +1{,}5^2}=1{,}8$ m.
+
+Tổng độ dài dây cần dùng là $3\cdot 1{,}8+1{,}2=6{,}6$ m. 
+	}
+\end{bt}
+

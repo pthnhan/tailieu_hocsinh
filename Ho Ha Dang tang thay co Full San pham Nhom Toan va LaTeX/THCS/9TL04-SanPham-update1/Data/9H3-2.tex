@@ -1,0 +1,421 @@
+%%Biên soạn: Nguyễn Tuấn Kiệt. Phản biện: Nguyễn Quang Tân
+\section{Liên hệ giữa cung và dây}
+\subsection{Tóm tắt lí thuyết}
+\begin{dl}
+\immini{Với hai cung nhỏ trong một đường tròn hoặc trong hai đường tròn bằng nhau.
+	\begin{enumerate}
+		\item Hai cung bằng nhau căng hai dây bằng nhau.
+		\item Hai dây bằng nhau căng hai cung bằng nhau.
+	\end{enumerate}
+Nghĩa là $\wideparen{AB} = \wideparen{CD} \Leftrightarrow AB = CD$.}{
+\begin{tikzpicture}[>=stealth,scale=.8, line join = round, line cap = round]
+\tkzInit[xmin=-2.2,xmax=2.2,ymin=-2.2,ymax=2.2]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/O, 1.5/0/C}
+\tkzDrawCircle(O,C)
+\tkzDefPointBy[rotation = center O angle 45](C)\tkzGetPoint{D}
+\tkzDefPointBy[rotation = center O angle -60](C)\tkzGetPoint{B}
+\tkzDefPointBy[rotation = center O angle -45](B)\tkzGetPoint{A}
+\tkzDrawSegments[thin](O,C O,D D,C O,B O,A A,B)
+\tkzLabelPoints[above](O)
+\tkzLabelPoints[right](C,D)
+\tkzLabelPoints[below](A,B)
+\tkzDrawPoints[fill=black](O,C,D,B,A)
+\end{tikzpicture}
+}
+\end{dl}
+\begin{dl}
+\immini{Với hai cung nhỏ trong một đường tròn hoặc trong hai đường tròn bằng nhau.
+	\begin{enumerate}
+		\item Cung lớn hơn căng dây lớn hơn.
+		\item Dây lớn hơn căng cung lớn hơn.
+	\end{enumerate}
+Nghĩa là $\wideparen{AB} < \wideparen{CD} \Leftrightarrow AB < CD$.}{
+\begin{tikzpicture}[>=stealth,scale=.8, line join = round, line cap = round]
+\tkzInit[xmin=-2.2,xmax=2.2,ymin=-2.2,ymax=2.5]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/O, 1.1/1.7/C}
+\tkzDrawCircle(O,C)
+\tkzDefPointBy[rotation = center O angle 50](C)\tkzGetPoint{D}
+\tkzDefPointBy[rotation = center O angle -85](C)\tkzGetPoint{B}
+\tkzDefPointBy[rotation = center O angle -120](B)\tkzGetPoint{A}
+\tkzDrawSegments[thin](O,C O,D D,C O,B O,A A,B)
+\tkzLabelPoints[above](D)
+\tkzLabelPoints[above right](C)
+\tkzLabelPoints[left](O)
+\tkzLabelPoints[below](A,B)
+\tkzDrawPoints[fill=black](O,C,D,B,A)
+\end{tikzpicture}
+}
+\end{dl}
+\begin{tc}
+Trong một đường tròn.
+	\immini{\begin{enumerate}
+		\item Hai cung bị chắn giữa hai dây song song thì bằng nhau.
+		\item Đường kính đi qua điểm chính giữa của một cung thì đi qua trung điểm của dây căng cung ấy và ngược lại.
+		\item Đường kính đi qua điểm chính giữa của một cung thì vuông góc với dây căng cung ấy và ngược lại.
+	\end{enumerate}}{
+\begin{tikzpicture}[>=stealth,scale=.8, line join = round, line cap = round]
+\tkzInit[xmin=-3,xmax=3,ymin=-2.3,ymax=2.3]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/O, 1.8/1/C}
+\tkzDrawCircle(O,C)
+\tkzDefPointBy[rotation = center O angle 120](C)\tkzGetPoint{D}
+\tkzDefPointBy[rotation = center O angle -60](C)\tkzGetPoint{B}
+\tkzDefPointBy[rotation = center O angle -120](B)\tkzGetPoint{A}
+\tkzDrawSegments[thin](D,C A,B)
+\tkzLabelPoints[above right](C)
+\tkzLabelPoints[above left](D)
+\tkzLabelPoints[left](O)
+\tkzLabelPoints[below left](A)
+\tkzLabelPoints[below right](B)
+\tkzDrawPoints[fill=black](O,C,D,B,A)
+\end{tikzpicture}	
+	}
+\end{tc}
+\subsection{Các ví dụ}
+
+%%Ví dụ 01
+\begin{vd}
+	Cho hai đường tròn bằng nhau $(O)$ và $(O')$ cắt nhau tại hai điểm $A$ và $B$. Kẻ các đường kính $AOC$, $AO'D$. Gọi $E$ là giao điểm thứ hai của $AC$ với đường tròn $(O')$.
+	\begin{enumerate}
+		\item So sánh các cung nhỏ $BC$, $BD$.
+		\item Chứng minh rằng $B$ là điểm chính giữa của cung $\wideparen{EBD}$ (tức là điểm $B$ chia cung $\wideparen{EBD}$ thành hai cung bằng nhau $\wideparen{BE} = \wideparen{BD}$).
+	\end{enumerate}
+	\loigiai{
+	\begin{center}
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=-4,xmax=4,ymin=-2,ymax=2.2]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{-1.5/0/O,1.5/0/O'}
+\pgfmathsetmacro{\so}{2} % lấy số
+%\tkzDrawCircle[R,fill=black!60,opacity=0.3](O,\so cm)
+\tkzDrawCircle[R](O,\so cm)
+\tkzDrawCircle[R](O',\so cm)
+\tkzInterCC[R](O,\so cm)(O',\so cm) \tkzGetPoints{A}{B}
+\tkzInterLC[R](A,O)(O,\so cm)\tkzGetSecondPoint{C}
+\tkzInterLC[R](A,O')(O',\so cm)\tkzGetSecondPoint{D}
+\tkzInterLC[R](A,C)(O',\so cm)\tkzGetSecondPoint{E}
+\tkzLabelPoints[above](A,E)
+\tkzLabelPoints[below](B,C,D)
+\tkzLabelPoints[left](O)
+\tkzLabelPoints[right=.3cm](O')
+\tkzDrawPoints[fill=black](O,O',A,B,C,D,E)
+\tkzDrawSegments[thin](A,C A,D O,O' C,D A,B E,A E,D)
+\end{tikzpicture}
+	\end{center}
+\begin{enumerate}
+		\item Vì $\triangle{BAC}$ và $\triangle{BAD}$ nội tiếp trong nửa đường tròn nên chúng là những tam giác vuông tại $B$.\\
+		Xét hai tam giác vuông $\triangle{BAC}$ và $\triangle{BAD}$ có $\heva{& AC = AD \quad \text{đường kính} \\ & AB \quad \text{cạnh chung}}$.\\
+Vậy $\triangle{BAC} = \triangle{BAD}$. Suy ra $BC = BD$.\\
+Mặt khác, hai đường tròn $(O)$ và $(O')$ bằng nhau nên hai dây bằng nhau sẽ căng hai dây bằng nhau. Vậy $\wideparen{BC} = \wideparen{BD}$.
+\item Vì điểm $E$ nằm trên đường tròn đường kính $AD$ nên $\widehat{AED} = 90^\circ$. \\
+Do $BC = BD$ (câu a) nên $EB$ là đường trung tuyến của tam giác vuông $ECD$ ($\widehat{E} = 90^\circ$). Suy ra $BE = BD$.\\
+		Trong $(O')$ ta có, $BE = BD$ suy ra $\wideparen{BE} = \wideparen{BD}$ hay $B$ là điểm chính giữa của cung $EBD$.
+\end{enumerate}
+}
+\end{vd}
+
+%%Ví dụ 02
+\begin{vd}
+	Cho tam giác $ABC$. Trên tia đối của tia $AB$ lấy một điểm $D$ sao cho $AD = AC$. Vẽ đường tròn tâm $O$ ngoại tiếp tam giác $DBC$. Từ $O$ lần lượt hạ các đường vuông góc $OH$, $OK$ với $BC$ và $BD$ ($H \in BC$, $K \in BD$).
+	\begin{enumEX}{2}
+		\item Chứng minh rằng $OH > OK$.
+		\item So sánh hai cung nhỏ $BD$ và $BC$.
+	\end{enumEX}
+	\loigiai{
+\immini{\begin{enumerate}
+		\item Trong tam giác $ABC$, theo bất đẳng thức tam giác, ta có $BC < AB + AC = AB + AD = BD$ hay $BC < BD$.\\
+		Theo định lí về dây cung và khoảng cách đến tâm suy ra $OH > OK$.
+		\item Vì $BC < BD$ ta suy ra $\wideparen{BC} < \wideparen{BD}$.
+	\end{enumerate}}{\begin{tikzpicture}[>=stealth,scale=0.6, line join = round, line cap = round]
+\tkzInit[xmin=-5,xmax=3.7,ymin=-5.15,ymax=2.7]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{-1/0/A,3/0/B,0/2/C}
+\tkzCalcLength[cm](A,C)\tkzGetLength{rAC}
+\tkzInterLC(A,B)(A,C)\tkzGetFirstPoint{D}
+\tkzCircumCenter(D,B,C)\tkzGetPoint{O}
+\tkzDrawCircle(O,C)
+\tkzDefPointBy[projection=onto B--C](O)\tkzGetPoint{H}
+\tkzDefPointBy[projection=onto B--D](O)\tkzGetPoint{K}
+\tkzDrawPoints[fill=black](A,B,C,D,O,H,K)
+\tkzDrawSegments[thin](A,B B,C C,A A,D D,C O,H O,K)
+\tkzMarkRightAngles(O,H,B O,K,B)
+\tkzMarkSegments[mark=s||](A,C A,D)
+\tkzLabelPoints[left](D,O,H)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[above](C,K)
+\tkzLabelPoints[above left](A)
+\end{tikzpicture}}
+}
+\end{vd}
+
+%%Ví dụ 03
+\begin{vd}
+	Cho tam giác đều $ABC$. Trên nửa mặt phẳng bờ $BC$ không chứa $A$ dựng nửa đường tròn $(O)$ đường kính $BC$. Trên nửa đường tròn lấy các điểm $D$, $E$ sao cho $\wideparen{BD} = \wideparen{DE} = \wideparen{EC}$. Các đường thẳng $AD$, $AE$ cắt đoạn thẳng $BC$ tại $M$ và $N$. Chứng minh rằng $BM = MN = NC$.
+	\loigiai{
+\immini{Từ $\wideparen{BD} = \wideparen{DE} = \wideparen{EC}$ suy ra được $BD = DE = EC$. Do đó theo tính chất góc ở tâm suy ra $\widehat{BOD} = 60^\circ \Rightarrow \triangle{OBD}$ là tam giác đều.\\
+	Ta có $\triangle{AMC} \backsim \triangle{DMB}$ (g.g) suy ra $\dfrac{AC}{DB} = \dfrac{MC}{MB}$.\\
+	Mặt khác, $AC = 2BD$ suy ra $MC = 2MB$, $BC = BM + MC$\\
+	$\Rightarrow BC = 3BM$.\\
+	Tương tự, $BC = 3CN$. Vậy $BM = MN = NC$.}{\begin{tikzpicture}[>=stealth,scale=0.7, line join = round, line cap = round]
+\tkzInit[ymin=-2.5,ymax=4,xmin=-2.7,xmax=2.7]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{-2/0/B, 2/0/C}
+\tkzDefEquilateral(B,C) \tkzGetPoint{A}
+\tkzDefMidPoint(C,B)\tkzGetPoint{O}\tkzDrawArc(O,B)(C)
+\tkzDefPointBy[rotation = center O angle -60](C)\tkzGetPoint{E}
+\tkzDefPointBy[rotation = center O angle -120](C)\tkzGetPoint{D}
+\tkzInterLL(A,D)(B,C)\tkzGetPoint{M}
+\tkzInterLL(A,E)(B,C)\tkzGetPoint{N}
+\tkzLabelPoints[above](A,O)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[below](E,D)
+\tkzLabelPoints[above left](M)
+\tkzLabelPoints[above right](N)
+\tkzDrawPoints[fill=black](A,B,C,E,D,O,M,N)
+\tkzDrawSegments(A,B B,C C,A O,D A,D A,E B,D)
+\end{tikzpicture}}
+}
+\end{vd}
+
+%%Ví dụ 04
+\begin{vd}
+	Cho tam giác $\triangle{ABC}$ không cân, từ đỉnh $A$ kẻ đường cao $AH$,  phân giác $AD$, trung tuyến $AM$.
+	\begin{enumerate}
+		\item Chứng minh rằng điểm $D$ nằm giữa $H$ và $M$.
+		\item Giả sử tam giác $ABC$ nhọn, chứng minh rằng $\widehat{MAD} < \widehat{DAH}$.
+	\end{enumerate}
+	\loigiai{
+	\begin{center}
+\begin{tikzpicture}
+\tkzInit[ymin=-1.5,ymax=3.6,xmin=-2.5,xmax=4]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{-1/0/A,3/0/C,0/3/B}
+\tkzDrawCircle[circum](A,B,C)\tkzGetPoint{O}
+\tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{H}
+\tkzDefLine[bisector](B,A,C) \tkzGetPoint{d}%Lây điểm d trên phân giác trong góc A
+\tkzInterLL(A,d)(B,C)\tkzGetPoint{D}%Chan đường phân giác D.
+\tkzInterLC(A,D)(O,A)\tkzGetSecondPoint{I}
+\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+\tkzMarkRightAngles(A,H,B)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](C,M)
+\tkzLabelPoints[above](B,H,D,I)
+\tkzLabelPoints[below](O)
+\tkzDrawPoints[fill=black](A,B,C,H,D,M,I,O)
+\tkzDrawSegments(A,B B,C C,A A,H A,D A,M D,I I,B I,C I,M O,M O,A)
+
+\end{tikzpicture}
+	\end{center}
+\begin{enumerate}
+		\item Không mất tính tổng quát giả sử $AC > AB$, đường tròn ngoại tiếp tam giác $ABC$ cắt đường phân giác $AD$ tại $I$ $\Rightarrow \wideparen{BI} = \wideparen{IC} \Rightarrow BI = IC$.\\
+		Tam giác $ABC$ không cân, suy ra $H$, $D$, $M$ là ba điểm phân biệt. \\
+		Mặt khác, $D$ nằm  giữa $A$ và $I$,	$AM$ là trung tuyến $\Rightarrow IM \perp BC$, $AH$ là đường cao $\Rightarrow AH \perp BC$. Do đó $D$ nằm giữa $H$ và $M$.
+		\item Tam giác $ABC$ nhọn $\Rightarrow \widehat{BAC} < 90^\circ \Rightarrow \wideparen{BC}$ nhỏ hơn nửa đường tròn.\\
+		$\Rightarrow M$ nằm giữa $O$ và $I$ $\Rightarrow AM$ nằm giữa hai tia $AI$ và $AO$.\\
+		$\Rightarrow \heva{& \widehat{MAD} < \widehat{OAI} \\ & OA = OI} \Rightarrow \widehat{OAI} = \widehat{OIA}$.\\
+		Mà $AH \parallel IM \Rightarrow \widehat{OIA} = \widehat{IAH}$. Vậy $\widehat{MAD} < \widehat{DAH}$.
+	\end{enumerate}
+}
+\end{vd}
+
+\subsection{Luyện tập}
+
+%%Bai tap 01
+\begin{bt}
+	Cho đường tròn $(O)$. Gọi $I$ là điểm chính giữa của cung $AB$ (không phải là cung nửa đường tròn) và $H$ là trung điểm của dây $AB$. Chứng minh rằng đường thẳng $IH$ đi qua tâm $O$ của đường tròn.
+	\loigiai{
+\immini{Vì $I$ là điểm chính giữa cung $\wideparen{AB}$ nên $\wideparen{IA} = \wideparen{IB}$, suy ra $IA = IB$.\\
+	Mặt khác, $OA = OB = R$ bán kính. Do đó, $IO$ là đường trung trực của đoạn $AB$.\\
+	Lại có $H$ là trung điểm của $AB$ nên $H$ thuộc $IO$.\\
+	Vậy $IH$ đi qua tâm $O$ của đường tròn.}{\begin{tikzpicture}[>=stealth,scale=0.7, line join = round, line cap = round]
+\tkzInit[xmin=-3,xmax=3,ymin=-3,ymax=3]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/O, 2/0/A}
+\tkzDrawCircle(O,A)
+\tkzDefPointBy[rotation = center O angle 120](A)\tkzGetPoint{B}
+\tkzDefPointBy[rotation = center O angle 60](A)\tkzGetPoint{I}
+\tkzDefMidPoint(A,B)\tkzGetPoint{H}
+\tkzDrawPoints[fill=black](O,A,B,I,H)
+\tkzLabelPoints[above](H,B,I)
+\tkzLabelPoints[right](A)
+\tkzLabelPoints[below](O)
+\tkzDrawSegments[thin](A,B O,I O,A O,B H,A H,B)
+\end{tikzpicture}}
+}
+\end{bt}
+
+%%Bai tap 02
+\begin{bt}
+	Cho đường tròn tâm $O$ bán kính $R$. Vẽ góc ở tâm $\widehat{AOB} = 80^\circ$, vẽ góc ở tâm $\widehat{BOC} = 120^\circ$ kề với $\widehat{AOB}$. So sánh và sắp xếp độ dài $AB$, $BC$, $CA$ theo thứ tự tăng dần.
+	\loigiai{
+\immini{Ta có $\widehat{AOB} = 80^\circ$ và $\widehat{BOC}= 120^\circ$ kề nhau nên suy ra $\widehat{AOC} = 160^\circ$.\\
+	Vì số đo của cung bị chắn bằng số đo của góc ở tâm nên suy ra $AB <BC <CA$.}{\begin{tikzpicture}[>=stealth,scale=0.7, line join = round, line cap = round]
+\tkzInit[xmin=-2.5,xmax=2.5,ymin=-2.5,ymax=2.5]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/O,2/0/A}
+\pgfmathsetmacro{\so}{2} % lấy số
+\tkzDrawCircle[R](O,\so cm)
+\tkzDefPointBy[rotation = center O angle 80](A)\tkzGetPoint{B}
+\tkzDefPointBy[rotation = center O angle 120](B)\tkzGetPoint{C}
+\tkzLabelPoints[right](A)
+\tkzLabelPoints[left](C)
+\tkzLabelPoints[above](B)
+\tkzLabelPoints[below=0.25cm](O)
+\tkzDrawPoints[fill=black](O,A,B,C)
+\tkzDrawSegments(A,B B,C C,A O,A O,B O,C)
+%\tkzMarkAngles[draw=black](A,O,B B,O,C)
+\tkzLabelAngle[pos=0.57,rotate=30](A,O,B){\footnotesize $80^\circ$}
+\tkzLabelAngle[pos=-0.57,rotate=-30](B,O,C){\footnotesize $120^\circ$}
+\end{tikzpicture}}
+}
+\end{bt}
+
+%%Bai tap 03
+\begin{bt}
+	Cho tam giác $ABC$ có $AB > AC$. Trên cạnh $AB$ lấy một điểm $D$ sao cho $AD = AC$. Vẽ đường tròn tâm $O$ ngoại tiếp tam giác $DBC$. Từ $O$ lần lượt hạ các đường vuông góc $OH$, $OK$ với $BC$ và $BD$ ($H \in BC$, $K \in BD$).
+	\begin{enumEX}{2}
+		\item Chứng minh rằng $OH < OK$.
+		\item So sánh hai cung nhỏ $BD$ và $BC$.
+	\end{enumEX}
+\end{bt}
+\loigiai{
+\immini{\begin{enumerate}
+		\item Trong tam giác $ABC$, theo bất đẳng thức tam giác, ta có $BC > AB - AC = AD + AB = BD$ hay $BC > BD$.\\
+		Theo định lí về dây cung và khoảng cách đến tâm, từ $BC > BD$ suy ra $OH < OK$.
+		\item Từ bất đẳng thức về dây cung $BC > BD$ suy ra $\wideparen{BC} > \wideparen{BD}$.
+	\end{enumerate}}{\begin{tikzpicture}[>=stealth,scale=0.9, line join = round, line cap = round]
+\tkzInit[xmin=-1.5,xmax=4.5,ymin=-0.7,ymax=4.2]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{-1/0/A,3/0/B,0/2/C}
+\tkzCalcLength[cm](A,C)\tkzGetLength{rAC}
+\tkzInterLC(A,B)(A,C)\tkzGetSecondPoint{D}
+\tkzCircumCenter(D,B,C)\tkzGetPoint{O}
+\tkzDrawCircle(O,C)
+\tkzDefPointBy[projection=onto B--C](O)\tkzGetPoint{H}
+\tkzDefPointBy[projection=onto B--D](O)\tkzGetPoint{K}
+\tkzDrawPoints[fill=black](A,B,C,D,O,H,K)
+\tkzDrawSegments[thin](A,B B,C C,A A,D D,C O,H O,K)
+\tkzMarkRightAngles(O,H,B O,K,B)
+\tkzMarkSegments[mark=s||](A,C A,D)
+\tkzLabelPoints[left](A,C,H)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[above](O)
+\tkzLabelPoints[below=0.1cm](K,D)
+\end{tikzpicture}}
+}
+
+%%Bai tap 04
+\begin{bt}
+	Cho hình thoi $ABCD$. Vẽ đường tròn tâm $A$ bán kính $AD$. Vẽ đường tròn tâm $C$, bán kính $CB$. Lấy điểm $E$ bất kì trên đường tròn tâm $A$ (không trùng với $B$ và $D$), điểm $F$ trên đường tròn tâm $C$ sao cho $BF$ song song với $DE$. So sánh hai cung nhỏ $DE$ và $BF$.
+	\loigiai{
+\immini{Theo giả thiết ta có $\widehat{EDB} = \widehat{FBD}$, suy ra $\widehat{EDA} = \widehat{FBC}$.\\
+	Từ đó hai tam giác cân $ADE$ và $CBF$ bằng nhau, suy ra $\widehat{EAD} = \widehat{BCF}$. Vậy hai cung $DE$ và $BF$ bằng nhau.}{\begin{tikzpicture}[>=stealth,scale=0.7, line join = round, line cap = round]
+\tkzInit[xmin=-2.5,xmax=6.5,ymin=-2.5,ymax=2.5]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/A,2/-1/B,4/0/C}
+\tkzDefPointBy[translation=from B to A](C)\tkzGetPoint{D}
+\tkzDrawCircle(A,D)
+\tkzDrawCircle(C,B)
+\tkzDefPointBy[rotation = center A angle 100](D)\tkzGetPoint{E}
+\tkzDefPointBy[translation=from E to D](B)\tkzGetPoint{F}
+\tkzDrawPoints[fill=black](A,B,C,D,E,F)
+\tkzDrawSegments(A,B B,C C,D D,A D,E B,F A,C B,D E,A F,C)
+\tkzLabelPoints[left](A,E)
+\tkzLabelPoints[right](C,F)
+\tkzLabelPoints[above](D)
+\tkzLabelPoints[below](B)
+\end{tikzpicture}}
+}
+\end{bt}
+
+%%Bai tap 05
+\begin{bt}
+	Cho đường tròn tâm $O$. Trên nửa đường tròn đường kính $AB$ lấy hai điểm $C$, $D$. Từ $C$ kẻ $CH$ vuông góc với $AB$, nó cắt đường tròn tại điểm thứ hai là $E$. Từ $A$ kẻ $AK$ vuông góc với $DC$, nó cắt đường tròn tại điểm thứ hai là $F$. Chứng minh rằng:
+	\begin{enumerate}
+		\item Hai cung nhỏ $CF$ và $DB$ bằng nhau.
+		\item Hai cung nhỏ $BF$ và $DE$ bằng nhau.
+		\item $DE =BF$.
+	\end{enumerate}
+	\loigiai{
+\immini{\begin{enumerate}
+		\item $CD$ và $FB$ đều vuông góc với $AK$ nên $CD \parallel FB$. \\
+		Suy ra $\wideparen{CF} = \wideparen{DB}$ (hai cung bị chắn giữa hai dây song song). \quad $(1)$
+		\item Do tính chất đối xứng qua đường kính $AB$ ta có $\wideparen{BC} = \wideparen{BE} \quad (2)$\\
+		Cộng từng vế của $(1)$ và $(2)$ ta được\\
+		$\wideparen{BC} + \widehat{CF} = \wideparen{DB} + \widehat{BE}$ (tính chất cộng hai cung) hay $\wideparen{BF} = \wideparen{DE} \quad (3)$.
+		\item Với $(3)$ ta suy ra $BF = BE$.
+	\end{enumerate}}{\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=-2.5,xmax=2.5,ymin=-2.5,ymax=2.5]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/O,2/0/B,-2/0/A}
+\tkzDrawCircle(O,A)
+\tkzDefPointBy[rotation = center O angle 25](B)\tkzGetPoint{D}
+\tkzDefPointBy[rotation = center O angle 120](B)\tkzGetPoint{C}
+\tkzDefPointBy[projection=onto A--B](C)\tkzGetPoint{H}
+\tkzInterLC(C,H)(O,A)\tkzGetFirstPoint{E}
+\tkzDefPointBy[projection=onto D--C](A)\tkzGetPoint{K}
+\tkzInterLC(A,K)(O,A)\tkzGetSecondPoint{F}
+\tkzDrawPoints[fill=black](O,A,B,D,C,H,E,K,F)
+\tkzLabelPoints[above](O,C,K)
+\tkzLabelPoints[below](E)
+\tkzLabelPoints[left](A,F)
+\tkzLabelPoints[right](B,D)
+\tkzLabelPoints[below right](H)
+\tkzMarkRightAngles(C,H,B D,K,A B,F,A)
+\tkzDrawSegments(A,B C,H D,K A,K H,E B,F)
+\end{tikzpicture}}
+}
+\end{bt}
+
+%%Bai tap 06
+\begin{bt}
+	Trên dây cung $AB$ của một đường tròn $O$, lấy hai điểm $C$ và $D$ chia dây này thành ba đoạn thẳng bằng nhau $AC = CD = DB$. Các bán kính qua $C$ và $D$ cắt cung nhỏ $AB$ lần lượt tại $E$ và $F$. Chứng minh rằng:
+	\begin{enumEX}{2}
+		\item $\wideparen{AE} = \widehat{FB}$.
+		\item $\widehat{AE} < \wideparen{EF}$.
+	\end{enumEX}
+	\loigiai{
+\immini{\begin{enumerate}
+		\item Tam giác cân $AOB$ có $\widehat{OAB} = \widehat{OBA}$.\\
+		Mặt khác, $\triangle{AOC} = \triangle{BOD}$ (c.g.c) vì có $OA = OB$, $\widehat{OAB} = \widehat{OBA}$, $AC = BD$. Từ đó suy ra $\widehat{AOC} = \widehat{BOD}$ suy ra $\wideparen{AE} = \wideparen{FB}$.
+		\item Tam giác $OCD$ là tam giác cân ($OC = OD$ do $\triangle{AOC} = \triangle{BOD}$) nên $\widehat{ODC} < 90^\circ$, từ đó suy ra $\widehat{CDF} > 90^\circ$.\\
+		Mặt khác, trong tam giác $CDF$ có $\widehat{CDF} > \widehat{CFD}$ suy ra $CF > CD$ hay $CF > CA$.\\
+		Xét $\triangle{AOC}$ và $\triangle{COF}$ có $OA = OF$, $OC$ chung, nhưng $CF > AC$ suy ra $\widehat{COD} > \widehat{AOC}$. Từ đó suy ra $\wideparen{EF} > \wideparen{AE}$. 
+	\end{enumerate}}{\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=-2.5,xmax=2.5,ymin=-2.5,ymax=2.5]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/O,-2/-1/A}
+\tkzDrawCircle(O,A)
+\tkzDefPointBy[rotation = center O angle 126](A)\tkzGetPoint{B}
+\tkzDefBarycentricPoint(A=2,B=1)
+\tkzGetPoint{C}
+\tkzDefBarycentricPoint(A=1,B=2)
+\tkzGetPoint{D}
+\tkzInterLC(O,C)(O,A)\tkzGetSecondPoint{E}
+\tkzInterLC(O,D)(O,A)\tkzGetSecondPoint{F}
+\tkzMarkSegments[mark=s||](A,C C,D D,B)
+\tkzDrawPoints[fill=black](O,A,B,C,D,E,F)
+\tkzDrawSegments(O,A O,B A,B O,E O,F C,F)
+\tkzLabelPoints[above](O,C,D)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[below](E,F)
+\end{tikzpicture}}
+}
+\end{bt}

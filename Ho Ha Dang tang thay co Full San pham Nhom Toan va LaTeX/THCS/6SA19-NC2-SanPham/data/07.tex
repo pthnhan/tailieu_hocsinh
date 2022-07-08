@@ -1,0 +1,303 @@
+	\section{Đường tròn và tam giác}
+	\subsection{Kiến thức cơ bản}
+	\begin{enumerate}
+		\item Đường tròn tâm $O$, bán kính $R$ là hình gồm các điểm cách $O$ một khoảng bằng $R$, kí hiệu $(O; R)$.
+		\item Hình tròn là hình gồm các điểm nằm trên đường tròn và các điểm nằm bên trong đường tròn.
+		\item Hai điểm $A$ và $B$ thuộc đường tròn tâm $O$ chia đường tròn thành hai cung tròn. Đoạn thẳng nối hai điểm $A$, $B$ là dây cung. Dây đi qua tâm là đường kính.
+		\item Tam giác $ABC$ là hình gồm ba đoạn thẳng $AB$, $BC$, $CA$ khi ba điểm $A$, $B$, $C$ không thẳng hàng.
+	\end{enumerate}
+	\subsection{Ví dụ minh họa}
+	\begin{vd}
+		Cho $5$ điểm bất kì thuộc đường tròn $(O)$. Hỏi trên hình vẽ có bao nhiêu dây cung, bao nhiêu cung tạo bởi $2$ điểm trong $5$ số đã cho?
+		\loigiai{
+		\begin{itemize}
+			\item Vì $5$ điểm đã cho thuộc một đường tròn nên qua $2$ điểm một ta vẽ được một dây cung.\\
+			Chọn $1$ điểm với $4$ điểm còn lại vẽ được $4$ dây cung. Vậy với $5$ điểm vẽ được $4\cdot 5=20$ (dây cung), nhưng mỗi dây cung được tính $2$ lần nên có tất cả $\dfrac{4\cdot 5}{2}=10$ (dây cung).\\
+			Bài toán này tương đương với bài toán cho $5$ điểm, cứ qua $2$ điểm vẽ được $1$ đoạn thẳng và ta có được $10$ đoạn thẳng.\\
+			Vậy với $n$ điểm trên một đường tròn, ta vẽ được $\dfrac{(n-1)n}{2}$ dây cung tạo bởi $2$ trong số $n$ điểm đã cho.
+			\item Mỗi dây cung $AB$ tạo thành $2$ cung tròn lớn và nhỏ (trong trường hợp hai điểm $A$ và $B$ là hai đầu mút của một đường kính, ta có hai cung bằng nhau). Suy ra qua $5$ điểm thuộc một đường tròn, vẽ được $20$ cung tròn và qua $n$ điểm thuộc một đường tròn, vẽ được $(n-1)\cdot n$  cung tròn.
+		\end{itemize}
+	}
+	\end{vd}
+	
+	\begin{vd}
+		Trên cạnh $AC$ của tam giác $ABC$ lấy điểm $M$. Vẽ đoạn thẳng $BM$. Tính số đo góc $CBM$, biết số đo các góc $ABC$ và $ABM$ lần lượt bằng $70^{\circ}$ và $30^{\circ}$.
+		\loigiai{
+	\immini{	Do điểm $M$ thuộc đoạn thẳng $AC$ nên điểm $M$ nằm giữa hai điểm $A$ và $C$.\\
+		Suy ra tia $BM$ nằm giữa hai tia $BA$ và $BC$.\\
+		Vậy $\widehat{ABC}=\widehat{ABM}+\widehat{MBC} \Rightarrow \widehat{MBC}=70^{\circ}-30^{\circ}=40^{\circ}$.}{
+		\begin{tikzpicture}
+		\tkzInit[xmin=-0.5, xmax=4.5, ymin=-0.5, ymax=3.5]
+		\tkzClip
+		\tkzDefPoints{0/0/B, 4/0/C, 1.03/2.82/A, 2.11/1.8/M}
+		\tkzDrawPoints(A,B,C,M)
+		\tkzDrawSegments(A,B B,C C,A B,M)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[above right](M)
+		\tkzLabelPoints[below left]()
+		\tkzLabelPoints[right](C)
+		\tkzLabelPoints[left](B)
+		\tkzMarkAngles[size=0.5cm](M,B,A)
+		\tkzMarkAngles[arc=ll,size=0.3 cm,mkcolor=red](C,B,A)
+		\tkzLabelAngle[pos = 0.8](C,B,M){\tiny $70^{\circ}$}
+		\tkzLabelAngle[pos = 0.78](M,B,A){\tiny $30^{\circ}$}
+		\end{tikzpicture}
+	}
+	}
+	\end{vd}
+	
+	\begin{vd}
+		Cho điểm $M$ không thuộc đường thẳng $xy$. Lấy hai điểm $A$, $B$ trên tia $xy$ thì tồn tại một tam giác có đỉnh là điểm $M$ và $2$ đỉnh còn lại là hai điểm $A$, $B$.
+		\begin{enumerate}
+			\item Nếu có thêm một điểm thứ ba cũng thuộc đường thẳng $xy$ thì vẽ được bao nhiêu tam giác có đỉnh là $m$ và hai đỉnh còn lại là $2$ trong số $3$ ba điểm thuộc đường thẳng $xy$?
+			\item Nếu có $100$ điểm trên đường thẳng $xy$ thì vẽ được bao nhiêu tam giác có đỉnh là $M$ và hai đỉnh còn lại là hai điểm trong số $100$ điểm thuộc đường thẳng $xy$?
+		\end{enumerate}
+	\loigiai{
+	Kí hiệu các điểm nằm trên đường thẳng $xy$ là $A_1$, $A_2$, $A_3$,\ldots
+	\begin{enumerate}
+		\item Với $2$ điểm $A_1$, $A_2$ thuộc đường thẳng $xy$, ta có $1$ tam giác $\triangle MA_1A_2$.\\
+		Thêm \textit{điểm thứ ba} $A_3\in xy$, ta có $3$ tam giác $\triangle MA_1A_2$, $\triangle MA_2A_3$, $\triangle MA_3A_1$. So với trường hợp $2$ điểm trên $xy$, ta thêm được hai tam giác. Như vậy có $1+2=3$ (tam giác).\\
+		Tương tự, thêm \textit{điểm thứ tư} $A_4\in xy$, ta có thêm $3$ tam giác $\triangle MA_1A_4$, $\triangle MA_2A_4$, $\triangle MA_3A_4$. So với trường hợp $3$ điểm trên $xy$, ta thêm được $3$ tam giác. Như vậy có $1+2+3=6$ (tam giác).\\
+		Tiếp tục như vậy với $n$ điểm trên đường thẳng $xy$, ta vẽ được
+		\[ 1+2+3+\cdots +(n-1)=\dfrac{(n-1)n}{2}\text{ (tam giác).} \]
+		\item Khi $n=100$, ta có $\dfrac{(100-1)\cdot 100}{2}=4950$ (tam giác).
+	\end{enumerate}
+
+
+}
+	\end{vd}
+	
+	\begin{vd}\begin{enumerate}
+			\item Vẽ tam giác $ABC$ có $\widehat{A}=60^{\circ}$, $AC=9$ cm.
+			\item Trên tia $AC$ lấy điểm $M$ sao cho $AM=2$ cm, trên tia $CA$ lấy điểm $D$ mà $CD=5$ cm. Giải thích vì sao điểm $M$ là trung điểm của đoạn thẳng $AD$.
+			\item Vẽ các đoạn thẳng $BM$, $BD$. Trên hình vẽ có bao nhiêu tam giác và là những tam giác nào?
+			\item Góc $BAC$, $BMC$ là góc của những tam giác nào?
+			\item Tìm các góc kề bù với góc $BMC$, $BDC$ trên hình vẽ.
+		\end{enumerate}
+	\loigiai{
+	\begin{enumerate}
+		\item Vẽ  tam giác $ABC$ như hình bên.
+		\item \immini{Các điểm $A$ và $D$ thuộc tia $CD$ mà $CD<CA$ (vì $5<9$) nên $D$ nằm giữa hai điểm $A$ và $C$ \\$\Rightarrow AD+DC=AC\Rightarrow AD+5=9 \Rightarrow AD=4\;\text{cm}.$\\
+		Có $M$ và $D$ thuộc tia $AC$ mà $AM<AD$ (vì $2<4$) nên điểm $M$ nằm giữa hai điểm $A$ và $D$. Mặt khác có $AM=\dfrac{1}{2}AD$ (do $AM=2$ và $AD=4$).\\ Vậy điểm $M$ là trung điểm của đoạn thẳng $AD$.}{
+	\begin{tikzpicture}
+	\tkzInit[xmin=0.5, xmax=6.5, ymin=-0.5, ymax=4.5]
+	\tkzClip
+	\tkzDefPoints{2/4/A, 0.93/0/B, 6/0/C, 2.8/3.2/M, 3.6/2.4/D}
+	\tkzDrawPoints(A,B,C,D,M)
+	\tkzDrawSegments(A,B B,C C,A B,M B,D)
+	\tkzLabelPoints[below](B,C)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[above right](M,D)
+	\end{tikzpicture}}
+		\item Trên hình vẽ có $6$ tam giác: $\triangle ABM$,  $\triangle ABD$,   $\triangle ABC$,   $\triangle MBD$,  $\triangle MBC$,   $\triangle DBC$.
+		\item Góc $BAC$ là góc của các tam giác   $\triangle ABM$,   $\triangle ABD$,   $\triangle ABC$.\\
+		Góc $BMC$ là góc của các tam giác   $\triangle BMD$,   $\triangle BMC$.
+		\item Góc kề bù với góc $BMC$ là góc $BMA$, góc kề bù với góc $BDC$ là góc $BDA$.
+	\end{enumerate}
+}
+	\end{vd}
+	\begin{vd}
+		Cho $6$ điểm trên mặt phẳng sao cho không có $3$ điểm nào thẳng hàng. Cứ qua $2$ điểm vẽ một đoạn thẳng và tô đoạn thẳng đó bằng màu xanh hoặc đỏ. Chứng tỏ rằng tồn tại một tam giác có $3$ đỉnh là $3$ điểm trong số $6$ điểm đã cho và có các cạnh cùng được tô màu xanh hoặc màu đỏ.
+		\loigiai{
+		\immini{Đặt $6$ điểm đã cho là $O$, $A$, $B$, $C$, $D$, $E$. Xét điểm $O$ với $5$ điểm còn lại là $A$, $B$, $C$, $D$, $E$, ta vẽ được $5$ đoạn thẳng có một đầu mút là điểm $O$: $OA$, $OB$, $OC$, $OD$ và $OE$.\\
+		Với $5$ đoạn thẳng và $2$ màu xanh hoặc đỏ, ta tìm được ít nhất $3$ đoạn thẳng cùng được tô một màu. Chẳng hạn đó là $3$ đoạn thẳng $OA$, $OB$, $OC$ được tô màu xanh.
+		Xét tam giác $ABC$. Nếu một trong ba cạnh của tam giác $ABC$ được tô màu xanh thì ta có được hoặc $\triangle OAB$, hoặc $\triangle OBC$, hoặc $\triangle OCA$ có $3$ cạnh cùng được tô màu xanh. Nếu không có cạnh nào của $\triangle ABC$ được tô màu xanh thì $3$ cạnh đó được tô màu đỏ và ta có được một tam giác có $3$ cạnh cùng được tô bằng một màu đỏ.}{\begin{tikzpicture}
+		\tkzInit[xmin=0, xmax=4.5, ymin=-0.5, ymax=4.5]
+		\tkzClip
+		\tkzDefPoints{3/4/A, 4/3/B, 4/2/C, 1/4/O, 0.5/1.5/E, 2/0/D}
+		\tkzDrawPoints(A,B,C,D,O,E)
+		\tkzDrawSegments(A,B B,O O,A O,C A,C B,C)
+		\tkzDrawSegments[dashed](O,E O,D)
+		\tkzLabelPoints[below](E,D)
+		\tkzLabelPoints[above](O,A)
+		\tkzLabelPoints[right](B,C)
+		\end{tikzpicture}
+	}
+		Vậy ta luôn tìm được ít nhất một tam giác có $3$ cạnh được tô cùng một màu (xanh hoặc đỏ).
+	
+}
+	\end{vd}
+
+\subsection{BÀI TẬP}
+
+\begin{bt}%[Nguyễn Văn Chiến, dự án 6SA19-NC1]
+	Cho tam giác $ABC$. Trên cạnh $BC$ lấy các điểm $D$, $I$, $K$. Kẻ các đoạn thẳng $BD$, $BI$, $BK$. Liệt kê các tam giác có trong hình vẽ.
+	\loigiai{
+		Có $10$ tam giác là $ABD$, $ABI$, $ABK$, $ABC$, $DBI$, $DBK$, $DBC$, $IBK$, $IBC$, $KBC$.
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]   
+			\tkzDefPoints{0/0/B,6/0/C,2/3/A}  
+			\tkzDefPointWith[linear,K=1/4](A,C) \tkzGetPoint{D} 
+			\tkzDefPointWith[linear,K=2/4](A,C) \tkzGetPoint{I}
+			\tkzDefPointWith[linear,K=3/4](A,C) \tkzGetPoint{K} 
+			\pgfresetboundingbox 
+			\tkzDrawPolygon(A,B,C)  
+			\tkzDrawSegments(B,D B,I B,K) 
+			\tkzDrawPoints[](A,B,C,D,I,K)  
+			\tkzLabelPoints[above](A)  
+			\tkzLabelPoints[below](B,C)  
+			\tkzLabelPoints[above right](D,I,K)  
+			\end{tikzpicture} 
+		\end{center} 	
+		
+	}
+\end{bt}
+
+\begin{bt}%[Nguyễn Văn Chiến, dự án 6SA19-NC1]
+	Có bao nhiêu tam giác trong hình vẽ dưới?
+	\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]   
+		\tkzDefPoints{0/0/B,6/0/C,2/3/A}  
+		\tkzDefPointWith[linear,K=1/3](A,B) \tkzGetPoint{E}  
+		\tkzDefPointWith[linear,K=2/5](A,C) \tkzGetPoint{D} 
+		\tkzInterLL(C,E)(B,D)    \tkzGetPoint{O} 
+		\pgfresetboundingbox 
+		\tkzDrawPolygon(A,B,C)  
+		\tkzDrawSegments(B,D C,E A,O) 
+		\tkzDrawPoints[](A,B,C,E,D,O)  
+		\tkzLabelPoints[above](A)  
+		\tkzLabelPoints[below](B,C, O)  
+		\tkzLabelPoints[above right](D)  
+		\tkzLabelPoints[above left](E)  
+		\end{tikzpicture} 
+	\end{center} 
+	\loigiai{
+		\begin{itemize}
+			\item Có $5$ tam giác "đơn" là $OAD$, $OAE$, $OBE$, $OBC$, $OCD$.
+			\item Có $4$ tam giác "đôi" (gồm hai tam giác "đơn" ghép lại) là $OAB$, $AOC$, $BCE$, $BCD$.
+			\item Có $2$ tam giác "ba" là $ABD$, $AEC$.
+			\item Có $1$ tam giác "năm" là $ABC$.
+		\end{itemize}
+		Vậy tất cả có $12$ tam giác.	
+	}
+\end{bt}
+
+\begin{bt}%[Nguyễn Văn Chiến, dự án 6SA19-NC1]
+	Cho tam giác $ABC$. Đường thẳng $a$ cắt cạnh $AB$ tại điểm $D$ nằm giữa $A$ và $B$, cắt cạnh $AC$ tại điểm $E$ nằm giữa $A$ và $C$. Đường thẳng $a$ có cắt cạnh $BC$ không? Vì sao?
+	\loigiai{
+		\immini{
+			Đường thẳng $a$ chia mặt phẳng thành hai nửa mặt phẳng là $(I)$ và $(II)$. \\
+			Giả sử điểm $A$ thuộc nửa mặt phẳng $(I)$ thì các điểm $B$ và $C$ đều thuộc nửa mặt phẳng $(II)$.\\
+			Vậy đường thẳng $a$ không cắt cạnh $BC$.	
+		}{
+			\begin{tikzpicture}[scale=0.8, font=\footnotesize, line join=round, line cap=round, >=stealth]   
+			\tkzDefPoints{0/0/B,6/0/C,2/3/A}  
+			\tkzDefPointWith[linear,K=2/3](A,B) \tkzGetPoint{D} 
+			\tkzDefPointWith[linear,K=3/4](A,C) \tkzGetPoint{E}
+			\tkzDefPointWith[linear,K=4/3](D,E) \tkzGetPoint{a}
+			\tkzDefPointWith[linear,K=3/2](E,D) \tkzGetPoint{N}  
+			\pgfresetboundingbox 
+			\tkzDrawPolygon(A,B,C)  
+			\tkzDrawSegments(a,N) 
+			\tkzDrawPoints[](A,B,C,D,E)  
+			\tkzLabelPoints[above](A)  
+			\tkzLabelPoints[below](B,C)  
+			\tkzLabelPoints[above right](E)
+			\tkzLabelPoints[above left](D)
+			\tkzLabelPoints[above](a) 
+			\node[above right] at (N){(I)}; 
+			\node[below right] at (N){(II)};  
+			\end{tikzpicture}
+		}	
+	}
+\end{bt}
+
+\begin{bt}%[Nguyễn Văn Chiến, dự án 6SA19-NC1]
+	Cho năm điểm $A$, $B$, $C$, $D$, $E$ nằm trên một đường tròn. Nối từng cặp hai điểm. Liệt kê các tam giác có trong hình vẽ.
+	\loigiai{
+		\immini{	
+			\begin{center}
+				\begin{tabular}{|c| c|}
+					\hline
+					Bớt lại $2$ điểm & Ta có tam giác\\
+					\hline
+					$A$ và $B$	& $CDE$	\\
+					\hline
+					$A$ và $C$	& $BDE$	\\
+					\hline
+					$A$ và $D$	& $BCE$	\\
+					\hline
+					$A$ và $E$	& $BCD$	\\
+					\hline
+					$B$ và $C$	& $ADE$	\\
+					\hline
+					$B$ và $D$	& $ACE$	\\
+					\hline
+					$B$ và $E$	& $ACD$	\\
+					\hline
+					$C$ và $D$	& $ABE$	\\
+					\hline
+					$C$ và $E$	& $ABD$	\\
+					\hline
+					$D$ và $E$	& $ABC$	\\
+					\hline
+				\end{tabular}
+			\end{center}
+			Tất cả có $10$ tam giác.
+		}{
+			\vspace{-3cm}
+			\begin{tikzpicture}[scale=1.0, font=\footnotesize, line join=round, line cap=round, >=stealth]   
+			\tkzDefPoints{0/0/O,3/0/C}  
+			\tkzDrawCircle[radius](O,C)
+			\tkzDefPointBy[rotation = center O angle 60](C)    \tkzGetPoint{B}
+			\tkzDefPointBy[rotation = center O angle 150](C)    \tkzGetPoint{A}
+			\tkzDefPointBy[rotation = center O angle -50](C)    \tkzGetPoint{D}
+			\tkzDefPointBy[rotation = center O angle -120](C)    \tkzGetPoint{E}
+			\pgfresetboundingbox 
+			\tkzDrawPolygon(A,B,C,D,E)  
+			\tkzDrawSegments(A,C A,D B,E B,D) 
+			\tkzDrawPoints[](A,B,C,D,E)  
+			\tkzLabelPoints[above left](A) 
+			\tkzLabelPoints[above](B)  
+			\tkzLabelPoints[below right](D)
+			\tkzLabelPoints[below left](E)  
+			\tkzLabelPoints[right](C)
+			\end{tikzpicture}
+		}
+		\begin{note}
+			Tổng quát, nếu có $n$ điểm thì số tam giác là $\dfrac{n(n-1)(n-2)}{6}$. Xem cách tính	số tổ hợp chập $3$ của $n$ phần tử ở \textit{Chuyên đề 9. Chỉnh hợp. Hoán vị. Tổ hợp.}
+		\end{note}	
+	}
+\end{bt}
+
+\subsection{GHI NHỚ}
+
+\subsubsection{ĐIỂM NẰM GIỮA HAI ĐIỂM (THỨ TỰ GIỮA BA ĐIỂM)}
+\begin{enumerate}
+	\item \textbf{Dấu hiệu 1} (Đ1). Với $3$ điểm thẳng hàng, có một và chỉ một điểm nằm giữa hai điểm còn lại.
+	\begin{itemize}
+		\item \textbf{Dấu hiệu 1a}. Trong $3$ điểm thẳng hàng $A$, $B$, $C$, nếu điểm $B$ không nằm giữa hai điểm $A$ và $C$, điểm $C$ không nằm giữa hai điểm $A$ và $B$, thì điểm $A$ phải nằm giữa hai điểm $B$ và $C$.
+		\item \textbf{Dấu hiệu 1b}. Với $3$ điểm $A$, $B$, $C$ thẳng hàng mà $A$, $B$ nằm cùng phía đối với điểm $C$ và $A$, $C$ nằm cùng phía đối với điểm $B$ thì điểm $A$ nằm giữa hai điểm $B$ và $C$.
+	\end{itemize}
+	\item \textbf{Dấu hiệu 2} (Đ2). Nếu điểm $A$ nằm giữa hai điểm $B$, $C$ mà điểm $M$ nằm giữa hai điểm $A$, $B$ và điểm $N$ nằm giữa hai điểm $A$, $C$ thì điểm $A$  nằm giữa hai điểm $M$ và $N$.
+	\item \textbf{Dấu hiệu 3} (Đ3). Nếu hai tia $AB$ và $AC$ đối nhau thì điểm $A$  nằm giữa hai điểm $B$ và $C$.
+	\item \textbf{Dấu hiệu 4} (Đ4). Nếu có đẳng thức $AM+MB=AB$ thì điểm $M$  nằm giữa hai điểm $A$ và $B$.
+	\item \textbf{Dấu hiệu 5} (Đ5). Nếu các điểm $A$ và $B$ thuộc tia $Ox$ và $OA<OB$ thì $A$ nằm giữa hai điểm $O$ và $B$.
+\end{enumerate}
+
+\subsubsection{TIA NẰM GIỮA HAI TIA}
+
+\begin{enumerate}
+	\item \textbf{Dấu hiệu 1} (T1). Nếu có điểm $M \ne O$ thuộc tia $Ox$, điểm $N \ne O$ thuộc tia $Oy$, mà tia $Oz$ cắt đoạn thẳng $MN$ tại điểm $I$ nằm giữa hai điểm $M$ và $N$ thì tia $Oz$ nằm giữa hai tia $Ox$ và $Oy$.
+	\item \textbf{Dấu hiệu 2} (T2). Nếu hai tia $Ox$, $Oy$ đối nhau thì mọi tia $Oz$ khác $Ox$, $Oy$ đều nằm giữa  hai tia $Ox$ và $Oy$.
+	\item \textbf{Dấu hiệu 3} (T3). Cho hai tia $Oy$, $Oz$ cùng thuộc nửa mặt phẳng bờ chứa tia $Ox$. Biết tia $Oy$ nằm giữa hai tia $Ox$ và $Oz$. Nếu tia $Om$ nằm giữa hai tia $Oy$ và $Oz$ , hoặc tia $Om$ nằm giữa hai tia $Oy$ và $Ox$, thì tia $Om$ nằm giữa hai tia $Ox$ và $Oz$.  
+	\item \textbf{Dấu hiệu 4} (T4). Nếu có đẳng thức $\widehat{xOy}+\widehat{yOz}=\widehat{xOz} $ thì tia $Oy$ nằm giữa hai tia $Ox$ và $Oz$. 
+	\item \textbf{Dấu hiệu 5} (T5). Nếu các tia $Oy$, $Oz$ cùng nằm trong một nửa mặt phẳng bờ chứa tia $Ox$ mà  $\widehat{xOy}<\widehat{yOz}$ thì tia $Oy$ nằm giữa hai tia $Ox$ và $Oz$. 
+	\item \textbf{Dấu hiệu 6} (T6). Nếu các tia $Oy$, $Oz$ thuộc hai nửa mặt phẳng đối nhau có bờ chứa tia $Ox$  sao cho  $\widehat{xOy}+\widehat{xOz} \le 180^\circ $ thì tia $Ox$ nằm giữa hai tia $Oy$ và $Oz$.
+\end{enumerate}
+
+\subsubsection{TRUNG ĐIỂM CỦA ĐOẠN THẲNG}
+\begin{enumerate}
+	\item \textbf{Dấu hiệu 1} (TĐ1). Nếu trên đoạn thẳng $AB$ có một điểm $M$ sao cho $AM=\dfrac{1}{2}AB$ (hoặc $MB=\dfrac{1}{2}AB$) thì điểm $M$ là trung điểm của đoạn thẳng $AB$.
+	\item \textbf{Dấu hiệu 2} (TĐ2). Cho bốn điểm $A$, $B$, $C$ và $D$ thuộc đường thẳng $xy$ theo thứ tự đó. Nếu có $AB=CD$ thì $AD$ và $BC$ có chung một trung điểm (hoặc $AC=BD$ thì $AD$ và $BC$ có chung một trung điểm).
+\end{enumerate}
+
+\subsubsection{TIA PHÂN GIÁC CỦA MỘT GÓC}
+\begin{enumerate}
+	\item \textbf{Dấu hiệu 1} (PG1). Trên nửa mặt phẳng bờ chứa tia $OA$ có các tia $OB$, $OM$ mà $\widehat{AMO}=\dfrac{1}{2}\widehat{AOB}$ thì $OM$ là tia phân giác của góc $AOB$.
+	\item \textbf{Dấu hiệu 2} (PG2). Có bốn tia chung gốc $OA$, $OB$, $OC$, $OD$ xếp theo thứ tự đó mà $\widehat{AOD}<180^\circ $. Nếu hai góc $\widehat{AOB} $ và $\widehat{COD} $ bằng nhau (hoặc $\widehat{AOC} =\widehat{BOD} $) thì hai góc $AOD$ và $BOC$ có chung tia phân giác.
+\end{enumerate}
+
+\begin{note}
+	Nhà toán học cổ Hi Lạp Euclid (Ơ-clit)	sống vào thế kỉ III trước Công nguyên, là người đầu tiên hệ thống các kiến thức hình học trong bộ sách "Cơ bản" gồm 13 cuốn.
+\end{note}

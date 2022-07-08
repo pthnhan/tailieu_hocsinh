@@ -1,0 +1,679 @@
+%GV soạn: Trần Thịnh
+%GV phản biện: Nguyễn Thành Sơn
+\Opensolutionfile{ans}[ans/ans7H2-9]
+\section{Các trường hợp bằng nhau của tam giác vuông}
+
+\subsection{Hỏi đáp nhanh}
+\begin{ex}%[7H2Y8]
+	Hai tam giác $ABC$ và $A'B'C'$ vuông ở $A$ và $A'$. Biết thêm $AB=A'C'$, $\widehat{B}=\widehat{C'}$. Khi đó hai tam giác này \sh{bằng nhau}, và ta viết  \sh{$\triangle ABC =\triangle A'C'B'$}.
+\end{ex}
+\begin{ex}%[7H2Y8]
+	Đúng điền Đ, sai điền S.
+	\begin{enumerate}
+		\item \TF{Đ} Hai tam giác vuông có một góc nhọn bằng nhau và một cạnh góc vuông bằng nhau thì bằng nhau.
+		\item \TF{Đ} Hai tam giác vuông có một góc nhọn bằng nhau và đường cao ứng với cạnh huyền bằng nhau thì bằng nhau.
+		\item \TF{S} Hai tam giác vuông có các góc nhọn tương ứng bằng nhau thì bằng nhau.
+		\item \TF{Đ} Hai tam giác vuông có một góc nhọn bằng nhau và cạnh huyền bằng nhau thì bằng nhau.
+	\end{enumerate}	
+\end{ex}
+\subsection{Học giải toán}
+\begin{vd}%[7H2K8]
+	Cho $\triangle ABC$ cân tại $A$. Trên tia đối của tia $BC$ lấy điểm $M$; trên tia đối của tia $CB$ lấy điểm $N$ sao cho $MB=CN$. Từ $B$ hạ $BE \perp AM$ ($E\in AM$). Từ $C$ hạ $CF \perp AN$ ($F\in AN$). Chứng minh rằng
+	\begin{enumEX}{3}
+		\item $\triangle AMN$ cân.
+		\item $BE=CF$.
+		\item $\triangle BME =\triangle CNF$.
+	\end{enumEX}
+	\loigiai{
+	\immini{
+	\begin{enumerate}
+		\item Xét $\triangle ABM$ và $\triangle ACN$ có:\\
+			 $AB=AC$ ($\triangle ABC$ cân tại $A$);\\
+			 $\widehat{ABM}=\widehat{ACN}$ (do $\widehat{ABC}=\widehat{ACB}$);\\
+			 $BM=CN$ (giả thiết).\\
+			 Vậy $\triangle ABM =\triangle ACN$ (c.g.c)\\
+			 $\Rightarrow AM=AN$\\
+			 Do đó $\triangle AMN$ cân tại $A$.
+	\end{enumerate}		
+	}{
+	\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{-1.2/0/B,1.2/0/C,0/3/A}
+	\tkzMarkSegments[mark=|](A,B A,C)
+	\coordinate (N) at ($(B)!1.7!(C)$);
+	\coordinate (M) at ($(C)!1.7!(B)$);
+	\tkzDefPointBy[projection = onto A--M](B)\tkzGetPoint{E}
+	\tkzDefPointBy[projection = onto A--N](C)\tkzGetPoint{F}
+	\tkzMarkRightAngles[size=0.2](B,E,A C,F,A)
+	\tkzMarkAngles[size=1cm,arc=l](M,A,B C,A,N)
+	\tkzLabelAngles[pos=1.2,rotate=0](M,A,B){\tiny $1$}
+	\tkzLabelAngles[pos=1.2,rotate=0](C,A,N){\tiny $2$}
+	\tkzMarkSegments[mark=||](B,M C,N)
+	\tkzDrawSegments(A,B M,N C,A A,M A,N B,E C,F)
+	\tkzDrawPoints[fill=black](A,B,C,M,N,E,F)
+	\pgfresetboundingbox
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[below right](N)
+	\tkzLabelPoints[below left](M)
+	\tkzLabelPoints[below](B,C)
+	\tkzLabelPoints[right](F)
+	\tkzLabelPoints[left](E)
+	\end{tikzpicture}
+	}
+	\begin{enumerate}
+	\item[b)] 
+		Xét $\triangle ABE$ và $\triangle ACF$ vuông tại $E$ và $F$ có 
+		$AB=AC$ (do $\triangle ABC$ cân tại $A$);
+		$\widehat{A_1}=\widehat{A_2}$ ($\triangle ABM=\triangle ACN$).\\
+		Vậy $\triangle ABE=\triangle ACF$ (cạnh huyền - góc nhọn).\\
+		Suy ra $BE=CF$ (cạnh tương ứng).
+	\item[c)] Xét $\triangle MBE$ và $\triangle NCF$ vuông tại $E$ và $F$ có
+		$BE=CF$ (chứng minh trên),
+		$MB=NC$ (giả thiết).
+		Do đó $\triangle MBE =\triangle NCF$ (cạnh huyền - cạnh góc vuông).
+	\end{enumerate}	
+}
+\end{vd}
+\begin{vd}%[7H2B8]
+	Cho góc nhọn $xOy$ và điểm $M$ nằm trong góc đó. Chứng minh rằng nếu $M$ cách đều hai cạnh của góc $xOy$ thì $M$ nằm trên tia phân giác của góc này.
+\loigiai{
+	\immini{
+	Từ $M$ hạ các đường vuông góc $MH$, $MK$ xuống các cạnh $Ox$, $Oy$. Theo giả thiết ta có $MH=MK$.\\
+	Xét $\triangle MOH$ và $\triangle MOK$ có:\\
+	$MO$ chung;\\
+	$MH=MK$.\\
+	Do đó $\triangle MOH = \triangle MOK$ (cạnh huyền - cạnh góc vuông). Suy ra $\widehat{MOH}=\widehat{MOK}$ hay $OM$ là tia phân giác của $\widehat{xOy}$. Vậy $M$ nằm trên tia phân giác của góc này.
+	}{
+	\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/O,5/0/y}
+	\tkzDefPointBy[rotation = center O angle 45](y)\tkzGetPoint{x}
+	\coordinate (I) at ($(x)!0.5!(y)$);
+	\coordinate (M) at ($(O)!0.8!(I)$);
+	\tkzDefPointBy[projection = onto O--y](M)\tkzGetPoint{K}
+	\tkzDefPointBy[projection = onto O--x](M)\tkzGetPoint{H}
+	\tkzMarkRightAngles[size=0.2](M,H,O M,K,O)
+	\tkzMarkSegments[mark=||](M,H M,K)
+
+	\tkzDrawSegments(x,O O,y O,M H,M M,K)
+	\tkzDrawPoints[fill=black](O,M,H,K)
+	\pgfresetboundingbox
+	\tkzLabelPoints[above](H,x)
+	\tkzLabelPoints[right](M)
+	\tkzLabelPoints[below](O,y,K)
+	%\tkzLabelPoint[below](y){$y$}
+	\end{tikzpicture}	
+	}
+}
+\end{vd}
+%\begin{hq}
+%	Tập hợp các điểm nằm trong một góc và cách đều hai cạnh của góc là tia phân giác của góc đó.
+%\end{hq}
+\begin{vd}%[7H2G8]
+	Cho tam $\triangle ABC$ vuông cân tại $A$, $D$ là trung điểm của $AC$. Từ $A$ kẻ đường vuông góc với $BD$, cắt $BC$ tại $E$. Chứng minh $AE=2DE$.
+\loigiai{
+	\immini{
+	Từ $C$ dựng đường thẳng vuông góc với $AC$ cắt $AE$ tại $G$. Trên tia $ED$ lấy điểm $F$ sao cho $DF=DE$.\\
+	Ta có $\widehat{ABD}=\widehat{CAG}$ (cùng phụ với góc $\widehat{ADB}$), $AB=AC$ (giả thiết) nên $\triangle BAD =\triangle ACG$ (cạnh góc vuông - góc nhọn), suy ra $AD=CG$ hay $CD=CG$.\\
+	Xét $\triangle CDE$ và $\triangle CGE$ có:\\
+	$CD=CG$ (chứng minh trên);\\
+	$CE$ cạnh chung;\\
+	$\widehat{DCE}=\widehat{GCE}=45^\circ$.\\
+	Do đó $\triangle CDE = \triangle CGE$ (c.g.c), suy ra $\widehat{CED}=\widehat{CEG}$. \hfill $(1)$\\
+	Dễ thấy $\triangle ADF=\triangle CDE$ (c.g.c) nên $\widehat{AFE}=\widehat{CEF}$. \hfill $(2)$\\
+	$\Rightarrow AF \parallel CE\Rightarrow \widehat{CEG}=\widehat{FAE}$ (đồng vị) \hfill $(3)$\\
+	Từ $(1)$, $(2)$, $(3)$ suy ra $\widehat{EAF}=\widehat{EFA}$, tam giác $EFA$ cân tại $E$ nên $EA=EF$ hay $AE=2DE$.	
+	}{
+	\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/A,4/0/C,0/4/B}
+	\coordinate (D) at ($(A)!0.5!(C)$);
+	\tkzDefPointBy[projection = onto B--D](A)\tkzGetPoint{H}
+	\tkzInterLL(A,H)(B,C)\tkzGetPoint{E}
+	\coordinate (F) at ($(E)!2!(D)$);
+	\tkzDefLine[parallel=through C](A,B) \tkzGetPoint{c}
+	\tkzInterLL(C,c)(H,A)\tkzGetPoint{G}
+
+	\tkzMarkSegments[mark=||](D,F D,E)
+	\tkzMarkRightAngles[size=0.2](B,A,C A,C,G A,H,B)
+	\tkzMarkSegments[mark=|](A,D D,C)
+	\tkzDrawSegments(A,B B,C C,A B,D A,G G,C A,F F,E)
+	\tkzDrawPoints[fill=black](A,B,C,D,E,F,G)
+	\pgfresetboundingbox
+	\tkzLabelPoints[above](B,E,G)
+	\tkzLabelPoints[right](C)
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoints[below right](D)
+	\tkzLabelPoints[below right](F)
+	\end{tikzpicture}	
+	}
+}
+\end{vd}
+
+\subsection{Bài tập}
+\subsubsection{Cơ bản}
+
+\begin{bt}%[7H2B8]
+	Cho tam giác $ABC$ cân tại $A$. Đường thẳng vuông góc với $AB$ tại $B$ cắt đường thẳng vuông góc với $AC$ tại $C$ ở $D$. Chứng minh rằng $AD$ là tia phân giác của góc $\widehat{BAC}$.
+\loigiai{
+	\immini{
+	Xét $\triangle BAD$ và $\triangle CAD$ vuông tại $B$ và $A$, có:\\
+	$AD$ là cạnh chung;\\
+	$AB=AC$ ($\triangle ABC$ cân tại $A$).\\
+	Do đó $\triangle BAD =\triangle CAD$ (cạnh huyền - góc góc vuông)\\
+	$\Rightarrow \widehat{BAD}=\widehat{CAD}$ (cặp góc tương ứng).\\
+	Vậy $AD$ là tia phân giác của $\widehat{BAC}$.
+	}{
+	\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/D,3.5/0/A}
+	\coordinate (I) at ($(A)!0.7!(D)$);
+	\coordinate (O) at ($(A)!0.5!(D)$);
+	\tkzDefPointBy[rotation = center O angle 120](A)    \tkzGetPoint{B}
+	\tkzDefPointBy[rotation = center O angle -120](A)   \tkzGetPoint{C}
+	\tkzMarkRightAngles[size=0.2](D,B,A A,C,D)
+	
+	\tkzDrawSegments(A,B B,D D,C C,A B,C A,D)
+	\tkzDrawPoints[fill=black](A,B,C,D)
+	\pgfresetboundingbox
+	\tkzLabelPoints[above](B)
+	\tkzLabelPoints[below](C)
+	\tkzLabelPoints[right](A)
+	\tkzLabelPoints[left](D)
+	\end{tikzpicture}	
+	}
+}
+\end{bt}
+\begin{bt}%[7H2K8]
+	Cho tam giác $ABC$ vuông cân tại $A$. Qua $A$ kẻ đường thẳng $d$ ($d$ không cắt đoạn thẳng $BC$). Từ $B$ hạ $BE \perp d$ ($E\in d$). Từ $C$ hạ $CF \perp d$ ($F\in d$). So sánh tổng độ dài hai đoạn thẳng $BE$ và $CF$ với độ dài đoạn thẳng $EF$.
+	\loigiai{
+	\immini{
+	Ta có $\widehat{EAB}+\widehat{BAC}+\widehat{CAF}=180^\circ$\\
+	$\Rightarrow \widehat{EAB}=180^\circ -\widehat{BAC}-\widehat{CAF}=90^\circ -\widehat{CAF}$.\\
+	Lại có $\widehat{FCA}=90^\circ -\widehat{CAF}$ (do $\triangle FAC$ vuông tại $F$).\\
+	Nên $\widehat{EAB}=\widehat{FCA}$.\\
+	Xét $\triangle EAB$ và $\triangle FCA$ vuông tại $E$ và $B$, có:\\
+	$AB=AC$ ($\triangle ABC$ vuông cân tại $A$);\\
+	$\widehat{EAB}=\widehat{FCA}$ (chứng minh trên).\\
+	Do đó $\triangle EAB =\triangle FCA$ (cạnh huyền - góc nhọn).\\
+	Suy ra $AE=CF\quad (1)$ và $AF=BE\quad (2)$.
+	}{
+	\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/A, 1.5/0/F}
+	\coordinate (C) at ($(F)+(0,3)$);
+	\tkzDefPointBy[rotation = center A angle 90](C)    \tkzGetPoint{B}
+	\tkzDefPointBy[projection = onto A--F](B)    \tkzGetPoint{E}
+	\tkzMarkRightAngles[size=0.2](B,E,A A,F,C B,A,C)
+	\coordinate (d) at ($(A)!-2.8!(F)$);
+	\coordinate (d') at ($(F)!-0.3!(A)$);
+	\tkzMarkAngles[size=0.5cm,arc=l](B,A,E A,C,F)
+	\tkzMarkSegments[mark=||](A,B A,C)
+	\tkzDrawSegments(B,E E,F F,C C,B B,A A,C d,d')
+	\tkzDrawPoints[fill=black](A,B,C,E,F)
+	\pgfresetboundingbox
+	\tkzLabelPoints[above right](C)
+	\tkzLabelPoints[above left](B)
+	\tkzLabelPoints[below](A,E,F)
+	\tkzLabelPoints[above](d)
+	\end{tikzpicture}	
+	}
+\noindent	
+	Cộng $(1)$ và $(2)$ theo vế ta có $AE+AF=CF+BE\Rightarrow EF=CF+BE$.	
+	}
+\end{bt}
+\begin{bt}%[7H2G8]
+	Cho tam giác $ABC$ vuông tại $A$, đường cao $AH$. Từ $H$ kẻ $HM \perp AC$ và trên tia $HM$ lấy điểm $E$ sao cho $HM=EM$. Kẻ $HN \perp AB$ và trên tia $HN$ lấy điểm $D$ sao cho $NH=ND$. Chứng minh rằng
+	\begin{enumerate}
+		\item Ba điểm $D$, $A$, $E$ thẳng hàng.
+		\item $BD \parallel CE$.
+		\item $BC=BD+CE$.
+	\end{enumerate}	
+	\loigiai{
+	\begin{enumerate}
+		\item Xét $\triangle AND$ và $\triangle ANH$ vuông tại $N$ có:		
+		\immini{
+			$AN$ chung; $ND=NH$ (theo giả thiết).\\
+			Do đó $\triangle AND=\triangle ANH$ (hai cạnh góc vuông).\\
+			Suy ra $\widehat{DAB}=\widehat{HAB}$ (hai góc tương ứng).\\
+			Tương tự $\widehat{HAC}=\widehat{EAC}$.\\
+			Từ đây ta có\\ $\widehat{DAB}+\widehat{EAC}=\widehat{HAB}+\widehat{HAC}=90^\circ$\\
+			$\Rightarrow \widehat{DAB}+\widehat{HAB}+\widehat{HAC}+\widehat{EAC}=180^\circ$.\\ 
+			Vậy $D$, $A$, $E$ thẳng hàng.}{
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/B,5/0/C}
+			
+			\coordinate (I) at ($(B)!0.5!(C)$);
+			\tkzDefPointBy[rotation = center I angle 110](C)    \tkzGetPoint{A}
+			\tkzDefPointBy[projection = onto C--B](A)    \tkzGetPoint{H}
+			\tkzDefPointBy[projection = onto A--B](H)    \tkzGetPoint{N}
+			\tkzDefPointBy[projection = onto C--A](H)    \tkzGetPoint{M}
+			\tkzDefPointBy[reflection = over A--B](H)    \tkzGetPoint{D}
+			\tkzDefPointBy[reflection = over A--C](H)    \tkzGetPoint{E}
+			\tkzMarkRightAngles[size=0.2](H,N,A H,M,A B,A,C A,H,C)
+			
+			\tkzMarkSegments[mark=|](H,M M,E)
+			\tkzMarkSegments[mark=||](D,N N,H)
+			\tkzDrawSegments(D,E E,C C,B B,D D,H H,E B,A A,C A,H)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,H)
+			\pgfresetboundingbox
+			\tkzLabelPoints[above](A,N)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below](H)
+			\tkzLabelPoints[right](M)
+			\tkzLabelPoints[above right](E)
+			\tkzLabelPoints[above left](D)
+			\end{tikzpicture}
+			}
+		\item 
+			$\triangle DAB$ và $\triangle HAB$ có:\\
+			$AD=AH$ ($\triangle AND=\triangle ANH$); $\widehat{DAB}=\widehat{HAB}$ ($\triangle AND=\triangle ANH$); $AB$ cạnh chung.\\
+			Do đó $\triangle DAB =\triangle HAB$ (c.g.c). Suy ra $\widehat{ADB}=\widehat{AHB}=90^\circ\quad (1)$.\\
+			Tương tự $\widehat{CEA}=90^\circ\quad (2)$\\
+			Từ $(1)$, $(2)$ kết hợp với $D$, $A$, $E$ thẳng hàng ta được $BD \parallel CE$.
+		\item 
+			Ta có $\triangle DAB =\triangle HAB \Rightarrow BD=BH$. Tương tự $CE=CH$.
+			Do đó $BC=BH+CH=BD+CE$.
+			
+	\end{enumerate}	
+	}
+\end{bt}
+\begin{bt}%[7H2K8]
+	Cho tam giác nhọn $ABC$ và $A'B'C'$ có $AB=A'B'$, $AC=A'C'$, $\widehat{B}=\widehat{B'}$. Chứng minh rằng $BC=B'C'$.
+	\loigiai{
+	\immini{
+		Vẽ $AH \perp BC$ tại $H$, $A'H' \perp B'C'$ tại $H'$ thì theo giả thiết, $H$ thuộc đoạn $BC$, $H'$ thuộc đoạn $B'C'$.\\
+		TA có $\triangle HBA=\triangle H'B'A'$ (cạnh huyền - góc nhọn) $\Rightarrow AH=A'H'$, $BH=B'H'$.\\
+		Suy ra $\triangle HAC=\triangle H'A'C'$ (cạnh huyền - cạnh góc vuông) $\Rightarrow HC=H'C'$.\\
+		Do đó $BH+HC=B'H'+H'C'$. Vậy $BC=B'C'$.
+	}{
+		\begin{tikzpicture}[>=stealth,scale=0.7, line join = round, line cap = round]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzDefPoints{0/0/B,3.5/0/C,1/4/A}
+		\tkzDefPointBy[projection = onto C--B](A)    \tkzGetPoint{H}
+		\coordinate (A') at ($(A)+(5,0)$);
+		\coordinate (B') at ($(B)+(5,0)$);
+		\coordinate (C') at ($(C)+(5,0)$);
+		\coordinate (H') at ($(H)+(5,0)$);
+		\tkzMarkRightAngles[size=0.2](A,H,C A',H',C')
+		\tkzMarkAngles[size=0.5cm,arc=l](C,B,A C',B',A')
+		\tkzMarkSegments[mark=||](A,B A',B')
+		\tkzMarkSegments[mark=|](A,C A',C')
+		
+		\tkzDrawSegments(A,B B,C C,A A,H A',B' B',C' C',A' A',H')
+		\tkzDrawPoints[fill=black](A,B,C,A',B',C')
+		\pgfresetboundingbox
+		\tkzLabelPoints[above](A,A')
+		\tkzLabelPoints[below](H,H',B,B',C,C')
+		\end{tikzpicture}
+	}	
+	}
+\end{bt}
+\begin{bt}%[7H2K8]
+	Cho tam hai giác $ABC$ vuông tại $A$ có $AB<AC$. Vẽ $AH$ vuông góc với $BC$ tại $H$; $D$ là điểm trên cạnh $AC$ sao cho $AD=AB$. Vẽ $DE \perp BC$ tại $E$. Chứng minh rằng $HA=HE$.	
+	\loigiai{
+	\immini{
+	Vẽ $DK \perp AH$ tại $K$. Khi đó $DK \parallel BC$ (cùng vuông góc với $AH$) $\Rightarrow \widehat{ADK}=\widehat{ACB}$ (đồng vị).\\
+	Lại có $\widehat{ACB}=\widehat{BAH}$ (cùng phụ với $\widehat{ABC}$).\\
+	Nên $\widehat{ADK}=\widehat{BAH}$.\\
+	Xét $\triangle BAH$ và $\triangle ADK$ vuông tại $H$ và $K$, có:\\
+	$AB=AD$ (giả thiết);\\
+	$\widehat{BAH}=\widehat{ADK}$ (chứng minh trên).
+	}{
+	\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/B,6/0/C}
+	\coordinate (I) at ($(B)!0.5!(C)$);
+	\tkzDefPointBy[rotation = center I angle 110](C)    \tkzGetPoint{A}
+	\tkzDefPointBy[projection = onto C--B](A)    \tkzGetPoint{H}
+	\tkzDefPointBy[rotation = center A angle 90](B)    \tkzGetPoint{D}
+	\tkzDefPointBy[projection = onto C--B](D)    \tkzGetPoint{E}
+	\tkzDefPointBy[projection = onto A--H](D)    \tkzGetPoint{K}
+	
+	\tkzMarkRightAngles[size=0.2](B,A,C D,K,A C,H,A H,E,D)
+	\tkzMarkSegments[mark=||](A,B A,D)
+	\tkzDrawSegments(A,B B,C C,A A,H K,D D,E)
+	\tkzDrawPoints[fill=black](A,B,C,D,E,K,H)
+	\pgfresetboundingbox
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[below](B,C,H,E)
+	\tkzLabelPoints[above right](D)
+	\tkzLabelPoints[left](K)
+	\end{tikzpicture}
+	}	
+\noindent 
+	Do đó $\triangle BAH=\triangle ADK$ (cạnh huyền - góc nhọn)
+	$\Rightarrow HA=KD$.\\
+	Mặt khác $KD=HE$ ($DKHE$ là hình chữ nhật) nên $HA=HE$.	
+	}
+\end{bt}
+
+\begin{bt}%[7H2K8]
+	Cho tam giác $ABC$ vuông tại $A$ ($AB>AC$). Tia phân giác $\widehat{ABC}$ cắt $AC$ ở $D$. Vẽ $DH \perp BC$ tại $H$. Trên tia $AC$ lấy điểm $E$ sao cho $AE=AB$. Đường thẳng vuông góc với $AE$ tại $E$ cắt $DH$ tại $M$.
+	Tính số đó $\widehat{DBM}$.
+	\loigiai{
+	\immini{
+	Vẽ $BN \perp EM$ tại $N$.\\
+	Dễ dàng chứng minh được $AB=BH=BN$, $\widehat{ABN}=90^\circ$.\\
+	Từ giả thiết ta có $\widehat{DBH}=\dfrac{1}{2}\widehat{ABC}$.\\
+	$\triangle HBM = \triangle NBM$ (cạnh huyền - cạnh góc vuông)\\
+	$\Rightarrow \widehat{HBM} =\widehat{NBM}\Rightarrow \widehat{HBM}=\dfrac{1}{2}\widehat{CBN}$.\\
+	Do đó 
+	\allowdisplaybreaks
+	$\begin{aligned}[t]
+		\widehat{DBM} &=\widehat{DBH}+\widehat{HBM}\\
+		&=\dfrac{1}{2}\left(\widehat{ABC}+\widehat{CBN}\right)\\ &=\dfrac{1}{2}\widehat{ABN}=45^\circ.
+	\end{aligned}$\\	
+	Vậy $\widehat{DBM}=45^\circ$.
+	}{
+	\begin{tikzpicture}[>=stealth,scale=0.9, line join = round, line cap = round]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/B,5/0/C}
+	\coordinate (I) at ($(B)!0.5!(C)$);
+	\tkzDefPointBy[rotation = center I angle -100](B)    \tkzGetPoint{A}
+	\tkzDefLine[bisector](A,B,C) \tkzGetPoint{d}
+	\tkzInterLL(B,d)(C,A)    \tkzGetPoint{D}
+	\tkzDefPointBy[projection = onto B--C](D)    \tkzGetPoint{H}
+	\tkzDefPointBy[rotation = center A angle 90](B)    \tkzGetPoint{E}
+	\tkzDefLine[perpendicular=through E](A,E) \tkzGetPoint{e}
+	\tkzInterLL(H,D)(E,e)    \tkzGetPoint{M}
+	\tkzDefPointBy[projection = onto M--E](B)    \tkzGetPoint{N}
+	\tkzMarkRightAngles[size=0.2](B,A,C D,H,B B,N,E N,E,A)
+	\tkzDrawSegments(B,A B,D B,C B,M B,N N,E E,A D,M)
+	\tkzDrawPoints[fill=black](A,B,C,D,H,M,N,E)
+	\tkzMarkAngles[size=1cm,arc=l,mark=|](C,B,D D,B,A)
+	\pgfresetboundingbox
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[below](N)
+	\tkzLabelPoints[right](E,C,D)
+	\tkzLabelPoints[left](B)
+	\tkzLabelPoints[below right](H,M)
+	\end{tikzpicture}
+	}	
+	}
+\end{bt}
+\begin{bt}%[7H2G8]
+	Cho $\triangle ABC$ có $M$ là trung điểm của cạnh $BC$. Từ $A$ hạ $AH \perp BC$, $AH$ và $AM$ chia $\widehat{A}$ thành ba phần bằng nhau. Chứng minh rằng
+	\begin{enumerate}
+		\item $\triangle ABC$ vuông tại $A$.
+		\item $\triangle AMC$ là tam giác cân.
+		\item $\triangle ABM$ là tam giác đều.
+	\end{enumerate}	
+\loigiai{
+	\begin{enumerate}
+		\item 	
+			Xét $\triangle AHM$ và $\triangle ANM$ vuông tại $H$ và $N$, có
+			$AM$ chung và $\widehat{A_2}=\widehat{A_3}$ (giả thiết). Do đó $\triangle AHM=\triangle ANM$ (cạnh huyền - góc nhọn).\\
+			Xét $\triangle AHM$ và $\triangle AHB$  vuông tại $H$ có $AH$ chung và $\widehat{A_1}=\widehat{A_2}$. Do đó $\triangle AHM =\triangle AHB$ (cạnh góc vuông - góc nhọn).
+		\immini{
+			Vậy $\triangle AHM=\triangle ANM =\triangle AHB$\\
+			$\Rightarrow MN=MH=BH$.\\
+			Mà $MH+BH=BM$.\\
+			Vậy $MN=\dfrac{1}{2}BM=\dfrac{1}{2}MC$ ($BM=MC$). Suy ra $\widehat{C}=30^\circ$.\\
+			Xét $\triangle HAC$ vuông tại $H$ và $\widehat{C}=30^\circ$\\
+			$\Rightarrow \widehat{HAC}=60^\circ\Rightarrow \triangle BAC$ vuông tại $A$.}{
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/B,6/0/C}
+			\coordinate (M) at ($(B)!0.5!(C)$);
+			\tkzDefPointBy[rotation = center M angle 120](C)    \tkzGetPoint{A}
+			\tkzDefPointBy[projection = onto C--B](A)    \tkzGetPoint{H}
+			\tkzDefPointBy[projection = onto C--A](M)    \tkzGetPoint{N}
+			\tkzMarkRightAngles[size=0.2](B,A,C A,H,C M,N,C)
+			\tkzLabelAngles[pos=0.8,rotate=0](B,A,H){\tiny $1$}
+			\tkzLabelAngles[pos=0.8,rotate=0](H,A,M){\tiny $2$}
+			\tkzLabelAngles[pos=0.8,rotate=0](M,A,C){\tiny $3$}
+			\tkzDrawSegments(A,B B,C C,A A,H A,M M,N)
+			\tkzDrawPoints[fill=black](A,B,C,H,M,N)
+			\pgfresetboundingbox
+			\tkzLabelPoints[above](A,N)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[below](H,M)
+			\end{tikzpicture}
+		}
+		\item 
+			$\widehat{A_2}+\widehat{A_3}=60^\circ\Rightarrow \widehat{A_3}=30^\circ$, $\widehat{C}=30^\circ\Rightarrow \triangle AMC$ cân tại $M$.
+		\item 
+			$AB=AM$ ($\triangle ABM=\triangle AMH$). Vậy $\triangle ABM$ cân. Mà $\widehat{A_1}+\widehat{A_2}=60^\circ$. Vậy $\triangle ABM$ đều.
+	\end{enumerate}	
+	}
+\end{bt}
+
+\begin{bt}%[7H2B8]
+	Cho tam giác $ABC$ có $\widehat{C}=90^\circ$, $\widehat{A}=30^\circ$, $AC=10$ cm. Kẻ $CD \perp AB$  ($D\in AB$), $DE \perp AC$ ($E\in AC$). Tính độ dài $AE$.
+	\loigiai{
+	{\bf Chú ý.} Ta thừa nhận tính chất sau: \lq\lq \textit{Trong tam giác vuông cạnh đối diện với góc $30^\circ$ có độ dài bằng nửa cạnh huyền}\rq\rq.
+	\immini{
+	$\triangle ADC$ vuông tại $D$ có $\widehat{A}=30^\circ$	nên $CD=\dfrac{AC}{2}=\dfrac{10}{2}=5$ cm.
+	Tương tự $\triangle CDE$ vuông tại $E$ có $$\widehat{CDE}=90^\circ-\widehat{ACD}=\widehat{CAB}=30^\circ.$$
+	Do đó
+	$EC=\dfrac{1}{2}CD=2{,}5$ cm.\\
+	Vậy $AE=AC-EC=10-2{,}5=7{,}5$ cm.}{
+	\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/C,0/3/B,4.5/0/A}
+	\tkzDefPointBy[projection = onto A--B](C)    \tkzGetPoint{D}
+	\tkzDefPointBy[projection = onto A--C](D)    \tkzGetPoint{E}
+	\tkzMarkRightAngles[size=0.2](A,C,B A,E,D A,D,C)
+	\tkzDrawSegments(A,B B,C C,A C,D D,E)
+	\tkzDrawPoints[fill=black](A,B,C,E,D)
+	\pgfresetboundingbox
+	\tkzLabelPoints[above](B)
+	\tkzLabelPoints[below right](A)
+	\tkzLabelPoints[below left](C)
+	\tkzLabelPoints[above right](D)
+	\tkzLabelPoints[below](E)
+	\end{tikzpicture}
+	}
+	}
+\end{bt}
+
+\begin{bt}%[7H2G8]
+	Cho tam giác $ABC$ vuông cân tại $A$. Kẻ $AM \perp BC$ ($M\in BC$). Gọi $E$ là một điểm nằm giữa $M$ và $C$. Kẻ $BH$, $CK$ vuông góc với $AE$ ($H$, $K$ thuộc đường thẳng $AE$). Chứng minh rằng $MH=MK$.
+	\loigiai{
+	Xét $\triangle AIH$ và $\triangle BIH$ vuông tại $H$ và $M$, ta có
+	$$\widehat{HAI}=90^\circ - \widehat{HIA}=90^\circ -\widehat{MIB}=\widehat{MBI}.$$
+	Mặt khác $\triangle ABC$ vuông cân tại $A$ nên $\widehat{ABC}=\widehat{ACB}$.\\
+	Do đó $\widehat{ABH}=\widehat{KAC}$.\\
+	\immini{
+	Xét $\triangle ABH$ và $\triangle CAK$ vuông tại $H$ và $K$, có:\\
+	$AB=AC$ ($\triangle ABC$ cân tại $A$);\\
+	$\widehat{HBA}=\widehat{KAC}$ (chứng minh trên).\\
+	Do đó $\triangle HBA =\triangle KAC$ (cạnh huyền - góc nhọn)\\
+	Xét $\triangle MBH$ và $\triangle MAK$ có:\\
+	$BH=AK$ ($\triangle HBA =\triangle KAC$ );\\
+	$\widehat{MBH}=\widehat{MAK}$;\\
+	$BM=AM$ ($\triangle MAB$  vuông cân tại $M$);\\
+	Do đó $\triangle MBH=\triangle MAK$ (c.g.c)\\
+	$\Rightarrow MH=MK$.		
+	}{
+	\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/B,7/0/C}
+	\coordinate (M) at ($(B)!0.5!(C)$);
+	\tkzDefPointBy[rotation = center M angle 90](C)    \tkzGetPoint{A}
+	\coordinate (E) at ($(M)!0.4!(C)$);
+	\tkzDefPointBy[projection = onto A--E](B)    \tkzGetPoint{H}
+	\tkzDefPointBy[projection = onto A--E](C)    \tkzGetPoint{K}	
+	\tkzMarkSegments[mark=|](B,A A,C)
+	\tkzMarkAngles[size=0.6cm,arc=l](H,B,A K,A,C)
+	\tkzMarkAngles[size=0.8cm,arc=ll](C,B,H M,A,K)
+	\tkzMarkRightAngles[size=0.2](B,H,A A,K,C B,A,C A,M,B)
+	\tkzInterLL(A,M)(B,H)    \tkzGetPoint{I}
+
+	\tkzDrawSegments(A,B B,C C,A B,H A,M C,K K,A M,H M,K)
+	\tkzDrawPoints[fill=black](A,B,C,H,E,M,K,I)
+	\pgfresetboundingbox
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[right](C,H)
+	\tkzLabelPoints[left](B)
+	\tkzLabelPoints[above right](E)
+	\tkzLabelPoints[above left](I)
+	\tkzLabelPoints[below](K,M)
+	\end{tikzpicture}
+	}	
+	}
+\end{bt}
+\begin{bt}%[7H2K4]
+	Cho tam giác $ABC$. Về phía ngài tam giác, tại đỉnh $A$ kẻ $Ax \perp AB$ và lấy điểm $E$ trên $Ax$ sao cho $AE=AB$ ($E$, $C$ ở hai phía đối với $AB$). Kẻ $Ay \perp AC$ và lấy điểm $F$ trên $Ay$ sao cho $AF=AC$ ($B$, $F$ ở hai phía đối với $AC$). Lấy $M$ là trung điểm của $BC$. Chứng minh rằng
+	\begin{enumEX}{2}
+		\item $AM=\dfrac{1}{2}EF$.
+		\item Đường thẳng $AM$ vuông góc với $EF$. 
+	\end{enumEX}
+	\loigiai{
+	\immini{
+	\begin{enumerate}
+		\item 
+			Trên tia đối của tia $MA$ lấy điểm $N$ sao cho $MN=MA$. Khi đó $\triangle AMC=\triangle NMB$ (c.g.c) $\Rightarrow AC=BN$.\\
+			Xét $\triangle ABN$ và $\triangle AEF$ có:\\
+			$AB=AE$ (giả thiết);\\
+			$BN=AF$ (cùng bằng $AC$);\\
+			$\widehat{ABN}=\widehat{EAF}$ (cùng bù với $\widehat{BAC}$).\\
+			Vậy $\triangle ABN=\triangle AEF$ (c.g.c) $\Rightarrow AN=EF$.\\
+			Mà $AM=\dfrac{1}{2}AN$ nên $AM=\dfrac{1}{2}EF$.
+		\item 
+			Kéo dài $AM$ cắt $EF$ tại $I$. Do $I$, $A$, $M$ thẳng hàng nên $\widehat{A_1}+\widehat{IAF}=90^\circ$.\\
+			Ta có $\widehat{A_1}=\widehat{N_1}$ (so le do $AC \parallel BN$).\\
+			Mặt khác $\widehat{IFA}=\widehat{N_1}$ nên $\widehat{A_1}=\widehat{IFA}$.\\
+			Vậy $\triangle IAF$ có $\widehat{IFA}+\widehat{IAF}=90^\circ\Rightarrow \widehat{AIF}=90^\circ$. Do đó $AM \perp EF$.
+	\end{enumerate}		
+	}{
+	\vspace*{0.5cm}
+	\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/A,3/0/C,-1/-2/B}
+	\coordinate (N) at ($(B)+(C)-(A)$);
+	\coordinate (M) at ($(C)!0.5!(B)$);
+	\tkzDefPointBy[rotation = center A angle -90](B)    \tkzGetPoint{E}
+	\coordinate (x) at ($(A)!1.4!(E)$);
+	\tkzDefPointBy[rotation = center A angle 90](C)    \tkzGetPoint{F}
+	\coordinate (y) at ($(A)!1.2!(F)$);
+	\tkzInterLL(A,N)(E,F)    \tkzGetPoint{I}
+
+	\tkzMarkRightAngles[size=0.2](E,A,B F,A,C)
+	\tkzMarkAngles[size=0.3cm,arc=l](A,N,B N,A,C)
+	\tkzLabelAngles[pos=0.6,rotate=0](A,N,B){\tiny $1$}
+	\tkzLabelAngles[pos=0.6,rotate=0](N,A,C){\tiny $1$}
+	\tkzMarkSegments[mark=||](A,E A,B N,C)
+	\tkzMarkSegments[mark=|](A,F A,C)
+	\tkzDrawSegments(x,A A,y E,F I,N A,B A,C B,C B,N N,C C,A)
+	\tkzDrawPoints[fill=black](A,B,C,E,F,M,N,I)
+	\pgfresetboundingbox
+	\tkzLabelPoints[below](M,E)
+	\tkzLabelPoints[left=6pt](A)
+	\tkzLabelPoints[below right](N)
+	\tkzLabelPoints[below left](B)
+	\tkzLabelPoints[above](x,y,C)
+	\tkzLabelPoints[right](F)
+	\tkzLabelPoints[left](I)
+	\end{tikzpicture}
+	}	
+	}
+\end{bt}
+
+\subsubsection{Nâng cao}
+\begin{vd}%[7H3G8]
+	Dựng đường phân giác của một góc có đỉnh nằm bên ngoài tờ giấy.
+\loigiai{
+	\begin{enumerate}
+		\item {\bf Phân tích}.\\
+			Giả sử đã dựng được đường phân giác $Oz$ của $\widehat{xOy}$ có đỉnh $O$ nằm ngoài tờ giấy. Từ điểm $A$ bất kì trên phần tia $Ox$ nằm trong tờ giấy, ta kẻ tia $At$ song song với cạnh $Oy$ và nằm trong $\widehat{xOy}$. Trên $Ax$ và $At$ ta lấy hai điểm $M$ và $N$ sao cho $AM=AN$. Thế thì $\triangle AMN$ cân ở $A$ và có $\widehat{AMN}=\widehat{ANM}$. Đường thẳng $MN$ cắt $Oy$ ở $P$. Ta có $\widehat{ANM}=\widehat{OPM}$ (góc đồng vị), do đó $\widehat{AMN}=\widehat{OPM}$ nên $\triangle MOP$ cân ở $O$. Do $OM=OP$ nên $O$ thuộc trung trực của đoạn $MP$, suy ra đường thẳng $Oz$ chính là đường trung trực của đoạn $MP$. Từ đó ta có cách dựng sau:
+		\item {\bf Cách dựng}.
+		\immini{
+			\begin{itemize}
+				\item Lấy điểm $A$ bất kì trên phần tia $Ox$ nằm trong tờ giấy.
+				\item Trong $\widehat{xOy}$ vẽ tia $At$ song song với $Oy$.
+				\item Đặt trên $Ax$ và $At$ hai đoạn bằng nhau $AM$ và $AN$.
+				\item Kẻ đường thẳng $MN$ cắt $Oy$ ở $P$.
+				\item Dựng đường trung trực của $MP$, đó là đường phân giác của $\widehat{xOy}$ mà ta phải dựng.
+			\end{itemize}}{
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			%\draw [dotted,step=1,black,thin, help lines](0,0) grid (7,5);		
+			\tkzDefPoints{0/0/O,6/0/y,1.5/-1/a,1.5/5/b,7/5/c,7/-1/d}
+			\tkzInit[xmin=-0.5,xmax=7.2,ymin=-1.2,ymax=5.2]
+			\tkzClip
+			%\tkzAxeXY
+			\tkzDefPointBy[rotation = center O angle 45](y)\tkzGetPoint{x}
+			\coordinate (z) at ($(x)!0.5!(y)$);
+			\coordinate (I) at ($(O)!0.9!(z)$);
+			\tkzDefPointBy[projection = onto O--y](I)\tkzGetPoint{P}
+			\tkzDefPointBy[projection = onto O--x](I)\tkzGetPoint{M}
+			\coordinate (A) at ($(O)!0.75!(M)$);
+			\tkzDefLine[parallel=through A](O,P) \tkzGetPoint{p}
+			\tkzInterLL(A,p)(M,P)    \tkzGetPoint{N}
+			\coordinate (t) at ($(A)!3!(N)$);
+			\tkzInterLL(a,b)(O,M)    \tkzGetPoint{t1}
+			\tkzInterLL(a,b)(O,P)    \tkzGetPoint{t2}
+			\tkzInterLL(a,b)(O,I)    \tkzGetPoint{t3}
+			\tkzInterLL(M,P)(O,I)    \tkzGetPoint{t4}
+			\tkzMarkRightAngles[size=0.2](O,t4,P)
+			\tkzMarkAngles[size=0.2cm,arc=l](A,M,N M,N,A M,P,O)
+			
+			\tkzDrawSegments(x,t1 t2,y t3,z M,P A,t)
+			\tkzDrawSegments[dashed](a,b b,c c,d d,a O,t1 O,t2 O,t3)
+			\tkzDrawPoints[fill=black](O,M,P,A,N)
+			%\pgfresetboundingbox
+			\tkzLabelPoints[above left](M,A)
+			\tkzLabelPoints[above](x)
+			\tkzLabelPoints[right](z,t)
+			\tkzLabelPoints[below left](N)
+			\tkzLabelPoints[below](O,y,P)
+			%\tkzLabelPoint[below](y){$y$}
+			\end{tikzpicture}	
+		}
+		\item {\bf Chứng minh}.\\
+			Theo cách dựng, $AM=AN$ nên $\triangle MAN$ cân ở $A$ do đó $\widehat{AMN}=\widehat{ANM}$. Ta lại có $\widehat{ANM}=\widehat{OPM}$ (đồng vị do $At\parallel Oy$) suy ra $\widehat{AMN}=\widehat{OPM}$. Tam giác $MOP$ cân tại $O$ nên đường trung trực của $MP$ chứa tia phân giác của $\widehat{xOy}$
+		\item {\bf Biện luận.}\\
+			Bài toán bao giờ cũng dựng được vì các phép dựng nêu trong phần cách dựng luôn thực hiện được. Bài toán luôn có một nghiệm hình.
+	\end{enumerate}	
+}
+\end{vd}
+
+\begin{vd}%[7H2G6]
+	Cho $n$ là số nguyên dương không chia hết cho $3$ và $5$. Chứng minh rằng ta có thể chia góc $n^\circ$ cho trước thành $n$ phần bằng nhau (bằng thước kẻ và compa).
+\loigiai{
+	Bằng cách dựng tam giác đều ta dễ dàng dựng được góc $15^\circ$.\\
+	Xét phép chia $n$ cho $15$, ta luôn có $n=15k\pm r$, $k\in \mathbb{Z}$, $r\in \{0;1;2;3;4;5;6;7\}$.\\
+	Vì $n$ không chia hết cho $3$ và $5$ nên chỉ xảy ra $r\in\{1;2;4;7\}$.\\
+	Vì góc $(15k)^\circ$ là dựng được nên trong mọi trường hợp ta luôn dựng được góc $1^\circ$, tức là chia được góc $n^\circ$ thành $n$ phần bằng nhau.
+	}
+\end{vd}
+
+\begin{vd}%[8H3K1]
+	Cho trước đoạn thẳng $AB$. Hãy dùng thước kẻ có hai cạnh song song để chia đôi đoạn thẳng $AB$.
+\loigiai{
+	\immini{
+	Dùng thước kẻ có hai cạnh song song ta có thể vẽ được đường thẳng $d \parallel AB$.\\ Lấy điểm $E$ nằm ở nửa mặt phẳng bờ $d$ không chứa $AB$. Nối $EA$, $ED$ cắt $d$ lần lượt tại $D$, $C$.\\
+	Dựng giao điểm $H$ của $AC$ và $BD$.\\
+	Dựng giao điểm $G$ của $EH$ và $AB$. Ta có $G$ là trung điểm của $AB$ hay $GA=GB$.\\
+	(Ta công nhận kết quả này. Chứng minh liên quan đến định lí Ta-lét, sẽ học ở lớp 8).}{
+	\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\tkzDefPoints{0/0/A,4/0/B,3/4/E}
+	\coordinate (D) at ($(A)!0.6!(E)$);
+	\coordinate (C) at ($(B)!0.6!(E)$);
+	\tkzDrawLines[add = 1.2 and .5](D,C)
+	\tkzInterLL(A,C)(B,D)    \tkzGetPoint{H}
+	\tkzInterLL(E,H)(B,A)    \tkzGetPoint{G}
+	\tkzLabelLine[pos=-1.2,above](D,C){$d$}
+	
+	\tkzDrawSegments(A,B B,E E,A A,C B,D E,G)
+	\tkzDrawPoints[fill=black](A,B,E,D,C)
+	\pgfresetboundingbox
+	\tkzLabelPoints[above](E)
+	\tkzLabelPoints[below right](B)
+	\tkzLabelPoints[below left](A)
+	\tkzLabelPoints[below](G)
+	\tkzLabelPoints[left](H)
+	\tkzLabelPoints[above right](C)
+	\tkzLabelPoints[above left](D)
+	\end{tikzpicture}
+	}
+	}
+\end{vd}
+
+
+\Closesolutionfile{ans}

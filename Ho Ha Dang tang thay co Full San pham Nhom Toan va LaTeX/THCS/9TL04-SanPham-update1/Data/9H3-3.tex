@@ -1,0 +1,484 @@
+%%Biên soạn: Nguyễn Tất Thu. Phản biện: Phan Ngọc Toàn
+\section{Góc nội tiếp}
+\subsection{Tóm tắt lí thuyết}
+\begin{dn}
+Góc nội tiếp là góc có đỉnh nằm trên đường tròn và hai cạnh là hai dây cung. Cung nằm bên trong góc được gọi là cung bị chắn.
+\end{dn}
+\begin{dl}
+Trong một đường tròn, số đo của góc nội tiếp bằng một nửa số đo cung bị chắn.
+	
+\end{dl}
+\begin{dl}
+	Trong một đường tròn:
+		\begin{enumerate}
+			\item Các góc nội tiếp bằng nhau chắn các cung bằng nhau.
+			\item Các góc nội tiếp chắn cùng một cung hoặc hai cung bằng nhau thì bằng nhau.
+			\item  Góc nội tiếp (có số đo nhỏ hơn $90^\circ$) có số đo bằng một nửa số đo góc ở tâm chắn bởi cung đó.
+			\item Góc nội tiếp chắn nửa đường tròn là góc vuông.
+		\end{enumerate}
+\end{dl}
+
+\subsection{Các ví dụ}
+ \begin{vd}
+	Cho đường tròn $(O)$ và hai đường kính $AB$, $CD$ vuông góc với nhau. Lấy một điểm $M$ trên cung nhỏ $AC$ rồi vẽ tiếp tuyến với đường tròn $(O)$ tại $M$. Tiếp tuyến này cắt đường thẳng $CD$ tại $S$. Chứng minh rằng $\widehat{MSD}=2\cdot \widehat{MBA}$.
+	\loigiai{
+\immini{Vì $SM$ là tiếp tuyến của $(O)$, nên ta có \\ $\widehat{OMS}=90^\circ$, do đó $\widehat{O_1}+\widehat{OSM}=90^\circ. $\\
+Mặt khác $\widehat{O_2}+\widehat{O_1}=90^\circ.$\\
+Từ đó suy ra $$\widehat{OSM}=\widehat{O_2}.\eqno(1) $$
+Lại có $\widehat{O_2}=\text{sđ}\ \wideparen{AM}$ và $\widehat{MBA}=\dfrac{1}{2}\text{sđ}\ \wideparen{AM}$, nên ta có
+$$\widehat{O_2}=2\widehat{MBA}.\eqno (2)$$
+Từu (1) và (2) ta có $\widehat{MSD}=2\cdot \widehat{MBA}$.
+}
+{\begin{tikzpicture}
+\tkzInit[ymin=-4,ymax=4,xmin=-1,xmax=7]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/0/A,5/0/B,0/3/X}
+\tkzDefCircle[diameter](A,B)     \tkzGetPoint{O}
+\tkzDrawCircle[diameter](A,B)
+\tkzDefPointBy[rotation = center O angle 90](A)    \tkzGetPoint{D}
+\tkzDefPointBy[rotation = center O angle 90](B)    \tkzGetPoint{C}
+\tkzInterLC(O,X)(O,A) \tkzGetPoints{N}{M}
+\tkzDefLine[orthogonal=through M](O,M)\tkzGetPoint{m}
+\tkzInterLL(M,m)(C,D)  \tkzGetPoint{S}
+\tkzDrawSegments(A,B C,D O,M M,S S,C M,B)
+\tkzDrawPoints(A,B,O,C,D,M,S)
+\tkzLabelPoints[left](A,M)
+\tkzLabelPoints[right](B,S)
+\tkzLabelPoints[above right](O,C)
+\tkzLabelPoints[below](D)
+\tkzMarkRightAngles[size=0.2](A,O,C O,M,S)
+\tkzMarkAngles[size=0.5cm,arc=ll,mark=|](M,S,O)
+\tkzMarkAngles[size=0.5cm,arc=l,mark=|](M,B,O)
+\tkzLabelAngles[pos=0.5](M,O,C){$1$}
+\tkzLabelAngles[pos=0.5](A,O,M){$2$}
+
+\end{tikzpicture}}	
+}
+\end{vd}
+\begin{vd}
+	Cho đường tròn tâm $O$, đường kính $AB$ và $S$ là một điểm nằm ngoài đường tròn. Các đường thẳng $SA$ và $SB$ lần lượt cắt $(O)$ tại điểm thứ hai $M$, $N$. Gọi $H$ là giao điểm của $AN$ và $BM$. Chứng minh rằng
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $SH\perp AB$.
+		\item $HM\cdot HB=HN\cdot HA$.
+	\end{enumerate}
+\end{multicols} 
+	\loigiai{
+\immini{
+\begin{enumerate}
+	\item Ta có $M$, $N$ nằm trên đường tròn đường kính $AB$, nên ta có 
+	$$\widehat{AMB}=\widehat{ANB}=90^\circ \ \text{góc nội tiếp chẵn nửa đường tròn).}$$
+	Suy ra $BM\perp AS$, $AN \perp SB$ nên $H$ là trực tâm tam giác $SAB$. Suy ra $SH\perp AB.$
+	\item  Xét hai tam giác $HMA$ và $HNB$ có $\widehat{MHA}=\widehat{NHB}\ (\text{đối đỉnh})$ và \\ $\widehat{MAH}=\widehat{NBH}\ (\text{góc nội tiếp cùng chắn cung}\ \wideparen{MN})$. Suy ra $\triangle HMA \backsim \triangle HNB$, do đó $\dfrac{HM}{HN}=\dfrac{HA}{HB}$, hay $HM \cdot HB=HN\cdot HA.$
+\end{enumerate}
+}
+{\begin{tikzpicture}
+\tkzInit[ymin=-3,ymax=4.5,xmin=-1,xmax=6]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/0/A, 4/0/B,2.5/3/S}
+\tkzDefCircle[diameter](A,B)     \tkzGetPoint{O}
+\tkzDrawCircle[diameter](A,B)
+\tkzInterLC(S,A)(O,A) \tkzGetPoints{A}{M}
+\tkzInterLC(S,B)(O,A) \tkzGetPoints{N}{B}
+\tkzInterLL(A,N)(B,M) \tkzGetPoint{H}
+\tkzDrawSegments(A,B S,A S,B A,N B,M S,H M,N)
+\tkzDrawPoints(A,B,S,M,N,H)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[above left](M)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[above right](N)
+\tkzLabelPoints[above](S)
+\tkzLabelPoints[below](H)
+\end{tikzpicture}}	
+}
+\end{vd}
+\begin{vd}
+	Cho tam giác $ABC$ cân tại $A$, nội tiếp đường tròn $(O)$. Phân giác trong góc $B$ và $C$ cắt $(O)$ tại $E$ và $D$. 
+	\begin{enumerate}
+		\item Chứng minh $\triangle ACE=\triangle ABD$.
+		\item Gọi $I$ là giao điểm của $CD$ và $BE$. Tứ giác $ADIE$ là hình gì? Tại sao?
+	\end{enumerate}
+	\loigiai{
+	 \begin{enumerate}
+			\item \immini{ Ta có tam giác $ABC$ cân tại $A$ nên $\wideparen{AB}=\wideparen{AC}$. Lại có $CD$ là phân giác của góc $\widehat{ACB}$ nên $\widehat{ACD}=\widehat{BCD}$, hay $\wideparen{AD}=\wideparen{BD}$. Tương tự $\wideparen{AD}=\wideparen{BD}$, do đó $$\wideparen{AD}=\wideparen{BD}=\wideparen{AD}=\wideparen{BD}.$$
+			Suy ra $AD=BD=AE=CE$.\\
+			Xét hai tam giác $ACE$ và $ABD$ có $AC=AB$, $AD=AE$, $BD=CE$ nên $\triangle AEC=\triangle ADB\ (\text{c-c-c}).$
+			}
+{\begin{tikzpicture}
+\tkzInit[ymin=-0.8,ymax=4,xmin=-1,xmax=5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/0/B,3/0/C,1.5/3/A}
+\tkzDefCircle[circum](A,B,C)     \tkzGetPoint{O} 
+\tkzDrawCircle[radius](O,A)
+\tkzDefLine[bisector](A,B,C)\tkzGetPoint{b}
+\tkzInterLC(B,b)(O,A)\tkzGetPoints{E}{B}
+\tkzDefLine[bisector](A,C,B)\tkzGetPoint{c}
+\tkzInterLC(C,c)(O,A)\tkzGetPoints{C}{D}
+\tkzInterLL(B,E)(C,D) \tkzGetPoint{I}
+\tkzDrawSegments(A,B B,C C,A B,E C,D A,D B,D A,E C,E)
+\tkzDrawPoints(A,B,C,E,D,I)
+\tkzLabelPoints[left](B,D)
+\tkzLabelPoints[right](E,C)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](I)
+\end{tikzpicture}}
+\item  Ta có $\widehat{AD}=\dfrac{1}{2}\text{sđ}\wideparen{AD}$, $\widehat{ACE}=\dfrac{1}{2}\text{sđ}\wideparen{CE}$. Mà $\wideparen{AD}=\wideparen{CE}$ nên ta có $\widehat{ACD}=\widehat{CAE}$, suy ra $CD\parallel AE$, hay $DI \parallel AE$. Chứng minh tương tự $EI \parallel AD$, kết hợp với $AD=AE$ ta có $ADIE$ là hình thoi.
+\end{enumerate}
+}
+\end{vd}
+\begin{vd}
+Cho hai đường tròn $(O; R)$ và $(O’; R’)$ cắt nhau tại $A$ và $B$. Vẽ cát tuyến $CAD$ vuông góc với $AB$ ($C\in (O),\ D \in (O')$). Tia $CB$ cắt $(O’)$ tại $E$, tia $BD$ cắt $(O)$ tại $F$. Chứng minh rằng $CD^2=CB\cdot CE + BD\cdot CF$.
+\loigiai{
+Xét tam giác $CDB$ và $CEA$ có góc $C$ chung.\\
+Trong đường tròn $(O')$, ta có  
+$$\widehat{CDB}=\widehat{ADB}=\dfrac{1}{2}\text{sđ}\ \wideparen{AB},\ \widehat{CEA}=\widehat{BEA}=\dfrac{1}{2}\text{sđ}\ \wideparen{AB}.$$
+Suy ra $\widehat{CDB}=\widehat{CEA}$, do đó $\triangle CDB \backsim \triangle CEA$. Suy ra $$\dfrac{CD}{CE}=\dfrac{CB}{CA}\Leftrightarrow CD\cdot CA=CB\cdot CE.$$
+Chứng minh tương tự, ta cũng có $DA\cdot DC=DB\cdot DF.$ Do đó
+$$CB\cdot CE+DB\cdot DF=CD\cdot CA+DA\cdot DC=DC(CA+AD)=CD^2.$$
+\begin{center}
+	\begin{tikzpicture}
+\tkzInit[ymin=-3,ymax=3,xmin=-3.5,xmax=6]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/0/O, 3/0/X, 4/0/O', 2/0/Y}
+\tkzDrawCircle[radius](O,X)
+\tkzDrawCircle[radius](O',Y)
+\tkzInterCC(O,X)(O',Y) \tkzGetPoints{A}{B}
+\tkzDefLine[orthogonal=through A](A,B)\tkzGetPoint{a}
+\tkzInterLC(A,a)(O,X) \tkzGetPoints{C}{A}
+\tkzInterLC(A,a)(O',Y) \tkzGetPoints{A}{D}
+\tkzInterLC(C,B)(O',Y) \tkzGetPoints{E}{B}
+\tkzInterLC(B,D)(O,X) \tkzGetPoints{B}{F}
+\tkzDrawSegments(A,B C,D D,F C,E A,E A,F)
+\tkzDrawPoints(O,O',A,B,C,D,E,F)
+\tkzLabelPoints[left](C)
+%\tkzLabelPoints[right]()
+\tkzLabelPoints[above](A,D)
+\tkzLabelPoints[below](B,E,F,O,O')
+\end{tikzpicture}
+\end{center}
+}
+\end{vd}
+\begin{vd}
+	Cho tam giác đều $ABC$ nội tiếp đường tròn $(O)$ và $M$ là một điểm nằm trên cung nhỏ $BC$. Chứng minh rằng $MA=MB+MC$.
+	\loigiai{
+\immini{ Ta có $\widehat{BMC}=\dfrac{1}{2}\text{sđ}\ \wideparen{BAC}=120^\circ$, đó $BM,\ CN<BC<AM$. Trên đoạn $AM$ lấy điểm $N$ sao cho $BM=MN$. Do $\widehat{BMN}=\widehat{BMA}=\dfrac{1}{2}\text{sđ} \ \wideparen{AB}=60^\circ$, nên $\triangle BMN$ đều, hay $BM=BN=MN.$\\
+Xét hai tam giác $ABN$ và $CBM$ có $AB=BC,\ BN=BM$ và 
+$$\widehat{ABN}=\widehat{ABM}-\widehat{NBM}=\widehat{ABM}-60^\circ=\widehat{ABM}-\widehat{ABC}=\widehat{CBM}.$$
+Do đó $\triangle ABN=\triangle CBM$ nên ta có $CM=AN$. Từ đó ta có được
+$$BM+CM=MN+AN=AM.$$
+
+}
+{\begin{tikzpicture}
+\tkzInit[ymin=-2,ymax=4,xmin=-1,xmax=5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/0/B,4/0/C,3/-2/Y}
+\tkzInterCC(B,C)(C,B)  \tkzGetPoints{A}{X}
+\tkzDefCircle[circum](A,B,C)     \tkzGetPoint{O} 
+\tkzDrawCircle[circum](A,B,C)
+\tkzInterLC(A,Y)(O,A) \tkzGetPoints{A}{M}
+\tkzInterLC(A,M)(B,M) \tkzGetPoints{N}{M}
+\tkzDrawSegments(A,B B,C C,A A,M M,B M,C B,N)
+\tkzDrawPoints(A,B,C,M,N)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C,N)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](M)
+\end{tikzpicture}}	
+}
+\end{vd}
+\begin{vd}
+	Cho tam giác $ABC$ nội tiếp đường tròn $(O)$. Trên cung nhỏ $BC$ của đường tròn $(O)$, lấy điểm $M$. Gọi $D,\ E,\ F$ lần lượt là hình chiếu vuông góc của $M$ lên các đường thẳng $BC$, $CA$, $AB$. Chứng minh rằng ba điểm $D$, $E$, $F$ thẳng hàng.
+	\loigiai{
+		Trong đường tròn $(O)$ ta có $$\widehat{ABM}+\widehat{ACM}=\dfrac{1}{2}\text{sđ}\ \wideparen{ACM}+\dfrac{1}{2}\text{sđ}\ \wideparen{ABM}=\dfrac{1}{2}\cdot 360^\circ=180^\circ.$$
+		Lại có $\widehat{ABM}+\widehat{FBM}=180^\circ$, nên $\widehat{ACM}=\widehat{FBM}$.\\ Do đó $\widehat{BMF}=\widehat{CME}$. \hfill (1) 
+\immini{
+Ta có $\widehat{MFB}=\widehat{MDB}=90^\circ$, nên bốn điểm $B,\ D,\ M,\ F$ nằm trên đường tròn đường kính $BM$, do đó $\widehat{BMF}=\widehat{BDF}=\dfrac{1}{2}\text{sđ}\ \wideparen{BF}$. \hfill (2) \\
+Chứng minh tương tự $\widehat{CDE}=\widehat{CME}$. \hfill (3)\\
+Từ (1), (2) và (3) ta có $\widehat{BDF}=\widehat{CDE}$, suy ra $E,\ D,\ F$ thẳng hàng.
+}
+{\begin{tikzpicture}
+\tkzInit[ymin=-2,ymax=3.5,xmin=-1,xmax=5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/0/B,4/0/C,1/3/A,2.2/-2/X}
+\tkzDefCircle[circum](A,B,C)     \tkzGetPoint{O}
+\tkzDrawCircle[circum](A,B,C)
+\tkzInterLC(A,X)(O,A)  \tkzGetPoints{M}{A}
+\tkzDefPointBy[projection = onto C--B](M)    \tkzGetPoint{D}
+\tkzDefPointBy[projection = onto C--A](M)    \tkzGetPoint{E}
+\tkzDefPointBy[projection = onto A--B](M)    \tkzGetPoint{F}
+\tkzDrawSegments(A,B B,C C,A M,D M,E M,F E,F B,F M,B M,C)
+\tkzDrawPoints(A,B,C,M,D,E,F)
+\tkzLabelPoints[left](B,F)
+\tkzLabelPoints[right](C,E)
+\tkzLabelPoints[above](A,D)
+\tkzLabelPoints[below](M)
+\tkzMarkRightAngles[size=0.2](M,F,B M,D,B M,E,C)
+
+\end{tikzpicture}}	
+}
+\end{vd}
+\begin{vd}
+Cho hai đường tròn $(O;R)$ và $(O';R')$ ($R>R'$) tiếp xúc trong tại $A$. Một tiếp tuyến của đường tròn $(O')$ tại $M$ cắt đường tròn $(O)$ tại hai điểm $B,\ C$. Đường thẳng $BO'$ cắt đường tròn $(O)$ tại điểm thứ hai $D$ và cắt đường thẳng $AM$ tại $E$. Gọi $F$ là giao điểm thứ hai của đường tròn ngoại tiếp tam giác $ADE$ với $AC$. Chứng minh rằng $DF$ là phân giác của góc $\widehat{BDC}$.
+\loigiai{
+\immini{
+Gọi $N$ là giao điểm thứ hai của $AM$ với đường tròn $(O)$. Ta có $$\widehat{AMO'}=\widehat{O'AM}=\widehat{OAN}=\widehat{ANO},$$ suy ra $O'M \parallel MN$. Mà $O'M \perp BC$, nên ta cũng có $ON \perp BC$, hay $N$ là điểm chính giữa cung $\wideparen{BC}$. Mặt khác $\widehat{NAC}=\widehat{NDC}=\dfrac{1}{2}\wideparen{NC}$, $\widehat{BDN}=\dfrac{1}{2}\text{sđ}\ \wideparen{BN}$ nên $$\widehat{BDN}=\widehat{NAC}=\widehat{EAF}. \eqno (1)$$
+Trong đường tròn $(AED)$ ta có $$\widehat{EAF}=\widehat{EDF}=\widehat{BDF}. \eqno (2)$$
+
+}
+{\begin{tikzpicture}
+\tkzInit[ymin=-1.5,ymax=5.3,xmin=-1,xmax=6.5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{3/2/O,2/2/O',0/2/A,4.5/5/X}
+\tkzDrawCircle[radius](O,A)
+\tkzDrawCircle[radius](O',A)
+\tkzInterLC(O',X)(O',A) \tkzGetPoints{N}{M}
+\tkzDefLine[orthogonal=through M](O',M)\tkzGetPoint{m}
+\tkzInterLC(M,m)(O,A) \tkzGetPoints{B}{C}
+\tkzInterLC(A,M)(O,A) \tkzGetPoints{A}{N}
+\tkzInterLC(B,O')(O,A) \tkzGetPoints{D}{B}
+\tkzInterLL(B,O')(A,M) \tkzGetPoint{E}
+\tkzInterLL(D,N)(A,C) \tkzGetPoint{F}
+\tkzDrawCircle[circum,dashed](A,D,E)
+
+\tkzDrawSegments(O,A B,C A,N O,N O',M B,D A,C D,N C,D)
+\tkzDrawPoints(A,O,O',M,B,C,N,D,E,F)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](C,N)
+\tkzLabelPoints[above](B,M)
+\tkzLabelPoints[above left](E,O,O')
+\tkzLabelPoints[below](D)
+\tkzLabelPoints[below left](F)
+\end{tikzpicture}	}
+\noindent
+Từ (1) và (2) ta có $\widehat{BDF}=\widehat{BDN}$, suy ra $D,\ F,\ N$ thẳng hàng. Từ đó ta có $\widehat{BDN}=\widehat{NDC}$, hay $DF$ là phân giác của góc $\widehat{BDC}.$
+}
+\end{vd}
+\subsection{Luyện tập}
+     \begin{bt}
+  	Cho tam giác $ABC$ có đường tròn ngoại tiếp $(O)$. Từ điểm $M$ nằm chính giữa cung $AB$ vẽ dây cung $MN$ song song với $BC$ cắt $AC$ tại $S$. Chứng minh rằng $SM=SC$ và $SN=SA$.
+  	\loigiai{
+  		\immini{
+Ta có $MN\parallel BC$, nên $\widehat{NMC}=\widehat{MCB}$.\\  Mà $\widehat{CMN}=\dfrac{1}{2}\text{sđ}\ \wideparen{CN}$ và $\widehat{MCB}=\dfrac{1}{2}\text{sđ}\ \wideparen{BM}$.\\ Suy ra $\wideparen{CN}=\wideparen{BM}$. Mặt khác $M$ là trung điểm của cung $\wideparen{AB}$, nên $\wideparen{AM}=\wideparen{BM}=\wideparen{CN}$. Suy ra $\widehat{ACM}=\widehat{CMN}$, hay\\ $\widehat{SMC}=\widehat{SCM}$, $\widehat{MNA}=\widehat{NAC}$, hay $\widehat{SAN}=\widehat{SNA}$.\\ Từ đó ta có $SM=SC$ và $SA=SN.$
+
+  }
+{\begin{tikzpicture}[scale=0.8]
+\tkzInit[ymin=-2,ymax=4.5,xmin=-1,xmax=6]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{1.5/4/A,0/0/B,5/0/C}
+\tkzDrawCircle[circum](A,B,C)
+\tkzDefCircle[circum](A,B,C)     \tkzGetPoint{I} 
+\tkzDefLine[bisector](B,C,A)\tkzGetPoint{d}
+\tkzInterLC(C,d)(I,A)\tkzGetPoints{C}{M}
+\tkzDefLine[parallel=through M](C,B)\tkzGetPoint{m}
+\tkzInterLL(A,C)(M,m) \tkzGetPoint{S}
+\tkzInterLC(M,m)(I,A) \tkzGetPoints{M}{N}
+\tkzDrawSegments(A,B B,C C,A M,N C,M N,A N,C)
+\tkzDrawPoints(A,B,C,M,N,S)
+\tkzLabelPoints[left](B,M)
+\tkzLabelPoints[right](N,C)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[above right](S)
+%\tkzLabelPoints[below]()
+\end{tikzpicture}}
+  	}
+  \end{bt}
+  \begin{bt}
+  	Cho tam giác $ABC$ cân tại $A$, $A<90^\circ$. Vẽ đường tròn đường kính $AB$ cắt $BC$ tại $D$, cắt $AC$ tại $E$. Chứng minh rằng:
+  	\begin{multicols}{2}
+  		\begin{enumerate}
+  			\item $\Delta DBE$ cân.			
+  			\item $\widehat{CBE}=\dfrac{1}{2}\widehat{BAC}$.
+  		\end{enumerate}
+  	\end{multicols}
+  \loigiai{
+  \immini{
+  \begin{enumerate}
+  	\item Ta có $D,\ E$ nằm trên đường tròn đường kính $AB$, nên $\widehat{ADB}=\widehat{AEB}=90^\circ$, hay $AD\perp BC$ và $BE\perp AC$. Mà $\triangle ABC$ cân tại $A$ nên $D$ là trung điểm $BC$. Trong tam giác vuông $BEC$ ta có $DE=DB=DC$, hay $\triangle BDE$ cân tại $D$.
+  	\item  Ta có $AD$ là phân giác của góc $A$, nên $$\widehat{BAD}=\widehat{CAD}=\widehat{EA}.$$ Mặt khác $$\widehat{CBE}=\widehat{DBE}=\widehat{EAD}=\dfrac{1}{2}\text{sđ} \wideparen{DE}.$$
+  	Từ đó, suy ra $\widehat{CBE}=\widehat{BAD}=\dfrac{1}{2}\widehat{BAC}.$
+  \end{enumerate}
+}
+{\begin{tikzpicture}
+\tkzInit[ymin=-1,ymax=5,xmin=-1.5,xmax=5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{2/4/A,0/0/B,4/0/C}
+\tkzDefCircle[diameter](A,B)     \tkzGetPoint{I}
+\tkzDrawCircle[diameter](A,B)
+\tkzInterLC(B,C)(I,A) \tkzGetPoints{D}{B}
+\tkzInterLC(A,C)(I,A) \tkzGetPoints{A}{E}
+
+\tkzDrawSegments(A,B B,C C,A A,D B,E D,E)
+\tkzDrawPoints(A,B,C,D,E)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](E,C)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](D)
+\tkzMarkRightAngles[size=0.2](A,D,B B,E,C)
+
+\end{tikzpicture}}
+}
+  \end{bt}
+\begin{bt}
+	Cho tam giác $ABC$ ($AB<AC$) nội tiếp đường tròn $(O)$. Vẽ đường kính $MN$ vuông góc với $BC$ ($M$ thuộc cung $BC$ không chứa $A$). Chứng minh rằng $AM$, $AN$ là phân giác trong và ngoài của góc $\widehat{BAC}$.
+	\loigiai{
+	\immini{Gọi $I$ là giao điểm của $MN$ với $BC$, ta có $I$ là trung điểm cạnh $BC$, nên ta có $IB=IC$ hay $\wideparen{BM}=\wideparen{CM}$.\\ Mà $\widehat{BAM}=\dfrac{1}{2}\text{sđ}\ \wideparen{MB}$, $\widehat{CAM}=\dfrac{1}{2}\text{sđ}\ \wideparen{MC}$ nên ta có \\ $\widehat{BAM}=\widehat{CAM}$, hay $AM$ là phân giác trong của $\widehat{BAC}$.\\
+		Lại có $MN$ là đường kính nên $AM\perp AN$, nên $AN$ là phân giác ngoài của góc $\widehat{BAC}$.
+	
+}
+	{\begin{tikzpicture}
+\tkzInit[ymin=-2,ymax=5,xmin=-1,xmax=5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{1/4/A,0/1/B,4/1/C,2/1/I}
+\tkzDefCircle[circum](A,B,C)     \tkzGetPoint{O}
+\tkzDrawCircle[circum](A,B,C)
+\tkzDefLine[orthogonal=through O](C,B)\tkzGetPoint{c}
+\tkzInterLC(O,c)(O,A) \tkzGetPoints{N}{M}
+\tkzDrawSegments(A,B B,C C,A M,N A,M A,N)
+\tkzDrawPoints(A,B,C,O,M,I)
+\tkzLabelPoints[left](B,O)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[above](A,N)
+\tkzLabelPoints[below](M)
+\tkzLabelPoints[below right](I)
+\tkzMarkRightAngles[size=0.2](M,A,N M,I,B)
+
+\end{tikzpicture}}	
+	}
+\end{bt}
+\begin{bt}
+	Cho đường tròn $(O; R)$ và một điểm $M$ bên trong đường tròn đó. Qua $M$ kẻ hai dây cung $AB$ và $CD$ vuông góc với nhau ($C$ thuộc cung nhỏ $AB$). Vẽ đường kính $DE$. Chứng minh rằng:
+	\begin{enumerate}
+		\item $MA\cdot MB = MC\cdot MD.$
+		\item Tứ giác $ABEC$ là hình thang cân.
+		\item Tổng $MA^2 + MB^2 + MC^2 + MD^2$ có giá trị không đổi khi $M$ thay đổi vị trí trong đường tròn $(O)$.
+	\end{enumerate}
+\loigiai{\immini{ \begin{enumerate}
+		\item Xét hai tam giác $MAC$ và $MDB$ có $\widehat{AMB}=\widehat{BMD}=90^\circ$, $\widehat{ACM}=\widehat{DBM}=\dfrac{1}{2}\text{sđ}\wideparen{AD}$. Do đó $$\triangle MAC \backsim \triangle MDB \Rightarrow \dfrac{MA}{MD}=\dfrac{MC}{MB},$$ hay $MA\cdot MB=MC\cdot MD.$
+\item Vì $DE$ là đường kính nên ta có $CE\perp CD$. Mà $AB\perp CD$, nên $AB\parallel CE$, suy ra $ABEC$ là hình thang. Hơn nữa bốn đỉnh của hình thang nằm trên đường tròn, nên $ABEC$ là hình thang cân.
+\item Ta có $ABEC$ là hình thang cân nên $AC=BE$ và $\triangle DBE$ vuông tại $B$, nên ta có 
+$$MA^2+MB^2+MC^2+MD^2=AC^2+BD^2=BE^2+BD^2=ED^2=4R^2.$$
+Từ đó ta có điều phải chứng minh.
+	\end{enumerate}
+}
+{\begin{tikzpicture}
+\tkzInit[ymin=-1.5,ymax=5.5,xmin=-1.5,xmax=5.5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{2/2/O,-1/2/X,3/3/M,3/0/Y}
+\tkzDrawCircle[radius](O,X)
+\tkzInterLC(Y,M)(O,X) \tkzGetPoints{A}{B}
+\tkzDefLine[orthogonal=through M](M,Y)\tkzGetPoint{c}
+\tkzInterLC(c,M)(O,X) \tkzGetPoints{C}{D}
+\tkzDefPointBy[symmetry = center O](D)    \tkzGetPoint{E}
+
+\tkzDrawSegments(A,B C,D D,E A,C B,D E,B E,C)
+\tkzDrawPoints(O,M,C,D,A,B,E)
+\tkzLabelPoints[left](C,E)
+\tkzLabelPoints[right](D)
+\tkzLabelPoints[above](A,O)
+\tkzLabelPoints[above left](M)
+\tkzLabelPoints[below](B)
+\tkzMarkRightAngles[size=0.2](A,M,D)
+
+\end{tikzpicture}}
+
+}
+\end{bt}
+\begin{bt}
+	Cho tứ giác $ABCD$ nội tiếp đường tròn $(O)$. Chứng minh rằng
+	$$AC\cdot BD=AB\cdot CD+AD\cdot BC.$$
+	\loigiai{
+	\immini{ Trên đoạn $AC$, lấy điểm $M$ sao cho $\widehat{AMB}=\widehat{BCD}$.\\ Xét hai tam giác $AMB$ và $DCB$ có $\widehat{AMB}=\widehat{BCD}$, $\widehat{BAM}=\widehat{BAC}=\widehat{BDC}$ (góc nội tiếp chẵn cung $\wideparen{BC}$). Suy ra $\triangle AMB \backsim \triangle DCB$, nên ta có $\dfrac{AM}{AB}=\dfrac{DC}{DB}$, hay $AM\cdot BD=AB\cdot CD$. \hfill (1) \\
+	Lại có $$\widehat{BCD}+\widehat{BAD}=\dfrac{1}{2}\text{sđ}\wideparen{BAD}+\dfrac{1}{2}\text{sđ}\wideparen{BCD}=180^\circ,$$ $$\widehat{BMC}+\widehat{BCD}=\widehat{BMC}+\widehat{BMA}=180^\circ.$$ 
+	
+}
+{\begin{tikzpicture}
+\tkzInit[ymin=-1,ymax=5,xmin=-1,xmax=5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{1/0/A,0/3/B,1/4/C,5/2/X,1/2.85714/M}
+\tkzDefCircle[circum](A,B,C)     \tkzGetPoint{I} 
+\tkzDrawCircle[circum](A,B,C)
+\tkzInterLC(A,X)(I,A) \tkzGetPoints{D}{A}
+
+\tkzDrawSegments(A,B B,C C,D D,A A,C B,D B,M B,D)
+\tkzDrawPoints(A,B,C,D,M)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](D,M)
+\tkzLabelPoints[above](C)
+\tkzLabelPoints[below](A)
+\end{tikzpicture}}
+	}
+\noindent
+Suy ra $\widehat{BMC}=\widehat{BAD}$. Mà $\widehat{BCM}=\widehat{BDA} \ \left(=\dfrac{1}{2}\text{sđ} \wideparen{AB}\right)$, nên ta có $\triangle BMC \backsim \triangle BAD$, dẫn tới $$\dfrac{BC}{MC}=\dfrac{BD}{AD} \Rightarrow BC\cdot AD=BD\cdot CM. \eqno (2)$$
+Từ (1) và (2) ta có $$AB\cdot CD+AD\cdot BC=AM\cdot BD+CM\cdot BD=AC\cdot BD.$$
+\end{bt}
+\begin{bt}
+  	Cho tam giác $ABC$ nhọn với các đường cao $AA’,\ BB’,\ CC’$. Chứng minh rằng $AA’$ là phân giác của góc $\widehat{B'A'C'}$.
+  	\loigiai{
+  \immini{ Gọi $H$ là trực tâm tam giác $ABC$.\\
+  	Ta có $\widehat{BC'H}=\widehat{BA'H}=90^\circ$, nên bốn điểm $B$, $A'$, $H$, $C'$ nằm trên đường tròn. Do đó $\widehat{HA'C'}=\widehat{HBC'}=\dfrac{1}{2}\text{sđ}\ \wideparen{HC'}$.\\
+  	Chứng minh tương tự, ta cũng có $\widehat{HA'B'}=\widehat{HCB'}$.\\
+  	Mà $\widehat{HBC'}=\widehat{HCB'}$ (cùng phụ với $\widehat{BAC}$), nên ta có $\widehat{C'A'H}=\widehat{B'A'H}$.\\ Từ đó, ta có $AA'$ là phân giác của góc $\widehat{B'A'C'}$.
+  
+}
+  {\begin{tikzpicture}
+\tkzInit[ymin=-0.5,ymax=4.5,xmin=-1,xmax=5.5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{2/4/A,0/0/B,5/0/C}
+\tkzOrthoCenter(A,B,C)\tkzGetPoint{H}
+\tkzDefPointBy[projection = onto A--B](C)    \tkzGetPoint{C'}
+\tkzDefPointBy[projection = onto B--C](A)    \tkzGetPoint{A'}
+\tkzDefPointBy[projection = onto A--C](B)    \tkzGetPoint{B'}
+\tkzDrawSegments(A,B B,C C,A A,A' B,B' C,C' A',B' A',C')
+\tkzDrawPoints(A,B,C,H,A',B',C')
+\tkzLabelPoints[left](B,C')
+\tkzLabelPoints[right](C,B',H)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](A')
+\tkzMarkRightAngles[size=0.2](H,A',B H,C',B H,B',C)
+
+\end{tikzpicture}}
+  }
+  \end{bt}
+  \begin{bt}
+  	Cho đường tròn $(O)$ đường kính $AB$, $ C$ là điểm cố định nằm trên đường tròn và $M$ là điểm di động trên $(O)$ sao cho $M, O, C$ không thẳng hàng. $CM$ và $AB$ cắt nhau tại $D$. Chứng minh rằng đường tròn ngoại tiếp tam giác $ODM$ luôn đi qua một điểm cố định.
+  	\loigiai{
+  	\immini{
+  	Ta có $\widehat{EMO}+\widehat{EDO}=\dfrac{1}{2}\text{sđ}\ \wideparen{EDO}+\dfrac{1}{2}\text{sđ}\ \wideparen{EMO}=180^\circ$, $\widehat{EDA}+\widehat{EDO}=180^\circ$. Suy ra $\widehat{EDA}=\widehat{EMO}$. \hfill (1)\\
+Lại có $\widehat{CDA}=\widehat{MDO}$ (đối đỉnh) và $\widehat{MDO}=\widehat{MEO}=\dfrac{1}{2}\text{sđ}\ \wideparen{OM}$, nên $\widehat{CDA}=\widehat{OEM}$. Mà $\triangle MOE$ cân tại $O$ nên $\widehat{EMO}=\widehat{MEO}$, do đó $\widehat{CDA}=\widehat{EMO}.$ \hfill (2)\\
+Từ (1) và (2) ta có $\widehat{EDA}=\widehat{CDA}$, nên $C$ và $E$ đối xứng nhau qua $AB$, do đó $E$ là điểm cố định.  \\
+Vậy đường tròn ngoại tiếp tam giác $OMD$ luôn đi qua điểm $E$ cố định.
+}
+{\begin{tikzpicture}
+\tkzInit[ymin=-1,ymax=5,xmin=-1,xmax=5.5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/2/A,5/2/B,0.547828/0.438262/C,1.7545/4.38626/M}
+\tkzDefCircle[diameter](A,B)     \tkzGetPoint{O}
+\tkzDrawCircle[diameter](A,B)
+\tkzInterLL(M,C)(A,B) \tkzGetPoint{D}
+\tkzDrawCircle[circum](O,M,D)
+\tkzDefPointBy[reflection = over A--B](C)    \tkzGetPoint{E}
+
+\tkzDrawSegments(A,B C,M C,E E,D E,M M,O E,O)
+\tkzDrawPoints(A,B,C,D,M,O,E)
+\tkzLabelPoints[left](A,E)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[above](M)
+\tkzLabelPoints[below](O,C,D)
+\end{tikzpicture}}
+  }
+  \end{bt}
+

@@ -1,0 +1,785 @@
+%GV soạn:Bui Quoc Hoan
+%GV phản biện: 
+\Opensolutionfile{ans}[ans/ans7H1-4]
+\section{Định lý}
+\subsection{Kiến thức cần nhớ}
+\begin{dn}
+Một tính chất, một khẳng định được suy ra từ những khẳng định đúng  bằng suy luận gọi là định lý.
+\end{dn}
+\begin{note}
+	\begin{itemize}
+		\item Định lý luôn là khẳng định đúng.
+		\item Định lý được phát biểu dưới dạng ``Nếu $(A)$ ... thì $(B)$...''
+		\item Định lý gồm giả thiết $(A)$ và kết luận $(B)$.
+	\end{itemize}
+\end{note}
+\begin{note} Chứng minh một định lý là dùng lập luận và những kết quả đã biết để từ giả thiết suy ra kết luận. Cụ thể theo các bước sau
+	\begin{itemize}
+		\item  Bước 1. Giả thiết (điều đã biết).
+		\item  Bước 2. Suy luận có căn cứ hợp lôgic.
+		\item  Bước 3. Kết luận điều được (phải) suy ra.
+	\end{itemize}
+\end{note}
+
+\subsection{Hỏi đáp nhanh}
+\begin{ex}%[7H1Y1]
+Khẳng định  ``Nếu hai góc bằng nhau thì chúng đối đỉnh'' có phải một định lí không?
+\loigiai
+{\immini{Không phải là một định lý vì khẳng định trên là một khẳng định sai.\\
+Ví dụ cho $a$, $b$ là hai đường thẳng song song như hình vẽ bên.\\
+Ta có  $\widehat{A_{2}} = \widehat{B_{1}}$ nhưng hai góc không ở vị trí đối  đỉnh. 
+}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzDefPoints{0/0/A,4/0/B,0/1.5/C,4/1.5/D, 1.5/-1/E,2.5/2.5/F}
+	\tkzInterLL(A,B)(E,F) \tkzGetPoint{I}
+	\tkzInterLL(C,D)(E,F) \tkzGetPoint{J}
+	\tkzDrawSegments(A,B C,D E,F)
+	\tkzLabelSegment[pos=.1](A,B){$a$}
+	\tkzLabelSegment[pos=.1,](C,D){ $b$}
+	\tkzLabelAngle[pos=0.45](J,I,A){\footnotesize $2$}%
+	\tkzLabelAngle[pos=0.45](I,J,D){\footnotesize $3$}%
+	\tkzLabelAngle[pos=0.45](I,J,C){\footnotesize $A$}%
+	\tkzLabelAngle[pos=0.45](E,I,B){\footnotesize $B$}%
+	\tkzLabelAngle[pos=0.65](F,J,C){\footnotesize $1$}%
+	\tkzMarkAngles[size=.4,opacity=.4](F,J,C)
+	\tkzLabelAngle[pos=0.7](B,I,J){\footnotesize $1$}%
+	\tkzMarkAngles[arc=ll,size=0.4 cm](B,I,J)
+	\tkzLabelAngle[pos=-0.7](C,J,I){\footnotesize $2$}%
+	\end{tikzpicture}
+}	
+}
+\end{ex}
+\begin{ex}%[7H1K7]
+Một định lí. Nếu ta thay thế nội dung của giả thiết và kết luận cho nhau thì có được một định lí không? Lấy ví dụ minh họa cho hai khả năng xảy ra.
+\loigiai{\begin{itemize}
+		\item Các định lý phát biểu  ``Nếu ... thì ...'' khi thay đổi giả thiết và kết luận cho nhau sẽ không được một định lý.\\
+		Ví dụ ``Nếu hai góc đối đỉnh thì bằng nhau'' đúng.\\
+		``Nếu hai góc bằng nhau thì đối đỉnh'' sai. 
+		\item Các định lý phát biểu ``... khi và chỉ khi ...'' khi thay đổi giả thiết và kết luận cho nhau sẽ được một định lý.\\
+		Ví dụ  Định lý Pitagol  ``Tam giác $ABC$ vuông tại $A$ khi và chỉ khi $AB^2 + AC^2 = BC^2$''.
+		\end{itemize}
+}
+\end{ex}
+
+\subsection{Học giải toán}
+\begin{vd}%[7H1B5]
+\immini{Dựa vào tiên đề Ơ-clít về đường thẳng song song để chứng minh tính chất ``Cho trước một đường thẳng $a$ và điểm $O$. Có một và chỉ một đường thẳng $d$ đi qua điểm $O$ và vuông góc với đường thẳng $a$''
+}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzDefPoints{0/0/A,4/0/B,1/3/C,1/-0.5/D,3/3/O,3/-0.5/H,3.5/-0.5/K}
+	\tkzInterLL(A,B)(C,D) \tkzGetPoint{I}
+	\tkzInterLL(A,B)(O,H) \tkzGetPoint{J}
+	\tkzInterLL(A,B)(O,K) \tkzGetPoint{E}
+	\draw (1,2.8)node[right]{$b$}
+	(2.6,1)node[above]{$d$}
+	(3.6,1)node[above]{$d'$};
+	\tkzLabelPoints[right](O)
+	\tkzDrawPoints(O)
+	\tkzDrawSegments(A,B C,D O,H O,K)
+	\tkzLabelSegment[pos=.1](A,B){$a$}
+	 \tkzMarkRightAngles(C,I,B A,J,O O,E,B)
+         \end{tikzpicture}
+}	
+\loigiai
+	{Trong hình vẽ trên. Vẽ một đường thẳng $b$ vuông góc với đường thẳng $a$ và không đi qua $O$. Giả sử có hai đường  thẳng phân biệt $d$ và $d'$ đi qua $O$ và cùng vuông góc với $a$. Khi đó $d\parallel b$, $d'\parallel b$ vì cùng vuông góc với $a$. Như vậy qua $O$ có hai đường thẳng song song với $b$, trái với tiên đề Ơ-clít. Vậy có duy nhất một đường thẳng $d$ đi qua $O$ và vuông góc với $a$. 
+		}
+\end{vd}
+\begin{vd}%[7H1B1]
+	\immini{Viết giả thiết, kết luận rồi chứng minh định lí ``Hai góc đối đỉnh thì bằng nhau''
+	}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\tkzDefPoints{0/-0.5/A,6/-0.5/B,0/1.8/C,6/1.8/D}
+		\tkzInterLL(A,D)(B,C) \tkzGetPoint{O}
+		\draw (2.4,0.35)node[above]{$O$};
+		\tkzDrawPoints(O)
+		\tkzDrawSegments(A,D B,C)
+		\tkzLabelSegment[pos= 0.01](B,C){$y$}
+		\tkzLabelSegment[pos=0.95](B,C){$x$}
+		\tkzLabelSegment[pos= 0.01](A,D){$x'$}
+		\tkzLabelSegment[pos=0.95](A,D){$y'$}
+	    \tkzMarkAngles[arc=ll,size=0.5 cm](B,O,D)
+		\tkzLabelAngle[pos=0.7](B,O,D){\footnotesize $1$}%
+		\tkzMarkAngles[arc=l,size=0.3 cm](D,O,C)
+		\tkzLabelAngle[pos=0.5](D,O,C){\footnotesize $2$}%
+		\tkzMarkAngles[arc=l,size=0.3 cm](A,O,B)
+		\tkzLabelAngle[pos=0.5](A,O,B){\footnotesize $3$}%
+		\end{tikzpicture}
+	}	
+\loigiai
+{\begin{itemize}
+		\item Giả thiết: Góc $\widehat{O_{2}}$ là góc đối đỉnh với góc $\widehat{O_{3}}$.
+				\item Kết luận: $\widehat{O_{2}} = \widehat{O_{3}}$.
+				\item  Chứng minh.\\
+				Theo giả thiết $\widehat{O_{2}}$ và $\widehat{O_{3}}$ đối đỉnh. Theo định nghĩa hai góc đối đỉnh thì $Ox$ và $Oy$ cùng thuộc đường thẳng nên $\widehat{O_{2}} + \widehat{O_{1}} = 180^{\circ}\quad (1)$.\\
+				Tương tự $Ox'$ và $Oy'$ cùng thuộc đường thẳng nên $\widehat{O_{3}} + \widehat{O_{1}} = 180^{\circ}\quad (2)$.\\
+				Từ $(1)$ và $(2)$ ta suy ra $\widehat{O_{2}} +  \widehat{O_{1}} = \widehat{O_{3}} + \widehat{O_{1}}\Leftrightarrow \widehat{O_{2}} = \widehat{O_{3}}$.\\
+	\end{itemize}
+}
+\end{vd}
+\begin{note} 
+Dùng quy tắc bắc cầu.
+\end{note}
+
+\begin{vd}%[7H1K7]
+	\immini{Chứng minh định lí  ``Góc tạo bởi hai tia phân giác của hai góc kề bù nhau là một góc vuông''.
+	}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\tkzDefPoints{0/0/A,6/0/B,3/0/O,0.5/2/D}
+		\clip (0,-0.5) rectangle (6,2.5);
+		\tkzDefLine[bisector](D,O,A) \tkzGetPoint{m}
+		\tkzDefLine[bisector](B,O,D) \tkzGetPoint{n}
+       \draw (3,0)node[below]{$O$};
+		\tkzDrawPoints(O)
+		\tkzDrawSegments[dashed](O,m)	
+		\tkzDrawSegments[dashed](O,n)
+		\tkzDrawSegments(A,B D,O)
+		\draw (0.2,-0.5)node[above]{$x$};
+		\draw (5.8,-0.5)node[above]{$y$};
+		\draw (3.6,2.2)node[above]{$n$};
+		\tkzLabelSegment[pos= 0.9](O,D){$z$}
+		\tkzLabelSegment[pos= 0.6](O,m){$m$}
+		\tkzMarkAngles[arc=ll,size=0.5 cm,mark=||](B,O,n)
+		\tkzMarkAngles[arc=ll,size=0.5 cm,mark=||](n,O,D)
+		\tkzMarkAngles[arc=l,size=0.8 cm,mark=|](m,O,A)
+		\tkzMarkAngles[arc=l,size=0.8 cm,mark=|](D,O,m)
+		\end{tikzpicture}
+	}	
+	\loigiai
+	{\begin{itemize}
+			\item Giả thiết: - Góc $\widehat{xOz}$ và $\widehat{zOy}$ là  kề bù.\\
+			- $Om$ là phân giác góc $\widehat{xOz}$.\\
+			- $On$ là phân giác góc $\widehat{zOy}$.
+			\item Kết luận: Góc $\widehat{mOn} = 90^{\circ}$.
+			\item  Chứng minh.\\
+		Do $Om$ là phân giác góc $\widehat{xOz}$ nên $\widehat{zOm} = \dfrac{1}{2}\widehat{zOx} \quad (1)$.\\
+			Tương tự  vì $On$ là phân giác góc $\widehat{zOy}$ nên $\widehat{zOm} = \dfrac{1}{2}\widehat{zOy} \quad (2)$.\\
+			Từ $(1)$ và $(2)$ ta suy ra $\widehat{zOm}  + \widehat{zOn}= \dfrac{1}{2}\left(\widehat{zOx} + \widehat{zOy}\right)\quad (3)$.\\
+		Vì hai góc $\widehat{xOz}$ và  $\widehat{zOy}$ là hai góc kề bù nhau nên tia $Oz$ nằm giữa hai tia $Ox$ và $Oy$ và có $\widehat{xOz} + \widehat{zOy} = 180^{\circ}$.\\
+		Suy ra $\dfrac{1}{2}\left(\widehat{zOx} + \widehat{zOy}\right) = \dfrac{1}{2}\cdot 180^{\circ} = 90^{\circ}\quad (4)$.\\
+		Do $Oz$ nằm giữa hai tia $Om$ và $On$ nên $\widehat{mOz} + \widehat{zOn} = \widehat{mOn}\quad (5)$.\\
+		Từ $(3)$, $(4)$ và $(5)$ ta suy ra $\widehat{mOn} = 90^{\circ}$.
+		\end{itemize}
+	}
+\end{vd}
+\begin{note} 
+Một nửa góc bẹt là góc vuông.
+\end{note}
+
+
+\subsection{Bài tập}
+\subsubsection{Cơ bản}
+\begin{bt}%[7H1B1]%[7H1B2]%[7H1B4]%[7H1B3]
+\begin{enumerate}
+\item Phát biểu và chứng minh tính chất của hai tia phân giác của hai góc đối đỉnh.
+\item Phát biểu tính chất hai tia phân giác của hai góc kề bù.
+\item Phát biểu định lý về dấu hiệu nhận biết hai đường thẳng song song.
+\item  Phát biểu tính chất hai đường thẳng song song  và một cát tuyến.
+\end{enumerate}	
+\loigiai
+	{
+	\begin{enumerate}
+		\item Hai tia phân giác của hai góc đối đỉnh là hai tia đối nhau (xem chứng minh ví dụ 5).
+		\item Hai tia phân giác của hai góc kề bù là hai tia vuông góc với nhau (xem chứng minh ví dụ 3).
+		\item Nếu đường thẳng $c$ cắt hai đường thẳng $a$, $b$ và trong các góc tạo thành có một cặp góc so le trong bằng nhau (hoặc cặp góc đồng vị bằng nhau) thì $a$, $b$ song song với nhau.
+		\item Nếu một đường thẳng cắt hai đường thẳng song song thì 
+		\immini{
+			\begin{enumerate}
+				\item Hai góc so le trong bằng nhau.
+				\item Hai góc đồng vị  bằng nhau.
+				\item Hai góc trong cùng phía bù nhau.
+				\end{enumerate}
+			}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzDefPoints{0/-0.5/A,5/-0.5/B,0/1.8/C,5/1.8/D, 1.5/-1.5/E,3.5/3/F}
+			\tkzInterLL(A,B)(E,F) \tkzGetPoint{I}
+			\tkzInterLL(C,D)(E,F) \tkzGetPoint{J}
+			\tkzDrawSegments(A,B C,D E,F)
+			\tkzLabelSegment[pos=0.1](A,B){$a$}
+			\tkzLabelSegment[pos=0.1](C,D){ $b$}
+				%\tkzLabelSegment[pos=0.9](E,F){ $c$}
+				\draw (3.2,3)node[below]{$c$};
+			\tkzLabelAngle[pos=0.45](J,I,A){\footnotesize $2$}%
+			\tkzLabelAngle[pos=0.45](I,J,D){\footnotesize $3$}%
+			\tkzLabelAngle[pos=0.45](I,J,C){\footnotesize $A$}%
+			\tkzLabelAngle[pos=0.45](E,I,B){\footnotesize $B$}%
+			\tkzLabelAngle[pos=0.65](F,J,C){\footnotesize $1$}%
+			\tkzMarkAngles[size=.4,opacity=.4](F,J,C)
+			\tkzLabelAngle[pos=0.7](B,I,J){\footnotesize $1$}%
+			\tkzMarkAngles[arc=ll,size=0.4 cm](B,I,J)
+			\tkzLabelAngle[pos=-0.7](C,J,I){\footnotesize $2$}%
+			\end{tikzpicture}
+		}	
+	\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[7H1B3]%[7H1B4]
+Cho hai mệnh đề sau
+	\begin{enumerate}
+		\item Nếu đường thẳng $c$ cắt hai đường thẳng $a$, $b$ và trong các góc tạo thành có một cặp góc so le trong bằng nhau (hoặc cặp góc đồng vị bằng nhau) thì $a$, $b$ song song với nhau.
+		\item Nếu một đường thẳng cắt hai đường thẳng song song thì 
+			\begin{enumerate}[1.]
+				\item Hai góc so le trong bằng nhau.
+				\item Hai góc đồng vị  bằng nhau.
+				\item Hai góc trong cùng phía bù nhau.
+			\end{enumerate}
+	\end{enumerate}
+Ghi giả thiết và kết luận của hai mệnh đề trên. Cho biết mối quan hệ giữa  giả thiết và kết luận của hai mệnh đề đó.
+	\loigiai
+	{\begin{enumerate}
+			\item 
+			\begin{itemize}
+			\item  Giả thiết: $c$ cắt hai đường thẳng $a$, $b$ và trong các góc tạo thành có một cặp góc so le trong bằng nhau (hoặc cặp góc đồng vị bằng nhau).
+			\item Kết luận: $a$, $b$ song song với nhau. 
+			\end{itemize}
+			\item Nếu  một đường thẳng cắt hai đường thẳng song song thì 
+			\begin{enumerate}[1.]
+				\item 	
+				\begin{itemize}
+					\item  Giả thiết: một đường thẳng cắt hai đường thẳng song song 
+					\item Kết luận: Hai góc so le trong bằng nhau.
+				\end{itemize}
+				\item 	
+				\begin{itemize}
+					\item  Giả thiết: một đường thẳng cắt hai đường thẳng song song 
+					\item Kết luận: Hai góc đồng vị  bằng nhau.
+				\end{itemize}
+				\item 	
+				\begin{itemize}
+						\item  Giả thiết: một đường thẳng cắt hai đường thẳng song song 
+					\item Kết luận: Hai góc trong cùng phía bù nhau.
+				\end{itemize}
+			\end{enumerate}
+		\end{enumerate}
+	}
+\end{bt}
+
+
+\begin{bt}%[7H1K3]
+Chứng minh tính chất của hai góc có cạnh tương ứng song song ``Nếu hai góc có cạnh tương ứng song song thì
+\begin{enumerate}
+	\item Chúng bằng nhau nếu hai góc cùng nhọn hoặc cùng tù.
+	\item Chúng bù nhau nếu góc này nhọn góc kia tù.''
+\end{enumerate} 
+	\loigiai
+{	\begin{enumerate}
+		\item  Giả sử hai góc có cặp cạnh tương ứng song song như hình vẽ bên. \immini{- Xét trường hợp hai góc nhọn $\widehat{ACB}$ và $\widehat{GFE}$ là hai góc có cạnh tương ứng song song. Gọi $d$ là đường thẳng đi qua  $C$, $F$ như hình vẽ.\\
+			Vì $BC\parallel EF$ nên $\widehat{BCH} = \widehat{EFC}\quad (1)$ (hai góc đồng vị).\\
+			Tương tự, do $AC\parallel GF$ nên $\widehat{ACF} = \widehat{GFD}\quad (2)$ (hai góc đồng vị).\\
+			Mặt khác ta có\\
+				 $\widehat{BCH} + \widehat{BCA} + \widehat{ACF} = 180^{\circ}\quad (3)$\\
+				 và \\
+				 $\widehat{EFC} + \widehat{EFG} + \widehat{GFD} = 180^{\circ}\quad (4)$
+			}{\begin{tikzpicture}
+		[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\tkzDefPoints{0/0/A,7/0/D, 1/4/B,3.5/4/C}
+		\tkzDefMidPoint(A,B)\tkzGetPoint{E}
+		\tkzDefMidPoint(C,D)\tkzGetPoint{F}
+		\tkzDefMidPoint(A,D)\tkzGetPoint{G}
+		\tkzDefPointWith[linear normed, K=5](F,C)
+		\tkzGetPoint{H}
+		\tkzDefBarycentricPoint(A=2,G=1)
+		\tkzGetPoint{M}
+		\tkzLabelPoints[above left](B,E)
+		\tkzLabelPoints[below right](D, G)
+		\tkzLabelPoints[below left](A,M)
+		\tkzLabelPoints[above right](C,F,H)
+		\tkzDrawPoints(A,B,C,D,E,F,H,M)
+		\tkzDrawSegments(A,B B,C C,D D,A C,A H,C)
+		\tkzDrawSegments[dashed](E,F F,G)
+		\tkzMarkAngles[arc=ll,size=0.5 cm](B,C,A)
+			\tkzMarkAngles[arc=ll,size=0.5 cm](E,F,G)
+				\tkzMarkAngles[arc=l,size=0.4 cm](F,G,M)
+		\end{tikzpicture}
+}
+Từ $(1)$, $(2)$, $(3)$ và $(4)$ suy ra
+$\widehat{BCH} + \widehat{BCA} + \widehat{ACF} =\widehat{EFC} + \widehat{EFG} + \widehat{GFD}\Leftrightarrow  \widehat{BCA} =  \widehat{EFG}$.\\ 
+-Trường hợp hai góc tù chứng minh tương tự.
+\item  Giả sử hai góc $\widehat{ACB}$ và $\widehat{FGM}$ là hai góc có cạnh tương ứng song song, ở đó có một góc nhọn và một góc tù.\\
+Gọi $d$ là đường thẳng đi qua  $C$, $F$ như hình vẽ.\\
+Từ $F$ dựng $EF$ sao cho $EF\parallel BC$ nên $\widehat{BCA} = \widehat{EFG}$ (hai góc có cạnh tương ứng song song).\\
+Do $MG\parallel BC$ suy ra $MG\parallel EF$ nên $\widehat{EFG} + \widehat{MGF} = 180^{\circ}$ (hai góc trong cùng phía bù nhau).\\
+Do đó $\widehat{BCA} + \widehat{MGF}  = 180^{\circ}$.
+\end{enumerate}
+}
+\end{bt}
+
+
+\subsubsection{Nâng cao}
+\begin{bt}%[7H1K3]%[7H1G3]
+Cho hai góc $\widehat{AOB}$ và $\widehat{CID}$ là hai góc có cạnh tương ứng song song, có $OM$ là tia phân giác của $\widehat{AOB}$; $IN$ là tia phân giác của $\widehat{CID}$. Chứng minh  
+\begin{enumerate}
+	\item Nếu hai góc đó cùng nhọn hoặc cùng tù thi $OM\parallel IN$.
+	\item Nếu một góc là nhọn, góc kia là tù thì $OM\perp IN$.
+\end{enumerate}
+	\loigiai
+	{\begin{enumerate}
+				\item Giả sử hai góc $\widehat{AOB}$ và $\widehat{CID}$ có vị trí như hình vẽ bên,  $BO\parallel IC$, $OA\parallel ID$.
+				\immini{
+				Trường hợp hai góc nhọn. Giả sử  đường thẳng $O'H$ đi qua $O$, $I$.\\
+				Ta  có $\widehat{AOB }= \widehat{CID}\quad (1)$ (góc có cạnh tương ứng song song).\\
+				Vì $OM$ là tia phân giác góc  $\widehat{AOB}$ nên\\ $\widehat{MOB} =  \widehat{MOA} = \dfrac{1}{2}\widehat{AOB}\quad (2)$.\\
+				Tương tự,  vì $IN$ là tia phân giác góc  $\widehat{CID}$ nên\\ $\widehat{CIN} =  \widehat{NID} = \dfrac{1}{2}\widehat{CID}\quad (3)$.\\
+					}{\begin{tikzpicture}
+		[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\tkzDefPoints{0/0/A,7/0/O', 1/4/B,3.5/4/O}
+			\clip (-0.5,-0.5) rectangle (7.5,5.5);
+		\tkzDefMidPoint(A,B)\tkzGetPoint{C}
+		\tkzDefMidPoint(O,O')\tkzGetPoint{I}
+		\tkzDefMidPoint(A,O')\tkzGetPoint{D}
+		\tkzDefLine[bisector](B,O,A) \tkzGetPoint{m}
+		\tkzInterLL(A,B)(O,m) \tkzGetPoint{M}
+		\tkzDefLine[bisector](C,I,D) \tkzGetPoint{n}
+		\tkzInterLL(C,D)(I,n) \tkzGetPoint{N}
+		\tkzDefPointWith[linear normed, K=4](I,O)
+		\tkzGetPoint{H}
+		\tkzLabelPoints[above left](B,M)
+		\tkzLabelPoints[below right](D)
+		\tkzLabelPoints[right](O',H)
+		\tkzLabelPoints[below left](A,C,N)
+		\tkzLabelPoints[above right](O,I)
+		\tkzDrawPoints(A,B,C,D,I,O)
+		\tkzDrawSegments(A,O B,O C,I I,D A,B C,D O,M I,N H,O')
+	   \tkzMarkAngles[arc=ll,size=0.6 cm](B,O,M)
+		\tkzMarkAngles[arc=ll,size=0.6 cm](M,O,A)
+		\tkzMarkAngles[arc=l,size=0.6 cm](C,I,N)
+		\tkzMarkAngles[arc=l,size=0.6 cm](N,I,D)
+		\end{tikzpicture}}
+	Từ $(1)$, $(2)$ và $(3)$ ta suy ra $\widehat{MOA} = \widehat{NID}$.\\
+	Mặt khác $AO\parallel DI$ nên $\widehat{AOI} = \widehat{DIO'}$ (hai góc đồng vị).\\
+	Do đó $\widehat{MOA} + \widehat{AOI} = \widehat{NID} + \widehat{DIO'}\Leftrightarrow \widehat{NIO'} = \widehat{MOI}$ ta suy ra $OM\parallel NI$.\\
+	- Trường hợp hai góc tù, ta chứng minh tương tự suy ra $OM\parallel NI$.
+\item Nếu một góc là nhọn, góc kia là tù.\\
+ Không mất tính tổng quát, giả sử $\widehat{AOB }$ là góc nhọn và  $\widehat{CID}$ là góc tù.
+\immini{Giả sử $OB\parallel IC$ và $OA\parallel ID$. Qua $I$ dựng tia $IO'$ song song với $OB$.\\ 
+Dễ thấy $\widehat{DIO'} + \widehat{CID} = 180^{\circ}$ và $\widehat{DIO'}$ là góc nhọn.\\
+Theo chứng minh trên $\widehat{AOB} = \widehat{DIO'}$.\\
+Gọi $IM'$ là phân giác của góc $\widehat{DIO'}$. Ta dễ chứng minh được 
+$IN\perp IM'\quad (*)$ và $\widehat{MOA} = \widehat{DIM'}$.\\
+Nối $O$, $I$, vì $OA\parallel ID$ nên $\widehat{AOI} = \widehat{OID}$.\\
+Khi đó\\
+ $\widehat{AOI} + \widehat{MOA} = \widehat{DIM'} +  \widehat{OID}\Leftrightarrow \widehat{MOI} = \widehat{OIM'}$.\\
+ Suy ra $OM\parallel IM'\quad (**)$.\\
+Từ $(*)$ và $(**)$ suy ra $OM\perp IN$.
+}{\begin{tikzpicture}
+	[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzDefPoints{0/0/A,7/0/O', 1/4/B,1/0/C,3.5/4/O}
+	\clip (-0.5,-0.5) rectangle (7.5,4.5);
+	\tkzDefMidPoint(O,O')\tkzGetPoint{D}
+	\tkzDefMidPoint(A,O')\tkzGetPoint{I}
+	\tkzDefLine[bisector](B,O,A) \tkzGetPoint{m}
+	\tkzInterLL(A,B)(O,m) \tkzGetPoint{M}
+	\tkzDefLine[bisector](C,I,D) \tkzGetPoint{n}
+	\tkzInterLL(C,D)(I,n) \tkzGetPoint{N}
+	\tkzDefLine[bisector](O',I,D) \tkzGetPoint{i}
+	\tkzInterLL(O',D)(I,i) \tkzGetPoint{M'}
+	\tkzLabelPoints[above left](B,M)
+	\tkzLabelPoints[right](D,M')
+	\tkzLabelPoints[below left](A,C,I,O')
+	\tkzLabelPoints[above](O,N)
+	\tkzDrawPoints(A,B,C,D,I,O)
+	\tkzDrawSegments(A,O B,O C,I I,D A,B O,M C,D I,N I,O' I,M' D,O' O,I)
+	\tkzMarkAngles[arc=ll,size=0.6 cm](B,O,M)
+	\tkzMarkAngles[arc=ll,size=0.6 cm](M,O,A)
+	\tkzMarkAngles[arc=l,size=0.6 cm](N,I,C)
+	\tkzMarkAngles[arc=l,size=0.6 cm](D,I,N)
+	\end{tikzpicture}}
+\end{enumerate}	
+}
+\end{bt}
+
+
+\begin{bt}%[7H1K6]
+Trên mặt phẳng cho $4$ đường thẳng trong đó không có hai đường thẳng nào song song. Chứng minh rằng ta có thể tìm được $2$ đường thẳng (trong $4$ đường thẳng đã cho) tạo với nhau một góc không quá $45^{\circ}$.
+	\loigiai
+	{\immini{Không mất tính tổng quát giả sử các $4$ đường thẳng là $d'_{1}$, $d'_{2}$, $d'_{3}$ và  $d'_{4}$ không có hai đường thẳng nào song song. Gọi $O$ là một điểm bất kỳ, qua $O$ lần lượt dựng các đường thẳng $d_{1}$, $d_{2}$, $d_{3}$ và  $d_{4}$ sao cho $d'_{1}\parallel d_{1}$, $d'_{2}\parallel d_{2}$, $d'_{3}\parallel d_{3}$ và  $d'_{4}\parallel d_{4}$.\\
+	Khi đó ta có $8$ góc và số đo của tổng $8$ góc là $360^{\circ}$. Dễ thấy $8$ góc tạo thành $4$ cặp góc đối đỉnh bằng nhau.\\
+	Không mất tính tổng quát giả sử các góc đó là $\alpha_{1}$, $\alpha_{2}$, $\alpha_{3}$, $\alpha_{4}$ và $\alpha_{1}\leq \alpha_{2}\leq \alpha_{3}\leq \alpha_{4}$.\\
+	Ta có $\alpha_{1} + \alpha_{2}+ \alpha_{3} + \alpha_{4} = 180^{\circ}$\\ suy ra $4\alpha_{1}\leq 180^{\circ}\Leftrightarrow \alpha_{1}\leq 45^{\circ}$. 
+}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzInit[xmin=-2,xmax=4.5, ymin=-1,ymax=4.5]
+	\tkzClip
+	\tkzDefPoint(0,0){O} \tkzDefPoint(3,1){I}
+	\tkzDefPoint(1,4){J}
+	\tkzDefLine[bisector](I,O,J) \tkzGetPoint{i}
+	\tkzDefLine[bisector out](I,O,J) \tkzGetPoint{j}
+	\tkzDrawLines[add = 1 and 1,color= black](O,I O,J)
+	\tkzDrawLines[add = 3 and 3,color= black](O,i O,j)
+	\draw (-1.5,1.5)node[above]{$d_1$};
+	\draw (1.5,4)node[above]{$d_2$};
+     \draw (4,4)node[below]{$d_3$};
+	\draw (4,2)node[below]{$d_4$};
+	\draw (-0.5,0.3)node[below]{$O$};
+	\draw (-0.1,0.8)node[below]{$\alpha_{1}$};
+	\draw (0.5,1.2)node[below]{$\alpha_{2}$};
+		\draw (1,0.9)node[below]{$\alpha_{3}$};
+			\draw (0.5,0.1)node[below]{$\alpha_{4}$};
+	\end{tikzpicture}
+}}
+\end{bt}
+
+\begin{bt}%[7H1G3]
+Cho định lý về hai góc có cạnh tương ứng vuông góc ``Nếu hai  góc có cạnh tương ứng vuông góc thì
+\begin{enumerate}
+	\item Chúng bằng nhau nếu hai góc cùng nhọn hoặc cùng tù.
+	\item Chúng bù nhau nếu góc này nhọn, góc kia là tù''.
+\end{enumerate}
+Vẽ hình, ghi giả thiết, kết luận của định lý đó.
+	\loigiai
+	{\begin{enumerate}
+		\item  Giả sử có hai góc $\widehat{OAB}$ và $\widehat{MNQ}$ có cạnh tương ứng vuông góc.\\
+		Giả sử $OA\perp MN$ và $AB\perp NQ$.
+		\immini{- Trường hợp 1.  Hai góc $\widehat{OAB}$ và $\widehat{MNQ}$ là hai góc nhọn. Như hình vẽ bên.\\
+		Qua $M$ dựng $MH\parallel NQ$ ($H$ thuộc $AB$).\\
+		Ta có $\widehat{HMN} =  \widehat{MNP}$ (so le trong).\\
+		Do tam giác $MAH$ vuông tại $H$ nên $\widehat{MAH} + \widehat{AMH} = 90^{\circ}\quad (1)$.\\
+		Do giả thiết ta có $\widehat{MAH} + \widehat{HMN} = 90^{\circ}\quad (2)$.\\
+		 Từ $(1)$, $(2)$ suy ra\\ 	
+		 $\widehat{MAH} + \widehat{AMH} = \widehat{MAH} + \widehat{HMN}\Leftrightarrow \widehat{MAH} = \widehat{HMN}$.\\
+		 Do đó $\widehat{MAH} = \widehat{MNP}$.\\
+		 - Trường hợp 2. Hai góc  Hai góc $\widehat{OAB}$ và $\widehat{MNQ}$ là hai góc tù. Chứng minh tương tự.
+		}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzDefPoints{0/0/O,5/0/B, 0/6/A,0/4/M,4/4/N}
+			\clip (-0.5,-0.5) rectangle (5.5,6.5);
+			\tkzDefLine[perpendicular=through N](A,B)
+			\tkzGetPoint{c}
+			\tkzInterLL(A,B)(N,c) \tkzGetPoint{P}
+			\tkzInterLL(A,O)(N,c) \tkzGetPoint{Q}
+			\tkzDefLine[parallel = through M](N,Q) \tkzGetPoint{m}
+			\tkzInterLL(A,B)(M,m) \tkzGetPoint{H}
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[right](B,N,P,H)
+			\tkzLabelPoints[below left](O)
+			\tkzLabelPoints[left](M,Q)
+			\tkzDrawPoints(A,B,O,M,N,P,Q)
+			\tkzDrawSegments(A,B O,A M,N N,Q M,H)
+		     \tkzMarkRightAngles(A,M,N N,P,A M,H,A) 
+			 \tkzMarkAngles[arc=l,size=0.5 cm](O,A,B N,M,H)
+			 \tkzMarkAngles[arc=l,size=0.5 cm](M,N,P)
+		\end{tikzpicture}
+		}
+\item  Giả sử có hai góc $\widehat{OAB}$ là góc nhọn và $\widehat{MNQ}$ là góc tù và có cạnh tương ứng vuông góc.\\
+Giả sử $OA\perp MN$ và $AB\perp NQ$.
+\immini{Giả sử góc như hình vẽ bên, giả sử $QN$ cắt $AB$ tại $P$.\\
+Theo chứng minh trên $\widehat{OAB} = \widehat{MNP}$.\\
+Do $\widehat{MNQ} + \widehat{MNP} = 180^{\circ}$\\
+ nên $\widehat{MNQ} + \widehat{OAB} = 180^{\circ}$.
+}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzDefPoints{0/2/O,5/2/B, 0/6/A,0/4/M,4/4/N}
+	\clip (-0.5,1) rectangle (6.5,6.5);
+	\tkzDefLine[perpendicular=through N](A,B)
+	\tkzGetPoint{c}
+	\tkzDefLine[parallel = through A](O,B) \tkzGetPoint{a}
+	\tkzInterLL(A,a)(N,c) \tkzGetPoint{Q}
+	\tkzInterLL(A,B)(N,c) \tkzGetPoint{P}
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[right](B,N,Q)
+	\tkzLabelPoints[below left](P,O)
+	\tkzLabelPoints[left](M)
+	\tkzDrawPoints(A,B,O,M,N,P,Q)
+	\tkzDrawSegments(A,B O,A M,N N,Q N,P)
+	\tkzMarkRightAngles(A,M,N N,P,A) 
+	\tkzMarkAngles[arc=l,size=0.5 cm](O,A,B M,N,P)
+	\tkzMarkAngles[arc=ll,size=0.4 cm](Q,N,M)
+	\end{tikzpicture}
+}
+\end{enumerate}
+		}
+\end{bt}
+
+
+\begin{bt}%[7H1K6]
+\immini{Cho hình vẽ bên, biết $\widehat{N} = \widehat{O} = \widehat{Q} = 90^{\circ}$; $\widehat{B} = 50^{\circ}$.    	
+	\begin{enumerate}
+		\item Hãy chứng tỏ rằng $\widehat{NMQ} = 90^{\circ}$.
+		\item Tính số đo các góc $\widehat{NAM}$ và $\widehat{QMB}$.
+	\end{enumerate}
+}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzDefPoints{0/0/O,5/0/B, 0/6/A}
+\clip (-0.5,-0.5) rectangle (5.5,6.5);
+\tkzDefBarycentricPoint(B=1,A=2)
+\tkzGetPoint{M}
+\tkzDefLine[parallel = through M](O,B) \tkzGetPoint{a}
+\tkzDefLine[parallel = through M](A,O) \tkzGetPoint{c}
+\tkzInterLL(O,B)(M,c) \tkzGetPoint{Q}
+\tkzInterLL(O,A)(M,a) \tkzGetPoint{N}
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below right](B)
+\tkzLabelPoints[below left](O)
+\tkzLabelPoints[left](N)
+\tkzLabelPoints[below](Q)
+\tkzLabelPoints[above right](M)
+\tkzDrawPoints(A,B,O,M,N,Q)
+\tkzDrawSegments(A,B B,O O,A)
+\tkzDrawSegments[dashed](M,N M,Q)
+ \tkzMarkRightAngles(A,O,B M,N,O M,Q,B)
+ 	\tkzMarkAngles[arc=l,size=0.5 cm](A,B,O)
+ \tkzLabelAngle[pos=0.8,rotate= 0](O,B,A){\footnotesize $50^\circ$}%
+\end{tikzpicture}
+}
+\loigiai{	\begin{enumerate}
+		\item Do giả thiết suy ra $\heva{&MQ\perp OB\\&NO\perp OB}\Rightarrow NO\parallel MQ\quad (1)$.\\
+		Mặt khác $ON\perp NM\quad (2)$.\\
+		Từ $(1)$ và $(2)$ suy ra $MQ\perp MN$ hay $\widehat{NMQ} = 90^{\circ}$.
+		\item Theo giả thiết $\heva{&MN\perp OA\\&BO\perp OA}\Rightarrow MN\parallel OB$.\\
+		Suy ra $\widehat{NMA} = \widehat{OBA}$ (hai góc đồng vị).\\
+		Do giả thiết $\widehat{OBA} = 50^{\circ}$ suy ra $\widehat{NMA} = 50^{\circ}$.\\
+		Xét $\triangle MNA$ ta có $\widehat{ANM} + \widehat{NMA} + \widehat{NAM} = 180^{\circ}$.\\
+		Theo chứng minh trên ta có $90^{\circ} + 50^{\circ} + \widehat{NAM} = 180^{\circ}\Leftrightarrow \widehat{NAM} = 40^{\circ}$.\\
+	 Do $MQ\parallel AO$ nên  $\widehat{NAM} = \widehat{QMB}$ (hai góc đồng vị). Nên $\widehat{QMB} = 40^{\circ}$.
+	\end{enumerate}
+	
+}
+\end{bt}
+
+\begin{bt}%[7H1K3]
+	Cho tam giác $ABC$ có điểm $M$ trên cạnh $BC$. Vẽ $ME$ song song với $AB$ sao cho $E$ thuộc $AC$, $MF$ song song với $AC$ sao cho $F$ thuộc $AB$. Xác định vị trí của điểm $M$ để $MA$ là tia phân giác của góc $EMF$.
+	\loigiai
+	{\immini{Giả sử $AD$ là phân giác góc $\widehat{CAB}$ ($D$ thuộc $BC$).\\
+	 Để $MA$ là tia phân giác của góc $\widehat{EMF}$ khi $ \widehat{EMA} = \widehat{AMF}$.\\
+	Do $EM\parallel AB$ suy ra   $\widehat{EMA} = \widehat{MAB}\quad (1)$ (so le trong).\\
+	Tương tự,  do $MF\parallel AC$ suy ra   $\widehat{AMF} = \widehat{MAE}\quad (2)$ (so le trong).\\
+	Từ $(1)$ và $(2)$ suy ra để $MA$ là phân giác của góc  $\widehat{EMF}$ khi điểm $M$ là chân đường phân giác của góc $A$. Do đó $M$ trùng với $D$.
+		}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzDefPoints{0/0/A,6/0/B, 1/4/C}
+			\clip (-0.5,-0.5) rectangle (6.5,4.5);
+			\tkzDefBarycentricPoint(B=1,C=3)
+			\tkzGetPoint{M}
+			\tkzDefLine[parallel = through M](A,B) \tkzGetPoint{a}
+			\tkzDefLine[parallel = through M](A,C) \tkzGetPoint{c}
+			\tkzInterLL(A,B)(M,c) \tkzGetPoint{F}
+			\tkzInterLL(A,C)(M,a) \tkzGetPoint{E}
+			\tkzDefLine[bisector](C,A,B) \tkzGetPoint{m}
+			\tkzInterLL(B,C)(A,m) \tkzGetPoint{D}
+			\tkzLabelPoints[above](C)
+			\tkzLabelPoints[below right](B)
+			\tkzLabelPoints[below left](A)
+			\tkzLabelPoints[left](E)
+			\tkzLabelPoints[below](F)
+			\tkzLabelPoints[above right](M,D)
+			\tkzDrawPoints(A,B,C,M,E,F,D)
+			\tkzDrawSegments(A,B B,C C,A M,E M,F M,A)
+			\tkzDrawSegments[dashed](A,D)
+			\tkzMarkAngles[arc=ll,size=0.5 cm](D,A,C)
+			\tkzMarkAngles[arc=ll,size=0.5 cm](B,A,D)
+			\end{tikzpicture}
+	}
+	}
+\end{bt}
+
+\subsection{Em có biết}
+\subsubsection{Tiên đề và định lý}
+Một tiên đề trong toán học là một đề xuất hay một khẳng  định được coi như luôn đúng mà không thể  và không cần chứng minh.\\
+Một hệ thống tiên đề hay gọn hơn, một hệ tiên đề thỏa mãn điều kiện là các suy diễn lôgic trên hệ thống tiên đề này không thể xảy ra mâu thuẫn.\\
+Tiên đề là điều kiện cần thiết để xây dương bất cứ một lý thuyết nào. Bất cứ một khẳng định (hay đề xuất) nào đưa ra  đều cần được giải thích hay xác minh bằng chính nó thì khẳng định đó sẽ không có giá trị, như vậy sẽ phải có một số vô hạn các khẳng định để giải thích bất kỳ một khẳng định nào. Vì thế  cần phải có một (hay một số) khẳng định được công nhận là đúng để làm chỗ bắt đầu  và đưa quá trình suy diễn vô hạn về hữu hạn. Những khẳng định được công nhận đúng đó chính là các tiên đề.\\
+Ơ-clít đã nêu ra $10$ tiên đề, áp dụng chung cho toán học. Riêng đối với môn Hình học, sau nhiều thế kỷ tranh luận, sửa đổi, người ta lấy $5$ tiên đề, được giới thiệu trong sách giáo khoa hình học sau:
+	\begin{enumerate}[1.]
+	\item Qua hai điểm có thể xác định được một đường thẳng và chỉ một mà thôi.
+	\item Qua ba điểm không thẳng hàng có thể xác định được một mặt phẳng và chỉ một mà thôi.
+	\item Nếu  đường thẳng có hai điểm nằm trong một mặt phẳng thì đường thẳng đó nằm hoàn toàn trong mặt phẳng đó.
+	\item Nếu hai mặt phẳng có một điểm chung thì chúng sẽ có thêm một điểm chung thứ hai nữa.
+	\item Qua một điểm nằm ngoài một đường thẳng ta vẽ  được một và chỉ một đường thẳng song song với đường thẳng đã cho.
+\end{enumerate}
+Ngoài ra ta có thể phát biểu tiên đề $5$ dưới các dạng sau
+	\begin{itemize}
+	\item  Nếu qua điểm $M$ nằm ngoài đường thẳng $a$ có hai đường thẳng song song với $a$ thì chúng trùng nhau.
+	\item  Cho điểm $M$ ở ngoài đường thẳng $a$. Đường thẳng đi qua $M$ và song song với $a$ là duy nhất.
+\end{itemize}
+Định lý thường được dùng trong toán. Một định lý toán học là một mệnh đề toán học đã được, hoặc cần được chứng minh dựa trên một số hữu hạn các tiên đề và quá trình suy luận. Chứng minh các hoạt động chủ yếu trong ngành toán học.
+\subsubsection{Định lý thuận, định lý đảo} 
+Trong một định lý, nếu đổi kết luận thành giả thiết và giả thiết kết luận thì ta được một mệnh đề mới, gọi là mệnh đề đảo của định lý đó. Trong trường hợp mà mệnh đề đảo này đúng thì mệnh đề đảo được gọi là định lý đảo của định lý đã cho và định lý đã cho gọi là định lý thuận.\\
+Nói chung, mệnh đề đảo của một định lý không phải luôn đúng. Khi mệnh đề đảo cũng đúng, ta nói hai mệnh đề là tương đương. Hai mệnh đề là tương đương ký hiệu bởi $\Leftrightarrow$, đọc là khi và chỉ khi.
+\subsection{Đi xa hơn}
+\subsubsection{Phương pháp chứng minh phản chứng}
+Phương pháp chứng minh phản chứng thuộc loại chứng minh gián tiếp. Để chứng tỏ kết luận của bài toán là đúng, ta tìm cách chứng tỏ phủ định của kết luận là sai.\\
+Cần tiến hành qua ba bước:
+	\begin{itemize}
+	\item  Bước 1. (Phủ định của kết luận) Giả sử có điều trái với kết luận của bài toán.
+	\item  Bước 2. (Rút ra điều vô lí) Từ điều giả sử trên, lập luận dẫn đến điều vô lý (điều vô lý có thể là trái với giả thiết hoặc trái với các kiến thức đúng đã biết).
+	\item (Khẳng định kết luận) Vậy điều giả sử là sai, điều cần chứng minh là đúng. 
+\end{itemize}
+Thường dùng ba hình thức chứng minh phản chứng sau đây
+	\begin{enumerate}[1.]
+	\item Phủ định kết luận rồi suy ra điều trái với giả thiết.
+	\item Phủ định kết luận rồi suy ra  điều trái với một điều đúng nào đó.
+	\item Phủ định điều kết luận rồi suy ra hai điều mâu thuẫn.
+\end{enumerate}
+ Trong các mục trên ta  sử dụng phương pháp chứng minh phản chứng để giải quyết một số bài toán (các ví dụ và bài tập). Sau đây ta xét thêm một số bài toán mà phoưng pháp chứng minh phản chứng thể hiện rõ tính ưu việt của nó.
+\subsubsection{Một số ví dụ}
+\begin{vd}%[7H1K5]
+Chứng tỏ rằng hai đường trung trực của một tam giác luôn cắt nhau.
+\loigiai{\immini{Giả sử tam giác $ABC$ có hai đường trung trực cạnh $AB$, $AC$ lần lượt là $d$, $d'$.\\
+		Giả sử $d$ và $d'$ không cắt nhau. Khi đó có các trường hợp sau:\\
+		Trường hợp 1. Hai đường thẳng $d$, $d'$ trùng nhau.\\
+		Ta suy ra $AB\perp d$ và $AC\perp d$ mâu thuẫn.\\
+		Trường hợp 2. Hai đường thẳng $d$ và $d'$ song song.\\
+		Do giả  thiết $AB\perp d$, $AC\perp d'$ và $d\parallel d'$\\
+		 suy ra $\heva{& AB\perp d \\ &AC\perp d}$ mâu thuẫn.\\
+		 Vậy $d$ và $d'$ luôn cắt nhau tại một điểm.
+	}{ \begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\tkzDefPoints{0/0/B,6/0/C, 2/4/A}
+		\clip (-0.5,-0.5) rectangle (6.5,4.5);
+		\tkzDefMidPoint(A,B)\tkzGetPoint{E}
+		\tkzDefMidPoint(A,C)\tkzGetPoint{F}
+		\tkzDefPointWith[orthogonal,K=0.5](E,A)
+		\tkzGetPoint{I}
+		\tkzDefPointWith[orthogonal, K=0.5](F,C)
+		\tkzGetPoint{J}
+		\tkzCircumCenter(A,B,C)\tkzGetPoint{O}
+		\tkzLabelPoints[below](B,C)
+		\tkzLabelPoints[above](A)
+		\tkzDrawPoints(A,B,C)
+		\tkzDrawSegments(A,B B,C C,A  I,O O,J)
+		\tkzLabelSegment[pos= 0.8](O,J){$d'$}
+		\tkzLabelSegment[pos= 0.8](O,I){$d$}
+		\tkzMarkRightAngles(O,E,B O,F,C)
+		\end{tikzpicture}
+	}
+}
+\end{vd}
+
+\begin{vd}%[7H1B1]
+Chứng tỏ rằng hai tia phân giác của hai góc đối đỉnh là hai tia đối nhau
+\loigiai{
+\immini{Xét hai góc đối đỉnh $\widehat{AOB}$, $\widehat{COD}$ và $OM$, $ON$ lần lượt là hai tia phân giác của hai góc $\widehat{AOB}$, $\widehat{COD}$.\\
+Giả sử hai tia $OM$ và $ON$ không đối nhau suy ra\\
+ $\widehat{MON}\neq 180^{\circ}$.\\
+ Do đó $\widehat{MOC} + \widehat{NOC}\neq 180^{\circ}\quad (1)$.\\
+ Mà $\widehat{MOC} + \widehat{BOM} = 180^{\circ}\quad (2)$ (góc kề bù).\\
+Từ $(1)$ và $(2)$ suy ra  $\widehat{NOC}\neq \widehat{MOB}\quad (*)$.\\
+Mặt khác $\widehat{AOB} = \widehat{COD}$ (góc đối đỉnh).\\
+$ON$ là tia phân giác góc $\widehat{COD}$ nên $\widehat{NOC} = \dfrac{1}{2}\widehat{COD}$.\\
+}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\tkzDefPoints{0/0/A,6/0/B,3/0/O,0.5/2/D}
+\clip (0,-3) rectangle (6,2.5);
+\tkzDefLine[bisector](D,O,A) \tkzGetPoint{m}
+\tkzDefLine[bisector](B,O,D) \tkzGetPoint{n}
+\tkzDrawPoints(O)
+\draw (0.2,-0.5)node[above]{$A$};
+\draw (5.8,-0.5)node[above]{$D$};
+\draw (5,-1.8)node[below]{$C$};
+\draw (5.5,-1)node[below]{$N$};
+\tkzDefPointWith[linear normed, K=-3](O,D)
+\tkzGetPoint{C}
+\tkzDefPointWith[linear normed, K=-3](O,m)
+\tkzGetPoint{N}
+\tkzLabelSegment[pos= 0.9](O,D){$B$}
+\tkzLabelSegment[pos= 0.6](O,m){$M$}
+\tkzMarkAngles[arc=ll,size=0.8 cm,mark=||](N,O,B)
+\tkzMarkAngles[arc=ll,size=0.8 cm,mark=||](C,O,N)
+\tkzMarkAngles[arc=l,size=0.8 cm,mark=|](m,O,A)
+\tkzMarkAngles[arc=l,size=0.8 cm,mark=|](D,O,m)
+\tkzLabelPoints[below](O)
+\tkzDrawSegments(A,B D,O O,C O,N O,m)
+\end{tikzpicture}
+}
+Tương tự $OM$ là tia phân giác góc $\widehat{AOB}$ nên $\widehat{MOB} = \dfrac{1}{2}\widehat{AOB}$.\\
+Từ giá thiết ta suy ra $\widehat{NOC} = \widehat{MOB}\quad (**)$.\\
+Từ $(*)$ và $(**)$ suy ra mâu thuẫn với giả thiết, vậy điều giả sử là sai.\\
+Do đó $OM$ và $ON$ là hai tia đối nhau.  
+}
+
+\end{vd}
+
+
+\begin{vd}%[7H1B6]
+Cho góc $xOy$ khác góc bẹt, vẽ  $Oz$ là tia phân giác của góc $xOy$. Gọi $A$ là điểm trên tia $Ox$ ($A$ khác $O$). Qua $A$ vẽ đường thẳng $d$ vuông góc với tia $Ox$. Chứng minh rằng hai đường thẳng $Oz$ và $d$ cắt nhau.
+	\loigiai{
+		\immini{Giả sử $Oz$ và $d$ không cắt nhau, suy ra $Oz\parallel d$.\\
+		Do giả thiết ta có $d\perp Ox$ vì $Oz\parallel d$ suy ra $Oz\perp Ox$, hay $\widehat{xOz} = 90^{\circ}$.\\
+		Do vậy $\widehat{xOy} = 180^{\circ}$ mâu thuẫn với giả thiết là $\widehat{xOy}$ khác góc bẹt. Vậy điều giả sử là sai. Do đó $Oz$ và $d$ cắt nhau.
+		}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\tkzDefPoints{0/0/A,7/0/B,3/0/O,0.5/2/D,5/0/C,5/-0.5/E}
+		\clip (0,-0.5) rectangle (7,2.5);
+		\tkzDefLine[bisector](B,O,D) \tkzGetPoint{n}
+		\draw (3,0)node[below]{$O$};
+				\tkzDrawPoints(O)
+		\tkzDefPointWith[orthogonal, K=2.5](C,B)
+		\tkzGetPoint{J}
+		\tkzDrawSegments(O,B D,O O,n J,E)
+		\draw (5,2.2)node[right]{$d$};
+		\draw (6.8,-0.5)node[above]{$x$};
+		\draw (3.6,2.2)node[above]{$z$};
+			\draw (5,0)node[below left]{$A$};
+		\tkzLabelSegment[pos= 0.9](O,D){$y$}
+		\tkzMarkAngles[arc=ll,size=0.5 cm,mark=||](B,O,n)
+		\tkzMarkAngles[arc=ll,size=0.5 cm,mark=||](n,O,D)
+		\tkzMarkRightAngles(J,C,B)
+		\end{tikzpicture}
+		}
+	}
+	
+\end{vd}
+
+\begin{vd}%[7H1G3]
+\immini{Cho hình vẽ như hình bên, biết $\widehat{BAE} = 20^{\circ}$, $\widehat{AEC} = 60^{\circ}$, $\widehat{ECD} = 45^{\circ}$. Chứng minh rằng hai đường thẳng $AB$ và $CD$ cắt nhau.
+}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+	\tkzDefPoints{1/0/C,6/0/D}
+	\clip (-0.5,-0.5) rectangle (6.2,5);
+\tkzDefPointBy[rotation= center C angle 45](D) 
+\tkzGetPoint{C'}
+\tkzDefPointBy[rotation= center C' angle -60](C) 
+\tkzGetPoint{A'}
+\tkzDefPointBy[rotation= center A' angle 20](C') 
+\tkzGetPoint{B'}
+\tkzDefBarycentricPoint(C=1,C'=4)
+\tkzGetPoint{E}
+\tkzDefPointBy[rotation= center E angle -60](C) 
+\tkzGetPoint{A}
+\tkzDefPointBy[rotation= center A angle 20](E) 
+\tkzGetPoint{B}
+\tkzLabelPoints[below](D,C)
+\tkzLabelPoints[above](A,E,B)
+\tkzDrawPoints(A,C,D)
+\tkzDrawSegments(C,D C,E E,A A,B)
+\tkzMarkAngles[arc=l,size=0.5 cm](D,C,E)
+\tkzLabelAngle[pos=0.8,rotate= 0](D,C,E){\footnotesize $45^\circ$}%
+\tkzMarkAngles[arc=ll,size=0.5 cm,mark=||](A,E,C)
+\tkzLabelAngle[pos= - 0.95,rotate= 0](A,E,C){\footnotesize $60^\circ$}%
+\tkzMarkAngles[arc=l,size=0.8 cm,mark=|](E,A,B)
+\tkzLabelAngle[pos= 1.2,rotate= 0](E,A,B){\footnotesize $20^\circ$}%
+	\end{tikzpicture}
+}
+	\loigiai{
+		\immini{Giả sử $AB\parallel CD$. Kẻ $EF\parallel AB$.\\
+			Ta có $\widehat{BAE} = \widehat{AEF}$ (so le trong). Nên $\widehat{BAE} = \widehat{AEF} = 20^{\circ}$.\\
+			Vì $EF\parallel AB$, $AB\parallel CD$ suy ra $EF\parallel CD$.\\
+			Suy ra $\widehat{CEF} = \widehat{ECD}$ (so le trong).\\
+			Do đó $\widehat{CEF} = 45^{\circ}$.\\
+			Khi đó  $\widehat{AEC} = \widehat{AEF} + \widehat{CEF} = 20^{\circ} + 45^{\circ} = 65^{\circ}$, trái với giả thiết.\\
+			Vậy điều giả sử là sai.\\
+			Do đó hai đường thẳng $AB$, $CD$ cắt nhau.
+		}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzDefPoints{1/0/C,6/0/D}
+			\clip (-0.5,-0.5) rectangle (6.2,5);
+			\tkzDefPointBy[rotation= center C angle 45](D) 
+			\tkzGetPoint{C'}
+			\tkzDefPointBy[rotation= center C' angle -60](C) 
+			\tkzGetPoint{A'}
+			\tkzDefPointBy[rotation= center A' angle 20](C') 
+			\tkzGetPoint{B'}
+			\tkzDefBarycentricPoint(C=1,C'=4)
+			\tkzGetPoint{E}
+			\tkzDefPointBy[rotation= center E angle -60](C) 
+			\tkzGetPoint{A}
+			\tkzDefPointBy[rotation= center A angle 20](E) 
+			\tkzGetPoint{B}
+			\tkzDefLine[parallel = through E](A,B) \tkzGetPoint{c}
+			\tkzDefPointWith[linear normed,K=-3](E,c)
+			\tkzGetPoint{F}
+			\tkzDrawLines(E,F)
+			\tkzLabelPoints[below](D,C)
+			\tkzLabelPoints[above](A,E,B,F)
+			\tkzDrawPoints(A,C,D)
+			\tkzDrawSegments(C,D C,E E,A A,B)
+			\tkzMarkAngles[arc=l,size=0.5 cm](D,C,E)
+			\tkzLabelAngle[pos=0.8,rotate= 0](D,C,E){\footnotesize $45^\circ$}%
+			\tkzMarkAngles[arc=l,size=0.6 cm,mark=|](A,E,F)
+			\tkzLabelAngle[pos= - 1.3,rotate= 0](A,E,F){\footnotesize $20^\circ$}%
+			\tkzMarkAngles[arc=l,size=0.8 cm,mark=|](E,A,B)
+			\tkzLabelAngle[pos= 1.2,rotate= 0](E,A,B){\footnotesize $20^\circ$}%
+			\end{tikzpicture}
+		}	
+		}
+	
+\end{vd}
+\begin{note} 
+Giả sử $AB\parallel CD$. Hãy tìm mối quan hệ giữa góc $\widehat{AEC}$ và hai góc $\widehat{BAE}$ và $\widehat{ECD}$.
+\end{note}
+
+\Closesolutionfile{ans}

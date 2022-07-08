@@ -1,0 +1,513 @@
+%%Biên soạn: Đặng Đức Quý. Phản biện: Bui Dung Bui Dung
+\section{Hình trụ. Diện tích xung quanh và thể tích hình trụ}
+\subsection{Tóm tắt lí thuyết}
+\begin{enumerate}[1]
+	\item Hình trụ  \immini{
+		Khi quay hình chữ nhật $ABCD$ một vòng quay cạnh $CD$ cố định, ta được một hình trụ
+$(h.73)$. Khi đó:\\
+- Hai đáy là hai hình tròn $(C)$ và $(D)$ bằng nhau và nằm trên hai mặt phẳng song song. \\
+- Đường thẳng $CD$ là trục của hình trụ.\\
+- $AB$ là một đường sinh. Đường sinh vuông góc với hai mặt phẳng đáy. Độ dài đường sinh là chiều cao hình trụ.
+	}{\begin{tikzpicture}[scale=1,xscale=1,yscale=.3]
+			\tkzDefPoints{0/0/C, 0/8/D, 1.8/0/F}
+		\coordinate (E) at ($(D)+(F)-(C)$);
+	\tkzDefPointBy[rotation = center C angle -45](F)
+	\tkzGetPoint{B}
+	\tkzDefPointBy[rotation = center D angle -45](E)
+	\tkzGetPoint{A}
+	\tkzDefPointBy[rotation = center C angle 180](F)
+	\tkzGetPoint{f}
+	\tkzDefPointBy[rotation = center D angle 180](E)
+	\tkzGetPoint{e}
+	\coordinate (d) at ($(C)!1.3!(D)$);
+	\coordinate (c) at ($(D)!1.3!(C)$);
+	\tkzCalcLength[cm](C,F)
+	\tkzGetLength{r}
+	\tkzDrawCircle[R](D,\r cm)
+	\draw (F) arc(0:-180:\r);
+	\draw[dashed] (F) arc(0:180:\r);
+	\draw (D)--(d) (C)--(c) (A)--(B) (E)--(F) (e)--(f)
+	(D)--(A);
+	\path[pattern=north east lines,pattern color=gray!50!brown] (B)--(A)--(D)--(C)--cycle;
+	\draw[dashed] (D)--(C)--(B);
+	\tkzLabelPoints[left](D,C)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[right](E,F)
+	\tkzLabelPoints[below](B)
+	\draw(0,-4)node[]{Hình 73};
+				\end{tikzpicture} 	}
+
+		\item Diện tích xung quanh của hình trụ \\
+	$S_{\mbox{xq}} = 2 \pi Rh.$ \\
+	$S_{\mbox{tp}} = 2 \pi Rh + 2 \pi R^2$. 
+	\item Thể tích hình trụ \\
+	$V= Sh=\pi R^2h$ ($R$ là bán kính đáy, $h$ là chiều cao, $S$ là diện tích đáy).
+
+\end{enumerate}
+\subsection{Các ví dụ}
+
+\begin{vd}
+	Một hình trụ có bán kính đường tròn đáy là $2$ cm, chiều cao là $6$ cm. Hãy tính:
+	\begin{enumerate}
+		\item Diện tích xung quanh của hình trụ.
+		\item Diện tích toàn phần của hình trụ.
+		\item Thể tích hình trụ.
+	\end{enumerate}
+	\loigiai{
+		\immini{\begin{enumerate}
+				\item Diện tích xung quanh của hình trụ là\\
+		$S_{\mbox{xq}}=2\pi Rh = 2\cdot \pi \cdot2 \cdot 6 = 24\pi \thickapprox 24\cdot 3,14 = 75,36\ (\mbox{cm}^2)$
+	\item Diện tích toán phần của hình trụ là 
+	{\allowdisplaybreaks
+	\begin{eqnarray*}
+		S_{\mbox{tp}}&=&2\pi Rh + 2\pi R^2\\
+		&=& 2\cdot \pi\cdot2\cdot 6 + 2\cdot \pi \cdot 2^2 \\
+		&=&24\pi + 8\pi =32\pi\thickapprox32\cdot 3,14 = 100,48\ (\mbox{cm}^2).
+	\end{eqnarray*}
+}
+		\item Thể tích hình trụ là: \\
+	$V = \pi R^2h=\pi\cdot 2^2\cdot 6 = 24\pi \thickapprox 24\cdot 3.14 = 75,36\ (\mbox{cm}^3)$
+		
+	\end{enumerate}	
+	}{\begin{tikzpicture}[line join=round,line cap=round,line width=.6pt,font=\footnotesize,scale=0.6]
+	\tkzDefPoints{0/0/O, 3/0/A, 0/6/O', 3/6/A'}
+   	\coordinate[label=right:$A$] (A) at (3,0);
+	\coordinate[label=left:$O$] (O) at (0,0);
+	\tkzLabelSegment[above, yshift=0.01mm](O,A){$2$}
+	\coordinate[label=right:$A'$] (A1) at ($(A)+(90:6)$);
+	\coordinate[label=left:$O'$] (O1) at ($(O)+(90:6)$);
+	\tkzLabelSegment[right](A,A'){$6$}
+	\draw (A) arc (0:-180:3 and 3/4)--($(A1)!2!(O1)$) arc (180:0:3 and 3/4) arc (0:-180:3 and 3/4) (A)--(A1)--(O1);
+	\draw[dashed] (O1)--(O)--(A) arc (0:180:3 and 3/4);
+	\fill (O)circle(2pt) (O1)circle(2pt) (A)circle(2pt) (A1)circle(2pt);
+	\end{tikzpicture}}
+}
+\end{vd}
+
+\begin{vd}
+	Một hình trụ có diện tích xung quanh là $20\pi\ \mbox{cm}^2$ và diện tích toàn phần là $28\pi\ \mbox{cm}^2$ . Tính thể tích của hình trụ đó.	
+	
+	\loigiai{
+		\immini{Ta có $S_{\mbox{đ}}= \dfrac{S_{\mbox{tp}}-S_{\mbox{xq}}}{2} = \dfrac{28\pi - 20\pi}{2}= 4\pi\ (\mbox{cm}^2)$.\\
+			Mà $S_{\mbox{đ}} = \pi R^2 \Leftrightarrow \pi R^2= 4\pi \Leftrightarrow R = 2$ (cm).\\
+			Ta có $S_{\mbox{xq}} = 2\pi Rh \Rightarrow h = \dfrac{20\pi}{2\pi R}= \dfrac{10}{2}= 5$ (cm).\\
+			Thể tích của hình trụ đó là\\
+			$V = \pi R^2h = \pi \cdot2^2\cdot 5 = 20\pi \thickapprox 62,8\ (\mbox{cm}^3).$ 
+		}{\begin{tikzpicture}[line join=round,line cap=round,line width=.6pt,font=\footnotesize,scale=0.6]
+		\coordinate[label=right:$A$] (A) at (3,0);
+		\coordinate[label=left:$O$] (O) at (0,0);
+		\coordinate[label=right:$A'$] (A1) at ($(A)+(90:6)$);
+		\coordinate[label=left:$O'$] (O1) at ($(O)+(90:6)$);
+		\draw (A) arc (0:-180:3 and 3/4)--($(A1)!2!(O1)$) arc (180:0:3 and 3/4) arc (0:-180:3 and 3/4) (A)--(A1)--(O1);
+		\draw[dashed] (O1)--(O)--(A) arc (0:180:3 and 3/4);
+		\fill (O)circle(2pt) (O1)circle(2pt) (A)circle(2pt) (A1)circle(2pt);
+		\end{tikzpicture}}
+	
+		
+				}
+\end{vd}
+\begin{vd}
+	
+Một hình trụ có chiều cao bằng $5$ cm. Biết diện tích toàn phần gấp đôi diện tích xung quanh. Tính thể tích hình trụ. 
+		\loigiai{
+			\immini{	Vì diện tích toàn phần bằng hai lần diện tích xung quanh nên \\
+				$2\pi Rh + 2\pi R^2= 4\pi Rh \Leftrightarrow 2\pi R^2 = 2\pi Rh 
+				\Leftrightarrow R = h$.\\
+				Vậy bán kính đáy là $5$ cm.\\
+				Thể tích của hình trụ là $V = \pi R^2h = \pi \cdot 5^2\cdot 5 = 125\pi\ (\mbox{cm}^3)$.}
+		{\begin{tikzpicture}[line join=round,line cap=round,line width=.6pt,font=\footnotesize,scale=0.6]
+			\coordinate[label=right:$A$] (A) at (3,0);
+			\coordinate[label=left:$O$] (O) at (0,0);
+			\coordinate[label=right:$A'$] (A1) at ($(A)+(0,3)$);
+			\coordinate[label=left:$O'$] (O1) at ($(O)+(0,3)$);
+			\draw (A) arc (0:-180:3 and 3/4)--($(A1)!2!(O1)$) arc (180:0:3 and 3/4) arc (0:-180:3 and 3/4) (A)--(A1)--(O1);
+			\draw[dashed] (O1)--(O)--(A) arc (0:180:3 and 3/4);
+			\fill (O)circle(2pt) (O1)circle(2pt) (A)circle(2pt) (A1)circle(2pt);
+			\end{tikzpicture}}
+		
+	
+				}
+\end{vd}
+
+\begin{vd}
+	Một thùng phuy hình trụ có số đo diện tích xung quanh (tính bằng mét vuông) đúng bằng số đo thể tích (tính bằng mét khối). Tính bán kính đáy của hình trụ. 		
+	\loigiai{
+		\immini{Gọi bán kính đáy và chiều cao hình trụ lần lượt là $R$ và $h$. \\
+			Ta có $S_{\mbox{xq}}=2\pi Rh\ (\mbox{m}^2)$; $V = \pi R^2h\ (\mbox{m}^3)$.\\
+			Theo đề bài hai số đo trên bằng nhau nên ta có $2\pi Rh = \pi R^2h$\\
+			 suy ra $R = 2$ (m).}
+			{\begin{tikzpicture}[line join=round,line cap=round,line width=.6pt,font=\footnotesize,scale=0.6]
+			\coordinate[label=right:$A$] (A) at (3,0);
+			\coordinate[label=left:$O$] (O) at (0,0);
+			\coordinate[label=right:$A'$] (A1) at ($(A)+(0,5)$);
+			\coordinate[label=left:$O'$] (O1) at ($(O)+(0,5)$);
+			\draw (A) arc (0:-180:3 and 3/4)--($(A1)!2!(O1)$) arc (180:0:3 and 3/4) arc (0:-180:3 and 3/4) (A)--(A1)--(O1);
+			\draw[dashed] (O1)--(O)--(A) arc (0:180:3 and 3/4);
+			\fill (O)circle(2pt) (O1)circle(2pt) (A)circle(2pt) (A1)circle(2pt);
+			\end{tikzpicture}}
+			
+			}
+\end{vd}
+
+\begin{vd}
+	Một lọ hình trụ được \lq\lq đặt khít\rq\rq\  trong một hộp giấy hình hộp chữ nhật. Biết thể tích của lọ hình trụ là $270\ \mbox{cm}^3$, tính thể tích của hộp giấy.		
+	\loigiai{
+		\immini{	Gọi bán kính và chiều cao của hình trụ lần lượt là $R$ và $h$.\\
+			Khi đó hình hộp chữ nhật có cạnh đáy là $2R$ và chiều cao là $h$.\\
+			Gọi $V_1$ và $V_2$ lần lượt là thể tích của hình trụ và hình hộp.\\
+			Ta có $\dfrac{V_1}{V_2}=\dfrac{\pi R^2h}{4R^2h}$. 
+			Do đó $\dfrac{270}{V_2}=\dfrac{\pi}{4}$.\\
+			Suy ra $V_2 = \dfrac{270\cdot 4}{\pi} \thickapprox 344\ (\mbox{cm}^3)$.\\
+			Vậy thể tích hình hộp là $344\ (\mbox{cm}^3)$.}
+	{\begin{tikzpicture}[scale = 0.3]   
+		\draw[dashed] (-7,-4,7)-- (-7,-4,-7);
+		\draw (7,-4,7)-- (7,-4,-7) (7,4,7)-- (7,4,-7) (-7,4,7)-- (-7,4,-7)  ;%Cạnh bên
+		\draw[dashed] (-7,-4,-7)--(7,-4,-7);
+		\draw (-7,-4,7)--(7,-4,7) (-7,4,7)--(7,4,7);
+		\draw[dashed] (-7,-4,-7)--(7,-4,-7) (-7,-4,-7)--(-7,4,-7);
+		\draw  (-7,4,-7)--(7,4,-7);
+		\draw (-7,-4,7)--(-7,4,7) (7,-4,7)--(7,4,7) (7,-4,-7)--(7,4,-7);
+		\draw[dashed] (0,-4,0) circle[x radius=6.4,y radius=2.7];
+		\draw (0,4,0) circle[x radius=6.4,y radius=2.7];
+		\foreach \X in {-6.4,6.4}{
+			\draw (\X,4,0) --(\X,4,0);
+		}
+		
+		\shade[left color=gray!20,right color=gray!60,opacity=0.5] 
+		(-6.4,-4,0) arc[x radius=6.4,y radius=2.7,start angle=-180,end angle=0]
+		(6.4,-4,0) -- (6.4,4,0)
+		arc[x radius=6.4,y radius=2.7,start angle=0,end angle=-180]     
+		--(-6.4,4,0) --    (-6.4,-4,0);
+		\fill[gray!10] (0,4,0) circle[x radius=6.4,y radius=2.7];
+		\end{tikzpicture}}
+	}
+\end{vd}
+
+\begin{vd}
+	Cho hình chữ nhật $ABCD$ với $AB=2a,BC=a $. Khi quay hình chữ nhật $ABCD$ quanh cạnh $AB$ một vòng thì được hình trụ có thể tích $V_1$ và khi quay hình chữ nhật $ABCD$ quanh cạnh $BC$ một vòng thì được hình trụ có thể tích $V_2 $. Tính tỉ số $\dfrac{V_1}{V_2} $. 			
+	\loigiai{
+		\immini{Khi quay hình chữ nhật $ABCD$ quanh cạnh $AB$ một vòng thì được hình trụ có chiều cao $h=AB=2a,$ bán kính đáy $R=BC=a$ nên có thể tích \\
+			$$V_1=\pi R^2h=\pi a^2\cdot 2a=2\pi a^3 (\mbox{đvtt})$$ 
+			Khi quay hình chữ nhật $ABCD$ quanh cạnh $BC$ một vòng thì được hình trụ có chiều cao $h'=BC=a,$ bán kính đáy $R'=CD=2a$ nên có thể tích\\ $$V_2=\pi R'^2h'=\pi (2a)^2\cdot a=4\pi a^3 (\mbox{đvtt})$$.
+			Vậy $\dfrac{V_1}{V_2}=\dfrac{2\pi a^3}{4\pi a^3}=\dfrac{1}{2} $.}
+	{	\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1.2]
+	\tkzDrawPoints(A,B,C,D)
+	\tkzLabelSegment(A,B){$2a$}
+	\tkzLabelSegment[right](B,C){$a$}
+\tkzDefPoint[label=below left:$A$](0,0){A}
+\tkzDefPoint[label=below right:$B$](4,0){B}
+	\tkzDefPoint[label=above right:$C$](4,2){C}
+		\tkzDefPoint[label=above left:$D$](0,2){D}
+		\tkzDrawSegments(A,B B,C C,D D,A)
+\end{tikzpicture}}
+		
+	}
+\end{vd}
+
+
+\begin{vd}
+	Một hộp sữa hình trụ có chiều cao hơn đường kính là $3$ cm. Biết diện tích vỏ hộp ( kể cả nắp) là $292,5\pi \mbox{cm}^2$. Tính thể tích của hộp sữa đó. 
+	
+	\loigiai{
+		\immini{Gọi $R$ là bán kính đáy của hộp sữa, $h$ là chiều cao của nó.\\
+			Ta có $h = 2R+3$.\\
+			Vì diện tích toàn phần của hộp sữa là $292,5\pi \mbox{cm}^2$ nên 
+			{\allowdisplaybreaks
+				\begin{eqnarray*}
+					&&	2\pi R(h+R) = 292,5\pi \\
+					&\Leftrightarrow& 		2\pi R(h+R) = 292,5\pi \\
+					&\Leftrightarrow &			2\pi R(2R + 3 + R) = 292,5\pi \\
+					&\Leftrightarrow& 			R(R + 1) = 48,75 \\
+					&\Leftrightarrow &				R^2 + R - 48,75 =  0 
+				\end{eqnarray*}
+				Giải ra được $R_1=6,5$ (chọn); $R_2= -7,5$ (loại). Vậy bán kính đáy hộp sữa là $6,5$ cm.\\
+				Chiều cao hộp sữa là $16$ cm. Thể tích hộp sữa là \\
+				$V = \pi R^2h = \pi\cdot {(6,5)}^2\cdot 16 = 676\pi\ (\mbox{cm}^3)$}
+		}
+{\begin{tikzpicture}[line join=round,line cap=round,line width=.6pt,font=\footnotesize,scale=0.6]
+\coordinate[label=right:$A$] (A) at (3,0);
+\coordinate[label=left:$O$] (O) at (0,0);
+\coordinate[label=right:$A'$] (A1) at ($(A)+(90:6)$);
+\coordinate[label=left:$O'$] (O1) at ($(O)+(90:6)$);
+\draw (A) arc (0:-180:3 and 3/4)--($(A1)!2!(O1)$) arc (180:0:3 and 3/4) arc (0:-180:3 and 3/4) (A)--(A1)--(O1);
+\draw[dashed] (O1)--(O)--(A) arc (0:180:3 and 3/4);
+\fill (O)circle(2pt) (O1)circle(2pt) (A)circle(2pt) (A1)circle(2pt);
+\end{tikzpicture}}
+
+		
+}
+\end{vd}
+
+\subsection{Luyện tập}
+
+\begin{bt}
+		Một hình trụ có bán kính đường tròn đáy là $6$ cm, chiều cao là $9$ cm. Hãy tính
+	\begin{enumerate}
+		\item Diện tích xung quanh của hình trụ.
+		\item Thể tích của hình trụ. 
+	\end{enumerate}
+
+	\loigiai{
+		\immini{\begin{enumerate}
+				\item Diện tích xung quanh của hình trụ là 
+				$ 2\cdot \pi\cdot6\cdot 9 = 108\pi\ (\mbox{cm}^2).$
+				\item Thể tích của hình trụ là $\pi\cdot 6^2\cdot 9 = 324\pi\ (\mbox{cm}^3)$.
+		\end{enumerate}	}
+		{\begin{tikzpicture}[line join=round,line cap=round,line width=.6pt,font=\footnotesize,scale=0.5]
+			\coordinate[label=right:$A$] (A) at (3,0);
+			\coordinate[label=left:$O$] (O) at (0,0);
+			\coordinate[label=right:$A'$] (A1) at ($(A)+(0,4.5)$);
+			\coordinate[label=left:$O'$] (O1) at ($(O)+(0,4.5)$);
+			\tkzDefPoints{0/0/O, 3/0/A, 0/4.5/O', 3/4.5/A'}
+			\tkzLabelSegment[below, yshift=1mm](O,A){$6$}
+			\tkzLabelSegment[right](A,A'){$9$}
+			\draw (A) arc (0:-180:3 and 3/4)--($(A1)!2!(O1)$) arc (180:0:3 and 3/4) arc (0:-180:3 and 3/4) (A)--(A1)--(O1);
+			\draw[dashed] (O1)--(O)--(A) arc (0:180:3 and 3/4);
+			\fill (O)circle(2pt) (O1)circle(2pt) (A)circle(2pt) (A1)circle(2pt);
+			\end{tikzpicture}
+		
+	
+}
+	
+}
+		
+		
+\end{bt}
+  \begin{bt}
+  	Một hình chữ nhật có chiều dài và chiều rộng lần lượt là $8$ cm, $5$ cm. Quay hình chữ nhật đó một vòng quanh chiều dài hay chiều rộng thì thể tích lớn hơn. 
+  	\loigiai{
+  		\immini{Khi quay quanh chiều dài thì $R = 5$, $h = 8$ (cm).\\
+  		$V_1 = \pi \cdot 5^2\cdot 8 = 200\pi\ (\mbox{cm}^3).$\\
+  		Khi quay quanh chiều rộng thì $R = 8$, $h = 5$ (cm).\\
+  		$V_2 = \pi \cdot 8^2\cdot 5 = 320\pi\ (\mbox{cm}^3).$\\
+  		Vì $V_2 > V_1$ nên khi quay quanh chiều rộng thì thể tích sẽ lớn hơn khi quay quanh chiều dài.}
+  		{	\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+  			\tkzInit[xmin=-1,ymin=-2,xmax=8,ymax=6]
+  			\clip (-1,-1)rectangle(4.3,2.5);
+  			\tkzDrawPoints(A,B,C,D)
+  		\tkzDefPoint[label=below left:$A$](0,0){A}
+  		\tkzDefPoint[label=below right:$B$](3.5,0){B}
+  		\tkzDefPoint[label=above right:$C$](3.5,2){C}
+  		\tkzDefPoint[label=above left:$D$](0,2){D}
+  		\tkzLabelSegment(A,B){$8$}
+  		\tkzLabelSegment[right](B,C){$5$}
+  		\tkzDrawSegments(A,B B,C C,D D,A)
+  		\end{tikzpicture}}
+  		   
+}
+  \end{bt}
+  
+   \begin{bt}
+  Người ta cắt hình trụ bằng một mặt phẳng chứa trục. Biết thiết diện là một hình vuông có diện tích bằng $36$ $\mbox{cm}^2$. Tính diện tích xung quanh và thể tích của hình trụ.
+  	\loigiai{
+  		\immini{Độ dài mỗi cạnh của thiết diện là 	$a = \sqrt{35}= 6$ (cm).\\
+  		Vậy chiều cao của hình trụ là $ h = 6$ (cm), \\ bằng đường kính của đáy hình trụ.
+  	Ta có $ 2R = 6$ do đó $R = 3$ (cm).
+  	\begin{itemize}
+  		\item Diện tích xung quanh của hình trụ là \\
+  		 		$S_{\mbox{xq}} = 2\pi Rh = 2\cdot \pi\cdot 3\cdot 6 \thickapprox 113,4\ (\mbox{cm}^2).$
+  		\item Thể tích của hình trụ là \\
+  		 $V = \pi R^2h =\pi\cdot 3^2\cdot 6 \thickapprox 169,56\ (\mbox{cm}^3).$
+  		\end{itemize}  }
+  	{\begin{tikzpicture}[line join=round,line cap=round,line width=.6pt,font=\footnotesize,scale=0.5]
+  		\clip(-4.5,-1) rectangle (4.5,7.5);
+  			\tkzDrawSegments[dashed](A,D)
+  		\tkzDrawSegments(B,C)
+  			\coordinate[label=right:$A$] (A) at (3,0);
+  	 		\coordinate[label=left:$D$] (D) at (-3,0);
+  		\coordinate[label=left:$C$] (C) at (-3,6);
+  		\coordinate[label=below left:$O$](O) at (0,0);
+  		\coordinate[label=above right:$B$](B) at (3,6);
+  		\coordinate (A1) at ($(A)+(0,6)$);
+  		\coordinate[label=above right:$O'$](O') at (0,6);
+  		\coordinate(O1) at ($(O)+(0,6)$);
+  	 	\draw (A) arc (0:-180:3 and 3/4)--($(A1)!2!(O1)$) arc (180:0:3 and 3/4) arc (0:-180:3 and 3/4) (A)--(A1)--(O1);
+  		\draw[dashed] (O1)--(O)--(A) arc (0:180:3 and 3/4);
+  		\fill (O)circle(2pt) (O')circle(2pt) (A)circle(2pt)  (C)circle(2pt) (D)circle(2pt)  (B)circle(2pt);
+  		  		\end{tikzpicture}
+  	}	
+  		}
+  \end{bt}
+\begin{bt}
+		Một hình trụ có chu vi đáy là $24 \pi$ cm và diện tích toàn phần là $768 \pi \mbox{cm}^2$. Tính thể tích của hình trụ. 
+	\loigiai{
+		\immini{Ta có $C = 2\pi R$, suy ra \\
+		$R = \dfrac{C}{2\pi}=  \dfrac{24\pi}{2\pi}= 12$ (cm).
+		Vì dện tích toàn phần của hình trụ là $768\pi\ \mbox{cm}^2$ \\ 
+		nên $2\pi R(h+R) = 768\pi$, hay $2\pi \cdot 12(h+12) = 768\pi \Rightarrow h + 12 = 32$\\
+		$\Rightarrow h = 20$ (cm).\\
+		Vậy thể tích của hình trụ là\\
+		$V = \pi R^2h = \pi \cdot 12^2\cdot 20 = 2880\pi\ (\mbox{cm}^3).$}
+{	\begin{tikzpicture}[line join=round,line cap=round,line width=.6pt,font=\footnotesize,scale=0.5]
+	\coordinate[label=right:$A$] (A) at (3,0);
+	\coordinate[label=left:$O$] (O) at (0,0);
+	\coordinate[label=right:$A'$] (A1) at ($(A)+(90:6)$);
+	\coordinate[label=left:$O'$] (O1) at ($(O)+(90:6)$);
+	\draw (A) arc (0:-180:3 and 3/4)--($(A1)!2!(O1)$) arc (180:0:3 and 3/4) arc (0:-180:3 and 3/4) (A)--(A1)--(O1);
+	\draw[dashed] (O1)--(O)--(A) arc (0:180:3 and 3/4);
+	\fill (O)circle(2pt) (O1)circle(2pt) (A)circle(2pt) (A1)circle(2pt);
+	\end{tikzpicture}}
+	
+	}
+\end{bt}
+
+\begin{bt}
+	Tỉ số giữa diện tích xung quanh và diện tích toàn phần của một hình trụ là $\dfrac{3}{5}$. Biết bán kính đáy là $6$ cm, tính chiều cao của hình trụ.  
+	\loigiai{
+		\immini{Gọi bán kính đáy và chiều cao của hình trụ lần lượt là $R$ và $h$. ta có\\
+	$S_{\mbox{xq}}=2\pi Rh = 2\pi \cdot 6h = 12\pi h.$\\
+	$S_{\mbox{tp}}=2\pi R(h+R) = 2\pi \cdot 6(h+6).$
+	Theo đề bài ta có $\dfrac{S_{\mbox{xq}}}{S_{\mbox{xq}}} = \dfrac{3}{5}.$\\
+	Suy ra  $\dfrac{12\pi h}{12\pi (h+6)}= \dfrac{3}{5}.$ Giải ra ta được $h = 9$ (cm).}
+{	\begin{tikzpicture}[line join=round,line cap=round,line width=.6pt,font=\footnotesize,scale=0.5]
+	\coordinate[label=right:$A$] (A) at (3,0);
+	\coordinate[label=left:$O$] (O) at (0,0);
+	\coordinate[label=right:$A'$] (A1) at ($(A)+(90:5)$);
+	\coordinate[label=left:$O'$] (O1) at ($(O)+(90:5)$);
+	\tkzLabelSegment[right](A,A'){$h$}
+	\draw (A) arc (0:-180:3 and 3/4)--($(A1)!2!(O1)$) arc (180:0:3 and 3/4) arc (0:-180:3 and 3/4) (A)--(A1)--(O1);
+	\draw[dashed] (O1)--(O)--(A) arc (0:180:3 and 3/4);
+	\fill (O)circle(2pt) (O1)circle(2pt) (A)circle(2pt) (A1)circle(2pt);
+	\end{tikzpicture}}
+	
+}
+\end{bt}
+\begin{bt}
+	Một hình trụ có thể tích là $300$ $\mbox{cm}^3$ và diện tích xung quanh là $120$    $\mbox{cm}^2$. Tính diện tích toàn phần của hình trụ đó.
+	\loigiai{
+		\immini{Gọi bán kính đáy và chiểu cao của hình trụ lần lượt là $R$ và $h$.\\
+		Ta có $V = \pi R^2h = 300\ (\mbox{cm}^3$).\\
+		$S_{\mbox{xq}} = 2\pi Rh = 120\ (\mbox{cm}^2)$.\\
+		Do đó $\dfrac{\pi R^2h}{2\pi Rh}=\dfrac{300}{120} \Rightarrow R = 5$ (cm).\\
+		$S_{\mbox{tp}} = 2\pi Rh + 2\pi R^2 = 120 + 157 = 277\ (\mbox{cm}^2).$}
+	{	\begin{tikzpicture}[line join=round,line cap=round,line width=.6pt,font=\footnotesize,scale=0.5]
+		\coordinate[label=right:$A$] (A) at (3,0);
+		\coordinate[label=left:$O$] (O) at (0,0);
+		\coordinate[label=right:$A'$] (A1) at ($(A)+(90:5)$);
+		\coordinate[label=left:$O'$] (O1) at ($(O)+(90:5)$);
+		\draw (A) arc (0:-180:3 and 3/4)--($(A1)!2!(O1)$) arc (180:0:3 and 3/4) arc (0:-180:3 and 3/4) (A)--(A1)--(O1);
+		\draw[dashed] (O1)--(O)--(A) arc (0:180:3 and 3/4);
+		\fill (O)circle(2pt) (O1)circle(2pt) (A)circle(2pt) (A1)circle(2pt);
+		\end{tikzpicture}}
+		
+	}
+\end{bt}
+
+\begin{bt}
+	Một hình trụ có diện tích xung quanh là $24\pi$ $\mbox{cm}^2$ và diện tích toàn phần là $42\pi$ $\mbox{cm}^2$. Tính thể tích của hình trụ đó. 
+	\loigiai{
+		\immini{Gọi bán kính đáy và chiều cao của hình trụ lần lượt là $R$ và $h$.\\
+		 Ta có \\
+		$S_{\mbox{đ}}=\dfrac{S_{\mbox{tp}}- S_{\mbox{xq}}}{2}=\dfrac{42\pi - 24\pi }{2} = 9\pi\ (\mbox{cm}^2).$\\
+		$S_{\mbox{đ}} = 9\pi \Leftrightarrow \pi R^2 = 9\pi \Leftrightarrow R = 3$ (cm).
+		\\ Ta có $S_{\mbox{xq}} = 2\pi Rh \Rightarrow h = \dfrac{S_{\mbox{xq}}}{2\pi R}= 4$ (cm).\\
+		Do đó thể tích của hình trụ là $V = \pi R^2h = \pi \cdot 3^2\cdot 4 = 36\pi\ (\mbox{cm}^3).$}
+		{	\begin{tikzpicture}[line join=round,line cap=round,line width=.6pt,font=\footnotesize,scale=0.5]
+		\coordinate[label=right:$A$] (A) at (3,0);
+		\coordinate[label=left:$O$] (O) at (0,0);
+		\coordinate[label=right:$A'$] (A1) at ($(A)+(90:5)$);
+		\coordinate[label=left:$O'$] (O1) at ($(O)+(90:5)$);
+		\draw (A) arc (0:-180:3 and 3/4)--($(A1)!2!(O1)$) arc (180:0:3 and 3/4) arc (0:-180:3 and 3/4) (A)--(A1)--(O1);
+		\draw[dashed] (O1)--(O)--(A) arc (0:180:3 and 3/4);
+		\fill (O)circle(2pt) (O1)circle(2pt) (A)circle(2pt) (A1)circle(2pt);
+		\end{tikzpicture}}
+	
+
+}
+\end{bt}
+\begin{bt}
+	Một hình trụ có bán kính đáy bằng chiều cao, thiết diện đi qua trục có diện tích bằng $
+	72$ $\mbox{cm}^2$. Tính diện tích xung quanh, diện tích toàn phần và thể tích của hình trụ.
+	\loigiai{ 
+		\immini{Gọi bán kính đáy là $R$, chiều cao là $h$.\\
+		Theo đề bài ta có $R = h$ và $ 2Rh = 72 \Leftrightarrow R^2 = 36$
+		$ \Leftrightarrow R_1 = 6$ \\
+		(thỏa mãn), $R_2 = - 6$ (loại).	Do đó $ R = h = 6$ cm.
+		\begin{itemize}
+			\item Diện tích xung quanh bằng\\
+			 $2\pi Rh = 2\pi\cdot Rh = 2\pi \cdot 6\cdot 6 = 72\pi\ (\mbox{cm}^2)$.
+			\item Diện tích toàn phần bằng \\
+			$ 2\pi Rh+ 2\pi R^2 = 2\pi \cdot 6\cdot 6 + 2\pi \cdot 6^2 = 144\pi\ (\mbox{cm}^2).$
+			\item Thể tích của hình trụ bằng $\pi R^2h = \pi\cdot 6^2\cdot 6 = 216\pi\ (\mbox{cm}^3)$. 
+			\end{itemize}}
+			{\begin{tikzpicture}[line join=round,line cap=round,line width=.6pt,font=\footnotesize,scale=0.6]
+					\tkzDrawSegments[dashed](A,D)
+			\tkzDrawSegments(B,C)
+			\coordinate[label=right:$A$] (A) at (3,0);
+			\coordinate[label=left:$D$] (D) at (-3,0);
+			\coordinate[label=left:$C$] (C) at (-3,4);
+			\coordinate[label=below left:$O$](O) at (0,0);
+			\coordinate[label=above right:$B$](B) at (3,4);
+			\coordinate (A1) at ($(A)+(0,4)$);
+			\coordinate[label= above:$O'$] (O1) at ($(O)+(0,4)$);
+			\draw (A) arc (0:-180:3 and 3/4)--($(A1)!2!(O1)$) arc (180:0:3 and 3/4) arc (0:-180:3 and 3/4) (A)--(A1)--(O1);
+			\draw[dashed] (O1)--(O)--(A) arc (0:180:3 and 3/4);
+			\fill (O)circle(2pt) (O1)circle(2pt) (A)circle(2pt) (A1)circle(2pt);
+			\end{tikzpicture}}
+		}
+\end{bt}
+
+
+\begin{bt}
+	Một hình trụ có chiều cao là $18$ cm và diện tích toàn phần là $176\ \mbox{cm}^2$. Chứng minh rằng diện tích xung quanh hình trụ bằng $9$ lần diện tích đáy. 
+	\loigiai{
+		\immini{ 
+		Gọi bán kính đáy và chiều cao của hình trụ lần lượt là $R$ và $h$.\\
+		 Vì diện tích toàn phần bằng $176\pi\ \mbox{cm}^2$ nên ta có 
+		{\allowdisplaybreaks
+			\begin{eqnarray*}
+				&&	2\pi R(h+R) = 176 \pi \\
+				&\Leftrightarrow& 		2\pi R(18+R) = 176 \pi \\
+				&\Leftrightarrow &				R^2 + 18R - 88 =  0 
+			\end{eqnarray*}
+			Giải ra được $R_1= 4\ (\mbox{chọn}); R_2= -22\ (\mbox{loại})$.\\
+			Vậy diện tích đáy hình trụ là $S_{\mbox{đ}}=\pi R^2 = 16\pi\ (\mbox{cm}^2)$.\\
+			Diện tích xung quanh hinh tru là \\
+			$S_{\mbox{xq}} = 2\pi Rh = 2\pi\cdot4\cdot 18 = 144 \pi\ (\mbox{cm}^2).$
+			Do đó $\dfrac{S_{\mbox{xq}}}{S_{\mbox{đ}}}=\dfrac{144\pi}{16\pi} = 9$ (lần).	
+	}
+}
+		{	\begin{tikzpicture}[line join=round,line cap=round,line width=.6pt,font=\footnotesize,scale=0.5]
+		\coordinate[label=right:$A$] (A) at (3,0);
+		\coordinate[label=left:$O$] (O) at (0,0);
+		\coordinate[label=right:$A'$] (A1) at ($(A)+(90:8)$);
+		\coordinate[label=left:$O'$] (O1) at ($(O)+(90:8)$);
+		\draw (A) arc (0:-180:3 and 3/4)--($(A1)!2!(O1)$) arc (180:0:3 and 3/4) arc (0:-180:3 and 3/4) (A)--(A1)--(O1);
+		\draw[dashed] (O1)--(O)--(A) arc (0:180:3 and 3/4);
+		\fill (O)circle(2pt) (O1)circle(2pt) (A)circle(2pt) (A1)circle(2pt);
+		\end{tikzpicture}}
+				
+		
+		}
+\end{bt}
+\begin{bt}
+	Cho hình chữ nhật $ABCD$ có $AB > BC$. Biết diện tích hình chữ nhật là $48$ $\mbox{cm}^2$, chu vi là $28$ cm. Cho hình chữ nhật quay quanh cạnh $AB$ một vòng ta đuợc một hình trụ. Tính dện tích xung quanh, diện tích toàn phần và thể tích của hình trụ này. 
+	\loigiai{
+		\immini{
+		Từ đề bài ta có $\heva{AB + BC = 14\\ AB\cdot BC = 48.}$ \\
+		Suy ra $AB, BC$ là nghiệm của phương trình: $x^2 - 14x + 48 = 0$.\\
+		Giải phương trình ta đươc $x_1 = 6$, $x_2 = 8$.\\
+		Do $AB > BC$ nên $AB = 8$; $BC = 6$.
+		\begin{enumerate}
+			\item 	Diện tích xung quanh của hình trụ là \\
+		$S_{\mbox{xq}} = 2\cdot \pi\cdot BC\cdot AB = 2\pi\cdot 6\cdot 8 = 96\pi\ (\mbox{cm}^2).$
+	\item Diện tích toàn phần của hình trụ là \\
+	 $S_{\mbox{tp}} = S_{\mbox{xq}}+2S_{\mbox{đ}} = 96\pi + 2\pi R^2= 96\pi + 2\pi\cdot 6^2 =  168\pi\ (\mbox{cm}^2)$.
+	 \item Thể tích của hình trụ là \\
+	 $V = \pi\cdot BC^2\cdot AB = \pi\cdot 6^2\cdot 8 = 288\pi\ (\mbox{cm}^3).$
+		\end{enumerate} }
+	{\begin{tikzpicture}[line join=round,line cap=round,line width=.6pt,font=\footnotesize,scale=0.8]
+		\tkzDefPoints{0/0/A, 3/0/D, 0/4/B, 3/4/C}
+		\tkzDrawSegments[dashed](A,B)
+		\coordinate[label=right:$D$] (D) at (3,0);
+		\coordinate[label=left:$A$] (A) at (0,0);
+		\coordinate[label=right:$C$] (A1) at ($(D)+(90:4)$);% vẽ đểm C cách D 4 đơn vị
+		\coordinate[label=left:$B$] (O1) at ($(A)+(90:4)$);
+		\draw (D) arc (0:-180:3 and 3/4)--($(C)!2!(B)$) arc (180:0:3 and 3/4) arc (0:-180:3 and 3/4) (D)--(C)--(B);
+		\draw[dashed] (D)--(A)--(D) arc (0:180:3 and 3/4);%cung tròn DA
+		\fill (A)circle(2pt) (B)circle(2pt) (D)circle(2pt) (C)circle(2pt);% Đánh dấu điểm cho đậm hơn
+			\end{tikzpicture}}
+					}
+				
+\end{bt}
+

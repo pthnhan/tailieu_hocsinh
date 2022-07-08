@@ -1,0 +1,1177 @@
+\section{HỆ THỨC VỀ CẠNH VÀ ĐƯỜNG CAO}
+\subsection{Kiến thức cần nhớ}
+\immini{Cho tam giác $ABC$ vuông tại $A$, đường cao $AH$.\\ Đặt $AB=c,\ BC=a,\ CA=b,\ AH=h$,\\ $BH=c',\ CH=b'$. Khi đó ta có các hệ thức sau
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item 	$a^2=b^2+c^2$ 
+			\item $a\cdot h= b\cdot c$
+			\item $a\cdot b'=b^2$
+			\item $a\cdot c'=c^2$
+			\item $b'\cdot c'=h^2$
+			\item $\dfrac{1}{h^2}=\dfrac{1}{a^2}+\dfrac{1}{b^2}$.
+		\end{itemize}
+	\end{multicols}
+}{\begin{tikzpicture}
+	\tkzInit[ymin=-0.5,ymax=4,xmin=-0.5,xmax=5.5]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/0/B,5/0/C,0/4/X, 2/-0.5/Y}
+	\coordinate (I) at ($(B)!0.5!(C)$);
+	\tkzInterLC(I,X)(I,B) \tkzGetPoints{Y}{A}
+	\tkzDefPointBy[projection = onto C--B](A)    \tkzGetPoint{H}
+		\tkzDrawSegments(A,B B,C C,A A,H)
+	\tkzDrawPoints[fill=black](A,B,C,H)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[left](B)
+	\tkzLabelPoints[right](C)
+	\tkzLabelPoints[below](H)
+	\node at (0.5,1.3) [left]{$ c $};
+	\node at (2.8,0) [above]{$ b' $};
+	\node at (2.8,1.2) [above]{$ b $};
+	\node at (1.4,0.6) [above]{$ h $};
+	\node at (0.6,0) [above]{$ c' $};
+	\node at (2.5,0) [below]{$ a $};
+	\tkzMarkRightAngles[size=0.2](B,A,C A,H,B)
+
+	\end{tikzpicture}}
+\subsection{Các ví dụ}
+\begin{vd}
+	Cho tam giác $ ABC $ vuông tại $ A $, đường cao $ AH. $ Biết $ AB=3\ \text{cm},\ AC=4\ \text{cm}.$ Tính $ BC,\ AH,\ BH,\ CH.$
+	\loigiai{
+		\immini{Ta có 
+			\begin{align*}
+			& BC^2=AB^2+AC^2=3^2+4^2=25 \Rightarrow BC=5\ \text{cm}.\\
+			&AH\cdot BC=AB\cdot AC\Rightarrow AH=\dfrac{AB\cdot AC}{BC}=\dfrac{3\cdot 4}{5}=2{,}4\ \text{cm}.\\ &BH\cdot BC=AB^2\Rightarrow BH=\dfrac{AB^2}{BC}=\dfrac{3^2}{5}=1{,}8\ \text{cm}.\\ & CH=BC-BH=3{,}2\ \text{cm}.
+			\end{align*}
+		}
+		{\begin{tikzpicture}
+			\tkzInit[ymin=-0.3,ymax=4,xmin=-0.5,xmax=4.5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{0/0/A,4/0/C,0/3/B}
+			\tkzDefLine[orthogonal=through A](C,B)\tkzGetPoint{c}
+			\tkzInterLL(A,c)(B,C) \tkzGetPoint{H}
+			\tkzDrawSegments(A,B B,C C,A A,H)
+			\tkzDrawPoints[fill=black](A,B,C,H)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above](H,B)
+			\tkzMarkRightAngles(A,H,C B,A,C)
+			\node at (0,1.5) [left]{$ 3 $};
+			\node at (2,0) [above]{$ 4 $};
+			%\tkzLabelPoints[above]()
+			%\tkzLabelPoints[below]()
+			\end{tikzpicture}}	
+	}
+\end{vd}
+\begin{vd}
+	Cho tam giác $ ABC $ vuông tại $ A $ có đường cao $ AH $ ($ H $ thuộc cạnh $ BC $) biết 
+	$ AB = a,\ BC = 2a $. Tính theo $ a $ độ dài $ AC $ và $ AH $.
+	\loigiai{
+		\immini{Theo định lí Pitago, ta có $BC^2=AB^2+AC^2$, suy ra $$AC^2=BC^2-AB^2=(2a)^2-a^2=3a^2 \Rightarrow AC=a\sqrt{3}.$$
+			Lại có $AH\cdot BC=AB\cdot AC \Rightarrow AH=\dfrac{AB\cdot AC}{BC}=\dfrac{a\sqrt{3}}{2}.$
+		}{\begin{tikzpicture}
+			\tkzInit[ymin=-0.5,ymax=2.5,xmin=-0.5,xmax=3.5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{0/0/A,3/0/C,0/2/B}
+			\tkzDefLine[orthogonal=through A](C,B)\tkzGetPoint{c}
+			\tkzInterLL(A,c)(B,C) \tkzGetPoint{H}
+			\tkzDrawSegments(A,B B,C C,A A,H)
+			\tkzDrawPoints(A,B,C,H)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above](H,B)
+			\tkzMarkRightAngles(A,H,C)
+			\node at (0,1) [left]{$ a $};
+			\node at (1.6,1) [above]{$ 2a $};
+			%\tkzLabelPoints[above]()
+			%\tkzLabelPoints[below]()
+			\end{tikzpicture}}	
+	}
+\end{vd}
+\begin{vd}
+	Cho tam giác $ABC$ vuông tại có $AB=3$ cm, $AC=4$ cm, đường cao $AH$.
+	Gọi $E$, $F$ là hình chiếu của $H$ lên $AB$, $AC$. Tính diện tích tứ giác $AEHF$.
+	\loigiai{
+		\immini{Tứ giác $AEHF$ có ba góc $A,\ E,\ F$ là góc vuông nên $AEHF$ là hình chữ nhật. Do đó $S_{AEHF}=AE\cdot AF$.\\
+			Ta có $BC=5$ cm, $AH=2{,}4$ cm, nên trong các tam giác vuông $AHB$ và $AHC$ ta có 
+			\begin{align*}
+			& AE \cdot AB=AH^2 \Rightarrow AE=\dfrac{AH^2}{AB}=2{,}76\ \text{cm}. \\ & AF \cdot AC=AH^2 \Rightarrow AF=\dfrac{AH^2}{AC}=1{,}44\ \text{cm}.
+			\end{align*}
+		}{\begin{tikzpicture}
+			\tkzInit[ymin=-0.5,ymax=3.5,xmin=-0.5,xmax=4.5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{0/0/A,4/0/C,0/3/B}
+			\tkzDefLine[orthogonal=through A](C,B)\tkzGetPoint{c}
+			\tkzInterLL(A,c)(B,C) \tkzGetPoint{H}
+			\tkzDefPointBy[projection = onto A--B](H)    \tkzGetPoint{E}
+			\tkzDefPointBy[projection = onto A--C](H)    \tkzGetPoint{F}
+			\tkzDrawSegments(A,B B,C C,A A,H H,E H,F)
+			\tkzDrawPoints[fill=black](A,B,C,H,E,F)
+			\tkzLabelPoints[left](A,E)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[below](F)
+			\tkzLabelPoints[above](H,B)
+			\tkzMarkRightAngles(A,H,C B,A,C H,E,A H,F,A)
+			\node at (0,1.2) [left]{$ 3 $};
+			\node at (2,0) [above]{$ 4 $};
+			%\tkzLabelPoints[above]()
+			%\tkzLabelPoints[below]()
+			\end{tikzpicture} }	
+		Suy ra $S_{AEHF}=2{,}76\cdot 1{,}44=3{,}9744$ cm$^2$.
+	}
+\end{vd}
+\begin{vd}
+	Cho tam giác $ABC$ vuông tại $A$ có đường cao $AH$. Biết $BH=25\ \text{cm}$, $CH=144\ \text{cm}$. Tính $AB,\ AC,\ BC,\ AH$.
+	\loigiai{
+		\immini{Ta có 
+			\begin{align*}
+			&BC=BH+HC=25+144=169\ \text{cm}.\\& AB^2=BH\cdot BC=25\cdot 169 \Rightarrow AB=65\ \text{cm}.\\ & AC^2=CH\cdot CB =144 \cdot 169 \Rightarrow AC=156\ \text{cm}.\\ & AH^=BH\cdot CH =25\cdot 144 \Rightarrow AH=60\ \text{cm}.
+			\end{align*}
+		}{\begin{tikzpicture}[scale=0.8]
+			\tkzInit[ymin=-0.5,ymax=3.8,xmin=-0.5,xmax=4.8]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{0/0/A,4/0/C,0/3/B}
+			\tkzDefLine[orthogonal=through A](C,B)\tkzGetPoint{c}
+			\tkzInterLL(A,c)(B,C) \tkzGetPoint{H}
+			\tkzDrawSegments(A,B B,C C,A A,H)
+			\tkzDrawPoints[fill=black](A,B,C,H)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](C)
+			%	\tkzLabelPoints[below](F)
+			\tkzLabelPoints[above](H,B)
+			\tkzMarkRightAngles(A,H,C B,A,C)
+			\node at (1.2,2.8) [left]{$ 25 $};
+			\node at (3,1) [above]{$ 144 $};
+			%\tkzLabelPoints[above]()
+			%\tkzLabelPoints[below]()
+			\end{tikzpicture} }
+	}
+\end{vd}
+\begin{vd}
+	Cho tam giác $ABC$ vuông tại $A$ có đường cao $AH$. Biết $BH=\dfrac{25}{13}\ \text{cm}$, $AH=\dfrac{60}{13}\ \text{cm}$. Tính $AB,\ AC,\ BC,\ CH$.
+	\loigiai{
+		\immini{Ta có 
+			\begin{align*}
+			& BH\cdot CH=AH^2 \Rightarrow CH=\dfrac{AH^2}{BH}=\dfrac{144}{13}\ \text{cm}.\\& BC=BH+CH=13 \ \text{cm}.\\& AB^2=BH^2+CH^2=\dfrac{65^2}{13^2}\Rightarrow AB=\dfrac{65}{13}\ \text{cm}. \\& AC^2=CH\cdot CB=144 \Rightarrow AC=12\ \text{cm}.
+			\end{align*}	
+		}{\begin{tikzpicture}
+			\tkzInit[ymin=-0.5,ymax=3.5,xmin=-0.5,xmax=4.5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{0/0/A,4/0/C,0/3/B}
+			\tkzDefLine[orthogonal=through A](C,B)\tkzGetPoint{c}
+			\tkzInterLL(A,c)(B,C) \tkzGetPoint{H}
+			\tkzDrawSegments(A,B B,C C,A A,H)
+			\tkzDrawPoints[fill=black](A,B,C,H)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above](H,B)
+			\tkzMarkRightAngles(A,H,C B,A,C)
+			\node at (1,2.8) [left]{$ \frac{25}{13} $};
+			\node at (0.5,1) [above]{$ \frac{60}{13} $};
+			\end{tikzpicture} }}
+\end{vd}
+
+\begin{vd}
+	Cho tam giác $ABC$ vuông tại $B$, đường cao $BH=\dfrac{12}{5}$ cm và $4AB=3BC$. 
+	Tính $AB,\ AC,\ BC,\ AH,\ CH$.
+	\loigiai{ \immini{Từ giả thiết ta suy ra $AB=\dfrac{3}{4}BC$.\\ Mặt khác, ta có $\dfrac{1}{BH^2}=\dfrac{1}{BA^2}+\dfrac{1}{BC^2}$. Suy ra 
+			$$\dfrac{25}{144}=\dfrac{16}{9BC^2}+\dfrac{1}{BC^2}=\dfrac{25}{9BC^2} \Rightarrow BC^2=16\Rightarrow BC=4\ \text{cm}.$$
+			Suy ra $BA=3$ cm. Từ đây, ta tìm được $AC=5$ cm, $AH=1{,}8$ cm, $CH=3{,}2$ cm.
+			
+			
+		}{\begin{tikzpicture}
+			\tkzInit[ymin=-0.5,ymax=3.5,xmin=-0.5,xmax=4.5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{0/0/B,4/0/C,0/3/A}
+			\tkzDefLine[orthogonal=through B](C,A)\tkzGetPoint{c}
+			\tkzInterLL(B,c)(A,C) \tkzGetPoint{H}
+			\tkzDrawSegments(A,B B,C C,A B,H)
+			\tkzDrawPoints[fill=black](A,B,C,H)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above](H,A)
+			\tkzMarkRightAngles(B,H,C A,B,C)
+			\node at (0.8,1) [left]{$ \frac{12}{5} $};
+			\end{tikzpicture}}
+	}
+\end{vd}
+\begin{vd}
+	Cho hình vuông $ABCD$ có cạnh bằng $2\sqrt{5}$ cm. Gọi $M$, $N$ lần lượt là trung điểm của $AD$, $DC$ và $I$ là giao điểm của $AN$ và $BM$.
+	\begin{enumerate}
+		\item Chứng minh rằng $AN$ vuông góc với $MB$.
+		\item Tính $AI$, $MI$.
+		\item Tính diện tích tứ giác $BINC$.
+	\end{enumerate}
+	\loigiai{  
+			\begin{enumerate}
+				\item \immini{	Xét hai tam giác $ADN$ và $BAM$ có $\widehat{A}=\widehat{D}=90^\circ$, $AD=AB$, $DN=AM$. Suy ra $\triangle ADN=\triangle BAM$ (c-g-c), do đó\\ $\widehat{DAN}=\widehat{ABM}$. Suy ra $$\widehat{MAI}+\widehat{AMI}=\widehat{DAN}+\widehat{AMB}=\widehat{ABM}+\widehat{AMB}=90^\circ.$$
+				Từ đây, ta có $AN\perp BM.$}
+			{\begin{tikzpicture}[scale=0.8]
+				\tkzInit[ymin=-0.5,ymax=4.8,xmin=-0.8,xmax=4.8]
+				\tkzClip
+				\tkzSetUpPoint[color=black,fill=white,size=6]
+				\tkzDefPoints{0/0/A,4/0/B,4/4/C,0/4/D}
+				\coordinate (M) at ($(A)!0.5!(D)$);
+				\coordinate (N) at ($(C)!0.5!(D)$);
+				\tkzInterLL(A,N)(B,M) \tkzGetPoint{I}
+				
+				\tkzDrawSegments(A,B B,C C,D D,A A,N B,M)
+				\tkzDrawPoints[fill=black](A,B,C,I,D,M,N)
+				\tkzLabelPoints[left](A,D,M)
+				\tkzLabelPoints[right](C,B)
+				\tkzLabelPoints[above](N,I)
+				\tkzMarkRightAngles(B,I,A)
+				\end{tikzpicture} }
+				\item Ta có $BM^2=AM^2+AB^2=5+20=25 \Rightarrow BM=5 \ \text{cm}.$ \\ Suy ra $MI=\dfrac{AM^2}{MB}=1\ \text{cm}$, $AI^2=AM^2-MI^2=5-1=4 \Rightarrow AI=2\ \text{cm}$.
+				\item Ta có $S_{BCNI}=S_{BCN}+S_{BIN}=\dfrac{1}{2}\left(BI\cdot IN+BC\cdot CN\right)=11\ \text{cm}^2$.
+		\end{enumerate} 
+		
+	}
+\end{vd}
+\begin{vd}
+	Cho tam giác $ABC$ vuông tại $A$ có $BC=5$ cm, đường cao $AH=\dfrac{12}{5}$ cm. Tính $BH$, $CH$.
+	\loigiai{\immini{ Giả sử $BH \geq CH$. Ta có $BH+HC=BC=5$. \hfill (1) \\
+			Mặt khác $BH\cdot CH=AH^2=\dfrac{144}{25}$. Từ (1) ta có $(BH+CH)^2=25$, suy ra $$BH^2+2BH\cdot CH+CH^2=25 \Rightarrow BH^2+CH^2=25-\dfrac{288}{25}=\dfrac{337}{25}.$$
+					}
+		{\begin{tikzpicture}
+			\tkzInit[ymin=-0.5,ymax=3.5,xmin=-0.5,xmax=4.5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{0/0/A,4/0/C,0/3/B}
+			\tkzDefLine[orthogonal=through A](C,B)\tkzGetPoint{c}
+			\tkzInterLL(A,c)(B,C) \tkzGetPoint{H}
+			\tkzDrawSegments(A,B B,C C,A A,H)
+			\tkzDrawPoints[fill=black](A,B,C,H)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above](H,B)
+			\tkzMarkRightAngles(A,H,C B,A,C)
+			\node at (0.8,1) [left]{$ \frac{12}{5} $};
+			\end{tikzpicture}}
+	\noindent
+	Do đó $$(BH-CH)^2=BH^2-2BH\cdot CH+CH^2=\dfrac{337}{25}-\dfrac{288}{25}=\dfrac{49}{25}.$$
+	Suy ra $BH-CH=\dfrac{7}{5}$. \hfill (2)\\
+	Từ (1) và (2) ta có $$BH=\dfrac{(BH+CH)+(BH-CH)}{2}=\dfrac{16}{5}\ \text{cm},\ CH=BC-BH=\dfrac{9}{5}\ \text{cm}.$$	
+	}
+\end{vd}
+\begin{vd}
+	Cho tam giác $ABC$ vuông tại $A$, đường cao $AH$, kẻ $HM$ vuông góc với $AB$ tại $M$. Chứng minh rằng $BM=\dfrac{AB^3}{BC^2}$. 
+	\loigiai{ \immini{ Trong tam giác vuông $AHB$ ta có $BM\cdot BA=BH^2$, suy ra $BM=\dfrac{BH^2}{AB}$.\\
+			Mặt khác, trong tam giác vuông $ABC$, ta có $BH\cdot BC=AB^2$, hay $BH=\dfrac{AB^2}{BC}$. Do đó $$BM=\dfrac{AB^4}{AB\cdot BC^2}=\dfrac{AB^3}{BC^2}.$$
+			Vậy bài toán được chứng minh.
+			
+		}{\begin{tikzpicture}
+			\tkzInit[ymin=-0.5,ymax=3.5,xmin=-0.9,xmax=4.5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=black,size=6]
+			\tkzDefPoints{0/0/A,4/0/C,0/3/B}
+			\tkzDefLine[orthogonal=through A](C,B)\tkzGetPoint{c}
+			\tkzInterLL(A,c)(B,C) \tkzGetPoint{H}
+			\tkzDefPointBy[projection = onto A--B](H)    \tkzGetPoint{M}
+			\tkzDrawSegments(A,B B,C C,A A,H H,M)
+			\tkzDrawPoints(A,B,C,H,M)
+			\tkzLabelPoints[left](A,M)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above](H,B)
+			\tkzMarkRightAngles(A,H,C B,A,C H,M,A)
+			\end{tikzpicture} }
+		
+	}
+\end{vd}
+\begin{vd} Cho hình vuông $ABCD$, $I$ là điểm thay đổi trên cạnh $AB$ ($I$ khác $A$ và $B$). Đường thẳng $DI$ cắt $BC$ tại $K$. Chứng minh rằng $\dfrac{1}{DI^2}+\dfrac{1}{DK^2}$ không đổi. 
+	\loigiai{
+		\immini{Qua $D$ kẻ đường thẳng vuông góc với $DI$, cắt $BC$ tại $H$.\\
+			Xét hai tam giác $ADI$ và $CDH$ có $\widehat{A}=\widehat{C}=90^\circ$, $AD=DC$, $\widehat{ADI}=\widehat{CDH}$ (cùng phụ với góc $\widehat{CDI}$). Suy ra $\triangle ADI=\triangle CDH$ (g-c-g), do đó $DI=DH$. Suy ra 
+			$$\dfrac{1}{DI^2}+\dfrac{1}{DK^2}=\dfrac{1}{DH^2}+\dfrac{1}{DK^2}=\dfrac{1}{DC^2}.$$
+			Từ đó, ta có đpcm.
+		}
+		{ 
+			\begin{tikzpicture}[scale=0.7]
+			\tkzInit[ymin=-1.7,ymax=8,xmin=-1,xmax=6]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{0/0/A,4/0/B,4/4/C,0/4/D, 3/0/I}
+			\tkzInterLL(D,I)(B,C) \tkzGetPoint{K}
+			\tkzDefLine[orthogonal=through D](D,I)\tkzGetPoint{d}
+			\tkzInterLL(B,C)(D,d) \tkzGetPoint{H}
+			\tkzMarkRightAngles[size=0.3](I,D,H D,C,H)
+			
+			\tkzDrawSegments(A,B H,K C,D D,A D,K D,H)
+			\tkzDrawPoints[fill=black](A,B,C,D,I,K,H)
+			\tkzLabelPoints[left](A,D)
+			\tkzLabelPoints[right](K,H,B,C)
+			\tkzLabelPoints[below](I)
+			\end{tikzpicture}
+		}
+		
+	}
+\end{vd}
+\begin{vd}
+	Cho tam giác $ABC$ cân tại $A$, có góc $A$ nhọn. Vẽ $BM$ vuông góc với $AC$. Chứng minh rằng  $$\dfrac{AM}{MC}=2\left( \dfrac{AB}{BC} \right)^2-1.$$
+	\loigiai{\immini{  Gọi $D$ là điểm đối xứng với $C$ qua $A$, khi đó $AB=AD=AC$ nên tam giác $BCD$ vuông tại $B$ và có đường cao $BM$.\\ Suy ra $CM\cdot CD=BC^2 \Rightarrow CM\cdot 2AC=BC^2$, suy ra  $ 2\left(\dfrac{AC}{BC}\right)^2=\dfrac{AC}{CM}=1+\dfrac{AM}{CM}.$
+			Mà $AB=AC$, nên ta có $2\left(\dfrac{AB}{BC}\right)^2-1=\dfrac{AM}{CM}.$\\ Vậy bài toán được chứng minh.
+		}
+		{\begin{tikzpicture}
+			\tkzInit[ymin=-0.3,ymax=4.5,xmin=-1,xmax=5]
+			\tkzClip
+			\tkzSetUpPoint[color=black,fill=white,size=6]
+			\tkzDefPoints{0/0/B,1.5/2/A,3/0/C}
+		   \tkzDefPointBy[symmetry = center A](C)    \tkzGetPoint{D}
+		   \tkzDefPointBy[projection = onto A--C](B)    \tkzGetPoint{M}
+			\tkzDrawSegments(A,B B,C D,C B,D B,M)
+			\tkzDrawPoints[fill=black](A,B,C,D,M)
+			\tkzLabelPoints[left](B,D)
+			\tkzLabelPoints[right](C,M)
+			\tkzLabelPoints[above](A)
+			\tkzMarkRightAngles[size=0.2](C,B,D B,M,A)
+			\end{tikzpicture}}
+	}
+\end{vd}
+\subsection{Luyện tập}
+
+\begin{bt}
+	Cho tam giác vuông $ABC$, đường cao $AH$, cạnh góc vuông $AC=60$ $\mathrm{cm}$, cạnh huyền $BC=100$ $\mathrm{cm}$. Tính chu vi tam giác $ABC$, $ABH$, $ACH$.
+	\loigiai{
+		\immini{
+			Xét tam giác vuông $ABC$ có $AB=\sqrt{BC^2-AC^2}=80$ $\mathrm{cm}$.
+			\begin{itemize}
+				\item $AH=\dfrac{AB\cdot AC}{BC}=\dfrac{60\cdot 80}{100}=48$ $\mathrm{cm}.$
+				\item $BH=\dfrac{AB^2}{BC}=64$ $\mathrm{cm}$, $CH=BC-BH=36$ $\mathrm{cm}$.
+			\end{itemize}
+			
+		}
+		{
+			\begin{tikzpicture}[scale = 0.8,>=stealth, line join=round, line cap = round]
+			\clip (-1.4,-3.6) rectangle (5.4,0.4);
+			\tkzDefPoints{1/0/M, -1/-3/B, 5/-3/C}
+			\tkzDefPointBy[projection = onto M--B](C) \tkzGetPoint{A}
+			\tkzDefPointBy[projection = onto B--C](A) \tkzGetPoint{H}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(A,H)
+			\tkzDrawPoints[fill = black](A,B,C,H)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B,C,H)
+			\tkzMarkRightAngle(A,H,C)
+			\tkzMarkRightAngle(C,A,B)
+			\end{tikzpicture}	
+		}
+		\begin{itemize}
+			\item Chu vi tam giác $ABC$ là $AB+BC+CA=240$ $\mathrm{cm}$.
+			\item Chu vi tam giác $ABH$ là $AB+AH+HB=192$ $\mathrm{cm}$.
+			\item Chu vi tam giác $ACH$ là $AC+AH+HC=144$ $\mathrm{cm}$.
+		\end{itemize}
+	}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác vuông có các cạnh góc vuông bằng $5$ $\mathrm{cm}$ và $12$ $\mathrm{cm}$. Tìm cạnh huyền và các hình chiếu của các cạnh góc vuông trên cạnh huyền.
+	\loigiai{
+		\immini{
+			Áp dụng định lý Pytago cho tam giác $ABC$ ta có 
+			\begin{center}
+				$BC=\sqrt{AB^2+AC^2}=13$ $\mathrm{cm}.$
+			\end{center}
+			Các hình chiếu của các cạnh lên cạnh huyền là
+			\begin{itemize}
+				\item $BH=\dfrac{AB^2}{BC}=\dfrac{5^2}{13}=\dfrac{25}{13}$ $\mathrm{cm}$.
+				\item $CH=BC-CH=13-\dfrac{25}{13}=\dfrac{144}{13}$ $\mathrm{cm}.$
+			\end{itemize}
+		}
+		{
+			\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\clip (-1.4,-3.6) rectangle (5.4,0.4);
+			\tkzDefPoints{1/0/M, -1/-3/B, 5/-3/C}
+			\tkzDefPointBy[projection = onto M--B](C) \tkzGetPoint{A}
+			\tkzDefPointBy[projection = onto B--C](A) \tkzGetPoint{H}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(A,H)
+			\tkzDrawPoints[fill = black](A,B,C,H)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B,C,H)
+			\tkzMarkRightAngle(A,H,C)
+			\tkzMarkRightAngle(C,A,B)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}
+	Tìm các cạnh của tam giác vuông, biết đường cao và đường trung tuyến ứng với cạnh huyền theo thứ tự là $4$ $\mathrm{cm}$ và $5$ $\mathrm{cm}$.
+	\loigiai{
+		\immini{
+			Vì $AM$ là trung tuyến của $\triangle ABC$ vuông tại $A$ nên $AM=MC=MB=5$ $\mathrm{cm}\Rightarrow BC=2MA=10$ $\mathrm{cm}$.\\
+			Xét $\triangle AHM$ có $HM=\sqrt{AM^2-AH^2}=3$ $\mathrm{cm}$. Suy ra
+			\begin{center}
+				$BH=MB-HM=2$ $\mathrm{cm}$, $HC=HM+MC=8$ $\mathrm{cm}.$
+			\end{center}
+			Xét tam giác vuông $ABC$ có
+			\begin{itemize}
+				\item $AB^2=BH\cdot BC=20\Rightarrow AB=2\sqrt{5}$ $\mathrm{cm}$.
+				\item $AC^2=CH\cdot CB=80\Rightarrow AC=4\sqrt{5}$ $\mathrm{cm}.$
+			\end{itemize}
+		}
+		{
+			\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\clip (-1.4,-3.6) rectangle (5.4,0.4);
+			\tkzDefPoints{1/0/M, -1/-3/B, 5/-3/C}
+			\tkzDefPointBy[projection = onto M--B](C) \tkzGetPoint{A}
+			\tkzDefPointBy[projection = onto B--C](A) \tkzGetPoint{H}
+			\coordinate (M) at ($(B)!0.5!(C)$);
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(A,H A,M)
+			\tkzDrawPoints[fill = black](A,B,C,H,M)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B,C,H,M)
+			\tkzMarkRightAngle(A,H,C)
+			\tkzMarkRightAngle(C,A,B)
+			\tkzLabelSegment[below left](A,H){$4$ $\mathrm{cm}$}
+			\tkzLabelSegment[right](A,M){$5$ $\mathrm{cm}$}
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}
+	Tìm các cạnh của tam giác vuông, biết đường cao ứng với cạnh huyền là $4$ $\mathrm{cm}$, diện tích tam giác vuông bằng $20$ $\mathrm{cm^2}$.
+	\loigiai{
+		\immini{
+			Giả sử tam giác đó là $\triangle ABC$ có đường cao $AH$.\\
+			Ta có $BC=\dfrac{2S_{ABC}}{AH}=\dfrac{2\cdot 20}{4}=10$ $\mathrm{cm}$.\\ 
+			Đặt $BH=x$ ($x>0$). Ta có
+			\begin{eqnarray*}
+				AH^2=BH\cdot CH &\Leftrightarrow & 16=x\cdot (10-x)\\
+				&\Leftrightarrow & x^2-10x+16=0\\
+				&\Leftrightarrow & \hoac{&x=2\\&x=8.}
+			\end{eqnarray*}
+		}
+		{
+			\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\clip (-1.4,-3.6) rectangle (5.4,0.4);
+			\tkzDefPoints{1/0/M, -1/-3/B, 5/-3/C}
+			\tkzDefPointBy[projection = onto M--B](C) \tkzGetPoint{A}
+			\tkzDefPointBy[projection = onto B--C](A) \tkzGetPoint{H}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(A,H)
+			\tkzDrawPoints[fill = black](A,B,C,H)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B,C,H)
+			\tkzMarkRightAngle(A,H,C)
+			\tkzMarkRightAngle(C,A,B)
+			\tkzLabelSegment[above](B,H){$x$}
+			\end{tikzpicture}
+		}
+		\flushleft
+		Khi $BH=2$ $\mathrm{cm}$: $AB^2=BH\cdot BC=2\cdot 10\Rightarrow AB=2\sqrt{5}$ $\mathrm{cm}$; $AC=\sqrt{BC^2-AB^2}=4\sqrt{5}$ $\mathrm{cm}$.\\
+		Khi $BH=8$ $\mathrm{cm}$: $AB^2=BH\cdot BC=8\cdot 10\Rightarrow AB=4\sqrt{5}$ $\mathrm{cm}$; $AC=\sqrt{BC^2-AB^2}=2\sqrt{5}$ $\mathrm{cm}$.\\
+		Khi đó ba cạnh của tam giác là $2\sqrt{5}$ $\mathrm{cm}$, $4\sqrt{5}$ $\mathrm{cm}$ và $10$ $\mathrm{cm}$.
+	}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$, đường cao $AH$. Biết $AH=6$ $\mathrm{cm}$ và $HC-HB=9$ $\mathrm{cm}$. Tính $HB$, $HC$.
+	\loigiai{
+		\immini{
+			Đặt $BH=x\Rightarrow CH=9+x$ với $x>0.$\\
+			Ta có 
+			\begin{eqnarray*}
+				AH^2=BH\cdot HC&\Leftrightarrow& x(9+x)=36\\
+				&\Leftrightarrow & x^2+9x-36=0\\
+				&\Leftrightarrow & \hoac{&x=-9\\&x=3.}
+			\end{eqnarray*}
+		}
+		{
+			\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\clip (-1.4,-3.6) rectangle (5.4,0.4);
+			\tkzDefPoints{1/0/M, -1/-3/B, 5/-3/C}
+			\tkzDefPointBy[projection = onto M--B](C) \tkzGetPoint{A}
+			\tkzDefPointBy[projection = onto B--C](A) \tkzGetPoint{H}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(A,H)
+			\tkzDrawPoints[fill = black](A,B,C,H)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B,C,H)
+			\tkzMarkRightAngle(A,H,C)
+			\tkzMarkRightAngle(C,A,B)
+			\tkzLabelSegment[above](B,H){$x$}
+			\end{tikzpicture}
+		}
+		\flushleft
+		Vậy $HB=3$ $\mathrm{cm}$, $HC=HB+9=12$ $\mathrm{cm}$.
+	}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$, $\dfrac{AB}{AC}=\dfrac{3}{4}$, đường cao $AH=18$ $\mathrm{cm}$. Tính chu vi tam giác $ABC$.
+	\loigiai{
+		Đặt $AB=3x\Rightarrow AC=4x$ với $x>0.$ Suy ra $BC=\sqrt{AB^2+AC^2}=5x.$\\
+		Ta có $\dfrac{1}{AH^2}=\dfrac{1}{AB^2}+\dfrac{1}{AC^2}\Rightarrow AH=\dfrac{AB\cdot AC}{\sqrt{AB^2+AC^2}}=\dfrac{12x}{5}\Rightarrow x=\dfrac{15}{2}$ $\mathrm{cm}$.\\
+		Chu vi tam giác $ABC$ bằng $AB+BC+CA=12x=90$ $\mathrm{cm}.$
+	}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$ với $AB<AC$ và đường cao $AH$. Tính $AB$, $AC$ biết $AH=6$ $\mathrm{cm}$ và diện tích tam giác $ABC$ bằng $37{,}5$ $\mathrm{cm^2}$.
+	\loigiai{
+		\immini{
+			Giả sử tam giác đó là $\triangle ABC$ có đường cao $AH$.\\
+			Ta có $BC=\dfrac{2S_{ABC}}{AH}=\dfrac{2\cdot 37{,}5}{6}=12{,}5$ $\mathrm{cm}$.\\ 
+			Đặt $BH=x$ ($x>0$). Ta có
+			\begin{eqnarray*}
+				AH^2=BH\cdot CH &\Leftrightarrow & 36=x\cdot (12,5-x)\\
+				&\Leftrightarrow & x^2-12,5x+36=0\\
+				&\Leftrightarrow & \hoac{&x=\dfrac{9}{2}\\&x=8.}
+			\end{eqnarray*}
+		}
+		{
+			\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\clip (-1.4,-3.6) rectangle (5.4,0.4);
+			\tkzDefPoints{1/0/M, -1/-3/B, 5/-3/C}
+			\tkzDefPointBy[projection = onto M--B](C) \tkzGetPoint{A}
+			\tkzDefPointBy[projection = onto B--C](A) \tkzGetPoint{H}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(A,H)
+			\tkzDrawPoints[fill = black](A,B,C,H)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B,C,H)
+			\tkzMarkRightAngle(A,H,C)
+			\tkzMarkRightAngle(C,A,B)
+			\tkzLabelSegment[above](B,H){$x$}
+			\end{tikzpicture}
+		}
+		\flushleft
+		Khi $BH=\dfrac{9}{2}$ $\mathrm{cm}$: $AB^2=BH\cdot BC=\dfrac{9}{2}\cdot 12{,}5\Rightarrow AB=\dfrac{15}{2}$ $\mathrm{cm}$; $AC=\sqrt{BC^2-AB^2}=10$ $\mathrm{cm}$.\\
+		Khi $BH=8$ $\mathrm{cm}$: $AB^2=BH\cdot BC=8\cdot 12{,}5\Rightarrow AB=10$ $\mathrm{cm}$; $AC=\sqrt{BC^2-AB^2}=7{,}5$ $\mathrm{cm}$.\\
+		Khi đó là ba cạnh của tam giác là $AB=7{,}5$ $\mathrm{cm}$, $AC=10$ $\mathrm{cm}$ và $BC=12{,}5$ $\mathrm{cm}$.  
+	}
+\end{bt}
+
+
+\begin{bt}
+	Cho hình thang $ABCD$ vuông tại $A$ và $D$. Hai đường chéo vuông góc với nhau tại $O$. Biết $AB=2\sqrt{13}$, $OA=6$. Tính diện tích hình thang.
+	\loigiai{
+		\immini{
+			Xét $\triangle OAB$ vuông tại $O$, ta có:
+			\begin{center}
+				$OB=\sqrt{AB^2-OA^2}=\sqrt{\left(2\sqrt{13}\right)^2-6^2}=4.$
+			\end{center}
+			Xét $\triangle ABD$ vuông tại $A$, đường cao $AO$ ta có:
+			\begin{itemize}
+				\item $AB^2=BD\cdot OB$$\Rightarrow BD=\dfrac{AB^2}{OB}=\dfrac{\left(2\sqrt{13}\right)^2}{4}=13.$
+				\item $AD=\sqrt{BD^2-AB^2}=\sqrt{13^2-\left(2\sqrt{13}\right)^2}=3\sqrt{13}.$
+				\item Ta có $OD=BD-OB=13-4=9.$ 
+			\end{itemize} 	
+			
+		}{
+			\begin{tikzpicture}
+			\tkzDefPoints{0/3/A, 0/0/D, 4/0/C}
+			\tkzDefPointBy[projection = onto A--C](D)    \tkzGetPoint{O}
+			\tkzDefLine[parallel=through A](D,C) \tkzGetPoint{a}
+			\tkzInterLL(A,a)(D,O)\tkzGetPoint{B}
+			\tkzDrawPolygon(A,B,C,D)
+			\tkzDrawSegments(A,C B,D)
+			\tkzDrawPoints[fill = black](A,B,C,D,O)
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[below](C,D,O)
+			\tkzMarkRightAngle(D,O,A)
+			\tkzLabelSegment[above](B,A){$2\sqrt{13}$}
+			\tkzLabelSegment[above](O,A){$6$}
+			\end{tikzpicture}
+		}
+		\noindent
+		Xét $\triangle ADC$ vuông tại $D$ ta có: 
+		$AD^2=OA\cdot AC\Rightarrow AC=\dfrac{AD^2}{OA}=\dfrac{AD^2}{OA}=\dfrac{\left(3\sqrt{13}\right)^2}{6}=19{,}5.$\\
+		Mà $AD\cdot DC = OD\cdot AC\Rightarrow DC=\dfrac{OD\cdot AC}{AD}=\dfrac{9\cdot 19{,}5}{3\sqrt{13}}=\dfrac{9\sqrt{13}}{2}.$\\
+		Vậy $S_{ABCD}=\dfrac{1}{2}AD\cdot (AB+DC)=126{,}75$ (đvdt)
+	}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$. Đường cao $AH$, cạnh bên $AC=30$, $HB=32$. Tính độ dài $AH$, $HC$, $AB$.
+	\loigiai{
+		\immini{
+			Đặt $HC=x$ ($x>0$). Xét $\triangle ABC$ vuông tại $A$, đường cao $AH$ ta có 
+			\begin{eqnarray*}
+				AH^2=HC\cdot HB
+				&\Leftrightarrow &30^2=x\cdot(x+32)\\
+				&\Leftrightarrow &(x-18)(x+50)=0\\
+				&\Leftrightarrow &\hoac{&x=18\text{ (nhận)}\\&x=-50 \text{ (loại)}}
+			\end{eqnarray*}
+		}
+		{
+			\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\tkzDefPoints{0/3/C, 0/0/A, 4/0/B}
+			\tkzDefPointBy[projection = onto C--B](A)\tkzGetPoint{H}
+			\tkzDrawPoints[fill = black](A,B,C,H)
+			\tkzLabelPoints[above](C)
+			\tkzLabelPoints[right](H,B)
+			\tkzLabelPoints[left](A)
+			\tkzLabelSegment[left](A,C){$30$}
+			\tkzLabelSegment[right](B,H){$32$}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegment(A,H)
+			\tkzMarkRightAngle(A,H,C)
+			\end{tikzpicture}
+		}
+		\noindent
+		Xét $\triangle AHC$ vuông tại $H$ ta có $AH=\sqrt{AC^2-HC^2}=24.$\\
+		Xét $\triangle ABC$ vuông tại $A$ ta có $AB^2=HB\cdot BC=32\cdot (32+18)=40.$
+	}
+\end{bt}
+
+\begin{bt}
+	Cho hình chữ nhật $ABCD$ có các cạnh $AB=60$ $\mathrm{cm}$, $AD=32$ $\mathrm{cm}$. Từ $D$ kẻ đường thẳng vuông góc với đường chéo $AC$. Đường này cắt $AC$ tại $E$ và $AB$ tại $F$. Tính độ dài các đoạn $EA$, $EC$, $ED$, $FB$, $FD$.
+	\loigiai{
+		\immini{
+			Xét tam giác vuông $ADC$ ta có
+			\begin{eqnarray*}
+				& &EA=\dfrac{AD^2}{AC}=\dfrac{AD^2}{\sqrt{AD^2+CD^2}}=\dfrac{32^2}{\sqrt{32^2+60^2}}=\dfrac{256}{17}\ \mathrm{cm}.\\
+				& & EC=\dfrac{CD^2}{AC}=\dfrac{60^2}{\sqrt{32^2+60^2}}=\dfrac{900}{17}\ \mathrm{cm}.\\
+			\end{eqnarray*}
+			Xét tam giác vuông $ADE$ có
+			\begin{eqnarray*}
+				& & ED=\sqrt{EA\cdot EC}=\sqrt{\dfrac{32^2\cdot 60^2}{32^2+60^2}}=\dfrac{480}{17}\ \mathrm{cm}.\\
+				& & FD=\dfrac{AD^2}{ED}=\dfrac{32^2}{\dfrac{32\cdot 60}{68}}=\dfrac{544}{15}\ \mathrm{cm}.\\
+				& & AF=\sqrt{FD^2-AD^2}=\sqrt{\dfrac{32^2\cdot 68^2}{60^2}-32^2}=\dfrac{256}{15}\ \mathrm{cm}.\\
+				& & FB=AB-AF=60-\dfrac{256}{15}=-\dfrac{-644}{15}\ \mathrm{cm}.
+			\end{eqnarray*}
+		}
+		{
+			\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\tkzDefPoints{0/0/A, 0/-3.5/D, 6/-3.5/C, 6/0/B}
+			\tkzDefPointBy[projection = onto A--C](D)\tkzGetPoint{E}
+			\tkzInterLL(A,B)(D,E)\tkzGetPoint{F}
+			\tkzDrawSegments(A,C D,F)
+			\tkzDrawPolygon(A,B,C,D)
+			\tkzDrawPoints[fill = black](A,B,C,D,E,F)
+			\tkzLabelPoints[right](B,C)
+			\tkzLabelPoints[left](A,D)
+			\tkzLabelPoints[above](F)
+			\tkzLabelPoints[below](E)
+			\tkzMarkRightAngle(D,E,A)
+			\end{tikzpicture}  	
+		}
+	}
+\end{bt}
+
+\begin{bt}
+	Tính diện tích hình thang $ABCD$, có đường cao bằng $12$ $\mathrm{cm}$, hai đường chéo $AC$ và $BD$ vuông góc với nhau, $DB=15$ $\mathrm{cm}.$
+	\loigiai{
+		\immini{
+			Qua $B$ vẽ đường thẳng song song với $AC$, cắt $DC$ ở $E$. Gọi $BH$ là đường cao của hình thang. Ta có $BE\parallel AC$, $AC\perp BD$ nên $BE\perp BD$.\\
+			Áp dụng định lí Pytago vào tam giác vuông $BDH$, ta có
+			\begin{eqnarray*}
+				& &BH^2+HD^2=BD^2\Rightarrow 12^2+HD^2=15^2\\
+				&\Rightarrow & HD^2=225-144=81\Rightarrow HD = 9\ \mathrm{cm}.
+			\end{eqnarray*}
+		}
+		{
+			\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\clip (-0.5, -1) rectangle (6.5, 3.5);
+			\tkzDefPoints{0/3/A, 0/0/D, 4/0/C}
+			\tkzDefPointBy[projection = onto A--C](D)    \tkzGetPoint{O}
+			\tkzDefLine[parallel=through A](D,C) \tkzGetPoint{a}
+			\tkzInterLL(A,a)(D,O)\tkzGetPoint{B}
+			\tkzDefLine[parallel=through B](A,C) \tkzGetPoint{b}
+			\tkzInterLL(B,b)(D,C)\tkzGetPoint{E}
+			\tkzDefPointBy[projection = onto D--C](B)    \tkzGetPoint{H}
+			\tkzDrawPolygon(A,B,C,D)
+			\tkzDrawSegments(A,C B,D B,E C,E B,H)
+			\tkzDrawPoints[fill = black](A,B,C,D,E,H)
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[below](C,D,E,H)
+			\tkzMarkRightAngle(D,O,A)
+			\tkzMarkRightAngle(B,H,C)
+			\end{tikzpicture}
+		}\noindent
+				Xét tam giác $BDE$ vuông tại $B$, ta có
+			$$BD^2=DE\cdot DH\Rightarrow 15^2=DE\cdot 9\Rightarrow DE=\dfrac{225}{9}=25 \ \mathrm{cm}.$$
+		Ta có $AB=CE$ nên $AB+CD=CE+CD=DE=25$ $\mathrm{cm}$.\\
+		Do đó $S_{ABCD}=\dfrac{25\cdot 12}{2}=150$ $\mathrm{cm^2}.$
+	}
+\end{bt}
+
+\begin{bt}
+	Hình thang cân $ABCD$ có đáy lớn $CD=10$ $\mathrm{cm}$, đáy nhỏ bằng đường cao, đường chéo vuông góc với cạnh bên. Tìm đường cao của hình thang
+	\loigiai{
+		\immini{
+			Gọi $AH$, $BK$ là đường cao của hình thang.\\
+			Đặt $AB=AH=BK=x$.\\
+			Dễ dàng chứng minh được $DH=CK=\dfrac{DC-AB}{2}=\dfrac{10-x}{2}$. Do đó $HC=\dfrac{10+x}{2}.$\\
+			Xét $\triangle ADC$ vuông tại $A$, ta có $AH^2=HD\cdot HC$. Do đó 
+			\begin{center}
+				$x^2=\dfrac{10-x}{2}\cdot \dfrac{10+x}{2}=\dfrac{100-x^2}{4}$
+			\end{center}
+			Từ đó suy ra $x=2\sqrt{5}$ $\mathrm{cm}$.\\
+			Đường cao của hình thang bằng $2\sqrt{5}$ $\mathrm{cm}$.
+		}{
+			\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\tkzDefPoints{0/0/D, 1/2/A, 5/0/C, 4/2/B}
+			\tkzDefPointBy[projection = onto C--D](A)    \tkzGetPoint{H}
+			\tkzDefPointBy[projection = onto C--D](B)    \tkzGetPoint{K}
+			\tkzDrawSegments(A,C A,H B,K)
+			\tkzDrawPolygon(A,B,C,D)
+			\tkzMarkRightAngle(A,H,D)
+			\tkzMarkRightAngle(B,K,C)
+			\tkzLabelPoints[above](A,B)
+			\tkzLabelPoints[below](C,D,H,K)
+			\tkzDrawPoints[fill = black](A,B,C,D,H,K)
+			\end{tikzpicture}	
+		}   
+	}
+\end{bt}
+
+\begin{bt}
+	Tính diện tích một tam giác vuông có chu vi $72$ $\mathrm{cm}$, hiệu giữa đường trung tuyến và đường cao ứng với cạnh huyền bằng $7$ $\mathrm{cm}.$
+	\loigiai{
+		\immini{
+			Đặt $AM=x$ ($x>0$), ta có $BC=2x$, $AH=x-7.$
+			Theo các hệ thức trong tam giác vuông
+			\begin{center}
+				$AB^2+AC^2=BC^2=4x^2$ \hfill(1)\\
+				$AB\cdot AC=BC\cdot AH=2x(x-7)$ \hfill(2)
+			\end{center}
+			Từ $(1)$ và $(2)$ suy ra 
+			\begin{eqnarray*}
+				& & AB^2+AC^2+2AB\cdot AC=4x^2+4x(x-7)\\
+				&\Leftrightarrow & (AB+AC)^2=8x^2-28x\Leftrightarrow (72-2x)^2=8x^2-28x\\
+				&\Leftrightarrow & x^2+65x-1296=0\Leftrightarrow (x-16)(x+81)=0\\
+				&\Leftrightarrow & \hoac{&x=16 \text{ (nhận)}\\&x=-81 \text{ (loại)}.}
+			\end{eqnarray*}
+			Từ đó $BC=32$ $\mathrm{cm}$, $AH=9$ $\mathrm{cm}$.\\
+			Diện tích tam giác $ABC$ là $S_{ABC}=\dfrac{1}{2}\cdot 32\cdot 9=144$ $\mathrm{cm^2}.$
+		}
+		{
+			\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\clip (-1.4,-3.6) rectangle (5.4,0.4);
+			\tkzDefPoints{1/0/M, -1/-3/B, 5/-3/C}
+			\tkzDefPointBy[projection = onto M--B](C) \tkzGetPoint{A}
+			\tkzDefPointBy[projection = onto B--C](A) \tkzGetPoint{H}
+			\coordinate (M) at ($(B)!0.5!(C)$);
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(A,H A,M)
+			\tkzDrawPoints[fill = black](A,B,C,H,M)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B,C,H,M)
+			\tkzMarkRightAngle(A,H,C)
+			\tkzMarkRightAngle(C,A,B)
+			\tkzLabelSegment[right](A,M){$x$}
+			\end{tikzpicture}
+		}   
+	}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ABC$ có độ dài các cạnh $AB$, $BC$, $CA$ là ba số tự nhiên liên tiếp tăng dần. Kẻ đường cao $AH$, đường trung tuyến $AM$. Chứng minh rằng $HM=2$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\clip (-1.4,-4.6) rectangle (12,0.4);
+			\tkzDefPoints{1/0/M, -1/-3/B, 5/-3/C, 6/-0.2/D, 7/-3/E, 11/-3/F}
+			\tkzDefPointBy[projection = onto M--B](C) \tkzGetPoint{A}
+			\tkzDefPointBy[projection = onto B--C](A) \tkzGetPoint{H}
+			\coordinate (M) at ($(B)!0.5!(C)$);
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(A,H A,M)
+			\tkzDrawPoints[fill = black](A,B,C,H,M)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B,C,H,M)
+			\tkzMarkRightAngle(A,H,C)
+			\tkzMarkRightAngle(C,A,B)
+			%Vẽ hình 2
+			\coordinate (G) at ($(E)!0.5!(F)$);
+			\tkzDefPointBy[projection = onto E--F](D) \tkzGetPoint{K}
+			\tkzDrawPolygon(D,E,F)
+			\tkzDrawSegments(D,K E,K D,G)
+			\draw (D) node[above] {$A$} (E) node[below] {$B$} (F) node[below] {$C$} (K) node[below] {$H$} (G) node[below] {$M$} (9,-3.6) node[below] {$(2)$} (2,-3.6) node[below] {$(1)$};
+			\tkzDrawPoints[fill = black](D,E,F,G,K)
+			\end{tikzpicture}
+		\end{center}
+		\noindent
+		Đặt $BC=a$ thì $AB=a-1$, $AC=a+1$. Đặt $HM=x$. Ta thấy
+		\begin{eqnarray*}
+			& &HB=MB-MH\text{ (nếu } B\ge 90^\circ, \text{ xem hình (1))}\\
+			& &HB=MH-MB\text{ (nếu } B> 90^\circ, \text{ xem hình (2))} 
+		\end{eqnarray*}
+		Nên $HB^2=\left(x-\dfrac{a}{2}\right)^2$. Ta có $AC^2-HC^2=AB^2-HB^2$ (cùng bằng $AH^2$) nên 
+		\begin{eqnarray*}
+			& &(a+1)^2-\left(x+\dfrac{a}{2}\right)^2=(a-1)^2-\left(x-\dfrac{a}{2}\right)^2\\
+			&\Leftrightarrow & 4a=2ax \Leftrightarrow  x=2
+		\end{eqnarray*}
+	}
+\end{bt}
+
+\begin{bt}
+	Tam giác $ABC$ cân tại $A$, gọi $I$ là giao điểm của các đường phân giác. Biết $IA=2\sqrt{5}$ $\mathrm{cm}$, $IB=3$ $\mathrm{cm}$. Tính độ dài $AB$.
+	\loigiai{
+		\immini{
+			Đường vuông góc với $AB$ tại $A$ cắt $BI$ ở $K$. Ta có $\widehat{K}$ phụ với $\widehat{B}_1$, $\widehat{AIK}$ phụ với $\widehat{B}_2$, mà $\widehat{B}_1=\widehat{B}_2$ nên $\widehat{K}=\widehat{AIK}.$\\
+			Kẻ $AH\perp BK$. Đặt $IH=HK=x.$\\
+			Xét tam giác vuông $ABK$ có
+			\begin{eqnarray*}
+				AK^2=KH\cdot KB
+				&\Leftrightarrow & \left(2\sqrt{5}\right)^2=x(2x+3)\\
+				&\Leftrightarrow & 2x^2+3x-20=0\\
+				&\Leftrightarrow & (2x-5)(x+4)=0\\
+				&\Leftrightarrow & \hoac{&x=\dfrac{5}{2} \text{ (nhận)}\\&x=-4 \text{ (loại)}.} 
+			\end{eqnarray*}
+		}
+		{
+			\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\clip (-0.5,-0.5) rectangle (7,6.5);
+			\tkzDefPoints{0/0/B, 4/0/C, 2/6/A}
+			\tkzDefLine[bisector](C,B,A) \tkzGetPoint{b}
+			\tkzDefLine[orthogonal=through A](A,B) \tkzGetPoint{a}
+			\tkzInterLL(A,a)(B,b)\tkzGetPoint{K}
+			\tkzDefPointBy[projection = onto B--K](A)    \tkzGetPoint{H}
+			\coordinate (M) at ($(B)!0.5!(C)$);
+			\tkzInterLL(A,M)(B,K)\tkzGetPoint{I}
+			
+			
+			\tkzDrawSegments(A,H A,K B,K A,M)
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawPoints[fill = black](A,B,C,H,K,I)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B,C,H)
+			\tkzLabelPoints[right](K,I)
+			\tkzMarkAngles[arc=ll,size=0.5 cm](H,I,A B,I,M A,K,I)
+			\tkzMarkAngles[arc=l,size=0.5 cm,label = $2$](C,B,I)
+			\tkzMarkAngles[arc=l,size=0.6 cm,label = $1$](I,B,A)
+			\tkzMarkRightAngles(B,A,K A,H,K A,M,C)
+			\end{tikzpicture}
+		}    
+		\noindent
+		Suy ra $KB=8$ $\mathrm{cm}\Rightarrow AB=\sqrt{BK^2-AK^2}=2\sqrt{11}$ $\mathrm{cm}$.
+	}
+\end{bt}
+
+\begin{bt}
+	Tam giác $ABC$ có $BC=40$ $\mathrm{cm}$, đường phân giác trong $AD$ dài $45$ $\mathrm{cm}$, đường cao $AH$ dài $36$ $\mathrm{cm}$. Tính các độ dài $BD$, $DC$.
+	\loigiai{
+		\immini{
+			Đặt $BD=x$, $DC=y$. Giả sử $x<y$.\\
+			Ta tính được $HD=27$ $\mathrm{cm}$. Vẽ tia phân giác của góc ngoài tại $A$, cắt $BC$ ở $E$. Ta có $AE\perp AD$ nên $AD^2=DE\cdot DH$. Suy ra
+			\begin{center}
+				$DE=\dfrac{AD^2}{DH}=\dfrac{45^2}{27}=75$ $\mathrm{cm}$.
+			\end{center}
+			
+		}{
+			\begin{tikzpicture}[>=stealth, line join=round, line cap = round]
+			\clip(-5,-0.5) rectangle (5.5,3.5);
+			\tkzDefPoints{1/0/B, 4/0/C, 0/3/A}
+			\tkzDefPointBy[projection = onto B--C](A)    \tkzGetPoint{H}
+			\tkzDefLine[bisector](C,A,B) \tkzGetPoint{a}
+			\tkzInterLL(A,a)(B,C)\tkzGetPoint{D}
+			\tkzDefLine[orthogonal=through A](A,D) \tkzGetPoint{d}
+			\tkzInterLL(A,d)(C,B)\tkzGetPoint{E}
+			
+			%\Vẽ hình
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(A,E A,H A,D B,E)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B,C,D,H,E)
+			\tkzDrawPoints[fill = black](A,B,C,D,H,E)
+			\tkzMarkRightAngles(D,A,E A,H,B)
+			\end{tikzpicture}
+		}
+		\noindent
+		Theo tính chất đường phân giác trong và ngoài của tam giác ta có
+		\begin{center}
+			$\dfrac{DB}{DC}=\dfrac{EB}{EC}\Rightarrow \dfrac{x}{y}=\dfrac{75-x}{75+y}\hfill (1)$
+		\end{center}
+		Mặt khác, thay $y=40-x$ vào $(1)$ và rút gọn được
+		\begin{center}
+			$x^2-115x+1500=0\Leftrightarrow (x-15)(x-100)=0\Leftrightarrow \hoac{&x=15\text{ (nhận)}\\&x=100 \text{ (loại)}.}$
+		\end{center}
+		Từ đó suy ra $y=40-x=25$ $\mathrm{cm}$.\\
+		Vậy $DB=15$ $\mathrm{cm}$, $DC = 25$ $\mathrm{cm}.$
+	}
+\end{bt}
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$, đường cao $AH$. Tính $BH$, $CH$ biết $AB = 12$ cm, $BC = 20$ cm.
+	\loigiai{
+		\immini{
+			\begin{itemize}
+				\item $AB^2=BH\cdot BC\Leftrightarrow BH=\dfrac{AB^2}{BC}= \dfrac{12^2}{20}=7{,}2$ cm.\\
+				
+				\item $HC=20-7{,}2=12{,}8$ cm.		
+			\end{itemize}
+			
+		}{\begin{tikzpicture}
+			\tkzInit[ymin=-0.5,ymax=2.5,xmin=-0.5,xmax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/A,3/0/C,0/2/B} 
+			
+			\tkzDefLine[orthogonal=through A](C,B)
+			\tkzGetPoint{q}
+			\tkzInterLL(A,q)(B,C) \tkzGetPoint{H}
+			
+			\tkzDrawSegments(A,B B,C C,A A,H)
+			\tkzDrawPoints[fill=black](A,B,C,H)
+			\tkzMarkRightAngles(A,H,B B,A,C)
+			\tkzLabelPoints[above](B,H)
+			\tkzLabelPoints[below](A,C)
+			%\tkzLabelPoints[above, left](F,D)
+			\end{tikzpicture}
+	}}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$, đường cao $AH$. Tính $AC$, $CH$ biết $AH = 2$ cm, $HB = 1$ cm.
+	\loigiai{
+		\immini{
+			\begin{itemize}
+				\item $AH^2=BH\cdot CH\Leftrightarrow CH=\dfrac{AH^2}{BH}= \dfrac{2^2}{1}=4$  cm.\\
+				nên $BC=HB+HC=1+4=5$ cm.
+				\item $AC^2=CH\cdot BC=4\cdot 5=20\Rightarrow AC=2\sqrt{5}$ cm.		
+			\end{itemize}
+			
+		}{\begin{tikzpicture}
+			\tkzInit[ymin=-0.5,ymax=2.5,xmin=-0.5,xmax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/A,3/0/C,0/2/B} 
+			
+			\tkzDefLine[orthogonal=through A](C,B)
+			\tkzGetPoint{q}
+			\tkzInterLL(A,q)(B,C) \tkzGetPoint{H}
+			
+			\tkzDrawSegments(A,B B,C C,A A,H)
+			\tkzDrawPoints[fill=black](A,B,C,H)
+			\tkzMarkRightAngles(A,H,B B,A,C)
+			\tkzLabelPoints[above](B,H)
+			\tkzLabelPoints[below](A,C)
+			%\tkzLabelPoints[above, left](F,D)
+			\end{tikzpicture}
+	}}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$, đường cao $AH$. Tính $AH$, $HB$, $HC$ biết $AB = 3$ cm, $AC = 4$ cm.
+	\loigiai{
+		\immini{
+			Ta có $BC=\sqrt{AC^2+AB^2}=\sqrt{3^2+4^2}=5$ cm.
+			\begin{itemize}
+				\item $\dfrac{1}{AH^2}=\dfrac{1}{AB^2}+\dfrac{1}{AC^2}=\dfrac{1}{3^2} + \dfrac{1}{4^2} =\dfrac{25}{144}$ cm.\\
+				Suy ra $AH=\dfrac{12}{5}$ cm.\\
+				\item $AB^2=BH\cdot BC\Rightarrow BH=\dfrac{AB^2}{BC}=\dfrac{3^2}{5} =\dfrac{9}{5}$ cm.
+				\item $HC=BC-HB=5-\dfrac{9}{5}=\dfrac{16}{5}$ cm.
+				
+			\end{itemize}
+			
+		}{\begin{tikzpicture}
+			\tkzInit[ymin=-0.5,ymax=2.5,xmin=-0.5,xmax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/A,3/0/C,0/2/B} 
+			
+			\tkzDefLine[orthogonal=through A](C,B)
+			\tkzGetPoint{q}
+			\tkzInterLL(A,q)(B,C) \tkzGetPoint{H}
+			
+			\tkzDrawSegments(A,B B,C C,A A,H)
+			\tkzDrawPoints[fill=black](A,B,C,H)
+			\tkzMarkRightAngles(A,H,B B,A,C)
+			\tkzLabelPoints[above](B,H)
+			\tkzLabelPoints[below](A,C)
+			%\tkzLabelPoints[above, left](F,D)
+			\end{tikzpicture}
+	}}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$, đường cao $AH$. Tính $AB$, $AC$ biết       $HB =1$ cm, $HC = 2$ cm.
+	\loigiai{
+		\immini{
+			Ta có $BC=HB+HC=2+1=3$ cm.\\
+			$AB^2=BH\cdot BC=1\cdot 3=3\Rightarrow AB=\sqrt{3}$ cm.\\
+			$AC^2=CH\cdot BC=2\cdot 3=6\Rightarrow AC=\sqrt{6}$ cm.			
+		}{\begin{tikzpicture}
+			\tkzInit[ymin=-0.5,ymax=2.5,xmin=-0.5,xmax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/A,3/0/C,0/2/B} 
+			
+			\tkzDefLine[orthogonal=through A](C,B)
+			\tkzGetPoint{q}
+			\tkzInterLL(A,q)(B,C) \tkzGetPoint{H}
+			
+			\tkzDrawSegments(A,B B,C C,A A,H)
+			\tkzDrawPoints[fill=black](A,B,C,H)
+			\tkzMarkRightAngles(A,H,B B,A,C)
+			\tkzLabelPoints[above](B,H)
+			\tkzLabelPoints[below](A,C)
+			%\tkzLabelPoints[above, left](F,D)
+			\end{tikzpicture}
+	}}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$, đường cao $AH$. Tính $BC$, $AC$, $AH$ biết $AB=15$ cm, $HC= 16$ cm.
+	\loigiai{ Ta có
+		\immini{
+			\begin{eqnarray*}
+				&& AB^2=BH\cdot BC\\	
+				&\Leftrightarrow& AB^2=BH\cdot (BH+16)\\
+				&\Leftrightarrow& 15^2=BH^2+16BH\\
+				&\Leftrightarrow& BH^2 + 16BH - 225 = 0\\
+				&\Leftrightarrow& BH^2 + 16BH - 225 = 0\\
+				&\Leftrightarrow& (BH+25)\cdot (BH-9) = 0\\
+				&\Leftrightarrow& BH = -25 \text{ (loại) hoặc } BH = 9 \text{ (thỏa mãn)}.
+			\end{eqnarray*}
+			Do đó $BH = 9$ cm, suy ra 	$BC=HB+HC=16+9=25$ cm.\\
+			$AB^2=BH\cdot BC=9\cdot 25=225\Rightarrow AB=15$ cm.\\
+			$AC^2=CH\cdot BC=16\cdot 25=400\Rightarrow AC=20$ cm.
+		}{\begin{tikzpicture}
+			\tkzInit[ymin=-0.5,ymax=2.5,xmin=-0.5,xmax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/A,3/0/C,0/2/B} 
+			
+			\tkzDefLine[orthogonal=through A](C,B)
+			\tkzGetPoint{q}
+			\tkzInterLL(A,q)(B,C) \tkzGetPoint{H}
+			
+			\tkzDrawSegments(A,B B,C C,A A,H)
+			\tkzDrawPoints[fill=black](A,B,C,H)
+			\tkzMarkRightAngles(A,H,B B,A,C)
+			\tkzLabelPoints[above](B,H)
+			\tkzLabelPoints[below](A,C)
+			%\tkzLabelPoints[above, left](F,D)
+			\end{tikzpicture}
+		} 
+	}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ABC$ vuông tại $A$, đường cao $AH$. Tính $AB$, $AC$  biết $AH = 12$ cm, $BC = 25$ cm.
+	\loigiai{
+		\immini{
+			Ta có 
+			\begin{eqnarray*}
+				&&	AH^2=HB\cdot HC\\
+				&\Leftrightarrow&	144=HB\cdot(25-HB)\\
+				&\Leftrightarrow& HB^2-25HB+144=0\\
+				&\Leftrightarrow& (HB-9)(HB-16=0)\\
+				&\Leftrightarrow& HB =9 \text{ hoặc } HB=16.
+			\end{eqnarray*}
+				
+		}{\begin{tikzpicture}
+			\tkzInit[ymin=-0.5,ymax=2.5,xmin=-0.5,xmax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/A,3/0/C,0/2/B} 
+			
+			\tkzDefLine[orthogonal=through A](C,B)
+			\tkzGetPoint{q}
+			\tkzInterLL(A,q)(B,C) \tkzGetPoint{H}
+			
+			\tkzDrawSegments(A,B B,C C,A A,H)
+			\tkzDrawPoints[fill=black](A,B,C,H)
+			\tkzMarkRightAngles(A,H,B B,A,C)
+			\tkzLabelPoints[above](B,H)
+			\tkzLabelPoints[below](A,C)
+			%\tkzLabelPoints[above, left](F,D)
+			\end{tikzpicture}
+		} 
+	\noindent
+	Vai trò của $HB$, $HC$ như nhau, có thẻ giả sử $HB=9$ cm và $HC=16$ cm, nên \\
+	$AB^2=BH\cdot BC=9\cdot 25=225\Rightarrow AB=15$ cm.\\
+	$AC^2=CH\cdot BC=16\cdot 25=400\Rightarrow AC=20$ cm.	
+	}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ABC$ cân tại $A$ có $AH$, $BK$ là $2$ đường cao. Chứng minh rằng
+	\begin{multicols}{2}
+
+\begin{itemize}
+		\item[a)] $\dfrac{1}{BK^2}=\dfrac{1}{BC^2}+\dfrac{1}{4AH^2}$.
+		\item[b)] $BC^2=2CK\cdot CA$.
+	\end{itemize}
+	\end{multicols}
+	\loigiai{
+		\immini{
+			\begin{itemize}
+				\item[a)] Kẻ $HE$ vuông góc với $AC$, suy ta $HE\parallel BK$,\\
+				nên $HE$ là đường trung bình trong tam giác $BCK$.\\
+				Trong tam giác  $AHC$ vuông tại $H$,\\ $\dfrac{1}{HE^2}=\dfrac{1}{HA^2}+\dfrac{1}{HC^2} \Leftrightarrow \dfrac{1}{\left(\dfrac{BK}{2}\right)^2}=\dfrac{1}{AH^2}+ \dfrac{1}{\left(\dfrac{BC}{2}\right)^2} $.\\
+				Vậy $\dfrac{1}{BK^2}=\dfrac{1}{BC^2}+\dfrac{1}{4AH^2}$.
+				\item[b)] Ta có $HC^2=CK\cdot CA\Leftrightarrow \left(\dfrac{BC}{2}\right)^2 =CK\cdot CA$.\\
+				Vậy $BC^2=4CK\cdot CA$.
+				
+			\end{itemize}
+			
+		}{\begin{tikzpicture}
+			\tkzInit[ymin=-0.5,ymax=3.5,xmin=-0.3,xmax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,3/0/C,1.5/3/A} 
+			
+			\tkzDefLine[orthogonal=through A](C,B)
+			\tkzGetPoint{q}
+			\tkzInterLL(A,q)(B,C) \tkzGetPoint{H}
+			
+			\tkzDefLine[orthogonal=through A](C,B)
+			\tkzGetPoint{q}
+			\tkzInterLL(A,q)(B,C) \tkzGetPoint{H}
+			
+			\tkzDefLine[orthogonal=through B](C,A)
+			\tkzGetPoint{q1}
+			\tkzInterLL(B,q1)(A,C) \tkzGetPoint{K}
+			\tkzDefMidPoint(K,C)
+\tkzGetPoint{E}
+			
+			\tkzDrawSegments(A,B B,C C,A A,H B,K H,E)
+			\tkzDrawPoints[fill=black](A,B,C,H,K,E)
+			\tkzMarkRightAngles(A,H,B A,K,B)
+			\tkzLabelPoints[above right](K)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B,C,H)
+			\tkzLabelPoints[right](E)
+			\end{tikzpicture}
+		} 
+	}
+\end{bt}
+
+\begin{bt}
+	Cho tam giác $ABC$ vuông cân tại $A$ và một điểm $M$ thuộc cạnh huyền $BC$. Chứng minh rằng $MB^2+MC^2=2MA^2$.
+	\loigiai{
+		\immini{
+			Từ $M$ kẻ $MP \perp AB$; $MQ \perp AC$ \\
+			Do $\widehat{ABC} = \widehat{ACB} =45^\circ$, khi đó tam giác $MPQ$ và $MQC$ vuông cân,\\
+			nên $MB^2 = 2MP^2 $ và $MC^2 = 2MQ^2 $.\\
+			Suy ra $ MB^2 + MC^2 = 2(MP^2+MQ^2) $. \hfill $(\star)$\\ 
+			Mà $APMQ$ là hình chữ nhật nên  $MP^2 + MQ^2 = PQ^2 = MA^2$.\\
+			Do đó từ  $(\star)$, ta có  $MB^2+MC^2= 2 MA^2$.
+			
+		}{\begin{tikzpicture}[scale=1.2]
+			\tkzInit[ymin=-0.5,ymax=2.5,xmin=-0.5,xmax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,3/0/C} 
+			
+			\tkzDefPointBy[rotation=center B angle 45](C)\tkzGetPoint{p1}
+			\tkzDefPointBy[rotation=center C angle -45](B)\tkzGetPoint{p2}
+			\tkzInterLL(B,p1)(C,p2) \tkzGetPoint{A}
+			
+			\tkzDefBarycentricPoint(B=2,C=1) \tkzGetPoint{p}	
+			\tkzInterLL(A,p)(C,B) \tkzGetPoint{M}
+			
+			\tkzDefLine[orthogonal=through M](C,A)
+			\tkzGetPoint{q1}
+			\tkzInterLL(M,q1)(A,C) \tkzGetPoint{Q}
+			
+			\tkzDefLine[orthogonal=through M](B,A)
+			\tkzGetPoint{q2}
+			\tkzInterLL(M,q2)(A,B) \tkzGetPoint{P}
+			
+			\tkzDrawSegments(A,B B,C C,A A,M M,P M,Q)
+			\tkzDrawPoints[fill=black](A,B,C,M,P,Q)
+			\tkzMarkRightAngles(A,P,M A,Q,M B,A,C)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[right](Q)
+			\tkzLabelPoints[below](B,C,M)
+			\tkzLabelPoints[above left](P)
+			\end{tikzpicture}
+		} 
+	}
+\end{bt}

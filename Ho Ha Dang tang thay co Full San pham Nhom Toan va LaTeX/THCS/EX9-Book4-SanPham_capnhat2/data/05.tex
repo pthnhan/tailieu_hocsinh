@@ -1,0 +1,425 @@
+\section{HỆ THỨC LƯỢNG TRONG TAM GIÁC VUÔNG}
+
+\begin{center}
+ \large \textbf{TỔNG QUAN VỀ CHUYÊN ĐỀ}
+\end{center}
+Định lý Py-ta-go học ở lớp $ 7 $ là một trong những hệ thức lượng trong tam giác vuông. Chuyên đề này giới thiệu thêm những hệ thức quan trọng khác trong tam giác vuông: hệ thức giữa cạnh, đường cao và hình chiếu của cạnh; hệ thức giữa cạnh và góc. Đặc biệt là các tỉ số lượng giác của góc nhọn giúp ta giải quyết nhiều bài toán thực tế.
+\begin{flushleft}
+	\textbf{Hình học và Đại số}
+\end{flushleft}
+\begin{center}
+	\large\textbf{DÙNG HÌNH HỌC PHẲNG CHỨNG MINH\\BẤT ĐẲNG THỨC CÔ-SI}
+\end{center}
+Tuấn đố Lan chứng minh bất đẳng thức Cô-si bằng hình học: $ \dfrac{x+y}{2}\ge\sqrt{xy} $,  với $ x,y $ là các số dương. Bạn hãy giúp Lan.
+\loigiai{Trên hai tia đối nhau gốc $ H $, lấy các điểm $ B $ và $ C $ sao cho $ HB=x,\,HC=y $. Vẽ nữa đường tròn tâm $ M $, đường kính $ BC $ và đường vuông góc với $ BC $ tại $ H $, chúng cắt nhau ở $ A \,(h.54).$\\ \immini{Tam giác $ ABC $ vuông tại $ A $, đường cao $ AH $ nên \\
+$ AH^2=HB\cdot HC =xy\Rightarrow AH=\sqrt{xy}.$\\ $ AM=\dfrac{BC}{2}=\dfrac{x+y}{2}. $\\ Ta có $ AM\ge AH $ nên $ \dfrac{x+y}{2}\ge \sqrt{xy}. $ \\Xảy ra đẳng thức khi và chỉ khi $ H $ trùng $ M $, tức là $ x=y $.}{
+		\begin{tikzpicture}[scale=1]
+		\tkzInit[xmin=-.5,ymin=-2,xmax=6.5,ymax=3.2]
+		\tkzClip  
+		\tkzDefPoints{0/0/B,6/0/C}
+		\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+		\tkzDrawArc[towards](M,C)(B) 
+		\tkzDefShiftPoint[M](120:3){A}
+		\tkzDefPointBy[projection = onto B--C](A)
+\tkzGetPoint{H}
+\coordinate (E) at ($(H)+(0,-.75)$);
+\coordinate (F) at ($(C)+(0,-.75)$);
+\draw[<->,dashed] (E) -- (F);
+		\tkzDrawPoints(A,B,C,M,H)
+		\tkzDrawPolygon(A,B,C)
+		\tkzDrawSegments(A,M A,H)
+		\tkzMarkRightAngles(M,H,A B,A,C)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](C)
+		\tkzLabelPoints[below](H,M)
+		\tkzLabelSegment[pos=.5,left](A,H){ $h$}
+		\tkzLabelSegment[pos=.5,below](H,B){ $x$}
+		\tkzLabelSegment[pos=.5,below](E,F){ $y$}
+		\draw (3,-1.5) node[below]{$ \text{Hình }54$} ;
+		\end{tikzpicture}
+	}
+}
+\subsection{HỆ THỨC VỀ CẠNH, HÌNH CHIẾU VÀ ĐƯỜNG CAO}
+\immini{Với tam giác $ ABC $ vuông tại $ A $, đường cao $ AH\,(h.55) $ ngoài định lý Py-ta-go, có các hệ thức lượng sau:{\allowdisplaybreaks
+\begin{align*}
+	&HB\cdot HC=AH^2\\ &AB^2=BC\cdot BH,\, AC^2=BC\cdot CH\\ &\dfrac{1}{AH^2}=\dfrac{1}{AB^2}+\dfrac{1}{AC^2}.
+\end{align*}}}{\begin{tikzpicture}[scale=1.2]
+\tkzInit[ymin=-2,ymax=3,xmin=-1,xmax=5]
+\tkzClip
+\tkzDefPoints{0/0/B,1/2/A,4/0/C}
+\tkzDefPointBy[projection = onto B--C](A)
+\tkzGetPoint{H}
+\tkzDrawPoints(H,C,A,B)
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegment(A,H)
+\tkzMarkRightAngles(B,A,C C,H,A)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below left](B)
+\tkzLabelPoints[below right](C)
+\tkzLabelPoints[below](H)
+\draw (2,-0.5) node[below]{$ \text{Hình }55$} ;
+\end{tikzpicture}}
+\begin{vd}
+	Cho tam giác $ ABC $ vuông tại $ A $, đường cao $ AH=h $. Gọi $ D,E $ theo thứ tự là trung điểm của $ HB,HC $. Gọi $ I $ là trực tâm của tam giác $ ADE $. Tính độ dài $ IH. $
+	\loigiai{(h.$ 56 $) \immini{ Các tam giác vuông $ HAD $ và $ HEI $ có $ \widehat{HAD}=\widehat{HEI} $ (cùng phụ $ \widehat{ADH} $) nên $ \triangle HAD \backsim \triangle HEI\,$(g.g) \\
+Suy ra $\dfrac{DH}{IH}=\dfrac{AH}{EH}\Rightarrow IH=\dfrac{DH\cdot EH}{AH}$.\hfill$(1) $\\ 
+Ta lại có \\
+$ AH^2=HB\cdot HC=2HD\cdot 2HE=4HD\cdot HE$.\hfill$(2)$\\
+Từ $ (1) $ và $ (2) $ suy ra $ IH=\dfrac{AH^2}{4}:AH=\dfrac{h}{4}. $  }{\begin{tikzpicture}[scale=1.3]
+			\tkzInit[ymin=-2,ymax=3,xmin=-1,xmax=4.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,1/2/A,4/0/C}
+			\tkzDefPointBy[projection = onto B--C](A)
+			\tkzGetPoint{H}
+			\coordinate (D) at ($ (B)!0.5!(H) $);
+			\coordinate (E) at ($ (H)!0.5!(C) $);
+			\tkzDefPointBy[projection = onto A--D](E)
+			\tkzGetPoint{e}
+			\tkzInterLL(E,e)(A,H)\tkzGetPoint{I}
+			\tkzDrawPoints(H,C,A,B,D,E,I)
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(A,H A,D A,E e,E)
+			\tkzMarkRightAngles[size=0.15](B,A,C C,H,A E,e,A)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[below](H,E,D)
+			\tkzLabelPoints[above right](I)
+			\tkzMarkSegments[mark=|,size=3pt](D,B D,H)
+			\tkzMarkSegments[mark=||,size=3pt](E,H C,E)
+			\draw (2,-0.5) node[below]{$ \text{Hình }56$} ;
+			\end{tikzpicture}} 
+	}
+\end{vd}
+\begin{vd}
+	Cho tam giác $ ABC $ vuông tại $ A $ có đường phân giác $ BD $, đường trung tuyến $ CM $, đường cao $ AH $ đồng quy.
+	\begin{enumerate}
+		\item Chứng minh rằng $ AB=HC. $
+		\item Tính $ HC $, biết $ HB=2 $ (cm).
+	\end{enumerate}
+	\loigiai{(h.$ 57 $)
+		\begin{center}
+			\begin{tikzpicture}[scale=1.4]
+			\tkzInit[ymin=-1,ymax=3,xmin=-2,xmax=5]
+			\tkzClip
+			\tkzDefPoints{-0.2/0/B,1/2/A,4/0/C}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+			\tkzDefPointBy[projection = onto B--C](A)
+			\tkzGetPoint{H}
+			\tkzDefPointBy[projection = onto A--H](M)
+			\tkzGetPoint{N}
+			\tkzInterLL(A,H)(C,M)\tkzGetPoint{I}
+			\tkzInterLL(B,I)(C,A)\tkzGetPoint{D}
+			\tkzDrawPoints(H,C,A,B,M,D,N)
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(A,H B,D C,M M,N)
+			\tkzMarkRightAngles[size=0.15](B,A,C C,H,A A,N,M)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below right](C,I)
+			\tkzLabelPoints[below](H)
+			\tkzLabelPoints[left](M)
+			\tkzLabelPoints[above right](D,N)
+			\tkzMarkSegments[mark=|,size=3pt](M,B M,A)
+			\tkzMarkAngles[size=0.5](D,B,A)
+			\tkzMarkAngles[size=0.4](C,B,D)
+			\tkzLabelSegment[below](B,H){ $2$}
+			\tkzLabelSegment[below](C,H){ $x$}
+			\draw (2,-0.3) node[below]{$ \text{Hình }57$} ;
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Tam giác $ ABC $ vuông tại $ A $, đường cao $ AH $ nên $ AB^2=BC\cdot BH$.\hfill$(1) $\\ 
+			Kẻ $ MN\perp AH $. Gọi $ I $ là giao điểm của $ BD,\, CM,\,AH $. Theo định lí Ta-lét và tính chất đường phân giác, ta có: 
+			{\allowdisplaybreaks
+		\begin{align*}
+		&	\dfrac{MN}{HC}=\dfrac{IM}{IC}=\dfrac{BM}{BC}\Rightarrow \dfrac{2MN}{HC}=\dfrac{2BM}{BC}\\ \Rightarrow&\dfrac{BH}{HC}=\dfrac{AB}{BC}\Rightarrow BC\cdot BH=AB\cdot HC.\tag{2}
+		\end{align*}}Từ $ (1) $ và $ (2) $ suy ra $ AB^2=AB\cdot HC\Rightarrow AB=HC. $
+	\item Đặt $ HC=AB=x $. Từ $ AB^2=BH\cdot BC $ ta có 
+	$$ x^2=2(x+2)\Leftrightarrow x^2-2x+1=5 \Leftrightarrow (x-1)^2=5.$$
+	Do $ x>0 $ nên $ x=1+\sqrt{5} $. Vậy $ HC=1+\sqrt{5} $ (cm).
+		\end{enumerate}   
+	}
+\end{vd}
+\begin{vd}
+	Cho tam giác $ ABC $ vuông tại $ A $, đường phân giác $ BD $.
+	\begin{enumerate}
+		\item Gọi $ E $ là hình chiếu của $ D $ trên $ BC $, $ H $ là giao điểm của $ AE $ và $ BD $, $ I $ đối xứng với $ D $ qua $ H $. Tứ giác $ ADEI $ là hình gì?
+		\item Tính độ dài $ AD $, biết $ BD=7 $ (cm), $ DC=15 $ (cm).
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1.4]
+			\tkzInit[xmin=-1,xmax=6,ymin=-1,ymax=3]
+			\tkzClip
+			\tkzDefPoints{0/0/B,5/0/C,1.5/2.5/A}
+			\tkzInCenter(A,B,C) \tkzGetPoint{J}
+			\tkzInterLL(B,J)(C,A)\tkzGetPoint{D}
+			\tkzDefPointBy[projection = onto B--C](D)
+			\tkzGetPoint{E}
+			\tkzInterLL(A,E)(B,D)\tkzGetPoint{H}
+			\tkzDefPointBy[symmetry = center H](D)
+			\tkzGetPoint{I}
+			\tkzDrawPoints(A,B,C,D,E,H,I)
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(B,D D,E I,A I,E)
+			\tkzDrawSegment[style=dashed](A,E)
+			\tkzLabelPoints[above](A,H)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below](E,I)
+			\tkzLabelPoints[above right](D)
+			\tkzLabelPoints[below right](C)
+			\tkzMarkRightAngles[size=0.15](B,A,C A,H,I C,E,D)
+			\tkzLabelSegment[above](A,D){ $x$}
+			\tkzLabelSegment[above](D,C){ $15$}
+			\draw (2.5,-0.5) node[below]{$ \text{Hình }58$} ;
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item $ \triangle ABD=\triangle EBD $ (cạnh huyền-góc nhọn) $ \Rightarrow BA=BE,\,AD=DE. $ Tam giác $ ABE $ cân tại $ B $ có $ BH $ là đường phân giác nên $ BH\perp AE,\, HA=HE. $\\  Tứ giác $ ADEI $ có $ HA=HE $, $ HD=HI $ nên là hình bình hành, lại có $ AE\perp DI $ nên là hình thoi.
+			\item Đặt $ AD=EI=x,\,HI=HD=y. $\\Từ $AD^2=DB\cdot DH$ có $x^2=7y$.\hfill $(1)$\\ Do $EI\parallel AC$ nên $\dfrac{EI}{CD}=\dfrac{BI}{BD}\Rightarrow\dfrac{x}{15}=\dfrac{7-2y}{7}.$\hfill $(2)$\\
+			 Từ $ (1) $ và $ (2) $ suy ra $ 30x^2+49x-735=0\Leftrightarrow (5x-21)(6x+35)=0.$\\Do $ x>0 $ nên $ x=4{,}2 $. Vậy $AD=4{,}2$ cm.\\ \textit{Nhận xét:} Câu $ a) $ là gợi ý để giải câu $ b) $. Sự xuất hiện các điểm $ E,H,I $ ở câu $ a) $ dẫn tới hệ thức lượng trong tam giác vuông. Sử dụng hệ thức lượng trong tam giác vuông và định lí Ta-lét giúp ta giải câu $ b) $.
+		\end{enumerate}
+	}
+\end{vd}
+\subsection{TỈ SỐ LƯỢNG GIÁC CỦA GÓC NHỌN. HỆ THỨC VỀ CẠNH VÀ GÓC TRONG TAM GIÁC VUÔNG}
+\subsubsection{Cần nắm vững định nghĩa các tỉ số lượng giác sin $ \alpha $, cos $ \alpha $, tan $ \alpha $, cot $\alpha$ và các hệ thức về cạnh và góc trong tam giác vuông:}
+Cạnh góc vuông $ = $ Cạnh huyền $ \times $ sin góc đối\\
+Cạnh góc vuông $ = $ Cạnh huyền $ \times $ cos góc kề\\
+Cạnh góc vuông $ = $ Cạnh góc vuông kia $ \times $ tang góc đối\\
+Cạnh góc vuông $ = $ Cạnh góc vuông kia $ \times $ côtang góc kề
+\subsubsection{Từ hệ thức về cạnh và góc trong tam giác vuông, suy ra:}
+\begin{itemize}
+	\item Đường cao của tam giác đều cạnh $ a $ bằng $ \dfrac{a\sqrt{3}}{2}. $
+	\item Diện tích của tam giác đều cạnh $ a $ bằng $ \dfrac{a^2\sqrt{3}}{4}. $
+	\item Diện tích của tam giác $ ABC $ bằng $ \dfrac{1}{2}AB\cdot AC\sin \alpha  $, trong đó $ \alpha $ là góc nhọn tạo bởi hai đường thẳng $ AB,\,AC .$
+\end{itemize}
+Với công thức $ S=\dfrac{1}{2}ab\sin \alpha $, dễ dàng suy ra bổ đề tổng quát hơn bổ đề ở \textit{Ví dụ $ 14 $}:\\ Nếu $ \triangle ABC $ và $ \triangle A'B'C'$ có $ \widehat{A}= \widehat{A'}$ (hoặc $\widehat{A}$ bù $ \widehat{A'} $) thì $ \dfrac{S_{ABC}}{S_{A'B'C'}}=\dfrac{AB\cdot AC}{A'B'\cdot A'C'}. $
+\begin{vd}
+    Cho tam giác $ ABC $ vuông tại $ A $, đường cao $ AH $. Trên tia đối của tia $ AH $ lấy điểm $ D $ sao cho $ HD=AC $. Vẽ hình chữ nhật $ CHDE $. Chứng minh rằng $ BE $ vuông góc với $ CD $.
+    \loigiai{\immini{Đặt $ DE=HC=a,\, EC=DH=AC=b. $\\ Ta có $ \tan \widehat{D_1}=\dfrac{EC}{DE}$.\hfill$(1)$\\ $ \tan \widehat{E_1}=\dfrac{BC}{EC}=\dfrac{BC}{b}$.\hfill$(2)$\\ Tam giác vuông $ ABC $ có $ AC^2=BC\cdot HC $.\\
+   Suy ra $ b^2=BC\cdot a\Rightarrow \dfrac{b}{a}=\dfrac{BC}{b}$.\hfill$(3)$\\ Từ $ (1),(2) $ và $ (3) $ suy ra $\tan \widehat{D_1}=\tan \widehat{E_1}$.\\
+   Do đó $ \widehat{D_1}=\widehat{E_1}\Rightarrow \widehat{D_1}+\widehat{E_2}=\widehat{E_1}+\widehat{E_2}=90^\circ$.\\
+   Vậy $ BE\perp CD.$}{\begin{tikzpicture}
+    \tkzInit[xmin=-2.7,ymin=-1.2,xmax=4.5,ymax=6]\tkzClip 
+    \tkzDefPoints{0/0/H,4/0/C,0/3/A}
+    \coordinate (D) at ($(H)+(0,5)$);
+    \coordinate (E) at ($(C)+(0,5)$);
+    \tkzDefPointWith[orthogonal,K=1.2](A,C)
+\tkzGetPoint{b}
+\tkzInterLL(A,b)(C,H)\tkzGetPoint{B} 
+    \tkzDrawPoints(H,C,D,E,A,B)
+    \tkzDrawPolygon(C,H,D,E)
+    \tkzDrawSegments[](E,B A,C A,B C,D B,H)
+    \tkzLabelPoints[](C)
+    \tkzLabelPoints[below](H)
+    \tkzLabelPoints[above left](D,A)
+    \tkzLabelPoints[above right](E)
+    \tkzLabelPoints[below left](B)
+    \tkzMarkAngles[size =0.5](C,D,E B,E,C)
+    \tkzLabelAngle[pos=.7](C,D,E){\footnotesize $1$}%
+    \tkzLabelAngle[pos=.7](B,E,C){\footnotesize $1$}
+    \tkzLabelAngle[pos=-.7](D,E,B){\footnotesize $2$}
+    \tkzMarkRightAngles[size=.3](B,A,C)
+    \tkzLabelSegment[pos=.5,right](C,E){ $b$}
+    \tkzLabelSegment[pos=.5,below left](C,A){ $b$}
+    \tkzLabelSegment[pos=.5,below](C,H){ $a$}
+    \tkzLabelSegment[pos=.5,above](D,E){ $a$}
+    \draw (1,-.5) node[below]{$\text{Hình }59$};
+    \end{tikzpicture}}
+    }
+\end{vd}
+
+\begin{center}
+ \large \textbf{BÀI TẬP}
+\end{center}
+
+\noindent\textbf{Hệ thức về cạnh, hình chiếu và đường cao}
+\begin{bt}
+   Cho tam giác $ABC$ vuông tại $A,$ đường cao $AH.$ Gọi $D$ và $E$ theo thứ tự là hình chiếu của $H$ trên $AB$ và $AC.$ Biết $\dfrac{AB}{AC}=k,$ tính $\dfrac{BD}{CE}.$
+    \loigiai{
+     
+    \begin{center}
+    \begin{tikzpicture}[scale=1.25] \tkzInit[xmin=0,xmax=6,ymin=0,ymax=3] \tkzClip[space=.4] 
+ \tkzDefPoint(0,0){B} \tkzDefPoint(6,0){C}
+ \tkzDefPoint(1.5,0){H}   \tkzDefPoint(1.5,1){K} 
+  \tkzDefMidPoint(C,B) \tkzGetPoint{O}  
+ \tkzInterLC(K,H)(O,B) \tkzGetSecondPoint{A}
+ \tkzDefPointBy[projection=onto B--A](H) \tkzGetPoint{D}
+ \tkzDefPointBy[projection=onto C--A](H) \tkzGetPoint{E}
+ \tkzDrawPolygon(A,B,C) 
+\tkzDrawSegments(A,H H,D H,E) 
+\tkzDrawPoints(A,B,C,D,E,H)
+\tkzLabelPoints[above](A,E)
+\tkzLabelPoints[above left](D)
+\tkzLabelPoints(C,H)
+\tkzLabelPoints[below left](H)
+\tkzMarkRightAngle(B,D,H)
+\tkzMarkRightAngle(H,E,C)
+ \end{tikzpicture}
+ 
+ {\it Hình 248}
+    \end{center}  
+   \noindent (h.248) Từ $BD\cdot AB=HB^2$ và $CE\cdot AC=HC^2$ suy ra \begin{equation}
+       \dfrac{BD}{CE}\cdot k=\left(\dfrac{HB}{HC}\right)^2. 
+   \label{cd5:bt89.1}
+       \end{equation}
+       Từ $HB \cdot BC=AB^2$ và $HC \cdot BC=AC^2$ suy ra 
+       \begin{equation}
+       \dfrac{HB}{HC}=\left(\dfrac{AB}{AC}\right)^2=k^2.
+       \label{cd5:bt89.2}
+       \end{equation}
+       Từ (\ref{cd5:bt89.1}) và (\ref{cd5:bt89.2}) suy ra $\dfrac{BD}{CE}\cdot k=k^4\Rightarrow \dfrac{BD}{CE}=k^3.$
+       }
+\end{bt}
+\begin{bt}
+   Tính diện tích nhỏ nhất của tam giác vuông có đường cao ứng với cạnh huyền bằng $h.$
+    \loigiai{
+        Xét $\triangle ABC$ vuông tại $A,$ đường cao $AH=h,$ diện tích $S$ (h.248).
+        \[\dfrac{1}{h^2}=\dfrac{1}{AB^2}+\dfrac{1}{AC^2}\geq 2\cdot \dfrac{1}{AB}\cdot\dfrac{1}{AC}=\dfrac{2}{2S}=\dfrac{1}{S}\Rightarrow h^2 \leq S.\]
+Vậy        $\min S=h^2\Leftrightarrow AB=AC.$  
+    }
+\end{bt}
+\textbf{Tỉ số lượng giác của góc nhọn. Hệ thức về cạnh và góc trong tam giác vuông}
+\begin{bt}
+  Cho tam giác $ABC$ có $\widehat{A}=60^{\circ},$ đường trung tuyến $AM=m.$ Gọi $BD, CE$ là các đường cao của tam giác $ABC,$ $I$ là trung điểm của $DE.$ Tính $AI.$
+    \loigiai{
+    \begin{center}
+\begin{tikzpicture}[scale=1.25] \tkzInit[xmin=0,xmax=8,ymin=0,ymax=5] \tkzClip[space=.4] 
+ \tkzDefPoint(0,0){B} 
+ \tkzDefPoint(6,0){C}
+ \tkzDefPoint(1,5){A}  
+ \tkzDefPointBy[projection=onto B--A](C) \tkzGetPoint{E}
+ \tkzDefPointBy[projection=onto C--A](B) \tkzGetPoint{D}
+ \tkzDefMidPoint(C,B) \tkzGetPoint{M}  
+ \tkzDefMidPoint(D,E) \tkzGetPoint{I}  
+ \tkzDrawPolygon(A,B,C) 
+\tkzDrawPoints(A,B,C,D,E,I,M)
+\tkzDrawSegments(B,D C,E E,D) 
+\tkzDrawSegments[dashed](A,I A,M)
+\tkzMarkRightAngle[size=.2](B,E,C);
+  \tkzMarkRightAngle[size=.2](B,D,C);
+\tkzLabelPoints[above](A,D)
+\tkzLabelPoints(B,C,M)
+\tkzLabelPoints[above,left](I,E)
+\tkzMarkSegments[mark=|](B,M M,C)
+ \end{tikzpicture}
+
+ {\it Hình 249}
+    \end{center}
+     {\it(h.249)} $\dfrac{AD}{AB} = \dfrac{AE}{AC} \left(=\cos 60^{\circ} =\dfrac{1}{2}\right)\Rightarrow 
+      \triangle ADE \backsim \triangle ABC \, (c.g.c) \Rightarrow \dfrac{AI}{AM}	=\dfrac{AD}{AB} =\dfrac{1}{2}$  
+     
+\noindent (tỉ số hai trung tuyến tương bằng tỉ số đồng dạng).
+      
+      Vậy $AI=\dfrac{AM}{2}=\dfrac{m}{2}.$
+    }
+\end{bt}
+\begin{bt}
+    Cho tam giác $ABC$ có $AB=\sqrt{5}$ cm, $AC=3$ cm, $\widehat{B}+2\widehat{C}=90^{\circ}.$ Tính $\sin C.$
+    \loigiai{
+    \begin{center}
+    \begin{tikzpicture}[scale=1.25] \tkzInit[xmin=-0.5,xmax=8,ymin=0,ymax=4] \tkzClip[space=.4] 
+    % Vẽ điểm
+ \tkzDefPoint(0,0){B} \tkzDefPoint(8,0){C}
+ \tkzDefPoint(5,0){T}   \tkzDefPoint(5,1){P} 
+  \tkzDefMidPoint(C,B) \tkzGetPoint{O}  
+ \tkzInterLC(T,P)(O,B) \tkzGetFirstPoint{H}
+ 
+ \tkzDefLine[bisector](B,C,H) \tkzGetPoint{d}
+ \tkzDefPoint(0,1){U}
+ \tkzInterLL(B,U)(C,d) \tkzGetPoint{K}
+ \tkzInterLL(C,K)(H,B) \tkzGetPoint{A}
+ 
+ \tkzDefPointBy[projection=onto C--K](B) \tkzGetPoint{M}
+ 
+ \tkzDrawPoints(A,B,C,M,K,H)
+\tkzLabelPoints[above](A,M,K,H)
+\tkzLabelPoints(B,C)
+ % Vẽ góc
+ 
+\tkzMarkAngle[mark=|,size=0.3](B,K,M)
+\tkzMarkRightAngle[size=0.3](B,M,C)
+\tkzMarkRightAngle[size=0.3](B,H,C)
+\tkzMarkAngle[size=0.5](A,C,B)
+ \tkzMarkAngle[size=0.5](H,C,A)
+\tkzMarkAngle[mark=|,size=0.3,style=aii](M,A,B)
+\tkzMarkAngle[mark=|,size=0.3](C,A,H)
+
+ \tkzLabelAngle[pos=1](A,C,B){1}
+ \tkzLabelAngle[pos=1](H,C,A){2}
+\tkzLabelAngle[pos=-0.5](M,A,B){1}
+\tkzLabelAngle[pos=0.5](C,A,H){2}
+\tkzLabelAngle[pos=0.6](C,B,A){1}
+ % Vẽ đoạn
+ \tkzDrawPolygon(A,B,C) 
+\tkzDrawSegments(A,H H,C B,K K,A B,M) 
+% Đánh dấu đoạn
+\tkzLabelSegment[left](B,K){$\sqrt{5}$}
+\tkzLabelSegment[right](B,A){$\sqrt{5}$}
+\tkzLabelSegment[above](K,M){$x$}
+\tkzLabelSegment[below](A,C){$3$}
+ \end{tikzpicture}
+
+ {\it Hình 250}
+  \end{center}
+        Kẻ $CH \perp AB.$ Do $\widehat{B_1}+\widehat{C_1}<90^{\circ}$ nên $A$ nằm giữa $B$ và $H.$
+      
+\noindent Ta có $\widehat{B_1}+\widehat{BCH}=90^{\circ} = \widehat{B_1}+2\widehat{C_1}\Rightarrow \widehat{BCH} = 2\widehat{C_1}\Rightarrow \widehat{C_1} = \widehat{C_2}.$
+        
+\noindent Gọi giao điểm của đường vuông góc với $BC$ tại $B$ cắt $CA$ ở $K.$
+
+\noindent Ta có $\widehat{K} = \widehat{A_1}$ (cùng phụ với $\widehat{C_1}=\widehat{C_2}$) $\Rightarrow \triangle ABK$ cân.
+
+\noindent Kẻ $BM \perp AK.$ Đặt $KM = MA = x.$
+
+\noindent Từ $BK^2=KM\cdot KC$ suy ra $(\sqrt{5})^2=x(2x+3) \Rightarrow 2x^2 + 3x - 5 = 0 \Rightarrow (x-1)(2x+5)=0.$ 
+
+\noindent Do $x>0$ nên $x=1,$ do đó $KC = 5$ cm.
+
+\noindent Suy ra $\sin C =\dfrac{BK}{KC}=\dfrac{\sqrt{5}}{5}.$
+
+    }
+\end{bt}
+\begin{bt}
+  Tính diện tích tam giác $ABC$ biết $\widehat{B}=30^{\circ}, \widehat{C}=135^{\circ}, BC=2$ cm.
+    \loigiai{
+     \begin{center}
+    \begin{tikzpicture}[scale=1.25] \tkzInit[xmin=-0.5,xmax=8,ymin=0,ymax=4] \tkzClip[space=.4] 
+    % Vẽ điểm
+ \tkzDefPoint(0,0){B} \tkzDefPoint(2,0){C}
+ 
+ \tkzDefPoint(5,0){H}   \tkzDefPoint(5,3){A} 
+ 
+ \tkzDrawPoints(A,B,C,H)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints(B,C,H)
+ % Vẽ góc
+ 
+\tkzMarkAngle[size=0.3](C,B,A)
+\tkzMarkRightAngle[size=0.3](A,H,C)
+\tkzMarkAngle[size=0.5](H,C,A)
+
+ \tkzLabelAngle[pos=1](C,B,A){$30^{\circ}$}
+ \tkzLabelAngle[pos=1](H,C,A){$45^{\circ}$}
+\
+ % Vẽ đoạn
+ \tkzDrawPolygon(A,B,C) 
+\tkzDrawSegments[dashed](A,H H,C) 
+% Đánh dấu đoạn
+\tkzLabelSegment[below](B,C){$2$}
+ \end{tikzpicture}
+ 
+ {\it Hình 251}
+  \end{center}
+        Kẻ đường cao $AH.$ Ta có $BC=BH - CH =AH \cot 30^{\circ} - AH \cot 45^{\circ} = AH (\sqrt{3} - 1)$.\\
+Suy ra          $ AH = \dfrac{BC}{\sqrt{3}-1}=   \dfrac{2}{\sqrt{3}-1}= \sqrt{3} + 1 (\text{cm}).$\\
+ Vậy       $S_{ABC}=\dfrac{1}{2}\cdot 2 (\sqrt{3}+1)=\sqrt{3}+1 (\text{cm}^2).$
+    }
+\end{bt}
+   
+
+
+
+

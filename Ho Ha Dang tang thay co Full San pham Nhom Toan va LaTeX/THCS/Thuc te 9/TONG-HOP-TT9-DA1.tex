@@ -1,0 +1,1520 @@
+\documentclass[12pt,a4paper,twoside]{book}
+\usepackage{amsmath,amssymb,yhmath,mathrsfs,fancyhdr,tkz-euclide,tikz-3dplot}
+\usepackage{framed,tikz,tkz-tab,tkz-linknodes,pgfplots,currfile,enumerate,tasks,pifont}
+\usetikzlibrary{shapes.geometric,arrows,calc,intersections,angles,patterns,snakes,shadings,quotes}
+%\usetkzobj{all}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.9}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=1.5cm] {geometry}
+\usepackage[hidelinks,unicode,pdfencoding=unicode, psdextra]{hyperref}
+\usepackage[loigiai]{ex_test}
+
+%\usepackage[dethi]{ex_test}
+%CÁC GÓI, LỆNH VIẾT TẮT CẦN THÊM
+%CẤU TRÚC TỰ LUẬN
+\usepackage[most]{tcolorbox}
+\newtheorem{bt}{\color{violet}Bài}
+\newtheorem{vd}{\color{violet}Ví dụ}
+\def\beginbox{\begin{tcolorbox}[drop fuzzy shadow southeast, enhanced, colback=red!5!white, colframe=red!75!black]}
+	\def\endbox{\end{tcolorbox}}
+\AtBeginEnvironment{vd}{
+	\beginbox
+	\renewcommand{\loigiai}[1]{
+		\renewcommand{\immini}[2]{
+			\setbox\imbox=\vbox{\hbox{##2}}
+			\widthimmini=\wd\imbox
+			\IMleftright{##1}{##2}
+		}
+		\endbox
+		\begin{onlysolution}
+			#1
+		\end{onlysolution}
+		\def\endbox{}
+	}
+}
+\AtEndEnvironment{vd}{
+	\endbox
+}
+\newtcolorbox[auto counter]{dang}[1]{
+	drop fuzzy shadow southeast, breakable, enhanced, colback=red!5!white, colframe=red!75!black,
+	title={\bf Dạng~\thetcbcounter.\ #1}
+	%\addcontentsline{toc}{subsubsection}{Dạng~\thetcbcounter. #1}
+}
+\renewtheorem{ex}{\color{violet}Câu}
+\theorembodyfont{\it}
+\newtheorem{dl}{Định lí}
+\theoremseparator{.}
+\theorembodyfont{\rm}
+\newtheorem{hq}{Hệ quả}
+\newtheorem{tc}{Tính chất}
+\newtheorem{dn}{Định nghĩa}
+\theoremstyle{nonumberplain}
+\newtheorem{kn}{Khái niệm}
+\theoremseparator{}
+\theorembodyfont{\it}
+\usepackage{stackengine}
+\usepackage{scalerel}
+\newcommand\dangersign[1][2ex]{%
+	\renewcommand\stacktype{L}%
+	\scaleto{\stackon[1.3pt]{\color{red}$\triangle$}{\fontsize{4}{0}\selectfont !}}{#1}%
+}
+\newtheorem{note}{{\dangersign[3ex]}}
+%Tiêu đề chương
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\usepackage{titlesec}
+\makeatletter
+\renewcommand\thesection{\@arabic\c@section.}
+\renewcommand\thesubsection{\thesection\@arabic\c@subsection.}
+\renewcommand\thesubsubsection{\thesubsection\@arabic\c@subsubsection.}
+\makeatother
+\titleformat{\section}{\selectfont\color{red!50!blue}\centering\scshape\Large\bfseries}{\sc CHỦ ĐỀ \thesection}{0em}{
+	\setcounter{vd}{0}
+	\setcounter{ex}{0}
+	\setcounter{vd}{0}
+	\setcounter{dl}{0}
+	\setcounter{dn}{0}
+	\setcounter{hq}{0}
+	\setcounter{tc}{0}
+	\setcounter{\tcbcounter}{0}
+}
+%HẾT CẤU TRÚC TỰ LUẬN
+\renewcommand{\vec}[1]{\protect\overrightarrow{#1}}
+\newcommand{\hoac}[1]{\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{\left\{\begin{aligned}#1\end{aligned}\right.}
+\renewcommand{\labelenumi}{\alph{enumi})}
+
+% Định dạng nhóm LaTeX
+\newcommand{\cbox}[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=0.8pt] (char) {\bf #1};}}
+\renewcommand{\TrueEX}{\stepcounter{dapan}{{\color{red}\cbox{\textbf{\Alph{dapan}}}} \ignorespaces}}
+%\renewcommand{\TrueEX}{\stepcounter{dapan}{{\color{blue}\cbox{\textbf{\Alph{dapan}}}} \ignorespaces}} %Không tô đỏ đáp án đúng.
+
+\renewcommand{\FalseEX}{\stepcounter{dapan}{{\color{blue}\cbox{\textbf{\Alph{dapan}}}} \ignorespaces}}
+\everymath{\displaystyle}
+\begin{document}
+
+\tableofcontents
+\chapter{TOÁN THỰC TẾ - ÔN THI LỚP 10}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/ans9tt]
+\section{Giải bài toán bằng cách lập hệ phương trình}
+\subsection{Lý thuyết và ví dụ minh họa}
+\begin{dang}{Giải bài toán bằng cách lập hệ phương trình}
+	\begin{enumerate}[\bf Bước 1.]
+		\item Đặt ẩn $x,y$, ghi rõ đơn vị và điều kiện (nếu có).
+		\item Dựa vào dữ kiện bài toán, lập hai phương trình với hai ẩn $x,y$.
+		\item Giải hệ phương trình bằng phương pháp thế hoặc cộng đại số.
+		\item So điều kiện và kết luận bài toán.
+	\end{enumerate}
+\end{dang}
+
+\begin{vd}%[SGK-9-tr20]%[Cao Thành Thái]%[9D3G5]
+	Tìm số tự nhiên có hai chữ số, biết rằng hai lần chữ số hàng đơn vị lớn hơn chữ số hàng chục $ 1 $ đơn vị, và nếu viết hai chữ số ấy theo thứ tự ngược lại thì được một số mới (có hai chữ số) bé hơn số cũ $ 27 $ đơn vị.
+	\loigiai{
+		Gọi số tự nhiên có hai chữ số là $x=\overline{ab}, a,b\in\overline{1,9}$. Ta có $x=10a+b$.
+		\\
+		Do hai lần chữ số hàng đơn vị lớn hơn chữ số hàng chục $ 1 $ đơn vị nên
+		\begin{equation}
+			2b=a+1\Leftrightarrow a-2b=-1
+		\end{equation}
+		Khi viết ngược lại thì được một số mới (có hai chữ số) bé hơn số cũ $ 27 $ đơn vị tức là \begin{equation}
+			\overline{ba}=\overline{ab}-27\Leftrightarrow 10b+a=10a+b-27\Leftrightarrow 9a-9b=27\Leftrightarrow a-b=3.
+		\end{equation}
+		Ta có hệ phương trình \begin{equation*}
+			\heva{&a-2b=-1\\&a-b=3}\Leftrightarrow \heva{&a=7\\&b=4.}
+		\end{equation*}
+		\ding{71} Vậy số cần tìm là $74$.
+	}
+\end{vd}
+
+\begin{vd}%[SGK-9-tr21]%[Cao Thành Thái]%[9D3T5]
+	Một chiếc xe tải đi từ Sài Gòn đến Cần Thơ, quãng đường dài $ 189 $ km. Sau khi xe tải xuất phát $ 1 $ giờ, một chiếc xe khách bắt đầu đi từ Cần Thơ về Sài Gòn và gặp xe tải sau khi đã đi được $ 1 $ giờ $ 48 $ phút. Tính vận tốc (trung bình) của mỗi xe, biết rằng mỗi giờ xe khách đi nhanh hơn xe tải $13$ km.
+	\loigiai{
+		Gọi vận tốc của xe tải và xe khách lần lượt là $x,y$ (km/h). Ta có $1$ giờ $48$ phút $=1{,}8$ h.
+		\\
+		Mỗi giờ xe khách đi nhanh hơn xe tải $13$ km nên
+		\begin{equation}
+			y=x+13\label{dang1.3}
+		\end{equation}
+		Thời gian xe tải đi là $1+1{,}8=2{,}8$ h. Quãng đường xe tải đi là $2{,}8x$.  Thời gian xe khách đi là $1{,}8$ h. Quãng đường xe khách đi là $1{,}8y$. Vì tổng quãng đường hai xe bằng khoảng cách Sài Gòn - Cần Thơ nên
+		\begin{equation}
+			2{,}8x+1{,}8y=189
+		\end{equation}
+		Ta có hệ phương trình \begin{equation*}
+			\heva{&x-y=-13\\&2{,}8x+1{,}8y=189}\Leftrightarrow \heva{&x=36\\&y=49.}
+		\end{equation*}
+		\ding{71} Vậy vận tốc của xe tải là $36$ km/h và xe khách là $49$ km/h.
+	}
+\end{vd}
+
+
+\begin{vd}%[SGK-9-tr22]%[Cao Thành Thái]%[9D3T6]
+	Hai đội công nhân $A$ và $B$ cùng làm một đoạn đường trong $24$ ngày thì xong. Mỗi ngày, phần việc của đội $A$ nhiều gấp rưỡi đội $B$. Hỏi nếu làm một mình thì mỗi đội làm xong đoạn đường đó trong bao lâu?
+	\loigiai{
+		Gọi số ngày mà đội $A$ và đội $B$ một mình làm xong đoạn đường lần lượt là $a,b$ (ngày). 
+		\\
+		Ta coi công việc bằng $1$, khi đó mỗi ngày đội $A$ làm được $\dfrac{1}{a}$ công việc và đội $B$ làm được $\dfrac{1}{b}$ công việc. Và phần việc của đội $A$ nhiều gấp rưỡi đội $B$ nên
+		\begin{equation}
+			\dfrac{1}{a}=1{,}5\cdot\dfrac{1}{b}\Leftrightarrow \dfrac{1}{a}-\dfrac{3}{2}\cdot\dfrac{1}{b}=0\label{dang1.5}
+		\end{equation}
+		Mỗi ngày, hai đội cùng làm thì hết $\dfrac{1}{24}$ công việc (do hoàn thành trong $ 24 $ ngày) nên
+		\begin{equation}
+			\dfrac{1}{a}+\dfrac{1}{b}=\dfrac{1}{24}\label{dang1.6}
+		\end{equation}
+		Từ \eqref{dang1.5} và \eqref{dang1.6} ta có hệ phương trình \begin{equation*}
+			\heva{&\dfrac{1}{a}-\dfrac{3}{2}\cdot\dfrac{1}{b}=0\\&\dfrac{1}{a}+\dfrac{1}{b}=\dfrac{1}{24}}\Leftrightarrow \heva{&\dfrac{1}{a}=\dfrac{1}{40}\\&\dfrac{1}{b}=\dfrac{1}{60}}\Leftrightarrow \heva{&a=40\\&b=60.}
+		\end{equation*}
+		\ding{71} Vậy đội $A$ làm một mình cần $40$ ngày và đội $B$ cần $60$ ngày.
+	}
+\end{vd}
+
+
+\begin{vd}%[SGK-9-tr22]%[Cao Thành Thái]%[9D3G5]
+	Tìm hai số tự nhiên, biết rằng tổng của chúng bằng $1006$ và nếu lấy số lớn chia cho số nhỏ thì được thương là $2$ và số dư là $124$.
+	\loigiai
+	{
+		Gọi $x$ là số lớn, $y$ là số nhỏ.\\
+		Điều kiện: $x \in \mathbb{N}$; $y \in \mathbb{N}$ và $x > y > 0$.\\
+		Do tổng của hai số tự nhiên bằng $1006$ nên
+		\begin{equation}
+			x + y = 1006 \label{dang1.7}
+		\end{equation}
+		Do số lớn chia cho số nhỏ được thương là $2$ và số dư là $124$ nên
+		\begin{equation}
+			x = 2y + 124 \label{dang1.8}
+		\end{equation}
+		Từ \eqref{dang1.7} và \eqref{dang1.8} ta có hệ phương trình
+		\begin{equation*}
+			\heva{& x + y = 1006 \\& x - 2y = 124} \Leftrightarrow \heva{& x = 712 \\& y = 294.} \text{ (thỏa điều kiện).}
+		\end{equation*}
+		\ding{71} Vậy hai số cần tìm là $712$ và $294$.
+	}
+\end{vd}
+
+
+\begin{vd}%[SGK-9-tr22]%[Cao Thành Thái]%[9D3T5]
+	Giải bài toán cổ sau:\\
+	\hspace*{6cm} Quýt, cam mười bảy quả tươi\\
+	\hspace*{5cm} Đem chia cho một trăm người cùng vui.\\
+	\hspace*{6cm}Chia ba mỗi quả quýt rồi\\
+	\hspace*{5cm}Còn cam mỗi quả chia mười vừa xinh.\\
+	\hspace*{6cm}Trăm người, trăm miếng ngọt lành.\\
+	\hspace*{5cm}Quýt, cam mỗi loại tính rành là bao?
+	\loigiai
+	{
+		Gọi $x$ là số quýt, $y$ là số cam.\\
+		Điều kiện: $x$, $y$ là các số nguyên dương.\\
+		Do quýt, cam mười bảy quả tươi nên
+		\begin{equation}
+			x + y = 17 \label{dang1.9}
+		\end{equation}
+		Do  
+\begin{center}
+Chia ba mỗi quả quýt rồi\\
+Còn cam mỗi quả chia mười vừa xinh.\\
+Trăm người, trăm miếng ngọt lành.\\
+Quýt, cam mỗi loại tính rành là bao? 
+\end{center}
+		Nên
+		\begin{equation}
+			3x + 10y = 100 \label{dang1.10}
+		\end{equation}
+		Từ \eqref{dang1.9} và \eqref{dang1.10} ta có hệ phương trình
+		\begin{equation*}
+			\heva{& x + y = 17 \\& 3x + 10y = 100} \Leftrightarrow \heva{& x = 10 \\& y = 7.} \text{ (thỏa điều kiện).}
+		\end{equation*}
+		\ding{71} Vậy có $10$ quả quýt và $7$ quả cam.
+	}
+\end{vd}
+
+
+\begin{vd}%[SGK-9-tr22]%[Cao Thành Thái]%[9D3T5]
+	Một ô-tô đi từ $A$ và dự định đến $B$ lúc $12$ giờ trưa. Nếu xe chạy với vận tốc $35$ km/h thì sẽ đến $B$ chậm $2$ giờ so với dự định. Nếu xe chạy với vận tốc $50$ km/h thì sẽ đến $B$ sớm hơn $1$ giờ so với dự định. Tính độ dài quãng đường $AB$ và thời điểm xuất phát của ô-tô tại $A$.
+	\loigiai
+	{
+		Gọi $x$ (km) là độ dài quãng đường $AB$ và $y$ (giờ) là thời gian dự định để đi từ $A$ đến $B$ đúng lúc $12$ giờ trưa.\\
+		Điều kiện: $x > 0$, $y > 1$ (do ô-tô đến $B$ sớm hơn $1$ giờ).\\
+		Do xe chạy với vận tốc $35$ km/h sẽ đến $B$ chậm $2$ giờ so với dự định nên
+		\begin{equation}
+			\dfrac{x}{35} - y = 2 \label{dang1.11}
+		\end{equation}
+		Do xe chạy với vận tốc $50$ km/h sẽ đến $B$ sớm hơn $1$ giờ so với dự định nên
+		\begin{equation}
+			y - \dfrac{x}{50} = 1 \label{dang1.12}
+		\end{equation}
+		Từ \eqref{dang1.11} và \eqref{dang1.12} ta có hệ phương trình
+		\begin{equation*}
+			\heva{& \dfrac{x}{35} - y = 2 \\& \dfrac{x}{50} - y = -1} \Leftrightarrow \heva{& x = 350 \\& y = 8.} \text{ (thỏa điều kiện).}
+		\end{equation*}
+		\ding{71} Vậy quãng đường $AB$ là $350$ km và thời điểm xuất phát của ô-tô tại $A$ là $12 - 8 = 2$ giờ.
+	}
+\end{vd}
+
+
+\begin{vd}%[SGK-9-tr23]%[Cao Thành Thái]%[9D3G6]
+	Tính độ dài hai cạnh góc vuông của một tam giác vuông, biết rằng nếu tăng mỗi cạnh lên $3$ cm thì diện tích tam giác đó sẽ tăng thêm $36$ c m$^2$, và nếu một cạnh giảm đi $2$ cm, cạnh kia giảm đi $4$ cm thì diện tích của tam giác giảm đi $26$ c m$^2$.
+	\loigiai
+	{
+		Gọi $x$ (cm), $y$ (cm) là độ dài hai cạnh góc vuông của tam giác vuông.\\
+		Điều kiện: $x > 0$ và $y > 0$.\\
+		Do tăng mỗi cạnh lên $3$ cm thì diện tích tam giác đó sẽ tăng thêm $36$ c m$^2$ nên
+		\begin{equation}
+			\dfrac{(x+3)(y+3)}{2} = \dfrac{xy}{2} + 36 \label{dang1.13}
+		\end{equation}
+		Do một cạnh giảm đi $2$ cm, cạnh kia giảm đi $4$ cm thì diện tích của tam giác giảm đi $26$ c m$^2$ nên
+		\begin{equation}
+			\dfrac{(x-2)(y-4)}{2} = \dfrac{xy}{2} - 26 \label{dang1.14}
+		\end{equation}
+		Từ \eqref{dang1.13} và \eqref{dang1.14} ta có hệ phương trình
+		\begin{equation*}
+			\heva{& \dfrac{(x+3)(y+3)}{2} = \dfrac{xy}{2} + 36 \\& \dfrac{(x-2)(y-4)}{2} = \dfrac{xy}{2} - 26} \Leftrightarrow \heva{& (x+3)(y+3) = xy + 72 \\& (x-2)(y-4) = xy - 52} \Leftrightarrow \heva{& 3x + 3y = 63 \\& 4x + 2y = 60} \Leftrightarrow \heva{& x = 9 \\& y = 12.} \text{ (thỏa đk).}
+		\end{equation*}
+		\ding{71} Vậy độ dài hai cạnh góc vuông của tam giác vuông là $9$ cm và $12$ cm.
+	}
+\end{vd}
+
+
+\begin{vd}%[SGK-9-tr23]%[Cao Thành Thái]%[9D3T6]
+	Hai vòi nước cùng chảy vào một bể nước cạn (không có nước) thì sau $4\dfrac{4}{5}$ giờ đầy bể. Nếu lúc đầu chỉ mở vòi thứ nhất và $9$ giờ sau mới mở thêm vòi thứ hai thì sau $\dfrac{6}{5}$ giờ nữa mới đầy bể. Hỏi nếu ngay từ đầu chỉ mở vòi thứ hai thì sau bao lâu mới đầy bể?
+	\loigiai
+	{
+		Gọi $x$ (giờ), $y$ (giờ) lần lượt là thời gian để chỉ riêng vòi thứ nhất, vòi thứ hai chảy đầy bể.\\
+		Điều kiện: $x > 0$ và $y > 0$.\\
+		Trong $1$ giờ vòi thứ nhất chảy được $\dfrac{1}{x}$ bể, vòi thứ hai chảy được $\dfrac{1}{y}$ bể.\\
+		Cả hai vòi cùng chảy thì đầy bể sau $4\dfrac{4}{5} \text{ giờ } = \dfrac{24}{5} \text{ giờ}$ nên trong $1$ giờ cả hai vòi cùng chảy được $\dfrac{5}{24}$ bể.\\
+		Ta được:
+		\begin{equation}
+			\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{5}{24} \label{dang1.15}
+		\end{equation}
+		Trong $9$ giờ vòi thứ nhất chảy được $\dfrac{9}{x}$ bể.\\
+		Trong $\dfrac{6}{5}$ giờ cả hai vòi chảy được: $\dfrac{6}{5} \left( \dfrac{1}{x} + \dfrac{1}{y} \right)$ bể.\\
+		Theo đề bài vòi thứ nhất được mở chảy $9$ giờ sau mới mở thêm vòi thứ hai thì sau $\dfrac{6}{5}$ giờ nữa mới đầy bể nên
+		\begin{equation}
+			\dfrac{9}{x} + \dfrac{6}{5} \left( \dfrac{1}{x} + \dfrac{1}{y} \right) = 1 \Leftrightarrow \dfrac{51}{x} + \dfrac{6}{y} = 5 \label{dang1.16}
+		\end{equation}
+		Từ \eqref{dang1.15} và \eqref{dang1.16} ta có hệ phương trình
+		\begin{equation*}
+			\heva{& \dfrac{1}{x} + \dfrac{1}{y} = \dfrac{5}{24} \\& \dfrac{51}{x} + \dfrac{6}{y} = 5} \Leftrightarrow \heva{& \dfrac{1}{x} = \dfrac{1}{12} \\& \dfrac{1}{y} = \dfrac{1}{8}} \Leftrightarrow \heva{& x = 12 \\& y = 8.} \text{ (thỏa điều kiện).}
+		\end{equation*}
+		\ding{71} Vậy nếu ngay từ đầu chỉ mở vòi thứ hai thì sau $8$ giờ bể sẽ được bơm đầy nước.
+	}
+\end{vd}
+
+
+\begin{vd}%[SGK-9-tr24]%[Cao Thành Thái]%[9D3T6]
+	Hai người thợ cùng làm một công việc trong $16$  giờ thì xong. Nếu người thứ nhất làm $3$ giờ và người thứ hai làm $6$ giờ thì chỉ hoàn thành được $25 \%$ công việc. Hỏi nếu làm riêng thì mỗi người hoàn thành công việc đó trong bao lâu?
+	\loigiai
+	{
+		Gọi $x$ (giờ), $y$ (giờ) lần lượt là thời gian để người thứ nhất, người thứ hai một mình hoàn thành công việc.\\
+		Điều kiện: $x > 0$ và $y > 0$.\\
+		Trong $1$ giờ người thứ nhất làm được $\dfrac{1}{x}$ công việc, người thứ hai làm được $\dfrac{1}{y}$ công việc, cả hai cùng làm chung thì được $\dfrac{1}{16}$ công việc.\\
+		Ta được:
+		\begin{equation}
+			\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{1}{16} \label{dang1.17}
+		\end{equation}
+		Trong $3$ giờ người thứ nhất làm được $\dfrac{3}{x}$ công việc, trong $6$ giờ người thứ hai làm được $\dfrac{6}{y}$ công việc, cả hai làm được $25 \%$ công việc hay $\dfrac{1}{4}$ công việc.\\
+		Ta được:
+		\begin{equation}
+			\dfrac{3}{x} + \dfrac{6}{y} = \dfrac{1}{4} \label{dang1.18}
+		\end{equation}
+		Từ \eqref{dang1.17} và \eqref{dang1.18} ta có hệ phương trình
+		\begin{equation*}
+			\heva{& \dfrac{1}{x} + \dfrac{1}{y} = \dfrac{1}{16} \\& \dfrac{3}{x} + \dfrac{6}{y} = \dfrac{1}{4}} \Leftrightarrow \heva{& \dfrac{1}{x} = \dfrac{1}{24} \\& \dfrac{1}{y} = \dfrac{1}{48}} \Leftrightarrow \heva{& x = 24 \\& y = 48.} \text{ (thỏa điều kiện).}
+		\end{equation*}
+		\ding{71} Vậy nếu làm riêng người thứ nhất hoàn thành công việc trong $24$ giờ và người thứ hai hoàn thành công việc trong $48$ giờ.
+	}
+\end{vd}
+
+
+\begin{vd}%[SGK-9-tr24]%[Cao Thành Thái]%[9D3T6]
+	Nhà Lan có một mảnh vườn trồng rau cải bắp. Vườn được đánh thành nhiều luống, mỗi luống trồng cùng một số cây cải bắp. Lan tính rằng: Nếu tăng thêm $8$ luống rau, nhưng mỗi luống trồng ít đi $3$ cây thì số cây toàn vườn ít đi $54$ cây. Nếu giảm đi $4$ luống, nhưng mỗi luống trồng tăng thêm $2$ cây thì số rau toàn vườn sẽ tăng thêm $32$ cây. Hỏi vườn nhà Lan trồng bao nhiêu cây rau cải bắp?
+	\loigiai
+	{
+		Gọi $x$ là số luống rau và $y$ là số cây rau cải bắp được trồng ở mỗi luống.\\
+		Điều kiện: $x > 0$ và $y > 0$.\\
+		Tăng $8$ luống, mỗi luống trồng ít hơn $3$ cây thì số cây toàn vườn ít đi $54$ cây, ta được:
+		\begin{equation}
+			(x+8)(y-3) = xy - 54 \Leftrightarrow -3x + 8y = -30 \label{dang1.19}
+		\end{equation}
+		Giảm $4$ luống, mỗi luống trồng tăng thêm $2$ cây thì số cây toàn vườn tăng thêm $32$ cây, ta được:
+		\begin{equation}
+			(x-4)(y+2) = xy + 32 \Leftrightarrow 2x - 4y = 40 \label{dang1.20}
+		\end{equation}
+		Từ \eqref{dang1.19} và \eqref{dang1.20} ta có hệ phương trình
+		\begin{equation*}
+			\heva{& -3x + 8y = -30 \\& 2x - 4y = 40} \Leftrightarrow \heva{& x = 50 \\& y = 15.} \text{ (thỏa điều kiện).}
+		\end{equation*}
+		\ding{71} Vậy số cây rau cải bắp nhà Lan trồng là $50 \cdot 15 = 750$ cây.
+	}
+\end{vd}
+
+
+\begin{vd}%[SGK-9-tr24]%[Cao Thành Thái]%[9D3T6]
+	(\textit{Bài toán cổ Ấn Độ}). Số tiền mua $9$ quả thanh yên và $8$ quả táo rừng thơm là $107$ rupi. Số tiền mua $7$ quả thanh yên và $7$ quả táo rừng thơm là $91$ rupi. Hỏi giá mỗi quả thanh yên và mỗi quả táo rừng thơm là bao nhiêu rupi?
+	\loigiai
+	{
+		Gọi $x$ (rupi), $y$ (rupi) lần lượt là giá tiền của mỗi quả thanh yên, mỗi quả táo rừng thơm.\\
+		Điều kiện: $x > 0$ và $y > 0$.\\
+		Do số tiền mua $9$ quả thanh yên và $8$ quả táo rừng thơm là $107$ rupi nên
+		\begin{equation}
+			9x + 8y = 107 \label{dang1.21}
+		\end{equation}
+		Do số tiền mua $7$ quả thanh yên và $7$ quả táo rừng thơm là $91$ rupi nên
+		\begin{equation}
+			7x + 7y = 91 \label{dang1.22}
+		\end{equation}
+		Từ \eqref{dang1.21} và \eqref{dang1.22} ta có hệ phương trình
+		\begin{equation*}
+			\heva{& 9x + 8y = 107 \\& 7x + 7y = 91} \Leftrightarrow \heva{& x = 3 \\& y = 10.} \text{ (thỏa điều kiện).}
+		\end{equation*}
+		\ding{71} Vậy giá tiền mỗi quả thanh yên là $3$ rupi và giá tiền mỗi quả táo rừng thơm là $10$ rupi.
+	}
+\end{vd}
+
+
+\begin{vd}%[SGK-9-tr24]%[Cao Thành Thái]%[9D3T6]
+	Hai vật chuyển động đều trên một đường tròn đường kính $20$ cm, xuất phát cùng một lúc, từ cùng một điểm. Nếu chuyển động cùng chiều thì cứ $20$ giây chúng lại gặp nhau. Nếu chuyển động ngược chiều thì cứ $4$ giây chúng lại gặp nhau. Tính vận tốc của mỗi vật.
+	\loigiai
+	{
+		Gọi $x$ (cm/s), $y$ (cm/s) lần lượt là vận tốc của hai vật.\\
+		Điều kiện: $x > y > 0$.\\
+		Khi chuyển động cùng chiều, cứ $20$ giây chúng lại gặp nhau, nghĩa là quãng đường mà vật đi nhanh đi được trong $20$ giây hơn quãng đường mà vật kia đi trong $20$ giây đúng bằng $1$ vòng (bằng $20\pi$ cm). Ta có phương trình:
+		\begin{equation}
+			20x - 20y = 20 \pi \Leftrightarrow x - y = \pi \label{dang1.23}
+		\end{equation}
+		Khi chuyển động ngược chiều cứ $4$ giây chúng lại gặp nhau, nghĩa là tổng quãng đường hai vật đi được trong $4$ giây là đúng $1$ vòng. Ta có phương trình:
+		\begin{equation}
+			4x + 4y = 20 \pi \Leftrightarrow x + y = 5 \pi \label{dang1.24}
+		\end{equation}
+		Từ \eqref{dang1.23} và \eqref{dang1.24} ta có hệ phương trình
+		\begin{equation*}
+			\heva{& x - y = \pi \\& x + y = 5 \pi} \Leftrightarrow \heva{& x = 3 \pi \\& y = 2 \pi.} \text{ (thỏa điều kiện).}
+		\end{equation*}
+		\ding{71} Vậy vận tốc của hai vật là $3 \pi$ cm/s và $2 \pi$ cm/s.
+	}
+\end{vd}
+\begin{vd}%[Hđ Sinh]%[SGK-9-tr24]
+	Nếu hai vòi nước cùng chảy vào một bể nước cạn (không có nước) thì bể sẽ đầy trong $1$ giờ $20$ phút. Nếu mở vòi thứ nhất trong $10$ phút và vòi thứ hai trong $12$ phút thì chỉ được $\dfrac{2}{15}$ bể nước. Hỏi nếu mở riêng từng vòi thì thời gian để mỗi vòi chảy đầy bể là bao nhiêu?
+	\loigiai
+	{
+		Ta có: $1$ giờ $20$ phút $= 80$ phút. \\
+		Gọi $x$ (phút) là thời gian vòi thứ nhất chảy riêng một mình đầy bể và $y$ (phút) là thời gian vòi thứ hai chảy riêng một mình đầy bể $(x,y>0)$. \\
+		Trong $1$ phút vòi thứ nhất chảy được $\dfrac{1}{x}$ bể và vòi thứ hai chảy được $\dfrac{1}{y}$ bể. Ta có hệ phương trình:
+		\[\heva{&\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{1}{80} \\ & \dfrac{10}{x} + \dfrac{12}{y} = \dfrac{2}{15}.}\]
+		Giải hệ phương trình này ta được $\heva{&x = 120 \\ &y = 240.}$ \\
+		Vậy vòi thứ nhất chảy đầy bể trong $120$ phút ($2$ giờ) và vòi thứ hai chảy đầy bể trong $240$ phút ($4$ giờ).
+	}
+\end{vd}
+
+\begin{vd}%[Hđ Sinh]%[SGK-9-25]
+	Một người mua hai loại hàng và phải trả tổng cộng $2{,}17$ triệu đồng, kể cả thuế giá trị gia tăng (VAT) với mức $10\%$ đối với loại hàng thứ nhất và $8\%$ đối với loại hàng thứ hai. Nếu thuế VAT là $9\%$ đối với cả hai loại hàng thì người đó phải trả tổng cộng $2{,}18$ triệu đồng. Hỏi nếu không kể thuế VAT thì người đó phải trả bao nhiêu tiền cho mỗi loại hàng?
+	\loigiai
+	{
+		Gọi $x$ (triệu đồng) là số tiền phải trả cho loại hàng thứ nhất và $y$ (triệu đồng) là số tiền phải trả cho loại hàng thứ hai nếu không kể thuế VAT. Khi đó, số tiền phải trả cho loại hàng thứ nhất (kể cả thuế VAT $10\%$) là $\dfrac{110}{100}x$ triệu đồng, cho loại hàng thứ hai (kể cả thuế VAT $8\%$) là $\dfrac{108}{100}y$ triệu đồng. Ta có phương trình:
+		\[\dfrac{110}{100}x + \dfrac{108}{100}y = 2{,17} \text{ hay } 1{,}1x + 1{,}08y = 2{,}17\]
+		Khi thuế VAT là $9\%$ cho cả hai loại hàng thì số tiền phải trả là:
+		\[\dfrac{109}{100}(x+y) = 2{,}18 \text{ hay } 1{,}09x + 1{,}09y = 2{,}18\]
+		Ta có hệ phương trình:
+		\[\heva{&1{,}1x + 1{,}08y = 2{,}17 \\ &1{,}09x + 1{,}09y = 2{,}18.}\]
+		Giải hệ này ta được $\heva{& x = 0{,}5 \\ &y = 1{,}5.}$ \\
+		Vậy nếu không kể thuế VAT thì người đó phải trả $0{,}5$ triệu đồng cho loại hàng thứ nhất và $1{,}5$ triệu đồng cho loại hàng thứ hai.
+	}
+\end{vd}
+
+\begin{vd}%[Hđ Sinh]%[SGK-9-27]
+	Hai người ở hai địa điểm $A$ và $B$ cách nhau $3{,}6$ km khởi hành cùng một lúc, đi ngược chiều nhau và gặp nhau ở một địa điểm cách $A$ là $2$ km. Nếu cả hai cùng giữ nguyên vận tốc như trường hợp trên, nhưng người đi chậm hơn xuất phát trước người kia $6$ phút thì họ sẽ gặp nhau ở chính giữa quảng đường. Tính vận tốc của mỗi người.
+	\loigiai
+	{
+		Gọi vận tốc của người xuất phát từ $A$ là $v_1$ (m/phút), của người đi từ $B$ là $v_2$ (m/phút). Điều kiện: $v_1>0, v_2>0$. Khi gặp nhau tại địa điểm cách $A$ $2$ km, người xuất phát từ $A$ đi được $2000$ m, người xuất phát từ $B$ đi được $1600$ m. Ta có phương trình:
+		\[\dfrac{2000}{v_1} = \dfrac{1600}{v_2}~~~(1)\]
+		Điều đó còn cho thấy người xuất phát từ $B$ đi chậm hơn. Khi người đi tứ $B$ xuất phát trước người kia $6$ phút thì hai người gặp nhau ở chính giữa quảng đường, nghĩa là mỗi người đi được $1{,}8$ km = $1800$ m. Ta có phương trình:
+		\[\dfrac{1800}{v_1} + 6 = \dfrac{1800}{v_2}~~~(2)\]
+		Đặt $\dfrac{100}{v_1} = x$ và $\dfrac{100}{v_2} = y$, từ $(1)$ và $(2)$ ta có hệ phương trình:
+		\[\heva{&20x = 16y \\ &18x + 6 = 18y.}\]
+		Giải hệ này ta được nghiệm $(x;y) = \left(\dfrac{4}{3};\dfrac{5}{3}\right)$. Từ đó suy ra:
+		\[\dfrac{100}{v_1} = \dfrac{4}{3} \Leftrightarrow v_1 = 75; \dfrac{100}{v_2} = \dfrac{5}{3} \Leftrightarrow v_2 = 60\]
+		Các giá trị tìm được của $v_1$ và $v_2$ thỏa mãn các điều kiện của bài toán. Vậy vận tốc của người đi từ $A$ là $75$ m/phút, của người đi từ $B$ là $60$ m/phút.
+	}
+\end{vd}
+
+\begin{vd}%[Hđ Sinh]%[SGK-9-27]
+	Một vật có khối lượng $124$ g  và thể tích $15$ cm$^3$ là hợp kim của đồng và kẽm. Tính xem trong đó có bao nhiêu gam đồng và bao nhiêu gam kẽm, biết rằng cứ $89$ g đồng thì có thể tích là $10$ cm$^3$ và $7$ g kẽm có thể tích là $1$ cm$^3$.
+	\loigiai 
+	{
+		Gọi $x$ và $y$ lần lượt là số gam đồng và kẽm có trong vật đó $(x,y>0)$. \\
+		Vì khối lượng của vật là $124$ g nên ta có phương trình $x + y = 124$. \\
+		Thể tích của $x$ gam đồng là $\dfrac{10}{89}x$ (cm$^3$). Thể tích của $y$ gam kẽm là $\dfrac{1}{7}y$ (cm$^3$). \\
+		Vì thể tích của vật là $15$ (c$ m^3$) nên ta có phương trình $\dfrac{10}{89}x + \dfrac{1}{7}y = 15$. \\
+		Từ đó ta có hệ phương trình $\heva{&x+y=124 \\ &\dfrac{10}{89}x + \dfrac{1}{7}y = 15.}$ \\
+		Giải hệ này ta được $\heva{&x = 89 \\ &y = 35.}$ \\
+		Vậy trong vật có $89$ gam đồng và $35$ gam kẽm.
+	}
+\end{vd}
+
+\begin{vd}%[Hđ Sinh]%[SGK-9-27]
+	Hai đội xây dựng làm chung một công việc và dự định hoàn thành trong $12$ ngày. Nhưng khi làm chung được $8$ ngày thì đội I được điều động đi làm việc khác. Tuy chỉ còn một mình đội II làm việc, nhưng do cải tiến cách làm, năng suất của đội II tăng gấp đôi, nên họ đã làm xong phần việc còn lại trong $3{,}5$ ngày. Hỏi với năng suất ban đầu, nếu mỗi đội làm một mình thì phải làm trong bao nhiêu ngày mới xong công việc trên?
+	\loigiai 
+	{
+		Với năng suất ban đầu, giả sử đội I làm xong công việc trong $x$ ngày, đội II làm xong công việc trong $y$ ngày $(x,y>0)$. \\
+		Theo dự định hai đội hoàn thành công việc trong $12$ ngày nên ta có phương trình:
+		\[\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{1}{12}\]
+		Trong $8$ ngày, cả hai đội làm được $\dfrac{8}{12}=\dfrac{2}{3}$ (công việc); còn lại $\dfrac{1}{2}$ công việc do đội II làm. Do năng suất gấp đôi nên đội II làm mỗi ngày được $\dfrac{2}{y}$ công việc và họ hoàn thành nốt $\dfrac{1}{3}$ công việc nói trên trong $3{,}5$ ngày. Do đó, ta có phương trình:
+		\[3{,}5 \cdot \dfrac{2}{y} = \dfrac{1}{3} \text{ hay } y = 21\]
+		Từ đó ta có hệ phương trình $\heva{&\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{1}{12} \\ &y = 21} \Leftrightarrow \heva{&x=28 \\ &y=21}$.
+		Vậy đội I làm trong $28$ ngày và đội II làm trong $21$ ngày.
+	}
+\end{vd}
+
+\begin{vd}%[Hđ Sinh]%[SGK-9-27]
+	Năm ngoái, hai đơn vị sản xuất nông nghiệp thu hoạch được $720$ tấn thóc. Năm nay, đơn vị thứ nhất làm vượt mức $15\%$, đơn vị thứ hai làm vượt mức $12\%$ so với năm ngoái. Do đó cả hai đơn vị thu hoạch được $819$ tấn thóc. Hỏi mỗi năm, mỗi đơn vị thu hoạch được bao nhiêu tấn thóc?
+	\loigiai 
+	{
+		Gọi số thóc năm ngoái của đơn vị thứ nhất, thứ hai thu hoạch được lần lượt là $x$ và $y$ (đơn vị: tấn); $x>0,y>0$. \\
+		Năm ngoái, hai đơn vị thu được $720$ tấn thóc, nên ta có phương trình:
+		\[x+y = 720~~(1)\]
+		Số thóc năm nay đơn vị thứ nhất thu hoạch được là: $x + \dfrac{15x}{100}$. \\
+		Số thóc năm nay đơn vị thứ hai thu hoạch được là: $y + \dfrac{12y}{100}$.\\
+		Năm nay, hai đơn vị thu được $819$ tấn thóc nên ta có phương trình:
+		\[\left(x + \dfrac{15x}{100}\right) + \left(y + \dfrac{12y}{100}\right) = 819~~(2)\]
+		Từ $(1)$ và $(2)$ ta có hệ phương trình:
+		$\heva{&x+y=720 \\ &\left(x+\dfrac{15x}{100}\right) + \left(y + \dfrac{12y}{100}\right) = 819} \Leftrightarrow \heva{&x+y=720 \\ &\dfrac{15x}{100}+\dfrac{12y}{100}=99} \Leftrightarrow \heva{&x+y=720 \\ &15x+12y=9900} \Leftrightarrow \heva{&x+y=720 \\ &5x+4y=3300} \Leftrightarrow \heva{& 5x+5y=3600 \\ &5x+4y=3300} \Leftrightarrow \heva{&y = 300 \\ &x=420.}$ \\
+		Từ đó suy ra:\
+		\begin{align*}
+		&x + \dfrac{15x}{100} = 420 + \dfrac{15 \cdot 420}{100} = 483 \text{ (tấn) }; \\
+		&y + \dfrac{12y}{100} = 300 + \dfrac{12 \cdot 300}{100} = 300 + 36 = 336 \text{ (tấn) }.
+		\end{align*}
+		Vậy: 
+		\begin{itemize}
+			\item Năm ngoái đơn vị thứ nhất thu hoạch được $420$ tấn và đơn vị thứ hai thu hoạch được $300$ tấn thóc.
+			\item Năm nay đơn vị thứ nhất thu hoạch được $483$ tấn thóc và đơn vị thứ hai thu hoạch được $336$ tấn thóc.
+		\end{itemize}
+	}
+\end{vd}
+
+\begin{vd}%[Hđ Sinh]%[7]
+	Cho đa thức $f(x) = -(n+m)x^3 + (3n-4m)x^2 - mx + m+n+1$. Biết đa thức $f(x)$ chia hết cho $(x-a)$ khi và chỉ khi $f(a) = 0$. Tìm $m,n$ biết $f(x)$ chia hết cho đa thức $x^2+4x+3$.
+	\loigiai
+	{
+		Ta có $x^2+4x+3 = (x+1)(x+3) = [x-(-1)][x-(-3)]$. \\
+		Vì $f(x)$ chia hết cho $x^2+4x+3$ nên $f(x)$ chia hết cho $[x-(-1)]$ và $f(x)$ chia hết cho $[x-(-3)]$. Từ đó suy ra $\heva{&f(-1)=0 \\ &f(-3)=0} \Leftrightarrow \heva{&5n-m+1=0 \\ &55n - 5m + 1=0} \Leftrightarrow \heva{&n=\dfrac{2}{15} \\ &m=\dfrac{5}{3}.}$
+	}
+\end{vd}
+
+\begin{vd}%[Hđ Sinh]%[8]
+	Tìm một số có hai chữ số biết tổng hai chữ số đó bằng $13$ và nếu đổi chỗ hai chữ số đó cho nhau thì được một số lớn hơn số đã cho là $27$ đơn vị.
+	\loigiai 
+	{
+		Gọi số có hai chữ số cần tìm là $\overline{ab}$ (Đk: $a,b \in \mathbb{N};0 < a \le 9; 0 \le b \le 9$). \\
+		Vì tổng của hai chữ số của số $\overline{ab}$ bằng $13$ nên ta có \[a + b = 13~~~(1)\]
+		Khi đổi chỗ hai chữ số của số $\overline{ab}$ cho nhau ta được số $\overline{ba}$. Theo giả thiết ta có:
+		\begin{align*}
+		&\overline{ab} + 27 = \overline{ba} \\
+		\Leftrightarrow &10a + b + 27 = 10b + a \\
+		\Leftrightarrow &9a - 9b = -27~~~(2)
+		\end{align*}
+		Từ $(1)$ và $(2)$ ta có hệ $\heva{&a+b=13 \\ &9a - 9b = -27} \Leftrightarrow \heva{&a=5 \\ &b=8}$ (thỏa điều kiện). \\
+		Vậy số cần tìm là $58$.
+	}
+\end{vd}
+
+\begin{vd}%[Hđ Sinh]%[9]
+	Tìm một số có hai chữ số biết tổng của hai chữ số đó là một số nguyên tố nhỏ nhất có hai chữ số và chữ số hàng chục kém hai lần chữ số hàng đơn vị là $1$.
+	\loigiai 
+	{
+		Gọi số có hai chữ số cần tìm là $\overline{ab}$ (Đk: $a,b \in \mathbb{N}; 0 < a \le 9; 0 \le b \le 9$). \\
+		Số nguyên tố nhỏ nhất có hai chữ số là $11$. Theo đề ta có \[a+b=11~~~(1)\]
+		Vì chữ số hàng chục kém hai lần chữ số hàng đơn vị là $1$ nên ta có \[a = 2b - 1 \Leftrightarrow a - 2b = -1~~~(2)\]
+		Từ $(1)$ và $(2)$ ta được $\heva{&a+b=11 \\ &a-2b=-1} \Leftrightarrow \heva{&a=7 \\ &b=4}$ (thỏa điều kiện). \\
+		Vậy số cần tìm là $74$.
+	}
+\end{vd}
+
+\begin{vd}%[Hđ Sinh]%[10]
+	Tính diện tích của một hình chữ nhật biết rằng tổng của nửa chu vi với chiều rộng của hình chữ nhật là $39$ cm và hiệu của chu vi và chiều rộng hình chữ nhật là $42$ cm.
+	\loigiai 
+	{
+		Gọi chiều dài của hình chữ nhật là $a$ (cm) và chiều rộng của hình chữ nhật là $b$ (cm). \\ 
+		Điều kiện: $a>b>0$.\\
+		Vì tổng của nửa chu vi với chiều rộng của hình chữ nhật là $39$ cm nên ta có
+		\[(a+b)+b=39 \Leftrightarrow a + 2b = 39~~~(1)\]
+		Hiệu của chu vi và chiều rộng hình chữ nhật là $42$ cm nên suy ra
+		\[2(a+b) - b = 42 \Leftrightarrow 2a + b = 42~~~(2)\]
+		Từ $(1)$ và $(2)$ ta có hệ $\heva{&a+2b=39 \\ &2a+b=42} \Leftrightarrow \heva{&a=15 \\ &b=12}$ (thỏa điều kiện). \\
+		Vậy diện tích của hình chữ nhật là $S = a \times b = 15 \times 12 = 180$ (cm$^2$).
+	}
+\end{vd}
+
+
+\begin{vd}%[Hoài Nguyễn]%[Bài 21]
+	Tìm diện tích một hình chữ nhật biết rằng: tổng của nửa chu vi với chiều rộng của hình chữ nhật là $39$ cm và hiệu của chu vi và chiều rộng hình chữ nhật ban đầu là $42$ cm.
+	\loigiai{
+		\indent Gọi chiều dài và chiều rộng của hình chữ nhật cần tìm lần lượt là: $x,y$ (điều kiện: $x>y>0$)
+		\\
+		\noindent Tổng của nửa chu vi với chiều rộng của hình chữ nhật là $39$ cm nên ta có phương trình:
+		\begin{equation}
+			x+2y=39
+		\end{equation}
+		\noindent Hiệu của chu vi và chiều rộng hình chữ nhật ban đầu là $42$ cm  nên ta có phương trình:
+		\begin{equation}
+			2x+y=42
+		\end{equation}
+		Ta có hệ phương trình \begin{equation*}
+			\heva{&x+2y=39\\&2x+y=42}\Leftrightarrow \heva{&a=15\\&b=12.}
+		\end{equation*}
+		\ding{71} Vậy diện tích hình chữ nhật là: $180$ cm$^2$.
+	}
+\end{vd}
+
+\begin{vd}%[Hoài Nguyễn]%[BÀI 22]
+	Một hình chữ nhật có chu vi là $200$ dm. Nếu tăng chiều rộng $10$ dm và tăng chiều dài $15$ dm thì diện tích tăng thêm $1450$ dm$^2$. Tính diện tích hình chữ nhật ban đầu.
+	\loigiai{
+		\indent Gọi chiều dài và chiều rộng của hình chữ nhật cần tìm lần lượt là: $x,y$ (điều kiện: $x>y>0$)
+		\\
+		Hình chữ nhật có chu vi là $200$ dm nên ta có phương trình
+		\begin{equation}
+			x+y=100\label{dang1.3}
+		\end{equation}
+		\noindent Tăng chiều rộng $10$ dm và tăng chiều dài $15$ dm thì diện tích tăng thêm $630$ dm$^2$ nên
+		\begin{equation}
+			\left( {x + 10} \right)\left( {y + 15} \right) - xy = 1450 \Leftrightarrow 15x + 10y = 480
+		\end{equation}
+		Ta có hệ phương trình \begin{equation*}
+			\heva{&x+y=100\\&15x+10y=1300}\Leftrightarrow \heva{&x=60\\&y=40.}
+		\end{equation*}
+		\ding{71} Vậy diện tích của hình chữ nhật ban đầu là $2400$ dm$^2$.
+	}
+\end{vd}
+
+
+\begin{vd}%[Hoài Nguyễn]%[BÀI 23]
+	Tìm diện tích một hình chữ nhật biết rằng: nếu tăng chiều dài $2$ m và giảm chiều rộng $3$ m  thì diện tích giảm đi $30$  m$^2$ và nếu giảm chiều dài đi $4$ m và tăng chiều rộng $5$ m thì diện tích tăng thêm $10$ m$^2$
+	\loigiai{
+		\indent Gọi chiều dài và chiều rộng của hình chữ nhật cần tìm lần lượt là: $x,y$ (điều kiện: $x>y>0$)
+		\\
+		\noindent Tăng chiều dài $2$ m và giảm chiều rộng $3$ m thì diện tích giảm đi $30$ m$^2$ nên ta có phương trình
+		\begin{equation}
+			\left( {x + 2} \right)\left( {y - 3} \right) = xy - 30 \Leftrightarrow  - 3x + 2y =  - 24\label{dang1.3}
+		\end{equation}
+		\noindent Giảm chiều dài đi $4$ m và tăng chiều rộng $5$ m thì diện tích tăng thêm $10$ m$^2$
+		\begin{equation}
+			\left( {x - 4} \right)\left( {y + 5} \right) = xy + 10 \Leftrightarrow 5x - 4y = 30
+		\end{equation}
+		Ta có hệ phương trình \begin{equation*}
+			\heva{&-3x+2y=-24\\&5x-4y=30}\Leftrightarrow \heva{&x=18\\&y=15.}
+		\end{equation*}
+		\ding{71} Vậy diện tích của hình chữ nhật là: $270$ m$^2$.
+	}
+\end{vd}
+
+
+\begin{vd}%[Hoài Nguyễn]%[BÀI 24]
+	Một người đi xe máy trên quãng đường dài $140$ km. Khi đi được 20 phút thì xe hư nên phải đi tiếp bằng ô tô trong 50 phút nữa thì hết quãng đường. Tính vận tốc xe máy biết rằng vận tốc xe máy kém vận tốc ô tô là $15$ km/giờ
+	\loigiai{
+		\indent Gọi vận tốc của ô tô và của xe máy lần lượt là: $x,y$ (điều kiện: $x>y>0$)
+		\\
+		\noindent Khi đi được $120$ phút thì xe hư nên phải đi tiếp bằng ô tô trong $50$ phút nữa thì hết quãng đường nên ta có phương trình:
+		\begin{equation}
+			\dfrac{5}{6}x+2y=140\label{dang1.3}
+		\end{equation}
+		\noindent Vận tốc xe máy kém vận tốc ô tô là 15 km/giờ nên ta có phương trình:
+		\begin{equation}
+			x-y=15
+		\end{equation}
+		Ta có hệ phương trình \begin{equation*}
+			\heva{&\dfrac{5}{6}x+2y=140\\&x-y=15}\Leftrightarrow \heva{&x=60\\&y=45.}
+		\end{equation*}
+		\ding{71} Vậy vận tốc xe máy và xe ô tô lần lượt là: $45$ km/giờ và $60$ km/giờ.
+	}
+\end{vd}
+
+\begin{vd}%[Hoài Nguyễn]%[BÀI 25]
+	Tìm vận tốc của xe ô tô và quãng đường AB, biết rằng nếu xe tăng vận tốc thêm $12$ km/giờ thì sẽ đến B sớm hơn 1 giờ, nếu xe giảm vận tốc đi $12$ km/giờ thì đến B trễ hơn $2$ giờ.
+	\loigiai{
+		\indent Gọi vận tốc của ô tô và quãng đường AB lần lượt là: $v,s$ (điều kiện: $v>0;s>0$)
+		\\
+		\noindent Xe tăng vận tốc thêm 12 km/giờ thì sẽ đến B sớm hơn $1$ giờ, nên ta có phương trình:
+		\begin{equation}
+			\frac{s}{{v}} - \frac{s}{v+12} = 1 \Leftrightarrow \frac{{12s}}{{v\left( {v + 12} \right)}} = 1 \Leftrightarrow {v^2} + 12v - 12s = 0\label{dang1.3}
+		\end{equation}
+		\noindent xe giảm vận tốc đi $12$ km/giờ thì đến B trễ hơn 2 giờ, nên ta có phương trình:
+		\begin{equation}
+			\frac{s}{v-12} - \frac{s}{{v}} = 2 \Leftrightarrow \frac{{12s}}{{v\left( {v - 12} \right)}} = 2 \Leftrightarrow 2{v^2} - 24v - 12s = 0
+		\end{equation}
+		Ta có hệ phương trình \begin{equation*}
+			\heva{&{v^2} + 12v + 12s = 0\\&2{v^2} - 24v + 12s = 0}\Leftrightarrow \heva{&v=36\\&s=144.}
+		\end{equation*}
+		\ding{71} Vậy vận tốc của xe ô tô: $36$ km/giờ và quãng đường AB: $144$ km.
+	}
+\end{vd}
+
+
+\begin{vd}%[Hoài Nguyễn]%[BÀI 26]
+	Một chiếc thuyền xuôi dòng và ngược dòng trên một khúc sông dài 40 km mất tổng cộng 4 giờ 30 phút. Cho biết thời gian thuyền xuôi dòng là 4 km sẽ bằng thời gian thuyền ngược dòng 4 km. Tính vận tốc thuyền và vận tốc dòng nước.
+	\loigiai{
+		\indent Gọi vận tốc của ô tô và vận tốc dòng nước lần lượt là: $v,c$ (điều kiện: $v>c>0$)
+		\\
+		\noindent Chiếc thuyền xuôi dòng và ngược dòng trên một khúc sông dài 40 km mất tổng cộng 4 giờ 30 phút, nên ta có phương trình:
+		\begin{equation}
+			\frac{{40}}{{v + c}} + \frac{{40}}{{v - c}} = \frac{9}{2}\label{dang1.3}
+		\end{equation}
+		\noindent xe giảm vận tốc đi 12 km/giờ thì đến B trễ hơn 2 giờ, nên ta có phương trình:
+		\begin{equation}
+			\frac{5}{{v + c}} - \frac{4}{{v - c}} = 0
+		\end{equation}
+		Ta đặt $A=\dfrac{1}{v+c}$ và $B=\dfrac{1}{v-c}$ ta có hệ phương trình
+		\begin{equation*}
+			\heva{&40A+40B=\dfrac{9}{2}\\&5A-4B=0}\Leftrightarrow \heva{&A=\dfrac{1}{20}\\&B=\dfrac{1}{16}.}
+		\end{equation*}
+		Từ đó ta có:
+		\begin{equation*}
+			\heva{&v+c=20\\&v-c=16}\Leftrightarrow \heva{&v=18\\&c=2.}
+		\end{equation*}
+		\ding{71} Vậy vận tốc của thuyền: $18$ km/giờ và vận tốc của dòng nước: $2$ km/giờ.
+	}
+\end{vd}
+
+\begin{vd}%[Hoài Nguyễn]%[BÀI 27]
+	Hai vòi cùng chảy vào một cái bể cạn thì trong 6 giờ 50 phút sẽ đầy bể. Nếu mở vòi thứ nhất chảy trong 4 giờ và vòi thứ hai chảy trong 5 giờ thì đầy $\dfrac{2}{3}$ bể. Hỏi mỗi vòi chảy một mình thì bao lâu mới đầy bể.
+	\loigiai{
+		\indent Gọi số giờ mà vòi thứ nhất và vòi thứ hai chảy một mình để đầy bể lần lượt là $a,b$ (giờ) (điều kiện: $a,b>0$). 
+		\\
+		Ta coi công việc bằng $1$, khi đó mỗi giờ vòi chảy được $\dfrac{1}{a}$ bể và vòi hai chảy được $\dfrac{1}{b}$ bể.
+		\\		
+		Hai vòi cùng chảy vào một cái bể cạn thì trong 6 giờ 50 phút sẽ đầy bể.
+		\begin{equation}
+			\dfrac{1}{a} + \frac{1}{b} = \frac{6}{41}\label{dang1.5}
+		\end{equation}
+		Vòi thứ nhất chảy trong 4 giờ và vòi thứ hai chảy trong 5 giờ thì đầy $\dfrac{2}{3}$ bể.
+		\begin{equation}
+			\dfrac{{4}}{{a}} + \dfrac{5}{b} = \frac{2}{3}\label{dang1.6}
+		\end{equation}
+		Từ \eqref{dang1.5} và \eqref{dang1.6} ta có hệ phương trình \begin{equation*}
+			\heva{&\dfrac{1}{a}+\dfrac{1}{b}=\frac{6}{41}\\&\frac{4}{a}+\frac{5}{b}=\frac{2}{3}}\Leftrightarrow \heva{&\frac{1}{a}=\dfrac{8}{123}\\&\dfrac{1}{b}=\dfrac{10}{123}}\Leftrightarrow \heva{&a=15{,}375\\&b=12{,}3.}
+		\end{equation*}
+		Đổi đơn vị $15,375$ giờ $=$ 15 giờ 22 phút 30 giây. \\
+		Đổi đơn vị $12,3$ giờ $=$ 12 giờ 18 phút.\\
+		\ding{71} Vậy khi chảy một mình để đầy bể thì vòi thứ nhất cần 15 giờ 22 phút 30 giây và vòi thứ hai cần 12 giờ 18 phút.
+	}
+\end{vd}
+
+
+%%Bai20
+\begin{vd}%[Hoài Nguyễn]%[Bài 28]
+	Hai đội công nhân cùng sửa một con đường. Nếu đội $A$ làm nửa con đường rồi giao cho đội $B$ làm phần con đường còn lại thì mất tổng cộng 8 giờ sẽ xong. Nếu hai đội làm chung với nhau thì chỉ sau 3 giờ đã xong con đường. Hỏi mỗi đội làm riêng thì mất bao lâu mới làm xong con đường?
+	\loigiai{
+		\indent Gọi số giờ mà đội $A$ và đội $B$ một mình làm xong con đường lần lượt là $a,b$ (ngày). 
+		\\
+		Ta coi công việc bằng $1$, khi đó mỗi giờ đội $A$ làm được $\dfrac{1}{a}$ công việc và đội $B$ làm được $\dfrac{1}{b}$ công việc.\\
+		Đội $A$ làm nửa con đường nên phần công việc mà đội $B$ phải là làm: $\dfrac{1}{2}$ (công việc)
+		Đội $B$ làm phần con đường còn lại thì mất tổng cộng 8 giờ sẽ xong nên ta có phương trình:
+		\begin{equation}
+			\dfrac{8}{a} = \dfrac{1}{2}\label{dang1.5}
+		\end{equation}
+		\noindent Hai đội làm chung với nhau thì chỉ sau 3 giờ đã xong con đường
+		\begin{equation}
+			\dfrac{1}{a} + \dfrac{1}{b} = \dfrac{1}{3}\label{dang1.6}
+		\end{equation}
+		Từ \eqref{dang1.5} và \eqref{dang1.6} ta có hệ phương trình \begin{equation*}
+			\heva{&\dfrac{8}{a}=\frac{1}{2}\\&\dfrac{1}{a}+\dfrac{1}{b}=\dfrac{1}{3}}\Leftrightarrow \heva{&\dfrac{1}{a}=\dfrac{1}{16}\\&\dfrac{1}{b}=\dfrac{1}{60}}\Leftrightarrow \heva{&a=40\\&b=60.}
+		\end{equation*}
+		\ding{71} Vậy làm một mình đội $A$ cần $40$ ngày và đội $B$ cần $60$ ngày.
+	}
+\end{vd}
+%%Bai21
+\begin{vd}%[Hoài Nguyễn]%[BÀI 29]
+	Hai đội $A$ và $B$ cùng đào một con mương. Nếu đội một đào trong $8$ giờ rồi đội hai mới vào cùng đào thì $4$ giờ nữa mới xong con mương. Nếu đội một đào trong $10$ giờ $30$ phút rồi đội hai mới vào cùng đào thì chỉ mất $3$ giờ nữa đào xong con mương. Hỏi mỗi đội đào riêng trong bao lâu sẽ đào xong con mương.
+	\loigiai{
+		\indent Gọi số giờ mà đội một và đội đội hai đào riêng một mình làm xong con mương lần lượt là $a,b$ (giờ) (điều kiện: $a,b>0$). 
+		\\
+		Ta coi công việc bằng $1$, khi đó mỗi ngày đội một làm được $\dfrac{1}{a}$ công việc và đội hai làm được $\dfrac{1}{b}$ công việc.
+		\\		
+		Đội một đào trong $8$ giờ rồi đội hai mới vào cùng đào thì $4$ giờ nữa mới xong con mương.
+		\begin{equation}
+			\dfrac{8}{a} + \frac{4}{b} = 1\label{dang1.5}
+		\end{equation}
+		Đội một đào trong $10$ giờ $30$ phút rồi đội hai mới vào cùng đào thì chỉ mất $3$ giờ nữa đào xong con mương.
+		\begin{equation}
+			\dfrac{{21}}{{2a}} + \dfrac{3}{b} = 1\label{dang1.6}
+		\end{equation}
+		Từ \eqref{dang1.5} và \eqref{dang1.6} ta có hệ phương trình \begin{equation*}
+			\heva{&\dfrac{8}{a}+\dfrac{4}{b}=1\\&\dfrac{21}{2}\cdot\dfrac{1}{a}+\dfrac{3}{b}=1}\Leftrightarrow \heva{&\dfrac{1}{a}=\dfrac{1}{18}\\&\dfrac{1}{b}=\dfrac{5}{36}}\Leftrightarrow \heva{&a=18\\&b=7{,}2.}
+		\end{equation*}
+		Đổi đơn vị $7{,}2$ giờ $=$ $7$ giờ $12$ phút.\\
+		\ding{71} Vậy đội một làm một mình cần $18$ giờ và đội hai cần $7$ giờ $12$ phút.
+	}
+\end{vd}
+
+%%Bai22
+\begin{vd}%[Hoài Nguyễn]%[BÀI 30]
+	Hai người thợ cùng làm chung một công việc dự định trong $12$ giờ sẽ xong. Họ làm được với nhau trong $8$ giờ thì người thợ thứ nhất bận việc nên nghỉ, người thợ thứ hai tiếp tục làm. Do tăng năng suất gấp đôi nên công việc còn lại người thứ hai làm trong $3$ giờ $20$ phút thì xong. Hỏi nếu mỗi người thợ làm một mình với năng suất dự định ban đầu thì phải mất bao lâu mới xong công việc?
+	\loigiai{
+		\indent Gọi số giờ mà người thứ nhất và người thứ hai một mình làm xong công việc lần lượt là $a,b$ (giờ) (điều kiện: $a,b>0$). 
+		\\
+		Ta coi công việc bằng $1$, khi đó mỗi giờ đội một làm được $\dfrac{1}{a}$ công việc và đội hai làm được $\dfrac{1}{b}$ công việc.
+		\\		
+		Hai người thợ cùng làm chung một công việc dự định trong $12$ giờ sẽ xong.
+		\begin{equation}
+			\dfrac{1}{a} + \frac{1}{b} = \dfrac{1}{12}\label{dang1.5}
+		\end{equation}
+		Hai người làm được với nhau trong $8$ giờ nên công việc đã làm được là: $\dfrac{8}{{12}}=\dfrac{2}{3}$ (công việc).\\
+		Công việc còn lại mà thứ hai cần phải làm để xong hết công việc là: $1 - \dfrac{2}{3} = \dfrac{1}{3}$ (công việc).\\ 
+		Người thứ hai tăng năng suất lên gấp đôi nên mỗi giờ người thứ hai làm được $\dfrac{2}{b}$ (công việc).\\  
+		Người thứ hai làm trong $3$ giờ $20$ phút thì xong việc nên ta có phương trình:
+		\begin{equation}
+			\dfrac{{10}}{{3}}\cdot\dfrac{2}{b}=\dfrac{1}{3}\label{dang1.6}
+		\end{equation}
+		Từ \eqref{dang1.5} và \eqref{dang1.6} ta có hệ phương trình \begin{equation*}
+			\heva{&\dfrac{1}{a}+\dfrac{1}{b}=\dfrac{1}{12}\\&\dfrac{10}{3}\cdot\dfrac{2}{b}=\dfrac{1}{3}}\Leftrightarrow \heva{&\dfrac{1}{a}=\dfrac{1}{30}\\&\dfrac{1}{b}=\dfrac{1}{20}}\Leftrightarrow \heva{&a=30\\&b=20.}
+		\end{equation*}
+		\ding{71} Vậy người thứ nhất làm một mình cần $30$ giờ và người thứ hai cần $20$ giờ.
+	}
+\end{vd}
+
+
+%%Bai23
+\begin{vd}%[Hoài Nguyễn]%[BÀI 22]
+	Theo kế hoạch, để hoàn thành một lô hàng trong thời hạn dự định, mỗi ngày xưởng sản xuất 50 cái áo. Nhưng thực tế, mỗi ngày xưởng sản xuất hơn kế hoạch 6 cái áo. Do vậy, xưởng vượt trước thời hạn 3 ngày và làm vượt số lương sản phẩm là 120 cái áo so với kế hoạch. Vậy theo kế hoạch phải làm bao nhiêu cái áo trong bao nhiêu ngày.
+	\loigiai{
+		\indent Gọi $x$ (ngày) là số ngày mà xưởng sản xuất theo kế hoạch (Điều kiện: $x\in \mathbb{N}^*$). 
+		\\
+		Số cái áo cần may theo dự định là: $50x$.
+		\\		
+		Số cái áo xưởng sản xuất theo thực tế là: $56(x-4)$.
+		\\
+		Xưởng vượt trước thời hạn 3 ngày và làm vượt số lương sản phẩm là 120 cái áo so với kế hoạch nên ta có phương trình:
+		\begin{equation}
+			56\left( {x - 4} \right) - 50x = 120 \Leftrightarrow x = 48\label{dang1.5}
+		\end{equation}
+		\ding{71} Vậy theo kế hoạch, phải hoàn thành $2400$ cái áo trong $48$ ngày.
+	}
+\end{vd}
+
+%%Bai24
+\begin{vd}%[Hoài Nguyễn]%[Bài 24]
+	Hai ô tô khởi hành cùng một lúc tại hai địa điểm A, B và đi ngược chiều nhau. Sau khi khởi hành 2 giờ thì hai xe gặp nhau các trung điểm AB là 15 km. Nếu vận tốc ô tô chạy nhanh giảm đi một nửa vận tốc ban đầu thi hai xe sẽ gặp nhau sau khi khởi hành 2 giờ 48 phút. Tìm vận tốc mỗi xe.
+	\loigiai{
+		\indent Gọi vận tốc của hai ô tô lần lượt là  là $a,b$ ( km/h) (điều kiện: $a>b>0$). 
+		\\
+		Ta coi công việc bằng $1$, khi đó mỗi ngày đội một làm được $\dfrac{1}{a}$ công việc và đội hai làm được $\dfrac{1}{b}$ công việc.
+		\\		
+		Đội một đào trong $8$ giờ rồi đội hai mới vào cùng đào thì $4$ giờ nữa mới xong con mương.
+		\begin{equation}
+			\dfrac{8}{a} + \frac{4}{b} = 1\label{dang1.5}
+		\end{equation}
+		Đội một đào trong $10$ giờ $30$ phút rồi đội hai mới vào cùng đào thì chỉ mất $3$ giờ nữa đào xong con mương.
+		\begin{equation}
+			\dfrac{{21}}{{2a}} + \dfrac{3}{b} = 1\label{dang1.6}
+		\end{equation}
+		Từ \eqref{dang1.5} và \eqref{dang1.6} ta có hệ phương trình \begin{equation*}
+			\heva{&\dfrac{8}{a}+\dfrac{4}{b}=1\\&\dfrac{21}{2}\cdot\dfrac{1}{a}+\dfrac{3}{b}=1}\Leftrightarrow \heva{&\dfrac{1}{a}=\dfrac{1}{18}\\&\dfrac{1}{b}=\dfrac{5}{36}}\Leftrightarrow \heva{&a=18\\&b=7,2.}
+		\end{equation*}
+		Đổi đơn vị $7,2$ giờ $=$ $7$ giờ $12$ phút.\\
+		\ding{71} Vậy đội một làm một mình cần $18$ giờ và đội hai cần $7$ giờ $12$ phút.
+	}
+\end{vd}
+
+
+%%Bai25
+\begin{vd}%[Hoài Nguyễn]%[Bài 24]
+	Hai ô tô khởi hành cùng một lúc tại hai địa điểm A, B và đi ngược chiều nhau. SAu khi khởi hành 2 giờ thì hai xe gặp nhau các trung điểm AB là 15 km. Nếu vận tốc ô tô chạy nhanh giảm đi một nửa vận tốc ban đầu thi hai xe sẽ gặp nhau sau khi khởi hành 2 giờ 48 phút. Tìm vận tốc mỗi xe.
+	\loigiai{
+		\indent Gọi số giờ mà đội một và đội đội hai đào riêng một mình làm xong con mương lần lượt là $a,b$ (giờ) (điều kiện: $a,b>0$). 
+		\\
+		Ta coi công việc bằng $1$, khi đó mỗi ngày đội một làm được $\dfrac{1}{a}$ công việc và đội hai làm được $\dfrac{1}{b}$ công việc.
+		\\		
+		Đội một đào trong $8$ giờ rồi đội hai mới vào cùng đào thì $4$ giờ nữa mới xong con mương.
+		\begin{equation}
+			\dfrac{8}{a} + \frac{4}{b} = 1\label{dang1.5}
+		\end{equation}
+		Đội một đào trong $10$ giờ $30$ phút rồi đội hai mới vào cùng đào thì chỉ mất $3$ giờ nữa đào xong con mương.
+		\begin{equation}
+			\dfrac{{21}}{{2a}} + \dfrac{3}{b} = 1\label{dang1.6}
+		\end{equation}
+		Từ \eqref{dang1.5} và \eqref{dang1.6} ta có hệ phương trình \begin{equation*}
+			\heva{&\dfrac{8}{a}+\dfrac{4}{b}=1\\&\dfrac{21}{2}\cdot\dfrac{1}{a}+\dfrac{3}{b}=1}\Leftrightarrow \heva{&\dfrac{1}{a}=\dfrac{1}{18}\\&\dfrac{1}{b}=\dfrac{5}{36}}\Leftrightarrow \heva{&a=18\\&b=7{,}2.}
+		\end{equation*}
+		Đổi đơn vị $7{,}2$ giờ $=$ $7$ giờ $12$ phút.\\
+		\ding{71} Vậy đội một làm một mình cần $18$ giờ và đội hai cần $7$ giờ $12$ phút.
+	}
+\end{vd}
+
+\begin{vd}%[Hồ Hà Đặng][BÀI 31]
+	 Theo kế hoạch, để hoàn thành một lô hàng trong thời gian dự đinh, mỗi ngày xưởng sản xuất $ 50 $ cái áo. Nhưng thực tế, mỗi ngày xưởng sản xuất hơn kế hoạch $ 6 $ cái áo. Do vậy, xưởng vượt thời hạn $ 3 $ ngày và làm vượt số lượng sản phẩm là $ 120 $ cái áo so với kế hoạch. Vậy theo kế hoạch thì phải làm bao nhiêu cái áo và trong bao nhiêu ngày?
+	\loigiai{
+		\indent Gọi số ngày và tổng số áo theo kế hoạch lần lượt là $x, y$ ($x,y\in\mathbb{N}^*$). 
+		\\
+		Ta có hệ phương trình
+		 \begin{equation*}
+		\heva{&50x=y\\& 56(x-3)=y+120}\Leftrightarrow \heva{&50x-y=0\\&56x-y=288}\Leftrightarrow \heva{&x=48\\&y=2400.}
+		\end{equation*}
+		\ding{71} Vậy cần $48$ ngày và sản xuất được $2400$ cái áo.
+	}
+\end{vd}
+
+
+\begin{vd}%[Hồ Hà Đặng][BÀI 32]
+Hai ô tô khởi hành cùng một lúc tại hai điểm $A, B$ và đi ngược chiều nhau. Sau khi khởi hành $2$ giờ thì hai xe gặp nhau cách trung điểm $ AB $ là $ 15 $ km. Nếu vận tốc ô tô chạy nhanh giảm đi một nửa vận tốc ban đầu thì hai xe sẽ gặp nhau sau khi khởi hành $ 2 $ giờ $ 48 $ phút. Tìm vận tốc mỗi xe.
+	\loigiai{
+		\indent  Gọi $x,y$ (km/h) và $s$ (km) ($x,y,s>0$) lần lượt là vận tốc của xe đi nhanh (giả sử tại $ A $), xe đi chậm và quãng đường $AB$. Và $2$ giờ $48$ phút = $2{,}8$ h.\\
+		Ta có hệ phương trình
+		\begin{equation*}
+		\heva{&2x-2y=15\\& 2x+2y=s\\& 2{,}8\cdot\dfrac{x}{2}+2{,}8y=s} \Leftrightarrow \heva{&2x-2y=15\\& 2x+2y=1{,}4x+2{,}8y\\& 2x+2y=s}\Leftrightarrow \heva{&2x-2y=15\\& 0{,}6x-0{,}8y=0\\& 2x+2y=s}\Leftrightarrow \heva{&x=30\\& y=22{,}5\\& s=105.}
+		\end{equation*}
+		\ding{71} Vậy vận tốc mỗi xe lần lượt là $30$ km/h và $22{,}5$ km/h.
+	}
+\end{vd}
+
+\begin{vd}%[Hồ Hà Đặng][BÀI 33]
+Cho $ 3 $ bình đựng nước. Nếu ta rót $ \dfrac{1}{3} $ lượng nước từ bình thứ nhất sang bình thứ hai rồi rót $ \dfrac{1}{4} $ lượng nước hiện có từ bình thứ hai sang bình thứ ba và cuối cùng rót $\dfrac{1}{10}$ lượng nước hiện có từ bình thứ ba sang bình thứ nhất thì trong mỗi bình đều có $ 9 $ lít nước. Hỏi lúc đầu mỗi bình chứa bao nhiêu lít nước?
+	\loigiai{
+\indent  Gọi $x,y,z>0$ (lít) là số nước ban đầu lần lượt của bình thứ nhất, thứ hai và thứ ba.\\
+Ta có hệ phương trình
+\begin{equation*}
+	\heva{&y+\dfrac{1}{3}x=9\\&z+\dfrac{1}{4}\left(y+\dfrac{1}{3}x\right)=9\\&x+\dfrac{1}{10}\left[z+\dfrac{1}{4}\left(y+\dfrac{1}{3}x\right)\right]=9} \Leftrightarrow 
+		\heva{&y+\dfrac{1}{3}x=9\\&z+\dfrac{1}{4}\cdot 9=9\\&x+\dfrac{1}{10}\cdot9=9} 
+		\Leftrightarrow 
+		\heva{&y=\dfrac{63}{10}\\&z=\dfrac{27}{4}\\&x=\dfrac{81}{10}.} 
+\end{equation*}
+\ding{71} Vậy lúc đầu số nước trong bình thứ nhất, thứ hai và thứ ba lần lượt là $\dfrac{81}{10},  \dfrac{63}{10}, \dfrac{27}{4}$ (lít). 
+	}
+\end{vd}
+
+\begin{vd}%[Hồ Hà Đặng][BÀI 34]
+	Một xí nghiệp đã chi $2\ 650\ 000$ đồng thưởng cho $11$ công nhân. Giải thưởng gồm các loại: $150\ 000$ đồng, $250\ 000$ đồng, $350\ 000$ đồng, $400\ 000$ đồng và $500\ 000$ đồng. Hỏi có bao nhiêu người được thưởng loại $150\ 000$ đồng? Biết rằng tất cả các loại giải thưởng đều trao cho ít nhất một công nhân.
+	\loigiai{
+		\indent   Do tất cả các loại giải thưởng đều trao cho ít nhất một công nhân nên số tiền đã được chi là
+		\begin{equation*}
+		150\ 000+250\ 000+350\ 000+400\ 000+500\ 000=1\ 650\ 000 \textrm{\ đồng}.
+		\end{equation*}
+Như vậy, còn $6$ công nhân cùng số tiền $1\ 000\ 000$ đồng. Nếu có $1$ người nhận $500\ 000$ đồng hoặc $400\ 000$ đồng hoặc $350\ 000$ đồng thì số tiền còn lại sẽ không đủ trao cho $5$ thành viên.	Do đó, chỉ còn phương án $5\times 150\ 000 + 250\ 000 = 1\ 000\ 000$ đồng.
+\\\ding{71} Vậy có $6$ giải thưởng $150\ 000$ đồng.
+}
+\end{vd}
+
+\begin{vd}%[Hồ Hà Đặng][BÀI 35]
+	Một vận động viên thi bắn súng. Vận động viên đã bắn hơn $ 11 $ viên và đều bắn vào các vòng $ 8 $, $ 9 $  và $ 10 $ điểm. Tổng số điểm mà vận động viên đạt được là $ 100 $ điểm. Hỏi vận động viên đó đã  bắn bao nhiêu viên và kết quả bắn vào từng vòng ra sao?
+	\loigiai{
+		\indent  Gọi $x,y,z\in\mathbb{N}^*$ lần lượt là số viên đạn bắn vào vòng $ 8 $, $ 9 $  và $ 10 $ điểm. Khi đó ta có hệ phương trình
+		 \begin{equation*}
+		 \heva{&x+y+z>11\\&8x+9y+10z=100.} 
+		 \end{equation*}
+Ta có, $
+ 100=8(x+y+z)+y+2z>88+y+2z.
+$
+Nếu $x+y+z=13$ thì $100>104+y+2z$ (vô lý). Do đó, $x+y+z=12$. Thay vào 
+$$8x+9y+10z=100\Leftrightarrow 96+y+2z=100\Leftrightarrow y+2z=4.$$
+Nhận thấy, chỉ có trường hợp $y=2,z=1$ thỏa và suy ra $x=12-2-1=9$.
+\\\ding{71} Vậy $x=9,y=2,z=1$.
+}
+\end{vd}
+
+\begin{vd}%[Hồ Hà Đặng][BÀI 36]
+	Tìm một số có ba chữ số biết rằng tổng của chữ số hàng chục và chữ số hàng đơn vị lớn hơn chữ số hàng trăm là $ 10 $ đơn vị. Tích của chữ số hàng chục và chữ số hàng đơn vị nếu bớt đi $1$ thì bằng $ 10 $ lần chữ số hàng trăm.
+	\loigiai{
+		\indent  Gọi $x,y,z$ ($x\in\mathbb{N}^*,y,z\in\mathbb{N}$) lần lượt là ba chữ số của số cần tìm. Tức là $\overline{xyz}=100x+10y+z$ là số cần tìm. Khi đó ta có hệ phương trình  
+		\begin{equation*}
+		\heva{&y+z=10+x\\&yz-1=10x.} 
+		\end{equation*}
+Nhận thấy rằng, $y+z=10+x\geq 11$ (do $x\geq 1$), giả sử $y\geq z$ suy ra $y\geq 6$. Ta chia thành các trường hợp $y\in\{6,7,8,9\}$ và thấy rằng $y=9$ thỏa mãn, dẫn đến $x=8,z=9$.\\
+\ding{71} Vậy số cần tìm là $899$.
+	}
+\end{vd}
+
+\begin{vd}%[Hồ Hà Đặng][BÀI 37]
+	Tìm số có ba chữ số biết rằng tổng $ 3 $ chữ số là $ 14 $, chữ số hàng đơn vị bằng $\dfrac{3}{4}$ tổng hai chữ số kia. Nếu cộng thêm $ 99 $ vào số đó ta được một số có $ 3 $ chữ số đứng theo thứ tự ngược lại.
+	\loigiai{
+	\indent  Gọi  $\overline{xyz}=100x+10y+z$ là số cần tìm, $x,y,z\in\overline{0,9},x\neq0$. Khi đó ta có hệ phương trình  
+		\begin{equation*}
+		\heva{&x+y+z=14\\&z=\dfrac{3}{4}(x+y)\\&\overline{xyz}+99=\overline{zyx}}\Leftrightarrow
+		\heva{&x+y+z=14\\&3x+3y-4z=0\\&100x+10y+z+99=100z+10y+x}\Leftrightarrow
+		\heva{&x+y+z=14\\&3x+3y-4z=0\\&x-z=-1}\Leftrightarrow
+			\heva{&x=5\\&y=3\\&z=6.}
+		\end{equation*}
+\ding{71} Vậy số cần tìm là $536$.
+	}
+\end{vd}
+
+\begin{vd}%[Hồ Hà Đặng][BÀI 38]
+	Một ca nô chạy xuôi dòng với $ 96 $ km và ngược dòng $ 16 $ km mất tổng cộng $ 4 $ giờ. Nếu ca nô đó chạy xuôi dòng $ 75 $ km và ngược dòng $ 30 $ km thì cũng mất thời gian như trên. Hỏi vận tốc ca nô và vận tốc dòng nước là bao nhiêu?
+	\loigiai{
+		\indent  Gọi $x,y$ ( km/h) lần lượt là vận tốc ca nô và vận tốc nước. Khi đó, ta có hệ phương trình 
+		\begin{equation*}
+		\heva{&\dfrac{96}{x+y}+\dfrac{16}{x-y}=4\\&\dfrac{75}{x+y}+\dfrac{30}{x-y}=4}\Leftrightarrow 	\heva{&{x+y}=30\\&{x-y}=20}\Leftrightarrow 	\heva{&x=25\\&y=5.}
+		\end{equation*}
+		\ding{71} Vậy vận tốc ca nô và vận tốc dòng nước lần lượt là $25$ km/h và $5$ km/h.
+	}
+\end{vd}
+
+
+\begin{vd}%[Hồ Hà Đặng][BÀI 39]
+	Một người đi xe đạp từ tỉnh $ A $ đến tỉnh $ B $ cách nhau $ 36 $ km. Lúc từ $ B $ quay về $ A $ người ấy đi bộ nên vận tốc lúc về giảm đi $ 9 $ km/h so với vận tốc lúc đi. Biết vận tốc lúc đi lớn hơn vận tốc trung bình của cả chuyến đi và về là $ 7{,}2 $ km/h. Tìm vận tốc trung bình của cả chuyến đi.
+	\loigiai{
+		\indent  Gọi $x$ ( km/h) là vận tốc lúc đi. Khi đó, vận tốc lúc về là $x-9$ ( km/h). Gọi $y$ ( km/h) là vận tốc trung bình của cả chuyến đi. Thời gian lúc đi là $\dfrac{36}{x}$ h và thời gian lúc về là $\dfrac{36}{x-9}$ h.
+		Ta có $\heva{&x=7{,2}+y\\&y=\dfrac{72}{\dfrac{36}{x}+\dfrac{36}{x-9}}=\dfrac{2x(x-9)}{2x-9}}\Leftrightarrow\heva{&y=x-7{,}2\\&(x-7{,}2)(2x-9)=2x(x-9)}\Leftrightarrow\heva{&x=12\\&y=4{,}8.}$ 
+\\		\ding{71} Vậy  vận tốc trung bình cả chuyến đi là $4{,}8$ km/h.
+	}
+\end{vd}
+
+
+\section{Giải bài toán bằng cách lập phương trình}
+
+	\begin{dang}{Giải bài toán bằng cách lập phương trình}
+	\begin{enumerate}[\bf Bước 1:]
+		\item Lập phương trình:
+		\begin{enumerate}[-]
+			\item Chọn ẩn số, đặt điều kiện cho ẩn số có nghĩa.
+			\item Dùng ẩn số và các số đã biết để tìm các số chưa biết cần thiết.
+		\end{enumerate}
+		\item Giải phương trình.
+		\item Nhận xét và trả lời.
+	\end{enumerate}	
+\end{dang}
+\begin{vd}%[Hoàng Mạnh Linh]%[SGK9 - Tr57]
+	Một xưởng may phải may xong $3000$ áo trong một thời gian quy định. Để hoàn thành sớm kế hoạch, mỗi ngày xưởng đã may được nhiều hơn $6$ áo so với số áo phải may trong một ngày theo kế hoạch. Vì thế $5$ ngày trước khi hết thời hạn, xưởng may đã may được $2650$ áo. Hỏi theo kế hoạch, mỗi ngày xưởng phải may xong bao nhiêu áo? 
+	\loigiai{
+		Gọi số áo phải may trong $1$ ngày theo kế hoạch là $x$ ($x \in \mathbb{N}, x > 0$).\\
+		Thời gian quy định may xong $3000$ áo là $\dfrac{3000}{x}$ (ngày).\\
+		Số áo thực tế may được trong $1$ ngày là $x + 6$ (áo).\\
+		Thời gian may xong $2650$ áo trước khi hết hạn $5$ ngày nên ta có phương trình
+		\begin{equation}\label{dang1.23}
+			\dfrac{3000}{x} - 5 = \dfrac{2650}{x+6}
+		\end{equation}
+		Giải phương trình \eqref{dang1.23} ta được:
+		\begin{equation*}
+			3000(x+6) - 5x(x+6) \Leftrightarrow x^2 - 64x - 3600 = 0
+			\Leftrightarrow \hoac{&x_1 = 100\\&x_2 = -36 \hspace{0.1cm}\text{(Loại)}}
+		\end{equation*}
+		\ding{71} Theo kế hoạch, mỗi ngày xưởng phải may xong $100$ áo.
+	}
+\end{vd}
+
+\begin{vd}%[Hoàng Mạnh Linh]%[41 - SGK9 - Tr58]
+	Trong lúc học nhóm, bạn Hùng yêu cầu bạn Minh và bạn Lan mỗi người chọn một số sao cho hai số này hơn kém nhau là $5$ và tích của chúng phải bằng $150$. Vậy hai bạn Minh và Lan phải chọn những số nào?
+	\loigiai{
+		Gọi $x$ là số mà một bạn (Minh hoặc Lan) đã chọn và số kia chọn là $x + 5$.\\
+		Khi đó tích của hai số là $x(x+5)$. Theo đề bài, ta có phương trình:
+		\begin{equation}\label{dang1.24}
+			x(x+5) = 150 \Leftrightarrow x^2 + 5x - 150 = 0
+		\end{equation}
+		Giải phương trình \eqref{dang1.24} ta được $x_1 = 10; x_2 = -15$.\\
+		\ding{71} Nếu bạn Minh chọn số $10$ thì bạn Lan chọn số $15$ hoặc ngược lại. Nếu bạn Minh chọn số $-15$ thì bạn Lan chọn số $-10$ hoặc ngược lại.
+	}	
+\end{vd}
+
+\begin{vd}%[Hoàng Mạnh Linh]%[42 - SGK9 - Tr58]
+	Bác Thời vay $2000000$ đồng của ngân hàng để làm kinh tế gia đình trong thời hạn một năm. Lẽ ra cuối năm bác phải trả cả vốn lẫn lãi. Song bác đã được ngân hàng cho kéo dài thời hạn thêm một năm nữa, số lãi của năm đầu được gộp vào với vốn	để tính lãi năm sau với lãi suất vẫn như cũ. Hết hai năm bác phải trả tất cả là $2420000$ đồng. Hỏi lãi suất cho vay là bao nhiêu phần trăm trong một năm?
+	\loigiai{
+		Gọi $x$($\%)$ là lãi suất ngân hàng cho vay trong một năm. Điều kiện $x > 0$.\\
+		Khi đó, tiền lãi sau một năm là: $2 000 000 \times \dfrac{x}{100} = 20 000x$ (đồng)\\
+		Sau một năm đầu cả vốn lẫn lãi là: $2 000 000 + 20 000x $ (đồng)\\
+		Tiền lãi năm thứ hai sẽ là: $(20 000x+200x^2)$ (đồng)\\
+		Sau hai năm bác Thời phải trả cả vốn lẫn lãi cho ngân hàng là:
+		\begin{equation*}
+			2 000 000 + 20 000x + 20 000x + 200x^2 = 2 000 000 + 40 000x + 200x^2
+		\end{equation*}
+		Theo đề bài ta có phương trình:	
+		\begin{equation*}
+			2 000 000 + 40 000x + 200x^2 \Leftrightarrow x^2 + 200x - 2100 = 0
+		\end{equation*}
+		Giải phương trình ta được: $x_1 = 10; x_2 = -210$. Vì $x > 0 $ nên ta chọn $x = 10$.\\
+		\ding{71} Lãi suất ngân hàng cho vay là $10\%$/ năm.
+	}
+\end{vd}
+
+\begin{vd}%[Hoàng Mạnh Linh]%[43 - SGK9 - Tr58]
+	Một canô du lịch từ thành phố Cà Mau đến Đất Mũi theo một đường sông dài $120$ km. Trên đường đi, canô nghỉ lại một giờ ở thị trấn Năm Căn. Khi về, canô đi theo đường khác dài hơn đường lúc đi $5$ km và với vận tốc nhỏ hơn vận tốc lúc đi là $5$ km/h. Tính vận tốc của canô lúc đi, biết rằng thời gian về bằng thời gian đi.
+	\loigiai{
+		Gọi $x$ ( km/h) là vận tốc canô lúc đi. Điều kiện $x > 5$.\\
+		Khi đó vận tốc lúc về là $x - 5 $ ( km/h).\\
+		Thời gian đi từ thành phố Cà Mau đến Đất Mũi, trong đó có thời gian nghỉ $1$ giờ tại Năm Căn, là $\dfrac{120}{x} + 1$ (giờ).\\
+		Đường về dài: $120 + 5 = 125$ ( km) và thời gian về mất $\dfrac{125}{x-5}$ (giờ).\\
+		Theo đề bài, ta có phương trình:
+		\begin{equation*}
+			\dfrac{120}{x} + 1 = \dfrac{125}{x-5} \Leftrightarrow x^2 - 10x - 600 = 0
+		\end{equation*}	
+		Giải phương trình ta được: $x_1 = 30\hspace{0.1cm}\text{(nhận)}; x_2 = -20\hspace{0.1cm}\text{(loại)}$.\\
+		\ding{71} Vận tốc ca nô lúc đi là $30$ km/h.
+	}
+\end{vd}
+
+\begin{vd}%[Hoàng Mạnh Linh]%[44 - SGK9 - Tr58]
+	Đố em tìm được một số mà một nửa của nó trừ đi một nửa đơn vị rồi nhân với một nửa của nó bằng một nửa đơn vị.
+	\loigiai{
+		Gọi số phải tìm là $x$.\\
+		Khi đó một nửa của nó trừ đi một nửa đơn vị là: $\dfrac{x}{2} - \dfrac{1}{2}$.\\
+		Theo giả thiết, ta có phương trình:
+		\begin{equation*}
+			\left( \dfrac{x}{2} - \dfrac{1}{2} \right).\dfrac{x}{2} = \dfrac{1}{2} \Leftrightarrow x^2 - x -2 = 0
+		\end{equation*}	
+		Giải phương trình ta được $x_1 = -1; x_2 = 2$.\\
+		\ding{71} Số phải tìm là $-1$ hoặc $2$.
+	}
+\end{vd}
+
+\begin{vd}%[Hoàng Mạnh Linh]%[45 - SGK9 - Tr59]
+	Tích của hai số tự nhiên liên tiếp lớn hơn tổng của chúng là $109$. Tìm hai số đó.
+	\loigiai{
+		Gọi số tự nhiên bé là $x$. Điều kiện $x \geq 0$.\\
+		Khi đó, số tự nhiên liền sau là: $x + 1$.\\
+		Tích của hai số này là $x(x + 1)$ và tổng của chúng là $x + (x + 1) = 2x + 1$.\\
+		Theo đề bài , ta có phương trình:
+		\begin{equation*}
+			x(x+1) = 2x + 1 + 109 \Leftrightarrow x^2 - x - 110 = 0
+		\end{equation*}
+		Giải phương trình ta được $x_1  = 11\hspace{0.1cm}\text{(nhận)}; x_2 = -10\hspace{0.1cm}\text{(loại)}$.\\
+		\ding{71} Hai số phải tìm là $11$ và $12$.
+	}	
+\end{vd}
+
+\begin{vd}%[Hoàng Mạnh Linh]%[46 - SGK9 - Tr59]
+	Một mảnh đất hình chữ nhật có diện tích $240$  m$^2$. Nếu tăng chiều rộng $3$ m và giảm chiều dài $4$ m thì diện tích mặt đất không đổi. Tính kích thước của mảnh đất.
+	\loigiai{
+		Gọi $x$ (m) là chiều rộng của mảnh đất hình chữ nhật. Điều kiện: $x > 0$.\\
+		Diện tích mảnh đất bằng $240$  m$^2$ nên chiều dài hình chữ nhật là: $\dfrac{240}{x}$ (m).\\
+		Khi tăng chiều rộng lên $3$m và giảm chiều dài $4$m thì mảnh đất mới có chiều rộng là $(x + 3)$ (m), chiều dài là $\left( \dfrac{240}{x} - 4 \right)$ (m) và diện tích là $(x+3)\left( \dfrac{240}{x} - 4 \right)$( m$^2$).\\
+		Theo đề bài ta có phương trình:
+		\begin{equation*}
+			(x + 3)\left( \dfrac{240}{x} - 4 \right) = 240 \Leftrightarrow x^2 + 3x - 180 = 0
+		\end{equation*}	
+		Giải phương trình ta được: $x_1 = 12\hspace{0.1cm}\text{(nhận)}; x_2 = -15\hspace{0.1cm}\text{(loại)}$.\\
+		\ding{71} Chiều rộng mảnh đất là $12$ (mét) và chiều dài là $240 : 12 = 20$ (mét)
+	}
+\end{vd}
+
+\begin{vd}%[Hoàng Mạnh Linh]%[47 - SGK9 - Tr59]
+	Bác Hiệp và cô Liên đi xe đạp từ làng bên lên tỉnh trên với quãng đường dài $30$ km, khởi hành cùng một lúc. Vận tốc xe của bác Hiệp lớn hơn vận tốc của xe cô Liên là $3$ km/h nên bác Hiệp đã đến tỉnh trước cô Liên nửa giờ. Tính vận tốc xe của mỗi người.
+	\loigiai{
+		Gọi $x$ ( km/h) là vận tốc xe của bác Hiệp. Điều kiện $x > 3$. Khi đó, vận tốc xe của cô Liên là $(x - 3)  $ ( km/h).\\
+		Thời gian Bác Hiệp đi từ làng lên tỉnh là $\dfrac{30}{x}$ (giờ) và thời gian cô Liên đi từ làng lên tỉnh là $\dfrac{30}{x - 3}$ (giờ).\\
+		Theo đề bài ta có phương trình
+		\begin{equation*}
+			\dfrac{30}{x - 3} - \dfrac{30}{x} = \dfrac{1}{2} \Leftrightarrow x^2 - 3x - 180 = 0
+		\end{equation*}	
+		Giải phương trình ta được: $x_1 = 15\hspace{0.1cm}\text{(nhận)}; x_2 = -12\hspace{0.1cm}\text{(loại)}$
+	}
+\end{vd}
+
+\begin{vd}%[Hoàng Mạnh Linh]%[48 - SGK9 - Tr59]
+	Từ một miếng tôn hình chữ nhật người ta cắt ở bốn góc hình vuông có cạnh bằng $5$ dm để làm thành một cái thùng không có nắp có dung tích $1500$ d$ m^3$ (hình dưới). Hãy tính kích thước của miếng tôn lúc đầu, biết rằng chiều dài của nó gấp đôi chiều rộng.
+	
+	
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7]
+		\tkzDefPoints{0/0/A,8/0/B}
+		\tkzDefGoldRectangle(A,B) \tkzGetPoints{C}{D}
+		\tkzDrawGoldRectangle(A,B)
+		\tkzDefPoints{1/0/E,7/0/F}
+		
+		\tkzDefSquare(A,E)
+		\tkzGetPoints{G}{H}
+		\tkzDrawSquare(A,E)
+		
+		\tkzDefSquare(F,B)
+		\tkzGetPoints{I}{K}
+		\tkzDrawSquare(F,B)
+		
+		\tkzInterLL(G,E)(C,D)\tkzGetPoint{M}
+		\tkzInterLL(F,K)(C,D)\tkzGetPoint{N}
+		
+		\tkzDefSquare(M,D) 
+		\tkzGetPoints{O}{P}
+		\tkzDrawSquare(M,D)
+		
+		\tkzDefSquare(C,N)
+		\tkzGetPoints{S}{T} 
+		\tkzDrawSquare(C,N)
+		
+		\tkzDrawSegments(E,M F,N H,I O,T)
+		
+		
+		\tkzLabelSegments[left](A,H O,D){$5$ dm}
+		\tkzLabelSegments[above](D,M N,C){$5$ dm}
+		
+		\tkzDefPoints{9/0/A,16/0/B,17/1/C}
+		\tkzDefPointBy[translation = from B to A](C)\tkzGetPoint{D}
+		
+		\tkzDefPointWith[orthogonal,K=0.17](A,B)\tkzGetPoint{A'}
+		\tkzDefPointBy[translation = from A to A'](B)\tkzGetPoint{B'}
+		
+		\tkzDefPointBy[translation = from A to A'](C)\tkzGetPoint{C'}
+		
+		\tkzDefPointBy[translation = from A to A'](D)\tkzGetPoint{D'}
+		
+		\tkzDrawSegments(A,A' A,B B,C C,C' C',D' D',A' A',B' B',C' B,B')
+		
+		\tkzDrawSegments[dashed](A,D D,D' D,C)
+		\end{tikzpicture} 
+	\end{center}
+	\loigiai{
+		Gọi $x$ (dm) là chiều rộng của miếng tôn lúc đầu. Điều kiện $x > 10$. Khi đó, chiều dài của nó là $2x$ (dm).\\
+		Khi làm thành một cái thùng không nắp thì chiều dài của thùng là $(2x - 10)$ (dm), chiều rộng là $(x - 10)$ (dm) và chiều cao là $5$ (dm). Khi đó, dung tích của thùng là: $5.(2x - 10)(x - 10)$ (d$ m^3$).\\
+		Theo đề bài, ta có phương trình
+		\begin{equation*}
+			5.(2x - 10)(x - 10) = 1500 \Leftrightarrow x^2 - 15x - 100 = 0
+		\end{equation*} 
+		Giải phương trình ta được: $x_1 = 20\hspace{0.1cm}\text{(nhận)}; x_2 = -5\hspace{0.1cm}\text{(loại)}$.\\
+		\ding{71} Miếng tôn lúc đầu có chiều rộng là $20$ dm và chiều dài $40$ dm.
+	}
+\end{vd}	
+
+\begin{vd}%[Nguyễn Kim Đông]%[49- SGK-9-tr59]
+	Một đội quét sơn một ngôi nhà. Nếu họ cùng làm thì trong 4 ngày xong việc. Nếu họ làm riêng thì đội I hoàn thành công việc nhanh hơn đội II là 6 ngày. Hỏi nếu làm riêng thì mỗi đội phải làm trong bao nhiêu ngày để xong việc?
+	\loigiai{Gọi $x$ ( ngày) là thời gian đội I hoàn thành công việc ($x>0$). Khi đó, thời gian để đội II hoàn thành công việc là $x+6$ ngày.\\
+		Suy ra, trong 1 ngày, đội I làm được $\dfrac{1}{x}$ công việc; đội II làm được $\dfrac{1}{x+6}$ công việc.\\
+		Vì hai đội cùng làm thì hoàn thành công việc trong 4 ngày nên ta có
+		\begin{align*}
+			&\dfrac{1}{x}+\dfrac{1}{x+6}=\dfrac{1}{4}\\
+			\Leftrightarrow &4x+4(x+6)=x(x+6)\\
+			\Leftrightarrow &x^2-2x-24=0 \\
+			\Leftrightarrow &\hoac{&x=6\\&x =-4 \text{ (loại) }}
+		\end{align*}
+		Vậy đội I hoàn thành công việc trong 4 ngày và đội II hoàn thành công việc trong 10 ngày.}
+\end{vd}
+\begin{vd}%[Nguyễn Kim Đông]%[50- SGK-9-tr59]
+	Miếng kin loại thứ nhất nặng $880$g, miếng kim loại thứ hai nặng $858$g. Thể tích của miếng thứ nhất nhỏ hơn thể tích của miếng thứ hai là $10cm^3$, nhưng khối lượng riêng của miếng thứ nhất lại nặng hơn khối lượng riêng của miếng thứ hai là $1g/cm^3$. Tìm khối lượng riêng của mỗi miếng kim loại.
+	\loigiai{
+		Gọi $x$ $\mathrm{cm}^3$ là thể tích miếng kim loại thứ nhất. Khi đó, thể tích miếng kim loại thứ hai là $x+10$ $\left(\mathrm{cm}^3\right)$.\\
+		Khối lượng riêng miếng kim loại thứ nhất là $\dfrac{880}{x}$.\\
+		Khối lượng riêng miếng kim loại thứ hai là $\dfrac{858}{x+10}$.\\
+		Ta có
+		\begin{eqnarray*}
+			&&\dfrac{880}{x}-\dfrac{858}{x+10}=1 \\
+			&\Leftrightarrow &880(x+10)-858x=x(x+10)\\
+			&\Leftrightarrow &x^2-12x-8800=0 \\
+			&\Leftrightarrow &\hoac{&x=100\\&x=-88 \text{ (loại). }}
+		\end{eqnarray*}
+		DO đó, khối lượng riêng miếng kim loại thứ nhất là $\dfrac{880}{100}=8,8$ g/cm$^3$. Khối lượng riêng miếng kim loại thứ hai là $\dfrac{858}{110}=7,8$ g/cm$^3$.}
+\end{vd}
+\begin{vd}%[Nguyễn Kim Đông]%[51- SGK-9-tr59]
+	Người ta đổ thêm $200$g nước vào một dung dịch chứa $40$g muối thì nồng độ dung dịch giảm đi $10$. Hỏi trước khi đổ thêm nước thì dung dịch chứa bao nhiêu nước.
+	\loigiai{Gọi $x$ (gam) là lượng nước có trong dung dịch ban đầu. Khi đó, nồng độ của dung dịch là $\dfrac{40}{x+40}$.\\
+		Nồng độ dung dịch lúc sau khi thêm 200g nước là $\dfrac{40}{240+x}$.\\
+		Ta có
+		\begin{align*}
+			&\dfrac{40}{x+40}-\dfrac{40}{x+240}=\dfrac{1}{10}\\
+			\Leftrightarrow &x^2+280x-70400=0 \\
+			\Leftrightarrow &\hoac{&x=160\\&x=-440 \text{ (loại) }}
+		\end{align*}
+		Vậy lượng nước trong dung dịch ban đầu là $160$g.}
+\end{vd}
+\begin{vd}%[Nguyễn Kim Đông]%[52- SGK-9-tr60]
+	Khoảng cách giữa hai bến sông $A$ và $B$ là $30$ km. Một ca nô đi từ bến $A$ đến bến $B$, nghỉ $40$ phút ở bến $B$ rồi quay lại bến $A$. Kể từ lúc khởi hành đến khi về tới bến $A$ hết tất cả $6$ giờ. Hãy tìm vận tốc ca nô trong nước yên lặng, biết rằng vận tốc của nước chảy là $3 \mathrm{ km/h}$.
+	\loigiai{Gọi $x$ $\mathrm{ km/h}$ là vận tốc ca nô khi nước yên lặng. Do đó, vận tốc ca nô khi xuôi dòng là $x+3$ $\mathrm{( km/h)}$ và vận tốc ca nô khi ngược dòng là $x-3$ $\mathrm{( km/h)}$.\\
+		Ta có
+		\begin{align*}
+			&\dfrac{30}{x+3}+\dfrac{2}{3}+\dfrac{30}{x-3}=6 \\
+			\Leftrightarrow &16x^2-180x-144=0\\
+			\Leftrightarrow &\hoac{&x=12\\&x=-\dfrac{3}{4} \text{ (loại)}.}
+		\end{align*}
+		Vậy vận tốc ca nô khi nước yên lặng là $12$ $\mathrm{ km/h}$.}
+\end{vd}
+\begin{vd}%[Nguyễn Kim Đông]%[63- SGK-9-tr64]
+	Trong hai năm, số dân của một thành phố tăng từ $2000000$ người lên $2020050$ người. Hỏi trung bình mỗi năm, dân số của thành phố đó tăng bao nhiêu phần trăm? 
+	\loigiai{Gọi $x$ là tỉ lệ tăng dân số của thành phố mỗi năm.\\
+		Dân số của thành phố sau năm đầu tiên là $2000000 +2000000\cdot x= 2000000(x+1)$ ( triệu người).\\
+		Dân số của thành phố sau hai năm là 
+		\begin{align*}
+			&2000000(x+1)+2000000(x+1)\cdot x =2020050 \\
+			\Leftrightarrow& 2000000x^2+4000000x-20050=0 \\
+			\Leftrightarrow &\hoac{&x=\dfrac{1}{200}\\&x=-\dfrac{401}{200} \text{ (loại)}}
+		\end{align*}
+		Vậy tỉ lệ gia tăng dân số của thành phố mỗi năm là $0,5\%$.}
+\end{vd}
+\begin{vd}%[Nguyễn Kim Đông]%[64- SGK-9-tr64]
+	Bài toán yêu cầu tìm tích của một số dương với một số lớn hơn nó $2$ đơn vị, nhưng bạn Quân lại nhầm đầu bài lại tính tích của một số dương với một số bé hơn nó $2$ đơn vị. Kết quả của bạn Quân là 120. Hỏi nếu làm đúng đầu bài đã cho thì kết quả phải là bao nhiêu?
+	\loigiai{Gọi $x$ là số ban đầu, $x>0$. Ta có
+		\begin{align*}
+			&x\cdot (x-2)=120 \\
+			\Leftrightarrow &x^2-2x -120 =0 \\
+			\Leftrightarrow &\hoac{&x=-10 \text{ (loại, vì x>0)}\\&x=12}
+		\end{align*}
+		Vậy nếu bạn Quân làm đúng, kết quả phải là $12\cdot 14 =168$.}
+\end{vd}
+\begin{vd}%[Nguyễn Kim Đông]%[65- SGK-9-tr64]
+	Một xe lửa đi từ Hà Nội vào Bình Sơn (Quãng Ngãi). Sau đó một giờ, một xe lửa khác đi từ Bình Sơn ra Hà Nội với vận tốc lớn hơn vận tốc của xe lửa thứ nhất là $5$ $\mathrm{ km/h}$. Hai xe lửa gặp nhau tại một ga chính giữa quãng đường. Tìm vận tốc mỗi xe, giả thiết rằng quãng đường Hà Nội -  Bình Sơn dài $900$ $\mathrm{ km}$.
+	\loigiai{ Gọi $x$ $ \mathrm{( km/h)}$ là vận tốc của xe lửa đi từ Hà Nội vào Bình Sơn.\\
+		Vị trí gặp nhau cách Hà Nội $450$ km.\\
+		Vận tốc xe lửa đi từ Hà Nội vào Bình Sơn là $\dfrac{450}{x}$ $\mathrm{( km/h)}$. Vận tốc xe lửa đi từ Bình Sơn ra Hà Nội là $\dfrac{450}{x+5}$ $\mathrm{( km/h)}$.\\
+		Ta có 
+		\begin{align*}
+			&\dfrac{450}{x}-\dfrac{450}{x+5}=1 \\
+			\Leftrightarrow& x^2+5x-2250=0 \\
+			\Leftrightarrow &\hoac{&x=45\\ &x=-50 \text{ (loại)}}
+		\end{align*}
+		Vậy vận tốc xe lửa đi từ Hà Nội vào Bình Sơn là $45$ $\mathrm{ km/h}$; vận tốc xe lửa đi từ Bình Sơn ra Hà Nội là $50$ $\mathrm{ km/h}$.}
+\end{vd}
+\begin{vd}%[Nguyễn Kim Đông]%[66- SGK-9-tr64]
+	Cho tam giác $ABC$ có $BC=16$ cm, đường cao $AH=12$ cm. Một hình chữ nhật $MNPQ$ có đỉnh $M$ thuộc cạnh $AB$, đỉnh $N$ thuộc cạnh $AC$ còn hai đỉnh $P$ và $Q$ thuộc cạnh $BC$(h.$17$). Xác định vị trí của điểm $M$ trên cạnh $AB$ sao cho diện tích của hình chữ nhật đó bằng $36c$ m$^2$?
+	\begin{center}
+		\begin{tikzpicture}
+		\draw (6.,5.) node [above] {A}-- (4.,2.) node [left] {B} -- (11.,2.) node [right] {C} -- (6.,5.);
+		\draw (5.32,4) node [left] {M} -- (6,4) node [below left] {K}-- (7.64,4) node [right] {N};
+		\draw (6,5)-- (6,2) node [below] {H};
+		\draw (5.32,4) -- (5.32,2) node [below] {Q};
+		\draw (7.64,4) -- (7.64, 2) node [below] {P};
+		%	\tkzMarkRightAngle(A,H,B)
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		
+		Đặt $AK=x$ $(0<x<12)$. Vì $\triangle ABC$ đồng dạng với $\triangle AMN$ nên ta có 
+		\begin{equation*}
+			\dfrac{MN}{BC}=\dfrac{AM}{AB}=\dfrac{AK}{AH}=\dfrac{x}{12}
+		\end{equation*}
+		Suy ra $MN=\dfrac{16x}{12}=\dfrac{4x}{3}$. Ta còn có $MQ=KH=12-x$.\\
+		Diện tích hình chữ nhật $MNPQ$ là
+		\begin{align*}
+			&\dfrac{4x}{3}\cdot (12-x)=36 \\
+			\Leftrightarrow &-4x^2+48x-108=0 \\
+			\Leftrightarrow &\hoac{&x=3\\&x=9}
+		\end{align*}
+		Với $x=3$, suy ra $\dfrac{AM}{AB}=\dfrac{3}{12}=\dfrac{1}{4}$. Do đó, $M$ nằm trên cạnh $AB$ sao cho $AB=4\cdot AM$.\\
+		Với $x=9$, suy ra $\dfrac{AM}{AB}=\dfrac{9}{12}=\dfrac{3}{4}$. Do đó, $M$ nằm trên cạnh $AB$ sao cho $\dfrac{AM}{AB}=\dfrac{3}{4}$.}
+\end{vd}
+\begin{vd}
+	Tìm hai số biết rằng số lớn lớn hơn số bé 5 đơn vị và tổng các bình phương của chúng bằng $4153$.
+	\loigiai{Gọi $x$ là số bé nhất trong hai số. Ta có
+		\begin{equation*}
+			(x+5)^2+x^2=4153 \Leftrightarrow 2x^2+10x-4128=0 \Leftrightarrow \hoac{&x=43\\&x=-48.}
+		\end{equation*}
+		Với $x=43$, hai số cần tìm là $43$ và $48$.\\
+		Với $x=-48$, hai số cần tìm là $-48$ và $-43$.}
+\end{vd}
+
+\begin{vd}%[Nguyễn Thế Anh]
+	Một trường dự tính phát đều $280$ quyển vở cho học sinh tiên tiến. Nhưng khi phát có ba học sinh vắng mặt. Vì vậy mỗi học sinh nhận được nhiều hơn $12$ quyển vở. Hỏi số học sinh dự tính ban đầu là bao nhiêu em?
+	\loigiai{
+		Gọi số học sinh dự tính phát thưởng ban đầu là $x$, ($x\in \mathbb{N}^*~ x>3$).\\
+		Số học sinh lúc phát thưởng là $x-3$.\\
+		Số quyển vở mỗi học sinh nhận được lúc dự tính là: $\dfrac{280}{x-3}$.\\
+		Số quyển vở mỗi học sinh nhận được lúc phát thưởng là: $\dfrac{280}{x}$.\\
+		Theo đề bài ta có phương trình:
+		\begin{eqnarray*}
+			&&\dfrac{280}{x-3}-\dfrac{280}{x}=12\\
+			& \Leftrightarrow& 280x-280(x-3)=12x(x-3) \\
+			& \Leftrightarrow& 280x-280x+840=12x^2-36x \\
+			& \Leftrightarrow & 12x^2-36x-840=0 \\
+			& \Leftrightarrow& \hoac{& x_1=10&\text{(nhận)} \\
+				&   x_2=-7&\text{(loại)}}
+		\end{eqnarray*}
+		Vậy số học sinh dự tính phát thưởng ban đầu phát thưởng là $10$ học sinh.
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Thế Anh]
+	Một mảnh đất hình chữ nhật có hiệu hai cạnh là $12$ (m). Tính chu vi mảnh đất đó, biết rằng diện tích của nó là $640$  m$^2$.
+	\loigiai{
+		Gọi chiều rộng mảnh đất hình chữ nhật là $x$ (m), $x>0$.
+		Chiều dài mảnh đất hình chữ nhật là $x+12$ (m) .
+		Theo đề bài ta có phương trình:
+		\begin{eqnarray*}
+			& &x(x+12)=640\\
+			& \Leftrightarrow & x^2+12x-640=0 \\
+			& \Leftrightarrow & \hoac{& x_1=20 &\text{(nhận)}\\
+				& x_2=-32&\text{(loại)}}
+		\end{eqnarray*}
+		Vậy chiều rộng mảnh đất hình chữ nhật là $20$ (m).\\
+		Chiều dài mảnh đất hình chữ nhật là $32$ (m).\\
+		Chu vi mảnh đất hình chữ nhật là $104$ (m).
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Thế Anh]
+	Một tam giác vuông có chu vi là $30$ (m). Cạnh huyền là $13$ (m). Tính độ dài hai cạnh góc vuông.
+	\loigiai{
+		Gọi độ dài cạnh góc vuông thứ nhất là $x$ (m), $x>0$.\\
+		Độ dài cạnh góc vuông thứ hai là $17-x$ (m).\\
+		Theo đề bài ta có phương trình:
+		\begin{eqnarray*}
+			&&(17-x)^2+x^2=13^2\\
+			& \Leftrightarrow& 289-34x+x^2+x^2=169 \\
+			& \Leftrightarrow& 2x^2-34x+120=0 \\
+			& \Leftrightarrow &\hoac{&x_1=12&\text{(nhận)} \\
+				&  \ x_2=5&\text{(nhận)}}
+		\end{eqnarray*}
+		Vậy độ dài hai cạnh góc vuông lần lượt là $12$ (m) và $5$ (m).
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Thế Anh]
+	Một thửa ruộng hình tam giác có diện tích $180$  m$^2$. Tính cạnh đáy của thửa ruộng, biết rằng nếu tăng cạnh đáy thêm $4$ m và giảm chiều cao tương ứng đi $1$ m thì diện tích của thửa ruộng không thay đổi.
+	\loigiai{
+		Gọi độ dài cạnh đáy của thửa ruộng là $x$ (m), $x>0$.\\
+		Chiều cao thửa ruộng lúc đầu là $\dfrac{360}{x}$ (m).\\
+		Tăng cạnh đáy thêm $4$ (m) là      $(x+4)$ (m).\\
+		Giảm chiều cao tương ứng đi $1$ (m)  $(\dfrac{360}{x}-1)$ (m).\\
+		Theo đề bài ta có phương trình:
+		\begin{eqnarray*}
+			&&\dfrac{1}{2}(x+4)\left(\dfrac{360}{x}-1\right)=180\\
+			& \Leftrightarrow & (x+4)\left(\dfrac{360}{x}-1\right)=360 \\
+			& \Leftrightarrow &x^2+4x-1440=0 \\
+			& \Leftrightarrow &\hoac{&x_1=36&\text{(nhận)} \\
+				&  x_2=-40&\text{(loại)}}
+		\end{eqnarray*}
+		Vậy độ dài cạnh đáy của thửa ruộng là $36$ (m).
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Thế Anh]
+	Một khu vườn hình chữ nhật có  diện tích $600$  m$^2$. Tính các kích thước của khu vườn biết rằng nếu giảm đi mỗi cạnh $4$ m thì diện tích còn lại là $416$ m$^2$
+	\loigiai{
+		Gọi chiều rộng mảnh đất hình chữ nhật là $x$ (m), $x>0$.\\
+		Chiều dài mảnh đất hình chữ nhật là $\dfrac{600}{x}$ (m).\\
+		Nếu giảm đi mỗi cạnh $4$ (m).\\
+		Chiều rộng là $x-4$ (m).\\
+		Chiều dài là $\dfrac{600}{x}-4$ (m).\\
+		Theo đề bài ta có phương trình:
+		\begin{eqnarray*}
+			&&(x-4)\left(\dfrac{600}{x}-4\right)=416\\
+			& \Leftrightarrow & x^2-50x+600=0 \\
+			& \Leftrightarrow &\hoac{&x_1=20&\text{(nhận)} \\
+				& x_2=30&\text{(nhận)}}
+		\end{eqnarray*}
+		Vậy chiều rộng mảnh đất hình chữ nhật là $20$ (m),
+		chiều dài mảnh đất hình chữ nhật là $30$ (m).
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Thế Anh]
+	Một lâm trường dự định trồng $75$ ha rừng trong một số tuần lễ. Do mỗi tuần trồng vượt mức 5ha so với kế hoạch nên đã trồng được 80ha và hoàn thành sớm hơn một tuần so với dự định. Hỏi lâm trường dự định mỗi tuần trồng bao nhiêu ha rừng?
+	\loigiai{
+		Gọi $x$ (ha) là số ha rừng lâm trường dự định trồng mỗi tuần (điều kiện: $x>0$)\\
+		Số $ha$ rừng thực tế trồng được trong mỗi tuần: $x+5$ (ha)\\
+		Số tuần lễ dự định trồng $75$ (ha) rừng: $\dfrac{75}{x}$\\
+		Số tuần lễ thực tế lâm trường đã thực hiện là: $\dfrac{80}{x+5}$\\
+		Do hoàn thành sớm hơn một tuần so với dự định nên ta có phương trình:
+		\begin{eqnarray*}
+			&&\dfrac{75}{x}-\dfrac{80}{x+5}=1\\
+			& \Leftrightarrow & 75(x+5)-80x=x(x+5) \\
+			& \Leftrightarrow & 75x+375-80x=x^2+5x \\
+			& \Leftrightarrow & x^2+10x-375=0\\
+			& \Leftrightarrow &\hoac{& x_1=15 &\text{(nhận)}\\
+				& x_2=-25&\text{(loại)}}
+		\end{eqnarray*}
+		Vậy lâm trường dự định trồng mỗi tuần $15$ ha rừng.
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Thế Anh]
+	Hai công nhân làm chung thì hoàn thành một công việc trong $4$ ngày. Người thứ nhất làm một nửa công việc và sau đó người thứ hai làm hết công việc còn lại thì toàn bộ công việc làm xong trong $9$ ngày. Hỏi mỗi người nếu làm riêng thì sẽ hoàn thành toàn bộ công việc đó trong bao lâu?
+	\loigiai{
+		Gọi $x, y$ lần lượt là số ngày hai công nhân làm một mình xong công việc (ĐK: $0<x,y<18$).\\
+		Số công việc cả hai công nhân cùng làm trong 1 ngày: $\dfrac{1}{x}+\dfrac{1}{y}=\dfrac{1}{4}~~~~(1)$.\\
+		Do người thứ nhất làm một nửa công việc và sau đó người thứ hai làm hết công việc còn lại thì toàn bộ công việc làm xong trong $9$ ngày nên ta có phương trình:\\
+		$\dfrac{1}{2}x+\dfrac{1}{2}y=9\Leftrightarrow x+y=18$
+		$\Rightarrow x=18-y~~~~(2)$.\\
+		Thay $(2)$ vào $(1)$ ta được:
+		\begin{eqnarray*}
+			&&\dfrac{1}{18-y}+\dfrac{1}{y}=\dfrac{1}{4}\\
+			&\Leftrightarrow &4y+4(18-y)=y(18-y)\\
+			& \Leftrightarrow &4y+72-4y=18y-y^2 \\
+			& \Leftrightarrow &y^2-18y+72=0\\
+			& \Leftrightarrow &\hoac{&y=12 &\text{(nhận)}\\
+				&y=6&\text{(nhận)}}
+		\end{eqnarray*}
+		Khi $y=12$ thì $x=6$.\\
+		Khi $y=6$ thì $x=12$.\\
+		Vậy nếu làm riêng thì hai người hoàn thành công việc trong $6$ ngày, $12$ ngày.
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Thế Anh]
+	Một ca nô xuôi một khúc sông dài 50 km rồi ngược dòng sông về lại vị trí ban đầu hết 5 giờ. Tính vận tốc của ca nô biết rằng vận tốc dòng nước là $4$ km/h.
+	\loigiai{
+		Gọi $x$ ( km/h) là vận tốc của ca nô (điều kiện: $x>4$).\\
+		Vận tốc của ca nô khi xuôi dòng: $x+4$ km/h. \\
+		Thời gian của ca nô khi xuôi dòng là: $\dfrac{50}{x+4}$(giờ). \\
+		Vận tốc của ca nô khi ngược dòng: $x-4$ km/h.\\
+		Thời gian của ca nô khi ngược dòng là $\dfrac{50}{x-4}$(giờ). \\
+		Do ca nô xuôi một khúc sông dài $50$ ( km) rồi ngược dòng sông về lại vị trí ban đầu hết $5$ giờ nên ta có phương trình:
+		\begin{eqnarray*}
+			&&\dfrac{50}{x+4}+\dfrac{50}{x-4}=5\\
+			& \Leftrightarrow &50(x-4)+50(x+4)=5(x+4)(x-4) \\
+			& \Leftrightarrow &50x-200+50x+200=5x^2-80 \\
+			& \Leftrightarrow &x^2-20x-16=0
+		\end{eqnarray*}
+		Giải phương trình ta được: $x_1\approx 20,77$ (nhận), $x_2\approx-0,77$(loại)\\
+		Vậy vận tốc của ca nô là một số xấp xỉ $20$ km/h.
+	}
+\end{vd}
+\begin{vd}%[Thanh Hoàng Đinh]%[Bài 27]
+	Một xe đi từ $A$ đến $B$ cách nhau $24$ km. Khi đi từ $B$ về $A$, do ngược gió nên vận tốc giảm đi $4$ km/h và thời gian về lâu hơn thời gian đi là $1$ giờ. Tính vận tốc của xe lúc đi.
+	\loigiai{
+		Gọi $x$ ( km/h) là vận tốc của xe lúc đi $(x > 4)$. Khi đó, vận tốc của xe lúc về là $x - 4$ ( km/h).\\
+		Thời gian lúc đi là $\dfrac{24}{x}$ và thời gian lúc về là $\dfrac{24}{x - 4}$.\\
+		Vì thời gian về lâu hơn thời gian đi là $1$ giờ nên ta có phương trình:
+		$$\dfrac{24}{x} = \dfrac{24}{x - 4} - 1 \Leftrightarrow 24(x - 4) = 24x - x(x - 4) \Leftrightarrow x^2 - 4x - 96 = 0 \Leftrightarrow \hoac{&x = 12 \\ &x = -8.}$$
+		Vậy vận tốc của xe lúc đi là $12$ km/h.
+	}
+\end{vd}
+
+\begin{vd}%[Thanh Hoàng Đinh]%[Bài 28]
+	Tìm hai số biết rằng số lớn hơn số bé $3$ đơn vị và tổng các bình phương của hai số đó là $369$.
+	\loigiai{
+		Gọi $x$ là số bé. Khi đó số lớn là $x + 3$.\\
+		Vì tổng các bình phương của hai số là $369$ nên ta có phương trình:
+		$$x^2 + (x + 3)^2 = 369 \Leftrightarrow 2x^2 + 6x - 360 = 0 \Leftrightarrow \hoac{&x = 12 \\ &x = -15.}$$
+		Vậy hai số cần tìm là $12$, $15$ hoặc $-15$, $-12$.
+	}
+\end{vd}
+
+\begin{vd}%[Thanh Hoàng Đinh]%[Bài 29]
+	Hai cạnh của một hình chữ nhật hơn kém nhau $10$m. Tính chu vi hình chữ nhật đó biết diện tích của nó là $1200\mathrm{m}^2$.
+	\loigiai{
+		Gọi $x$(m) là chiều rộng của hình chữ nhật $(x > 0)$. Khi đó chiều dài của hình chữ nhật là $x + 10$.\\
+		Vì hình chữ nhật có diện tích là $1200\mathrm{m}^2$ nên ta có phương trình:
+		$$x(x + 10) = 1200 \Leftrightarrow x^2 + 10x - 1200 = 0 \Leftrightarrow \hoac{&x = 30 \\ &x = -40.}$$
+		Vậy chu vi hình chữ nhật là $P = 2(30 + 40) = 140$ (m).
+	}
+\end{vd}
+
+\begin{vd}%[Thanh Hoàng Đinh]%[Bài 30]
+	Một hình chữ nhật có chu vi là $120$ cm. Nếu giảm chiều dài đi $3$ cm và tăng chiều rộng thêm $5$ cm thì hình chữ nhật có diện tích là $925\mathrm{cm}^2$. Tìm kích thước ban đầu của hình chữ nhật.
+	\loigiai{
+		Gọi $x$(m) là chiều dài ban đầu của hình chữ nhật $(30 < x < 60)$. Khi đó chiều rộng ban đầu của hình chữ nhật là $60 - x$.\\
+		Vì khi giảm chiều dài đi $3$ cm và tăng chiều rộng thêm $5$ cm thì hình chữ nhật có diện tích là $925\mathrm{cm}^2$ nên ta có phương trình:
+		$$(x - 3)(60 - x + 5) = 925 \Leftrightarrow x^2 - 68x + 1120 = 0 \Leftrightarrow \hoac{&x = 40 \\ &x = 28.}$$
+		Vậy chiều dài, chiều rộng ban đầu của hình chữ nhật lần lượt là $40$m, $20$m.
+	}
+\end{vd}
+
+\begin{vd}%[Thanh Hoàng Đinh]%[Bài 31]
+	Một đoàn xe ô tô cần chở $30$ tấn hàng theo dự định, mỗi xe chở như nhau. Khi bắt đầu khởi hành thì có thêm $2$ ô tô đến nữa nên mỗi xe chở ít hơn $0{,}5$ tấn so với dự định. Hỏi lúc đầu đoàn xe có bao nhiêu ô tô?
+	\loigiai{
+		Gọi $x$ là số xe ô tô lúc đầu đoàn xe có $(x \in \mathbb{N}^*)$. Suy ra số xe ô tô lúc khởi hành là $x + 2$.\\
+		Lúc đầu mỗi xe dự định chở $\dfrac{30}{x}$ tấn và khi khởi hành mỗi xe chở $\dfrac{30}{x + 2}$ tấn.\\
+		Theo đề bài, ta có phương trình:
+		$$\dfrac{30}{x} = \dfrac{30}{x + 2} + \dfrac{1}{2} \Leftrightarrow 60(x + 2) = 60x + x(x + 2) \Leftrightarrow x^2 + 2x - 120 = 0 \Leftrightarrow \hoac{&x = 10 \\ &x = -12.}$$
+		Vậy lúc đầu đoàn xe có $10$ ô tô.
+	}
+\end{vd}
+
+\begin{vd}%[Thanh Hoàng Đinh]%[Bài 32]
+	Một phân xưởng dự định dệt $3000$ tấm thảm. Trong $8$ ngày đầu, họ đã thực hiện đúng kế hoạch đề ra mỗi ngày, những ngày còn lại họ dệt vượt mức mỗi ngày $10$ tấm thảm nên hoàn thành kế hoạch trước $2$ ngày. Hỏi theo kế hoạch, phân xưởng phải dệt mỗi ngày bao nhiêu tấm thảm?
+	\loigiai{
+		Gọi $x$ là số tấm thảm mỗi ngày phân xưởng phải dệt theo kế hoạch $(x \in \mathbb{N}^*)$.\\
+		Số ngày phân xưởng phải dệt theo kế hoạch là $\dfrac{3000}{x}$ ngày.\\
+		Số ngày phân xưởng dệt vượt mức là $\dfrac{3000 - 8x}{x + 10}$.\\
+		Theo đề bài, ta có phương trình:
+		$$\dfrac{3000}{x} - 2 = 8 + \dfrac{3000 - 8x}{x + 10} \Leftrightarrow 3000(x + 10) = 10x(x + 10) + (3000 - 8x)x$$ 								$$\Leftrightarrow 2x^2 + 100x - 30000 = 0 \Leftrightarrow \hoac{&x = 100 \\ &x = -150.}$$
+		Vậy theo kế hoạch, phân xưởng phải dệt mỗi ngày $100$ tấm thảm.
+	}
+\end{vd}
+
+\begin{vd}%[Thanh Hoàng Đinh]%[Bài 33]
+	Lúc $7$ giờ $30$ phút, một ô tô khởi hành từ $A$. Đến $B$, ô tô nghỉ $30$ phút rồi đi tiếp, đến $C$ lúc $9$ giờ $30$ phút. Biết quãng đường $AB$ dài $30$ km, quãng đường $BC$ dài $50$ km và vận tốc đi trên quãng đường $AB$ lớn hơn vận tốc đi trên quãng đường $BC$ là $10$ km/giờ. Tính vận tốc ô tô đi trên các quãng đường $AB$, $BC$.
+	\loigiai{
+		Gọi $x$( km/h) là vận tốc ô tô đi trên quãng đường $AB$ $(x > 10)$. Suy ra vận tốc ô tô đi trên quãng đường $BC$ là $x - 10$.\\
+		Thời gian ô tô đi hết quãng đường $AB$ là $\dfrac{30}{x}$ và thời gian ô tô đi hết quãng đường $BC$ là $\dfrac{50}{x - 10}$.\\
+		Theo đề bài, ta có phương trình:
+		$$\dfrac{30}{x} + \dfrac{50}{x - 10} + \dfrac{1}{2} = 2 \Leftrightarrow 60(x - 10) + 100x + x(x - 10) = 4x(x - 10)$$
+		$$\Leftrightarrow 3x^2 -190x + 600 = 0 \Leftrightarrow \hoac{&x = 60 \\ &x = \dfrac{10}{3}.}$$
+		Vậy vận tốc ô tô đi trên các quãng đường $AB$, $BC$ lần lượt là $60$ km/h, $50$ km/h.
+	}
+\end{vd}
+
+\begin{vd}%[Thanh Hoàng Đinh]%[Bài 34]
+	Một người đi xe đạp từ tỉnh $A$ đến tỉnh $B$ dài $36$ km. Lúc về người ấy tăng tốc thêm $3$ km/h, do đó thời gian về ít hơn thời gian đi là $36$ phút. Tính vận tốc lúc đi của người đó.
+	\loigiai{
+		Gọi $x$ ( km/h) là vận tốc lúc đi của người đi xe đạp $(x > 0)$. Khi đó vận tốc lúc về của người đi xe đạp là $x + 3$.\\
+		Thời gian lúc đi là $\dfrac{36}{x}$ và thời gian lúc về là $\dfrac{36}{x + 3}$.\\
+		Vì thời gian về ít hơn thời gian đi là $36$ phút nên ta có phương trình:
+		$$\dfrac{36}{x} = \dfrac{36}{x + 3} + \dfrac{3}{5} \Leftrightarrow 60(x + 3) = 60x + x(x + 3) \Leftrightarrow x^2 + 3x - 180 = 0 \Leftrightarrow \hoac{&x = 12 \\ &x = -15.}$$
+		Vậy vận tốc của xe lúc đi là $12$ km/h.
+	}
+\end{vd}
+\Opensolutionfile{ans}
+\end{document}

@@ -1,0 +1,397 @@
+%Người soạn: Phan Ngọc Toàn, Phản biện: Bui Dung Bui Dung
+\Opensolutionfile{ans}[ans/ans7D2-1]
+\section{ĐỊNH LÍ PY-TA-GO}
+\subsection{Tóm tắt lí thuyết}
+\begin{dl}[Py-ta-go]
+Trong một tam giác vuông, bình phương của cạnh huyền bằng tổng các bình phương của hai cạnh góc vuông.
+\end{dl}
+
+\begin{dl}[Py-to-go đảo]
+Nếu một tam giác có bình phương của một cạnh bằng tổng các bình phương của hai cạnh kia thì tam giác đó là tam giác vuông.
+\end{dl}
+
+
+
+
+\subsection{Các dạng toán}
+\begin{dang}[Tính toán về độ dài và diện tích]
+\end{dang}
+
+\begin{vd}
+Cho tam giác $ABC$ vuông tại $A$ có $AB=12$, $BC=13$. Tính độ dài cạnh $AC$ và tính diện tích tam giác $ABC$.
+\loigiai{
+\immini{
+Theo định lí Pi-ta-go ta có $AB^2+AC^2=BC^2$ nên $AC^2=BC^2-AB^2=169-144=25$. Từ đó suy ra $AC=5$.\\
+Do đó, 
+$$ S_{ABC}=\frac{1}{2}AB\cdot AC=30. $$
+}{
+	\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/A, 0/3/B, 4/0/C}
+\tkzDrawPolygon(A,B,C)
+\tkzMarkRightAngle(C,A,B)
+\tkzLabelSegment[left](A,B){$12$}
+\tkzLabelSegment[above](C,B){$13$}
+\tkzLabelPoints[above](B)
+\tkzLabelPoints[below](A)
+\tkzLabelPoints(C)
+\tkzDrawPoints[fill=black](A,B,C)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+\begin{vd}
+Cho tam giác $ABC$ có các góc $B$, $C$ nhọn. Kẻ $AH$ vuông góc với $BC$. Biết $AB=20$ cm, $BH=16$ cm, $HC=5$ cm. Tính $AH$; $AC$.
+\loigiai{
+\immini{
+Tam giác $ABH$ vuông tại $H$ nên theo định lí Pi-ta-go ta có
+$$ AH^2+BH^2=AB^2\Rightarrow AH^2=20^2-16^2=144. $$
+Vậy $AH=12$ cm.
+}{
+	\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/H}
+\tkzDefPoint(0:2){C}
+\tkzDefPoint(90:2){A}
+\tkzDefPoint(180:4){B}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegment(A,H)
+%\tkzMarkRightAngle(B,A,C)
+\tkzMarkRightAngle(A,H,B)
+\tkzLabelSegment[above](A,B){$20$}
+\tkzLabelSegment[above](H,C){$5$}
+\tkzLabelSegment[above](H,B){$16$}
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](B,C,H)
+\tkzDrawPoints[fill=black](A,B,C,H)
+\end{tikzpicture}
+}
+Trong tam giác vuông $AHC$ theo định lí Pi-ta-go ta có
+$$ AC^2=AH^2HC^2\Rightarrow AC^2=12^2+5^2=169. $$
+Nên $AC=13$ cm.
+}
+\end{vd}
+
+
+
+
+
+
+\begin{vd}
+Cho tam giác $ABC$ cân tại $A$ có các đường cao $AH$ và $BK$. Tính diện tích tam giác $ABC$ biết $AH=5$ và $BK=6$.
+\loigiai{
+\immini{
+Đặt $BH=HC=x$, $AB=AC=y$. Trong tam giác vuông $AHB$ ta có
+$$ AB^2=AH^2+BH^2 \Rightarrow y^2=25+x^2 $$
+Ta lại có $BC\cdot AH=AC \cdot BK$ ($=2S_{ABC}$ ) do đó $2x\cdot 5=y\cdot 6 \Rightarrow \dfrac{x}{3}=\dfrac{y}{5}=k$ ($k>0$).
+Do đó, $x=3k$, $y=5k$, thay vào (1) ta được 
+$ (5k)^2=25+(3k)^2\Rightarrow k=\dfrac{5}{4}$. Do đó $x=\dfrac{15}{4}$. Từ đó, 
+$S_{ABC}=\dfrac{1}{2}BC\cdot AH=\dfrac{1}{2}\cdot 2\cdot \dfrac{15}{4}\cdot 5=18{,}75$.
+}{
+	\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/B,4/0/C}
+\tkzDefMidPoint(B,C)\tkzGetPoint{H}
+\coordinate (A) at ($(H)+(0,3)$);
+\tkzDefPointBy[projection= onto A--C](B)\tkzGetPoint{K}
+\tkzMarkSegments[mark=x](A,B A,C)
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegments(A,H B,K)
+\tkzMarkRightAngle(B,K,A)
+\tkzMarkRightAngle(A,H,B)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[above right](K)
+\tkzLabelPoints[below](B,C,H)
+\tkzDrawPoints[fill=black](A,B,C,H)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+
+
+
+
+\begin{dang}[Chứng minh các tính chất hình học]
+\end{dang}
+
+\begin{vd}
+Các đường cao của tam giác $ABC$ có độ dài bằng $60$, $65$ và $156$. Chứng minh tam giác $ABC$ vuông.
+\loigiai{
+Giả sử các cạnh $a$, $b$, $c$ của tam giác $ABC$ có các đường cao tương ứng là $60$, $65$ và $156$. Ta có
+$$ 60a=65b=156c \Rightarrow \frac{60a}{780}=\frac{65b}{480}=\frac{156c}{780} .$$
+Hay $\dfrac{a}{13}=\dfrac{b}{12}=\dfrac{c}{5}=k$. Từ đó suy ra
+$a=13k$, $b=12k$, $c=5k$.\\
+Ta thấy $(13k)^2=(12k)^2+(5k)^2$ hay $a^2=b^2+c^2$ nghĩa là tam giác $ABC$ vuông.
+}
+\end{vd}
+
+\begin{vd}
+Cho hai đoạn thẳng $AC$ và $BD$ vuông góc với nhau và cắt nhau tại $O$. Chứng minh rằng
+$$ AB^2+CD^2= AD^2+BC^2$$
+\loigiai{
+Áp dụng định lí Py-ta-go cho các tam giác vuông $OAB$, $OBC$, $OCD$, $ODA$ ta có
+{\allowdisplaybreaks
+\begin{align}
+&AB^2=OA^2+OB^2 \tag{1}  \\
+&BC^2=OB^2+OC^2 \tag{2} \\
+&CD^2=OC^2+OD^2 \tag{3} \\
+&DA^2=OD^2+OA^2 \tag{4}
+\end{align}
+}
+\immini{
+Cộng từng vế của (1) với (3) ta có $AB^2+CD^2=OA^2+OB^2+OC^2+OD^2$.\\
+Cộng từng vế của (2) với (4) ta có $AD^2+BC^2=OA^2+OB^2+OC^2+OD^2$.\\
+Suy ra $ AB^2+CD^2= AD^2+BC^2$.
+}{
+	\begin{tikzpicture}[scale=1]
+\tkzDefPoints{0/0/O}
+\tkzDefPoint(0,1){B}
+\tkzDefPoint(0,-2){D}
+\tkzDefPoint(3,0){C}
+\tkzDefPoint(-2,0){A}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawSegments(A,C B,D)
+\tkzMarkRightAngle(B,O,A)
+\tkzLabelPoints[above](B)
+\tkzLabelPoints[above right](O)
+\tkzLabelPoints[below](D)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[right](C)
+\tkzDrawPoints[fill=black](A,B,C,D,O)
+\end{tikzpicture}
+}
+}
+\end{vd}
+
+
+\begin{vd}
+Cho tam giác $ABC$ có $\widehat{A}=90^\circ$. Gọi $M$ là trung điểm $AC$. Chứng minh rằng $$ BM^2=BC^2-\dfrac{3}{4} AC^2.$$
+\loigiai{
+Áp dụng định lí Py-ta-go cho các tam giác vuông $ABM$, $ABC$ ta có
+	$$ BM^2=AB^2+AM^2. $$
+Suy ra $BM^2=BC^2-AC^2+AM^2$.\\ Vậy $BM^2=BC^2-Ac^2+\dfrac{1}{4}AC^2$ hay $ BM^2=BC^2-\dfrac{3}{4} AC^2$.
+}
+\end{vd}
+
+
+
+
+\begin{vd}
+Chứng minh rằng trong một tam giác vuông, tổng các bình phương của các đường trung tuyến bằng $\dfrac{3}{2}$ bình phương của cạnh huyền.
+\loigiai{
+giả sử tam giác $ABC$ vuông tại $A$, các đường trung tuyến $AM$, $BN$, $CP$. Trong tam giác vuông $ABN$ ta có
+\begin{align}
+BN^2&=AB^2+AN^2=BC^2-AC^2+\frac{1}{4}AC^2\notag\\ 
+&=BC^2-\frac{3}{4}AC^2  \tag{1}
+\end{align}
+Tương tự, ta cũng có $CP^2=BC^2-\dfrac{3}{4}AB^2. \quad (2)$ \\
+Vì $AM=\dfrac{1}{2}BC$ nên $AM^2=\dfrac{1}{4}BC^2. \quad (3)$\\
+Cộng vế theo vế (1), (2), (3) ta được 
+\begin{align*}
+AM^2+BN^2+CP^2&=\frac{1}{4}BC^2+BC^2-\frac{3}{4}AC^2+BC^2-\frac{3}{4}AB^2\\ 
+&=\frac{9}{4}BC^2-\frac{3}{4}(AC^2+AB^2)=\frac{9}{4}BC^2-\frac{3}{4}BC^2=\frac{3}{2}BC^2.
+\end{align*}
+}
+\end{vd}
+
+
+\begin{dang}[Bài toán về thực tế]
+\end{dang}
+
+\begin{vd}
+\immini
+{Một cái phòng như hình vẽ chiều dài $ 8 $ m, chiều rộng $ 6 $ m, chiều cao của trần nhà so với sàn nhà là $ 24 $ m. Tìm độ dài 	đường chéo sàn nhà và độ dài từ điểm $ A' $ trần nhà xuống điểm $ C $ của sàn nhà?}
+{
+\begin{tikzpicture}[scale=.6]
+\tkzDefPoints{0/0/A, -2/-2/B, 6/0/D, 0/6/z}
+\tkzDefPointBy[translation=from A to D](B) \tkzGetPoint{C};
+\coordinate(A') at($(A)+(z)$);
+\coordinate(B') at($(B)+(z)$);
+\coordinate(C') at($(C)+(z)$);
+\coordinate(D') at($(D)+(z)$);
+\tkzDrawPoints(A,B,C,D,A',B',C',D')
+\tkzDrawSegments(B,C C,D B,B' C,C' D,D' A',B' B',C' C',D' D',A')
+\tkzDrawSegments[dashed](A,B A,D A,A' A',C A,C)
+\tkzLabelPoints[above](A')		
+\tkzLabelPoints[left](A,B,B')	
+\tkzLabelPoints[right](C,D,D')
+\tkzLabelPoints[left](A);
+\tkzLabelSegments[color=black,pos=.5](A',D'){$8$m}
+\tkzLabelSegments[color=black,pos=.5](A',B'){$6$m}
+\tkzLabelSegments[color=black,pos=.5,right](A',A){$24$m}
+\tkzMarkRightAngles(A',A,C A',A,D A,B,C)
+\end{tikzpicture}}
+\loigiai
+{
+\begin{itemize}
+	\item Ta xét tam giác $ ABC $ vuông tại đỉnh $ B $ có hai cạnh góc vuông $ AB=6 $ m, $ BC=8 $ m. Áp dụng định lí Pi-ta-go ta được $ AC^2=AB^2+BC^2=6^2+8^2=100 \Rightarrow AC= 10$ m. Vậy đường chéo sàn nhà là $ 10 $m.
+	\item Xét tam giác vuông $ A'AC $ vuông tại đỉnh $ A $ có hai cạnh góc vuông $ A'A=24 $m; $ AC=10 $ m. Áp dụng định lí Pi-ta-go ta được $ A'C^2=A'A^2+AC^2=24^2+10^2=676=26^2 \Rightarrow A'C= 26$ m. Vậy $ A'C=26 $m.
+\end{itemize}
+}
+\end{vd}
+\begin{vd}%[ ]%[, dự án ]%[]
+Tại thời điểm ban đầu, hai chiếc tàu ở cùng một vị trí. Sau đó, chiếc tàu thứ nhất đi đúng về hướng Bắc với vận tốc $16$ km/h, một chiếc tàu thứ hai đi đúng về hướng Đông với vận tốc $ \dfrac{55}{3} $km/h. Hỏi sau $3$ giờ khoảng cách giữa $ 2 $ chiếc là bao nhiêu.
+	\loigiai
+	{
+\immini
+{
+Gọi $ AC $ là quãng đường tàu thứ nhất đi được, ta có $ AC=16\cdot 3=48 $ km. Gọi quãng đường tàu thứ hai đi được là $ AB=\dfrac{55}{3} \cdot 3 =55$ km.
+Theo giả thiết ta có $ \triangle ABC $ vuông tại $ A $ có cạnh huyền là $ BC $. Suy ra khoảng cách giữa hai tàu sau $ 3 $ giờ là độ dài đoạn thẳng $ BC $.
+Áp dụng định lí Pi-ta-go vào tam giác $ ABC $ có $ BC^2=AB^2+AC^2=48^2+55^2=5329=73^2 \Rightarrow BC=73 $ km.
+}
+{
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=-0.5,xmax=6,ymin=-0.5,ymax=5.5]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/A,5/0/B,0/4/C,4/4/M,4/2/N,3/3/Q,5/3/P}
+\tkzDrawSegments(A,B A,C B,C)
+\tkzDrawVectors(M,N N,M P,Q Q,P)
+\tkzDefPoint[label=above:Bắc](4,4){M}
+\tkzDefPoint[label=below:Nam](4,2){N}
+\tkzDefPoint[label=left:Tây](3,3){Q}
+\tkzDefPoint[label=right:Đông](5,3){P}
+\tkzLabelPoints[below,color=black](A)
+\tkzLabelPoints[above,color=black](C)
+\tkzLabelPoints[right,color=black](B)
+\tkzMarkRightAngles(C,A,B)
+\tkzDrawPoints(A,B,C)
+\end{tikzpicture}	
+}	
+	}
+\end{vd}
+\begin{vd}%[ ]%[, dự án ]%[]
+Trong một hồ nước có một bông sen. Cả bông sen và nhánh sen nhô lên mặt nước $ 0{,}5 $ m. Chợt có một ngọn gió thổi tới làm bông sen bị dạt xuống, chìm hẳn vào nước. Bằng mắt thường ta ước lượng được khoảng cách theo chiều ngang (tính theo mặt nước) từ chỗ ban đầu của bông sen (đúng hơn là nhánh sen) đến chỗ mà bông sen vừa chìm hẳn vào nước là $ 1{,}5 $ m. Hỏi hồ nước sâu bao nhiêu mét?
+	\loigiai
+	{
+\immini
+{
+
+Gọi đỉnh của bông sen là điểm $ B $, gốc của bông sen là điểm $ A $, đường thẳng $ HC$ chính là mặt nước, điểm $ C $ là vị trí mà bông sen bị gió thổi chạm mặt nước. Theo đề bài ta có $ AB=AC$. Chiều sâu của hồ nước là độ dài đoạn thẳng $ AH $.\\
+Xét tam giác $ AHC $ vuông tại đỉnh $ H $ có $ AH=x>0$; $ HC=1{,5}$; $ AC=x+0{,5} $. 
+Áp dụng định lí Pi-ta-go ta có 
+\begin{eqnarray*}
+	&&AH^2+HC^2=AC^2\\
+	&\Leftrightarrow& x^2+1{,}5^2=(x+0{,}5)^2\\
+	&\Leftrightarrow& x^2+1{,}5^2=x^2+2\cdot x \cdot 0{,5}+0{,}5^2\\ 
+	&\Leftrightarrow& x= 2.
+\end{eqnarray*}
+Vậy chiều sâu của hồ nước là $ AH=2 $m.	
+}
+{
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=-1,xmax=5,ymin=-4,ymax=2.5]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/-3/A,0/2/B}
+\tkzDefPointBy[rotation = center A angle -50](B)    \tkzGetPoint{C}
+\tkzDefPointBy[projection = onto A--B](C)    \tkzGetPoint{H}
+\tkzDrawSegments(A,B A,C C,H)
+\tkzDrawSegments[dashed](B,C)
+\tkzDrawPoints[fill=black](A,B,C,H)
+\tkzLabelPoints[above](B)
+\tkzLabelPoints[below](A)
+\tkzLabelPoints[left](H)
+\tkzLabelPoints[right](C)
+\tkzMarkRightAngles(C,H,A)
+\tkzLabelSegments[color=black,pos=.5,left](H,B){$0{,}5$m}
+\tkzLabelSegments[color=black,pos=.5](H,C){$1{,}5$m}
+\end{tikzpicture}}
+	
+	}
+\end{vd}
+
+%BÀI TẬP VỀ NHÀ, TỰ LUYỆN
+\btvn
+
+
+\begin{vn}
+Cho tam giác $ABC$ có các góc $B$, $C$ nhọn. Kẻ $AH$ vuông góc với $BC$. Biết $AC=15$ cm, $BH=5$ cm, $HC=9$ cm. Tính độ dài cạnh $AB$.
+\loigiai{
+Các tam giác $ABH$, $ACH$ vuông tại $H$ nên theo định lí Pi-ta-go ta có
+$$ AB^2-BH^2=AC^2-HC^2=AH^2\Rightarrow AB^2-5^2=15^2-9^2. $$
+Vậy $AH=13$ cm
+}
+\end{vn}
+
+
+
+\begin{vn}
+Cho tam giác $ABC$ ($AB=AC$) $\widehat{A}<90^\circ$. kẻ $BH$ vuông góc với $AC$. Chứng minh rằng $$ AB^2+AC^2+BC^2=3BH^2+2AH^2+CH^2. $$
+\loigiai{
+Áp dụng định lí Py-ta-go cho các tam giác vuông $ABH$, $BCH$ ta có
+{\allowdisplaybreaks
+\begin{align}
+&AB^2=AH^2+BH^2 \tag{1}  \\
+&BC^2=BH^2+CH^2 \tag{2} \\
+&AC^2=BH^2+AH^2 \tag{3} 
+\end{align}
+}
+Cộng vế theo vế (1), (2), (3) ta được
+	$$ AB^2+AC^2+BC^2=3BH^2+2AH^2+CH^2. $$
+}
+\end{vn}
+
+
+\begin{vn}%[ ]%[, dự án ]%[]
+Để mặt bàn được vững chắc và bền hơn,  người thợ thường đóng thêm $ 2 $ thanh chéo ở mặt dưới. Tính độ dài một thanh chéo của mặt bàn hình chữ nhật dưới đây, biết chiều dài $ 15 $ dm, chiều rộng $ 8 $ dm.
+	\loigiai
+	{
+\immini
+{
+Gọi chiều dài của mặt bàn là đoạn thẳng $ AB=15 $, chiều rộng của mặt bàn là đoạn thẳng $ AD=8 $. Ta cần tính đoạn thẳng $ BD $.\\
+Xét tam giác $ ABD $ vuông tại đỉnh $ A $ có hai cạnh góc vuông là $ AD=8 $, $ AB=15 $. Áp dụng định lí Pi-ta-go ta có
+$$ BD^2=AD^2+AB^2=8^2+15^2=289=17^2\Leftrightarrow BD=17$$
+
+}
+{
+\begin{tikzpicture}
+\def\a{5}  \def\b{3}
+\tkzDefPoints{0/0/A,\a/0/B,0/\b/D}
+\tkzDefPointWith[colinear = at D](A,B)
+\tkzGetPoint{C}
+\tkzDrawPoints(A,B,C,D)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[above](C,D)
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawSegments(A,C B,D)
+\tkzLabelSegments[color=black,pos=.5](A,B){$15$dm}
+\tkzLabelSegments[color=black,pos=.5,left](A,D){$8$dm}
+\tkzMarkRightAngles(D,A,B)
+\end{tikzpicture}	
+}		
+Vậy độ dài một thanh chéo của mặt bàn là $ BD=17 $ dm.	}
+\end{vn}
+\begin{vn}%[ ]%[, dự án ]%[]
+Một chiếc thang đang đứng dựa vào tòa nhà. Đáy thang cách chân tường $ 5 $m. Thang cao tới $ 12 $ m của tòa nhà. Hỏi thang dài bao nhiêu mét?
+	\loigiai
+	{
+\immini
+{
+Ta có bức tường là đường thẳng $ BC $, theo đề ta cần tính chiều dài chiếc thang là độ dài đoạn thẳng $ AB $.\\
+Xét tam giác $ ABC $ vuông tại đỉnh $ C $ có hai cạnh góc vuông là $ CA=5 $, $ CB=12 $. Áp dụng định lí Pi-ta-go ta có
+$$ BA^2=AC^2+CB^2=5^2+12^2=169=13^2\Leftrightarrow AB=13$$
+Vậy chiều dài chiếc thang $ AB=13 $ m.
+}
+{
+\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+\tkzInit[xmin=-0.5,xmax=4,ymin=-0.5,ymax=6]
+\tkzClip
+\tikzset{label style/.style={font=\footnotesize}}
+\tkzDefPoints{0/0/A,2/5.5/M,2/0/C,2/4.5/B}
+\tkzDrawSegments(M,C A,B)
+\tkzDrawSegments[dashed](A,C)
+\tkzDrawPoints[fill=black](A,B,C)
+\tkzLabelPoints[right](B)
+\tkzLabelPoints[below](A)
+%\tkzLabelPoints[left](H)
+\tkzLabelPoints[right](C)
+\tkzMarkRightAngles(B,C,A)
+\tkzLabelSegments[color=black,pos=.5](A,C){$5$m}
+\tkzLabelSegments[color=black,pos=.5,right](B,C){$12$m}
+\end{tikzpicture}	
+}			}
+\end{vn}
+\Closesolutionfile{ans}
+
+%----------------------------------------Hết-----------------------------------------------

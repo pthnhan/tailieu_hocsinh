@@ -1,0 +1,462 @@
+\subsection{Tính các đại lượng hình học bằng cách lập phương trình}
+Phương trình đại số là công cụ giúp chúng ta giải quyết nhiều bài toán hình học, nhất là bài toán về tính toán.
+\begin{vd}%[Nguyễn Tất Thu, EX-C2-L8-2018]%[8H2K3]
+	Tính diện tích của tam giác có độ dài ba cạnh bằng $10$ cm, $17$ cm, $21$ cm.
+	\loigiai{
+	\immini{	Xét $\triangle ABC$ có $AB=10$ cm, $AC=17$ cm, $BC=21$ cm. Gọi $AH$ là đường cao của tam giác. Vì $BC$ là cạnh lớn nhất của tam giác nên $\widehat{B},\ \widehat{ C} <90^\circ$, do đó $H$ nằm trong đoạn $BC$.
+		Đặt $HC=x,\ HB=y$ ta có $$x+y=21. \eqno (1)$$
+		Mặt khác $AH^2=10^2-y^2$, $AH^2=17^2-x^2$ nên
+		$$x^2-y^2=17^2-10^2=189. \eqno (2)$$
+		Từ (1) và (2) ta có $x+y=21$ và $x-y=9$. Do đó $x=15,\ y=6$. Ta có $AH=10^2-6^2=64$, nên $AH=8$ cm.
+		Vậy $S_{ABC}=\dfrac{1}{2}AH\cdot BC=84\ \text{cm}^2$.}
+	{\begin{tikzpicture}
+\tkzInit[ymin=-1.5,ymax=3.5,xmin=-1,xmax=5.5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/0/B,5/0/C,1/3/A}
+\tkzDefPointBy[projection = onto C--B](A)    \tkzGetPoint{H}
+\tkzDrawSegments(A,B B,C C,A A,H)
+\tkzDrawPoints(A,B,C,H)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](H)
+\node at (0.4,0) [below]{$y$};
+\node at (2.5,0) [below]{$x$};
+\node at (2.4,-0.5) [below]{$21$};
+\draw[->] (2.7,-0.75)--(5,-0.75);
+\draw[<-] (0,-0.75)--(2.1,-0.75);
+\end{tikzpicture}\\ \centering \textit{Hình 38}}
+	}
+	\begin{note}
+		Trong ví dụ 53 ta tính được diện tích khi biết độ dài các cạnh. Ví dụ 54 dưới đây cho ta công thức tổng quát tính diện tích tam giác theo ba cạnh.
+	\end{note}
+\end{vd}
+\begin{vd}%[Nguyễn Tất Thu, EX-C2-L8-2018]%[8H2G3] 
+	Cho tam giác $ABC$ có $BC=a,\ CA=b,\ AB=c,$ diện tích $S$. Chứng minh rằng $S=\sqrt{p(p-a)(p-b)(p-c)}$ với $p$ là nửa chu vi của tam giác (công thức Hê-rông).
+	\loigiai{ 
+	\immini{	Giả sử $a\geq b\geq c$. Vẽ đường cao $AH$. Do $a$ là cạnh lớn nhất của tam giác nên $B$ và $C$ là các góc nhọn, do đó $H$ nằm giữa $B$ và $C$ ( chú ý nếu không sắp xếp $a\geq b\geq c$ thì phải xét hai trường hợp: $H$ thuộc hoặc không thuộc đoạn $BC$, phức tạp hơn).\\
+		Trước hết ta tính $CH$ theo $a,\ b,\ c$. Đặt $CH=x$, ta có $AB^2-BH^2=AC^2-CH^2$ (cùng bằng $AH^2$), do đó:
+		$$\begin{aligned} c^2-(a-x)^2=b^2-x^2& \Rightarrow 2ax =a^2+b^2+c^2\\ & \Rightarrow x=\dfrac{a^2+b^2-c^2}{2a}.  \end{aligned}$$}
+		{\begin{tikzpicture}
+		\tkzInit[ymin=-1.5,ymax=3.5,xmin=-1,xmax=5.5]
+		\tkzClip
+		\tkzSetUpPoint[color=black,fill=black,size=6]
+		\tkzDefPoints{0/0/B,5/0/C,1/3/A}
+		\tkzDefPointBy[projection = onto C--B](A)    \tkzGetPoint{H}
+		\tkzDrawSegments(A,B B,C C,A A,H)
+		\tkzDrawPoints(A,B,C,H)
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](C)
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[below](H)
+		\node at (0.4,2) [below]{$c$};
+		\node at (2.5,0) [below]{$x$};
+		\node at (2.5,2.4) [below]{$b$};
+		\node at (2.4,-0.5) [below]{$a$};
+		\draw[->] (2.7,-0.75)--(5,-0.75);
+		\draw[<-] (0,-0.75)--(2.1,-0.75);
+		\end{tikzpicture}\\ \centering \textit{Hình 39}}
+	
+		Trong tam giác $AHC$ ta có:
+		$$\begin{aligned}    AH^2 & =AC^2-CH^2=b^2-\left(\dfrac{a^2+b^2-c^2}{2a} \right)^2\\ & = \dfrac{4a^2b^2-(a^2+b^2-c^2)^2}{4a^2}.\end{aligned} $$
+		Suy ra 
+		$$S^2=\left(\dfrac{1}{2}AH\cdot BC \right)^2=\dfrac{4a^2b^2-(a^2+b^2-c^2)^2}{16}.$$
+		Mà 
+		$$\begin{aligned}4a^2b^2-(a^2+b^2-c^2)^2 & = (2ab+ a^2+b^2-c^2)(2ab-a^2-b^2+c^2) \\ & = \left[(a+b)^2-c^2 \right] \left[c^2-(a-b)^2 \right] \\ & = (a+b+c)(a+b-c)(a+c-b)(c+b-a)\\ &  =16p(p-a)(p-b)(p-c).\end{aligned}$$
+		Vậy $S=\sqrt{p(p-a)(p-b)(p-c)}.$
+		}
+	\end{vd}
+\begin{vd}%[Nguyễn Tất Thu, EX-C2-L8-2018]%[8H1K2]  
+	Tính chiều cao của một hình thang cân có diện tích bằng $12$ cm$^2$, đường chéo bằng $5$ cm.      
+	\loigiai{
+		\immini{ Gọi $BH$ là đường cao của hình thang cân $ABCD$ (h.40). Dễ thấy $DH=\dfrac{AB+CD}{2}$. Do đó đặt $BH=x,\ DH=y$, ta có $\begin{cases} x^2+y^2=25 \\ xy=12 \end{cases}$. Suy ra
+		\begin{align*} & \begin{cases} x^2+y^2+2xy=25+24 \\ x^2+y^2-2xy=25-24 \end{cases} \\ \Leftrightarrow & \begin{cases}  (x+y)^2=49 \\ (x-y)^2=1 \end{cases} \Leftrightarrow \begin{cases} x+y=7\\ x-y =\pm 1. \end{cases} \end{align*} 
+		}
+	{\begin{tikzpicture}
+\tkzInit[ymin=-1,ymax=3.5,xmin=-1,xmax=4.5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{1/3/A,3/3/B,4/0/C,0/0/D,3/0/H}
+\tkzDrawSegments(A,B B,C C,D D,A B,H B,D)
+\tkzDrawPoints(A,B,C,D,H)
+\tkzLabelPoints[left](D)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[above](A,B)
+\tkzLabelPoints[below](H)
+\tkzMarkRightAngles[size=0.2](B,H,D)
+\node at (3,1.5) [left]{$x$};
+\node at (1.5,0) [above]{$y$};
+\end{tikzpicture}\\ \centering \textit{Hình 40}}
+\noindent 
+Do đó $x=4;\ y=3$ hoặc $x=3;\ y=4$.\\
+Đường cao của hình thang cân bằng $4$ cm hoặc $3$ cm. 	}
+\end{vd} 
+\begin{vd}%[Nguyễn Tất Thu, EX-C2-L8-2018]%[8H3K8]
+Điểm $M$ nằm trên cạnh huyền của một tam giác vuông có diện tích bằng $100$ cm$^2$ và có khoảng cách đến hai cạnh góc vuông bằng $4$ cm và $8$ cm. Tính độ dài các cạnh góc vuông.
+\loigiai{ (h.41) \\
+\immini{	Vẽ $MH \perp AB,\ MK \perp AC.$ Đặt $BH=x,\ CK=y.$ Ta có $\triangle BHM \backsim \triangle MKC$ nên $\dfrac{x}{8}=\dfrac{4}{y}$, hay $xy=32$. \hfill (1) \\
+	Mặt khác $AB\cdot AC=2S_{ABC}$ nên $$(x+8)(y+4)=200. \eqno (2)$$
+	Từ (1) và (2) suy ra $y^2-17y+16=0$ hay $(y-1)(y-16)=0$. Từ đây ta có $y=1$ hoặc $y=16$.\\
+	Với $y=1$ thì $x=32$ nên $AC=1+4=5$ cm, $AB=32+8=40$ cm.\\
+	Với $y=1$ thì $x=2$ nên $AC=16+4=20$ cm, $AB=2+8=10$ cm.}
+{\begin{tikzpicture}
+\tkzInit[ymin=-1,ymax=4.5,xmin=-1,xmax=3.5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/0/A,3/0/C,0/4/B,1/2.6666667/M}
+\tkzDefPointBy[projection = onto A--B](M)    \tkzGetPoint{H}
+\tkzDefPointBy[projection = onto A--C](M)    \tkzGetPoint{K}
+\tkzDrawSegments(A,B B,C C,A M,H M,K)
+\tkzDrawPoints(A,B,C,M,H,K)
+\tkzLabelPoints[left](A,H)
+\tkzLabelPoints[right](C,M)
+\tkzLabelPoints[above](B)
+\tkzLabelPoints[below](K)
+\node at (0.5,2.667) [below]{$4$};
+\node at (1,1.3) [right]{$8$};
+\node at (0,3.2) [left]{$x$};
+\node at (2,0) [below]{$y$};
+\end{tikzpicture} \\ \centering \textit{Hình 41}}
+}
+\end{vd}
+\begin{vd}%[Nguyễn Tất Thu, EX-C2-L8-2018]%[8H2G6]
+Cho tam giác $ABC$. Qua điểm $D$ thuộc cạnh $BC$, vẽ các đường thẳng song song với $AB$, $AC$ tạo thành một hình bình hành có diện tích bằng $\dfrac{3}{8}$ diện tích tam giác $ABC$. Tính tỉ số $\dfrac{BD}{BC}.$
+\loigiai{ (h.42)
+\immini{	Đặt $\dfrac{BD}{BC}=x$ thì $\dfrac{DC}{BC}=1-x$. Ta có $$S_{AKDE}=\dfrac{3}{8}S_{ABC}$$ nên $$\dfrac{S_{KBD}+S_{EDC}}{S_{ABC}}=\dfrac{5}{8}. \eqno (1)$$}
+{\begin{tikzpicture}
+\tkzInit[ymin=-0.5,ymax=3.5,xmin=-1,xmax=3.5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/0/B,1/3/A,3/0/C,2/0/D,2.3333333/1/E,0.66666666/2/K}
+
+\tkzDrawSegments(A,B B,C C,A D,K D,E)
+\tkzDrawPoints(A,B,C,K,E,D)
+\tkzLabelPoints[left](B,K)
+\tkzLabelPoints[right](C,E)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](D)
+\end{tikzpicture}\\ \centering \textit{Hình 42}}
+\noindent	Mặt khác $\triangle KBD \backsim \triangle ABC$ nên $$\dfrac{S_{KBD}}{S_{ABC}}=\left(\dfrac{BD}{BC}\right)^2=x^2.$$
+	$\triangle EDC \backsim \triangle ABC$ nên $$\dfrac{S_{EDC}}{S_{ABC}}=\left(\dfrac{DC}{BC}\right)^2=(1-x)^2.$$
+	Suy ra $$\dfrac{S_{KBD}+S_{EDC}}{S_{ABC}}=x^2+(1-x)^2. \eqno (2)$$
+	Từ (1) và (2) suy ra 
+	$$x^2+(1-x)^2=\dfrac{5}{8} \Leftrightarrow (4x-3)(4x-1)=0 \Leftrightarrow x_1=\dfrac{3}{4},\ x_2=\dfrac{1}{4}.$$
+	Vậy tỉ số $\dfrac{BD}{BC}$ bằng $\dfrac{3}{4}$ hoặc $\dfrac{1}{4}$.
+	
+}
+\end{vd} 
+\subsubsection{Bài tập tự luyện}
+\begin{bt}%[Nguyễn Tất Thu, EX-C2-L8-2018]%[8H1K2]
+Đường phân giác của các góc tù ở một cạnh đáy của một hình thang cắt nhau tại một điểm thuộc cạnh đáy kia. Tính các cạnh của hình thang, biết chiều cao bằng $12$ cm, các đường phân giác nói trên dài $15$ cm và $13$ cm.
+\loigiai{
+(h.197) 
+\immini{ $AE$, $BE$ là các phân giác của các góc tù ($E\in DC$). Giả sử $AE=13$ cm, $BE=15$ cm. Vẽ $AH \perp CD,\ BK \perp CD$. Dễ dàng tính được $EH=5$ cm, $EK=9$ cm. Chú ý $\triangle DAE$ cân tại $D$, đặt $DA=DE=x$ thì $DH=x-5$. \\
+Giải phương trình $$(x-5)^2+12^2=x^2\ \text{ta được}\ x=16,9\ \text{cm}.$$
+}
+{\begin{tikzpicture}[scale=0.8]
+\tkzInit[ymin=-1.7,ymax=2.7,xmin=-3.6,xmax=5.8]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{1/2/A,4/2/B,5.25/-1/C,-3/-1/D,1/-1/H,4/-1/K,2/-1/E}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawSegments(A,H B,K B,E A,E)
+\tkzDrawPoints(A,B,C,D,H,K,E)
+\tkzLabelPoints[left](D)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[above](A,B)
+\tkzLabelPoints[below](H,K,E)
+\tkzMarkAngles[size=0.4cm,arc=l](D,A,E)
+\tkzMarkAngles[size=0.5cm,arc=l](E,A,B)
+\tkzMarkAngles[size=0.4cm,arc=ll](A,B,E)
+\tkzMarkAngles[size=0.5cm,arc=ll](E,B,C)
+\end{tikzpicture} \\ \centering \textit{Hình 197}}
+\noindent
+Tương tự ta tính được $BC=12,5$ cm, $AB=14$ cm, $CD=29,4$ cm.}
+\end{bt}
+\begin{bt}%[Nguyễn Tất Thu, EX-C2-L8-2018]%[8H2K6]
+Trên các cạnh $AB,\ AC$ của tam giác $ABC$ diện tích $S$, lấy điểm $D,\ E$ sao cho $AD=\dfrac{1}{4}AB,\ AE=\dfrac{1}{4}AC.$ Gọi $K$ là giao điểm của $BE$ và $CD$. Tính diện tích tứ giác $ADKE$.
+\loigiai{
+(h.198)
+\immini{
+	Đặt $S_{KAD}=x,\ S_{KAE}=y.$ Ta có $4x+y=\dfrac{1}{4}S$ và $x+4y=\dfrac{1}{4}S$. Từ đây ta tính được $x+y=\dfrac{1}{10}S$.
+}
+{\begin{tikzpicture}
+\tkzInit[ymin=-0.2,ymax=3.5,xmin=-1,xmax=5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/0/B,1/3/A,4/0/C}
+\tkzDefPointBy[homothety = center A ratio 0.25](B)    \tkzGetPoint{D}
+\tkzDefPointBy[homothety = center A ratio 0.25](C)    \tkzGetPoint{E}
+\tkzInterLL(C,D)(B,E) \tkzGetPoint{K}
+\tkzDrawSegments(A,B B,C C,A B,E C,D A,K)
+\tkzDrawPoints(A,B,C,D,E,K)
+\tkzLabelPoints[left](B,D)
+\tkzLabelPoints[right](C,E)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](K)
+\node at (1,2.1) [above]{$x$};
+\node at (1.4,2) [above]{$y$};
+\node at (0.8,1.3) [above]{$3x$};
+\node at (1.9,1.5) [above]{$3y$};
+\end{tikzpicture} \\ \centering \textit{Hình 198}}
+
+}
+\end{bt}
+
+\begin{bt}%[Nguyễn Tất Thu, EX-C2-L8-2018]%[8H2K3]
+Trên các cạnh $AB,\ BC$ của tam giác $ABC$ diện tích $S$, lấy điểm $D,\ E$ sao cho $AD=\dfrac{1}{3}AB,\ BE=\dfrac{1}{3}BC.$ Gọi $K$ là giao điểm của $AE$ và $CD$. Tính diện tích tam giác $BKC$.
+\loigiai{
+(h.199) \immini{Đặt $S_{KAD}=a,\ S_{KBE}=b$. Ta có $$3a+b=\dfrac{1}{3}S,\ 2a+3b=\dfrac{2}{3}S.$$ Từ đó ta tính được $b=\dfrac{4}{21}S.$ Do đó $S_{BKC}=\dfrac{4}{7}S.$}
+{\begin{tikzpicture}
+	\tkzInit[ymin=-0.2,ymax=3.5,xmin=-1,xmax=5]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=black,size=6]
+	\tkzDefPoints{0/0/B,1/3/A,4/0/C}
+	\tkzDefPointBy[homothety = center A ratio 0.3333](B)    \tkzGetPoint{D}
+	\tkzDefPointBy[homothety = center B ratio 0.3333](C)    \tkzGetPoint{E}
+	\tkzInterLL(C,D)(A,E) \tkzGetPoint{K}
+	\tkzDrawSegments(A,B B,C C,A A,E C,D B,K)
+	\tkzDrawPoints(A,B,C,D,E,K)
+	\tkzLabelPoints[left](B,D)
+	\tkzLabelPoints[right](C)
+	\tkzLabelPoints[above](A)
+	\tkzLabelPoints[above right](K,E)
+	%\tkzLabelPoints[below](E)
+	\node at (1,2) [above]{$a$};
+	\node at (0.8,0.5) [above]{$b$};
+	\node at (0.8,1.3) [above]{$2a$};
+	\node at (1.9,0.5) [above]{$2b$};
+	\end{tikzpicture} \\ \centering \textit{Hình 199}}
+}
+\end{bt}
+\begin{bt}%[Nguyễn Tất Thu, EX-C2-L8-2018]%[8H2K3]
+Tính diện tích của tam giác cân có chiều cao ứng với cạnh đáy bằng $10$ cm, chiều cao ứng với cạnh bên bằng $12$ cm.
+\loigiai{
+(h.120) \immini{ Gọi độ dài cạnh đáy của tam giác là $x$ (cm), độ dài cạnh bên là $y$ (cm). Ta có $$10x=12y\ \text{và} \left(\dfrac{x}{2}\right)^2+10^2=y^2.$$ Ta tìm được $x=15.$ Diện tích tam giác bằng $75$ cm$^2$.}
+{\begin{tikzpicture}
+\tkzInit[ymin=0,ymax=4,xmin=-1,xmax=5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/1/B,1.5/3/A,3/1/C,1.5/1/H}
+\tkzDefPointBy[projection = onto C--A](B)    \tkzGetPoint{K}
+\tkzDrawSegments(A,B B,C C,A A,H B,K)
+\tkzDrawPoints(A,B,C,H,K)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C,K)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](H)
+\tkzMarkRightAngles[size=0.2](A,H,B A,K,B)
+\draw[<-] (0,0.3)--(1,0.3);
+\draw[<-](2.09,3.7)--(3,2.56);
+\draw[->] (2,0.3)--(3,0.3);
+\draw[->](3.45,1.97)--(4.17,1);
+\node at (1.5,0.5) [below]{$x$};
+\node at (3,2.24) [right]{$y$};
+\end{tikzpicture}\\ \centering \textit{Hình 200}}
+}
+\end{bt}
+\begin{bt}%[Nguyễn Tất Thu, EX-C2-L8-2018]%[8H2K3]
+Tính diện tích một tam giác có ba đường trung tuyến bằng $30$ cm, $51$ cm, $63$ cm.
+\loigiai{ (h.201)
+	\immini{Xét tam giác $ABC$ có trọng tâm $G$, đường trung tuyến $AD$. Gọi $K$ là trung điểm $CG$. Tam giác $GDK$ có ba cạnh bằng $10,\ 17,\ 21$ (đơn vị: cm). Ta tính được $S_{GDK}=84$ cm$^2$ (giải như ví dụ 53).
+		$S_{ABC}=1008$ cm$^2$.
+	}
+{\begin{tikzpicture}
+\tkzInit[ymin=-1,ymax=3.5,xmin=-1,xmax=5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/0/B,1/3/A,4/0/C}
+\tkzDefMidPoint(B,C) \tkzGetPoint{D}
+\tkzDefMidPoint(A,C) \tkzGetPoint{E}
+\tkzDefMidPoint(B,A) \tkzGetPoint{F}
+\tkzCentroid(A,B,C)\tkzGetPoint{G}
+\tkzDefMidPoint(G,C) \tkzGetPoint{K}
+\tkzDrawSegments(A,B B,C C,A A,D B,E C,F D,K)
+\tkzDrawPoints(A,B,C,D,E,F,G,K)
+\tkzLabelPoints[left](B,F)
+\tkzLabelPoints[right](E,C)
+\tkzLabelPoints[above](A,K,G)
+\tkzLabelPoints[below](D)
+\end{tikzpicture}\\ \centering \textit{Hình 201}}
+}
+\end{bt}
+\begin{bt}%[Nguyễn Tất Thu, EX-C2-L8-2018]%[8H2K2]
+Hình vuông $EFGH$ nội tiếp hình vuông $ABCD$ sao cho $E,\ F,\ G,\ H$ chia các cạnh của hình vuông $ABCD$ theo tỉ số $k$. Tính $k$, biết rằng $S_{EFGH}=\dfrac{5}{9}S_{ABCD}.$
+\loigiai{
+(h.202) \immini{Đặt $BE=CF=DG=AH=x$ thì $$AE=BF=CG=DH=kx.$$ Ta có $$AE^2+AH^2=EH^2 \Rightarrow (kx)^2+x^2=EH^2.$$ Mặt khác $$\dfrac{EH^2}{AB^2}=\dfrac{5}{9} \Rightarrow \dfrac{(kx)^2+x^2}{(x+kx)^2}=\dfrac{5}{9}.$$ }
+{\begin{tikzpicture}
+\tkzInit[ymin=-1,ymax=3.5,xmin=-1,xmax=3.5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/3/A,3/3/B,3/0/C,0/0/D,2/3/E,3/1/F,1/0/G,0/2/H}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawPolygon(E,F,G,H)
+\tkzDrawPoints(A,B,C,D,E,F,G,H)
+\tkzLabelPoints[left](H)
+\tkzLabelPoints[right](F)
+\tkzLabelPoints[above](A,B,E)
+\tkzLabelPoints[below](C,D,G)
+\node at (2.5,3) [above]{$x$};
+\node at (1,3) [above]{$kx$};
+\end{tikzpicture}\\ \centering \textit{Hình 202}}
+\noindent
+Biến đổi phương trình ta được 
+$$\dfrac{k^2+1}{(1+k)^2}=\dfrac{5}{9} \Leftrightarrow 2k^2-5k+2=0 \Leftrightarrow (2k-1)(k-2)=0.$$
+Vậy $k_1=2;\ k_2=\dfrac{1}{2}.$
+}
+\end{bt}
+\begin{bt}%[Nguyễn Tất Thu, EX-C2-L8-2018]%[8H2K6]
+Một tứ giác có mỗi đường chéo bằng $a$, tổng các đường trung bình của tứ giác bằng $b$. Tính diện tích tứ giác theo $a,\ b$. 
+\loigiai{
+(h.203) \immini{Ta tính diện tích hình thoi $EFGH$ có $EF=\dfrac{a}{2}$, tổng hai đường chéo bằng $b$. Đặt $OE=x,\ OF=y.$ Ta có $$x^2+y^2=\dfrac{a^2}{4},\ x+y=\dfrac{b}{2}.$$ Ta tính được $$2xy=\dfrac{b^2-a^2}{4}.$$ Vậy $S_{ABCD}=\dfrac{b^2-a^2}{2}.$}
+{\begin{tikzpicture}
+\tkzInit[ymin=-0.5,ymax=3.5,xmin=-1,xmax=3.5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/2/A,2/3/B,3/0/C,0/0/D}
+\tkzDefMidPoint(A,B) \tkzGetPoint{E}
+\tkzDefMidPoint(B,C) \tkzGetPoint{F}
+\tkzDefMidPoint(C,D) \tkzGetPoint{G}
+\tkzDefMidPoint(A,D) \tkzGetPoint{H}
+\tkzInterLL(E,G)(H,F) \tkzGetPoint{O}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawPolygon(E,F,G,H)
+\tkzDrawSegments(A,C B,D E,G H,F)
+\tkzDrawPoints(A,B,C,E,F,G,H,O)
+\tkzLabelPoints[left](H)
+\tkzLabelPoints[right](F)
+\tkzLabelPoints[above](A,B,E)
+\tkzLabelPoints[above right](O)
+\tkzLabelPoints[below](C,D,G)
+\end{tikzpicture}\\ \centering \textit{Hình 203}}
+}
+\end{bt}
+\begin{bt}%[Nguyễn Tất Thu, EX-C2-L8-2018]%[8H2K6]
+Tính diện tích tứ giác $ABCD$, biết rằng $AB$ vuông góc với $CD$, $AB=6$ cm, $BC=15$ cm, $CD=8$ cm, $DA=5$ cm.
+\loigiai{
+(h.204) \immini{\textit{Cách 1.} Kí hiệu như trên hình vẽ.\\ Xét các tam giác vuông $OAD$ và $OBC$:
+$$\heva{& x^2+y^2 =25 \quad\quad &(1) \\ & (x+6)^2+(y+8)^2=225. \quad\quad &(2)}$$
+Rút gọn (2) và chú ý $x^2+y^2=25$, ta được $$6x+8y=50. \eqno (3)$$}
+{\begin{tikzpicture}
+\tkzInit[ymin=-0.5,ymax=3.4,xmin=-1,xmax=6.5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/0/B,6/0/C,2/2.82843/O,1.41421/2/A,3.17157/2/D}
+\tkzDrawPolygon(A,B,C,D)
+\tkzDrawSegments[dashed](A,O D,O)
+\tkzDrawPoints(A,B,C,D,O)
+\tkzLabelPoints[left](A,B)
+\tkzLabelPoints[right](C,D)
+\tkzLabelPoints[above](O)
+\node at (3,0) [above]{$15$};
+\node at (0.8,1.2) [above]{$6$};
+\node at (4.3,1.2) [above]{$8$};
+\node at (1.5,2.2) [above]{$x$};
+\node at (3,2.3) [above]{$y$};
+\tkzMarkRightAngles[size=0.2](A,O,D)
+
+\end{tikzpicture}\\ \centering \textit{Hình 204}}
+Từ (1) và (3) ta có $$x^2-6x+y^2-8y+25=0 \Leftrightarrow (x-3)^2+(y-4)^2=0 \Leftrightarrow x=3,\ y=4.$$
+\textit{Đáp số:} $48$ cm$^2$.\\
+\textit{Cách 2.} Vẽ hình bình hành $ADCK$. Chứng minh rằng $BK+KC=BC$, suy ra $K$ nằm giữa $B$ và $C$, $ABCD$ là hình thang. \\ \textit{Đáp số} $48$ cm$^2$.
+}
+\end{bt}
+\begin{bt}%[Nguyễn Tất Thu, EX-C2-L8-2018]%[8H3K6]
+Tính độ dài đường phân giác $AD$ của tam giác $ABC$ biết rằng $AB=12$ cm, $AC=15$ cm, $BC=18$ cm.
+\loigiai{
+(h.205) \immini{
+\textit{Cách 1.} Kẻ $AH \perp BC,$ ta tính được $BD=8$ cm, $BH=6,75$ cm, $HD=1,25$ cm. Ta có 
+$$\begin{aligned} &AD^2=AH^2+HD^2=AH^2+1,25^2 \quad \quad &(1) \\ & AH^2=AB^2-BH^2=12^2-6,75^2 .\quad\quad &(2) \end{aligned}$$
+Từ (1) và (2) suy ra $$AD^2=12^2-6,75^2+1,25^2=100 \Rightarrow AD=10\ \text{cm}.$$}
+{\begin{tikzpicture}
+\tkzInit[ymin=-0.5,ymax=3.5,xmin=-1,xmax=3.5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0/0/B,1/3/A,3/0/C}
+\tkzDefLine[bisector](B,A,C)\tkzGetPoint{d}
+\tkzInterLL(A,d)(B,C)\tkzGetPoint{D}
+\tkzDefPointBy[projection = onto C--B](A)    \tkzGetPoint{H}
+\tkzDrawSegments(A,B B,C C,A A,D A,H)
+\tkzDrawPoints(A,B,C,D,H)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](H,D)
+\tkzMarkRightAngles[size=0.2](A,H,B)
+\tkzMarkAngles[size=0.5cm,arc=l](B,A,D)
+\tkzMarkAngles[size=0.4cm,arc=l](D,A,C)
+\end{tikzpicture}\\ \centering \textit{Hình 205}}
+\noindent
+\textit{Cách 2.} Theo tính chất đường phân giác ta tính được $BD=8$ cm.\\ Chú ý $\dfrac{BD}{BA}=\dfrac{BA}{BC}$ nên $\triangle ABC \backsim \triangle DBA\ (c.g.c)$. Suy ra $$\dfrac{AB}{DB}=\dfrac{AC}{DA} \Rightarrow DA=10\ \text{cm}.$$
+
+}
+\end{bt}
+\begin{bt}%[Nguyễn Tất Thu, EX-C2-L8-2018]%[8H3K3]
+Tính diện tích tam giác $ABC$ có đường cao $AH=6$ cm, biết rằng $AH$ chia góc $A$ theo tỉ số $1\ :\ 2$ và chia cạnh $BC$ thành hai đoạn mà đoạn nhỏ bằng $3$ cm.
+\loigiai{
+\immini{Giả sử $HB<HC$ (h.206). Gọi $AD$ là phân giác của $\triangle HAC$. Ta có 
+$$\dfrac{DH}{DC}=\dfrac{AH}{AC}\Rightarrow \dfrac{3}{DC}=\dfrac{6}{AC}.$$
+Đặt $DC=x$ thì $AC=2x$. Ta có $AH^2+HC^2=AC^2$ nên 
+$$\begin{aligned} 6^2+(3+x)^2=(2x)^2 &\Leftrightarrow x^2-2x-15=0\\ & \Leftrightarrow x_1=-3\ \text{(loại)},\ x_2=5. \end{aligned} $$
+\textit{Đáp số:} $33$ cm$^2$. }
+{\begin{tikzpicture}
+\tkzInit[ymin=-1,ymax=3.5,xmin=-1,xmax=4.5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{1/3/A,0/0/B,4/0/C,1/0/H}
+\tkzDefLine[bisector](H,A,C)\tkzGetPoint{d}
+\tkzInterLL(A,d)(B,C)\tkzGetPoint{D}
+\tkzDrawSegments(A,B B,C C,A A,H A,D)
+\tkzDrawPoints(A,B,C,H,D)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below](H,D)
+\tkzMarkRightAngles[size=0.2](A,H,B)
+\tkzMarkAngles[size=0.6cm,arc=l](B,A,H)
+\tkzMarkAngles[size=0.65cm,arc=l](H,A,D)
+\tkzMarkAngles[size=0.7cm,arc=l](D,A,C)
+
+
+\end{tikzpicture}\\ \centering \textit{Hình 206}}
+
+}
+\end{bt}
+\begin{bt}%[Nguyễn Tất Thu, EX-C2-L8-2018]%[8H3G7]
+Cho tam giác $ABC$ nhọn, $AC>AB$, trực tâm $H$. Gọi $M$ là trung điểm của $BC$, $O$ là giao điểm các đường trung trực của tam giác $ABC$. Biết $OH$ song song với $BC$, $OH=11$ cm, $OM=5$ cm. Tính độ dài $BC$.
+\loigiai{
+(h.207)
+\immini{Ta có $\triangle OMN \backsim \triangle HAB\ (g.g)$, suy ra 
+$$\dfrac{OM}{HA}=\dfrac{MN}{AB}=\dfrac{1}{2} \Rightarrow AH=2OM=10.$$
+Đặt $DC=x,\ BD=y$. Do $\triangle BDH \backsim \triangle ADC\ (g.g)$ nên 
+$$\dfrac{BD}{AD}=\dfrac{DH}{DC} \Rightarrow \dfrac{y}{15}=\dfrac{5}{x} \Rightarrow xy=75.$$
+}
+{\begin{tikzpicture}
+\tkzInit[ymin=-0.5,ymax=4.5,xmin=-1,xmax=6.5]
+\tkzClip
+\tkzSetUpPoint[color=black,fill=black,size=6]
+\tkzDefPoints{0.93/3.81/A,0/0/B,6.02/0/C}
+\tkzDefPointBy[projection = onto C--B](A)    \tkzGetPoint{D}
+\tkzDefPointBy[projection = onto C--A](B)    \tkzGetPoint{E}
+\tkzDefMidPoint(B,C) \tkzGetPoint{M}
+\tkzDefMidPoint(A,C) \tkzGetPoint{N}
+\tkzOrthoCenter(A,B,C)\tkzGetPoint{H}
+\tkzDefCircle[circum](A,B,C)     \tkzGetPoint{O} 
+\tkzDrawSegments(A,B B,C C,A O,H O,M O,N A,D B,E M,N)
+\tkzDrawPoints(A,B,C,D,M,N,O,H)
+\tkzLabelPoints[left](B,H)
+\tkzLabelPoints[right](C)
+\tkzLabelPoints[above](A,N)
+\tkzLabelPoints[below](D,M)
+\tkzLabelPoints[below left](O)
+\tkzMarkRightAngles[size=0.2](A,D,B B,E,A O,M,C O,N,C)
+\tkzMarkAngles[size=0.6cm,arc=l](H,B,A O,N,M)
+
+
+\end{tikzpicture}\\ \centering \textit{Hình 207}}
+Ta có $$x-y=(DM+MC)-(BM-DM)=2DM=22.$$
+Do đó $$(x+y)^2=(x-y)^2+4xy=22^2+4\cdot 75=784.$$
+Suy ra $x+y=28.$ Vậy $BC=28$ cm.
+}
+\end{bt}
