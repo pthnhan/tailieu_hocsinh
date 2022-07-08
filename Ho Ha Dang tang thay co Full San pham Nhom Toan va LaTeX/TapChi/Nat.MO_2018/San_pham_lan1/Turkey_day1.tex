@@ -1,0 +1,80 @@
+
+\begin{name}
+{Nguyễn Tuấn Anh}
+{Đề thi Olympic Thổ Nhĩ Kỳ năm 2018, vòng 1}% Ví dụ: Đề thi HSG Vương quốc Anh, vòng 1, năm 2018
+\end{name}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/ans-1828-Nat.MO-turkey-r1]
+\begin{ex}%[HSG Thổ Nhĩ Kỳ năm 2018, vòng 1]%[Nguyễn Tuấn Anh, Dự án EX-Nat.MO-18]%[1D0G6]
+Trong một lễ cưới ở làng A - vốn nổi tiếng với $25$ loại món ăn, một số người sẽ được mời từ làng B. Mỗi người từ làng B thích ít nhất một trong số $25$ món ăn này và mỗi món ăn được yêu thích bởi ít nhất một người từ B. Nhóm người được mời từ B được gọi là danh sách mời hợp lý nếu mỗi món ăn được yêu thích bởi ít nhất một người được mời. Một nhóm người từ B được gọi là nhóm kamber nếu nó chứa ít nhất một thành viên từ mỗi danh sách mời hợp lý bất kỳ. Chứng minh rằng nếu một nhóm kamber  không có tập hợp con thực sự là nhóm kamber thì tồn tại một món ăn mà mọi người trong nhóm đều thích.
+\loigiai{
+ Kí hiệu các món ăn là $f_1,f_2,\ldots,f_{25}$. Đối với mỗi $1\leq i\leq 25$, gọi $F_i$ là tập tất cả những người từ $B$ thích món $f_i$. Gọi $L_1, L_2,\ldots,L_n$ là tất cả các danh sách mời thích hợp. Theo định nghĩa, chúng ta có $F_i\cap L_j\ne \varnothing$ với mọi $1\leq i\leq 25$ và $1\leq j\leq n$. Lưu ý rằng tập hợp S là một nhóm kamber khi và chỉ khi $S\cap L_j\ne\varnothing$ với mọi $1\leq j\leq n$. Do đó, mỗi $F_i$ là nhóm kamber.\\
+Gọi X là nhóm kamber không có nhóm con thực sự là nhóm kamber. Chúng ta sẽ chỉ ra $ F_i\subseteq X$ với một số $i$ nào đó. Giả sử ngược lại. Tức là, với mỗi số $1\leq i\leq 25$ ta có $F\backslash X\ne \varnothing$. Giả sử $L = \{x_1, x_2,\ldots, x_{25}\}$ trong đó $x_i\in F_i\backslash  X$, với $1\leq i\leq 25$. Khi đó, ta có $L\cap F_i\ne \varnothing$ với mọi $1\leq i\leq 25$ và do đó, chúng ta thấy rằng $L$ là một danh sách lời mời thích hợp. Tuy nhiên, bằng cách xây dựng, $L$ và $X$ là các tập hợp rời nhau, mâu thuẫn với $X$ là nhóm kamber. Do đó, yêu cầu cần chỉ ra là đúng tức là,  tồn tại một $i$ sao cho $F_i\subseteq X$. Mặt khác, $F_i$ là một nhóm kamber và do đó, nó không thể là một tập hợp con thực sự của $X$. Do đó, chúng ta nhận được $F_i = X$ vậy nên, tất cả mọi người trong $X$ thích món $f_i$.
+}
+\end{ex}
+\begin{ex}%[HSG Thổ Nhĩ Kỳ năm 2018, vòng 1]%[Nguyễn Tuấn Anh, Dự án EX-Nat.MO-18]%[0H0G3]
+Cho $ABCD$ là tứ giác với các cặp cạnh đối không song song. Các đường $AB$ và $CD $ cắt nhau tại điểm $X$. Đường tròn với tâm $A$ và bán kính $r_1$ giao với đường tròn tâm $D$ và bán kính $r_2$ tại $P$ và $Q$. Đường tròn với tâm $B$  bán kính $r_1$ giao  với đường tròn tâm $C$ bán kính $r_2$ tại $R$ và $S$. Giả sử rằng
+$$ XA\cdot XB+r_1^2=XC\cdot XD+r_2^2. $$
+Chứng minh rằng các điểm $P, Q, R, S$ cùng nằm trên một đường tròn.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}
+\tkzInit[xmin=-3,ymin=-1,xmax=7,ymax=5.6]
+\tkzClip
+\tkzDefPoints{0/5/A,4/3.5/B,5/2/C,0/0/D}
+\tkzInterLL(A,B)(C,D)\tkzGetPoint{X}
+\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+\tkzDefMidPoint(C,D)\tkzGetPoint{N}
+\tkzDefLine[orthogonal=through M](A,B) \tkzGetPoint{m}
+\tkzDefLine[orthogonal=through N](C,D) \tkzGetPoint{n}
+\tkzInterLL(M,m)(N,n)\tkzGetPoint{Y}
+\tkzDefLine[orthogonal=through Y](A,D) \tkzGetPoint{y}
+\tkzInterLC[R](Y,y)(A,3 cm)\tkzGetPoints{P}{Q}
+\tkzDrawCircle[R](A,3 cm)
+\tkzDrawCircle[radius](D,P)
+\tkzDrawSegments(A,X X,D D,A B,C Y,M Y,N P,Q)
+\tkzLabelPoints[above right](X)
+\tkzLabelPoints[right](P)
+ \tkzLabelPoints[left](Q)
+\tkzLabelPoints[below left](Y)
+\tkzLabelPoints[above](A,M,B)
+\tkzLabelPoints[below](D,N,C)
+\tkzDrawPoints(A,B,C,D,P,Q,X,Y,M,N)
+\tkzMarkRightAngles[](Y,M,A Y,N,D)
+\end{tikzpicture}    
+\end{center}        
+Gọi $M,N$ lần lượt là trung điểm của các cạnh $AB, CD$ và $Y$ là giao điểm của các đường trung trực đoạn $AB$ và $CD$. Chúng ta thấy rằng
+\begin{align*}
+XA\cdot XB=XM^2-AM^2=XY^2-AY^2&\\ 
+XC\cdot XD=XN^2-DN^2=XY^2-DY^2.& 
+\end{align*}
+Từ đẳng thức giả thiết, ta có
+$$ XY^2-AY^2+r_1^2=XY^2-DY^2+r_2^2\Rightarrow AY^2-r_1^2=DY^2-r_2^2 $$
+điều đó có nghĩa là $Y$ phải nằm trên trục đẳng phương của đường tròn tâm $A$ bán kính $r_1$ và đường tròn tâm $D$ bán kính $r_2$. Hay $Y$ nằm trên $PQ$. Tương tự, $Y$ nằm trên $RS$. Lúc này, 
+$$ YP\cdot YQ=AY^2-r_1^2=DY^2-r_2^2=YR\cdot YS, $$
+do đó bốn điểm $P,Q,R,S$ cùng thuộc một đường tròn. (Chúng ta hiểu rằng $PQ$ và $RS$ phân biệt, do $AD$ và $BC$ không song song.)
+}
+\end{ex}
+\begin{ex}%[HSG Thổ Nhĩ Kỳ năm 2018, vòng 1]%[Nguyễn Tuấn Anh, Dự án EX-Nat.MO-18]%[0D0G2]
+Cho $n$ là một số nguyên dương và $a_{11}, a_{12},\ldots, a_{nn}$ là các số thực dương thỏa mãn $a_{ij}\cdot a_{ji}=1$ với mọi $i, j\in\{1,2,\ldots ,n\}$. Đặt $c_i=\sum\limits_{k=1}^{n}a_{ki}$ với $i=1,2,\ldots, n$. Chứng minh rằng
+$$ \sum\limits_{i=1}^{n}\dfrac{1}{c_i}\leq 1. $$
+\loigiai{
+Đặt $c=\sum\limits_{j=1}^{n}\dfrac{1}{c_j}$. Ta cần chứng minh rằng $c\leq 1$. Áp dụng bất đẳng thức Cauchy-Schwarz ta có
+\[ \sum\limits_{j=1}^{n}\dfrac{x_j^2}{a_{ji}}\geq \dfrac{\left(\sum\limits_{j=1}^{n}x_j\right)}{\sum\limits_{j=1}^na_{ji}}\tag{1}\]
+với mọi $i$ và các số thực dương $x_1, x_2,\ldots, x_n$. Từ $a_{ij}\cdot a_{ji}=1$ với mọi $i$ và $j$, thay $x_j=\dfrac{1}{c_j}$ vào $(1)$ ta có
+\[ \sum\limits_{j=1}^{n}\dfrac{a_{ij}}{c_j^2}\geq c^2\dfrac{1}{c_i}\tag{2}\]
+với mọi $i$. Lấy tổng hai vế các bất đẳng thức $(2)$ theo tất cả $i$ ta được
+\[ \sum\limits_{i=1}^{n}\sum\limits_{j=1}^{n}\dfrac{a_{ij}}{c_j^2}\geq c^2\sum\limits_{i=1}^{n}\dfrac{1}{c_i}=c^3.\]
+Mặt khác, ta có
+\[ \sum\limits_{i=1}^{n}\sum\limits_{j=1}^{n}\dfrac{a_{ij}}{c_j^2}=\sum\limits_{j=1}^{n}\sum\limits_{i=1}^{n}\dfrac{a_{ij}}{c_j^2}=\sum\limits_{j=1}^{n}\left(\dfrac{1}{c_j^2}\sum\limits_{i=1}^{n}a_{ij}\right)=\sum\limits_{j=1}^{n}\left(\dfrac{1}{c_j^2}c_j\right)=\sum\limits_{j=1}^{n}\dfrac{1}{c_j}=c,\tag{4}\]
+Từ $(3)$ và $(4)$ ta nhận được $c\geq c^3$. Vì $c$ dương nên $c\leq 1$.\\
+\textbf{Lời giải 2.} Chúng ta chứng minh bằng quy nạp theo $n$. Với $n=2$, giả sử $a_{12}=a$, thì $\dfrac{1}{c_1}+\dfrac{1}{c_2}=\dfrac{1}{1+a}+\dfrac{1}{1+\frac{1}{a}}=1$. Hiển nhiên đúng.\\
+Giả sử rằng bất đẳng thức đúng với $n=k: \sum\limits_{i=1}^{k}\dfrac{1}{c_i}\leq 1$. Chúng ta sẽ chứng minh nó với $n=k+1$. Lưu ý bất đẳng thức Cauchy-Schwarz, với $c, a, x\in\mathbb{R}$ chúng ta có $(c+a)\left(\dfrac{x^2}{c}+\dfrac{1}{a}\right)\geq (x+1)^2$ hay
+$$ \dfrac{1}{c+a}\leq \left(\dfrac{x^2}{c}+\dfrac{1}{a}\right)(x+1)^{-2}. $$
+Vì vậy, đối với $x$ bất kỳ ta có
+$$ \sum\limits_{i=1}^{k}\dfrac{1}{c_i+a_{k+1,i}}\leq \sum\limits_{i=1}^{k}\left(\dfrac{x^2}{c_i}+\dfrac{1}{a_{k+1,i}}\right)(x+1)^{-2}\leq \dfrac{x^2+\sum_{i=1}^{k}a_{i,k+1}}{(x+1)^2}. $$
+Lúc này chọn $x=\sum_{i=1}^{k}a_{i,k+1}$ ta được
+$$ \sum\limits_{i=1}^{k+1}\dfrac{1}{\sum_{j=1}^{k+1}a_{ji}}=\sum\limits_{i=1}^{k}\dfrac{1}{c_i+a_{k+1,i}}+\dfrac{1}{\sum_{j=1}^ka_{j,k+1}+a_{k+1,k+1}}\leq \dfrac{x^2+x}{(x+1)^2}+\dfrac{1}{x+1}=1. $$
+}
+\end{ex}
+\Closesolutionfile{ans}

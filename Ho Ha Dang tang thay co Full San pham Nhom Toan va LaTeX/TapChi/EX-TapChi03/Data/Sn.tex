@@ -1,0 +1,294 @@
+\section{Hoán vị, chuyển vị, nghịch thế và một số bài toán liên quan (bài giảng của TS Vũ Thế Khôi ở trường hè 2017 cho giáo viên chuyên toán)}
+\Opensolutionfile{ans}[ans/ansSn]
+Bài viết gồm ba phần, phần đầu giới thiệu ngắn gọn một số định nghĩa và tính chất cơ bản của 
+hoán vị. Phần thứ hai giới thiệu về số nghịch thế của hoán vị, các tính chất của nó và một số 
+bài toán sơ cấp liên quan. Trong phần cuối chúng tôi giới thiệu một số kết quả về bài toán đếm 
+số hoán vị thỏa mãn các điều kiện cho trước. Với mục đích giới thiệu cho giáo viên THPT, chúng 
+tôi đưa ra nhiều ví dụ bài tập sơ cấp để minh họa. Các kiến thức trong phần đầu và phần thứ hai 
+được trình bày chủ yếu dựa theo tài liệu tham khảo \footnote{Knuth, Donald Ervin. The art of computer programming: sorting and searching. Vol. 3.
+	Pearson Education, 1998.}. 
+Phần cuối được trình bày dựa theo tài liệu \footnote{Bóna, Miklós. Combinatorics of permutations. CRC Press, 2012.}
+\footnote{Robertson, Aaron. "Permutations containing and avoiding 123 and 132 patterns." Discrete
+	Mathematics and Theoretical Computer Science 3.4 (1999).} \footnote{Simion, Rodica, and Frank W. Schmidt. "Restricted permutations." European Journal of
+	Combinatorics 6.4 (1985): 383-406.}. Người đọc có thể tham khảo các tài liệu gốc để tìm hiểu sâu thêm về các kết quả 
+trình bày ở đây.
+\subsection{Kiến thức cơ bản về hoán vị}
+Khi lần đầu giới thiệu về hoán vị cho học sinh chúng ta thường định nghĩa một hoán vị của $(1,2,\dots,n)$ đơn giản 
+\textit{là một dãy $(a_1, a_2,\dots,a_n)$ chứa các số $1,\dots, n$ mỗi số đúng một lần và được viết theo thứ tự bất kỳ.}
+Định nghĩa hoán vị như một dãy số có thuận lợi là đơn giản và thường dùng trong phát biểu của nhiều bài toán. Một cách nhìn khác về hoán vị là coi hoán vị $(a_1,\dots, a_n)$ như một song ánh $$\sigma:\{1,2,\dots,n\}\rightarrow \{1,2,\dots,n\}$$
+cho bởi $\sigma(i)=a_i.$ Khi coi hoán vị như một song ánh ta có thẻ lấy \textit{hợp thành của hai hoán vị.} Để thuận tiện cho việc 
+tính toán hợp thành của hai ánh xạ, người ta thường ký hiệu hoán vị như sau
+$$\sigma = \begin{pmatrix}
+			 1  &  2  &  \dots & n-1 & n \\ 
+			a_1 & a_2 &  \dots &  a_{n-1} & a_n \end{pmatrix}$$
+Khi coi hoán vị như song ánh ta có thể phân tích hoán vị như hợp thành của các hoán vị dạng đơn giản. Trong nhiều bài toán khi 
+	cần chứng minh một tính chất đúng cho hoán vị bất kỳ, ta chỉ cần chứng minh nó đúng với các hoán vị dạng đơn giản. 	
+	Một dạng phân tích hoán vị quan trọng là \textit{phân tích thành các xích} như sau: xét đồ thị có $n$ đỉnh đánh số từ $1$ đến 
+	$n$. Ta vẽ cạnh có hướng đi từ đỉnh $i$ đến đỉnh $\sigma(i).$ Từ tính chất song ánh của $\sigma$ ta suy ra tại mỗi đỉnh có đúng 
+	$1$ cạnh đi vào và $1$ cạnh đi ra. Do đó ta nhận được $1$ đồ thị có dạng hợp thành của các chu trình rời nhau, mỗi chu trình 
+	như vậy gọi là một \textit{xích.} Ta có thể coi mỗi xích là một hoán vị vòng quanh của một tập con $\{x_1, x_2,\dots,x_k\}\subset
+	\{1,2,\dots,n\}$ và ký hiệu là $(x_1 x_2 \dots x_k).$ Như vậy một hoán vị sẽ được phân tích một cách duy nhất thành các xích rời nhau.
+	\begin{vd}
+		Hoán vị 
+		$$\sigma = \begin{pmatrix}
+		1  &  2  &  3  &  4  & 5  &  6  & 7  &  8  & 9  &  10\\ 
+		8  &  6  &  5  &  9  & 3  &  10  & 4  &  7  & 1  &  2 \end{pmatrix},$$
+		tương ứng với đồ thị sau
+		\begin{center}
+		\begin{tikzpicture}[->,>=stealth',auto,node distance=3cm,
+		thick,main node/.style={circle,draw, fill = cyan!80}]
+		\tkzDefPoints{0/0/O,2/0/A}
+		%pentagon
+		\tkzDefPointsBy[rotation=center O angle 360/5](A,B,C,D){B,C,D,E}
+		\tkzDrawPolygon(A,B,C,D,E)
+		\node[main node] (A) at (A) {1};
+		\node[main node] (B) at (B) {8};
+		\node[main node] (C) at (C) {7};
+		\node[main node] (D) at (D) {4};
+		\node[main node] (E) at (E) {9};
+		\draw[->] (A) edge (B);
+		\draw[->] (B) edge (C);
+		\draw[->] (C) edge (D);
+		\draw[->] (D) edge (E);
+		\draw[->] (E) edge (A);
+		%2point
+		\node[main node] (G) at ($(A)+(2,0)$) {3};
+		\node[main node] (H) at ($(A)+(5,0)$) {5};
+		\draw[->] (G) edge [bend left=25] (H);
+		\draw[->] (H) edge [bend left=25] (G);
+		%triangle
+		\node[main node] (M) at ($(E)+(8,0)$) {2};
+		\node[main node] (N) at ($(E)+(11,0)$) {10};
+		\node[main node] (P) at ($(M)!0.5!(N)+(0,3)$){6};
+		\draw[->] (N) edge  (M);
+		\draw[->] (M) edge  (P);
+		\draw[->] (P) edge  (N);
+		\end{tikzpicture}
+		\end{center}
+\noindent{Ta} có thể viết phân tích của $\sigma$ thành các xích như sau $\sigma =(1 8 7 4 9)(3 5)(2 6 10).$ Với những 
+		xích chỉ chứa đúng $1$ phần tử $k,$ tức là $\sigma(k)=k,$ để cho gọn người ta thường bỏ đi không viết nếu 
+		không gây hiểu lầm gì. 	
+		Một xích chỉ chứa hai phần tử $(a,b)$ gọi là một \textit{phép chuyển vị.} Ta ký hiệu 
+		$$s_i =(i\quad i+1),\,  i= 1, 2,\dots , n-1.$$ 
+		là các phép chuyển vị đổi chỗ hai số $i$ và $i+1.$
+	\end{vd}
+	\begin{dl}
+		Mọi hoán vị đều là hợp thành của một số phép chuyển vị $s_i.$
+	\begin{cm}
+		Về trực giác ta thấy định lý đúng vì chỉ cần đổi chỗ hai phần tử kề nhau ta nhận được mọi hoán vị. Lý luận chặt chẽ như sau:
+		Ở trên ta thấy mọi hoán vị đều viết được như hợp thành của các xích. Mọi xích lại được viết thành hợp của các phép chuyển vị 
+		$$(x_1 \quad x_2 \dots x_n)=(x_1 \quad x_n)(x_1 \quad x_{n-1})\dots (x_1 \quad x_2).$$
+		Hơn nữa mọi phép chuyển vị đều là hợp thành của các $s_i$
+		$$(k,\ell)=(k \quad k+1)(k+1 \quad k+1)\dots (\ell-1 \quad \ell)(\ell-1 \quad \ell-1)\dots(k \quad k+1).$$
+		Ta có cần phải chứng minh.
+	\end{cm}
+	\end{dl}
+\noindent{Ý} tưởng coi các hoán vị như song ánh và sử dụng phép hợp thành thường có ích khi giải những bài toán 
+	mà ta thực hiện liên tiếp nhiều  phép đổi chỗ.
+	\begin{bt}
+		Một bộ bài gồm $2n+1$ quân bài phân biệt. Mỗi lần ta được quyền thực hiện một trong hai cách tráo bài sau:
+		\begin{itemize}
+			\item Lấy một số quân bài ở trên cùng, giữ nguyên thứ tự và chuyển về cuối bộ bài.
+			\item Lấy $n$ quân bài ở trên cùng và lần lượt xếp chúng vào $n$ vị trí ở giữa của $n+1$ quân bài dưới cùng.
+ 		\end{itemize}	
+			Chứng minh rằng bằng cách thực hiện các phép tráo bài như trên ta nhận được không quá $2n(2n+1)$ hoán vị khác nhau của bộ bài ban đầu.
+	\loigiai{Ta coi bộ bài ban đầu được đánh số lần lượt từ trên xuống dưới $1, 2,\dots, 2n+1.$ 		
+			Có  thể thấy hai phép tráo bài tương ứng với hai hoán vị 
+			$$\sigma_{k, \tau}:\{1,2,\dots,2n+1\}\rightarrow \{1,2,\dots,2n+1\},$$
+			xác định như sau $\sigma_k(i):= i+k \mod (2n+1)$ với $k=1,2,\dots,2n+1$ và $\sigma_\tau (i):=(n+1)i \mod (2n+1)$. Như vậy khi kết hợp hai phép
+			tráo một số hữu hạn lần ta chỉ có thể nhận được một hoán vị có dạng
+			$$\sigma(i)=(n+1)^ti + c\mod (2n+1).$$
+Ta thấy $(n+1)^t$ nhận $2n$ giá trị $1, 2, \cdots 2n$ còn $c$ nhận $2n+1$ giá trị. Ta có điều cần chứng minh.
+	}
+	\end{bt}
+	\begin{bt}[Nordic 2015]
+		Có một bách khoa toàn thư gồm $2000$ tập xếp lần lượt trên giá thành một hàng ngang. Ta được quyền đổi chỗ sách theo một 
+		trong hai cách sau:
+		\begin{itemize}
+			\item Lấy một số chẵn những quyển sách ở phần đầu, giữ nguyên thứ tự và chuyển về xếp ở cuối
+			\item  Lấy một số lẻ những quyển sách ở phần đầu, đảo ngược thứ tự và xếp lại vào phần đầu bộ.
+		\end{itemize}	
+			Hỏi ta có thể nhận được bao nhiêu hoán vị khác nhau của bộ sách ban đầu bằng cách thực hiện một số hữu hạn những làn đổi chỗ nhưu trên?
+	\loigiai{Giả sử ban đầu các quyển có số $1, 2,\cdots,2000$. Ta nhận thấy khi thực hiện các phép đổi chỗ thì các quyển có số chẵn luôn ở vị 
+			trí chẵn và quyển có số lẻ luôn ở trị ví trí lẻ. Ta chứng minh có thể đổi chỗ để xếp các quyển sách có số chẵn vào vị trí chẳn 
+			một cách tùy ý và sách có số lẻ vào những vị trí lẻ một cách tùy ý. Như vậy có thể tạo ra $(1000!)^2$ hoán vị. Điều này được suy ra từ hai nhận xét sau
+			\begin{itemize}
+				\item Ta có thể đổi chỗ $2$ quyển sách có số chẵn kề nhau mà không làm thay đổi các quyển có số chẵn khác.
+				\item Ta cũng có thể đổi chỗ $2$ quyển sách có số lẻ kề nhau mà không làm thay đổi bất kỳ quyển sách nào khác.
+			\end{itemize}
+	}	
+	\end{bt}
+
+
+
+\subsection{Nghịch thế của hoán vị và một số bài toán liên quan}
+
+Xét một hoán vị $\sigma$ cho bởi $(a_1,a_2,\dots,a_n)$ của các số $(1,2,\dots,n)$. Một cặp chỉ số $(i,j)$ được gọi là nghịch thế nếu $i<j$ và $a_i>a_j$. Ta kí hiệu $\ell(\sigma)$ là số các nghịch thế của $\sigma$.
+\begin{vd}Nếu $\sigma$ cho bởi $(1,2,\dots,n)$ thì $\ell(\sigma)=0.$ Nếu $\sigma$ cho bởi $(n,n-1,\dots,1)$ thì $$\ell(\sigma)=\dfrac{n(n-1)}{2}.$$
+Ta dễ thấy phép chuyển vị $1s_i$ có thể biểu diễn như dãy $(1,\dots,i-1,i+1,i,i+2,\dots,n) $ và do đó có $\ell(s_i)=1$ với mọi $i$.
+\end{vd}
+Ta có tính chất sau của số nghịch thế.
+\begin{tc}
+	$\ell(\sigma \circ  s_i)=\ell(\sigma) \pm 1$ và $\ell(s_i \circ \sigma)=\ell(\sigma) \pm 1$.\\
+	\textbf{Chứng minh:} Giả sử $\sigma$ cho bởi $(a_1,a_2,\dots,a_n)$ thì dễ dàng tính được $\sigma \circ s_i$ cho bởi $$(a_1,\dots,a_{i-1},a_{i+1},a_{i+2},\dots,a_n).$$
+	Như vậy nếu $a_i<a_{i+1}$ thì $\ell(\sigma \circ s_i)=\ell(\sigma)+1$ và nếu $a_i>a_i+1$ thì $\ell(\sigma \circ s_i)=l
+	(\sigma)-1.$\\
+	Ta tính được $s_i \circ \sigma (j)=s_i(a_j)=\heva{&i+1&&\text{nếu } a_j=i\\&i&&\text{nếu }a_j=i+1\\&a_j&& \text{nếu } a_j \ne i,i+1.}$\\
+	Như vậy $s_i \circ \sigma$ sẽ tương ứng với dãy nhận được từ $(a_1,a_2,\dots,a_n)$ sau khi đổi chỗ hai số $a_k=i$ và $a_i=i+1.$ Rõ ràng khi thay $i$ bởi $i+1$ hay ngược lại thì quan hệ lớn hơn, nhỏ hơn giữa các số này với những số $a_i,i\ne k,l$ còn lại cũng không thay đổi. Như vậy nếu ban đầu trong hoán vị $(a_1,a_2,\dots,a_n)$ số $i$ đứng trước $i+1$ thì sau khi đổi chỗ số nghịch thế tăng 1, còn nếu $i$ đứng sau $i+1$ thì sau khi đổi chỗ số nghịch thế giảm đi 1.
+\end{tc}
+\begin{tc}
+	Với $\sigma$  và $\tau $ là hai hoán vị bất kỳ của $(1,2,\dots,n)$ ta có 
+	$$\ell(\sigma \circ \tau) =\equiv \ell(\sigma)+\ell(\tau) \quad \mod \quad 2.$$
+	\textbf{Chứng minh:}\\
+	Theo định lý $1.2$ ta có thể biểu diễn $\sigma=s_{i_1} \circ s_{i_2} \circ \dots \circ s_{i_k}$. Sử dụng tính chất $2.2$ liên tiếp ta có
+	$$(\sigma)=\ell(s_{i_1}\circ s_{i_2}\circ \dots \circ s_{i_{k-1}}) \pm 1=\pm1 \pm 1 \dots \pm 1 \,\, \text{($k$ lần)}.$$
+	Từ đó suy ra $\ell(\sigma) \equiv k \mod \quad 2$. Như vậy có nhiều cách khác nhau để phân tích một hoán vị $\sigma$ thành hợp thành của các $s_i$, nhưng số các $s_i$ xuất hiện trong các phân tích luôn chẵn hoặc luôn lẻ phụ thuộc vào tính chẵn, lẻ của $\ell(\sigma)$.\\
+	Tương tự ta có $\tau =s_{j_1} \circ s_{j_2} \circ \cdots \circ s_{i_k} \circ s_{j_1}\circ \cdots \circ s_{j_k}$. Cũng lý luận tương tự trên ta có 
+	$$\ell(\sigma \circ \tau ) \equiv k+l \quad \quad \mod \quad 2.$$
+	Ta có đẳng thức cần chứng minh.
+\end{tc}
+\begin{vd}
+	Ví dụ này giới thiệu trò chơi 15 gồm 1 bảng cỡ $4 \times 4$ trong đó có 15 ô đánh số tự 1 đến 15 và một ô trống. Ta có thể đẩy các ô bên cạnh vào ô trống để thay đổi trạng thái của bảng. Vào năm 1880, Sam Loyd, một nhà sáng chế trò chơi, câu đố nổi tiếng người Mỹ đã đưa ra thách đố: hãy đưa bảng ở trạng thái ban đầu như hình bên tay trái về hình bên tay phải. 
+	
+\end{vd}
+\begin{center}
+	\begin{tabular}{cc}
+		\begin{tikzpicture}[>=stealth]
+		\draw (0,0) grid (4,-4); 
+		\foreach \x / \dongmot in {1/1, 2/2, 3/3, 4/4}
+		\draw (\x-0.5, -0.5) node{\dongmot};
+		\foreach \x / \donghai in {1/5, 2/6, 3/7, 4/8}
+		\draw (\x-0.5, -1.5) node{\donghai};
+		\foreach \x / \dongba in {1/9, 2/10, 3/11, 4/12}
+		\draw (\x-0.5, -2.5) node{\dongba};
+		\foreach \x / \dongbon in {1/13, 2/14, 3/15}
+		\draw (\x-0.5, -3.5) node{\dongbon};
+		\draw[->,line width=4pt] (4.5,-2)--(5.5,-2);
+		\end{tikzpicture}
+		&
+		\begin{tikzpicture}
+		\draw (0,0) grid (4,-4); 
+		\foreach \x / \dongmot in {1/1, 2/2, 3/3, 4/4}
+		\draw (\x-0.5, -0.5) node{\dongmot};
+		\foreach \x / \donghai in {1/5, 2/6, 3/7, 4/8}
+		\draw (\x-0.5, -1.5) node{\donghai};
+		\foreach \x / \dongba in {1/9, 2/10, 3/11, 4/12}
+		\draw (\x-0.5, -2.5) node{\dongba};
+		\foreach \x / \dongbon in {1/13, 2/15, 3/14}
+		\draw (\x-0.5, -3.5) node{\dongbon};
+		\end{tikzpicture}
+	\end{tabular}
+\end{center}
+Sam Loyd đã treo thưởng 1000 Đô la cho lời giải, nhưng không ai nhận được giải thưởng vì thách đố này không thể làm được. Ta coi một trạng thái của bảng như một hoán vị của các số $1,2,...,15$ nhận được khi viết các số lần lượt từ trái qua phải từ trên xuống dưới. Như vậy thách đố tương đương với việc đưa hoán vị $(1,2,...,14,15)$  về thành hoán vị $(1,2,...,15,14)$.\\
+Ta nhận xét:\\
+- Khi trượt một ô cùng hàng vòa ô trống thì hoán vị không thay đổi.\\
+- Khi trượt một ô cùng cột vào ô trống thì số đố được chuyển về phía trước hoặc phía sau cách 3 vị trí. Tức là ta thực hiện 3 lần đổi choox hai ô đứng cạnh nhau, như vậy số nghịch thế sẽ thay đổi tính chẵn lẻ.\\
+Do đó nếu ta đánh số các hàng lần lượt là $1,2,3,4$ thì đại lượng:\\
+$\textit{số nghịch thế + vị trí hàng của ô trống} \mod 2$ là bất biến. Với bảng ở hình bên trái đại lượng này bằng 0 còn hình bên phải thì đại lượng bằng 1. Vậy không thể đưa được về bảng bên phải.
+\begin{bt}
+	Có một bộ 10 quyển sách, được đánh số từ 1 đến 10, xếp thành một hàng ngang trên giá một cách bất kỳ. Mỗi lần ta được quyển đổi chỗ hai quyển sách đứng cạnh nhau. Hỏi cần ít nhất bao nhiêu lần đổi để đảm bảo luôn xếp được sách theo thứ tự tăng dần.
+	
+\end{bt}
+\textbf{Gợi ý:} Dễ thấy cần không quá 9 lần đổi có thể đưa quyển 1 về đầu, không quá 8 lần đổi có thể đưa quyển 2 về vị trí thứ hai,... như vậy cần không quá 45 lần đổi có thể xếp tất cả theo thứ tự tăng dần.\\
+Mỗi lần đổi hai quyển kề nhau thì số nghịch thế tăng hoặc giảm 1. Vì vậy nếu ban đầu sách xếp theo thứ tự $10,9,...,1$ thì phải cần đúng $45$ lần đổi. Vậy số lần đổi ít nhất thỏa mãn bài là $45$.\\
+Ta xét một bài tập phát biểu tương tự bài trên nhưng cho phép đổi chỗ hai quyển sách bất kỳ.
+\begin{bt}
+	Có một bộ 10 quyển sách, được đánh số từ 1 đến 10, xếp thành một hàng ngang trên giá một cách bất kỳ. Mỗi lần ta được chuyển đổi chỗ hai quyển sách bất kỳ. Hỏi cần ít nhất bao nhiêu lần đổi để đảm bảo luôn xếp được sách theo thứ tự tăng dần.\\
+	\textbf{Gợi ý: }Mỗi lần đổi chỗ hai phần tử của hoán vị thì số lượng xích giảm đi hoặc tăng lên một phụ thuộc vào hai phần tử này có nằm trong cùng một xích hay không. Dễ dàng thấy nếu được dùng 9 lần thì luôn đổi được. Xét hoán vị vòng quanh $(2,3,...,n,1)$ thì cần đúng 9 lần đổi.
+\end{bt}
+\begin{bt}
+	Giả sử mỗi lần ta được quyền đổi chỗ hai khối kề nhau mỗi khối chứa một số bất kỳ các phần tử. Hỏi cần ít nhất bao nhiêu lần đổi để đưa hoán vị $(n,n-1,\cdots,2,1)$ về thành $(1,2,\cdots,n-1,n)$?
+	\loigiai{
+		Với một hoán vị $(a_1,a_2,\cdots,a_n)$, ta xét đại lượng số các chỉ số $i$ mà $a_i>a_{i+1}$. Ban đầu đại lượng này bằng $n-1$, cuối cùng bằng 0. Dễ thấy mỗi lần đổi chỗ hai khối thì đại lượng này giảm nhiều nhất là 2, riêng lần đầu và lần cuối chỉ có thể giảm đi 1. Như vậy số lần ít nhất sẽ lớn hơn hoặc bằng $\left\lceil\dfrac{n+1}{2}\right\rceil$.\\
+		Ta có thể chỉ ra cách dùng đúng $\left\lceil\dfrac{n+1}{2}\right\rceil$ lần đổi chỗ hai khối có thể thực hiện được yêu cầu bài toán. Ta chia làm hai trường hợp $n=2k$ và $n=2k+1$, với quy ước gọi khối $(i,i+1,\cdots,j)$ là khối các vị trí từ $i$ tới $j$ của hoán vị đang có, như sau:
+		\begin{enumerate}[TH 1.]
+			\item Với $n=2k$ thì số bước ít nhất là $k+1$. Ta thực hiện các bước như sau:
+			\begin{itemize}
+				\item Bước 1: Đổi chỗ 2 khối $(1,2,\cdots,k)$ và $(k+1,k+2)$.
+				\item Bước 2: Đổi chỗ 2 khối $(2,3,\cdots,k+1)$ và $(k+2,k+3)$.
+				\item $\cdots$
+				\item Bước $k-1$: Đổi chỗ 2 khối $(k-1,k,\cdots,2k-2)$ và $(2k-1,2k)$.
+				\item Bước $k$: Đổi chỗ 2 khối $(k,k+1,\cdots,2k-1)$ và $(2k)$.
+				\item Bước $k+1$: Đổi chỗ 2 khối $(1,2,\cdots,k)$ và $(k+1,k+2,\cdots,2k)$.
+			\end{itemize}
+			\item Với $n=2k+1$ thì số bước ít nhất là $k+1$. Ta thực hiện các bước như sau:
+			\begin{itemize}
+				\item Bước 1: Đổi chỗ 2 khối $(1,2,\cdots,k)$ và $(k+1,k+2)$.
+				\item Bước 2: Đổi chỗ 2 khối $(2,3,\cdots,k+1)$ và $(k+2,k+3)$.
+				\item $\cdots$
+				\item Bước $k-1$: Đổi chỗ 2 khối $(k-1,k,\cdots,2k-2)$ và $(2k-1,2k)$.
+				\item Bước $k$: Đổi chỗ 2 khối $(k,k+1,\cdots,2k-1)$ và $(2k,2k+1)$.
+				\item Bước $k+1$: Đổi chỗ 2 khối $(1,2,\cdots,k)$ và $(k+1,k+2,\cdots,2k)$.
+			\end{itemize}
+		\end{enumerate}
+		Từ đó ta có bài toán giải quyết xong!
+	}	
+\end{bt}
+\begin{bt}
+	Chứng minh rằng nếu $\tau=\sigma^{-1}$ là ánh xạ ngược của $\sigma$ thì $\ell(\tau)=\ell(\sigma)$.
+\end{bt}
+\subsection{Bài toán đếm số các hoán vị thỏa mãn điều kiện cho trước}
+Trong mục này chúng ta xét một số bài toán tìm số các hoán vị với các điều kiện ràng buộc về số các nghịch thế hay các điều kiện về các dãy con ba phần tử.
+\begin{bt}
+	Có bao nhiêu hoán vị của $1,2,\cdots,n$ có đúng một đúng một nghịch thế?
+	\loigiai{
+		Gọi $S_n$ là số hoán vị có đúng một nghịch thế của $1,2,\cdots,n$.\\
+		Nếu $a_i=n$ với $i<n-1$ thì sẽ có nhiều hơn một nghịch thế là $(i;n-1)$ và $(i;n)$ nên ta xét hai trường hợp:
+		\begin{enumerate}[TH 1.]
+			\item $a_n=n$. Khi đó số nghịch thế là $S_{n-1}$ hoán vị thỏa mãn.
+			\item $a_{n-1}=n$. Khi đó nếu $a_j=n-1$ với $j\ne n$ thì sẽ có nhiều hơn một nghịch thế là $(j,n)$ và $(n-1,n)$ nên ta phải có $a_n=n-1$ hay trường hợp này có $S_{n-2}$ hoán vị thỏa mãn.
+		\end{enumerate}
+		Vậy ta có $S_n=S_{n-1}+S_{n-2}$ mà $S_1=0$, $S_2=1$ và $S_3=2$ nên ta rút ra được:
+		$$S_n=-\dfrac{1}{\sqrt{5}}\left(\dfrac{1-\sqrt{5}}{2}\right)^{n-1} + \dfrac{1}{\sqrt{5}}\left(\dfrac{1+\sqrt{5}}{2}\right)^{n-1}$$
+	}
+\end{bt}
+
+\begin{bt}
+	Chứng minh rằng có đúng $\mathrm{C}_n{2} - 1$ hoán vị có đúng hai nghịch thế.\\ 
+	\textit{Gợi ý:} Truy hồi và sử dụng kết quả bài trên.
+\end{bt}
+
+\begin{bt}
+	Có bao nhiêu hoán vị $(a_1,a_2,\cdots,a_n)$ của $1,2,\cdots,n$ mà tồn tại duy nhất một chỉ số $i$ để $a_i>a_{i+1}$?
+\end{bt}
+\loigiai{
+	Bài toán này chúng ta có thể hoàn toàn xử lí bằng truy hồi. Ta quan tâm hơn việc mở rộng bài toán này theo hướng tăng dãy con từ hai phần tử lên thành 3 phần tử.}
+Ta có bài toán khó hơn khi đặt các điều kiện vào các dãy con ba phần tử. Ta đặt:
+$$S_n(123):=\{\text{hoán vị}\  (a_1,a_2,\cdots,a_n) |\nexists\ i<j<k\ \text{mà}\ a_i<a_j<a_k\}.$$
+$$S_n(132):=\{\text{hoán vị}\  (a_1,a_2,\cdots,a_n) |\nexists\ i<j<k\ \text{mà}\ a_i<a_k<a_j\}.$$
+Ta có thể định nghĩa tương tự cho bốn tập $S_n(231)$, $S_n(321)$, $S_n(213)$ và $S_n(312)$. Việc tính số phần tử của các tập trên là một trong những kết quả cơ bản và đẹp đẽ trong lý thuyết hoán vị. Trước tiên ta có một số nhận xét đơn giản sau:
+\begin{itemize}
+	\item Có song ánh tự nhiên: 
+	\begin{align*}
+		&S_n(123)\rightarrow S_n(321),\\
+		&S_n(132)\rightarrow S_n(231),\\
+		&S_n(213)\rightarrow S_n(312)
+	\end{align*}
+	cho bởi $(a_1,a_2,\cdots,a_n)\mapsto (a_n,a_{n-1},\cdots,a-1)$.
+	\item Có song ánh $S_n(231)\rightarrow S_n(312)$ cho bởi $\sigma\mapsto\sigma^{-1}$. 
+\end{itemize}
+Như vậy ta chỉ cần tính số phần tử của hai tập $S_n(123)$ và $S_n(132)$. Ta có các kết quả sau.
+\begin{dl}
+	Số phần tử của $S_n(123)$ bằng $\dfrac{1}{n+1}\mathrm{C}^n_{2n}$.
+	\begin{cm}
+		Đặt $a_n:=|S_n(123)|$, dễ thấy $a_1=1$, $a_2=2$ và ta quy ước $a_0=1$.\\
+		Với trường hợp $a_i=n$ thì khi đó:
+		$$(a_1,a_2,\cdots,a_{i-1},n,a_{i+1},\cdots,a_n)\in S_n(123)\Leftrightarrow \heva{&(a_1,a_2,\cdots,a_{i-1})\in S_{i-1}(132)\\ &(a_{i+1},a_{i+2},\cdots,a_n)\in S_{n-i}(132).}$$
+		Từ đó ta có công thức truy hồi: $a_n=\sum\limits_{i=1}^{n}a_{i-1}a_{n-i}$.\\
+		Kết hợp với các giá trị ban đầu ta nhận được $a_n$ chính là số Catalan $\dfrac{1}{n+1}\mathrm{C}_{2n}^n.$ 
+	\end{cm}
+\end{dl}
+\begin{dl}
+	Hai tập $S_n(123)$ và $S_n(132)$ có cùng số phần tử.
+	\begin{cm}
+		Bạn đọc có thể tham khảo trong tài liệu [1]. 
+	\end{cm}
+\end{dl}
+Bằng cách sử dụng truy hồi, ta có thể chứng minh các bài tập sau:
+\begin{bt}
+	Chứng minh $|S_n(123)\cap S_n(132)|=2^{n-1}$ và $|S_n(123)\cap S_n(213)|=2^{n-1}$.
+\end{bt}
+\begin{bt}
+	Chứng minh rằng có đúng $(n-2)2^{n-3}$ hoán vị trong $S_n(132)$ mà nó chứa đúng một con tăng dần có 3 phần tử.
+\end{bt}
+

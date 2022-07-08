@@ -1,0 +1,94 @@
+
+	\begin{name}
+		{Trần Thị Thu Hằng}
+		{Đề thi Olympic Áo năm 2018, vòng chung kết, phần 2, ngày 2}% Ví dụ: Đề thi HSG Vương quốc Anh, vòng 1, năm 2018
+	\end{name}
+	\setcounter{ex}{0}
+	\Opensolutionfile{ans}[ans/ans-1805-Nat.MO-Austrian-final-part2-day2]
+%\input{file_sanpham_MAU}
+\begin{ex}%[HSG Áo năm 2018, vòng chung kết, phần 2, ngày 2]%[Tran Thi Thu Hang, Dự án EX-Nat.MO-18]%[0H0G3]
+	Cho tam giác $ABC$ và $P$ là điểm nằm trong tam giác $ABC$ sao cho các tâm $M_B$ và $M_A$ của đường tròn ngoại tiếp $k_B$ và $k_A$ của các tam giác $ACP$ và $BCP$ (theo thứ tự đó) nằm bên ngoài tam giác $ABC$. Giả sử ba điểm $A$, $P$ và $M_A$ thẳng hàng, và ba điểm $B$, $P$ và $M_B$ cũng thẳng hàng. Đường thẳng qua $P$ song song với cạnh $AB$ cắt các đường tròn $k_A$ và $k_B$ theo thứ tự ở $D$ và $E$, trong đó $D,E\neq P$. Chứng minh rằng $DE=AC+BC$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzInit[xmin=-5.7,xmax=10.5,ymin=-2.5,ymax=7]\tkzClip
+			\tkzDefPoints{-1.5/0/A, 0/6/C, 6/0/B}
+			\tkzCircumCenter(A,B,C)\tkzGetPoint{O}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{M1}
+			\tkzDefMidPoint(A,C)\tkzGetPoint{M2}
+			\tkzDefLine[orthogonal=through M1](C,B)\tkzGetPoint{k1}
+			\tkzDefLine[orthogonal=through M2](C,A)\tkzGetPoint{k2}
+			\tkzInterLC(M1,k1)(O,A)\tkzGetSecondPoint{M_A}
+			\tkzInterLC(M2,k2)(O,A)\tkzGetFirstPoint{M_B}
+			\tkzInterCC(M_A,C)(M_B,C)\tkzGetFirstPoint{P}
+			\tkzDefLine[parallel=through P](A,B)\tkzGetPoint{d}
+			\tkzInterLC(P,d)(M_A,C)\tkzGetFirstPoint{D}
+			\tkzInterLC(P,d)(M_B,C)\tkzGetSecondPoint{E}
+			\tkzDrawSegments(A,C C,B B,A E,D)
+			\tkzDrawSegments[dotted](C,M_A C,P M_B,B M_A,A M_A,M_B)
+			\tkzDrawCircle(O,A)
+			\tkzDrawCircle[dashed](M_A,C)
+			\tkzDrawArc[dashed](M_B,E)(C)
+			\tkzDrawPoints(A,B,C,M_A,M_B,P,D,E)
+			\tkzLabelPoints[above left](C)
+			\tkzLabelPoints[above right](M_A)
+			\tkzLabelPoints[above left](M_B)
+			\tkzLabelPoints[below left](A,E)
+			\tkzLabelPoints[below right](B,D)
+			%\tkzLabelPoints[below](D)
+			\tkzLabelPoints[below=3pt](P)
+			\end{tikzpicture}
+		\end{center}
+		\noindent Do $M_A$ và $M_B$ lần lượt là tâm của $(ACP)$ và $(BCP)$ nên $M_AM_B$ là trục đối xứng của $AC$. Sử dụng tính chất góc nội tiếp và góc ở tâm trong các đường tròn $(ACP)$ và $(BCP)$ ta có
+		$$\widehat{CM_AM_B}=\dfrac{\widehat{CM_AP}}{2}=\widehat{CBP}=\widehat{CBM_B}$$
+		và 
+		$$\widehat{CM_BM_A}=\dfrac{\widehat{CM_BP}}{2}=\widehat{CAP}=\widehat{CAM_A}.$$
+		Do đó các tứ giác $CM_ABM_B$ và $CM_BAM_A$ nội tiếp, hay $M_A,M_B\in (ABC)$.
+		
+		\noindent Mặt khác, do $M_BC=M_BA$ và $PD\parallel AB$ nên 
+		$$\widehat{CBP}=\widehat{CBM_B}=\widehat{ABM_B}=\widehat{DPB}.$$
+		Suy ra, tứ giác $PCDB$ là hình thang cân, và do đó $PD=BC$.
+		
+		\noindent Chứng minh tương tự ta cũng có $PE=CA$.
+		
+		\noindent Vậy $DE=PE+PD= AC+BC$.
+		
+	}
+\end{ex}
+\begin{ex}%[HSG Áo năm 2018, vòng chung kết, phần 2, ngày 2]%[Tran Thi Thu Hang, Dự án EX-Nat.MO-18]%[0D0G4]
+	Trên đường tròn cho $2018$ điểm. Mỗi điểm được gán một số nguyên sao cho mỗi số lớn hơn tổng của hai số liền trước nó, theo chiều kim đồng hồ. Xác định giá trị lớn nhất của số các số dương trong 2018 số đó.
+	\loigiai{ Ta đặt tên cho các điểm bằng các số nguyên ký hiệu $a_0,a_1,...,a_{2017}$ theo chiều kim đồng hồ với $a_{k+2018}=a_k$ với mọi số nguyên $k$.\\
+		\begin{bode}
+			Trong hệ thống $2018$ điểm trên, không có hai số đứng cạnh nhau mà cả hai đều không âm.
+		\end{bode}
+		\begin{cm}
+			Giả sử rằng có hai số đứng cạnh nhau là $a_{k-1}$ và $a_k$ đều không âm. Chúng ta có $a_{k+1}>a_k+a_{k-1} \ge a_k$ (bất đẳng thức đầu là do giả thiết, bất đẳng thức sau là do $a_{k-1} \ge 0$. Bây giờ ta có $a_k$ và $a_{k+1}$ đều không âm, tiếp tục quá trình trên ta có $a_{k+2}>a_{k+1}$, $a_{k+3}>a_{k+2}$, và cuối cùng ta có $a_{k+2018}>a_{k+2017}> \cdots >a_{k+1}>a_k=a_k+2018$ ta gặp mâu thuẫn.
+		\end{cm}
+		Vì vậy mỗi chữ số đứng vị trí chẵn đều có thể không âm. Tiếp đây ta sẽ chỉ ra rằng không thể xảy ra trường hợp tất cả các chữ số đứng vị trí chẵn không âm.
+		\begin{bode}
+			Trong hệ thống $2018$ điểm trên, không xảy ra trường hợp tất cả các chữ số đứng vị trí chẵn đều không âm.
+		\end{bode}
+		\begin{cm}
+			Giả sử rằng mọi chữ số đứng vị trí chẵn đều không âm, nghĩa là $a_{2k} \ge 0$, suy ra $a_{2k+1}<0$ với mọi số nguyên $k$. Khi đó ta có $a_3>a_2+a_1 \ge 1$ (bất đẳng thức đầu do giả thiết, bất đẳng thức sau do $a_2 \ge 0$). Tiếp tục như vậy ta có $a_5>a_3$, $a_7>a_5$ và cuối cùng ta có $a_1=a_{2019}>a_{2017}>a_{2015}> \cdots >a_3>a_1$ ta gặp mâu thuẫn.
+		\end{cm}
+		Tóm lại: Trong hệ thống $2018$ số nói trên không thể có quá $1009$ số không âm bởi vì theo nguyên tắc Dirichle, chúng ta phải có hai số liền nhau là không âm, điều này mâu thuẫn với bổ đề thứ nhất. Nếu có đúng $1009$ số không âm  thì mâu thuẫn với bổ đề thứ nhất hoặc bổ đề thứ hai.\\
+		Với $1008$ số nguyên dương và $1010$ số âm thì ta tìm được một ví dụ về hệ thống điểm là
+		$$-4035,1,-4033,1,-4031,1,-4029, \cdots ,1,-2021,1,-22019,-2017$$	
+		mà chúng ta có thể dễ dàng kiểm tra tính chính xác.
+	}
+	
+\end{ex}
+
+
+\begin{ex}%[HSG Áo năm 2018, vòng chung kết, phần 2, ngày 2]%[Tran Thi Thu Hang, Dự án EX-Nat.MO-18]%[0D0G5]
+	Hãy xác định tất cả các chữ số $z$ thỏa mãn: Với mỗi số nguyên $k\ge 1$, tồn tại một số nguyên $n\ge 1$ sao cho biểu diễn thập phân của số $n^9$ có ít nhất $k$ chữ số $z$ tận cùng.
+	\loigiai{Các chữ số thỏa mãn là $z\in\{0;1;3;7;9\}$. Thật vậy:\\
+		Với $z=0$ và $k$ bất kì, ta dễ dàng tìm được $n=10^l$ với $l$ nguyên đủ lớn để $9l\ge k$. \\
+		Với $z\in\{2;4;6;8\}$ thì $n^9$ là số chẵn, do đó $n$ chẵn, như vậy $n^9$ phải chia hết cho $2^9$. Tuy nhiên, những số có tận cùng là $222$, $444$ hay $666$ không chia hết cho $8$, còn số có tận cùng là $8888$ lại không chia hết cho $16$. Vì vậy, không tìm được số nguyên $n$ nào ứng với $z$ như trên.\\
+		Tương tự, với $z=5$ thì số $n^9$ chia hết cho $5$, nên bản thân $n$ cũng chia hết cho $5$, dẫn đến $n^9$ chia hết cho $5^9$. Tuy nhiên, những số có tận cùng là $55$ thì không chia hết cho $25$.\\
+		Với $z\in\{1;3;7;9\}$, đặt $b:= {(\underbrace {zzz...z}_k)_{10}}$. Do ƯCLN$(9, \varphi(10^k)) =$ ƯCLN$(9, 4.10^{k-1}) = 1$, theo thuật toán Euclide, tồn tại hai số $x$ và $y$ sao cho $9x+\varphi(10^k)y = 1$. Ta khẳng định được $n:=b^x$ thỏa mãn yêu cầu đề bài. Bởi vì ƯCLN$(b, 10^k)=1$, ta có thể dễ dàng thấy được điều này bằng cách sử dụng Euler - Fermat:
+		$$(b^x)^9 = b^{9x} \equiv b^{9x+\varphi(10^k)y} = b^1 = b\; (\text{mod}\, 10^k).$$
+	}
+\end{ex}
+
+\Closesolutionfile{ans}

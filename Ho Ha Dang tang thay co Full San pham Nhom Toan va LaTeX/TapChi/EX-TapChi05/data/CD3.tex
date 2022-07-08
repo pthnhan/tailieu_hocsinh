@@ -1,0 +1,361 @@
+
+	
+\section{Cực trị với dấu giá trị tuyệt đối}
+%\begin{center}\textbf{\color{violet}{Nguyễn Hữu Điển (Hà Nội)}}\end{center}
+\subsection{Mở đầu}	
+\noindent Trong kì thi IMO thứ $48$, năm $2007$, diễn ra tại Hà Nội, Việt Nam, bài toán $1$ có phát biểu: \textit{Cho các số thực $a_1$, $a_2$, \ldots, $a_n$. Với mỗi $i\in \{1,2,\ldots,n \}$, đặt}
+\[ d_1:=\max\{a_1,a_2,\ldots, a_i\}-\min\{a_1,a_2,\ldots,a_i \} ,\quad d\:=\max\{d_1,d_2,\ldots,d_n\}.\]
+\textit{Chứng minh rằng với mọi $x_1$, $x_2$, \ldots, $x_n$ thực thỏa mãn $x_1\le x_2\le \cdots \le x_n$,}
+\[ \max\left\{ |x_1-a_1|,|x_2-a_2|,\ldots,|x_n-a_n| \right\} \ge\dfrac{d}{2}, \]
+\textit{và chứng minh đẳng thức có thể xảy ra.}\\
+Đây là một bài toán thú vị, được coi là một trong những bài toán số $1$ hay nhất trong các kì thi Toán Quốc Tế. Trong chương này, chúng ta sẽ cùng tìm hiểu bài toán này thông qua một số cách xử lí các bài toán liên quan tới dấu giá trị tuyệt đối.
+
+\subsection{Một số ví dụ giải toán}
+\noindent Chúng ta bắt đầu bằng một bài toán rất quen thuộc sau.
+\begin{vd}%[Chuyên đề 3]%[Vũ Nguyễn Hoàng Anh, EX-TapChi-05]%[0D0G2]
+Cho $(x_1, x_2,\dots, x_n)$ là một hoán vị bất kì của tập $\{1,2,\dots,n\}$. Tìm giá trị nhỏ nhất của tổng
+\[ S:=|x_2-x_1|+|x_3-x_2|+\cdots +|x_1-x_n|. \]
+\loigiai
+{Để giải quyết khó khăn trong những bài toán về giá trị tuyệt đối, tất nhiên chúng ta sẽ tìm cách loại bỏ những dấu giá trị tuyệt đối trong tổng $S$. Trong bài toán này, bất đẳng thức cơ bản $|x|\ge x$ để loại bỏ các dấu giá trị tuyệt đối. Cụ thể như sau: do vai trò hoán vị của dãy, nên ta có thể giả sử $x_1=1$, $x_k=n$. Khi đó
+	\begin{align*}
+		S&=\left(|x_2-x_1|+\cdots + |x_k-x_{k-1}|\right)+ \left(|x_{k+1}-x_k| +\cdots + |x_1-x_n|\right)\\
+		&\ge\left(x_2-x_1 + \cdots + x_k- x_{k-1}\right) + \left( x_k-x_{k+1}+\cdots +x_n-1 \right)\\
+		&=2(x_k-x_1)=2n-2.
+	\end{align*} 
+ Vậy giá trị nhỏ nhất của $S$ có thể đạt được là $2n-2$, đạt được khi, chẳng hạn với hoán vị $(1,n,n-1, \dots,2)$.\\
+\noindent{\bf Bình luận.} Ta có thể tổng quát bài toán bằng bất đẳng thức sau: Với các số thực $x_1$, $x_2$, \dots, $x_n$ thì ta có
+\[ |x_1-x_2|+ |x_2-x_3|+\cdots + |x_n-x_1|\ge 2\max\limits_{i,j=\overline{1,n}} |x_i-x_j|.\]
+}
+\end{vd}
+
+\begin{vd}%[Chuyên đề 3]%[Vũ Nguyễn Hoàng Anh, EX-TapChi-05]%[0D0G2]
+Cho $(x_1, x_2,\dots, x_n)$ là hoán vị của $\{1,2,\dots,n \}$. Tìm giá trị lớn nhất của biểu thức
+\[S:=|x_1-1| +|x_2-2| +\cdots+ |x_n-n|. \]
+	\loigiai{
+		Ở bài toán này, ta có thể loại ngay tư tưởng sử dụng bất đẳng thức $|x|\ge x$ để loại bỏ dấu giá trị tuyệt đối vì bài toán yêu cầu tìm giá trị lớn nhất của $S$, tức đánh giá $S\le c$. Để giải quyết vấn đề này, ta dùng nhận xét
+		\[|x-y| =\max \{x,y\}-\min\{x,y\}. \]
+		Ta viết biểu thức đã cho dưới dạng
+		\[S=\sum\limits_{x_i>i} (x_i-i) +\sum\limits_{x_j<j}(j-x_j)= \sum\limits_{x_i>i} x_i  -  \sum\limits_{x_j>j} x_j - \sum\limits_{x_i\ge i} i + \sum\limits_{x_j<j} j. \]
+		Từ đây có thể thấy $S$ đạt giá trị lớn nhất khi những tổng mang dấu cộng đạt giá trị lớn nhất và những tổng mang dấu ngược lại đạt giá trị nhỏ nhất. Hơn nữa, chú ý số dấu trừ ở tổng phải bằng số dấu cộng. Do đó ta tìm được một hoán vị để $S$ đạt giá trị lớn nhất là
+		\[ \{x_i:x_i>i\}=\{j:j>x_j\}=\left\{ \left\lceil \dfrac{n}{2} \right\rceil, \left\lceil\dfrac{n}{2} \right\rceil+1, \dots,n \right\}. \]
+		Đến đây xét hai trường hợp ứng với tính chẵn lẻ của $n$, ta có $S\le \left\lfloor \dfrac{n^2}{2} \right\rfloor$, và giá trị này đạt được khi, chẳng hạn ta lấy $x_k=n+1-k$, với mọi $k=\overline{1,n}$.\\
+\noindent{\bf Bình luận.} Ta có thể đơn giản hóa lời giải bằng cách viết biểu thức thành
+\[S=\pm 1 \pm 1\pm 2\pm 2 \pm \cdots \pm n\pm n, \]
+với điều kiện là số dấu trừ xuất hiện bằng số lần xuất hiện của số cấc dấu cộng. Khi đó dễ thấy rằng $S$ đạt được giá trị lớn nhất khi các dấu trừ ứng với $n$ số hạng đầu.\\
+Một bài toán có phát biểu khá khác với bài toán trên nhưng cách giải hoàn toàn tương tự như sau: \textit{Cho $(x_1,x_2,\dots, x_{2n})$ là một hoán vị của $\{1,2,\dots,2n\}$. Tìm giá trị lớn nhất của} 
+\[S:= |x_1-x_2| +|x_3- x_4|+\cdots + |x_{2n-1}-x_{2n}|. \] 
+
+}
+\end{vd}
+Chú ý một điều khá hiển nhiên sau đây trong các bài toán có điều kiện, đó là
+\[|x-y|\le b-a\ \forall x,y\in [a,b]. \tag{1}\]
+Chúng ta đến với một ví dụ đơn giản sau.
+
+\begin{vd}%[Chuyên đề 3]%[Vũ Nguyễn Hoàng Anh, EX-TapChi-05]%[0D0G2]
+Với $n>1$ nguyên dương, cho các số thực 
+$$0\le x_1\le x_2\le \cdots \le x_n \,\, \text{và}\,\, 0\le y_1\le y_2 \le \cdots \le y_n$$
+thỏa mãn
+$x_1+x_2+ \cdots +x_n = y_1+y_2+ \cdots+y_n=1.$
+Tìm giá trị lớn nhất của
+\begin{enumerate}
+	\item $\min \left\{ |x_1-y_1|, |x_2-y_2|, \dots, |x_n-y_n| \right\}$.
+	\item $P:=|x_1-y_1|+ |x_2-y_2| + \cdots + |x_n-y_n|$.
+\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Chú ý rằng bài toán yêu cầu tìm giá trị lớn nhất của số nhỏ nhất trong dãy $(|x_i-y_i|)$, tức là tìm hằng số $c$ sao cho với các số thực thỏa mãn đề bài thì
+			\[ \min \left\{ |x_1-y_1|, |x_2-y_2|, \dots, |x_n-y_n| \right\}\le c. \]
+			Ta có thể lấy $c=1$ vì $x-i,y_i\in [0,1]$ theo giả thiết, mà áp dụng $(1)$ ta có ngay $|x_i-y_i|\le 1$. Tuy nhiên, bất đẳng thức này đúng với mọi $i=\overline{1,n}$. Dễ dàng kiểm tra được ta không tìm được dấu bằng cho hai dãy thỏa mãn đề bài và $|x_i-y_i|=1$ với mọi $i=\overline{1,n}$, tức là ta cần làm chặt hơn một chút. Cũng từ ý tưởng từ bất đẳng thức $(1)$, ta cố gắng tìm một chặn tốt hơn cho cặp $(x_i,y_i)$ nào đó, tức là tìm hằng số $c$ để $x_i,y_i\le c$.\\
+			Từ điều kiện đề bài, ta có thể nghĩ ngay đến cặp $(x_1,y_1)$. Ta có
+			\[ x_1+x_2 +\cdots +x_n=1,\quad x_1=\min\{x_1,x_2,\dots,x_n\}, \]
+			nên $x_1\le \dfrac{1}{n}$. Tương tự $y_1\le \dfrac{1}{n}$. Do đó ta luôn có $|x_1-y_1|\le \dfrac{1}{n}$, hay 
+			\[ \min\{ |x_1-y_1|,|x_2-y_2|,\dots,|x_n-y_n|\}\le \dfrac{1}{n} ,\]
+			đẳng thức có thể xảy ra khi ta lấy
+			\[x_1=x_2=\cdots=x_n,\quad y_1=y_2=\cdots=y_{n-1}=0,y_n=1,\]
+			tức là giá trị lớn nhất cần tìm là $\dfrac{1}{n}$.
+			\item Biểu thức $S$ khá tương tự với những bài trước của ta, nên ta nghĩ đến việc loại bỏ dấu giá trị tuyệt đối. Cụ thể bằng hằng đẳng thức đơn giản sau đây
+			\[|x-y|=\max\{x,y\}-\min\{x,y\}=x+y-2\min\{x,y\}.\]
+			Sử dụng hằng đẳng thức này, ta có
+			\begin{align*}
+				S=\sum\limits_{i=1}^{n}|x_i-y_i|&=\sum\limits_{i=1}^{n}\left( \min\{x_i,y_i\right)\\
+				&=2-2\sum\limits_{i=1}^{n} \min\{x_i,y_i\} \le 2-2\min \{x_n,y_n\}.
+			\end{align*}
+			Chú ý rằng do $x_n=\max \{x_1,x_2,\dots,x_n\}$, và $y_n=\max\{y_1,y_2,\dots,y_n\}$ nên $x_n,y_n\ge \dfrac{1}{n}$. Do đó $S\le 2-\dfrac{2}{n}$. Đẳng thức có thể đạt được với các dãy $(x_i)$, $(y_i)$ đã trình bày như trong câu a).
+		\end{enumerate}
+		
+		
+\noindent{\bf Bình luận.} Bài toán làm chúng ta bị lúng túng ở chỗ xử lí giá trị lớn nhất của số nhỏ nhất trong một dãy số. Hãy cùng vượt qua trở ngại này qua một bài toán khá thú vị sau, chính là một phát biểu khác cho bài toán trong kì thi Toán Quốc Tế năm 2007 đã được nhắc tới ở phần đầu.}
+\end{vd}
+
+\begin{vd}%[Chuyên đề 3]%[Vũ Nguyễn Hoàng Anh, EX-TapChi-05]%[0D0G2]
+	Cho $n\ge 2$ là một số tự nhiên và các số thực cố định $a_1$, $a_2$, \dots, $a_n$. Xác định dãy số thực không giảm $(x_1,x_2,\dots, x_n)$ sao cho
+	\[ \max\{|a_1-x_1|,|a_2-x_2|,\dots,|a_n-x_n|\} \]
+	đạt giá trị nhỏ nhất và hãy tìm giá trị nhỏ nhất đó.
+	\loigiai{
+	Tất nhiên ta mong muốn tìm được một hằng số $c$ sao cho với mọt dãy số $x_1\le x_2\le \cdots \le x_n$ thì
+	\[ \max\{|a_1-x_1|,|a_2-x_2|, \dots, |a_n-x_n|\}\ge c. \]
+	Như vậy nếu $c=\max \limits_{i=\overline{1,n}} |a_i-x_i|$ thì ta có $c\ge |a_i-x_i|$ với mọi $i=\overline{1,n}$. Do đó ta thu được
+	\[-x\le a_i-x_i\le c\ \forall i=\overline{1,n},\]
+	suy ra 
+	\[a_i-c\le x_i\le a_i+c\ \forall i=\overline{1,n}.\]
+	Chú ý rằng với giả thiết $x_i$ là dãy số không giảm thì
+	\[x_i\le x_j\ \forall i,j=\overline{1,n}, i<j.\]
+	Từ đó suy ra với $i<j$ thì
+	\[a_i-c\le x_i\le x_j\le a_j+c,\]
+	hay là $c\ge \dfrac{a_i-a_j}{2}$, với mọi $i,j=\overline{1,n}, i<j$. Như vậy ta tìm được chặn dưới cho $c$ là 
+	\[\max \limits_{i,j=\overline{1,n},i<j} \dfrac{a_i-a_j}{2},\]
+	nhưng điều gì xảy ra nếu dãy $a_i$ là dãy tăng? Khi đó $\forall i<j$ thì $a_i-a_j<0$, mà $c>0$ thì không thể nhận giá trị âm được (chú ý $c=\max\limits_{i,j=\overline{1,n}} \{|a_i-x_i|\}$), nhưng nhận xét đơn giản rằng khi đó ta chỉ cần lấy $x_i=a_i$ với mọi $i$ là có ngay
+	\[ \max\{|a_1-x_1|,|a_2-x_2|,\dots,|a_n-x_n|\}=0. \]
+	Vậy ta có
+	\[c=\max\limits_{i,j=\overline{1,n},i<j} \left\{ 0,\dfrac{a_i-a_j}{2} \right\}.\]
+	Ta chỉ cần chỉ ra dãy thỏa mãn bài toán. Hay ta chỉ cần chỉ ra một dãy $(x_i)$ sao cho với mọi $i$ thì $|a_i-x_i|\le c$. Chú ý rằng từ định nghĩa của $c$ ta có
+	\[2c\ge \max \limits_{i,j=\overline{1,n},i<j}\{0,a_i-a_j\},\]
+	hay
+	\[\max \{a_1,a_2,\dots,a_j\}-a_j\le 2c,\ \forall j=\overline{1,n}.\]
+	Từ đó
+	\[-c\le -c+\max\{a_1,a_2,\dots,a_j\}-a_j\le c\ \forall j=\overline{1,n}.\]
+	Ta thấy ngay cách chọn dãy cần tìm là
+	\[x_j=-c+\max\{a_1,a_2,\dots,a_j\} \forall j=\overline{1,n}.\]
+	Dễ dàng kiểm tra dãy số này thỏa mãn điều kiện đề bài.\\
+	\noindent{\bf Bình luận.} Bài toán này khá hay ở chỗ, bước lập luận để tìm ra giá trị nhỏ nhất thì khá đơn giản, trong khi việc chỉ ra dấu đẳng thức thì phức tạp hơn một chút. Tuy nhiên, công cụ giúp chúng ta xử lí dấu giá trị tuyệt đối ở đây là một đánh giá cơ bản: Nếu $|x|\le a$ thì $-a\le x\le a$. Chúng ta đến với ví dụ đơn giản sau đây nhưng cho ta thêm một bài học mới.
+	}
+\end{vd}
+
+\begin{vd}%[Chuyên đề 3]%[You To To, EX-TapChi-05]%[0D0G2]
+	Cho số thực $a_1$, $a_2$,$\ldots$, $a_n$ thỏa mãn điều kiện $$a_1=0,\,\left|a_{i+1}\right|=\left|a_{i}+1\right|,\,\forall i=\overline{1,n-1}.$$
+	Chứng minh rằng $$\dfrac{a_1+a_2+\cdots+a_n}{n}\ge -\dfrac{1}{2}.$$
+	\loigiai{Trong bài toán này, dấu giá trị tuyệt đối xuất hiện ở phần yêu cầu của bài toán, tức là ta chỉ cần biến đổi tương đương từ điều kiện ban đầu để ra một điều kiện khác mà ở đó không còn dấu giá trị tuyệt đối nữa. Một cách khá đơn giản để xử lí điều kiện của bài toán là dựa vào tính chất $|a|=|b|$ khi và chỉ khi $a^2=b^2$. Áp dụng tính chất này ta có \[a_{i+1}^2=a_i^2+2a_1+1,\,\forall i=\overline{1,n-1}.\tag{8.2}\]
+		Bài toán yêu cầu ước lượng giá trị của tổng $\sum_{i=1}^n a_i$, như vậy ta nghĩ đến việc cộng tất cả các đẳng thức $(8.2)$. Khi đó ta có \[a_1^2+2(a_1+a_2+\cdots+a_{n-1})+n-1=a_n^2.\]
+		Cộng hai vế của đẳng thức với $2a_n+1$ ta có 
+		\[a_1^2+2(a_1+a_2+\cdots+a_n)+n=(a_n+1)^2.\]
+		Chú ý rằng $a_1=0$ nên cuối cùng ta có 
+		\[2(a_1+a_2+\cdots+a_n)+n=(a_n+1)^2\ge 0,\]
+		hay \[\dfrac{a_1+a_2+\cdots+a_n}{n}\ge -\dfrac{1}{2}.\]}
+\end{vd}
+Chúng ta chuyển tiếp đến một ví dụ khá thú vị và khó sau đây.
+
+\begin{vd}%[Chuyên đề 3]%[You To To, EX-TapChi-05]%[0D0G2]
+	Cho các số thực $x_1$, $x_2$, $\ldots$, $x_n$ có tổng bằng $0$. Với $x_{n+1}=x_1$, chứng minh rằng 
+	\[\max\limits_{i=\overline{1,n}}\left|x_i-\dfrac{x_{i-1}+x_{i+1}}{2}\right|\ge \dfrac{8}{n^2}\max\{|x_1|,|x_2|,\ldots,|x_n|\}. \]
+	\loigiai{
+		Hình thức phát biểu bài toán này khá phức tạp sẽ khiến chúng ta ban đầu gặp rắc rối, vì vậy bước đầu ta nghĩ đến việc đơn giản hóa bài toán. Bằng nhận xét đơn giản\[\left|x_i-\dfrac{x_{i+1}+x_{i-1}}{2}\right|=\left|\dfrac{x_i-x_{i-1}}{2}-\dfrac{x_{i+1}-x_i}{2}\right|, \]
+		ta xét dãy $(y_i)_{i=1}^n$ như sau
+		\[y_i=x_{i+1}-x_i,\,\forall i=\overline{1,n}.\]
+		Khi đó ta chứng minh (quy ước $y_{n+1}=y_1$)
+		\[\max\limits_{i=\overline{1,n}}|y_i-y_{i+1}|\ge \dfrac{16}{n^2}\max\{|x_1|, |x_2|, \ldots, |x_n|\}=\dfrac{4}{n}\cdot \dfrac{4}{n}\max \{|x_1|, |x_2, \ldots, |x_n|\},\]
+		trong đó các $y_i$ vẫn có tổng bằng $0$. Điều này gợi ý ta đến bổ đề sau.
+		\begin{bode}
+			Nếu các số thực $y_1$, $y_2$,$\ldots$, $y_n$ có tổng bằng $0$ thì
+			\[\max\left\{|y_1-y_2|,|y_2-y_3|,\ldots, |y_n-y_1|\right\}\ge \dfrac{4}{n}\max\left\{|y_1|, |y_2|,\ldots,|y_n|\right\}. \]
+			\textbf{Chứng minh.}
+				Ta có thể giả sử $|y_1|=\max\left\{|y_1|, |y_2|,\ldots, |y_n|\right\}=1$.\\
+				Khi đó $y_2, y_3,\ldots, y_n \in[-1,1]$ và $y_2+y_3+\cdots+y_n=-1$. Hơn nữa có thể giả sử $y_1=1$ vì nếu không ta hoàn toàn có thể đổi dấu toàn bộ dãy. Khi đó ta giả sử phản chứng
+				\[\max\left\{|y_1-y_2|, |y_2-y_3|,\ldots,|y_n-y_1|\right\}<\dfrac{4}{n},\]
+				suy ra \[y_2>y_1-\dfrac{4}{n}, y_3>y_2-\dfrac{4}{n}>y_1-2\cdot\dfrac{4}{n},\ldots,y_n>y_1-(n-1)\cdot\dfrac{4}{n}.\tag{8.3}\]
+				Mục đích của chúng ta là cố chỉ ra rằng khi đó các số $y_2$, $y_3$,$\ldots$, $y_n$ có tổng lớn hơn $-1$. Cộng vế theo vế các bất đẳng thức ở trên ta có 
+				\begin{align*}
+					y_2+y_3+\cdots+y_n&>(n-1)y_1-\dfrac{4}{n}[1+2+\cdots+(n-1)]\\
+					&=(n-1)-\dfrac{4}{n}\cdot\dfrac{n(n-1)}{2}=-(n-1).
+				\end{align*}
+				Rõ ràng nếu đánh giá như thế này thì ta thu được một bất đẳng thức hơi lỏng. Vì sao lại như vậy? Chú ý vào các bất đẳng thức $(8.3)$, ta thấy rằng nếu ta dùng hết các bất đẳng thức trên thì đánh giá sau cùng $y_n>y_1-(n-1)\dfrac{4}{n}$ là quá yếu. Nhưng nếu ta đánh giá $y_n$ theo một cách khác thì sao. Chú ý rằng $|y_n-y_1|<\dfrac{4}{n}$ dẫn tới $y_n>y_1-\dfrac{4}{n}$. Rõ ràng đánh giá này mạnh hơn nhiều và tương tự ta có $y_{n-1}>y_n-\dfrac{4}{n}>y_1-2\cdot\dfrac{4}{n}.$\\
+				Đánh giá hai chiều này dẫn đến việc tự nhiên là xét tính chẵn lẻ của $n$.\\
+				Nếu $n=2k+1$, ta có $y_2>y_1-\dfrac{4}{4},\ldots, y_{k+1}>y_1-k\cdot\dfrac{4}{n}$ và $y_{2k+1}>y_1-\dfrac{4}{n},\ldots, y_{k+2}>y_1-k\cdot\dfrac{4}{n}.$\\
+				Từ đó ta có ngay
+				\begin{align*}
+					y_2+y_3+\cdots+y_{2k+1}&>2k\cdot y_1-\dfrac{4}{n}\cdot 2(1+2+\cdots+k)\\
+					&=2k-2\cdot\dfrac{4}{2k+1}\cdot\dfrac{k(k+1)}{2}\\
+					&=2k-\dfrac{4f(k+1)}{2k+1}>-1.
+				\end{align*}
+				Từ đây ta có mâu thuẫn.\\
+				Trường hợp $n=2k$ được chứng minh tương tự. Và do đó bổ đề được giải quyết.	 
+		\end{bode}
+		Trở lại bài toán, ta nhận thấy bất đẳng thức cần chứng minh thực ra là hệ quả của bổ đề vừa chứng minh khi ta áp dụng hai lần mà thôi (lần lượt với dãy $(y_i)$ và $(x_i)$). Do đó, bài toán được giải quyết trọn vẹn.\\
+		\noindent{\bf Bình luận.} Lại một lần nữa phát biểu của bài toán làm chúng ta gặp nhiều bối rối, tuy nhiên bằng những nhận xét đơn giản, ta có thể đưa bài toán về những dạng tương tự nhưng gọn nhẹ hơn rất nhiều. Hơn nữa, chú ý rằng ta không nên sử dụng những đánh giá quá lỏng trong chứng minh, hãy làm chặt nó hết sức có thể để đạt được kết quả mong muốn.
+	}
+\end{vd}
+Chúng ta cũng đến với các bài toán trên tập số nguyên.
+
+\begin{vd}[Proizvolov]%[Chuyên đề 3]%[You To To, EX-TapChi-05]%[0D0G2]
+	Cho $n$ là một số nguyên dương lớn hơn $1$. Giả sử 
+	$$(a_1, a_2,\ldots,a_n,b_1, b_2,\ldots, b_n)$$
+	là một hoán vị của tập hợp $S=\{1,2,\ldots,2n\}$ thỏa mãn 
+	\[a_1>a_2>\ldots>a_n,\,b_1<b_2<\ldots<b_n.\]
+	Khi đó, ta có $|a_1-b_1|+|a_2-b_2|+\cdots+|a_n-b_n|=n^2.$
+	\loigiai{
+		Bài toán khá đơn giản và có phát biểu rất đẹp. Bằng việc khảo sát những trường hợp nhỏ của $n$ ta có thể thấy ngay hướng chứng minh như sau, dựa vào nhận xét: \textit{ Với mỗi $i\in\{1,2,\ldots,n\}$, trong bộ hai số $\{a_i,b_i\}$ có đúng một số nằm trong tập $\{1,2,\ldots,n\}$ và số còn lại nằm trong tập $\{n+1,n+2,\ldots,2n\}$.}\\
+		Chứng minh nhận xét này không khó, ta chỉ cần giả sử phản chứng rằng tồn tại $\{a_i,b_i\}$ sao cho $a_i\le n, b_i\le n$. Khi đó bằng việc đếm số số hạng nhỏ hơn $(n+1)$ trong dãy $a_i, b_i$ ta gặp ngay mâu thuẫn. Trường hợp còn lại được chứng minh tương tự.\\
+		Từ  nhận xét trên, ta có thể thấy ngay được rằng
+		\begin{align*}
+			&|a_1-b_1|+|a_2-b_2|+\cdots+|a_n-b_n|\\
+			=\ &\left[(n+1)+(n+2)+\cdots+(2n)\right]-\left[1+2+\cdots+n\right]= n^2.
+		\end{align*}
+		\noindent{\bf Bình luận.} Đẳng thức đẹp trên có thể được tổng quát hóa như sau, với tư tưởng giải tương tự:\textit{ Cho $n$ là một số nguyên dương lớn hơn $1$ và $c_1$, $c_2$,$\ldots$, $c_{2n}$ là các số nguyên đôi một phân biệt. Khi ấy tổng \[S=|a_1-b_1|+|a_2-b_2|+\cdots+ |a_n-b_n|\] 
+		không phụ thuộc vào cách chọn hoán vị 
+		\[(a_1,a_2,\ldots,a_n,b_1,b_2,\ldots,b_n)\]
+		của $\{c_1,c_2,\ldots,c_{2n}\}$ mà ở đó $(a_1,a_2,\ldots, a_n)$ giảm và $(b_1,b_2,\ldots,b_n)$ tăng.}
+	}
+\end{vd}
+
+\begin{vd}[Pháp, $2002$]%[Chuyên đề 3]%[You To To, EX-TapChi-05]%[0D0G2]
+	Cho $n$ là một số tự nhiên và gọi $(a_1,a_2,\ldots,a_n)$ là một hoán vị của tập $\{1,2,\ldots,2n\}$ thỏa mãn $S:=\left\{|a_{i+1}-a_i|:i\in\{1,2,\ldots, 2n-1\}\right\}$ có đúng $2n-1$ phần tử và $a_1-a_{2n}=n$. Chứng minh rằng $\{a_2,a_4,\ldots, a_{2n}\}=\{1,2,\ldots, n\}$.
+	\loigiai{Dễ dàng thấy rằng ta phải có $S=\{1,2,\ldots,2n-1\}$ và $a_1-a_{2n}=\displaystyle\sum\limits_{i=1}^{2n-1} (a_i-a_{i+1})$.\\
+		Ta quay lại với ý tưởng phá bỏ giá trị tuyệt đối xuất hiện trong đề bài. Khá đơn giản ta xét tập hợp $T:=\{i:a_i>a_{i+1}\}$ và $K$ tập các chỉ số còn lại. Khi đó ta có
+		\begin{align*}
+			&\sum\limits_{i\in T}(a_i-a_{i+1})+\sum\limits_{j\in K}(a_{j+1}-a_j)=1+2+\cdots+(2n-1),\\
+			&\sum\limits_{i\in T}(a_i-a_{i+1})+\sum\limits_{j\in K}(a_{j+1}-a_j)=a_1-a_{2n}=n.
+		\end{align*}
+		Từ đó suy ra 
+		\[\displaystyle\sum\limits_{j\in K}(a_{j+1}-a_j)=n^2.\]
+		Mặt khác, hiển nhiên ta có $|T|\le n$, và từ đó 
+		\[\sum\limits_{i\in T}(a_i-a_{i+1})\le \left[2n+(2n-1)+\cdots+(n+1) \right]-\left[1+2+\cdots+n\right]=n^2. \]
+		Vì đẳng thức xảy ra khi và chỉ khi $\{a_1,a_3,\ldots, a_{2n-1}\}=\{n+1,n+2,\ldots,2n\}$ nên ta thu được điều phải chứng minh.\\
+		\noindent{\bf Bình luận.} Hãy liên hệ bài toán này với ví dụ liền trước nó.\\
+		Bây giờ, ta trở lại với một bài toán quen thuộc: \textit{Cho các số nguyên $a_1$, $a_2$, $\ldots$, $a_n$. Với mỗi phép biến đổi, ta thay thế dãy đang có bằng dãy mới như sau}
+			\[(a_1,a_2,\ldots, a_n)\rightarrow \left(|a_1-a_2|, |a_2-a_3|, \ldots, |a_n-a_1|\right).\]
+		\textit{Chứng minh rằng sau một số hữu hạn lần thực hiện phép biến đổi thì ta nhận được bộ số chứa số $0$.}\\
+		Để giải bài toán này, đơn giản là chúng ta sử dụng đơn biến với phép đặt: với dãy $a=(a_1,a_2,\ldots, a_n)$, đặt $m_a=\max\{|a_1|,|a_2|,\ldots, |a_n|\}$.\\
+		Khi đó, nếu từ dãy $a$ ta thu được dãy mới $a'$ thì ta sẽ chứng minh được $m_a\ge m_{a'}$. Ta thu được một dãy số nguyên không âm giảm và do đó bài toán được giải quyết. Ta có thể xây dựng đơn biến như vậy vì giả thiết cho các số $a_1$, $a_2$, $\ldots$, $a_n$ nguyên, nhưng nếu ta xuất phát từ dãy ban đầu không phải là số nguyên nữa, thì bài toán liệu còn đúng hay không? Hãy xét ví dụ sau.
+	}
+\end{vd}
+
+\begin{vd}%[Chuyên đề 3]%[You To To, EX-TapChi-05]%[0D0G2]
+	Chứng minh rằng, với mọi số nguyên dương $n\ge 3$, ta có thể chọn được một dãy số thực khởi đầu $a=(a_1, a_2,\ldots, a_n)$ sao cho sau một số hữu hạn lần thực hiện phép biến đổi thì dãy mới thu được không chứa số hạng nào bằng $0$.
+	\loigiai{
+		Gọi $t$ là nghiệm thực của đa thức $x^{n-1}-x^{n-2}-\cdots -1.$\\
+		khi đó ta xét dãy $(1,t,t^2,\ldots,t^{n-1})$. Công việc còn lại của ta là chỉ ra dãy số này thỏa mãn yêu cầu đề bài. Không mấy khó khăn, ta có thể chứng minh được rằng sau $k$ lần thực hiện phép biến đổi ta sẽ thu được dãy $(q^k, q^kt, q^kt^2,\ldots, q^kt^{n-1})$, trong đó $q$ là một số thực khác $0$ nào đó.
+	}
+\end{vd}
+
+Ví dụ tiếp theo là một ứng dụng rất thú vị của việc sử dụng các bất đẳng thức liên quan đến giá trị tuyệt đối.
+\begin{vd}%[Chuyên đề 3]%[Hang Tran, EX-TapChi-05]%[0D0G2]
+	Với một dãy số thực cho trước $(x_1,x_2,\ldots,x_n)$ ta định nghĩa \lq\lq giá\rq\rq \,của dãy này là 
+	$$\displaystyle \max _{i=\overline{1,n}}|x_1+x_2+\cdots+x_i|.$$
+	Với mỗi dãy $n$ số thực cho trước như trên Dave và George thực hiện các bước làm như sau
+	\begin{itemize}
+		\item Dave chăm chỉ viết tất cả các hoán vị $\alpha
+		$ của dãy ban đầu Sau đó với mỗi hoán vị cậu ta lại tính \lq\lq giá\rq\rq \, của hoán vị đó. Trong tất cả những \lq\lq giá\rq\rq\, tính được đó, Dave chọn được giá có giá trị nhỏ nhất là $D$.
+		\item George thực hiện bước làm như sau, ở bước thứ nhất anh ta chọn số $x_1$ sao cho $|x_1|$ là nhỏ nhất. Bước hai chọn số $x_2$ sao cho $|x_1 + x_2|$ là nhỏ nhất. Tiếp tục như vậy cho tới $x_n$. Cuối cùng George nhận được một dãy số có "giá" là $G$.
+	\end{itemize}
+	
+	Tìm hằng số $c$ bé nhất sao cho với mọi $n$ và với mọi dãy số thực $ \left(
+	x_1, x_2,\ldots, x_n \right) $ cho trước ta luôn có $G \le cD$.
+	\loigiai{Bài toán thú vị ở việc đặt ra khái niệm \lq\lq giá\rq\rq \, của một dãy số thực. Hãy nhớ rằng các thuật toán mà bạn thực hiện là khác nhau, dẫn đến những giá tị $D, G$ tìm được sẽ là khác nhau. Cụ thể ta có $D$ sẽ là \lq\lq giá\rq\rq \, nhỏ nhất trong tất cả các hoán vị của một bộ $n$ số thực, còn $G$ là \lq\lq giá\rq\rq \, của hoán vị cố định thỏa mãn tính chất mà George mong muốn. Bằng việc làm việc với một số trường hợp nhỏ ta có thể đưa ra nhận định rằng $c=2$ và ta sẽ cố gắng chứng minh rằng trong mọi trường hợp thì ta có $F \le 2D$. \\
+		Ta gọi $\left( x_1, x_2,\ldots, x_n
+		\right)$ là dãy của $D$ chọn được và với quy tắc của mình, George chọn được hoán vị $\left(y_1, y_2,\ldots, y_n \right)$ với \lq\lq giá\rq\rq \, $G$. Chú ý rằng ta có 
+		$$ |x_k| \le |x_1+x_2+\cdots+x_{k-1}|+|x_1+x_2+\cdots+x_k| \le D+D=2D.$$
+		Suy ra, vì $\left(y_1, y_2,\ldots, y_n \right)$ là một hoán vị của  $\left( x_1, x_2,\ldots, x_n
+		\right)$,
+		\[\mathrm{max} \left \{ |y_1|, |y_2|,\ldots,|y_n|\right \} =\mathrm{max} \left \{ |x_1|, |x_2|,\ldots,|x_n|\right \} \le 2D. \tag{8.4} \]
+		Chú ý rằng do cách chọn dãy $\left( y_i \right)$ và $\left( x_i \right)$ là dãy có \lq\lq giá\rq\rq   nhỏ nhất nên ta phải có bất đẳng thức trên. Điều ta phải chứng minh là 
+		\[ |y_1+y_2+\ldots+y_k| \le 2D, \ \forall k =\overline{1,n}. \]
+		Ta giả sử phản chứng rằng tồn tại $k$ sao cho
+		\[ |y-1+y_2+\cdots+y_k|>2D .\]
+		Khi ấy ta lấy $k$ nhỏ nhất, do đó $j \ge k$ thì
+		\[ |y_1+y-2+\cdots+y_{k-1}+y_j| \ge |y_1+y_2+\cdots+y_k| >2D .\]
+		Từ đó suy ra 
+		\[ y_j(y_1+y_2+...y_{k-1} ) \ge 0 .\]
+		Bởi vì nếu $y_j$ và $y_1+y_2+\cdots+y_{k-1}$ trái dấu thì ta có
+		\[ |y_1+y-2+\cdots+y_{k-1}+y_j |=|y_j|-|y_1+y_2+\cdots+y_{k-1}|;\]
+		nên suy ra $|y_j|>2D$, trái với $(8.4)$. Vậy tức là với mọi $j\ge k$ thì $y_j$ cùng dấu với $y_1+y_2+\cdots+y_{k-1}$, dẫn tới
+		\begin{align*}
+		|x_1+x_2+\cdots+x_n| &= |y_1+y_2+\cdots+y_n| \\
+		&= |y_1+y_2+\cdots+y_k|+|y_{k+1}+y_{k+2} +\cdots+y_{n}|>2D,
+		\end{align*}
+		đây là điều vô lí. Vậy điều giả sử la sai và khẳng định được chứng minh. Ta có thể kiểm tra với bộ số $\left \{ -1,1,-2,2 \right \}$ để thấy rằng đẳng thức có xảy ra khi $c=2$. Chứng minh kết thúc.
+	}
+\end{vd}
+
+\begin{vd}%[Chuyên đề 3]%[Hang Tran, EX-TapChi-05]%[0D0G2]
+	Cho $n>k$ là hai số nguyên dương cho trước. Với các số $a_1,a_2,\ldots,a_n$ chạy trên tập các số thực dương và có tổng là một số nguyên, hãy tìm giá trị nhỏ nhất của biểu thức.
+	$$S:=\displaystyle \max _{i= \overline{1,n}} \left| a_i-\dfrac{1}{k} \right|.$$
+	\loigiai{
+		Lại một lần nữa chúng ta gặp một bài toán có phát biểu khá rắc rối và thú vị. Công việc của chúng ta là phải ddie tìm một hằng số $c$ lớn nhất sao cho với mọi dãy $(a_i)$ thỏa mãn điều kiện đề bài thì ta luôn có
+		$$\displaystyle \max _{i=\overline{1,n} }\left| a_i-\dfrac{1}{k}\right| \ge c.$$
+		Hướng đầu tiên mà ta nghĩ đến sẽ là chọn ra một dãy $a_i$ \lq\lq gần\rq\rq \, $\dfrac{1}{k}$ nhất sao cho với mỗi dãy $(a_i)$ có giá trị nhỏ hơn $1$, bởi nếu có một số $a_j \ge 1$ thì ta chỉ việc thay nó thành $a_j-1$ là bài toán cũng không thay đổi. Như vậy ta đã đưa được các số trong dãy về \lq\lq khá gần\rq\rq \, $\dfrac{1}{k}$  như mong muốn. Tuy nhiên ta cần làm chặt hơn nữa. Có một nhận xét đơn giản hơn nữa là nếu ta có $k\mid n$ thì hiển nhiên $\min S=0$ khi ta chọn các số $a_i$ cùng bằng $\dfrac{1}{k}$. Vậy ta xét trường hợp còn lại là $k$ không chia hết $n$.\\
+		Trước hết, ta xem xét rằng khi nào thì tồn tại một dãy $(a_1,a_2,\ldots,a_n)$ sao cho
+		$$\left| a_i-\dfrac{1}{k} \right| \le c, \quad \forall i=\overline{1,n}.$$
+		Điều này tương đương với
+		$$\dfrac{1}{k}-c \ge a_i\ge \dfrac{1}{k}+c, \forall i=\overline{1,n}.$$
+		Nếu lấy tất cả các $a_i$ cùng bằng $\dfrac{1}{k}+c$ thì ta có
+		$$a_1+a_2+\cdots+a_n=\dfrac{n}{k}+nc=p$$
+		là một số nguyên, đồng nghĩa với $c=\dfrac{pk-n}{kn}$. Ta cần chọn $p$ sao cho $c>0$ và nhỏ nhất, do đó có thể chọn ngay $p=\left\lfloor\dfrac{n}{k}\right\rfloor+1$. Điều này có nghĩa là nếu chọn
+		$$a_i=\dfrac{1}{k}+c=\dfrac{1}{k}+\dfrac{pk-n}{kn}, \forall i=\overline{1,n};$$
+		thì ta có ngày $a_1+a_2+\cdots +a_n$ là một số nguyên. Như vậy, với phân tích này ta sẽ đi chứng minh rằng $\min S=c,$ lời giải như sau.\\
+		Xét khoảng $J:=\left( \dfrac{2}{k}-\dfrac{p}{n},\dfrac{p}{n}\right)$.  Nếu tất cả các số $a_i$ đều nằm trong khoảng này, khi đó ta sẽ có
+		$$n \left( \dfrac{2}{k}-\dfrac{p}{n}\right) <a_1+a_2+ \cdots +a_n<n \times\dfrac{p}{n}$$
+		hay là
+		$$\dfrac{2n}{k}-p<a_1+a_2+\cdots +a_n<p.$$
+		Mặt khác, thì theo cách chọn của $p$, ta thấy $\dfrac{2n}{k}-p>p-1$, điều này vô lý do theo giả thiết bài toán thì các số $a_1, a_2, \ldots , a_n$ có tổng nguyên. Vậy có một số $a_i$ nào đó không thuộc $J$, và ta có
+		$$\left|a_i-\dfrac{1}{k}\right| \ge c.$$
+		Đây chính là điều phải chứng minh.
+	}
+\end{vd}
+Chúng ta kết thúc với một bài toán rất đẹp và lạ.
+
+\begin{vd}%[Chuyên đề 3]%[Hang Tran, EX-TapChi-05]%[0D0G2]
+	Gọi $T$ là tập những bộ ba số nguyên $(x,y,z)$ thỏa mãn $0\le x,y,z \le 9.$ Hai bạn $A$ và $B$ chơi một trò chơi như sau: $A$ chọn một bộ $(x,y,z)$ trong $T$, và $B$ phải đoán được ra chính xác bộ $A$ đã chọn với một số ít lần hỏi nhất có thể. Mỗi lần hỏi, $B$ có thể chọn một bộ $(a,b,c)$ thuộc $T$ và gửi cho $A$, $A$ sẽ trả lời cho $B$ giá trị của biểu thức
+	$$\left|x+y-a-b \right|+\left|y+z-b-c \right|+\left|z+x-c-a \right| .$$
+	Tìm số lần ít nhất $B$ cần hỏi để luôn tìm ra được câu trả lời.
+	\loigiai{Dễ dàng ta có thể đoán ra được đáp số của bài toán. Bởi ta có ba biến $x,y,z$ nên phải hỏi ít nhất ba câu hỏi. Tuy nhiên, điều này không loại trừ trường hợp có thể chỉ cần hai câu hỏi (có thể thông qua một vài phép suy luận thêm), tuy nhiên ta mạnh dạn đoán cần ít nhất ba câu hỏi.\\
+		Trước hết, ta làm rõ vì sao không thể hỏi chỉ với hai lần hỏi. Chú ý rằng ta luôn có
+		$$\left|x+y-a-b \right|+\left|y+z-b-c \right|+\left|z+x-c-a \right|$$
+		là một số chẵn và không quá $54$, vì vậy nên nếu $B$ chỉ hỏi hai lần thì $A$ sẽ đưa ra hai số chẵn  trong ${0,1,\ldots ,54}$. Giả sử ứng với mỗi bộ hai số chẵn mà $A$ đưa lại, $B$ xác định được một bộ $(x,y,z)$ duy nhất thỏa mãn. Ta có số cặp số $(m,n)$ chẵn không quá $54$ là $28^2<1000$, trong khi đó $1000$ chính là số tất cả các bộ $(x,y,z)$ có thể. Từ đó, theo nguyên lý Dirichlet thì ta chưa thể tìm ra được ngay bộ $(x,y,z)$ vì có tồn tại hai bộ mà khi hỏi $A$ sẽ đưa ra cùng một cặp kết quả. Ta sẽ đưa ra chiến thuật để $B$ có thể đoán ra được kết quả chính  xác sau ba lần hỏi như sau.\\
+		\noindent	Đầu tiên, $B$ đưa bộ $(0;0;0)$ từ đó sẽ xác định được $S=x+y+z$. Ta hoàn toàn có thể giả sử $S \le 13$ vì nếu ngược lại thì ở các bước tiếp theo thay vì dùng $(a,b,c)$ theo chiến thuật, $B$ sẽ dùng $(9-a,9-b,9-c)$
+		.\\
+		Tiếp theo, có hai khả năng xảy ra.
+		\begin{itemize}
+			\item $S \le 9$ , $B$ sẽ hỏi $(S,0,0)$ và $(0,S,0)$ lần lượt là sẽ thành công.
+			\item $9<S<14$. $B$ hỏi $(S-9,0,9)$ sẽ có $\left|S-9-x \right|+y+9-z=2k$ với $k$ nào đó. Sau đó $B$ sẽ hỏi bộ $(0,k,S-k)$ là sẽ kết thúc được (bạn đọc hãy tự mình kiểm tra phần tính toán này).	
+			
+			
+		\end{itemize}
+		Như vậy $B$ luôn biết chắc chắn được $(x,y,z)$ sau ba lần hỏi, và đây cũng là đáp số của bài toán.}
+	
+\end{vd}
+
+\subsection{Bài tập tự luyện}
+\begin{bt}%[Chuyên đề 3]%[Hang Tran, EX-TapChi-05]%[0D0G2]
+	Cho $n \ge 2$ là một số nguyên dương và các số thực $a_1,a_2, \ldots, a_n$. Chứng minh rằng tồn tại các số nguyên dương $m$ và $k$ thỏa mãn:
+	$$\left|(a_1+a_2+ \cdots +a_m)-(a_{m+1}+a_{m+2}+\cdots+a_n) \right| \ge |a_k|.$$
+	\hfill (Thổ Nhĩ Kì, 2002)
+\end{bt}
+
+\begin{bt}%[Chuyên đề 3]%[Hang Tran, EX-TapChi-05]%[0D0G2]
+	Tìm tất cả các số nguyên dương $n \ge 3$ sao cho tồn tại $n$ số phân biệt từ tập $\{1,2,\ldots,n+1\}$ thỏa mãn các số $|a_1-a_2|,|a_2-a_3|,\ldots ,|a_n-a_1|$ là đôi một phân biệt.
+\end{bt}
+
+\begin{bt}%[Chuyên đề 3]%[Hang Tran, EX-TapChi-05]%[0D0G2]
+	Chứng minh rằng với mọi tập hợp gồm $2000$ số thực phân biệt, ta có thể chọn ra bốn số $a,b,c,d$ sao cho $a>b$ và $c>d$ trong đó $a \ne c$ hoặc $b \ne d$ thỏa mãn
+	$$\left|\dfrac{a-b}{c-d}-1 \right|<\dfrac{1}{10^5}.$$
+	\hfill (IMO Shortlist, 2013)
+\end{bt}
+
+\begin{bt}%[Chuyên đề 3]%[Hang Tran, EX-TapChi-05]%[0D0G2]
+	Chứng minh rằng từ mọi dãy số vô hạn $(x_1,x_2,\ldots)$ trong đó các số $x_i$ thuộc $[-1;1]$, ta có thể chọn được dãy vô hạn $(a_1,a_2,\ldots)$ thỏa mãn các số $a_i$ thuộc $[-1;1]$ và với mọi $n$ nguyên dương thì
+	$$|a_1x_1+a_2x_2+\cdots +a_nx_n|\le 1.$$
+\end{bt}
+
+\begin{bt}%[Chuyên đề 3]%[Hang Tran, EX-TapChi-05]%[0D0G2]
+	Giả sử rằng $x_1,x_2$ là các số nguyên dương không vượt quá $10\;000$. Dãy $(x_n)$ cho bởi
+	$$x_{n+1}= \displaystyle \min_{i,j=\overline{1,n},i<j} |x_i-x_j|,\forall n \ge 2.$$
+	Chứng minh rằng $x_{21}=0.$
+\end{bt}
+
+\begin{bt}%[Chuyên đề 3]%[Hang Tran, EX-TapChi-05]%[0D0G2]
+	Từ điều kiện nào sau đây có thể suy ra $a_1=a_2=\ldots =a_{20}$?
+	\begin{enumerate} 
+		\item $|a_1-a_2|=|a_2-a_3|=\ldots =|a_{20}-a_1|.$
+		\item $|a_1-a_2|=2|a_2-a_3|=\ldots =20|a_{20}-a_1|.$
+	\end{enumerate}
+\end{bt}
+
+\begin{bt}%[Chuyên đề 3]%[Hang Tran, EX-TapChi-05]%[0D0G2]
+	Cho $a_1, a_2,\ldots, a_n$ là các số thực. Chứng minh ta có thể chọn ra được một dãy con $(b_1,b_2,\ldots,b_n)$ từ dãy trên sao cho hai điều kiện sau được thỏa mãn:
+	\begin{enumerate}
+		
+		\item trong mỗi bộ ba $a_i,a_{i+1},a_{i+2}$ với $i \in \{1,2, \ldots,n-2\}$, có một hoặc hai số thuộc vào dãy con $(b_1,b_2,\ldots, b_n)$;
+		\item giá trị tuyệt đối của tổng các số trong dãy con thì không nhỏ hơn
+		$$t:=\dfrac{|a_1|+|a_2|+\cdots+|a_n|}{6}.$$
+		
+	\end{enumerate}
+\end{bt}

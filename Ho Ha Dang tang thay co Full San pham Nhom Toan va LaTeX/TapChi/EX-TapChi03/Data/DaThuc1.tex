@@ -1,0 +1,334 @@
+\section{Đa thức (bài giảng của TS Phạm Văn Quốc ở trường hè 2017 cho giáo viên chuyên toán)}
+\Opensolutionfile{ans}[ans/ansDaThuc1]
+
+Bài giảng này của tác giả Phạm Văn Quốc, trường THPT Chuyên KHTN, đề cập đến hai vấn đề phổ biến về đa thức, đó là đa thức hệ số nguyên và phương trình hàm đa thức. Các bài toán về đa thức hệ số nguyên được xem xét nhiều ở tính chất số học của chúng cũng như một số áp dụng trong số học. Phần phương trình hàm đa thức đề cập đến một số phương pháp giải một số dạng bài toán đặc biệt.
+\subsection{Đa thức hệ số nguyên}
+\subsubsection{Tính chia hết cho số nguyên}
+\begin{bode}
+Cho $P(x)\in\mathbb{Z}[x]$, khi đó với mọi số nguyên phân biệt $a,b$ ta có $a-b\,\, |\,\, P(a)-P(b)$.\\
+\noindent{\bf Chứng minh.} 
+Kết quả này suy ra trực tiếp từ tính chất $a^k-b^k\,\,\vdots\,\, a-b$ với mọi $a,b$ nguyên phân biệt và $k$ là số tự nhiên.
+\end{bode}
+
+\begin{bt}
+Cho $P(x)$ là đa thức với hệ số nguyên có bậc $n>1$, $k$ là số nguyên dương. Xét đa thức $P_k(x)=P(P\ldots P(x))\ldots)$. Chứng minh rằng có nhiều nhất $n$ số nguyên $t$ sao cho $P_k(t)=t$.
+\loigiai{
+Xét trường hợp $P_k(x)=x$ có ít nhất hai nghiệm nguyên dương phân biệt. Giả sử $P_k(s)=s$, $P_k(t)=t$. Khi đó $s-t\,\, |\,\, P(s)-P(t)\,\, |\,\, \ldots\,\, |\,\, P_k(s)-P_k(t)=s-t$. Suy ra $P(s)-P(t)$ là $s-t$ hoặc $t-s$, do đó $P(s)-s=P(t)-t$ hoặc $P(s)+s=P(t)+t$.
+Giả sử tồn tại ba số nguyên phân biệt $s,u,t$ là nghiệm của $P_k(x)$ sao cho $P(s)-P(t)=s-t$, $P(u)-P(t)=t-u$. Khi đó $P(s)-P(u)=s+u-2t$ rõ ràng giá trị này khác $u-s$ và $s-u$ nên xảy ra mâu thuẫn.
+Do đó tất cả các nghiệm của $P_k(x)=x$ thỏa mãn đồng thời là nghiệm của $P(x)-x=c$ hoặc $P(x)+x=c$. Ta có điều phải chứng minh.
+}
+\end{bt}
+
+\begin{bt}
+Cho $P(x)$ là đa thức hệ số nguyên có bậc không vượt quá $10$ sao cho với mỗi 
+$$k\in\{1;2;\ldots;10\}$$
+luôn tồn tại số nguyên $m$ với $P(m)=k$. Biết rằng $\left|P(10)-P(0)\right|<1000$. Chứng minh rằng với mọi số nguyên $k$ đều tồn tại số nguyên $m$ sao cho $P(m)=k$.
+\loigiai{
+Với $i=1, 2, \ldots, 10$ ta có số nguyên $c_i$ mà $P(c_i)=i$. Với $i=1,2,\ldots, 9$ ta có 
+$$c_{i+1}-c_i\,\, |\,\, P(c_{i+1})-P(c_i)=i+1-i=1.$$
+Suy ra $c_{i+1}-c_i=\pm 1$ (chú ý $P(c_i)-P(c_j)=i-j\neq 0$ nên $c_i\neq c_j$ với $i\neq j$). Nên $c_1, \ldots, c_{10}$ là các số nguyên liên tiếp.
+\begin{itemize}
+\item Trường hợp 1: $c_i=c_1-1+i$. Đặt $Q(x)=1+x-c_1$. \\
+Khi đó với $i=1,2,\ldots, 10$ ta có $Q(c_i)=i=P(c_i)$ nên $$P(x)-Q(x)=R(x)\displaystyle\prod\limits_{i=1}^{10}(x-c_i).$$
+Mà $\deg P\le 10$ nên $P(x)=1+x-c_1+a\displaystyle\prod\limits_{i=1}^{10}(x-c_i)$ với $a\in\mathbb{Z}$. Khi đó $$P(10)-P(0)=10+a\left(\displaystyle\prod_{i=1}^{10}(10-c_i)-\displaystyle\prod_{i=1}^{10}(0-c_i)\right)=10-a\cdot T.$$
+Chú ý $T\,\,\vdots\,\, 10!$ và khác $0$ cùng với $\left|P(10)-P(0)\right|<1000$ ta có $a=0$. Nên ta có ngay điều phải chứng minh.
+\item Trường hợp 2: $c_i=c_1+1-i$ hoàn toàn tương tự.
+\end{itemize}
+}
+\end{bt}
+
+\begin{bt}
+Cho $P(x)$ là đa thức với hệ số nguyên sao cho $P(n)>n$ với mọi $n\in\mathbb{Z}_+$. Giả sử với mỗi số nguyên dương $m$, luôn tồn tại một số của dãy $P(1)$, $P(P(1))$, $P(P(P(1)))$, \ldots chia hết cho $m$. Chứng minh rằng $P(x)=x+1$.
+\end{bt}
+\subsubsection{Nghiệm của đa thức}
+Xét đa thức $P(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots +a_1x+a_0$ ($a_n\neq 0$, $a_i\in\mathbb{R}$).
+\begin{bode}
+Nếu $x_0$ là một nghiệm (phức) bất kì của $P(x)$ thì $\left|x_0\right|<1+\max\left|\dfrac{a_k}{a_m}\right|$.\\
+\noindent{\bf Chứng minh.} 
+Đặt $M=\max\left|\dfrac{a_k}{a_n}\right|$. Ta có $\displaystyle\sum_{i=0}^na_i^{i}=0$ nên
+$$\left| a_0\right|^n=\left|\displaystyle\sum_{i=0}^{n-1}\dfrac{a_i}{a_n}\cdot x^i\right|\le M\displaystyle\sum_{i=0}^{n-1}\left| x_0\right|^i.$$
+Nếu $\left|x_0\right|>1$ thì $\left| x_0\right|^n\le M\cdot\dfrac{\left|x_0\right|^n-1}{\left|x_0\right|-1}<M\cdot\dfrac{\left| x_0\right|^n}{\left| x_0\right|-1}$ hay $\left| x_0\right|-1<M$.
+\end{bode}
+\begin{bode}
+Giả sử $f(x)=\displaystyle\sum_{i=0}^na_ix^i$ là đa thức với hệ số thực $0\le a_i\le a_{i+1}$, với $i=1,2,\ldots,n$. Khi đó mọi nghiệm (phức) $z$ đều thỏa mãn $|z|\le 1$.\\
+\noindent{\bf Chứng minh.} 
+Giả sử $f(z)=0$ ta có $f(z)\cdot (z-1)=0$ hay 
+$$a_n z^{n+1}=a_0+\displaystyle\sum_{i=0}^{n-1}\left(a_{i+1}-a_i\right) z^{i+1}.$$
+Nếu $|z|>1$ thì
+$\left| a_nz^{n+1}\right|\le \left(\left|a_0\right|+\displaystyle\sum_{i=0}^{n-1}\left|a_{i+1}-a_i\right|\right)\cdot |z|^n\le \left|a_nz^n\right|$, vô lí.
+\end{bode}
+
+\begin{hq}
+Giả sử $f(x)=\displaystyle\sum_{i=0}^na_ix^i$ là đa thức với hệ số thực dương. Khi đó mọi nghiệm phức $z$ đều thỏa mãn $r\le |z|\le R$ với $r=\min\left\{\left.\dfrac{a_i}{a_{i+1}}\right| i=0,\ldots, n-1\right\}$ và $R=\max\left\{\left.\dfrac{a_i}{a_{i+1}}\right| i=0,\ldots, n-1\right\}$.
+\end{hq}
+
+\subsubsection{Định lí Vi-ét}
+
+
+\begin{bt}
+Tìm tất cả các cặp số nguyên $(a,b)$ sao cho tồn tại đa thức $P(x)$ hệ số nguyên sao cho tích $\left(x^2+ax+b\right)\cdot P(x)$ là đa thức có dạng $c_0+\displaystyle\sum_{i=1}^{n-1}c_i x^i+x^n$, trong đó $c_i$, $i=0,1,\ldots, n-1$ bằng $1$ hoặc $-1$.
+\loigiai{
+Giả sử $f(x)=x^2+ax+b$, rõ ràng $b=\pm 1$. Nếu $x_0$ là nghiệm của $f(x)$ thì $x_0$ là nghiệm của $Q(x)$, suy ra $\left|x_0\right|<2$.
+\begin{itemize}
+\item Xét $b=-1$, nếu $-a\ge 2$ thì $f(-a)\cdot f(-a+1)<0$, nếu $-a\le -2$ thì $f(-a-1)\cdot f(-a)<0$ đều không thỏa mãn. Do đó $a=\pm 1$ (chọn $P=1$) hoặc $a=0$ (chọn $P=x+1$).
+\item Xét $b=1$, nếu $a\ge 3$ thì $f(-a)\cdot f(-a+1)<0$, nếu $a<-3$ thì $f(-a-1)\cdot f(-a)<0$ đều không thỏa mãn. Do đó $a=\pm 2$ (chọn $P=x\mp 1$) hoặc $a=\pm 1$ (chọn $P=1$) hoặc $a=0$ (chọn $P=1$).
+\end{itemize}
+}
+\end{bt}
+
+\begin{bt}
+Có tồn tại hay không các số thực $a,b,c$ khác $0$ sao cho với mọi $n>3$ luôn tồn tại đa thức $P_n(x)=x^n+\cdots+ax^2+bx+c$ mà nó có đúng $n$ nghiệm nguyên.
+\loigiai{
+Gọi $r_i$ là các nghiệm của đa thức $P_n(x)$, theo định lí Vi-ét ta có $$\displaystyle\prod_{i=1}^nr_i=(-1)^n c;\quad\displaystyle\sum_{i=1}^n\dfrac{1}{r_i}=\dfrac{-b}{c};\quad\displaystyle\sum_{1\le i<j\le n}\dfrac{1}{r_ir_j}=\dfrac{a}{c}.$$
+Suy ra $\displaystyle\sum_{i=1}^n\dfrac{1}{r_i^2}=\dfrac{b^2}{c^2}-2\dfrac{a}{c}$. Khi đó 
+$b^2-2ac=\displaystyle\prod_{i=1}^n r_i^2\displaystyle\sum_{i=1}^n\dfrac{1}{r_i^2}\ge n$
+với mọi $n$ nguyên dương. Điều này không thể xảy ra.
+}
+\end{bt}
+
+\begin{bt}
+Đặt $P_n(x)=1+2x+3x^2+\cdots+nx^{n-1}$, với $n$ là số nguyên dương. Chứng minh rằng hai đa thức $P_j(x)$ và $P_k(x)$ là nguyên tố cùng nhau với mọi số nguyên dương $j\neq k$.
+\end{bt}
+
+\begin{bt}
+Cho $P(x)=x^{2018}-2x^{2017}+1$, $Q(x)=x^{2018}-2x^{2017}-1$. Hỏi mỗi đa thức $P$, $Q$ có thể là ước của một đa thức dạng $\displaystyle\sum_{i=0}^kc_ix^i$ với $k\in\mathbb{N}$, $c_i\in\{\pm 1\}$ với mọi $i=1,\ldots,k$.
+\end{bt}
+
+%--------------------------------Thầy Phạm Tuấn
+
+\begin{bt} 
+Hỏi có tồn tại hay không các số nguyên dương $a,b,c$ thỏa mãn $b \geq 3 \max (a,c)$ sao cho  ta có thể chọn được số nguyên dương $n \geq 3$ và đa thức hệ số nguyên 
+$$P_n(x)=a_0x^n +a_1x^{n-1} + \cdots +a_{n-3}x^3+ax^2+bx+c ~ (a_0 \neq 0)$$
+mà $P_n(x)$ có $n$ nghiệm nguyên phân biệt. 
+\end{bt}
+\subsubsection{Đa thức hệ số nguyên và số nguyên tố} 
+\begin{bode} Giả sử $f$ là đa thức hệ số nguyên, $p$ là số nguyên tố và $k\geq 1,i,t$ là các số nguyên, khi đó 
+	$$f(i+tp^k) \equiv f(i)+tp^kf'(i) \left ( \mathrm{mod~} p^{k+1}\right ).$$
+\noindent{\bf Chứng minh.} 
+Theo khai triển nhị thức Newton $$(i+tp^k)^n= \sum_{j=0}^n \mathrm{C}_n^ji^{n-j}\left (tp^k\right )^j \equiv i^n+ni^{n-1}tp^k \left ( \mathrm{mod~} p^{k+1}\right ).$$
+Mà $f$ có dạng $\sum a_ni^n$ nên ta có ngay điều phải chứng minh.
+\end{bode}
+
+\begin{bt}
+Cho $p$ là số nguyên tố, $h(x)$ là đa thức hệ số nguyên sao cho $h(0),h(1), \ldots, h\left (p^2-1\right )$  là phân biệt $modulo ~p^2$. Chứng minh rằng $h(0),h(1), \ldots, h\left (p^2-1\right )$ cũng phân biệt $modulo ~p^3$.
+\loigiai{
+Ta  có $h(i+p) \equiv h(i)+ph'(i) ~\mathrm{mod~} p^2$. Mà $h(i+p) \not\equiv \mathrm{mod~} p^2$, nên $p\nmid h'(i)$. \\
+Giả sử có $h(i) \equiv h(j) ~\mathrm{mod~} p^3$. Khi đó $h(i) \equiv h(j) ~\mathrm{mod~} p^2$ nên   $i \equiv j ~\mathrm{mod~} p^2$. Hay $j=i+tp^2$ với  $t \in \mathbb{Z}$. Từ đó theo bổ đề $h(j) \equiv h(i)+tp^2h'(i) ~\mathrm{mod~} p^3$	 mà $p\nmid h'(i)$ nên $p | t$ hay $i\equiv j~ \mathrm{mod~} p^3$. 
+}
+\end{bt}
+\begin{bt}
+Giả sử đa thức $f(x) \in  \mathbb{Z}[x]$, $f(x)$ khác hằng số và có tính chất: với mỗi số nguyên tố $p$, luôn tồn tại số nguyên tố $q$ và số nguyên dương $m$ sao cho $f(p)=q^m$. Chứng minh rằng $f(x)=x^n$ với số $n$ nguyên dương nào đó.
+\loigiai{
+Giả sử với mọi số nguyên tố $p$, đều tồn tại số nguyên dương $m$ sao cho $f(p)=p^m$. Gọi $n=\deg f$, với $p$ đủ lớn ta có $f(p)<p^{n+1}$. Do đó tồn tại số nguyên dương $m<n+1$ sao cho $f(p)=p^m$ với vô số $p$. Nên  $f(x) =x^m$. \\
+Giả sử tồn tại số nguyên tố $p$ sao cho $f(p)=q^m$  với $p \neq q$. Theo định lý Dirichlet, tồn tại vô số số nguyên dương $k$ sao cho $kq^{m+1}+p$ nguyên tố, nên $f\left (kq^{m+1}+p\right )=r^t$. Mà $a-b|f(a)-f(b)$ nên $q^{m+1}|r^t-q^m \Rightarrow r=q,t=m$. Mà có vô số $k$ nên $f$ là hằng số.
+}
+\end{bt}
+
+\begin{bt}
+Tìm tất cả các đa thức $P(x)$ với hệ số nguyên không âm sao cho với mọi số nguyên tố $p$ và số nguyên dương $n$ luôn tồn tại số nguyên tố $q$ và số nguyên dương $n$ sao cho $P\left (p^n\right )=q^m$. 
+\end{bt}
+
+\begin{bt}
+Cho $p$ là số nguyên tố, $q(x) \in \mathbb{Z}[x]$. Biết rằng $$q(0)=0, q(1)=1,  q(n)\equiv 0;1 ~\left (\mathrm{mod~} p\right ) \forall n \in \mathbb{N}.$$
+Chứng minh rằng $\deg q \leq p-1$.  
+\end{bt}
+
+\begin{bt}
+Tìm tất cả các đa thức $f(x)$ với hệ số nguyên (khác hằng số) sao cho với mọi số nguyên tố $p$, $f(p)$ không có ước nào là bình phương của số nguyên tố.
+\end{bt}
+\subsubsection{Đa thức lũy thừa}
+\begin{bt}
+Cho đa thức $f(x)=ax^2+bx+c$. Biết rằng $\forall n \in \mathbb{Z}$ ta có $f(n)$ là số chính phương. Chứng minh rằng tồn tại $d,e \in  \mathbb{Z}$ sao cho $f(x)=(dx+e)^2$. 
+\loigiai{
+Dễ thấy $a \geq 0$ và $f(x) \geq 0$ với mọi $x \geq x_0$ đủ lớn. Đặt $g(x)=\sqrt{f(x)}$. Ta có $$g(x+1)-g(x)=\dfrac{f(x+1)-f(x)}{\sqrt{f(x+1)}+\sqrt{f(x)}} \xrightarrow{x \to +\infty} \sqrt{a}=d.$$
+Xét $x_0$ nguyên đủ lớn ta có $g(x+1)-g(x)=d, ~\forall x \geq x_0$. Do đó
+$$g\left (x_0+x\right )-g\left (x_0\right )=nd \Rightarrow f\left (x_0+n\right )=\left (g\left (x_0\right )+nd\right )^2$$
+với vô số $n$ nên $f(x)=\left (g(x_0)+dx-dx_0\right )^2$.
+}
+\end{bt}
+
+\begin{bt}
+Cho đa thức hệ số thực $f(x)$ có bậc $n$, $1\leq k \leq n$. Biết rằng $\forall n \in \mathbb{Z}_{+}$, $\exists q \in \mathbb{Z}$  sao cho $f(n)=q^k$. Chứng minh rằng tồn tại $g \in \mathbb{Z}[x]$ sao cho $f(x)=(g(x))^k$. 
+\end{bt}
+
+\begin{bt}
+Cho hai đa thức hệ số nguyên, $monic~ f(x),g(x)$ với $\deg f, \deg g \geq 1$. Biết rằng với mọi $x$, $f(x)$  là số chính phương khi và chỉ khi $g(x)$ là số chính phương. Chứng minh rằng tồn tại $h \in \mathbb{Z}[x]$ sao cho $f(x)g(x) =h(x)^2$. 
+\end{bt}
+
+\begin{bt}
+Cho $P(x) \in \mathbb{Z}[x]$ là đa thức $monic$ với bậc chẵn. Chứng minh rằng nếu có vô số nguyên $x$ sao cho $P(x)$ là bình phương số nguyên dương thì tồn tại đa thức $Q(x) \in \mathbb{Z}[x]$ sao cho $P(x)=Q(x)^2$. 
+\end{bt}
+\subsubsection{Tính khả quy}
+\begin{bt}
+Cho $p$ là số nguyên tố, $a$ là số nguyên $(a,p)=1$. Chứng minh rằng đa thức 
+$$f(x)=x^p-x+a$$
+bất khả quy trong $\mathbb{Z}[x]$.
+\loigiai{
+Giả sử 
+$$f(x)=x^p-x+a=P(x)Q(x) = x^n + a_1x^{n-1} + \cdots + a_{n-1}x+a_n,$$
+với  $a_i \in \mathbb{Z}$, $1 \leq n <p$. Giả sử $\alpha_1,\alpha_2, \dots, \alpha_n$ là $n$ nghiệm của $P(x)$. Khi đó $$\alpha_i^p-\alpha_i+a=0,  \, i=1,2, \dots,n.$$
+Đặt $S_k=\sum_{i=1}^n \alpha_i^k$, dễ thấy $S_k \in \mathbb{Z}$ với mọi $k \geq 0$. Suy ra $S_p-S_1+na=0$. 
+Mặt khác, theo định lý Fermat $S_1^p \equiv S_1 ~(\mathrm{mod~} p)$. Mà 
+$$S_1^p = \left (\sum_{i=1}^n\alpha_i\right )^p \equiv S_p ~(\mathrm{mod~} p)$$
+nên $ na\equiv 0 ~(\mathrm{mod~} p)$. Mâu thuẫn vì $p\nmid a$. 
+}
+\end{bt}
+
+%----------------------------Thầy Anh Tuấn Nguyễn
+
+
+\begin{bt}
+Cho $n$ là số nguyên dương, $P(x)$ là đa thức hệ số nguyên bậc $n$. Biết rằng tồn tại các số nguyên $x_1,x_2,\ldots,x_{n+5}$ sao cho $P(x)$ đều là các số nguyên tố. Chứng minh rằng $P(x)$ bất khả quy.	
+\end{bt}
+
+\begin{bt}
+Cho $n \geq 7$ là số nguyên dương, đặt 
+	$$P_n(x)=\sum \left\{ x^{j - 1}:1 \le j \le n,(j,n) = 1\right\}$$	
+	Chứng minh rằng $P_n(x)$ bất khả quy trong $\mathbb{Z}[x]$.
+\end{bt}
+
+\subsection{Phương trình hàm đa thức}
+\subsubsection{So sánh hệ số}
+\begin{bt}
+Tìm tất cả các đa thức $P(x)$ bậc $n$ thỏa mãn 
+$$P(2x-3)=2^nP(x), \,\, \forall x \in \mathbb{R}.$$
+\loigiai{
+Thay $x$ bởi $x+3 \Rightarrow P(2x+3)=2^nP(x+3)$. Đặt $Q(x)=P(x+3)$ ta có 
+$$Q(2x)=2^nQ(x) \Rightarrow Q(x)=ax^n.$$
+Vậy $P(x)=a(x-3)^n$.
+}
+\end{bt}
+
+
+\begin{bt} 
+Tìm các đa thức $P(x)$ thỏa mãn 
+$P \left( x \right)^2 + P\left( \dfrac{1}{x} \right)^2 = P \left( x^2\right)P\left( \dfrac{1}{x^2} \right)$.
+	\loigiai{ Nếu $\deg P \geq 1$. Giả sử $P\left( x \right) = \displaystyle\sum\limits_{i = 1}^n a_ix^i$ với $a_n \neq 0$. So sánh hệ số $x^{2n}$, ta được
+		$$a_n^2=a_na_0  \Leftrightarrow a_n=a_0.$$
+So sánh hệ số tự do ta có 
+$$a_n^2 + a_0^2 = a_n^2 + a_{n - 1}^2 +\ldots + a_1^2 + a_0^2 \Rightarrow a_{n - 1} = \ldots = a_1 = 0,$$
+tức là $P(x)=a_n(x^n+1)$.	
+	Thử lại thấy không thỏa mãn. Nếu $P(x)  \equiv c  \Rightarrow c=0$.	
+	}
+\end{bt}
+
+\begin{bt}
+Tìm tất cả các đa thức hệ số thực $P(x)$ thỏa mãn
+$$P\left( x^3 \right) + x\left( P\left( x \right) \right)^2 = \left( P\left( x \right) \right)^3 + xP\left( x^2 \right);\quad\forall x \in \mathbb{R}.$$
+\end{bt}
+
+\begin{bt}
+Tìm tất cả các đa thức hệ số thực $P(x)$ thỏa mãn
+	$$P\left(x^2\right)+x\left(3P\left( x \right) + P\left(- x\right)\right) = \left(P\left( x \right) \right)^2+2x^2;\quad \forall x \in \mathbb{R}.$$	
+\end{bt}
+\subsubsection{Sử dụng nghiệm đa thức}
+\begin{bt}
+Tìm tất cả các đa thức hệ số thực $P(x)$ thỏa mãn 
+	$$P\left( x \right)^2 = 2P\left( 2x^2 - 1\right) + 3, \,\, \forall x\in\mathbb{R}.$$
+\loigiai{Nếu $P(x) \equiv c$ là hằng số ta có ngay $P(x) \equiv -1$ hoặc $3$. Nếu $\deg P \geq 1$, cho $x=1$ ta có $P(1)=a \in \{- 1;3\}$. Giả sử $n$ là số nguyên dương lớn nhất sao cho $(x-1)^n|P(x)-a$, hay $P(x)=(x-1)^nQ(x)+a,Q(1) \neq 0$. Khi đó ta có $((x-1)^nQ(x)+a)^2=2(2x^2-2)^nQ(2x^2-1)+3$ hay $(x-1)^nQ(x)^2+2aQ(x)=2^{n+1}(x+1)^nQ(2x^2-1)$. Cho $x=1$ ta có $2aQ(1)=2^{2n+1}Q(1)$ nên $Q(1)=0$, mâu thuẫn.
+	}
+\end{bt}
+
+\begin{bt}
+Tìm tất cả các đa thức hệ số thực $P(x)$ thỏa mãn 
+	$$2\left( P\left( x \right) - P\left( \dfrac{1}{x}\right)\right)^2 + 3P\left( x^2\right)P\left( \dfrac{1}{x^2}\right) = 0$$
+	với mọi số thực $x \neq 0$.
+\end{bt}
+\subsubsection{Kỹ năng giải hàm}
+%Có chỉnh sửa chổ trường hợp 2, một vài ký hiệu tác giải đánh nhầm%
+\begin{bt}
+Tìm tất cả các đa thức hệ số thực $P(x)$ sao cho 
+	$$P^2(x)+P(-x)+2=P(x^2)+3P(x), \,\, \forall x\in\mathbb{R}.$$
+\loigiai{Thay $x$ bởi $-x$ ta có $P^2(-x)+2=P(x^2)+3P(-x)-P(x)$. Trừ theo vế với phương trình ban đầu ta có $P^2(x)-P^2(-x)=4P(x)-4P(-x) \Rightarrow (P(x)-2)^2=(P(-x)-2)^2 \Rightarrow P(x)-2= 	 \pm (P(-x)-2).$	
+		\begin{itemize}
+			\item \textbf{Trường hợp 1:} $P(x)=P(-x)$. Khi đó $P^2(x)+2=P(x^2)+2P(x)$. Đặt $P(x)-1=R(x),$ thì $R^2(x)=R(x^2)$, suy ra $R(x) \in \left\{ {0;1;{x^n}} \right\}$ ($n$ chẵn vì $P$ chẵn).\\
+			Nên $P(x)=1;P(x)=x^{2k}+1;k \in \mathbb{N}$.
+			\item \textbf{Trường hợp 2:} $P(-x)=4-P(x)$. Ta có $P^2(x)+2=P(x^2)+4P(x).$ Đặt $P(x)-2=S(x),$ thì $S^2(x)=S(x^2),$ suy ra $S(x) \in \left\{ {0;1;{x^n}} \right\}$ mà $S(t)=-S(-t) \Rightarrow S(t)=x^{2m+1};m \in \mathbb{N}$. Hay $P(x)=x^{2m+1}+2$.
+		\end{itemize}
+	}
+\end{bt}
+
+\begin{bt}
+Tìm tất cả các đa thức khác $0$ thỏa mãn $$P(x)^3+3P(x)^2=P(x^3)-3P(-x), \,\, \forall x\in\mathbb{R}.$$
+\end{bt}
+
+
+%------------------------Thầy Nguyễn Minh
+
+\begin{bt}
+	Tìm tất cả các đa thức khác $0$ thỏa mãn $$P(x)^3+3P(x)^2=P\left(x^3\right)-3P(-x), \,\, \forall x\in\mathbb{R}.$$
+\end{bt}
+\subsubsection{Xây dựng công thức truy hồi}
+	\begin{vd}Tìm tất cả các đa thức $P(x)$ hệ số thực khác hằng số sao cho $$P(x^2-1)=\left(P(x)\right)^2-1,\,\forall x\in\mathbb{R}.$$
+		\loigiai{Nếu $P(x)$ là đa thức bặc lẻ. Thay $x$ bởi $-x$ ta thu được 
+			$$P(x)^2=P(-x)^2\Rightarrow P(x)+P(-x)=0.$$
+			Khi đó $P(0)=0$, $P(-1)=P(0)^2-1$, $P(1)=-P(-1)=1$.
+		Xét dãy 
+		$$a_0=0, a_{n+1}=\sqrt{a_n+1}.$$
+		Đây là dãy tăng, $a_n>1$ khi $n>1$ và $P(a_n)=a_n$ nên $P(x)=x$.
+		Nếu $\deg P$ chẵn. Từ giả thiết ta có $\left(P(x)\right)^2$ là đa thức của $x^2$ nên $P(x)=Q(x^2)=P_1(x^2-1)$. Khi đó $P_1(x^2-1)=\left[P(x)\right]^2-1$. Chú ý là $\deg P_1=\dfrac{1}{2}\deg P$ nên tiếp tục quá trình này ta thu được đa thức $P(x)=x$. Do đó 
+		$$P(x)\in \{P_1(x)=x,\, P_{n+1}(x)=P_n(x^2-1)\}.$$
+	}
+ \end{vd}
+\begin{bt}
+	Cho $n\in\mathbb{N}$, $n\geq 2$. Tìm tất cả các đa thức $P(x)$ hệ số thực khác hằng số sao cho $$1+P(x^n+1)=(P(x))^n, \, \forall x\in\mathbb{R}.$$
+\end{bt}
+\begin{bt}
+	Tìm các số nguyên dương $n$ sao cho tồn tại các đa thức $P(x)$ bậc $n$ với hệ số nguyên, hệ số bặc cao nhất dương và đa thức $Q(x)$ với hệ số nguyên sao cho đẳng thức sau đúng với mọi $x$ $$x\left(P(x)\right)^2-2P(x)=\left(x^3-x\right)\left(Q(x)\right)^2.$$
+\end{bt}
+\begin{bt}
+	Chứng minh rằng, với mọi số nguyên dương $n$, luôn tồn tại đa thức bậc $n$ với hệ số thực $f(x)$ thỏa mãn $f(0)=0$ và $(x+1)\left[f(x)\right]^2-1$ là hàm số lẻ.
+\end{bt}
+\begin{bt}
+	Tìm tất cả các đa thức hệ số nguyên $P(x)$ sao cho $$\left(x-2x+2\right)\left(P(x)\right)^2-1$$ là bình phương của đa thức hệ số nguyên. 
+\end{bt}
+\subsubsection{Đa thức có điều kiện}
+\begin{bt}
+	Tìm tất cả các đa thức $P(x)$ với hệ số thực sao cho $$P(a)^2+P(b)^2+P(c)^2=P(a+b+c)^2+2$$ với mọi bộ số $\left(a,b,c\right)$ thỏa mãn $ab+bc+ca+1=0$.
+	\loigiai{Rõ ràng $P(x)$ là hằng số thì $P(x)\equiv \pm 1$, giả sử $P=\displaystyle\sum_{k=0}^n a_kx^k$ với $a_n\neq 0$, $n\in\mathbb{Z_+}$. Ta xét bộ số $a=-2x+1$, $b=3x-1$, $c=6x-5$, ta có $ab+bc+ca+1=0$ nên \[P(-2x+1)^2+P(3x-1)^2+P(6x-5)^2=P(7x-5)^2+2.\tag{*}\]
+		So sánh hệ số của $x^{2n}$ hai vế ta có $(-2)^{2n}+3^{2n}+6^{2n}=7^{2n}$ hay $n=1$. Do đó $P(x)mx+q$ với $m,q\in \mathbb{R}$. Thay vào $(*)$ ta có $m^2+q^2=1$.\\
+		Ngược lại, với $ab+bc+ca+1=0$ đẳng thức ban đầu được thỏa mãn. Vậy $P(x)\equiv mx-q$ với $m^2+q^2=1$ bất kỳ. \\
+		\textbf{Cách 2.} Xét trường hợp $\deg P=n\geq 1$. Chọn bộ $(a,b,c)=\left(x+i, x-i, -\dfrac{1}{2}x\right)$ thỏa mãn điều kiện nên ta có $P(x+i)^2+P(x-i)^2+P\left(-\dfrac{1}{2}x\right)^2=P\left(\dfrac{3}{2}x\right)^2+2$. So sánh hệ số của $x^{2n}$ ở hai vế ta có $1+1+\left(\dfrac{1}{2}\right)^{2n}=\left(\dfrac{3}{2}\right)^{2n}$ nên $n=1$.
+	}
+\end{bt}
+\begin{bt}
+	Tìm tất cả các đa thức $P(x)$ hệ số thực sao cho các số thực $a,\, b,\, c$ thỏa mãn $ab+bc+ca=1$ ta có $P(a)^2+P(b)^2+P(c)^2=P(a+b+c)^2$.
+\end{bt}
+\subsection{Một số áp dụng trong số học}
+\begin{bt}
+	Cho  số nguyên tố $p>3$. Tìm các số dư có thể có của phép chia $\displaystyle\prod_{i=1}^p \left(i^2+1\right)$ cho $p$.
+	\loigiai{Ta chứng minh $\displaystyle\prod_{i=1}^p \left(i^2+1\right)\equiv \hoac{&0\pmod p&\mbox{nếu }p=4k+1\\&4\pmod p&\mbox{nếu }p=4k+3.}$\\
+		Thật vậy, đặt $p_1=\dfrac{p-1}{2}$ và xét
+		{\allowdisplaybreaks
+		\begin{align*}
+		&f(x)=(x-1^2)(x-2^2)\cdots (x-p_1^2),\\
+		&g(x)=x^{p_1}-1, h(x)=f(x)-g(x).
+		\end{align*}}Rõ ràng $\deg h<p_1$ và $h(x)= 0\pmod p$ tại các điểm $1,2^2,\ldots, p_1^2$ nên $h(x)\equiv 0\pmod p$. Chọn $x=-1$ ta có 
+	$$(-1)^{p_1}\displaystyle\prod_{i=0}^{p_1} \left(i^2+1\right)=(-1)^{p_1}-1.$$
+	Hay $\displaystyle\prod_{i=1}^{p-1} \left(i^2+1\right)=\left(\displaystyle\prod_{i=1}^{p_1} \left(i^2+1\right)\right)^2=\left((-1)^{p_1}-1\right)^2$ nên số dư là $0$ hoặc $4$.
+	}
+\end{bt}
+\begin{bt}
+	Cho số nguyên dương $n\geq 2$; $a_n$, $b_n$, $c_n$ là các số nguyên thỏa mãn $$\left(\sqrt[3]{2}-1\right)^n
+	=a_n+b_n\sqrt[3]{2}+c_n\sqrt[3]{4}.$$
+Chứng minh rằng $c_n\equiv 1\pmod 3\Leftrightarrow n\equiv 2\pmod 3$.
+	\loigiai{Xét $f(x)=(x-1)^n-c_nx^2-b_nx-a_n\Rightarrow f\left(\sqrt[3]{2}\right)=0$ mà $x^3-2$ bất khả qui nên $$x^3-2\big|\,f(x)\Rightarrow g_n(x)=a_n+b_nx+c_nx^2$$
+	là phần dư của phép chia $(x-1)^n$ cho $x^3-2$.
+		Đặt $n=3q+r$ suy ra 
+		$$(x-1)^n\equiv (x-1)^{3q}(x-1)^r=(x-3)^q(x-1)^r\equiv (x^3-2)g(x)+(x-1)^r$$
+		trong $\mathbb{Z}_3\left[x\right]$, suy ra  $g_n(x)\equiv (x-1)^r$ trong $\mathbb{Z}_3\left[x\right]$. Do đó $c_n\equiv 0\pmod 3\Leftrightarrow r\in\{0,1\}$ và $c_n\equiv 1\pmod 3$ nếu $r=2$.
+	}
+\end{bt}
+\begin{bt}
+	Cho $p$ là số nguyên tố lớn hơn $2$, với mỗi $k\in \mathbb{Z}^+$ ta đặt $S_k=1^k+2^k+\ldots +(p-1)^k$. Tìm tất cả các số $k$ sao cho $p|\,S_k$.
+\end{bt}
+\begin{bt}
+	Cho $p$ là số nguyên tố lẻ. Chứng minh rằng có ít nhất $\dfrac{p+1}{2}$ giá trị của 
+	$$n\in\{0,1,2,\ldots,p-1\}$$
+	sao cho $\displaystyle\sum_{k=0}^{p-1} k!n^k$ không chia hết cho $p$.
+\end{bt}
+\begin{bt}
+	Cho $a,b$ là hai số nguyên. tìm tất cả các số nguyên tố $p$ sao cho 
+	$$\displaystyle\prod_{i=1}^{p}(i^2+2ai+b)\equiv 1\pmod p.$$
+\end{bt}
+\Closesolutionfile{ans}

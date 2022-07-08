@@ -1,0 +1,306 @@
+
+\begin{name}
+{Bùi Quốc Hoàn}
+{Đề thi Olympic Philippine năm 2018}
+\end{name}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/ans-1822-Nat.MO-Philippine]
+\begin{ex}%[HSG Philippine năm 2018]%[Bùi Quốc Hoàn, Dự án EX-Nat.MO-18]%[9H0G3]
+Cho tam giác $ABC$ có $\angle ABC = 60^{\circ}$ và $5AB = 4BC$, các điểm $D$ và $E$ lần lượt là chân đường vuông góc kẻ từ $B$ và $C$ tương ứng. $M$ là trung điểm của $BD$ và đường tròn ngoại tiếp tam giác $BMC$ cắt $AC$ tại $N$. Đường thẳng $BN$ và $CM$ cắt nhau tại $P$. Chứng minh rằng $\angle EDP = 90^{\circ}$.
+	\loigiai{\immini{Giả sử $AB = 4l$ với $l > 0$, khi đó $BC = 5l$. Do giả thiết  $\angle ABC = 60^{\circ}$ suy ra $BE = \dfrac{BC}{2}\Leftrightarrow BE = \dfrac{5l}{2}$ và  $CE = \dfrac{5\sqrt{3}l}{2}$.\\
+	Xét tam giác vuông $AEC$ ta có $AC^2 = CE^2 + AE^2$.\\
+	Mà $AE = AB - BE = 4l - \dfrac{5l}{2} = \dfrac{3l}{2}$. Khi đó
+		\begin{eqnarray*}
+		&{ }&AC^2 = \left(\dfrac{5\sqrt{3}l}{2}\right)^{2} + \left(\dfrac{3l}{2}\right)^{2}\Leftrightarrow AC^{2} = \dfrac{75l^2}{4} + \dfrac{9l^2}{4}\\
+		&\Leftrightarrow& AC^2 = 21l^2\Leftrightarrow AC = \sqrt{21}l
+	\end{eqnarray*}
+		}{\begin{tikzpicture}[scale= 0.8]
+		\clip (-1,-1) rectangle (7.5,6);	
+		\tkzDefPoint(0,0){A}\tkzDefPoint(6,0){C}
+		\tkzDefPoint(1,5){B}\tkzDrawPolygon(A,B,C)
+		\tkzDrawAltitude(A,C)(B) \tkzGetPoint{D}
+		\tkzDrawAltitude(A,B)(C)\tkzGetPoint{E}
+		\tkzDefMidPoint(B,D)\tkzGetPoint{M}
+		\tkzDefCircle[circum](B,M,C) \tkzGetPoint{O}
+		\tkzDrawCircle[circum,color=red](B,M,C)
+		\tkzInterLC(A,C)(O,B) \tkzGetSecondPoint{N}
+		\tkzInterLL(C,M)(B,N) \tkzGetPoint{P}
+		\tkzLabelPoints[left](B,E)
+		\tkzLabelPoints[below](D,N, A, C)
+		\tkzLabelPoints[above right](M,P)
+		\tkzDrawPoints(A,B,C,D,M,N,P)
+		\tkzMarkRightAngles(B,D,C C,E,B)
+		\tkzDrawSegments(B,D C,M B,N E,D D,P)
+		\end{tikzpicture}
+	}	
+
+Dễ chứng minh được tứ giác $BEDC$ nội tiếp đường tròn,  $\angle EDA = \angle ABC = 60^{\circ}$. Suy ra $\angle EDB = 30^{\circ}$ và $\Delta AED\sim \Delta ACB$.  Từ $AD = 4k$, $DE = 5k$ và $AE = \sqrt{21}k$ với mỗi hằng số $k > 0$. Từ $4l = AB = BE + AE = \dfrac{5l}{2} + \sqrt{21}k$, thì $\dfrac{l}{k} = \dfrac{2\sqrt{21}}{3}$.\\
+Mặt khác diện tích của $\Delta ABC$ bằng 
+$$\dfrac{1}{2}\sin 60^{\circ}\cdot 4l\cdot 5l = \dfrac{1}{2}\cdot\sqrt{21}l \cdot 2BM\Leftrightarrow BM = \dfrac{5l}{\sqrt{7}}$$
+Chứng tỏ rằng
+$$\dfrac{CE}{DE} = \dfrac{\dfrac{5\sqrt{3}l}{2}}{5k} = \dfrac{\sqrt{3}l}{2k} = \dfrac{\sqrt{3}}{2}\cdot\dfrac{2\sqrt{21}}{3}= \sqrt{7} = \dfrac{5l}{\dfrac{5l}{\sqrt{7}}} = \dfrac{CB}{MB}$$ 
+Từ đây, với $\angle MBC = \angle DBC = \angle DEC$, suy ra $\Delta DEC \sim \Delta MBC$, do  $\angle ECD = \angle BCM$ và vì  $\angle MCD = \angle BCE = 30^{\circ}$. Vì tứ giác $BMNC$ nội tiếp đường tròn,  $\angle MBN = 30^{\circ}$ do đó $DE$ song song với $BN$.\\
+Ta có  $\angle DMC = 60^{\circ}$ do đó  $\angle BPM = 30^{\circ}$. Do $\Delta BMP$ là  với $BM = MP$ và $M$ là tâm đường tròn nội tiếp $\Delta BPD$. Vì thế  $\angle BPD = 90^{\circ}$. Từ đó suy ra  $\angle EDP = 90^{\circ}$.
+ }
+\end{ex}
+
+\begin{ex}%[HSG Philippine năm 2018]%[Bùi Quốc Hoàn, Dự án EX-Nat.MO-18]%[0D0G5]
+Giả sử $a_{1}, a_{2},\ldots$ là dãy các số nguyên và $d$ là một số nguyên, sao cho với mọi số tự nhiên $n$, ta có
+	\begin{enumEX}[(i)]{1}
+		\item $\left\vert a_{n}\right\vert$ là một số nguyên tố;
+		\item $a_{n + 2} = a_{n + 1} + a_{n} + d$.
+	\end{enumEX}
+Chứng minh rằng dãy $(a_n)_{n\ge 1}$ là dãy hằng.
+	\loigiai{Xét dãy $\left\{b_{n}\right\}$ được xác định bởi $b_{n} = a_{n} + d$ với mọi $n$, khi đó $b_{n + 2} = b_{n + 1} + b_{n}$ với mọi $n$.\\	
+Dãy $\left\{b_{n}\right\}$ được xác định bởi hai số hạng $b_{1}$ và $b_{2}$ và khi ta rút gọn dãy bởi $\mod a_{1}$ thì dã vẫn được xác định.\\
+Ta nhận thấy, các cặp số hạng liên tiếp xuất hiện trở lại trong dãy $\left\{b_{n}\right\}$, và  vì thế dãy  $\left\{b_{n}\right\}$ là tuần hoàn $\mod a_{1}$, tức là tồn tại một số nguyên dương $l$ sao cho $b_{k + l}\equiv b_{l}\, \left(\mod a_{1}\right)$ với mọi $k$, điều này chỉ ra $a_{l + 1}\equiv a_{1}\, \left(\mod a_{1}\right)$. Do đó $a_{1}\vert a_{l + 1}$.\\
+Hơn nữa, từ $(i)$ ta suy ra $\left\vert a_{1}\right\vert = \left\vert a_{l + 1}\right\vert$ và  bằng quy nạp ta có $\left\vert a_{1}\right\vert = \left\vert a_{kl + 1}\right\vert$ với mọi $k$.\\
+Như vậy, $a_{kl + 1}$ và $b_{kl + 1}$ nhận nhiều nhất hai giá trị phân biệt.\\
+Điều này đủ để chỉ ra rằng dãy $\left\{b_{n}\right\}$ là hằng số.\\
+Thật vậy,  xét đa thức đặc trưng của $\left\{b_{n}\right\}$, $P\left(x\right) = x^2 - x - 1$. Giả sử $\varphi$ và $\psi$ là hai nghiệm phân biệt của $P\left(x\right) = 0$, với $\varphi > \psi$. Dễ thấy $\varphi > 1$ và $0 > \psi > - 1$.\\
+Tồn tại duy nhất cặp hằng số $c_{1}$, $c_{2}$ phụ thuộc và giá trị $b_{1}$, $b_{2}$ thỏa mãn 
+	\begin{eqnarray*}
+	&b_{1}& = c_{1} + c_{2}\\
+	&b_{2}& = c_{1}\varphi + c_{2}\psi.
+\end{eqnarray*}
+Ta có thể chứng minh dễ dàng bằng quy nạp $b_{n} = c_{1}\varphi^{n - 1} + c_{2}\psi^{n - 1}$ với $n\geq 1$.\\
+Do đó ta có $\left\vert b_{n}\right\vert\geq \left\vert c_{1}\right\vert\varphi^{n - 1} - \left\vert c_{2}\right\vert$.\\
+Nếu $c_{1}\neq 0$, thì $\left\vert b_{n}\right\vert$ là tăng và không bị chặn, điều này mâu thuẫn với khẳng định $\left\vert b_{kl}\right\vert$ có nhiều nhất hai giá trị phân biệt.\\
+Do đó khi $c_{1} = 0$ suy ra $b_{n + 1} = \psi b_{n}$. Tuy nhiên, $b_{n + 1}$ và $b_{n}$ là các số nguyên trong đó $\psi$ là số vô tỉ. Vì thế $b_{n + 1} =  b_{n} = 0$ suy ra $c_2 = 0$. Do đó $b_{n} = 0$ với mọi $n$ và $a_{n} = a_{1}$ với $d = - a_{1}$. 
+ }
+\end{ex}
+
+
+\begin{ex}%[HSG Philippine năm 2018]%[Bùi Quốc Hoàn, Dự án EX-Nat.MO-18]%[1D0G6]
+	Giả sử $n$ là số một số nguyên dương. Một ma trận cỡ $n\times n$ (một bảng hình chữ nhật của các số của $n$ dòng và $n$ cột) được gọi là bạch kim nếu thỏa mãn các điều kiện:
+	\begin{enumEX}[(i)]{1}
+		\item $n^{2}$ trong bảng là các số nguyên từ $1$ đến $n$;
+		\item Mỗi dòng, mỗi cột và đường chéo chính (phái trên góc bên trái đến góc dưới bên phải) chứa các số nguyên từ $1$ đến $n$ đúng một lần.
+		\item Tồn tại một tập hợp gồm $n$ phần tử chứa các số nguyên từ $1$ đến $n$ sao cho không có hai phần tử nằm trên cùng một hàng hoặc cùng một cột hoặc nằm trên đường chéo chính của ma trận.
+	\end{enumEX}
+Tìm tất cả các giá trị của $n$ sao cho ma trận $n\times n$ là bạch kim.\\
+{\it{Đây là cơ sở trong bài báo "Một phương pháp đơn giản cho cấu trúc  hình vuông Latinh bởi Ervin Gergely, tạp chí về lý thuyết tổ hợp (A) 16, 266- 272 (1974)"}}.
+	\loigiai{Dễ thấy không có ma trận bạch kim với $n = 1$ và $n = 2$. Chúng ta sẽ chứng minh rằng tồn tại ma trận bạch kim với mọi $n\geq 3$. \\
+	Thật vậy, trước hết ta định nghĩa đường ngang như là một tập hợp gồm  $n$ phần tử của ma trận  được lấy từ các dòng và các cột khác nhau và chứa các số nguyên từ $1$ đến $n$.\\
+    Khi $n\geq 3$ và $n$ là  số lẻ, ta xây dựng ma trận bạch kim cỡ  $n\times n$ theo cách:
+ 
+ Trước tiên, ta điền vào dòng thứ nhất của ma trận bởi các số  $1, n, n - 1, \ldots, 3, 2$ theo thứ tự từ trái qua phải.\\
+ Sau đó, với mỗi " đường chéo" (được xác định từ trên xuống dưới, từ trái qua phải và quay lại cột thứ $1$ đến cột thứ $n$) bắt đầu từ phần tử trên dòng thứ $1$ và tăng dần theo cấp số cộng với công sai là $1$ cho đến khi xuống hàng cuối cùng. Chú ý rằng các phần tử được viết dưới dạng $\mod n$, nhưng trong trường hợp lớp thặng dư là $0$ thì chúng ta viết là $n$.\\
+Ví dụ với $n = 3$ ta có ma trận bạch kim sau đây:
+	\begin{align*}
+	\begin{pmatrix}
+	1 &3 &2\\
+	3 & 2&1\\
+	2&1&3
+	\end{pmatrix} = 	\begin{pmatrix}
+	1 &  & \\
+	 & 2& \\
+	& &3
+	\end{pmatrix} + 	\begin{pmatrix}
+	  &3 & \\
+	 & &1\\
+	2& & 
+	\end{pmatrix} + \begin{pmatrix}
+	   &   &2\\
+	3 &   &  \\
+	  &1& 
+	\end{pmatrix}
+	\end{align*}
+Từ cách  xây dựng trên, chúng ta xác định được phần tử dòng $i$, cột $i$ là  $a_{ij} = 2i - j \left(\mod n\right)$ ($1\leq i, j\leq n$).\\
+Cố định dòng thứ $i$, các phần tử tại các cột khác nhau $j$ và $j'$ là khác nhau.\\
+Cố định cột thứ $j$, các phần tử tại các dòng khác nhau $i$ và $i'$ là khác nhau vì $n$ là lẻ.\\
+Đường chéo, bắt đầu từ  phần tử dòng thứ nhất là $2$, là một đường ngang. Hơn nữa, mỗi đường chéo là đường ngang. Vì thế, ma trận được xác định như trên là bạch kim.\\
+Xét trường hợp  $n\geq 8$ là chẵn, khi đó $n - 3\geq 5$ là lẻ.\\
+Xét ma trận bạch kim cỡ $\left(n - 3\right)\times\left(n - 3\right)$  được ký hiệu là $C_{n - 3}$ theo cách xác định như trên.\\
+Ta bắt đầu xây dựng ma trận bạch kim cỡ $n\times n$ như sau:
+$$\left(\begin{array}{@{}c|c  @{}}
+{C}_{n - 3}&   \\
+\hline
+   &{C}_{3}\\
+\end{array}\right),{\hskip 0.8 cm }\text{ở đó}\quad C_{3} = \begin{pmatrix}
+n - 2& n  &n - 1\\
+n & n - 1  &n - 2  \\
+n - 1&n - 2& n
+\end{pmatrix}$$
+Tiếp theo, ta cần xác định ma trận cỡ $3\times\left(n - 3\right)$ và  ma trận cỡ $\left(n - 3\right)\times 3$ kề với $C_{n - 3}$.\\
+Do $\left(n - 3\right) - 1 =  n -  4\geq 4$ các đường chéo của $C_{n - 3}$ khác với đường chéo chính, ta chọn $3$ đường chéo khác nhau.\\
+Ta đã chỉ ra mỗi đường chéo, ngoại trừ đường chéo chính của ma trận $C_{n - 3}$ là một đường ngang.\\
+Chọn một đường ngang của $C_{n - 3}$ chiếu các phần tử của nó đến một dòng rỗng và một cột rỗng. Sau đó, thay thế tất cả các phần tử đã chọn của dòng ngang đó bởi $n - 2$.\\
+Chúng ta tiếp tục như vậy với hai dòng ngang khác, rồi thay các phần tử của các dòng ngang đó  lần lượt là $n - 1$ và $n$. Khi đó, ma trận tạo thành là một ma trận bạch kim.\\
+Thật vậy, ta có $n - 4\geq 4$ dòng ngang  của ma trận bạch kim $C_{n - 3}$. Do đó tồn tại ít nhất một dòng ngang chưa được sử dụng.  Kết hợp dòng ngang đó với một dòng ngang của $C_{3}$  ta nhận được một dòng ngang của ma trận cỡ $n\times n$. Như vậy, ma trận được xác định như trên là bạch kim.\\
+Ta có thể minh họa cách xây dựng mà trận bạch kim với $n = 8$. Ma trận cuối cùng là bạch kim với những phần tử trong ô vuông tạo thành một dòng ngang của ma trận. 
+$$\left(\begin{array}{@{}c|c  @{}}
+\begin{matrix}
+1& 5  &4&3&2\\
+3 & 2 & 1& 5&4 \\
+5&4 & 3&2&1\\
+2&1&5&4&3\\
+4&3&2&1&5
+\end{matrix}&   \\
+\hline
+&\begin{matrix}
+6& 8  &7\\
+8 & 7&6\\
+7&6& 8
+\end{matrix}\\
+\end{array}\right)
+\longrightarrow 
+\left(\begin{array}{@{}c|c  @{}}
+\begin{matrix}
+1&\circled{6}&4&3&2\\
+3 & 2 & \circled{6}& 5&4 \\
+5&4 & 3&\circled{6}&1\\
+2&1&5&4&\circled{6}\\
+\circled{6}&3&2&1&5
+\end{matrix}&\begin{matrix}
+5&  \\
+1&  \\
+2&  \\
+3&  \\
+4&
+\end{matrix}   \\
+\hline
+\begin{matrix}
+{\hskip 0.5 cm}4{\hskip 0.2 cm}&{\hskip 0.1 cm}5{\hskip 0.2 cm}&{\hskip 0.05 cm}1{\hskip 0.25 cm}&2{\hskip 0.25 cm}&3& \\
+& &  &  &  & \\
+&  &  &  &  &
+\end{matrix} &\begin{matrix}
+6 & 8  &7\\
+8 & 7&6\\
+7&6& 8
+\end{matrix}\\
+\end{array}\right)\longrightarrow$$
+
+$$\longrightarrow\left(\begin{array}{@{}c|c  @{}}
+\begin{matrix}
+1&6 & \circled{7}&3&2\\
+3 & 2 & 6&\circled{7}&4 \\
+5&4 & 3&6& \circled{7}\\
+ \circled{7}&1&5&4&6\\
+6& \circled{7}&2&1&5
+\end{matrix}&\begin{matrix}
+5& 4  \\
+1& 5 \\
+2& 1\\
+3& 2 \\
+4&3
+\end{matrix}\\
+\hline
+\begin{matrix}
+{\hskip 0.5 cm}4{\hskip 0.2 cm}&{\hskip 0.1 cm}5{\hskip 0.2 cm}&{\hskip 0.05 cm}1{\hskip 0.25 cm}&2{\hskip 0.25 cm}&3& \\
+{\hskip 0.5 cm}2{\hskip 0.2 cm}&{\hskip 0.1 cm}3{\hskip 0.2 cm}&{\hskip 0.05 cm}4{\hskip 0.25 cm}&5{\hskip 0.25 cm}&1& \\
+&  &  &  &  &
+\end{matrix} &\begin{matrix}
+6& 8  &7\\
+8 & 7&6\\
+7&6& 8
+\end{matrix}\\
+\end{array}\right)
+\longrightarrow 
+\left(\begin{array}{@{}c|c  @{}}
+\begin{matrix}
+1&6 &7& \circled{8}&\boxed{2}\\
+\boxed{3} & 2 & 6&7& \circled{8} \\
+ \circled{8}&\boxed{4} & 3&6& 7\\
+7& \circled{8}&\boxed{5}&4&6\\
+6& 7& \circled{8}&\boxed{1}&5
+\end{matrix}&\begin{matrix}
+5{\hskip 0.2 cm}& 4{\hskip 0.2 cm}&3  \\
+1{\hskip 0.2 cm}& 5{\hskip 0.2 cm} &4\\
+2{\hskip 0.2 cm}& 1{\hskip 0.2 cm}&5\\
+3{\hskip 0.2 cm}& 2{\hskip 0.2 cm} &1\\
+4{\hskip 0.2 cm}&3{\hskip 0.2 cm}&2
+\end{matrix}\\
+\hline
+\begin{matrix}
+{\hskip 0.5 cm}4{\hskip 0.2 cm}&{\hskip 0.1 cm}5{\hskip 0.2 cm}&{\hskip 0.05 cm}1{\hskip 0.25 cm}&2{\hskip 0.25 cm}&3& \\
+{\hskip 0.5 cm}2{\hskip 0.2 cm}&{\hskip 0.1 cm}3{\hskip 0.2 cm}&{\hskip 0.05 cm}4{\hskip 0.25 cm}&5{\hskip 0.25 cm}&1& \\
+{\hskip 0.5 cm}5{\hskip 0.2 cm}&{\hskip 0.1 cm}1{\hskip 0.2 cm}&{\hskip 0.05 cm}2{\hskip 0.25 cm}&3{\hskip 0.25 cm}&4&
+\end{matrix} &\begin{matrix}
+6& \boxed{8}&7\\
+8 & 7&\boxed{6}\\
+\boxed{7}&6& 8
+\end{matrix}\\
+\end{array}\right)$$
+Cuối cùng ta xét các ma trận sau
+$$\begin{pmatrix}
+1& 2&3&4\\
+3 &4&1&2 \\
+4&3&2&1\\
+2&1&4&3
+\end{pmatrix}{\hskip 2 cm}
+\begin{pmatrix}
+1& 2&3&4&5&6\\
+5 &3&6&1&4&2\\
+4&1&5&2&6&3\\
+2&4&1&6&3&5\\
+6&5&4&3&2&1\\
+3&6&2&5&1&4
+\end{pmatrix}$$
+Suy ra ma trận bạch kim với $n = 4$ và $n = 6$.
+ }
+\end{ex}
+
+\begin{ex}%[HSG Philippine năm 2018]%[Bùi Quốc Hoàn, Dự án EX-Nat.MO-18]%[0D0G5]
+Xác định mọi cặp số nguyên $\left(x; y\right)$ không âm thỏa mãn phương trình 
+$$3x^2 + 2\cdot 9^{y} = x\left(4^{y + 1} - 1\right).$$
+{\it{Đây là bài toán được sửa từ bài toán $N_{2}$ từ IMO 2010 shortlist}}
+	\loigiai{Phương trình tương đương  với phương trình 
+$$\left(3x\right)^2 + 2\cdot 3^{2y + 1} = 3x\left[2^{\left(2y + 1\right) + 1} - 1\right].$$
+Đặt $a = 3x$ và $b = 2y + 1$, ta có 
+$$a^2 + 2\cdot 3^{b} = a\left(2^{b + 1} - 1\right).\eqno(1)$$
+Khi đó ta xét các trường hợp sau
+
+\noindent
+{\bf{Trường hợp 1.}} Khi $b = 1$\\
+	Ta có $a^2 - 3a + 6 = 0$ dễ thấy phương trình không có nghiệm $a$ nguyên. Do đó phương trình $(1)$ không có $\left(a, b\right)$ thỏa mãn.
+
+\noindent
+{\bf{Trường hợp 2.}} Khi $b = 3$\\
+Ta có $a^2 - 15a + 54 = 0\Leftrightarrow \hoac{&a = 9 \\ &a = 6}$.\\
+Khi $a = 9$ suy ra $3x = 9\Leftrightarrow x = 3$.\\
+Khi $a = 6$ suy ra $3x = 6\Leftrightarrow x = 2$.\\
+Mà từ $b = 3$ suy ra $2y + 1 = 3\Leftrightarrow y = 1$.\\ 
+Do đó phương trình có nghiệm các cặp số nguyên $\left(3, 1\right)$ và $\left(2, 1\right)$ thỏa mãn.
+
+\noindent
+{\bf{Trường hợp 3.}} Khi $b = 5$\\
+     Ta có $a^2 - 63a + 486 = 0\Leftrightarrow \hoac{&a = 9\\ &a = 54}$.\\
+     Khi $a = 9$ suy ra $3x = 9\Leftrightarrow x = 3$.\\
+     Khi $a = 54$ suy ra $3x = 54\Leftrightarrow x = 18$.\\
+     Mà từ $b = 5$ suy ra $2y + 1 = 5\Leftrightarrow y = 2$.\\ 
+     Do đó phương trình có nghiệm các cặp số nguyên $\left(3, 2\right)$ và $\left(18, 2\right)$ thỏa mãn.
+
+\noindent
+{\bf{Trường hợp 4.}} Khi $b\geq 7$ và $b$ lẻ\\
+       Khi đó $(1)\Leftrightarrow a\left(2^{b + 1} - 1 - a\right) = 2\cdot 3^{b}$ suy  ra $a\vert 2\cdot 3^{b}$. Từ $a$ chia hết cho $3$ suy ra $a = 3^{p}$ với $1\leq p\leq b$ hoặc $a = 2\cdot 3^{q}$ với $1\leq q\leq b$.\\
+       Nếu $a = 3^{p}$ và  giả sử $q = b - p$. Khi đó ta có 
+       $$2^{b+ 1} - 1 = a + \dfrac{2\cdot 3^{b}}{a} = 3^{p} + 2\cdot 3^{q}$$
+       Nếu $a = 2\cdot 3^{q}$ và  giả sử $p = b - q$. Khi đó ta có 
+       $$2^{b+ 1} - 1 = a + \dfrac{2\cdot 3^{b}}{a} = 2\cdot 3^{q} + \cdot 3^{p}$$
+     Từ đó ta suy ra 
+       $$2^{b+ 1} - 1 =   3^{p} + 2\cdot 3^{q}\eqno(2)$$
+       ở  đó $p + q = b$.
+      
+      Từ $(2)$ suy ra $2^{b + 1} > 3^{p}$ và $2^{b + 1} > 2\cdot 3^{q}$.\\ 
+     Khi đó 
+       $$3^{p} < 2^{b + 1} = 8^{\tfrac{b + 1}{3}} < 9^{\tfrac{b + 1}{3}} = 3^{\tfrac{2\left(b + 1\right)}{3}}$$
+       và
+       $$2\cdot 3^{q} < 2^{b + 1} = 2\cdot 8^{\tfrac{b}{3}} < 2\cdot 9^{\tfrac{b + 1}{3}} = 2\cdot 3^{\tfrac{2b}{3}} < 2\cdot 3^{\tfrac{2\left(b  + 1\right)}{3}}$$
+    do đó $p, q < \dfrac{2\left(b + 1\right)}{3}$.\\
+    Từ $p = b - q$ và $q = b - p$, ta suy ra $p, q > b - \dfrac{2\left(b + 1\right)}{3} =  \dfrac{b - 2}{3}$. Vì vậy
+    $$ \dfrac{b - 2}{3} < p, q < \dfrac{2\left(b + 1\right)}{3}.\eqno (3)$$
+   Giả sử $r = \min\left\{p, q\right\}$. Từ $(3)$ suy ra $r > \dfrac{b - 2}{3}\geq \dfrac{5}{3}$ nên $r\geq 2$.\\ 
+   Khi đó từ $(2)$ suy ra $3^{p} + 2\cdot 3^{q}$ nên $2^{b + 1} - 1$ chia hết cho $9$.\\
+    Vì $2^{b + 1} - 1\, \vdots\,  9$ khi và chỉ khi $6\vert b + 1$.  Do $b\geq 7$ suy ra  $b + 1\geq 12\Leftrightarrow b\geq 11$ và $b + 1 = 6s$ với $s$ là số nguyên dương. Khi đó 
+     $$2^{b + 1} - 1 =  2^{6s} - 1 =  4^{3s} - 1 = \left(2^{s} - 1\right)\left(2^{s} + 1\right)\left(4^{2s} + 4^{s} + 1\right)$$
+     Từ $4^{s}\equiv 1 \mod 3$ suy ra $4^{2s} + 4^{s} + 1 = \left(4^{s} - 1\right)^{2} + 3\cdot 4^{s}$ luôn chia hết cho $3$. nhưng không chia hết cho $9$ với mọi $s$. Hơn nữa, $2^{s} - 1$ và $2^{s} + 1$ có nhiều nhất một số chia hết cho  $3$, là số lẻ. Do $3^{r}\vert 2^{b + 1} - 1$ thì $3^{r - 1}\vert 2^{s} - 1$ hoặc $3^{r -1}\vert 2^{b} - 1$. Khi đó, ta suy ra $3^{r - 1}\leq 2^{s} + 1$. Do đó 
+      $$3^{r - 1}\leq 2^{s} + 1\leq 3^{s} = 3^{\tfrac{b + 1}{6}}$$
+      Vì vậy
+      $$\dfrac{b - 2}{3} - 1 < r - 1 \leq \dfrac{b + 1}{6}$$
+      suy ra $b < 11$ hay $7\leq b < 11$.
+      Do đó  không tồn tại giá trị $b$ nguyên lẻ và $6\vert b + 1$. Vậy không tồn tại giá trị của $a$, $b$ thỏa mãn đẳng thức $(2)$.
+      
+Vậy giá trị các cặp $\left(x, y\right)$ thỏa mãn đẳng thức là $\left\{\left(2, 1\right), \left(3, 1\right), \left(3, 2\right), \left(18, 2\right)\right\}$.
+	}
+\end{ex}

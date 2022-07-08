@@ -1,0 +1,542 @@
+
+\section{Tính chẵn lẻ và ước chung lớn nhất}
+%\begin{center}\textbf{\color{violet}{Nguyễn Hữu Điển (Hà Nội)}}\end{center}
+\subsection{Lí thuyết cơ sở}	
+\noindent Bên cạnh các bài toán đếm hoặc chứng minh trên các đại lượng không có sự biến đổi, các bài toán Tổ hợp cũng thường mô tả quá trình mà ở đó, có một hoặc nhiều đối tượng được tác động, thay đổi liên tục. Cách tiếp cận phổ biến để xử lí là tìm kiếm tính bất biến, tìm đặc điểm đặc trưng nào đó của sự thay đổi nhằm giảm bớt độ phức tạp.\\
+Trong chương này, chúng ta sẽ đề cập đến hai yếu tố rất cơ bản nhưng có vai trò đáng kể trong hướng tiếp cận như thế, đó là tính chẵn lẻ và ước chung lớn nhất sinh ra từ \textit{tổ hợp tuyến tính} của nhiều số. Đặc điểm chung của hai yếu tố này là tính bất biến, không phụ thuộc hoặc ít phụ thuộc vào thứ tự thực hiện các tác động, giúp cho công việc lập luận trở nên đơn giản hơn rất nhiều.
+\subsubsection{Tính chẵn lẻ}
+\noindent Đây là một trong các yếu tố cơ bản nhất của Số học. Khi cần dùng nó trong Tổ hợp, ta thường xem xét một số tình huống mà một đối tượng, đại lượng nào đó chỉ có hai trạng thái. Tác động vào đó, từ trạng thái này, đối tượng sẽ đổi thành trạng thái kia và ngược lại, chẳng hạn như việc tung đồng xu với mặt sấp ngửa, tắt mở bóng đèn, lượt thích trên facebook (click lẻ lần thì được hiển thị đã thích còn click chẵn lần thì được hiển thị chưa thích),... Như thế, nếu tác động vào đối tượng đó một số lẻ lần, trạng thái sẽ thay đổi.
+\subsubsection{Ước chung lớn nhất và thuật toán Euclid}
+\noindent Khi nói đến nhiều đối tượng, đặc trưng của chúng thường được sử dụng chính là ước chung lớn nhất. Đó là yếu tố không bao giờ thay đổi khi xét các tổ hợp tuyến tính của nhóm đối tượng. Tại đây, ta gọi đại lượng $ax+by$ là một \textit{tổ hợp tuyến tính} của $x$, $y$ với $a$, $b\in \mathbb{Z}$. Tổng quát hơn, $$a_1x_1+a_2x_2+\cdots+a_kx_k$$ là một tổ hợp tuyến tính của các số $x_i$, $i=\overline{1,k}$ và $a_i\in\mathbb{Z}$, $i=\overline{1,k}$. Chú ý rằng nếu $a>b$ thì $\gcd(a,b)=\gcd(a-b,b)$ và nếu $a=b$ thì $\gcd(a,b)=a$. Từ tính chất đó, Euclid đã xây dựng được thuật toán để tìm ước chung lớn nhất của hai số nguyên dương như sau
+\begin{enumerate}
+	\item xét hai số nguyên dương $a$, $b$ rồi sang bước $2$;
+	\item nếu $a=b$ thì dừng lại, kết quả là $a$, nếu $a\ne b$ thì sang bước $3$;
+	\item nếu $a>b$ thì gán $a$ bởi $a-b$, nếu $a<b$ thì gán $b$ bởi $b-a$ rồi quay lại bước $1$.
+\end{enumerate}
+\noindent Ta thấy thuật toán sẽ dừng lại sau một số lần hữu hạn. Ngoài ra, bằng quy nạp, ta cũng dễ dàng chứng minh được rằng ước chung lớn nhất nhận được theo cách thực hiện thuận toán Euclid chính là một tổ hợp tuyến tính của hai số ban đầu. Cụ thể là, nếu ở một bước thứ $i$, ta có $\gcd(x_{i_1}a+y_{i_1}b,x_{i_2}a+y_{i_2}b)$ thì ở bước chuyển tiếp theo của thuật toán, ta sẽ xét một trong hai đại lượng $$\gcd((x_{i_1}-x_{i_2})a+(y_{i_1}-y_{i_2})b,x_{i_2}a+y_{i_2}b),\gcd(x_{i_1}a+y_{i_1}b,(x_{i_1}-x_{i_2})a+(y_{i_1}-y_{i_2})b),$$
+và đây vẫn là các tổ hợp tuyến tính khác của $a$, $b$.\\
+Một chú ý quan trọng là theo thuận toán Euclid thì việc biến đổi chỉ dừng lại khi hai giá trị nhận được bằng nhau nên từ một bộ $(a,b)$ cho trước, tại mỗi thời điểm thì hoặc $a>b$ hoặc $b>a$ nên do đó, chỉ có một đường để đi đến bộ $(\gcd(a,b),\gcd(a,b))$.
+\subsection{Một số ví dụ giải toán}
+
+
+\begin{vd}
+	Cho một bảng ô vuông $9\times9$ được điền toàn bộ bởi các dấu $+$. Người ta thực hiện đổi dấu các dòng hoặc các cột của bảng, từ $+$ sang $-$ và từ $-$ sang $+$ như sau
+	\begin{enumerate}[i)]
+		\item tất cả các ô của dòng thứ $i$ được đổi dấu $i$ lần với mọi $i=\overline{1,9}$;
+		\item tất cả các ô của cột thứ $j$ được đổi dấu $3j+1$ lần với mọi $j=\overline{1,9}$.
+	\end{enumerate}
+	Hỏi sau khi thực hiện tất cả các thao tác đổi dấu, trên bảng còn bao nhiêu dấu $+$?
+	\loigiai{Bài toán là một ứng dụng đơn giản của tính chẵn lẻ đã nêu trên. Ta thấy $i+(3j+1)$ và $i+j$ khác tính chẵn lẻ nên với các vị trí mà $i+j$ chẵn thì ô tương ứng sẽ được thay đổi trạng thái số lẻ lần, tức là từ $+$ chuyển sang dấu $-$. Dễ thấy trên bảng này có $41$ ô như thế nên còn lại $40$ dấu $+$ sau các thao tác đã nêu.
+		
+		\noindent{\bf Bình luận.} Từ bài toán trên, ta đi đến một tình hướng tương tự nhưng khó hơn sau đây.}
+\end{vd}
+
+\begin{vd}
+	Trên bảng vuông $2016\times 2016$, có tất cả các ô vuông được điền dấu $+$. Mỗi lần thao tác, ta cũng được chọn một dòng hoặc một cột tùy ý của bảng và đổi dấu tất cả các dấu trên đó, từ $+$ sang $-$ và từ $-$ sang $+$.
+	\begin{enumerate}[(a)]
+		\item Hỏi sau một số lần thao tác, có thể còn lại $242$ dấu $+$ được không?
+		\item Tính giá trị nguyên nhỏ nhất của số lượng dấu $+$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}[(a)]
+			\item Trong tình huống này, ta không biết thứ tự thực hiện các thao tác và cũng không rõ là mỗi dòng, mỗi cột sẽ được thay đổi được bao nhiêu lần, nhưng với ý tưởng đã dùng, ta thấy rằng chỉ cần quan tâm đến những dòng/cột đã bị thay đổi số lẻ lần.\\
+			Gọi $p$ là số dòng bị thay đổi số lẻ lần và $q$ là số cột bị thay đổi số lẻ lần. Khi đó, sẽ có hai nhóm các ô bị tác động số chẵn lần, nhóm thứ nhất gồm các ô không thuộc về $p$ dòng và $q$ cột nêu trên, và nhóm thứ hai gồm các ô thuộc về $p$ dòng và $q$ cột này. Ta dễ thấy nhóm thứ nhất có tất cả $(2016-p)(2016-q)$ ô, con số này đối với nhóm thứ hai là $pq$. Do đó, dễ dàng tính được sẽ có $(2016-p)(2016-q)+pq$ dấu $+$ còn lại. Ta đưa về phương trình nghiệm nguyên không âm là
+			$$(2016-p)(2016-q)+pq=242,$$
+			$$2016^2-2016(p+q)+2pq=242,$$
+			$$pq-1008(p+q)=121-2\cdot 1008^2,$$
+			$$(p-1008)(q-1008)=-1019\cdot 997.$$
+			\noindent Do $1019$ là số nguyên tố nên trong hai thừa số $p-1008$, $q-1008$, phải có một thừa số là bội của $1019$. Tuy nhiên, với chú ý rằng $p,q\in\{0,1,\ldots,2016\}$, ta có $$|p-1008|,|q-1008|\le 1008,$$ suy ra không tồn tại $p$, $q$ thỏa mãn phương trình ở trên, tức là không thể có $242$ dấu $+$.
+			\item Với các kí hiệu như trong lời giải phần $(a)$, thực chất ta cần tìm giá trị nguyên dương nhỏ nhất của $$S:=(2016-p)(2016-q)+pq.$$
+			\noindent Ta dễ thấy nếu $p=0$ thì $S=2016(2016-q)$, là một số nguyên không âm là bội của $2016$. Do đó ta cần tìm giá trị nguyên dương nhỏ nhất của $S$ nên ta có giá trị này là $2016$.\\
+			Nếu $p=2016$ thì $S=2016q$, và tương tự trên ta có giá trị nguyên dương nhỏ nhất của $S$ là $2016$.\\
+			Nếu $1\le p\le 2015$ thì hiển nhiên
+			$$S=(2016-p)(2016-q)+pq\ge 1\cdot (2016-q)+1\cdot q=2016.$$
+			Vậy ta kết luận đáp số là $2016$ với đẳng thức xảy ra khi $$\{p,q\}=\{0,2015\},\{1,2016\}.$$
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}
+	Có một ổ khóa phức tạp có dạng bảng $4\times 4$ mà mỗi ô vuông của bảng là một ổ khóa đơn có hai vị trí là ngang và dọc. Muốn mở được ổ khóa này, cần phải chuyển tất cả các ổ khóa đơn sang dạng nằm ngang. Biết rằng có một chìa khóa đặc biệt, có thể tác động lên một ổ khóa đơn bất kì và thay đổi trạng thái của tất cả các ổ khóa cùng hàng và cùng cột với nó (kể cả nó): ngang thành dọc và dọc thành ngang, như hình vẽ dưới đây.
+	\begin{center}
+		\begin{tikzpicture}
+		\draw (0,0) grid (4,4);
+		\draw (0.3,0.5)--(0.7,0.5);
+		\draw (1.3,0.5)--(1.7,0.5);
+		\draw (3.3,0.5)--(3.7,0.5);
+		\draw (1.3,1.5)--(1.7,1.5);
+		\draw (2.3,1.5)--(2.7,1.5);
+		\draw (3.3,1.5)--(3.7,1.5);
+		\draw (2.3,2.5)--(2.7,2.5);
+		\draw (3.3,2.5)--(3.7,2.5);
+		\draw (0.3,3.5)--(0.7,3.5);
+		\draw (2.3,3.5)--(2.7,3.5);
+		\draw (0.5,1.3)--(0.5,1.7);
+		\draw (2.5,0.3)--(2.5,0.7);
+		\draw (0.5,2.3)--(0.5,2.7);
+		\draw (1.5,2.3)--(1.5,2.7);
+		\draw (1.5,3.3)--(1.5,3.7);
+		\draw (3.5,3.3)--(3.5,3.7);
+		\draw (1.5,2.5) circle (0.4);
+		\draw[->,line width=1.5pt] (5,2)--(7,2);
+		\draw (8,0) grid (12,4);
+		\draw (8.3,0.5)--(8.7,0.5) (11.3,0.5)--(11.7,0.5) (10.3,1.5)--(10.7,1.5) (11.3,1.5)--(11.7,1.5) (8.3,2.5)--(8.7,2.5) (9.3,2.5)--(9.7,2.5) (8.3,3.5)--(8.7,3.5) (9.3,3.5)--(9.7,3.5) (10.3,3.5)--(10.7,3.5);
+		\draw (9.5,0.3)--(9.5,0.7) (10.5,0.3)--(10.5,0.7) (8.5,1.3)--(8.5,1.7) (9.5,1.3)--(9.5,1.7) (10.5,2.3)--(10.5,2.7) (11.5,2.3)--(11.5,2.7) (11.5,3.3)--(11.5,3.7);
+		\draw (9.5,2.5) circle (0.4);
+		\end{tikzpicture}
+	\end{center}
+	Chứng minh rằng với mọi trạng thái ban đầu của ổ khóa đã cho(các ổ khóa đơn của nó nằm ngang dọc tùy ý), ta luôn có thể mở được ổ khóa với chìa khóa đặc biệt sau hữu hạn lần thao tác.
+	\begin{flushright}
+		(Arab Saudi, 2016)
+	\end{flushright}
+	\loigiai{
+		Ta sẽ chỉ ra rằng với một ổ khóa đơn tùy ý, ta luôn có thể sử dụng chìa khóa một cách thích hợp để có thể thay đổi trạng thái của nó và không làm thay đổi trạng thái các ổ khóa đơn còn lại. Rõ ràng điều này tương đương với yêu cầu bài toán. Chiến lược của ta cực kì đơn giản: với một ổ khóa đơn được chọn, ta thay đổi trạng thái của tất cả các ổ khóa đơn cùng hàng và cùng cột với nó. Khi đó chính ổ khóa đó sẽ bị thay đổi trạng thái bảy lần, các ổ khóa cùng hàng hoặc cùng cột với nó sẽ bị thay đổi trạng thái bốn lần, và các ổ khóa không cùng hàng và cột với nó sẽ bị thay đổi trạng thái hai lần. Từ đó, dễ thấy rằng chiến lược trên thỏa mãn yêu cầu đặt ra.
+		
+		\noindent{\bf Bình luận.} Rõ ràng chiến lược trên chỉ đúng khi kích thước của bảng số là số chẵn. Nếu kích thước lẻ, cách làm trên sẽ làm thay đổi trạng thái các ổ khóa cùng dòng hoặc cùng cột với ổ khóa được chọn, là không khỏa mãn. Từ đó, ta thử đặt vấn đề là: \textit{Câu hỏi còn đúng không với bảng $3\times 3$?}\\					
+	}
+\end{vd}
+\noindent Tiếp theo, ta xét một bài toán khá kinh điển về việc áp dụng tính chẵn lẻ này.
+\begin{vd}
+	Trong một căn phòng, có $2016$ bóng đèn được đánh số từ $1$ đến $2016$ với hai trạng thái bật hoặc tắt. Có $2016$ người lần lượt bước vào trong phòng và thực hiện: với mỗi $k\in\{1,2,\ldots,2016\}$, người thứ $k$ thay đổi trạng thái của bóng đèn chia hết cho $k$. Hỏi khi $2016$ người thực hiện xong các thao tác, còn lại bao nhiêu bóng đèn còn bật?
+	\loigiai{
+		Ta thấy rằng bóng đèn thứ $n$ sẽ bị thay đổi trạng thái vào thời điểm người thứ $k$ bướb vào khi $k$ là ước của $n$. Do đó, sau khi người thứ nhất bật tất cả các bóng đèn, để một bóng đèn thứ $n$ được bật thì số lượng ước nguyên dương của nó, không tính số $1$, phải chẵn. Hay nói cách khác, $n$ có số lẻ ước. Tuy nhiên, ta biết rằng một số nguyên dương có số lẻ ước khi và chỉ khi nó là số chính phương. Suy ra, số lượng bóng đèn còn bật sau $2016$ lần thao tác cũng chính là số các số chính phương không vượt quá $2016$. Chú ý rằng $44^2<2016<45^2$ nên có $44$ bóng đèn như thế.
+		\noindent {\bf Bình luận.} Từ lời giải trên, ta thấy nếu đặt $f(n)$ là đáp số của bài toán khi thay $2016$ thành $n$ thì $f(n)=\left\lfloor\sqrt{n}\right\rfloor$. Từ đây, bạn đọc có thể tự chứng minh một tính chất khá thú vị của hàm $f(n)$ là: \textit{Với mọi số nguyên dương $m$, tồn tại đúng ba số nguyên dương $n$ để $\dfrac{n}{f(n)}=m$, đó là}
+		$$n=m^2,\qquad n=m(m-1),\qquad n=m(m-2).$$		
+	}
+\end{vd}
+\noindent Tiếp theo, trước khi xem xét một bài toán khó hơn ở phần tính chẵn lẻ cũng như tìm mối liên hệ giữa các yếu tố, ta chuyển sang một số bài ở phần tổ hợp tuyến tính với ước chung lớn nhất.
+\begin{vd}[Poisson] Chuyện kể rằng, trong một lần đi chơi, hai cha con Poisson (sau này là nhà toán học Pháp nổi tiếng Siméon Denis Poisson) rẽ vào một cửa hàng bên lề đường để mua sữa, hai người chỉ một chiếc bình chứa được $3$ lít và $5$ lít mà họ lại muốn mua $4$ lít. Trong khi đó, người chủ trại có một chiếc bình $8$ lít đựng đầy sữa. Poisson lúc đó mới $7$ tuổi chợt nói: \lq\lq Khó gì việc đó, để con làm cho.\rq\rq Và quả nhiên, sau một số lần đong đi đong lại, cậu bé đã chia đôi được $8$ lít sữa trong sự thán phục của mọi người.
+	
+	\noindent Bài toán đặt ra là với hai chiếc bình có dung tích $a$, $b$ lít với $a,b\in\mathbb{N}$ cho trước và các dụng cụ chứa sữa, người ta có thể đong được ít nhất là bao nhiêu lít sữa (tất nhiên lượng sữa phải là số nguyên dương) mà không sử dụng thêm các đo lường khác.
+	\loigiai{
+		Ta thử xét trường hợp của Poisson, đong $4$ lít sữa từ bình $3$ lít và $5$ lít.
+		\begin{center}
+		\begin{tabular}{|c|c|l|}
+			\hline
+			Bình $5$ lít & Bình $3$ lít & Giải thích\\
+			\hline
+			$5$& $0$ & Đổ đầy sữa vào bình $5$ lít\\
+			\hline
+			$2$& $3$& Đổ sữa từ bình $5$ sang đầy bình $3$ lít\\
+			\hline
+			$2$&$0$& Đổ hết sữa trong bình $3$ lít ra bình chứa\\
+			\hline
+			$0$&$2$& Đổ sữa trong bình $5$ lít sang bình $3$ lít\\
+			\hline
+			$5$&$2$& Đổ sữa đầy bình $5$ lít\\
+			\hline
+			$4$&$3$&Đổ đầy sữa bình $5$ lít sang đầy bình $3$ lít\\
+			\hline
+		\end{tabular}
+	\end{center}	
+		\noindent Ta thấy rằng bình $5$ lít được đổ đầy $2$ lần và bình $3$ lít được đổ đầy $2$ lần. Hơn nữa ta cũng có, $2\cdot 5 - 2\cdot 3=4$. Như vậy, ý nghĩa của biểu thức này là gì?\\
+		Rõ ràng, việc đong sữa ở đây cho ra kết quả là các tổ hợp tuyến tính của $a$, $b$ nên giá trị của chúng là $|ax+by|=c$ với $x,y\in \mathbb{Z}$. Ta sẽ chứng minh giá trị nhỏ nhất của biểu thức đó chính là $\gcd(a,b)$. Thật vậy, nếu tồn tại $0<c<\gcd(a,b)$ sao cho $|ax+by|=c$ thì do $\gcd(a,b)\mid a,b$ nên phải có $\gcd(a,b)\mid c$, mà $c>0$ nên ta phải có $c\geq \gcd(a,b)$, mẫu thuẫn.
+		
+		\noindent Việc chứng minh tồn tại một cách đong sữa là không khó vì theo thuật toán Euclid, ta thấy tồn tại $x_0,y_0\in\mathbb{Z}$ sao cho $ax_0+by_0=\gcd (a,b)$, tất nhiên trong các số $x_0,y_0$ phải có số âm và số dương, và ta có thể giả sử $x_0>0>y_0$. Số dương chứng tỏ rằng bình tương ứng được đổ đầy sửa $x_0$ lần; số âm chứng tỏ bình được rót hết sữa đi $y_0$ lần. Từ đó có thể suy ra được quy trình đong sữa.
+		
+		\noindent Vậy giá trị nhỏ nhất cần tìm là $\gcd(a,b)$.
+		
+		\noindent{\bf Bình luận.} Nội dung bài toán trên nhắc cho ta về bổ đề Bézout quen thuộc: Với $a,b$ nguyên dương, tồn tại $x_0, y_0\in \mathbb{Z}$ sao cho $ax_0+by_0=\gcd(a,b)$. Định lý này nếu chứng minh bằng lý thuyết số thuần túy sẽ không dễ, nhưng ở đây tiếp cận theo hướng thuật toán Euclid thì khá hiển nhiên.
+	}
+\end{vd}
+\begin{vd}
+	Ta biết rằng nếu hai điện trở $R_1$, $R_2$ mắc nối tiếp thì điện trở tương đương là $R_{td}=R_1+R_2$, còn nếu mắc song song thì
+	\[\dfrac{1}{R_{td}}=\dfrac{1}{R_1}+\dfrac{1}{R_2}.\]
+	Hỏi nếu lần lượt mắc các điện trở đơn vị vào mạch, mỗi lần có thể chọn mắc nối tiếp hoặc mắc song song thì cần bao nhiêu điện trở để có $R_{td}=\dfrac{144}{89}$?
+	\loigiai{
+		Ta thấy rằng, mạch điện có điện trở tương đương $\dfrac{a}{b}$ mắc nối tiếp với điện trở đơn vị thì có $R_{td}=\dfrac{a+b}{b}$, và mạch điện có điện trở tương đương $\dfrac{a}{b}$ mắc song song với điện trở vị thì $R_{td}=\dfrac{a}{a+b}$. Điều này có nghĩa là $(a,b)\to (a,a+b)$ hoặc $(a,b)\to (a+b,b)$. Ngược lại, $(a,b)$ được tạo thành từ $(a,b-a)$ nếu $b>a$ và $(a-b,b)$ nếu $a>b$.
+		
+		\noindent Do đó, một bộ $(a,b)$ được sinh ra một cách duy nhất từ một bộ nào đó. Rõ ràng đây chính là các bước của thuật toán Euclid. Vì thế nên số điện trở cần tìm chính là số lần thực hiện thuật toán Euclid với hai số $(a,b)$ cộng thêm $1$. Ta có:
+		\[\begin{array}{rl}
+		(144,89)&\to (89,55)\to (55,34)\to (34,21)\to (21,13)\\
+		&\to (13,28)\to (8,5) \to (5,3)\to (3,2)\to (2,1)\to (1,1)
+		\end{array}
+		\]
+		Do đó, cần $12$ điện trở đơn vị để có mạch điện $R_{td}=\dfrac{144}{89}$.\\
+		\noindent{\bf Bình luận.} Trong trường hợp tổng quát, ta không tìm được một hàm $f(m,n)$ để biểu diễn số lượng đó nhưng trong một vài trường hợp nhất định thì vẫn xác định được chính xác được. Chẳng hạn nếu $(a,b=)(F_n,F_{n+1})$ với $(F_n)_{n\geq 1}$ là dãy Finonacci thì số bước cần tìm là $n$.
+	}
+\end{vd}
+\begin{vd}
+	Có hai bạn An và Bình chơi một trò chơi như sau: ban đầu, họ có một dãy các số nguyên dương
+	\[a_1<a_2<a_3<\cdots< a_n.\]
+	Ở mỗi lượt, họ sẽ chọn ra hai số $x$, $y$ nào đó thuộc dãy và tính giá trị $|x-y|$, nếu như số này chưa xuất hiện trong dãy thì điền thêm vào. Đến lượt ai thực hiện mà không tìm được hai số nào thỏa mãn việc điền thêm số thì coi như thua. Biết rằng An và Bình chơi tối ưu và An đi trước. Hỏi ai là người có chiến lược thắng?
+	\loigiai{
+		Để tìm ra chiến lược tổng quát, ta cần làm rõ: các số có thể đưa vào dãy có dạng như thế nào và số lượng có thể điền vào là bao nhiêu?\\
+		Ta thấy rằng việc điền số $|x-y|$ ở trên có thể coi như điền số $x-y$ với $x>y$ và điền số $y-x$ nếu $y>x$. Ta có thể chọn các cặp số tùy ý để ghép lại với nhau nên các số điền vào được là một tổ hợp tuyến tính của $n$ số đã cho
+		\[x_1a_1+x_2a_2+\cdots+ x_na_n. \]
+		Hơn nữa, do là các tổ hợp tuyến tính nên thứ tự các số có thể chọn theo thứ tự tùy ý và không ảnh hưởng đến kết quả cuối cùng (có thể dùng lập luận để làm rõ hơn vấn đề này).\\
+		Đặt $d:=\gcd(a_1,a_2,\ldots,a_n)$, ta thấy rằng các số có thể điền vào được có dạng $kd$ với $1\leq k\leq \dfrac{a_n}{d}$. Rõ ràng các số $a_1,a_2,\ldots,a_n$ đã cho đều có dạng này nên tổng số lượng các số có thể điền thêm vào dãy là $\dfrac{a_n}{d}-n$. Đến đây ta chỉ cần kiểm tra tính chẵn lẻ của các số này: nếu giá trị này chẵn thì Bình thắng, còn nếu giá trị này lẻ thì An thắng.		
+		
+		\noindent{\bf Bình luận.} Nhờ có các tổ hợp tuyến tính và thuật toán Euclid, việc lập luận ở các bài trên khá nhẹ nhàng. Phần khó nhất thường là mô tả quy trình đã được giải quyết vì ta chỉ cần quy nó về quy trình thực hiện thuật toán. Ta xem xét tiếp bài toán dưới đây cũng có đặc trưng đó.	
+	}
+\end{vd}
+
+\begin{vd}
+	Cho tập hợp $A$ có tính chất:
+	\begin{enumerate}[i)]
+		\item nếu $a\in A$ thì $a+\dfrac{1}{a}\in A$ và $2+\dfrac{1}{a-1}\in A$;
+		\item $2\in A$.
+	\end{enumerate}	
+	Chứng minh rằng tất cả các số hữu tỉ lớn hơn $1$ đều thuộc $A$.
+	\loigiai{
+		Theo giả thiết thì $a\in A$ nên $1+\dfrac{1}{a}$ và $2+\dfrac{1}{a-1}\in A$, do đó
+		\begin{equation}
+		2+\dfrac{1}{\left(1+\frac{1}{a}\right)-1}=2+a\in A.
+		\label{eq: 241}
+		\end{equation}
+		Do $2\in A$ nên tất cả các số nguyên dương chẵn thuộc $A$. Mặt khác, vì $2\in A$ nên $2+\dfrac{1}{2-1}=3\in A$, dẫn tới tất cả các số nguyên dương lẻ lớn hơn $1$ cũng thuộc $A$. Do đó $\mathbb{N}\backslash\{1\} \subset A$.\\
+		Tiếp theo, ta sẽ chứng minh tất cả các số hữu tỉ có dạng $\dfrac{m}{n}$ với $m$, $n$ nguyên dương nguyên tố cùng nhau thỏa mãn $m>n$ đều thuộc $A$. Theo (\ref{eq: 241}), ta
+		chỉ cần chứng minh $1 < \dfrac{m}{n} < 3$ vì số hữu tỉ $x + 2$ có thể được tạo từ $x$. Ta coi tương ứng số hữu tỉ $\dfrac{m}{n}$ như một cặp $(m, n), m > n$.
+		\\
+		Để xây dựng một số hữu tỉ $\dfrac{m}{n}$ tùy ý, ta xét qui trình thực hiện thuật toán Euclid để tìm $\gcd(m, n)$. Gọi $B$ là tập hợp các cặp sinh ra trong quá trình đó, chẳng hạn. 
+		\[B = \left\{ \left( m,n \right),\left( m - n,n \right),\left( m - n,m - 2n \right), \ldots \right\}. \]
+		Có hai khả năng xảy ra.
+		\begin{itemize}
+			\item $1 < \dfrac{m}{n} <2$.  Khi đó, ta cần chọn $a$ thỏa mãn $1 + \dfrac{1}{a} = \dfrac{m}{n}  $, hay là $a = \dfrac{n}{m-n}$, tức là trước đó, $ \dfrac{n}{m-n} \in A $. Để ý rằng cặp $(n, m - n) \in B$ với điều kiện $ n < m < 2n$.
+			\item $2 < \dfrac{m}{n} <3$. Lúc này, ta cần chọn $a$ thỏa mãn $2 + \dfrac{1}{a - 1} = \dfrac{m}{n}  $ hay $a = \dfrac{m - n}{ m -2n}$, tức là trước đó, $ \dfrac{m - n}{ m -2n} \in A$. Ta cũng để ý rằng cặp $(m - n, m - 2n) \in B$ với điều kiện $2n < m < 3n$.
+		\end{itemize}
+		Thuật toán Euclid kết thúc bởi cặp số có dạng $(a , 1)$ với $a$ nguyên dương lớn hơn 1, tương đương với số hữu tỉ $ \dfrac{a}{1} = a \in A$. Khi đó, xuất phát từ số này, ta đi ngược lại theo quy trình đã thực hiện thì sẽ nhận được số $\dfrac{m}{n}$. Từ đó, ta thu được tất cả các số hữu tỉ lớn hơn 1 đều thuộc $A$. 
+	}
+\end{vd}
+\begin{vd}
+	Cho một dãy các số $1, 2, 3, \ldots, 1000$. Ở mỗi lượt người ta xác định tất cả các cặp số đứng cạnh nhau và điền vào giữa hai số đó tổng của chúng. Hỏi sau khi thực hiện 2013 lượt thì số lượng số 2013 trong dãy này là bao nhiêu? 
+	\begin{flushright}
+		(Việt Nam, 2013)
+	\end{flushright}
+	
+	
+	\loigiai{ Trước hết, ta thấy rằng tại một thời điểm nào đó, nếu $(x,y)$ là hai số đứng cạnh nhau thì từ đó trở đi, các số sinh ra giữa chúng là các tổ hợp tuyến tính của $x$ và $y$. Ta cũng chỉ cần quan tâm đến 2013 lần thực hiện đầu tiên vì từ đó trở đi, các số sinh ra thêm được đều lớn hơn 2013. Cụ thể hơn, từ cặp $(x, y)$ là hai số đứng cạnh nhau, sau một lần thực hiện, ta được bộ $(x, x+y, y)$, tức là có thêm hai cặp $(x, x + y)$ và $(x + y, y)$.
+		\\	
+		Do $\gcd(x, y) = \gcd(x, x+ y) = \gcd(x + y, y)$ và ban đầu các số nguyên dương liên tiếp nên cac cặp ban đầu đều có hai số nguyên tố cùng nhau, dẫn tới tất cả các cặp số đứng cạnh nhau trong mọi thời điểm sau đó cũng phải nguyên tố cùng nhau.
+		\\	
+		Giả sử sau một bước thao tác, từ cặp $(x, y)$, ta thu được số 2013, thì rõ ràng $x + y = 2013$. Chú ý rằng do $\gcd(x+y) = 1$ nên $\gcd(x, 2013) = \gcd(y, 2013) = 1$.	
+		\\	
+		Do đó, số 2013 chỉ có thể xuất hiện giữa các cặp trong tập 
+		\[ S: = \left\{ \left( x,y \right):x,y \in N,x + y = 2013,\gcd \left( {x,2013} \right) = 1 \right\}. \]
+		Mặt khác, ta có nhận xét rằng các cặp số có dạng $(a, 1)$ với $a >1$ không bao giờ xuất hiện trong dãy đã cho. Điều này dễ thấy do để có được $(a, 1)$, trước đó, ta phải lần lượt có các cặp 
+		$$ (a - 1, 1), (a - 2, 1), \ldots, (2, 1).$$
+		Tuy nhiên, trong quá trình trên không thể tiếp tục được nữa và cặp $(2, 1)$ cũng không xuất hiện trong dãy ban đầu. Như thế, trong $S$ ta phải loại đi hai cặp: $(2012, 1)$ vì tuy nó thỏa mãn $\gcd(2012, 2013) = 1$ nhưng lại có dạng $(a, 1)$ với $a > 1$, và $(1006, 1007) $ vì tuy nó thỏa mãn $\gcd(1006, 2013) = 1$ nhưng nó được sinh ra từ $(1006, 1)$.
+		\\
+		Tiếp theo, rõ ràng một bộ $(x, y)$ được sinh ra từ một bộ $(x - y, y)$ nếu $x > y$ hoặc $(x, y - x)$ nếu $y > x$. Đây chính là quá trình thực hiện thuật toán Euclid. Song, vì ước chung lớn nhất của hai số $x, y$ là $1$ nên trước khi một trong hai số là $1$ thì chắc chắn ta phải có một cặp số nguyên dương có dạng $(a - 1, a)$ hoặc $(1, a)$ với $a > 1$. Chú ý các cặp $(x , y)$ khác nhau được sinh ra từ các cặp ban đầu khác nhau nên các cặp $(x, y)$ nếu có xuất hiện trong dãy, là duy nhất.
+		\\
+		Do cặp $(1, a)$ với $a > 1$ sẽ xuất hiện trong dãy sau $a - 2$ lần, còn cặp $(a - 1, a)$ với $1 < a \le 1000$ đã có sẵn trong dãy đã cho nên từ ác cặp dạng này, ta đi ngược lên là sẽ thu được cặp số $(x, y)$ cần tìm. Điều này chứng tỏ rằng trong $S$, trừ hai cặp $(2012, 1)$ và $(1006, 1007)$ ra thì các cặp còn lại đều xuất hiện đúng một lần sau $2013$ lần thao tác. Như vậy, số các số $2013$ cần tìm là 
+		\[\begin{aligned}{l}
+		\left| S \right| - 2 &  = \# \left\{ x:x \in \left\{ 1,2, \ldots,2013 \right\},\gcd \left( x,2013 \right) = 1 \right\} - 2\\
+		&  = \varphi \left( 2013 \right) - 2 = \varphi \left( 3 \right)\varphi \left( 11 \right)\varphi \left( 61 \right) - 2 = 1200 - 2 = 1198.
+		\end{aligned}\]
+		\\
+		{\bf Bình luận.}
+		Tổng quát hơn, ta thấy rằng với $n \ge 2$ và dãy $1, 2, 3, \ldots, n -1$ thì có hai trường hợp xảy ra.
+		
+		\begin{itemize}
+			\item $n$ chẵn. Lúc này, ta sẽ không thu được số $n$ nào sau các lần thao tác (vì hai cặp liên tiếp đều có một số chẵn, không nguyên tố cùng nhau với $n$).
+			\item $n$ lẻ. Khi ấy, sau $n$ thao tác như trên, ta thấy có đúng $\varphi(n) - 1$ số $n$ xuất hiện trong dãy (ta có thể đặt chúng lên vòng tròn để có số $1$ và $n - 1$ đứng cạnh nhau, suy ra có đầy đủ $\varphi(n)$ số $n$ ). Trong ví dụ trên, do dãy không có sự xuất hiện của $\dfrac{n - 1}{2}, \dfrac{n + 1}{2}$ nên ta phải trừ bớt đi một cặp nữa và còn $\varphi(n) - 2$ số.	
+		\end{itemize}
+	}
+\end{vd}
+\begin{vd}
+	Cho một cặp số nguyên dương $(m, n)$ với $m \ge n$. Hai người, $A$ và $B$, chơi trò chơi như sau: họ thay phiên nhau chuyển từ $(m, n)$ sang $\left( {\max \left\{ {m - tn,n} \right\},\min \left\{ m - tn,n \right\}} \right)$ với $t$ là số nguyên dương tùy ý thỏa mãn $m - tn \ge 0.$ Người nào chuyển được về cặp số chứa số $0$ trước thì thắng cuộc. Chứng minh rằng
+	\begin{enumerate}[(a)]
+		\item 	
+		Trò chơi sẽ kết thúc với bộ số $(0,\gcd(m, n))$;
+		
+		\item Nếu $m = n$ hoặc $m > \varphi n$ với $\varphi = \dfrac{{1 + \sqrt 5 }}{2}$ thì người thứ nhất có chiến lược để thắng; ngược lại thì người thứ hai có chiến lược để thẳng.
+	\end{enumerate}
+	
+	
+	\loigiai{ 
+		\begin{enumerate}[(a)]
+			\item 
+			Trước hết, ta thấy rằng các bộ số xuất hiện sau các bước đi của người chơi chính là tổ hợp tuyến tính của hai số ban đầu nên cả hai số đều phải chia hết cho $\gcd(m, n)$ và ước chung lớn nhất của chúng cũng phải là $\gcd(m, n)$ Rõ ràng, trò chơi kết thúc với bộ có dạng $(0, x)$ với $x > 0$ và $x$ chia hết cho $\gcd(m, n)$, tức là $x \ge \gcd(m, n)$.
+			
+			Nếu như $x > \gcd(m, n)$ thì trước khi đạt được bộ này, người chơi sẽ có bộ $(y, x)$ với $y - tx = 0$ hay $y = tx$. Khi đó $\gcd(x, y) = x > \gcd(m, n)$, mâu thuẫn. Do tổng của hai số giảm thực sự nên đến một lúc nào đó thì trò chơi phải kết thúc. 
+			
+			\item  Trước hết, nếu $m = n$ thì hiển hiên người thứ nhất thăng cuộc. Ngược lại, nếu $m > n$,ta biểu diễn: 
+			\[\frac{m}{n} = \left[ a_0, a_1,a_2, \ldots, a_k \right]\]
+			là một liên phân số. Rõ ràng các hệ số của liên phân số này có thể tìm được dễ dàng bằng thuật toán Euclid. Ngoài ra, $\varphi = [1, 1, ,1, \ldots]$ là một liên phân số vô hạn (do $\varphi$ là số vô tỉ) gồm toàn các hệ số là $1$, do (chú ý $\varphi$ là nghiệm của phương trình $x^2 = x + 1$)
+			\[x = 1 + \frac{1}{x} = 1 + \frac{1}{1 + \frac{1}{x}} = \ldots \]
+			và cứ lặp lại quá trình như thế. Khi đó, $\dfrac{m}{n} > \varphi$ khi và chỉ khi hệ số đầu tiên mà $a_i > 1$ nằm ở vị trí chắn, ngược lại thì ta đều có $\dfrac{m}{n} < \varphi$ (không xảy ra đẳng thức do $\dfrac{m}{n}$ là số hữu tỉ).
+			
+			Trò chơi Euclid mô tả ở trên chính là việc bỏ đi hoặc làm giảm hệ số đầu tiên của các liên phân số biểu diễn tỉ lệ giữa cặp số $(m,n )$ xuất hiện trong quá trình chơi mà xuất phát từ liên phân số ban đầu. Trong trường hợp hệ số đầu tiên bằng $1$ thì người chơi chỉ có cách duy nhất là bỏ đi hệ số đó. Ta sẽ chứng minh rằng người chơi thứ nhất luôn thắng nếu như hệ số đầu tiên $a_i>1$ nằm ở vị trí chẵn.\\
+			Thật vậy, do $a_i>1$ là hệ số đầu tiên nên ta có
+			$$a_0=a_1=a_2=\ldots=a_{i-1}=1,$$
+			có tổng cộng $i$ hệ số như vậy và người chơi chỉ có một cách duy nhất là loại bỏ hệ số đó đi ở lượt chơi của mình. Do đó, người chơi $A$ sẽ gặp hệ số $a_i$. Người chơi $A$ sẽ có một trong hai cách chuyển
+			$$\dfrac{m_1}{n_1}=\left[1,a_{i+1},a_{i+2},\ldots,a_k\right],\quad \dfrac{m_2}{n_2}=\left[a_{i+1},a_{i+2},a_{i+3},\ldots,a_k\right].$$
+			Rõ ràng đây là trò chơi đối kháng bình đẳng và sẽ kết thúc sau hữu hạn nước đi, như đã chứng minh ở trên, nên ứng với hai vị trí trên, luôn tồn tại một chiến lược chiến thắng cho người thứ nhất hoặc người thứ hai. Từ đó suy ra việc chuyển như thế nào phụ thuộc vào vị trí $\dfrac{m_1}{n_1}$ và $\dfrac{m_2}{n_2}$ là vị trí thắng hoặc thua của người thứ hai và điều này là luôn quyết định được. Từ đây, ta dễ có điều cần chứng minh. 
+		\end{enumerate}
+	}
+\end{vd}
+\noindent{\bf Bình luận.} Để mô tả chiến lược chiến thẳng của trò chơi Euclid, trên thực tế có nhiều cách tiếp cận. Chẳng hạn như sử dụng quy nạp hoặc mô tả trong hệ trục tọa độ có các điểm nguyên. Tại đây, ta xét việc sử dụng thuật toán Euclid (ứng với phép chia lấy phần dư) và một công cụ liên hệ chặt chẽ với nó biểu diễn quá trình thực hiện thuật toán là liên phân số.\\
+Tiếp theo, ta xét một bài toán có thể xem là một cầu nối giữa việc áp dụng tính chẵn lẻ và việc xác định ước chung lớn nhất.
+
+\begin{vd}
+\textit{Cho một đa giác $2016$ đỉnh cùng được tô màu xanh. Mỗi lần thao tác, cho phép chọn ra $k$ đỉnh liên tiếp và đổi màu tất cả các đỉnh này: đỏ thành xanh, xanh thành đỏ. Hỏi có thể đổi tất cả các đỉnh sang màu đỏ được hay không với $k=4, k=5$ hoặc $k=64$?}
+\loigiai{
+Với $k=4$, câu trả lời là có, vì $2016$ chia hết cho $4$, ta chỉ cần đổi màu các cụm rời nhau gồm bốn đỉnh liên tiếp.\\
+Với $k=5$, câu trả lời vẫn như vậy. Ta tiến hành đổi màu tất cả các cụm năm đỉnh liên tiếp, không nhất thiết rời nhau. Khi đó, mỗi đỉnh sẽ thuộc về năm cụm nên được đổi màu năm lần, tức là sẽ chuyển từ xanh sang đỏ.\\
+Với $k=64$, câu trả lời là không. Thật vậy, ta thấy rằng $\gcd(64,2016)=32$ nên chia các đỉnh của đa giác thành $32$ nhóm, mỗi nhóm gồm các đỉnh có cùng số dư với nhau khi chia cho $32$. Khi đó, mỗi nhóm có $\dfrac{2016}{32}=63$ đỉnh. Mỗi lần thao tác, trong mỗi nhóm, có đúng $\dfrac{64}{32}=2$ đỉnh được đổi màu và là số chẵn. Do đó, số đỉnh màu đỏ đã bị đổi màu của mỗi nhóm luôn là số chẵn, không cùng tính chẵn lẻ với số lượng đỉnh mỗi nhóm ban đầu, là số lẻ. Do đó, không thể đổi màu tất cả các đỉnh sang đỏ được.\\
+\noindent{\bf Bình luận.} Với ý tưởng giải ở trên, ta có giải bài toán tổng quát khi thay bởi $n$ như sau.
+}
+\end{vd}
+
+\begin{vd}
+\textit{Cho một đa giác $n$ đỉnh cùng được tô màu xanh. Mỗi lần thao tác, cho phép chọn ra $k$ đỉnh liên tiếp và đổi màu tất cả các đỉnh này: đỏ thành xanh, xanh thành đỏ. Khi ấy điều kiện cần và đủ để có thể đổi sang đỏ tất cả các đỉnh là $v_2(n) \ge v_2(k)$, và trong trường hợp $v_2(n),v_2(k)$ thì số đỉnh nhiều nhất có thể đổi sang đỏ được là $n - \gcd(n,k)$.}
+\loigiai{
+Đặt $d:=\gcd(n,k)$. Ta đánh số các đỉnh tử $1$ đến $n$ và chia chúng thành $d$ nhóm rời nhau có cùng số dư khi chia cho $d$, mỗi nhóm có $\dfrac{n}{d}$ đỉnh. Khi đó, mỗi lần thao tác, số đỉnh bị đổi màu trong mỗi nhóm bằng nhau và là $\dfrac{k}{d}$. Nếu $v_2(n)<v_2(k)$ thì dễ thấy $\dfrac{k}{d}$ chẵn, còn $\dfrac{n}{d}$ lẻ. Do số đỉnh bị đổi màu trong mỗi nhóm là chẵn sau mỗi lượt nên không thể chuyển được toàn bộ các đỉnh của mỗi nhóm sang đỏ $\left(\text{từ }\dfrac{n}{d} \text{ thành }0\right)$, tức là không thể chuyển cho toàn bộ đa giác.\\
+Nếu $v_2(n)\ge v_2(k)$ thì $\dfrac{k}{d}$ và $\dfrac{n}{d}$ đều lẻ. Gọi $q$ là số nhỏ nhất sao cho $n \mid kq,$ ta dễ thấy $q \mid n$, lại đặt $t:=\dfrac{n}{q}$ thì ta có $t\mid k$ và $\dfrac{k}{t}$ lẻ. Ta tiến hành đổi màu các bộ có vị trí 
+$$(1,2,\ldots,k),(t+1,t+2,\ldots,t+k),\ldots,
+$$
+trong đó mỗi bộ có $k$ số và bắt đầu bằng số chia $t$ dư $1$. Dễ thấy mỗi số xuất hiện đúng $\dfrac{k}{t}$ lần, là số lẻ nên chúng đều được chuyển sang màu đỏ.\\
+Nếu $v_2(n)<v_2(k)$, do trong mỗi nhóm, ta không thể thực hiện được việc chuyển toàn bộ đỉnh sang màu đỏ nên có nhiều nhất là $\dfrac{n}{d}-1$ đỉnh được chuyển sang. Suy ra, có nhiều nhất $d\left(\dfrac{n}{d}-1\right)=n-d$ đỉnh có thể chuyển được sang màu đỏ.
+}
+\end{vd}
+
+\begin{vd}
+\textit{Cho một dãy $n$ tấm bìa đặt sấp (mặt đỏ) ở trên bàn được đánh số từ $1$ đến $n$. Mỗi lần, cho phép thay đổi trạng thái của $k$ tấm bìa liên tiếp: sấp thành ngửa (mặt xanh), ngửa thành sấp. Chứng minh rằng ta có thể chuyển được tối đa $\max\{kq, 2n-k(q+1)\}$ tấm bìa màu từ xanh sang đỏ, với $q:=\left[\dfrac{n}{k}\right]$.}
+\loigiai{
+Trước hết, ta xét $k\mid n$, khi ấy $q=n$. Với gợi ý từ cách giải Ví dụ $24.11$, ta cũng chia $n$ tấm bìa thành $k$ nhóm có cùng số dư với nhau. Nhận xét rằng nếu có sự chênh lệch về số tấm bìa ở mỗi nhóm thì ta không thẻ chuyển tất cả các tấm bìa ngửa mặt xanh được. Mặt khác, dễ thấy nếu số tấm bìa ở cả $k$ nhóm là bằng nhau, tương ứng với trường hợp $k\mid n$, thì ta chuyển được.\\
+Tiếp theo, ta xét $k \nmid n$. Cũng với cách chia như trên, ta thu được $k$ nhóm, trong đó các nhóm từ $1$ đến $n-kq$ có $q+1$ tấm bìa, các nhóm còn lại có $q$ tấm. Nếu làm cho tất cả các tấm bìa ở các nhóm từ $1$ tới $n-kq$ chuyển sang màu xanh thì không thể làm được như vậy với các nhóm từ $n-kq+1$ đến $k$ và ngược lại. Ta xét hai cách chuyển.
+\begin{enumerate}[1.]
+	\item \textit{Chuyển tất cả tấm bìa ở các nhóm từ $1$ đến $n-kq$ sang màu xanh}.\\
+	Đối với $k(q+1)-n$ nhóm còn lại, ta chỉ có thể chuyển tối đa $q-1$ tấm bìa sang màu xanh. Khi đó số tấm bìa màu xanh không vượt quá
+	$$(q+1)(n-kq)+(q-1)(kq+k-n)=2n-k(q+1).$$
+	\item \textit{Chuyển tất cả tấm bìa ở các nhóm từ $n-kq+1$ đến $k$ sang màu xanh.}\\
+	Đối với $n-kq$ nhóm còn lại, ta chỉ có thể chuyển tối đa $q$ tấm bìa sang màu xanh. Khi đó số tấm bìa màu xanh không vượt quá $kq$.
+\end{enumerate}
+Từ hai cách chuyển trên, ta suy ra được số tấm bìa màu xanh không vượt quá $\max\{kq, 2n-k(q+1)\}$. Để có giá trị lớn nhất, ta lần lượt lật ngược các tấm từ $1$ đến $k$, từ $k+1$ đến $2k,\ldots$ và từ $k(q-1)+1$ đến $kq$. Nếu $n-kq \le \dfrac{n}{2}$ thì ta đã thực hiện xong, còn nếu $n-kq>\dfrac{n}{2}$, ta lật tiếp các tấm từ $n-k+1$ đến $n$, như vậy ta sẽ được $2n-k(q+1)$ tấm bìa ngửa mặt xanh.\\
+\noindent{\bf Bình luận.} Bằng cách chia nhóm tương tự, ta cũng giải được bài toán trong trường hợp hai chiều. Cụ thể hơn, ta xét bài toán sau.
+}
+\end{vd}
+
+\begin{vd}
+\textit{Cho $M,N$ là hai số nguyên dương. Xét bảng $N \times N$ ô vuông, mỗi ô có chứa một bóng đèn có hai trạng thái tắt hoặc mở. Ban đầu, tất cả các đèn cùng tắt. Một bước thực hiện bao gồm việc chọn một hàng hoặc một cột của bảng ô vuông rồi thay đổi trạng thái của một dãy $M$ bóng đèn liên tiếp nằm trên hàng hoặc cột đó. Tìm điều kiện cần và đủ của $M,N$ để có thể chuyển tất cả các bóng đèn sang trạng thái mở sau một số hữu hạn bước.}
+\loigiai{
+Ta sẽ chứng minh điều kiện cần và đủ của yêu cầu bài toán là $N$ chia hết cho $M$. Thật vậy, nếu $N$ chia hết cho $M$ thì $d:=\dfrac{N}{M}$ là một số nguyên dương. Khi đó, ta có thể chia bảng vuông $N \times N$ này thành các hình chữ nhật $M \times 1$. Ta lần lượt mở các đèn trong các hình chữ nhật $M \times 1$ đó thì cuối cùng tất cả các đèn sẽ được mở.\\
+Bây giờ, ta sẽ chứng minh điều kiện cần là $N$ chia hết cho $M$. Ta tô các ô của bảng vuông $N \times N$ bởi $M$ màu, kí hiệu từ $0$ đến $M-1$ sao cho ô $(i,j)$ sẽ được tô bởi màu $i+j-2 (\mod M)$, số dư của $i+j-2$ khi chia cho $M$. Trong mỗi bước thực hiện, ta sẽ thay đổi trạng thái của đúng $M$ đèn, mỗi đèn ở mỗi màu. Vì trạng thái ban đầu của tất cả các đèn là cùng tắt nên sau mỗi bước, tổng số đèn được mở ở màu này sẽ cùng tính chẵn lẻ với tổng số đèn được mở ở màu khác. Từ đây ta suy ra, để đạt được trạng thái tất cả các đèn cùng mở thì số đèn ở màu này sẽ cùng tình chẵn lẻ với số đèn ở màu khác.\\
+Giả sử ngược lại rằng $N$ không chia hết cho $M$, ta viết $M=Mk+r$ với $k$ nguyên không âm và $1\le r \le M-1$. Ta chia bảng đã cho thành bốn bảng con cỡ $Mk \times Mk, Mk \times r, r \times Mk$, và $r \times r$. Ta có hai nhận xét sau.
+\begin{enumerate}[1.]
+	\item \textit{Số đèn của mỗi màu trong trường hợp của ba bảng con $Mk\times Mk, Mk \times r, r \times Mk$ là như nhau.}\\
+	Thật vậy, vì mỗi bảng con $Mk \times Mk, Mk \times r, r \times Mk$ đều là hợp của các hình chữ nhật $M \times 1$ hoặc $1 \times M$ nên số đèn của mỗi màu trong hợp của cả ba bảng con này là bằng nhau.
+	\item \textit{Trong bảng $r\times r$, số đèn của màu $r-1$ là $r$, và số đèn của màu $r$ là $r-1$.}\\
+	Thật vậy, do $r \le M-1$ nên một hàng bất kì có các đèn mang màu đôi một khác nhau, nghĩa là không có hàng nào có hai đèn cùng một màu xuất hiện. Mặt khác, do đèn của màu $r-1$ xuất hiện trên tất cả các hàng của bảng con và đèn của màu $r$ xuất hiện ở tất cả các hàng chỉ trừ hàng đầu tiên nên nhận xét được chứng minh.
+\end{enumerate}
+Từ hai nhận xét trên, ta rút ra số đèn của hai màu $r$ và $r-1$ không cùng tính chẵn lẻ, tức là không thể đạt được trạng thái tất cả bóng đèn đều mở. Bài toán được giải quyết trọn vẹn.\\
+\noindent{\bf Bình luận.} Như thế, qua các Ví dụ $24.12, 24.13$ và $24.14$, ta thấy bài toán đổi trạng thái trong trường hợp "vòng", "thẳng", và "hai chiều" có kết quả không hoàn toàn giống nhau nhưng đều tiếp cận theo cùng ý tưởng là chia thành các lớp thặng dư và chứng minh có hai lớp khác tính chẵn lẻ.
+}
+\end{vd}
+
+\begin{vd}
+\textit{Cho một bàn bida hình chữ nhật kích thước $m \times n$ với $m, n \ge 2$. Một viên bida bất kì trên bàn sẽ được di chuyển theo một góc $45^\circ$ hợp với một trong hai cạnh của bàn. Khi đó chạm cạnh bàn, nó sẽ xoay một góc $90^\circ$ và tiếp tục di chuyển, còn nếu nó đến góc của bàn thì nó sẽ bị đẩy bật ra và di chuyển theo phương cũ nhưng chiều ngược lại. Tìm số lớn nhất các viên bida có thể đặt lên các ô của bàn sao cho nếu có một viên bất kì trong chúng di chuyển theo hướng nào đó thì sẽ không chạm vào các viên bida khác.\\
+Dưới đây là hình minh họa cho trường hợp $m=10, n=7$ và số bida lớn nhất là $4$.
+\begin{center}
+	\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join =round, line cap = round, >=stealth]
+	\draw[line width = 1pt] (0,0) --(10,0) --(10,7) --(0,7); 
+	\draw[line width = 1pt] (0,0) --(0,7); 
+	\foreach \x in {0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5}{ 
+		\draw[fill] (\x,0.5) circle (3pt);
+		\draw[fill] (\x,6.5) circle (3pt);
+	}
+	\foreach \y in {1.5,2.5,3.5,4.5,5.5}{ 
+		\draw[fill] (0.5,\y) circle (3pt);
+		\draw[fill] (9.5,\y) circle (3pt);
+	} 
+	\foreach \x in {1,2,3,4,5,6,7,8,9,10}{
+		\draw (\x,0)--(\x,7);    
+	}
+	\foreach \y in {1,2,3,4,5,6}{ 
+		\draw[fill] (0,\y)--(10,\y);
+	}
+	\draw (0.5,0.5) --(6.5,6.5) --(9.5,3.5);
+	\draw (9.5,2.5) --(5.5,6.5) --(0.5,1.5) --(1.5,0.5) --(7.5,6.5) --(9.5,4.5);
+	\draw (9.5,1.5) --(4.5,6.5) --(0.5,2.5) --(2.5,0.5) --(8.5,6.5) --(9.5,5.5);
+	\draw (3.5,6.5) --(0.5,3.5) --(3.5,0.5) --(9.5,6.5);
+	\draw (2.5,6.5) --(0.5,4.5) --(4.5,0.5) --(9.5,5.5);
+	\draw (1.5,6.5) --(0.5,5.5) --(5.5,0.5) --(9.5,4.5);
+	\draw (0.5,6.5) --(6.5,0.5) --(9.5,3.5);
+	\draw (1.5,6.5) --(7.5,0.5) --(9.5,2.5);
+	\draw (2.5,6.5) --(8.5,0.5) --(9.5,1.5);
+	\draw (3.5,6.5) --(9.5,0.5);
+	\end{tikzpicture}
+\end{center}
+}
+\loigiai{
+Gọi $a$ là số quả bóng lớn nhất có thể đặt trên bàn bida thỏa mãn đề bài và $b$ là số đường gấp khúc mà tất cả các ô vuông trên đó đều được quả bida di chuyển qua trong một lần di chuyển nào đó theo mô tả của đề bài, ta sẽ chứng minh $a=b$.\\
+Thật vậy, trước hết, ta thấy rằng hai quả bida không thể đặt được trên cùng một đường gấp khúc và mỗi quả bida thuộc ít nhất một đường gấp khúc nên $a \le b$. Tiếp theo, ta thấy rằng các ô trên phía rìa của bàn bida thuộc đúng một đường gấp khúc và mỗi đường gấp khúc thì lại đi qua ít nhất một ô trên rìa nên ta có thể sắp xếp các quả bida sao cho mỗi quả thuộc về đúng một đường, dẫn đến $a \ge b$. Từ đó, dễ thấy nhận xét được chứng minh.\\
+Tiếp theo, ta sẽ chứng minh rằng
+$$a=f(m,n)=\gcd(m-1,n-1) +1.$$
+Thật vậy, trong trường hợp bàn bida có kích thước $n \times n$ thì dễ thấy rằng một quả bida bắt đầu từ một ô vuông nào đó trên cạnh rìa sẽ quay trở về đúng với ô đó sau khi di chuyển một số lần mà không chạm vào các ô nào khác cùng một cạnh. Do đó, bàn $n \times n$ tương đương với bàn kích thước $1 \times n$ và ta có đúng $n$ đường gấp khúc. Xét bàn bida $m \times n$, nếu $m>n$ thì khi xét đường đi của các đường gấp khúc quanh bàn bida, ta thấy rằng các ô ở rìa nằm trên 
+}
+\end{vd}
+
+\begin{vd}\hspace{5cm}
+\begin{enumerate}
+\item \textit{Trên trục số với tọa độ $O$, các điểm nguyên được đánh dấu từ $1$ đến $k$ sao cho mỗi đoạn thẳng có độ dài $2$m thì trung điểm của nó được đánh số bằng trung bình cộng số của hai đầu mút, trong đó $m, k$ là các số nguyên dương cho trước. Hai cách đánh số gọi là khác nhau nếu có một điểm trong cách này được đánh số khác với một điểm trong cách kia. Tính số các cách đánh số đôi một khác nhau.}
+\item \textit{Kết luận tương tự, trong khi đó điều kiện \lq\lq đoạn thẳng có độ dài $2$m\rq\rq với $m,n$ là các số nguyên dương cho trước.}
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+	\item Gọi $A(i)$ là điểm nguyên có tọa độ $i$ trên trục số. Nếu số nhỏ nhất được dùng là $a$ thì không mất tính tổng quát, giả sử nó được đánh cho $A(0)$. Khi đó, ta dễ thấy hai số $A(m), A(-m)$ có trung bình cộng là $a$ nên cũng đều được đánh số $a$. Từ đó, ta suy ra các số $A(km)$ được đánh cùng một số. Lập luận tương tự, ta được các vị trí có cùng số dư khi chia cho $m$ được đánh cùng một số và các vị trí khác số dư thì được đánh số độc lập với nhau. Vậy số cách đánh số là $m^k$.
+	\item Đặt $d:=\gcd(m,n)$ thì lập luận tương tự, ta có $A(i)$ và $A(i+xm+yn)$ được đánh cùng một số, trong đó $x, y \in \mathbb{Z}$. Do đó, $\min \limits_{x, y \in \mathbb{Z}} \left| xm+yn \right| =d$ nên số cách đánh số là $d^m$.\\
+	\noindent{\bf Bình luận.} Bài toán đánh số trên trục số trên có thể coi là trương hợp một chiều và ý nghĩa của bài toán đếm chưa được thấy rõ lắm. Tiếp theo, ta sẽ xét trường hợp hai chiều với các mối liên quan phức tạp hơn, và bài toán đếm tương ứng lúc này thực sự không dễ.
+\end{enumerate}
+}
+\end{vd}
+các cột có số thứ tự lớn hơn $m-n+1$ đều tương ứng với một trong các đường gấp khúc xuất phát từ $n$ ô của cột đầu tiên. 
+Do đó, ta có thể rút gọn lại một cách tương ứng bảng đã cho với $m \times n$ thành $(m-n+1)\times n$.\\
+Ta sẽ tiếp tục quy trình này. Trong khi $m,n$ đều lớn hơn $1$, nếu $m>n$ thì thay $m$ bởi $m-n+1$, còn nếu $m \le n$ thì thay $n$ bởi $n-m+1$. Kết thúc quá trình này, kết quả cần tìm sẽ là $m+n-1$. Từ đây, dễ dàng chứng minh được rằng kết quả cuối cùng ở trên chính là 
+$$a=f \left( m,n \right) =\gcd \left(m-1,n-1\right)+1.$$ 
+
+\begin{vd}\text{}	
+	\begin{enumerate}
+		\item Trên trục số với tọa độ $O$, các điểm nguyên được đánh số từ $1$ đến $k$ sao cho mỗi đoạn thẳng có độ dài $2$ m 
+		thì trung điểm của nó được đánh số bằng trung bình cộng của hai đầu mút, trong đó $m,k$ là các số nguyên dương cho trước.
+		Hai cách đánh số gọi là khác nhau nếu có một điểm trong cách này được đánh số khác với một điểm trong cách kia.
+		Tính số các cách đánh số đôi một khác nhau.
+		\item Kết luận tương tự, trong khi đó điều kiện \lq\lq đoạn thẳng có độ dài $2$ m\rq\rq được chuyển thành đoạn thẳng có độ dài $2$ m 
+		hoặc độ dài $2n$ với $m,n$ là các số nguyên dương cho trước.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Gọi $A(i)$ là điểm nguyên có tọa độ $i$ trên trục số. Nếu số nhỏ nhất được dùng là $a$ thì không mất tính tổng quát, giả sử nó được đánh cho $A(0)$.
+			Khi đó, ta dễ thấy hai số $A(m),A(-m)$ có trung bình cộng là $a$ nên cũng đều được đánh số $a$.
+			Từ đó, ta suy ra các số $A(km)$ được đánh cùng một số.
+			Lập luận tương tự, ta được các vị trí có cùng số dư khi chia cho $m$ được đánh cùng một số và các vị trí khác số dư thì được đánh số độc lập với nhau. Vậy số cách đánh số là $m^k$.
+			\item Đặt $d:=\gcd(m,n)$ thì lập luận tương tự, ta có $A(i)$ và  $A(i+xm+yn)$ được đánh cùng một số, trong đó $x,y \in \mathbb{Z}$. Do $\min_{x,y\in \mathbb{Z} }\vert xm+yn\vert = d$ nên số cách đánh số là $d^m$.
+		\end{enumerate}
+		\noindent{\bf Bình luận.} Bài toán đánh số trên trục số trên có thể coi là trường hợp một chiều và ý nghĩa của bài toán đếm chưa được thấy rõ lắm.
+		Tiếp theo, ta sẽ xét các trường hợp hai chiều với các mối liên quan phức tạp hơn, và bài toán đếm tương ứng lúc này không thật sự dễ.
+	}
+\end{vd}
+
+\begin{vd}
+	Trong mặt phẳng tọa độ $Oxy$, ta đánh số các điểm có tọa độ nguyên bằng một trong các số từ $1$ đến $k$ sao cho các hình chữ nhật có kích thước $2m \times 2n$ mà các cạnh song song với các trục tọa độ đều có tâm được đánh số bằng trung bình cộng của bốn số đánh cho các đỉnh, trong đó $m,n$ là các số nguyên dương cho trước. Hai cách đánh số gọi là khác nhau nếu có một điểm trong cách này được đánh số khác với một điểm trong cách kia. Tính số cách đánh số đôi một khác nhau.
+	\loigiai{
+		Lập luận tương tự trong một chiều như trong Ví dụ $24.16$, ta thấy rằng mỗi điểm $A(x;y)$ đều được đánh số trùng với các điểm có tọa độ $A(x+pm+qn,y+rm+sn)$ với $p,s$ cùng tính chẵn lẻ và $q,r$ cùng tính chẵn lẻ.\\
+		Đặt $d:=\gcd(m,n)$ và viết $d=m_1m+n_1n$, ta cũng thấy tính chẵn, lẻ của $m_1,n_1$ ảnh hưởng đến cách chọn $p,q,r,s$ để có các điểm có quan hệ với nhau (tức là phải được đánh cùng một số).\\
+		Nếu $\dfrac{m}{d},\dfrac{n}{d}$ cùng lẻ thì $m_1,n_1$ cùng lẻ, dẫn đến $A(x,y)$ và $A(x,y+d)$ được đánh số độc lập với nhau.
+		Do đó, các đỉnh của hai hình vuông cạnh nhau, kích thước là $d \times d$ được đánh số độc lập. Kết quả là $k^{2d^2}$.\\
+		Ngược lại, nếu $\dfrac{m}{d},\dfrac{n}{d}$ khác tính chẵn lẻ thì $m_1,n_1$ cũng khác tính chẵn lẻ, dẫn đến $A(x,y)$ và $A(x,y+d)$ phụ thuộc nhau và chỉ có các đỉnh của hình vuông kích thước là $d \times d$ được đánh số độc lập. Kết quả là $k^{d^2}$.
+		
+		\noindent{\bf Bình luận.} Bài toán này đã thể hiện được mối liên hệ giữa ước chung lớn nhất và tính chẵn lẻ theo một cách tinh tế nhất.	
+		Trong trường hợp ba chiều, ta có hình hộp chữ nhật có kích thước $2m \times 2n \times 2p$ có các cạnh song song với các trục tọa độ và tâm được đánh số bằng trung bình cộng của tám số đánh cho các đỉnh.
+		Đây cũng chính là đề thi chọn đội tuyển Toán Quốc Tế của Việt Nam năm $2014$. Đáp số cũng cần phải xét ba trường hợp tương tự trên (lẻ-lẻ-lẻ, lẻ-lẻ-chẵn, và lẻ-chẵn-chẵn).
+	}
+\end{vd}
+
+\subsection{Bài tập}
+\begin{bt}
+	Trên một bảng $(n+1)\times(n+1)$, người ta điền tùy ý các số $0$ và $1$ thỏa mãn số cuối cùng của mỗi hàng cùng tính chẵn lẻ với tổng $n$ số phía trước cùng hàng và số cuối cùng của mỗi cột cùng tính chẵn, lẻ với tổng $n$ số phía trên cùng cột.
+	Bạn B chép lại bảng trên vào tập và viết sai đúng một số. Chứng minh ta luôn có thể nhìn vào tập của B và xác định được vị trí mà bạn B đã chép sai. 
+	
+	\noindent{\bf Gợi ý.} Chú ý rằng tổng các số trên mỗi hàng và tổng các số trên mỗi cột đều chẵn. Do đó, chỉ cần xem thử ô nào thuộc về hàng có tổng lẻ và cột có tổng lẻ thì biết được ngay vị trí sai.
+\end{bt}
+
+\begin{bt}
+	Cho dãy số nguyên dương $1,2,3, \ldots ,2016.$ Có một người thực hiện thao tác sau: chọn ra hai số $x,y$ nào đó thuộc dãy và thay chúng bằng $\gcd(x,y),$ lcm$(x,y)$.
+	
+	\noindent{\bf Gợi ý.} Chú ý rằng tổng các số trên mỗi hàng và tổng các số trên mỗi cột đều chẵn. Do đó, chỉ cần xem thử ô nào thuộc về hàng có tổng lẻ và cột có tổng lẻ thì biết được ngay vị trí sai.
+\end{bt}
+
+\begin{bt}
+	Cho dãy số nguyên dương $1,2,3, \ldots ,2016$. Có một người thực hiện thao tác sau: chọn ra hai số $x,y$ nào đó thuộc dãy và thay chúng bằng $\gcd(x,y),$ lcm$(x,y)$ và cứ lặp lại như thế một số lần nhất định. Hỏi có thể thu được $1007$ số lẻ được không?  
+	
+	\noindent{\bf Gợi ý.} Dễ thấy rằng với hai số $x,y$ tùy ý thì
+	\begin{itemize}
+		\item $\gcd (x,y)$ chẵn và lcm$(x,y)$ chẵn nếu $x,y $ cùng chẵn.
+		\item $\gcd (x,y)$ lẻ và lcm$(x,y)$ lẻ nếu $x,y $ cùng lẻ.
+		\item $\gcd (x,y)$ lẻ và lcm$(x,y)$ chẵn nếu $x,y $ khác tính chẵn lẻ.
+	\end{itemize}
+	Do đó, số lượng chẵn lẻ của dãy số không đổi và luôn là $1008$ số chẵn, $1008$ số lẻ.
+\end{bt}
+
+\begin{bt}
+	\begin{enumerate}
+		\item Hỏi có tồn tại hay không số nguyên dương $n \ge 2$ sao cho có một hoán vị của $n$ số nguyên dương đầu tiên thỏa mãn: hai số liên tiếp trong hoán vị chênh lệch nhau là $2014$ hoặc $2016 ?$ 
+		\item Câu hỏi tương tự khi thay $2014$ và $2016$ bởi $2015$ và $2016?$
+		\item Câu hỏi tương tự khi thay $2014$ và $2016$ thành $a$ và $b$ là các số nguyên dương bất kì?
+	\end{enumerate}	
+	\noindent{\bf Gợi ý.} 
+	\begin{enumerate}
+		\item Không tồn tại vì tất cả các số trong hoán vị đều cùng tính chẵn lẻ, vô lí.
+		\item Xét số $4031=2015+2016$ và hoán vị cần tìm là\\
+		\centerline{ $1,2017,2,2018,3,2019,\ldots, 2015,4031,2016  $ $($  tăng $ 2016,$ giảm $2015) .$ }
+		\item Điều kiện cần và đủ là $(a,b)=1$. Trước hết, ta xây dựng cho $a+b$. Giả sử $a<b$ và bắt đầu từ $1$, ta tăng lên $b$ đơn vị rồi giảm đi cho $a$ một số lần đến số nhỏ nhất có thể. Sau đó, lại tăng lên $b$ đơn vị và giảm cho $a$.
+		Rõ ràng mỗi lần tăng cho $b$ thì số dư của các số mới khi chia cho $a$ thay đổi, vậy nên sau khi thực hiện $a$ lần, ta được tất cả các số từ $1$ đến $a+b$. Cuối cùng, ta dùng quy nạp để chỉ ra rằng các số $k(a+b)$ với $k$ nguyên dương đều thỏa mãn.
+	\end{enumerate}
+\end{bt}	
+
+\begin{bt}[Việt Nam, $2011$]
+	Trên mặt phẳng tọa độ có một con cào cào ở điểm $(1,1)$. Nó có thể nhảy từ điểm $A$ sang điểm $B$ khi $S_{OAB}=\dfrac{1}{2}$ và các tọa độ của $A,B$ là nguyên dương.
+	\begin{enumerate}
+		\item Tìm tất cả các điểm $(m,n)$ sao cho con cào cào có thể nhảy đến đó sau hữu hạn bước.
+		\item Chứng minh rằng con cào cào có thể nhảy đến điểm $(m,n)$ kể trên sau ít hơn $\arrowvert m-n \arrowvert$ bước.
+	\end{enumerate}  
+	\noindent{\bf Gợi ý.} 
+	\begin{enumerate}
+		\item Khi con cào cào đang ở đỉnh $A(a,b)$ và muốn nhảy sang đỉnh $B(c,d)$ thì phải có $S_{OAB}=\dfrac{1}{2}$. Với chú ý $S_{OAB}=\dfrac{1}{2} \arrowvert ad-bc \arrowvert$, điều này tương đương với $\arrowvert ad-bc \arrowvert =1$, dẫn tới xuất phát từ điểm $(1,1)$, con cào cào chỉ có thể nhảy đến các điểm $(m,n)$ mà $\gcd(m,n)=1$.
+		Với $\gcd(m,n)=1$ mà $(m,n) \ne (1,1)$ thì tồn tại các số $x,y$ nguyên dương sao cho $\arrowvert xm-yn \arrowvert =1$ và $\arrowvert x-y \arrowvert < \arrowvert m-n \arrowvert $.\\
+		Do đó, khi con cào cào đang ở tọa độ $(m,n)$ thì nó có thể nhảy đến tọa độ $(x,y)$ mà chênh lệch giữa hai tọa độ giảm dần nên đến một lúc nào đó phải bằng $0$. Điều này có nghĩa là về được $(1,1)$ hay nói cách khác, từ điểm $(1,1)$, con cào cào có thể nhảy đến điểm $(m,n)$ sau hữu hạn bước. Như vậy, tất cả các điểm cần tìm là $(m,n)$ với $\gcd(m,n)=1$.
+		\item Cũng từ sự kiện tồn tại $x,y$ nguyên dương để $\arrowvert xm-yn \arrowvert =1$ và $\arrowvert x-y \arrowvert < \arrowvert m-n \arrowvert $ với $\gcd(m,n)=1$ và $(m,n) \ne (1,1),$ ta có số bước nhảy ở trên sẽ không vượt quá $\arrowvert m-n \arrowvert $ vì mỗi lần, chênh lệch của hai tọa độ giảm đi ít nhất một đơn vị.
+	\end{enumerate}
+\end{bt}
+
+\begin{bt} [Láme]
+	Chứng minh rằng số các phép chia cần sử dụng để tìm ước chung lớn nhất của hai số nguyên dương $a,b$ không vượt quá năm lần số các chữ số của $ \min{\{a,b\}} $.
+	
+	\noindent{\bf Gợi ý.}
+	Đặt $a:= r_{0} $ và $b:= r_{1}$ với $a>b$. Ta có dãy các phép chia tương ứng với thuật toán Euclid $($trong trường hợp áp dụng phép chia lấy phần dư$)$
+	\begin{eqnarray*}
+		& r_0=r_1q_1+r_2,0 \le r_2 <r_1,\\
+		& r_1=r_2q_2+r_3,0 \le r_3 <r_2,\\
+		& \ldots,\\
+		& r_{n-1}=q_nr_n.
+	\end{eqnarray*}
+	Khi đó, thuật toán Euclid trong trường hợp này cần $n$ phép chia. Chú ý rằng\\
+	\centerline{$q_1,q_2,\ldots,q_{n-1} \ge 1, q_n \ge 2$ do $r_n <r_{n-1},$}  
+	ta có dãy các bất đẳng thức
+	\begin{eqnarray*}
+		&r_n \ge 1 = F_2,\\
+		&r_{n-1} \ge 2r_n \ge 2F_2 = F_3.\,\\
+		&r_{n-2} \ge r_{n-1}+r_{n}  \ge F_2 + F_3 =F_4,\\
+		&\ldots,\\
+		&r_2 \ge r_3 +r_4 \ge F_{n-1}+F_{n-2}=F_{n},\\
+		&b=r_1 \ge r_2+r_3 \ge F_{n}+F_{n-1}=F_{n+1},
+	\end{eqnarray*}
+	trong đó $(F_n)_{n \ge 0}$ là dãy Fibbonacci cho bởi 
+	$$F_{0}=0,F_{1}=1,F_{n+2}=F_{n+1}+F_{n}, \forall n \in \mathrm{N_0}.$$
+	Mặt khác, ta dễ dàng chứng minh được\\
+	\centerline{$F_{n+1} \ge \left( \dfrac{1+\sqrt{5}}{2}\right)^{n-1}, \forall n \ge 2$ nên $b \ge \left( \dfrac{1+\sqrt{5}}{2}\right)^{n-1} $.}
+	Hơn nữa, vì $\log \left( \dfrac{1+\sqrt{5}}{2}\right) > \dfrac{1}{5}$ nên\\
+	$$\log(b) \ge \left( n+1 \right) \log \left( \dfrac{1+\sqrt{5}}{2}\right) > \dfrac{n-1}{5}.$$
+	Gọi $k$ là số chữ số của $b$ thì $10^{k-1} \le b <10^k$ hay $k-1 \le \log(b) <k$.\\ 
+	Từ đây suy ra $k > \log(b)> \dfrac{n-1}{5}$ hay $n \ge 5k$. Do đó, số lần sử dụng phép chia trong thuật toán Euclid không vượt quá năm lần số chữ số của số nhỏ nhất.
+\end{bt}
+
+\begin{bt}
+	Cho bảng ô vuông kích thước $n \times n$ mà mỗi ô đều được tô màu đen. Mỗi bước, người ta có thể chọn một ô vuông nào đó rồi đổi màu tất cả các ô cùng dòng và các ô cùng cột với nó theo quy tắc đen thành trắng và ngược lại. Gọi $f(n)$ là số bước ít nhất cần dùng để chuyển tất cả các ô sang màu trắng. Chứng minh
+	\begin{enumerate}
+		\item Nếu $n$ lẻ thì $f(n) = n$.
+		\item Nếu $n$ chẵn thì $f(n) = n^2$.
+	\end{enumerate}
+	
+\end{bt}
+
+\noindent{\bf Gợi ý.}
+\begin{enumerate}
+	\item Trước hết, ta thấy rằng nếu đổi ít hơn $n$ lần thì sẽ có một dòng nào đó không có ô nào được chọn và một cột nào đó không có ô nào được chọn. Giao điểm của chúng là một ô không bị tác động và sẽ không bị đổi màu, không thỏa mãn. Do đó $f(n) \ge n$. 
+	Ngoài ra, ta thực hiện chọn $n$ ô trên dòng đầu tiên thì rõ ràng, mỗi ô đó bị thay đổi $n$ lần (là số lẻ), trong khi các ô còn lại bị thay đổi một lần. Khi đó toàn bộ bảng đổi sang màu trắng. Vậy $f(n) = n$ với $n$ lẻ.
+	\item Giả sử ngược lại rằng $f(n) < n^2$ chẵn thì $f(n) = n^2$ và ta có thể thực hiện đổi màu được, khi đó có một ô nào đó không được chọn. Không mất tính tổng quát, ta giả sử ô đó là ô ở góc trên bên trái, gọi đó là ô đặc biệt.\\
+	Chú ý rằng việc chọn nhiều lần đều có thể quy về chọn $0$ hoặc $1$ lần, vậy nên ta có thể coi các ô được chọn hoặc không được chọn. Khi đó, tổng số ô được chọn trên hàng $1$ và cột $1$ phải là số lẻ (vì bản thân ô đặc biệt không được chọn nên nó phải bị đổi màu theo các ô khác). Ta tiếp tục giả sử trên hàng $1$ có lẻ ô được chọn và trên cột $1$ có chẵn ô được chọn. Bảng dưới đây là minh họa cho trường hợp $n=6$.
+	\begin{center}
+		\begin{tikzpicture}[scale=1, line join=round, line cap=round]
+		\fill[gray!30] (0,0) rectangle (1,6)(1,5) rectangle (6,6);
+		\draw[step=1cm] (0,0) grid (6,6);
+		\end{tikzpicture}
+	\end{center}
+	Gọi bảng $\left( n-1 \right) \times \left( n-1 \right) $ còn lại phía dưới là \textit {bảng con}. Xét ô ở hàng $1$, cột $2$. Do trên hàng $1$ có lẻ ô được chọn nên trên cột $2$, vùng nằm ở bảng con sẽ có chẵn ô được chọn. Tương tự với các cột còn lại. Từ đây dễ suy ra tổng số ô được chọn ở bảng con sẽ là số chẵn.\\
+	Lại xét ô ở hàng $2$, cột $1$. Do trên cột $1$ có chẵn ô được chọn nên trên hàng $2$, vùng nằm ở bảng con sẽ có lẻ ô được chọn. Tương tự với các hàng còn lại, ta suy ra được tổng số ô được chọn ở bảng con sẽ là số lẻ, vì $n-1$ là số lẻ, mâu thuẫn với lập luận trên.\\
+	Như thế, không thể xảy ra không có ô nào không được chọn, tức là các ô đều phải được chọn. Hơn nữa, khi chọn tất cả thì rõ ràng mỗi ô được thay đổi đúng $2n-1$ lần, là một số lẻ lần, thỏa mãn. Vậy $f(n)=n^2$ với $n$ chẵn.  
+\end{enumerate}
+
+
+

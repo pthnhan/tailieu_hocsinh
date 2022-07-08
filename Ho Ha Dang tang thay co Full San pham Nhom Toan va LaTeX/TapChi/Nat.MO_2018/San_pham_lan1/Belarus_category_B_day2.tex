@@ -1,0 +1,145 @@
+\begin{name}
+{Nhật Thiện}
+{Đề thi Olympic Belarus năm 2018, bảng B, vòng 2}
+\end{name}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/ans-1809-Nat.MO-belarus-B2]
+\begin{ex}%[HSG Belarus năm 2018, bảng B, vòng 2]%[Nhật Thiện, Dự án EX-Nat.MO-18]%[9D0G5]
+	Tìm tất cả các số nguyên dương $n$ sao cho phương trình $$3a^2-b^2=2018^n$$ có nghiệm nguyên.
+	\loigiai{
+	Đáp án là với mọi số tự nhiên lẻ.\\
+	Với $n=1$, phương trình trở thành
+	 $$3\cdot 27^2-13^2=2018^1.\text{ (thỏa)}$$
+	Ta nhận thấy bài toán thỏa với mọi số tự nhiên lẻ. Thật vậy, với $n=2k+1$, ta được đẳng thức sau
+	 $$3\cdot \left(27\cdot 2018\right)^2-\left(13\cdot 2018\right)^2=2018^{2k+1}$$
+	Nếu $n$ là số chẵn, $2018^n\equiv 2^n\equiv 1(\mod\, 3)$. Nhưng đẳng thức bên trái không thỏa.\\
+	Do đó, không có số tự nhiên chẵn nào thỏa điều kiện.
+}
+\end{ex}
+\begin{ex}%[HSG Belarus năm 2018, bảng B, vòng 2]%[Nhật Thiện, Dự án EX-Nat.MO-18]%[0D2G3]
+	Các đỉnh của tứ giác lồi $ABCD$ nằm trên parabol $y=x^2$. Biết rằng $ABCD$ nội tiếp được trong một đường tròn với $AC$ là đường kính. Gọi $M$ và $N$ lần lượt là trung điểm của $AC$ và $BD$. Tính độ dài hình chiếu vuông góc của đoạn $MN$ lên trục $Oy$.
+	\loigiai{
+	Đặt tọa độ các điểm $A$, $B$, $C$, $D$ lần lượt là $a$, $b$, $c$, $d$. Do $AC$ là đường kính đường tròn, $M$ là tâm. Gọi $(p,q)$ là tọa độ của điểm $M$, ta có phương trình đường tròn là $(x-p)^2+(x-q)^2=R^2$ với $R$ là bán kính.\\
+	Tọa độ $(x;y)$ các điểm $A$, $B$, $C$, $D$ là nghiệm của hệ phương trình
+	$$\heva{&(x-p)^2+(y-q)^2=R^2,\\&y=x^2.}$$
+	Do các tọa độ $a$, $b$, $c$, $d$ của các điểm trên là nghiệm của phương trình $$(x-p)^2+(x^2-q)^2-R^2=0$$
+	\immini{
+	hay $$x^4+(1-2q)x^2-2px+p^2+q^2-R^2=0.$$
+	Phương trình bậc $4$ trên có $4$ nghiệm phân biệt đã biết là $a$, $b$, $c$, $d$. Áp dụng định lý Vi-ét:
+	\begin{align}
+		a+b+c+d=0;\\
+		ab+bc+cd+ad+ad+bd=1-2q;\\
+		abc+bcd+cda+dab=2p;\\
+		abcd=p^2+q^2-R^2.
+	\end{align}
+Do $M$ là trung điểm $AC$, $2p=a+c$, từ $(1)$ ta có $b+d=-2p$. Mặt khác, từ $(3)$ ta suy ra }{\begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1cm,
+y=1cm]
+% Vẽ 2 trục, điền các số lên trục
+\draw[->] (-4.08,0) -- (4.06,0); %Vẽ trục Ox
+\foreach \x in {} %Đánh số trên trục
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) 
+node[below] { $\x$};
+\draw[->,color=black] (0,-1.06) -- (0,6.98); %Vẽ trục Oy
+\foreach \y in {} %đánh số trên trục
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) 
+node[left] {\normalsize $\y$};
+\draw[color=black] (4,.2) node[right] {\normalsize $x$}; %đặt tên trục 
+\draw[color=black] (.1,6.8) node[right] {\normalsize $y$}; %đặt tên trục
+\draw[color=black] (0pt,-8pt) node[right] {\normalsize $O$}; %gốc tọa độ
+\clip(-4.08,-1.06) rectangle (4.06,6.98); %cắt khung đồ thị
+%Vẽ đồ thị
+\draw[smooth,samples=100,domain=-4.08:4.06] 
+plot(\x,{(\x)^2}); %Vẽ đồ thị
+\fill (0cm,0cm) circle (1.5pt); %đánh dấu gốc tọa độ O
+\fill (-0.7,0.5) circle (1.5pt);
+\fill (1,1) circle (1.5pt); 
+\fill (1.9,3.65) circle (1.5pt);
+\fill (-2.2,4.85) circle (1.5pt);
+\draw (-0.5,3) circle (2.5cm);
+\coordinate (M) at ($(-2.2,4.85)!0.5!(1,1)$);
+\fill (M) circle (1.5pt);
+\node at (M) [below]{$M$};
+\draw (-0.7,.5)--(-2.2,4.85)node[above left]{$A$}--(1.9,3.65)node[below right]{$D$}--(1,1)node [below right]{$C$}--(-0.7,.5)node[below left]{$B$} (-2.2,4.85)--(1,1) (1.9,3.65)--(-0.7,.5);
+\coordinate (N) at ($(-0.7,.5)!0.5!(1.9,3.65)$);
+\fill (N) circle (1.5pt);
+\node at (N) [above]{$N$};
+\end{tikzpicture}}$$2p=(abc+acd)+(dab+bcd)=ac(b+d)+bd(a+c)=2p(bd-ac).$$
+Hay $p(bd-ac-1)=0$.\\
+Nếu $p=0$ thì $a=-c$ và $b=-d$, nên $A$ và $B$ đối xứng với $C$ và $D$ qua trục $Oy$. Do đó tứ giác $ABCD$ mâu thuẫn với giả thiết.\\
+Với $bd-ac=1$. Từ $(1)$ ta có \begin{align*}
+	a+c=-(b+d)&\Leftrightarrow (a+c)^2+(b+d)^2\Leftrightarrow a^2+2ac+c^2=b^2+d^2+2bd\\
+	&\Rightarrow a^2+c^2=b^2+d^2+2\Leftrightarrow \dfrac{a^2+c^2}{2}=\dfrac{b^2+d^2}{2}+1\\
+	&\Leftrightarrow \dfrac{a^2+c^2}{2}-\dfrac{b^2+d^2}{2}=1.
+\end{align*}
+Chú ý rằng $\dfrac{a^2+c^2}{2}$ và $\dfrac{b^2+d^2}{2}$ là tọa độ của $M$ và $N$, do đó hình chiều của $MN$ lên trục $Oy$ có độ dài bằng $1$.
+
+}
+\end{ex}
+\begin{ex}%[HSG Belarus năm 2018, bảng B, vòng 2]%[Nhật Thiện, Dự án EX-Nat.MO-18]%[9H0G5]
+	Cho hình vuông $A_1B_1C_1D_1$ nằm trong tam giác $ABC$ vuông tại $C$ với $A_1$, $B_1$ nằm trên cạnh $CB$ và $CA$, các điểm $C_1$, $D_2$ nằm trên $AB$. Các đường tròn ngoại tiếp các tam giác $B_1A_1C$ và $BD_1A_1$ cắt nhau tại $A_1$ và $X$; các đường tròn ngoại tiếp các tam giác $B_1A_1C$ và $AC_1B_1$ cắt nhau tại $B_1$ và $Y$. Chứng minh rằng $A_1X$, $B_1Y$ và $AB$ đồng quy.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+			\clip (-1,-1.5)rectangle(11,5);
+				\tkzDefPoints{0/0/A,9/0/B}
+				\tkzDefTriangle[two angles = 50 and 40](A,B)    \tkzGetPoint{C}
+				\coordinate (A_1) at ($(C)!1/3!(B)$);
+				\coordinate (B_1) at ($(C)!1/3!(A)$);
+				\tkzDefCircle[diameter](A,B_1)     \tkzGetPoint{O_a}
+				\tkzDrawCircle[diameter](A,B_1)
+				\tkzDefCircle[diameter](A_1,B_1)     \tkzGetPoint{O_c}
+				\tkzDrawCircle[diameter](A_1,B_1)
+				\tkzDefCircle[diameter](A_1,B)     \tkzGetPoint{O_b}
+				\tkzDrawCircle[diameter](A_1,B)
+				\tkzInterLC(A_1,A)(O_a,B_1)\tkzGetFirstPoint{Y}
+				\tkzInterLC(B_1,B)(O_b,A_1)\tkzGetSecondPoint{X}
+				\tkzDefPointBy[projection=onto A--B](A_1)\tkzGetPoint{D_1}
+				\tkzDefPointBy[projection=onto A--B](B_1)\tkzGetPoint{C_1}
+				\tkzInterLL(B_1,Y)(A,B)\tkzGetPoint{Z}
+				\tkzDrawPoints[fill=black](A,B,C,A_1,B_1,C_1,D_1,O_a,O_b,O_c,Y,X,Z)
+				\tkzDrawSegments(A,C C,B B,A A_1,B_1 A,A_1 B,B_1 B_1,C_1 A_1,D_1 B_1,Z Z,A_1)
+				\tkzDrawSegments[dashed](O_a,O_c O_c,O_b)
+				\tkzLabelPoints[above](C,O_c)\tkzLabelPoints[below left](A)\tkzLabelPoints[below right](B,X)\tkzLabelPoints[above left](C_1,O_a,B_1)\tkzLabelPoints[above right](D_1,O_b,Y)\tkzLabelPoints[right](A_1)
+				\node at (Z) [below]{$Z_a\equiv Z_b$};
+			\end{tikzpicture}
+		\end{center}
+	Ta có $AB_1$ và $B_1A_1$ là đường kính đường tròn ngoại tiếp tam giác $AC_1B_1$ và $A_1CB_1$, $\angle AYB_1=\angle A_1YB_1=90^\circ$. Do đó $Y$ thuộc $AA_1$ và $AA_1\perp B_1Y$.\\
+	Tương tự, $X$ cũng thuộc $BB_1$ và $BB_1\perp A_1X$.\\
+	Gọi $Z_b$ và $Z_a$ lần lượt là giao điểm của $B_1Y$ và $A_1X$ với $AB$. Đặt $CB=a$, $AC=b$, $AB=c$ và $A_1B_1=x$. Ta sẽ tìm độ dài đoạn $BZ_a$ và $AZ_b$, từ đó chứng minh $AZ_b+BZ_a=AB$. \\
+	Do $\angle B_1XZ_a=\angle B_1C_1Z_a=90^\circ$, Tứ giác $B_1C_1Z_aX$ nội tiếp đường tròn. Tương tự $CA_1XB_1$ cũng nội tiếp đường tròn, do đó
+	$$BA_1\cdot CB=BX\cdot BB_1=BZ_a\cdot BC_1.\qquad (*)$$
+	Ta có $\triangle A_1BD_1\backsim \triangle ABC$, do đó
+	$$\dfrac{A_1B}{AB}=\dfrac{D_1B}{CB}=\dfrac{A_1D_1}{AC}.$$
+	Với $A_1B=\dfrac{cx}{b}$, $D_1B=\dfrac{ax}{b}$ và $BC_1=x+\dfrac{ax}{b}=\dfrac{(a+b)x}{b}$. Từ $(*)$, ta có $BZ_a=\dfrac{ac}{a+b}$. Tương tự, $AZ_b=\dfrac{bc}{a+b}$, khi đó $AZ_b+BZ_a=AB$.
+}
+\end{ex}
+\begin{ex}%[HSG Belarus năm 2018, bảng B, vòng 2]%[Nhật Thiện, Dự án EX-Nat.MO-18]%[1D0G6]
+		Xét một $n-$giác đều cùng với tâm của nó. Hai người chơi trò chơi như sau: họ lần lượt chọn một đỉnh của đa giác rồi nối với một trong hai đỉnh kề hoặc nối với tâm của hình đa giác đó bởi một đoạn thẳng. Người thắng cuộc là người chơi mà sau lượt chơi của anh ta thì ở bất kỳ đỉnh nào của đa giác đều có thể di chuyển đến mọi đỉnh còn lại bằng các đoạn thẳng đã nối ở trên. Với mỗi $n\ge3$, hãy xác định xem ai là người có chiến lược thắng cuộc.
+	\loigiai{
+	Đáp án: Với $n$ lẻ thì người thứ nhất đi trước thắng, với $n$ chẵn thì người thứ hai thắng.
+	\begin{itemize}
+		\item Với $n$ chẵn, người thứ nhất đi trước
+		\begin{itemize}
+			\item Trường hợp $1$: Người thứ nhất nối đỉnh với tâm.\\
+			Người thứ hai nối tâm với đỉnh khác. Như vậy, sau khi người thứ hai thực hiện luôn có số lẻ đỉnh được kết nối. Do đó, người thứ nhất không thể nối hai điểm cuối cùng. Khi đó, người thứ hai chiến thắng.
+			\item Trường hợp $2$: Người thứ nhất nối hai đỉnh.\\
+			Người thứ hai nối một đoạn thẳng đối xứng với đoạn thẳng người thứ nhất vẽ qua tâm. Sau mỗi bước như vậy có số điểm được nối lại là số lẻ. Người thứ hai tiếp tục thực hiện các bước như thế đến khi người thứ nhất không thể di chuyển được nữa.\\
+			Giả sử có một lúc nào đó người thứ nhất có thể chiến thắng nếu người thứ hai đi trước. Gọi $x$ là đoạn cuối cùng được nối bởi người thứ nhất ở bước thứ $x$ và $x^*$ là đoạn đối xứng với nó, $z$ là đoạn mà người thứ nhất chiến thắng nếu người thứ hai vẽ $x^*$. Chú ý là nếu $x$ là đoạn đi qua tâm, khi đó tương tự trường hợp $1$.\\
+			Xét những điểm còn lại trước khi thực hiện bước $x$. Đoạn $x$ nối $2$ điểm khác nhau $A$ và $B$, đoạn $x^*$ nối hai điểm đối xứng tương ứng khác là $A^*$ và $B^*$. Xét $O$ là tâm đường tròn.\\
+			Giả sử $O$ là một trong hai điểm $A$ hoặc $B$, và nó cũng là $A^*$. Điều này có nghĩa là $A=A^*$ là đối xứng tâm và chứa tâm của đường tròn. Bởi vậy, sau khi thực hiện bước $x^*$ số điểm là lẻ giống như bước $x$. Do đó, bước $z$ có thể không chiến thắng.\\
+			Giả sử $O$ không thuộc $A$ và $B$. Khi đó có ít nhất một điểm $C$, trong đó có tâm đường tròn. Để thực hiện bước $z$ chiến thằng, phải nối $C$ với một điểm đẵ có từ bước $x$ và $x^*$.\\
+			Sau khi thực hiện các bước $x$ và $x*$, các điểm nối lại không bao gồm tâm, $B=A^*$, $A=B^*$ và bước $x^*$ không làm giảm số điểm. Vậy người thứ hai có thể chiến thằng bằng việc thực hiện bước $z$ bao gồm $x^*$.
+		\end{itemize}
+		\item Với $n$ lẻ, ta chứng minh rằng người thứ nhất có thể chiến thắng nếu nối các đỉnh tùy ý với tâm đường tròn ở bước đầu tiên. Với $n=3$ điều này hiển nhiên.\\
+		Giả sử, với $n$ từ $3$ đến $2k-1$ thì điều trên đúng. Xét $n=2k+1$, đánh số các đỉnh của đa giác theo chiều kim đồng hồ: $A_0$, $A_1$, \ldots, $A_{2k+1}$. Người thứ nhất nối $A_0$ với tâm $O$ của đường tròn ở bước đầu tiên của mình. Xét người thứ hai đi đầu tiên:
+		\begin{itemize}
+			\item Nối $2$ đỉnh khác $A_0$. Giả sử rằng người thứ hai nối $A_{i-1}$ với $A_i$ khi $2\le i\le k+1$. Người thứ nhất nối $A_i$ với $A_{i+1}$, khi đó trò chơi trở thành trường hợp $n=2k-1$. Nghĩa là, các đỉnh $A_{i-1}$, $A_i$, $A_{i+1}$, trong đó có một đỉnh được nối từ $A_{i-2}$ qua $A_{i-1}$, từ $A_{i+2}$ qua $A_{i+1}$, từ tâm qua $A_i$, ngoài ra có hai đường phụ nối từ tâm của đường tròn không đóng bất cứ vai trò nào. Người thứ nhất sẽ tạo ra hai đường đó nếu người thứ hai cũng làm vậy.
+			\item Nối $A_0$ với đỉnh liền kề. Giả sử rằng người thứ hai nối $A_1$ với $A_0$. Người thứ nhất nối $A_0$ với $A_{2n+1}$, trò chơi trở về trường hợp $n=2k-1$. Nghĩa là, các đỉnh $A_{2k+1}$, $A_0$, $A_1$ có một đỉnh (nối từ $O$ ở bước thứ nhất của người thứ nhất) tương tự trường hợp trên.
+			\item Nối $O$ với đỉnh liền kề của $A_0$. Giả sử người thứ hai nối $A_1$ với $O$. Người thứ nhất nối $A_{2k+1}$ với $O$, trò chơi trở về trường hợp $n=2k-1$. Nghĩa là, các đỉnh $A_{2k+1}$, $A_0$, $A_1$, một trong các đỉnh đó tương tự trường hợp trước. Điều khác biệt duy nhất ở đây bao gồm hai điểm phụ nối tới $O$, điểm $A_1$ và $A_{2k+1}$ có hai đường phụ nối tới $A_0$.
+			\item Nối $O$ với các đỉnh không liền kề với $A_0$. Không mất tính tổng quát, giả sử người thứ hai nối $A_{2i}$ với $O$. Người thứ nhất nối $A_i$ với $O$, sau đó trò chơi trở về trường hợp $n=2k-2i+1$. Nghĩa là, xét các đỉnh ở giữa $A_0$ và $A_2$, có một đỉnh nối với $O$ ở lần di chuyển đầu tiên của người chơi đầu tiên. Nếu người chơi thứ hai vẽ một đoạn thẳng nằm trong một trong các miền sau $OA_0A_i$ và $OA_iA_{2i}$, người chơi thứ nhất sẽ vẽ một đoạn thẳng đối xứng với $OA_i$. Có một số chẵn bước phụ không đóng bất cứ vai trò gì, do đó trò chơi giảm tính chính xác với số lượng ít hơn.
+		\end{itemize} 
+	\end{itemize}
+Trong mỗi trường hợp, trò chơi được giảm xuống tương đương với số ít và số lẻ đỉnh. Vậy người thứ nhất có chiến lược chiến thắng với mọi số lẻ $n\ge 3$.
+}
+\end{ex}
+\Closesolutionfile{ans}

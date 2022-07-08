@@ -1,0 +1,1773 @@
+\section{Phương tích, trục đẳng phương}
+\begin{center}\textbf{\color{violet}{Trường THPT chuyên Thái Nguyên}}\end{center}
+\noindent Phương tích, trục đẳng phương là một trong những công cụ đã rất quen thuộc trong giải toán hình học phẳng. Kiến thức liên quan đến chúng khá đơn giản nhưng lại có nhiều ứng dụng mạnh trong các bài toán hình học phẳng, có thể xử lý các bài toán khó với cách xử lí đẹp và ấn tượng. 
+Trong bài viết này, tác giả đề cập đến một số ứng dụng cơ bản của phương tích, trục đẳng phương như bài toán chứng minh tứ giác nội tiếp; vuông góc, song song; thẳng hàng, đồng quy; các yếu tố cố định... nhằm giúp các em học sinh nắm bắt được phần nào ứng dụng của chúng.
+
+\subsection{Kiến thức cơ sở}	
+
+\subsubsection{Phương tích của một điểm đối với một đường tròn}
+\begin{dl}
+	Cho đường tròn $(O; R)$ và điểm $P$ cố định, $OP = d$. Một đường thẳng thay đổi qua $P$ cắt đường tròn tại hai điểm $M$ và $N$. Khi đó $\overline{PA}.\overline{PB}=PO^2-R^2=d^2-R^2$.
+\end{dl}
+\begin{center}
+	\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	\tkzDefPoints{0/0/O,2.5/0/I,-5/0/P}
+	\tkzDrawCircle[radius](O,I)
+	\tkzDefPointBy[rotation = center O angle -20](I)    \tkzGetPoint{M'}
+	\tkzDefPointBy[symmetry = center O](M')    \tkzGetPoint{M}
+	\tkzInterLC(P,M)(O,I)    \tkzGetPoints{}{N}
+	\tkzDrawSegments(P,N M,M')
+	
+	\tkzDrawPoints[fill=black](O,M',M,P,N)
+	\tkzLabelPoints[below](O)
+	\tkzLabelPoints[left](P)
+	\tkzLabelPoints[above left](M)
+	\tkzLabelPoints[above right](N)
+	\tkzLabelPoints[right](M')	
+	\end{tikzpicture}
+\end{center}
+\noindent{\bf Chứng minh.} 
+Gọi $M'$ là điểm đối xứng của $M$ qua $O$. Ta có $MN\perp NM'$. Khi đó: {\allowdisplaybreaks \begin{align*}
+	\overline{PM}.\overline{PN}&\, =\,\vec{PM}.\vec{PN}=\overline{PM'}\overline{PN}=\left(\overline{PO}+\overline{OM}\right)\left(\overline{PO}+\overline{OM'}\right)\\ &\,=\,\left(\overline{PO}+\overline{OM}\right)\left(\overline{PO}-\overline{OM}\right)=PO^2-OM^2=PO^2-R^2 \end{align*}}
+
+\begin{dn}
+	Phương tích của điểm $M$ đối với đường tròn $(O;R)$, kí hiệu $\mathscr{P}_{P/(O)}$, được xác định bởi $\mathscr{P}_{P/(O)}=OP^2-R^2$.
+\end{dn}
+
+\noindent{\bf Các tính chất.}
+\begin{tc}\text{}
+	\begin{itemize}
+		\item Nếu $A, B$ cố định và $\overline{AB}.\overline{AM}$ bằng hằng số  thì $M$ cố định.
+		\item 	Điểm $P$ nằm ngoài $(O; R)$ $\Leftrightarrow \mathscr{P}_{P/(O)}>0$.
+		\item 	Điểm $P$ nằm trong $(O; R)$ $\Leftrightarrow \mathscr{P}_{P/(O)}<0$.
+		\item 	Điểm $P$ nằm trên $(O; R)$ $\Leftrightarrow \mathscr{P}_{P/(O)}=0$.
+	\end{itemize}
+\end{tc}
+\begin{tc}
+	Cho đường tròn $(O; R)$ và một điểm $M$ nằm trên $(O)$. Qua $M$ kẻ cát tuyến $MAB$ và tiếp tuyến $MT$ tới $(O)$. Khi đó $\overline{MA}.\overline{MB}={\overline{MT}}^2=MO^2-R^2.$ 
+\end{tc}
+
+\begin{tc}
+	Cho hai đường thẳng $AB,CD$ phân biệt, cắt nhau tại $M$ ($M$ khác $A,B,C,D$). Khi đó, nếu $\overline{MA}.\overline{MB}=\overline{MC}.\overline{MD}$ thì bốn điểm $A,B,C,D$ cùng nằm trên một đường tròn.
+\end{tc}
+
+\begin{tc}
+	Cho hai đường thẳng $AB,MT$ phân biệt cắt nhau tại $M$($M$ khác $A,B,T$). Khi đó, nếu $\overline{MA}.\overline{MB}=MT^2$ thì đường tròn ngoại tiếp tam giác $ABT$ tiếp xúc với $MT$ tại $T$.
+\end{tc}
+
+\subsubsection{Trục đẳng phương của hai đường tròn}
+\begin{dl}
+	Cho hai đường tròn không đồng tâm $\left(O_1;R_1\right)$, $\left(O_2;R_2\right)$. Tập hợp các điểm $M$ có phương tích đối với hai đường tròn bằng nhau là một đường thẳng. Đường thẳng này gọi là trục đẳng phương của hai đường tròn đã cho.
+\end{dl}
+\noindent{\bf Chứng minh.} 
+Giả sử điểm $M$ có phương tích đến hai đường tròn bằng nhau. Gọi $H$ là hình chiếu của $M$ trên $O_1O_2$, $I$ là trung điểm của $O_1O_2$. Ta có:
+{\allowdisplaybreaks \begin{align*}
+	&\,\mathscr{P}_{M/(O_1)}=\mathscr{P}_{M/(O_2)}\Leftrightarrow MO_1^2-R_1^2=MO_2^2-R_2^2\\ &\,\Leftrightarrow MO_1^2-MO_2^2=R_1^2-R_2^2\\
+	&\,\Leftrightarrow \left(MH^2+HO_1^2\right)-\left(MH^2+HO_2^2\right)=R_1^2-R_2^2\\ &\,\Leftrightarrow HO_1^2-HO_2^2=R_1^2-R_2^2\\
+	&\, \Leftrightarrow \left(\overline{HO_1}-\overline{HO_1}\right)\left(\overline{HO_1}+\overline{HO_2}\right)=R_1^2-R_2^2\\&\,\Leftrightarrow \overline{O_2O_1}.2.\overline{HI}=R_1^2-R_2^2\\&\,\Leftrightarrow \overline{IH}=\dfrac{R_1^2-R_2^2}{\overline{O_1O_2}}\end{align*}}
+Từ đây suy ra $H$ cố định, suy ra $M$ thuộc đường thẳng qua $H$ và vuông góc với $O_1O_2$.
+\begin{center}
+	
+	\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	\tkzDefPoints{0/0/O,5/0/O'}
+	\coordinate (I) at ($(O)!0.5!(O')$);
+	\coordinate (I') at ($(O')!0.3!(O)$);
+	\coordinate (H) at ($(I)!0.3!(I')$);
+	\coordinate (M) at ($(H)+(0,3)$);
+	\tkzDrawLines[add = .2 and .8,color=black](M,H)
+	\tkzDrawCircle[radius](O,I)
+	\tkzDrawCircle[radius](O',I')
+	\tkzDrawSegments(O,O')
+	
+	\tkzDrawPoints[fill=black](O,O',M,H)
+	\draw (O) node[below] {\footnotesize $O_1 $} (O') node[below] {\footnotesize $O_2 $};
+	\tkzLabelPoints[right](M)
+	\tkzLabelPoints[above right](H)
+	\end{tikzpicture}
+	
+\end{center}
+\noindent{\bf Các tính chất.}
+\begin{itemize}
+	\item Trục đẳng phương của hai đường tròn vuông góc với đường nối tâm.
+	\item	Nếu hai đường tròn cắt nhau tại $A$ và $B$ thì $AB$ chính là trục đẳng phương.
+	\item	Nếu điểm $M$ có cùng phương tích với hai đường tròn thì đường thẳng qua $M$ và vuông góc với đường nối tâm là trục đẳng phương.
+	\item	Nếu hai điểm $M, N$ có cùng phương tích đối với hai đường tròn thì đường thẳng $MN$ là trục đẳng phương.
+	\item	Nếu ba điểm có cùng phương tích với hai đường tròn thì chúng thẳng hàng.
+	\item	Nếu $\left(O_1\right),\left(O_2\right)$ cắt nhau tại $A$ thì đường thẳng qua $A$ vuông góc với $O_1O_2$ là trục đẳng phương.	
+\end{itemize}
+\noindent{\bf Cách xác định trục đẳng phương của hai đường tròn không đồng tâm.}\\
+Cho hai đường tròn $\left(O_1\right)$ và $\left(O_2\right)$ không cắt nhau, ta có cách dựng trục đẳng phương của hai đường tròn như sau:
+\begin{enumerate}
+	\item[-] Dựng đường tròn $\left(O_3\right)$ cắt cả hai đường tròn $\left(O_1\right)$ và $\left(O_2\right)$ cắt nhau lần lượt tại $A,B$ và $C,D$.
+	\item[-] Đường thẳng $AB$ và $CD$ cắt nhau tại $M$.
+	\item[-] Đường thẳng qua $M$ vuông góc với $O_1O_2$ chính là trục đẳng phương của $\left(O_1\right)$ và $\left(O_2\right)$.
+\end{enumerate}
+\begin{center}
+	\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	\tkzDefPoints{0/0/O,5/0/O'}
+	\coordinate (I) at ($(O)!0.5!(O')$);
+	\coordinate (I') at ($(O')!0.3!(O)$);
+	\tkzDefPointBy[rotation = center O angle 20](I)    \tkzGetPoint{A}
+	\coordinate (O'') at ($(I')-(0,2)$);
+	\tkzDrawCircle[radius](O,I)
+	\tkzDrawCircle[radius](O',I')
+	\tkzDrawCircle[radius](O'',A)
+	\tkzInterCC(O'',A)(O,I)    \tkzGetPoints{B}{}
+	\tkzInterCC(O'',A)(O',I')    \tkzGetPoints{D}{C}
+	\tkzInterLL(A,B)(C,D)    \tkzGetPoint{M}
+	\tkzDefPointBy[projection = onto O--O'](M)    \tkzGetPoint{H}
+	\tkzDrawLines[add = .8 and 1.5,color=black](M,H)
+	\tkzDrawSegments(O,O' M,B M,C)
+	\draw (O) node[below] {\footnotesize $O_1 $} (O') node[below] {\footnotesize $O_2 $} (O'') node[below] {\footnotesize $O_3 $};
+	\tkzMarkRightAngles[size=0.2](M,H,O')
+	\tkzDrawPoints[fill=black](O,O',O'',A,B,C,D,M,H)
+	\tkzLabelPoints[right](C)
+	\tkzLabelPoints[above](D)
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoints[below left](B)
+	\tkzLabelPoints[above right](M)
+	\end{tikzpicture}
+\end{center}
+\noindent{\bf Tâm đẳng phương của ba đường tròn.}
+\begin{dl}
+	Cho ba đường tròn $\left(O_1\right), \left(O_2\right)$ và $\left(O_3\right)$. Khi đó, $3$ trục đẳng phương của các cặp đường tròn trùng nhau hoặc song song hoặc cùng đi qua một điểm , điểm đó được gọi là tâm đẳng phương của ba đường tròn.
+\end{dl}
+\noindent{\bf Các tính chất}
+\begin{itemize}
+	\item Nếu ba đường tròn đôi một cắt nhau thì các dây cung chung cùng đi qua một điểm.
+	\item Nếu ba trục đẳng phương song song hoặc trùng nhau thì tâm của ba đường tròn thẳng hàng.
+	\item Nếu ba đường tròn cùng đi qua một điểm và có các tâm thẳng hàng thì trục đẳng phương trùng nhau.
+\end{itemize}
+
+\subsection{Các dạng toán}
+
+\subsubsection{Ứng dụng giải các bài toán định lượng}
+\begin{bt}[Phương tích trọng tâm]
+	Cho tam giác $ABC$ nội tiếp đường tròn $(O; R)$. Xác định phương tích của trọng tâm $G$ của tam giác $ABC$ với $(O)$ theo các cạnh $BC = a$, $CA = b$, $AB = c$.
+	\loigiai{Do $G$ là trọng tâm tam giác $ABC$ nên
+		{\allowdisplaybreaks
+			\begin{align*}
+			&\vec{OA}+\vec{OB}+\vec{OC}=3\vec{OG}\\
+			\Rightarrow& OA^2+OB^2+OC^2+2\vec{OA}.\vec{OB}+2\vec{OB}.\vec{OC}+2\vec{OC}.\vec{OA}=9OG^2.\tag{1}\end{align*}}Ta có 
+		\[2\vec{OA}.\vec{OB}=OA^2+OB^2-AB^2=2R^2-c^2;2\vec{OB}.\vec{OC}=2R^2-a^2;2\vec{OC}.A=2R^2-b^2.\tag{2}\]
+		Từ $(1)$ và $(2)$ 	Suy ra 
+		$OG^2=\dfrac{1}{9}\left(9R^2-a^2-b^2-c^2\right)$.\hfill$(3)$\\
+		Do $(3)$ nên $\mathscr{P}_{G/(O)}=OG^2-R^2=-\dfrac{1}{9}\left(a^2+b^2+c^2\right)$.
+		
+	}
+\end{bt}
+
+\begin{bt}[Phương tích trực tâm]
+	Cho tam giác $ABC$ nội tiếp đường tròn $(O; R)$. Xác định phương tích của trực tâm $H$ của tam giác $ABC$ đối với $(O)$ theo $R$ và các góc $A$, $B$, $C$.
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+		\tkzDefPoints{0/0/O,3/0/I}
+		\tkzDrawCircle[radius](O,I)
+		\tkzDefPointBy[rotation = center O angle -20](I)    \tkzGetPoint{C}
+		\tkzDefPointBy[rotation = center O angle 200](I)    \tkzGetPoint{B}
+		\tkzDefPointBy[rotation = center O angle 120](I)    \tkzGetPoint{A}
+		\tkzDefPointBy[projection = onto A--B](C)    \tkzGetPoint{c}
+		\tkzDefPointBy[projection = onto C--B](A)    \tkzGetPoint{K}
+		\tkzDefPointBy[projection = onto A--C](B)    \tkzGetPoint{b}
+		\tkzInterLC(A,K)(O,I)    \tkzGetPoints{A'}{}
+		\tkzInterLC(B,b)(O,I)    \tkzGetPoints{}{B'}
+		\tkzInterLC(C,c)(O,I)    \tkzGetPoints{}{C'}
+		\tkzInterLL(A,A')(C,C')    \tkzGetPoint{H}
+		\tkzMarkRightAngles[size=0.2](A,K,C B,b,C C,c,B)
+		\tkzDrawSegments(A,B B,C C,A A,A' B,B' C,C')
+		\tkzDrawPoints[fill=black](C,B,A,K,A',B',C')
+		\tkzLabelPoints[above](A)
+		\tkzLabelPoints[left](B)
+		\tkzLabelPoints[right](C)
+		\tkzLabelPoints[left](C')
+		\tkzLabelPoints[above right](B')
+		\tkzLabelPoints[below right](K)
+		\tkzLabelPoints[below](A')	
+		\tkzLabelPoints[below right](H)
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{ Xét trường hợp tam giác $ABC$ nhọn. Gọi $K, A'$ lần lượt là giao điểm của $AH$ với $BC, \left(O\right)$. Áp dụng định lí \textbf{Sin} cho tam giác $AHB$ 
+		{\allowdisplaybreaks \begin{align*}&\,\dfrac{AH}{\sin \widehat{ABH}}=\dfrac{AB}{\sin\widehat{AHB}}\Rightarrow \dfrac{AH}{\cos A}=\dfrac{AB}{\sin C}\\
+			&\,\Rightarrow HA=\dfrac{AB.\cos A}{\sin C}=\dfrac{c.\cos A}{\cos C}=2R.\cos A
+			\end{align*}}
+		Tương tự ta cũng có $HB=2R.\cos B$.\\
+		Vì $\widehat{BHA'}=\widehat{C}\widehat{BA'A}\Rightarrow \Delta BHA'$ cân tại $B$ nên ta có: $$KH=KA'\Rightarrow HA'=2KH=2.BH.\cos\widehat{BHA'}=2R\cos B\cos C.$$ 
+		Do tam giác $ABC$ nhọn nên $\mathscr{P}_{P/(O)}=\overline{HA}.\overline{HA'}=-HA.HA'=-8R^2\cos A\cos B\cos C$.\\
+		Trường hợp tam giác $ABC$ vuông hay tù chứng minh tương tự.\\
+		\noindent{\bf Nhận xét} 
+		$$\mathscr{P}_{P/(O)}=OH^2-R^2=-8R^2\cos A\cos B\cos C\Rightarrow OH^2=R^2\left(1-8\cos A.\cos B\cos C\right)$$
+		
+	}	
+\end{bt}
+
+\begin{bt}[Hệ thức Euler]%[0H0G3]
+	Cho $\triangle ABC$ nội tiếp đường tròn $(O,R)$ và ngoại tiếp đường tròn $(I,r)$. Chứng minh rằng $OI^2 = R^2 -2Rr$.
+	\loigiai{
+		\immini{
+			Gọi $E$ là tiếp điểm của $AB$ và $(I,r)$. \\
+			Gọi $A'$ là giao điểm của $AI$ và $(O,R)$. \\
+			Ta có $IA = \dfrac{IE}{\sin \widehat{IAE}} =\dfrac{r}{\sin \frac{A}{2}}$.\\
+			Ta có $\widehat{IBA'} = \dfrac{\widehat{A}}{2} + \dfrac{\widehat{B}}{2}$, $\widehat{BIA'} =180^\circ - \left( \widehat{AIE} + \widehat{BIE} \right) = \dfrac{\widehat{A}}{2} + \dfrac{\widehat{B}}{2}$. \\
+			Do đó $\triangle A'IB$ cân tại $A'$. Suy ra $IA' =IB'$. \\
+		}
+		{\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-0.5,xmax=4.5,ymin=-1.5,ymax=3.5]
+			\tkzClip
+			%\tkzAxeXY
+			%\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/B,4/0/C,1/3/A}
+			\tkzDefCircle[circum](A,B,C)     \tkzGetPoint{O} %tâm đường tròn
+			\tkzDrawCircle[radius](O,A)
+			\tkzDefCircle[in](A,B,C)     \tkzGetPoint{I} %tâm đường tròn
+			\tkzInterLC(A,I)(O,A)    \tkzGetFirstPoint{A'}
+			\tkzDefPointBy[projection = onto A--B](I)    \tkzGetPoint{E}
+			\tkzDrawSegments(A,B B,C C,A A,A' I,E B,A' I,B)
+			\tkzDrawPoints[fill=black](A,B,C,O,I,A',E)
+			\tkzLabelPoints[above right](A')
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[above right](I)
+			\tkzLabelPoints[left](E)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below right](C,O)
+			\tkzMarkRightAngles(I,E,A)
+			\end{tikzpicture}}
+		\noindent Áp dụng định lý sin cho $\triangle ABA'$ ta có $BA' =  2R \sin \dfrac{A}{2} \Rightarrow IA' = 2R \sin \dfrac{A}{2} .$ \\
+		Do điểm $I$ nằm trong $(O;R)$ nên $$\mathscr{P}_{I/(O)} = - IA \cdot IA' = -\dfrac{r}{\sin \frac{A}{2}} \cdot 2R \sin \dfrac{A}{2} = -2Rr \Leftrightarrow OI^2 = R^2 -2Rr.$$
+	}
+\end{bt}
+
+\begin{bt}%[0H0G3]
+	Cho $\triangle ABC$ có $BC=a, CA=b, AB=c$. Xét đường tròn $(I)$ sao cho 
+	$$\mathscr{P}_{A/(I)} +a^2= \mathscr{P}_{B/(I)} +b^2 = \mathscr{P}_{C/(I)}+c^2=0.$$
+	Gọi $R,R'$ lần lượt là bán kính đường tròn ngoại tiếp tam giác $ABC$ và $(I)$, $M$ là trung điểm của đoạn $BC$.
+	\begin{enumerate}
+		\item Chứng minh rằng $I$ là trực tâm của $\triangle ABC$.
+		\item Chứng minh rằng $R'=2R$.
+		\item Tính $\mathscr{P}_{M/(I)}$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			%\tkzInit[xmin=-6,xmax=6,ymin=-6,ymax=6]
+			%\tkzClip
+			%\tkzAxeXY
+			%\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/B,4/0/C,1/3/A}
+			\tkzDefCircle[circum](A,B,C)     \tkzGetPoint{O} %tâm đường tròn
+			\tkzDrawCircle[radius](O,A)
+			\coordinate (M) at ($(C)!0.5!(B)$);
+			\tkzDefPointBy[projection = onto A--B](C)    \tkzGetPoint{E}
+			\tkzDefPointBy[projection = onto A--C](B)    \tkzGetPoint{F}
+			\tkzInterLL(B,F)(C,E)    \tkzGetPoint{I}
+			\tkzDrawSegments(A,B B,C C,A B,I C,I A,I O,M)
+			\tkzDrawPoints[fill=black](A,B,C,I,O,M)
+			\tkzLabelPoints[above](A,O)
+			\tkzLabelPoints[below](I,M)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below right](C)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Từ giả thiết, suy ra $\mathscr{P}_{A/(I)} = -a^2$, $\mathscr{P}_{B/(I)}= -b^2$, $\mathscr{P}_{C/(I)} = -c^2$.
+			\\ Ta có 
+			{\allowdisplaybreaks
+				\begin{align*}
+				\mathscr{P}_{A/(I)} & = IA^2 -R'^2 = -a^2 \Leftrightarrow IA^2 = R'^2 -a^2 = R'^2 - BC^2, \tag{1}\\ 
+				\mathscr{P}_{B/(I)} & = IB^2 -R'^2 = -b^2 \Leftrightarrow IB^2 = R'^2 -b^2 = R'^2 - CA^2, \tag{2} \\
+				\mathscr{P}_{C/(I)} & = IC^2 -R'^2 = -c^2 \Leftrightarrow IC^2 = R'^2 -c^2 = R'^2 - BA^2. \tag{3}
+				\end{align*}}
+			Từ $(1)$ và $(2)$ suy ra $CA^2 - CB^2 = IA^2 -IB^2 \Rightarrow CI \perp AB$.
+			\\ Tương tự ta cũng có $BI \perp CA$, $CI \perp AB$ và do đó $I$ là trực tâm của $\triangle ABC$.
+			\item Ta có $AI = 2OM$. Do đó $AI^2 =4OM^2 = 4 \left( R^2 - MB^2 \right) =4R^2 -a^2$. Khi đó $$R'^2 =IA^2 +a^2 =4R^2 -a^2 +a^2 =4R^2 \Rightarrow R'=2R. $$
+			\item Ta có $MI^2 = \dfrac{IB^2 +IC^2}{2} - \dfrac{BC^2}{4} = \dfrac{4R^2 -b^2 +4R^2 -c^2}{2} - \dfrac{a^2}{4} = 4R^2 - \dfrac{2b^2+ 2c^2 +a^2}{4}$.
+			\\ Suy ra $\mathscr{P}_{M/(I)} = MI^2 - R'^2 = 4R^2 - \dfrac{2b^2+ 2c^2 +a^2}{4} - 4R^2 = - \dfrac{2b^2+ 2c^2 +a^2}{4}$.
+	\end{enumerate}}
+\end{bt}
+
+\begin{bt}%[0H0G3]
+	Cho hai đường tròn $(O_1)$, $(O_2)$ không đồng tâm và $M$ là một điểm tùy ý. Gọi $d$ là trục đẳng phương của $(O_1)$ và $(O_2)$, $H$ là hình chiếu vuông góc của $M$ trên $d$. Chứng minh rằng $\mathscr{P}_{M/(O_1)} - \mathscr{P}_{M/(O_2)} = -2 \overline{O_1 O_2} \cdot \overline{MH}$.
+	\loigiai{
+		\immini{
+			Gọi bán kính của đường tròn $(O_1)$ và $(O_2)$ lần lượt là $R_1$ và $R_2$. \\
+			Ta có 
+			{\allowdisplaybreaks
+				\begin{align*}
+				\mathscr{P}_{M/(O_1)} &= O_1M^2 - R_1^2 = \left( \overline{HM} - \overline{HO_1}\right)^2 - R_1^2 \\
+				&= HM^2 + HO_1^2 -2 \overline{HM} \cdot \overline{HO_1} -R_1^2 \\
+				&= HM^2 + \mathscr{P}_{H/(O_1)} -2\overline{HM} \cdot \overline{KO_1}.
+				\end{align*}}
+		}
+		{\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round, scale=0.8]
+			\tkzInit[xmin=-3,xmax=8,ymin=-3,ymax=4]
+			\tkzClip
+			%\tkzAxeXY
+			%\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/O_1,5/0/O_2, 2/0/X, 4/0/Y,4.5/0/Z, 1/3/M, 2.5/1/I}
+			\tkzDrawCircle[radius](O_1,X)
+			\tkzDrawCircle[radius](O_2,Y)
+			\tkzInterCC(I,Z)(O_1,X)    \tkzGetPoints{C}{D}
+			\tkzInterCC(I,Z)(O_2,Y)    \tkzGetPoints{E}{F}
+			\tkzInterLL(E,F)(C,D)    \tkzGetPoint{N}
+			\tkzDefPointBy[projection = onto Y--X](N)    \tkzGetPoint{K}
+			\tkzDefPointBy[projection = onto N--K](M)    \tkzGetPoint{H}
+			\tkzDrawSegments(O_1,O_2 O_1,M M,O_2 H,O_1 H,O_2 M,H H,K)
+			\tkzDrawPoints[fill=black](O_1,O_2,M,H,K)
+			\tkzMarkRightAngles(M,H,K H,K,Y)
+			\tkzLabelPoints[below](O_1, O_2, K)
+			\tkzLabelPoints[above](M,H)
+			\end{tikzpicture}}
+		\noindent Tương tự, $\mathscr{P}_{M/(O_2)} = HM^2 + \mathscr{P}_{H/(O_2)} - 2\overline{HM} \cdot \overline{KO_2}$.
+		\\ Do đó 
+		\begin{align*}
+		\mathscr{P}_{M/(O_1)} - \mathscr{P}_{M/(O_2)} &= \mathscr{P}_{H/(O_1)} - \mathscr{P}_{H/(O_2)} - 2\overline{HM} \left( \overline{KO_1} - \overline{KO_2} \right) \\
+		&= -2\overline{HM} \cdot \overline{O_2O_1}= -2\overline{MH} \cdot \overline{O_1O_2}.
+		\end{align*}
+	}
+\end{bt}
+
+\begin{bt}[USA MO 2008]%[0H0G3]
+	Cho hai đường tròn $(C_1)$ và $(C_2)$ có cùng tâm ($(C_2)$ chứa $(C_1)$) và một điểm $A$ nằm trên $(C_1)$. Tiếp tuyến tại $A$ của đường tròn $(C_1)$ cắt đường tròn $(C_2)$ tại hai điểm $B$ và $C$. Gọi $D$ là trung điểm của $AB$. Một đường thẳng qua $B$ cắt $(C_1)$ tại hai điểm $E$, $F$. Biết rằng các đường trung trực của $DE$ và $CF$ cắt nhau tại một điểm $I$ trên đường thẳng $BC$. Tính tỉ số $\dfrac{IB}{IC}$.
+	\loigiai{
+		\immini{
+			Ta có $\mathscr{P}_{B/(C_1)}= \overline{BA}^2 = \overline{BE} \cdot \overline{BF}$. \\
+			Mặt khác $\overline{BA}^2 = 2\overline{BD} \cdot \dfrac{\overline{BC}}{2} = \overline{BD} \cdot \overline{BC}$.\\
+			Suy ra $\overline{BE}  \cdot \overline{BF} = \overline{BD} \cdot \overline{BC}$. Do đó, tứ giác $DEFC$ nội tiếp. 
+			\\ Mà điểm $I$ là giao của hai đường trung trực của $DE$, $FC$ nên $I$ là tâm đường tròn ngoại tiếp tứ giác $DEFC$. 
+			\\ Suy ra $I$ là trung điểm $CD$. 
+		}
+		{\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round,scale=0.9]
+			%\tkzInit[xmin=-6,xmax=6,ymin=-6,ymax=6]
+			%\tkzClip
+			%\tkzAxeXY
+			%\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/0/O,0/1/A, -2.5/1/B}
+			\tkzDefPointBy[symmetry = center A](B)    \tkzGetPoint{C}
+			\coordinate (D) at ($(A)!0.5!(B)$);
+			\coordinate (I) at ($(D)!0.5!(C)$);
+			\tkzInterCC(O,A)(I,C)    \tkzGetPoints{E}{F}
+			\coordinate (X) at ($(C)!0.5!(F)$);
+			\coordinate (Y) at ($(D)!0.5!(E)$);
+			\tkzDrawCircle[radius](O,A)
+			\tkzDrawCircle[radius](O,B)
+			\tkzDrawSegments(B,C O,A B,F C,F D,E I,X I,Y)
+			\tkzDrawPoints[fill=black](A,B,C,O,D,I,E,F,X,Y)
+			\tkzMarkRightAngles(O,A,B)
+			\tkzLabelPoints[below](F)
+			\tkzLabelPoints[below left](E)
+			\tkzLabelPoints[above](A,D,I)
+			\tkzLabelPoints[right](O,C)
+			\tkzLabelPoints[left](B)
+			\end{tikzpicture}}
+		\noindent Khi đó $DB =\dfrac{1}{3} DC$. Do đó $\dfrac{IB}{IC} = \dfrac{ID+ IB}{IC}= \dfrac{ID}{IC} + \dfrac{DB}{IC} = 1+ \dfrac{2}{3}= \dfrac{5}{3}$.
+	}
+\end{bt}
+\begin{bt}[Romani TST 2006]%[0H0G3] 
+	Cho đường tròn $(O)$ và một điểm $A$ nằm ngoài $(O)$. Từ $A$ kẻ cát tuyến $ABC,\ ADE$ ($B,\ D$ theo thứ tự thuộc đoạn $AC,\ AE$). Qua $D$ kẻ đường thẳng song song với $AC$ cắt $(O)$ lần thứ hai tại $F$. $AF$ cắt $(O)$ tại $G,\ EG$ cắt $AC$ tại $M$. Chứng minh rằng \[\dfrac{1}{AM}=\dfrac{1}{AB}+\dfrac{1}{AC}.\]
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzInit[xmin=-6,ymin=-3.5,xmax=3.5,ymax=3.5]
+			% \tkzGrid    
+			\tkzClip
+			\tkzDefPoint(0,0){O}
+			\tkzDefShiftPoint[O](130:3){B}
+			\tkzDefShiftPoint[O](20:3){C}
+			\tkzDefShiftPoint[O](160:3){D}
+			\tkzDefShiftPoint[O](-70:3){E}  
+			\tkzDrawCircle(O,B)
+			\tkzInterLL(B,C)(D,E)
+			\tkzGetPoint{A}
+			\tkzDefLine[parallel=through D](A,C)
+			\tkzGetPoint{d}
+			\tkzInterLC(D,d)(O,B)
+			\tkzGetPoints{}{F}
+			\tkzInterLC(A,F)(O,B)
+			\tkzGetPoints{G}{}
+			\tkzInterLL(E,G)(A,C)
+			\tkzGetPoint{M}
+			\tkzDrawSegments(A,E A,C D,F A,F E,M)
+			\tkzDrawPoints[color=black,fill=black,size=6pt](A,B,C,D,E,F,G,M,O)
+			\node at ($(A)+(-100:3mm)$){\footnotesize $A$};
+			\node at ($(B)+(90:3mm)$){\footnotesize $B$};
+			\node at ($(C)+(60:3mm)$){\footnotesize $C$};
+			\node at ($(D)+(200:3mm)$){\footnotesize $D$};
+			\node at ($(E)+(-80:3mm)$){\footnotesize $E$};
+			\node at ($(F)+(-30:3mm)$){\footnotesize $F$};
+			\node at ($(G)+(200:3mm)$){\footnotesize $G$};
+			\node at ($(M)+(90:3mm)$){\footnotesize $M$};
+			\node at ($(O)+(-90:3mm)$){\footnotesize $O$};
+			
+			\end{tikzpicture}  
+		\end{center}
+		\noindent
+		Ta có
+		\[\widehat{GED}=\widehat{GFD}=\widehat{MAD} \Rightarrow \triangle AMG \backsim \triangle EMA \Rightarrow MA^2=MG\cdot ME. \tag{1}\]
+		Mà 
+		\[MG\cdot ME = MB\cdot MC. \tag{2}\] 
+		Từ $(1)$ và $(2)$ suy ra
+		\[MA^2=MB\cdot MC \Leftrightarrow MA^2=(AB-MA)(AC-MA)=AB\cdot AC- MA(AB+AC)+MA^2.\]   
+		Khi đó
+		\[MA=\dfrac{AB\cdot AC}{AB+AC}\Rightarrow \dfrac{1}{MA}=\dfrac{1}{AB}+\dfrac{1}{AC}.\]
+		\begin{nx}
+			Gọi $N$ là điểm đối xứng của $A$ qua $M$. Khi đó
+			\[\dfrac{1}{AM}=\dfrac{1}{AB}+\dfrac{1}{AC}\Leftrightarrow \dfrac{2}{AN}=\dfrac{1}{AB}+\dfrac{1}{AC}\Leftrightarrow (ANBC)=-1.\]
+		\end{nx}
+	}
+	
+\end{bt}
+
+\begin{bt}[Russian MO 2008] %[0H0G3] 
+	Cho tam giác $ABC$ nội tiếp đường tròn $(O,\ R)$, ngoại tiếp đường tròn $(I,\ r)$. Đường tròn $(I)$ tiếp xúc với $AB,\ AC$ lần lượt tại $X,\ Y$. Gọi $K$ là điểm chính giữa cung $AB$ không chứa $C$. Giả sử $XY$ chia đôi đoạn $AK$. Tính $\widehat{BAC}$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1.2]
+			\tkzInit[xmin=-4,ymin=-2.5,xmax=3.5,ymax=2]
+			% \tkzGrid    
+			\tkzClip
+			\tkzDefPoints{-3/0/B, 3/0/C}
+			\tkzDefTriangle[two angles= 20 and 40](B,C)	 
+			\tkzGetPoint{A}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDefCircle[circum](A,B,C)
+			\tkzGetPoint{O}
+			\tkzDrawCircle(O,A)
+			\tkzDefCircle[in](A,B,C)
+			\tkzGetPoint{I}
+			\tkzDrawCircle[in](A,B,C)
+			\tkzDefLine[bisector](A,C,B)
+			\tkzGetPoint{d}
+			\tkzInterLC(C,d)(O,A)
+			\tkzGetPoints{K}{}
+			\tkzDefPointBy[projection=onto A--B ](I)
+			\tkzGetPoint{X}
+			\tkzDefPointBy[projection=onto A--C ](I)
+			\tkzGetPoint{Y}
+			\tkzInterLL(X,Y)(A,K)
+			\tkzGetPoint{S}
+			\tkzMarkSegments[mark=s|](K,S A,S)
+			\tkzDrawSegments(A,K S,Y C,K O,K I,X I,Y)
+			\tkzDrawPoints[color=black,fill=black,size=6pt](K,X,Y,A,B,C,O,I,S)
+			\node at ($(A)+(90:3mm)$){\footnotesize $A$};
+			\node at ($(B)+(120:3mm)$){\footnotesize $B$};
+			\node at ($(C)+(20:3mm)$){\footnotesize $C$};
+			\node at ($(O)+(0:3mm)$){\footnotesize $O$};
+			\node at ($(I)+(-90:2mm)$){\footnotesize $I$};
+			\node at ($(X)+(-100:2mm)$){\footnotesize $X$};
+			\node at ($(Y)+(-80:2mm)$){\footnotesize $Y$};
+			\node at ($(S)+(-90:2mm)$){\footnotesize $S$};
+			\node at ($(K)+(100:3mm)$){\footnotesize $K$};    	
+			\end{tikzpicture}
+		\end{center} 
+		Gọi $S$ là giao điểm của $XY$ và $AK$. Ta có
+		\[\widehat{KAB}=\widehat{KCB};\ \widehat{SXA}=180^\circ -  \widehat{AXY}=\widehat{BIC} \Rightarrow \triangle AXS = \triangle CIB \Rightarrow AS=\dfrac{AX\cdot BC}{CI} 	\]
+		hay
+		\[\dfrac{1}{2}AK=\dfrac{AX\cdot BC}{CI} \Leftrightarrow KI\cdot CI = 2AX\cdot BC.\]
+		Từ đó ta có
+		\[2Rr = 2(p-a)a\Leftrightarrow \dfrac{abc}{4S_{ABC}}\cdot \dfrac{S_{ABC}}{p}=(p-a)a \Leftrightarrow bc =4p(p-a) \Leftrightarrow b^2+c^2+bc=a^2 \Leftrightarrow \widehat{BAC}=120^\circ.\]
+	}
+\end{bt}
+
+\noindent{\bf 1. Bài toán chứng minh tứ giác nội tiếp.}\\
+Kết quả thường dùng: 
+Cho đường tròn $(O)$ và một điểm $ M $. Gọi $d_1$, $d_2$ là hai cát tuyến cắt $(O)$ lần lượt tại $A$, $B$ và $C$, $D$. Khi đó $\overline{MA}.\overline{MB}=\overline{MC}.\overline{MD}$.\\
+Ngược lại, cho hai đường thẳng $AB$, $CD$ phân biệt, cắt nhau tại $M$, với $M$ khác $A, B, C, D$. Khi đó nếu $\overline{MA}.\overline{MB}=\overline{MC}.\overline{MD}$ thì bốn điểm $A, B, C, D$ cùng nằm trên một đường tròn.
+\begin{bt}[IMO shortlist 1995]%[0H0G3] 
+	Cho tam giác $ABC$ ngoại tiếp đường tròn $(I)$. Đường tròn $(I)$ tiếp xúc với $BC,\ CA,\ AB$ lần lượt tại $D,\ E,\ F$. Gọi $X$ là điểm nằm trong tam giác $ABC$ sao cho đường tròn nội tiếp tam giác $XBC$ tiếp xúc với $XB,\ XC,\ BC$ lần lượt tại $Z,\ Y,\ D$. Chứng minh rằng tứ giác $EFZY$ nội tiếp.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1.2]
+			\tkzInit[xmin=-6.5,ymin=-.5,xmax=3.5,ymax=4.5]
+			% \tkzGrid    
+			\tkzClip
+			\tkzDefPoints{-3/0/B, 3/0/C}
+			\tkzDefTriangle[two angles= 75 and 30](B,C)	 
+			\tkzGetPoint{A}
+			\tkzDrawPolygon(A,B,C)
+			\tkzDefCircle[in](A,B,C)
+			\tkzGetPoint{I}
+			\tkzDefPointBy[projection=onto B--C ](I)
+			\tkzGetPoint{D}
+			\tkzDefPointBy[projection=onto C--A ](I)
+			\tkzGetPoint{E}
+			\tkzDefPointBy[projection=onto A--B ](I)
+			\tkzGetPoint{F}
+			\tkzDefPointBy[homothety=center D ratio 4/5 ](I)
+			\tkzGetPoint{O}
+			\tkzTangent[from=B](O,D)
+			\tkzGetPoints{}{Z}
+			\tkzTangent[from=C](O,D)
+			\tkzGetPoints{Y}{}
+			\tkzInterLL(B,Z)(C,Y)
+			\tkzGetPoint{X}
+			\tkzDrawCircle(O,D)
+			\tkzDefCircle[circum](F,Y,E)
+			\tkzGetPoint{O1}
+			\tkzDrawCircle[dashed](O1,E)
+			\tkzDrawCircle(I,F)
+			\tkzInterLL(E,F)(Z,Y)
+			\tkzGetPoint{T}
+			\tkzDrawSegments(X,B X,C E,T T,Y T,C)
+			\tkzDrawPoints[color=black,fill=black,size=6pt](A,B,C,D,I,Z,Y,X,E,F,T)
+			\node at ($(A)+(90:3mm)$){\footnotesize $A$};
+			\node at ($(B)+(120:3mm)$){\footnotesize $B$};
+			\node at ($(C)+(20:3mm)$){\footnotesize $C$};
+			\node at ($(E)+(20:3mm)$){\footnotesize $E$};
+			\node at ($(F)+(100:3mm)$){\footnotesize $F$};        
+			\node at ($(I)+(-90:2mm)$){\footnotesize $I$};
+			\node at ($(D)+(-90:3mm)$){\footnotesize $D$};        
+			\node at ($(X)+(0:3mm)$){\footnotesize $X$};
+			\node at ($(Y)+(-80:2mm)$){\footnotesize $Y$};
+			\node at ($(T)+(-90:2mm)$){\footnotesize $T$};
+			\node at ($(Z)+(-80:2mm)$){\footnotesize $Z$};    	
+			\end{tikzpicture}  
+		\end{center}
+		Gọi $T$ là giao điểm của $EF$ và $BC$. Áp dụng định lí Menelaus cho tam giác $ABC$ với ba điểm $T,\ F,\ E$ thẳng hàng, ta có
+		\[\dfrac{\overline{TB}}{\overline{TC}}\cdot \dfrac{\overline{EC}}{\overline{EA}}\cdot \dfrac{\overline{FA}}{\overline{FB}} =1. \tag{1}\] 
+		Áp dụng định lí Ceva cho tam giác $ABC$ với ba điểm $D,\ E,\ F$ đồng quy ta có 
+		\[\dfrac{\overline{DB}}{\overline{DC}}\cdot \dfrac{\overline{EC}}{\overline{EA}}\cdot \dfrac{\overline{FA}}{\overline{FB}} =-1. \tag{2}\]
+		Từ $(1)$ và $(2)$ suy ra 
+		\[\dfrac{\overline{TB}}{\overline{TC}}=-\dfrac{\overline{DC}}{\overline{DB}}. \tag{3}\]
+		Gọi $T'$ là giao điểm của $BC$ và $YZ$. Tương tự ta cũng có
+		\[\dfrac{\overline{T'B}}{\overline{T'C}}=-\dfrac{\overline{DC}}{\overline{DB}}. \tag{4}\]
+		Từ $(3)$ và $(4)$ suy ra $T \equiv T'$. Khi đó 
+		\[\overline{TE}\cdot \overline{TF} =TD^2= \overline{TZ}\cdot \overline{TY},\]
+		suy ra tứ giác $EFZY$ nội tiếp.
+	}
+\end{bt}
+
+\begin{bt}%[0H0G3]  
+	Cho hai đường tròn $(O_1),\ (O_2)$ ngoài nhau, $A_1A_2$ là tiếp tuyến chung của hai đường tròn $(A_1 \in (O_1),\ A_2 \in (O_2))$. $K$ là trung điểm của $A_1A_2$. Từ $K$ lần lượt kẻ hai tiếp tuyến $KB_1,\ KB_2$ tới $(O_1),\ (O_2),\ A_1B_1 \cap A_2B_2= \lbrace L \rbrace, KL \cap O_1O_2 =\lbrace P \rbrace$. Chứng minh rằng $B_1,\ B_2,\ P,\ L$ cùng thuộc một đường tròn.
+	
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1.2]
+			\tkzInit[xmin=-6.5,ymin=-1,xmax=3.5,ymax=5]
+			% \tkzGrid    
+			\tkzClip
+			\def \rOA{2.5cm}
+			\def \rOB{1.2cm}
+			
+			\tkzDefPoint(-4,2){O1}
+			\tkzDefShiftPoint[O1](0:5.5){O2}
+			\tkzDrawCircle[R](O1,\rOA) 
+			\tkzDrawCircle[R](O2,\rOB)   	
+			\tkzExtSimilitudeCenter(O1,\rOA)(O2,\rOB) 
+			\tkzGetPoint{I}
+			\tkzTangent[from with R= I](O1,\rOA)  
+			\tkzGetPoints{A1}{} 
+			\tkzTangent[from with R= I](O2,\rOB)  
+			\tkzGetPoints{A2}{}
+			\tkzDefMidPoint(A1,A2)
+			\tkzGetPoint{K}
+			\tkzTangent[from with R= K](O1,\rOA)  
+			\tkzGetPoints{}{B1} 
+			\tkzTangent[from with R= K](O2,\rOB)  
+			\tkzGetPoints{B2}{}
+			\tkzInterLL(A1,B1)(A2,B2)
+			\tkzGetPoint{L}
+			\tkzInterLL(K,L)(O1,O2)
+			\tkzGetPoint{P}
+			\tkzDrawSegments(A1,A2 O1,O2 L,A1 L,A2 B1,K B2,K P,B1 P,B2 O1,B1 O2,B2 K,L B1,B2 O1,A1 O2,A2)
+			\tkzDrawPoints[color=black,fill=black,size=6pt](O1,O2,A1,A2,B1,B2,K,L,P)
+			\node at ($(A1)+(80:3mm)$){\footnotesize $A1$};
+			\node at ($(A2)+(80:3mm)$){\footnotesize $A2$};
+			\node at ($(O1)+(-100:3mm)$){\footnotesize $O1$};
+			\node at ($(O2)+(-10:3mm)$){\footnotesize $O2$};
+			\node at ($(K)+(80:3mm)$){\footnotesize $K$};
+			\node at ($(B1)+(-160:3mm)$){\footnotesize $B1$};
+			\node at ($(B2)+(-20:3mm)$){\footnotesize $B2$};
+			\node at ($(P)+(45:3mm)$){\footnotesize $P$};
+			\node at ($(L)+(-80:3mm)$){\footnotesize $L$};
+			\end{tikzpicture}  
+		\end{center}
+		Do $KA_1=KA_2=KB_1=KB_2$ nên tứ giác $A_1B_1B_2A_2$ nội tiếp, suy ra $LB_1\cdot LA_1 = LB_2\cdot LA_2$.\\
+		$\Rightarrow KL$ là trục đẳng phương của hai đường tròn $(O_1),\ (O_2) \Rightarrow KL \perp O_1O_2$.\\
+		Dễ thấy các tứ giác $KPB_1A_1,\ KPB_2A_2$ nội tiếp. Khi đó áp dụng định lí Miquel cho tam giác $A_1A_2L$ ta có điều phải chứng minh.
+	}   
+\end{bt}
+\begin{bt}[IMO Shortlist 2006]%[Nguyễn Thành Khang, dự án Ex_Tapchi5]%[0H0G3]
+	Cho hình thang $ABCD$, $AB\parallel CD$, $AB>CD$. Gọi $K$, $L$ lần lượt là hai điểm trên $AB$, $CD$ sao cho $\dfrac{AK}{BK}=\dfrac{DL}{CL}$. Giả sử $P$, $Q$ là hai điểm nằm trên đường thẳng $KL$ sao cho $\widehat{APB}=\widehat{BCD}$, $\widehat{CQD}=\widehat{ABC}$. Chứng minh rằng $P$, $Q$, $B$, $C$ cùng thuộc một đường tròn.
+	\loigiai{
+		\immini{
+			Từ giả thiết $\dfrac{AK}{BK}=\dfrac{DL}{CL}$ suy ra $AD$, $BC$, $KL$ đồng quy tại một điểm $E$.\\
+			Dựng đường tròn $\left(O_1\right)$ qua $C$, $D$ và tiếp xúc với $BC$, đường tròn $\left(O_2\right)$ qua $A$, $B$ tiếp xúc với $BC$.\\
+			Vì $\widehat{DQC}=\widehat{ABC}=\widehat{DCE}\Rightarrow Q\in \left(O_1\right)$. Tương tự $P\in \left(O_2\right)$.\\
+			Gọi $F$ là giao điểm thứ hai của $EQ$ với $\left(O_1\right)$, suy ra $\break \overline{EF}\cdot \overline{EQ}=EC^2$. \hfill $(1)$\\ 
+			Mặt khác ta có $\widehat{O_1CD}=\widehat{O_2BA}\Rightarrow \triangle AO_2B\backsim \triangle DO_1C$\\
+			$\Rightarrow \dfrac{O_1C}{O_2B}=\dfrac{DC}{AB}=\dfrac{EC}{EB}=k\Rightarrow E$, $O_1$, $O_2$ thẳng hàng và $\dfrac{EO_1}{EO_2}=k\Rightarrow \overline{EO_1}=k\overline{EO_2}\Rightarrow \mathrm{V}_{\left( E,k \right)}\colon \left(O_2\right)\mapsto \left(O_1\right)$.
+		}{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\tkzInit[xmin=-0.6, xmax=5.5, ymin=-1.2, ymax=5.5]
+			\tkzClip
+			\tkzDefPoints{0/0/A,5/0/B,2/2.7/D,4.3/2.7/C}
+			\tkzInterLL(A,D)(B,C)\tkzGetPoint{E}
+			\tkzDefPointBy[homothety=center A ratio 0.65](B)\tkzGetPoint{K}
+			\tkzInterLL(K,E)(C,D)\tkzGetPoint{L}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{I}
+			\tkzDefLine[orthogonal=through I](A,B)\tkzGetPoint{i}
+			\tkzDefLine[orthogonal=through B](B,C)\tkzGetPoint{b}
+			\tkzInterLL(I,i)(B,b)\tkzGetPoint{O2}
+			\tkzDrawCircle(O2,A)
+			\tkzInterLC(K,L)(O2,A)\tkzGetFirstPoint{P}
+			\tkzDefMidPoint(C,D)\tkzGetPoint{J}
+			\tkzDefLine[orthogonal=through J](A,B)\tkzGetPoint{j}
+			\tkzDefLine[orthogonal=through C](B,C)\tkzGetPoint{c}
+			\tkzInterLL(J,j)(C,c)\tkzGetPoint{O1}
+			\tkzDrawCircle(O1,D)
+			\tkzInterLC(K,L)(O1,D)\tkzGetSecondPoint{Q}
+			\tkzInterLC(K,L)(O1,D)\tkzGetFirstPoint{F}
+			\tkzDrawPoints[fill=black](A,B,C,D,K,L,E,P,O2,Q,O1,F)
+			\tkzDrawSegments(A,E E,B A,B C,D E,K A,P P,B C,Q D,Q O1,C O1,D O2,A O2,B)
+			\tkzLabelPoint[below,xshift=-0.2cm](O1){$O_1$}
+			\tkzLabelPoint[below](O2){$O_2$}
+			\tkzLabelPoints[above right,xshift=-0.1cm](P,L,F)
+			\tkzLabelPoints[below right](Q)
+			\tkzLabelPoints[left](A,D)
+			\tkzLabelPoints[right](B,C)
+			\tkzLabelPoints[above](E)
+			\tkzLabelPoints[below left](K)
+			\end{tikzpicture}
+		}
+		\noindent
+		Vì $E$, $F$, $P$ thẳng hàng và $F\in \left(O_1\right)$, $E\in \left(O_2\right)$ nên $\overline{EF}=k\overline{EP}\Rightarrow \dfrac{EF}{EP}=k=\dfrac{EC}{EB}$.\hfill$(2)$\\ 
+		Từ (1) và (2) suy ra $\overline{EP}\cdot \overline{EQ}=\overline{EC}\cdot \overline{EB}\Rightarrow P$, $Q$, $B$, $C$ cùng thuộc một đường tròn.
+	}
+\end{bt}
+
+\begin{bt}%[Nguyễn Thành Khang, dự án Ex_Tapchi5]%[0H0G3]
+	Cho hai đường tròn $\left(O_1\right)$, $\left(O_2\right)$ cắt nhau tại hai điểm phân biệt $A$, $B$. Một đường thẳng $d$ đi qua $B$ lần lượt cắt $\left(O_1\right)$, $\left(O_2\right)$ tại $M_1$ và $M_2$, điểm $N$ bất kì nằm trong đoạn $AB$. Đường thẳng $M_1N$ cắt đường tròn $\left(O_2\right)$ tại $P_2$, $Q_2$. Đường thẳng $M_2N$ cắt đường tròn $\left(O_1\right)$ tại $P_1$, $Q_1$. Chứng minh rằng bốn điểm $P_1$, $P_2$, $Q_1$, $Q_2$ cùng nằm trên một đường tròn $(O)$ và $OB$ vuông góc với $M_1M_2$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\tkzInit[xmin=-3, xmax=7.6, ymin=-3.5, ymax=3.5]
+			\tkzClip
+			\tkzDefPoints{0/0/O1,4/0/O2,2.2/0/X,1/0/Y}
+			\tkzDrawCircle(O1,X)
+			\tkzDrawCircle(O2,Y)
+			\tkzInterCC(O1,X)(O2,Y)\tkzGetFirstPoint{A}
+			\tkzInterCC(O1,X)(O2,Y)\tkzGetSecondPoint{B}
+			\tkzDefPointBy[rotation=center O1 angle -140](B)\tkzGetPoint{M1}
+			\tkzInterLC(M1,B)(O2,Y)\tkzGetFirstPoint{M2}
+			\tkzDefPointBy[homothety=center A ratio 0.35](B)\tkzGetPoint{N}
+			\tkzInterLC(M1,N)(O2,Y)\tkzGetFirstPoint{P2}
+			\tkzInterLC(M1,N)(O2,Y)\tkzGetSecondPoint{Q2}
+			\tkzInterLC(M2,N)(O1,X)\tkzGetFirstPoint{Q1}
+			\tkzInterLC(M2,N)(O1,X)\tkzGetSecondPoint{P1}
+			\tkzCircumCenter(P1,P2,Q1)\tkzGetPoint{O}
+			\tkzDrawCircle[dashed](O,P1)
+			\tkzDrawPoints[fill=black](O1,O2,A,B,M1,M2,N,P2,Q2,P1,Q1,O)
+			\tkzDrawSegments(A,B M1,M2 M1,Q2 M2,Q1)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B,O)
+			\tkzLabelPoints[above right](N)
+			\tkzLabelPoint[above left](Q1){$Q_1$}
+			\tkzLabelPoint[left](M1){$M_1$}
+			\tkzLabelPoint[below](M2){$M_2$}
+			\tkzLabelPoint[above right](P1){$P_1$}
+			\tkzLabelPoint[below left](P2){$P_2$}
+			\tkzLabelPoint[right](Q2){$Q_2$}
+			\tkzLabelPoint[below](O1){$O_1$}
+			\tkzLabelPoint[below](O2){$O_2$}
+			\end{tikzpicture}
+		\end{center}
+		Xét phương tích của điểm $N$ đối với hai đường tròn $\left(O_1\right)$, $\left(O_2\right)$ ta được $$\overline{NP_1}\cdot \overline{NQ_1}=\overline{NA}\cdot \overline{NB}=\overline{NP_2}\cdot \overline{NQ_2}.$$
+		Suy ra  bốn điểm $P_1$, $P_2$, $Q_1$, $Q_2$ cùng nằm trên một đường tròn $(O)$.
+		Gọi $R$ là bán kính của đường tròn $(O)$ ta có 
+		\[\mathscr{P}_{M_1/(O)}=M_1O^2-R^2=\overline{M_1M_2}\cdot \overline{M_1B};\]  \[\mathscr{P}_{M_2/(O)}=M_2O^2-R^2=\overline{M_2M_1}\cdot \overline{M_2B}.\]
+		Từ đó suy ra
+		{\allowdisplaybreaks
+		\begin{eqnarray*}
+			M_1O^2-M_2O^2 &=& \mathscr{P}_{M_1/(O)}-\mathscr{P}_{M_2/(O)}=\overline{M_1M_2}\cdot \overline{M_1B}-\overline{M_2M_1}\cdot \overline{M_2B}\\
+			&=& \overline{M_1M_2}\left( \overline{M_1B}+\overline{M_2B} \right)=\left( \overline{M_1B}-\overline{M_2B} \right)\left( \overline{M_1B}+\overline{M_2B} \right)\\
+			&=& M_1B^2-M_2B^2.
+		\end{eqnarray*}}Suy ra $OB\perp M_1M_2$ (theo định lí Các-nô).	
+	}
+\end{bt}
+
+\noindent{\bf 2. Bài toán chứng minh vuông góc, song song.}
+
+\begin{bt}%[Nguyễn Thành Khang, dự án Ex_Tapchi5]%[0H0G3]
+	Cho hình thang $ABCD$ vuông tại $A$ và $B$, $M$ là trung điểm của $AB$. Các đường cao $AH$, $BK$ của các tam giác $AMD$, $BMC$ cắt nhau tại $N$. Chứng minh $MN\perp CD$.
+	\loigiai{
+		\immini{
+			\textbf{Cách 1.} Gọi $E$ là giao điểm của $MN$ và $CD$. Từ giả thiết ta suy ra tứ giác $MHNK$ nội tiếp $\Rightarrow \widehat{MHK}=\widehat{MNK}$. \hfill$(1)$\\ 
+			Ta có $\overline{MH}\cdot \overline{MD}=MA^2=MB^2=\overline{MK}\cdot \overline{MC}$ 
+			$\Rightarrow$ tứ giác $HDCK$ nội tiếp $\Rightarrow \widehat{MHK}=\widehat{MCD}$.\hfill$(2)$\\ 
+			Từ $(1)$ và $(2)$ suy ra $\widehat{MNK}=\widehat{MCD}\Rightarrow$ tứ giác $NKCE$ nội tiếp $\Rightarrow \widehat{NEC}=\widehat{NKC}=90^\circ$.\\
+			\textbf{Cách 2.} Ta có 
+			\[\overrightarrow{MN}\cdot \overrightarrow{MC}=\overrightarrow{MK}\cdot \overrightarrow{MC}=\overline{MK}\cdot \overline{MC}=MB^2;\] 
+			\[\overrightarrow{MN}\cdot \overrightarrow{MD}=\overrightarrow{MH}\cdot \overrightarrow{MD}=\overline{MH}\cdot \overline{MD}=MA^2.\] 
+			
+		}{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\tkzInit[xmin=-0.8, xmax=5, ymin=-0.5, ymax=5.5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,4.5/0/C,0/5/A,3.5/5/D}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{M}
+			\tkzDefPointBy[projection=onto M--D](A)\tkzGetPoint{H}
+			\tkzDefPointBy[projection=onto M--C](B)\tkzGetPoint{K}
+			\tkzInterLL(A,H)(B,K)\tkzGetPoint{N}
+			\tkzInterLL(M,N)(C,D)\tkzGetPoint{E}
+			\tkzDrawPoints[fill=black](A,B,C,D,M,H,K,N,E)
+			\tkzDrawSegments(A,B B,C C,D D,A M,D M,C A,N B,N M,E H,K)
+			\tkzMarkRightAngles(A,B,C D,A,B A,H,D B,K,C N,E,C)
+			\tkzLabelPoints[left](A,B,H,M)
+			\tkzLabelPoints[left,yshift=-0.2cm](K)
+			\tkzLabelPoints[right](C,D,E)
+			\tkzLabelPoints[below right](N)
+			\end{tikzpicture}
+		}
+		\vspace*{1em}
+		\noindent Mà $MB=MC$ nên $\overrightarrow{MN}\cdot \overrightarrow{MC}=\overrightarrow{MN}\cdot \overrightarrow{MD}\Leftrightarrow \overrightarrow{MN}\cdot \overrightarrow{CD}=0\Leftrightarrow MN\perp CD.$\\
+		\textbf{Cách 3.} Ta có $MD^2-MC^2=\left(MA^2+AD^2\right)-\left(MB^2+BC^2\right)=AD^2-BC^2$.\hfill$(1)$\\ 
+		Ta có $NA\perp MD\Rightarrow NM^2-ND^2=AM^2-AD^2$ và $NB\perp MC\Rightarrow NM^2-NC^2=BM^2-BC^2$.\\
+		Suy ra $ND^2-NC^2=AD^2-BC^2.$\hfill$(2)$\\ 
+		Từ $(1)$ và $(2)$ suy ra $MD^2-MC^2=ND^2-NC^2\Rightarrow MN\perp CD$.		
+	}
+\end{bt}
+
+\begin{bt}%[Nguyễn Thành Khang, dự án Ex_Tapchi5]%[0H0G3]
+	Cho tam giác $ABC$ có đường cao $BD$ và $CE$ cắt nhau tai $H$, $M$ là trung điểm của $BC$, $N$ là giao điểm của $DE$ và $BC$. Chứng minh rằng $NH$ vuông góc với $AM$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\tkzInit[xmin=-2.8, xmax=5.5, ymin=-0.5, ymax=5]
+			\tkzClip
+			\tkzDefPoints{0/0/B,5.3/0/C,1.3/4.5/A}
+			\tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{F}
+			\tkzDefPointBy[projection=onto A--C](B)\tkzGetPoint{D}
+			\tkzDefPointBy[projection=onto A--B](C)\tkzGetPoint{E}
+			\tkzInterLL(B,D)(C,E)\tkzGetPoint{H}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{M}
+			\tkzInterLL(D,E)(B,C)\tkzGetPoint{N}
+			\tkzDefMidPoint(A,H)\tkzGetPoint{O}
+			\tkzDefMidPoint(H,M)\tkzGetPoint{I}
+			\tkzDrawPoints[fill=black](A,B,C,D,E,F,H,M,N,O,I)
+			\tkzDrawSegments(A,B A,C N,C N,D A,F B,D C,E H,M O,I A,M M,D E,F N,H)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](N,B,F,M,C,I)
+			\tkzLabelPoints[above left](E,H)
+			\tkzLabelPoints[above right](D)
+			\tkzLabelPoints[left](O)
+			\tkzMarkRightAngles(B,D,C C,E,B)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $O$, $I$ lần lượt là trung điểm của $AH$, $MH$.\\
+		Ta có 
+		$\widehat{DEH}=\widehat{DAH}=\widehat{DBC}=\widehat{FEH}\Rightarrow \widehat{FED}=2\widehat{FEH}=2\widehat{DBC}=\widehat{DMC}$.
+		Suy ra tứ giác $EDMF$ nội tiếp.\\
+		Từ đó ta có $\overline{NE}\cdot \overline{ND}=\overline{NF}\cdot \overline{NM}$, suy ra $N$ nằm trên trục đẳng phương của đường tròn $(O, OH)$ và đường tròn $(I, IH)$. Mặt khác $H$ là giao điểm của đường tròn 
+		$(O, OH)$ và đường tròn $(I, IH)$, suy ra $NH$ chính là trục đẳng phương của $(O)$ và $(I)$.\\
+		Suy ra $NH\perp OI$, mà $OI\parallel AM$, do đó $NH\perp AM$. 		
+	}
+\end{bt}
+\begin{bt}%[Phạm Tuấn, Ex_Tapchi05]%[0H0G3]
+	Cho tam giác $ABC$. Một đường thẳng song song với $BC$ cắt $AB$, $AC$ tại $D$ và $E$. Gọi $P$ là một điểm bên trong tam giác $ADE$, $F$ và $G$ là giao của $DE$ với $BP$ và $CP$. Đường tròn tâm  $(O)$ ngoại tiếp tam giác $PDG$, đường tròn tâm $(I)$  ngoại tiếp tam giác $PEF$ cắt nhau tại điểm thứ hai là $Q$. Chứng minh rằng  $AQ \perp OI$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzInit[xmin=0.5,ymin=-1,xmax=9.5,ymax=6.5]
+			\tkzClip
+			\tkzDefPoints{3/6/A,1/1/B,9/1/C,4/4/P}
+			\tkzDefBarycentricPoint(A=2,B=3)  \tkzGetPoint{D}
+			\tkzDefBarycentricPoint(A=2,C=3)  \tkzGetPoint{E}
+			\tkzInterLL(D,E)(P,B) \tkzGetPoint{F}
+			\tkzInterLL(D,E)(P,C) \tkzGetPoint{G}
+			\tkzCircumCenter(P,D,G) \tkzGetPoint{O}
+			\tkzCircumCenter(P,E,F) \tkzGetPoint{I}
+			\tkzInterLC(A,B)(O,P) \tkzGetPoints{M}{D'}
+			\tkzInterLC(A,C)(I,P) \tkzGetPoints{N}{E'}
+			\tkzDefLine[orthogonal=through A](O,I) \tkzGetPoint{a}
+			\tkzInterLC(A,a)(I,P) \tkzGetPoints{P'}{Q}
+			\tkzDrawSegments(A,B B,C C,A P,B P,C D,E P,M P,N)
+			\tkzDrawCircle(O,P)
+			\tkzDrawCircle(I,P)
+			\tkzLabelPoints[above](A,P)
+			\tkzLabelPoints[below](B,C)
+			\tkzLabelPoints[below right](O,I,Q,F)
+			\tkzLabelPoints[left](M,D)
+			\tkzLabelPoints[above right](N,E)
+			\tkzLabelPoints[below left](G)
+			\tkzDrawPoints[fill=black,size=6](A,B,C,D,E,F,G,P,Q,M,N,O,I)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $M$ là giao điểm thứ hai của $AB$ và $(PDG)$, $N$ là giao điểm thứ hai của $AC$ và $(PEF)$. \\
+		Ta có $\widehat{AMP} = \widehat{PGD}$ và $\widehat{PGD} = \widehat{PCB}$  (đồng vị), suy ra $\widehat{AMP}=\widehat{PCB}$, cho nên tứ giác $BMPC$ nội tiếp. Chứng minh tương tự tứ giác $PNCB$ nội tiếp.  \\
+		Suy ra tứ giác $BMNC$ nội tiếp, cho nên $\overline{AM} \cdot \overline{AB} = \overline{AN} \cdot \overline{AC} $. Mà $\dfrac{\overline{AD}}{\overline{AB}} = \dfrac{\overline{AE}}{\overline{AC}}$ (định lý Thales), suy ra 
+		\[\overline{AM} \cdot \overline{AD} = \overline{AN} \cdot \overline{AE}.\]
+		Do đó $A$ thuộc trục đẳng phương $PQ$ của $(PDG)$ và $(PEF)$ suy ra $AQ \perp OI$.
+	}
+\end{bt}
+
+\begin{bt}%[Phạm Tuấn, Ex_Tapchi05]%[0H0G3]
+	Cho $\Delta ABC$ ($BA \ne BC$). Giả sử đường tròn tâm $O$ bán kính  $R$ đi qua hai điểm $A,C$ cắt các cạnh $BA$  và $BC$   lần lượt tại  $K,N$. Các đường tròn ngoại tiếp $\Delta ABC$  và  $\Delta BKN$  cắt nhau tại hai điểm phân biệt $B, M$. Chứng minh rằng  $OM \perp BM$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzInit[xmin=-4,ymin=-1,xmax=7,ymax=7]
+			\tkzClip
+			\tkzDefPoints{1/1/A,2/6/B,6/1/C}
+			\tkzDefBarycentricPoint(B=5,C=2)  \tkzGetPoint{N}
+			\tkzCircumCenter(A,N,C) \tkzGetPoint{O}
+			\tkzInterLC(A,B)(O,A) \tkzGetPoints{N'}{K}
+			\tkzInterLL(A,C)(N,K) \tkzGetPoint{P}
+			\tkzCircumCenter(A,B,C) \tkzGetPoint{O1}
+			\tkzCircumCenter(K,B,N) \tkzGetPoint{O2}
+			\tkzInterCC(O1,A)(O2,B) \tkzGetPoints{M}{B'}
+			\tkzDrawPoints[fill=black,size=6](A,B,C,P,O,O1,O2,M,N,K)
+			\tkzDrawSegments(A,B B,C C,P N,P P,B M,C)
+			\tkzDrawCircle(O1,A)
+			\tkzDrawCircle(O,K)
+			\tkzDrawCircle(O2,B)
+			\tkzLabelPoints[above](B)
+			\tkzLabelPoints[below right](O,C)
+			\tkzLabelPoints[below left](A)
+			\tkzLabelPoints[below](P)
+			\tkzLabelPoint[above](O1){$O_1$}
+			\tkzLabelPoint[right](O2){$O_2$}
+			\tkzLabelPoints[above left](M)
+			\tkzLabelPoints[below right](K)
+			\tkzLabelPoints[above right](N)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $O_1,O_2$ lần lượt tâm đường tròn ngoại tiếp  $\Delta ABC$  và  $\Delta BKN$. \\
+		Ta sẽ chứng minh $AC$ không song song với $KN$.  \\
+		Giả sử $AC \parallel KN \Rightarrow \widehat{BNK}=\widehat{BCA}$, mà $\widehat{BNK}=\widehat{BAC} \Rightarrow \widehat{BCA}=\widehat{BAC} \Rightarrow \Delta ABC$ cân tại $B$ (vô lý). Vậy $AC$ không song song với $KN$. \\
+		Gọi $P$ là giao điểm của $AC$ và $KN$.  \\
+		Ta có $\mathscr{P}_{P/(O)} = \mathscr{P}_{P/(O_1)}$;  $\mathscr{P}_{P/(O)} = \mathscr{P}_{P/(O_2)} \Rightarrow \mathscr{P}_{P/(O_1)} = \mathscr{P}_{P/(O_2)}$, suy ra $P,B,M$ thẳng hàng. \\
+		Lại có $\widehat{PNC} +\widehat{BAC}=180^\circ$ và $\widehat{PMC} +\widehat{BMC}=180^\circ$ mà $\widehat{BAC}=\widehat{BMC}$ cho nên $\widehat{PNC} =\widehat{PMC}$,  suy ra tứ giác $PMNC$ nội tiếp. Mặt khác $PM \cdot PB = PA \cdot PC = PO^2-R^2$ và $BN \cdot BC =BM \cdot BP =BO^2-R^2$. Suy ra 
+		\begin{align*}
+		&PO^2-BO^2 = PB(PM-BM)=PM^2-BM^2 ;\\
+		&\overrightarrow{MO} \cdot \overrightarrow{BP} = \overrightarrow{MO} (\overrightarrow{BO}+\overrightarrow{OP}) = MO^2+BO^2-MB^2+MP^2-OM^2-OP^2=0.
+		\end{align*}
+		Suy ra $OM \perp BM$.
+	}
+\end{bt}
+
+\begin{bt}%[Phạm Tuấn, Ex_Tapchi05]%[0H0G3]
+	\textbf{(IMO shortlist 2012)}
+	Cho tam giác $ABC$ nhọn với các đường cao $AD,BE,CF$. Gọi $I_1,I_2$ lần lượt là tâm đường tròn nội tiếp tam giác $AEF,BDF$. Gọi $O_1,O_2$ lần lượt là tâm đường tròn ngoại tiếp các tam giác $ACI_1,BCI_2$. Chứng minh rằng $I_1I_2 \parallel O_2O_2$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzDefPoints{1/1/A,10/1/B,6/7/C}
+			\tkzInit[xmin=-2,ymin=0,xmax=14,ymax=8.5]
+			\tkzClip
+			\tkzOrthoCenter(A,B,C) \tkzGetPoint{H}
+			\tkzInterLL(C,H)(A,B) \tkzGetPoint{F}
+			\tkzInterLL(B,H)(A,C) \tkzGetPoint{E}
+			\tkzInterLL(A,H)(C,B) \tkzGetPoint{D}
+			\tkzInCenter(A,E,F) \tkzGetPoint{I1}
+			\tkzInCenter(B,D,F) \tkzGetPoint{I2}
+			\tkzInCenter(A,B,C) \tkzGetPoint{I}
+			\tkzInterLL(I1,I2)(C,I) \tkzGetPoint{Q}
+			\tkzDefPointBy[projection=onto A--B](I1) \tkzGetPoint{M}
+			\tkzDefPointBy[projection=onto A--B](I2) \tkzGetPoint{N}
+			\tkzCircumCenter(A,I1,C) \tkzGetPoint{O1}
+			\tkzCircumCenter(B,I2,C) \tkzGetPoint{O2}
+			\tkzDrawSegments(A,B B,C C,A E,F F,D D,E C,I1 C,I2 I,A I,B C,F A,D B,E O1,O2 I1,I2 C,Q)
+			\tkzDrawCircle[dashed](O1,A)
+			\tkzDrawCircle[dashed](O2,B)
+			\tkzDrawCircle[dashed](I1,M)
+			\tkzDrawCircle[dashed](I2,N)
+			\tkzDrawPoints[fill=black,size=6](A,B,C,D,E,F,H,I,I1,I2,O1,O2,Q)
+			\tkzLabelPoints[above left](I)
+			\tkzLabelPoints[above right=-2pt](Q)
+			\tkzLabelPoints[below](A,B,F)
+			\tkzLabelPoint[below](I1){$I_1$}
+			\tkzLabelPoint[below](I2){$I_2$}
+			\tkzLabelPoint[below](O1){$O_1$}
+			\tkzLabelPoint[below](O2){$O_2$}
+			\tkzLabelPoints[right](C,D)
+			\tkzLabelPoints[above left=-2pt](E)
+			\end{tikzpicture}
+		\end{center}
+		Đặt $\widehat{CAB}=\alpha$, $\widehat{ABC}=\beta$, $\widehat{BCA} = \gamma$. \\
+		Gọi  $r,r_1$ là bán kính đường tròn nội tiếp các tam giác $ABC$ và $AEF$.\\
+		Gọi $I$ là giao điểm của $AI_1$, $BI_2$; $E,F$ lần lượt là các giao điểm khác $B,C$ của đường tròn đường kính $BC$ với các cạnh $AC,AB$. \\
+		Do $\widehat{AEF} = \widehat{ABC}$, $\widehat{AFE} = \widehat{ACB}$ nên $\Delta AEF \backsim \Delta ABC$ với tỉ số đồng dạng $\dfrac{AE}{AB} = \cos \alpha$. Mặt khác $\dfrac{I_1A}{IA}=\dfrac{r_1}{r}=\cos \alpha$ suy ra  \[I_1A =IA \cos \alpha \Rightarrow II_1=IA-I_1A=IA(1-\cos \alpha) =2IA\sin^2 \dfrac{\alpha}{2}.\]
+		Tương tự $II_2=2IB\sin^2 \dfrac{\beta}{2}$. Suy ra 
+		\[II_1 \cdot IA =2 \left (IA \sin \dfrac{\alpha}{2}\right )^2 =2 \left (IB \sin \dfrac{\beta}{2}\right )^2=II_2 \cdot IB.\]
+		Vậy tứ giác $ABI_2I_1$ nội tiếp. Khi đó, $I$ có cùng phương tích với hai đường tròn $(O_1)$, $(O_2)$. Mà $C$ là một giao điểm của $(O_1)$, $(O_2)$ nên $CI$ là trục đẳng phương của $(O_1)$, $(O_2)$, suy ra \[CI \perp O_1O_2 \tag{1}\] 
+		Gọi $Q$ là giao điểm của $CI$ với $I_1I_2$. Ta có  
+		\[\widehat{II_1Q} + \widehat{I_1IQ}=\widehat{II_1Q} +\widehat{CAI}+\widehat{ACI}=\widehat{II_1I_2} +\widehat{CAI}+\widehat{ACI}.\]
+		Mà $\widehat{II_1I_2} =\dfrac{\beta}{2}$; $\widehat{ACI} =\dfrac{\gamma}{2}$; $\widehat{ACI} =\dfrac{\alpha}{2}$ nên $\widehat{II_1Q}+\widehat{I_1IQ} = \dfrac{\alpha}{2} + \dfrac{\beta}{2} + \dfrac{\gamma}{2} = 90^\circ$, suy ra \[CI \perp I_1I_2 \tag{2}\]
+		Từ (1) và (2) suy ra $I_1I_2 \parallel O_1O_2$.
+	}
+\end{bt}
+\noindent{\bf 3. Bài toán chứng minh thẳng hàng, đồng quy.}
+\begin{bt}%[0H0G3]
+	Cho tam giác $ABC$, một đường tròn cắt cạnh $BC$ tại $A_1$, $A_2$, cắt cạnh $CA$ tại $B_1$, $B_2$, cắt cạnh $AB$ tại $C_1$, $C_2$. Chứng minh rằng $AA_1$, $BB_1$, $CC_1$ đồng quy khi và chỉ khi $AA_2$, $BB_2$, $CC_2$ đồng quy.
+	\loigiai{ 
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\coordinate (A) at ($(B)+(2,6)$);
+			\coordinate (I) at ($(B)+(3,2)$);
+			\coordinate (R) at ($(B)+(0.5,2)$);
+			\pgfresetboundingbox
+			\tkzDrawCircle[radius](I,R)
+			\tkzInterLC(A,B)(I,R)
+			\tkzGetPoints{C_1}{C_2}
+			\tkzInterLC(B,C)(I,R)
+			\tkzGetPoints{A_2}{A_1}
+			\tkzInterLC(C,A)(I,R)
+			\tkzGetPoints{B_1}{B_2}
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](B)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[left](I)
+			\tkzLabelPoints[below](A_1,A_2)
+			\tkzLabelPoints[right](B_2)
+			\tkzLabelPoints[left](C_1)
+			\tkzLabelPoints[above left](C_2)
+			\tkzLabelPoints[above right](B_1)
+			%Phân giác trong và ngoài góc A
+			\tkzDrawPoints(A,B,C,I,C_1,C_2,A_1,A_2,B_1,B_2,C_1,C_2)
+			\tkzDrawSegments(A,B B,C C,A B,B_1 B,B_2 A,A_1 A,A_2 C,C_1 C,C_2)
+			\end{tikzpicture}
+		\end{center}
+		Ta có {\allowdisplaybreaks \begin{eqnarray*}
+				& &	\overline{AC_1} \cdot 	\overline{AC_2}= \overline{AB_1}\cdot 	\overline{AB_2}; 	\overline{BA_1}\cdot 	\overline{BA_2}= \overline{BC_1}\cdot 	\overline{BC_2}; \overline{CB_1}\cdot 	\overline{CB_2}= \overline{CA_1}\cdot 	\overline{CA_2}\\
+				&\Rightarrow& 	\overline{A_1B}\cdot \overline{B_1C} \cdot \overline{C_1A} \cdot \overline{A_2B} \cdot \overline{B_2C}\cdot \overline{C_2A} =    \overline{A_1C}\cdot \overline{BA_1} \cdot \overline{CB_1} \cdot \overline{A_2C} \cdot \overline{B_2A}\cdot \overline{C_2B} \\
+				&\Rightarrow& \dfrac{	\overline{A_1B}}{ \overline{A_1C}} \cdot \dfrac{\overline{B_1C}}{ \overline{B_1A}} \cdot \dfrac{\overline{C_1A}}{ \overline{C_1B}} = \dfrac{\overline{A_2B}}{ \overline{A_2C}} \cdot \dfrac{\overline{B_2C}}{ \overline{B_2A}} \cdot \dfrac{\overline{C_2A}}{ \overline{C_2B}} .  
+		\end{eqnarray*}}
+		Khi đó $AA_1$, $BB_1$, $CC_1$ đồng quy khi và chỉ khi $AA_2$, $BB_2$, $CC_2$ đồng quy.
+	}
+\end{bt}
+
+
+\begin{bt}%[0H0G3]
+	Cho đường tròn tâm $O$ đường kính $AB$, điểm $H$ thuộc đoạn thẳng $AB$. Đường thẳng đi qua $H$ và vuông góc với $AB$ cắt đường tròn tại $C$. Đường tròn đường kính $CH$ cắt $AC$, $BC$ và $(O)$ lần lượt tại $D$, $E$ và $F$. 
+	\begin{enumerate}
+		\item Chứng minh rằng $AB$, $DE$ và $CF$ đồng quy.
+		\item Đường tròn tâm $C$ bán kính $CH$ cắt $(O)$ tại $P$ và $Q$. Chứng minh rằng $P$, $D$, $E$, $Q$ thẳng hàng. 
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\tkzDefPoints{0/0/A,6/0/B,4/0/H}
+			\tkzDefLine[perpendicular=through H](A,B)
+			\tkzGetPoint{c}
+			\tkzDrawCircle[diameter](A,B) \tkzGetPoint{O}
+			\tkzInterLC(H,c)(O,B)
+			\tkzGetFirstPoint{C}
+			\tkzDrawCircle[diameter](C,H)  \tkzGetPoint{I}
+			\tkzInterLC(A,C)(I,H)			\tkzGetFirstPoint{D}
+			\tkzInterLC(C,B)(I,H)			\tkzGetSecondPoint{E}
+			\tkzInterCC(O,B)(I,H)			\tkzGetSecondPoint{F}
+			\tkzDrawCircle[radius](C,H)
+			\tkzInterCC(C,H)(O,B)	 	\tkzGetPoints{P}{Q}
+			\tkzInterLL(P,Q)(A,B)		\tkzGetPoint{M}
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[below right](B,M)
+			\tkzLabelPoints[above](C)
+			\tkzLabelPoints[below](H)
+			\tkzLabelPoints[above left](D)
+			\tkzLabelPoints[below left](E)
+			\tkzLabelPoints[right](F)
+			\tkzLabelPoints[below](O)
+			\tkzLabelPoints[below right](P)
+			\tkzLabelPoints[above left](Q)
+			\tkzDrawPoints(A,B,O,C,H,D,E,F,I,P,Q,M)
+			\tkzDrawSegments(A,B B,C C,A C,H P,Q O,C Q,M A,M)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có $\overline{CA} \cdot 	\overline{CD}=\overline{CH} ^2  = \overline{CB} \cdot 	\overline{CE}$, suy ra tứ giác $ADEB$ nội tiếp. \\
+			Xét các đường tròn: Đường tròn ngoại tiếp tứ giác $ADEB$, $(O)$ và đường tròn đường kính $CH$, thì $DE$, $AB$ và $CF$ lần lượt là các trục đẳng phương của các cặp đường tròn trên nên chúng đồng quy.
+			\item Giả sử $DE$, $AB$ và $CF$ đồng quy tại $M$. Ta có $PQ$ là trục đẳng phương của $(C)$ và $(O)$ nên $OC \perp PQ$. Ta cũng có $OC \perp DE$. Hơn nữa $M$ chính là tâm đẳng phương của ba đường tròn $(O)$, $(C)$ và đường tròn đường kính $CH$. Suy ra $PQ$ đi qua $M$.\\ 
+			Vậy $DE$, $PQ$ cùng đi qua $M$ và cùng vuông góc với $OC$ nên trùng nhau. Hay $P$, $D$, $E$, $Q$ thẳng hàng.
+		\end{enumerate}
+	}
+\end{bt}
+
+
+\begin{bt}%[0H0G3]
+	Trên đường thẳng $d$ lấy $4$ điểm $A$, $B$, $C$, $D$ theo thứ tự đó. Đường tròn đường kính $AC$ và $BD$ cắt nhau tại $X$, $Y$. Đường thẳng $XY$ cắt $BC$ tại $Z$. Lấy $P$ là một điểm trên $XY$ khác $Z$. Đường thẳng $CP$ cắt đường tròn đường kính $AC$ tại điểm thứ hai là $M$, và $BP$ cắt đường tròn đường kính $BD$ tại điểm thứ hai là $N$. Chứng minh rằng $AM$, $DN$ và $XY$ đồng quy. 
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\tkzDefPoints{0/0/A,2/0/B,5/0/C,9/0/D}
+			\tkzDrawCircle[diameter](A,C)  \tkzGetPoint{O}
+			\tkzDrawCircle[diameter](B,D)  \tkzGetPoint{I}
+			\tkzInterCC(O,A)(I,B)			\tkzGetPoints{X}{Y}
+			\tkzInterLL(B,C)(X,Y)		\tkzGetPoint{Z}
+			\coordinate (P) at ($(Z)+(0,5)$);
+			\tkzInterLC(P,C)(O,A)			\tkzGetFirstPoint{M}
+			\tkzInterLC(P,B)(I,B)			\tkzGetSecondPoint{N}
+			\tkzInterLL(A,M)(D,N)		\tkzGetPoint{Q}
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below left](C)
+			\tkzLabelPoints[below right](X)
+			\tkzLabelPoints[below right](D,Z)
+			\tkzLabelPoints[below left](Y)
+			\tkzLabelPoints[above](P)
+			\tkzLabelPoints[below right](Q)
+			\tkzLabelPoints[right](M)
+			\tkzLabelPoints[above left](N)
+			\tkzDrawPoints(A,B,C,D,O,X,Y,Z,P,M,N,I,Q)
+			\tkzDrawSegments(A,D X,Y A,M D,N P,Y P,B P,C)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $Q$, $Q’$ lần lượt là giao điểm của $DN$ và $AM$ với $XY$. Ta  cần chứng minh $Q$ và $Q'$ trùng nhau.\\ 
+		Tứ giác $QMCZ$ nội tiếp, suy ra $\overline{PM} \cdot 	\overline{PC}  = \overline{PQ} \cdot 	\overline{PZ}$.\\
+		Tứ giác $NQ’ZB$ nội tiếp, suy ra  $\overline{PQ'} \cdot 	\overline{PZ}  = \overline{PN} \cdot 	\overline{PB}$.\\ 
+		Mà $P$ thuộc $XY$ là trục đẳng phương của đường tròn đường kính $AC$ và đường tròn đường kính $BD$ nên $\overline{PN} \cdot 	\overline{PB}  = \overline{PX} \cdot 	\overline{PY} = \overline{PM} \cdot 	\overline{PC}$. Suy ra $\overline{PQ} \cdot 	\overline{PZ}  = \overline{PQ'} \cdot 	\overline{PZ}$, điều này chứng tỏ $Q$ và $Q'$ trùng nhau.\\
+		Vậy $AM$, $DN$ và $XY$ đồng quy. 
+		
+	}
+\end{bt}
+\begin{bt}%[Tự luận ]%[Lê Hoàng Lâm, dự án tạp chí EX-5]%[0H2G3-1]
+	[Iran MO 2001] Cho tam giác $ABC$ nội tiếp $\left( O \right)$. Gọi $\left( I \right), \left( {{I}_{a}} \right)$ lần lượt là đường tròn nội tiếp, đường tròn bàng tiếp góc $A$ của tam giác $ABC$. Giả sử $I{{I}_{a}}$ cắt $BC$ và $\left( O \right)$ lần lượt tại ${A}',M$. Gọi $N$ là điểm chính giữa cung $MBA$ và $NI,N{{I}_{a}}$ cắt $\left( O \right)$ lần lượt tại $S$, $T$. Chứng minh rằng $S,T,{A}'$ thẳng hàng.	
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=0.7]
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(6,0)$);
+			\tkzDefShiftPoint[C](100:6){A}
+			\tkzDrawCircle[in,color=red](A,B,C)	\tkzGetPoint{I}
+			\tkzDrawCircle[circum,color=green](A,B,C)	\tkzGetPoint{O}
+			\tkzDefPointBy[projection = onto A--B](I)    \tkzGetPoint{M}
+			\tkzDefPointBy[projection = onto B--C](I)    \tkzGetPoint{N}
+			\tkzDefPointBy[projection = onto C--A](I)    \tkzGetPoint{P}
+			\pgfresetboundingbox
+			\tkzLabelPoints[above](A)
+			%\tkzLabelPoints[below](N)
+			\tkzLabelPoints[left](B,O)
+			\tkzLabelPoints[right](C)
+			%\tkzLabelPoints[above right](P)
+			\tkzLabelPoints[above right](I)
+			%Phân giác trong và ngoài góc A
+			\tkzDefLine[bisector](B,A,C)    \tkzGetPoint{tA}
+			\tkzDefLine[bisector out](B,A,C)    \tkzGetPoint{nA}
+			%Phân giác trong và ngoài góc B
+			\tkzDefLine[bisector](C,B,A)    \tkzGetPoint{tB}
+			\tkzDefLine[bisector out](C,B,A)    \tkzGetPoint{nB}
+			%Phân giác trong và ngoài góc C
+			\tkzDefLine[bisector](A,C,B)    \tkzGetPoint{tC}
+			\tkzDefLine[bisector out](A,C,B)    \tkzGetPoint{nC}
+			%Đường tròn bàng tiếp có tâm I_a nằm trên phân giác trong góc A
+			\tkzInterLL(A,tA)(B,nB)    \tkzGetPoint{I_a}
+			\tkzDefPointBy[projection = onto B--C](I_a)    \tkzGetPoint{I_ab}
+			\tkzDefPointBy[projection = onto A--B](I_a)    \tkzGetPoint{I_aa}
+			\tkzDefPointBy[projection = onto C--A](I_a)    \tkzGetPoint{I_ac}
+			\tkzDrawCircle[radius,color=blue](I_a,I_aa)
+			\tkzLabelPoints[below](I_a)
+			\tkzDrawPoints(I_a)
+			\tkzGetRandPointOn[line = A--B]{c}
+			\tkzDrawPoints[fill=black](A,B,C,I,O)
+			\tkzDrawSegments(A,B B,C C,A A,I_a)
+			\tkzInterLL(A,I_a)(B,C)    
+			\tkzGetPoint{A'}
+			\tkzDrawPoints(A')
+			\tkzLabelPoints[below left](A')
+			\tkzInterLC(A,I_a)(O,C)    
+			\tkzGetPoints{}{M}
+			\tkzDrawPoints(M)
+			\tkzLabelPoints[below right](M)
+			\coordinate (l) at ($(A)!2!(B)$);
+			%\tkzDrawPoints(l)
+			\tkzDrawSegment(A,l)
+			\coordinate (t) at ($(A)!2.5!(C)$);
+			%\tkzDrawPoints(l)
+			\pgfresetboundingbox
+			\tkzDrawSegment(A,t)
+			\tkzDefLine[mediator](A,M)    \tkzGetPoints{u}{v}
+			\tkzInterLC(u,v)(O,M)    \tkzGetPoints{}{N}
+			\tkzDrawPoints(N)
+			\tkzLabelPoints[left](N)
+			\tkzInterLC(N,I)(O,M)    \tkzGetPoints{S}{N}
+			\tkzDrawPoints(S)
+			\tkzLabelPoints[right](S)
+			%\tkzLabelPoints[above](O)
+			\tkzDrawSegment(N,S)
+			\tkzInterLC(N,I_a)(O,M)    \tkzGetPoints{T}{N}
+			\tkzDrawPoints(T)
+			\tkzLabelPoints[below left](T)
+			\tkzDrawSegment(N,I_a)
+			\tkzDrawSegment[dashed](T,A')
+			\tkzDrawSegment[dashed](A',S)
+			\tkzDrawCircle[circum,dashed](I_a,B,I)	\tkzGetPoint{m}
+			\tkzDrawCircle[circum,dashed](I_a,T,S)	\tkzGetPoint{n}
+			\end{tikzpicture}
+		\end{center}
+		Ta có $\widehat{NTS}=\dfrac{1}{2}\left( \text{sđ}\overset\frown{NA}+\text{sđ}\overset\frown{SA} \right)=\dfrac{1}{2}\left( \text{sđ}\overset\frown{NM}+\text{sđ}\overset\frown{SA} \right)=\widehat{NIM}\Rightarrow \widehat{{{I}_{a}}TS}=\widehat{{{I}_{a}}IS}\Rightarrow {{I}_{a}}TIS$ nội tiếp.
+		Mặt khác $\widehat{IB{{I}_{a}}}=\widehat{IC{{I}_{a}}}={{90}^{0}}\Rightarrow IB{{I}_{a}}C$ nội tiếp. Ta thấy $I{{I}_{a}}$ là trục đẳng phương của $\left( {{I}_{a}}TIS \right)$ và $\left( IB{{I}_{a}}C \right)$. Ta có $BC$ là trục đẳng phương của $\left( O \right)$ và $\left( IB{{I}_{a}}C \right)$ nên $TS$ là trục đẳng phương của $\left( O \right)$ và $\left( {{I}_{a}}TIS \right)$. Suy ra $I{{I}_{a}},BC,TS$ đồng quy tại ${A}'\Rightarrow S,T,{A}'$ thẳng hàng.
+		
+	}
+\end{bt}
+\begin{bt}%[Tự luận ]%[Lê Hoàng Lâm, dự án tạp chí EX-5]%[0H2G3-1]
+	[Vietnam TST 2009] Cho tam giác $ABC$ nhọn nội tiếp $\left( O \right)$. Gọi ${{A}_{1}},{{B}_{1}},{{C}_{1}}$ lần lượt là chân đường cao của tam giác $ABC$ kẻ từ $A$, $B$, $C$ và ${{A}_{2}},{{B}_{2}},{{C}_{2}}$ lần lượt là điểm đối xứng của ${{A}_{1}},{{B}_{1}},{{C}_{1}}$ qua trung điểm của $BC$, $CA$, $AB$. Các đường tròn $\left( A{{B}_{2}}{{C}_{2}} \right),\left( B{{C}_{2}}{{A}_{2}} \right),\left( C{{A}_{2}}{{B}_{2}} \right)$ cắt $\left( O \right)$ lần thứ hai tại ${{A}_{3}},{{B}_{3}},{{C}_{3}}$ tương ứng. Chứng minh rằng ${{A}_{1}}{{A}_{3}},{{B}_{1}}{{B}_{3}},{{C}_{1}}{{C}_{3}}$ đồng quy.
+	\loigiai
+	{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=0.8]
+			\tkzInit[xmin=-3,xmax=10,ymin=-2.9,ymax=8]
+			\tkzClip
+			\tkzDefPoints{0/0/B}
+			\coordinate (C) at ($(B)+(8,0)$);
+			\tkzDefShiftPoint[B](72:6){A}
+			\tkzDrawCircle[circum,color=blue](A,B,C)	\tkzGetPoint{O}
+			\tkzDefPointBy[projection = onto B--C](A)    \tkzGetPoint{A_1}
+			\tkzDefPointBy[projection = onto A--C](B)    \tkzGetPoint{B_1}
+			\tkzDefPointBy[projection = onto A--B](C)    \tkzGetPoint{C_1}
+			\tkzInterLL(A,A_1)(B,B_1)    				\tkzGetPoint{H}
+			\tkzMarkRightAngles[size=.25,fill=gray!50](A,A_1,C B,B_1,C C,C_1,B)
+			\tkzDrawSegments(A,B B,C C,A A,A_1 B,B_1 C,C_1)
+			\tkzDrawPoints[fill=black](A,B,C,A_1,B_1,C_1)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below](A_1)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[below right](C_1)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above right](B_1)
+			\coordinate (i) at ($(A)!0.5!(B)$);
+			\coordinate (j) at ($(A)!0.5!(C)$);
+			\coordinate (k) at ($(B)!0.5!(C)$);
+			\tkzDrawPoints(i,j,k,O)
+			\tkzDuplicateLen(A_1,k)(k,C)    \tkzGetPoint{A_2}
+			\tkzDuplicateLen(B_1,j)(j,C)    \tkzGetPoint{B_2}
+			\tkzDuplicateLen(C_1,i)(i,A)    \tkzGetPoint{C_2}
+			\tkzDrawPoints(A_2,B_2,C_2)
+			\tkzLabelPoints[below left](A_2)
+			\tkzLabelPoints[right](B_2)
+			\tkzLabelPoints[above left](C_2)
+			\tkzLabelPoints[above right](O)
+			\tkzDrawCircle[circum,color=red](A,B_2,C_2)	\tkzGetPoint{c1}
+			\tkzDrawCircle[circum,color=green](A_2,B,C_2)	\tkzGetPoint{c2}
+			\tkzDrawCircle[circum](A_2,B_2,C)	\tkzGetPoint{c3}
+			\tkzInterCC(O,A)(c1,A)    \tkzGetPoints{A}{A_3}
+			\tkzDrawPoints(A_3)
+			\tkzInterCC(O,A)(c2,B)    \tkzGetPoints{B_3}{B}
+			\tkzDrawPoints(A_3)
+			\tkzInterCC(O,A)(c3,A_2)    \tkzGetPoints{C_3}{C}
+			\tkzDrawPoints(A_3,B_3,C_3)
+			\tkzLabelPoints[above](A_3)
+			\tkzLabelPoints[below](B_3)
+			\tkzLabelPoints[right](C_3)
+			\tkzDrawSegments(A_1,A_3 B_1,B_3 C_1,C_3)
+			\tkzInterLL(A_1,A_3)(B_1,B_3)    \tkzGetPoint{G}
+			\tkzDrawPoints(G)
+			\tkzLabelPoints[above left](G)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $\left( I \right)$ là đường tròn ngoại tiếp tam giác $A{{B}_{2}}{{C}_{2}}$, $M$ là trung điểm $BC$, $AM$ cắt ${{A}_{1}}{{A}_{3}}$ tại $G$.\\
+		Do $\overline{A{{C}_{1}}}.\overline{AB}=\overline{A{{B}_{1}}}.\overline{AC}$ và $A{{C}_{1}}=B{{C}_{2}},A{{B}_{1}}=C{{B}_{2}}$ nên \[\overline{B{{C}_{2}}}.\overline{BA}=\overline{C{{B}_{2}}}.\overline{CA}\Rightarrow B{{I}^{2}}-{{R}^{2}}=C{{I}^{2}}-{{R}^{2}}\Rightarrow BI=CI\Rightarrow IO\bot BC.\]
+		Mà $IO\bot A{{A}_{3}}$ nên $A{{A}_{3}}\parallel BC$. Mặt khác ${{A}_{1}}M=\dfrac{1}{2}A{{A}_{3}}\Rightarrow \dfrac{AG}{MG}=\dfrac{A{{A}_{3}}}{{{A}_{1}}M}=2\Rightarrow G$ là trọng tâm tam giác $ABC$.
+		Tương tự ta cũng có ${{B}_{1}}{{B}_{3}},{{C}_{1}}{{C}_{3}}$ đi qua $G$. Vậy ${{A}_{1}}{{A}_{3}},{{B}_{1}}{{B}_{3}},{{C}_{1}}{{C}_{3}}$ đồng quy tại $G$.
+	}
+\end{bt}
+\noindent{\bf 4. Bài toán chứng minh điểm cố định, đường cố định.}
+\begin{bt}%[Tự luận ]%[Lê Hoàng Lâm, dự án tạp chí EX-5]%[0H2G2-1]
+	Cho đường tròn $\left( O,R \right)$ và hai điểm cố định $P$, $Q$ ($P$ nằm ngoài $\left( O \right)$, $Q$ nằm trong $\left( O \right)$). Dây cung $AB$ của $\left( O \right)$ di động đi qua $Q$ và $PA$, $PB$ lần lượt cắt $\left( O \right)$ lần thứ hai tại $C$, $D$. Chứng minh rằng $CD$ luôn đi qua một điểm cố định.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=0.5]
+			\tkzInit[xmin=-10,xmax=10,ymin=-8.8,ymax=5]
+			\tkzClip
+			\tkzDefPoints{0/0/O,-9/0.7/P,1.5/2/Q}
+			\tkzDrawCircle[R,color=red](O,4cm)
+			\tkzDefLine[perpendicular=through O,K=0.5](P,Q)    \tkzGetPoint{a}
+			\coordinate (b) at ($(a)!2.5!(Q)$);
+			\tkzInterLC[R](a,b)(O,4cm)    \tkzGetFirstPoint{A}
+			\tkzInterLC[R](a,b)(O,4cm)    \tkzGetSecondPoint{B}
+			\tkzInterLC[R](P,A)(O,4cm)    \tkzGetPoints{C}{A}	
+			\tkzInterLC[R](P,B)(O,4cm)    \tkzGetPoints{B}{D}
+			\tkzDefCircle[circum](P,A,B)     \tkzGetPoint{i}  %tâm đường tròn
+			\tkzDrawCircle[circum,color=blue](P,A,B)  	kzGetPoint{i}	
+			\tkzInterLC(P,Q)(i,P)    \tkzGetPoints{P}{E}
+			\tkzInterLL(P,Q)(C,D)    \tkzGetPoint{F}
+			\tkzLabelPoints[left](P)
+			\tkzLabelPoints[below left](Q)
+			\tkzLabelPoints[above](A)	
+			\tkzLabelPoints[right](B)	
+			\tkzLabelPoints[right](E)
+			\tkzLabelPoints[below right](F)
+			\tkzLabelPoints[above](C)
+			\tkzLabelPoints[below left](D)
+			\tkzLabelPoints[left](O)
+			\tkzDrawPoints(P,Q,O,A,B,C,D,E,F,i)
+			\tkzDrawSegments(P,Q P,A P,B A,B P,E C,D)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $E$ là giao điểm thứ hai của $PQ$ với đường tròn $(PAB)$; $CD$ cắt $EF$ tại $F$.\\
+		Ta có $O{{Q}^{2}}-{{R}^{2}}=\overline{QA}.\overline{QB}=\overline{QP}.\overline{QE}$.Vì $O$, $P$, $Q$ cố định nên $E$ cố định.\\
+		Mặt khác, $\widehat{PDC}=\widehat{PBA}=\widehat{PEA}$ nên tứ giác $DAEF$ nội tiếp.\\
+		Khi đó $P{{O}^{2}}-{{R}^{2}}=\overline{PD}.\overline{PA}=\overline{PE}.\overline{PF}$. Vì $P, E$ cố định nên $F$ cố định. Suy ra $CD$ đi qua $F$ cố định.
+	}
+\end{bt}
+\begin{bt}[VMO 2003]%[Lê Minh An, Dự án Ex-TapChi05]%[0H0G3]
+	Cho đường tròn $(O_1,R_1)$ tiếp xúc ngoài với $(O_2,R_2)$ tại $M$, $R_2>R_1$. Xét điểm $A$ di động trên đường tròn $(O_2,R_2)$ sao cho $A,O_1,O_2$ không thẳng hàng. Từ $A$ kẻ tiếp tuyến $AB$, $AC$ đến $(O_1)$. $MB$, $MC$ lần lượt cắt lại $(O_2)$ tại $E,F$. $D$ là giao điểm của $EF$ với tiếp tuyến tại $A$ của $(O_2)$. Chứng minh $D$ di động trên một đường thẳng cố định.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1,>=stealth]
+			\tkzDefPoints{0/0/O_2, 5/0/O_1}
+			\coordinate (M) at ($(O_2)!.65!(O_1)$);
+			\tkzDefPointBy[rotation = center O_2 angle 130](M)\tkzGetPoint{A}
+			\tkzDrawCircle[radius](O_2,M)
+			\tkzDrawCircle[radius](O_1,M)
+			\coordinate (i) at ($(A)!.5!(O_1)$);
+			\tkzInterCC(i,A)(O_1,M)\tkzGetPoints{B}{C}
+			\tkzInterLC(M,B)(O_2,M)\tkzGetPoints{M}{E}
+			\tkzInterLC(M,C)(O_2,M)\tkzGetPoints{F}{M}
+			
+			\tkzDefLine[perpendicular=through A](O_2,A)\tkzGetPoint{a}
+			\tkzDefLine[perpendicular=through M](O_2,M)\tkzGetPoint{m}
+			\tkzInterLL(A,a)(M,m)\tkzGetPoint{D}
+			\coordinate (x) at ($(D)!1.4!(M)$);
+			
+			\tkzDrawSegments(D,A D,E D,x A,C A,O_1 A,O_2 A,B A,F E,B F,C O_1,O_2)
+			\tkzDrawPoints[fill=black](O_2,O_1,M,A,B,C,E,F,D)
+			\tkzLabelPoints[above left](A,M)
+			\tkzLabelPoints[above right](D,B)
+			\tkzLabelPoints[below left](O_2,E,C)
+			\tkzLabelPoints[below right](O_1)
+			\tkzLabelPoints[right](F,x)
+			\end{tikzpicture}
+		\end{center}
+		Qua $M$ kẻ tiếp tuyến chung $Mx$ của $(O_1)$, $(O_2)$. Ta có
+		\[\widehat{MCA}=\widehat{CMx}=\widehat{FMD}=\widehat{FAM}\Rightarrow \triangle FAM\backsim\triangle FCA\Rightarrow FA^2=\overline{FM}\cdot\overline{FC}=FO_1^2-R_1^2.\tag{1}\]
+		Tương tự $EA^2=EO_1^2-R_1^2$.\hfill (2)\\
+		Kí hiệu $(A,0)$ là đường tròn điểm tâm $A$. Từ (1) và (2) suy ra $EF$ là trục đẳng phương của hai đường tròn $(A,0)$ và $(O_1)$. Vì $D\in EF$ nên $DA^2=DO_1^2-R_1^2\Rightarrow \mathscr{P}_{D/(O_1)}=\mathscr{P}_{D/(O_2)}$.\\
+		Vậy $D$ thuộc trục đẳng phương của hai đường tròn $(O_1)$, $(O_2)$.
+	}
+\end{bt}
+
+\begin{bt}%[Lê Minh An, Dự án Ex-TapChi05]%[0H0G3]
+	Cho đường tròn $(O)$ và điểm $I$ cố định nằm trong đường tròn, $I\neq O$. Một dường thẳng quay quanh $I$, cắt $(O)$ tại $A$ và $B$. Các tiếp tuyến của $(O)$ tại $A$ và $B$ cắt nhau tại $M$. Chứng minh $M$ chạy trên một đường thẳng cố định.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1,>=stealth]
+			\tkzDefPoints{0/0/O, 2/0/a, 5/0/M}
+			\coordinate (m) at ($(M)!.5!(O)$);
+			\tkzInterCC(O,a)(m,O)\tkzGetPoints{A}{B}
+			\tkzDrawCircle[radius](O,a)
+			\tkzDefPointBy[rotation = center m angle 60](M)\tkzGetPoint{H}
+			\tkzInterLL(O,M)(A,B)\tkzGetPoint{K}
+			\tkzInterLL(O,H)(A,B)\tkzGetPoint{I}
+			\tkzDrawSegments(M,A M,B M,O M,H O,A O,H O,B A,B)
+			\tkzDrawPoints[fill=black](A,B,O,M,I,K,H)
+			\tkzLabelPoints[left](O)
+			\tkzLabelPoints[right](M)
+			\tkzLabelPoints[above right](A,H)
+			\tkzLabelPoints[above left](I)
+			\tkzLabelPoints[below right](B,K)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $K$ là giao điểm của $OM$ và $AB$, $H$ là hình chiếu của $M$ lên đường thẳng $OI$.\\
+		Khi đó tứ giác $MKIH$ nội tiếp, suy ra $\overline{OK}\cdot \overline{OM}=\overline{OI}\cdot\overline{OH}$.\hfill (1)\\
+		$\triangle OAM$ có $\overline{OK}\cdot \overline{OM}=OA^2=R^2$.\hfill (2)\\
+		Từ (1) và (2) suy ra $\overline{OI}\cdot \overline{OH}=R^2$, tức là $\overline{OH}=\dfrac{R^2}{\overline{OI}}$. Suy ra $H$ cố định.\\
+		Vậy $M$ chạy trên đường thẳng qua $H$ và vuông góc với $OI$ tại $H$.
+	}
+\end{bt}
+
+\begin{bt}%[Lê Minh An, Dự án Ex-TapChi05]%[0H0G3]
+	Cho đường tròn $(O)$ tiếp xúc đường thẳng $d$ tại $H$. Hai điểm $M$, $N$ di động trên $d$ sao cho $\overline{HM}\cdot \overline{HN}=-k^2$ ($k\neq 0$ cho trước). Từ $M$, $N$ kẻ tiếp tuyến $MA$ và $NB$ của $(O)$ (với $A$, $B$ khác $H$). Chứng minh
+	\begin{enumerate}
+		\item Đường tròn $(OMN)$ luôn đi qua hai điểm cố định.
+		\item Đường thẳng $AB$ luôn đi qua một điểm cố định.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1,>=stealth]
+			\tkzDefPoints{0/0/H, 0/2/O, -1/0/m, 1.5/0/n}
+			\tkzDefPointBy[rotation = center O angle -50](H)\tkzGetPoint{A}
+			\tkzDefPointBy[rotation = center O angle 80](H)\tkzGetPoint{B}
+			\tkzInterLC(O,H)(O,H)\tkzGetPoints{I}{H}
+			\tkzInterLL(I,A)(m,n)\tkzGetPoint{E}
+			\tkzInterLL(I,B)(m,n)\tkzGetPoint{F}
+			\tkzDefLine[perpendicular=through A](O,A)\tkzGetPoint{a}
+			\tkzDefLine[perpendicular=through B](O,B)\tkzGetPoint{b}
+			\tkzInterLL(A,a)(m,n)\tkzGetPoint{M}
+			\tkzInterLL(B,b)(m,n)\tkzGetPoint{N}
+			\tkzDrawCircle[radius](O,H)
+			\tkzDrawCircle[circum](O,M,N)\tkzGetPoint{i}
+			\tkzDrawLines[add=1.2 and 2](M,N)
+			\coordinate (d) at ($(M)!2.5!(N)$);
+			\tkzInterLC(O,H)(i,O)\tkzGetPoints{P}{O}
+			\tkzDrawCircle[circum](I,E,F)\tkzGetPoint{o}
+			\tkzInterLC(I,H)(o,I)\tkzGetPoints{J}{I}
+			\tkzInterLL(I,H)(A,B)\tkzGetPoint{K}
+			\tkzDrawSegments(I,E I,J I,F A,B A,M B,N E,J)
+			\tkzDrawPoints[fill=black](P,I,J,A,B,E,F,M,N,H,O,K)
+			\tkzLabelPoints[above](I,d)
+			\tkzLabelPoints[above left](O)
+			\tkzLabelPoints[below left](E,M,J)
+			\tkzLabelPoints[below right](N,F,K,H,P)
+			\tkzLabelPoints[right](B)
+			\tkzLabelPoints[left](A)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Gọi $P$ là giao điểm của $OH$ với đường tròn $(OMN)$, có $\overline{HM}\cdot\overline{HN}=\overline{HO}\cdot \overline{HP}=-k^2$. Mà $H$, $O$ cố định, $k$ không đổi nên $P$ cố định. Vậy đường tròn $(OMN)$ luôn đi qua hai điểm cố định $O$, $P$.
+			\item Gọi $IH$ là đường kính của $(O)$; $E$, $F$ là giao điểm của $IA$, $IB$ với $d$. Dễ thấy $M$, $N$ lần lượt là trung điểm $EH$, $FH$.\\
+			Ta có $\overline{HE}\cdot \overline{HF}=2\overline{HM}\cdot 2\overline{HN}=-4k^2$. Dựng đường tròn $(IEF)$ cắt $IH$ tại điểm thứ hai $J$, ta có $\mathscr{P}_{H/(IEF)}=\overline{HI}\cdot\overline{HJ}=\overline{HE}\cdot \overline{HF}=-4k^2$. Suy ra $J$ cố định.\\
+			Trong các tam giác vuông $IHE$ và $IHF$, ta có $IA\cdot IE=IB\cdot IF=IH^2$.\\
+			Suy ra tứ giác $ABEF$ nội tiếp và $\widehat{IAB}=\widehat{EFB}$ (cùng bù với $\widehat{EAB}$). Mà $\widehat{EFB}=\widehat{EJI}$ nên $\widehat{IAB}=\widehat{EJI}$.\\
+			Gọi $K$ là giao điểm của $AB$ và $IJ$, ta có tứ giác $AKJE$ nội tiếp nên $\mathscr{P}_{I,(AKJE)}=\overline{IA}\cdot \overline{IE}=\overline{IK}\cdot \overline{IJ}=IH^2$. Suy ra $K$ cố định.\\
+			Vậy $AB$ luôn đi qua một điểm cố định.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Lê Minh An, Dự án Ex-TapChi05]%[0H0G3]
+	Cho bốn điểm $A$, $B$, $C$, $D$ theo thứ tự nằm trên một đường thẳng. Hai đường tròn có tâm $O_1$, $O_2$ lần lượt thay đổi qua $A$, $C$ và $B$, $D$ giao nhau tại $M$,$N$. Các tiếp tuyến chung của $(O_1)$, $(O_2)$ tiếp xúc với $O_1$ tại $P_1$, $Q_1$, tiếp xúc với $(O_2)$ tại $P_2$, $Q_2$. Gọi $I$, $J$, $X$, $Y$ lần lượt là trung điểm của các đoạn $P_1P_2$, $Q_1Q_2$, $P_2Q_1$, $P_1Q_2$.
+	\begin{enumerate}
+		\item Chứng minh rằng các điểm $M$, $N$, $X$, $Y$, $I$, $J$ cùng thuộc một đường thẳng $d$.
+		\item Chứng minh rằng đường thẳng $d$ luôn đi qua một điểm cố định.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1,>=stealth]
+			\tkzDefPoints{-1/1/O_1, 2.6/3.09/O_2, -3/0/A, 0/0/o}
+			\clip (-6,-2) rectangle (8,7.5);
+			\tkzDefPointBy[rotation = center O_1 angle -61](A)\tkzGetPoint{P_1}
+			\tkzDefPointBy[reflection = over O_1--O_2](P_1)\tkzGetPoint{Q_1}
+			\tkzDefLine[perpendicular=through P_1](O_1,P_1)\tkzGetPoint{p}
+			\tkzInterLL(P_1,p)(O_1,O_2)\tkzGetPoint{E}
+			\tkzDefPointBy[projection = onto E--p](O_2)\tkzGetPoint{P_2}
+			\tkzDefPointBy[reflection = over O_1--O_2](P_2)\tkzGetPoint{Q_2}
+			\tkzDrawCircle[radius, dashed](O_1,A)
+			\tkzDrawCircle[radius, dashed](O_2,P_2)
+			\tkzInterLC(A,o)(O_1,A)\tkzGetPoints{C}{A}
+			\tkzInterLC(A,o)(O_2,P_2)\tkzGetPoints{D}{B}
+			\tkzInterCC(O_1,A)(O_2,P_2)\tkzGetPoints{M}{N}
+			\coordinate (I) at ($(P_1)!.5!(P_2)$);
+			\coordinate (J) at ($(Q_1)!.5!(Q_2)$);
+			\coordinate (X) at ($(P_2)!.5!(Q_1)$);
+			\coordinate (Y) at ($(P_1)!.5!(Q_2)$);
+			\tkzInterLL(A,D)(M,N)\tkzGetPoint{W}
+			\tkzDrawSegments(E,P_2 E,Q_2 E,O_2 A,D P_1,Q_2 P_2,Q_1 I,J)
+			\tkzDrawPoints[fill=black](A,D,C,B,M,N,I,J,X,Y,P_1,P_2,Q_1,Q_2,O_1,O_2,W)
+			\tkzLabelPoints[below](Q_1,Q_2,J,N)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below right](C,D)
+			\tkzLabelPoints[left](A)
+			\tkzLabelPoints[right](X)
+			\tkzLabelPoints[above right](O_2,M,Y,W)
+			\tkzLabelPoints[above left](P_1,P_2,I,O_1)
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có $MN$ là trục đẳng phương của $(O_1)$, $(O_2)$. Mà $\mathscr{P}_{I/(O_1)}=IP_1^2=IP_2^2=\mathscr{P}_{I/(O_2)}$, tương tự cũng có $\mathscr{P}_{J,(O_1)}=\mathscr{P}_{J/(O_2)}$ nên $I$, $J$ thuộc trục đẳng phương của $(O_1)$, $(O_2)$, tức là $I$, $J$ thuộc đường thẳng $MN$.\\
+			Dễ thấy $P_1Q_1\parallel P_2Q_2$, do đó $\overrightarrow{P_1Q_1}=k\overrightarrow{P_2Q_2}$, $k\neq 0$. Mặt khác
+			$$2\overrightarrow{XY}=\left(\overrightarrow{XP_2}+\overrightarrow{P_2Q_2}+\overrightarrow{Q_2Y}\right)+\left(\overrightarrow{XQ_1}+\overrightarrow{Q_1P_1}+\overrightarrow{P_1Y}\right)=\overrightarrow{P_2Q_2}-\overrightarrow{P_1Q_1}=(1-k)\overrightarrow{P_2Q_2}.$$
+			Suy ra, $\overrightarrow{XY}\parallel\overrightarrow{P_2Q_2}$. Nhưng $JY$ là đường trung bình của $\triangle Q_1Q_2P_2$ nên $\overrightarrow{JY}\parallel \overrightarrow{P_2Q_2}$. Suy ra $\overrightarrow{JY}\parallel\overrightarrow{XY}$, do đó $X$, $Y$, $J$ thẳng hàng. Tương tự $X$, $Y$, $I$ thẳng hàng.\\
+			Vậy $X$, $Y$, $I$, $J$ cùng thuộc trục đẳng phương là đường thẳng $MN$ của $(O_1)$, $(O_2)$.
+			\item Gọi $W= d\cap AD$. Ta chứng minh $W$ cố định.\\
+			Vì $W\in d$ là trục đẳng phương của $(O_1)$, $(O_2)$ nên 
+			\begin{eqnarray*}
+				&& \mathscr{P}_{W/(O_1)}=\mathscr{P}_{W/(O_2)}\\
+				& \Rightarrow & \overrightarrow{WA}\cdot\overrightarrow{WC}=\overrightarrow{WB}\cdot\overrightarrow{WD}\\
+				& \Leftrightarrow & \overrightarrow{WA}\left(\overrightarrow{WA}+\overrightarrow{AC}\right)=\left(\overrightarrow{WA}+\overrightarrow{AB}\right)\left(\overrightarrow{WA}+\overrightarrow{AD}\right)\\
+				& \Leftrightarrow & \overrightarrow{WA}\cdot\overrightarrow{WC}=\overrightarrow{WA}\left(\overrightarrow{AB}+\overrightarrow{AD}\right)+\overrightarrow{AB}\cdot\overrightarrow{AD}\\
+				& \Leftrightarrow & \overrightarrow{WA}\left(\overrightarrow{AD}+\overrightarrow{BC}\right)=\overrightarrow{AB}\cdot \overrightarrow{AD}.
+			\end{eqnarray*}
+			Đằng thức này chứng tỏ $W$ cố định. Vậy $d$ luôn đi qua một điểm cố định.
+			
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Bui Dung, Dự án Ex-TapChi05]%[0H0G3]
+	Cho đường tròn $(O_1),\ (O_2)$ cắt nhau tại hai điểm phân biệt $A,\ B$. Tiếp tuyến tại $A,\ B$ của $(O_1)$ cắt nhau tại $Q$. $M$ là một điểm nằm trên $(O_1)$. $AM,\ BM$ cắt lại $(O_2)$ tại $N,\ P$. Chứng minh rằng $MQ$ luôn đi qua một điểm cố định.
+	\loigiai
+	{
+		\begin{center}
+		
+		
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=0.7]
+		\tkzDefPoints{0/0/O_1,6/0/O_2,3/0/E,1.8/0/F}
+		\def \x{3} %bán kính đường tròn O1 là 3đơn vị
+		\tkzDefCircle[radius](O_1,E)
+		\tkzDefCircle[radius](O_2,F)
+		\tkzDrawCircle[radius](O_1,E)
+		\tkzDrawCircle[radius](O_2,F)
+		%\pgfresetboundingbox
+		\tkzInterCC(O_1,E)(O_2,F)    \tkzGetPoints{A}{B}
+		\tkzTangent[at=A](O_1)    \tkzGetPoint{t}
+		\tkzTangent[at=B](O_1)    \tkzGetPoint{k}
+		\tkzInterLL(A,t)(B,k)\tkzGetPoint{Q}
+		\coordinate (M) at ($(O_1)+(75:\x)$);%VÉ M THUỘC ĐƯỜNG TRÒN TÂM O1, bán kính x=3, quay góc 75 độ
+		\tkzInterLC(A,M)(O_2,B)    \tkzGetFirstPoint{P}
+		\tkzInterLC(B,M)(O_2,B)    \tkzGetSecondPoint{N}
+		\tkzInterLC(M,Q)(O_1,B)    \tkzGetSecondPoint{R}
+		\tkzInterLL(Q,M)(B,A)\tkzGetPoint{S}
+		\tkzInterLL(O_1,Q)(A,B)\tkzGetPoint{I}
+		\tkzCircumCenter(M,S,I)    \tkzGetPoint{O}
+		\tkzTangent[at=M](O)    \tkzGetPoint{t}
+		\tkzInterLL(M,t)(A,B)\tkzGetPoint{T}
+		\tkzDrawPoints[fill=black](O_1,O_2,A,B,Q,M,N,P,S,I,T,R)
+		\tkzLabelPoints[above](O_2,Q,M,T)
+		\tkzLabelPoints[below](S,B,P)
+		\tkzLabelPoints[below left](N,R)
+		\tkzLabelPoints[right](A)
+		\tkzLabelPoints[below right](I)
+		\tkzLabelPoints[left](O_1)
+		\draw(S)--(M)--(Q) (A)--(B)--(S) (M)--(A)--(P) (O_1)--(B)--(Q) (M)--(N)--(B) (O_1)--(A) (O_1)--(Q) (Q)--(A) (M)--(O_1) (Q)--(O_2) (M)--(T)--(A) (N)--(P) (R)--(I) (M)--(I) ;
+		\end{tikzpicture}
+	\end{center}	
+			Gọi $T$ là giao điểm của tiếp tuyến tại $M$ của đường tròn $(O_1)$ và đường thẳng $AB$.  Gọi $S$ là giao điểm của $MQ$ và $AB$. Ta sẽ chứng minh $S$ cố định.\\
+			Ta có $\widehat{TMP}=\widehat{MBA}\ (\mbox{cùng bằng }\widehat{APN})$\\ $\Rightarrow MT\parallel NP$. 
+			Thật vậy, ta có $\overline{TA}\cdot\overline{TB}=TM^2\ (1)$ và $\overline{QR}\cdot\overline{QM}=QB^2=\overline{QI}\cdot\overline{QO_1}$, trong đó $I$ là giao điểm của $O_1O_2$ với $AB$. Suy ra $MRIO_1$ nội tiếp. Do đó $\widehat{RMO_1}=\widehat{MIO_1}=\widehat{MRO_1}$, mà $\widehat{TMR}=90^\circ-\widehat{RMO_1},\ \widehat{MIS}=90^\circ-\widehat{MIO_1}\Rightarrow\widehat{TMR}=\widehat{MIS}\Rightarrow MT$ là tiếp tuyến của đường tròn ngoại tiếp $\triangle MIS$, suy ra $MT^2=\overline{TS}\cdot\overline{TI}\ (2)$. Từ $(1)$ và $(2)$ suy ra $\overline{TS}\cdot\overline{TI}=\overline{TA}\cdot\overline{TB}\Rightarrow(TSAB)=-1$, vậy $S$ cố định.
+
+	}
+  \end{bt}
+	\begin{bt}%[Bui Dung, Dự án Ex-TapChi05]%[0H0G3]
+		Cho tam giác $ABC$ nội tiếp đường tròn $(O,\ R)$. $M$ là điểm di động trong $(O)$. $AA',\ BB',\ CC'$ lần lượt là các dây cung đi qua $M$ và thỏa mãn hệ thức \[\dfrac{MA}{MA'}+\dfrac{MB}{MB'}+\dfrac{MC}{MC'}=3.\] Chứng minh rằng $M$ thuộc một đường tròn cố định.
+		\loigiai
+		{
+		\begin{center}
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+		\tkzDefPoints{0/0/A,5/0/B,5/3/C}
+		\tkzCircumCenter(A,B,C)    \tkzGetPoint{O}
+		\tkzDrawCircle[circum](A,B,C)
+		\tkzCentroid(A,B,C)    \tkzGetPoint{G}
+		\tkzDefCircle[diameter](O,G)     \tkzGetPoint{I}   %I là tâm đường tròn
+		\tkzDrawCircle[diameter](O,G)
+		\tkzCalcLength[cm](I,G) \tkzGetLength{rIG}% đo độ dài IG
+		%dùng lệnh \rAB khi cần sử dụng đến độ dài đoạn AB
+		\coordinate (M) at ($(I)+(20:\rIG)$); %vẽ điểm M thuộc đường tròn tâm I bán kính IG
+		\tkzInterLC(A,M)(O,A)    \tkzGetFirstPoint{A'}
+		\tkzInterLC(B,M)(O,B)    \tkzGetFirstPoint{B'}
+		\tkzInterLC(C,M)(O,C)    \tkzGetSecondPoint{C'}
+		\tkzDrawPoints[fill=black](A,B,C,O,G,M,A',B',C')
+		\tkzLabelPoints[below](A,B,G,C')
+		%\tkzLabelPoints[above](I)
+		\tkzLabelPoints[right](C,A',M)
+		\tkzLabelPoints[left](O,B')
+		\tkzDrawPolygon(A,B,C) 
+		\draw (A)--(A') (B)--(B') (C)--(C');
+		\end{tikzpicture}
+	\end{center}
+				Gọi $G$ là trọng tâm tam giác $ABC,\ a,\ b,\ c$ là độ dài ba cạnh của tam giác $ABC$.\\Theo phương tích trọng tâm ta có \[R^2=OG^2+\dfrac{a^2+b^2+c^2}{9}\ \ (1)\] 
+				Do $MA\cdot MA'=MB\cdot MB'=MC\cdot MC'=R^2-OM^2$ suy ra \[\dfrac{MA}{MA'}=\dfrac{MA^2}{MA\cdot MA'}=\dfrac{MA^2}{R^2-OM^2}.\]
+				Tương tự ta cũng có \[\dfrac{MB}{MB'}=\dfrac{MB^2}{R^2-OM^2};\ \dfrac{MC}{MC'}=\dfrac{MC^2}{R^2-OM^2}.\]	Từ đó cộng vế với vế của ba đẳng thức trên ta có \[\dfrac{MA^2+MB^2+MC^2}{R^2-OM^2}=3\Leftrightarrow 3MG^2+\dfrac{1}{3}(a^2+b^2+c^2)=3(R^2-OM^2)\ (2).\] 
+				Từ $(1)$ và $(2)$ và biến đổi suy ra $OM^2+MG^2=OG^2$. \\ Vậy $M$ nằm trên đường tròn đường kính $OG$ cố định.
+
+		}
+	\end{bt}
+
+\noindent{\bf 5. Một số bài toán khác.}
+\begin{bt}%[Bui Dung, Dự án Ex-TapChi05]%[0H0G3]
+	Cho $AB$ và $AC$ là các tiếp tuyến của đường tròn $(O)$ với $B,\ C$ thuộc $(O)$. Lấy điểm $M$ bất kì trên $AC$ ($M,\ A$ khác phía so với $C$). Giả sử $(O)$ cắt đường tròn $(ABM)$ tại điểm thứ hai $P$. $Q$ là chân đường vuông góc hạ từ $C$ xuống $MB$. Chứng minh rằng $\widehat{MPQ}=2\widehat{AMB}$. 
+	\loigiai
+	{\immini{
+			Gọi $P'$ là giao điểm thứ hai của $MP$ với $(O)$, $Q'$ là giao điểm của $OC$ và $MB$.
+			Ta có $\overline{MP}\cdot\overline{MP'}=MC^2=\overline{MQ}\cdot\overline{MQ'}$.
+			Suy ra tứ giác $PQQ'P'$ nội tiếp nên $\widehat{MPQ}=\widehat{P'Q'M}$.\hfill$(1)$\\
+			Ta lại có\\ $\begin{aligned}
+\widehat{P'BC}&=\widehat{MPC}=\widehat{MPB}-\widehat{BPC}\\
+&=(180^\circ-\widehat{MAB})-\widehat{BCA}\\
+&=\widehat{BCA}.
+\end{aligned}$\\
+Suy ra 	$BP'\parallel AC$, do đó 
+$OC\perp BP'$, vì thế $ OQ'\perp BP'$. }
+		{\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\tkzDefPoints{0/0/O,3/0/E}
+			\tkzDefCircle[radius](O,E)
+			\tkzCalcLength[cm](O,E)		\tkzGetLength{rOE}
+			\coordinate (B) at ($(O)+(60:\rOE)$);
+			\coordinate (C) at ($(O)+(-20:\rOE)$);
+			\tkzTangent[at=B](O)    \tkzGetPoint{t}
+			\tkzTangent[at=C](O)    \tkzGetPoint{k}
+			\tkzInterLL(B,t)(C,k)    \tkzGetPoint{A}
+			\coordinate (M) at ($(A)!0.3!(C)$);
+			\tkzDrawCircle[radius](O,E)
+			\tkzDrawCircle[circum](A,B,M)
+			\tkzCircumCenter(A,B,M)    \tkzGetPoint{O'}
+			\tkzInterCC(O,B)(O',B)    \tkzGetSecondPoint{P}
+			\tkzDefPointBy[projection = onto M--B](C)    \tkzGetPoint{Q}
+			\tkzInterLC(M,P)(O,B)    \tkzGetSecondPoint{P'}
+			\tkzInterLL(O,C)(M,B)    \tkzGetPoint{Q'}
+			\tkzMarkRightAngles[size=0.15](C,Q,Q')
+			\tkzDrawPoints[fill=black](O,B,C,A,M,P,Q,P',Q')
+			\tkzLabelPoints[above](O,B)
+			\tkzLabelPoints[below](C,P',Q')
+			\tkzLabelPoints[left](P)
+			\tkzLabelPoints[right](M,A,Q)
+			\draw (O)--(C) (M)--(B) --(Q)--(Q')--(C) (M)--(P)--(P') (A)--(B) (A)--(C) (C)--(Q) (B)--(P') (B)--(C) (P')--(C) (P')--(Q') (P)--(Q);
+			\end{tikzpicture}
+		}
+\noindent 	Mặt khác $O$ thuộc đường trung trực của đoạn $BP'$ nên $OQ'$ là trung trực của $BP'$. Khi đó $\widehat{P'Q'M}=2\widehat{MBP'}=2\widehat{AMB}$.\hfill$(2)$\\
+Từ $(1)$ và $(2)$ suy ra $\widehat{MPQ}=2\widehat{AMB}$.
+	}
+\end{bt}
+\begin{bt}%[Bui Dung, Dự án Ex-TapChi05]%[0H0G3]
+	Cho tam giác $ABC,\ AB>AC,\ (O),\ (I)$ theo thứ tự là tâm đường tròn ngoại tiếp, nội tiếp $\triangle ABC$. $D,\ E,\ F$ theo thứ tự là tiếp điểm của $(I)$ với $BC,\ CA,\ AB$. $S$ là giao điểm của $BC$ và $EF$. $T$ là giao điểm thứ hai của $AS$ và $(O)$. $M$ là trung điểm của $BC$. $TM$ cắt lại $(O)$ tại $K$. Các đường thẳng đi qua $E,\ F$ song song với $AK$ lần lượt cắt $BC$ tại $P$ và $Q$. Chứng minh rằng $AI$ là trục đẳng phương của các đường tròn $(ABP)$ và $(ACQ)$.
+	\loigiai
+	{
+		\immini
+		{
+			Gọi $L$ là giao điểm thứ hai của $AD$ và $(O)$, $N$ là giao điểm của $AI$ và $BC$. Ta có $A(BCLT)=A(BCDS)=(BCDS)=-1$. Do đó tứ giác $BLCT$ nội tiếp. Lại do $MB=MC$ suy ra $\widehat{KAB}=\widehat{KTB}=\widehat{MTB}=\widehat{LTC}=\widehat{LAC}=\widehat{DAC}$.\\Khi đó các điều kiện sau tương đương: 
+			$AI$ là trục đẳng phương của đường tròn $(ABP)$ và $(ACQ)$\\
+			$\mathcal{P}_{N(ABP)}=\mathcal{P}_{N(ACQ)}$\\
+			$NB\cdot NP=NC\cdot NQ$.
+			Ta có \begin{eqnarray*}
+				&\dfrac{NB}{NC}=&\dfrac{NQ}{NP}\Leftrightarrow\dfrac{NB}{NC}=\dfrac{NB-NQ}{NC-NP}\\
+				&\Leftrightarrow&\dfrac{NB}{NC}=\dfrac{QB}{PC}\Leftrightarrow\dfrac{NB}{NC}=\dfrac{QB}{FB}\cdot\dfrac{EC}{PC}\cdot\dfrac{DB}{DC}\\
+				&\Leftrightarrow&\dfrac{NB}{NC}=\dfrac{\sin\widehat{QFB}}{\sin\widehat{FQB}}\cdot\dfrac{\sin\widehat{EPC}}{\sin\widehat{PEC}}\cdot\dfrac{S_{ADB}}{S_{ADC}}\\
+				&\Leftrightarrow&\dfrac{NB}{NC}=\dfrac{\sin\widehat{QFB}}{\sin\widehat{PEC}}\cdot\dfrac{AD\cdot AB\cdot\sin\widehat{DAB}}{AD\cdot AC\cdot\sin\widehat{DAC}}\\
+				&\Leftrightarrow&\dfrac{NB}{NC}=\dfrac{\sin\widehat{KAB}}{\sin\widehat{KAC}}\cdot\dfrac{AD\cdot AB\cdot\sin\widehat{DAB}}{AD\cdot AC\cdot\sin\widehat{DAC}}\\
+				&\Leftrightarrow&\dfrac{NB}{NC}=\dfrac{AB}{AC}\mbox{ luôn đúng vì }AN \mbox{ là phân giác của }\widehat{BAC}.
+			\end{eqnarray*}
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=0.9]
+			\tkzDefPoints{0/0/A,7/0/B,3/3/C}
+			\tkzCircumCenter(A,B,C)    \tkzGetPoint{O}
+			\tkzDrawCircle[circum](A,B,C)
+			%\pgfresetboundingbox
+			\tkzDrawCircle[in](A,B,C)  	\tkzGetPoint{I}
+			\tkzDefPointBy[projection = onto B--C](I)    \tkzGetPoint{D}
+			\tkzDefPointBy[projection = onto C--A](I)    \tkzGetPoint{E}
+			\tkzDefPointBy[projection = onto A--B](I)    \tkzGetPoint{F}
+			\tkzInterLL(B,C)(E,F)    \tkzGetPoint{S}
+			\tkzInterLC(A,S)(O,A)    \tkzGetSecondPoint{T}
+			\coordinate (M) at ($(B)!0.5!(C)$);
+			\tkzInterLC(T,M)(O,A)    \tkzGetSecondPoint{K}
+			\tkzDefLine[parallel=through E,K=k](A,K) \tkzGetPoint{X}
+			\tkzInterLL(B,C)(E,X)    \tkzGetPoint{P}
+			\tkzDefLine[parallel=through F,K=k](A,K) \tkzGetPoint{Y}
+			\tkzInterLL(B,C)(F,Y)    \tkzGetPoint{Q}
+			\tkzInterLC(A,D)(O,A)    \tkzGetSecondPoint{L}
+			\tkzInterLL(A,I)(B,C)    \tkzGetPoint{N}
+			\tkzDrawPoints[fill=black](A,B,C,O,I,D,E,F,S,T,M,K,P,Q,L,N)
+			\tkzDrawPolygon(A,B,C)
+			\tkzLabelPoints[above](B,C,I,D,S,M,K,P,Q,L,N)
+			\tkzLabelPoints[above left](A,T,E)
+			\tkzLabelPoints[below left](F)
+			\tkzLabelPoints[below ](O)
+			\draw[dashed] (B)--(T)--(C)--(L)--(B); 
+			\draw (B)--(C) (E)--(F)--(S)--(C)  (A)--(S) (T)--(M)--(K) (A)--(K) (E)--(P) (F)--(Q) (A)--(D)--(L) (A)--(I)--(N);
+			\end{tikzpicture}
+	}	}
+\end{bt}
+\begin{bt}%[Cao Tới, Dự án Ex-TapChi05]%[0H0G3]
+	Cho tam giác $ABC$ nhọn. Các đường cao  $BB'$, $CC'$ cắt nhau tại $H$, $B'C' \cap AH=K$, $L$ là trung điểm đoạn $AH$. Chứng minh rằng $K$ là trực tâm tam giác $LBC$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-4,xmax=14,ymin=-2,ymax=6]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/5/A,-3/0/B, 2/0/C}
+			\tkzDefPointBy[projection = onto A--C](B)    \tkzGetPoint{B'}
+			\tkzDefPointBy[projection = onto A--B](C)    \tkzGetPoint{C'}
+			\tkzInterLL(B,B')(C,C')    \tkzGetPoint{H}
+			\tkzInterLL(B',C')(A,H)    \tkzGetPoint{K}
+			\tkzDefMidPoint(A,H){L} \tkzGetPoint{L}
+			
+			\tkzDrawCircle[circum](A,B,C)
+			\tkzDefCircle[circum](A,B,C)     \tkzGetPoint{O} 
+			\tkzInterLL(A,K)(B,C)    \tkzGetPoint{A'}
+			\tkzInterLL(B',C')(B,C)    \tkzGetPoint{M}
+			\tkzInterLC(A,K)(O,A)    \tkzGetPoints{A}{E}
+			
+			\tkzMarkRightAngles[](B,C',C)
+			\tkzMarkRightAngles[](B,B',C)
+			\tkzMarkSegments[mark=s||](L,A L,H)
+			
+			
+			\tkzDrawSegments(A,B B,C C,A B,B' C,C' A,E C,M C',M B,L C,L C,K)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[below](M,E)
+			\tkzLabelPoints[above left](K)
+			\tkzLabelPoints[left](H)
+			\tkzLabelPoints[left](C', L)
+			\tkzLabelPoints[above right](B')
+			\tkzLabelPoints[below right](A')
+			\tkzDrawPoints(A,B,C,B',C',H,L,K,A',E,M)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $(O)$ là đường tròn ngoại tiếp tam giác $ABC$, $A'=AK \cap BC$, $E=AK \cap (O)$.\\
+		Ta có $\overline{A'B} \cdot \overline{A'C}=\overline{A'E} \cdot \overline{A'A}=-\overline{A'H} \cdot \overline{A'A}$. \qquad (1)\\
+		Gọi $M$ là giao điểm của $B'C'$  và $BC$.\\
+		Khi đó $(BCA'M)=-1 \Rightarrow C'(BCA'M)=-1 \Rightarrow (A'KHA)=-1$\\
+		Theo hệ thức Maclaurin,  $\overline{A'H} \cdot \overline{A'A}=\overline{A'K} \cdot \overline{A'L}$  ($L$ là trung điểm đoạn $AH$) \qquad  (2).\\
+		Từ (1) và (2) suy ra  $\overline{A'B} \cdot \overline{A'C}=-\overline{A'K} \cdot \overline{A'L} \Rightarrow A'B \cdot A'C=A'K \cdot A'L \Rightarrow \dfrac{A'B}{A'L}=\dfrac{A'K}{A'C} \Rightarrow \triangle A'BL \backsim \triangle A'KC \Rightarrow \widehat{A'LB}=\widehat{A'CK} \Rightarrow CK \perp LB$. Mà $LK \perp BC$ nên $K$ là trực tâm tam giác $LBC$.
+		
+	}
+\end{bt}
+
+\begin{bt}[Đề thi chọn đội tuyển trường ĐHSP Hà Nội]%[Cao Tới, Dự án Ex-TapChi05]%[0H0G3]
+	Cho tam giác $ABC$ nhọn. Các đường cao $BE$, $CF$ cắt nhau tại $H$. Trên các tia $BF$, $EC$ theo thứ tự lấy các điểm $P$, $Q$ sao cho $FP=FC$, $EQ=EB$. $BQ$ cắt $CP$ tại $K$. Gọi $I$, $J$ theo thứ tự là trung điểm của $BQ$, $CP$. $IJ$ lần lượt cắt $BC$, $PQ$ tại $M$, $N$. Chứng minh rằng
+	\begin{enumerate}
+		\item $HK \perp IJ$
+		\item $\widehat{IAM}=\widehat{JAN}$
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-6,xmax=14,ymin=-5,ymax=7]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{0/6/A,-2/0/B, 4.5/-0.5/C}
+			\tkzDefPointBy[projection = onto A--C](B)    \tkzGetPoint{E}
+			\tkzDefPointBy[projection = onto A--B](C)    \tkzGetPoint{F}
+			
+			
+			\tkzDefPointWith[orthogonal,K=-1](F,C)    \tkzGetPoint{P}
+			\tkzDefPointWith[orthogonal,K=1](E,B)    \tkzGetPoint{Q}
+			\tkzMarkRightAngles[](B,E,C)
+			\tkzMarkRightAngles[](B,F,C)
+			
+			%\tkzMarkSegments[mark=s||](F,C F,P)
+			%\tkzMarkSegments[mark=s|](E,B E,Q)
+			
+			
+			\tkzInterLL(B,E)(C,F)    \tkzGetPoint{H}
+			\tkzInterLL(B,Q)(C,P)    \tkzGetPoint{K}
+			
+			\tkzDefMidPoint(B,Q){I} \tkzGetPoint{I}
+			\tkzDefMidPoint(C,P){J} \tkzGetPoint{J}
+			
+			\tkzInterLL(I,J)(B,C)    \tkzGetPoint{M}
+			\tkzInterLL(I,J)(P,Q)    \tkzGetPoint{N}
+			
+			\tkzDefLine[bisector](B,A,C)    \tkzGetPoint{G}
+			\tkzDefPointBy[reflection = over A--G](B)    \tkzGetPoint{B'}
+			\tkzDefPointBy[reflection = over A--G](M)    \tkzGetPoint{M'}
+			\tkzDefPointBy[reflection = over A--G](C)    \tkzGetPoint{C'}
+			
+			\tkzDrawSegments(A,B B,C C,A B,E C,F B,P C,Q P,Q B,Q C,P H,K M,N A,N A,G B',C')
+			\tkzLabelPoints[above](A, H)
+			\tkzLabelPoints[left](B, F,C')
+			\tkzLabelPoints[right](C, E)
+			\tkzLabelPoints[below](K,N,I,P,Q)
+			\tkzLabelPoints[below right](M, M')
+			\tkzLabelPoints[above](J)
+			\tkzLabelPoints[right](B')
+			\tkzLabelPoint[right](G){d}
+			\tkzDrawPoints(A,B,C,E,F,P,Q,H,K,M,N,I,J,B',M',C')
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Từ giả thiết ta có $\widehat{BPC}=\widehat{BQC}=45^\circ \Rightarrow BCQP$ nội tiếp. 
+			Do đó, $\mathscr{P}_{K/(BQ)}=\overline{KB} \cdot \overline{KQ}=\overline{KC} \cdot \overline{KP}=\mathscr{P}_{K/(CP)}$.\\
+			Theo tính chất trực tâm tam giác ta có $\mathscr{P}_{H/(BQ)}=\overline{HB} \cdot \overline{HE}=\overline{HC} \cdot \overline{HF}=\mathscr{P}_{H/(CP)}$.\\
+			Vậy $HK$ là trục đẳng phương của hai đường tròn $(BQ)$  và $(CP) \Rightarrow HK \perp IJ$.   
+			
+			\item Áp dụng định lí Menelaus cho tam giác $KBC$ với cát tuyến $MIJ$, ta có
+			$$\dfrac{\overline{MB}}{\overline{MC}} \cdot\dfrac{\overline{JC}}{\overline{JK}} \cdot \dfrac{\overline{IK}}{\overline{IB}}=1 =\dfrac{\overline{NQ}}{\overline{NP}} \cdot \dfrac{\overline{IK}}{\overline{IQ}} \cdot \dfrac{\overline{JP}}{\overline{JK}} \Rightarrow \dfrac{\overline{MB}}{\overline{MC}}=\dfrac{\overline{NQ}}{\overline{NP}}$$
+			Gọi $d$ là đường phân giác trong góc $BAC$. Gọi  $B'$, $M'$, $C'$ lần lượt là ảnh của $B$, $M$, $C$ qua phép đối xứng trục đường thẳng $d$. Khi đó $B'$, $M'$, $C'$  thẳng hàng và $B'C' \parallel PQ$.\\
+			Lại có, $\dfrac{\overline{M'B'}}{\overline{M'C'}}=\dfrac{\overline{MB}}{\overline{MC}}=\dfrac{\overline{NQ}}{\overline{NP}}$  suy ra  $A$, $M'$, $N$ thẳng hàng. Do đó, $\widehat{CAM}=\widehat{BAM'}=\widehat{BAN}$.\\
+			Tương tự ta cũng có, $\widehat{CAI}=\widehat{BAJ}$.\\
+			Từ đó suy ra $\widehat{IAM}=\widehat{JAN}$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Cao Tới, Dự án Ex-TapChi05]%[0H0G3]
+	Cho tứ giác lồi $ABCD$. Gọi $O$ là giao điểm của $AC$ và $BD$. $H_1$, $H_2$, $H_3$, $H_4$   lần lượt là trực tâm các tam giác $OAB$, $OBC$, $OCD$, $ODA$.
+	\begin{enumerate}
+		\item Chứng minh rằng $AC = BD$ khi và chỉ khi $H_1$, $H_2$, $H_3$, $H_4$  là bốn đỉnh của một hình thoi.
+		\item Giả sử $AC = BD$. Gọi  $O_1$, $O_2$, $O_3$, $O_4$ lần lượt là tâm các đường tròn ngoại tiếp các tam giác $OAB$, $OBC$, $OCD$, $ODA$. Chứng minh $O_1O_3 \perp O_2O_4$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-6,xmax=10,ymin=-2,ymax=10]
+			\tkzClip
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{-3/6/A,1/7/B, 7/3/C, 0/0/D}
+			
+			\tkzDefMidPoint(A,B){M} \tkzGetPoint{M}
+			\tkzDefMidPoint(B,C){N} \tkzGetPoint{N}
+			\tkzDefMidPoint(C,D){P} \tkzGetPoint{P}
+			\tkzDefMidPoint(A,D){Q} \tkzGetPoint{Q}
+			
+			\tkzInterLL(B,D)(C,A)    \tkzGetPoint{O}
+			
+			\tkzDefPointBy[projection = onto A--B](O)    \tkzGetPoint{T1}
+			\tkzDefPointBy[projection = onto B--O](A)    \tkzGetPoint{T2}
+			\tkzInterLL(O,T1)(A,T2)    \tkzGetPoint{H1}
+			\tkzDefPointBy[projection = onto B--C](O)    \tkzGetPoint{T3}
+			\tkzDefPointBy[projection = onto B--O](C)    \tkzGetPoint{T4}
+			\tkzInterLL(O,T3)(C,T4)    \tkzGetPoint{H2}
+			\tkzDefPointBy[projection = onto C--D](O)    \tkzGetPoint{T5}
+			\tkzDefPointBy[projection = onto C--O](D)    \tkzGetPoint{T6}
+			\tkzInterLL(O,T5)(D,T6)    \tkzGetPoint{H3}
+			\tkzDefPointBy[projection = onto A--D](O)    \tkzGetPoint{T7}
+			\tkzDefPointBy[projection = onto D--O](A)    \tkzGetPoint{T8}
+			\tkzInterLL(O,T7)(A,T8)    \tkzGetPoint{H4}
+			
+			
+			%\tkzDrawCircle[circum](A,B,C)  \tkzGetPoint{O1}
+			
+			\tkzDrawCircle[circum](O,A,B)    \tkzGetPoint{O1}
+			\tkzDrawCircle[circum](O,B,C)    \tkzGetPoint{O2}
+			\tkzDrawCircle[circum](O,C,D)    \tkzGetPoint{O3}
+			\tkzDrawCircle[circum](O,D,A)    \tkzGetPoint{O4}
+			
+			\tkzCentroid(A,B,O)    \tkzGetPoint{G1}
+			\tkzCentroid(C,B,O)    \tkzGetPoint{G2}
+			\tkzCentroid(C,D,O)    \tkzGetPoint{G3}
+			\tkzCentroid(A,D,O)    \tkzGetPoint{G4}
+			
+			
+			\tkzDrawSegments(A,B B,C C,D D,A A,C B,D A,H4 B,H2 C,H2 D,H4)
+			
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[above](M)
+			\tkzLabelPoints[left](D,N)
+			\tkzLabelPoints[right](B,C,O,Q)
+			\tkzLabelPoints[below](P)
+			
+			\tkzLabelPoint[right](O1){$O_1$}
+			\tkzLabelPoint[below right](O2){$O_2$}
+			\tkzLabelPoint[above](O3){$O_3$}
+			\tkzLabelPoint[left](O4){$O_4$}
+			
+			\tkzLabelPoint[above left](H1){$H_1$}
+			\tkzLabelPoint[below](H2){$H_2$}
+			\tkzLabelPoint[above right](H3){$H_3$}
+			\tkzLabelPoint[right](H4){$H_4$}
+			
+			\tkzLabelPoint[right](G1){$G_1$}
+			\tkzLabelPoint[below](G2){$G_2$}
+			\tkzLabelPoint[above](G3){$G_3$}
+			\tkzLabelPoint[left](G4){$G_4$}
+			
+			
+			\tkzDrawPoints[](A,B,C,D,M,N,P,Q,O,O1,O2,O3,O4, H1,H2,H3,H4,G1,G2,G3,G4)
+			
+			\end{tikzpicture}
+		\end{center}
+		
+		\begin{enumerate}
+			\item Ta có $H_1H_2H_3H_4$  là hình bình hành. Xét các đường tròn đường kính $AB$, $BC$, $CD$, $DA$ có tâm $M$, $P$, $N$, $Q$. Ta có  $\mathscr{P}_{H_2/(M)}=\mathscr{P}_{H_2/(P)}=\mathscr{P}_{H_2/(N)}$.
+			Ngoài ra  $\mathscr{P}_{H_4/(Q)}=\mathscr{P}_{H_4/(M)}=\mathscr{P}_{H_4/(N)}$ nên $H_2H_4$  là trục đẳng phương của $(M)$ và $(N)$ nên  $H_2H_4 \perp MN$.\\
+			Mặt khác  $H_1H_3 \perp PQ$  mà   $MN \perp PQ$, do $QMNP$ là hình thoi nên $H_2H_4  \perp H_1H_3$.
+			
+			
+			\item Giả sử $G_1$, $G_2$, $G_3$, $G_4$  là trọng tâm các tam giác $AOB$, $BOC$, $COD$, $DOA$ suy ra $H_4$, $G_4$, $O_4$ thẳng hàng và  $H_2$, $G_2$, $O_2$ thẳng hàng. 
+			Suy ra  $\dfrac{H_4G_4}{G_4O_4}=\dfrac{H_2G_2}{G_2O_2}$ nên $G_2G_4 \parallel H_2H_4$, $O_2O_4 \parallel H_2H_4  \parallel PQ$. Tương tự $O_1O_3 \parallel MN$, mà  $MN \perp PQ$  nên ta có điều phải chứng minh.
+			
+		\end{enumerate}
+	}
+\end{bt}
+
+\noindent{\bf KẾT LUẬN}
+
+\textit{Bài viết trên, tác giả đã cố gắng trình bày phần lí thuyết cở sở và các ứng dụng cơ bản của phương tích, trục đẳng phương thông qua các bài toán minh họa. Các phần kiến thức rất quan trọng có liên quan đến phương tích trục đẳng phương như phép ngịch đảo, cực và đối cực…chưa được nhắc đến trong bài viết. Do vậy, bài viết sẽ còn nhiều thiếu sót, rất mong nhận được ý kiến đóng góp của các thầy cô.}
+
+%------
+\begin{thebibliography}{99}
+	
+	\bibitem{[1]} Đoàn Quỳnh, Văn Như Cương, Trần Nam Dũng, Nguyễn Minh Hà, Đỗ Thanh Sơn, Lê Bá Khánh Trình: Tài liệu chuyên toán hình học 10. NXBGD, 2010.
+	
+	\bibitem{[2]} Nguyễn Minh Hà, Nguyễn Xuân Bình: Bài tập nâng cao và một số chuyên đề hình học 10. NXBGD, 2006.
+	
+	\bibitem{[3]} Nguyễn Đăng Phất: Các phép biến hình trong mặt phẳng và ứng dụng giải toán hình học. NXBGD.
+	
+	\bibitem{[4]} Viktor Prasolov: Problems in plane and solid geometry, vol 1, Plane geometry.
+	
+	\bibitem{[5]} Các tài liệu nguồn internet: www.mathlinks.ro, www.diendantoanhoc.net, www.mathscope.org.
+\end{thebibliography}
+

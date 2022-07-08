@@ -1,0 +1,433 @@
+\section{Tạp chí Pi, số 5,  tháng 2 năm 2017}
+\Opensolutionfile{ans}[ans/Pi5-2017]
+\begin{bt}[P51, Tạp chí Pi, tháng 5 năm 2017]%[9D1G4]%[Phạm Tuấn]
+Chứng minh rằng, nếu hai số nguyên dương $a$ và $b$ thỏa mãn điều kiện $a\sqrt{3} >b \sqrt{7}$ thì $a\sqrt{3}-b\sqrt{7} >\dfrac{1}{a+b}.$
+\loigiai
+{
+Vì $a,b$ là các số nguyên nên từ giả thiết $3a^2>7b^2$, ta có $3a^2-7b^2 \geq 1$.\hfill$(*)$\\
+Bằng cách xét các số dư có thể trong phép chia $a$ cho $7$, ta thấy số dư trong phép chia $a^2$ cho $7$ chỉ có thể là $0,1,2$ hoặc $4$. Do đó, số dư trong phép chia $3a^2$ cho $7$ chỉ có thể là $0,3,6$ hoặc $5$. Hiển nhiên, đây cũng chính là các số dư có thể trong phép chia $3a^2-7b^2$ cho $7$ (vì $7b^2$ chia hết cho $7$). Kết hợp với  $(*)$ suy ra $3a^2-7b^2 \geq 3$. Vì thế 
+$$
+a\sqrt{3} -b\sqrt{7} = \dfrac{3a^2-7b^2}{a\sqrt{3}+b\sqrt{7}} \geq \dfrac{3}{a\sqrt{3}+b\sqrt{7}} 
+=\dfrac{1}{a\dfrac{\sqrt{3}}{3} + b\dfrac{\sqrt{3}}{3}} > \dfrac{1}{a+b}
+$$
+(do $\sqrt{3} <\sqrt{7} <3$ và $a,b>0$).
+}
+\end{bt}
+
+%52
+\begin{bt}[P52, Tạp chí Pi, tháng 5 năm 2017]%[Trần Phong, Dự án EX_TapChi02]%[9H0G3]
+Cho  $\Delta ABC$ với trực tâm $H$, có tính chất $$HA+BC=HB+CA=HC+AB.$$
+Tính các góc của tam giác.
+\loigiai{
+Nhận thấy, $ABC$ là tam giác không vuông (nghĩa là, tất cả các góc trong của tam giác đều khác $90^\circ$).
+Thật vậy, giả sử ngược lại, $ABC$ là tam giác vuông. Không mất tổng quát, giả sử $\angle{A}=90^\circ$.
+Khi đó, $H$ trùng với $A$ và do đó $HA=0,HB=AB,HC=AC$. Vì thế, theo giả thiết của bài ra, ta phải có $$BC=AB+CA=AC+AB.$$
+Suy ra $3$ điểm $A,B,C$ thẳng hàng, là điều vô lí.
+Gọi giao điểm của $HA$, $HB$, $HC$ lần lượt với các đường thẳng $BC$, $CA$, $AB$ là $D$, $E$, $F$ (Xem Hình $1$ và Hình $2$).
+Theo định lí Pythagore ta có 
+$$AB^2-AC^2=(AD^2+DB^2)-(AD^2+DC^2)=(HD^2+DB^2)-(HD^2+DC^2)=HB^2-HC^2.$$
+Do đó, $AB^2+HC^2=CA^2+HB^2$. Chứng minh tương tự, ta cũng có $$CA^2+HB^2=BC^2+HA^2.$$
+Vì thế, ta có $$BC^2+HA^2=CA^2+HB^2=AB^2+HC^2.$$
+Kết hợp với giả thiết của bài toán, suy ra $BC\cdot HA=CA\cdot HB=AB\cdot HC. \hfill(1)$\\
+Xét các trường hợp sau:\\
+{\bf Trường hợp 1.} Tam giác $ABC$ nhọn (nghĩa là, tất cả các góc trong của tam giác là góc nhọn).
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+\tkzDefPoint(0,0){B}
+\tkzDefPoint(6,0){C}
+\tkzDefPointBy[rotation = center B angle 60](C)
+\tkzGetPoint{A}
+\coordinate (F) at ($(A)!.5!(B)$);
+\coordinate (E) at ($(A)!.5!(C)$);
+\coordinate (D) at ($(B)!.5!(C)$);
+\tkzInterLL(B,E)(C,F)\tkzGetPoint{H}
+\draw (H) node[shift={(-120:11pt)}]{$H$};
+\tkzDrawSegments(B,C A,B A,C D,F F,E E,D B,E C,F A,D)
+\tkzLabelPoint[above](A){$A$}
+\tkzLabelPoint[below right](C){$C$}
+\tkzLabelPoint[below left](B){$B$}
+\tkzLabelPoint[below](D){$D$}
+\tkzLabelPoint[right](E){$E$}
+\tkzLabelPoint[left](F){$F$}
+\tkzDrawPoints(B,C,A,E,F,D,H)
+\end{tikzpicture}
+\end{center}
+Khi đó $H$ nằm trong tam giác $ABC$ và $H$ nằm giữa $A$ và $D$. Do đó $$BC\cdot HA=BC\cdot(AD-DH)=BC\cdot AD-BC\cdot DH=2S_{ABC}-2S_{HBC}.$$
+Chứng minh tương tự, ta cũng có 
+$$HB\cdot CA=2S_{ABC}-2S_{HCA}; \, HC\cdot AB=2S_{ABC}-2S_{HAB}.$$
+Từ các đẳng thức trên và $(1)$, suy ra $$2S_{ABC}-2S_{HBC}=2S_{ABC}-2S_{HCA}=2S_{ABC}-2S_{HAB}.$$
+Do đó $S_{HBC}=S_{HCA}=S_{HAB}.$
+Ta có 
+\[S_{HCA}=S_{HAB}\Leftrightarrow \dfrac{1}{2}CD\cdot HA=\dfrac{1}{2}BD\cdot HA\Leftrightarrow DB=DC\Leftrightarrow AB=AC.\tag{2}\]
+Một cách tương tự, ta có $S_{HBC}=S_{HCA}\Leftrightarrow BC=CA.\hfill(3)$\\
+Từ $(2)$ và $(3)$ suy ra $ABC$ là tam giác đều; vì thế, tất cả các góc của tam giác đều bằng $60^\circ$.\\
+{\bf Trường hợp 2.} Tam giác $ABC$ tù (nghĩa là, có một góc trong tam giác là góc tù).
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+\tkzDefPoint(0,0){B}
+\tkzDefPoint(6,0){C}
+\tkzDefPointBy[rotation = center B angle 60](C)
+\tkzGetPoint{A}
+\coordinate (F) at ($(A)!.5!(B)$);
+\coordinate (E) at ($(A)!.5!(C)$);
+\coordinate (D) at ($(B)!.5!(C)$);
+\tkzInterLL(B,E)(C,F)\tkzGetPoint{H}
+\tkzDrawSegments(B,C A,B A,C D,F F,E E,D B,E C,F A,D)
+\draw (H) node[shift={(-120:11pt)}]{$A$};
+\tkzLabelPoint[above](A){$H$}
+\tkzLabelPoint[below right](C){$C$}
+\tkzLabelPoint[below left](B){$B$}
+\tkzLabelPoint[below](D){$D$}
+\tkzLabelPoint[right](E){$E$}
+\tkzLabelPoint[left](F){$F$}
+\tkzDrawPoints(B,C,A,E,F,D,H)
+\end{tikzpicture}
+\end{center}
+Không mất tổng quát, giả sử $\angle{A}>90^\circ$. Khi đó $H$ nằm trên tia đối của tia $AD$ và tam giác $HBC$ là tam giác nhọn, có trực tâm là $A$ (xem Hình $2$). Vì thế, xuất phát từ $(1)$, bằng cách áp dụng các lập luận tương tự như ở Trường hợp $1$ cho tam giác $HBC$, ta chứng minh được $HBC$ là tam giác đều.
+Suy ra $\angle{HBC}=\angle{HCB}=60^\circ$ và $BE$, $CF$ tương ứng là các đường phân giác trong của các góc đó. Vì thế, $\angle{ABC}=\angle{ACB}=30^\circ$; dẫn tới, $\angle{BAC}=120^\circ$.\\
+{\bf Kết luận.} Tam giác $ABC$ hoặc có ba góc bằng $60^\circ$ hoặc có một góc bằng $120^\circ$ và mỗi góc trong hai góc còn lại bằng $30^\circ$.
+\begin{nx}
+Chú ý tính bình đẳng của các đỉnh $A$, $B$, $C$ của tam giác $ABC$.
+\end{nx}
+}
+\end{bt}
+\begin{bt}[P53, Tạp chí Pi, tháng 5 năm 2017]%[9D1G4]%[Phạm Tuấn]
+Tìm tất cả các cặp số nguyên dương $(a,b)$ sao cho $(a^2+b)(a+b^2)$ là một lũy thừa của $2$.
+\loigiai
+{
+Giả sử $(a,b)$ là cặp số nguyên dương thỏa mãn yêu cầu của đề bài. Khi đó, tồn tại số nguyên dương $n>1$ sao cho $(a^2+b)(b^2+a) =2^n.$ Suy ra, $a^2+b$ và $b^2+a$ chỉ có đúng một ước nguyên tố là $2$. Vì thế, tồn tại các số nguyên dương $m,k$ sao cho $a^2+b=2^m$  và $b^2+a=2^k. \hfill (1)$  \\
+Không mất tổng quát, giả sử $a \geq b$. Khi đó, ta có 
+\[2^m-2^k=(a^2+b)-(b^2+a) = (a-b)(a+b-1) \geq 0.\tag{2}\] 
+suy ra $m \geq k$. Vì thế, với lưu ý $2^m-2^k =2^k(2^{m-k}-1)$, từ $(2)$ suy ra \[2^k~ | ~ (a-b)(a+b-1).\tag{3}\]
+Từ $(1)$, dễ thấy $a$ và $b$ phải cùng tính chẵn lẻ. Vì thế $(2^k,a+b-1)=1$. Do đó, từ $(3)$ suy ra $2^k ~|~a-b$, hay $b^2+a ~|~ a-b$. Mà $a-b <b^2+a$ nên $a-b=0$, hay $a=b$. Do đó, ta có 
+$$2^{n-1}=a^2+a=a(a+1).$$
+Từ đó, vì trong $2$ số $a$ và $a+1$ có một số là số lẻ nên suy ra $a=1$ (vì nếu ngược lại, $a>1$, thì $2^{n-1}$ sẽ có một ước lẻ lớn hơn $1$, là điều vô lí), kéo theo $b=1$. Ngược lại, với $a=b=1$ thì $(a^2+b)(b^2+a)=2^2$ là một lũy thừa của $2$. 
+Vậy $(1;1)$ là cặp số nguyên dương duy nhất thỏa mãn yêu cầu đề bài.
+}
+\end{bt}
+%54-55
+\begin{bt}[P54, Tạp chí Pi, tháng 5 năm 2017]%[Nguyễn Tất Thu, Dự án EX_TapChi02]%[1D0K6]
+Vào ngày giỗ Tổ năm Đinh Dậu, Vua Hùng đã được dâng một chiếc bánh chưng rất to. Pi muốn xi phép Vua Hùng, cắt bánh chia cho đồng bào theo cách: Lần 1, cắt bánh thành $14$ hoặc $20$ phần; từ lần thứ hai, mỗi lần cắt một phần bánh tùy ý thành $14$ hoặc $20$ phần. Hỏi, bằng cách đó, Pi có thể cắt bánh chưng thành $1!+2!+\cdots +2016!+2017!$ phần hay không?
+\loigiai
+{Nhận thấy, mỗi lần Pi cắt một phần bánh nào đó thành $14$ phần nhỏ hơn thì tổng số bánh sẽ tăng thêm $13$ phần và mỗi lần Pi cắt một phần bánh thành $20$ phần thì tổng số phần bánh sẽ tăng thêm $19$ phần. Do đó, sau $m$ lần cắt bánh thành $14$ phần và $n$ lần cắt bánh thành $20$ phần ($m$, $n$ là các số tự nhiên), Pi đã cắt chiếc bánh chưng thành $1+13m+19n$ phần.
+Như vậy, Pi có thể cắt chiếc bánh chưng thành $1!+2!+\cdots 2016!+2017!$ phần khi và chỉ khi tồn tại các số tự nhiên $m$, $n$ sao cho 
+$$1+13m+19n=1!+2!+\cdots +2016!+2017!,$$
+hay
+$$13m+19n=2!+\cdots +2016!+2017!. \eqno (*)$$
+Ta có 
+{\allowdisplaybreaks
+\begin{align*}&2!+3!+4!+5!=152=19\cdot 8, \\
+&6!+8!=6!\cdot 57=19\cdot 3 \cdot (6!),\\
+& 7!+9!+10!=7!\cdot 793=13\cdot 61 \cdot (7!),\\
+& 11!+12!=13\cdot (11!),\\
+& 13!+14!+\cdots +2016!+2017!=13\cdot M,
+  \end{align*}}trong đó $M$ là một số nguyên dương.
+Từ đó, suy ra 
+$$2!+\cdots + 2016!+2017!=13\left(61\cdot (7!)+11!+M \right) +19\cdot \left(8+3\cdot (6!)\right). $$
+Chọn $m=61\cdot (7!)+11!+M$ và $n=8+3\cdot (6!)$, ta được các số tự nhiên $m$, $n$ thỏa mãn (*).\\
+Vậy câu trả lời của bài toán đã ra là “có thể”.
+
+}
+
+\end{bt}
+
+
+\begin{bt}[P55, Tạp chí Pi, tháng 5 năm 2017]%[Nguyễn Tất Thu, Dự án EX_TapChi02]%[1D0G1]
+Cho dãy số nguyên dương nguyên dương $(a_n)$, xác định bởi $$a_n=\left[\sqrt{n}\right]+\left[\sqrt[3]{n}\right]+1, \, \forall n=1,2,\dots $$ Chứng minh rằng với mỗi số nguyên dương $d$, tồn tại số nguyên dương $m$ sao cho $m=da_m$.
+	\loigiai
+	{\textbf{Cách 1:} Bằng tính toán trực tiếp, ta thấy, với $d=1$, $2$, $3$ thì $m=3$, $12$, $21$ tương ứng sẽ là các giá trị $m$ thỏa mãn yêu cầu của đề bài.
+Xét $d\geq 4$.
+Xét hàm số 
+$$f(n)=\left[\sqrt{n}\right]+\left[\sqrt[3]{n}\right]+1 -n.$$
+Với $n \geq \dfrac{d}{4},$ ta có
+{\allowdisplaybreaks
+	\begin{align*}
+\left[\sqrt{(n+1)d}\right]-\left[ \sqrt{nd} \right]&<\sqrt{(n+1)d}-\sqrt{nd}+1 \\&= \dfrac{d}{\sqrt{(n+1)d}+\sqrt{nd}}+1\\
+&<\dfrac{d}{2\sqrt{\dfrac{d^2}{4}}}+1\\
+&=2. \\
+\left[\sqrt[3]{(n+1)d}\right]-\left[ \sqrt[3]{nd} \right]&<\sqrt[3]{(n+1)d}-\sqrt[3]{nd}+1 \\&= \dfrac{d}{\left(\sqrt[3]{(n+1)d}\right)^2+\sqrt[3]{(n+1)d}\sqrt[3]{nd}+\left(\sqrt[3]{nd}\right)^2}+1\\
+&<2.\end{align*}}Từ đó, do 
+$\left[\sqrt{(n+1)d}\right]-\left[ \sqrt{nd} \right]$ và $\left[\sqrt[3]{(n+1)d}\right]-\left[ \sqrt[3]{nd} \right]$ là các số nguyên không âm, nên
+$$\left[\sqrt{(n+1)d}\right]-\left[ \sqrt{nd} \right],\ \left[\sqrt[3]{(n+1)d}\right]-\left[ \sqrt[3]{nd} \right] \in \{0,\ 1\}.$$
+Suy ra $\left|f(n+1)-f(n)\right| \leq 1$ với mọi số nguyên dương $n\geq \dfrac{d^2}{4}.$
+Ta có 
+$$f\left(\left\lceil {\dfrac{d}{4}}\right\rceil \right)=\left[{\sqrt{{\left\lceil {\dfrac{d}{4}}\right\rceil d}}}\right]+\left[{\sqrt[3]{{\left\lceil {\dfrac{d}4}\right\rceil d}}}\right]+1-\left\lceil {\dfrac{d}4}\right\rceil >\left[{\sqrt{{\dfrac{d^2}4}}}\right]-\left[{\dfrac{d}4}\right]>0$$
+và $$f(4d)=\left[\sqrt{4d^2}\right]+\left[\sqrt[3]{4d^2}\right]+1-4d\leq 2d+d+1-4d=1-d<0.$$
+Tiếp theo, giả sử $f(n) \neq 0$ với mọi $n$ nguyên dương. Khi đó, do $f\left(\left\lceil {\dfrac{d}{4}}\right\rceil  \right)>0$  và $f(4d)<0$ nên tồn tại số nguyên dương $a$ lớn nhất mà $\dfrac{d}{4} \leq a<4d$ sao cho $f(a)>0.$
+Do tính lớn nhất của $a$ nên $f(a+1)<0.$ Do đó
+$$1\geq \left(f(a+1)-f(a) \right)^2=\left(f(a+1)+f(a) \right)^2-4f(a)\cdot f(a+1) \geq 4,$$ là điều vô lí.
+Vậy điều giả sử ở trên là sai, tức là tồn tại số nguyên dương $k$ sao cho $f(k)=0.$
+Chọn $m=dk$, hiển nhiên ta có $m=da_m.$\\
+\textbf{Cách 2:} Nhận thấy, $(a_n)$ là dãy không giảm. Xét số nguyên dương $d$ tùy ý.
+Với mỗi $n$ nguyên dương, đặt $b_n=n-da_n$; ta có $b_n \in \mathbb{Z}.$ Do
+$$ \displaystyle\lim\limits_{x \to +\infty} \dfrac{a_n}{n}=\displaystyle\lim\limits_{x \to +\infty} \dfrac{\left[\sqrt{n}\right]+\left[\sqrt[3]{n}\right]+1}{n}=0$$
+nên $\displaystyle\lim\limits_{x \to +\infty} \dfrac{b_n}{n}=1-d\cdot \displaystyle\lim\limits_{x \to +\infty}\dfrac{a_n}{n}=1.$
+ Suy ra, tồn tại số nguyên dương $k$ sao cho $b_k=k-da_k>0.$
+Như thế, tập hợp các chỉ số $n$ sao cho $b_n\geq 0$ khác rỗng. Do đó, tồn tại số nguyên dương $m$ nhỏ nhất sao cho $b_m \geq 0$. Ta chứng minh $b_m=0$.
+Thật vậy, giả sử ngược lại, $b_m>0.$ Khi đó, do $b_m\in \mathbb{Z}$ nên $b_m\geq 1$. \hfill (1) \\
+Vì $b_1=1-3d<0$ nên $m>1$. Ta có 
+$$b_m-b_{m-1}=1-d(a_m-a_{m-1}) \leq 1. \eqno (2)$$
+Từ (1) và (2), suy ra $b_{m-1} \geq 0$, mâu thuẫn với tính chất nhỏ nhất của $m$.
+Vậy, ta có điều muốn chứng minh, tức là $b_m=0$, hay $m=da_m$.\\
+\textit{Lưu ý:} Với số thực $x$,  kí hiệu $\left\lceil x\right\rceil $ là số nguyên nhỏ nhất lớn hơn hoặc bằng $x.$
+		\begin{nx} \hfill
+			\begin{enumerate}[1.]
+			\item Cách giải thứ hai cho thấy, kết luận của bài toán vẫn đúng nếu $(a_n)$ là dãy số nguyên dương không giảm, thỏa mãn điều kiện $\displaystyle\lim\limits_{n \to +\infty}\dfrac{a_n}{n}=0.$
+\item Bài đã ra được phát biểu như một bài toán số học, nhưng cách chứng minh lại dùng tư duy giải tích. Cụ thể ở đây là tư tưởng Định lý giá trị trung gian rời rạc:
+
+\textit{“ Nếu hàm số nguyên $f:\mathbb{N} \to \mathbb{Z}$ thỏa mãn điều kiện “bước nhảy ngắn”, tức là $$\left|f(n+1)-f(n) \right| \leq 1,$$  và có giá trị nhỏ nhất và lớn nhất, kí hiệu $m$ và $M$, trên tập hợp $\{a,a+1,\ldots ,b\}$ thì với mọi số nguyên $t \in [m;M]$, tồn tại số nguyên $c\in [a;b]$ sao cho $f(c)=t$.”}
+
+			\end{enumerate}
+		\end{nx}
+	}
+	
+\end{bt}
+
+\begin{bt}[P56, Tạp chí Pi, tháng 5 năm 2017]%[Nguyễn Hữu Nhân, Dự án EX_TapChi02]%[0D0G2]
+	Xét các số thực dương $a,b$ thỏa mãn điều kiện: $a\leq b$ và tồn tại số thực $c\geq b$ sao cho $ a+b+c =abc+2.$ Tìm giá trị lớn nhất của biểu thức $P=a^4b^3$.
+	\loigiai{
+	Từ giả thiết bài toán, suy ra $a\leq b \leq c$.
+	\begin{itemize}
+		\item Nếu $ab=1$, từ hệ thức ràng buộc $a$, $b$, $c$ của đề bài suy ra $a+b=2$. Dẫn tới $a=b=1$; do đó, $P=1$.
+		\item Xét $ab<1$. 
+		 Khi đó, $a^2 \leq ab <1$. Suy ra $a<1$. Do đó $$ P=(ab)^2 \cdot a <1 \cdot 1 =1.$$
+		\item Xét $ab>1$.  Khi đó, $b^2 \geq ab >1$. Suy ra $b>1$.
+		\\ Từ $b \leq c$ và hệ thức ràng buộc $a$, $b$, $c$ của đề bài, ta có
+		{\allowdisplaybreaks
+		\begin{align*}
+		b \leq \dfrac{a+b-2}{ab-1} &\Leftrightarrow ab^2-b \leq a+b-2  ~~ (\text{do } ab>1) \\
+		& \Leftrightarrow a(1-b^2) +2(b-1) \geq 0 \\
+		& \Leftrightarrow -a(b+1)+2 \geq 0 ~~ (\text{do } ab>1)\\
+		& \Leftrightarrow ab \leq 2-a.
+		\end{align*}}
+	Từ đó, theo bất đẳng thức AM-GM, ta có
+	{\allowdisplaybreaks
+	\begin{align*}
+	P& =a^4b^3 =(ab)^3 \cdot a \leq (2-a)^3 \cdot a \\
+	&=27\cdot a \cdot \dfrac{2-a}{3} \cdot \dfrac{2-a}{3} \cdot \dfrac{2-a}{3} \\
+	& \leq 27 \left(\dfrac{a+3 \cdot \dfrac{2-a}{3}}{4}\right) ^4 =\dfrac{27}{16}.
+	\end{align*}}
+	Dấu bằng xảy ra khi và chỉ khi $a=\dfrac{1}{2}, b=c=3$. 
+\end{itemize}
+Vậy, giá trị lớn nhất của $P$ là $\dfrac{27}{16}$, đạt được khi $a=\dfrac{1}{2},b=c=3$.
+}
+\end{bt}
+
+\begin{bt}[P57, Tạp chí Pi, tháng 5 năm 2017]%[Nguyễn Hữu Nhân, Dự án EX_TapChi02]%[0D0G3]
+Tìm tất cả các hàm số $f \colon \mathbb{R} \to \mathbb{R}$ sao cho $f(0) \neq 0$ và $ \left( f(x+y)\right)^2 =2f(x)f(y) + \max \{ f(x^2) +f(y^2), f(x^2+y^2) \}, \, \forall x, y \in \mathbb{R}.$
+\loigiai{
+\textit{Trong phần trình bày dưới đây, $(f(x))^n$ được kí hiệu "tắt" bởi $f(x)^n$.}
+	\\ Kí hiệu $(1)$ là phương trình hàm đã nêu trong đề bài.
+	\\ Trong $(1)$, thay $x=y=0$, ta được
+	\[ f(0)^2 +\max \{ 2f(0), f(0)\} =0. \tag{2}\]
+	Nếu $f(0)>0$ thì $$f(0)^2 + \max \{2f(0),f(0)\} =f(0)^2 +2f(0) >0.$$
+	Nếu $f(0)<0$ thì $$f(0)^2 + \max \{ 2f(0), f(0)\} =f(0)^2 +f(0). $$
+	Do đó, từ $(2)$ suy ra $f(0)=-1$.
+	\\ Vì thế, trong $(1)$, cho $y=0$, ta được $f(x)^2 =-2f(x) +f(x^2).$ \hfill{(3)}
+	\\ Trong $(3)$, thay $x$ bởi $-x$, ta được $f(-x)^2 =-2f(-x) +f(x^2).$ \hfill (4) \\
+	Từ $(3)$ và $(4)$ suy ra $$f(x^2)+2f(x) =f(-x)^2 +2f(-x)$$
+	hay $$ (f(x) - f(-x))(f(x)+f(-x)+2)=0.$$
+	Do đó với mỗi $x \in \mathbb{R}$, ta có $f(x)=f(-x)$ hoặc $f(x)+f(-x)=-2$. \hfill $(5)$
+	\\ Trong $(1)$, lần lượt thay $y=x$ và $y=-x$, ta được 
+	\begin{align*}
+	f(2x)^2 =2f(x)^2 + \max \{2f(x^2), f(2x^2)\}, \\
+	1= 2f(x)f(-x) + \max \{ 2f(x^2), f(2x^2)\}.
+	\end{align*}
+	Từ đó, suy ra $f(2x)^2 -2f(x)^2 = 1- 2f(x)f(-x).$ \hfill $(6)$
+	\\ Từ $(5)$ và $(6)$, ta có 
+	\[f(2x) =\heva{ &\pm 1 &\text{ nếu } &f(x)=f(-x) \\ &\pm (2f(x)+1) &\text{ nếu } &f(x)+f(-x)=-2.} \tag{7}\]
+	Tiếp theo ta chứng minh
+	\\ \textit{Nhận xét:} $f(x)+f(-x)=-2$ với mọi $x \in \mathbb{R}$.
+	\\ \textit{Chứng minh:} Giả sử ngược lại, tồn tại $a \in \mathbb{R}$ sao cho $f(a)+ f(-a) \neq -2$.
+	\\ Khi đó $f(a)=f(-a) \neq -1$ và $a \neq 0$ (do $f(0)=-1$).
+	\\ Giả sử $f(a)=1$. Trong $(6)$, cho $x=a$, ta được $f(2a)^2=1$.
+	\\ Vì thế, trong $(1)$, cho $x=y=a$, ta được $\max \{ 2f(a^2), f(2a^2)\}=-1$. \hfill $(8)$
+	\\ Mặt khác, trong $(3)$, cho $x=a$, ta được $f(a^2)=3$, mâu thuẫn với $(8)$.
+	\\ Vì vậy $f(a)\neq 1$.
+	\\ Như thế $f(a) \neq \pm 1$. Kéo theo $f(-a) \neq \pm 1$. Do đó, theo $(7)$ ta có \begin{align*}
+	f(a)&= \pm \left( 2 f\left(\dfrac{a}{2}\right) +1\right), \\ f(-a) &= \pm \left(2 f\left(-\dfrac{a}{2}\right) +1\right).
+	\end{align*}
+	Suy ra $\pm \left(2 f\left( \dfrac{a}{2}\right) +1 \right) =\pm \left(2 f\left(-\dfrac{a}{2}\right) +1\right).$ \hfill $(9)$
+	\\ Vì $f(a) \neq \pm 1$ nên theo $(7)$, $f\left(\dfrac{a}{2}\right) \neq f\left( - \dfrac{a}{2}\right).$ \hfill $(10)$
+	\\ Do đó, theo $(5)$, ta có $f\left( \dfrac{a}{2}\right) + f\left( -\dfrac{a}{2}\right)=-2$. \hfill $(11)$
+	\\ Từ $(9)$ và $(11)$, suy ra $\pm \left(2 f\left( \dfrac{a}{2}\right) +1 \right) = \pm \left(- 2 f\left( \dfrac{a}{2} \right) -3\right)$. \hfill $(12)$
+	\begin{itemize}
+		\item Nếu $2f \left( \dfrac{a}{2} \right) +1 =-2 f\left( \dfrac{a}{2} \right) -3$ thì $f\left( \dfrac{a}{2} \right) =-1$.
+		\item Nếu $2f \left( \dfrac{a}{2} \right) +1 =2 f\left( \dfrac{a}{2} \right) +3$ thì $1=3$ (vô lí).
+	\end{itemize}
+Như vậy, từ $(12)$, ta có $f\left( \dfrac{a}{2}\right)=-1$. \\ Kết hợp với $(11)$, suy ra $f\left(-\dfrac{a}{2} \right) =-1$. Do đó $f\left( \dfrac{a}{2} \right) = f\left( - \dfrac{a}{2}\right)$, mâu thuẫn với $(10)$.
+\\ Vì vậy giả sử ban đầu là sai và do vậy, Nhận xét được chứng minh.
+\\ Trong $(1)$, thay $x$ bởi $-x$ và $y$ bởi $-y$, ta được $$(f(-x-y))^2 =2f(-x)f(-y) + \max \{ f(x^2) +f(y^2),f(x^2+y^2)\}.$$
+Kết hợp với $(1)$, suy ra $(f(x+y))^2 -2f(x)f(y) =(f(-x-y))^2 -2f(-x)f(-y)$. \hfill $(13)$
+\\ Mà theo Nhận xét, ta có 
+\begin{align*}
+&f(-x-y) =-f(x+y)+2, \\ &f(-x) =-f(x)-2 \text{ và } f(-y)=-f(y)-2,
+\end{align*}
+nên từ $(13)$, ta có $f(x+y)=f(x)+f(y)+1$.
+\\ Từ đó, với mỗi $x \in \mathbb{R}$, đặt $g(x)=f(x)+1$, ta có $g(x+y)=g(x)+g(y)$. \hfill $(14)$
+\\ Hơn nữa, từ $(3)$, ta có $(f(x)+1)^2=f(x^2)+1.$ Vì thế, $g(x)^2=g(x^2)$. \hfill $(15)$
+\\ Suy ra $g(x)\geq 0$ với mọi $x\geq 0$. \hfill $(16)$
+\\ Từ $(14)$ và $(16)$, suy ra $g(x)=cx$, trong đó $c$ là một hằng số. \hfill $(17)$
+\\ Từ $(15)$ và $(17)$, suy ra $c=0$ hoặc $c=1$. Do đó $g(x)=0$ hoặc $g(x)=x$.
+\\ Vì thế, $f(x)=-1$ hoặc $f(x)=x-1$.
+\\ Thử lại, dễ thấy các hàm số vừa nêu trên thỏa mãn các yêu cầu của đề bài. Vì thế, chúng là tất cả các hàm số cần tìm.
+}
+\end{bt}
+
+\begin{bt}[P58, Tạp chí Pi, tháng 5 năm 2018]%[Nguyễn Phúc Đức, Dự án EX_TapChi02]%[9D0G4]
+Chứng minh rằng không tồn tại số nguyên ${n>5}$ sao cho $3^n+5^n$ chia hết cho $n^2-25$.
+\loigiai{Ta sẽ chứng minh kết luận của bài toán bằng phương pháp phản chứng.
+	Giả sử ngược lại, tồn tại số nguyên $n>5$ sao cho $n^2-25\mid 3^n+5^n$.
+	Giả sử $n$ là số chẵn. Khi đó $$n^2-25\equiv 3\pmod{4}.$$
+	Từ đó, do $n^2-25>1$ nên $n^2-25$ có ước nguyên tố $p$ mà $p\equiv 3\pmod{4}$.\\
+	Hơn nữa, vì $p\mid 3^n+5^n$ nên $p\neq 3,5$.\\
+	Ta có $5^n=-3^n \pmod{p}$. Từ đó, với lưu ý $\dfrac{p-1}{2}$ là số lẻ, suy ra $$5^{\tfrac{n(p-1)}{2}}\equiv -3^{\tfrac{n(p-1)}{2}}\pmod{p}.$$
+	Mặt khác, vì $p\neq 3,\,5$ nên theo định lí Phec-ma nhỏ, ta có $$5^{\tfrac{n(p-1)}{2}}\equiv 1\equiv 3^{\tfrac{n(p-1)}{2}}\pmod{p}.$$
+	Do đó, $2\cdot 3^{\tfrac{n(p-1)}{2}}\pmod{p}$, mâu thuẫn với các tính chất đã nêu của $p$.\\
+	Vậy $n$ là số nguyên dương lẻ.\\
+	Xét ước nguyên tố $p$ tùy ý của $n^2-25$, ta có $p\mid 3^n+5^n$. Do đó $$\left(\dfrac{3^n}{p}\right)=\left(\dfrac{-5^n}{p}\right).$$
+	Suy ra $$1=\left(\dfrac{3^n}{p}\right)\cdot \left(\dfrac{-5^n}{p}\right)=\left(\dfrac{3^n\cdot \left(-5^n\right)}{p}\right).$$
+	Tù đó, vì $n$ là số lẻ nên ta có $\left(\dfrac{-15}{p}\right)=1$. Suy ra, theo luật tương hỗ bậc hai, ta có $$1=\left(\dfrac{-15}{p}\right)=\left(\dfrac{-1}{p}\right)\cdot \left(\dfrac{3}{p}\right)\cdot \left(\dfrac{5}{p}\right)=\left(\dfrac{p}{3}\right)\cdot \left(\dfrac{5}{p}\right).$$
+	Suy ra, $p$ đồng dư với $1$, $2$, $4$, $8$ theo $\bmod\; 15$.\\
+	Như vậy, mọi ước nguyên tố của $n^2-25$ đều có dạng $15k+r$, với $r\in\{1;2;4;8\}$. Do đó, mọi ước nguyên tố của $n+5$ và $n-5$ đều có dạng vừa nêu. Mà tích của hai số nguyên có dạng $15k+r$, với $r\in\{1;2;4;8\}$ cũng là một số có dạng như vậy, nên suy ra $n+5$ và $n-5$ đều đồng dư với $1$, $2$, $4$ hoặc $8$ theo $\bmod\; 15$. Tuy nhiên, điều này là không thể, vì hiệu của hai số tùy ý thuộc tập hợp $\{1;2;4;8\}$ đều khác $10$ hoặc $-10$. Mâu thuẫn nhận được chứng tỏ giả sử ở đầu lời giải là sai và do đó kết luận của bài toán được chứng minh.
+\begin{nx}
+	\hfill
+\begin{enumerate}[1.]
+	\item Trong lời giải bài toán nêu trên, có sử dụng \textit{kí hiệu Legendre}, kí hiệu này được định nghĩa nhu sau:
+	\textit{Giả sử $a$ là một số nguyên và $p$ là một số nguyên tố. Xét phương trình đồng dư $($ẩn $x$$)$:
+	\begin{align}
+	x^2\equiv a\pmod{p}\tag{*}
+	\end{align}
+	Nếu $a$ không chia hết cho $p$}, đặt $\left(\dfrac{a}{p}\right)=\heva{
+		&1 &&\mbox{ nếu phương trình (*) có nghiệm}\\
+		&-1&&\mbox{ nếu phương trình (*) vô nghiệm.}
+		}$\\
+	\textit{Nếu $a$ chia hết cho $p$, đặt $\left(\dfrac{a}{p}\right)=0$.}\\
+	$\left(\dfrac{a}{p}\right)$ được gọi là \textit{kí hiệu Legendre} và có tính chất cơ bản sau:\\
+	\textit{Với mọi $a,\, b$ nguyên và với mọi số nguyên tố $p$, ta có} $$\left(\dfrac{ab}{p}\right)=\left(\dfrac{a}{p}\right)\cdot\left(\dfrac{b}{p}\right).$$
+	Ngoài tính chất trên, trong lời giải còn sử dụng kết quả sau:\\
+	\textit{\textbf{Luật tương hỗ bậc hai:} Với $p,\, q$ là hai số nguyên tố phân biệt, ta có} $$\left(\dfrac{p}{q}\right)\cdot\left(\dfrac{q}{p}\right)=\left(-1\right)^{\tfrac{(p-1)(q-1)}{4}}.$$
+	Bạn đọc có thể tìm thấy chứng minh của các kết quả trên trong các giáo trình cơ bản của Lí thuyết số; chẳng hạn, trong cuốn ``A concise introduction to the theory of numbers'' của tác giả Alan Baker.
+	\item Cho tới thời điểm tạp chí lên trang, Tòa soạn không nhận được một lời giải nào từ độc giả cho bài toán. 
+\end{enumerate} 
+\end{nx}
+}
+\end{bt}
+
+\begin{bt}[P59, Tạp chí Pi, tháng 5 năm 2017]%[Huỳnh Quy, Dự án EX_TapChi02]%[2H0G2]
+Trong hình vuông $ABCD$, lấy ba điểm $X$, $Y$, $Z$ đôi một phân biệt và không thẳng hàng. Gọi $G$ là trọng tâm của tam giác $XYZ$. $T$, $U$, $V$ tương ứng là các điểm đối xứng với $X$, $Y$, $Z$ qua $G$. Chứng minh rằng có ít nhất một điểm trong ba điểm $T$, $U$, $V$ nằm trong hình vuông $ABCD$.
+\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,x=1cm,y=1cm,scale=1]
+		\draw[->] (-1,0)--(5,0) node[below]{\footnotesize $x$};
+		\draw[->] (0,-1)--(0,5) node[right]{\footnotesize $y$};
+		\draw (0,0) node[below right]{\footnotesize $A$};
+		%\clip (-3.5,-3) rectangle (3,1.2);
+		\tkzDefPoints{0/0/A, 4/0/D, 0/4/B, 4/4/C, 0.2/3.5/X, 3.5/1.5/Y, 0.5/0.5/Z}
+		\tkzCentroid(X,Y,Z)
+		\tkzGetPoint{G}
+		\tkzDefPointBy[symmetry = center G](X)
+		\tkzGetPoint{U}
+		\tkzDefPointBy[symmetry = center G](Y)
+		\tkzGetPoint{V}
+		\tkzDefPointBy[symmetry = center G](Z)
+		\tkzGetPoint{W}
+		\tkzDefLine[parallel = through G](A,B) \tkzGetPoint{d}
+		\tkzInterLL(B,C)(G,d)
+		\tkzGetPoint{E}
+		\tkzInterLL(A,D)(G,d)
+		\tkzGetPoint{F}
+		\tkzDefLine[parallel = through G](A,D) \tkzGetPoint{m}
+		\tkzInterLL(C,D)(G,m)
+		\tkzGetPoint{Q}
+		\tkzInterLL(A,B)(G,m)
+		\tkzGetPoint{P}
+		\tkzDrawSegments(X,U Y,V Z,W X,Y X,Z Y,Z B,C C,D)
+		\tkzDrawPoints(A,B,C,D,X,Y,Z,U,V,W,G)
+		\tkzDrawLines(E,F P,Q)
+		\pgfresetboundingbox
+		%\tkzLabelPoints(B,C,X,Y,Z)
+		\tkzLabelPoints[left](B,V)
+		\tkzLabelPoints[right](C,Y,W,U)
+		\tkzLabelPoints[below](D,Z)
+		\tkzLabelPoints[below](G)
+		\tkzLabelPoints[above](X)
+		%\draw[smooth] plot({\x},{(\x)^3-3*\x -1});
+		%\node[below right] at (-1.532,0) {$a$};
+		%\node[below left] at (-0.347,0) {$b$};
+		%\node[below right] at (1.897,0) {$c$};
+		\end{tikzpicture}
+	\end{center}
+	Lập hệ trục tọa độ Đề-các $Oxy$ sao cho $A(0;0)$, $B(0;1)$, $C(1;1)$ và $D(1;0)$.\\
+	Gọi tọa độ các điểm $G$, $X$, $Y$, $Z$ tương ứng là $(x_0;y_0)$, $(x_1;y_1)$, $(x_2;y_2)$, $(x_3;y_3)$.\\
+	Vì $G$ là trọng tâm tam giác $ABC$ nên
+	\[\heva{&x_0=\dfrac{x_1+x_2+x_3}{3}\\&y_0=\dfrac{y_1+y_2+y_3}{3}}\]
+	Kí hiệu $(x_T;y_T)$, $(x_U;y_U)$, $(x_V;y_V)$ tương ứng là tọa độ của các điểm $T$, $U$, $V$.\\
+	Vì các điểm $T$, $U$, $V$ tương ứng đối xứng với các điểm $X$, $Y$, $Z$ qua $G$ nên
+	{\allowdisplaybreaks
+		\begin{align*}
+	&x_T=\dfrac{2(x_2+x_3)-x_1}{3},\quad y_T=\dfrac{2(y_2+y_3)-y_1}{3}\\
+	&x_U=\dfrac{2(x_3+x_1)-x_2}{3};\quad y_U=\dfrac{2(y_3+y_1)-y_2}{3}\\
+	&x_V=\dfrac{2(x_1+x_2)-x_3}{3};\quad y_V=\dfrac{2(y_1+y_2)-y_3}{3}.
+	\end{align*}}Ta có nhận xét sau:
+	\begin{nx}
+		Nếu $3$ số $a$, $b$, $c$ thuộc khoảng $(0;1)$ thì ít nhất $2$ trong $3$ số sau cũng thuộc khoảng $(0;1)$:
+		\[\dfrac{2(a+b)-c}{3},\quad \dfrac{2(b+c)-a}{3},\quad \dfrac{2(c+a)-b}{3}\]
+		\textit{Chứng minh}: Giả sử ngược lại, ít nhất $2$ trong $3$ số nêu trên không thuộc khoảng $(0;1)$.\\
+		Không mất tính tổng quát, giả sử $2$ số $\dfrac{2(a+b)-c}{3}$ và $\dfrac{2(b+c)-a}{3}$ không thuộc khoảng $(0;1)$.\\
+		Xảy ra các khả năng sau:
+		\begin{itemize}
+			\item \textit{Khả năng} $1$: $\dfrac{2(a-b)-c}{3}\leq0$ và $\dfrac{2(b+c)-a}{3}\leq 0$.\\
+			Khi đó, $\dfrac{a+4b+c}{3} \leq0$, là điều vô lí, vì $a,b,c>0$.
+			\item \textit{Khả năng} $2$: $\dfrac{2(a+b)-c}{3}\geq1$ và $\dfrac{2(b+c)-a}{3}\geq1$.\\
+			Khi đó, $\dfrac{a+4b+c}{3}\geq2$, hay $a+4b+c\geq6$, là điều vô lí, vì $a,b,c>1$.
+			\item \textit{Khả năng} $3$: $\dfrac{2(a+b)-c}{3}\leq0$ và $\dfrac{2(b+c)-a}{3}\geq1$.\\
+			Khi đó, $2(a+b)\leq c$ và $2(b+c)\geq a+3$.\\
+			Suy ra $2c-2a\geq a-c+3$; do đó $c\geq a+1>1$, trái với giả thiết.
+			\item \textit{Khả năng} $4$: $\dfrac{2(a+b)-c}{3}\geq 1$ và $\dfrac{2(b+c)-a}{3}\leq0$.\\
+			Xử lí tương tự khả năng $3$, ta được $a\geq c+1>1$, trái với giả thiết.
+		\end{itemize}
+	Các mâu thuẫn nhận được ở trên cho thấy giả sử ban đầu là sai.\\
+	Nhận xét được chứng minh.
+	\end{nx}
+	Áp dụng Nhận xét cho các bộ $3$ số $(x_1,x_2,x_3)$ và $(y_1,y_2,y_3)$, ta được:
+	\begin{itemize}
+		\item Trong $3$ số $x_T$, $x_U$, $x_V$ có ít nhất $2$ số thuộc khoảng $(0;1)$;
+		\item Trong $3$ số $y_T$, $y_U$, $y_V$ có ít nhất $2$ số thuộc khoảng $(0;1)$.
+	\end{itemize}
+	Suy ra, trong $3$ cặp $(x_T;y_T)$, $(x_U;y_U)$, $(x_V;y_V)$, có ít nhất một cặp mà cả hai số của cặp đó cùng thuộc khoảng $(0;1)$. Nói cách khác, trong $3$ điểm $T$, $U$, $V$, có ít nhất một điểm nằm trong hình vuông $ABCD$.}
+\end{bt}
+
+\begin{bt}[P60, Tạp chí Pi, tháng 5 năm 2017]%[Nguyễn Phúc Đức, Dự án EX_TapChi02]%[1H0G1]
+Trong mặt phẳng tọa độ, một điểm có tọa độ là các số nguyên được gọi là \textit{điểm nguyên}; một đa giác có tất cả các đỉnh đều là điểm nguyên được gọi là \textit{đa giác nguyên}. Chứng minh rằng, nếu $P$ là đa giác nguyên nội tiếp một đường tròn có tâm là điểm nguyên thì tồn tại một đa giác nguyên đồng dạng với $P$ nhưng có diện tích nhỏ hơn diện tích đa giác $P$.
+	\loigiai{Trước hết ta có nhận xét sau:\\
+		\textit{Nhận xét:} ảnh của điểm $A\left(x,\, y\right)$ qua phép vị tự quay tâm $O$ (gốc tọa độ), tỉ số $\sqrt{2}$, góc quay $\dfrac{\pi}{4}$ là $A'\left(x-y;x+y\right)$.\\
+		\textit{Chứng minh:} Coi điểm $A$ là số phức $x+yi$, khi đó $A'$ sẽ là số phức $\sqrt{2}\cdot(x+iy)\left(\cos \dfrac{\pi}{4}+i\sin \dfrac{\pi}{4}\right)$.\\
+		Từ đó hiển nhiên ta có điều cần chứng minh.\\
+		\textit{Trở lại bài toán.}\\
+		Không mất tính tổng quát, có thể coi tâm đường tròn ngoại tiếp đa giác $P$ là gốc tọa độ $O$. Gọi $R$  là bán kính của đường tròn đó và kí hiệu $S$ là diện tích của $P$.
+		Xét đỉnh $A(x,\,y)$ tùy ý của $P$.
+		Ta có $R^2=x^2+y^2$. Do $x,y\in\mathbb{Z}$ nên $R^2\in \mathbb{Z}$. Vì một số chính phương chỉ đồng dư với $0$ hoặc $1$ theo modulo $4$ nên chỉ có thể xảy ra một trong ba trường hợp sau:
+		\begin{itemize}
+			\item \textit{Trường hợp 1:} $R^2\equiv 0\pmod{4}$.\\
+			Khi đó, do $x^2+y^2\equiv 0\pmod{4}$ nên $x\equiv y\equiv 0\pmod{2}$.\\
+			Vì thế, phép vị tự tâm $O$, tỉ số $\dfrac{1}{2}$ sẽ biến $P$ thành đa giác nguyên $P'$ đồng dạng với $P$ có diện tích $S'=\dfrac{1}{4}S<S$.
+			\item \textit{Trường hợp 2:}$R^2\equiv 2\pmod{4}$.\\
+			Khi đó, do $x^2+y^2\equiv 0\pmod{4}$ nên $x\equiv y\equiv 1\pmod{2}$.\\
+			Do đó, tịnh tiến theo vectơ $\vv{v}\left(\dfrac{1}{2},\dfrac{1}{2}\right)$ ảnh của $P$ qua phép vị tự tâm $O$, tỉ số $\dfrac{1}{2}$, ta sẽ được đa giác nguyên $P'$(do điểm nguyên $A(x,y)$ sẽ biến thành điểm $A'\left(\dfrac{x+1}{2},\dfrac{y+1}{2}\right)$) đồng dạng với $P$ và ccos diện tích $S'=\dfrac{1}{4}S<S$.
+			\item \textit{Trường hợp 3:} $R^2\equiv 1\pmod{4}$\\
+			Gọi $P'$ là ảnh của $P$ qua phép vị tự tâm $O$, tỉ số $\sqrt{2}$, góc quay $\dfrac{\pi}{4}$. Ta có $P'$ đồng dạng với $P$, có diện tích bằng $2S$, nội tiếp đường tròn $O$, bán kính $R'=R\sqrt{2}$ và là đa giác nguyên, theo Nhận xét ở phần đầu lời giải.\\
+			Hơn nữa, ta có $(R')^2=2R^2\equiv 2\pmod{4}$.\\
+			Từ đó, theo trường hợp $2$ đã xét ở trên, tồn tại đa giác nguyên $P''$ đòng dạng với $P'$ (và do đó đồng dạng với $P$) và có diện tích $S''=\dfrac{1}{4}\cdot 2S=\dfrac{1}{2}S<S$.\\
+			Bài toán được chứng minh.
+		\end{itemize}
+		\begin{nx}
+			\hfill
+			\begin{enumerate}[1.]
+				\item Lời giải trên là lời giải duy nhất mà Tòa soạn nhận được từ độc giả, tính đến thời điểm Tạp chí lên trang.
+				\item Lời giải trên cho thấy một ứng dụng của số phức trong Hình học. Tạp chí Pi sẽ quay lại với nội dung này, qua một bài viết trong chuyên mục ``Giải toán cùng bạn'', ở một số tới đây.
+			\end{enumerate}
+		\end{nx}
+}
+\end{bt}
+\Closesolutionfile{ans}

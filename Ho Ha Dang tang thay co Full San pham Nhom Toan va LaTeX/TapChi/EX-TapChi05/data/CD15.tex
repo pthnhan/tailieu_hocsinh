@@ -1,0 +1,701 @@
+\section{Áp dụng định lí Pascal vào giải một số bài toán hình học}
+\begin{center}
+	\textbf{\color{violet}{Ngô Lan Hương - Trường THPT Chuyên Thái Nguyên}}
+\end{center}
+\noindent Đã có nhiều tài liệu của nhiều tác giả bàn luận về định lý Pascal. Bài viết này của tôi cũng nhằm mục đích đóng góp thêm một số bài tập và lời giải có ứng dụng định lý này.  
+
+\subsection{Định lí Pascal}	
+
+\begin{dl}[Định lí Pascal]
+Cho các điểm $A$, $B$, $C$, $D$, $E$, $F$ cùng thuộc một đường tròn. Gọi $P=AB\cap DE$, $Q=BC\cap EF$, $R=CD\cap FA$. Khi đó các điểm $P$, $Q$, $R$ thẳng hàng.
+Đường thẳng đi qua $P$, $Q$, $R$ được gọi là đường thẳng Pascal.
+\end{dl}
+\noindent{\bf Chứng minh.} 
+Có nhiều cách chứng minh cho định lý Pascal. Ở đây xin nêu ra 2 cách chứng minh phổ biến nhất là áp dụng định lý Menelaus và sử dụng khái niệm góc định hướng.\\
+{\bf Cách 1.} Gọi $X=EF\cap AB$, $Y=AB\cap CD$, $Z=CD\cap EF$.
+Áp dụng định lý Menelaus cho tam giác $XYZ$ đối với các đường thẳng $BCQ$, $DEP$, $FAR$, ta có
+\begin{align*}
+&\dfrac{CY}{CZ}\cdot\dfrac{BX}{BY}\cdot\dfrac{QZ}{QX}=1 \tag*{(1)}\\
+&\dfrac{FZ}{FX}\cdot \dfrac{AX}{AY}\cdot \dfrac{RY}{RZ}=1 \tag*{(2)}\\
+&\dfrac{EZ}{EX}\cdot \dfrac{PX}{PY}\cdot \dfrac{DY}{DZ}=1 \tag*{(3)}\\
+\end{align*}
+\begin{center}
+\begin{tikzpicture}[line join=round, line cap=round,thick,scale=.8]
+\tikzset{label style/.style={font=\footnotesize}}
+\coordinate (I) at (0,0);
+\def \r{2} 
+\draw (I) circle(\r);
+\coordinate (A) at ($(I) + (-25:\r)$);
+\coordinate (B) at ($(I) + (205:\r)$);
+\coordinate (C) at ($(I) + (180:\r)$);
+\coordinate (D) at ($(I) + (140:\r)$);
+\coordinate (E) at ($(I) + (90:\r)$);
+\coordinate (F) at ($(I) + (40:\r)$);
+\tkzInterLL(A,B)(D,E)\tkzGetPoint{P}
+\tkzInterLL(B,C)(E,F)\tkzGetPoint{Q}
+\tkzInterLL(C,D)(F,A)\tkzGetPoint{R}
+\tkzInterLL(E,F)(A,B)\tkzGetPoint{X}
+\tkzInterLL(A,B)(C,D)\tkzGetPoint{Y}
+\tkzInterLL(C,D)(E,F)\tkzGetPoint{Z}
+\tkzDrawSegments(A,P P,E Q,F B,Q R,A R,C Q,X P,X Y,R P,R)
+\tkzDrawPoints[fill=black,size=2pt](A,B,C,D,E,F,I,P,Q,R,X,Y,Z)
+\tkzLabelPoints[left](C)
+\tkzLabelPoints[above left](D)
+\tkzLabelPoints[above](R,Q,E)
+\tkzLabelPoints[above right](F,Z)
+\tkzLabelPoints[below](P,B,Y,A,X)
+\end{tikzpicture}
+\end{center}
+Mặt khác, theo tính chất phương tích của một điểm đối với đường tròn ta có:
+\begin{center}
+$YC\cdot YD=YB\cdot YA$, $ZF\cdot ZE=ZD\cdot ZC$, $XB\cdot XA=XF\cdot XE.$ \hfill $ (4)$
+\end{center}
+Nhân $(1)$, $(2)$ và $(3)$ theo vế, ta được
+\begin{align*}
+&\dfrac{QZ}{QX}\cdot \dfrac{RY}{RZ}\cdot \dfrac{PX}{PY}\cdot \dfrac{CY\cdot BX\cdot FZ\cdot AX\cdot EZ\cdot DY}{CZ\cdot BY\cdot FX\cdot AY\cdot EX\cdot DZ}=1\\
+\Leftrightarrow\, & \dfrac{QZ}{QX}\cdot \dfrac{RY}{RZ}\cdot \dfrac{PX}{PY}\cdot \dfrac{YC\cdot YD}{YB\cdot YA}\cdot \dfrac{ZF\cdot ZE}{ZD\cdot ZC}\cdot \dfrac{XB\cdot XA}{XF\cdot ZE}=1 \tag*{(5)}
+\end{align*}
+Thế $(4)$ vào $(5)$, ta được $\dfrac{QZ}{QX}\cdot \dfrac{RY}{RZ}\cdot \dfrac{PX}{PY}=1.$
+Vậy $P$, $Q$, $R$ thẳng hàng.\\
+Đường thẳng $PQR$ ở trên được gọi là đường thẳng Pascal ứng với bộ điểm $A$, $B$, $C$, $D$, $E$, $F$.\\
+{\bf Cách 2.} Gọi $I$ là giao điểm thứ hai của đường tròn ngoại tiếp tam giác $PBD$ và $RDF$. Ta có 
+$$\left(IB,IF\right)\equiv \left(IB,ID\right)+\left(ID,IF\right)\equiv \left(PB,PD\right)+\left(PD,RF\right)\left(\bmod \pi \right).$$
+Ngoài ra $\left(PB,PD\right)\equiv \dfrac{1}{2}\left(OB,OD\right)+\dfrac{1}{2}\left(OA,OC\right)\left(\bmod \pi \right)$\\
+và $\left(RD,RF\right)\equiv \dfrac{1}{2}\left(OD,OF\right)+\dfrac{1}{2}\left(OC,OA\right)\left(\bmod \pi \right)$\\
+suy ra $\left(PB,PD\right)+\left(RD,RF\right)\equiv \dfrac{1}{2}\left(\left(OB,OF\right)+\left(OC,OE\right)\right)\equiv \left(QB,QF\right)\left(\bmod \pi \right).$\\
+Vậy $\left(QB,QF\right)\equiv \left(PB,PD\right)+\left(RD,RF\right)\equiv \left(IB,ID\right)+\left(ID,IF\right)\equiv \left(IB,IF\right)\left(\bmod \pi \right)$ nên QBFI là tứ giác nội tiếp.\\
+Từ đó suy ra $\left(IB,IP\right)\equiv \left(DB,DP\right)\equiv \left(FB,FQ\right)\equiv \left(IB,IQ\right)\left(\bmod \pi \right)$ nên $I$, $P$, $Q$ thẳng hàng.\\
+Tương tự ta cũng chứng minh được $I$, $R$, $Q$ thẳng hàng.\\
+Từ đó có điều phải chứng minh.
+\begin{dl}[Định lí Pascal đảo]
+Nếu năm trong sáu điểm trên thuộc $(O)$ và các điểm $P$, $Q$, $R$ thẳng hàng thì điểm còn lại cũng thuộc $(O)$.
+\end{dl}
+\noindent{\bf Chứng minh.} 
+\immini
+{
+ Giả sử $A$, $B$, $C$, $D$ thuộc $(O)$; $F$ là điểm sao cho 
+$P=AB\cap ED$, $R=AF\cap CD$, $Q=BC\cap EF$.
+Gọi $F’$ là giao điểm thứ hai của $AR$ và $(O)$; $Q'=CB\cap EF'$. Theo định lý Pascal thì $P$, $Q’$, $R$ thẳng hàng nên $Q’$ thuộc $PR$ mà $Q’$ lại thuộc $CB$ nên $Q’$ là giao của $PR$ và $CB$.
+Theo giả thiết $P$, $Q$, $R$ thẳng hàng và $Q$ thuộc $BC$ nên $Q$ là giao của $PR$ và $BC$. Vậy $Q$ trùng với $Q’$.\\
+}
+{
+	\begin{tikzpicture}[line join=round, line cap=round,thick]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\coordinate (I) at (0,0);
+	\def \r{3} 
+	\draw (I) circle(\r);
+	\coordinate (A) at ($(I) + (170:\r)$);
+	\coordinate (B) at ($(I) + (85:\r)$);
+	\coordinate (C) at ($(I) + (-100:\r)$);
+	\coordinate (D) at ($(I) + (10:\r)$);
+	\coordinate (E) at ($(I) + (130:\r)$);
+	\coordinate (F) at ($(I) + (-60:\r)$);
+	\tkzInterLL(A,B)(D,E)\tkzGetPoint{P}
+	\tkzInterLL(B,C)(E,F)\tkzGetPoint{Q}
+	\tkzInterLL(C,D)(F,A)\tkzGetPoint{R}
+	\tkzDrawSegments(A,B A,C C,D E,D A,F B,C E,F P,R)
+	\tkzDrawPoints[fill=black,size=2pt](A,B,C,D,E,F,P,Q,R)
+	\tkzLabelPoints[left](A)
+	\tkzLabelPoints[above](B,E,P)
+	\tkzLabelPoints[right](D,Q)
+	\tkzLabelPoints[below](C,F,R)
+	\end{tikzpicture}
+}
+
+Ta có $F=EQ\cap AR$, $F'=EQ'\cap AR$ mà $Q\equiv Q'$ nên $F\equiv F'$. 
+Vậy $F$ thuộc $(O)$.\\
+\noindent \textit{Chú ý.}
+\begin{itemize}
+	\item [$1)$] Khi cho các điểm có thể trùng nhau (khi đó lục giác suy biến thành tam giác, tứ giác, ngũ giác), ví dụ $E\equiv F$ thì cạnh $EF$ trở thành tiếp tuyến của đường tròn tại $E$, ta còn thu thêm được rất nhiều các đường thẳng Pascal khác nữa. Hai hình vẽ dưới đây minh họa Định lý cho trường hợp $5$ điểm và $4$ điểm.
+		\begin{center}
+	\begin{tabular}{c c}
+	\begin{tikzpicture}[line join=round, line cap=round,thick,scale=0.8]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\coordinate (I) at (0,0);
+	\def \r{2} 
+	\draw (I) circle(\r);
+	\coordinate (A) at ($(I) + (-30:\r)$);
+	\coordinate (B) at ($(I) + (210:\r)$);
+	\coordinate (C) at ($(I) + (170:\r)$);
+	\coordinate (D) at ($(I) + (150:\r)$);
+	\coordinate (E) at ($(I) + (80:\r)$);
+	\tkzInterLL(A,B)(D,E)\tkzGetPoint{P}
+	\tkzInterLL(C,D)(E,A)\tkzGetPoint{R}
+	\tkzInterLL(B,C)(P,R)\tkzGetPoint{Q}
+	\tkzInterLL(C,D)(A,B)\tkzGetPoint{Y}
+	\tkzDrawSegments(A,P A,R P,E Y,R P,R B,Q)
+	\tkzDrawPoints[fill=black,size=2pt](A,B,C,D,E,P,Q,R,I,Y)
+	\tkzLabelPoints[above right=-0.1](E)
+	\tkzLabelPoints[above left=-0.1](D)
+	\tkzLabelPoints[above](R)
+	\tkzLabelPoints[left](Q,C)
+	\tkzLabelPoints[below](A,Y,P,B)
+	\end{tikzpicture}
+&\hspace{2cm}
+	\begin{tikzpicture}[line join=round, line cap=round,thick,scale=0.8]
+	\tikzset{label style/.style={font=\footnotesize}}
+	\coordinate (I) at (0,0);
+	\def \r{2} 
+	\draw (I) circle(\r);
+	\coordinate (A) at ($(I) + (210:\r)$);
+	\coordinate (B) at ($(I) + (130:\r)$);
+	\coordinate (C) at ($(I) + (80:\r)$);
+	\coordinate (D) at ($(I) + (-30:\r)$);
+	\tkzInterLL(A,B)(D,C)\tkzGetPoint{P}
+ 	\coordinate (R) at ($(A)!1.8!(D)$);
+	\tkzInterLL(B,C)(P,R)\tkzGetPoint{Q}
+	\tkzDrawSegments(A,R R,P A,P P,D B,Q D,Q)
+	\tkzDrawPoints[fill=black,size=2pt](A,B,C,D,P,Q,R,I)
+	\tkzLabelPoints[right](Q)
+	\tkzLabelPoints[above](P)
+	\tkzLabelPoints[above right=-0.1](C)
+	\tkzLabelPoints[left](B)
+	\tkzLabelPoints[below](A,D,R)
+	\end{tikzpicture}
+		\end{tabular}
+	\end{center}
+	\item [$2)$] Điều kỳ diệu là $6$ điểm $A$, $B$, $C$, $D$, $E$, $F$ được sắp xếp một cách tùy ý. Có nghĩa là nếu thay đổi thứ tự các điểm, ta có thể được một đường thẳng Pascal khác với đường thẳng ứng với thứ tự ban đầu. Một câu hỏi đặt ra là có bao nhiêu đường thẳng Pascal? (Với giả thiết các điểm đôi một phân biệt).
+	
+	Đây là một bài toán tổ hợp. Để thuận tiện, ta hãy kí hiệu các điểm là $1, 2, 3, 4, 5, 6$. Có $6! = 720$ hoán vị của các điểm này. Tuy nhiên ta chú ý rằng các hoán vị $(6, 1, 2, 3, 4, 5)$; $(5, 6, 1, 2, 3, 4)$; $(4, 5, 6, 1, 2, 3, 4)$; $(4, 5, 6, 1, 2, 3)$; $(3, 4, 5, 6, 1, 2)$; $(2, 3, 4, 5, 6, 1)$ cũng cho cùng một đường thẳng Pascal như bộ điểm $(1; 2; 3; 4; 5; 6)$. Mặt khác, nếu từ bộ điểm $(1; 2; 3; 4; 5; 6)$ ta chia ra làm hai bộ $(1; 2; 3)$, $(4; 5; 6)$, viết mỗi bộ theo thứ tự ngược lại rồi ghép lại ta được bộ $(3; 2; 1; 6; 5; 4)$ cũng cho đường thẳng Pascal như $6$ bộ trên. Mà từ bộ này ta lại có $5$ hoán vị khác của nó, cũng cho cùng một đường thẳng Pascal. Như vậy, trong số $720$ hoán vị của các điểm $1, 2, 3, 4, 5, 6$ thì $12$ hoán vị cho cùng một đường thẳng Pascal, nên số đường thẳng Pascal tạo ra từ $6$ điểm trên là $720: 12 = 60.$
+	
+	Sau đây là một số bài toán ứng dụng định lý Pascal xuất hiện trong các đề thi học sinh giỏi Toán của các quốc gia, khu vực và Olympic Quốc tế. Xin bắt đầu bằng một bài toán Olympic khu vực Trung Âu năm $2010.$
+
+\end{itemize}
+
+
+\subsection{Bài tập áp dụng}
+
+\begin{bt}%[Đào-V- Thủy, Dự án EX-TapChi05]%[9H0G4]
+	[Middle European Mathematical Olypiad 2010]
+	Đường tròn nội tiếp tam giác $ABC$ tiếp xúc các cạnh $BC$, $CA$, $AB$ tại $D$, $E$, $F$ tương ứng. $K$ là đối xứng của $D$ qua tâm đường tròn nội tiếp. $DE$ cắt $FK$ tại $S$. Chứng minh rằng $AS$ song song với $BC$.
+	\loigiai{
+		\immini{
+			Gọi $R=KE \cap FD$. Áp dụng định lý Pascal cho sáu điểm $F$, $F$, $K$, $E$, $E$, $D$ ta có $FF \cap EE =A$, $FK\cap ED = S$, $KE\cap DF=R$. Khi đó $R$, $A$, $S$ thẳng hàng.\\
+			Theo giả thiết ta lại có $\widehat{KFD}=\widehat{KED}=90^{\circ}$ nên tứ giác $RFES$ nội tiếp.\\
+			Từ đó suy ra $\widehat{ARF}=\widehat{FED}$ nhưng $\widehat{FED}=\widehat{FDB}$ (góc tạo bởi tiếp tuyến và dây cung) nên $\widehat{ARF}=\widehat{FDB}$. Vậy $AS\parallel BC$.
+		}
+		{
+			\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1.2]
+				\tkzInit[xmin=-1.4,ymin=-2.4,xmax=5.5,ymax=3.5]
+				\tkzClip
+				\tkzDefPoint(0,0){B}\tkzDefPoint(5,0){C}
+				\tkzDefPoint(1,3){A}
+				\tkzDrawPolygon(A,B,C)
+				\tkzDefCircle[circum](A,B,C) \tkzGetPoint{O}
+				\tkzDefCircle[in](A,B,C) \tkzGetPoint{I}
+				\tkzDrawCircle[circum](A,B,C)
+				\tkzDrawCircle[in](A,B,C)
+				\coordinate (F) at ($(A)!(I)!(B)$);
+				\coordinate (D) at ($(B)!(I)!(C)$);
+				\coordinate (E) at ($(A)!(I)!(C)$);
+				\coordinate (K) at ($(D)!2!(I)$);
+				\coordinate (S) at (intersection of F--K and D--E);
+				\coordinate (R) at (intersection of S--A and D--F);
+				\draw (D)--(R)--(S)--(D)--(K) (R)--(E) (S)--(F);
+				\tkzDrawPoints(A,B,C,O,I,F,D,E,K,R,S)
+				\foreach \p/\pos in {A/above, B/left, C/right, O/above, I/right, D/below, E/right, F/left, S/right, R/left}
+				\fill (\p) circle (1pt) node[\pos] {$\p$};
+				\draw (K) node[shift={(120:7pt)}] {$K$};
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[Đào-V- Thủy, Dự án EX-TapChi05]%[9H0G4]
+	[Macedonia 2001]
+	Cho tam giác $ABC$ nội tiếp đường tròn $(O)$. Tiếp tuyến tại $A$ cắt $BC$ tại $D$, tiếp tuyến tại $B$ cắt $CA$ tại $E$, tiếp tuyến tại $C$ cắt $AB$ tại $F$. Chứng minh $D$, $E$, $F$ thẳng hàng.
+	\loigiai{
+		\immini{
+			Áp dụng định lý Pascal cho sáu điểm $A$, $A$, $B$, $B$, $C$, $C$ ta có $AA\cap BC = D$, $AB\cap CC=F$, $BB\cap AC=E$ nên $D$, $E$, $F$ thẳng hàng.
+		}
+		{
+			\begin{tikzpicture}[scale=0.5, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			
+			\tkzDefPoints{0.3/3/A,0/0/B,4/0/C}
+			
+			\tkzCircumCenter(A,B,C)\tkzGetPoint{O}
+			\tkzDrawCircle(O,A)
+			
+			\tkzDefLine[orthogonal=through A](O,A)\tkzGetPoint{d}
+			\tkzInterLL(A,d)(C,B)\tkzGetPoint{D}
+			\tkzDefLine[orthogonal=through B](O,B)\tkzGetPoint{e}
+			\tkzInterLL(B,e)(C,A)\tkzGetPoint{E}
+			\tkzDefLine[orthogonal=through C](O,C)\tkzGetPoint{f}
+			\tkzInterLL(C,f)(A,B)\tkzGetPoint{F}
+			
+			\tkzDrawSegments(A,B D,C E,C A,D B,E C,F E,F O,A O,B O,C B,F)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,F,O)
+			\tkzLabelPoints[left](D)
+			\tkzLabelPoints[right](C)
+			\tkzLabelPoints[above](A,E)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below](F,O)
+			\tkzMarkRightAngles(O,A,D O,C,F O,B,E)
+			\end{tikzpicture}	
+		}
+		}
+\end{bt}
+
+
+
+\begin{bt}%[Hoàng Hải, dự án EX-TapChi05]%[9H0G4]
+	[Mathematical Olympiad Summer Program 1998]
+	Cho tam giác $ABC$ nội tiếp một đường tròn. Gọi $A'$, $B'$, $C'$ theo thứ tự là các điểm chính giữa của các cung nhỏ $\wideparen{BC}$, $\wideparen{CA}$, $\wideparen{AB}$ của đường tròn đó. Gọi $D$, $E$, $F$, $I$, $J$, $K$ lần lượt là giao điểm của các cặp đường thẳng $AC$ và $B'C'$; $AB$ và $B'C'$; $AB$ và $A'C'$; $CB$ và $A'C'$; $CB$ và $A'B'$; $AC$ và $A'B'$. Khi đó $DI$, $EJ$, $KF$ đồng quy.
+	\loigiai{
+		\immini{
+			Đầu tiên ta chú ý rằng $AA'$, $BB'$, $CC'$ đồng quy tại $O$ là tâm đường tròn nội tiếp tam giác $ABC$.\\
+			Áp dụng định lý Pascal cho 6 điểm $A$, $C$, $C'$, $A'$, $B'$, $B$ ta có
+			$$ AC\cap A'B'=K, AB\cap A'C'=F, CC'\cap BB'=O $$
+			nên $K$, $F$, $O$ thẳng hàng, tức là $O$ thuộc $KF$.
+		}{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\tkzInit[ymin=-2,ymax=4,xmin=-1,xmax=5]\tkzClip
+			
+			\tkzDefPoints{1/3/A,0/0/B,4/0/C}
+			\tkzCircumCenter(A,B,C)\tkzGetPoint{O}
+			\tkzDrawCircle(O,A)
+			
+			\tkzDefMidPoint(C,B)\tkzGetPoint{a}
+			\tkzDefLine[orthogonal=through a](C,B)\tkzGetPoint{a'}
+			\tkzInterLC(a,a')(O,A)\tkzGetPoints{}{A'}
+			
+			\tkzDefMidPoint(C,A)\tkzGetPoint{b}
+			\tkzDefLine[orthogonal=through b](C,A)\tkzGetPoint{b'}
+			\tkzInterLC(b,b')(O,A)\tkzGetPoints{B'}{}
+			
+			\tkzDefMidPoint(A,B)\tkzGetPoint{c}
+			\tkzDefLine[orthogonal=through c](A,B)\tkzGetPoint{c'}
+			\tkzInterLC(c,c')(O,A)\tkzGetPoints{C'}{}
+			
+			\tkzInterLL(A,C)(B',C')\tkzGetPoint{D}
+			\tkzInterLL(A,B)(B',C')\tkzGetPoint{E}
+			\tkzInterLL(A,B)(A',C')\tkzGetPoint{F}
+			\tkzInterLL(C,B)(A',C')\tkzGetPoint{I}
+			\tkzInterLL(C,B)(A',B')\tkzGetPoint{J}
+			\tkzInterLL(A,C)(A',B')\tkzGetPoint{K}
+			
+			\tkzDrawSegments(A,B B,C C,A A,A' B,B' C,C' D,I E,J K,F A',B' B',C' C',A')
+			\tkzDrawPoints[fill=black](A,B,C,A',B',C',E,F,I,J,K)
+			\tkzLabelPoints[left](B,C',F)
+			\tkzLabelPoints[right](C,K)
+			\tkzLabelPoints[above](A)
+			\tkzLabelPoints[above left](E)
+			\tkzLabelPoints[above right](B',D)
+			\tkzLabelPoints[below](A',I,J)
+			\tkzLabelPoints[below left]()
+			\tkzLabelPoints[below right]()
+			\end{tikzpicture}
+		}\vspace*{-1cm}\noindent
+		Lại áp dụng định lý Pascal cho 6 điểm $A$, $C$, $B$, $B'$, $C'$, $A'$ ta có
+		$$ AC\cap B'C'=D, CB\cap A'C'=I, AA'\cap BB'=O $$
+		nên $D$, $I$, $O$ cũng thẳng hàng, tức là $O$ thuộc $DI$.\\
+		Cuối cùng, áp dụng định lý Pascal cho 6 điểm $C$, $B$, $A$, $A'$, $B'$, $C'$ ta có
+		$$ AB\cap B'C'=E, BC\cap A'B'=J, AA'\cap CC'=O $$
+		nên $E$, $J$, $O$ thẳng hàng, tức là $O$ thuộc $EJ$.\\
+		Vậy $KF$, $EJ$, $DI$ đồng quy tại $O$.\\
+		Mở rộng của bài toán này vẫn đúng. Ta có bài toán sau: \textit{\lq\lq Hai tam giác $ABC$, $A'B'C'$ có cùng đường tròn ngoại tiếp. Các cạnh của hai tam giác cắt nhau tại 6 điểm tạo ra một hình lục giác. Chứng minh rằng các đường chéo của hình lục giác đó đồng quy\rq\rq.}
+	}
+\end{bt}
+
+\begin{bt}%[Trương Quan Kía,Dự án EX_TapChi05]%[9H0G4]
+	[Đường tròn Mixtilinear] Cho tam giác $ABC$ nội tiếp đường tròn $(O)$. Đường tròn $(J)$ tiếp xúc với $AB, AC$ và tiếp xúc với $(O)$ tại $M, N, X$. Chứng minh rằng $MN$ đi qua tâm đường tròn nội tiếp của tam giác $ABC$.
+	\loigiai{
+		Ta hãy so sánh hai cách giải bài toán, cách $1$ dùng định lý Pascal và cách $2$ sử dụng kiến thức toán THCS.\\ 
+		\textbf{Cách 1.} Giả sử tiếp tuyến tại $X$ và $M$ của đường tròn $(J)$ cắt nhau tại $K; E, F$ lần lượt là giao điểm của $XM$ và $XN$ với đường tròn$(O)$. Ta có $\widehat{KXM}=\widehat{KMX}$.\\ 
+		Mặt khác  $\widehat{KXM}=\dfrac{1}{2}\wideparen{FX}=\dfrac{1}{2}\left(\wideparen{BX} +\wideparen{BF}\right), \widehat{KMX}=\dfrac{1}{2}\left(\wideparen{BX} + \wideparen{AF}\right)$, suy ra $F$ là điểm chính giữa cung $\wideparen{AB}$. Tương tự ta có $E$ là điểm chính giữa cung $\wideparen{AC}$. Vì vậy $BE$ và $CF$ đi qua tâm $I$ của đường tròn nội tiếp tam giác$ABC$. 
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-3.5,xmax=3.2,ymin=-3.2,ymax=3.2]
+			\tkzClip
+			%\tkzAxeXY
+			%\def \xmin{-6}
+			%\def \xmax{6}
+			%\def \ymin{-6}
+			%\def \ymax{6}
+			%\draw[xstep=1 cm, ystep=1 cm,gray,thin] (\xmin,\ymin) grid (\xmax,\ymax);
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{-1.6/2.54/A,-2.75/-1.2/B,2.75/-1.2/C,-1.73/-2.45/X,-2.99/-1.99/K,1.96/2.27/E,-2.87/.87/F}
+			\tkzDefCircle[circum](A,B,C)  \tkzGetPoint{O} %tâm đường tròn
+			\tkzDrawCircle[circum,color=blue](A,B,C)
+			\tkzInCenter(A,B,C)    \tkzGetPoint{I}
+			\tkzInterLL(A,B)(X,F)    \tkzGetPoint{M}
+			\tkzInterLL(A,C)(X,E)    \tkzGetPoint{N}
+			\tkzDefCircle[circum](M,N,X)     \tkzGetPoint{J} %tâm đường tròn
+			\tkzDrawCircle[radius,color=blue](J,M)
+			\tkzDrawPoints[fill=black](A,C,O,X,K,I,E,M,N,F,B,J)
+			\tkzDrawSegments(A,K K,X B,C C,A E,F X,F X,E A,I C,F B,E M,N)
+			\tkzLabelPoints[right](C,N)
+			\tkzLabelPoints[left](J,B,F,K,M)
+			\tkzLabelPoints[above](A,E,O)
+			\tkzLabelPoints[below](I,X)
+			\end{tikzpicture}
+		\end{center}	
+		Áp dụng định lý Pascal cho $6$ điểm $A, B, E, X, F, C$ ta có $AB\cap XF=M, $ $AC\cap XE=N, $$BE\cap CF=I$ nên $I, M, N$ thẳng hàng.\\ 
+	\begin{nx}	
+	 Ta có tam giác $AMN$ cân tại $A$ và $AI$ là đường phân giác nên nó còn là đường trung tuyến. Vậy $I$ còn là trung điểm của $MN$.
+	 \end{nx}
+		\textbf{Cách 2.} Gọi $E$ là giao điểm của $XN$ với với đường tròn$(O)$.\\
+		Ta có $\widehat{JNX}=\widehat{JXN}=\widehat{OEX}$ nên $JN\parallel OE$.\\
+		Mặt khác $JN\perp AC$ nên $OE$ vuông góc với $AC$.\\
+		Suy ra $E$ là trung điểm cung $AC$.\\
+		Vậy $BE$ là phân giác góc $\widehat{ABC}$. Giả sử $BE$ cắt $MN$ tại $I$.\\
+		Ta cần chứng minh $CI$ là phân giác góc $\widehat{ACB}$.\\ 
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+			\tkzInit[xmin=-3.5,xmax=3.2,ymin=-5.06,ymax=3.2]
+			\tkzClip
+			%\tkzAxeXY
+			%\def \xmin{-6}
+			%\def \xmax{6}
+			%\def \ymin{-6}
+			%\def \ymax{6}
+			%\draw[xstep=1 cm, ystep=1 cm,gray,thin] (\xmin,\ymin) grid (\xmax,\ymax);
+			\tikzset{label style/.style={font=\footnotesize}}
+			\tkzDefPoints{-1.6/2.54/A,-2.75/-1.2/B,2.75/-1.2/C,-1.73/-2.45/X,-2.99/-1.99/K,1.96/2.27/E,-2.87/.87/F,1.96/-5.05/T}		
+			\tkzDefCircle[circum](A,B,C)  \tkzGetPoint{O} %tâm đường tròn
+			\tkzDrawCircle[circum,color=blue](A,B,C)
+			\tkzInCenter(A,B,C)    \tkzGetPoint{I}
+			\tkzInterLL(A,B)(X,F)    \tkzGetPoint{M}
+			\tkzInterLL(A,C)(X,E)    \tkzGetPoint{N}
+			\tkzDefCircle[circum](M,N,X)     \tkzGetPoint{J} %tâm đường tròn
+			\tkzDrawCircle[radius,color=blue](J,M)
+			\tkzDrawPoints[fill=black](A,C,O,X,I,E,M,N,B,J)
+			\tkzDrawSegments(A,B B,C C,A X,E B,E M,N I,C O,E X,O J,N X,I X,M X,T)
+			\tkzLabelPoints[right](C,N)
+			\tkzLabelPoints[left](J,B,M,X)
+			\tkzLabelPoints[above](A,E,O,I)
+			%\tkzLabelPoints[below](X)
+			\end{tikzpicture}
+		\end{center}	
+		Thật vậy, gọi $Xy$ là tiếp tuyến chung tại $X$ của hai đường tròn $(J)$ và $(O)$.\\
+		Ta có $\widehat{yXE}=\widehat{XMN}=\widehat{XBE}$ nên tứ giác $XBMI$ nội tiếp. Do đó \\
+		\[\widehat{IXB}=\widehat{AMN}=\dfrac{180^\circ - \widehat{BAC}}{2}=\dfrac{\widehat{BXC}}{2} (\text{do}\,\,\, ABXC \,\,\,\text{là tứ giác nội tiếp}).\]
+		Vậy $IX$ là tia phân giác của góc $\widehat{BXC}$, suy ra $\widehat{IXC}=\widehat{INA}$, suy ra $IXCN$ là tứ giác nội tiếp.\\ 
+		Từ đó 
+		\[\widehat{NCI}=\widehat{NXI}=\widehat{IXC} - \widehat{EXC}=\widehat{BXI} - \dfrac{\widehat{CBA}}{2}=\dfrac{180^\circ - \widehat{CAB} - \widehat{CBA}}{2}=\dfrac{\widehat{ACB}}{2}.\]\\
+		Vậy $CI$ là phân giác góc $\widehat{ACB}$. Ta có điều phải chứng minh.}
+\end{bt}
+
+\begin{bt}%[Nguyễn Phú Thạch, Dự án EX_Tapchi05]%[9H0G4]
+	Cho tam giác $ABC$ nội tiếp đường tròn $(O)$ và $P$ là điểm bất kỳ. $PA,\, PB,\, PC$ cắt $(O)$ lần lượt tại $D,\, E,\, F$ khác $A,\, B,\, C$. Tiếp tuyến tại $A$ của $(O)$ cắt $BC$ tại $T$. $TP$ cắt $(O)$ tại $M,\, N$. Chứng minh tam giác $DEF$ và tam giác $DMN$ có chung đường đối trung.
+	\loigiai{
+		Gọi $K$ là giao điểm của $AF$ và $BD$. Áp dụng định lý Pascal cho sáu điểm $A,\, A,\, F,\, C,\, B,\, D$ suy ra $K,\, P,\, T$ thẳng hàng. Tương tự, gọi $L$ là giao điểm của $AE$ và $DC$ thì ta có $L,\, P,\, T$ thẳng hàng. Vậy $K,\, L$ thuộc $TP$. \hfill(1)\\
+		Gọi tiếp tuyến tại $D$ của $(O)$ cắt $EF$ tại $S$. Áp dụng định lý Pascal cho 6 điểm $D,\, D,\, B,\, E,\, F,\, A$ ta có $S,\,
+		K,\, P$ thẳng hàng. Tương tự, $S,\,L,\,P$ thẳng hàng. Vậy $K,\,L$ thuộc $SP$.\hfill(2)\\	
+		\begin{center}
+			\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=0.8,font=\footnotesize]
+			\tkzInit[ymin=-4,ymax=6.4,xmin=-10,xmax=9.8]
+			\tkzClip
+			\tkzDefPoints{-0.2/0/B,1.65/3.5/A,6.2/0/C,1.96/1.1/P}
+			\tkzCircumCenter(A,B,C)\tkzGetPoint{O}
+			\tkzDrawCircle(O,B)
+			\tkzInterLC(A,P)(O,B)\tkzGetFirstPoint{D}	
+			\tkzInterLC(B,P)(O,B)\tkzGetSecondPoint{E}	
+			\tkzInterLC(C,P)(O,B)\tkzGetFirstPoint{F}	
+			\tkzDefLine[orthogonal=through A](O,A) \tkzGetPoint{u}
+			\tkzDefLine[orthogonal=through D](O,D) \tkzGetPoint{v}
+			\tkzInterLL(A,u)(B,C)\tkzGetPoint{T} 
+			\tkzInterLL(D,v)(E,F)\tkzGetPoint{S} 
+			\tkzInterLL(D,B)(A,F)\tkzGetPoint{K} 
+			\tkzInterLL(D,C)(A,E)\tkzGetPoint{L} 
+			\tkzInterLC(T,P)(O,B)\tkzGetFirstPoint{N}		\tkzGetSecondPoint{M}	
+			\tkzTangent[from=S](O,B)\tkzGetPoints{g}{Q}		
+			\tkzDrawPoints(A,B,C,P,E,D,F,P,T,M,N,K,L,S,Q,O)	
+			\tkzDrawSegments(A,B B,C C,A A,T T,L D,E D,F E,S D,M D,N D,S A,L D,L T,S A,K D,K B,E C,F D,Q A,D S,Q)	
+			\tkzLabelPoints[below left](D,B)	
+			\tkzLabelPoints[above right](E,M)
+			\tkzLabelPoints[below right](C)
+			\tkzLabelPoints[above left](F,A)
+			\tkzLabelPoints[below](T,O)
+			\tkzLabelPoints[xshift=-15,yshift=-5](P)
+			\tkzLabelPoints[xshift=-15,yshift=1](N)
+			\tkzLabelPoints[right](L)
+			\tkzLabelPoints[above](K,S,Q)
+			\end{tikzpicture}
+		\end{center}
+		Từ $(1)$ và $(2)$ suy ra $S$ thuộc $MN$. Từ đây nếu gọi $SQ$ là tiếp tuyến của $(O)$ khác $SD$ thì các tứ giác $DMNQ$ và $DEFQ$ là các tứ giác điều hòa hay các tam giác $DMN$ và $DEF$ có cùng đường đối trung $DQ$. Ta có điều phải chứng minh.\\
+		\textbf{Nhận xét.}  Nếu $TA = TP$ thì $TA^2=TP^2=TB\cdot TC$, suy ra $TP$ là tiếp tuyến của đường tròn ngoại tiếp tam giác $PBC$. Do đó $\widehat{TPB}=\widehat{PCB}=\widehat{FEP}$ nên $EF \parallel TP$.\\
+		Mặt khác tam giác $TAP$ và $OAD$ cân tại $T$ và $O$ có cạnh bên $TA\perp OA$  nên $TP\perp OD$.\\
+		Từ đây tam giác $DMN$ cân và có $OD$ là đường đối trung nên tam giác $DEF$ cũng có $OD$ là đường đối trung. Do đó $DEF$ cân, suy ra $DE = DF$.\\
+		Bài toán trên chính là một mở rộng của bài toán thi \textbf{Olympic Quốc tế 2010 (IMO 2010).}
+		Cho tam giác ABC nội tiếp đường tròn $(O)$ và $P$ là điểm bất kỳ. $PA, PB, PC$ cắt $(O)$ lần lượt tại $D,\, E,\, F$ khác $A, B, C$. Tiếp tuyến tại $A$ của $(O)$ cắt $BC$ tại $T$. Chứng minh rằng nếu $TA = TP$ thì $DE = DF$.
+	}
+\end{bt}
+
+
+\begin{bt}%[Nguyễn Phú Thạch, Dự án EX_Tapchi05]%[9H0G4]
+	[IMO Shortlist 2007] Cho tam giác $ABC$ cố định, các trung điểm $A_1,\,A_2,\,A_3$ của $BC,\,CA,\,AB$ tương ứng. Điểm $P$ thay đổi trên đường tròn ngoại tiếp tam giác. Các đường thằng $PA_1,\,PB_1,\,PC_1$ cắt lại dường tròn tại $A',\,B',\,C'$ tương ứng. Giả sử các điểm $a,\,b,\,c,\,A',\,B',\,C'$ đôi một phân biệt và các đường thẳng $AA',\,BB',\,CC'$ tạo ra một tam giác. Chứng minh rằng diện tích của tam giác đó không phụ thuộc vào vị trí của $P$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1,font=\footnotesize]
+			\tkzInit[ymin=-2.5,ymax=5.5,xmin=-4,xmax=6]
+			\tkzClip
+			\tkzDefPoints{0/0/B,1.3/4/A,5/0/C, 2/0/T}
+			\tkzCircumCenter(A,B,C)\tkzGetPoint{I}
+			\tkzDefMidPoint(A,B)\tkzGetPoint{C_1}
+			\tkzDefMidPoint(A,C)\tkzGetPoint{B_1}
+			\tkzDefMidPoint(C,B)\tkzGetPoint{A_1}
+			\tkzDrawCircle(I,B)
+			\tkzInterLC(I,T)(I,B)\tkzGetSecondPoint{P}
+			\tkzInterLC(P,A_1)(I,B)\tkzGetFirstPoint{A'}
+			\tkzInterLC(P,B_1)(I,B)\tkzGetFirstPoint{B'}
+			\tkzInterLC(P,C_1)(I,B)\tkzGetSecondPoint{C'}
+			\tkzInterLL(B,B')(C,C')\tkzGetPoint{A_2}
+			\tkzInterLL(B,B')(A,A')\tkzGetPoint{C_2}
+			\tkzInterLL(A,A')(C,C')\tkzGetPoint{B_2}
+			\tkzDrawPoints(A,B,C,P,A_1,B_1,C_1,A',B',C',A_2,B_2,C_2)
+			\tkzDrawSegments(A,B B,C C,A A',B_2 P,A' P,B' P,C' B_2,C B_2,A_1 C_1,B_1 B,B' A_1,C_2)
+			\tkzLabelPoints[right](C,B_1)
+			\tkzLabelPoints[above right](A',B')
+			\tkzLabelPoints[above](A,A_2,C_2,C')
+			\tkzLabelPoints[left](B,C_1)
+			\tkzLabelPoints[below](P)
+			\tkzLabelPoints[above left](B_2)
+			\tkzLabelPoints(A_1)
+			\end{tikzpicture}
+		\end{center}
+		\noindent
+		Gọi $A_2,\,B_2,\,C_2$ lần lượt là giao điểm của $BB'$ và $CC'$, $CC'$ và $AA'$, $AA'$ và $BB'$. Áp dụng định lý Pascal cho $6$ điểm $C,\,C',\,P,\,A',\,A,\,B$ ta có $CC'\cap AA'=B_2,\,C'P\cap AB=C_1,\,BC\cap A'P=A_1$ nên $B_2\in A_1C_1$. Tương tự $C_2 \in A_1B_1,\,A_2 \in B_1C_1$.\\
+		Lại có
+		\begin{align*}
+		B_2A_1 \parallel AB_1 \Rightarrow \dfrac{C_2B_2}{C_2A}=\dfrac{C_2A_1}{C_2B_1} \tag{1}\\
+		BA_1 \parallel B_1A_2 \Rightarrow \dfrac{C_2A_1}{C_2B_1}=\dfrac{C_2B}{C_2A_2} \tag{2}.
+		\end{align*}
+		Từ $(1)$ và $(2)$ suy ra 
+		$\dfrac{C_2B_2}{C_2A}=\dfrac{C_2B}{C_2A_2}\Rightarrow C_2B_2=C_2A\cdot C_2B \Rightarrow S_{A_2B_2C_2}=S_{ABC_2}$.\\
+		Mặt khác $S_{ABC_2}=S_{ABB_1}\Rightarrow S_{A_2B_2C_2}=S_{ABB_1} =\dfrac{1}{2}S_{ABC}$. Từ đây ta có điều phải chứng minh.
+	}
+\end{bt}
+
+\begin{bt}%[Nguyễn Phú Thạch, Dự án EX_Tapchi05]%[9H0G4]
+	Cho tam giác $ABC$ nội tiếp đường tròn $(O)$ có $B,\,C$ cố định, $A$ thay đổi trên $(O)$. Trung trực của $BC$ cắt $AB$ tại $M$, cắt $AC$ tại $N$. Gọi $P,\,Q$ đối xứng với $M,\,N$ qua $O$. $BQ$ cắt $CP$ tại $K$. Chứng minh $AK$ đi qua một điểm cố định và trung điểm $I$ của $AK$ luôn thuộc một đường tròn cố định.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1,font=\footnotesize]
+			\tkzInit[ymin=-4,ymax=6.4,xmin=-4,xmax=6]
+			\tkzClip
+			\tkzDefPoints{0/0/B,1.7/4/A,5/0/C}
+			\tkzCircumCenter(A,B,C)\tkzGetPoint{O}
+			\tkzDefMidPoint(B,C)\tkzGetPoint{D}
+			\tkzDrawCircle(O,B)
+			\tkzDefLine[perpendicular=through D](B,C) \tkzGetPoint{X}
+			\tkzInterLL(D,X)(A,B)\tkzGetPoint{M}
+			\tkzInterLL(D,X)(A,C)\tkzGetPoint{N}
+			\tkzDefPointBy[symmetry=center O](M)
+			\tkzGetPoint{P}
+			\tkzDefPointBy[symmetry=center O](N)
+			\tkzGetPoint{Q}
+			\tkzDefPointBy[symmetry=center O](D)
+			\tkzGetPoint{E}
+			\tkzDefPointBy[symmetry=center O](A)
+			\tkzGetPoint{A'}
+			\tkzDefPointBy[symmetry=center O](B)
+			\tkzGetPoint{B'}
+			\tkzDefPointBy[symmetry=center O](C)
+			\tkzGetPoint{C'}
+			\tkzInterLL(B,Q)(P,C)\tkzGetPoint{K}
+			\tkzInterLL(B',N)(A',D)\tkzGetPoint{K'}
+			\tkzDefMidPoint(A,K)\tkzGetPoint{I}	
+			\tkzDrawPoints(A,B,C,I,K,A',B',C',M,N,D,K',P,Q,E,O)
+			\tkzDrawSegments(A,B B,C C,A B,K A,K K',B' K',A' M,P A',C' K',M)
+			\tkzLabelPoints[right](C,K,B',P)
+			\tkzLabelPoints[above right](N,D)
+			\tkzLabelPoints[above](A,M)
+			\tkzLabelPoints[left](B,C',E,O,I)
+			\tkzLabelPoints[below](A')
+			\tkzLabelPoints[below left](Q)
+			\tkzLabelPoints[above left](K')
+			\end{tikzpicture}
+		\end{center}
+		Gọi $ E $ là điểm đối xứng với $D$ qua $O$. \\
+		Ta chứng minh $AK$ đi qua $E$, tương đương với chứng minh $AE,\,BQ,\, CP$ đồng quy tại $K$.\\
+		Ta có phép đối xưng tâm $O$ biến $B$ thành $C$, $C$ thành $B$, $P$ thành $M$, $B$ thành $B'$, $A $ thành $A'$, $E$ thành $D$, $Q$ thành $N$, $C$ thành $C$.\\
+		Do đó ta chỉ cần chứng minh $A'D\, C'M,\, B'N$ đồng quy.\\
+		Gọi $K'=B'N\cap A'D$. Ta có $B'K'\cap AC=N,\, A'K'\cap BC=D$.\\
+		\noindent   
+		$BB'\cap AA'=O$	nên $N,\, D,\, O$ thẳng hàng.\\
+		Mặt khác $B',\, A,\, C,\, A',\, B$ thuộc $(O)$ nên theo định lý Pascal đảo $K'$ thuộc $(O)$.
+		Ta có 6 điểm $C',\, C,\, B',\, B,\, A,\, K'$ cùng thuộc đường tròn $(O)$ và  $C'K'\cap AB=M',\,K'B'\cap AC=N,\,CC'\cap BB'=O$  nên theo định lý Pascal $M',N,O$ thẳng hàng. 
+		Suy ra $M'\in NO,\,M'\in AB,\,M'\in C'K'$ mà $M=NO\cap AB\Rightarrow M \equiv M'$.\\
+		Vậy $C'M$ đi qua $K'$, suy ra $A'D,\, C'M,\, B'N$ đồng quy tại $K'$ thuộc $(O)$ nên $K$ thuộc $(O)$. 
+		Ta thấy $OI \perp AK$  nên $I$  thuộc đường tròn đường kính $EO$.
+	}
+\end{bt}
+
+\begin{bt}%[Nguyễn Phú Thạch, Dự án EX_Tapchi05]%[9H0G4]
+	Cho tam giác $ABC$ nhọn có trực tâm $H;\,AH,\,BH,\,CH$ cắt $BC,\,CA,\,AB$ tại $D,\,E,\,F$. Đường thẳng qua $D$, song song với $CDF$ cắt $(BDF)$ tại $M$. Đường thẳng qua $D$, song song với $BE$ cắt $(CDE)$ tại $N$; $MN$ cắt $AB,\,AC$ tại $P,\,Q$. Gọi $I,\,J$ là trung điểm của $HP,\,HQ$. Chứng minh giao điểm $K$ của $FI$ và $EJ$ thuộc $(DEF)$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1,font=\footnotesize]
+			\tkzInit[ymin=-4,ymax=6.4,xmin=-4,xmax=7]
+			\tkzClip
+			\tkzDefPoints{-1.7/0/B,0/5/A,6.5/0/C,0/0/D}
+			\tkzDefPointBy[projection=onto A--C](B)\tkzGetPoint{E} 
+			\tkzInterLL(A,D)(B,E)\tkzGetPoint{H} 
+			\tkzInterLL(A,B)(C,H)\tkzGetPoint{F} 
+			\tkzCircumCenter(D,B,F)\tkzGetPoint{T}
+			\tkzDrawCircle(T,B)
+			\tkzCircumCenter(D,C,E)\tkzGetPoint{V}
+			\tkzDrawCircle(V,C)
+			\tkzDefLine[parallel=through D](C,F) \tkzGetPoint{X}
+			\tkzDefLine[parallel=through D](B,E) \tkzGetPoint{W}
+			\tkzInterLC(D,X)(T,B)\tkzGetSecondPoint{M}	
+			\tkzInterLC(D,W)(V,C)\tkzGetSecondPoint{N}	
+			\tkzInterLL(A,B)(M,N)\tkzGetPoint{P} 
+			\tkzInterLL(A,C)(M,N)\tkzGetPoint{Q} 
+			\tkzInterLL(D,F)(M,N)\tkzGetPoint{I} 
+			\tkzInterLL(D,E)(M,N)\tkzGetPoint{J} 
+			\tkzDrawSegments(A,B B,C C,A A,D B,E C,F D,M D,N D,E D,F M,N)
+			\tkzDrawPoints(A,B,C,D,E,F,H,M,N,P,Q,I,J)
+			\tkzLabelPoints[above](A,E,Q)
+			\tkzLabelPoints[xshift=0.9,yshift=2](D)
+			\tkzLabelPoints[above left](F,P)
+			\tkzLabelPoints[above right](N)
+			\tkzLabelPoints[below right](C,J)
+			\tkzLabelPoints[below left](B,M)
+			\tkzLabelPoints[left](I)	
+			\tkzLabelPoints[xshift=-15,yshift=20](H)
+			\tkzMarkRightAngles[size=0.2](A,D,B A,E,B C,F,A)
+			\end{tikzpicture}
+		\end{center}
+		Ta có $FHDM$ là hình thang nội tiếp nên nó là hình thang cân. Gọi $I'=FD\cap MH$. Theo định lý Ta - lét thì
+		\begin{align*}
+		\dfrac{I'H}{I'M}=\dfrac{I'F}{I'D}\Rightarrow \dfrac{I'F}{I'H+I'M}=\dfrac{I'F}{I'F+I'D}\Rightarrow \dfrac{I"H}{MH}=\dfrac{I'F}{FD}.
+		\end{align*}
+		Mà $MH=FD$ nên $I'H=I'F$, suy ra $I \equiv I'$.\\
+		Tương tự ta có $J=ED\cap HC$.
+		Vậy $FI,\,EJ$ cắt nhau tại $D$ thuộc đường tròn $(O)$.\\
+		\textbf{Mở rộng bài toán.} Một đường thẳng bất kỳ qua $H$ cắt $AB,\,AC$ tại $P,\,Q$; gọi $I,\,J$ lần lượt là trung điểm của $HP,\,HQ$. Lúc đó $K=FI\cap EJ \Rightarrow K\in (DEF)$.
+		\begin{center}
+			\begin{tikzpicture}[line join=round, line cap=round,>=stealth,scale=1,font=\footnotesize]
+			\tkzInit[ymin=-4,ymax=6.4,xmin=-4,xmax=7]
+			\tkzClip
+			\tkzDefPoints{-1.7/0/B,0/5/A,6.5/0/C,0/0/D}
+			\coordinate (P) at ($(A)!0.6!(B)$);
+			\tkzDefPointBy[projection=onto A--C](B)\tkzGetPoint{E} 
+			\tkzInterLL(A,D)(B,E)\tkzGetPoint{H} 
+			\tkzInterLL(A,B)(C,H)\tkzGetPoint{F} 
+			\tkzCircumCenter(D,B,F)\tkzGetPoint{T}
+			\tkzDrawCircle(T,B)
+			\tkzCircumCenter(D,C,E)\tkzGetPoint{V}
+			\tkzDrawCircle(V,C)
+			\tkzInterLL(P,H)(A,C)\tkzGetPoint{Q} 	
+			\tkzDefMidPoint(P,H)\tkzGetPoint{I}
+			\tkzDefMidPoint(Q,H)\tkzGetPoint{J}
+			\tkzInterLL(F,I)(E,J)\tkzGetPoint{K} 	
+			\tkzDefPointBy[homothety=center H ratio 2](E)\tkzGetPoint{B_1}	
+			\tkzDefPointBy[homothety=center H ratio 2](F)\tkzGetPoint{C_1}	
+			\tkzInterLL(P,C_1)(Q,B_1)\tkzGetPoint{K'} 	
+			\tkzDrawPoints(A,B,C,D,E,F,H,P,Q,K,K',B_1,C_1,I,J)
+			\tkzLabelPoints[above](A,B_1,C_1,E)	
+			\tkzLabelPoints[left](P)
+			\tkzLabelPoints[xshift=-14,yshift=18](F,H)
+			\tkzLabelPoints[xshift=-12,yshift=-5](D)
+			\tkzLabelPoints[right](C,Q)	
+			\tkzLabelPoints[below](K,K',I)
+			\tkzLabelPoints[below right](J)
+			\tkzLabelPoints[below left](B)
+			\tkzDrawSegments(A,B B,C C,A A,D B,B_1 C,C_1 P,Q E,K F,K C_1,K' B_1,K')	
+			\tkzMarkRightAngles[size=0.2](A,D,B A,E,B C,F,A)
+			\end{tikzpicture}
+		\end{center}
+		Thật vậy, xét phép vị tự tâm $H$, tỉ số $2$ biến $I$ thành $P,\,J$ thành $Q$, $E$ thành $B_1$ thuộc $(O)$, $F$ thành $C_1$ thuộc $(O)$.\\
+		Giả sử $PC_1\cap B_1Q=K'$. Ta có $C_1K'\cap BA=P,\,AC\cap K'B_1=Q,\,C_1C\cap B_1B=H$. Theo định lý Pascal đảo thì $K'\in (O)$.\\
+		Mặt khác phép vị tự trên biến đường tròn ngoại tiếp tam giác $DEF$ thành đường tròn ngoại tiếp tam giác $ABC$ nên giao điểm của $FJ$ va $FI$ thuộc đường tròn ngoại tiếp tam giác $DEF$.
+	}
+\end{bt}
+
+\begin{bt}%[Nguyen Anh Quoc, Dự án EX_Tapchi05]%[9H0G4]
+	Cho tam giác $ABC$ nhọn có $AD$ là phân giác trong. Kí hiệu $E$, $F$ là tâm đường tròn nội tiếp các tam giác $ABD$, $ACD$; $BF$ cắt $CE$ tại $K$. Xét đường tròn ngoại tiếp tam giác $DEF$; $BE$, $CF$ cắt đường tròn này tại $M$, $N$; $BF$, $CE$ cắt đường tròn ngoại tiếp tam giác $DEF$ tại $P$, $Q$. Gọi $H$ là giao điểm thứ hai của hai đường tròn ngoại tiếp tam giác $KPM$ và $KNQ$. Chứng minh $H$ thuộc $AD$.
+	\loigiai{
+		Gọi $I=BE\cap CF$ thì $I$ là tâm của đường tròn nội tiếp tam giác $ABC$. Suy ra $I$ thuộc $AD$.\\
+		Ta có $\dfrac{IF}{IA}=\dfrac{CF}{CA}$; $\dfrac{IE}{IA}=\dfrac{BE}{BA}$.\\ Suy ra $\dfrac{IF}{FC}\cdot\dfrac{DC}{DB}\cdot\dfrac{BE}{EI}=\dfrac{IA}{CA}\cdot\dfrac{AC}{AB}\cdot\dfrac{BA}{IA}=1$
+		nên $K$ thuộc $ID$.\\
+		\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+		\tkzInit[xmin=-2,xmax=13,ymin=-1,ymax=13]
+		\tkzClip
+		\tkzDefPoints{0/0/B,5/11/A,11/0/C}
+		\tkzDefLine[bisector](B,A,C)    \tkzGetPoint{T}
+		\tkzInterLL(C,B)(A,T)    \tkzGetPoint{D}
+		\tkzInCenter(A,B,D)    \tkzGetPoint{E}
+		\tkzInCenter(A,C,D)    \tkzGetPoint{F}
+		\tkzInterLL(B,F)(C,E)    \tkzGetPoint{K}
+		\tkzCircumCenter(D,E,F)    \tkzGetPoint{O}
+		\tkzDrawCircle[radius](O,D)
+		\tkzInterLC(B,E)(O,D)    \tkzGetPoints{}{M}
+		\tkzInterLC(C,F)(O,D)    \tkzGetPoints{N}{}
+		\tkzInterLC(B,F)(O,D)    \tkzGetPoints{}{P}
+		\tkzInterLC(C,E)(O,D)    \tkzGetPoints{Q}{}
+		\tkzCircumCenter(K,P,M)    \tkzGetPoint{O_1}
+		\tkzCircumCenter(K,N,Q)    \tkzGetPoint{O_2}
+		\tkzInterCC(O_1,K)(O_2,K)    \tkzGetPoints{H}{}
+		\tkzInterLL(B,E)(C,F)    \tkzGetPoint{I}
+		\tkzInterLL(M,P)(N,Q)    \tkzGetPoint{J}
+		\tkzDrawPolygon(A,B,C)\tkzDrawPolygon(D,E,F)\tkzDrawPolygon(B,P,M)
+		\tkzDrawSegments(A,D P,F C,E N,Q N,F C,F)
+		\tkzDrawPoints[fill=black](A,B,C,D,E,F,K,M,N,P,Q,H,I,J)
+		\tkzLabelPoints[left](A,B,E,J)
+		\tkzLabelPoints[right](C,F)
+		\tkzLabelPoints[above](M,N)
+		\tkzLabelPoints[below](D)
+		\tkzLabelPoints[below left](P,K)
+		\tkzLabelPoints[below right](Q)
+		\tkzLabelPoints[above right](I)
+		\end{tikzpicture}\\
+		\noindent	Ta có $I=PM\cap QN$, $I=EM\cap FN$, $K=PF\cap EQ$ mà $N$, $M$, $F$, $Q$, $P$, $E$ thuộc đường tròn ngoại tiếp tam giác $DEF$ nên $I$, $J$, $K$ thẳng hàng.\\
+		Lại có $\overline{JM}\cdot\overline{JP}=\overline{JN}\cdot\overline{JQ}$ nên $JK$ là trục đẳng phương của đường tròn ngoại tiếp các tam giác $KPM$ và $KQN$, cũng tức là $AD$ là trục đẳng phương của hai đường tròn này.\\ Mặt khác $HK$ cũng là trục đẳng phương của chúng nên $H$ thuộc $AD$. Ta có điều phải chứng minh.}
+\end{bt}
+
+\begin{bt}%[Nguyen Anh Quoc, Dự án EX_Tapchi05]%[9H0G4]
+	Cho tam giác $ABC$ nội tiếp đường tròn tâm $O$. Gọi $P_1$, $P_2$ là hai điểm bất kỳ trong mặt phẳng; $P_1A$, $P_1B$, $P_1C$ cắt đường tròn $(O)$ lần lượt tại điểm thứ hai là $A_1$, $B_1$, $C_1$ ; $P_2A$, $P_2B$, $P_2C$ lần lượt cắt $(O)$ tại điểm thứ hai là $A_2$, $B_2$, $C_2$. $P$ là một điểm bất kỳ trên đường thẳng $P_1P_2$; $A_1P$, $B_1P$, $C_1P$ lần lượt cắt $(O)$ tại điểm thứ hai là $A_3$, $B_3$, $C_3$. Chứng minh ba đường thẳng $A_2A_3$, $B_2B_3$, $C_2C_3$ đồng quy tại một điểm trên $P_1P_2$.
+	\loigiai{
+		Gọi $Q=A_1C_2\cap{A_2}{C_1}$ .\\ Áp dụng định lý Pascal cho $6$ điểm $C_2,A_1,A,A_2,C_1,C$ ta có\\ $Q=A_1C_2\cap{A_2}{C_1}$ , $C_1C\cap{A_1}A=P_1,A_2A\cap C{C_2}=P_2$ nên Q thuộc đường thẳng $P_1P_2$.\\
+		Lại áp dụng định lý Pascal cho $6$ điểm $C_2$, $A_1$, $A_4$, $A_2$, $C_1$, $C_3$ ta có\\
+		$Q=A_1C_2\cap A_2C_1$, $C_2C_3\cap A_2A_3=T$, $A_3A_1\cap C_3C_1=P$ thì $T$ thuộc đường thẳng $PQ$, hay chính là đường thẳng $P_1P_2$.\\
+		Tương tự ta có $T'=A_2A_3\cap B_2B_3$ cũng thuộc đường thẳng $P_1P_2$.\\ Như vậy $T\equiv T'$ và ta có điều phải chứng minh.\\
+		\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+		\tkzInit[xmin=-8,xmax=8,ymin=-6,ymax=10]
+		\tkzClip
+		\tkzDefPoints{-6/-2/B,-3/8/A,6/-2/C,-3/0/P_1,1/0.5/P_2}
+		\tkzCircumCenter(A,B,C)    \tkzGetPoint{O}
+		\tkzDrawCircle[radius](O,A)
+		\tkzInterLC(P_1,A)(O,A)    \tkzGetPoints{A_1}{}
+		\tkzInterLC(P_1,B)(O,A)    \tkzGetPoints{}{B_1}
+		\tkzInterLC(P_1,C)(O,A)    \tkzGetPoints{}{C_1}
+		\tkzInterLC(P_2,A)(O,A)    \tkzGetPoints{}{A_2}
+		\tkzInterLC(P_2,B)(O,A)    \tkzGetPoints{B_2}{}
+		\tkzInterLC(P_2,C)(O,A)    \tkzGetPoints{}{C_2}
+		\coordinate (P) at ($(P_1)!0.4!(P_2)$);
+		\tkzInterLC(A_1,P)(O,A)    \tkzGetPoints{}{A_3}
+		\tkzInterLC(B_1,P)(O,A)    \tkzGetPoints{}{B_3}
+		\tkzInterLC(C_1,P)(O,A)    \tkzGetPoints{C_3}{}
+		\tkzInterLL(A_1,C_2)(A_2,C_1)    \tkzGetPoint{Q}
+		\tkzInterLL(C_3,C_2)(A_2,A_3)    \tkzGetPoint{T}
+		\tkzDrawPolygon(A,B,C)
+		\tkzDrawSegments(A,A_1 A,A_2 B,B_1 B,B_2 C,C_1 C,C_2 A_1,A_3 A_2,A_3 B_1,B_3 B_2,B_3 C_1,C_3 C_2,C_3 A_1,C_2 A_2,C_1)
+		\tkzDrawPoints[fill=black](A,B,C,P_1,P_2,A_1,B_1,C_1,P,A_2,B_2,C_2,A_3,B_3,C_3,Q,T)
+		\tkzLabelPoints[left](B,C_1,C_2,B_3)
+		\tkzLabelPoints[right](B_1,B_2,C_3,C,A_2)
+		\tkzLabelPoints[below](A_1)
+		\tkzLabelPoints[above](A,A_3,P_2)
+		\tkzLabelPoints[below right](P_1)
+		\tkzLabelPoints[above left](P)
+		\tkzLabelPoints[below left](T)
+		\end{tikzpicture}\\
+		\textbf{\textit{Lời bình. }}Hình vẽ thật khá phức tạp nhưng lời giải vận dụng định lý Pascal lại ngắn gọn bất ngờ.}
+\end{bt}
+\subsection{Bài tập tham khảo}
+
+\begin{bt}%[Nguyen Anh Quoc, Dự án EX_Tapchi05]%[9H0G4]
+	[Mathematical Olympiad Summer Program 2005]
+	Cho tứ giác nội tiếp $ABCD$, phân giác góc $A$ cắt phân giác góc $B$ tại $E$. Điểm $P$, $Q$ lần lượt nằm trên $AD$, $BC$ sao cho $PQ$ đi qua $E$ và $PQ$ song song với $CD$. Chứng minh rằng $AP+BQ=PQ$.
+\end{bt}
+
+\begin{bt}%[Nguyen Anh Quoc, Dự án EX_Tapchi05]%[9H0G4]
+	Cho tứ giác $ABCD$ nội tiếp một đường tròn. Tiếp tuyến tại $A$, $B$, $C$, $D$ cắt nhau tại $E$, $F$, $M$, $N$. $AD$ cắt $BC$ tại $I$, $AB$ cắt $CD$ tại $J$, $AC$ cắt $BD$ tại $K$. Chứng minh bốn điểm $I$, $E$, $K$, $M$ thẳng hàng và bốn điểm $J$, $F$, $K$, $N$ thẳng hàng.
+\end{bt}
+\textbf{TÀI LIỆU THAM KHẢO}
+\begin{enumerate}[1.]
+	\item Bài tập từ trang Web http://analgeomatica.wordpress.com.
+	\item Bài giảng của thầy Lê Bá Khánh Trình tại Trường đông Toán học 2013.
+\end{enumerate}

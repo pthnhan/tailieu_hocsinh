@@ -1,0 +1,417 @@
+
+%\chapter{Đa thức chia đường tròn}
+	
+\section{Đa thức chia đường tròn - Ứng dụng vào các bài toán số học}
+\noindent Đa thức chia đường tròn là một trong những kết quả đẹp trong lí thuyết Galois. Ngoài tác dụng
+để nghiên cứu về trường chia đường tròn, mở rộng trường cũng như lí thuyết Galois, đa thức
+chia đường tròn còn có những ứng dụng trong việc giải quyết các bài toán số học trong các kì
+thi Olimpiad. Hơn thế nữa, đa thức chia đường tròn hoàn toàn có thể phát biểu và có những
+nghiên cứu ban đầu hoàn toàn bằng kiến thức trung học phổ thông. Cũng vì lí do đó, chúng tôi
+viết chuyên đề này nhằm giúp các bạn học sinh giỏi THPT có thể thêm một tài liệu tham khảo,
+một công cụ mạnh để giải quyết các bài toán liên quan đến đa thức và số học. Vì đây là kiến
+thức còn khá mới với các bạn học sinh THPT, thế nên các tác giả đã cố gắng viết phần lí thuyết
+hết sức chi tiết, ngoài việc học kiến thức, việc tham khảo các chứng minh kinh điển cũng là một
+cách học hiệu quả đối với các bạn học sinh. Mặc dù đã rất cố gắng, thế nhưng do thời gian có
+hạn, tài liệu không thể tránh khỏi sai sót, rất mong nhận được các góp ý của bạn đọc để tài liệu
+được  hoàn  thiện  hơn.
+
+
+\subsection{Bài toán mở đầu}	
+\noindent Câu hỏi đầu tiên bạn có thể đặt ra là ``Đa thức chia đường tròn là gì? Nó được nghĩ ra để giải
+quyết vấn đề gì?'' Đầu tiên hãy theo dõi bài toán sau đây.\\
+Chúng ta đã biết rằng nếu gọi $\omega $ là căn nguyên thủy bậc ba của đơn vị thì $\omega ^2 + \omega  + 1 = 0$. Do đó
+đa thức $x^2+x+1$ có hai nghiệm là hai căn nguyên thủy bậc ba của đơn vị. Hơn thế nữa, chúng
+ta còn biết rằng đa thức này là bất khả quy - nghĩa là không thể phân tích thành tích của hai đa
+thức khác hằng hệ số nguyên. Do đó đây là đa thức tối tiểu (đa thức có bậc nhỏ nhất) nhận hai
+căn nguyên thủy bậc ba của đơn vị là nghiệm (Bạn đọc có thể chứng minh $P(x)$ là đa thức tối
+tiểu của $\alpha$ khi và chỉ khi $P(x)$ là đa thức bất khả quy và $P(\alpha)=0$).\\
+Bây giờ chúng ta sẽ chuyển sang căn bậc bốn của đơn vị. Đặt $\omega _n = \exp\left( \dfrac{{2\pi i}}{n} \right)$, dễ thấy $\omega_4=i$.
+Vậy đa thức nào có nghiệm là $i$? Từ đẳng thức $i^2
++ 1 = 0$, chúng ta có $x^2
++ 1$ là đa thức có nghiệm là $\omega_4$. 
+Dễ dàng chứng minh được đây là đa thức bất khả quy.\\
+Nếu có kiến thức một chút về số phức, các bạn dễ dàng nhận thấy  $\omega_n$ cũng như căn bậc $n$
+nguyên thủy của đơn vị chính là các điểm nằm trên đường tròn đơn vị của mặt phẳng phức. Các
+bạn có thể coi đa thức chia đường tròn chính là đa thức tối tiểu của  $\omega_4$. Đa thức chia đường tròn
+có những tính chất hết sức thú vị, trong cả đa thức và số học, các bạn có thể tìm hiểu thêm trong
+bài viết này.
+
+
+\subsection{Kí hiệu, chú thích}
+Trong bài viết này chúng tôi sử dụng một số kí hiệu cũng như thuật ngữ có thể chưa quen thuộc
+với các bạn học sinh.
+\begin{itemize}
+	\item $\mathbb{R}[x]$: Kí hiệu tập các đa thức với hệ số thực.
+	\item $\mathbb{Q}[\omega _n]$: Tập các giá trị của $P(\omega_n)$ với $P(x)$ là đa thức hệ số hữu tỉ.
+	\item  $\mathbb{Z}_p$: Tập các số dư khi chia một số tự nhiên cho $p$, hay $\mathbb{Z}_p=\{0,1,\ldots,p-1\}.$
+	\item Hàm số $\mu(n)$ (hàm Mobius) được định nghĩa như sau: Nếu $n$ có thể chia hết cho một số chính phương lớn hơn $1$, thì $\mu(n)=1$; $\mu(n) = 0$; ngược lại $n$ có thể phân tích thành tích của $k$ số nguyên tố phân biệt, thì $\mu(n)=(-1)^k$.  
+	\item $\gcd(a,b)$: Ước chung lớn nhất của hai số $a$ và $b$.
+	\item VT, VP: Vế Trái, Vế Phải.
+	\item $\exp(x)$: $\mathrm{e}^x$.
+	\item Đa thức bất khả quy trên $\mathbb{Z}$: Đa thức không thể phân tích thành tích của hai đa thức khác hằng với hệ số nguyên. Theo bổ đề của Gauss, chúng ta biết rằng một đa thức bất khả quy trên $\mathbb{Z}$ thì cũng bất khả quy trên $\mathbb{Q}$, do đó trong bài viết chỉ sử dụng thuật ngữ đa thức bất khả quy thay cho đa thức bất khả quy trên $\mathbb{Z}.$
+	\item Đa thức monic: Đa thức có hệ số bậc cao nhất bằng $1$.
+	\item Tiêu chuẩn Eisenstein: Giả sử ta có đa thức hệ số nguyên $$f(x) = a_{n}x^n+a_{n-1}x^{n-1} + \cdots + a_1x+a_0.$$
+	Nếu có một số nguyên tố $p$ sao cho tất cả các hệ số của đa thức $f(x)$ trừ $a_n$ đều chia hết cho $p$ nhưng $a_0$ không chia hết cho $p^2$ thì $f(x)$ là đa thức bất khả quy.
+	
+\end{itemize}
+
+\subsection{Giới thiệu về đa thức chia đường tròn}
+
+\subsubsection{Định lí}
+
+\begin{dn}
+	Căn nguyên thủy bậc $n$ của đơn vị số phức $\epsilon$ được gọi là căn nguyên thủy bậc $n$ của đơn vị nếu $n$ là số nguyên dương nhỏ nhất thỏa mãn $\epsilon^n = 1$.
+\end{dn}
+
+\begin{vd}\text{}
+\begin{enumerate}
+	\item Các căn bậc ba của đơn vị là:
+	$\epsilon_0=1$; $\epsilon_1= -\dfrac{1}{2}+\dfrac{i\sqrt3}{2}$; $\epsilon_2= -\dfrac{1}{2}-\dfrac{i\sqrt3}{2}$.\\
+	Dễ thấy căn nguyên thủy bậc ba của đơn vị là $\epsilon_1$; $\epsilon_2$. 
+	\item $1$ có bốn căn bậc bốn là $1$; $-1$; $i$;  $-i$. Trong đó dễ thấy căn nguyên thủy bậc bốn bốn của $1$ là $i$ và $-i$.\\
+	Ta nhắc lại không chứng minh $2$ kết quả quen thuộc về căn nguyên thủy của đơn vị.
+\end{enumerate}
+\end{vd}
+
+\begin{dl}\label{dl2.1.3}
+	Cho $\epsilon$  là căn nguyên thủy bậc $n$ của đơn vị. Khi đó $n$ căn bậc $n$ của đơn vị là: $\{\epsilon; \epsilon^2; \epsilon^3; \ldots; \epsilon^n\}.$
+\end{dl}
+
+\begin{dl}\label{dl2.1.4}
+	Cho $n$; $k$ là 2 số nguyên dương và $\epsilon$ là một căn nguyên thủy bậc $n$ của đơn vị. Khi đó $\epsilon^k$ cũng là căn nguyên thủy bậc $n$ của đơn vị khi và chỉ khi $\gcd(n; k) = 1$.
+	
+	
+\end{dl}
+
+\begin{dn}
+	Cho số nguyên dương $n$. Đa thức chia đường tròn bậc $n$ là đa thức monic
+	(đa thức có hệ số bậc cao nhất bằng $1$) và có đúng $\phi(n)$ nghiệm là các căn nguyên thủy bậc $n$
+	của đơn vị. Ta kí hiệu đa thức chia đường tròn bậc $n$ là $\Phi_n(x)$. Khi đó ta có
+\begin{displaymath}
+\Phi_n(x)=\prod\limits_{\begin{subarray}{l}  1\le k\le n\\
+	 \gcd (k,n)=1
+	\end{subarray}} (x-\omega_n^k).
+\end{displaymath}
+
+	
+\end{dn}
+
+\begin{vd}
+	Ta có thể dễ dàng tính một số giá trị ban đầu của $\Phi_n(x)$ là $\Phi_1(x)=x-1$, $\Phi_2(x)=x+1$, $\Phi_3(x)=x^2+x+1$, $\Phi_4(x)=x^2+1$, $\Phi_5(x)=x^4+x^3+x^2+x+1$, $\Phi_p(x)= x^{p-1}+ x^{p-2}+\cdots + x^2+x+1$ với $p$ là số nguyên tố.
+\end{vd}
+\subsubsection{Một số tính chất của đa thức chia đường tròn}
+\begin{dl}
+	Với mỗi số nguyên dương $n$, deg $\Phi_n(x) = \phi(n)$.\\
+	Chứng minh. Suy trực tiếp từ định nghĩa hàm $\Phi_n$.
+\end{dl}
+
+\begin{dl}\label{dl2.2.2}
+	Với mỗi số nguyên dương $n$, ta có $x^n - 1 = \prod\limits_{d \mid n}{\Phi _d(x)}.$  
+\end{dl}
+\noindent{\bf Chứng minh.} 
+Ta sẽ chứng minh bằng việc đếm số nghiệm của hai đa thức. Để ý rằng vế trái và
+vế phải đều là hai đa thức monic, nếu ta chứng minh được hai đa thức này không có nghiệm bội
+và có cùng tập nghiệm, khi đó theo định lí Bezout, hai đa thức này phải bằng nhau.\\
+Ta có $x^n-1 = (x-\omega_n)(x-\omega_n^2)\cdots (x-\omega_n^n)$.\\
+Xét nhân tử $x-\omega_n^k$. Đặt $g=\gcd(n,k)$.\\
+Ta có $\gcd\left( k,\dfrac{n}{g}\right) =1$, theo định lí \eqref{dl2.1.4} $\omega_n^k$ là nghiệm của đa thức $\Phi_{n/g}(x)$.\\
+Như vậy, tập nghiệm của hai đa thức ở VP và VT là trùng nhau. Bây giờ ta sẽ chứng minh
+$\omega_n^k$ không phải là nghiệm bội của đa thức ở vế phải. Giả sử tồn tại hai đa thức  $\Phi_{d1}(x)$ và $\Phi_{d2}(x)$
+%%%%%%%%%BanNt code trang 78910 trong
+	đều nhận $\omega_n^k$ là nghiệm, khi đó ta có $\omega_n^k$ là căn nguyên thủy bậc $d_1$ và $d_2$ (mâu thuẫn với định nghĩa nguyên thủy).\\
+Do đó $\omega_n^k$ cũng là nghiệm duy nhất của đa thức ở vế phải, từ đó ta có điều phải chứng minh.\\
+Từ việc so sánh hai đa thức của định lí 
+\eqref{dl2.2.2}, ta rút ra một hệ quả rất đẹp sau
+
+\begin{hq}\label{hq2.2.3}
+	Hệ thức Gauss: Với mỗi số nguyên dương $n$, ta có $\sum\limits_{d|n}\varphi(d)=n$.
+\end{hq}
+\begin{dl}\label{dl2.2.4}
+	Với mỗi số nguyên dương $n$, ta có $\Phi _n(x)\in \mathbb{Z}[x]$. Hay $\Phi_n(x)$ là đa thức với hệ số nguyên.
+\end{dl}
+\noindent{\bf Chứng minh.} Chúng ta sẽ chứng minh bài toán bằng quy nạp. Ta có $\Phi_1(x)=x-1$, hay bài toán đúng với $n=1$.\\
+Giả sử bài toán đúng với mọi số nguyên dương $k<n$, hay $\Phi_k(x)\in \mathbb{Z}[x]$ với $\forall k<n$. Ta cần chứng minh $\Phi_n(x)\in \mathbb{Z}[x]$. Đặt
+\begin{displaymath}
+P_n(x)=\prod\limits_{\begin{subarray}{l}  d|n\\
+	d\ne n
+	\end{subarray}} \Phi _d(x).
+\end{displaymath}
+Từ giả thiết quy nạp suy ra $P_n(x)$ là đa thức hệ số nguyên, hơn nữa $P_n$ là đa thức monic. Bằng việc thực hiện phép chia đa thức, tồn tại các đa thức hệ số nguyên $Q,\,R$ thỏa mãn
+$$x^n-1=P_n(x)Q(x)+R(x)$$
+với $\deg R< \deg P_n$ hoặc $R(x)=0$. Thay $n-\varphi(n)$ nghiệm của $P_n(x)$ vào phương trình bên trên, dễ thấy $R(x)$ cũng có ít nhất $n-\varphi(n)$ nghiệm.\\
+Giả sử đa thức $R\ne 0$, khi đó đa thức $R(x)$ có bậc lớn hơn hoặc bằng $n-\varphi(n)$. Mặt khác $\deg P_n(x)=n-\varphi(n)$, mẫu thuẫn với giả thiết $\deg R<\deg P$. Do đó $R(x)=0$ $\forall x\in \mathbb{R}$ và $x^n-1=P_n(x)Q(x)$.
+
+Từ định lí \eqref{dl2.2.2}, ta biết rằng $x^n-1=P_n(x)\Phi_n(x)$. Từ đó ta có $Q(x)=\Phi_n(x)$, hay $\Phi_n(x)$ là đa thức hệ số nguyên.\\
+Ngoài cách chứng minh trên, định lí còn có thể thêm hai cách chứng minh nữa. Bạn đọc có thể chứng minh bằng việc sử dụng gợi ý sau\\
+\textit{Cách 2}: Mấu chốt của cách này vẫn là quy nạp, kết hợp với bổ đều sau
+\begin{bode}\label{bode2.2.5}
+	Giả sử $f(x)$ và $g(x)$ là hai đa thức monic với hệ số hữu tỉ. Khi đó nếu $f(x)g(x)$ là đa thức với hệ số nguyên thì $f(x), g(x)$ là hai đa thức hệ số nguyên.
+\end{bode}
+\textit{Cách 3}. Định lí \eqref{dl2.2.4} là hệ quả trực tiếp của hai bổ đề sau
+\begin{bode}
+	Cho $x,m,n$ là các số nguyên dương, khi đó $\gcd(x^n-1,x^m-1)=x^{\gcd(n,m)}-1$.
+\end{bode}
+\begin{bode}[Chinese TST 2009 6th P3]
+	Cho $(a_n)_{n\ge 1}$ là một dãy các số nguyên dương thỏa mãn $(a_m,a_n)=a_{(m,n)}$ (với mọi $m,n\in \mathbb{N}^+$). Chứng minh rằng mỗi $n\in \mathbb{N}^+, \displaystyle\prod _{d|n}a_d^{\mu(\frac{n}{d})}$ là số tự nhiên. Hàm số $\mu (n)$ (hàm Mobius) được định nghĩa như sau: Nếu $n$  có thể chia hết cho một số chính phương lớn hơn $1$, thì $\mu (1)=1;\, \mu (n)=0;$ ngược lại $n$ có thể phân tích thành tích của $k$ số nguyên tố phân biệt, thì $\mu(n)=(-1)^k$.
+\end{bode}
+\begin{dl}\label{dl2.2.8}
+	Cho $p$ là số nguyên tố, khi đó $\Phi_p(x)$ là đa thức bất khả quy.
+\end{dl}
+\noindent{\bf Chứng minh.} Ta sẽ chứng minh một kết quả tương đương, đó là đa thức $\Phi_p(x+1)$ là bất khả quy.\\
+Chú ý rằng $$\Phi_p(x+1)=\dfrac{(x+1)^p-1}{x}=x^{p-1}+\mathrm{C}^1_p x^{p-2}+\cdots + \mathrm{C}^{p-1}_p.$$
+Sử dụng tiêu chuẩn Eisenstein ta có điều phải chứng minh.
+\begin{dl}\label{dl2.2.9}
+	Cho số tự nhiên $n\ge 2$, đặt $\Phi_n(x)=\displaystyle\sum\limits_{i=0}^{\varphi (n)}a_ix^i$. Ta có $a_{\varphi(n)-k}=a_k$ với mọi $0\le k\le \varphi(n)$ hay $\Phi_n(x)$ là đa thức đối xứng.
+\end{dl}
+\noindent{\bf Chứng minh.}  Ta đã biết nếu $\gcd(n,k)=1$ thì $\gcd(n, n-k)=1$. Do đó nếu $\omega_n^k$ là căn nguyên thủy bậc $n$ của đơn vị thì $\omega_n^{n-k}$ cũng là căn nguyên thủy bậc $n$ của đơn vị, theo định lí \eqref{dl2.1.4}. Ta có $(x-\omega_n^k)(x-\omega_n^{n-k})=x^2-(\omega_n^k+\omega_n^{n-k})x+1$ là đa thức đối xứng. Chú ý rằng tích của hai đa thức đối xứng là đa thức đối xứng, từ đó ta có điều phải chứng minh.\\
+Tiếp theo, để đến với một số tính chất mạnh hơn của đa thức chia đường tròn, bạn đọc có thể tự chứng minh coi như bài tập. Tuy nhiên trước đó, ta cần nhắc lại một số tính chất của hàm Mobius $\mu(n)$.
+\begin{bode}
+	Cho số nguyên dương $n$, khi đó $\displaystyle\sum\limits_{d|n}\mu(d)=0$.
+\end{bode}
+\begin{bode}\label{bode 2.2.11}
+	Cho số nguyên dương $n$, tổng tất cả các căn nguyên thủy bậc $n$ của đơn vị là $\mu(n)$.
+\end{bode}
+\begin{dl}\label{dl2.2.12}
+	Cho số nguyên dương $n$, ta có $\Phi_n(x)=\displaystyle\prod\limits_{d|n}(x^d-1)^{\mu\left(\tfrac{n}{d}\right)}$.
+\end{dl}
+\begin{dl}\label{dl2.2.13}
+	Cho số nguyên dương $n$ và số nguyên tố $p$. Nếu $p|n$ thì $\Phi_{np}(x)=\Phi_n(x^p)$, nếu $p\not|n$ thì ta có $\Phi_{np}(x)=\dfrac{\Phi_n(x^p)}{\Phi_n(x)}$.
+\end{dl}
+
+\begin{hq}
+	Nếu $n$ là số nguyên dương lẻ, ta có $\Phi_{2n}(x)=\Phi_n(-x)$.
+\end{hq}
+
+\begin{dl}\label{dl2.2.15}
+	Cho hai số nguyên dương $d<n$, $d$ là ước của $n$ và số nguyên $b$. Khi đó nếu số nguyên tố $p$ là ước chung của $\Phi_n(b)$ và $\Phi_d(b)$ thì $p$ là ước của $n$.
+\end{dl}
+
+\begin{dl}\label{dl2.2.16}
+	Nếu $a,n$ là các số nguyên dương và $\gcd(a,n)=1$, ta có $\Phi_n(x^a)=\displaystyle\prod\limits_{d|a}\Phi_{nd}(x)$.
+\end{dl}
+
+\noindent{\bf Chứng minh.} Ý tưởng chứng minh định lí này hoàn toàn tương tự với định lí \eqref{dl2.2.2}. Áp dụng hệ quả \eqref{hq2.2.3}, ta có đa thức ở cả hai vế đều là hai đa thức monic đồng bậc với bậc là $a\phi(n)$.\\
+Từ định nghĩa của hàm $\Phi(n)$, ta có $\omega_{an}^k$ với $\gcd(k,n)=1$ là các nghiệm của đa thức ở vế trái. Đặt $g=\gcd(k,a)$ thì $\omega_{an}^k$ là căn nguyên thủy bậc $\dfrac{an}{g}$ của đơn vị. Từ đó nếu đặt $d=\dfrac{a}{g}$ thì $\omega_{an}^k$ là nghiệm của $\Phi _{nd}(x)$. Như vậy cả hai đa thức ở trái phải đều có $a\phi(n)$ nghiệm giống nhau, do đó chúng phải bằng nhau. Từ đó ta được điều phải chứng minh.
+\subsection{Bài tập vận dụng}
+\subsubsection{Bài tập có lời giải}
+\begin{bt}[British Math Olympiad 1979]
+	Chứng minh rằng không tồn tại số nguyên tố nào nằm trong dãy vô hạn sau
+	\begin{center}
+		$10001,\ 100010001,\ 1000100010001,\ldots$
+	\end{center}
+	\loigiai{
+		\begin{enumerate}
+			\item \textbf{Cách 1.}\\
+			Ta có $ 10001=73\cdot 137 $, do đó ta phải chứng minh\\
+			``Với $ n\geq 3 $ thì $ 1+10^{4}+10^{8}+\cdots+10^{4n} $ không phải là số nguyên tố."\\
+			Chú ý rằng nếu $ (m+1)\ \mid\ (n+1) $ thì $ (1+10^{4}+10^{8}+\cdots+10^{4m})\ \mid\ (1+10^{4}+10^{8}+\cdots+10^{4n}) $. Do đó ta có thể giả sử $ n+1 $ là số nguyên tố. Khi đó theo định lí \eqref{dl2.2.16}, ta có
+			\[ 
+			1+10^{4}+10^{8}+\cdots+10^{4n}=\Phi_{n+1}(10^{4})=\Phi_{n+1}(10)\cdot \Phi_{4n+4}(10).
+			\]
+			Từ đó suy ra điều phải chứng minh.
+			\item \textbf{Cách 2.}\\
+			Đặt $ u_{n}=1+10^{4}+10^{8}+\cdots+10^{4n} $. Dễ thấy $ u_{1}=73\cdot 137 $, $ u_{2} $ chia hết cho $ 3 $ là hợp số.\\
+			Với $ n\geq 3 $, ta có
+			\[ 
+			u_{n}=\dfrac{10^{4(n+1)}-1}{10^{4}-1}=\dfrac{(10^{n+1}-1)(10^{n+1}+1)(10^{2(n+1)}-1)}{10^{4}-1}.
+			\]
+			Mặt khác do $ n\geq 3 $ nên $ 10^{n+1}-1\geq 10^{4}-1 $. Do vậy $ u_{n} $ luôn có thể phân tích thành tích của ít nhất hai số nguyên dương lớn hơn $ 1 $, hay $ u_{n} $ là hợp số.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}
+	Cho $ n $ là một số nguyên dương. Chứng minh rằng $ 2^{2^{n}}+2^{2^{n-1}}+1 $ có thể phân tích thành tích của không ít hơn $ n $ số nguyên tố (không nhất thiết phân biệt).
+	\loigiai{
+		Ta có $ 2^{2^{n}}+2^{2^{n-1}}+1=\Phi_{3}(2^{2^{n-1}})=\displaystyle\prod\limits_{d \mid 2^{n-1}}\Phi_{3d}(2) $ (do \eqref{dl2.2.16}).\\
+		Chú ý rằng $ \Phi_{3d}(2)>1 $ nên ta có điều phải chứng minh.
+	}
+\end{bt}
+Các ví dụ trên có thể chưa cho bạn đọc thấy được tác dụng của đa thức chia đường tròn, để thấy rõ hơn sức mạnh của đa thức chia đường tròn, ta sẽ xem một số bài tập sau:
+\begin{bt}
+	Chứng minh rằng tồn tại vô số số nguyên dương $ n $ sao cho tất cả các ước nguyên tố của $ n^{2}+n+1 $ không vượt quá $ \sqrt{n} $.
+	\loigiai{
+		Bởi vì chúng ta phải chứng minh tồn tại vô số số nguyên dương $ n $ nên ta có thể chọn một số $ n $ đặc biệt. Cụ thể chọn $ n=k^{m} $ với $ \gcd(m,3)=1 $. Theo định lí \eqref{dl2.2.16} ta có $ \Phi_{a}(x^{n})=\displaystyle\prod\limits_{d\mid n}\Phi_{ad}(x) $ khi $ \gcd(a,n)=1 $. Do $ n^{2}+n+1=\Phi_{3}(n)=\Phi_{3}(k^{m}) $ nên $ n^{2}+n+1=\displaystyle\prod\limits_{d\mid m}\Phi_{3d}(k) $.\\
+		Sử dụng công thức của hàm $ \Phi_{n}(x) $, dễ thấy $ (k+1)^{\varphi(3d)}>\Phi_{3d}(k) $ với mọi $ d $.\\
+		Ta sẽ chứng minh với mỗi $ k $, tồn tại $ m $ sao cho $ (k+1)^{\varphi(3m)}<k^{\tfrac{m}{2}} $, từ đó suy ra mỗi thừa số trong tích $ \displaystyle\prod\limits_{d\mid m}\Phi_{3d}(k) $ đều nhỏ hơn $ \sqrt{n} $, hay $ n^{2}+n+1 $ không có ước nguyên tố nào vượt quá $ \sqrt{n} $.\\
+		Ta phát biểu không chứng minh bổ đề sau:
+		\begin{bode}
+			Tồn tại một dãy các số nguyên dương tăng dần $ u_{n} $ sao cho $ \lim\limits_{n\to\infty}\dfrac{\phi(u_{n})}{u_{n}}=0 $.
+		\end{bode}
+		Áp dụng bổ đề trên, chọn $ m $ sao cho $ \dfrac{\varphi(m)}{m}<0,01 $. Khi đó $ (k+1)^{\varphi(3m)}<(k+1)^{2\cdot 0,01\cdot m} $.\\
+		Mà $ (k+1)^{2\cdot 0,01\cdot m}<k^{\tfrac{m}{2}} $. Từ đó ta có điều phải chứng minh.
+	}
+\end{bt}
+\begin{bt}[Định lí Dirichlet]
+	Cho $ n $ là một số nguyên dương và số nguyên $ b $. Chứng minh rằng nếu $ p $ là một ước nguyên tố của $ \Phi_{n}(p) $ thì $ p $ là ước của $ n $ hoặc $ p\equiv 1\pmod{n} $.
+	\loigiai{
+		Gọi $ p $ là một ước nguyên tố của $ \Phi_{n}(b) $, theo định lí \eqref{dl2.2.2} ta có $ \Phi_{n}(b)\mid (b^{n}-1) $ nên $ p\mid (b^{n}-1) $.\\
+		Ta có $ \gcd(b^{n}-1,p)=1 $ và $ p $ không phải là ước của $ b $. Gọi $ k $ là số nguyên dương nhỏ nhất sao cho $ b^{k}\equiv 1\pmod{p} $ thì $ k\mid n $.
+		\begin{itemize}
+			\item Nếu $ k=n $ thì theo định lí Fecmat nhỏ ta có $ b^{p-1}\equiv 1\pmod{p} $,\\
+			suy ra $ n\mid p-1 $ hay $ p\equiv 1\pmod{n} $.
+			\item Nếu $ k<n $ thì từ $ 0\equiv b^{k}-1=\displaystyle\prod\limits_{d\mid k}\Phi_{d}(b)\pmod{p} $ suy ra tồn tại $ d\mid k $ sao cho $ p\mid \Phi_{d}(b) $.\\
+			Do $ k $ là ước của $ n $ và $ k<n $ nên $ d $ là một ước thực sự của $ n $, khi đó theo định lí \eqref{dl2.2.15} ta có $ p\mid n$ (đpcm).
+		\end{itemize}
+	}
+\end{bt}
+
+\begin{bt}
+	Cho $ p $ là một số nguyên tố và $ x\in \mathbb{Z} $. Giả sử $ q $ là một ước nguyên tố của $ 1+x+x^{2}+\cdots+x^{p-1} $. Khi đó $ q=p $ hoặc $ q\equiv 1\pmod{p} $.
+	\loigiai{
+		Từ ví dụ \eqref{dl2.1.6} ta có $ 1+x+x^{2}+\cdots+x^{p-1}=\Phi_{p}(x) $, hay $ q\mid \Phi_{p}(x) $. Áp dụng bài toán \textbf{3.1.5}, ta có $ q=p $ hoặc $ q\equiv 1\pmod{p} $.
+	}
+\end{bt}
+\begin{bt}
+	Cho $ n $ là số nguyên dương. Khi đó tồn tại vô số nguyên tố $ p $ sao cho $ p\equiv 1\pmod{n} $.
+	\loigiai{
+		\begin{itemize}
+			\item Với $ n=1 $ thì hiển nhiên đúng.
+			\item Với $ n\geq 2 $, giả sử tồn tại hữu hạn số nguyên tố $ p $ sao cho $ p\equiv 1\pmod{n} $.\\
+			Đặt $ T_{1} $ là tích của tất cả các số nguyên tố $ p $ có tính chất $ p\equiv 1\pmod{n} $ (ta coi $ T_{1}=1 $ nếu không tồn tại số nguyên tố nào thỏa mãn); $ T_{2} $ là tích tất cả các ước nguyên tố của $ n $ và $ T=T_{1}T_{2} $. Do $ n>1 $ nên $ T_{2}>1 $, hay $ T>1 $.\\
+			Gọi $ k $ là số nguyên dương đủ lớn sao cho $ \Phi_{n}(T^{k})>1 $ (do $ \Phi_{n}(x) $ là đa thức monic có bậc hữu hạn nên $ k $ tồn tại). Lấy $ q $ là một ước nguyên tố của $ \Phi_{n}(T^{k}) $.\\
+			Theo định lí \eqref{dl2.1.4}, $ q $ là ước của $ T^{kn}-1 $ nên $ q $ không là ước của $ T $, vì thế $ q $ không là ước của $ T_{1} $ và $ T_{2} $, do vậy $ q\not\equiv 1\pmod{n} $ và $ q $ không là ước của $ n $.\\
+			Điều này mẫu thuẫn với \textbf{3.1.5}, do đó ta có điều phải chứng minh.
+		\end{itemize}
+	}
+\end{bt}
+\begin{bt}[IMO 2006]
+	Tìm tất cả các cặp số nguyên $ (x;y) $ thỏa mãn phương trình 
+	$$ \dfrac{x^{7}-1}{x-1}=y^{5}-1.$$
+	\loigiai{
+		Phương trình đã cho tương đương với
+		\[ 
+		1+x+x^{2}+\cdots+x^{6}=(y-1)(y^{4}+y^{3}+y^{2}+y+1).
+		\]
+		Theo bài toán \textbf{3.1.6} ta biết rằng mọi ước nguyên tố $ p $ của $ 1+x+x^{2}+\cdots+x^{6} $ đều phải thỏa mãn $ p=7 $ hoặc $ p\equiv 1\pmod{7} $. Gọi $ d $ là một ước của $ 1+x+x^{2}+\cdots+x^{6} $ và đặt $ d=p_{1}^{\alpha_{1}}p_{2}^{\alpha_{2}}\cdots p_{k}^{\alpha_{k}} $ với $ p_{i} $ là các số nguyên tố đôi một phân biệt, $ \alpha_{i}\in\mathbb{N},\forall i=1,\ 2,\ldots,k $.\\
+		Do $ d\mid 1+x+x^{2}+\cdots+x^{6} $ nên $ p_{i}\mid 1+x+x^{2}+\cdots+x^{6} $ hay $ p_{i}=7 $ hoặc $ p_{i}\equiv 1\pmod{7} $ với mọi $ i=1,\ 2,\ldots,k $. Suy ra $ d $ chia hết cho $ 7 $ hoặc chia $ 7 $ dư $ 1 $, nói cách khác tất cả các ước của $ 1+x+x^{2}+\cdots+x^{6} $ đều chia hết cho $ 7 $ hoặc chia $ 7 $ dư $ 1 $.\tagEX{*}\noindent
+		Mặt khác từ giả thiết ta có $ (y-1)\mid (1+x+x^{2}+\cdots+x^{6}) $ nên $ y-1\equiv 0\pmod{7} $ hoặc $ y-1\equiv 1\pmod{7} $, hay $ y\equiv 1\pmod{7} $ hoặc $ y\equiv 2\pmod{7} $.
+		\begin{itemize}
+			\item Nếu $ y\equiv 1\pmod{7} $ thì $ (y^{4}+y^{3}+\cdots+y+1)\equiv 5\pmod{7} $ và do đó $ y^{4}+y^{3}+\cdots+y+1 $ cũng là một ước của $ 1+x+x^{2}+\cdots+x^{6} $ nhưng không chia hết cho $ 7 $ hoặc chia $ 7 $ dư $ 1 $, mẫu thuẫn với (*).
+			\item Nếu $ y\equiv 2\pmod{7} $ thì $ (y^{4}+y^{3}+\cdots+y+1)\equiv 3\pmod{7} $ và do đó $ y^{4}+y^{3}+\cdots+y+1 $ cũng là một ước của $ 1+x+x^{2}+\cdots+x^{6} $ nhưng không chia hết cho $ 7 $ hoặc chia $ 7 $ dư $ 1 $, mẫu thuẫn với (*).
+		\end{itemize}
+		Vậy phương trình đã cho không có nghiệm nguyên.
+	}
+\end{bt}
+
+\begin{bt}
+	Cho các số tự nhiên $ 0<r<n $ với $ r $ là ước của $ n $. Chứng minh rằng đa thức $ \dfrac{x^{n}-1}{x^{r}-1} $ chia hết cho đa thức $ \Phi_{n}(x) $ trên $ \mathbb{Z}[x] $.
+	\loigiai{
+		Áp dụng định lí \eqref{dl2.2.2} ta có
+		\[ 
+		\dfrac{x^{n}-1}{x^{r}-1}=\dfrac{\displaystyle\prod\limits_{d\mid n}\Phi_{d}(x)}{\displaystyle\prod\limits_{d\mid r}\Phi_{d}(x)}=\displaystyle\prod\limits_{\underset{d\nmid r}{d\mid n}}\Phi_d(x).
+		\]
+		Từ giả thiết, do $ n>r $ nên $ n $ là ước của $ n $ và $ r $ không chia hết cho $ n $, do đó tích $ \displaystyle\prod\limits_{\underset{d\nmid r}{d\mid n}}\Phi_d(x) $ chứa $ \Phi_{n}(x) $ (đpcm).
+	}
+\end{bt}
+
+\subsubsection{Bài tập đề nghị}
+\begin{bt}
+	Chứng minh rằng đa thức chia đường tròn $\Phi_n (x)$ là đa thức bất khả quy với mọi $n \in \mathbb{N}^*$.
+\end{bt}
+\begin{bt}
+	Cho các số nguyên dương $n,k$. Chứng minh rằng $$\Phi_k(x) | \Phi_k (x^n) $$ trên $\mathbb{Z}[x]$ khi và chỉ khi $\gcd (n,k)=1$.
+\end{bt}
+\begin{bt}
+	Cho $m>n$ là  các số nguyên dương. Giả sử tồn tại số tự nhiên $b$ sao cho $$\gcd \left( \Phi_m (b), \Phi_n (b) \right) >1,$$ chứng minh rằng $\dfrac{m}{n}$ là lũy thừa của một số nguyên tố.
+\end{bt}
+\begin{bt}
+	Cho $a,n>1$ là các số nguyên. Giả sử tất cả các ước nguyên tố của $\Phi_n(a)$ là ước của $n$ thì khi đó $\Phi_n(a)$ là một ước nguyên tố của $n$, hoặc $n=2$.
+\end{bt}
+\begin{bt}[Định lí Kronecker]
+	Cho đa thức $P(x)$ hệ số nguyên có tất cả các nghiệm phức nằm trên đường tròn đơn vị. Chứng minh rằng khi đó tất cả các nghiệm của $P'(x)$ là căn của đơn vị.
+\end{bt}
+\begin{bt}Cho các số nguyên dương $a,n$. Chứng minh rằng nếu $a^{2n}+a^n+1$ là số nguyên tố thì $n$ phải có dạng $3^{j}$ với $j\in \mathbb{N}$.
+\end{bt}
+
+\begin{bt}
+	Cho $n$ là một số nguyên dương. Chứng minh rằng $2^{2n}+2^{2n-1}+1$ có thể phân tích thành tích của không ít hơn $n$ số nguyên tố phân biệt.
+\end{bt}
+
+\begin{bt}[Zsigmondy's Theorem]
+	Cho $a$ và $n$ là các số nguyên lớn hơn $1$. Chứng minh rằng tồn tại ước nguyên tố $q$ của $a^n-1$ sao cho $q$ không là ước của $a^{j}-1$ với mọi $j$, $0<j<n$, ngoại trừ hai trường hợp đặc biệt sau:
+	\begin{itemize}
+		\item[(1)] $n=2$, $a=2^s$ với $s\ge 2$, và 
+		\item[(2)] $n=6$, $a=2$.
+	\end{itemize}
+	
+\end{bt} 
+
+\begin{bt}[Japanese Math Olympiad 2011]
+	Tìm tất cả các bộ $5$ số nguyên dương $(a,n,p,q,r)$ thỏa mãn $$a^n-1=(a^p-1)(a^q-1)(a^r-1).$$
+\end{bt}
+
+\begin{bt}[VN TST 2016] 
+	Tìm tất cả các số nguyên dương $a$, $n$ với $a>2$ và mỗi ước nguyên tố của $a^{n}-1$ cũng là ước nguyên tố của $a^{3^{2016}}-1$. 
+	
+\end{bt}
+
+\begin{bt}[Bổ đề Hensel]
+	Cho $p$  là một số nguyên tố và $f$ là đa thức với hệ số nguyên. Giả sử tồn tại số nguyên $a$ thỏa mãn $p$ là ước của $f(a)$ và $p$ không là ước của $f'(a)$. Chứng minh rằng với mỗi số nguyên dương $k$ tồn tại số nguyên dương $b$ sao cho $b \equiv a \left( \mod p \right) $ và $p^k $ là ước của $f(b)$.
+\end{bt}
+
+\begin{bt}[IMO 2000]
+	Tồn tại hay không số nguyên dương $N$ có đúng $2000$ ước nguyên tố phân biệt và $2^{N}+1$ chia hết cho $N$.
+\end{bt}
+
+\begin{bt} 
+	Gọi $p_1$, $p_2$, $\ldots$ , $p_k$ là các số nguyên tố lớn hơn $3$, và đặt $N=2^{p_1p_2\cdots p_k}+1$. 
+	\begin{itemize}
+		\item[a)] (IMO SL 2002) Chứng minh rằng $N$ có ít nhất $4^{k}$ ước.
+		\item[b)] Chứng minh rằng $N$ có ít nhất $2^{2^{k-1}}$ ước.
+	\end{itemize}
+\end{bt}
+
+\begin{bt}[IMO 2003 P6]
+	Với mỗi số nguyên tố $p$, chứng minh rằng tồn tại số nguyên tố $q$ sao cho $n^{p}-q$ không chia hết cho $q$ với mọi $n$.
+\end{bt}
+
+\begin{bt}[The Online Math Open Winter Contest 2013]
+	Cho số phức $\omega$ thỏa mãn $\omega^{2013}=1$ và $\omega^{m}\ne 1$ với $m=1,2,\ldots, 2012$. Tìm số các cặp sắp thứ tự $(a,b)$ với $(1\le a, b \le 2013)$ thỏa mãn $$\dfrac{\left( 1+\omega+\cdots+\omega^{a} \right)\left( 1+\omega+\cdots+\omega^{b} \right)}{3}$$ là nghiệm của một đa thức monic hệ số nguyên.
+\end{bt}
+
+\subsection{Kết luận}
+\subsubsection{Những vấn đề quan trọng của đề tài}
+Trên đây, tác giả đã trình bày các nội dung sau đây về đa thức chia đường tròn:
+\begin{itemize}
+	\item[-] Trình bày bài toán dẫn đến khái niệm đa thức chia đường tròn, định nghĩa đa thức chia đường tròn và chứng minh một số kết quả quan trọng về tính chất của đa thức chia đường tròn.
+	\item[-] Trình bày một số ứng dụng của đa thức chia đường tròn. Sử dụng đa thức chia đường tròn để chứng minh một dạng đặc biệt của định lí Dirichlet và một số bài toán thi học sinh giỏi.
+	\item[-] Tổng hợp một số bài toán áp dụng đa thức chia đường tròn trong các kì thi khu vực và quốc tế.
+\end{itemize}
+Tuy nhiên, kiến thức là vô hạn nên những gì được trình bày trong tài liệu chỉ là phần nhỏ và cần bổ sung thêm nhiều. Rất mong nhận được các ý kiến đóng góp của các chuyên gia, các thầy cô đồng nghiệp để chuyên đề được sâu sắc và hoàn thiện hơn nữa.
+\subsubsection{Những đề xuất kiến nghị}
+Đa thức chia đường tròn không phải là một mảng kiến thức quá quan trọng trong việc bồi dưỡng học sinh giỏi THPT. Tuy nhiên, cũng giống như bất đẳng thức có phương pháp dồn biến mạnh, phương pháp SOS có thể giải quyết nhiều bài toán bất đẳng thức trong một số tình huống; ở đây đa thức chia đường tròn cũng vậy, nó có thể được coi như một công cụ hữu ích trong một số tình huống cụ thể. Ngoài ra, việc học thêm một kiến thức mới, một công cụ mới cũng góp phần đem lại niềm đam mê toán học cho các bạn học sinh, khi mà nếu các bạn học sinh tiếp tục theo đuổi con đường toán học, các bạn sẽ tiếp tục tìm thấy những ứng dụng rất lớn của đa thức chia đường tròn.
+
+Để giảng dạy có hiệu quả chuyên đề này, các thầy cô giáo cần trang bị cho học sinh một số kiến thức cơ bản về đa thức, số phức, cũng như số học. Vì đây là chuyên đề khó, do khuôn khổ thời gian có hạn, chính vì vậy tác giả trình bày nhiều chứng minh còn khá tắt. Khi giảng dạy, giáo viên cũng có thể cho các em rèn luyện kĩ năng đọc hiểu, tập chứng minh lại chi tiết các kết quả trong tài liệu này. Thông qua việc học các chứng minh các định lí kinh điển, các em học sinh có thể thu được nhiều bài học quý giá, có thể đem áp dụng vào chứng minh các bài tập khác.
+
+Để nâng cao chất lượng dạy và học nói chung, ngoài việc tự học của thầy và trò, cần trao đổi chuyên môn, tài liệu, chuyên đề giữa đội ngũ giáo viên các trường chuyên cũng như các chuyên gia uy tín trong cùng chuyên môn. Tích cực tham gia hay kết hợp tổ chức với các hôi toán các hội thảo chuyên đề, từ đó nắm bắt xu hướng phát triển của toán nói chung và toán thi học sinh giỏi nói riêng.
+
+
+
+
+
+
+
+
+\begin{thebibliography}{12}
+	\bibitem{1}Kiran S. Kedlaya, Bjorn Poonen, Ravi Vakil (2002),\textit{ The william lowell putnam mathematical competition 1985 - 2000}, MAA.
+	\bibitem{2}Brett Porter (2015),\textit{ Cyclotomic Polynomials}.
+	\bibitem{3}Yufei Zhao (2011) $a^n \pm 1$.
+	\bibitem{4}Pisolve (2011) \textit{ The Zsigmondy Theorem}.
+	\bibitem{5}Lawrence Sun (2013) \textit{ Lawrence Sun}.
+	\bibitem{6} Ray Li (2017) \textit{ Roots of Unity}.
+	\bibitem{7} S. H. Weintraub (2009) \textit{ Galois theory}. Springer Verlag, New York.
+	\bibitem{8} S. H. Weintraub \textit{ Several proofs of the irreducibility of the cyclotomic polynomial}.
+	\bibitem{9} Yimin  \textit{Ge Elementary   Properties of Cyclotomic Polynomials}.
+	\bibitem{10} Robbins, Neville. (2006)  \textit{ Geginning Number Theory}. 2nd ed. Sudbury, Mass.: Jones and Bartlett.
+	\bibitem{11} Pantelis A. Damianou  \textit{On Prime Values of Cyclotomic Polynomials}.
+	\bibitem{12} Amir Hossein Parvardi.  \textit{"Lifting the Exponent Lemma."}
+	\bibitem{13} Michael Slone, Kimberly Lloyd, Pedro Sanchez.  \textit{"Mobius function."}
+	\bibitem{14} Dương Quốc Việt, Lê Văn Chua (2010)  \textit{Cơ sở lí thuyết Galois}. NXB Đại Học Sư Phạm.
+	\bibitem{15} Dương Quốc Việt (2015) \textit{Đại số đại cương}. NXB Đại Học Sư Phạm.
+	\bibitem{16} Nguyễn Thị Thùy Ninh (2013)  \textit{Đa thức chia đường tròn và ứng dụng}.
+	\bibitem{17} https://artofproblemsolving.com/community
+	\bibitem{18} Một số tài liệu trên internet. 
+	
+\end{thebibliography}
+
+

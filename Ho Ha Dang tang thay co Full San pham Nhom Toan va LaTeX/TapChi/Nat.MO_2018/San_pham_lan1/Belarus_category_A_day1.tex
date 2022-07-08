@@ -1,0 +1,155 @@
+\begin{name}
+{Dương BùiĐức}
+{Đề thi Olympic Belarus năm 2018, bảng A, vòng 1}
+\end{name}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/ans-1806-Nat.MO-Belarus-A1]
+\begin{ex}%[HSG Belarus năm 2018, bảng A, vòng 1]%[Dương BùiĐức, Dự án EX-Nat.MO-18]%[0D0G3]
+	Tìm tất cả các số thực $ a $ sao cho tồn tại song ánh $ f\ :\ \mathbb{R}\longrightarrow\mathbb{R} $ thỏa mãn 
+	\[ 
+	f(f(x))=x^{2}f(x)+ax^{2}
+	\]
+	với mọi số thực $ x $.
+	\loigiai{
+Chọn $ x $ sao cho $ f(x)=-a $, ta có $ f(-a)=0 $. 
+\begin{itemize}
+	\item Thay $ x=-a $ vào biểu thức $ f(f(x))=x^{2}f(x)+ax^{2} $ ta được $ f(0)=a^{3} $.
+	\item Thay $ x=0 $ vào biểu thức $ f(f(x))=x^{2}f(x)+ax^{2} $ ta được $ f(a^{3})=0 $.
+\end{itemize} 
+Vì $ f $ là song ánh nên $ a^{3}=-a\Leftrightarrow a=0 $.\\
+Hiển nhiên, với $ a=0 $ thì hàm $ f(x)=x|x| $ thỏa mãn yêu cầu bài toán.
+}
+\end{ex}
+\begin{ex}%[HSG Belarus năm 2018, bảng A, vòng 1]%[Dương BùiĐức, Dự án EX-Nat.MO-18]%[9H0G9]
+	Cho tam giác $ ABC $ có các đường cao $ AA_{1},\ BB_{1},\ CC_{1} $. Phân giác của góc $ \widehat{AA_{1}C} $ lần lượt cắt các đoạn $ CC_{1} $ và $ CA $ tại $ E $ và $ D $ phân biệt. Phân giác của góc $ \widehat{AA_{1}B} $ lần lượt cắt các đoạn $ BB_{1} $ và $ BA $ tại $ F $ và $ G $ phân biệt. Các đường tròn ngoại tiếp các tam giác $ FA_{1}D $ và $ EA_{1}G $ cắt nhau tại $ A_{1} $ và $ X $. Chứng minh rằng $ \widehat{BXC}=90^{\circ} $.
+	\loigiai{
+\begin{center}
+\begin{tikzpicture}[line join=round, line cap=round,rotate=0]
+\tikzset{label style/.style={font=\footnotesize}}
+\pgfmathsetmacro\h{2.8}
+\pgfmathsetmacro\goc{75}
+\pgfmathsetmacro\x{4.5*\h}
+\pgfmathsetmacro\y{3*\h}
+\pgfmathsetmacro\xmin{-0.2*\x}
+\pgfmathsetmacro\xmax{1.5*\x}
+\pgfmathsetmacro\ymin{-0.1*\y}
+\pgfmathsetmacro\ymax{1.1*\y}
+\clip(\xmin-0.01,\ymin-0.01)rectangle(\xmax+0.01,\ymax+0.01);
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:\x){C}
+\tkzDefShiftPoint[A](\goc:\y){B}
+\tkzDrawAltitude(C,B)(A)\tkzGetPoint{A_{1}}
+\tkzDrawAltitude(A,B)(C)\tkzGetPoint{C_{1}}
+\tkzDrawAltitude(A,C)(B)\tkzGetPoint{B_{1}}
+\tkzDefLine[bisector](A,A_{1},C)\tkzGetPoint{ac}
+\tkzInterLL(A_{1},ac)(C,C_{1})\tkzGetPoint{E}
+\tkzInterLL(A_{1},ac)(C,A)\tkzGetPoint{D}
+\tkzDefLine[bisector](A,A_{1},B)\tkzGetPoint{ab}
+\tkzInterLL(A_{1},ab)(B,B_{1})\tkzGetPoint{F}
+\tkzInterLL(A_{1},ab)(B,A)\tkzGetPoint{G}
+\tkzInterLL(A_{1},A)(B,B_{1})\tkzGetPoint{H}
+\tkzCircumCenter(A_{1},F,D)\tkzGetPoint{fd}
+\tkzCircumCenter(A_{1},E,G)\tkzGetPoint{eg}
+\tkzInterCC(fd,A_{1})(eg,A_{1})\tkzGetFirstPoint{X}
+\tkzDrawCircle[radius](fd,A_{1})
+\tkzDrawCircle[radius](eg,A_{1})
+\tkzDrawPoints[fill=black](A,B,C,A_{1},B_{1},C_{1},E,D,F,G,X,H)
+\draw (A)--(B)--(C)--cycle;
+\draw (A_{1})--(G) (A_{1})--(X) (A_{1})--(D) (C_{1})--(X)--(B_{1});
+\tkzLabelPoints[below](A,C,B_{1},D)
+\tkzLabelPoints[above](B,A_{1})
+\tkzLabelPoints[below right](E,F,H)
+\tkzLabelPoints[left](X,G)
+\draw($(C_{1})+(-85:20pt)$)node{$C_{1}$};
+\end{tikzpicture}
+\end{center}
+Vì $ \widehat{BB_{1}C}=\widehat{CC_{1}B}=90^{\circ} $ nên $ B,\ B_{1},\ C,\ C_{1} $ cùng nằm trên đường tròn đường kính $ BC $.\hfill(1)\\
+Do $ A_{1}D,\ A_{1}G $ lần lượt là các tia phân giác trong góc $ \widehat{AA_{1}C},\ \widehat{AA_{1}B} $ nên $ \widehat{GA_{1}D}=90^{\circ} $.\\
+Ta có $ \widehat{FB_{1}D}=\widehat{FA_{1}D}=90^{\circ} $ nên $ B_{1} $ nằm trên đường tròn ngoại tiếp tam giác $ FA_{1}D $. Tương tự, $ C_{1} $ nằm trên đường tròn ngoại tiếp tam giác $ EA_{1}G $.\\
+Lại có $ \widehat{C_{1}XA_{1}}=\widehat{BGA_{1}}=135^{\circ}-\widehat{ABC} $ và $ \widehat{B_{1}XA_{1}}=\widehat{CDA_{1}}=135^{\circ}-\widehat{ACB} $ nên
+\[ 
+\widehat{C_{1}XB_{1}}=270^{\circ}-\widehat{ABC}-\widehat{ACB}=90^{\circ}+\widehat{BAC}.
+\]
+Mà $ \widehat{B_{1}BA}=90^{\circ}-\widehat{BAC} $ nên $ \widehat{B_{1}BC_{1}}+\widehat{C_{1}XB_{1}}=180^{\circ} $, do đó $ BC_{1}XB_{1} $ là tứ giác nội tiếp.\hfill(2)\\
+Từ $ (1) $ và $ (2) $ ta suy ra $ \widehat{BXC}=90^{\circ} $.
+}
+\end{ex}
+\begin{ex}%[HSG Belarus năm 2018, bảng A, vòng 1]%[Dương BùiĐức, Dự án EX-Nat.MO-18]%[9D0G4]
+	Với mọi cặp số nguyên dương $ (m,n) $ cùng có $ k $ ước nguyên dương được sắp xếp theo thứ tự tăng dần như sau $ 1=m_{1}<\cdots<m_{k}=m $, $ 1=n_{1}<\cdots<n_{k}=n $, ta định nghĩa toán tử $ \circ $ như sau
+	\[ 
+	m\circ n= m_{1}\cdot n_{1}+m_{2}\cdot n_{2}+\cdots+m_{k}\cdot n_{k}.
+	\]
+	Tìm tất cả các cặp số $ (m,n) $, $ m\geq n $ thỏa mãn $ m\circ n=497 $.
+	\loigiai{
+Từ định nghĩa toán tử $ \circ $	ta suy ra $ m\circ n\geq 1+n^{2} $, do đó $ n\leq \sqrt{496}<23 $.\\
+Chú ý rằng $ 24 $ là số nguyên dương nhỏ nhất có ít nhất $ 7 $ ước nguyên dương, do đó ta chỉ xét với $ k $ từ $ 1 $ đến $ 6 $.
+\begin{enumerate}[TH1.]
+	\item Với $ k=2 $, ta có các ước là các số nguyên tố, do đó $ m $ và $ n $ phải là các số nguyên tố.\\
+	Vì $ m\circ n=497 $ nên $ mn=496 $. Mà $ 496=2^{4}\cdot 31 $ không phải là tích của các số nguyên tố nên trường hợp này không xảy ra.
+	\item Với $ k=3 $, ta có các ước gồm bình phương của các số nguyên tố, do đó ta đặt $ m=p^{2} $ và $ n=q^{2} $ ($ p,\ q $ là các số nguyên tố).\\
+	Ta có $ m\circ n=1+pq+(pq)^{2}=497 $ nên $ pq(1+pq)=496=2^{4}\cdot 31\Rightarrow p=31 $ và $ q=2 $ (không thỏa mãn).
+	\item Với $ k=4 $, vì $ 1<m_{1}<m_{2}<m $, $ 1<n_{1}<n_{2}<n $ là các ước của $ m,\ n $ nên $ m=m_{2}\cdot m_{3} $ và $ n=n_{2}\cdot n_{3} $. Do đó
+	\[ 
+	m\circ n=1+m_{2}n_{2}+m_{3}n_{3}+(m_{2}m_{3})(n_{2}n_{3})=(1+m_{2}n_{2})(1+m_{3}n_{3}).
+	\]
+	Ta có $ 497=7\cdot 71 $ nên $ m_{2}n_{2}=6 $ và $ m_{3}n_{3}=70 $.\\
+	Vì $ m_{2}n_{2}=6 $ nên $ m_{2},\ n_{2} $ nhận các giá trị trong tập $ \{2,\ 3\} $.\\
+	Lại có $ m_{3},\ n_{3} $ là bình phương của $ m_{2},\ n_{2} $ tương ứng và $ 70=2\cdot 5\cdot 7 $ nên không có giá trị nào thỏa mãn.
+	\item Với $ k=5 $, ta chỉ có các ước là lũy thừa bậc $ 4 $ của các số nguyên tố. Vì $ m,\ n<23 $ nên ta chỉ có $ 2^{4}=16<23 $ thỏa mãn. Tuy nhiên
+	\[ 
+	2^{4}\cdot 2^{4}=341<497\text{ và }3^{4}\cdot 2^{4}=1555>497
+	\]
+	nên trường hợp này không tồn tại nghiệm.
+	\item Với $ k=6 $, ta chỉ có các số dạng $ p^{5} $ và $ pq^{2} $ (trong đó $ p $ và $ q $ là các số nguyên tố).\\
+	Với các số nguyên nhỏ hơn $ 23 $ thì chỉ có $ 12,\ 18 $ và $ 20 $ thỏa mãn. Ta xét các trường hợp
+	\begin{itemize}
+		\item Với $ n=12 $: các ước của $ 12 $ chỉ có hai số nguyên lẻ, là $ n_{1}=1 $ và $ n_{3}=3 $. Mà $ 497 $ cũng là số lẻ nên $ m_{2}=2 $ và $ m_{3}=4 $. Hơn nữa, $ m $ có dạng $ 2^{5} $ hoặc $ 4p $ (với $ p $ là số nguyên tố lớn hơn hoặc bằng $ 3 $).
+		\begin{itemize}
+			\item Nếu $ m=2^{5} $ thì $ 12\cdot 32=529>497 $ (không thỏa mãn).
+			\item Nếu $ m=4p $ thì ta có $ 17+64p=497\Rightarrow $ không có nghiệm nguyên thỏa mãn.
+		\end{itemize}
+		\item Với $ n=18 $: vì $ 18\circ m>18\cdot m+9\cdot 5+6\cdot 4+3\cdot 3+2\cdot 2+1\cdot 1 $ nên $ 18\leq m<\dfrac{414}{18}=23 $.
+		\begin{itemize}
+			\item Với $ m=18 $, thay vào ta thấy không thỏa mãn.
+			\item Với $ m=20 $, thay vào ta thấy thỏa mãn.
+		\end{itemize}
+	\item Với $ n=20 $: vì $ 20\circ m>20\cdot m+10+5+4+2+1 $ nên $ 20\leq m<\dfrac{475}{20}=23,75 $. Mà $ 20\circ 20>500 $ nên trường hợp này không cho ta nghiệm thỏa mãn bài toán.
+	\end{itemize}
+\end{enumerate}
+Vậy $ (m,n)=(20,18) $.
+}
+\end{ex}
+\begin{ex}%[HSG Belarus năm 2018, bảng A, vòng 1]%[Dương BùiĐức, Dự án EX-Nat.MO-18]%[1D0G6]
+	Một đa giác ô li $ A $ được vẽ trên mặt phẳng lưới ô li. Ta gọi một ô (đơn vị) là điểm trong $ A $ nếu $ 8 $ ô liền kề với nó cũng thuộc $ A $, những ô còn lại của $A$ mà không phải là điểm trong của $A$ được gọi là điểm biên của $ A $. Biết rằng tập tất cả các điểm biên của $ A $ thỏa mãn đồng thời hai điều kiện sau
+	\begin{enumerate}[1)]
+		\item mỗi điểm biên có đúng hai cạnh kề với hai điểm biên khác;
+		\item tập tất cả các điểm biên có thể phân chia thành các hình thang cân có diện tích bằng $ 2 $ với các đỉnh nằm ở nút của lưới (và góc ở đáy của hình thang cân bằng $ 45^{\circ} $).
+	\end{enumerate}
+Chứng minh rằng diện tích của đa thức ô li $ A $ là đồng dư $ 1 $ với mô-đun $ 4 $.
+\loigiai{
+Rõ ràng tập các điểm biên của đa thức $ A $ có thể được chia thành các hình thang, do đó ta có thể đi từ một điểm bất kỳ đến các điểm khác thông qua các cạnh của các hình thang. Ta gọi một đa thức thỏa mãn điều kiện này là \textit{đa thức tốt}. Ta sẽ đi chứng minh bằng quy nạp bài toán ``nếu diện tích của một đa thức tốt là $ S $ thỏa mãn $ S\leq 4k+1 $ (với $ k\geq 2 $) thì $ S\equiv 1\pmod{4} $''.
+\begin{itemize}
+	\item Với $ k=2 $: dễ thấy rằng đa thức ô li $ A $ có ít nhất $ 4 $ hình thang, và nếu có đúng $ 4 $ hình thang thì đa thức ô li $ A $ là một hình vuông $ 3\times 3 $.\\
+	Nếu có ít nhất $ 5 $ hình thang thì diện tích $ S\geq 2\cdot 5>2\cdot 4+1 $.
+	\item Ta giả sử bài toán đúng với $ k=n-1\geq 2 $. Ta phải chứng minh bài toán đúng với $ k=n $, tức là mọi đa thức tốt có diện tích $ S\in [4(n-1)+2,4n+1] $.\\
+	Xét một cạnh $ AB $ của một đa thức tốt mà hai cạnh kề của nó đều vuông góc với $ AB $, cạnh $ AB $ thỏa mãn điều này luôn tồn tại (giả sử là cạnh dưới cùng của đa thức).
+	\begin{itemize}
+		\item Giả sử $ AB=3 $ và đa thức ô li $ A $ không phải là hình vuông $ 3\times 3 $.\\
+		\immini{Khi đó hai hình thang cân được sắp xếp lại một cách duy nhất và có thể tạo ra được hình chữ nhật $ 3\times 4 $ từ đa thức ô li và ta nhận được một đa thức tốt. Rõ ràng với một nhát cắt, phần dư trong phép chia của $ S $ cho $ 4 $ sẽ không đổi.
+}{
+}
+		\item Giả sử đa thức tốt không có cạnh bằng $ 3 $ (nếu đa thức tốt có cạnh bằng $ 3 $ thì các cạnh của nó sẽ vuông góc với nhau), khi đó mỗi cạnh bên sẽ có ít nhất hai hình thang cân (nói cách khác cạnh của hình thang là $ 3 $).\\
+		\immini{
+	Giả sử $ AB=\ell $. Nếu hình chữ nhật $ CABD $ (như hình vẽ bên) có kích cỡ $ \ell\times 4 $ không có điểm biên chấp nhận được, khi đó ta có các điểm chung với đa thức đường $ CABD $. Khi cắt bỏ đa thức này ta sẽ nhận được đa thức tốt bằng cách di chuyển các hình thang cân tới cạnh $ AB $ bởi $ 4 $ ô (giống như trường hợp $ AB=3 $).\\
+	Giả sử hình chữ nhật $ CABD $ chứa các điểm biên khác. Tô màu các điểm của mặt phẳng bằng hai màu khác nhau (như hình vẽ bên). Khi đó các điểm biên có dạng $ 1 $ sẽ được tô màu $ 1 $ và các ô có dạng $ 2 $ sẽ có màu $ 2 $ (vì từ mỗi ô của dạng $ 1 $ ta luôn xác định được ô thuộc dạng $ 2 $).\\
+	Xét tất cả các điểm trong hình chữ nhật $ CABD $ và chọn một điểm bên dưới không có điểm chung với đa thức đường. Khi đó một vài điểm kề nhau bên trái hoặc bên phải sẽ là điểm biên vì ngược lại đường biên sẽ không phân chia thành các hình thang được (nếu điểm này được tô màu thì nó sẽ là một phần của hình thang theo chiều ngang, ngược lại điểm này sẽ không nằm thấp hơn và nếu không hình thang chứa điểm này có thể không có chiều dọc với lí do tương tự).\\
+	Có ít nhất một trong hai điểm biên kề nhau bị phân chia bởi đường chéo của hình thang. Không mất tính tổng quát, ta giả sử rằng điểm đó có dạng $ 1 $ (được đánh dấu bằng gạch chéo trên hình vẽ). Khi đó, điểm đó có màu $ 1 $ và được xác định bởi hai điểm nằm bên trên có màu $ 2 $ kề với $ AB $, nói cách khác nó không thể xác định bên trong $ CABD $ vì mọi điểm trong $ CABD $ đều có màu $ 1 $. Rõ ràng khi đó điểm này nằm bên trong hình thang, được xác định bên phải của nó.\\
+	Bây giờ ta sẽ tạo các nhát cắt (như hình vẽ), bởi vậy sẽ cắt đa thức ra làm $ 2 $
+	}{
+
+}
+	\end{itemize}
+\end{itemize}
+}
+\end{ex}
+\Closesolutionfile{ans}

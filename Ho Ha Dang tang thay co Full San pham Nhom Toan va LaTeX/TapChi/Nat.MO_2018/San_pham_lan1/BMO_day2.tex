@@ -1,0 +1,228 @@
+
+\begin{name}
+	{Thái Văn Đạt}
+	{Đề thi Olympic Vương quốc Anh năm 2018, vòng 2}
+\end{name}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/ans-1811-Nat.MO-vuongquocanh-r2]
+\begin{ex}%[HSG Vương Quốc Anh, vòng 2, năm 2018]%[Thái Văn Đạt, Dự án EX-Nat.MO-18]%[9H0K3]
+	Cho tam giác $ABC$. Gọi $M$ là trung điểm $AC$. Đường tròn tiếp xúc với $BC$ tại $B$ và đi qua $M$ cắt đường thẳng $AB$ tại điểm thứ hai là $P$. Chứng minh rằng $AB\times BP=2BM^2$.
+\loigiai{
+\textbf{Lời giải 1 (bởi Matt Coleclough, Clifton College).}\\
+Gọi $N$ là trung điểm $AB$. Khi đó $MN$ là đường trung bình của tam giác $ABC$ hay $MN\parallel BC$.\\
+Kết hợp với $CB$ là tiếp tuyến của đường tròn ngoại tiếp tam giác $BMP$ ta được $$\angle BMN=\angle MBC=\angle MPB.$$
+Suy ra $\triangle BMN\backsim\triangle BPM\ (g-g)$, do đó $\dfrac{BM}{BP}=\dfrac{BN}{BM}$ hay $BM^2=BP\times BN=\dfrac{1}{2}\times AB\times BP$.\\
+Vậy ta có điều phải chứng minh.
+\begin{center}
+	\begin{tikzpicture}[line cap = round, line join=round, scale=1]
+	\tkzInit[ymin=-1,ymax=4.2,xmin=-2.1,xmax=5]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/2/I,0/0/B,4/0/C}
+	
+	\tkzDrawCircle(I,B)
+	\tkzDefPointBy[rotation=center I angle 60](B)\tkzGetPoint{M}
+	\tkzDefPointBy[symmetry=center M](C)\tkzGetPoint{A}
+	\tkzInterLC(B,A)(I,B)\tkzGetSecondPoint{P}
+	\tkzDefMidPoint(B,A)\tkzGetPoint{N}
+	\tkzDrawLine(B,C)
+	\tkzDrawSegments(P,B A,C M,P M,N B,P B,M)
+	\tkzDrawPoints(B,C,M,N,A,P)
+	\tkzLabelPoints[below](B,C)
+	\tkzLabelPoints[left](A,N,P)
+	\tkzLabelPoints[above right](M)
+	%\tkzLabelPoints[below]()
+	\tkzMarkSegments[mark=|](A,M M,C)
+	\tkzMarkSegments[mark=||](A,N N,B)
+	\end{tikzpicture}
+\end{center}
+\textbf{Lời giải 2 (bởi người biên tập).}\\
+Gọi $D$ là điểm thỏa mãn tứ giác $ABCD$ là hình bình hành.\\
+Khi đó $M$ là trung điểm $BD$.
+\begin{center}
+	\begin{tikzpicture}[line cap = round, line join=round, scale=1]
+	\tkzInit[ymin=-1,ymax=4.2,xmin=-2.1,xmax=5]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/2/I,0/0/B,4/0/C}
+	
+	\tkzDrawCircle(I,B)
+	\tkzDefPointBy[rotation=center I angle 60](B)\tkzGetPoint{M}
+	\tkzDefPointBy[symmetry=center M](C)\tkzGetPoint{A}
+	\tkzDefPointBy[symmetry=center M](B)\tkzGetPoint{D}
+	\tkzInterLC(B,A)(I,B)\tkzGetSecondPoint{P}
+	\tkzDrawCircle[circum,dashed](P,A,M)
+	\tkzDrawLine(B,C)
+	\tkzDrawSegments(P,B A,C M,P B,P B,D A,D C,D)
+	\tkzDrawPoints(B,C,M,A,P,D)
+	\tkzLabelPoints[below](B,C)
+	\tkzLabelPoints[left](A,P)
+	\tkzLabelPoints[above=2mm](M,D)
+	%\tkzLabelPoints[below]()
+	\tkzMarkSegments[mark=|](A,M M,C)
+	\end{tikzpicture}
+\end{center}
+Ta chứng minh 4 điểm $A$, $P$, $M$ và $D$ cùng thuộc một đường tròn (trong trường hợp $A\equiv P$ thì chứng minh $BA$ là tiếp tuyến của đường tròn đi qua 3 điểm $A$, $M$ và $D$). Trước tiên ta chứng minh với trường hợp $A$ nằm giữa $P$ và $B$.\\
+Do $AD\parallel BC$ nên $\angle MDA=\angle MBC$ và do $CB$ là tiếp tuyến của đường tròn ngoại tiếp tam giác $BPM$ nên $\angle MBC=\angle MPA$. Suy ra $\angle MDA=\angle MPA$ hay $AMDP$ là tứ giác nội tiếp.\\
+Với trường hợp $P$ nằm giữa $A$ và $B$ thì bằng lập luận tương tự ta được $\angle MDA + \angle MPA=180^\circ$ hay 4 điểm $A$, $P$, $M$ và $D$ cùng thuộc một đường tròn. Còn khi $A\equiv P$ thì $\angle MDA=\angle MAB$, do đó $BA$ là tiếp tuyến của đường tròn đi qua 3 điểm $A$, $M$ và $D$.\\
+Sử dụng định lý hai dây $AP$ và $MD$ cắt nhau tại $B$ (tính chất về phương tích) ta được $$AB\times BP= BM\times BD=2BM^2\ \text{(đpcm).}$$
+\textbf{Lời giải 3 bởi Robert Hillier}\\ 
+Gọi $Q$ là giao điểm thứ hai của đường tròn $BPM$ và đường thẳng $AC$.
+\begin{center}
+	\begin{tikzpicture}[line cap = round, line join=round, scale=1]
+	\tkzInit[ymin=-1,ymax=4.2,xmin=-2.5,xmax=5]
+	\tkzClip
+	\tkzSetUpPoint[color=black,fill=white,size=6]
+	\tkzDefPoints{0/2/I,0/0/B,4/0/C}
+	
+	\tkzDrawCircle(I,B)
+	\tkzDefPointBy[rotation=center I angle 60](B)\tkzGetPoint{M}
+	\tkzDefPointBy[symmetry=center M](C)\tkzGetPoint{A}
+	\tkzInterLC(B,A)(I,B)\tkzGetSecondPoint{P}
+	\tkzInterLC(C,A)(I,B)\tkzGetSecondPoint{Q}
+	\tkzDrawLine(B,C)
+	\tkzDrawSegments(P,B A,C M,P B,P B,M A,Q)
+	\tkzDrawPoints(B,C,M,A,P)
+	\tkzLabelPoints[below](B,C)
+	\tkzLabelPoints[left](Q,P)
+	\tkzLabelPoints[above=2mm](M)
+	\tkzLabelPoints[below left](A)
+	\tkzMarkSegments[mark=|](A,M M,C)
+	\end{tikzpicture}
+\end{center}
+Theo tính chất về phương tích và tính chất về tiếp tuyến ta được $AP\times AB=AQ\times AM$ và $CB^2=CM\times CQ$. Lại có $M$ là trung điểm $BC$ nên $AM=MC=\frac{1}{2}AC$ và theo định lí Apollonius thì $AB^2+AC^2=2AM^2+2BM^2$. Khi đó: 
+	{\allowdisplaybreaks
+	\begin{align*}
+		AB\times PB &= AB\times (AB+AP)=AB^2+AB\times AP\\
+		&= AB^2+AQ\times AM = AB^2+(QC-AC)\times AM\\
+		&= AB^2+QC\times AM-AC\times AM\\
+		&= AB^2+QC\times MC-2AM^2=AB^2+BC^2-2AM^2\\
+		&= 2BM^2.
+	\end{align*}}
+Vậy ta có điều phải chứng minh.
+}
+\end{ex}  
+  
+\begin{ex}%[HSG Vương Quốc Anh, vòng 2, năm 2018]%[Thái Văn Đạt, Dự án EX-Nat.MO-18]%[1D0G6]
+	Xung quanh một bàn tròn có $n$ vị trí để ngồi uống trà và mỗi vị trí có một chiếc bánh nhỏ đặt trên một cái đĩa. Alice tới đầu tiên, ngồi xuống chiếc bàn và ăn chiếc bánh trước mặt cô ấy. Tiếp đó Mad Hatter tới, anh ta nói với Alice rằng Alice sẽ có một tiệc trà cô đơn và phải liên liên tục thay đổi chỗ ngồi của mình, trong mỗi lần đổi chỗ cô ấy phải ăn cái bánh trước mặt mình (nếu nó chưa được ăn). Mad Hatter là một người rất hách dịch và anh ta nói với Alice rằng khi cô ấy di chuyển lần thứ $i$ với $i=1,2,\cdot,n-1$ thì cô ấy phải di chuyển $a_i$ vị trí theo danh sách $a_1$, $a_2$, $\cdots$, $a_{n-1}$ do anh ta đưa cho cô. Alice không thích những chiếc bánh và cô ấy tự do trong việc chọn di chuyển cùng chiều hay ngược chiều kim đồng hồ trong mỗi lần di chuyển của mình. Với những giá trị nào của $n$ thì Mad Hatter có thể thành công buộc Alice ăn hết những chiếc bánh?\\
+{\bf Chú thích:} Alice và Thợ Mũ Điên (Mad Hatter) là hai nhân vật nổi tiếng trong truyện cổ tích {\it Alice ở xứ sở thần tiên}, một trong những truyện cổ tích gối đầu giường của thiếu nhi Anh quốc và nhiều nước trên thế giới. Tình huống tiệc trà cô đơn trong bài toán nói trên cũng được dựng lại từ một tiệc trà có thật trong truyện.
+\loigiai{
+\textbf{Lời giải (của Sam Bealing).}\\
+Đầu tiên, ta chứng minh khẳng định $(1)$: Mad Hatter có thể thành công khi $n$ là một lũy thừa của 2.\\
+Trường hợp $n=1$ là tầm thường và $n=2$ được giải quyết với $a_1=1$. Giả sử $(1)$ đúng khi $n=2^k$ với dãy $a_1,a_2,\cdots,a_{2^k-1}$. Khi $n=2^{k+1}$, ta sử dụng dãy $$2a_1,2a_2,\cdots,2a_{2^k-1},1,2a_1,2a_2,\cdots,2a_{2^k-1}.$$
+Điều kiện để Mad Hatter thành công là Alice khi di chuyển không được quay lại một chỗ đã ngồi trước đó. Điều này tương đương với không tồn tại hai số nguyên $0\le i\le j\le n$ và dãy các dấu cộng hoặc trừ sao cho $$\pm a_i\pm a_{i+1}\pm \cdots \pm a_j\equiv 0\ (\mod n),$$
+vì khi đó thì Alice sẽ quay lại một chỗ ngồi đã qua trước đó.
+Giả sử phản chứng tồn tại hai số nguyên và dãy dấu cộng trừ như thế trong trường hợp $n=2^{k+1}$. \\
+Số 1 không thể xuất hiện trong dãy $a_i$ đến $a_j$ vì nếu số 1 xuất hiện thì tổng thu được sẽ lẻ và chắc chắn không chia hết cho $2^{k+1}$. Do đó ta có 
+	\begin{align*}
+		&\pm 2a_i\pm 2a_{i+1}\pm \cdots \pm 2a_j\equiv 0\ (\mod 2^{k+1})\\
+		\Leftrightarrow &\pm a_i\pm a_{i+1}\pm \cdots \pm a_j\equiv 0\ (\mod 2^k).
+	\end{align*}
+Điều này là vô lí do giả thiết quy nạp hay khẳng định $(1)$ đúng theo nguyên lí quy nạp.\\
+Tiếp theo, ta chứng minh chỉ duy nhất với $n$ là lũy thừa của 2 thì Mad Hatter có thể thành công.\\
+Đặt $s_1=a_1$, $s_2=a_1+a_2$, $\cdots$, $s_{n-1}=a_1+a-2+\cdots+a_{n-1}$.\\
+Nếu tồn tại $i$ để $s_i\equiv 0\ (\mod n)$, Alice chỉ việc di chuyển cùng chiều kim đồng hồ liên tục đến lần thứ $i$ thì cô ấy sẽ quay về chỗ ngồi ban đầu hay Mad Hatter thất bại.\\
+Tương tự nếu $s_i\equiv s_j\ (\mod n)$ với $j>i$, Alice chỉ việc di chuyển cùng chiều kim đồng hồ liên tục đến lần thứ $j$ thì cô ấy sẽ quay về chỗ ngồi ở bước thứ $i$ hay Mad Hatter cũng thất bại.\\
+Do đó để Mad Hatter thành công thì các giá trị của $s_1$, $s_2$, $\cdots$, $s_{n-1}$ phải lập thành một hệ thặng dư thu gọn (không chứa số 0) modulo $n$.\\
+Giả sử $p$ là một ước nguyên tố lẻ của $n$, nó tồn tại trong trường hợp $n$ không là lũy thừa của 2. Bây giờ ta quy ước làm việc với modulo $p$, ta thấy các giá trị $s_1$, $s_2$, $\cdots$, $s_{n-1}$ chứa đúng $\dfrac{n}{p}$ hệ thặng dư thu gọn và $\dfrac{n}{p}-1$ hệ thặng dư đầy đủ (chứa cả số 0).\\
+Do đó với mỗi $s_1$, $s_2$, $\cdots$, $s_{n-2}$ xác định thì chỉ có duy nhất một giá trị số dư modulo $p$ cho $s_{n-1}$. Do việc Alice đi $a_i$ bước theo chiều kim đồng hồ tương đương với đi $n-a_i$ bước theo chiều ngược kim đồng hồ và ngược lại, nên để Mad Hatter thành công thì việc thay $a_{n-1}$ và $n-a_{n-1}$ đều phải cho kết quả như nhau hay việc thay thế này phải đảm bảo cho cùng một giá trị số dư đối với $s_{n-1}$. Khi đó ta thu được $$s_{n-2}+a_{n-1}\equiv s_{n-2}-a_{n-1}\ (\mod p),$$
+kéo theo $2a_{n-1}\equiv 0\ (\mod p)$ hay $a_{n-1}\equiv 0\ (\mod p)$.\\
+Từ đó ta thu được $s_{n-1}\equiv s_{n-2}\ (\mod p)$.\\
+Do đó khi $s_1$, $s_2$, $\cdots$, $s_{n-3}$ xác định thì chỉ có duy nhất một giá trị số dư modulo $p$ cho cả $s_{n-1}$ và $s_{n-2}$. Bằng cách lập luận hoàn toàn tương tự thì ta được $a_{n-2}\equiv 0\ (\mod p)$ và $s_{n-2}\equiv s_{n-3}\ (\mod p)$.\\
+Cứ tiếp tục như vậy ta có
+$$s_1\equiv s_2\equiv\cdots\equiv s_{n-1}\ (\mod p),$$
+điều này mâu thuẫn với việc dãy các giá trị $s_1$, $s_2$, $\cdots$, $s_{n-1}$ chứa một hệ thặng dư đầy đủ modulo $p$ hay $n$ không thể có ước nguyên tố lẻ nếu Mad Hatter muốn thành công.\\
+Vậy Mad Hatter thành công khi và chỉ khi $n$ là một lũy thừa của 2.  
+}
+\end{ex}
+
+%\newpage
+\begin{ex}%[HSG Vương Quốc Anh năm 2018, vòng 2]%[Thái Văn Đạt, Dự án EX-Nat.MO-18]%[0D0G5]
+	Chúng ta đã biết rằng với mỗi số nguyên dương $n$ thì $$1^3+2^3+\cdots+n^3=\dfrac{n^2(n+1)^2}{4}$$
+	và do đó, nó là một số chính phương. Hãy xác định xem tồn tại hay không một số nguyên dương $m$ sao cho $$(m+1)^3+(m+2)^3+\cdots+(2m)^3$$ là một số chính phương.
+\loigiai{
+\textbf{Lời giải 1 (của Harvey Yau, Ysgol Dyffryn Taf).}
+\\
+Ta chú ý rằng 
+	\begin{align*}
+		(m+1)^3+(m+2)^3+\cdots+(2m)^3 &= \dfrac{(2m)^2(2m+1)^2}{4}-\dfrac{m^2(m+1)^2}{4}\\
+		= \dfrac{m^2}{4}\left[(4m+2)^2-(m+1)^2\right] &= \dfrac{m^2}{4}(5m+3)(3m+1).
+	\end{align*}
+	Giả sử đây là một số chính phương, khi đó $(5m+3)(3m+1)$ phải là một số chính phương.\\
+	Ta có $\gcd (5m+3;3m+1)=\gcd (3m+1;2m+2)=\gcd (2m+2;m-1)=\gcd (m-1;4)$ hay $\gcd(5m+3;2m+1)\in\{1;2;4\}$.\\
+	Do đó $5m+3$ và $3m+1$ hoặc cùng là số chính phương (khi $\gcd(5m+3;3m+1)$ là 1 hoặc 4) hoặc cùng có dạng $2k^2$ với số nguyên dương $k$ (khi $\gcd(5m+3;3m+1)$ là 2).\\
+	Lại có một số chính phương chia 5 dư 0; 1 hoặc 4 nên $5m+3$ không thể là số chính phương. Mặt khác số chính phương $k^2$ chia 3 dư 0 hoặc 1 thì $2k^2$ chia 3 dư 0 hoặc 2 nên $3m+1$ không thể có dạng $2k^2$.\\
+	Vậy không thể xảy ra trường hợp $(5m+3)(3m+1)$ là một số chính phương, hay không tồn tại $m$ thỏa mãn.\\
+\textbf{Lời giải 2 (của Connie Bambridge-Sutton, Reigate Grammar School).}\\
+\\
+	Lập luận tương tự lời giải 1 thì ta mong muốn tồn tại số nguyên dương $n$ để
+	$$(5m+3)(3m+1)=n^2\Leftrightarrow 15n^2=(15m+7)^2-4,$$
+	do đó $c^2-15d^2=4$ với $c=15m+7$ và $d=n$ là các số nguyên dương. \\
+	Xét đồng dư modulo 4, ta có $c^2+d^2\equiv c^2-15d^2\equiv 0\ (\mod 4)$.\\
+	Do một số chính phương chia 4 dư 0 (khi là số chẵn) hoặc 1 (khi là số lẻ) nên để tổng hai số chính phương chia hết cho 4 thì cả hai số đó phải đều chia hết cho 4 hay $c$, $d$ đều phải chẵn. Viết $c=2a$ và $d=2b$ với $a$, $b$ là các số nguyên dương ta thu được $$a^2-15b^2=1,$$
+	đây là một phương trình Pell.\\
+	Ta kiểm tra được $a=4$ và $b=1$ là nghiệm nhỏ nhất của phương trình trên hay nó là nghiệm cơ bản của phương trình Pell này. Theo định lí về phương trình Pell thì tập nghiệm của phương trình này lập thành dãy $(a_n;b_n)$ với $$\heva{&a_1=4;\ b_1=1,\\ &a_{n+1}=a_1a_n+15b_1b_n=4a_n+15b_n,\\ &b_{n+1}=b_1a_n+a_1b_n=a_n+4b_n.}$$
+	Ta có $a_{n+1}\equiv 4a_n\ (\mod 15)$ nên $a_n\equiv 4^{n-1}a_1\equiv 4^n\ (\mod 15)$.\\
+	Mà $4^2\equiv 1\ (\mod 15)$ nên $a_n$ chia 15 dư 1 hoặc 4, kéo theo $2a_n$ chia 15 dư 2 hoặc 8.\\
+	Mặt khác $2a=c=15m+7$ chia 15 dư 7 nên $(a;b)$ không thể là nghiệm của phương trình Pell ở trên. Vậy không tồn tại $m$ thỏa mãn.
+}
+\end{ex}
+
+%\newpage
+\begin{ex}%[HSG Vương Quốc Anh, vòng 2, năm 2018]%[Thái Văn Đạt, Dự án EX-Nat.MO-18]%[0D0G3]
+	Cho $f:\mathbb{R}\rightarrow \mathbb{R}$. Hàm $f$ được gọi là "hút" nếu $f(x)\le f(y)$ với mọi $x\le y$ và $f^{2018}(z)$ là số nguyên với mọi số thực $z$.
+	\begin{enumerate}
+		\item Có tồn tại một hàm hút $f$ thỏa mãn $f(x)$ là một số tự nhiên chỉ với hữu hạn các giá trị của $x$?
+		\item Có tồn tại một hàm hút $f$ và một dãy tăng các số thực $a_1<a_2<a_3<\cdots$ thỏa mãn $f(x)$ là số nguyên chỉ khi $x=a_i$ với những giá trị $i$ nào đó?  
+	\end{enumerate}
+(Ở đây, $f^2(x)=f(f(x)), f^{n+1}(x)=f(f^n(x))$.)
+\loigiai{
+\textbf{Lời giải 1 cho câu a) (của Shaun Marshall, Greenhead College).}\\
+Giả sử $f$ là một hàm hút thỏa mãn $f(x)$ là một số nguyên với hữu hạn giá trị $x$, khi đó\\
+ $S=\{x:f(x)\in\mathbb{Z}\}$ là hữu hạn.\\
+\textbf{Luận điểm 1:} Tồn tại $\alpha\in S$ thỏa mãn $f(\alpha)>\alpha$.\\
+Thật vậy, tập $S$ là khác rỗng ($f^{2017}(z)\in S$ với mọi số thực $z$) và hữu hạn nên tồn tại phần tử nhỏ nhất và ta gọi phần tử đó là $\alpha$. Với mỗi $x<\alpha$: $x\notin S$ nên $f(x)\ne f(\alpha)$, do đó $f(x)<f(\alpha)$.\\
+Giả sử $f(\alpha)\le\alpha$. Khi đó với mỗi $x<\alpha$: $f(x)<f(\alpha)\le\alpha$, lặp lại quá trình này ta được $f^{2017}(x)<\alpha$. Nhưng $f(f^{2017}(x))=f^{2018}(x)$ là số nguyên nên $f^{2017}(x)\in S$ hay ta có điều vô lí.\\
+Vậy $f(\alpha)>\alpha$ hay ta tìm được $\alpha\in S$ để $f(\alpha)>\alpha$.\\
+\textbf{Luận điểm 2:} Nếu $\alpha\in S$  thỏa mãn $f(\alpha)>\alpha$ thì tồn tại $\beta\in S$ thỏa mãn $\beta>\alpha$ và $f(\beta)>\beta$.\\
+Thật vậy, đặt $S'=\{x>\alpha: x\in S\}$ thì đây là một tập hữu hạn.\\
+Do $f(\alpha)>\alpha$ nên $f^2(\alpha)\ge f(\alpha)>\alpha$, lặp lại quá trình đó ta được $f^{2017}(\alpha)>\alpha$.\\
+Mà $f(f^{2017}(\alpha))=f^{2018}(\alpha)$ là số nguyên nên $f^{2017}(\alpha)$, do đó $S'$ khác rỗng. Gọi $\beta$ là phần tử nhỏ nhất của $S'$.\\
+Từ định nghĩa thì $\beta\in S$ và $\beta > \alpha$. Với mỗi $\alpha < x < \beta$: $x\in S'$ nên $f(x)\ne f(\beta)$, do đó $f(x)<f(\beta)$.\\
+Giả sử $f(\beta)\le\beta$. Khi đó với mỗi $\alpha < x < \beta$: $\alpha<f(\alpha)\le f(x)<f(\beta)\le\beta$, lặp lại quá trình này ta được $\alpha<f^{2017}(x)<\beta$. Nhưng $f(f^{2017}(x))=f^{2018}(x)$ là số nguyên nên $f^{2017}(x)\in S'$ hay ta có điều vô lí.\\
+Vậy $f(\beta)>\beta$ hay ta tìm được $\beta\in S$ để $\beta>\alpha$ và $f(\beta)>\beta$.\\     
+Tiếp tục áp dụng luận điểm 2 ta được $\alpha_0<\alpha_1<\alpha_2<\cdots$ thỏa mãn $\alpha_i\in S$ và $f(\alpha_i)>\alpha_i$ với mỗi $i$. Do đó mâu thuẫn với giả thiết $S$ hữu hạn hay không tồn tại hàm $f$ thỏa mãn.\\
+\textbf{Lời giải 2 cho phần a) (của Ke (Michael) Li, Hereford Cathedral School).}\\
+Ta sắp xếp các giá trị $x$ để $f(x)$ nhận giá trị nguyên thành $x_1<x_2<\cdots<x_{n-1}<x_n$.\\
+Đầu tiên ta chứng minh $f(x_1)>x_1$. Với mọi $r<x_1$: $f(r)$ không là số nguyên nên $f(r)\ne f(x_1)$ và do đó $f(r)<f(x_1)$. Nếu $f(x_1)\le x_1$ thì $f(r)<x_1$. Lặp lại quá trình trên ta được $f^{2017}(r)<x_1$ nên $f^{2018}(r)$ không là số nguyên, điều này là mâu thuẫn với giả thiết nên ta có $f(x_1)>x_1$.\\
+Tiếp theo ta chứng minh $f(x_2)>x_2$. Với mọi $x_1<r<x_2$: $f(r)$ không là số nguyên nên $f(x_1)<f(r)<f(x_2)$. Nếu $f(x_2)\le x_2$ thì $x_1<f(r)<x_2$. Lặp lại quá trình trên ta được $x_1<f^{2017}(r)<x_2$ nên $f^{2018}(r)$ không là số nguyên, điều này là mâu thuẫn với giả thiết nên ta có $f(x_2)>x_2$.\\
+Tiếp tục lập luận như trên ta được $f(x_3)>x_3$, $f(x_4)>x_4$, $\cdots$, $f(x_n)>x_n$.\\
+Với mọi $r>x_n$: $f(r)$ không là số nguyên nên $f(r)\ne f(x_n)$ và do đó $f(r)>f(x_n)>x_n$. Lặp lại quá trình trên ta được $f^{2017}(r)>x_n$ nên $f^{2018}(r)$ không là số nguyên, điều này là mâu thuẫn với giả thiết nên ta có không tồn tại hàm số thỏa mãn bài toán.\\
+\textbf{Lời giải 3 cho phần a) (của Harvey Yau, Ysgol Dyffryn Taf).}\\
+Giả sử tồn tại hàm $f$ thỏa mãn. Gọi $T_k$ là ảnh của hàm $f^k$ thì $T_0=\mathbb{R}$ và $T_{2018}$ chỉ chứa các số nguyên. Hơn nữa $f^k(x)=f^{k-1}(f(x))$ nên $T_0\supset T_1\supset T_2\supset\cdots$.\\
+Do chỉ có hữu hạn giá trị $x$ để $f(x)$ nhận giá trị nguyên nên $T_{2018}$ cũng phải hữu hạn.\\
+Ta chứng minh bằng quy nạp khẳng định: $T_k=T_{2018}$ với mọi $0\le k\le 2018$. Hiển nhiên điều này xảy ra với $k=2018$.\\
+Giả sử $T_k=T_{2018}$, khi đó $T_k$ là hữu hạn và chỉ chứa các số nguyên.\\
+Chú ý rằng nếu $x\in T_{k-1}$ thì $x$ nằm trong tập ảnh của hàm $f^{k-1}$ nên $f(x)$ nằm trong tập ảnh của hàm $f^k$ hay $f(x)\in T_k$. Khi đó ta có thể coi $f$ là một hàm từ $T_{k-1}$ vào $T_k$. Ta chứng minh rằng $f:T_{k-1}\rightarrow T_k$ là đơn ánh.\\
+Nếu $|T_{k-1}|<2$ thì khẳng định hiển nhiên đúng. Ngược lại, chọn $x,y\in T_{k-1}$ với $x<y$ và giả sử $f(x)=f(y)$. Khi đó với mọi $z$ thỏa mãn $x\le z\le y$ thì $$f(x)\le f(z)\le f(y)=f(x),$$
+do đó $f(z)=f(x)$. \\
+Mà $x\in T_{k-1}$ nên $f(x)\in T_k$ hay $f(z)$ là một số nguyên. Điều này không thể xảy ra vì có vô hạn giá trị của $z$ với $x\le z\le y$.\\
+Suy ra $f(x)\ne f(y)$ nên $f:T_{k-1}\rightarrow T_k$ là đơn ánh và do đó $|T_{k-1}|\le|T_k|$.\\
+Mà $T_{k-1}\supset T_k$ và $T_k$ hữu hạn nên $T_{k-1}=T_k=T_{2018}$.\\
+Vậy khẳng định được chứng minh.\\
+Nhưng như vậy thì $\mathbb{R}=T_0=T_{2018}$ là hữu hạn, điều này là vô lí hay không tồn tại hàm $f$ thỏa mãn.\\
+\textbf{Lời giải phần b) (của Thien Udomsrirungruang, Shrewsbury International School).}\\
+Tồn tại hàm số thỏa mãn khẳng định của bài toán, chẳng hạn như hàm số
+ $$f(x)=
+ 	\begin{cases}
+	 	0.5 & \text{nếu}\ x<0,\\
+	 	2x+1 & \text{nếu}\ 2x\in\mathbb{Z}_{\ge 0},\\
+	 	\lfloor 2x \rfloor + \frac{3}{2} & \text{trong các trường hợp còn lại}.
+	 \end{cases}$$
+Hiển nhiên $f(x)\le f(y)$ với mọi $x\le y$.\\
+Với mọi $z$ thì ta luôn có $2f(z)\in \mathbb{Z}_{\ge 0}$ nên $f^2(z)=2f(z)+1$ là một số nguyên dương. Lại có $f(n)$ là số nguyên dương với mọi số nguyên dương $n$ nên $f^{2018}(z)=f^{2016}(f^(z))$ là số nguyên dương với mọi số thực $z$. Vậy $f$ là hàm hút.\\
+Cuối cùng $f(x)$ nhận giá trị nguyên chỉ khi $x=0;\frac{1}{2};1;\frac{3}{2};\ldots$ nên hàm $f$ thỏa mãn bài toán.    
+}
+\end{ex}
+
+\Closesolutionfile{ans}

@@ -1,0 +1,264 @@
+
+\begin{name}
+{Nguyễn Quang Tân, GV phản biện: \ldots}
+{Đề thi Olympic Czech và Slovak năm 2018, vòng 2 (chung kết)}% Ví dụ: Đề thi HSG Vương quốc Anh, vòng 1, năm 2018
+\end{name}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/ans-1816-Nat.MO-Czech-slovak-final]
+
+\begin{ex} %[HSG Czech và Slovak năm 2018, vòng 2 (chung kết)]%[Nguyễn Quang Tân, Dự án EX-Nat.MO-18]%[9D0G4]
+	Xét ba số nguyên dương $a, b, c$ là độ dài ba cạnh của một tam giác không suy biến, thỏa mãn điều kiện  $\gcd(a, b, c) = 1$ và những phân số dưới đây
+	$$ \dfrac{a^2 + b^2 - c^2}{a+b-c},\quad \dfrac{b^2 + c^2 - a^2}{b+c-a},\quad \dfrac{c^2 + a^2 - b^2}{c+a-b}  $$
+	là các số nguyên. Chứng minh rằng tích những mẫu số của ba phân số trên là bình phương của một số nguyên  hoặc là hai lần bình của một số nguyên.
+	\begin{flushright}
+		(Jaromír Šimša)
+	\end{flushright}
+	\loigiai{ Đặt $z = a + b - c$, $x = b + c - a$, $y = c + a - b$ là các mẫu nguyên dương.\\
+	Thì
+		$a = \dfrac{y + z}{2}$, $b = \dfrac{x + z}{2}$, $c = \dfrac{x + y}{2}$.\\
+		Và 
+		$ a^2 + b^2 + c^2 = \dfrac{1}{4} \left( (y+z)^2 + (x+z)^2 - (x+y)^2 \right) = \dfrac{1}{2} \left( z \left( z + x + y  \right) - xy \right),$
+	do đó $z\mid xy$. Cũng như vậy $x\mid yz$ và $y\mid zx$.
+		
+		Với một số nguyên tố $p$ tùy ý, ta đặt $i_p$ là số mũ lớn nhất thỏa mãn $p^{i_p}\mid xyz $.. Yêu cầu của đề bài được chứng minh nếu chúng ta chỉ ra rằng với mọi số nguyên tố $p$ lẻ thì  $i_p$ tương ứng là chẵn. Nếu $i_2$ là chẵn khi đó $xyz$ là  chính phương. Trái lại, nó là hai lần bình phương.
+		
+		Cố định số nguyên tố $p$ lẻ và xét những số mũ lớn nhất $\alpha, \beta, \gamma$ thỏa mãn 
+		$p^{\alpha}\mid x$, $p^{\beta}\mid y$, $p^{\gamma}\mid z$.
+		Không mất tính tổng quát, giả sử rằng 
+		$\min\{\alpha,\beta,\gamma\}=\gamma.$
+		Nếu $\gamma > 0$ thì $p$ chia hết  mỗi số $x, y, z$ và nó chia hết  mỗi số  $a, b, c$ ($p$ là số lẻ). Điều này mâu thuẫn với giả thiết  $\gcd (a, b, c) = 1$. Do đó $\gamma = 0$.
+		
+		Từ $x \mid yz$, ta có $\alpha \le \beta$. Tương tự, từ $ y \mid xz$ ta có $\beta \le \alpha$. Do đó $\beta = \alpha$ và $i_p = \alpha + \beta + \gamma = 2 \alpha$ là một số chẵn.
+	}
+\end{ex}
+
+
+\begin{ex} %[HSG Czech và Slovak năm 2018, vòng 2 (chung kết)]%[Nguyễn Quang Tân, Dự án EX-Nat.MO-18]%[9H0G2]
+	Cho hình thang cân $ABCD$ với đáy lớn $AB$. Cho $I$ là tâm   nội tiếp của tam giác $ABC$ và $J$ là tâm  bàng tiếp tại tương ứng với đỉnh $C$ của tam giác $ACD$. Chứng minh $IJ$ và $AB$ song song. 
+	\begin{flushright}
+		(Patrik Bak)
+	\end{flushright}
+	\loigiai{
+	
+		Gọi $K$ là tâm  nội tiếp của tam giác $ABD$. Vì $IK \parallel BD $ nên chỉ cần chứng minh $IK  \parallel AB $. Đặt $\widehat{ ABD} = \widehat{ ACD} = \phi$.  Khi đó, ta được  $\widehat{ AKD} = 90^{\circ} + \dfrac{1}{2} \phi$, $\widehat{ DJA} = 90^{\circ} - \dfrac{1}{2} \phi, $ điều này suy ra  $AKDJ$ là tứ giác nội tiếp.
+		\begin{center}
+				\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+		\tkzInit[xmin=-6,xmax=6,ymin=-1.5,ymax=6]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\tkzClip
+		\tkzDefPoints{0/0/A,5/0/B, 1.5/5/D, 3.5/5/C}
+		
+		\tkzDrawCircle[circum](A,B,C)
+		\tkzDefCircle[in](A,B,C)     \tkzGetPoint{I} %tâm đường tròn
+		\tkzDefCircle[in](A,B,D)     \tkzGetPoint{K}
+		%tâm đường tròn
+		
+		\tkzDefLine[bisector out](A,D,C)    \tkzGetPoint{N}
+		\tkzDefLine[bisector out](D,A,C)    \tkzGetPoint{M}
+		\tkzInterLL(D,N)(A,M)    \tkzGetPoint{J}
+		
+		\tkzDrawPoints(A,B,C,D,I,J,K)
+		\tkzLabelPoints[above](D,C)
+		\tkzLabelPoints[below](A,B,I,J,K)
+		\tkzDrawSegments(A,B B,C C,D D,A I,K A,C B,D)
+		\tkzDrawSegments[dashed](A,J J,D D,K D,A K,A J,K)
+		\tkzMarkAngles[size=0.7cm,arc=l](D,C,A D,B,A)
+		\tkzLabelAngles[pos=0.5](D,B,A){$\phi$}
+		\tkzLabelAngles[pos=-0.5](D,C,A){$\phi$}
+		\tkzMarkAngles[size=0.5cm,arc=ll](B,A,K K,A,D J,K,A J,D,A)
+		\end{tikzpicture}
+		\end{center}
+		
+		Vì $AK, DJ$ là đường phân giác của hai góc so le trong nên chúng song song với nhau. Điều này kết hợp với kết quả $AKDJ$ là tứ giác nội tiếp, ta được $\widehat{ AKJ} = \widehat{ ADJ} = \widehat{ DAK} = \widehat{ KAB}.$
+	}
+\end{ex}
+
+\begin{ex} %[HSG Czech và Slovak năm 2018, vòng 2 (chung kết)]%[Nguyễn Quang Tân, Dự án EX-Nat.MO-18]%[9D0G8]
+	Tìm số nguyên dương $n$ nhỏ nhất thỏa mãn rằng với mọi cách tô màu tùy ý của những số $1,2,...,n$ bởi ba màu, tồn tại hai số có màu giống nhau mà  sai khác giữa chúng bằng bình phương của một số nguyên.
+	\begin{flushright}
+		Vojtech Bálint, Michal Rolinek, Josef Tkadlec
+	\end{flushright}
+	\loigiai{ 
+		Đáp số $n=29.$
+		
+		Đầu tiên, ta sẽ dùng phương pháp phủ định. Giả sử rằng những số $1,2...,29$ có thể được tô bởi các màu $A,B,C$ thỏa mãn điều kiện không có hai số nào có màu giống nhau mà sai khác giữa chúng là chính phương. Đặt $f(i)$ là màu của số $i$ với $i\in\{1,2...,29\}.$
+		
+		Vì $9, 16$ và $25$ là những bình phương, những số $1, 10$ và $26$ được tô bởi những màu khác nhau. Cũng như vậy với các số $1, 17, 26$, do đó $10$ và $27$ được tô bởi những màu giống nhau. Tương tự, chúng ta được 
+		$f(11)=f(18), \quad f(12)=f(19), \quad f(13)=f(20)$
+		(với đẳng thức cuối cùng, ta nhìn những số $4, 13, 20, 29$).
+		
+		Không mất tính tổng quát, giả sử $f(10)=f(17)=A.$ Vì $11=10+1^2,$ ta có $f(11)\neq f(10).$ Không mất tính tổng quát, giả sử $f(11)=f(18)=B.$ Vì $19=18+1^2=10+3^2$ nên $f(12)=f(19)=C.$ Tương tự, $20=19+1^2=11+3^2$ nên $f(13)=f(20)=A$. Ta suy ra $f(13)=f(17)=A$. Điều này là mâu thuẫn. 
+		
+		Mặt khác, nếu $n\le 28,$ ta có thể tô màu các số như ở hình vẽ dưới đây. Dễ ràng kiếm tra rằng, không có hai số nguyên nào có màu giống nhau mà sai khác giữa chúng là bình phương của một số nguyên. 
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1, line join = round, line cap = round]
+		\tkzInit[xmin=-6,xmax=6,ymin=-6,ymax=6]
+		\tikzset{label style/.style={font=\footnotesize}}
+		\newdimen\R
+		\R=1.5cm
+		\newdimen\r
+		\r=.2cm
+		% dong 1
+		\begin{scope}
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$25$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$A$};
+		\end{scope}
+		\begin{scope}[xshift=\R]
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$26$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$C$};
+		\end{scope}
+		\begin{scope}[xshift=2\R] %27
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$27$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$A$};
+		\end{scope}
+		\begin{scope}[xshift=3\R] %28
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$28$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$B$};
+		\end{scope}
+		% dong 2
+		\begin{scope}[yshift=\R]
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$20$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$A$};
+		\end{scope}
+		\begin{scope}[xshift=\R,yshift=\R]
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$21$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$B$};
+		\end{scope}
+		\begin{scope}[xshift=2\R,yshift=\R] %27
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$22$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$A$};
+		\end{scope}
+		\begin{scope}[xshift=3\R,yshift=\R] %28
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$23$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$B$};
+		\end{scope}
+		\begin{scope}[xshift=4\R,yshift=\R] %28
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$24$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$C$};
+		\end{scope}
+		
+		% dong 3
+		\begin{scope}[yshift=2\R]
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$15$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$A$};
+		\end{scope}
+		\begin{scope}[xshift=\R,yshift=2\R]
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$16$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$B$};
+		\end{scope}
+		\begin{scope}[xshift=2\R,yshift=2\R] %27
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$17$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$A$};
+		\end{scope}
+		\begin{scope}[xshift=3\R,yshift=2\R] %28
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$18$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$B$};
+		\end{scope}
+		\begin{scope}[xshift=4\R,yshift=2\R] %28
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$19$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$C$};
+		\end{scope}
+		
+		% dong 4
+		\begin{scope}[yshift=3\R]
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$10$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$A$};
+		\end{scope}
+		\begin{scope}[xshift=\R,yshift=3\R]
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$11$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$B$};
+		\end{scope}
+		\begin{scope}[xshift=2\R,yshift=3\R] %27
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$12$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$C$};
+		\end{scope}
+		\begin{scope}[xshift=3\R,yshift=3\R] %28
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$13$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$B$};
+		\end{scope}
+		\begin{scope}[xshift=4\R,yshift=3\R] %28
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$14$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$C$};
+		\end{scope}
+		
+		% dong 5
+		\begin{scope}[yshift=4\R]
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$5$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$A$};
+		\end{scope}
+		\begin{scope}[xshift=\R,yshift=4\R]
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$6$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$B$};
+		\end{scope}
+		\begin{scope}[xshift=2\R,yshift=4\R] %27
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$7$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$C$};
+		\end{scope}
+		\begin{scope}[xshift=3\R,yshift=4\R] %28
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$8$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$B$};
+		\end{scope}
+		\begin{scope}[xshift=4\R,yshift=4\R] %28
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$9$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$C$};
+		\end{scope}
+		
+		% dong 6
+		
+		\begin{scope}[xshift=\R,yshift=5\R]
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$1$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$B$};
+		\end{scope}
+		\begin{scope}[xshift=2\R,yshift=5\R] %27
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$2$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$C$};
+		\end{scope}
+		\begin{scope}[xshift=3\R,yshift=5\R] %28
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$3$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$A$};
+		\end{scope}
+		\begin{scope}[xshift=4\R,yshift=5\R] %28
+		\draw (0,0)--(\R,0)--(\R,\R)--(0,\R)--(0,0) ;
+		\node[scale=1.1] at (0.2\R,0.75\R) {$4$};
+		\node[scale=2.3] at (0.6\R,0.3\R) {$C$};
+		\end{scope}
+		%\node[scale=1.5] at (-.5,.5) {$1$};
+		%\node[draw,scale=3] at (0:0) {$B$};
+		
+		\end{tikzpicture}
+		\end{center}
+	}
+	
+	
+	
+\end{ex}
+
+
+\Closesolutionfile{ans}

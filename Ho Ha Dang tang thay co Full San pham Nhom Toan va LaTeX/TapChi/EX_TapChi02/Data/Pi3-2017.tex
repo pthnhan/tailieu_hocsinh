@@ -1,0 +1,638 @@
+
+\section{Tạp chí Pi, số 3,  tháng 3 năm 2017}
+\Opensolutionfile{ans}[ans/Pi3-2017]
+\begin{bt}[P31, Tạp chí Pi, tháng 3 năm 2017]%[Cao Thành Thái, Dự án EX_TapChi02]%[9H0G6]
+	Cho tam giác nhọn, không cân $ABC$ nội tiếp đường tròn $(O)$. $P$ là một điểm nằm trong tam giác sao cho $\widehat{PAB}=\widehat{PAC}$. Gọi $K$ là tâm đường tròn ngoại tiếp tam giác $PBC$. $PK$ cắt trung trực của đoạn thẳng $AP$ tại $L$. Đường thẳng qua $A$ song song với $BC$ cắt đường tròn $(O)$ tại điểm thứ hai $D$ khác $A$. Trên đường thẳng $AD$, lấy $E$ khác $A$, sao cho $LE=LA$. Gọi $F$ là điểm đối xứng với $A$ qua $OL$. Chứng minh rằng đường tròn ngoại tiếp tam giác $FED$ tiếp xúc đường tròn ngoại tiếp tam giác $PBC$.
+	\loigiai
+	{
+		\setcounter{equation}{0}
+		\immini
+		{Do $A$ và $F$ đối xứng nhau qua trục $OL$ (giả thiết) nên $A$, $E$, $P$, $F$ cùng nằm trên đường tròn tâm $L$. Gọi $G$ là tâm đường tròn ngoại tiếp tam giác $DEF$. Từ các tính chất quen thuộc của tâm đường tròn ngoại tiếp và các giả thiết $\widehat{PAB}=\widehat{PAC}$, $AD \parallel BC$, ta có
+			\allowdisplaybreaks
+			\begin{align}
+			2\widehat{LEP}&=180^\circ-\widehat{PLE}=180^\circ-2\widehat{PAE} \nonumber\\
+			&=180^\circ-2\left(\widehat{PAC}+\widehat{CAD}\right) \nonumber\\
+			&=180^\circ-\widehat{BAC}-\widehat{CAD}-\widehat{BCA} \nonumber\\
+			&=\widehat{BCD}-\widehat{BCA}=\widehat{ACD} \nonumber\\
+			&=\widehat{AFD}=\widehat{AFE}+\widehat{EFD} \nonumber\\
+			&=90^\circ-\widehat{LEA}+90^\circ-\widehat{GED}=\widehat{LEG}. \label{p31-1}
+			\end{align}
+		}
+		{
+			\begin{tikzpicture}[scale=0.8]
+			\tkzInit[xmin=-1.8,ymin=-4.3,xmax=8,ymax=6]
+			\tkzClip
+			\tkzDefPoints{0/0/B, 6/0/C, 1/5/A}
+			\tkzCircumCenter(A,B,C)\tkzGetPoint{O}
+			\tkzDrawCircle(O,A)
+			\tkzDefLine[bisector](B,A,C)\tkzGetPoint{a}
+			\tkzDefBarycentricPoint(A=2,a=1)\tkzGetPoint{P}
+			\tkzCircumCenter(P,B,C)\tkzGetPoint{K}
+			\tkzDrawCircle(K,B)
+			\tkzDefMidPoint(A,P)\tkzGetPoint{l}
+			\tkzDefLine[perpendicular=through l](A,P)\tkzGetPoint{l'}
+			\tkzInterLL(l,l')(P,K)\tkzGetPoint{L}
+			\tkzDefLine[parallel=through A](B,C)\tkzGetPoint{a'}
+			\tkzInterLC(A,a')(O,A)\tkzGetPoints{d}{D}
+			\tkzInterLC(A,D)(L,A)\tkzGetPoints{e}{E}
+			\tkzDefPointBy[reflection=over O--L](A)\tkzGetPoint{F}
+			\tkzCircumCenter(F,E,D)\tkzGetPoint{G}
+			\tkzDrawCircle(G,D)
+			\tkzInterLL(P,E)(K,G)\tkzGetPoint{X}
+			\tkzDrawCircle(L,P)
+			\tkzDrawPoints[fill=black](A,B,C,D,E,F,G,K,L,O,P,X)
+			\tkzDrawPolygon(A,B,C)
+			\tkzDrawSegments(P,B P,C A,D A,F A,L A,P L,P P,K L,E L,O O,G G,X E,X F,G D,C D,F F,C L,G O,K)
+			\tkzLabelPoints[above left](A,F)
+			\tkzLabelPoints[left](B,L)
+			\tkzLabelPoints[below](X)
+			\tkzLabelPoints[below right](K,G,C)
+			\tkzLabelPoints[above right](D)
+			\tkzLabelPoints[right](O)
+			\node (E) at (1.5,5.5) {$E$};
+			\node (P) at (1.65,1.7) {$P$};
+			\end{tikzpicture}
+		}
+		\noindent
+		Từ \eqref{p31-1}, do tam giác $LEP$ cân tại $L$, suy ra
+		\begin{align}
+		\widehat{PEG}=\widehat{PEL}=\widehat{EPL} \Rightarrow LP \parallel EG. \label{p31-2}
+		\end{align}
+		Do $BC$ là dây cung chung của $(O)$ và $(K)$ nên $OK \perp BC$; do $DF$ là dây cung chung của $(O)$ và $(G)$ nên $OG \perp DF$. Suy ra
+		\begin{align}
+		\widehat{KOG}=\widehat{ADF}. \label{p31-3}
+		\end{align}
+		Do $EF$ là dây cung chung của $(L)$ và $(G)$ nên
+		\begin{align}
+		\widehat{LGE}=\dfrac{1}{2}\widehat{EGF}=\widehat{ADF}. \label{p31-4}
+		\end{align}
+		Từ \eqref{p31-2} suy ra $\widehat{KLG}=\widehat{LGE}$; kết hợp với \eqref{p31-3} và \eqref{p31-4}, ta được $\widehat{KOG}=\widehat{LGE}=\widehat{KLG}$.\\
+		Do đó, tứ giác $LOGK$ là tứ giác nội tiếp. Vì vậy,
+		\begin{align}
+		\widehat{GKL}=180^\circ-\widehat{LOG}. \label{p31-5}
+		\end{align}
+		Do $AF$ là dây cung chung của $(L)$ và $(O)$ nên $OL \perp AF$; do $DF$ là dây cung chung của $(O)$ và $(G)$ nên $OG \perp DF$. Từ đó, do $\widehat{AFD}$ là góc nhọn và $\widehat{LOG}$ là góc tù nên suy ra
+		\begin{align}
+		\widehat{AFD}=180^\circ-\widehat{LOG}. \label{p31-6}
+		\end{align}
+		Từ \eqref{p31-5} và \eqref{p31-6} suy ra $\widehat{GKL}=\widehat{AFD}$.\\
+		Mà $\widehat{AFD}=\widehat{LEG}$ (theo \eqref{p31-1}) nên $\widehat{GKL}=\widehat{LEG}$.\\
+		Kết hợp với \eqref{p31-2} suy ra
+		\begin{align}
+		LE \parallel KG. \label{p31-7}
+		\end{align}
+		Gọi $X$ là giao điểm của $PE$ và $KG$. Vì tam giác $LPE$ cân tại $L$ nên từ \eqref{p31-7} ta được
+		\begin{align*}
+		\widehat{KPX}=\widehat{LPE}=\widehat{LEP}=\widehat{KXP}.
+		\end{align*}
+		Do đó $KP=KX$. Suy ra $X$ thuộc $(K)$. \hfill(8)\\
+		Từ \eqref{p31-2}, do tam giác $KPX$ cân tại $K$, suy ra tam giác $GEX$ cân tại $G$. Suy ra $X$ thuộc $(G)$. \hfill(9)\\
+		Từ (8) và (9) suy ra $X$ là điểm chung của $(G)$ và $(K)$. Mà $G$, $K$, $X$ thẳng hàng nên $(G)$ và $(K)$ tiếp xúc nhau tại $X$, hay $(DEF)$ và $(PBC)$ tiếp xúc với nhau.
+		\begin{nx}
+			Cách để giải bài toán là ``chỉ ra một điểm chung của $(DEF)$ và $(PBC)$, rồi chứng minh điểm chung đó là tiếp điểm''. Đây là một phương pháp thông dụng để chứng minh hai đường tròn tiếp xúc với nhau.
+		\end{nx}
+	}
+\end{bt}
+\begin{bt}[P32, Tạp chí Pi, tháng 3 năm 2017]%[Nguyễn Quang Tân, Dự án EX-TapChi02]%[9D0G4]
+	Chứng minh rằng có vô hạn số nguyên dương $n$ có tính chất: $n!$ chia hết cho $n^3-1.$
+	\loigiai
+	{Ta có $n^3-1=(n-1)(n^2+n+1).$
+		Xét $n=a^4,$ với $a$ là số nguyên lớn hơn $1.$
+		Khi đó 
+		{\allowdisplaybreaks
+	\begin{align*}
+		n^3-1&=(a^4-1)(a^8+a^4+1)\\
+		&=(a^4-1)\left[(a^8+2a^4+1)-a^4\right]\\
+		&=(a^4-1)(a^4+a^2+1)(a^4-a^2+1)\\
+		&=(a^4-1)(a^2+a+1)(a^2-a+1)(a^4-a^2+1).
+		\end{align*}}Dễ thấy, với $a>1,$ các số $a^4-1$, $a^2+a+1$, $a^2-a+1$ và $a^4-a^2+1$ đôi một khác nhau và đều nhỏ hơn $a^4=n.$
+		Suy ra, với $n=a^4, a \in \mathbb{N}$ và $a>1$, $n!$ chia hết cho $n^3-1.$
+		Do đó, có vô số số nguyên dương $n$ sao cho $n!$ chia hết cho $n^3-1.$
+		\begin{nx}\quad
+			\begin{enumerate}[1.]
+				\item Vì $n!$ là tích của $n$ số nguyên dương đầu tiên nên ý định giải quyết bài toán bằng cách chỉ ra các số nguyên dương $n$ sao cho $n^3-1$ phân tích được thành tích của các số nguyên dương nhỏ hơn $n$ là một hướng đi tự nhiên. Với các học sinh có kĩ năng phân tích đa thức thành nhân tử tương đối thành thạo, việc chọn $n=a^4$ để phân tích được $n^2+n+1$ thành tích của các số nguyên dương đôi một khác nhau và nhỏ hơn $n-1$ là điều không khó thấy. Vì thế, bài đã ra là một bài toán hoàn toàn phù hợp với tư duy và kĩ năng số học, đại số của học sinh khá, giỏi Toán cấp THCS. 
+				\item Tác giả bài toán đã chỉ ra rằng, với $n=(3k+1)^2, k\in \mathbb{N}^*$ ta cũng phân tích được $n^3-1$ thành tích của các số nguyên dương đôi một khác nhau và nhỏ hơn $n.$
+				\item Một cách giải khác là chỉ ra vô hạn số nguyên dương $n$ thỏa mãn đồng thời các điều kiện: $(n-1, n^2+n+1)=1$ và $n^2+n+1\mid n!.$ Dãy số sau đây thỏa mãn điều kiện vừa nêu: $a_1=16$ và $a_n=a_{n-1}^2$ với mọi $n\geq 2.$
+			\end{enumerate}
+		\end{nx}}
+\end{bt}
+\begin{bt}[P33, Tạp chí Pi, tháng 3 năm 2017]%[Nguyễn Quang Tân, Dự án EX-TapChi02]%[9H0G8]
+	Hỏi, trên mặt phẳng, có thể vẽ được bao nhiêu tam giác mà hai tam giác bất kì (trong số đó) đều có đúng một đỉnh chung và không có điểm nào là đỉnh chung của tất cả các tam giác được vẽ?
+	\loigiai
+	{
+		\textbf{Cách 1.} 
+		Xét $n$ tam giác thỏa mãn điều kiện đề bài $(n\in \mathbb{N}^*, n\geq 3).$
+		Trong phần dưới đây, $\left \lceil{x}\right \rceil $ kí hiệu số nguyên nhỏ nhất không nhỏ hơn số thực $x.$
+		Xét một tam giác tùy ý trong số $n$ tam giác trên, gọi là $T_0.$
+		Theo giả thiết của bài ra, $T_0$ phải có chung đúng một đỉnh với mỗi tam giác trong số $n-1$ tam giác còn lại. Do đó, theo nguyên lý Drichlet, trong số $3$ đỉnh của $T_0$ phải có một đỉnh, gọi là $A,$ là đỉnh chung của $T_0$ với ít nhất $k=\left \lceil{\dfrac{n-1}{3}}\right \rceil$ tam giác, gọi $T_1, T_2, \ldots, T_k.$
+		Vì không có đỉnh nào là đỉnh chung của tất cả các tam giác nên tồn tại một tam giác, gọi là $T,$ không nhận $A$ làm đỉnh. Theo giả thiết của bài ra, $T$ có một đỉnh chung, khác $A$, với mỗi tam giác trong các tam giác $T_0, T_1, T_2,\ldots, T_k,$ với $i\neq j,$ đỉnh chung của $T$ với $T_i$ khác đỉnh chung của $T$ với $T_j$ ( vì $T_i$ và $T_j$ đã có chung đỉnh $A$). Do đó, $T$ phải có ít nhất $k+1$ đỉnh. Suy ra, phải có $k+1\leq 3$ hay $k=\left \lceil{\dfrac{n-1}{3}}\right \rceil \leq 2.$ Dẫn tới $n\leq 7.$
+		Với $n=7,$ dễ thấy, $7$ tam giác sau thỏa mãn điều kiện của đề bài: $ABC$, $ADE$, $AMN$, $BDM$, $BEN$, $CDN$ và $CME.$
+		Vậy, chỉ có thể vẽ tối đa $7$ tam giác thỏa mãn yêu cầu đề bài.\\
+		\textbf{Cách 2.}
+		Xét $n$ tam giác thỏa mãn điều kiện đề bài $(n\in\mathbb{N}^*, n\geq 3).$
+		Trước hết, ta có nhận xét sau:\\
+		\textit{Nhận xét:} Không có điểm nào là đỉnh chung của quá ba tam giác.\\
+		\textit{Chứng minh.} Giả sử ngược lại, tồn tại điểm $A$ là đỉnh chung của $4$ tam giác, gọi là $T_1$, $T_2$, $T_3$, $T_4.$
+		Do $A$ không thể là đỉnh chung của tất cả các tam giác nên phải tồn tại một tam giác, gọi là $T_0$ không nhận $A$ làm đỉnh. 
+		Theo giả thiết của bài ra, $T_0$ phải có chung đúng một đỉnh vỡi mỗi tam giác trong số $4$ tam giác nói trên và với $i\neq j,$ đỉnh chung của $T_0$ với $T_i$ khác đỉnh chung của $T_0$ với $T_j$. Do đó, $T_0$ phải có ít nhất $4$ đỉnh. Điều vô lý này chứng tỏ giả sử ban đầu sai.
+		Nhận xét được chứng minh.\\
+		Từ Nhận xét trên, nhận thấy ta phải có $n\leq 7$. Thật vậy giả sử $n\geq 8$. Xét một tam giác bất kì, gọi là $T.$
+		Theo giả thiết bài ra, $T$ có một đỉnh chung với mỗi tam giác trong số $n-1\geq 7$ tam giác còn lại. 
+		Từ đó, do $T$ chỉ có $3$ đỉnh nên theo nguyên tắc Drichlet phải có ít nhất một đỉnh là đỉnh chung của $T$ với ít nhất $3$ tam giác khác. Như vậy, tồn tại một điểm là đỉnh chung của ít nhất $4$ tam giác; mâu thuẫn với Nhận xét nêu trên. Điều này cho thấy phải có $n\leq 7.$
+		Với $n=7,$ ta có $7$ tam giác $ABC$, $ADE$, $AFG$, $BDF$, $CDG$, $BEG$, $CEF$ thỏa mãn các điều kiện đề bài. Vậy, số tối đa các đa giác có thể vẽ là $7.$
+		\begin{nx}
+			Hai lời giải nêu trên thể hiện hai ý tưởng khác nhau đối với bài đã ra.  Ý tưởng giải ở Cách 1 là tìm cách phân tích, khai thác các giả thiết của bài ra theo hướng \lq\lq dẫn trực tiếp đến đánh giá cho $n$ (số tam giác có thể vẽ được, thỏa mãn điều kiện đề bài)\rq\rq . Ý tưởng giải ở Cách 2 là tìm cách phân tích, khac thác giả thiết của bải ra để tìm ra một tính chất đặc trưng của hệ các tam giác có thể vẽ, rồi dựa vào tính chất đó để suy đoán ra đánh giá cho $n$ sau đó tìm cách chứng minh suy đoán ấy.
+			
+		\end{nx}
+	}
+	
+\end{bt}
+\begin{bt}[P34, Tạp chí Pi, tháng 3 năm 2017]%[Nguyễn Bình Nguyên, Dự án EX-TapChi02]%[9D0G7]
+Cho $a$, $b$, $c$, $d$ là các số thực dương có tổng bằng $4$. Chứng minh rằng \[\dfrac{1}{ab}+\dfrac{1}{cd}\geq\dfrac{a^2+b^2+c^2+d^2}{2}. \tag{1}\]
+Hỏi đẳng thức xảy ra khi và chỉ khi nào?
+\loigiai
+{\textbf{Cách 1.}
+	Do các cặp $(a,b)$ và $(c,d)$ có vai trò như nhau nên không mất tính tổng quát, có thể giả sử $a+b\leq c+d$.
+	Khi đó, $a+b\leq \dfrac{a+b+c+d}{2}=2$. Từ đó, do $a,b>0$ nên $2\sqrt{ab}\leq a+b \leq 2$. Suy ra $ab \leq 1$. Kí hiệu (1)  là bất đẳng thức cần chứng minh của đề bài, ta có\\
+		{\allowdisplaybreaks
+		\begin{align*}
+		 (1)&\Leftrightarrow \dfrac{1}{ab}+\dfrac{1}{cd} \geq \dfrac{(a+b+c+d)^2-2(a+b)(c+d)-2(ab+cd)}{2}\\
+		&\Leftrightarrow  \dfrac{1}{ab}+\dfrac{1}{cd} \geq 8 -(a+b)(c+d)-(ab+cd)\\
+	 &\Leftrightarrow \dfrac{1}{ab}+\dfrac{1}{cd} +(a+b)(4-a-b)+ab+cd \geq 8. \tag{2}
+		\end{align*}}Do $c,d>0$ nên $\dfrac{1}{cd}+cd \geq 2$. Do đó, để chứng minh $(2)$, ta sẽ chứng minh 
+	\[ \dfrac{1}{ab}+(a+b)(4-a-b)+ab\geq 6. \tag{3}\]
+	 Ta có nhận xét đơn giản sau:
+	 Nếu $0<y\leq x \leq 1$ thì $y+\dfrac{1}{y} \geq x+ \dfrac{1}{x}$. \hfill (4)\\
+	 Thật vậy, ta có $(4) \Leftrightarrow \dfrac{(xy-1)(y-x)}{xy}\geq 0$ và bất đẳng thức sau là một bất đẳng thức đúng. Do $0<ab\leq \left( \dfrac{a+b}{2}\right)^2\leq 1 $ nên áp dụng $(4)$ ta được
+	 $$ab+\dfrac{1}{ab}\geq \dfrac{(a+b)^2}{4}+\dfrac{4}{(a+b)^2}.$$
+	 Do vậy, để chứng minh $(3)$, ta sẽ chứng minh 
+	 \[\dfrac{(a+b)^2}{4}+\dfrac{4}{(a+b)^2}+(a+b)(4-a-b)\geq 6. \tag{5} \]
+	 Đặt $a+b=2t$, $0<t\leq 1$. Khi đó, $(5)$ được viết lại thành \[t^2+\dfrac{1}{t^2}+2t(4-2t) \geq 6. \tag{6}\]
+	 Ta có $(6)\Leftrightarrow (t-1)^3(3t+1)\leq 0$. \hfill (7)\\
+	 $(7)$ là bất đẳng thức đúng, do $0<t\leq 1$. Vì thế $(6)$ được chứng minh. Do đó, bất đẳng thức của đề bài được chứng minh.
+	 Theo dõi các đánh giá trong chứng minh trên, ta thấy dấu bằng ở $(1)$ xảy ra khi và chỉ khi 
+	 $cd=1$, $a=b$ và $1=t=\dfrac{a+b}{2}$. Từ đó, kết hợp với điều kiện $a+b+c+d=4$, dễ dàng giải ra $a=b=c=d=1$.\\
+\textbf{Cách 2.}
+Không mất tổng quát, giả sử $a+b\leq c+d$. Khi đó, $a+b \leq 2$ và $ab \leq \left( \dfrac{a+b}{2}\right)^2\leq 1 $.\\
+Viết lại bất đẳng thức của đề bài dưới dạng
+\[\dfrac{1}{ab}+ab +\dfrac{1}{cd}+cd \geq \dfrac{(a+b)^2+(c+d)^2}{2}. \tag{1}\]
+Ta có: 
+	{\allowdisplaybreaks
+	\begin{align*}
+	(1)&\Leftrightarrow \dfrac{1}{ab}+ab-2+\dfrac{1}{cd}+cd-2\geq \dfrac{(4-a-b)^2+(a+b)^2}{2}-4\\
+	 &\Leftrightarrow \left(\dfrac{1}{\sqrt{ab}}-\sqrt{ab} \right)^2+\left( \dfrac{1}{\sqrt{cd}}-\sqrt{cd}\right)^2\geq (2-a-b)^2. \tag{2} 
+		\end{align*}}Vì $\left( \dfrac{1}{\sqrt{cd}}-\sqrt{cd}\right)^2 \geq 0 $ nên để chứng minh $(2)$, ta sẽ chứng minh
+	\[\left( \dfrac{1}{\sqrt{ab}}-\sqrt{ab}\right)^2\geq (2-a-b)^2 . \tag{3}\]
+	Vì $a+b \leq 2$ và $\dfrac{1}{\sqrt{ab}}\geq \sqrt{ab}$ nên 
+		{\allowdisplaybreaks
+		\begin{align*}
+		(3)& \Leftrightarrow \dfrac{1}{\sqrt{ab}}-\sqrt{ab}\geq 2-a-b\\
+		&\Leftrightarrow \dfrac{1}{\sqrt{ab}}+\sqrt{ab}-2\sqrt{ab}\geq 2-(a+b).
+			\end{align*}}Bất đẳng thức cuối cùng là hiển nhiên do
+		$\dfrac{1}{\sqrt{ab}}+\sqrt{ab}\geq 2$ và $-2\sqrt{ab}\geq -(a+b)$.
+		Vì vậy, $(3)$ được chứng minh và do đó $(1)$ được chứng minh.\\
+		Dấu bằng ở $(1)$ xảy ra khi và chỉ khi $ab=1$, $a=b$ và $cd=1$. Kết hợp với $a+b+c+d=4$, ta được $a=b=c=d=1$.
+\begin{nx}\hfill
+\begin{enumerate}[1.]
+	\item Đây là một bài toán khó so  với mức độ tư duy  bất đẳng thức ở cấp THCS.
+	\item Hướng tiếp cận trong Cách $ 1 $ (gần tương tự với cách giải của tác giả bài toán) là tìm cách giảm dần biến số để quy bất đẳng thức của đề bài về bất đẳng thức một biến. Đây là một phương pháp quan trọng để chứng minh bất đẳng thức. Ở Cách $ 2 $ về thực chất ta cũng đi theo chiều hướng này, chỉ là phép chứng minh được trình bày dưới dạng ẩn, ở đoạn cuối
+	\item Trong lời giải của một bạn đã qui việc chứng minh bất đẳng thức $(3)$ (xem Cách $1$) về việc chứng minh bất đẳng thức
+	\[(a+b)^2-4(a+b)\left( 6-\dfrac{1}{ab}-ab\right)\leq 0 \]
+	và bạn đã chứng minh bất đẳng thức này bằng cách chứng minh nửa đoạn $\left( 0;1\right] $ chứa trong tập nghiệm của bất phương trình (ẩn $t$): $t^2-4t+\left( 6-\dfrac{1}{ab}-ab \right) \leq 0$. Cách làm này đã gặp phải các tính toán khá rườm rà, đặc biệt là phần tìm điều kiện để dấu bằng xảy ra.
+	\item Trong lời giải của bạn khác, sau khi biến đổi bất đẳng thức của đề bài về dạng
+	\[\dfrac{1}{ab}+\dfrac{1}{cd}+ab+cd+(a+b)(c+d)\geq 8,\]
+	đã chứng minh bất đẳng thức đó bằng cách chứng minh bất đẳng thức trung gian
+	\[ \dfrac{1}{ab}+\dfrac{1}{cd}+ab+cd\geq \dfrac{(a+b+c+d)^2}{(a+b)(c+d)},\]
+	rồi vận dụng bất đẳng thức trung bình cộng - trung bình nhân để hoàn tất chứng minh.
+	\item Dưới đây là một số sai lầm cơ bản trong các lời giải sai gởi về Tòa soạn:
+	\begin{itemize}
+		\item  Không mất tổng quát, giả sử $a\geq b \geq c \geq d$ (Điều trên là sai vì ở bài toán này chỉ $a,b$ có vai trò như nhau, $c,d$ có vai trò như nhau và các cặp $(a,b)$, $(c,d)$ có vai trò ngang nhau).
+		\item Xét cực trị của vế trái mà không để ý rằng vế phải cũng thay đổi khi các biến thay đổi.
+	\end{itemize}
+\end{enumerate}
+\end{nx}
+}
+
+\end{bt}
+\begin{bt}[P35, Tạp chí Pi, tháng 2 năm 2017]%[1D0G2]%[Linh Lam, Dự án EX-TapChi02]%[1D0G2]
+	Tìm tất cả các hàm số $f$ xác định, liên tục trên tập số thực $\mathbb{R}$, lấy giá trị trên $\mathbb{R}$ và thỏa mãn điều kiện \[f(x+f(y+z+t))+f(y+f(z+t+x))+f(z+f(t+x+y))+f(t+f(x+y+z))=0\] với mọi $x, y, z, t$ thuộc $\mathbb{R}$.
+	\loigiai
+	{Kí hiệu (1) là hệ thức hàm đã cho trong đề bài. Giả sử $f$ là hàm số thỏa mãn các điều kiện của đề bài. Trong (1), thay $x=y=z=t=\dfrac{r}{3}$, ta được: 
+		\[f\left(\dfrac{r}{3}+f(r)\right)=0, \,\forall r\in \mathbb{R}.\tag{2}\]
+		Giả sử, với $n$ là số nguyên dương nào đó, ta có \[f\left(\dfrac{r}{3^{n}}+\dfrac{f(r)}{3^{n-1}}\right)=0,\,\forall r\in \mathbb{R}.\tag{3}\]
+		Khi đó, do (2) nên trong (3), thay $r$ bởi $\dfrac{r}{3}+f(r)$, ta được: \[f\left(\dfrac{r}{3^{n+1}}+\dfrac{f(r)}{3^{n}}\right)=0, \,\forall r\in \mathbb{R}.\]
+		Vì vậy theo nguyên lý quy nạp, với mọi $r$ thuộc $\mathbb{R}$, ta có \[f\left(\dfrac{r}{3^{n}}+\dfrac{f(r)}{3^{n-1}}\right)=0\] với mọi $n$ thuộc $\mathbb{N^{*}}$. Từ đó, do $f$ là hàm liên tục trên $\mathbb{R}$ nên $f(0)=0$. Dễ thấy, hàm số $f(x)\equiv0$ thỏa mãn các điều kiện của đề bài. Tiếp theo, giả sử tồn tại $r_{0} \in \mathbb{R}$ sao cho $f(r_{0})\neq0$. Trong (1), thay $x=-2r$ và $y=z=t=r$, ta được \[f(3f(r)-2r)=-3f(r)\tag{4}\] với mọi $r\in\mathbb{R}$. Xét dãy số $(x_{n})_{n\geq1}$, xác định bởi: $x_{1}=r_{0}$ và $x_{n}=3f(x_{n-1})-2x_{n}$ với mọi $n\geq2$. Dựa vào (4), bằng quy nạp theo $n$, dễ dàng chứng minh được: \[f(x_{n})=(-3)^{n-1}.f(r_{0})\] với mọi $n\in\mathbb{N^{*}}$. Suy ra: 
+		\begin{itemize}
+			\item[+] Nếu $f(r_{0})>0$ thì $\displaystyle \lim_{n\to+\infty}f(x_{2n})=-\infty$ và $\displaystyle \lim_{n\to+\infty}f(x_{2n+1})=+\infty$.
+			\item[+] Nếu $f(r_{0})<0$ thì $\displaystyle \lim_{n\to+\infty}f(x_{2n})=+\infty$ và $\displaystyle \lim_{n\to+\infty}f(x_{2n+1})=-\infty$.
+		\end{itemize}
+		Vì thế, do $f$ là hàm liên tục trên $\mathbb{R}$ nên tập giá trị của $f$ là $\mathbb{R}$. \\Do đó, $f$ toàn ánh từ $\mathbb{R}$ đến $\mathbb{R}$.\hfill(5)
+		\\Trong (1), thay $y=z=t=0$ ta được: $f(x)+3f(f(x))=0$, hay $f(f(x))=-\dfrac{f(x)}{3}$, với mọi $x\in\mathbb{R}$. \\Từ đó, do (5), ta có $f(x)=-\dfrac{x}{3}$, với mọi $x\in\mathbb{R}$. Dễ thấy hàm số vừa tìm được ở trên thỏa mãn các điều kiện của đề bài. Vậy, tóm lại, $f(x)\equiv0$ và $f(x)=-\dfrac{x}{3}$ là tất cả các hàm số cần tìm theo yêu cầu của đề bài.
+	}
+\end{bt}
+\begin{bt}[P36, Tạp chí Pi, tháng 2 năm 2017]%[0D0G2]%[Linh Lam, Dự án EX-TapChi02]%[0D0G2] 
+	Cho số nguyên dương $n$. Chứng minh rằng tồn tại các số tự nhiên $a$, $b$ sao cho $0<b\leq\sqrt{n}+1$ và $\sqrt{n}\leq\dfrac{a}{b}\leq\sqrt{n+1}$.
+	\loigiai{Gọi $m$ là số nguyên dương sao cho $m^{2}\leq n< (m+1)^{2}$. Dễ thấy, có duy nhất số $m$ như vậy. Đặt $s=n-m^{2}$; ta có $s$ là số tự nhiên và $0\leq s \leq 2m$. Xét hai trường hợp sau:
+\begin{itemize}
+	\item Trường hợp 1: $s$ là số chẵn. Ta có: 
+	$$n=m^{2}+s\leq m^{2}+s+\dfrac{s^{2}}{(2m)^{2}}\leq m^{2}+s+1= n+1.$$
+	Suy ra $\sqrt{n}\leq m+\dfrac{s}{2m}\leq \sqrt{n+1}$. Do đó các số tự nhiên $a=m^{2}+\dfrac{s}{2}$ và $b=m$ thỏa mãn yêu cầu đề bài.
+	\item Trường hợp 2: $s$ là số lẻ.  Ta có 
+	{\allowdisplaybreaks
+		\begin{align*}
+		n&=m^{2}+s=(m+1)^{2}-(2m+1-s) \\
+		&\leq (m+1)^{2}-(2m+1-s)+\left(\dfrac{2m+1-s}{2(m+1)}\right)^{2} \\
+		&\leq (m+1)^{2}-(2m+1-s)+1= n+1.
+		\end{align*}}Suy ra $\sqrt{n}< m+1-\dfrac{2m+s-1}{2(m+1)}\leq\sqrt{n+1}$. Do đó, các số tự nhiên $a=(m+1)^{2}-m+\dfrac{s-1}{2}$ và $b=m+1$ thỏa mãn yêu cầu đề bài.
+\end{itemize}
+\begin{nx}\hfill
+\begin{itemize} 
+\item[1.] Cũng như ở lời giải trên, giải bài toán bằng cách chỉ ra cụ thể các số $a, b$ thỏa mãn yêu cầu đề bài. Tuy nhiên, do đã làm gồ ghề bài toán lên bằng cách thay thế điều kiện 2 bởi điều kiện tương đương  \lq \lq $a^{2}=b^{2}n+k$, với $k$ là số tự nhiên mà $0\leq k \leq b^{2}$\rq\rq  nên việc chọn các số $a$, $b$ cũng trở nên \lq\lq vất vả\rq\rq  hơn và thiếu tự nhiên hơn so với cách chọn trong lời giải trên.
+				\item[2.] Có thể chứng minh được rằng, có vô số số nguyên dương $n$ sao cho không tồn tại các số tự nhiên $a, b$ mà $0< b \leq \sqrt{n}$ và $\sqrt{n} \leq \dfrac{a}{b} \leq \sqrt{n+1}$. Bạn đọc hãy thử chứng minh. 
+			\end{itemize}	
+		\end{nx}
+	}
+\end{bt}
+\begin{bt}[P37,Tạp chí Pi, số tháng 3, năm 2018]%[2D0G1]%[Phan Minh Tâm]
+	Cho dãy số thực $ \displaystyle \left(x_n\right)_{n\ge1} $ được xác định như sau: $ x_1=1 $ và $$x_n=x_{n-1}+\dfrac{1}{2x_{n-1}}, \, \forall  n=2,3,\dots$$ 
+	Tính $ \left[x_{2017}\right] $
+	$ \left(\text{[x] kí hiệu phần nguyên của số thực } x\right) $.
+	\loigiai{Với mọi $ k\ge2 $, từ công thức xác định dãy số đã cho, ta thấy 
+\[x_k^2-x_{k-1}^2 = \left(x_{k-1}+\dfrac{1}{2x_{k-1}}\right)^2-x_{k-1}^2 = 1+\dfrac{1}{4k_{k-1}^2}.\tag{1}\]
+		Vì thế $\displaystyle x_n^2 =x_1^2+\sum_{k=2}^{n} \left(x_k^2-x_{k-1}^2\right)\ge  x_1^2+\sum_{k=2}^{n}1=n$, $\text{với mọi}\, n\ge2$.\hfill$(2)$\\
+	Với mỗi $ n\ge1, $ đặt $ H_n =\displaystyle\sum_{i=1}^{n} \dfrac{1}{i};$ từ $ (1) $ và $ (2) $ suy ra
+	{\allowdisplaybreaks
+		\begin{align*}
+		x_n^2&=x_1^2+\sum_{k=2}^{n}\left(x_k^2-x_{k-1}^2\right)\\
+		&\le x_1^2+\sum_{k=2}^{n} \left(1+\dfrac{1}{4(k-1)}\right) = n + \dfrac{1}{4} H_{n-1}, \forall n=2,3,\dots\tag{3}
+		\end{align*}}Tiếp theo, ta chứng minh bổ đề sau.\\
+	\noindent{\bf Bổ đề.} $ H_n \le 1+\ln n $ với mọi $ n\ge1. $\\
+	\noindent{\bf Chứng minh.}  Xét hàm số $f(x)=\ln(x+1)-\ln x - \dfrac{1}{x+1}$  trên $ \left(0;+\infty\right) $.
+		Ta có 
+		$$f'(x)=\dfrac{1}{x+1}-\dfrac{1}{x}+\dfrac{1}{(x+1)^2}=\dfrac{-1}{x(x+1)^2}<0,\, \forall x \in (0;+\infty ). $$
+		Do đó, $ f $ nghịch biến trên $ (0;+\infty) $.
+		Mà $ \lim\limits_{x \to +\infty } f(x) = \lim\limits_{x \to +\infty } \ln \left(1+\dfrac{1}{x}\right)-\lim\limits_{x \to +\infty} \dfrac{1}{x+1} = \ln 1 = 0 $
+	nên suy ra $ f(x) >0,\, \forall x \in \left(0;+\infty\right)$; tức là \[\dfrac{1}{x+1}<\ln(x+1) - \ln x,\, \forall x \in \left(0;+\infty\right).\tag{4}\]
+		Bất đẳng thức trong Bổ đề hiển nhiên đúng khi $ n = 1 $.\\
+		Với $ n\ge 2, $ theo $ (4) $, ta có
+		\begin{eqnarray*}
+			H_n &=& 1 + \displaystyle \sum_{i=1}^{n-1} \dfrac{1}{i+1}< 1 + \sum_{i=1}^{n-1} \left(\ln(i+1)-\ln i\right)\\&=&1+\ln n.
+		\end{eqnarray*}
+		Bổ đề được chứng minh.\\
+		Theo bổ đề, từ $ (3) $ ta có 
+		\[x_n^2 \le n + \dfrac{1}{4}\left(1+\ln(n-1)\right), \forall n=2,3,\dots\tag{5}\]
+Dễ thấy $ x_n>0,\, \forall n \in \mathbb{N}^*.  $ Do đó, từ $ (2) $ và $ (5) $ suy ra $$\sqrt{n} \le x_n \le \dfrac{1}{2}\sqrt{4n+1+\ln(n-1)}, \, \forall n \ge 2.$$
+		Vì thế
+		\[\sqrt{2017} \le x_{2017} \le \dfrac{1}{2} \sqrt{8069+\ln 2016}.\tag{6}\]
+		Do $ 44^2 = 1936 < 2017 $ nên $ 44 < \sqrt{2017}$.\hfill$(7)$\\
+		Do $ e^{31} > 2^{31}>2016 $ nên $ \ln 2016 < 31, $ hay $ 8069 + \ln 2016 < 90^2 $.\\ Do đó $ \dfrac{1}{2}\sqrt{8069+\ln 2016} < 45$. \hfill$(8)$\\
+		Từ $ (6), \, (7) $ và $ (8) $, suy ra $ \left[x_{2017}\right] =44.$
+	}
+\end{bt}
+\begin{bt}[P38, Tạp chí Pi, tháng 3 năm 2017]%[Nguyễn Quang Hiệp, Dự án EX-TapChi02]%[1H0G1]
+	Cho tam giác $ABC$ nội tiếp đường tròn $(O).$ Gọi $D$ là hình chiếu vuông góc của $A$ trên $BC.$ Các điểm $E,\ F$ di động trên $(O), $ sao cho $EF \parallel BC,\ M,\ N$ theo thứ tự là hình chiếu vuông góc của $B,\ C$ trên $AE.\ P,\ Q$ theo thứ tự là hình chiếu vuông góc của $B,\ C$ trên $AF.$ Chứng minh rằng tâm vị tự ngoài và tâm vị tự trong của các đường tròn $(DMQ)$ và $(DNP)$ là các điểm cố định. 
+	\loigiai{
+		\begin{bode}
+			Cho tam giác $ABC$ nội tiếp đường tròn $(O).\ F$ là một điểm bất kì trên $(O).\ D $ là hình chiếu vuông góc của $A$ trên $BC.\ P,\ Q$ theo thứ tự là hình chiếu vuông góc của $B,\ C$ trên $AF.$ Khi đó tâm của đường tròn $(DPQ) $ thuộc đường tròn Euler của tam giác $ABC.$  
+			\begin{center}
+				\begin{tikzpicture}[scale=1.4]
+				\tkzInit[xmin=-3,ymin=-4,xmax=4,ymax=3]
+				\tkzClip
+				\tkzDefPoint(-2,-2){B}
+				\tkzDefShiftPoint[B](80:4){A}
+				\tkzDefShiftPoint[B](0:5){C}
+				\tkzDefCircle[circum](A,B,C)
+				\tkzGetPoint{O}
+				\tkzCalcLength[cm](O,A)
+				\tkzGetLength{rOA}
+				\tkzDefShiftPoint[O](-100:\rOA){F}
+				\tkzDefPointBy[projection=onto B--C ](A)
+				\tkzGetPoint{D}
+				\tkzDefPointBy[projection=onto A--F ](B)
+				\tkzGetPoint{P}
+				\tkzDefPointBy[projection=onto A--F ](C)
+				\tkzGetPoint{Q}
+				\tkzDefCircle[circum](P,D,Q)
+				\tkzGetPoint{T}
+				\tkzDefMidPoint(A,B)
+				\tkzGetPoint{Z}
+				\tkzDefMidPoint(C,B)
+				\tkzGetPoint{X}
+				\tkzDefMidPoint(A,C)
+				\tkzGetPoint{Y}
+				\tkzDefCircle[circum](X,Y,Z)
+				\tkzGetPoint{W}
+				
+				\tkzMarkRightAngles(A,D,B B,P,A C,Q,A)
+				\tkzDrawCircle(O,A)
+				\tkzDrawCircle(T,P)
+				\tkzDrawCircle(W,X)
+				\tkzDrawSegments(A,B B,C C,A A,F A,D C,Q B,P X,Y Y,Z Z,X P,D P,T T,Y T,D T,Q Y,Q Q,D D,Z Z,P Y,D Z,T)
+				\tkzDrawPoints[color=black,fill=black,size=8pt](A,B,C,O,F,D,P,Q,T,X,Y,Z)
+				\node at ($(A)+(100:3mm)$){\footnotesize $A$};
+				\node at ($(B)+(190:3mm)$){\footnotesize $B$};
+				\node at ($(C)+(-10:3mm)$){\footnotesize $C$};
+				\node at ($(O)+(170:3mm)$){\footnotesize $O$};
+				\node at ($(F)+(-90:3mm)$){\footnotesize $F$};
+				\node at ($(D)+(-150:3mm)$){\footnotesize $D$};
+				\node at ($(P)+(50:2mm)$){\footnotesize $P$};
+				\node at ($(Q)+(-10:3mm)$){\footnotesize $Q$};
+				\node at ($(T)+(-100:3mm)$){\footnotesize $T$};
+				\node at ($(X)+(-80:3mm)$){\footnotesize $X$};
+				\node at ($(Y)+(20:3mm)$){\footnotesize $Y$};
+				\node at ($(Z)+(130:3mm)$){\footnotesize $Z$};
+				\end{tikzpicture}
+			\end{center}
+			\begin{cm}
+				Gọi $T$ là tâm đường tròn $(DPQ);\ X,\ Y,\ Z$ theo thứ tự là trung điểm của $BC$, $CA$, $ AB.$
+				Dễ thấy $TD=TQ,\ YD=YQ$ và $TD=TP,\ ZD =ZP.$
+				Do đó $TY \perp DQ$ và $TD \perp DP.$	
+				Từ đó, chú ý rằng mỗi bộ bốn điểm $(A,\ C,\ D,\ Q),\ (A,\ B,\ D,\ P) $ đều là bộ $4$ điểm cùng thuộc một đường tròn, $XY \parallel AB$ và $XZ \parallel AC,$ ta có				
+				{\allowdisplaybreaks
+				\begin{align*}
+					(TY,TZ)&\equiv (DQ,DP)\equiv (DQ,AQ)+(AP,DP) \equiv( DC,AC) +(AB,DB) \\
+					&\equiv (AB,AC) \equiv (XY,XZ) \pmod \pi.
+					\end{align*}}Do đó, $T$ thuộc đường tròn $(XYZ) - $ đường tròn Euler của $\Delta ABC.$
+				Bổ đề được chứng minh.
+			\end{cm}	
+		\end{bode}
+		Trở lại bài toán. Có hai trường hợp xảy ra.\\	
+		\immini{{\it Trường hợp 1:} $AB \neq AC.$\\
+			Gọi $D$ là hình chiếu vuông góc của $A$ trên $BC$;$ X$, $Y$, $Z$, $ U$, $ V  $ theo thứ tự là trung điểm của $BC$, $ CA$, $AB$, $ MN$, $ PQ$; $ W$, $W' $ và $ R$, $ R'$ theo thứ tự là tâm và bán kính của các đường tròn $(DMQ)$, $(DNP)$; $ K$, $K'$ là các giao điểm của $OX$ và $(O)$; $H$ là trực tâm của tam giác $ABC$; $ S$, $ S'$ theo thứ tự là giao điểm của $WW'$ và $HK$, $HK'$; $T$ là tâm của đường tròn $(DPQ).$ 
+			Dễ thấy, mỗi bộ năm điểm $(A,B,M,P,D),$ $ (A,C,N,Q,D)$ đều là bộ $5$ điểm cùng thuộc một đường tròn và các tam giác $ABM$, $ACQ$ đồng dạng ngược hướng.$\hfill (1)$\\
+			Suy ra \\	
+			$\begin{aligned}
+			(PM,PQ) &\equiv (PM,PA) \equiv (BM,BA)\\
+			&\equiv (CA,CQ) 
+			\equiv (NA,NQ) \\
+			&\equiv (NM,NQ) \pmod \pi. 
+			\end{aligned}$\\	
+		}{
+			\begin{tikzpicture}[scale=1.5]
+			\tkzInit[xmin=-3,ymin=-6,xmax=4,ymax=3.5]
+			\tkzClip
+			\tkzDefPoint(-2,-2){B}
+			\tkzDefShiftPoint[B](80:4){A}
+			\tkzDefShiftPoint[B](0:5.5){C}
+			\tkzDefCircle[circum](A,B,C)
+			\tkzGetPoint{O}
+			\tkzCalcLength[cm](O,A)
+			\tkzGetLength{rOA}
+			\tkzDefShiftPoint[O](-70:\rOA){F}
+			\tkzDefLine[parallel=through F](B,C)
+			\tkzGetPoint{d}
+			\tkzInterLC(F,d)(O,A)
+			\tkzGetPoints{}{E}
+			\tkzDefPointBy[projection=onto B--C ](A)
+			\tkzGetPoint{D}
+			\tkzDefPointBy[projection=onto A--F ](B)
+			\tkzGetPoint{P}
+			\tkzDefPointBy[projection=onto A--F ](C)
+			\tkzGetPoint{Q}
+			
+			\tkzDefPointBy[projection=onto A--E ](B)
+			\tkzGetPoint{M}
+			
+			\tkzDefPointBy[projection=onto A--E ](C)
+			\tkzGetPoint{N}
+			\tkzDefCircle[circum](P,D,Q)
+			\tkzGetPoint{T}
+			\tkzDefMidPoint(A,B)
+			\tkzGetPoint{Z}
+			\tkzDefMidPoint(C,B)
+			\tkzGetPoint{X}
+			\tkzDefMidPoint(A,C)
+			\tkzGetPoint{Y}
+			\tkzDefMidPoint(M,N)
+			\tkzGetPoint{U}
+			\tkzDefMidPoint(P,Q)
+			\tkzGetPoint{V}
+			\tkzDefCircle[circum](X,Y,Z)
+			\tkzGetPoint{W1}
+			\tkzDefCircle[circum](D,M,Q)
+			\tkzGetPoint{W}
+			\tkzDefCircle[circum](D,N,P)
+			\tkzGetPoint{W'}
+			\tkzInterLC(O,X)(O,A)
+			\tkzGetPoints{K}{K'}
+			\tkzDefPointBy[projection=onto A--C ](B)
+			\tkzGetPoint{d2}
+			\tkzInterLL(A,D)(B,d2)
+			\tkzGetPoint{H}
+			\tkzInterLL(W,W')(H,K)
+			\tkzGetPoint{S}
+			\tkzInterLL(W,W')(H,K')
+			\tkzGetPoint{S'}
+			\tkzDrawCircle(O,A)
+			\tkzDrawCircle(T,P)
+			\tkzDrawCircle(W1,X)
+			\tkzDrawCircle(W,D)
+			\tkzDrawCircle(W',D)
+			\tkzDrawSegments(A,B B,C C,A A,F A,D C,Q B,P X,Y Y,Z Z,X P,D P,T T,Y T,D T,Q Q,D D,Z K,K' H,K H,K' A,E W,D W,Y Z,T D,S E,F S,W)
+			\tkzDrawPoints[color=black,fill=black,size=8pt](A,B,C,O,F,D,P,Q,T,X,Y,Z,E,K,K',U,V,H,W,W',S,S',M,N)
+			\node at ($(A)+(100:3mm)$){\footnotesize $A$};
+			\node at ($(B)+(190:3mm)$){\footnotesize $B$};
+			\node at ($(C)+(-10:3mm)$){\footnotesize $C$};
+			\node at ($(O)+(160:2mm)$){\footnotesize $O$};
+			\node at ($(F)+(-90:3mm)$){\footnotesize $F$};
+			\node at ($(D)+(-150:3mm)$){\footnotesize $D$};
+			\node at ($(P)+(250:3mm)$){\footnotesize $P$};
+			\node at ($(Q)+(10:3mm)$){\footnotesize $Q$};
+			\node at ($(T)+(-70:3mm)$){\footnotesize $T$};
+			\node at ($(X)+(-80:3mm)$){\footnotesize $X$};
+			\node at ($(Y)+(20:3mm)$){\footnotesize $Y$};
+			\node at ($(Z)+(130:3mm)$){\footnotesize $Z$};
+			\node at ($(E)+(180:3mm)$){\footnotesize $E$};
+			\node at ($(K)+(130:3mm)$){\footnotesize $K$};
+			\node at ($(K')+(-130:3mm)$){\footnotesize $K'$};
+			\node at ($(H)+(-170:3mm)$){\footnotesize $H$};
+			\node at ($(U)+(140:3mm)$){\footnotesize $U$};
+			\node at ($(V)+(30:3mm)$){\footnotesize $V$};
+			\node at ($(W)+(-70:3mm)$){\footnotesize $W$};
+			\node at ($(W')+(70:3mm)$){\footnotesize $W'$};
+			\node at ($(M)+(130:3mm)$){\footnotesize $M$};
+			\node at ($(N)+(-30:3mm)$){\footnotesize $N$};
+			\node at ($(S)+(130:3mm)$){\footnotesize $S$};
+			\node at ($(S')+(50:2mm)$){\footnotesize $S'$};
+			\end{tikzpicture}}	
+		Do đó, bốn điểm $(M,\ N,\ P,\ Q) $ cùng thuộc một đường tròn.\\
+		Vì $BM \perp AE,\ CN \perp AE$ và $X,\ U$ theo thứ tự là trung điểm của $BC,\ MN$ nên $BM \parallel CN$ và 
+		\[\dfrac{\overline{XB}}{\overline{XC}}=-1=\dfrac{\overline{UM}}{\overline{UN}}.\]
+		Do đó, theo định lí Thales đảo, \[ XU \parallel BM \parallel CN.\]
+		Mà $CN \perp MN$ nên $XU \perp MN.$ Do đó, $XU$ là trung trực của $MN.$\\
+		Bằng cách tương tự, ta cũng chứng minh được $XV$ là trung trực của $PQ.$\\
+		Vì vậy, $X$ là tâm của đường tròn $(MNPQ). \hfill (2)$\\
+		Từ $(1)$ và $(2)$ suy ra
+		{\allowdisplaybreaks
+		\begin{align*}
+		(XM,XQ) \equiv (\vv{XM},\vv{XQ})&\equiv \dfrac{1}{2}(\vv{XM},\vv{XQ})+\dfrac{1}{2}(\vv{XM},\vv{XQ})\\
+		&\equiv (PM,PQ)+(NM,NQ)\\
+		&\equiv (PM,PA)+(NA,NQ)\\
+		&\equiv (DM,DA)+(DA,DQ)\\
+		&\equiv	(DM,DQ) \pmod \pi.
+		\end{align*}}Do đó, $X$ thuộc đường tròn $(DMQ) $.
+		Bằng cách tương tự, ta cũng có $X$ thuộc đường tròn $(DNP).$\\
+		Suy ra $WW'$ là trung trực của $DX. \hfill (3)$\\
+		Từ $(3),$ chú ý rằng $WW' \parallel KK',$ suy ra $S,S'$ theo thứ tự là trung điểm của $HK,HK'. \hfill (4)$\\
+		Do $H$ là trực tâm của tam giác $ABC$ và đường tròn $(XYZ)$ là đường tròn Euler của tam giác đó nên $(XYZ)$ là ảnh của $(O)$ qua phép vị tự tâm $(H),$ tỉ số $\dfrac{1}{2}.$ Vì thế, từ $(4)$ suy ra $S,S'$ thuộc đường tròn $(XYZ). \hfill (5)$\\
+		Từ $(3)$ và $(5)$ suy ra $SS'$ là đường kính của đường tròn $(XYZ).$
+		Theo Bổ đề, $T$ thuộc đường tròn $(XYZ).$
+		Dễ thấy, $D$ thuộc đường tròn $(XYZ).$
+		Do vậy $TS,TS'$ là phân giác của các góc tạo bởi $TY$ và $TZ;DS \perp DS'$.\hfill $(6)$\\
+		Dễ thấy, $Y$ là tâm của đường tròn $(DQAC).$
+		Từ đó, chú ý rằng $T,W'$ theo thứ tự là tâm của các đường tròn $(DQP)$ và $(DQM),$ suy ra $Y,T,W'$ thẳng hàng.
+		Tương tự $Z,T,W$ thẳng hàng. 
+		Vì vậy, chú ý tới $(6),$ ta có
+		$$D(SS'WW')=(SS'WW')=T(SS'WW')=T(SS'XY)=-1.$$
+		Từ đó, lại chú ý tới $(6),$ suy ra $DS,\ DS'$ là phân giác của các góc tạo bởi $DW$ và $DW'.$
+		Do đó, theo tính chất của đường phân giác, ta có
+		\[\dfrac{\overline{SW}}{\overline{SW'}}=\dfrac{DW}{DW'}=\dfrac{R}{R'}\ \text{và}\ \dfrac{\overline{S'W}}{\overline{S'W'}}=-\dfrac{DW}{DW'}=-\dfrac{R}{R'}. \] 
+		Suy ra, $S,\ S'$ theo thứ tự là tâm vị tự ngoài và tâm vị tự trong của các đường tròn $(DMQ)$ và $(DNP).$
+		Mà $S$ và $S'$ là các điểm cố định nên ta có điều phải chứng minh.\\
+		\immini{{\it Trường hợp 2:} $AB=AC.$\\
+			Gọi $X,Y,Z$ theo thứ tự là trung điểm của $BC,CA,AB$ (chú ý $X \equiv D$); $W,W'$ theo thứ tự là tâm của các đường tròn $(DMQ),(DNP);\ S,S' $ là các giao điểm của $AD$ và đường tròn $(XYZ)$ (chú ý $S' \equiv D \equiv X$); $T$ là tâm của đường tròn $(DPQ).$
+			Dễ thấy, các đường tròn $(DMQ)$ và $(DNP)$ tiếp xúc trong với nhau tại $S'.$
+			Do đó, tâm vị trong của các đường tròn $(DMQ)$ và $(DNP)$ là điểm cố định $S'$. \hfill$(7)$\\
+			Hiển nhiên, $SS'$ là đường kính của đường tròn $(XYZ).$
+			Vì vậy, $TS,TS'$ là các đường phân giác của các góc tạo bởi các đường thẳng $TY$ và $TZ.$	
+		}{
+			\begin{tikzpicture}
+			\tkzInit[xmin=-3,ymin=-5,xmax=4,ymax=3]
+			\tkzClip
+			\tkzDefPoint(-2,-2){B} 	 
+			\tkzDefShiftPoint[B](0:4.5){C}
+			\tkzDefMidPoint(C,B)
+			\tkzGetPoint{X}
+			\tkzDefShiftPoint[X](90:4){A}
+			\tkzDefCircle[circum](A,B,C)
+			\tkzGetPoint{O}
+			\tkzCalcLength[cm](O,A)
+			\tkzGetLength{rOA}
+			\tkzDefShiftPoint[O](-60:\rOA){F}
+			\tkzDefLine[parallel=through F](B,C)
+			\tkzGetPoint{d}
+			\tkzInterLC(F,d)(O,A)
+			\tkzGetPoints{}{E}
+			\tkzDefPointBy[projection=onto B--C ](A)
+			\tkzGetPoint{D}
+			\tkzDefPointBy[projection=onto A--F ](B)
+			\tkzGetPoint{P}
+			\tkzDefPointBy[projection=onto A--F ](C)
+			\tkzGetPoint{Q}
+			\tkzDefPointBy[projection=onto A--E ](B)
+			\tkzGetPoint{M} 	 
+			\tkzDefPointBy[projection=onto A--E ](C)
+			\tkzGetPoint{N}
+			\tkzDefCircle[circum](P,D,Q)
+			\tkzGetPoint{T}
+			\tkzDefMidPoint(A,B)
+			\tkzGetPoint{Z} 	
+			\tkzDefMidPoint(A,C)
+			\tkzGetPoint{Y}
+			\tkzDefCircle[circum](X,Y,Z)
+			\tkzGetPoint{W1}
+			\tkzDefCircle[circum](D,M,Q)
+			\tkzGetPoint{W}
+			\tkzDefCircle[circum](D,N,P)
+			\tkzGetPoint{W'}
+			\tkzInterLC(O,X)(O,A)
+			\tkzGetPoints{K}{K'}
+			\tkzDefPointBy[projection=onto A--C ](B)
+			\tkzGetPoint{d2}
+			\tkzInterLC(A,X)(W1,X)
+			\tkzGetFirstPoint{S}
+			\tkzDrawCircle(O,A)
+			\tkzDrawCircle(T,P)
+			\tkzDrawCircle(W1,X) 
+			\tkzDrawCircle(W',D)
+			\tkzDrawSegments(A,B B,C C,A A,F A,D C,Q B,P Z,X P,D  T,Y Q,D D,Z  A,E Z,T)
+			\tkzDrawPoints[color=black,fill=white,size=8pt](A,B,C,O,F,D,P,Q,T,X,Y,Z,E,W,W',M,N,S) 	 
+			\node at ($(A)+(100:3mm)$){\footnotesize $A$};
+			\node at ($(B)+(190:3mm)$){\footnotesize $B$};
+			\node at ($(C)+(-10:3mm)$){\footnotesize $C$};
+			\node at ($(O)+(160:2mm)$){\footnotesize $O$};
+			\node at ($(F)+(-90:3mm)$){\footnotesize $F$};
+			\node at ($(P)+(20:3mm)$){\footnotesize $P$};
+			\node at ($(Q)+(-20:3mm)$){\footnotesize $Q$};
+			\node at ($(T)+(-10:2mm)$){\footnotesize $T$};
+			\node at ($(X)+(-80:3mm)$){\footnotesize $D \equiv X \equiv S' $};
+			\node at ($(Y)+(20:3mm)$){\footnotesize $Y$};
+			\node at ($(Z)+(130:3mm)$){\footnotesize $Z$};
+			\node at ($(E)+(180:3mm)$){\footnotesize $E$};
+			\node at ($(W)+(-70:3mm)$){\footnotesize $W$};
+			\node at ($(W')+(20:3mm)$){\footnotesize $W'$};
+			\node at ($(M)+(200:3mm)$){\footnotesize $M$};
+			\node at ($(N)+(130:3mm)$){\footnotesize $N$};
+			\node at ($(S)+(130:3mm)$){\footnotesize $S$};
+		\end{tikzpicture}}
+		\noindent Tương tự như trường hợp $1$, $T$ thuộc đường tròn $(XYZ)$ và mỗi bộ ba điểm $(Y,T,W'),(Z,T,W)$ là một bộ $3$ điểm thẳng hàng.
+		Do vậy, $TS, TS'$ là các đường phân giác của các góc tạo bởi các đường thẳng $TW'$ và $TW.$
+		Từ đó, chú ý rằng $S,S',W,W'$ thẳng hàng, suy ra $(SS'WW')=-1. \hfill (8)$\\
+		Từ $(7)$ và $(8),$ suy ra $S$ là tâm vị tự ngoài của các đường tròn $(DMQ)$ và $(DNP).$
+		Mà $S$ là điểm cố định nên ta có điều phải chứng minh.
+	}
+\end{bt}
+\begin{bt}[P39, Tạp chí Pi, số tháng 3, năm 2018]%[1D0G1]%[Phan Minh Tâm]
+	Kí hiệu $ S $ là tập hợp gồm $ 2017 $ số nguyên dương đầu tiên. Hỏi có nhiều nhất bao nhiêu phần tử của $ S $ là những số hạng của cùng một cấp số nhân tăng, có các số hạng là số thực và công bội lớn hơn $ 1 $?
+	\loigiai
+	{Với $ n $ là số nguyên dương và $ p $ là số nguyên tố, ta kí hiệu $ v_p(n) $ là số lớn nhất trong các số tự nhiên $ k $ mà $ p^k | n$. Dễ thấy $v_p(mn)=v_p(m)+v_p(n)$, với mọi số nguyên dương $ m,\, n $ và với mọi số nguyên tố $ p $.
+		Giả sử $ x_1<x_2<\cdots<x_n $ là các số nguyên dương vừa thuộc $ S $ vừa là các số hạng của một cấp số nhân tăng, có công bội $ q>1. $
+		Vì $ 1,2,4,8,16 \in S $ và $ 1,2,4,8,16 $ cũng là các số hạng của một cấp số nhân tăng có công bội lớn hơn $ 1 $ nên có thể giả sử $ n\ge 5. $ Vì $ x_1<x_2<\cdots<x_n $ là các số hạng của một cấp số nhân tăng với công bội $ q $ nên tồn tại các số nguyên dương $ a_1, a_2,\ldots,a_n $ sao cho $$x_{i+1}=x_i\cdot q^{a_i},$$ với mọi $ i=\overline{1,n-1} $ hay $ \dfrac{x_{i+1}}{x_i} = q^{a_i} $ với mọi $i=\overline{1,n-1}  $. Suy ra, với mỗi $ i=1,2,\ldots,n-2, $ ta có
+		$$\left(\dfrac{x_{i+1}}{x_i}\right)^{a_{i+1}}=q^{a_i\cdot a_{i+1}}=\left(\dfrac{x_{i+2}}{x_{i+1}}\right)^{a_i}.$$
+		Do đó, $ x_i^{a_{i+1}}\cdot x_{i+2}^{a_{i}}=x_{i+1}^{a_i+a_{i+1}} $ với mỗi $ i=1,2,\ldots,n-2. $ 
+		Vì vậy, với $ p $ là số nguyên tố tùy ý, ta có
+		$$\left(a_i+a_{i+1}\right)v_p\left(x_{i+1}\right)=a_{i+1}v_p\left(x_i\right)+a_iv_p\left(x_{i+2}\right)$$ với mỗi $ i=1,2,\ldots,n-2. $
+		Suy ra, với $ p $ là số nguyên tố tùy ý, ta có $$v_p\left(x_i\right)<v_p\left(x_{i+1}\right) \Leftrightarrow v_p\left(x_{i+1}\right)<v_p\left(x_{i+2}\right)$$ với mọi $ i=\overline{1,n-2} .$
+		Dễ thấy, tồn tại số nguyên tố $ p $ sao cho $ v_p\left(x_1\right) <v_p\left(x_2\right)$ (vì nếu ngược lại, $ v_p\left(x_1\right)>v_p\left(x_2\right) $ với mọi số nguyên tố thì $ x_2|x_1 $, trái với giả thiết $ x_1<x_2 $).
+		Từ đó, suy ra tồn tại số nguyên tố $ p $ sao cho $$v_p\left(x_1\right)<v_p\left(x_2\right)<\cdots<v_p\left(x_n\right).$$
+		Do đó, $ v_p\left(x_n\right)\ge n-1. $ Suy ra $ p^{n-1} | x_n $. Mà $ x_n \le 2017 $ nên $ p^{n-1}\le 2017. $
+		Vì thế, $ 2^{n-1} \le 2017 $. Suy ra, $ n\le 11 $.
+		Dễ thấy, $ 1,2,2^2,\ldots,2^{10} \in S$ và các số đó lập thành một cấp số nhân tăng, có công bội lớn hơn $ 1 $. Vậy, có tối đa $ 11 $ phần tử thuộc $ S $ là các số hạng của một cấp số nhân tăng, có công bội lớn hơn 1.
+	}
+\end{bt}
+\begin{bt}[P40, Tạp chí Pi, tháng 3 năm 2017]%[Nguyễn Anh Tuấn, Dự án EX-TapChi02]%[1D0G6]
+	Chuẩn bị cho buổi giao lưu của Pi với các bạn học sinh Tiểu học yêu toán, cô Lê Hương được giao nhiệm vụ chia $500$ thanh chocolate (sô-cô-la) thành các gói sao cho mỗi gói đều có một sô lẻ thanh; cô Cẩm Thơ được giao nhiệm vụ chia $500$ cái kẹo mút thành các gói sao cho không có $2$ gói nào có số kẹo bằng nhau. Kí hiệu $ s $ và $ t $ tương ứng là số cách chia mà cô Lê Hương và cô Cẩm Thơ có thể thực hiện. Hãy so sánh $ s $ và $ t $.
+	\loigiai{
+		Nhận thấy:
+	\begin{itemize}
+		\item Mỗi cách chia chocolate của cô Lê Hương là một cách phân tích $500$ thành tổng của các số nguyên dương lẻ. Hai cách chia khác nhau của cô Lê Hương là hai cách phân tích khác nhau theo nghĩa: tồn tại một số nguyên dương lẻ có mặt trong phân tích này nhưng không có mặt trong phân tích kia, hoặc tồn tại một số nguyên dương lẻ mà số lần có mặt của nó trong phân tích này khác số lần có mặt của nó  trong phân tích kia.
+		\item  Mỗi cách chia kẹo mút của cô Cẩm Thơ là một cách phân tích $500$ thành tổng của các số nguyên dương đôi một khác nhau. Hai cách chia khác nhau của cô Cẩm Thơ là hai cách phân tích khác nhau theo nghĩa: tồn tại một số nguyên dương có mặt trong phân tích này nhưng không cso mạt trong phân tích kia.
+	\end{itemize}
+		Như vậy:
+	\begin{itemize}
+		\item  $ s $ chính là số phần tử của tập $ S $ gồm tất cả các cách phân tích $500$ thành tổng các số nguyên dương lẻ;
+		\item $ t $ chính là số phần tử của tập $ T $ gồm tất cả các cách phân tích $500$ thành tổng của các số nguyên dương đôi một khác nhau.
+	\end{itemize}
+		Ta sẽ so sánh $ s $ và $ t $ nhờ việc xây dựng một ánh xạ thích hợp từ $ T $ đến $ S $.
+		Xét $ a $ tùy ý thuộc $ T $ và giả sử $ a $ là cách phân tích $500$ thành tổng của $ m\ge1 $ số nguyên dương đôi một khác nhau $ a_1,a_2,\dots,a_m $.
+		Với mỗi $ i=\overline{1,m}, a_i $ có duy nhất biểu diễn dạng $ a_i=2^{n_i}\cdot b_i$\hfill$(*) $\\
+		trong đó $ b_i $ là một số nguyên dương lẻ và  $ n_i $ là một số tự nhiên. Vì thế, trong cách phân tích $ a $, khi thay mỗi $ a_i $ bởi tổng của $ 2^{n_i} $ số nguyên dương lẻ $ b_i $, ta sẽ có một cách phân tích (gọi là $ b $) 500 thành tổng của các số nguyên dương lẻ; nói cách khác, ta sẽ có một cách phân tích $ b $ thuộc tập $ S $.
+		Hơn nữa, do tính duy nhất của biểu diễn $ (*) $ nên cách phân tích $ b $ được xác định như trên là duy nhất.
+		Do đó, phép đặt ứng với mỗi cách phân tích $ a $ thuộc $ T $ với cách phân tích $ b $ được xác định như trên xác lập một ánh xạ, gọi là $ f $, từ $ T $ đến $ S $.
+		Xét $ b=f(a) $ với $ a \in T $ (nghĩa là, $ b $ là ảnh của $ a \in T$ qua $ f $). Giả sử $ b $ là cách phân tích $500$ thành tổng của $ m_1 $ số nguyên dương lẻ $ b_1 $, $ m_2 $ số nguyên dương lẻ $ b_2$,$\dots$, $m_k $ số nguyên dương lẻ $ b_k $. Khi đó, từ cách xác định $ b $, dễ thấy, mỗi $ m_i, i=\overline{1,k} $, là một tổng các lũy thừa của $2$.
+		Từ đó, do tính duy nhất của biểu diễn dạng $ (*) $ và tính duy nhất của biểu diễn trong hệ nhị phân của các số nguyên dương, dễ dàng suy ra, nếu $ a $ và $ a' $ là hai phần tử khác nhau thuộc $ T $ thì $ f(a) $ và $ f(a') $ là hai phần tử khác nhau thuộc $ S $. Điều này cho thấy $ f $ là đơn ánh. \hfill (1)\\
+		Tiếp theo, ta sẽ chứng minh $ f $ là toàn ánh.
+		Xét phần tử $ b $ tùy ý thuộc $ S $ và giả sử $ b $ là cách phân tích $500$ thành tổng của $ m_1 $ số nguyên dương lẻ $ b_1 $, $ m_2 $ số nguyên dương lẻ $ b_2,\dots,m_k $ số nguyên dương lẻ $ b_k $. Khi đó, ta có
+		\begin{align*}
+		500=m_1b_1+m_2b_2+\cdots+m_kb_k.\tag{2}
+		\end{align*}
+		Biểu diễn $ m_1 $ trong hệ nhị phân:
+		\begin{align*}
+		m_1=2^{s_1}+2^{s_2}+\cdots+2^{s_j},
+		\end{align*}
+		trong đó, $ s_1,s_2,\dots,s_j $ là các số tự nhiên đôi một khác nhau.
+		Trong tổng $ (2)$, thay $ m_1b_1 $ bởi tổng các số $ 2^{s_1}\cdot b_1,2^{s_2}\cdot b_1,\dots, 2^{s_j}\cdot b_1 $.
+		Làm tương tự như vậy đối với $ m_2b_2,\dots,m_kb_k $. 	
+		Khi đó, dễ thấy, ta sẽ có một phân tích của $500$ thành tổng của các số nguyên dương đôi một khác nhau; nghĩa là, ta sẽ có một phần tử của $ T $. Hiển nhiên, $ b $ là ảnh của phần tử này qua $ f $.
+		Như vậy, với mỗi phần tử $ b \in S $, luôn tồn tại phần tử $ a \in T $ sao cho $ f(a)=b $. Do đó, $ f $ là toàn ánh. \hfill (3)\\
+		Từ (1) và (3), suy ra $ f $ là song ánh. Vì thế $ s=t $.
+		\begin{nx}\hfill
+			\begin{enumerate}
+				\item Từ lời giải trên, hiển nhiên thấy, kết quả của bài ra không thay đổi khi thay $500$ bởi số nguyên dương $ n $ tùy ý.
+				\item 	Trong Toán học, mỗi cách phân tích số nguyên dương $ n $ thành tổng cách số nguyên dương khác được gọi là một \textit{phân hoạch của số nguyen dương $ n $}. Một phân hoạch của số nguyên dương $ n $ được gọi là \textit{phân hoạch lẻ}, nếu tất các số trong phân hoạch đều là số lẻ; được gọi là \textit{phân hoạch chẵn}, nếu tất các số trong phân hoạch đều là số chẵn; được gọi là \textit{phân hoạch chặt}, nếu tất các số trong phân hoạch đôi một khác nhau. Như thế, bài ra đã đề cập tới sự so sánh giữa số phân hoạch lẻ và số phân hoạch chặt của một số nguyên dương. Bạn đọc có thể tự tìm hiểu về so sánh giữa số phân hoạch chẵn và số phân hoạch lẻ của một số nguyên dương. 	
+			\end{enumerate}
+		\end{nx}
+	}
+	
+\end{bt}
+\Closesolutionfile{ans}

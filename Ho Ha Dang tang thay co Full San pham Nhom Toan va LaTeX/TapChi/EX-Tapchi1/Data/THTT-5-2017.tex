@@ -1,0 +1,443 @@
+\section{THTT số 479, tháng 5 năm 2017}
+\Opensolutionfile{ans}[ans/ansTHTT-5-2017]
+\begin{bt}[T1/479-Toán học \& Tuổi trẻ, tháng 5 năm 2017]%[0D0K8]%[Lê Anh Dũng]
+Sắp xếp các số từ $1$ đến $20$ vào một đường tròn sao cho tổng của hai số liền kề là một số nguyên tố.
+\loigiai{
+Gọi tổng hai số liền kề tùy ý $a,b$ là $a+b=c$ thì $c<40$. Theo cách lập sàng \textit{Eratosthenes} với ít hơn số $40$ thì ta chỉ cần chọn số nguyên tố $c$ sao cho $c$ không là bội của các số nguyên tố $2,3,5$ là đủ, vì $5^2<40<7^2$. Từ đó suy ra số cách chọn $a$ và $b$ như sau:
+\begin{itemize}
+\item Trong hai số $a$ và $b$ phải có một số chẵn và một số lẻ (để tổng $a+b$ không là bội của $2$);
+\item Tổng hai số $a$ và $b$ không có tận cùng là $5$ (để tổng $a+b$ không là bội của $5$);
+\item Tổng các chữ số của $a$ và $b$ không là bội $3$ (dể tổng $a+b$ không là bội của $3$).
+\end{itemize}
+Có nhiều cách chọn như thế, chẳng hạn như:
+\begin{itemize}
+\item $9-20-11-18-13-16-15-14-17-12-19-10-1-2-3-8-5-6-7-4-9$.
+\item $3-20-11-18-19-12-17-14-15-16-13-10-9-8-5-6-7-4-1-2-3$.
+\end{itemize}
+}
+\end{bt}
+
+\begin{bt}[T2/479-Toán học \& Tuổi trẻ, tháng 5 năm 2017]%[0H0K1]%[Lê Văn Thiện]	
+	Cho  tam giác $ABC$ vuông tại $A$, $\widehat{ABC}<45^{\circ}$. Trên nửa mặt phẳng bờ là đường thẳng $AB$ chứa điểm $C$ lấy các điểm $D$ và $E$ sao cho $BD = BA$ và $\widehat{DBA}=90^{\circ}$; $\widehat{EBC}=\widehat{CBA}$ và $ED$ vuông góc với $BD$. Chứng minh rằng $BE=AC+DE$.
+	\loigiai{
+\immini{Từ $B$ kẻ đường vuông góc với $BC$ cắt $DE$ tại $F$. Chú ý rằng với giả thiết
+		$\widehat{ABC}<45^{\circ}$ thì $\widehat{ABC}<\widehat{ABE}<\widehat{ABD}=90^{\circ}<\widehat{ABF}$. 		
+		Do đó thứ tự các tia $BA,BC,BD,BF$ xác định như trên hình vẽ, $D$ nằm giữa $E$ và $F$. Khi đó, $\widehat{ABC}=\widehat{DBF}$ (cùng phụ với $\widehat{CBD}$).		
+		Suy ra, $\triangle ABC = \triangle DBF$ (cạnh góc vuông - góc nhọn). 		
+		Từ đó có $AC = DF$.\hfill$(1)$\\
+		và $\widehat{ACB}=\widehat{DFB}$.\hfill$(2)$\\		
+		}{
+\begin{tikzpicture}
+\coordinate[label=left:{$A$}]  (A) at (0,0);
+\coordinate[label=right:{$B$}] (B) at (3,0);
+\coordinate[label=above:{$D$}] (D) at (3,3);
+
+\draw[very thick] (B) -- (D);
+
+\tkzDefLine[orthogonal=through D](B,D)
+\tkzGetPoint{E}
+\draw (D)--(E);
+
+\tkzDrawBisector(A,B,E) \tkzGetPoint{C};
+\draw (B)--(C);
+
+\tkzDefLine[orthogonal=through B](C,B)
+\tkzGetPoint{K}
+\draw (B)--(K);
+
+\tkzInterLL(D,E)(B,K)  \tkzGetPoint{F};
+\draw (D)--(F);
+\draw (B)--(E);
+
+\draw[very thick] (A) -- (B) -- (C) -- cycle;
+
+\tkzDefLine[orthogonal=through B](C,B)
+\tkzGetPoint{K}
+\draw (B)--(K);
+\tkzLabelPoints[above left](C,E,F)
+
+\tkzMarkAngle[draw=black,size=.5](E,B,A);
+
+\tkzMarkRightAngle[draw=black,size=.3](F,B,C);
+\tkzMarkRightAngle[draw=black,size=.3](C,A,B);
+\end{tikzpicture}
+}
+\noindent{Mặt} khác $AC\perp BD$ (cùng vuông góc với $AB$) nên $\widehat{ACB}=\widehat{CBD}=\widehat{CBE}+\widehat{EBD}$. Mà $\widehat{EBC}=\widehat{ABC}=\widehat{DBF}$ nên $\widehat{ACB}=\widehat{DBF}+\widehat{EBD}=\widehat{EBF}$.
+Từ $(2)$ và $(3)$ suy ra $\widehat{EFB}=\widehat{EBF}$, tam giác $EBF$ cân tại $E$. 	
+Suy ra $BE=EF=ED+DF=DE+AC$.
+	}
+\end{bt}
+
+\begin{bt}[T3/479-Toán học \& Tuổi trẻ, tháng 5 năm 2017]%[0D0K7] [Trần Chiến]
+	Xét $x,y$ là hai số thực thỏa mãn điều kiện $x^2+2xy+2y^2=1$. Tìm giá trị lớn nhất và giá trị nhỏ nhất của biểu thức $$P=x^4+y^4+(x+y)^4.$$
+	\loigiai{Ta có{\allowdisplaybreaks
+			\begin{align*}
+			P &= x^4+y^4+(x+y)^4\\
+			&= x^4+y^4+(x^4+4x^3y+6x^2y^2+4xy^3+y^4)\\
+			&=2(x^4+x^2y^2+y^4+2x^3y+2xy^3+2x^2y^2)\\
+			&=2(x^2+xy+y^2)^2.
+			\end{align*}}Bây giờ ta tìm giá trị nhỏ nhất và giá trị lớn nhất của biểu thức $Q=x^2+xy+y^2$.\\
+		\textbf{Cách 1.} Do $x^2+2xy+2y^2=1$ nên $Q=\dfrac{(x^2+2xy+2y^2)+x^2}{2}=\dfrac{1+x^2}{2}\geq \dfrac{1}{2}.$ \hfill$(1)$\\
+		Ta có sự tương đương
+		\[Q=\dfrac{1}{2}\Leftrightarrow \left\{ \begin{array}{l}
+		x=0\\ x^2+2xy+2y^2=1.
+		\end{array} \right. \Leftrightarrow \left\{\begin{array}{l}
+		x=0 \\ y=\pm\dfrac{\sqrt{2}}{2}.
+		\end{array}\right.\tag{2}\]
+		Lại có $Q=\dfrac{3(x^2+2xy+2y^2)-(x^2+4xy+4y^2)}{2}=\dfrac{3-(x+2y)^2}{2}\leq\dfrac{3}{2}.$ \hfill$(3)$\\
+		Ta có sự tương đương
+		\[Q=\dfrac{3}{2}\Leftrightarrow \left\{\begin{array}{l}
+		x+2y=0\\ x^2+2xy+2y^2=1
+		\end{array}\right. \Leftrightarrow \left[\begin{array}{l}
+		x\sqrt{2}; y=-\dfrac{\sqrt{2}}{2} \\
+		x=-\sqrt{2}; y=\dfrac{\sqrt{2}}{2}.
+		\end{array}\right.\tag{4}\]
+		Từ $(1)$, $(2)$, $(3)$ và $(4)$ ta có $\dfrac{1}{2}\leq Q\leq \dfrac{3}{2}$, suy ra $$2\cdot\left(\dfrac{1}{2}\right)^2\leq P\leq 2\cdot\left(\dfrac{3}{2}\right)^2\Leftrightarrow \dfrac{1}{2}\leq P\leq \dfrac{9}{2}.$$
+		Vậy giá trị nhỏ nhất của $P$ là $\dfrac{1}{2}$ khi $x=0, y=\pm\dfrac{\sqrt{2}}{2}$; \\
+		giá trị lớn nhất của $P$ là $\dfrac{9}{2}$ khi $x=\sqrt{2}$, $y=-\dfrac{\sqrt{2}}{2}$ hoặc $x=-\sqrt{2}$, $y=\dfrac{\sqrt{2}}{2}$.\\
+		\textbf{Cách 2.} Nếu $y=0$ thì từ giả thiết suy ra $x^2=1$, nên $Q=1$.\\
+		Nếu $y\neq 0$, đặt $t=\dfrac{x}{y}$ thì 
+		{\allowdisplaybreaks
+			\begin{align*}
+			&Q=\dfrac{x^2+xy+y^2}{x^2+2xy+2y^2}=\dfrac{t^2+t+1}{t^2+2t+2}\\
+			\Leftrightarrow & (Q-1)t^2+(2Q-1)t+2Q-1=0 \tag{$*$}
+			\end{align*}}Nếu $Q=1$ thì $t=-1$. \\
+		Nếu $Q\neq 1$ thì $(*)$ là phương trình bậc hai ẩn $t$ nên để $(*)$ có nghiệm thì 
+		{\allowdisplaybreaks
+			\begin{align*}
+			&\Delta=(2Q-1)^2-4(Q-1)(2Q-1)\geq 0\\
+			\Leftrightarrow & (2Q-1)(3-2Q)\geq 0\\
+			\Leftrightarrow &\dfrac{1}{2}\leq Q\leq \dfrac{3}{2}.
+			\end{align*}}
+		$Q=\dfrac{1}{2}\Leftrightarrow t=0$; $Q=\dfrac{3}{2}\Leftrightarrow t=-2$.\\
+		Từ đó ta cũng tìm được giá trị nhỏ nhất và giá trị lớn nhất của $P$ như cách 1.
+	}
+\end{bt}
+
+\begin{bt}[T4/479-Toán học \& Tuổi trẻ, tháng 5 năm 2017]% [0H0G7]%[Tran Tuan Viet]
+	Cho  $\Delta ABC$ có $AB<AC$ và ngoại tiếp đường tròn $(O)$. Cạnh $BC$ tiếp xúc với đường tròn $(O)$ tại $D$. Kẻ $OI$ vuông góc với đoạn thẳng $AD$ tại $I$. Tia $OI$ cắt đường trung trực của đoạn thẳng $BC$ ở $K$. Chứng minh tứ giác $BCIK$ là tứ giác nội tiếp. 
+	\loigiai{
+		\immini{Gọi $E, F$ lần lượt là tiếp điểm của $(O)$ và $CA, CB$. Dễ thấy $A, E, O, I, F$ cùng thuộc một đường tròn đường kính $AO$, ta có $\widehat{AIF} = \widehat{AEF} = \widehat{AFE} = \widehat{AIE}$.\smallskip
+			Suy ra, $IA$ là phân giác của góc $\widehat{EIF}$. \medskip
+			
+			Qua $B, C$ kẻ các đường thẳng song song với $AD$, tương ứng cắt các tia $IF, IE$ tại $P$ và $Q$. Gọi $L$ là giao điểm của $AD$ và $PQ$.
+		}{
+		\begin{tikzpicture}
+			\tkzInit[ymin=-4,ymax=4,xmin=-5,xmax=6]
+			\tkzClip
+			\tkzDefPoints{0/3/A,-4/-2/B,5/-3/C,-1.56/1.06/F,1.65/1.02/E,-0.14/-2.44/D,0.06/-0.34/O,-0.067/0.12/I,-4.02/2.58/P,5.02/2.84/Q,0/2.7/L,0.55/-2.08/K}
+			\tkzDrawPoints(A,B,C,D,E,F,O,I,P,Q,L,K)
+			\tkzDrawCircle[circum](D,F,E)
+			\tkzLabelPoints[above left](A)
+			\tkzLabelPoints[above left](P)
+			\tkzLabelPoints[below left](B)
+			\tkzLabelPoints[below](D)
+			\tkzLabelPoints[above right](K)
+			\tkzLabelPoints[above right](I)
+			\tkzLabelPoints[above](E)
+			\tkzLabelPoints[above](F)
+			\tkzDrawSegments(A,B B,C C,A B,E C,F A,D B,P P,F C,Q P,Q E,Q K,O O,I K,B K,C)
+			\tkzLabelPoints(C,O,Q,L)
+			\end{tikzpicture}}
+\noindent{Ta} có $$ \dfrac{IP}{IQ} = \dfrac{LP}{LQ} = \dfrac{BD}{CD} = \dfrac{BE}{CE} = \dfrac{BF}{FA}. \dfrac{EA}{EC} = \dfrac{BP}{AI}. \dfrac{AI}{CQ} = \dfrac{BP}{CQ}. $$
+		Mà $\widehat{BPI} = \widehat{PIA} = \widehat{AIE} = \widehat{EQC}$, nên $\Delta IPB \sim IQC (c.g.c)$. Suy ra $\dfrac{IB}{IC} = \dfrac{BP}{CQ} = \dfrac{DB}{DC}$.	
+		\noindent Do đó $\widehat{BID} = \widehat{CID}$. Suy ra $\widehat{xIB} = \widehat{CIK}$, trong đó tia $Ix$ là tia đối của tia $IK$. 		
+		\noindent Gọi $K'$ là giao điểm thứ hai của $OI$ với đường tròn $(BIC)$. Ta có $\widehat{K'BC} = \widehat{K'IC} = \widehat{xIB} = \widehat{K'CB}$. 		
+		\noindent Suy ra $\widehat{K'BC} = \widehat{K'CB}$ nên $K'$ thuộc trung trực của đoạn thẳng $BC$. Do đó $K \equiv K'$. Vậy tứ giác $BIKC$ nội tiếp. 
+	}
+\end{bt}
+
+\begin{bt}[T5/479-Toán học \& Tuổi trẻ, tháng 5 năm 2017]%[9D0G2]%[Huỳnh Xuân Tín]
+Giải phương trình 
+\[\dfrac{\sqrt{x^2+28x+4}}{x+2}+8=\dfrac{x+4}{\sqrt{x-1}}+2x.\tag{1}
+\]
+\loigiai{Điều kiện $x>1$. Khi đó
+	{\allowdisplaybreaks
+	\begin{align*}
+	(1)&\Leftrightarrow \dfrac{x-1+5}{\sqrt{x-1}}+2x -\dfrac{\sqrt{x^2+28x+4}}{x+2}-8=0\\
+	&\Leftrightarrow 5\left( \sqrt{x-1}-2+\dfrac{1}{\sqrt{x-1}}\right) +2\left( x-2\sqrt{x-1}\right) +\left( 2-\dfrac{\sqrt{x^2+28x+4}}{x+2}\right) =0\\
+&\Leftrightarrow 5\left( \sqrt[4]{x-1}-\dfrac{1}{\sqrt[4]{x-1}}\right)^2+2\left(\sqrt{x-1}-1 \right)^2+ \dfrac{3(x-2)^2}{(x+2)\left[ 2(x+2)+\sqrt{x^2+28x+4}\right] }=0  \\
+&\Leftrightarrow \heva{\sqrt{x-1}-1=0\\
+			\sqrt[4]{x-1}-\dfrac{1}{\sqrt[4]{x-1}}=0\\
+			x-2=0}\Leftrightarrow x=2\,\, \text{(thỏa mãn điều kiện).}
+\end{align*}}Vậy phương trình $(1)$ có nghiệm duy nhất $x=2$.\\		
+		\textbf{Cách 2.} Áp dụng bất đẳng thức Cauchy ta có:
+{\allowdisplaybreaks
+	\begin{align*}		
+		VP(1) &\ge \dfrac{x+4}{\dfrac{x-1+1}{2}}+2x= \dfrac{2(x+4)}{x}+2x = 2+\dfrac{8}{x}+2x\ge 2+2\sqrt{\dfrac{8}{x}\cdot 2x}=10\tag{2}\\
+		VT(1)&=\dfrac{\sqrt{4(x+2)^2-3(x-2)^2}}{x+2}+8 \le\dfrac{\sqrt{4(x+2)^2}}{x+2}+8=10.\tag{3}
+	\end{align*}}Vậy để $(1)$ xảy ra thì dấu đẳng thức trong $(2)$ và $(3)$ cùng xảy ra $\Leftrightarrow x=2$ (thỏa mãn điều kiện).
+		Vậy phương trình $(1)$ có nghiệm duy nhất $x=2$.
+}
+\end{bt}
+
+\begin{bt}[T6/479-Toán học \& Tuổi trẻ, tháng 5 năm 2017]%[0D0K7]%[Nguyễn Đắc Giáp]
+	Cho các số thực không âm $a, b, c$ thỏa mãn $ab+bc+ca=1$. Chứng minh rằng
+	$$\sqrt{3} \le \sqrt{1+a^2} +\sqrt{1+b^2}+\sqrt{1+c^2} -a -b-c \le 2. $$
+	\loigiai{Trong tam giác ta có bất đẳng thức quen thuộc $\cot A\cdot \cot  B + \cot B\cdot \cot  C+ \cot C\cdot \cot  A = 1$. Như vậy nếu chọn $A, B$ là các góc nhọn thỏa mãn $a = \cot A $, $b= \cot B$ thì $c= \cot C$ với $C=\pi -(A+B)$. Ta có:
+		{\allowdisplaybreaks
+		\begin{align*} 	
+		P &= \sqrt{1+a^2} +\sqrt{1+b^2}+\sqrt{1+c^2} -a -b-c \\
+		&= \sqrt{1+ \cot ^2 A}+\sqrt{1+ \cot ^2 B}+\sqrt{1+ \cot ^2 C}- \cot A - \cot B - \cot C \\
+		&= \dfrac{1}{\sin A} + \dfrac{1}{\sin B} + \dfrac{1}{\sin C} - \cot A - \cot B - \cot C \\
+		&= \dfrac{1+\tan ^2 \dfrac{A}{2}}{2 \tan \dfrac{A}{2}} + \dfrac{1+\tan ^2 \dfrac{B}{2}}{2 \tan \dfrac{B}{2}} + \dfrac{1+\tan ^2 \dfrac{C}{2}}{2 \tan \dfrac{C}{2}} - \dfrac{1-\tan ^2 \dfrac{A}{2}}{2 \tan \dfrac{A}{2}} -  \dfrac{1-\tan ^2 \dfrac{B}{2}}{2 \tan \dfrac{B}{2}} - \dfrac{1-\tan ^2 \dfrac{C}{2}}{2 \tan \dfrac{C}{2}} \\
+		&= \tan \dfrac{A}{2} +\tan \dfrac{B}{2} +\tan \dfrac{C}{2}.
+		\end{align*}}Sử dụng đẳng thức quen thuộc $\tan \dfrac{A}{2}\cdot  \tan \dfrac{B}{2} + \tan \dfrac{B}{2}\cdot \tan \dfrac{C}{2} + \tan \dfrac{C}{2}\cdot \tan \dfrac{A}{2} =1 $ ta có
+	{\allowdisplaybreaks
+		\begin{align*}  
+		P^2 &= \left (\tan \dfrac{A}{2} +\tan \dfrac{B}{2} +\tan \dfrac{C}{2} \right )^2\\
+		& \ge 3 \left( \tan \dfrac{A}{2}\cdot \tan \dfrac{B}{2} + \tan \dfrac{B}{2}\cdot \tan \dfrac{C}{2} + \tan \dfrac{C}{2}\cdot \tan \dfrac{A}{2} \right) = 3.
+		\end{align*}}và suy ra $P \ge \sqrt{3}$. Đẳng thức xảy ra khi $a=b=c= \dfrac{1}{\sqrt{3}}$. Mặt khác 
+	{\allowdisplaybreaks
+		\begin{align*}  
+		P^2 &= \left (\tan \dfrac{A}{2} +\tan \dfrac{B}{2} +\tan \dfrac{C}{2} \right )^2\\
+		&= \tan ^2 \dfrac{A}{2} + \tan ^2 \dfrac{B}{2} + \tan ^2 \dfrac{C}{2} + 2 \le P+2
+		\end{align*}}do $\tan \dfrac{A}{2}, \tan \dfrac{B}{2}, \tan \dfrac{C}{2} \le 1$. Chuyển vế ta có $(P+1)(P-2) \le 0 \Rightarrow P \le 2$. Đẳng thức xảy ra khi trong $\tan \dfrac{A}{2}, \tan \dfrac{B}{2}, \tan \dfrac{C}{2}$ có đúng hai giá trị $1$ và một giá trị $0$ là điều không đạt tới. 
+		\begin{nx}
+			Bài toán này có nhiều lời giải khác nhau. Khi dùng công cụ lượng giác nên chú ý biện luận tại sao ta có thể chọn các góc của một tam giác sao cho giá trị lượng giác của nó là $a, b, c$.
+		\end{nx}
+		
+	}
+\end{bt}
+
+\begin{bt}[T7/479-Toán học \& Tuổi trẻ, tháng 5 năm 2017]%[0D0K2]%[Vinhhop Tran]
+	Giải hệ phương trình $$\heva{x^8=&21y+13\\ \left(x^3+y^3\right)^3\left(x^4+y^4\right)^4=&\dfrac{(x+y)^{25}}{2^{18}}.}$$
+	\loigiai{Phương trình thứ hai của hệ tương đương với
+{\allowdisplaybreaks
+\begin{align*}
+&(x+y)^3\left(x^2-xy+y^2\right)^3\left(x^4+y^4\right)^4=\dfrac{(x+y)^{25}}{2^{18}}\\
+\Leftrightarrow& \hoac{x+y=0,\\ \left(x^2-xy+y^2\right)^3\left(x^4+y^4\right)^4=\dfrac{(x+y)^{22}}{2^{18}}.}
+\end{align*}}Trường hợp 1. $x+y=0.$ Rút $y=-x,$ thay vào phương trình đầu của hệ, ta được 
+{\allowdisplaybreaks
+	\begin{align*}
+&x^8+21x-13=0\\
+\Leftrightarrow&\left(x^2+x-1\right)\left(x^6-x^5+2x^4-3x^3+5x^2-8x+13\right)=0.
+\end{align*}}Do 
+{\allowdisplaybreaks
+\begin{align*}
+&x^6-x^5+2x^4-3x^3+5x^2-8x+13\\ =&x^4\left(x^2-x+1\right)+x^2\left(x^2-3x+3\right)+2x^2-8x+13>0, \,\forall x\in\mathbb{R}
+\end{align*}}nên phương trình trên tương đương với $x^2+x-1=0 \Leftrightarrow x=\dfrac{-1\pm\sqrt5}2.$ 	
+		Trường hợp này hệ có hai nghiệm $(x; y)=\left(\dfrac{-1-\sqrt5}2; \dfrac{1+\sqrt5}2\right), \left(\dfrac{-1+\sqrt5}2; \dfrac{1-\sqrt5}2\right).$\\		
+		Trường hợp 2. $\left(x^2-xy+y^2\right)^3\left(x^4+y^4\right)^4=\dfrac{(x+y)^{22}}{2^{18}}.$\\		
+		Ta có các đánh giá sau 
+		$$x^2-xy+y^2\ge \dfrac14(x+y)^2\ge 0, \, x^4+y^4\ge \dfrac12\left(x^2+y^2\right)^2\ge \dfrac18(x+y)^8\ge 0.$$
+Suy ra $\left(x^2-xy+y^2\right)^3\left(x^4+y^4\right)^4\ge\dfrac{(x+y)^{22}}{2^{18}}.$ Dấu bằng xảy ra khi $x=y$. 		
+		Do vậy, trong trường hợp này ta phải có $x=y.$ Thay vào phương trình đầu của hệ, ta được $$x^8-21x-13=0.$$ Nếu thay $x$ bởi $-x$ thì phương trình này trở thành $x^8+21x-13=0.$ Do đó, theo kết quả của trường hợp 1, ta suy ra, trong trường hợp này, $x=\dfrac{1\pm\sqrt5}2.$  Và hệ có thêm các nghiệm 
+		$$(x; y)=\left(\dfrac{1-\sqrt5}2; \dfrac{1-\sqrt5}2\right), \left(\dfrac{1+\sqrt5}2; \dfrac{1+\sqrt5}2\right).$$
+Vậy, hệ đã cho có $4$ nghiệm là $$(x; y)=\left(\dfrac{-1-\sqrt5}2; \dfrac{1+\sqrt5}2\right), \left(\dfrac{-1+\sqrt5}2; \dfrac{1-\sqrt5}2\right),\left(\dfrac{1-\sqrt5}2; \dfrac{1-\sqrt5}2\right), \left(\dfrac{1+\sqrt5}2; \dfrac{1+\sqrt5}2\right).$$
+		\noindent {\bf Nhận xét.} 
+\begin{itemize}
+	\item  Một số bạn cho rằng $\left(x^3+y^3\right)^3\left(x^4+y^4\right)^4\ge \dfrac{(x+y)^{25}}{2^{18}},$ rồi khẳng định phương trình thứ 2 của hệ tương đương với $x=y.$ Tuy nhiên, điều này là sai lầm (dễ nhận thấy BĐT vừa nêu chỉ đúng trong trường hợp $x+y\ge 0$).
+\item  Khi giải các phương trình $x^8\pm x-13=0,$ một số bạn sử dụng nhận xét \textit{ Nếu hàm $f(x)$ liên tục và thỏa mãn phương trình $f'(x)=0$ có nghiệm duy nhất thì phương trình $f(x)=0$ có không quá hai nghiệm.} Sau đó chỉ cần chỉ ra hai nghiệm của mỗi phương trình như trên.
+\end{itemize}
+%3. (Quan điểm cá nhân) Đây là một bài toán tồi, xấu xí, đúng ra không nên có trong một tạp chí uy tín như THTT. Bài này cũng nên loại khỏi dự án.
+	}
+\end{bt}
+
+\begin{bt}[T8/479-Toán học \& Tuổi trẻ, tháng 5 năm 2017]%[0H0G3]%[Phan Minh Tâm]
+	Cho tam giác $ ABC $ và điểm $ P $ nằm trong tam giác. $ E $, $ F $ theo thứ tự là giao điểm của $ BP $, $ CP $ và $ AC $, $ AB $ và $ K $ là giao điểm của $ AP $ và $ EF $. $ H $ là hình chiếu vuông góc của $ K $ trên $ BC $. Điểm $ M$  thuộc đoạn $ AF $. $ N $ là giao điểm của $ MK $ và $ PE $. Chứng minh rằng $ \widehat{KHM} = \widehat{KHN} $.
+	\loigiai
+	{Giả sử $ R = BK \cap AC. $ Xét hai trường hợp:\\
+		\textit{\textbf{Trường hợp 1.}}	$ MN \parallel BC. $\\
+		Vì $ AP,\, $ $ BR $,\,$ EF $ đồng quy tại $ K $, nên $ (AERC) = -1$ (hàng điểm điều hòa cơ bản).\\ $ \Rightarrow B(AERC) = -1 $, từ đó kết hợp với $ MN \parallel BC $ ta thấy $ K $ là trung điểm của $ MN $.\\ Lại do $ HK \bot MN $, suy ra $ \triangle HMN $ cân tại $ H $. Do đó $ \widehat{KHM} = \widehat{KHN} $.\\
+		\textit{\textbf{Trường hợp 2.}}	$ MN$ không song song $BC. $
+		\immini
+		{
+			Gọi $ Q $ là giao điểm của $ MN $ với $ BC $.\\ Từ $ (AERC) = -1 \Rightarrow B(AERC) = -1$. Xét phép chiếu xuyên tâm $ B $ lên đường thẳng $ MQ $ ta được $ (MNKQ) = -1 $, dẫn đến $ H(MNKQ) = -1 $, kết hợp với $ HK \bot HQ $, suy ra $ HK, $ $ HQ $ tương ứng là đường phân giác trong và đường phân giác ngoài của $ \widehat{MHN} $.\\ Do vậy $ \widehat{KHM} = \widehat{KHN} $ (đpcm).
+		}
+		{
+			\begin{tikzpicture}
+			\clip (-1,-1) rectangle (9,6);
+			\tkzDefPoints{0/0/B,8/0/C,2/5/A}
+			\tkzDefPoints{3/1.2/P}
+			
+			
+			\tkzInterLL(B,P)(C,A)
+			\tkzGetPoint{E}
+			
+			\tkzInterLL(C,P)(B,A)
+			\tkzGetPoint{F}
+			
+			\tkzInterLL(E,F)(P,A)
+			\tkzGetPoint{K}
+			
+			\tkzInterLL(A,K)(B,C)
+			\tkzGetPoint{D}
+			
+			
+			\tkzDrawSegments(A,B B,C C,A B,E C,F A,D)
+			
+			\tkzDrawAltitude[](C,B)(K)
+			\tkzGetPoint{H}
+			\coordinate (M) at ($(F)!0.3!(A)$);
+			\tkzInterLL(M,K)(P,E)
+			\tkzGetPoint{N}
+			\tkzInterLL(M,N)(B,C)
+			\tkzGetPoint{Q}
+			\tkzInterLL(B,K)(A,C)
+			\tkzGetPoint{R}
+			\tkzDrawSegments(M,N H,N M,H N,Q B,R F,E)
+			
+			\tkzLabelPoint[above](A){$A$}
+			\tkzLabelPoint[left](B){$B$}
+			\tkzLabelPoint[rotate=30,above right=0.05cm](K){$K$}
+			\tkzLabelPoint[right](R){$R$}
+			\tkzLabelPoint[right](C){$C$}
+			\tkzLabelPoint[above right=-0.07cm](P){$P$}
+			\tkzLabelPoint[right](E){$E$}
+			\tkzLabelPoint[left](F){$F$}
+			\tkzLabelPoint[below](H){$H$}
+			\tkzLabelPoint[below](D){$D$}
+			\tkzLabelPoint[left](M){$M$}
+			\tkzLabelPoint[above](N){$N$}
+			\tkzLabelPoint[below](Q){$Q$}
+			\tkzDrawPoints(E,F,K,P,D,H,M,N,Q,R)
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}[T9/479-Toán học \& Tuổi trẻ, tháng 5 năm 2017]%[0D0G3]%[Hưng Nguyễn]
+	Cho $f:\mathbb{N}^*\rightarrow\mathbb{N}^*$ là một song ánh. Chứng minh rằng tồn tại các số nguyên dương $a,b,c,d$ sao cho $$a<b<c<d\,\, \text{và}\,\, f(a)+f(d)=f(b)+f(c).$$
+	\loigiai{Với số nguyên dương $n$ bất kì ta kí hiệu $m=g(n)$ là số nguyên dương nhỏ nhất thỏa mãn $f(m)>f(i),\ i=1,2,\dotsc,n$ (tồn tại số nguyên dương $m$ như thế do $f$ là toàn ánh).\\
+		Lấy $a$ là số nguyên dương bất kì, $b=g(a),\ c=g(b)$.\\
+		Ta có $f(a)<f(b)<f(c)$. Suy ra $f(b)+f(c)-f(a)>f(c)$.\\
+		Lại do $f$ là toàn ánh, tồn tại $d\in\mathbb{N}^*$ mà $f(d)=f(b)+f(c)-f(a).$\\
+		Chú ý $f(d)>f(c)$ và $c=g(b)\Rightarrow d>c$.\\
+		Như vậy ta có $a<b<c<d$ và $f(a)+f(d)=f(b)+f(c)$.
+		\begin{nx}
+			Trong chứng minh trên chỉ có giả thiết $f$ là toàn ánh được sử dụng.
+		\end{nx}
+	}
+\end{bt}
+
+\begin{bt}[T10/479-Toán học \& Tuổi trẻ, tháng 5 năm 2017]%[0D0G5][Ban Nt]
+	Cho dãy $(u_n)$ các số nguyên dương thỏa mãn $0\leq u_{m+n}-u_m-u_n \leq 2$ với mọi $m, n \geq 1.$ Chứng minh rằng tồn tại hai số thực dương $a_1, a_2$ sao cho $$[a_1n]+[a_2n]-1\leq u_n \leq [a_1n]+[a_2n]+1, \, \forall n\leq 2017.$$
+	(Ở đây kí hiệu $[x]$ là số nguyên lớn nhất không vượt quá $x$).
+	\loigiai{
+		Trước hết ta chứng minh với mọi $m, n \in \mathbb{N^*}$ thì 
+	$mu_n < n(u_m+2)$\hfill$(1)$\\
+	Chứng minh bằng quy nạp theo $m+n$.\\
+		Với $m+n=2$, khi đó $m=n=1$, $(1)$ trở thành $u_1<u_1+2$, ta thấy $(1 )$ đúng.\\
+		Giả sử $(1)$ đúng với mọi $m+n$ mà $2\leq m+n<k$. Ta chứng minh $(1)$ đúng với $m+n=k$. Thật vậy
+		\begin{itemize}
+			\item Nếu $m=n$ thì $(1) \Leftrightarrow mu_m<m(u_m+2)$, bất đẳng thức đúng.
+			\item Nếu $m>n$: Xét cặp số $(m-n,n)$ ta có $m-n+n=m<m+n=k.$\\
+			Do đó theo giả thiết quy nạp $(m-n)u_n<n(u_{m-n}+2)$.\\
+			Mặt khác từ điều kiện đề bài  $u_n+u_{m-n}\leq u_m \Rightarrow n(u_n+u_{m-n})\leq nu_m$.\\
+			Từ đó suy ra $(m-n)u_n+n(u_n+u_{m-n})<n(n_{m-n}+2)+nu_m \Leftrightarrow mu_n<n(u_m+2)$.
+			\item Nếu $m<n$: Xét cặp số $(m, n-m) $ ta có $m+n-m=n<m+n=k$.\\
+			Do đó theo giả thiết quy nạp $mu_{n-m}<(n-m)(u_m+2).$ \\
+			Mặt khác, từ điều kiện đề bài
+			$u_n\leq u_{n-m}+u_m+2 \Rightarrow mu_n \leq m(u_{n-m}+u_m+2)$.\\
+			Khi đó $mu_{n-m}+mu_n<(n-m)(u_m+2)+m(u_{n-m}+u_m+2) \Leftrightarrow m u_n<n(u_m+2)$.\\ 
+			Vậy  $(1)$ được chứng minh.
+		\end{itemize}
+		\textit{Trở lại với bài toán.} Từ $(1)$ suy ra $\dfrac{u_n}{n}=\dfrac{u_m+2}{m}, \, \forall m,n \in \mathbb{N^*}$. \\
+		Đặt $K=\max \limits_{1 \leq n \leq 2017} \left(\dfrac{u_n}{n}-1\right)=\dfrac{u_p}{p}-1;\, L=\min \limits_{1\leq n\leq 2017}\left(\dfrac{u_n+2}{n}-1 \right)=\dfrac{u_q+2}{q}-1.$\\
+		Do $(1)$ có $\dfrac{u_p}{p}<\dfrac{u_q+2}{q} \Rightarrow K<L$. Mà $u_1\geq 1$ nên $K\geq \dfrac{u_1}{1}-1\geq 0$. Vậy $0\leq K<L$.\\
+		Chọn $a_1=1$ và $a_2\in (K,L)$, $a_2\in \mathbb{R}$. Với mọi $1\leq n\leq 2017$, ta có:
+		\begin{itemize}
+			\item $a_2n<Ln\leq \left(\dfrac{u_n+2}{n}-1\right) n=u_n+2-n \Rightarrow [a_2n]\leq u_n-n+1$. Do đó $$[a_1n]+[a_2n]-1=n-1+[a_2n]\leq n-1+u_n-n+1=u_n.$$
+			\item $a_2n>Kn\geq \left(\dfrac{u_n}{n}-1\right)n=u_n-n \Rightarrow [a_2n]\geq u_n-n$ \hspace{0.2cm} (do $u_n-n\in \mathbb{Z}$ và $a_2n>u_n-n$). Vậy $$[a_1n]+[a_2n]+1=n+1+[a_2n]\geq n+1+u_n-n=u_n+1>u_n.$$
+		\end{itemize}
+		Như vậy, bài toán đã được chứng minh.
+	}
+\end{bt}
+
+\begin{bt}[T11/479-Toán học \& Tuổi trẻ, tháng 5 năm 2017]%[9D1K2]%[Võ Thanh Phong]
+	Tìm tất cả các hàm số $f$ xác định và liên tục trên khoảng $\left(-2016;+\infty\right)$ sao cho $$f\left(x+2016\right)=f\left(\dfrac{x+2017}{x+2018}\right)+\dfrac{x^2+4033x+4066271}{x+2018},\,\forall x>-2016.$$
+	\loigiai{
+		Viết lại biểu thức của giả thiết đã cho:
+		$$f\left(x+2016\right)=f\left(\dfrac{x+2017}{x+2018}\right)+\dfrac{x^2+4033x+2016\cdot 2017-1}{x+2018},\,\forall x>-2016.$$
+		Đặt $t=x+2016$ với $x>-2016$, khi đó $t>0$ và ta có:
+		{\allowdisplaybreaks
+		\begin{align*}
+		&f(t)=f\left(\dfrac{t+1}{t+2}+\dfrac{t^2+t-1}{t+2}\right)=f\left(\dfrac{t+1}{t+2}\right)-\dfrac{t+1}{t+2}+t \\
+		\Rightarrow& f(t)-t=f\left(\dfrac{t+1}{t+2}\right)-\dfrac{t+1}{t+2}.\tag{1}
+		\end{align*}}Đặt $g(t)=f(t)-t\Rightarrow g\left(\dfrac{t+1}{t+2}\right)=f\left(\dfrac{t+1}{t+2}\right)-\dfrac{t+1}{t+2}$.\\
+		Từ $(1)$ ta có: $g(t)=g\left(\dfrac{t+1}{t+2}\right),\, \forall \in \left(0;+\infty\right)$.\\
+		Chọn $a>0$ tùy ý, ta xây dựng dãy số $\left(x_n\right)$ như sau:
+		$$\heva{&x_1=a\\&x_{n+1}=\dfrac{x_n+1}{x_n+2},\,\,\forall n=1,2,\dots}$$
+		Khi đó $g(a)=g(x_1)=g(x_2)=\cdots=g(x_{n+1})=\cdots$\\
+		Trước tiên ta chứng minh dãy số trên có giới hạn. Thật vậy, giả sử $b>0$ thỏa mãn 
+		$$b=\dfrac{b+1}{b+2}\Rightarrow b=\dfrac{-1+\sqrt{5}}{2}$$
+		Vì $b>0$, $x_n>0$, $\forall n=1,2,3,\cdots$ nên ta có:
+		{\allowdisplaybreaks
+			\begin{align*}
+		0&\le \left|x_{n+1}-b\right|=\left|\dfrac{x_n+1}{x_n+2}-\dfrac{b+1}{b+2}\right|=\left|\dfrac{x_n-b}{(x_n+2)(b+2)}\right|\\
+		&\le \dfrac{1}{4}\left|x_n-b\right|\le \left(\dfrac{1}{4}\right)^2\left|x_{n+1}-b\right|\le \cdots \le \left(\dfrac{1}{4}\right)^n\left|x_1-b\right|.
+		\end{align*}}Theo định lý kẹp suy ra $\lim\limits_{n\to \infty}\left(\dfrac{1}{4}\right)^n=0\Rightarrow \lim x_n=b$.\\
+		Vì hàm số $f(x)$ liên tục trên $\left(-2016;+\infty\right)$ nên hàm $g(t)$ liên tục trên $\left(0;+\infty\right)$. Ta có:
+		$$g(a)=g\left(\dfrac{-1+\sqrt{5}}{2}\right)\Rightarrow g(t)=c,\,\forall t\in(0;+\infty)\Rightarrow f(t)=t+c,\, \forall t\in (0;+\infty)$$
+		Thử lại, ta thấy hàm số cần tìm là $f(x)=x+c,\, \forall x\in (-2016;+\infty)$, $c$ là hằng số tùy ý.
+		\begin{nx}
+			Biến đổi về đẳng thức $(1)$ là mấu chốt lời giải của bài toán.
+		\end{nx}
+	}
+\end{bt}
+\begin{bt}[T12/479-Toán học \& Tuổi trẻ, tháng 5 năm 2017]%[9H0G6][Trịnh Văn Xuân]
+	Cho đường tròn $(O)$ và hai điểm cố định $B$, $C$ trên $(O)$. Một điểm $A$ thay đổi trên $(O)$ sao cho tam giác $ABC$ là tam giác nhọn và có $AB<AC$. $D$ là một điểm trên cạnh $AC$ sao cho $AB = AD$. $BD$ cắt đường tròn $(O)$ tại điểm $E$ khác $B$. Hình chiếu vuông góc của $E$ trên $AC$ là $H$, hình chiếu vuông góc của $D$ trên $AE$ là $M$. Đường tròn ngoại tiếp tam giác $AMH$ cắt đường tròn $(O)$ tại điểm $K$. Điểm $N$ là hình chiếu vuông góc của điểm $K$ trên đường thẳng $AB$.
+	\begin{enumerate}
+		\item Chứng minh rằng $MN$ đi qua trung điểm $I$ của $BD$.
+		\item Đường tròn ngoại tiếp tam giác $BCD$ và đường tròn ngoại tiếp tam giác $AMH$ cắt nhau tại $P$ và $Q$. Chứng minh rằng trung điểm đoạn thẳng $PQ$ luôn thuộc một đường thẳng cố định khi $A$ thay đổi trên đường tròn $(O)$.
+	\end{enumerate}
+	\loigiai{
+		\begin{bode}
+			Cho tam giác $ABC$, $(O)$ là đường tròn ngoại tiếp. Điểm $P$ thuộc $(O)$. $H$, $K$, $L$ theo thứ tự là hình chiếu của $P$ trên $BC$, $CA$, $AB$. Khi đó $H$, $K$, $L$ thẳng hàng.
+		\end{bode}
+		\begin{center}
+			\begin{tikzpicture}[scale=0.6]
+			\tkzDefPoints{-3/-4/B,0/0/O}
+			\clip(-7,-10) rectangle (6,5);
+			\tkzDrawCircle[radius](O,B)
+			\path(O)++(-20:5)coordinate(C);
+			\path(O)++(150:5)coordinate(A);
+			\tkzInterLC(A,C)(A,B)\tkzGetPoints{D1}{D}
+			\tkzInterLC(B,D)(O,B)\tkzGetPoints{E}{E1}
+			\tkzDefPointBy[projection=onto A--C](E)
+			\tkzGetPoint{H}
+			\tkzDefPointBy[projection=onto A--E](D)
+			\tkzGetPoint{M}
+			\tkzDefCircle[circum](A,M,H)\tkzGetPoint{a}
+			\tkzDefCircle[circum](B,C,D)\tkzGetPoint{b}
+			\tkzDrawCircle[circum](A,M,H)
+			\tkzDrawCircle[circum](B,C,D)
+			\tkzInterCC(b,B)(a,M)\tkzGetPoints{P}{Q}
+			\tkzInterCC(O,B)(a,M)\tkzGetPoints{K}{K1}
+			\tkzDefPointBy[projection=onto A--B](K)
+			\tkzGetPoint{N}
+			\coordinate (I) at ($(B)!0.5!(D)$); 
+			\coordinate (S) at ($(P)!0.5!(Q)$);
+			\coordinate (L) at ($(A)!0.5!(K)$);
+			\draw (K) node[below right] {$K\equiv K'$};	\tkzDrawPoints(A,B,C,O,D,E,H,M,K,N,I,P,Q,S,L)
+			\tkzDrawSegments(A,N A,C B,C E,K A,E M,N A,K P,Q B,E B,K C,K N,K K,M)
+			\tkzLabelPoints[left](B)
+			\tkzLabelPoints[above left](A,D)
+			\tkzLabelPoints[above right](C,E,M)
+			\tkzLabelPoints[above left](O,Q)
+			\tkzLabelPoints[below left](P,H)
+			\tkzLabelPoints[below](I,S,N)
+			\tkzLabelPoints[above](L)
+			\clip(-1,-1)--(2,2);
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Gọi $K' = DM\cap EH$.\\
+			Vì $K'M\equiv DM \perp AE$; $AH \equiv AC \perp K'E$ nên $BD\equiv LE\perp AK'$ và $K'$ thuộc đường tròn ngoại tiếp tam giác $AMH$.\\
+			Vì $AB = AD$ và $BD\equiv EB\perp AK'$ và chú ý rằng $AC\perp EH\equiv EK'$ nên ta có 
+			$$(AB,AK') \equiv (AK',AC)\equiv (EB,EK')\, (\text{mod}\, \pi ).$$
+			Do đó $K'$ thuộc đường tròn ngoại tiếp tam giác $ABE$.\\
+			Nói cách khác $K'$ thuộc $(O)$. Vậy $K\equiv K'$.\\
+			Vì $AB = AD$ và $BD\equiv EB\perp AK$ nên 
+			$$KI\equiv KA\perp BD\equiv BE.$$
+			Từ đó, chú ý rằng $KN\perp BA$; $KM\perp AE$, theo bổ đề trên, $MN$ đi qua $I$.
+			\item Gọi $L$ là trung điểm của $AK$. Vì $\widehat{AMK}=\widehat{AHK}=90^\circ$ nên $L$ là tâm đường tròn ngoại tiếp tam giác $AMH$, ký hiệu là $(L)$. Vì $AB = AD$ và $BD\perp AK$ nên
+			$$(EK,ED)\equiv (EK,EB)\equiv (AK,AB)\equiv (EC,EK)\, (\text{mod}\, \pi ).$$
+			Kết hợp với $EK\perp DC$, suy ra $EK$ là trung trực của $DC$. Từ đó chú ý rằng $AK$ là trung trực của $BD$, suy ra $K$ là tâm đường tròn ngoại tiếp tam giác $BCD$, ký hiệu là $(K)$.
+			Dễ thấy $AK$, $BC$, $PQ$ theo thứ tự là trục đẳng phương của các cặp đường tròn $(L)$, $(O)$; $(O)$, $(K)$; $(K)$, $(L)$.
+			Do đó $AK$, $BC$, $PQ$ đồng quy (tại $S$). Từ đó chú ý rằng $AK\equiv LK$, suy ra $S$ là trung điểm của $PQ$.
+		\end{enumerate}
+	}
+\end{bt}
+\Closesolutionfile{ans}

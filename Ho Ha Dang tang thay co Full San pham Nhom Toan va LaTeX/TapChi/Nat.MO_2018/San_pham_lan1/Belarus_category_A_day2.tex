@@ -1,0 +1,101 @@
+\begin{name}
+		{Huỳnh Xuân Tín}
+		{Đề thi Olympic Belarus năm 2018, bảng A, vòng 2}% Ví dụ: Đề thi HSG Vương quốc Anh, vòng 1, năm 2018
+	\end{name}
+	\setcounter{ex}{0}
+	\Opensolutionfile{ans}[ans/ans-1807-Nat.MO-belarus-A2]
+
+
+\begin{ex}%[HSG Belarus năm 2018, bảng A, vòng 2]%[Huỳnh Xuân Tín, Dự án EX-Nat.MO-18]%[0H0G2]
+ 	Cho đường tròn $S_1$ cắt hypebol $y=\dfrac{1}{x}$ tại bốn điểm $A, B, C, D$, và đường tròn $S_2$ cắt hypebol trên tại bốn điểm $ A, B, F, G$. Biết rằng bán kính của hai đường tròn $S_1$ và $S_2$ là bằng nhau. Chứng minh rằng các điểm $C, D, F, G$ là bốn đỉnh của một hình bình hành.
+	\loigiai{Ta gọi hoành độ của các điểm $A, B, C, D, F, G$ lần lượt là $a,b,c,d,f,g$. Gọi $O_1(\alpha;\beta)$ là tâm của đường tròn $S_1$, khi đó tọa độ của $A, B, C, D$ thỏa mãn hệ phương trình sau
+		$$\heva{(x-\alpha)^2+(y-\beta)^2=R^2\\ y=\dfrac{1}{x}.}$$
+		Thế $y$ vào ta được phương trình
+		$$x^4-2\alpha x^3+\left(\alpha^2+\beta^2-R^2 \right)x^2-2\beta x+1=0, $$
+		với các nghiệm là $a,b,c,d$. Khi đó ta có
+		$$\heva{a+b+c+d=2\alpha\\ abcd=1.}$$
+		Tương tự, với $O_2(\lambda; \mu)$ là tâm của đường tròn $S_2$ thì $$\heva{a+b+f+g=2\lambda\\ abfg=1.}$$
+	Vì bán kính của đường tròn $S_1$ và $S_2$ bằng nhau, nên tứ giác $AO_1BO_2$ là hình thoi. Khi đó trung điểm của $AB$ và $O_1O_2$ trùng nhau, nên $\dfrac{a+b}{2}=\dfrac{\alpha+\lambda}{2}$ hay $a+b=\alpha+\lambda$. Vì vậy
+	$$2\alpha+2\lambda=(a+b+c+d)+(a+b+f+g)=2\alpha+2\lambda+c+d+f+g,$$
+	hay $f+g=-(c+d)$. Hơn nữa, $cd=fg=(ab)^{-1}$. Khi đó 
+	$$\heva{f+g=(-c)+(-d)\\f\cdot g=(-c)\cdot (-d)}$$
+	suy ra $f=-c$ và $g=-d$ hoặc $f=-d$ và $g=-c$. Nếu $f=-c$ và $g=-d$, thì cặp điểm $E, C$ và $G, D$ đối xứng với nhau qua gốc tọa độ nên $FGCD$ là một hình bình hành với tâm là gốc tọa độ. Tương tự trường hợp $f=-d$ và $g=-c$.
+		
+	}
+\end{ex}
+
+\begin{ex}%[HSG Belarus năm 2018, bảng A, vòng 2]%[Huỳnh Xuân Tín, Dự án EX-Nat.MO-18]%[9H0G2]
+ Cho $X$ là một điểm nằm bên trong tam giác $ABC$. Đường tròn ngoại tiếp các giác $AXB$ và $AXC$ cắt cạnh $BC$ tại điểm thứ hai lần lượt là $D$ và $E$. Đường thẳng $DX$ cắt cạnh $AC$ tại $K$, đường thẳng $EX$ cắt cạnh $AB$ tại  $L$. Chứng minh $LK\parallel BC$. 
+	\loigiai{
+	\immini{Trước hết ta chứng minh bốn điểm $A, L, X, K$ nằm trên cùng một đường tròn.\\
+		Tứ giác $ABDX$ nội tiếp nên $\widehat{AXK}=\widehat{ABC}$. Tương tự $\widehat{LXA}=\widehat{ACB}$. Khi đó $\widehat{LAK}+\widehat{LXK}=\widehat{ABC}+\widehat{ACB}+\widehat{BAC}=180^0$ hay tứ giác $ALXK$ nội tiếp.\\
+		 Khi đó $\widehat{KLX}=\widehat{KAX}$.\\
+		Mặt khác tứ giác $ACEX$ nội tiếp nên $\widehat{CAX}=\widehat{DEX}$. Suy ra $\widehat{KLX}=\widehat{DEX}$ hay $LK\parallel BC$.
+	
+}{
+\begin{tikzpicture}[scale=.5]
+\tkzInit[ymin=-3,ymax=8,xmin=-6,xmax=7]
+\tkzClip
+\tkzDefPoints{0/4.5/A,-4/0/B,5/0/C,0/1/X}
+%\tkzDefMidPoint(B,C)\tkzGetPoint{O}
+%\tkzDrawCircle(O,B)
+\tkzCircumCenter(A,B,X)\tkzGetPoint{I}
+\tkzCircumCenter(A,X,C)\tkzGetPoint{J}
+\tkzDrawCircle(I,A)
+\tkzDrawCircle(J,A)
+
+\tkzInterLC(C,B)(I,A)\tkzGetFirstPoint{D}
+\tkzInterLC(C,B)(J,A)\tkzGetSecondPoint{E}
+\tkzInterLL(X,D)(C,A)\tkzGetPoint{K}
+\tkzInterLL(E,X)(A,B)\tkzGetPoint{L}
+\tkzLabelPoints[left](L)
+\tkzLabelPoints[below](B,C,D,E)
+\tkzLabelPoints[right](X,K)
+\tkzLabelPoints[above](A)
+%\tkzDrawPoints[fill=black,size=8](A,B,D,E,C,X,L,K)
+\tkzDrawPoints(A,B,C,X,D,E,L,K)
+\tkzDrawSegments(A,B B,C C,A D,K E,L A,X L,K)
+\tkzMarkAngles[size=0.5cm](X,A,C X,L,K X,E,D)
+\end{tikzpicture}
+} 
+	}
+\end{ex}
+
+\begin{ex}%[HSG Belarus năm 2018, bảng A, vòng 2]%[Huỳnh Xuân Tín, Dự án EX-Nat.MO-18]%[1D0G6]
+Cho biểu thức $M(n,m)=\left|n\sqrt{n^2+a}-bm \right| $, với $m,n$ là hai số nguyên dương tùy ý; $a, b$ là các hằng số, với $a$ là số nguyên dương lẻ và $b\in \mathbb{Q}$ là phân số tối giản có mẫu số là số lẻ. Chứng minh rằng
+\begin{enumerate}[1.]
+	\item Có không quá hữu hạn các cặp số $(n,m)$ mà $M(n,m)=0$.
+	\item Tồn tại một hằng số $C>0$ thỏa mãn bất đẳng thức $M(n,m)\ge C$ với mọi $(n,m)$ mà $M(n,m)\not=0$.
+\end{enumerate}
+	\loigiai{
+		\begin{enumerate}[1.]
+			\item Phần 1 đúng với bất kỳ $b\in \mathbb{Q}$ và $a\in \mathbb{N}$. Thật vây, $n\sqrt{n^2+a}=bm$ thì số $\sqrt{n^2+a}$ là số hữu tỷ hoặc là số nguyên. Do đó $n^2+a=k^2$, với $k$ là một số nguyên dương.  Nhưng khoảng cách giữa hai số chính phương thì tăng đến vô cùng, mà ở đây số $a\in \mathbb{N}$ cố định nên sẽ chỉ có tồn tại hữu hạn cặp $(n,k)$ thỏa $n^2-k^2=a$.\\
+			\item Đặt $b=\dfrac{p}{q}$ với $p\in \mathbb{Z}, q\in \mathbb{N^*}$ và $q$ là số lẻ. 			Ký hiệu $I_n$ là tập tất cả các số nguyên dương trong đoạn $\left[qn^2;qn^2+\dfrac{aq}{2} \right] $ . Vì $a, q$ là số nguyên lẻ nên $I_n=\left\lbrace qn^2+i: i=\overline{0,(aq-1)/2}\right\rbrace $. Xét tập hợp $P=\left\lbrace (n,m): n\in \mathbb{N}, pm\in I_n \right\rbrace $. Thay $b=\dfrac{p}{q}$ vào $M(n,m)$, ta được $M(n,m)=q^{-1}\left| qn\sqrt{n^2+a}-pm \right| $.\\
+		Từ bất đẳng thức \[n^2<n\sqrt{n^2+a}<n^2+\dfrac{a}{2}\tag{*}\]	ta thu được $qn^2<qn\sqrt{n^2+a}<qn^2+\dfrac{aq}{2}$. Do đó, nếu $mp\notin I_n$ thì $M(n,m)\ge q^{-1}\left( 1-\left\lbrace aq/2 \right\rbrace \right) =\dfrac{1}{2q}$ (ở đây $\left\lbrace. \right\rbrace $ là ký hiệu phần lẻ), và vì $aq$ là số lẻ nên $\left\lbrace aq/2 \right\rbrace=\dfrac{1}{2}$. Do đó
+		\[\inf\left\lbrace M(n,m): (n,m)\notin P \right\rbrace\ge \dfrac{1}{2q}, \tag{**} \]
+		và $P$ chứa mọi cặp số $(m, n)$ mà $M(m, n)=0.$\\
+		Tiếp theo, ta tìm cận dưới của $M(n,m)$ với $(n,m)\in P$ mà $n$ đủ lớn. Nếu $(n,m)\in P$, thì $pm=qn^2+i$, với $i\in \left\lbrace 0,1,\cdots, \dfrac{aq-1}{2}\right\rbrace $. Với $m,n$ đó, ta được
+		\[M(n,m)=q^{-1}\left| qn\sqrt{n^2+a}-qn^2-i \right|=\dfrac{\left(q^2a-2qi \right)n^2-i^2 }{q\left( qn\sqrt{n^2+a}+qn^2+i\right) }.\]
+		Khi đó $M(n,m)$ có tử số nhỏ nhất và mẫu số lớn nhất nếu $i$ lớn nhấti, tức $i=\dfrac{aq-1}{2}$. Thay giá trị này của $i$ vào (*), ta thu được
+		\[M(n,m)\ge \dfrac{n^2-\frac{(aq-1)^2}{4}}{2q^2n^2+aq^2-\frac{q}{2}}\rightarrow \dfrac{1}{2q^2}\,\, \mbox{khi}\,\, n\rightarrow \infty,\]
+	vì vậy tồn tại một số $n_0$ sao cho $M(n,m)>\dfrac{1}{4q^2}$, với mọi $(n,m)\in P$, $n\ge n_0$.  Trong trường hợp đặc biệt, bởi vì nếu (**) xảy rađẳng thức  thì điều này có nghĩa là không điểm của $M(n,m)$ nằm trong tập hữu hạn $P_0=\left\lbrace (n,m)\in P: n\ge n_0\right\rbrace $. Khi đó $M(n,m)$ có hữu hạn số không điểm. Chọn giá trị nhỏ nhất khác $0$ của $M(n,m)$ trên tập $P_0$ (ta gọi là $C_0$).  Sau đó, chúng ta có thể lấy $C=\min\left\lbrace C_0, \dfrac{1}{4q^2} \right\rbrace $ như một hằng số bắt buộc. Như vậy phần 2 được chứng minh.
+			
+		\end{enumerate}
+	}
+\end{ex}
+
+\begin{ex}%[HSG Belarus năm 2018, bảng A, vòng 2]%[Huỳnh Xuân Tín, Dự án EX-Nat.MO-18]%[1D0G6]
+	Xét một $n-$giác đều cùng với tâm của nó. Hai người chơi trò chơi như sau: họ lần lượt chọn một đỉnh của đa giác rồi nối với một trong hai đỉnh kề hoặc nối với tâm của hình đa giác đó bởi một đoạn thẳng. Người thắng cuộc là người chơi mà sau lượt chơi của anh ta thì ở bất kỳ đỉnh nào của đa giác đều có thể di chuyển đến mọi đỉnh còn lại bằng các đoạn thẳng đã nối ở trên. Với mỗi $n\ge3$, hãy xác định xem ai là người có chiến lược thắng cuộc.
+	\loigiai{Với $n$ lẻ thì người chơi đầu tiên thắng, và với $n$ chẵn thì người chơi thứ hai thắng.\\
+		\textbf{Với $n$ chẵn}. Ta sẽ mô tả chiến lược thắng của người thứ hai. Trước hết, giống như lời giải của E1, của bài toán của Category B, và chú ý rằng chúng ta có thể giả sử rằng người chơi đầu tiên với lược đi đầu tiên của anh ta là nối hai đỉnh liền kề $P$ và $Q$. Người chơi thứ hai với lược đi đầu tiên nối một trong số chúng với đỉnh liền kề $R$. Sau đó, người chơi thứ hai chơi trò chơi trên với $n-2$ đỉnh, giả sử rằng các đỉnh $P, Q$ và $R$ được ''dính với nhau'' thành một.\\
+		Ta có thể kiểm ta là người chơi thứ hai sẽ thắng với $n=4$. Không mất tổng quát, giả sử người đầu tiên nối hai điểm $A_0, A_1$. Người chơi thứ hai với lần di chuyển đầu tiên của anh ta là nối $A_2$ với tâm của đường tròn. Sau đó, ta có ba thành phần là $A_0A_1$, $OA_2$ và $A_3$. Người chơi thứ nhất sẽ nối 2 trong ba thành phần trên lại và người thứ hai sẽ thắng.\\
+		\textbf{Với $n$ lẻ}. Lời giải giống như lời giải của bài toán Category B, vì người chơi đầu tiên nối với tâm đường tròn ở lần chơi đầu tiên.\\
+		\underline{Ghi chú:}
+		
+		Điều kiện áp đặt trên tại tâm đường tròn không đóng vai trò nào, vì trong cả hai trường hợp, nó được kết nối với đỉnh. Tuy nhiên, nó làm phức tạp việc sử dụng đối xứng.
+		
+		Trường hợp an toàn của bài toán Category B cũng có thể được thực hiện bằng phép quy nạp. Tuy nhiên, trong lời giải ở trên được gọi là  một thuật toán riêng.
+	}
+\end{ex}
+
+\Closesolutionfile{ans}

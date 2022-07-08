@@ -1,0 +1,413 @@
+\section{THTT số 482, tháng 8 năm 2017}
+\Opensolutionfile{ans}[ans/THTT-8-2017]
+\begin{bt}[T1/482-Toán học \& Tuổi trẻ, tháng 8 năm 2017]%[6D0K3]%[Nguyễn Tuấn Anh]
+Tùy theo giá trị của số tự nhiên $n$, hãy tìm chữ số tận cùng của
+$ S_n=1^n+2^n+3^n+4^n. $
+\loigiai{Đặt $n=4k+r$ với số tự nhiên $k\geq 0$ và $r$ bằng $0, 1, 2, 3$.\\
+Với $n=0$ thì $S_0=1^0+2^0+3^0+4^0=1+1+1+1=4$.\\
+Với $n>0$ thì $S_n=1+16^k\cdot 2^r+81^k\cdot 3^r+256^k\cdot 4^r$.\\
+Xét $k=0; r=1, 2, 3\Rightarrow S^n=1+2^r+3^r+4^r$ có tận cùng là $0$.\\
+Xét $k\geq 1$, ta có \textit{nhận xét:} Lũy thừa của số tận cùng $1$ thì luôn có tận cùng là $1$ và lũy thừa với số mũ nguyên dương của số tận cùng $6$ thì luôn có tận cùng là $6$. Từ nhận xét trên suy ra chữ số tận cùng của $S_n$ bằng chữ số tận cùng của
+$$ T_n=1+6\cdot 2^r+1\cdot 3^r+6\cdot 4^r. $$
+\begin{itemize}
+\item Với $r=0$ thì $T_n=1+6+1+6=14$ nên chữ số tận cùng của $S_n$ là $4$.
+\item Với $r=1$ thì $T_n=1+6\cdot 2+3+6\cdot 4=40$ nên chữ số tận cùng của $S_n$ là $0$.
+\item Với $r=2$ thì $T_n=1+6\cdot 2^2+3^2+6\cdot 4^2=10+6(2^2+4^2)=130$ nên chữ số tận cùng của $S_n$ là $0$.
+\item Với $r=3$ thì $T_n=1+6\cdot 2^3+3^3+6\cdot 4^3=28+6(2^3+4^3)=460$ nên chữ số tận cùng của $S_n$ là $0$.
+\end{itemize}
+Vậy chữ số tận cùng của $S_n$ là $4$ khi $n$ chia hết cho $4$ và chữ số tận cùng của $S_n$ là $0$ khi $n$ không chia hết cho $4$.
+\begin{nx}
+Cách khác: Dễ thấy $S_n$ luôn là số chẵn vì là tổng của hai số lẻ và hai số chẵn, sau đó xét số dư của $S_n$ khi chia cho $5$. Cách này dễ nhầm lẫn vì phải kết hợp hai số dư, nhất là khi cho biểu thức $S_n$ phức tạp hơn.
+\end{nx}
+}
+\end{bt}
+\begin{bt}[T2/482-Toán học \& Tuổi trẻ, tháng 8 năm 2017]%[7H0K2]%[Ngọc Diệp]
+Cho tam giác $ABC$ vuông cân tại $B$ có $O$ là trung điểm của $AC$. Lấy điểm $J$ trên đoạn $OC$ sao cho $3AJ=5JC$. Gọi $N$ là trung điểm của $OB$. Chứng minh $AN \perp NJ$.
+\loigiai
+{\textit{Cách $1$.} Xét $\triangle ABC$ cân tại $B$ có $BO$ là đường trung tuyến nên $BO \perp AC$ và $OB = OC =OA = \dfrac{1}{2} AC.$ Vì $N$ là trung điểm của $OB$ nên $OB = 2 ON$.\hfill$(1)$\\
+	\begin{center}
+		\begin{tikzpicture}
+		\tkzInit[ymin=-1,ymax=5,xmin=-5,xmax=5]
+		\tkzClip
+		\tkzDefPoints{-4/0/A,0/4/B,4/0/C,1/0/J,0/2/N}
+		\tkzDefMidPoint(A,C)\tkzGetPoint{O}
+		\tkzLabelPoints(A,C,O,N,J)
+		\tkzLabelPoints[above](B)
+		\tkzDrawPoints(A,B,C,O,N,J)
+		\tkzDrawSegments(A,B B,C C,A A,N N,J O,B)
+		\tkzMarkRightAngles(A,B,C)
+		\tkzMarkSegments[mark=|](A,O O,C)
+		\end{tikzpicture}
+	\end{center}
+Từ giả thiết $3AJ=5JC$ ta có
+\begin{align}
+3(OA+OJ)=5(OC-OJ) \Rightarrow 3(OB+OJ)=5(OB-OJ)\Rightarrow OB=4OJ. \tag{2}
+\end{align}
+Từ $(1)$ và $(2)$ suy ra $ON=2OJ$. Áp dụng định lý Pythagore cho $\triangle AON$, $\triangle JON$ đều vuông tại $O$ và theo $(1)$ và $(2)$ ta có
+\begin{align*}
+AN^2 + JN^2 &= \left( OA^2 + ON^2\right) + \left( ON^2 + OJ^2\right) = 25 OJ^2 \\
+&= \left( 5 OJ \right) ^2 = \left( 4 OJ + OJ\right) ^2 = \left( OA + OJ \right) ^2 = AJ^2.
+\end{align*}
+Vậy theo định lý Pythagore đảo thì $\triangle ANJ$ vuông tại $N$ hay $AN \perp NJ$.\\
+\textit{Cách $2$.} Theo giả thiết $3AJ=5JC$ nên
+$$ \dfrac{JC}{3}= \dfrac{AJ}{5}= \dfrac{JC + AJ}{3+5}= \dfrac{AC}{8}. $$
+Suy ra: $JC= \dfrac{3}{8} AC$, $AJ= \dfrac{5}{8} AC$, $OJ= \dfrac{1}{8} AC$. Áp dụng định lý Pythagore cho $\triangle ONJ$, $\triangle ONA$ và chú ý tới $ON = \dfrac{1}{2} OB = \dfrac{1}{2} OA = \dfrac{1}{4} AC $, ta có
+\begin{align*}
+NJ^2 &= OJ^2 + ON^2 = \left( \dfrac{AC}{8}\right) ^2 + \left( \dfrac{AC}{4}\right) ^2 = \dfrac{5 AC^2}{64},\\
+NA^2 &= NO^2 + AO^2 = \left( \dfrac{AC}{4}\right) ^2 + \left( \dfrac{AC}{2}\right) ^2 = \dfrac{5 AC^2}{16}.
+\end{align*}
+Suy ra
+\begin{align*} NJ^2 + NA^2 = \dfrac{5 AC^2}{64} + \dfrac{5 AC^2}{16} = \dfrac{25 AC^2}{64} = AJ^2.
+\end{align*}
+Do đó theo định lý Pythagore đảo thì $\triangle ANJ$ vuông tại $N$ hay $AN \perp NJ$.
+}
+\end{bt}
+\begin{bt}[T3/482-Toán học \& Tuổi trẻ, tháng 8 năm 2017]%[9D0K2]%[Đào-V- Thủy]
+Giải hệ phương trình $$ \heva{&2\left(y^2-x^2\right)=\dfrac{14}{x}-\dfrac{13}{y}& (1)\\ &4\left(x^2+y^2\right)=\dfrac{14}{x}+\dfrac{13}{y}.& (2)}$$
+\loigiai
+{Điều kiện $xy\neq 0$. Lần lượt cộng, trừ $(1)$ và $(2)$ theo vế, ta được
+$$ \heva{&2\left(y^2-x^2\right)+4\left(x^2+y^2\right)=\dfrac{14}{x}-\dfrac{13}{y}+\dfrac{14}{x}+\dfrac{13}{y}\\ &2\left(y^2-x^2\right)-4\left(x^2+y^2\right)=\dfrac{14}{x}-\dfrac{13}{y}-\dfrac{14}{x}-\dfrac{13}{y}}\Leftrightarrow \heva{&x^3+3xy^2=14&(3)\\ &y^3+3x^2y=13.&(4)}$$
+\noindent \textbf{Cách 1.} Lần lượt cộng, trừ $(3)$ và $(4)$ theo vế, ta được
+\begin{align*}
+\heva{&x^3+3xy^2+y^3+3x^2y=27\\ &x^3+3xy^2-y^3-3x^2y=1}&\Leftrightarrow \heva{&(x+y)^3=3^3\\ &(x-y)^3=1^3}\\
+&\Leftrightarrow \heva{&x+y=3\\ &x-y=1}\Leftrightarrow \heva{&x=2\\ &y=1.}
+\end{align*}
+Thay bộ số $(x;y)=(2;1)$ vào hệ phương trình ban đầu thấy thỏa mãn.\\
+Vậy hệ phương trình đã cho có nghiệm duy nhất $(x;y)=(2;1)$.\\
+\noindent \textbf{Cách 2.} Từ $(3)$ và $(4)$ suy ra
+\begin{align*}
+13\left(x^3+3xy^2\right)=14\left(y^3+3x^2y\right)\Leftrightarrow 13x^3-42x^2y+39xy^2-14y^3=0.\tag{5}
+\end{align*}
+Chia hai vế của $(5)$ cho $y^3$ ($y\neq 0$) và đặt $t=\dfrac{x}{y}$ ($t\neq 0$) ta có phương trình
+$$13t^3-42t^2+39t-14=0\Leftrightarrow (t-2)\left(13t^2-16t+7\right)=0.$$
+Nhận thấy $13t^2-16t+7=13\left(t-\dfrac{8}{13}\right)^2+\dfrac{27}{13}>0$ với mọi $t$. Do đó $t-2=0\Leftrightarrow t=2$.\\
+Suy ra $x=2y$, thay vào $(4)$ ta có $y^3+12y^3=13\Leftrightarrow y^3=1\Leftrightarrow y=1$. Do đó $x=2$.\\
+Vậy hệ phương trình đã cho có nghiệm duy nhất $(x;y)=(2;1)$.
+}
+\end{bt}
+\begin{bt}[T4/482-Toán học \& Tuổi trẻ, tháng 8 năm 2017]%[8H0K3]%[Vinh Vo]
+Cho tam giác $ ABC $ có $ \widehat{BAC} = 120^{\circ} $. Giả sử trên cạnh $ BC $ có điểm $ D $ sao cho $ \widehat{BAD} = 90^{\circ} $ và $ AB = DC = 1 $. Tính độ dài đoạn thẳng $ BD $.
+\loigiai{
+\immini{
+Đặt $ BD = x\ (x > 0) $. Gọi $ E $ là điểm trên cạnh $ AC $ sao cho $ DE \parallel AB $, suy ra $ DE \perp AD $.\\
+Áp dụng định lí Thales cho tam giác $ ABC $ ta có $$ \dfrac{DE}{AB} = \dfrac{DC}{BC}\ \text{ hay }\ DE = \dfrac{1}{x+1}. $$
+Mặt khác, $ \triangle ADE $ vuông tại $ D $ có $$ \widehat{DAE} = 120^{\circ} - 90^{\circ} = 30^{\circ} \ \text{ suy ra } \ AD = DE \sqrt{3} = \dfrac{\sqrt{3}}{x+1}.$$
+}{
+\begin{tikzpicture}
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:3){B}
+\tkzDefShiftPoint[B](142.53:3+3.78 ){C}
+\tkzDefShiftPoint[A](90:3){d}
+\tkzInterLL(A,d)(B,C)
+\tkzGetPoint{D}
+\tkzDefPointsBy[translation = from B to A](D){e}
+\tkzInterLL(D,e)(A,C)
+\tkzGetPoint{E}
+\tkzDrawSegments(A,B B,C C,A D,A D,E)
+\tkzDrawPoints(A,B,C,D,E)
+\tkzLabelPoints[above right ](C,B,D)
+\tkzLabelPoints[below left](A,E)
+\tkzMarkRightAngles[size=0.25](D,A,B E,D,A)
+\tkzMarkAngle[size=0.5 cm](D,A,E)
+\end{tikzpicture}
+}
+\noindent
+Áp dụng định lí Pythagore cho tam giác $ ABD $ ta có
+\begin{eqnarray*}
+&&AB^2 + AD^2 = BD^2 \\
+& \Leftrightarrow & 1 + \dfrac{3}{(x+1)^2} = x^2
+\\
+& \Leftrightarrow & x^4 + 2x^3 -2x -4 = 0
+\\
+& \Leftrightarrow & (x+2)(x^3-2) =0
+\\
+& \Leftrightarrow & x = \sqrt[3]{2}\ ( \text{vì } x > 0).
+\end{eqnarray*}
+Vậy $ BD = \sqrt[3]{2} $.
+}
+\end{bt}
+\begin{bt}[T5/482-Toán học \& Tuổi trẻ, tháng 8 năm 2017]%[9D0G7]
+Cho ba số thực dương $ a,b,c $ thỏa mãn $ a+b+c=\sqrt{6051} $. Tìm giá trị lớn nhất của biểu thức $$ P=\dfrac{2a}{\sqrt{a^2+2017}} +\dfrac{2b}{\sqrt{b^2+2017}}+\dfrac{2c}{\sqrt{c^2+2017}}.$$
+\loigiai{
+Với $ a,b,c $ dương và thỏa mãn $ a+b+c=\sqrt{6051} $ ta có
+\begin{align*}
+&\left(a+b+c\right)^2-3(ab+bc+ca) =\dfrac{1}{2}\left[(a-b)^2+(b-c)^2+(c-a)^2\right]\ge 0 \\
+\Rightarrow & (a+b+c)^2\ge 3(ab+bc+ca)\\
+\Rightarrow & ab+bc+ca \le \dfrac{1}{3}\left(a+b+c\right)^2 =\dfrac{1}{3}\cdot 6051 =2017.
+\end{align*}
+Do đó 
+$\dfrac{2a}{\sqrt{a^2+2017}} \le \dfrac{2a}{\sqrt{a^2+ab+bc+ca}} =\dfrac{2a}{\sqrt{(a+b)(a+c)}} \hfill (1) $\\
+Áp dụng bất đẳng thức $ Cauchy $ cho hai số dương $ \dfrac{1}{a+b}, \dfrac{1}{a+c} $ ta có
+\begin{align*}
+\dfrac{2a}{\sqrt{(a+b)(a+c)}} \le \dfrac{a}{a+b}+\dfrac{a}{a+c}. \tag{2}
+\end{align*}
+Từ $ (1)$ và $ (2) $ suy ra
+\begin{align*}
+ \dfrac{2a}{\sqrt{a^2+2017}} \le \dfrac{a}{a+b}+\dfrac{a}{a+c}. \tag{3}
+\end{align*}
+Tương tự
+\begin{align*}
+\dfrac{2b}{\sqrt{b^2+2017}} \le \dfrac{b}{b+c}+\dfrac{b}{b+a}. \tag{4}
+\end{align*}
+\begin{align*}
+\dfrac{2c}{\sqrt{c^2+2017}} \le \dfrac{c}{c+a}+\dfrac{c}{c+b}. \tag{5}
+\end{align*}
+Cộng theo vế các bất đẳng thức $ (3), (4),(5) $ ta được
+$$ P \le \left( \dfrac{a}{a+b}+\dfrac{a}{a+c}\right)+\left(\dfrac{b}{b+c}+\dfrac{b}{b+a}\right)+\left( \dfrac{c}{c+a}+\dfrac{c}{c+b}\right) =3. $$
+Đẳng thức xảy ra khi $ a=b=c=\dfrac{\sqrt{6051} }{3}. $\\
+Vậy giá trị lớn nhất của $ P $ là $3$.
+}
+\end{bt}
+\begin{bt}[T6/482-Toán học \& Tuổi trẻ, tháng 8 năm 2017]%[8D0G2]%
+Giải phương trình
+$$\dfrac{1}{\sqrt[3]{x}} + \dfrac{1}{\sqrt[3]{3x+1}} = \dfrac{1}{\sqrt[3]{2x-1}} + \dfrac{1}{\sqrt[3]{2x+2}} \quad \text{với } x > \dfrac{1}{2}.$$
+\loigiai
+{Phương trình tương đương với
+{\allowdisplaybreaks
+\begin{align*}
+ & \dfrac{1}{\sqrt[3]{x}} - \dfrac{1}{\sqrt[3]{2x-1}} = \dfrac{1}{\sqrt[3]{2x+2}} - \dfrac{1}{\sqrt[3]{3x+1}}\\
+ \Leftrightarrow & \dfrac{\sqrt[3]{2x-1} - \sqrt[3]{x}}{\sqrt[3]{x(2x-1)}} = \dfrac{\sqrt[3]{3x+1} - \sqrt[3]{2x+2}}{\sqrt[3]{(2x+2)(3x+1)}}. \tag{1}
+\end{align*}}
+Đặt $a = \sqrt[3]{2x-1}$; $b = \sqrt[3]{x}$; $c = \sqrt[3]{3x+1}$; $d = \sqrt[3]{2x+2}$.\\
+Ta có: $a$, $b$, $c$, $d$ $>0$ và $a^3 - b^3 = c^3 - d^3 = x - 1$.\\
+Phương trình $(1)$ trở thành: $\dfrac{a-b}{ab} = \dfrac{c-d}{cd}$
+{\allowdisplaybreaks
+\begin{align*}
+ \Leftrightarrow & \dfrac{a^3-b^3}{ab(a^2+ab+b^2)} = \dfrac{c^3-d^3}{cd(c^2+cd+d^2)}\\
+ \Leftrightarrow & \dfrac{x-1}{ab(a^2+ab+b^2)} = \dfrac{x-1}{cd(c^2+cd+d^2)}\\
+ \Leftrightarrow & (x-1) \left[ \dfrac{1}{ab(a^2+ab+b^2)} - \dfrac{1}{cd(c^2+cd+d^2)} \right] = 0. \tag{2}
+\end{align*}}
+Vì $x> \dfrac{1}{2}$ nên: $a = \sqrt[3]{2x-1} < c = \sqrt[3]{3x+1}$; $b = \sqrt[3]{x} < d = \sqrt[3]{2x+2}$. Suy ra
+{\allowdisplaybreaks
+\begin{align*}
+ & ab(a^2 + ab + b^2) < cd(c^2 + cd + d^2)\\
+ \Rightarrow & \dfrac{1}{ab(a^2+ab+b^2)} > \dfrac{1}{cd(c^2+cd+d^2)}\\
+ \Rightarrow & \dfrac{1}{ab(a^2+ab+b^2)} - \dfrac{1}{cd(c^2+cd+d^2)} > 0.
+\end{align*}}
+Do đó $(2) \Leftrightarrow x-1=0 \Leftrightarrow x=1$, thỏa mãn bài toán. Vậy phương trình có nghiệm duy nhất là $x=1$.
+\begin{nx}
+Biến đổi phương trình về dạng tích, trong đó có thừa số $x-1$; sau đó chứng minh thừa số thứ hai khác không.
+\end{nx}
+}
+\end{bt}
+\begin{bt}[T7/482-Toán học \& Tuổi trẻ, tháng 8 năm 2017]%[8D0G2]%[Nguyễn Tài Chung]
+Cho $p, q, r$ là ba nghiệm nguyên phân biệt của đa thức hệ số nguyên $x^3 + ax^2 + bx + c$, trong đó $16a+c=0$. Chứng minh rằng $\dfrac{p + 4}{p - 4} \cdot \dfrac{q + 4}{q - 4} \cdot \dfrac{r + 4}{r - 4}$ cũng là một số nguyên.
+\loigiai
+{Ta có
+{\allowdisplaybreaks
+\begin{align*}
+x^3 + ax^2 + bx + c &= (x - p)(x - q)(x - r)\\
+&= x^3 - (p + q + r)x^2 + (pq + qr + rp)x - pqr.\tag{1}
+\end{align*}}Từ $(1)$ suy ra
+$\left\{ \begin{array}{l}
+p + q + r = - a\\
+pq + qr + rp = b\\
+pqr = - c.
+\end{array} \right.$\hfill$(2)$\\
+Theo giả thiết ta có $0 = 16a + c = - \left[ {16(p + q + r) + pqr} \right]$. Do đó
+{\allowdisplaybreaks
+\begin{align*}
+\frac{p + 4}{p - 4} \cdot \frac{q + 4}{q - 4} \cdot \frac{r + 4}{r - 4} &= \frac{pqr + 4\left( pq + qr + rp \right) + 16\left( p + q + r \right) + 64}{pqr - 4\left( pq + qr + rp \right) + 16\left( p + q + r \right) - 64}\\
+&= \frac{4\left( pq + qr + rp \right) + 64}{- 4\left(pq + qr + rp \right) - 64} = - 1,
+\end{align*}}là một số nguyên. Ta có điều phải chứng minh.
+\begin{nx}
+$(2)$ được gọi là định lí Viet.
+\end{nx}
+}
+\end{bt}
+\begin{bt}[T8/482-Toán học \& Tuổi trẻ, tháng 8 năm 2017]%[9H0K7]%[Bùi Mạnh Tiến]
+Cho đường tròn $(O)$ ngoại tiếp tam giác đều $ABC$ cạnh $a$. Trên cung $\wideparen{BC}$ không chứa điểm $A$ lấy điểm $P$ bất kỳ ($P\ne B,P\ne C$). Các đoạn $AP$ và $BC$ cắt nhau tại $Q$. Chứng minh $PQ\le \dfrac{a}{2\sqrt{3}}$.
+\loigiai{
+\immini{
+Kẻ $AH\perp BC$ $(H\in BC)$.\\
+Gọi $R$ là bán kính của đường tròn $(O)$. Khi đó
+\begin{itemize}
+\item $AH=\dfrac{a\sqrt{3}}{2}$;
+\item $R=OA=\dfrac{2}{3}AH=\dfrac{a\sqrt{3}}{3}$.
+\end{itemize}
+Ta có :
+\begin{align*}
+PQ&=AP-AQ\\
+&\le 2R-AH=\dfrac{2a\sqrt{3}}{3}-\dfrac{a\sqrt{3}}{2}=\dfrac{a\sqrt{3}}{6}=\dfrac{a}{2\sqrt{3}}.
+\end{align*}
+}
+{
+\begin{tikzpicture}[scale = 0.8]
+\clip (-0.5,-4.5) rectangle (8.5,4.5);
+\tkzDefPoints{4/0/O, 4/4/A}
+\tkzDefPointBy[rotation=center O angle 120](A)\tkzGetPoint{B}
+\tkzDefPointBy[rotation=center O angle 120](B)\tkzGetPoint{C}
+\tkzDefPointBy[rotation=center O angle 40](B)\tkzGetPoint{P}
+\tkzInterLL(A,O)(B,C)\tkzGetPoint{H}
+\tkzInterLL(A,P)(B,C)\tkzGetPoint{Q}
+\tkzDrawSegments(A,B B,C C,A A,H A,P P,B P,C)
+\tkzDrawCircle(O,A)
+\draw (A) node[above] {$A$} (B) node[below left] {$B$} (C) node[below right] {$C$} (O) node[right] {$O$} (H) node[below] {$H$} (P) node[below] {$P$} (Q) node[above left] {$Q$};
+\tkzDrawPoints(A,B,C,O,Q,P,H)
+\tkzMarkRightAngles(A,H,C)
+\end{tikzpicture}
+}
+\begin{flushleft}
+Đẳng thức xảy ra khi $Q\equiv H$, lúc đó $P$ là điểm chính giữa cung $\wideparen{BC}$ không chứa $A$.
+\end{flushleft}
+\begin{nx}
+	Ta có thể sử dụng đị lí $Ptolemy$ cho tứ giác nội tiếp $ABPC$ suy ra:
+	\begin{center}
+		$PA=PB+PC$.
+	\end{center}
+	Kết hợp với kết quả $\triangle PBQ \backsim \triangle PAC$ dẫn tới hệ thức $\dfrac{1}{PQ}=\dfrac{1}{PB}+\dfrac{1}{PC}$.\\
+	Áp dụng bất đẳng thức $\dfrac{1}{PB}+\dfrac{1}{PC}\ge \dfrac{4}{PB+PC}$ cũng dẫn tới điều phải chứng minh.
+\end{nx}}
+\end{bt}
+\begin{bt}[T9/482-Toán học \& Tuổi trẻ, tháng 8 năm 2017]%[0D0K2]%[Nguyễn Hồng Điệp]
+Cho $a$, $b$, $c$ là các số thực dương. Chứng minh rằng $\dfrac{a}{b}+\dfrac{b}{c}+\dfrac{c}{a}+\dfrac{9\sqrt[3]{abc}}{a+b+c}\ge 6.$
+\loigiai
+{Áp dụng bất đẳng thức Cauchy cho ba số dương $\dfrac{a}{b}$, $\dfrac{a}{b}$ và $\dfrac{b}{c}$
+\begin{align*}
+\dfrac{a}{b}+\dfrac{a}{b}+\dfrac{b}{c}\ge 3\sqrt[3]{\dfrac{a^2b}{b^2c}}=3\dfrac{a}{\sqrt[3]{abc}}.\tag{1}
+\end{align*}
+Tương tự:
+\begin{itemize}
+\item $\dfrac{b}{c}+\dfrac{b}{c}+\dfrac{c}{a}\ge 3\dfrac{b}{\sqrt[3]{abc}}.\hfill (2)$
+\item $\dfrac{c}{a}+\dfrac{c}{a}+\dfrac{a}{b}\ge 3\dfrac{c}{\sqrt[3]{abc}}.\hfill (3)$
+\end{itemize}
+Cộng các vế của $(1), (2), (3)$ ta được
+\begin{align*}
+3\left(\dfrac{a}{b}+\dfrac{b}{c}+\dfrac{c}{a}\right)&\ge\dfrac{3(a+b+c)}{\sqrt[3]{abc}}\\
+\Leftrightarrow \dfrac{a}{b}+\dfrac{b}{c}+\dfrac{c}{a}&\ge \dfrac{3(a+b+c)}{\sqrt[3]{abc}}\\
+\Leftrightarrow \dfrac{a}{b}+\dfrac{b}{c}+\dfrac{c}{a}+\dfrac{9\sqrt[3]{abc}}{a+b+c}&\ge \dfrac{a+b+c}{\sqrt[3]{abc}}+\dfrac{9\sqrt[3]{abc}}{a+b+c}
+\end{align*}
+Mà $\dfrac{a+b+c}{\sqrt[3]{abc}}+\dfrac{9\sqrt[3]{abc}}{a+b+c}\ge 2\sqrt{\dfrac{a+b+c}{\sqrt[3]{abc}}\cdot\dfrac{9\sqrt[3]{abc}}{a+b+c}}=6$.\\
+Vậy $\dfrac{a}{b}+\dfrac{b}{c}+\dfrac{c}{a}+\dfrac{9\sqrt[3]{abc}}{a+b+c}\ge 6$, với $a$, $b$, $c$ là các số thực dương, dấu đẳng thức xảy ra khi và chỉ khi $a=b=c$.
+\begin{nx}
+Đây là dạng toán cơ bản về áp dụng bất đẳng thức Cauchy. Ngoài cách giải trên còn có nhiều cách giải khác bằng cách ghép hoặc chuẩn hóa bộ 3 số đã cho.
+\end{nx}
+}
+\end{bt}
+\begin{bt}[T10/482-Toán học \& Tuổi trẻ, tháng 8 năm 2017]%[1D0G6]%[Nguyễn Văn Vũ]
+Với mỗi số nguyên $n>2$, gọi $u_n$ là số các chữ số $0$ đứng tận cùng của $n!$ viết trong hệ cơ số $n$. Tìm giá trị lớn nhất của biểu thức $P=\dfrac{u_n}{n-1}.$
+\loigiai
+{
+\begin{dl}[Công thức Polignac]
+Cho số nguyên dương $x$. Kí hiệu $v_p(x)$ là số mũ của $p$ trong phân tích tiêu chuẩn của $x$. Khi đó ta có tính chất sau:
+\begin{enumerate}[1)]
+\item $v_p(n!)=\displaystyle \sum_{i=1}^\infty\left[\dfrac{n}{p^i}\right]$
+\item $v_p(n!)\leq \dfrac{n-1}{p-1}.$
+\end{enumerate}
+\begin{cm}\hfill
+\begin{enumerate}[1)]
+\item Với mỗi số nguyên dương $i$, gọi $e_i$ là số các số chia hết cho $p^i$ trong đoạn $[1;n]$. Ta có $e_i=\left[\dfrac{n}{p^i}\right].$ Khi đó, số các số chia hết cho $p^i$ trong đoạn $[1;n]$ mà không chia hết cho $p^{i+1}$ là $f_i=e_i-e_{i+1}.$ Số mũ của $p$ trong phân tích tiêu chuẩn của $n!$ là: $v_p(n!)=\displaystyle \sum_{i=1}^{+\infty}if_i=\displaystyle \sum_{i=1}^{+\infty}i(e_i-e_{i+1})$\\
+$=(e_1-e_2)+2(e_2-e_3)+3(e_3-e_4)+\cdots=\displaystyle \sum_{i=1}^{+\infty}e_i=\displaystyle \sum_{i=1}^\infty\left[\dfrac{n}{p^i}\right]$.
+\item Giả sử biểu diễn của $n$ trong hệ cơ số $p$ là: $n=a_k.p^k+a_{k-1}.p^{k-1}+\cdots+a_0,$ trong đó: $a_0,a_1,\cdots,a_{k-1},a_k\ \in \{0;1;\cdots;p-1\},k\in\mathbb{N}$\\
+Khi đó $\left[\dfrac{n}{p^i}\right]=0,\ \forall i>k,\ i\in\mathbb{Z}$ và $\left[\dfrac{n}{p^i}\right]=a_kp^{k-i}+\cdots+a_{i+1}\cdot p+a_i,\ \forall i\leq k,i\in\mathbb{N}.$\\
+Do đó: $a_i=\left[\dfrac{n}{p^i}\right]-p\left[\dfrac{n}{p^{i+1}}\right],\ \forall i=\overline{0,k}$ và $v_p(n!)=\displaystyle \sum_{i=1}^{+\infty}\left[\dfrac{n}{p^i}\right]=\displaystyle \sum_{i=1}^{+\infty}\left[\dfrac{n}{p^i}\right].$\\
+Suy ra: $s_p(n)=\displaystyle \sum_{i=1}^{+\infty}a_i=n-(p-1)v_2(n!)\Rightarrow v_p(n!)=\dfrac{n-s_p(n)}{p-1} \Rightarrow v_p(n!)\leq \dfrac{n-1}{p-1}.$
+\end{enumerate}
+\end{cm}
+\end{dl}
+\textbf{Bài giải.}
+Giả sử $u_n=s \ \in \ \mathbb{N}.$ Khi đó biểu diễn của $n!$ trong hệ cơ số $n$ là
+\begin{center}
+$n!=a_kn^k+a_{k-1}n^{k-1}+\cdots+a_sn^s \hfill (1)$
+\end{center}
+với $k\geq s$, $0\leq a_{s+1},\cdots,a_{k-1}<n$, $1\leq a_s,a_k<n.$\\
+Giả sử $n=p^tm$ với $(m,p)=1$ và $p$ là ước nguyên bất kỳ của $n$. Thay vào $(1)$ ta được
+\begin{center}
+$n!=a_km^kp^kt+a_{k-1}m^{k-1}p^(k-1)t+\cdots+a_sm^sp^st=p^{st}\cdot M$ $(M \ \in \ \mathbb{N}).$
+\end{center}
+Vậy $v_p(n!)\geq st.$\\
+Từ tính chất $2$ suy ra $st\leq \dfrac{n-1}{p-1} \Rightarrow u_n=s\leq \dfrac{n-1}{t(p-1)}. \hfill (2) $\\
+Vì $n>2$ nên $n=2^t \ (t\geq2)$ hoặc $n$ có một ước nguyên tố lẻ $n\geq3.$ Cả hai trường hợp này đều dẫn đến $t(p-1)\geq2.$ Vậy $u_n\leq\dfrac{n-1}{2}\Rightarrow P\leq\dfrac{1}{2}.$\\
+Dấu bằng xảy ra chẳng hạn tại $n=3.$\\
+Khi đó $3!=6$ nên trong hệ cơ số $3$ là $\overline{20}.$\\
+Do đó $P=\dfrac{u_3}{3-1}=\dfrac{1}{2}.$\\
+
+\begin{nx}
+Đây là một bài toán khó vì phải sử dụng một số tính chất của $v_p(n!).$
+\end{nx}
+}
+\end{bt}
+\begin{bt}[T11/482-Toán học \& Tuổi trẻ, tháng 8 năm 2017]%[1D0G6]%[Vinh Vo]
+Cho thập giác lồi $ A_1A_2 \ldots A_{10} $. Ta thực hiện phép toán tô màu các cạnh và đường chéo nằm trong thập giác bởi $ 5 $ màu khác nhau theo quy tắc sau:
+\begin{itemize}
+\item[a)] Mỗi cạnh hoặc đường chéo được tô nhiều nhất $ 1 $ màu.
+\item[b)] Các cạnh và các đường chéo được tô màu không có đỉnh chung và không cắt nhau.
+\end{itemize}
+Hỏi có thể thực hiện được bao nhiêu cách tô màu khác nhau?
+\loigiai
+{
+Ta giải bài toán cho trường hợp tổng quát là tô màu các cạnh và đường chéo một $ (2n) $ - giác lồi $ A_1A_2 \ldots A_{2n} $ bởi $ n $ màu thỏa mãn các điều kiện đầu bài. Ký hiệu $ K_n $ là số cách tô màu thỏa mãn điều kiện đầu bài mà chưa kể đến hoán vị các màu, thì số cách tô màu thỏa mãn điều kiện đầu bài sẽ là $ n! K_n $.\\
+Đặt $ K_0 = K_1 = 1, $ với $ n \geq 2 $ xét một cách tô màu các cạnh và đường chéo của $ A_1A_2 \ldots A_{2n} $ bởi $ n $ màu. Khi đó $ 2n $ đỉnh của đa giác được chia thành $ n $ cặp, mỗi đoạn thẳng nối một cặp đỉnh này được tô bởi một màu nào đó. \\
+Giả sử $ A_1A_k (2 \leq k \leq 2n) $ là đoạn thẳng được tô màu. Khi đó đoạn thẳng này chia đa giác $ A_1A_2 \ldots A_{2n} $ thành $ 2 $ đa giác lồi $ A_2A_3 \ldots A_{k-1} $ và $ A_{k}A_{k+1}\ldots A_{2n} $ mà mỗi đoạn thẳng khác, được tô màu và khác với đoạn thẳng $ A_1A_k $, chỉ nối các đỉnh cùng thuộc một trong hai đa giác lồi này. Từ đó suy ra số đỉnh của mỗi đa giác nhỏ này là số chẵn (bằng $ 2 $ lần số đoạn thẳng được tô màu trong đó) và từ đó suy ra công thức truy hồi: $$ K_n = K_0K_{n-1} + K_1K_{n-2} + \cdots + K_{n-1}K_0. $$
+Tính trực tiếp ta có:
+\begin{align*}
+K_2& = &K_0K_1 + K_1K_0=2,\\
+K_3& = &K_0K_2+ K_1K_1+K_2K_0=5,\\
+K_4 & = & K_0K_3+K_1K_2+K_2K_1+K_3K_0=14,\\
+K_5 & = & K_0K_4 + K_1K_3 + K_2K_2+K_3K_1+K_4K_0=42,
+\end{align*}
+và do đó số cách tô màu cần tìm là $ 5! K_5 = 5040. $
+}
+\end{bt}
+\begin{bt}[T12/482-Toán học \& Tuổi trẻ, tháng 8 năm 2017]%[0H0G3]%[Nguyễn Tiến Thùy]
+Cho tam giác $ABC$ vuông tại $A$ ngoại tiếp đường tròn $(I,r)$. Đường tròn $(I,r)$ tiếp xúc với $AB$, $BC$, $CA$ lần lượt tại $P$, $Q$, $R$. Gọi $K$ là trung điểm $AC$, đường thẳng $IK$ cắt $AB$ tại $M$. Đoạn thẳng $PQ$ cắt đường cao $AH$ của tam giác $ABC$ tại $N$. Chứng minh $N$ là trực tâm của tam giác $MQR$.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B,16/0/C}
+\tkzDefMidPoint(B,C)\tkzGetPoint{i}
+\tkzDefShiftPoint[i](120:8){A}
+\tkzInCenter(A,B,C)\tkzGetPoint{I}
+\tkzDefMidPoint(A,C)\tkzGetPoint{K}
+\tkzInterLL(I,K)(A,B)\tkzGetPoint{M}
+\tkzDefPointBy[projection=onto A--B](I)\tkzGetPoint{P}
+\tkzDefPointBy[projection=onto B--C](I)\tkzGetPoint{Q}
+\tkzDefPointBy[projection=onto C--A](I)\tkzGetPoint{R}
+\tkzDefPointBy[projection=onto C--B](A)\tkzGetPoint{H}
+\pgfresetboundingbox
+\tkzDrawCircle[dashed,circum](P,Q,R)
+\tkzInterLL(P,Q)(A,H)\tkzGetPoint{N}
+\tkzInterLL(C,I)(A,B)\tkzGetPoint{D}
+\tkzInterLL(C,I)(R,Q)\tkzGetPoint{L}
+\tkzInterLL(R,M)(P,Q)\tkzGetPoint{T}
+\tkzInterLL(M,N)(R,Q)\tkzGetPoint{n}
+\tkzDrawPoints(A,B,C,I,P,Q,R,H,K,M,N,D,L,T)
+\tkzDrawSegments[](A,B B,C C,A A,H A,I A,T C,D P,Q P,Q M,K R,Q Q,M M,H H,R P,I R,M M,n)
+\tkzDrawSegments[dashed](B,C A,Q B,R C,P)
+\tkzLabelPoints[above](A)
+\tkzLabelPoints[below left](B,N)
+\tkzLabelPoints(C)
+\tkzLabelPoints[above right](R,K)
+\tkzLabelPoints[above left](P,D,M)
+\tkzLabelPoints[below](H,Q)
+\tkzLabelPoints[xshift=-4pt,yshift=-3pt](L)
+\tkzLabelPoints[xshift=-10pt,yshift=-3pt](T,I)
+\tkzMarkRightAngles(A,H,B I,P,A B,A,C)
+\end{tikzpicture}
+\end{center}
+
+\noindent Gọi $D$, $T$, $L$ theo thứ tự là giao điểm của $CI$ và $AB$, $MR$, $RQ$.\\
+Dễ thấy $AR=AP$; $BP=BQ$; $CQ=CR$ nên
+$$\dfrac{QB}{QC}\cdot\dfrac{RC}{RA}\cdot\dfrac{PA}{PB}=1.$$
+Do đó, theo định lý Ceva ta có $AQ$, $BR$, $CP$ đồng quy. Vậy $T(ALRQ)=T(ACRP)=-1$.\hfill $(1)$\\
+Kết hợp với $LR=LQ$, suy ra $AT\parallel QR$.\\
+Kết hợp với $QR\perp TC$, suy ra $\widehat{ATI}=90^\circ$.\\
+Kết hợp với $\widehat{API}=90^\circ$; $\widehat{ARI}=90^\circ$, suy ra $5$ điểm $A$, $P$, $T$, $I$, $R$ cùng thuộc một đường tròn. \hfill $(2)$\\
+Vậy $\widehat{RTQ}=\widehat{RAP}=90^\circ$.\hfill $(3)$\\
+Vì $AC\perp AB$; $IP\perp AB$ nên $AC\parallel IP$. \\
+Chú ý rằng $KA=KC$, suy ra $T(ACMP)=T(AIMP)=I(ATMP)=I(ATKP)=-1$.\hfill $(4)$\\
+Từ $(1)$ và $(4)$ suy ra $T(ACRP)=T(ACMP)$. Điều đó có nghĩa là $T$, $R$, $M$ thẳng hàng. \hfill $(5)$\\
+Từ $(1)$ và $(5)$ suy ra $QN\equiv QT\perp MR\equiv TR$.\hfill $(6)$\\
+Từ $(2)$, chú ý rằng $AC\parallel IP$; $AB\perp AC$; $AH\perp BC$, suy ra
+$$\widehat{TAM}=\widehat{TAP}=\widehat{TIP}=\widehat{TCA}=\dfrac{1}{2}\widehat{BCA}=\dfrac{1}{2}\widehat{BAH}=\dfrac{1}{2}\widehat{MAN}.$$
+Do đó $\widehat{TAM}=\widehat{TAN}$.\\
+Từ $(1)$ và $(6)$ suy ra $\widehat{ATM}=\widehat{ATN}$. Vậy $\triangle ATM=\triangle ATN$, điều đó có nghĩa là $AM=AN$; $TM=TN$. Do đó $AT\perp MN$.
+Kết hợp với $AT\parallel QR$, suy ra $MN\perp QR$.\hfill $(7)$\\
+Từ $(6)$ và $(7)$ suy ra $N$ là trực tâm của tam giác $MQR$.
+
+\begin{nx}
+Chúng ta có thể chứng minh $MBIR$ là hình bình hành, suy ra $BI$ song song với $MR$ và cùng vuông góc với $PQ$.
+\end{nx}
+}
+\end{bt}
+\Closesolutionfile{ans}

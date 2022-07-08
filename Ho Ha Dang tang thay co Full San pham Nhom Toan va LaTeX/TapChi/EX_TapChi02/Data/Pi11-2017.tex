@@ -1,0 +1,765 @@
+\section{Tạp chí Pi, số 11,  tháng 11 năm 2017}
+\Opensolutionfile{ans}[ans/Pi11-2017]
+
+\begin{bt}[P111, Tạp chí Pi, tháng 11 năm 2017]%[Đặng Văn Tâm, Dự án EX_TapChi02]%[0D0G2]
+	Cho tam giác $ABC$, $D$ là một điểm tùy ý nằm trong cạnh $AB$. Các đường phân giác trong các góc $\widehat{ABC}$ và $\widehat{ADC}$ cắt nhau tại $E$. Các đường phân giác các góc $\widehat{BAC}$ và $\widehat{BDC}$ cắt nhau tại $F$. Gọi $J$ là trung điểm đoạn thẳng $EF$. Chứng minh rằng các đường thẳng $JD$ và $AB$ vuông góc với nhau khi và chỉ khi đường tròn nội tiếp tam giác $ADC$ tiếp xúc với đường tròn nội tiếp tam giác $BDC$.
+	\loigiai
+	{Trước hết ta chứng minh hai Bổ đề sau:
+		\begin{bode}[1]\label{bd1}
+			Cho tam giác $ABC$, $D$ là một điểm tùy ý nằm trong cạnh $AB$. Khi đó đường tròn nội tiếp tam giác $ADC$ tiếp xúc với đường tròn nội tiếp tam giác $BDC$ khi và chỉ khi $D$ là tiếp điểm của đường tròn nội tiếp tam giác $ABC$ với cạnh $AB$.
+		\end{bode}
+		\noindent{\bf Chứng minh.}
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzInit[ymin=-0.5,ymax=7,xmin=-6,xmax=5]
+			\tkzClip
+			\tkzDefPoints{-4/6.5/C,-6/0/A,3/0/B}
+			\tkzLabelPoints(A,B)
+			\tkzLabelPoints[above](C)
+			\tkzDefCircle[in](A,B,C) \tkzGetPoint{V}
+			\tkzDrawCircle[in](A,B,C)
+			\tkzDefPointBy[projection= onto A--B](V)
+			\tkzGetPoint{D}
+			\tkzDefCircle[in](A,D,C)\tkzGetPoint{Z}
+			\tkzDrawCircle[in](A,D,C)
+			\tkzDefCircle[in](C,B,D) 
+			\tkzDrawCircle[in](C,B,D)
+			\tkzDefPointBy[projection= onto C--D](Z)
+			\tkzGetPoint{P}
+			\tkzDrawPoints(A,B,C,V,D,P)
+			\tkzLabelPoints(D)
+			\tkzLabelPoints[left](P)
+			\tkzMarkRightAngle(B,D,V)
+			\tkzDrawSegments(A,B B,C C,A C,D V,D)
+			\end{tikzpicture}
+		\end{center}
+		\begin{itemize}
+			\item Giả sử $D$ là tiếp điểm của đường tròn nội tiếp tam giác $ABC$ với cạnh $AB$. Khi đó
+			$$DA=\dfrac{AB+AC-BC}{2}; DB=\dfrac{BA+BC-AC}{2}.$$
+			Do đó
+			\begin{equation}\label{(1)}
+			AC-DA=\dfrac{CB+CA-AB}{2}=BC-DB
+			\end{equation}
+			Gọi $P$ là tiếp điểm của đường tròn nội tiếp tam giác $ADC$ với cạnh $CD$. Với lưu ý tới \ref{(1)}, ta có:
+			$$2DP=DC+DA-AC\mathop  = \limits^{\text{do}\,\,(1)} DC+DB-BC.$$
+			Suy ra, $P$ là tiếp điểm của đường tròn nội tiếp tam giác $BCD$ với cạnh $CD$.
+			Như vậy, các đường tròn nội tiếp các tam giác $ADC$ và $BDC$ cùng tiếp xúc $CD$ tại $P$; vì thế, chúng tiếp xúc nhau.
+			\item Ngược lại, giả sử đường tròn nội tiếp các tam giác $ADC$ và $BDC$ tiếp xúc nhau tại $P$.
+			Vì $CD$ là tiếp tuyến chung trong của hai đường tròn nêu trên nên $CD$ tiếp xúc với cả hai đường tròn đó tại $P$. Do đó:
+			$$DA+DC-AC=2DP=DC+DB-BC.$$
+			Suy ra $DA-DB=AC-BC$.\hfill$(2)$\\
+			Do $D$ nằm trong cạnh $AB$ nên
+			$DA+DB=AB.$
+			Kết hợp với (2), ta được
+			$$DA=\dfrac{AB+AC-BC}{2}.$$
+			Do đó, $D$ là tiếp điểm của đường tròn nội tiếp tam giác $ABC$ với cạnh $AB$.
+		\end{itemize}
+		Bổ đồ \ref{bd1} được chứng minh.
+		\begin{bode}[2]\label{bd2}
+			Cho tam giác $ABC$, $D$ là một điểm tùy ý nằm trong cạnh $AB$. Các đường phân giác trong các góc $\widehat{ABC}$ và $\widehat{ADC}$ cắt nhau tại $E$. Các đường phân giác trong các góc $\widehat{BAC}$ và $\widehat{BDC}$ cắt nhau tại $F$. $K$ là tiếp điểm của đường tròn nội tiếp tam giác $ABC$ với cạnh $AB$. Khi đó $KE\perp KF$.
+		\end{bode}
+		\noindent{\bf Chứng minh.} 
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzInit[ymin=-0.5,ymax=8,xmin=-9,xmax=5]
+			\tkzClip
+			\tkzDefPoints{-5/6.5/C,-6/0/A,3/0/B, -2.5/0/D}
+			\tkzLabelPoints(A,B)
+			\tkzLabelPoints[above](C)
+			\tkzDefCircle[in](A,B,C) \tkzGetPoint{I}
+			\tkzDrawCircle[in](A,B,C)
+			\tkzDefPointBy[projection= onto A--B](I)
+			\tkzGetPoint{K}
+			\tkzLabelPoints[below left](K)
+			\tkzLabelPoints[below right](D)
+			\tkzLabelPoints[above](I)
+			\tkzDefLine[bisector](A,B,C) \tkzGetPoint{b}
+			\tkzDefLine[bisector](A,D,C) \tkzGetPoint{d}
+			\tkzInterLL(B,b)(D,d)\tkzGetPoint{E}
+			\tkzLabelPoints[left](E)
+			\tkzDefLine[bisector](B,A,C) \tkzGetPoint{a}
+			\tkzDefLine[bisector](B,D,C) \tkzGetPoint{q}
+			\tkzInterLL(A,a)(D,q)\tkzGetPoint{F}
+			\tkzLabelPoints[right](F)
+			\tkzDefPointBy[projection= onto A--B](E)
+			\tkzGetPoint{N}
+			\tkzDefPointBy[projection= onto A--B](F)
+			\tkzGetPoint{M}
+			\tkzLabelPoints[below](M)
+			\tkzLabelPoints[below](N)
+			\tkzDefPointBy[projection= onto E--B](C)
+			\tkzGetPoint{H}
+			\tkzLabelPoints[above left](H)
+			\tkzMarkRightAngles(B,K,I F,D,E A,N,E F,M,D I,H,C)
+			\tkzDrawPoints(A,B,C,K,D,I,E,F,M,N)
+			\tkzDrawSegments(A,B B,C C,A C,D I,K E,B E,D F,A F,D K,E K,F E,N E,C E,F F,M N,A C,F C,H)
+			\tkzMarkAngles[size =1.1,mark=|, mksize=2](E,B,A C,B,E)
+			\tkzMarkAngles[size =1.1,mark=||,mksize=2](B,A,F F,A,C)
+			\end{tikzpicture}
+		\end{center}
+		Do $DE, DF$ là phân giác trong các góc kề bù nên $DE\perp DF$.
+		Gọi $M, N$ lần lượt là hình chiếu của $F, E$ trên cạnh $AB$. Ta có:
+		$$\widehat{FDM}=90^o-\widehat{EDN}=\widehat{DEN}.$$
+		Do đó $\Delta DFM \thicksim \Delta EDN$. Suy ra
+		\begin{equation}\label{(3)}
+		\dfrac{DM}{FM}=\dfrac{EN}{DN}\Leftrightarrow
+		DM\cdot DN=FM\cdot EN.
+		\end{equation}
+		Dễ thấy, $F$ và $E$ lần lượt là tâm đường tròn bàng tiếp góc $\widehat{A}$ của tam giác $ADC$ và tâm đường tròn bàng tiếp góc $\widehat{B}$ của tam giác $BDC$. Do đó, $N$ và $M$ tương ứng là các tiếp điểm của các đường tròn bàng tiếp đó với cạnh $CD$ và với cạnh $DB$.\\
+		Gọi $I$ là tâm đường tròn nội tiếp tam giác $ABC$. Do $K$ là tiếp điểm của đường tròn nội tiếp tam giác $ABC$ với cạnh $AB$ nên
+		$$IK\parallel FM\parallel EN.$$
+		Do đó, theo Định lý Thales, ta có
+		\begin{equation}\label{(4)}
+		\dfrac{KM}{IE}=\dfrac{AK}{AI}.
+		\end{equation}
+		Vì $F$ là tâm đường tròn bàng tiếp góc $\widehat{A}$ của tam giác $ADC$ nên
+		\begin{equation}\label{(5)}
+		\widehat{CFI}=\dfrac{\widehat{CBD}}{2}=\widehat{CDE}.
+		\end{equation}
+		Vì $F$ là tâm đường tròn bàng tiếp góc $\widehat{B}$ của tam giác $BDC$ nên
+		\begin{equation}\label{(6)}
+		\widehat{CFD}=90^\circ-\dfrac{\widehat{CBD}}{2}=180^\circ-\widehat{AIC}=\widehat{CIF}.
+		\end{equation}
+		Từ (\ref{(5)}) và (\ref{(6)}), suy ra $\Delta CED\thicksim \Delta CIF$. Do đó
+		\begin{equation}\label{(7)}
+		\dfrac{ED}{IF}=\dfrac{CE}{CI}.
+		\end{equation}
+		Gọi $H$ là hình chiếu vuông góc của $C$ lên $EI$. Ta có
+		$$\widehat{ICH}=\widehat{BIC}-90^\circ=\dfrac{\widehat{CAB}}{2}=\widehat{IAK}.$$
+		Suy ra, $\Delta IAK\thicksim\Delta ICH$. Vì thế
+		\begin{equation}\label{(8)}
+		\dfrac{AK}{CH}=\dfrac{IA}{IC}.
+		\end{equation}
+		Vì $F$ là tâm đường tròn bàng tiếp góc $A$ của tam giác $ADC$ nên
+		$$\widehat{CIF}=\dfrac{\widehat{ADC}}{2}=\widehat{EDC}.$$
+		Suy ra $\Delta ECH\thicksim\Delta DEN$. Do đó
+		\begin{equation}\label{(9)}
+		\dfrac{DN}{CH}=\dfrac{DE}{CE}.
+		\end{equation}
+		Từ (\ref{(8)}) và (\ref{(9)}), suy ra
+		\begin{equation}\label{(10)}
+		\dfrac{AK}{DN}=\dfrac{IA}{DF}\cdot\dfrac{CE}{CI}.
+		\end{equation}
+		Từ (\ref{(7)}) và (\ref{(10)}), suy ra
+		\begin{equation}\label{(11)}
+		\dfrac{AK}{DN}=\dfrac{IA}{DE}\cdot\dfrac{ED}{IF}=\dfrac{IA}{IF}.
+		\end{equation}
+		Từ (\ref{(4)}) và (\ref{(11)}), suy ra
+		$$\dfrac{AK}{DN}=\dfrac{AK}{KM}.$$
+		Vì vậy, $DN=KN$.\\
+		Chứng minh tương tự ta cũng có
+		\begin{equation}\label{(12)}
+		DM=KN
+		\end{equation}
+		Từ (\ref{(3)}) và (\ref{(12)}), suy ra
+		$$FM\cdot EN=DM\cdot DN=KN\cdot KM.$$
+		Do đó, $\dfrac{FM}{KN}=\dfrac{EN}{KM}$. Vì vậy, hai tam giác vuông $KEN$ và $FKM$ đồng dạng. Do đó
+		$$\widehat{EKF}=180^\circ-\widehat{FKM}-\widehat{EKN}=180^\circ-\widehat{FKM}-\widehat{KFM}=90^\circ.$$
+		Vậy, $KE\perp KF$.
+		Bổ đề \ref{bd2} được chứng minh.\\
+		\textit{Trở lại bài toán}.
+		\begin{center}
+			\begin{tikzpicture}
+			\tkzInit[ymin=-0.5,ymax=8,xmin=-9,xmax=5]
+			\tkzClip
+			\tkzDefPoints{-5/6.5/C,-6/0/A,3/0/B, -2.5/0/D}
+			\tkzLabelPoints(A,B)
+			\tkzLabelPoints[above](C)
+			\tkzDefCircle[in](A,B,C) \tkzGetPoint{I}
+			\tkzDrawCircle[in](A,B,C)
+			\tkzDefPointBy[projection= onto A--B](I)
+			\tkzGetPoint{K}
+			\tkzLabelPoints[below left](K)
+			\tkzLabelPoints[below right](D)
+			\tkzLabelPoints[above](I)
+			\tkzDefLine[bisector](A,B,C) \tkzGetPoint{b}
+			\tkzDefLine[bisector](A,D,C) \tkzGetPoint{d}
+			\tkzInterLL(B,b)(D,d)\tkzGetPoint{E}
+			\tkzLabelPoints[left](E)
+			\tkzDefLine[bisector](B,A,C) \tkzGetPoint{a}
+			\tkzDefLine[bisector](B,D,C) \tkzGetPoint{q}
+			\tkzInterLL(A,a)(D,q)\tkzGetPoint{F}
+			\tkzLabelPoints[right](F)
+			\tkzDefPointBy[projection= onto A--B](E)
+			\tkzGetPoint{N}
+			\tkzDefPointBy[projection= onto A--B](F)
+			\tkzGetPoint{M}
+			\tkzLabelPoints[below](M)
+			\tkzLabelPoints[below](N)
+			\tkzDefPointBy[projection= onto E--B](C)
+			\tkzGetPoint{H}
+			\tkzLabelPoints[above left](H)
+			\tkzDefMidPoint(E,F)\tkzGetPoint{J}
+			\tkzLabelPoints[above left](J)
+			\tkzMarkRightAngles(B,K,I F,D,E A,N,E F,M,D I,H,C)
+			\tkzDrawPoints(A,B,C,K,D,I,E,F,M,N,J)
+			\tkzDrawSegments(A,B B,C C,A C,D I,K E,B E,D F,A F,D K,E K,F E,N E,C E,F F,M N,A C,F C,H D,J K,J)
+			\tkzMarkAngles[size =1.1,mark=|, mksize=2](E,B,A C,B,E)
+			\tkzMarkAngles[size =1.1,mark=||,mksize=2](B,A,F F,A,C)
+			\end{tikzpicture}
+		\end{center}
+		Gọi $K$ là tiếp điểm của đường tròn nội tiếp tam giác $ABC$ với cạnh $AB$. Theo Bổ đề \ref{bd2}, $KF\perp KE$. Lại do $DE, DF$ là phân giác trong của hai góc kề bù nên $DE\perp DF$. Do đó, các tam giác $EKF$ và $EDF$ là các tam giác vuông tại $D$. Vì thế, từ giả thiết $J$ là trung điểm $EF$, ta có
+		$$JD=\dfrac{EF}{2}=JK.$$
+		Do vậy, $JD\perp AB$ khi và chỉ khi $D$ và $K$ trùng nhau; nói cách khác, $JD\perp AB$ khi và chỉ khi $D$ là tiếp điểm của đường tòn nội tiếp tam giác $ABC$ với cạnh $AB$. Theo Bổ đề \ref{bd1}, điều này tương đương với đường tròn nội tiếp tam giác $ADC$ tiếp xúc với đường tròn nội tiếp tam giác $BDC$. Ta có điều phải chứng minh.\\
+		\textbf{Bình luận và Nhận xét}
+		\begin{itemize}
+			\item[1.] Cho tới thời điểm bản thảo lên trang, Tòa soạn mới chỉ nhận được đúng một lời giải, của một bạn học sinh lớp 9 của Tp. Hồ Chí Minh. Lời giải đó là một lời giải chưa đúng vì tác giả của lời giải đó đã bỏ qua, không xét một số trường hợp cần thiết (do quan niệm sai là các trường hợp đó tương tự với các trường hợp đã xét?).
+			\item[2.] Qua lời giải trên, ta thấy có thể coi bài đã ra là một sự ghép nối cơ học của hai Bổ đề, \ref{bd1} và \ref{bd2}. Bổ đề \ref{bd2} là một kết quả đẹp và có ý nghĩa. Có một cách nhìn tương trụ như Bổ đề \ref{bd2} cho tâm nội tiếp. Cụ thể, \textit{nếu gọi $J, L$ là tâm đường tròn nội tiếp của các tam giác $ACD$ và $BCD$ thì đường tròn ngoại tiếp tam giác $DJL$ đi qua tiếp điểm của đường tròn nội tiếp tam giác $ABC$ với cạnh $AB$. Do đó, nếu $D$ là tiếp điểm của đường tròn nội tiếp tam giác $ABC$ với cạnh $AB$ thì $DI$ chua đôi đoạn $JL$.}\\
+			Sẽ thú vị hơn, nếu bạn nhận ra rằng kết quả vừa nêu trên có liên qua chặt chẽ với bài P103 của Tạp chí Pi (xem Tạp chí Pi, tập 1, số 10, tháng 10.2017, trang 22). Sử dụng ý tưởng của bài P103, có thể mở rộng Bổ đề \ref{bd2} cho tứ giác nội tiếp như sau:\\
+			\textbf{Mở rộng Bổ đề \ref{bd2}.} \textit{Cho tứ giác $ABCD$ ngoại tiếp đường tròn $(I)$. $M$ là một điểm nằm trong cạnh $CD$. Đường thẳng $AM$ cắt $BC$ tại $N$. Gọi $K, L$ và $J$ lần lượt là tam đường tròn nội tiếp các tam giác $ADM$, $ABN$ và $CMN$. Khi đó đường tròn ngoại tiếp tam giác $CMN$ đi qua $J$.}
+			\item[3.] Một kết quả đẹp Mở rộng Bổ đề \ref{bd2} nêu trên là bài G8 trong IMO Short List 2009. Bài toán đó như sau:\\
+			\textbf{G8 IMO Short List 2009.} \textit{Cho tứ giác $ABCD$ ngoại tiếp đường tròn $(I)$. $M$ là một điểm nằm trong cạnh $CD$. Đường thẳng $AM$ cắt $BC$ tại $N$. Gọi $K, L$ và $J$ lầ lượt là tâm đường tròn nội tiếp của các tam giác $ADM$, $ABN$ và $CMN$. Chứng minh rằng trực tâm tam giác $JKL$ nằm trên đường thẳng $AM$.}
+			\item[4.] Sử dụng Mở rộng Bổ đề \ref{bd2} (hay cũng có thể coi kết quả của bài G8 IMO Short List 2009), có thể giải được một số bài toán khó trong Đề thi của các kì thi Chọn học sinh giỏi quốc gia cấp THPT môn Toán (VMO) và Chọn học sinh vào Đội tuyển học sinh Việt Nam tham dự IMO (VNTSS). Cụ thể là hai bài toán sau:\\
+			\textbf{Bài 6 VMO 2011.} Cho tam giác $ABC$ không cân tại $A$ và có các góc $\widehat{ABC}, \widehat{ACB}$ là các góc nhọn. Xét một điểm $D$ di động trên cạnh $BC$ sao cho $D$ không trùng với $B, C$ và hình chiếu vuông góc của $A$ trên $BC$. Đường thẳng $d$ vuông góc với $BC$ tại $D$ cắt các đường thẳng $AB$ và $AC$ tương ứng tại $E$ và $F$. Gọi $M, N$ và $P$ lần lượt là tâm đường tròn nội tiếp các tam giác $AEFF, BDE$ và $CDF$. Chứng minh rằng bốn điểm $A, M, N, P$ cùng nằm trên một đường tròn khi và chỉ khi đường thẳng $d$ đi qua tâm đường tròn nội tiếp tam giác $ABC$.\\
+			\textbf{Bài 5 VNTS 2015.} Cho tam giác $ABC$ nhọn, không cân và điểm $P$ nằm bên trong tam giác sao cho $\widehat{APB}=\widehat{APC}=\alpha$ với $\alpha>180^\circ-\widehat{BAC}$. Các đường tròn ngoại tiếp các tam giác $APB$ và $APC$ lần lượt cắt $AC$ và $AB$ tại $E$ và $F$. Lấy ddiemr $Q$ bên trong tam giác $AEFF$ sao cho $\widehat{AQE}=\widehat{AQF}=\alpha$. Gọi $D$ là điểm đối xứng với $Q$ qua đường thẳng $EF$. Đường phân giác trong của góc $\widehat{EDF}$ cắt $PA$ tại $T$.
+			\begin{itemize}
+				\item[a)] Chứng minh $$\widehat{DET}=\widehat{ABC},\,\widehat{DFT}=\widehat{ACB}.$$
+				\item[b)] Đường thẳng $PA$ cắt $DE, DF$ lần lượt tại $M, N$. Gọi $I, J$ lầ lượt là tâm các đường tròn nội tiếp các tam giác $PEM, PFN$ và $(K)$ là đường tròn ngoại tiếp tam giác $DIJ$ với tâm là điểm $K$. Đường thẳng $DT$ cắt $(K)$ tại điểm $H$. Chứng minh rằng $HK$ đi qua tâm đường tròn nội tiếp tam giác $DMN$.
+				\begin{flushright}
+					\textbf{Trần Quang Hùng}
+				\end{flushright}
+			\end{itemize}
+		\end{itemize}
+		\textbf{Lời bàn.}\\
+		Lời giải trên đây thể hiện một cách tiếp cận kết luận của bài đã ra; từ đó cho thấy một cách nhìn đôi với cấu trúc Toán học của cấu hình được đề cập trong bài toán. Điểm đáng quý của cách nhìn này là nó giúp ta tìm ra mối liên hệ giữa bài đã ra và một số bài toán thú vị khác.\\
+		Dưới đây là một lời giải khác cho bài P111, gọi là Lời giải 2. Lời giải này thể hiện một cách tiếp cận khác, "ngây thơ" và mộc mạc, đối với kết luận của bài đã ra. Các kết quả được đề cập tới trong Lời giải 2 là những kết quả cơ bản, quen thuộc đối với học sinh THCS. Vì thế, với Lời giải 2, có thể coi bài đã ra là một sự "ghép nối" nhẹ nhàng, mềm mại của các kết quả \emph{lí thuyết} cơ bản, được đề cập trong nội dung giảng dạy môn Toán cấp THCS hiện nay.\\
+		\textbf{Lời giải 2.} Vì $DE, DF$ là phân giác trong hai góc kề bù nên $DE\perp DF$. Do đó, tam giác $EDF$ vuông tại $D$. Vì thế, $J$ là tâm đường tròn ngoại tiếp tam giác $EDF$. Suy ra:
+		\begin{equation}\label{2.1}
+		JD\perp AB\Leftrightarrow \mbox{đường tròn}\,\,(EDF)\,\,\mbox{tiếp xúc với đường thẳng}\,\,AB\Leftrightarrow \widehat{ADE}=\widehat{DFE}.
+		\end{equation}
+		Gọi $T$ là giao điểm của $EF$ và $CD$. Vì $\widehat{ADE}=\widehat{CDE}$ nên
+		$$(\ref{2.1})\Leftrightarrow \widehat{EDT}=\widehat{EFD}\Leftrightarrow \Delta ETD\backsim\Delta EDF\Leftrightarrow\widehat{ETD}=90^\circ.$$
+		Như vậy
+		\begin{equation}\label{2.2}
+		JD\perp AB\Leftrightarrow EF\perp CD.
+		\end{equation}
+		\begin{center}
+			\begin{tikzpicture}[scale=.8]
+			\tkzInit[ymin=-0.5,ymax=11,xmin=-13,xmax=6]
+			\tkzClip
+			\tkzDefPoints{-4/6.5/C,-6/0/A,3/0/B}
+			\tkzLabelPoints(A,B)
+			\tkzLabelPoints[above](C)
+			\tkzDefCircle[in](A,B,C) \tkzGetPoint{V}
+			\tkzDefPointBy[projection= onto A--B](V)
+			\tkzGetPoint{D}
+			\tkzDefCircle[in](A,D,C)\tkzGetPoint{Z}
+			\tkzDrawCircle[in](A,D,C)
+			\tkzDefCircle[in](C,B,D) 
+			\tkzDrawCircle[in](C,B,D)
+			\tkzDefPointBy[projection= onto C--D](Z)
+			\tkzGetPoint{P}
+			\tkzDefLine[bisector](A,B,C) \tkzGetPoint{b}
+			\tkzDefLine[bisector](A,D,C) \tkzGetPoint{d}
+			\tkzInterLL(B,b)(D,d)\tkzGetPoint{E}
+			\tkzLabelPoints[left](E)
+			\tkzDefLine[bisector](B,A,C) \tkzGetPoint{a}
+			\tkzDefLine[bisector](B,D,C) \tkzGetPoint{q}
+			\tkzInterLL(A,a)(D,q)\tkzGetPoint{F}
+			\tkzLabelPoints[right](F)
+			\tkzLabelPoints(D)
+			\tkzLabelPoints[left](P)
+			\tkzMarkRightAngles(B,D,V F,D,E)
+			\tkzDefMidPoint(E,F)\tkzGetPoint{J}
+			\tkzInterLL(E,F)(D,C)\tkzGetPoint{T}
+			\tkzDrawPoints(A,B,C,V,D,P,J,E,F,T)
+			\tkzDrawSegments(A,B B,C C,A C,D)
+			\tkzDrawSegments[dashed](D,E D,F E,F J,D)	
+			\tkzDefLine[bisector out](C,D,B)
+			\tkzGetPoint{t1}
+			\tkzDefLine[bisector out](B,C,D)
+			\tkzGetPoint{t2}	
+			\tkzInterLL(t1,D)(t2,C)
+			\tkzGetPoint{I1}
+			\tkzDefPointBy[projection=onto C--D ](I1)
+			\tkzGetPoint{H1}
+			\tkzDrawCircle(I1,H1)
+			\tkzDefLine[bisector out](A,C,D)
+			\tkzGetPoint{t3}
+			\tkzDefLine[bisector out](C,D,A)
+			\tkzGetPoint{t4}	
+			\tkzInterLL(t3,C)(t4,D)
+			\tkzGetPoint{I2}
+			\tkzDefPointBy[projection=onto C--D ](I2)
+			\tkzGetPoint{H2}
+			\tkzDrawCircle(I2,H2)
+			\tkzInterLC(A,D)(I1,H1)
+			\tkzGetSecondPoint{K}
+			\tkzInterLC(B,C)(I1,H1)
+			\tkzGetSecondPoint{L}
+			\tkzDrawCircle[dashed](J,D)
+			\tkzDrawPoints[color=black,fill=black,size=8pt](K,L)
+			\tkzDrawSegments(C,L A,K A,F)
+			\node at ($(L)+(50:3mm)$){\footnotesize $L$};
+			\node at ($(K)+(-90:3mm)$){\footnotesize $K$};
+			\node at ($(P)+(10:3mm)$){\footnotesize $Q$};
+			\node at ($(T)+(150:4mm)$){\footnotesize $T_A$};
+			\node at ($(T)+(40:4mm)$){\footnotesize $T_B$};
+			\node at ($(J)+(-60:3mm)$){\footnotesize $J$};
+			\end{tikzpicture}
+		\end{center}
+		Từ định nghĩa của điểm $E$ và $F$, hiển nhiên suy ra $E$ là tâm đường tròn $\omega_B$ bàng tiếp góc $\widehat{B}$ của tam giác $BDC$ và $F$ là tâm đường tròn $\omega_A$ bàng tiếp góc $\widehat{A}$ của tam giác $ADC$. Giả sử, $\omega_B$ và $\omega_A$, tương ứng, tiếp cúc cạnh $CD$ tại $T_B$ và $T_A$. Dễ thấy, ta có
+		\begin{equation}\label{2.3}
+		EF\perp CD\Leftrightarrow T_B\equiv T_A\equiv T\Leftrightarrow DT_B\equiv DT_A.
+		\end{equation}
+		Giả sử $\omega_B$ tiếp xúc với đường thẳng $AB$ và $BC$ tương ứng tại $K$ và $L$. Ta có $BK=BL$. Mà 
+		$$BK=BD+DK=BD+DT_B$$
+		và 
+		$$BL=BC+CL=BC+CT_B=BC+CD-DTB,$$
+		nên ta được
+		$$BD+DT_B=BC+CD-DT_B.$$
+		Vì vậy $$DT_B=\dfrac{1}{2}(BC+CD-BD)=CP,$$
+		với $P$ là tiếp điểm của đường tròn nội tiếp tam giác $BCD$ với cạnh $CD$.\\
+		Xét tương tự đối với $\omega_A$, ta sẽ được
+		$$DT_A=CQ,$$
+		với $Q$ là tiếp điểm của đường tròn nội tiếp tam giác $ACD$ với cạnh $CD$. Từ đó ta có
+		\begin{equation}\label{2.4}
+		DT_B=DT_A\Leftrightarrow CP=CQ.
+		\end{equation}
+		Từ (\ref{2.2}), (\ref{2.3}) và (\ref{2.4}), suy ra
+		$$JD\perp AB\Leftrightarrow CP=CQ.$$
+		Mà $CP=CQ$ (tức, $P\equiv Q$) khi và chỉ khi đường tròn nội tiếp tam giác $ADC$ tiếp xúc với đường tròn nội tiếp tam giác $BDC$, nên ta có điều phải chứng minh theo yêu cầu đề bài.
+		\begin{flushright}
+			\textbf{NKM}
+		\end{flushright}
+	}
+\end{bt}
+
+\begin{bt}[P112, Tạp chí Pi, tháng 11 năm 2017]%[Nguyễn Tiến Thùy, Dự án EX_TapChi02]%[0D0G2]
+	Tìm tất cả các cặp số nguyên $(a,b)$ để đa thức $P(x)=x^2-ax+b$ có tính chất: tồn tại ba số nguyên đôi một khác nhau $m$, $n$, $p$ thuộc đoạn $[1;9]$ sao cho 
+		$|P(m)|=|P(n)|=|P(p)|=7$.
+\loigiai{Giả sử $(a,b)$ là cặp số nguyên thỏa mãn yêu cầu đề bài. Khi đó, tồn tại ba số nguyên đôi một khác nhau $m$, $n$, $p\in[1;9]$ sao cho 
+		\begin{center}
+			$|P(m)|=|P(n)|=|P(p)|=7$,
+		\end{center}
+		hay $P(m),\,P(n),\,P(p)\in\{-7;7\}$.\hfill (1)\\
+		Hiển nhiên, không thể có $P(m)=P(n)=P(p)$, vì khi đó đa thức bậc hai $Q(x)=P(x)-P(m)$ sẽ có ba nghiệm, điều này vô lí.
+		Vì thế, từ (1) suy ra trong ba số $P(m)$, $P(n)$ và $P(p)$, có đúng hai số bằng nhau và số còn lại khác cả hai số đã cho. Không mất tính tổng quát, giả sử $P(m)=P(n)\ne P(p)$. Ta có các trường hợp
+		\begin{itemize}
+			\item {\it Trường hợp 1:} $P(m)=P(n)=7$ và $P(p)=-7$.\\
+			Không mất tính tổng quát, giả sử $m>n$.\hfill (2)\\
+			Vì $P(m)=P(n)=7$ và $m\ne n$ nên $m$ và $n$ là hai nghiệm của phương trình bậc hai ẩn $x$
+			\begin{center}
+				$x^2-ax+b-7=0$.
+			\end{center}
+			Theo định lí Vi-et, ta có $a=m+n$.\hfill (3)\\
+			Vì thế
+			\begin{align*}
+			14&=P(m)-P(n)=m^2-p^2-a(m-p)\\
+			&=m^2-n^2-(m+n)(m-p)=(m-p)(p-n).\tag{4}
+			\end{align*}
+			Do $14>0$ nên $m-p$ và $p-n$ cùng dấu. Kết hợp với $(2)$, suy ra $m-p,p-n>0$, \hfill (5)\\
+			vì nếu ngược lại thì $m<p<n$, mâu thuẫn với (2).\\
+			Do $m,n,p\in [1;9]$ nên $m-p,p-n<14$.\hfill (6)\\
+			Từ (4), (5) và (6), suy ra 
+			\begin{center}
+				$\hoac{&\heva{&m-p=2\\ &p-n=7}\\ &\heva{&m-p=7\\ &p-n=2}}$ hay $\hoac{&\heva{&m=p+2\\ &p=n+7}\\ &\heva{&m=p+7\\ &p=n+2}.}$
+			\end{center}
+			Suy ra $m=n+9\ge 10$, mâu thuẫn với giả thiết $m\in [1;9]$. Điều này cho thấy {\it trường hợp 1} không thể xảy ra.
+			\item {\it Trường hợp 2:} $P(m)=P(n)=-7$ và $P(p)=7$.\\
+			Không mất tính tổng quát, giả sử $|m-p|\le |p-n|$.\hfill (7)\\
+			Vì $P(m)=P(n)=-7$ và $m\ne n$ nên $m$ và $n$ là hai nghiệm của phương trình bậc hai (ẩn $x$)
+			\begin{center}
+				$x^2-ax+b+7=0$.
+			\end{center}
+			Do đó, theo định lí Vi-et, ta có $a=m+n$ và $b=mn-7$.\hfill (8)\\
+			Vì thế, tương tự như ở {\it trường hợp 1}, ta có $-14=P(m)-P(p)=(m-p)(p-n)$.\\
+			Suy ra $|m-p|\cdot|p-n|=14$.\hfill (9)\\
+			Do $-14<0$ nên $m-p$ và $p-n$ trái dấu. \hfill (10)\\
+			Do $m,\,n,\,p\in[1;9]$ nên $|m-p|,|p-n|<14$.\hfill (11)\\
+			Từ (7),(9) và (11), suy ra $|m-p|=2$ và $|p-n|=7$.\\
+			Kết hợp với (10), ta được
+			\begin{center}
+				$\hoac{&\heva{&m-p=2\\ &p-n=-7}\\ &\heva{&m-p=-2\\ &p-n=7}}$
+				hay $\hoac{&\heva{&m=p+2\\ &n=p+7}&&(I)\\ &\heva{&m=p-2\\ &n=p-7.}&&(II)}$
+			\end{center}
+			+) Xét $(I)$. Vì $n\le 9$ nên $p\in\{1;2\}$.\\
+			- Với $p=1$, ta được $m=3$ và $n=8$. Do đó, theo $(8)$, $a=11$ và $b=17$.\\
+			- Với $p=2$, ta được $m=4$ và $n=9$. Do đó, theo $(8)$, $a=13$ và $b=29$.\\
+			+) Xét $(II)$. Vì $n\ge 1$ và $p\le 9$ nên $p\in\{8;9\}$.\\
+			- Với $p=8$, ta được $m=6$ và $n=1$. Do đó, theo $(8)$, $a=7$ và $b=-1$.\\
+			- Với $p=9$, ta được $m=7$ và $n=2$. Do đó, theo $(8)$, $a=9$ và $b=7$.\\
+			Ngược lại, bằng cách kiểm tra trực tiếp, dễ thấy, tất cả các cặp số $(11;7)$, $(13;29)$, $(7;-1)$, $(9;7)$ đều thỏa mãn yêu cầu đề bài và vì thế, chúng ta có tất cả các cặp số cần tìm.
+		\end{itemize}
+		\begin{nx}
+			\hfill
+			\begin{enumerate}[1.]
+				\item Ngoài cách xác định các cặp số $(a,b)$ thông qua việc xác định các giá trị $m,n$ tương ứng, ta còn có thể xác định các cặp $(a,b)$ dựa trên điều kiện cần để một phương trình bậc hai có nghiệm nguyên. Chú ý một điều, chúng ta phải thử lại nếu quá trình lập luận của chúng ta là suy ra.
+				\item Chúng ta có thể phát biểu bài toán dưới dạng: {\em{Tìm tất cả các đa thức bậc hai $P(x)$ có tính chất: tồn tại $3$ số nguyên đôi một phân biệt $m,n,p$ thuộc đoạn $[1;9]$ sao cho
+				$$|P(m)|=|P(n)|=|P(p)|=7.$$}}
+				\item Ta biết rằng, một đa thức có bậc không vượt quá $n$ ($n\in\mathbb{N}^*$) được xác định hoàn toàn khi biết giá trị của nó tại $n+1$ giá trị của biến số. Cụ thể ta có kết quả như sau:
+			{\em{Cho số nguyên $n\ge 1$. Cho $2(n+1)$ số thực $x_0,x_1,\dots,x_n$ $($$x_i\ne x_j\, \forall i\ne j$$)$ và $a_0,a_1,\dots,a_n$. Khi đó, đa thức $P(x)$, được xác định bởi công thức 
+					$$P(x)=\sum\limits_{i=0}^{n}a_i\cdot\prod\limits_{\small\begin{aligned}1\le &\,\,j\le n\\ i&\ne j\end{aligned}}\dfrac{x-x_j}{x_i-x_j}$$
+					là đa thức duy nhất có tính chất $P(x)=a_i$, với mọi $i=0,1,\dots,n$.}}
+				Công thức trên có tên gọi là {\it Công thức nội suy Lagrange.}
+				Chẳng hạn, như ở lời giải nêu trên, sau khi tìm được $m=3$, $n=8$ và $p=1$ ở trường hợp $P(m)=P(n)=-7$ và $P(p)=7$, ta sẽ có đa thức $P(x)$ là
+				$$P(x)=(-7)\cdot\dfrac{x-8}{3-8}\cdot\dfrac{x-1}{3-1}+(-7)\cdot\dfrac{x-3}{8-3}\cdot\dfrac{x-1}{8-1}+7\cdot\dfrac{x-3}{1-3}\cdot\dfrac{x-8}{1-8},$$
+				hay $P(x)=x^2-11x+17$. 
+				Như thế, với các phát biểu như đã nêu ở mục 2 trên đây, có thể coi bài đã ra như một \lq\lq cú hích\rq\rq\, nhẹ, nhằm khích lệ việc tìm tòi các tình huống \lq\lq tìm đa thức\rq\rq, dưới góc nhìn \lq\lq nội suy Lagrange\rq\rq. 
+			\end{enumerate}
+		\end{nx}
+	}
+\end{bt}
+
+\begin{bt}[P113, Tạp chí Pi, tháng 11 năm 2017]%[BanNt, Dự án EX_TapChi02]%[9D0G5]
+	Tìm tất cả các bộ ba số nguyên dương $(x;y;z)$ thỏa mãn điều kiện: $5^x\cdot 3^y=3z^2+2z-1.$
+	\loigiai{
+		Giả sử $(x;y;z)$ là bộ ba số nguyên dương thỏa mãn điều kiện nêu trong đề bài.\\
+		Ta có: $5^x\cdot 3^y=(3z-1)(z+1).$\hfill(1)\\
+		Do đó $(3z-1)(z+1)\,\vdots \, 3^y.$\\
+		Mà $(3z-1;3^y)=1$ (vì $3z-1\not\,\vdots \, 3$) nên suy ra $z+1 \,\vdots \, 3^y.$ \hfill (2)\\
+		Từ $(1)$, ta còn có $(3z-1)(z+1)\,\vdots \, 5^x.$\hfill(3)\\
+		Do $(3z-1)+2(z+1)=5z+1\not\,\vdots \, 5$ nên $3z-1$ và $z+1$ không thể cùng chia hết cho $5$. Vì thế, từ $(3)$ suy ra, trong hai số vừa nêu, có một số chia hết cho $5^x$ và số còn lại không chia hết cho 5. 	
+		Như vậy, nếu $3z-1\,\vdots \, 5$ thì $z+1\,\vdots \, 5^x$. Kết hợp với $(2)$ suy ra $z+1\,\vdots \, 5^x\cdot3^y$.\\
+		Mà từ $(1)$ ta có $5^x\cdot3^y\,\vdots \, z+1$ nên $z+1=5^x\cdot3^y$. Kéo theo $3z-1=1$ hay $z=0$, mâu thuẫn với giả thiết $z$ là số nguyên dương. Vì thế, ta có $3z-1\,\vdots \, 5^x$. Kết hợp với $(2)$ và $(1)$ suy ra \[3z-1=5^x\, \text{và}\, z+1=3^y.\tag{4}\] 
+		Do đó $5^x-3^{y+1}=(3z-1)-3(z+1)=-4$ hay $5^x=3^{y+1}-4$. \hfill(5)\\
+		Vì $5 \equiv 1 \,(\mod 4)$ nên $5^x \equiv 1 \,(\mod 4)$; kết hợp với $(5)$ suy ra $3^{y+1}\equiv 1 (\mod 4)$.\hfill(6)\\
+		Vì $3^2\equiv 1 \,(\mod 4)$ nên với mọi số nguyên dương $k$ thì $3^{2k}\equiv 1\,(\mod4)$ và $3^{2k+1}\equiv 3\, (\mod4).$
+	Do đó từ $(6)$ suy ra $y+1=2k, k\in\mathbb{N^*}$. Thay vào $(5)$ ta được: \[5^x=3^{2k}-4=(3^k-2)(3^k+2).\tag{7}\]
+		Mà $(3^{2k}+2)-(3^k-2)=4\not\,\vdots \, 5$ nên $3^k-2$ và $3^k+2$ không thể cùng chia hết cho $5$.
+		Do đó từ $(7)$ suy ra một trong hai số vừa nêu trên bằng $1$ và số còn lại bằng $5^x$. Từ đó, do $3^k+2>1$ nên $3^k-2=1$ và $3^k+2=5^x$. Suy ra $k=1$ và $x=1$. Khi đó $y=2k-1=1$ kéo theo $z=3^y-1=2$.		
+	Ngược lại, bằng cách tính toán trực tiếp, dễ thấy bộ số $(x;y;z)=(1;1;2)$ thỏa mãn điều kiện đã nêu trong đề bài. 		
+		Vậy có duy nhất bộ ba số nguyên dương thỏa mãn yêu cầu đề bài là ba bộ số vừa nêu trên.
+		\begin{nx}
+			Bài đã ra là một tình huống đơn giản, có dạng cơ bản, góp phần giúp học sinh củng cố hiểu biết về phân tích chuẩn của một số nguyên dương. Cụ thể, với lưu ý $3$ và $5$ là các số nguyên tố, có thể thấy đẳng thức đã cho trong đề bài cho biết phân tích chuẩn của một số nguyên dương $A=3z^2+2z-1.$ Từ đó, với việc có thể phân tích $A$ thành tích  $A=(3z-1)(z+1)$, nhờ việc hiểu đúng, hiểu kĩ về phân tích chuẩn, dễ dàng tìm ra dạng của phân tích chuẩn của các số $3z-1$ và $z+1$ là: $3z-1=5^\alpha \, \text{và}\, z+1=3^y\cdot5^\beta \, (\alpha, \beta \in \mathbb{N},\alpha +\beta=x)$; làm cơ sở cho việc tìm ra $z$ và các số mũ $x; y$ trong phân tích chuẩn của $A$.			
+			Lời giải trên đây cho thấy một cách xử lý đẹp trong việc xét các số mũ $\alpha, \beta$.
+		\end{nx}
+	}
+\end{bt}
+
+
+\begin{bt}[P114, Tạp chí Pi, tháng 11 năm 2017]%[Phan Hoàng Anh, Dự án EX-TapChi02]%[0D0G4]
+Cho bảng ô vuông kích thước $111\times2017$ (bảng gồm $111$ hàng và $2017$ cột). Điền vào mỗi ô vuông con của bảng một số $0$ hoặc $1$ sao cho trong mỗi cột có ít nhất $85$ số $1$. Chứng minh rằng ta có thể bỏ đi $106$ hàng sao cho ở bảng mới nhận được (gồm $5$ hàng và $2017$ cột), chỉ có thể có tối đa một cột chứa toàn số $0$.
+	\loigiai{Đánh số thứ tự các hàng, từ dưới lên trên, bởi $1$, $2$, $\ldots$, $111$ và đánh số thứ tự các cột, từ trái qua phải, bởi $1$, $2$, $\ldots$, $2017$.
+		Với mỗi $i\in\big\{1;2;\ldots;111\big\}$, kí hiệu $r_i$ là số số $1$ nằm ở hàng thứ $i$.
+		Với mỗi $k\in\big\{1;2;\ldots;2017\big\}$, kí hiệu $c_k$ là số số $1$ nằm ở cột thứ $k$.
+		Hiển nhiên, ta có \[\displaystyle\sum\limits_{i=1}^{111}r_i=\displaystyle\sum\limits_{k=1}^{2017}c_k.\tag{*}\]
+		Do $c_k\ge85$ với mọi $k\in\big\{1;2;\ldots,2017\big\}$ nên $\displaystyle\sum\limits_{k=1}^{2017}c_k\ge85\times2017=171{.}445$.
+		Do đó, từ $(*)$, ta có $$\displaystyle\sum\limits_{i=1}^{111}r_i\ge171{.}445.$$
+		\immini{Suy ra, theo nguyên lý Dirichlet, tồn tại một hàng mà số số $1$ ở hàng đó không ít hơn $$\left\lceil\dfrac{171{.}445}{111}\right\rceil=1{.}545\text{ (số).}$$
+			Tô màu xanh cho hàng này. Vì tính chất của bảng số đã cho không thay đổi khi hoán đổi vị trí của các cột nên không mất tính tổng quát, giả sử tất cả $1{.}545$ ô đầu tiên (kể từ trái sang phải) của hàng được tô xanh đều chứa số $1$.
+			Xét bảng con $A$ của bảng đã cho, gồm $111$ hàng và $472$ ($=2017-1545$) cột cuối cùng của bảng đã cho (như hình bên).}
+		{\begin{tikzpicture}[>=stealth]
+			\foreach \x in {1,2,3,5,6,9}%
+			\draw (\x,1)--(\x,6);
+			\foreach \x in {1,2,3,5,6}
+			\draw (1,\x)--(6,\x);
+			\draw (1,1)--(9,1);
+			\draw (1,6)--(9,6);
+			\node at (4,1.5) {$\cdots\cdots$};
+			\node at (4,2.5) {$\cdots\cdots$};
+			\node at (4,5.5) {$\cdots\cdots$};
+			\foreach \x in {1,2,3.5}
+			{
+				\node at (\x+0.5,3.3) {$\vdots$};
+				\node at (\x+0.5,4.2) {$\vdots$};
+			}
+			\draw[<->] (1,6.5)--(9,6.5);
+			\node[above] at (5,6.5) {$2017$ cột};
+			\draw[<->] (6,0.5)--(9,0.5);
+			\node[below] at (7.5,0.5) {$472$ cột};
+			\end{tikzpicture}}
+		\noindent{Hiển}  nhiên, bảng $A$ cũng có tính chất đúng như bảng đã cho, nghĩa là, ở mỗi cột của bảng $A$ cũng có ít nhất $85$ số $1$. Vì thế, bằng các lập luận tương tự trên, suy ra trong bảng $A$, tồn tại một hàng mà số số $1$ ở hàng đó không ít hơn 
+		$$\left\lceil\dfrac{85\times472}{111}\right\rceil=362 \,\, \text{(số).}$$
+		(Hàng này có thể là một phần của hàng đã được tô xanh).
+		Tô hàng vừa nêu trên của bảng $A$ bởi màu đỏ; trường hợp hàng đó là một phần của hàng đã được tô xanh, ta tô lại $472$ ô, từ ô thứ $1546$ đến ô thứ $2017$ của hàng xanh, bởi màu đỏ. Tương tự trên, không mất tổng quát, giả sử tất cả $362$ ô đầu tiên của hàng được tô đỏ, xét trong bảng $A$, đều chứa số $1$.
+		Xét bảng con $B$ của bảng đã cho, gồm $111$ hàng và $110$ ($=472-362$) cột cuối cùng của bảng đã cho. Cũng như với bảng $A$, suy ra trong bảng $B$, tồn tại một hàng mà số số $1$ ở hàng đó không ít hơn $$\left\lceil\dfrac{85\times110}{111}\right\rceil=85 \,\, \text{(số).}$$
+		(Hàng này có thể là một phần của hàng có chứa những ô đã được tô màu).
+		Tô hàng vừa nêu trên của bảng $B$ bởi màu hồng; trường hợp hàng đó là một phần của hàng chứa những ô đã được tô màu, ta tô lại $110$ ô, từ ô thứ $1908$ đến ô thứ $2017$, bởi màu hồng. Tương tự trên, không mất tính tổng quát, giả sử tất cả $85$ ô đầu tiên của hàng được tô hồng, xét trong bảng $B$, đều chứa số $1$.
+		Xét bảng con $C$ của bảng đã cho, gồm $111$ hàng và $25$ ($=110-85$) cột cuối cùng của bảng đã cho. Cũng như với bảng $A$, suy ra trong bảng $C$, tồn tại một hàng mà số số $1$ ở hàng đó không ít hơn $$\left\lceil\dfrac{85\times25}{111}\right\rceil=20\,\, \text{(số)}.$$
+		(Hàng này có thể là một phần của hàng có chứa những ô đã được tô màu).
+		Tô hàng vừa nêu trên của bảng $C$ bởi màu tím; trường hợp hàng đó là một phần của hàng đã được tô màu, ta tô lại $25$ ô, từ ô thứ $1934$ đến ô thứ $2017$, bởi màu tím. Tương tự trên, không mất tính tổng quát, giả sử tất cả $20$ ô đầu tiên hàng được tô tím, xét trong bảng $C$, đều chứa số $1$.\\
+		Xét bảng con $D$ của bảng đã cho, gồm $111$ hàng và $5$ ($=25-20$) cột cuối cùng của bảng đã cho. Cũng như với bảng $A$, suy ra trong bảng $D$, tồn tại một hàng mà số số $1$ ở hàng đó không ít hơn $$\left\lceil\dfrac{85\times5}{111}\right\rceil=4\,\, \text{(số).}$$
+		(Hàng này có thể là một phần của hàng có chứa những ô đã được tô màu).
+		Tô hàng vừa nêu trên của bảng $D$ bởi màu vàng; trường hợp hàng đó là một phần của hàng có chứa những ô đã được tô màu, ta tô lại $5$ ô, từ ô thứ $2013$ đến ô thứ $2017$, bởi màu vàng.
+		Như vậy, ta có tối đa $5$ hàng, mà mỗi hàng đều chứa những ô đã được tô màu, và do đó, có tối thiểu $106$ hàng, mà mỗi hàng đều không chứa ô nào đã được tô màu. Bỏ đi $106$ hàng vừa nêu, ta sẽ có một bảng gồm $5$ hàng và $2017$ cột, mà số cột có chứa số $1$ không ít hơn tổng số số $1$ nằm ở các ô đã được tô màu. Theo trên ,số số $1$ nằm ở các ô được tô màu xanh, đỏ, hồng, tím, vàng tương ứng không ít hơn $1{.}545$, $362$, $85$, $20$, $4$. Vì thế, tổng số số $1$ nằm ở các ô đã được tô màu không ít hơn: 
+		$$1{.}545=362+85+20+4=2016 \,\, \text{(số).}$$
+		Từ đó suy ra, bảng gồm $5$ hàng và $2017$ cột vừa nêu trên chỉ có thể có tối đa một cột không chứa số $1$, hay nói cách khác, chứa toàn số $0$.
+		Vậy bài toán được chứng minh.\\
+		\textbf{Lưu ý:} Với $x$ là số thực, $\left\lceil x\right\rceil$ kí hiệu số nguyên nhỏ nhất không nhỏ hơn $x$.
+		\begin{nx}
+			Khi tìm lời giải cho bất cứ bài toán nào, trước hết, cần tìm hiểu, phân tích các dữ liệu đã nêu trong đề bài, để biết đề bài cho cái gì, ``bắt'' làm cái gì. Với bài đã ra, khá dễ dàng để thấy đề bài cho một đánh giá tổng số số $1$ có trong bảng (thông qua giả thiết về số cột và số số $1$ tối thiểu ở mỗi cột) và yêu cầu chưng minh sự tồn tại của $5$ hàng mà số số $1$, đôi một khác cột, trong $5$ hàng đó không ít hơn $2016$ (nói cách khác, chứng minh sự tồn tại của một bảng gồm $5$ hàng và $2017$ cột mà ở bảng đó chỉ có thể có tối đa một cột không có số $1$ nào (tức, chứa toàn số $0$)). Hi vọng, với việc hiểu như thế, bạn sẽ thấy sự tự nhiên của lời giải nêu trên.
+		\end{nx}
+	}
+\end{bt}
+\begin{bt}[P115, Tạp chí Pi, tháng 11 năm 2017]%[Lê Quốc Hiệp, Dự án EX_TapChi02]%[9H0G4]
+	Trên một đường tròn cho trước, lần lượt, theo chiều kim đồng hồ, lấy các điểm đôi một phân biệt $A,~B,~D,~E,~F,~C$ sao cho $AB=AC$.\\ $AD$ cắt $BE,~BF$ tương ứng tại $P,~S$; $AF$ cắt $CD,~CE$ tương ứng tại $T,~R$. Gọi $Q$ là giao điểm của $BF$ và $CD$. Trên đoạn thẳng $ST$, lấy điểm $K$ sao cho $\widehat{SKQ}=\widehat{ACE}$. Chứng minh rằng
+	$$\dfrac{KS}{KT}=\dfrac{QP}{QR}.$$  
+	\loigiai
+	{
+		\textbf{Cách 1}.
+		\immini[0.05]
+		{Từ giả thiết suy ra $A$ là điểm chính giữa cung  $\wideparen{BAC}$ của đường tròn $(ABC)$. Do đó 
+		$\widehat{TDS}=\widehat{CDA}=\widehat{AFB}=\widehat{TFC}$.
+			Vì thế, $SDFT$ là tứ giác nội tiếp. 
+			Suy ra
+			$\widehat{KSQ}=\widehat{TSF}=\widehat{TDF}$\\
+			$=\widehat{CDF}=\widehat{CAF}=\widehat{CAR}.$\\
+			Từ đó, để ý rằng\\
+			$\widehat{QKS}=\widehat{ECA}=\widehat{RCA},$\\
+			suy ra $\triangle QSK \sim \triangle RAC$. \\
+			Do đó, $\dfrac{KS}{KQ}=\dfrac{CA}{CR}$.
+		}
+		{\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm,>=stealth,scale=0.65]
+			\tkzDefPoints{0/4/A}
+			\tkzDefShiftPoint[A](-30:4){B}
+			\tkzDefShiftPoint[A](200:4){C}
+			\tkzDefCircle[circum](A,B,C) \tkzGetPoint{O}
+			\pgfresetboundingbox
+			\tkzDrawCircle(O,A)
+			\tkzCalcLength[cm](O,A) \tkzGetLength{rOA}
+			\coordinate (F) at ($(O)+(190:\rOA)$);
+			\coordinate (E) at ($(O)+(240:\rOA)$);
+			\coordinate (D) at ($(O)+(-40:\rOA)$);
+			\tkzInterLL(A,D)(B,E)\tkzGetPoint{P}
+			\tkzInterLL(A,D)(B,F)\tkzGetPoint{S}
+			\tkzInterLL(A,F)(C,D)\tkzGetPoint{T}
+			\tkzInterLL(A,F)(C,E)\tkzGetPoint{R}
+			\tkzInterLL(B,F)(C,D)\tkzGetPoint{Q}
+			\tkzDefCircle[circum](D,F,T) \tkzGetPoint{x}
+			\pgfresetboundingbox
+			\tkzDrawCircle[dashed](x,F)
+			\tkzDefCircle[circum](B,P,D) \tkzGetPoint{y}
+			%\pgfresetboundingbox
+			\tkzDrawCircle[dashed](y,D)
+			\tkzCalcLength[cm](Q,P) \tkzGetLength{QP}
+			\tkzCalcLength[cm](Q,R) \tkzGetLength{QR}
+			\pgfmathsetmacro{\a}{\QP/\QR}
+			\coordinate (K) at ($(T)!1/(1+\a)!(S)$);
+			\tkzDrawSegments(C,E B,E T,S R,P K,Q B,F C,D)
+			\tkzMarkAngle[size=.5](E,C,A)
+			\tkzMarkAngle[size=.3](Q,K,S)
+			\tkzMarkAngle[arc=ll,size=.5 cm](T,K,Q)
+			\tkzMarkAngle[arc=lll,size=.5 cm](A,B,E)
+			\tkzDrawPolygon(A,B,C) \tkzDrawPolygon(A,F,D)
+			\tkzLabelPoints[](R)
+			\tkzLabelPoints[above](A,T)
+			\tkzLabelPoints[below](Q,E)
+			\tkzLabelPoints[right](P)
+			\tkzLabelPoints[above right](S,B)
+			\tkzLabelPoints[above left](C)
+			\tkzLabelPoints[left](F)
+			\draw ($(D)+(0.1,0)$) node[below]{$D$};
+			\draw ($(K)+(0.1,0.2)$) node[]{$K$};
+			\tkzDrawPoints[fill=black](A,B,C,O,F,E,D,P,S,T,R,Q,K)
+			\end{tikzpicture}}
+		\noindent Tương tự, ta cũng có $\triangle QKT \sim \triangle PBA$. Do đó, $\dfrac{KQ}{KT}=\dfrac{BP}{BA}.$
+		Vì thế, ta có \[\dfrac{KS}{KT}=\dfrac{KS}{KQ}\cdot\dfrac{KQ}{KT}=\dfrac{CA}{CR}\cdot\dfrac{BP}{BA}=\dfrac{BP}{CR}\tag{1}\]
+		(do $AB=AC$ theo giả thiết).
+		Áp dụng định lý Pascal cho lục giác nội tiếp $ADCEBF$, suy ra các điểm $P,~Q,~R$ thẳng hàng.
+		Gọi $J$ là giao điểm thứ hai, khác $D$, của $CD$ và đường tròn $(BPD)$. Khi đó, dễ thấy $\triangle BJC \sim \triangle BPA$.
+		Suy ra $\dfrac{BJ}{BP}=\dfrac{BC}{BA}$ và
+\[\widehat{CBA}=\widehat{PBA}-\widehat{PBC}=\widehat{JBC}-\widehat{PBC}=\widehat{JBP}.\]
+		Vì thế, $\triangle BJP \sim \triangle BCA$; suy ra, $PB=PJ$.
+		Do tứ giác $BDJP$ nội tiếp, nên 
+		\[\widehat{PJQ}=\widehat{PBD}=\widehat{EBD}=\widehat{ECD}=\widehat{RCD}.\]
+		Suy ra $PJ\parallel CR$. Do đó
+		$\dfrac{BP}{CR}=\dfrac{PJ}{CR}=\dfrac{QP}{QR}$.\hfill$(2)$\\
+		Từ (1) và (2), suy ra $\dfrac{KS}{KT}=\dfrac{QP}{QR}$. Ta có điều phải chứng minh.\\
+		\textbf{Cách 2}.\\
+		\immini
+		{Áp dụng định lý Pascal cho lục giác nội tiếp $ADCEBF$, suy ra các điểm $P,~Q,~R$ thẳng hàng.\\
+			Áp dụng định lý Menelaus cho tam giác $QRF$ với các tuyến $ASP$, ta được
+			\[\dfrac{PQ}{PR}\cdot\dfrac{AR}{AF}\cdot\dfrac{SF}{SQ}=1.\tag{1}\] 
+			Do $AB=AC$ nên $A$ là điểm chính giữa cung $\wideparen{BAC}$ của đường tròn $(ABC)$. Vì thế, $FA$ là phân giác của góc $\widehat{CFB}$, suy ra 
+			\[\widehat{CFA}=\widehat{AFB}=\widehat{AFS}\tag{2}\]
+		}
+		{\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm,>=stealth,scale=0.75]
+			\tkzDefPoints{0/4/A}
+			\tkzDefShiftPoint[A](-30:4){B}
+			\tkzDefShiftPoint[A](200:4){C}
+			\tkzDefCircle[circum](A,B,C) \tkzGetPoint{O}
+			\pgfresetboundingbox
+			\tkzDrawCircle(O,A)
+			\tkzCalcLength[cm](O,A) \tkzGetLength{rOA}
+			\coordinate (F) at ($(O)+(190:\rOA)$);
+			\coordinate (E) at ($(O)+(240:\rOA)$);
+			\coordinate (D) at ($(O)+(-40:\rOA)$);
+			\tkzInterLL(A,D)(B,E)\tkzGetPoint{P}
+			\tkzInterLL(A,D)(B,F)\tkzGetPoint{S}
+			\tkzInterLL(A,F)(C,D)\tkzGetPoint{T}
+			\tkzInterLL(A,F)(C,E)\tkzGetPoint{R}
+			\tkzInterLL(B,F)(C,D)\tkzGetPoint{Q}
+			\tkzCalcLength[cm](Q,P) \tkzGetLength{QP}
+			\tkzCalcLength[cm](Q,R) \tkzGetLength{QR}
+			\pgfmathsetmacro{\a}{\QP/\QR}
+			\coordinate (K) at ($(T)!1/(1+\a)!(S)$);
+			\tkzDrawSegments(C,E B,E T,S R,P K,Q B,F C,D B,C A,F A,D)
+			\tkzMarkAngle[size=.5](E,C,A)
+			\tkzMarkAngle[size=.3](Q,K,S)
+			\tkzMarkAngle[arc=ll,size=.6 cm](A,F,C)
+			\tkzMarkAngle[arc=ll,size=.8 cm](B,F,A)
+			\tkzDrawPolygon(A,B,D,E,F,C)
+			\tkzLabelPoints[](R)
+			\tkzLabelPoints[above](A,T)
+			\tkzLabelPoints[below](Q,E)
+			\tkzLabelPoints[right](P)
+			\tkzLabelPoints[above right](S,B)
+			\tkzLabelPoints[above left](C)
+			\tkzLabelPoints[left](F)
+			\draw ($(D)+(0.1,0)$) node[below]{$D$};
+			\draw ($(K)+(0.1,0.2)$) node[]{$K$};
+			\tkzDrawPoints[fill=black](A,B,C,O,F,E,D,P,S,T,R,Q,K)
+			\end{tikzpicture}}
+		\noindent và
+		\[\widehat{TDS}=\widehat{ADC}=\widehat{ABC}=\widehat{ACB}=\widehat{AFB}=\widehat{TFS}.\]
+		Do đó, $SDFT$ là tứ giác nội tiếp. Suy ra 
+		\[\widehat{CAF}=\widehat{CDF}=\widehat{TDF}=\widehat{TSF}.\tag{3}\]
+		Từ (2) và (3), suy ra $\triangle CAF \sim \triangle TSF$. Do đó 
+		\[\dfrac{SF}{AF}=\dfrac{TS}{CA}.\tag{4}\]
+		Hơn nữa, do 
+		\[\widehat{CAR}=\widehat{CAF}=\widehat{TSF}=\widehat{KSQ}\]
+		và $\widehat{ACR}=\widehat{ACE}=\widehat{SKQ}$, nên $\triangle ACR \sim \triangle SKQ$. Do đó
+		\[\dfrac{AR}{SQ}=\dfrac{AC}{SK}.\tag{5}\]
+		Từ (4) và (5) suy ra 
+		\[\dfrac{AR}{AF}\cdot\dfrac{SF}{SQ}=\dfrac{SF}{AF}\cdot\dfrac{AR}{SQ}=\dfrac{TS}{CA}\cdot\dfrac{AC}{SK}=\dfrac{TS}{SK}.\]
+		Kết hợp với (1) ta được
+		\[\dfrac{PQ}{PR}\cdot\dfrac{TS}{SK}=1.\]
+		Suy ra $\dfrac{KS}{ST}=\dfrac{PQ}{PR}$. Do đó
+		\[\dfrac{KS}{KT}=\dfrac{KS}{ST-KS}=\dfrac{PQ}{PR-PQ}=\dfrac{QP}{QR}.\]
+		Bài toán được chứng minh.
+		\begin{nx}\hfill
+			\begin{enumerate}[1.]
+				\item Dựa vào các lời giải trên đây, có thể chứng minh được $QK\parallel AE$ và $ST\parallel BC$. Từ đó có được cách dựng điểm $K$ thỏa mãn yêu cầu đề bài.
+				\item Trong lời giải ở \textbf{cách 1} nêu trên, kết quả quen thuộc dưới đây đã được sử dụng trong việc xét hai đường tròn cắt nhau, đường tròn ngoại tiếp lục giác $ABDEFC$ và đường tròn $(BPD)$, để rút ra kết luận $\triangle BJC \sim \triangle BPA$.
+				\begin{bode}
+					Cho hai đường tròn $(O_1)$ và $(O_2)$ cắt nhau tại hai điểm phân biệt $A,B$. Xét các điểm $M\in (O_1),~N\in (O_2)$. khi đó các khẳng định sau là tương đương:
+					\begin{enumerate}[1.]
+						\item $M,~B,~N$ cùng thuộc một đường thẳng;
+						\item $(BA;BM)\equiv(BA;BN)~(\mod \pi)$;
+						\item $(\vec{O_1A};\vec{O_1M})\equiv(\vec{O_2A};\vec{O_2N}) ~(\mod 2 \pi)$;
+						\item Các tam giác $AMN$ và $AO_1O_2$ đồng dạng và (cùng hướng).
+					\end{enumerate}
+				\end{bode}
+			\end{enumerate}
+		\end{nx}
+	}
+\end{bt}
+\begin{bt}[P116, Tạp chí Pi, tháng 11 năm 2017]%[BanNt, Dự án EX_TapChi02]%[1D0G1]
+	Cho các số thực $a,b$ với $a<b$. Cho hàm số $f(x)$ xác định, liên tục trên đoạn $[a;b]$ và thỏa mãn điều kiện $f(a)\cdot f(b)<0$. Chứng minh rằng với mọi số nguyên $n\geq 3$, tồn tại cấp số cộng tăng $x_1, x_2, \dotsc, x_n$, có tất cả các số hạng đều thuộc đoạn $[a;b]$ và thỏa mãn điều kiện: $\sum \limits_{i=1}^{n}f(x_i)=0$.
+	\loigiai
+	{
+		Không mất tính tổng quát, giả sử $f(a)<0$ và $f(b)>0$. Khi đó, do $f$ liên tục trên $[a;b]$ nên tồn tại số $\epsilon >0$, sao cho $f(x)<0, \, \forall x\in [a; a+\epsilon]$ và $f(x)>0, \, \forall x\in[b-\epsilon; b]$.		
+		Trong đoạn $[a; a+\epsilon]$, lấy cấp số cộng tăng $a_1, a_2, \dotsc, a_n$ và trong đoạn $[b-\epsilon;b]$, lấy cấp số cộng tăng $b_1, b_2,\dotsc,b_n.$ Với mỗi $i\in \{1;2;\dotsc;n\}$, xét hàm số $h_i(t)=(1-t)a_i+tb_i$ xác định trên $[0;1].$\\
+		Do với mỗi $i\in \{ 1;2;\dotsc;n\}$, hàm $f(h_i(t))$ xác định và liên tục trên $[0;1]$. Vì thế, hàm số $g$ được cho bởi công thức $$ g(t)=\sum \limits_{i=1}^{n}f(h_i(t))$$ là hàm xác định và liên tục trên $[0;1]$. 		
+		Hơn nữa, vì $f(a_i)<0, \forall i\in \{1;2;\dotsc;n\}$ (do $b_i\in [b-\epsilon; b], \,\forall i\in \{1;2;\dotsc;n\}$) nên $$g(1)=\sum\limits_{i=1}^{n}f(b_i)>0.$$
+		Từ đó, theo định lí về giá trị trung gian, tồn tại $\lambda \in (0;1)$ sao cho $g(\lambda)=0$ hay $$\sum\limits_{i=1}^{n} f(h_i(\lambda))=0.$$
+		Với mỗi $i\in\{1;2;..;n\}$, chọn $x_i=h_i(\lambda)$. Khi đó, theo chứng minh trên, $x_i\in[a;b], \, \forall i\in \{ 1;2;\dotsc,n\}$ và $$\sum\limits_{i=1}^{n} f(x_i)=0.$$
+		Hơn nữa, bằng cách xét hiệu $x_{i+1}-x_i, 1\leq i\leq n-1$, dễ dàng chứng minh được $x_1, x_2,\dotsc, x_n$ là một cấp số cộng tăng, vì thế, ta có điều phải chứng minh theo yêu cầu đề bài.
+\begin{nx}Bài đã ra là một mở rộng trực tiếp của một bài toán thi Olympic Toán học sinh sinh viên của Liên Xô (cũ). Nguyên văn bài toán đó như sau: {\em{Cho $f(x)$ là một hàm số liên tục trên $\mathbb{R}$ và nhận các giá trị khác dấu. Chứng minh rằng tồn tại cấp số cộng $a,b,c\, (a<b<c)$ sao cho $f(a)+f(b)+f(c)=0$.}}Hiển nhiên sự mở rộng từ $3$ thành $n>3$ trong trường hợp này không có một ý nghĩa toán học nào, nói cách khác, về mặt Toán học, bài đã ra và bài vừa nêu trên là một.
+			
+		\end{nx}
+	}
+	%{\bf ID [8D0G3] của bài toán này nghĩa là: Lớp 8-Đại số-chương 0-mức độ Giỏi-bài 3.}
+\end{bt}
+\begin{bt}[P117, Tạp chí Pi, tháng 11 năm 2017]%[Bùi Mạnh Tiến, Dự án EX_TapChi02]%[1D0G1]
+	Cho dãy số vô hạn số thực $x_1,x_2,\ldots$ thỏa mãn điều kiện:
+	\begin{center}
+		$x_n=-\mathop {max}\limits_{i_1+i_2+\ldots +i_{11}}\left(x_{i_1}+x_{i_2}+\ldots +x_{i_{11}}\right)$
+	\end{center}
+	Với mọi $n>2017$. Chứng minh rằng dãy đã cho là dãy bị chặn.
+	\loigiai
+	{
+		Trước hết, dễ thấy, nếu dãy đã cho bị chặn trên, chẳng hạng bởi $C$, thì với mọi $n$ nguyên dương.
+		\begin{center}
+			$x_n\ge \min\left\{x_1,x_2,\ldots,x_{2017},-11C\right\}$
+		\end{center}
+		Vì thế, để chứng minh dãy đã cho là dãy bị chặn ta chỉ cần chứng minh nó là dãy bị chặn trên.\\
+		Ta sẽ chứng minh điều vừa nêu trên bằng phương pháp phản chứng.
+		Giả sử ngược lại, dãy đã cho không bị chặn  trên.
+		Đặt 
+		$$m=\min\left\{x_1,x_2,\ldots,x_{2017}\right\}, \,\, M=\max\left\{x_1,x_2,\ldots,x_{2017}\right\}.$$
+		Ta sẽ gọi chỉ số $n$ là \lq\lq tốt\rq\rq \hspace{0.05cm} nếu hệ điều kiện sau được thỏa mãn:
+		\[\heva{&n>2017\\&x_n>x_i \text{ với mọi }i<n\\&x_n>-11m.} \tag{1}\] 
+		Ta sẽ chứng minh rằng tập gồm các chỉ số \lq\lq tốt\rq\rq \hspace{0.05cm} khác rỗng.
+		Thật vật, do giả sử phản chứng, tồn tại chỉ số $N$ sao cho $x_N>\max\left\{M,-11m\right\}$. Chọn chỉ số $n$ nhỏ nhất mà $x_n=\max\left\{x_1,x_2,\ldots,x_N\right\}$. Khi đó, điều kiện thứ hai của hệ $(1)$ hiển nhiên được thỏa mãn;hơn nữa:		
+		\begin{itemize}
+			\item Điều kiện thứ nhất của hệ $(1)$ cũng được thỏa mãn vì $x_n\ge x_N>M$ mà $M\ge x_i$\hspace{0.2cm} với mọi $1\le i\le 2017$.
+			\item  Điều kiện thứ ba của hệ $(1)$ cũng được thỏa mãn vì $x_n\ge x_N>-11m$.
+		\end{itemize}
+		Vì thế, $n$ là một chỉ số \lq\lq tốt\rq\rq \hspace{0.05cm} và do đó ta có điều muốn chứng minh.
+		Xét chỉ số \lq\lq tốt\rq\rq \hspace{0.05cm} $n$ tùy ý.
+		Từ định nghĩa dãy $\left(x_n\right)$ ta có:
+		\[x_n+x_{k_1}+x_{k_2}+\cdots+x_{k_{11}}\le 0,\tag{2}\]
+		với mọi $k_1,k_2,\ldots,k_{11}$ mà
+		\[k_1+k_2+\cdots+k_{11}=n\tag{3}\]
+		Tiếp theo, ta sẽ chọn bộ chỉ số $k_1,k_2,\dots,k_{11}$ thỏa mãn $(3)$ mà dựa vào bộ chỉ số này và $(2)$, có thể tìm ra điều vô lí.
+		Vì $n$ là chỉ số \lq\lq tốt\rq\rq \hspace{0.05cm} nên $n>2017$ (theo $(1)$).
+		Hơn nữa, nhận thấy, nếu
+		\[k_{i-1}\le n-\left(11-\left(i-1\right)\right)-\left(k_1+\cdots+ k_{i-2}\right)\]
+		thì 
+		\[1\le n-\left(11-i\right) -\left(k_1+\cdots+k_{i-2}+k_{i-1}\right). \]
+		Từ đó, ta có thể chọn bộ chỉ số $k_1,k_2,\ldots,k_{11}$ thỏa mãn $(3)$, bằng qui nạp, như sau:
+		\begin{itemize}
+			\item Bước 1: Chọn $k_1$
+			\begin{itemize}
+				\item Lấy tất cả các số $k$ mà $1\le k\le n-10$.
+				\item Từ các số $k$ lấy được ở trên, chọn $k_1$ là số sao cho $x_{k_{1}}$ là số lớn nhất trong các số $x_k$.
+			\end{itemize}
+			\item Bước $i\left(2\le i\le 10\right)$ : Chọn $k_i$.
+			\begin{itemize}
+				\item Lấy tất cả các số $k$ mà $1\le k\le n-\left(11-i\right)-\left(k_1+\cdots+k_{i-1}\right)$.
+				\item Từ các số $k$ lấy được ở trên, chọn $k_i$ là số sao cho $x_{k_i}$ là số lớn nhất trong các số $y_k$.
+			\end{itemize}
+			\item Bước 11: Chọn $k_{11}=n-\left(k_1+k_2+\cdots+k_{10}\right)$.\\
+			Vì tập các số $k$ lấy được ở bước $i\left(2\le i\le 11\right)$ là tập con của tập các số $k$ lấy được ở bước $i-1$ nên từ cách chọn $x_{k_j},j=1,2,\ldots,11$ suy ra
+			\[x_{k_1}\ge x_{k_2}\ge\cdots\ge x_{k_{10}}\ge x_{k_{11}}\tag{4}\]
+		\end{itemize}
+		Xảy ra các trường hợp sau:
+		\begin{itemize}
+			\item \textit{Trường hợp 1}: $k_{11}\le 2017$. Khi đó, theo $(4)$ ta có
+			\[x_{k_1}\ge x_{k_2}\ge \cdots \ge x_{k_{10}}\ge x_{k_{11}}\ge m\]
+			Kết hợp với $(2)$, suy ra $x_n+11m\le 0$, hay $x_n\le -11m$, trái với việc $n$ là chỉ số \lq\lq tốt \rq\rq.
+			\item \textit{Trường hợp 2}: $k_{11}>2017$. Khi đó, theo định nghĩa dãy $\left(x_n\right)$, tồn tại $11$ chỉ số $s_1,s_2,\ldots,s_{11}$ có tổng bằng $k_{11}$ sao cho 
+			\begin{center}
+				$x_{k_{11}}+x_{s_{1}}+x_{s_{2}}+\cdots+x_{s_{11}}=0$.
+			\end{center}
+			Kết hợp với $(2)$ ta được
+			\[x_n+x_{k_{1}}+x_{k_{2}}+\cdots+x_{k_{10}}\le x_{s_{1}}+x_{s_{2}}+\cdots+x_{s_{11}}.\tag{5}\]
+			Mặt khác, vì $n$ là chỉ số \lq\lq tốt\rq\rq \hspace{0.05cm} và $k_1<n$ nên theo điều thứ hai của hệ $(1)$, ta có:
+			\[ x_n>x_{k_{11}}\le x_{k_{2}}\ge \cdots \ge x_{k_{10}}.\tag{6}\]
+			Từ $(5)$ và $(6)$ suy ra 
+			\[max \left\{x_{s_1},x_{s_2},\ldots, x_{s_{11}} \right\}>x_{k_{10}}.\tag{7}\]
+			Tuy nhiên, do $1\le s_1,s_2,\ldots,s_{11}<k_{11}$ (Vì tổng của chúng bằng $k_{11}$) nên tất cả các chỉ số $s_i, i = 1,2,\ldots,11$, nằm trong số các số $k$ lấy được ở bước $10$ của quá trình chọn bộ chỉ số $k_1,k_2,\ldots,k_{11}$ nêu trên. Vì thế, ta có
+			\[ max \left\{ x_{s_1},x_{s_2},\ldots,x_{s_{11}} \right\} \ge x_{k_{10}}\]
+			mâu thuẫn với $(7)$.\\
+			Các mâu thuẫn nhận được trong việc xét hai trường hợp trên cho thấy giả sử phản chứng ở phần đầu lời giải là sai và vì thế, bài toán được chứng minh.
+		\end{itemize}
+		\begin{nx}\hfill
+			\begin{itemize}
+				\item Các số $11$ và $2017$ không đóng vai trò trong tình huống toán học đặt ra nên ta có bài toán khái quát sau.\\
+				\textbf{Bài toán \lq\lq khái quát\rq\rq}. \textit{Cho các số nguyên dương $k$ và $M$ sao cho phương trình 
+					\[y_1+y_2+\ldots+y_k=n\]
+					có nghiệm nguyên dương, với mọi $n>M$.\\
+					Cho dãy số vô hạn số thực $\left(x_n\right)_{n\ge 1}$ thỏa mãn điều kiện:
+					\[x_n=-\mathop {max}\limits_{i_1+i_2+\ldots +i_{k}}\left(x_{i_1}+x_{i_2}+\ldots +x_{i_{k}}\right)\]
+					với mọi $n>M$.\\
+					Chứng minh rằng $\left(x_n\right)_{n\ge 1}$ là dãy bị chặn.
+				}
+				\item Cách giải trên không phải là cách giải duy nhất của bài toán. Ta có thể giải bài toán bằng cách chứng minh dãy đã cho, bắt đầu từ số hạng nào đó, bị kẹp bởi hai dãy bị chặn.
+				\item Có ý kiến cho rằng nếu tất cả các số hạng của dãy $\left(x_n\right)_{n\ge 1}$ (trong Bài toán \lq\lq Khái quát\rq\rq) \hspace{0.05cm} đều là số nguyên thì dãy đó là dãy tuần hoàn, bắt đầu từ một số hạng nào đó.
+			\end{itemize}
+		\end{nx}
+	}
+\end{bt}
+
+\begin{bt}[P118, Tạp chí Pi, tháng 11 năm 2017]%[Bùi Mạnh Tiến, Dự án EX_TapChi02]%[8D0G7]
+	Cho số nguyên dương $k$. Cho đa thức $P(x)$ với hệ số nguyên, khác hằng và không có nghiệm nguyên. Chứng minh rằng tồn tại đa thức $Q(x)$ với hệ số nguyên, khác đa thức $0$ và thỏa mãn điều kiện:
+	\[Q\left(\left[\dfrac{n}{k}\right]\right) \equiv 0\left(\mathrm{mod} P(n)\right),\]
+	với mọi số nguyên $n$.
+	\loigiai{
+		Ta sẽ chứng minh đa thức $Q(x)$ sau thỏa mãn các điều kiện của đề bài:
+		\[Q()=P(kx)\cdot P(kx+1)\ldots P(kx+k-1).\]
+		Thật vậy, trước hết, do $P(x)$ là đa thức khác hằng, với hệ số nguyên nên $Q(x)$ là đa thức khác đa thức $0$ và có hệ số nguyên.
+		Tiếp theo, với mỗi số nguyên $n$, ta có
+		\[\left[\dfrac{n}{k}\right]\le \dfrac{n}{k}<\left[\dfrac{n}{k}\right]+1\]
+		Do đó, $k\cdot \left[\dfrac{n}{k}\right]\le n<k\cdot \left[\dfrac{n}{k}\right]+k$ hay $n\in \left\{k\cdot \left[\dfrac{n}{k}\right];k\cdot \left[\dfrac{n}{k}\right]+1;\ldots ; k\cdot \left[\dfrac{n}{k}\right]+k-1\right\}$.\\
+		Vì thế, với mọi $n$ nguyên, trong các số nguyên (do $P(x)$ là đa thức với hệ số nguyên)
+		\[P\left(k\cdot \left[\dfrac{n}{k}\right]\right),P\left(k\cdot \left[\dfrac{n}{k}\right]+1\right),\ldots, P\left(k\cdot \left[\dfrac{n}{k}\right]+k-1\right)\]
+		luôn có một số là $P(n)$.\hfill(1)\\
+		Hơn nữa, do đa thức $P(x)$ không có nghiệm nguyên nên $P(n)\ne 0$ với mọi $n$ nguyên\hfill(2)\\
+		Từ $(1)$ và $(2)$ hiển nhiên suy ra với mọi số nguyên, $Q\left(\left[\dfrac{n}{k}\right]\right)\vdots P(n)$.
+		Bài toán được chứng minh.
+	}
+\end{bt}
+\Closesolutionfile{ans}

@@ -1,0 +1,107 @@
+\begin{name}
+{Đỗ Viết Lân}
+{Đề thi Olympic Hy Lạp năm 2018}
+\end{name}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/ans-1818-Nat.MO-hylap]
+\begin{ex}%[HSG Hy Lạp năm 2018]%[Đỗ Viết Lân, Dự án EX-Nat.MO-18]%[0D0G5]
+Cho $(x_n)$, $n \in \mathbb{N}$ là một dãy số được cho bởi $x_{n+1}=3x_n^3+x_n$, $\forall n \in \mathbb{N}$ và $x_1=\dfrac{a}{b}$ với $a$, $b$ là các số nguyên dương sao cho $3\not| \, b$. Giả sử $x_m$ là bình phương của một số hữu tỉ với một giá trị nguyên nào đó của $m$. Chứng minh rằng $x_1$ cũng là bình phương của một số hữu tỉ.
+\loigiai{
+\begin{bode}
+Giả sử $p$, $q$ là những số nguyên dương  thỏa mãn $3\nmid q$ và $3\left(\dfrac{p}{q}\right)^3+\dfrac{p}{q}=\dfrac{r^2}{s^2}$ với $r$, $s$ là những số nguyên dương. Khi đó $\dfrac{p}{q}$ là bình phương của một số hữu tỉ.
+\end{bode}
+Giả sử rằng $\gcd(p,q)=\gcd(r,s)=1$. Từ giả thiết ta có
+$$3\left(\dfrac{p}{q}\right)^3+\dfrac{p}{q}=\dfrac{r^2}{s^2}\Leftrightarrow s^2(3p^3+pq^2)=r^2q^3.$$
+Giả sử tồn tại số nguyên tố $d \mid \gcd (q^3,3p^3+pq^2)$. Ta có $d\mid q^3 \Rightarrow d\mid q \Rightarrow d\mid pq^2$. Mặt khác, ta có $ d\mid 3p^3+pq^2 \Rightarrow d\mid 3p^3 \Rightarrow d\mid 3p \Rightarrow d\mid \gcd (q,3p)=1$, do đó không tồn tại $d$. Nói cách khác, $\gcd (q^3,3p^3+pq^2) =1$. Điều này cho ta $q^3\mid s^2$.\\
+Ngoài ra từ giả thiết $\gcd (s^2,r^2)=1$, ta cũng có $s^2\mid q^3$. Nên $q^3=s^2$, suy ra tồn tại $k \in \mathbb{Z}^+$ sao cho $q=k^2$ and $s=k^3$. %Note that $\gcd (p,k)=\gcd (p,q)=1$.
+Thay vào phương trình giả thiết ta có $p(3p^2+k^4)=r^2$. Ta có $\gcd(p,k)=\gcd(p,q)=1$ nên $\gcd (p,3p^2+k^4)=1$, do vậy $p$ là số chính phương. Vậy $\dfrac{p}{q}$ là bình phương của một số hữu tỉ.\\
+Trở lại bài toán, trước hết do $x_1$ là số hữu tỉ nên $x_n$ là số hữu tỉ với mọi $n$. Ngoài ra, ta thấy $3$ không chia hết mẫu số của $x_1$ nên từ giả thiết $x_{n+1}=3x_n^3+x_n$ suy ra $3$ không chia hết mẫu số của $x_n$ với mọi $n\in\mathbb{N}^*$.\\
+Bây giờ giả sử $x_m = \dfrac{r^2}{s^2}$ với $\gcd(r,s)=1$ và $x_{n-1} = \dfrac{p}{q}$ với $\gcd(p,q)=1$. Theo bổ đề trên ta có $x_{n-1} = \dfrac{p}{q}$ là bình phương của một số hữu tỉ. Tiếp tục như vậy ta thu được $x_1$ là bình phương của một số hữu tỉ.
+}
+\end{ex}
+
+\begin{ex}%[HSG Hy Lạp năm 2018]%[Đỗ Viết Lân, Dự án EX-Nat.MO-18]%[0H0G3]
+Cho $ABC$ là tam giác nhọn với $AB < AC < BC$ và $(O;R)$ là đường tròn ngoại tiếp tam giác. Gọi $D$, $E$ lần lượt trên các cung nhỏ $\wideparen{AC}$ và $\wideparen{AB}$. Gọi $K$ là giao điểm của $BD$, $CE$ và $N$ là giao điểm thứ hai của đường tròn ngoại tiếp hai tam giác $BKE$ và $CKD$. Chứng minh rằng $A$, $K$, $N$ thẳng hàng nếu và chỉ nếu $K$ thuộc đường đối trung kẻ từ $A$ của tam giác $ABC$.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/B, 2.5/5/A, 6/0/C}
+\tkzCircumCenter(A,B,C)\tkzGetPoint{O}
+\tkzDefPointBy[rotation=center O angle -30](A)\tkzGetPoint{D}
+\tkzDefPointBy[rotation=center O angle 20](A)\tkzGetPoint{E}
+\tkzInterLL(D,B)(E,C)\tkzGetPoint{K}
+\tkzCircumCenter(B,K,E)\tkzGetPoint{O1}
+\tkzCircumCenter(C,K,D)\tkzGetPoint{O2}
+\tkzInterCC(O1,K)(O2,K)\tkzGetSecondPoint{N}
+\tkzTangent[at=B](O)\tkzGetPoint{b}
+\tkzTangent[at=C](O)\tkzGetPoint{c}
+\tkzInterLL(B,b)(C,c)\tkzGetPoint{Z}
+\tkzInterLC(Z,B)(O1,K) \tkzGetSecondPoint{F}
+\tkzInterLC(Z,C)(O2,K) \tkzGetFirstPoint{G}
+\tkzDrawPolygon(A,B,C)
+\tkzDrawSegments(B,D C,E A,K K,N Z,F Z,G F,K B,E G,K C,D)
+\tkzDrawCircle(O,A)\tkzDrawCircle(O1,K)\tkzDrawCircle(O2,K)
+
+\tkzDrawPoints[fill=black](A,B,C,D,E,K,N,Z,F,G)
+\tkzLabelPoints[above](A,D,E)
+\tkzLabelPoints[below](Z)
+\tkzLabelPoints[below right](C)
+\tkzLabelPoints[below left](B)
+\tkzLabelPoints[above right](G)
+\tkzLabelPoints[above left](F)
+\tkzLabelPoints[left](K,N)
+\end{tikzpicture}
+\end{center}
+Gọi $Z$ là giao điểm của tiếp tuyến tại $B$ và $C$ của đường tròn ngoại tiếp $\triangle ABC$. Kéo dài $ZB$ và $ZC$ cắt đường tròn ngoại tiếp $\triangle BEK$ và $\triangle CKD$ tương ứng tại $F$ và $G$. Ta có
+$$\widehat{BFK} = \widehat{BEK} = \widehat{BEC} = \widehat{BAC} = \widehat{ZBC} \Rightarrow FK \parallel BC.$$
+Tương tự, $GK \parallel BC$. Từ đó ta có $$BF = CG \Rightarrow ZF = ZG \Rightarrow ZB \cdot ZF = ZC \cdot ZG$$
+Suy ra $Z$ nằm trên trục đẳng phương của hai đường tròn ngoại tiếp $\triangle BEK$ và $\triangle CKD$ nên $K,N,Z$ thẳng hàng.\\
+Do vậy $A,K,N$ thẳng hàng thì $A,K,Z$ thẳng hàng. Từ đó $K$ thuộc đường đối trung của $\triangle ABC$.\\
+Ngược lại, nếu $K$ thuộc đường đối trung của $\triangle ABC$ thì $A,K,Z$ thẳng hàng. Từ đó $A,K,N$ thẳng hàng.
+}
+\end{ex}
+
+\begin{ex}%[HSG Hy Lạp năm 2018]%[Đỗ Viết Lân, Dự án EX-Nat.MO-18]%[1D0G3]
+Cho $n$, $m$ là những số nguyên sao cho $n<m$ và $a_1,a_1,\ldots,a_m$ là các số thực phân biệt.
+\begin{enumerate}
+\item Tìm tất cả các đa thức $P$ với hệ số thực và bậc nhỏ hơn hoặc bằng $n$ sao cho $|P(a_i)-P(a_j)| = |a_i-a_j|$ với mọi $i,j \in \{1;2;\ldots ;m\}$ và $i<j$
+\item Giả sử $n,m\geq 2$. Tồn tại hay không một đa thức $Q$ với hệ số thực và bậc $n$ sao cho $|Q(a_i)-Q(a_j)| < |a_i-a_j|$ với mọi $i,j \in \{1;2;\ldots ;m\}$ và $i<j$
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Vì $i$, $j$ có vai trò bình đẳng nên điều kiện của bài toán được viết lại thành $|P(a_i)-P(a_j)| = |a_i-a_j|$ với mọi $i,j \in \{1;2;\ldots ;m\}$. Không mất tính tổng quát, giả sử $a_1<a_2<\ldots<a_m$. Ta chứng minh bổ đề sau bằng quy nạp
+\begin{bode} Giả sử $|P(a_i)-P(a_j)| = |a_i-a_j|$ với mọi $i,j \in \{1;2;\ldots ;m\}$ thì xảy ra một trong hai trường hợp sau
+\begin{enumerate}[i)]
+\item $P(a_i)-P(a_j) = a_i-a_j$ với mọi $i,j \in \{1;2;\ldots ;m\}$;
+\item $P(a_i)-P(a_j) = -(a_i-a_j)$ với mọi $i,j \in \{1;2;\ldots ;m\}$.
+\end{enumerate}
+\end{bode}
+Thật vậy, giả sử $P(a_i)-P(a_j) = a_i - a_j$ với mọi $i,j \in \{1;2;\ldots ;l-1\}$ ta sẽ chứng minh $P(a_i)-P(a_j) = a_i-a_j$ với mọi $i,j \in \{1;2;\ldots ;l-1;l\}$.
+\begin{enumerate}
+\item Nếu $P(a_l)-P(a_i) = a_l-a_i$ với mọi $i\in \{1;2;\ldots;l-1\}$ thì bài toán được chứng minh.
+\item Nếu tồn tại $i,j\in \{1;2;\ldots;l-1\}$ nào đó để $P(a_l)-P(a_j) = a_j-a_l$ và $P(a_l)-P(a_i) = a_l-a_i$. Khi đó $P(a_i)-P(a_j)=a_i+a_j-2a_l \Rightarrow a_i - a_j =a_i+a_j-2a_l \Rightarrow a_j = a_l$ (vô lý).
+\item Nếu $P(a_l)-P(a_i) = a_i-a_l$ với mọi $i\in \{1;2;\ldots;l-1\}$ thì $P(a_l)-P(a_1) = a_1-a_l$ và $P(a_l)-P(a_2) = a_2-a_l$. Suy ra $P(a_2)-P(a_1)=a_1-a_2 \Rightarrow a_2-a_1=a_1-a_2 \Rightarrow a_1=a_2$ (vô lý).
+\end{enumerate}
+Trường hợp $ii)$ chứng minh tương tự.\\
+Giả sử xảy ra trường hợp $i)$ ta có $P(a_i)-P(a_1) = a_i-a_1$ với mọi $i \in \{1;2;\ldots;m\}$. Suy ra phương trình $P(x)-x-P(a_1)+a_1=0$ bậc $n$ có $m$ nghiệm là $a_1;a_2;\ldots;a_m$ nên $P(x)-x-P(a_1)+a_1=0$ với mọi $x\in \mathbb{R}$, nghĩa là $P(x)=x+P(a_1)-a_1 = x+c$.\\
+Tương tự với trường hợp $ii)$ ta có $P(x) = -x + c$.\\
+Vậy ta có hai hàm số thỏa mãn là $P(x) = x + c$ và $P(x) = -x + c$ với $c$ là một hằng số thực.
+\item Lấy $Q(x) = cx^n$. Đặt $M = \max\{a_1;a_2;\ldots;a_m\}$ ta có $|Q(a_i)-Q(a_j)| = |ca_i^n-ca_j^n| = |c|\cdot |a_i-a_j|\cdot |a_i^{n-1}+a_i^{n-2}a_j+\ldots+a_j^{n-1}| \leq |c|\cdot |a_i-a_j|\cdot nM^{n-1}$.\\
+Ta chỉ cần chọn $c$ sao cho $n|c|M^{n-1}<1$, nghĩa là có thể chọn $0< c < \dfrac{1}{nM^{n-1}}$. Khi đó $|Q(a_i)-Q(a_j)| < |a_i-a_j|$
+\end{enumerate}
+%. 
+}
+\end{ex}
+
+\begin{ex}%[HSG Hy Lạp năm 2018]%[Đỗ Viết Lân, Dự án EX-Nat.MO-18]%[1D0G6]
+Trong mặt phẳng cho $n$ điểm $(n\geq 4)$ và không có $3$ điểm nào thẳng hàng. Gọi $A(n)$ là số hình bình hành có đỉnh lấy từ các điểm trên và có diện tích bằng $1$. Chứng minh rằng $A(n) \leq \dfrac{n^2-3n}{4}$ với mọi $n\geq 4$.
+\loigiai{
+Giả sử rằng các đoạn thẳng tạo thành từ $n$ điểm đã cho được chia thành các nhóm đoạn thẳng mà các đoạn thẳng trong một nhóm song song với nhau. Khi đó hình bình hành chỉ có thể tạo thành từ hai đoạn thẳng trong cùng một nhóm.\\
+Hơn nữa, với điểm $X$ nào đó trong $n$ điểm ta kẻ được $n-1$ đoạn thẳng không song song với nhau đôi một. Lấy hai điểm $Y$, $Z$ khác $X$ thì đoạn $YZ$ không song song với bất kì đoạn nào trong $n-1$ đoạn trên (vì trái lại thì $X$, $Y$, $Z$ thẳng hàng). Vậy ta có ít nhất $n$ nhóm.\\
+Do không có 3 điểm nào thẳng hàng nên với mỗi cạnh bất kỳ chỉ là cạnh của tối đa hai hình bình hành (ở về hai phía của đoạn thẳng đó) có diện tích bằng $1$. Như vậy ta có tối đa $2\cdot C_n^2$ hình bình hành.\\
+Mặt khác, giả sử nhóm các đoạn thẳng được xếp theo chiều dọc thì đoạn thẳng trên cùng và dưới cùng chỉ tạo được tối đa $1$ hình bình hành. Do đố số hình bình hành nhiều nhất có thể là $2\cdot C_n^2 - 2n = n^2-3n$.\\
+Cuối cùng, do hình bình hành được tạo nên từ $4$ cạnh nên $A(n) \leq \dfrac{n^2-3n}{4}$.
+}
+\end{ex}
+
+\Closesolutionfile{ans}

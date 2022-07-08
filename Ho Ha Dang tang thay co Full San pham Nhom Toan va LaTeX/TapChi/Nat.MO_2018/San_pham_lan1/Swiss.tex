@@ -1,0 +1,165 @@
+\begin{name}
+{Nguyễn Thành Khang}
+{Đề thi Olympic Thuỵ Sĩ năm 2018}% Ví dụ: Đề thi HSG Vương quốc Anh, vòng 1, năm 2018
+\end{name}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/ans-1827-Nat.MO-Swiss]
+\begin{ex}%[HSG Thuỵ Sĩ năm 2018]%[Nguyễn Thành Khang, Dự án EX-Nat.MO-18]%[9H0G1]
+	Cho tam giác $ABC$ có $\widehat{ACB}=\gamma$ và $\widehat{BAC}>\dfrac{\gamma}{2},\widehat{CBA}>\dfrac{\gamma}{2}$. Điểm $D$ thuộc cạnh $BC$ sao cho $\widehat{BAD}=\dfrac{\gamma}{2}$, điểm $E$ thuộc cạnh $CA$ sao cho $\widehat{EBA}=\dfrac{\gamma}{2}$. Gọi $F$ là giao điểm của tia phân giác góc $\widehat{ACB}$ và cạnh $AB$. Chứng minh rằng $EF+FD=AB$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\tkzInit[xmin=-1.6, xmax=7, ymin=-0.5, ymax=6.3]
+				\tkzClip
+				\tkzDefPoints{0/0/A,5/0/B,1/5/C}
+				\tkzDefLine[bisector](A,C,B)\tkzGetPoint{c}
+				\tkzInterLL(A,B)(C,c)\tkzGetPoint{F}
+				\tkzCircumCenter(A,C,F)\tkzGetPoint{I}
+				\tkzDrawCircle[dashed](I,F)
+				\tkzCircumCenter(B,C,F)\tkzGetPoint{J}
+				\tkzDrawCircle[dashed](J,F)
+				\tkzInterLC(A,C)(J,F)\tkzGetFirstPoint{E}
+				\tkzInterLC(B,C)(I,F)\tkzGetSecondPoint{D}
+				\tkzDrawPoints[fill=black](A,B,C,D,E,F)
+				\tkzDrawSegments(A,B B,C C,A C,F A,D B,E E,F D,F)
+				\tkzLabelPoints[above](C)
+				\tkzLabelPoints[below](A,B,F)
+				\tkzLabelPoints[left](E)
+				\tkzLabelPoints[right](D)
+				\tkzMarkAngles[size=0.7](A,C,F F,C,B F,E,B F,A,D A,D,F E,B,F)
+			\end{tikzpicture}
+		\end{center}		
+		Vì $\widehat{FAD}=\widehat{BAD}=\dfrac{\gamma}{2}=\widehat{FCD}$ nên bốn điểm $A,F,D,C$ cùng thuộc một đường tròn hay $AFDC$ là tứ giác nội tiếp. Khi đó ta có $\widehat{ADF}=\widehat{ACF}=\dfrac{\gamma}{2}=\widehat{FAD}$ nên tam giác $ADF$ là tam giác cân, suy ra $AF=FD$.\\
+		Tương tự, vì $\widehat{EBF}=\widehat{EBA}=\dfrac{\gamma}{2}=\widehat{ECF}$ nên bốn điểm $BCEF$ là tứ giác nội tiếp. Khi đó ta có $\widehat{FEB}=\widehat{FCB}=\dfrac{\gamma}{2}=\widehat{EBF}$ nên tam giác $EFB$ là tam giác cân, suy ra $EF=FB$.\\
+		Từ đó dẫn tới $EF+FD=FB+AF=AB$.
+	}
+\end{ex}
+
+\begin{ex}%[HSG Thuỵ Sĩ năm 2018]%[Nguyễn Thành Khang, Dự án EX-Nat.MO-18]%[9H0G5]
+	Cho tứ giác $ABCD$ nội tiếp đường tròn tâm $O$ có hai đường chéo $AC$ và $BD$ vuông góc với nhau. Gọi $g$ là đường thẳng đối xứng với đường chéo $AC$ qua tia phân giác góc $\widehat{BAD}$. Chứng minh rằng $O$ nằm trên đường thẳng $g$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\tkzInit[xmin=-1, xmax=7.5, ymin=-1.5, ymax=6]
+				\tkzClip
+				\tkzDefPoints{0.5/0/A,7/2.5/B,0/3.5/C}
+				\tkzCircumCenter(A,B,C)\tkzGetPoint{O}
+				\tkzDrawCircle(O,A)
+				\tkzDefPointBy[projection=onto A--C](B)\tkzGetPoint{b}
+				\tkzInterLC(B,b)(O,C)\tkzGetSecondPoint{D}
+				\tkzDefLine[bisector](B,A,D)\tkzGetPoint{a}
+				\tkzInterLL(A,a)(B,C)\tkzGetPoint{I}
+				\tkzDefPointBy[homothety=center A ratio .7](I)\tkzGetPoint{X}
+				\tkzInterLC(A,O)(O,A)\tkzGetSecondPoint{A'}
+				\tkzDrawPoints[fill=black](A,B,C,D,A',O,X)
+				\tkzDrawSegments(A,B A,C B,C A,D B,D C,D A,a A,A' C,A' A',B)
+				\tkzMarkRightAngles(C,b,B)
+				%\tkzMarkAngles[size=0.7](C,A,D C,B,D B,C,A')
+				%\tkzMarkAngles[size=0.6,mark=|](X,A,C A',A,X)
+				\tkzLabelSegment[below right,pos=0.8](A,A'){$g$}
+				\tkzLabelPoints[above](O)
+				\tkzLabelPoints[above left](C,X)
+				\tkzLabelPoints[left](D)
+				\tkzLabelPoints[below left](A)
+				\tkzLabelPoints[right](B)
+				\tkzLabelPoints[above right](A')
+			\end{tikzpicture}
+		\end{center}		
+		\textbf{Cách 1.}\\
+		Gọi $A'$ là giao điểm thứ hai của $g$ với đường tròn $(O)$, $A\ne A'$. Lấy $X$ là điểm bất kỳ trên tia phân giác góc $\widehat{BAD}$ sao cho $X$ nằm trong tam giác $ABC$.\\
+		Ta sẽ chứng minh $\widehat{A'BA}=90^\circ$, khi đó $AA'$ là đường kính của $(O)$ và $O$ nằm trên $g$.\\
+		Đặt $\widehat{CAD}=\alpha$ và $\widehat{XAC}=\beta$.\\
+		Vì $g$ đối xứng với $AC$ qua tia phân giác góc $\widehat{BAD}$ và $\widehat{XAD}=\widehat{XAC}+\widehat{CAD}=\alpha+\beta$ nên $\widehat{BAX}=\alpha+\beta$. Khi đó $$\widehat{BAA'}=\widehat{BAX}-\widehat{A'AX}=(\alpha+\beta)-\beta=\alpha$$ và $$\widehat{A'AC}=\widehat{A'AX}+\widehat{XAC}=\beta+\beta=2\beta.$$
+		Do $ABA'D$ là tứ giác nội tiếp nên ta có $$\alpha+2\beta=\widehat{CAD}+\widehat{A'AC}=\widehat{A'AD}=\widehat{A'BD}=\alpha+2\beta.$$
+		Lại có $\widehat{BDA}=90^\circ-\widehat{BAC}=90^\circ-\widehat{A'AC}-\widehat{BAA'}=90^\circ-\alpha-2\beta$, nên $$\widehat{A'BA}=\widehat{A'BD}+\widehat{BDA}=\alpha+2\beta+\left(90^\circ-\alpha-2\beta\right)=90^\circ.$$
+		Suy ra đường thẳng $g$ đi qua $O$.\\
+		\textbf{Cách 2.}\\
+		Thay vì chứng minh $\widehat{ABA'}=90^\circ$, ta sẽ chứng minh $\widehat{ACA'}=90^\circ$ và từ đó cũng có $g$ đi qua $O$.\\
+		Đặt $\widehat{CAD}=\alpha$ và $\widehat{XAC}=\beta$.\\
+		Theo chứng minh của \textbf{Cách 1} thì ta có $\widehat{BAA'}=\alpha$ nên cũng có $\widehat{BCA'}=\alpha$.\\
+		Lại có $\widehat{CBD}=\widehat{CAD}=\alpha$ nên $CA'\parallel BD$. Mà $AC\perp BD$ nên $CA'\perp AC$ hay $\widehat{ACA'}=90^\circ$.
+	}
+\end{ex}
+
+\begin{ex}%[HSG Thuỵ Sĩ năm 2018]%[Nguyễn Thành Khang, Dự án EX-Nat.MO-18]%[0D0G4]
+	Vương quốc SMO có $1111$ cư dân. Mỗi cầu thủ trong đội bóng của Vương quốc gồm $11$ người gửi tặng chữ ký của mình cho cư dân trong Vương quốc sao cho không có người nào nhận được chữ ký của một cầu thủ nào đó $2$ lần (mỗi cư dân có thể nhận được hoặc không nhận được chữ ký từ một cầu thủ nào đó).
+	\begin{enumerate}
+		\item Có bao nhiêu khả năng có thể có của bộ chữ ký mà mỗi cư dân nhận được?
+		\item Người ta nhận thấy rằng không có hai cư dân nào có bộ chữ ký giống hệt nhau. Chứng minh rằng tồn tại $2$ cư dân mà bộ chữ ký của họ sẽ có chữ ký của mỗi cầu thủ đúng một lần.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Xét một cư dân bất kỳ. Với mỗi chữ ký của một cầu thủ nào đó thì hoặc cư dân đó nhận được hoặc cư dân đó không nhận được chữ ký của cầu thủ đó, nên có tổng cộng $2^{11}=2048$ bộ chữ ký mà mỗi cư dân có thể nhận được.
+			\item Mỗi cư dân nhận được một trong $2048$ bộ chữ ký có thể có và không có hai cư dân nào có bộ chữ ký giống hệt nhau.\\
+			Nhận thấy rằng có thể chia $2048$ bộ chữ ký thành $1024$ nhóm, mỗi nhóm gồm $2$ bộ chữ ký sao cho mỗi chữ ký của mỗi cầu thủ xuất hiện đúng $1$ lần trong nhóm đó.\\
+			Vì có $1111$ cư dân mà chỉ có $1024$ nhóm nên sẽ tồn tại $2$ cư dân nhận được $2$ bộ chữ ký trong cùng một nhóm và bộ chữ ký của họ sẽ có chữ ký của mỗi cầu thủ đúng $1$ lần.
+		\end{enumerate}
+	}
+\end{ex}
+
+\begin{ex}%[HSG Thuỵ Sĩ năm 2018]%[Nguyễn Thành Khang, Dự án EX-Nat.MO-18]%[0D0G4]
+	Một toà nhà cao tầng có $7$ cái thang máy, mỗi thang máy có thể đi đến được $6$ tầng. Biết rằng hai tầng bất kỳ sẽ có ít nhất một thang máy đi trực tiếp được từ tầng này đến tầng kia. Chứng minh rằng toà nhà đó có nhiều nhất là $14$ tầng và tồn tại hệ thống thang máy như vậy cho một toà nhà có đúng $14$ tầng.
+	\loigiai{
+		Ta có thể xây dựng hệ thống thang máy cho toà nhà $14$ tầng như bảng bên.
+		\begin{center}
+			\begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c | c | c | c | c |} 
+				\hline
+				 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 \\
+				\hline
+				1 & x & x & x & x & x & x &  &  &  &  &  &  &  &  \\ 
+				\hline
+				2 & x & x &  &  &  &  & x & x & x & x &  &  &  &  \\
+				\hline
+				3 & x & x &  &  &  &  &  &  &  &  & x & x & x & x \\
+				\hline
+				4 &  &  & x & x &  &  & x & x &  &  & x & x &  &  \\
+				\hline
+				5 &  &  & x & x &  &  &  &  & x & x &  &  & x & x \\
+				\hline
+				6 &  &  &  &  & x & x & x & x &  &  &  &  & x & x \\
+				\hline
+				7 &  &  &  &  & x & x &  &  & x & x & x & x &  &  \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Trong đó ``x'' là kí hiệu thang máy tương ứng có thể dừng lại ở tầng tương ứng.\\
+		Dễ thấy hai tầng bất kỳ có ít nhất một thang máy đi trực tiếp được từ tầng này đến tầng kia.\\
+		Ta sẽ chứng minh số tằng không thể vượt quá $14$.\\
+		\textbf{Cách 1.}\\
+		Ta gọi hai tầng có thể đi trực tiếp được từ tầng này đến tầng kia bằng một thang máy nào đó là ``\textit{liên thông với nhau}''.\\
+		Vì mỗi thang máy có thể đến được $6$ tầng nên với mỗi thang máy sẽ có $\mathrm{C}_6^2=15$ cặp tầng \textit{liên thông}. Mà có $7$ thang máy nên có nhiều nhất $7\mathrm{C}_6^2=7\cdot 15=105$ cặp tầng \textit{liên thông}.\\
+		Mặt khác, với toà nhà $n$ tầng thì có đúng $\mathrm{C}_n^2$ cặp tầng nên $\mathrm{C}_n^2\le 105$ hay $n\le 15$.\\
+		Giả sử tồn tại một hệ thống thang máy cho toà nhà $15$ tầng thoả mãn bài ra. Khi đó dấu bằng trong đánh giá trên xảy ra hay với hai tầng bất kỳ sẽ có đúng một thang máy đi trực tiếp từ tầng này đến tầng kia.\\
+		Xét tầng $1$ của toà nhà. Với mỗi thang máy dừng ở tầng $1$ thì chỉ có thể đến được $5$ tầng khác, nên phải có ít nhất $3$ thang máy dừng ở tầng $1$. Các thang máy này sẽ có ít nhất là $15$ điểm dừng, theo nguyên lý Đi-rích-lê thì trong $14$ tầng còn lại sẽ có ít nhất $1$ tầng có ít nhất $2$ thang máy cũng dừng tại tầng đó. Khi đó tầng này và tầng $1$ có thể đi lại bằng $2$ thang máy, vô lý.\\
+		Vậy số tầng của toà nhà không vượt quá $14$.\\
+		\textbf{Cách 2.}\\
+		Ta thấy nếu toà nhà có $n$ tầng (với $n\ge 14$) thì mỗi tầng sẽ có ít nhất $3$ thang máy dừng tại tầng đó nên tổng số điểm dừng ít nhất là $3n$.\\
+		Mà với $7$ thang máy thì ta có đúng $42$ điểm dừng nên suy ra $3n\le 42$ hay $n\le 14$.
+	}
+\end{ex}
+
+\begin{ex}%[HSG Thuỵ Sĩ năm 2018]%[Nguyễn Thành Khang, Dự án EX-Nat.MO-18]%[0D0G5]
+	Cho $n\ge 2$ là một số nguyên dương. Ký hiệu $d_1,d_2,\ldots,d_r$ là các ước dương khác $n$ của $n$. Tìm tất cả các số nguyên dương $n$ để $\text{BCNN}\left(d_1,d_2,\ldots,d_r\right)\ne n$.
+	\loigiai{
+		Với $n=p^\alpha$ với $p$ là một số nguyên tố và $\alpha\in\mathbb{Z}^+$ thì ta có $d_1=1,d_2=p,\ldots,d_r=p^{\alpha-1}$. Khi đó $\text{BCNN}\left(d_1,d_2,\ldots,d_r\right)=\text{BCNN}\left(1,p,\ldots,p^{\alpha-1}\right)=p^{\alpha-1}\ne n$, thoả mãn.\\
+		Với $n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}$ với $p_i$ là các số nguyên tố, $\alpha_i\in\mathbb{Z}^+$ và $k\ge 2$ thì $n$ có hai ước dương nguyên tố cùng nhau là $p_1^{\alpha_1}$ và $p_2^{\alpha_2}\cdots p_k^{\alpha_k}$. Suy ra $\text{BCNN}\left(d_1,d_2,\ldots,d_r\right)\ge\text{BCNN}\left(p_1^{\alpha_1},p_2^{\alpha_2}\cdots p_k^{\alpha_k}\right)=n$.\\
+		Lại có $d_i$ là ước của $n$ nên $\text{BCNN}\left(d_1,d_2,\ldots,d_r\right)\mid n$, suy ra $\text{BCNN}\left(d_1,d_2,\ldots,d_r\right)=n$, loại.\\
+		Vậy các số nguyên dương thoả mãn bài toán là $n=p^\alpha$ với $p$ là một số nguyên tố và $\alpha\in\mathbb{Z}^+$.
+	}
+\end{ex}
+
+\begin{ex}%[HSG Thuỵ Sĩ năm 2018]%[Nguyễn Thành Khang, Dự án EX-Nat.MO-18]%[0D0G5]
+	Cho các số nguyên dương $m,n$ và số nguyên tố $p$ thoả mãn $m<n<p$. Biết rằng $p\mid m^2+1$ và $p\mid n^2+1$. Chứng minh rằng $p\mid mn-1$.
+	\loigiai{
+		\textbf{Cách 1.}\\
+		Theo bài ra ta có $$p\mid (n^2+1)-(m^2+1) \Leftrightarrow p\mid n^2-m^2 \Leftrightarrow p\mid (n-m)(n+m).$$
+		Mà $0<n-m<p-m<p$ nên $p\nmid n-m$, suy ra $p\mid n+m$.\\
+		Khi đó ta có $$p\mid m(n+m)-(m^2+1) \Leftrightarrow p\mid mn-1.$$
+		\textbf{Cách 2.}\\
+		Theo bài ra ta có $$p\mid n^2(m^2+1)-(n^2+1) \Leftrightarrow p\mid m^2n^2-1 \Leftrightarrow p\mid (mn-1)(mn+1).$$
+		Nếu $p\mid mn+1$ thì ta có $$p\mid (n^2+1)-(mn+1) \Leftrightarrow p\mid n^2-mn \Leftrightarrow p\mid n(n-m).$$
+		Mà $0<n-m<n<p$ nên $p\nmid n(n-m)$.\\
+		Vậy suy ra $p\mid mn-1$.
+	}
+\end{ex}
+\Closesolutionfile{ans}

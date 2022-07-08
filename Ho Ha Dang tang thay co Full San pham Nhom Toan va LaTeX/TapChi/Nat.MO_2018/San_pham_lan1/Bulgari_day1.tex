@@ -1,0 +1,96 @@
+
+\begin{name}
+{Vũ Nguyễn Hoàng Anh}
+{Đề thi Olympic Bulgari năm 2018, vòng 1}% Ví dụ: Đề thi HSG Vương quốc Anh, vòng 1, năm 2018
+\end{name}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/ans-1812-Nat.MO-Bulgari-day1]
+\begin{ex}%[HSG Bulgari năm 2018, vòng 1]%[Vũ Nguyễn Hoàng Anh, Dự án EX-Nat.MO-18]%[1D0G6]
+	Cho $M$ là tập chứa $n$ số nguyên dương, với $n$ là số nguyên dương lẻ. Một tập con khác rỗng $T$ của $M$ được gọi là \textit{ tập tốt} nếu tích các phần tử của $T$ chia hết cho tổng các phần tử của $M$ nhưng không chia hết cho bình phương của tổng này. Biết $M$ là tập tốt, tìm số tập con tốt lớn nhất có thể có của $M$.
+	\loigiai{
+		Nếu $A\cup B=M$ và $A\cap B=\varnothing$ thì khi đó nhiều nhất một trong hai tập $A$ và $B$ là tập tốt (vì ngược lại thì $M$ không là tập tốt).  Do đó số tập tốt không vượt quá một nửa số tập con của $M$ hay $2^{n-1}$.\\
+		Ta sẽ chứng minh $2^{n-1}$ là số cần tìm. Đặt $n=2k+1$ và gọi $p$ là số nguyên tố sao cho $p>\dfrac{n(n-1)}{2}$. Viết
+		\[p^k=a_1+a_2+\cdots+a_{n-1}+a_n,\]
+		ở đó $a_i=i$ với $i=1,2,\dots,n-1$ và $a_n=p^k-\dfrac{n(n-1)}{2}$. Khi đó $\gcd(a_i,p)=1$ với mọi $i$. Xét tập 
+		\[M=\{ pa_i \mid i=1,2,\dots,n \}.\]
+		Khi đó tổng các phần tử của $M$ là $p^{k+1}$. Dễ thấy rằng các tập con tốt của $M$ đều có không dưới $k+1$ phần tử, và có đúng $2^{n-1}$ tập như vậy.
+	}
+\end{ex}
+
+\begin{ex}%[HSG Bulgari năm 2018, vòng 1]%[Vũ Nguyễn Hoàng Anh, Dự án EX-Nat.MO-18]%[1H0G1]
+	Cho tứ giác nội tiếp $ABCD$. Gọi $H_1$ là trực tâm tam giác $ABC$ và $A_1$, $B_1$ lần lượt là các điểm đối xứng với $A$, $B$ qua các đường thẳng $BH_1$ và $AH_1$; $O_1$ là tâm đường tròn ngoại tiếp tam giác $A_1B_1H_1$. Gọi $H_2$ là trực tâm của tam giác $ABD$ và $A_2$, $B_2$ lần lượt là các điểm đối xứng với $A$, $B$ qua các đường thẳng $BH_2$, $AH_2$; $O_2$ là tâm đường tròn ngoại tiếp tam giác $A_2B_2H_2$. Kí hiệu đường thẳng $O_1O_2$ là $l_{AB}$. Các đường thẳng $l_{BC}$, $l_{CD}$ và $l_{DA}$ được định nghĩa tương tự. Giả sử các cặp đường thẳng $l_{AB}$ và $l_{BC}$, $l_{BC}$ và $l_{CD}$, $l_{CD}$ và $l_{DA}$, $l_{DA}$ và $l_{AB}$ lần lượt cắt nhau tại $M$, $N$, $P$, $Q$. Chứng minh rằng bốn điểm $M$, $N$, $P$, $Q$ đồng viên.
+	\loigiai{
+		\begin{bode}
+			Điểm $O_1$ thuộc đường thẳng $OH_1$, với $O$ là tâm đường tròn ngoại tiếp tam giác $ABC$. Hơn nữa, tỉ số $\dfrac{H_1O_1}{O_1O}$ chỉ phụ thuộc vào $\widehat{ACB}$.\\
+			\textit{Chứng minh.}
+			\begin{center}
+				\begin{tikzpicture}[line cap=round, line join=round,scale=1]
+				\tikzset{label style/.style={font=\footnotesize}}
+				\def\r{4}
+				\clip (-\r-0.5,-\r-0.5) rectangle (\r+0.5,\r+0.5);
+				\tkzDefPoints{0/0/O}
+				\tkzDefShiftPoint[O](-145:\r){A}
+				\tkzDefShiftPoint[O](-50:\r){B}
+				\tkzDefShiftPoint[O](80:\r){C}
+				\tkzDrawCircle(O,A)
+				\tkzOrthoCenter(A,B,C)\tkzGetPoint{H_1}
+				\tkzInterLC(H_1,B)(O,A)\tkzGetSecondPoint{L}
+				\tkzInterLC(H_1,A)(O,A)\tkzGetFirstPoint{K}
+				\tkzDefPointBy[reflection= over B--H_1](A)\tkzGetPoint{A_1}
+				\tkzDefPointBy[reflection= over A--H_1](B)\tkzGetPoint{B_1}
+				\tkzDefCircle[circum](A_1,B_1,H_1)\tkzGetPoint{O_1}
+				\tkzDrawCircle(O_1,A_1)
+				\tkzDefMidPoint(A_1,H_1)\tkzGetPoint{T}
+				\tkzDefMidPoint(B_1,H_1)\tkzGetPoint{Q}
+				\tkzDefMidPoint(A,L)\tkzGetPoint{a}
+				\tkzDefMidPoint(B,K)\tkzGetPoint{b}
+				\tkzInterLL(O,a)(A_1,H_1)\tkzGetPoint{X}
+				\tkzInterLL(O,b)(B_1,H_1)\tkzGetPoint{Y}
+				
+				\tkzDrawSegments(A,K B,L A,L B,K L,A_1 K,B_1 A,B B,C C,A A_1,B_1 B_1,H_1 H_1,A_1 O,a O,b O_1,T O_1,Q H_1,O_1)
+				\tkzDrawPoints[fill=black](A,B,C,O,O_1,A_1,B_1,H_1,L,K,T,Q,X,Y)
+				\tkzLabelPoints[above](C,O_1)
+				\tkzLabelPoints[below left](A)
+				\tkzLabelPoints[below right](B)
+				\tkzLabelPoints[left](L,T)
+				\tkzLabelPoints[right](K,Q)
+				\tkzLabelPoints[below](H_1)
+				\tkzLabelPoints[above left](A_1)
+				\tkzLabelPoints[above right](B_1)
+				\draw (O)+(0.2,-0.3) node{\footnotesize $O$};
+				\draw (X)+(-0.2,-0.3) node{\footnotesize $X$};
+				\draw (Y)+(0.1,-0.3) node{\footnotesize $Y$};
+				\end{tikzpicture}
+			\end{center}
+			Gọi $K$, $L$ lần lượt là giao điểm của $AH_1$ và $BH_1$ với đường tròn ngoại tiếp tam giác $ABC$ ($K$ khác $A$, $L$ khác $B$). Do $H_1$ và $L$ đối xứng qua $CA$ nên tứ giác $H_1ALA_1$ là thoi, do đó $\widehat{AH_1A_1}=2\widehat{AH_1L}=2\gamma$. Tương tự, $H_1BKB_1$ là hình thoi và $\widehat{BH_1B_1}=2\gamma$. Do đó $H_1ALA_1$ và $H_1BKB_1$ đồng dạng, khi đó
+			\[\dfrac{H_1T}{H_1X}=\dfrac{H_1Q}{H_1Y}=\dfrac{1}{1+2\cos 2\gamma}.\]
+			Có nghĩa là $O_1$ thuộc đường thẳng $H_1O$ và tỉ số $\dfrac{H_1O_1}{O_1O}$ chỉ phụ thuộc vào $\widehat{ACB}$.
+		\end{bode} 
+	Dễ thấy $CH_1H_2D$ là hình bình hành (suy ra từ $CH_1=CH_2=2R\cos\gamma$) và các điểm $O_1$, $O_2$ lần lượt là ảnh của $H_1$, $H_2$ qua phép vị tự tâm $O$. Theo bổ đề trên tí số của hai phép vị tự này là bằng nhau (chỉ phụ thuộc vào $\gamma$). Do đó $O_1O_2\parallel H_1H_2\parallel CD$, nghĩa là $l_{AB}$ song song với với $CD$.\\
+	Từ đó ta có cách cạnh của $MNPQ$ tương ứng song song với các cạnh của $ABCD$. Do đó bốn điểm $M$, $N$, $P$, $Q$ đồng viên.
+	}
+\end{ex}
+
+\begin{ex}%[HSG Bulgari năm 2018, vòng 1]%[Vũ Nguyễn Hoàng Anh, Dự án EX-Nat.MO-18]%[2D0G1]
+	Chứng minh rằng $\left(\dfrac{6}{5}\right)^{\sqrt{3}}>\left(\dfrac{5}{4}\right)^{\sqrt{2}}$.
+	\loigiai{
+		Ta sẽ chứng minh: nếu $x>-1$, $x\ne 0$ và $\alpha\in (1,2)$ thì
+		\[ 0<f(x)=(1+x)^{\alpha}-1-\alpha x-\dfrac{\alpha(\alpha-1)}{2}x^2-\dfrac{\alpha(\alpha-1)(\alpha-2)}{6}x^3.\tag{1}\]
+		Ta có
+		\begin{gather*}
+			f'(x)=\alpha\left[ (1+x)^{\alpha-1}-1-(\alpha-1)x-\dfrac{(\alpha-1)(\alpha-2)}{2}x^2 \right],\\
+			f''(x)=\alpha(\alpha-1)\left[ (1+x)^{\alpha-2}-1-(\alpha-2)x \right],\\
+			f'''(x)=\alpha(\alpha-1)(\alpha-2)\left[ (1+x)^{\alpha-3}-1 \right].
+		\end{gather*}
+		Do đó $f'''(x)<0$ với $x\in (-1,0)$ và $f'''(x)>0$ với $x>0$, ta có $f''(x)>f''(0)=0$ với $x>-1$, $x\ne 0$. Khi đó $f'(x)<f'(0)=0$ với $x\in (-1,0)$ và $f'(x)>f'(0)=0$ với $x>0$, suy ra $f(x)>f(0)=0$ với $x>-1$, $x\ne 0$.\\
+		Bây giờ ta sẽ chứng minh $\left(\dfrac{6}{5}\right)^{\sqrt{3}}>\left(\dfrac{5}{4}\right)^{\sqrt{2}}$. Cho $x=\dfrac{1}{5}$ và $\alpha=\sqrt{\dfrac{3}{2}}$, theo $(1)$ ta chỉ cần kiểm lại
+		\begin{align*}
+			&\alpha x+\dfrac{\alpha(\alpha-1)}{2}x^2+\dfrac{\alpha(\alpha-1)(\alpha-2)}{6}x^3>\dfrac{1}{4}\\
+			\Leftrightarrow\ & \dfrac{277}{1500}\alpha +\dfrac{3}{125}>\dfrac{1}{4} \Leftrightarrow \alpha>\dfrac{399}{277}\\
+			\Leftrightarrow\ &3\cdot 277^2>2\cdot 399^2 \Leftrightarrow 230187>229842.
+		\end{align*}
+		Bất đẳng thức cuối cùng hiển nhiên đúng, ta có điều phải chứng minh.
+	}
+\end{ex}
+
+\Closesolutionfile{ans}

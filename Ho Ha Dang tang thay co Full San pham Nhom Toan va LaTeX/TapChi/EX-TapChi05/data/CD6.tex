@@ -1,0 +1,476 @@
+\section{Đa thức hai biến}
+\noindent Đa thức là một nội dung rất quan trọng trong chương trình toán phổ thông và được bắt đầu giảng dạy trong chương trình đại số ở cấp trung học cơ sở.
+Các bài toán về đa thức thường xuất hiện trong các kỳ thi học sinh giỏi quốc gia, Olympic quốc tế và luôn được đánh giá là bài toán khó.
+Hiện nay, đa thức đã được trình bày ở mức độ hệ thống, các bài tập về đa thức đã được phân loại và khái quát một cách tương đối chi tiết theo các tiêu chí cụ thể. Tài liệu về đa thức tuy có nhiều nhưng thường chỉ dừng lại ở phân loại theo dạng toán như: Nghiên cứu tính chất về các hệ số của đa thức, tính chất về nghiệm của nó hoặc những bài toán về đa thức nguyên, đa thức bất khả quy. 
+Đa thức hai biến cũng được đề cập, nhưng không có nhiều tài liệu và bài toán về đa thức hai biến.
+Bài viết này sẽ tìm hiểu và khảo sát sâu hơn các đặc trưng đại số và số học của đa thức hai biến nhằm  trao đổi góp phần hoàn thiện hơn về đa thức hai biến.
+
+\subsection{Một số định nghĩa và tính chất}	
+\noindent Ta xét hàm số $f(x, y)$  của hai biến số thực  $x$ và $y$.
+
+\begin{dn}
+	Hàm số $f(x, y)$ là một đa thức hai biến số $x$, $y$ nếu tồn tại họ các số thực $a_{ij}$, với $i,j\in \{0,1,2,\hdots\}$ sao cho chỉ có hữu hạn số $a_{ij}\ne 0$ và 
+	\begin{align*}
+	f(x,y)=\sum_{i,j\ge 0}a_{ij}x^iy^j, \quad\forall x,y\in \mathbb{R}.
+	\end{align*}
+\end{dn}
+Tập hợp các đa thức $f(x,y)$ như trên ký hiệu là $\mathbb{R}[x,y]$  và ta có định nghĩa về bậc của $f$ như sau $$\deg f:=  \max_{a_{ij}\ne 0}(i+j).$$
+
+\begin{dn}
+Đa thức $f(x,y)$  được gọi là đối xứng, nếu nó không thay đổi khi đổi chỗ $x$ và $y$  nghĩa là  $f(x,y)=f(y,x),\;\forall x,y\in \mathbb{R}$.
+\end{dn}
+
+\begin{dn}
+Giả sử $f(x,y)\in \mathbb{R}[x,y],f(x,y)\ne 0$  với ít nhất một cặp số $x,y$ và $n\in\mathbb{Z}; n\ge 1$. Khi đó $f(x,y)$ gọi là đa thức thuần nhất bậc $n$  nếu $f(tx,ty)=t^nf(x,y)$.
+\end{dn}
+
+\begin{dl}
+Hai khẳng định sau là tương đương:
+\begin{enumerate}[i)]
+\item  $f(x,y)$ là đa thức thuần nhất bậc  $n$.
+\item   Tồn tại $(n+1)$  số thực không đồng thời bằng 0: $a_1,a_2,\hdots, a_n$  sao cho:  
+\begin{align*}
+f(x,y)=a_0x^n+a_1x^{n-1}y+a_2x^{n-2}y^2+ \hdots +a_{n-1}xy^{n-1}+a_ny^n,\;\forall x,y\in \mathbb{R}
+\end{align*}
+\end{enumerate}
+\end{dl}
+\noindent{\bf Chứng minh.} \\
+$\rm ii)\;\Rightarrow i)$ dễ thấy.\\
+$\rm i)\Rightarrow ii)$ Ta có
+\begin{align*}
+f(x,y)&=a_{00}+\sum_{m\ge 1}f_m(x,y),\;\;f_m(x,y)=\sum_{i+j=m}a_{ij}x^iy^j.\\
+f(tx,ty)&=a_{00}+\sum_{m\ge 1}f_m(tx,ty)=a_{00}+\sum_{m\ge 1}\left(\sum_{i+j=m}a_{ij}t^it^jx^iy^j\right)\\
+&=a_{00}+\sum_{m\ge 1}\left(\sum_{i+j=m}a_{ij}t^{i+j}x^iy^j\right)=a_{00}+\sum_{m\ge 1}t^m\left(\sum_{i+j=m}a_{ij}x^iy^j\right)\\
+&=a_{00}+\sum_{m\ge 1}t^mf_m(x,y).
+\end{align*}
+Mà theo giả thiết $f(tx,ty)=t^nf(x,y),\;\forall t,x,y\in \mathbb{R}$ nên
+\begin{align}\label{equa1}
+& t^nf(x,y)=a_{00}+\sum_{m\ge 1}t^m\left(\sum_{i+j=m}a_{ij}x^iy^j\right),\;\forall t,x,y\in \mathbb{R}.
+\end{align}
+Với mỗi $x,y\in\mathbb{R}$  cố định, mỗi vế của (\ref{equa1}) là các đa thức của biến số $t$  ta suy ra các hệ số tương ứng bằng nhau. So sánh hệ số của  $t^n$, ta có:
+\begin{align*}
+t^nf(x,y)=t^nf_n(x,y)=t^n\sum_{i+j=n}a_{ij}x^iy^j.
+\end{align*}
+Từ đó
+\begin{align*}
+&f(x,y)=\sum_{i+j=n}a_{ij}x^iy^j=a_{0n}x^0y^n+a_{1n-1}xy^{n-1}+\cdots +a_{n-11}x^{n-1}y+a_{n0}x^n\\
+\Rightarrow\;\;&f(x,y)=a_{n0}x^n+a_{n-11}x^{n-1}y+a_{n-22}x^{n-2}y^2+\cdots +a_{0n}y^n.
+\end{align*}\hfill$\square$
+\begin{dl}[Định lý Bezout cho đa thức thuần nhất]
+Giả sử $f(x, y)$  là đa thức thuần nhất bậc $n$  và $a,b$  là hai số thực không đồng thời bằng $0$  thỏa mãn $f(a,b)=0$. Khi đó tồn tại một đa thức thuần nhất bậc $(n-1)$  là $g(x,y)$  sao cho $f(x,y)=(bx-ay)g(x,y),\;\forall x,y\in\mathbb{R}$ (nếu $n=1$ thì $g(x,y)=c\ne 0$).
+\end{dl}
+\noindent{\bf Chứng minh.} 
+Do vai trò của $a,b$ là như nhau, giả sử $b\ne 0$
+\begin{align*}
+0=f(a,b)=b^nf\left(\frac{a}{b},1\right)\;\;\Longrightarrow \;\;f\left(\frac{a}{b},1\right)=0.
+\end{align*}
+Chú ý đa thức $f(t,1)$  là đa thức của biến $t$ với bậc nhỏ hơn hoặc bằng $n$ . Theo định lý Bezout cho đa thức một biến số, tồn tại một đa thức $\varphi(t)$ bậc không vượt quá $(n-1)$  sao cho:
+\begin{align*}
+\varphi(t)=b_0t^{n-1}+b_1t^{n-2}+\hdots +b_{n-1}
+\end{align*}
+mà $$f(t,1)=\left(t-\dfrac{a}{b}\right)\varphi(t),\;\forall t\in\mathbb{R}.$$
+Thay vào ta có
+\begin{align*}
+f(x,y)&=y^nf\left(\frac{x}{y},1\right)=y^n\left(\frac{x}{y}-\frac{a}{b}\right)\left(b_0\frac{x^{n-1}}{y^{n-1}}+b_1\frac{x^{n-2}}{y^{n-2}}+\cdots +b_{n-2}\frac{x}{y}+b_{n-1}\right)\\
+&=\frac{1}{b}\left(bx-ay\right)\left(b_0x^{n-1}+b_1x^{n-2}y+\hdots +b_{n-2}xy^{n-2}+b_{n-1}y^{n-1}\right)\\
+&=\left(bx-ay\right)g(x,y),
+\end{align*}
+với $g(x,y)=b\left(b_0x^{n-1}+b_1x^{n-2}y+\hdots +b_{n-1}y^{n-1}\right),\quad \deg g(x,y)=n-1$.
+\subsection{Một số bài toán}
+
+
+\begin{bt}[IMO 1975]
+Cho $n\in\mathbb{N}^*$,  tìm tất cả các đa thức $f(x,y)\in\mathbb{R}[x,y]$  thuần nhất bậc  $n$ thỏa mãn
+\begin{enumerate}[1)]
+\item $f(1,0)=1$;
+\item $f(a+b,c)+f(b+c,a)+f(c+a,b)=0,\;\forall a,b,c\in\mathbb{R}$.
+\end{enumerate}
+\loigiai{Nếu $n=1$ thì $f(x,y)=ux+vy$, khi đó nếu lấy $a=b=1,c=0$ ta được:
+\begin{align*}
+&f(2,0)+f(1,1)+f(1,1)=0\quad (a=b=1,c=0)\\
+\Rightarrow\;&2u+u+v+u+v=0\;\Rightarrow\;\;2u+v=0\;\Rightarrow\;v=-2\;\;(\text{do}\; u=f(1,0)=1)\\
+\Rightarrow\;&f(x,y)=x-2y.
+\end{align*}
+Nếu $n\ge 2$, giả sử $f(x,y)$  là đa thức thuần nhất bậc $n$  thỏa mãn đề bài. Từ 2) cho $a=b=1,c=-2$ 
+\begin{align*}
+f(2,-2)+f(-1,1)+f(-1,1)&=f(2,-2)+2f(-1,1)\\
+&=(-2)^nf(-1,1)+2f(-1,1)\\
+&=\big((-2)^n+2\big)f(-1,1).
+\end{align*}
+Suy ra $f(-1,1)=0$.\\
+Theo định lý Bezout đối với đa thức thuần nhất hai biến thì tồn tại đa thức thuần nhất bậc $(n-1)$  thỏa mãn
+$f(x,y)=(x+y)g_1(x,y),\;\forall x,y\in \mathbb{R}$.\\
+$\quad \bullet\; f(1,0)=(1+0)g_1(1,0)=g_1(1,0)\;\Longrightarrow \;g_1(1,0)=1$.\\
+$\quad \bullet\; f(a+b,c)+f(b+c,a)+f(c+a,b)=(a+b+c)\big(g_1(a+b,c)+g_1(b+c,a)+g_1(c+a,b)\big)=0$.\\
+Suy ra $\;g_1(a+b,c)+g_1(b+c,a)+g_1(c+a,b)=0,\;\forall a,b,c\in \mathbb{R}$, với 
+$g_1(x,y)$ là đa thức thuần nhất bậc $(n-1)$  thỏa mãn điều kiên 1),  2).\\
+Nếu $n-1=1$ thì $g_1(x,y)=x-2y\;\Longrightarrow\; f(x,y)=(x+y)(x-2y)$.\\
+Nếu $n-1\ge 2$ thì $g_1(x,y)=(x+y)g_2(x,y)$, với  $g_2(x,y)$ là đa thức thuần nhất bậc $(n-2)$  và $g_2(x,y)$   thỏa mãn 1), 2).\\
+%Lê Hồng Phi
+Lập luận tương tự như $ g_1(x, y) $ ta được $ g_2(x, y)=x-2y $ hoặc $ g(x, y)=(x+y)g_2(x, y) $.\\
+Cứ như vậy ta được $ f(x, y)=(x+y)^{n-1}(x-2y). $ \tagEX{1}\noindent
+Thử lại trực tiếp điều kiện 1), 2) thỏa mãn. Vậy $ f(x, y) $  xác định bởi $(1)$.\\
+Ta cũng có $ f(2, 1)=0 $ và $ f(x, y)=(x-2y)h_1(x, y) $. Nhưng $ h_1(x, y) $ không thỏa mãn điều kiện 1), 2) như $ g_1(x, y) $.
+}
+\end{bt}
+\begin{bt}
+Tìm tất cả các đa thức $ f(x, y)\in\mathbb{R}[x, y] $ thỏa mãn \begin{equation*}
+f(x+1, y+1)=f(x, y),\ \forall x, y\in \mathbb{R}.\tag{1}
+\end{equation*}
+\loigiai
+{Từ $ (1) $ suy ra $ f(x+t, y+t)=f(x, y),\ \forall x, y\in\mathbb{R}, t\in\mathbb{Z} $.\\
+Giả sử $ f(x, y) $ là đa thức thỏa mãn đầu bài.\\
+Với $ x, y\in \mathbb{R} $ cố định, ta xét đa thức một biến $ t $ là $ Q(t)=f(x+t, y+t) $.\\
+Ta có $ \begin{aligned}[t]
+& Q(0)=f(x, y),\\
+& Q(1)=f(x+1, y+1)=Q(0), \\
+&  Q(2)=f(x+2, y+2)=Q(1)=Q(0),\\
+& \vdots
+\end{aligned} $\\
+Suy ra $ Q(t) $ nhận một giá trị tại vô số  điểm nên $ Q(t)=\text{const} $.\\
+ Từ $ Q(0)=Q(-y) $ suy ra $ f(x, y)=f(x-y, 0)=g(x-y) $ với $ g(x)\in\mathbb{R}[x] $.\\
+Thử lại với $ g(x)\in\mathbb{R}[x] $ tùy ý, $ f(x, y)=g(x-y) $ là một đa thức thỏa mãn đề bài do $$ f(x+1, y+1)=g(x+1-y-1)=g(x-y)=f(x, y),\ \forall x, y\in\mathbb{R}.$$
+	}
+\end{bt}
+\begin{bt}[VMO-2011]
+Cho $ n $ là số nguyên dương. Chứng minh rằng đa thức $ P(x, y)=x^n+xy+y^n $ không thể viết dưới dạng $ P(x, y)=G(x, y)\cdot H(x, y) $ trong đó $ G(x, y) $ và $ H(x, y) $ là các đa thức với hệ số thực, khác đa thức hằng.
+\loigiai
+{Nhận xét $ n=1 $ thì $ P(x, y)=x+xy+y $ không thể phân tích được.\\
+Giả sử tồn tại các đa thức $ G(x, y) $ và $ H(x, y) $ thỏa mãn $ \deg G\geq 1, \deg H\geq 1 $	sao cho \begin{equation*}
+P(x, y)=G(x, y)\cdot H(x, y). \tag{*}
+\end{equation*} 
+Như thế, $ \deg G +\deg H=n $ và $ P(x, 0)=G(x, 0)\cdot H(x, 0) $. Suy ra $ x^n=G(x, 0)\cdot H(x, 0) $.\\
+Do đó, tồn tại $ k\in\mathbb{N}; a_1, a_2\in\mathbb{R}, a_1a_2=1\colon H(x, 0)=a_1x^k, G(x, 0)=a_2x^{n-k} $.\\
+Với $ x $ cố định, ta có \begin{align*}
+& H(x, y)=(y-0)H_1(x, y)+H(x, 0)=a_1 x^k+yH_1(x, y)\tag{1}\\
+& G(x, y)= (y-0)G_1(x, y)+G(x, 0)=a_2x^{n-k}+yG_1(x, y),\tag{2}
+\end{align*}
+trong đó $ H_1(x, y), G_1(x, y)\in\mathbb{R}[x, y] $.\\
+Thay $ (1), (2) $ vào $ (*) $ ta được
+\begin{eqnarray*}
+&&x^n+xy+y^n=x^n+a_1x^kyG_1(x, y)+a_2x^{n-k}yH_1(x, y)+y^2H_1(x, y)G_1(x, y)\\
+&\Leftrightarrow & y\left(x+y^{n-1}\right)=y\left[a_1x^kG_1(x, y)+a_2x^{n-k}H_1(x, y)+yH_1(x, y)G_1(x, y)\right],\ \forall x, y\in\mathbb{R}.
+\end{eqnarray*}
+Suy ra \begin{equation*}
+a_1x^kG_1(x, y)+a_2x^{n-k}H_1(x, y)+yH_1(x, y)G_1(x, y)=x+y^{n-1}.\tag{**}
+\end{equation*}
+Cho $ y=0 $ ta được $ a_1x^kG_1(x, 0)+a_2x^{n-k}H_1(x, 0)=x$.\tagEX{3}\noindent
+Nếu $ k $ và $ n-k $ đều lớn hơn $ 1 $ thì xảy ra các trường hợp sau
+\begin{itemize}
+	\item Cả hai đa thức $ G_1(x, 0) $ và $ H_1(x, 0) $ đều đồng nhất bằng $ 0 $. Suy ra $ x\equiv 0 $ (vô lý).
+	\item  Một trong hai đa thức $ G_1(x, 0) $ và $ H_1(x, 0) $ có bậc lớn hơn hoặc bằng $ 1 $.\\
+	Giả sử $ \deg G_1(x, 0)\geq 1 $, khi đó bậc của  đa thức ở vế phải  của $ (3) $ là $ 1 $, còn vế trái của $ (3) $ là $ p\geq k+\deg G_1>1 $ (vô lý). 
+\end{itemize}
+Do vậy, trong hai số $ k $ và $ n-k $ phải có một số  nhỏ hơn hoặc bằng $ 1 $. Giả sử $ k\leq 1 $.
+\begin{itemize}
+	\item Nếu $ k=0 $ thì từ $ (3) $ suy ra $ a_1G_1(x, y)+a_2x^nH_1(x, y)=x-yG_1(x, y)H_1(x, y),\ \forall x, y\in\mathbb{R} $. Nên $ H_1(x, y)\equiv 0\Rightarrow H(x, y)=a_1 $. Điều này là vô lý vì $ \deg H\geq 1 $.
+	\item  Nếu $ k=1 $ thì từ $ (3) $ suy ra $ a_1xG_1(x, y)+a_2x^{n-1} H_1(x, y)=x-yG_1(x, y)H_1(x, y),\ \forall x, y\in\mathbb{R} $. Nên $ H_1(x, y)=b\neq 0\Rightarrow H(x, y)=a_1x+by $ (vì $ H_1(x, y)\equiv 0\Rightarrow H(x, y)=a_1 $ vô lý).\\
+	$ H_1(x, y)=a_1x+by\Rightarrow P(x, y)=x^n+xy+y^n=\left(a_1x+by\right)G_1(x, y) $.\\
+Do đó, $ P\left(-\dfrac{b}{a_1}t, t\right)=\left(-\dfrac{b}{a_1}\right)^nt^n-\dfrac{b}{a_1}t+t^n=(-bt+bt)G_1\left(-\dfrac{b}{a_1}t, t\right)=0,\ \forall t \in\mathbb{R} $.\\
+Suy ra $\left[1-\left(-\dfrac{b}{a_1}\right)^n\right]t^n-\dfrac{b}{a_1}t^2=0,\ \forall t\in\mathbb{R}$ (vô lý).
+\end{itemize}
+Vậy $ P(x, y) $ là đa thức bất khả quy trên $ \mathbb{R} $.  	}
+\begin{nx}
+	Bài này sử dụng kết quả \lq\lq Đa thức một biến $ f(x)=(x-\alpha)g(x)+f(\alpha) $, trong đó $ \alpha\in\mathbb{R} $\rq\rq.
+\end{nx}
+\end{bt}
+\begin{bt}
+Cho $ f, g\in\mathbb{R}[x] $ và $ a(x, y)\in\mathbb{R}[x, y] $ thỏa mãn $$f(x)-f(y)=a(x, y)\left[g(x)-g(y)\right],\ \forall x, y\in\mathbb{R}.$$
+Chứng minh rằng, tồn tại đa thức $ h(x) $ sao cho $ f(x)=h\left[g(x)\right],\ \forall x\in\mathbb{R} $.
+\loigiai
+{Nếu $ \deg f<\deg g $ và với $ y $ cố định thì $ \deg \left(f(x)-f(y)\right)<\deg \left(g(x)-g(y)\right) $.\\
+Mà $ \left(f(x)-f(y)\right)$ chia hết cho $\left(g(x)-g(y)\right) $ nên $ f(x)-f(y)=0\Rightarrow f(x)=f(y),\ \forall x, y\in\mathbb{R} $. Vì thế, $ f $ là đa thức hằng, với $ f(x)=a=\text{const} $. Khi đó, $ h(x)\in\mathbb{R}[x] $ và $ h(x)=a $ thỏa mãn bài toán.\\
+Nếu $ \deg f\geq \deg g $. Ta chứng minh bài toán bằng quy nạp theo số bậc của $ f(x) $.\\
+Giả sử bài toán đúng với mọi đa thức $ t(x)\in\mathbb{R}[x], \deg t(x)\leq \deg f(x) $. Tức là $ t(x)\in\mathbb{R}[x]$, $\deg t(x)\leq \deg f(x) $ thỏa mãn có đa thức $ a_1(x, y)\in\mathbb{R}[x, y] $ sao cho $ t(x)-t(y)=a_1(x, y)\left[g(x)-g(y)\right]$, $\forall x, y\in\mathbb{R}$  thì tồn tại đa thức $ h_1(x)\in\mathbb{R}[x] $ sao cho $ t(x)=h_1\left[g(x)\right],\ \forall x\in\mathbb{R} $.\\
+Thật vậy, do $ \deg g(x)\leq \deg f(x) $ nên tồn tại $ r(x)\in\mathbb{R}[x] $ sao cho $$f(x)=q(x)g(x)+r(x),\ \deg r(x)<\deg g(x),\ \deg q(x)<\deg f(x).$$
+Ta chứng minh $ q(x) $ thỏa mãn điều kiện như $ t(x) $.\\
+Ta có \begin{eqnarray*}
+	&& f(x)-f(y)=a(x, y)\left[g(x)-g(y)\right]\\
+	&\Leftrightarrow & q(x)g(x)-q(y)g(y)+r(x)-r(y)=a(x, y)g(x)-a(x, y)g(y)\\
+	&\Leftrightarrow & r(x)-r(y)=\left[a(x, y)-q(x)\right]g(x)+\left[q(y)-a(x,y)\right]g(y)\\
+	&\Leftrightarrow & r(x)-r(y)=v(x, y)g(x)+w(x, y)g(y),
+\end{eqnarray*}
+trong đó $ v(x, y)=a(x, y)-q(x) $ và $ w(x, y)=q(y)-a(x, y) $.\\
+Với $ x $ cố định, ta có $ v(x, y)=g(y)b(x, y)+c(x, y) $ trong đó bậc của $ c(x, y) $ theo biến $ y $ nhỏ hơn bậc của $ g(y) $. Suy ra \begin{eqnarray*}
+	&& r(x)-r(y)=\left[g(y)b(x, y)+c(x, y)\right]g(x)+w(x, y)g(y)\\
+	&\Leftrightarrow & r(x)-r(y)=c(x, y)g(x)+\left[b(x, y)g(x)+w(x, y)\right]g(y)\\
+	&\Leftrightarrow & r(x)-r(y)-c(x, y)g(x)=\left[b(x, y)g(x)+w(x, y)\right]g(y).
+\end{eqnarray*}
+Suy ra $ g(y) $ chia hết $ r(x)-r(y)-c(x, y)g(x) $, với $ x $ cố định.\\
+Mặt khác, bậc của $ r(x)-r(y)-c(x, y)g(x) $ theo biến $ y $ nhỏ hơn bậc của $ g(y) $ nên $$ r(x)-r(y)-c(x, y)g(x)\equiv 0 \ \text{hay}\  r(x)-r(y)=c(x, y)g(x).$$
+Như thế, $ g(x) $ chia hết $ r(x)-r(y) $, mà bậc của $ r(x)-r(y) $ theo biến $ x $ nhỏ hơn bậc của $ g(x) $ nên $ r(x)-r(y)\equiv 0\Rightarrow r(x)=r(y),\ \forall x, y\in\mathbb{R}\Rightarrow r(x)=\alpha,\ \alpha\in\mathbb{R} $. Do đó,
+\begin{eqnarray*}
+	&& f(x)-f(y)= q(x)g(x)-q(y)g(y)\\
+	&\Leftrightarrow & a(x, y)\left[g(x)-g(y)\right]=q(x)\left[g(x)-g(y)\right]+g(y)\left[q(x)-q(y)\right]\\
+	&\Rightarrow & g(y)\left[q(x)-q(y)\right]=\left[a(x, y)-q(x)\right]\left[g(x)-g(y)\right].
+\end{eqnarray*}
+Suy ra $ g(y) $ chia hết $ \left[a(x, y)-q(x)\right]\left[g(x)-g(y)\right] $. Hay $ g(y) $ chia hết $ \left[a(x, y)-q(x)\right]g(x)$.\\
+Với $ x $ cố định, suy ra $ g(y) $ chia hết $ a(x, y)-q(x) $. Do đó, $$ a(x, y)-q(x)=g(y)p(x, y),\  \text{với}\  p(x, y)\in\mathbb{R}[x, y]. $$
+Khi đó, \begin{eqnarray*}
+	&& f(x)-f(y)= q(x)g(x)-q(y)g(y)\\
+	&\Leftrightarrow & a(x, y)\left[g(x)-g(y)\right]=q(x)g(x)-q(y)g(y)\\
+	&\Leftrightarrow & \left[q(x)+g(y)p(x, y)\right]\left[g(x)-g(y)\right]=q(x)g(x)-q(y)g(y)\\
+	&\Leftrightarrow & -q(x)g(y)+g(y)p(x, y)\left[g(x)-g(y)\right]=-q(y)g(y)\\
+	&\Leftrightarrow & g(y)\left[q(x)-q(y)-p(x, y)\left(g(x)-g(y)\right)\right]=0\\
+	&\Rightarrow & q(x)-q(y)=p(x, y)\left[g(x)-g(y)\right],\ \forall x, y\in\mathbb{R}.
+\end{eqnarray*}
+Như thế, $ q(x) $ thỏa mãn giả thiết quy nạp. Suy ra, tồn tại $ k(x)\in\mathbb{R}[x] $ mà $ q(x)=k\left[g(x)\right],\ \forall x\in\mathbb{R} $.\\
+Do đó, $ f(x)=q(x)g(x)+\alpha=k\left[g(x)\right]\cdot g(x)+\alpha $.\\
+Xét đa thức $ h(x)\in\mathbb{R}[x] $ xác định bởi $ h(x)=xk(x)+\alpha $.\\
+Khi đó, $ h\left[g(x)\right]=g(x)k\left[g(x)\right]+\alpha=f(x),\ \forall x\in\mathbb{R} $.
+}
+\end{bt}
+
+%Nguyễn Chính Tâm
+\begin{bt}[VN TST 2008]
+Hãy xác định tất cả các số nguyên dương $m$ sao cho tồn tại các đa thức với hệ số thực $Q(x)$, $P(x)$ và $R(x;y)$ thỏa mãn: Với mọi số thực $a$, $b$ mà $a^m-b^2=0$ thì
+\[\left\{\begin{aligned}&P\left(R(a;b)\right)=a,\\ &Q\left(R(a;b)\right)=b.\end{aligned}\right.\]
+\loigiai{
+Với $m\in\mathbb{N}^\ast$, xét hai trường hợp
+\begin{itemize}
+\item Nếu $m$ chẵn: $m=2k$, $k\in\mathbb{N}^\ast$; $a^m-b^2=0\Leftrightarrow b=a^k$ hoặc $b=-a^k$.\\
+Ta tìm $k$ sao cho các đa thức $Q(x)$, $P(x)$ và $R(x;y)$ thỏa mãn hai điều kiện
+\[\left\{\begin{aligned}&P\left(R(x;x^k)\right)=x; Q\left(R(x;x^k)\right)=x^k, \forall x\in\mathbb{R}.\\& P\left(R(x;-x^k)\right)=-x; Q\left(R(x;-x^k)\right)=-x^k, \forall x\in\mathbb{R}.\end{aligned}\right.\]
+Xét đa thức một biến $T(x)=R(x;x^k)$, ta có
+\[P\left(R(x;x^k)\right)=P\left(T(x)\right)=x.\tag{1}\]
+$\Rightarrow \deg P\cdot\deg T=1\Rightarrow \deg P=\deg T=1$.\\
+Giả sử $T(x)=ux+v$; $u,v\in\mathbb{R}$, $u\ne 0$ và $P(x)=u'x+v'$; $u',v'\in\mathbb{R}$, $u'\ne 0$. Từ $(1)$ suy ra
+\begin{align*}
+&P\left(ux+v\right)=u'\left(ux+v\right)+v'=x;\forall x\in\mathbb{R}\\ 
+\Rightarrow\;&\left\{\begin{aligned}&uu'=1\\ &u'v+v'=0\end{aligned}\right.\Rightarrow\left\{\begin{aligned}&u'=\dfrac{1}{u}\\ &v'=-u'v=-\dfrac{v}{u}\end{aligned}\right.\Rightarrow P(x)=\dfrac{x-v}{u}.
+\end{align*}
+Mà $Q\left(R(x;x^k)\right)=x^k$ hay $A\left(T(x)\right)=x^k$, suy ra
+\[Q(ux+v)=x^k\Rightarrow Q(x)\left(\dfrac{x-v}{u}\right)^k=\left(P(x)\right)^k,\forall x\in\mathbb{R}.\tag{2}\]
+Ta có $Q\left(R(a;b)\right)=\left(P\left(R(a;b)\right)\right)^k\Rightarrow b=a^k$, $\forall a,b$ thỏa mãn $a^{2k}-b^2=0$. Nhưng theo điều kiện đầu bài thì $b$ có thể là $-a^k$. Mâu thuẫn này cho thấy giá trị $m$ trong trường hợp này không thỏa mãn. Hoặc từ $(2)$ có thể suy ra \[Q\left(R(x;-x^k)\right)=\left[P\left(R(x;-x^k)\right)\right]^k=x^k\Leftrightarrow -x^k=x^k,\forall x\in\mathbb{R}\]
+(vô lí) nên $m$ chẵn không thỏa mãn đề bài.
+\item Nếu $m$ lẻ: $a^m=b^2\Rightarrow a=\left(\sqrt[m]{b}\right)^2$; $b=\left(\sqrt[m]{b}\right)^m$.\\
+Xác định $m$ thỏa mãn
+\[P\left(R(x^2;x^m)\right)=x^2;\;Q\left(R(x^2;x^m)\right)=x^m, \forall x\in\mathbb{R}.\]
+Đặt $S(x)=R(x^2;x^m)\Rightarrow Q\left(S(x)\right)=x^m, P\left(S(x)\right)=x^2$.
+\begin{itemize}
+\item[+)] $P\left(S(x)\right)=x^2; \forall x\in\mathbb{R}\Rightarrow \deg P\cdot\deg S=2.$ \hfill$(3)$
+\item[+)] $Q\left(S(x)\right)=x^m; \forall x\in\mathbb{R}\Rightarrow \deg Q\cdot\deg S=m$, mà $m$ lẻ nên $\deg S$ lẻ.
+\end{itemize}
+Từ $(3)$ suy ra $\deg S=1$ và $\deg P=2$. Mà $S(x)=R(x^2;x^m)$, đa thức $R(x^2;x^m)$ có bậc đạt giá trị nhỏ nhất là $\min\left\{2;m\right\}$, $\deg R(x^2;x^m)=\deg S=1$ nên $m=1$.\\
+Ta chứng minh $m=1$ là giá trị thỏa mãn đề bài.\\
+Xét $P(x)=x^2$, $Q(x)=x$, $R(x;y)=y$. Khi $m=1:a^m-b^2=0\Leftrightarrow a=b^2$ và
+\[R(a;b)=R(b^2;b)=b, P\left(R(a;b)\right)=P(b)=b^2=a, Q\left(R(a;b)\right)=Q(b)=b.\]
+\end{itemize}
+Vậy $m=1$ là giá trị cần tìm.}
+\end{bt}
+
+\begin{bt}
+Cho đa thức $P(x;y)$ không phải là đa thức hằng, thỏa mãn
+\[P(x, y)\cdot P(z;t)=P(xz+yt; xt+yz), \, \forall x, y,z,t \in \mathbb{R}.\]
+Chứng minh rằng đa thức $P(x;y)$ chia hết cho ít nhất một trong hai đa thức
+\[Q(x;y)=x+y;\;H(x;y)=x-y.\]
+	\loigiai{ Nếu $P(x;y)\equiv 0$ thì bài toán luôn đúng.\\
+Nếu $P(x;y)\not\equiv 0$, giả sử $P(x;y)=Q^m(x;y)\cdot H^n(x;y)\cdot T(x;y)$ với $m,n\in\mathbb{N}$ và đa thức $T(x;y)$ không chia hết cho $Q(x;y)$ và $H(x;y)$. \hfill$(1)$\\
+Ta có
+\begin{align*}
+&P(x, y)\cdot P(z;t)=P(xz+yt; xt+yz), \, \forall x, y,z,t \in \mathbb{R}\\ 
+\Leftrightarrow\;&(x+y)^m\cdot (x-y)^n\cdot T(x;y)(z+t)^m(z-t)^n\cdot T(z;t)\\
+&\qquad =(xz+yt+xt+yz)^m(xz+yt-xt-yz)^n\cdot T(xz+yt;xt+yz), \, \forall x, y,z,t \in \mathbb{R}\\
+\Leftrightarrow\;&(x+y)^m (x-y)^n(z+t)^m(z-t)^n\cdot T(x;y)\cdot T(z;t)\\
+&\qquad =(xz+yt+xt+yz)^m(xz+yt-xt-yz)^n\cdot T(xz+yt;xt+yz), \, \forall x, y,z,t \in \mathbb{R}\\
+\Leftrightarrow\;& T(x;y)\cdot T(z;t)=T(xz+yt;xt+yz), \, \forall x, y,z,t \in \mathbb{R}.\tag{2}
+\end{align*}
+Từ $(2)$ cho $z=t=0$ ta được $T(x;y)\cdot T(0;0)=T(0;0),\, \forall x,y  \in \mathbb{R}.$\hfill$(3)$\\
+Giả sử $T(0;0)=0$ thì với $y=-x$, $t=z$ thay vào $(2)$ ta được
+\[T(x;-x)\cdot T(z;z)=T(0;0),\, \forall x,y  \in \mathbb{R}.\tag{4}\]
+Nếu có $z\in\mathbb{R}$ mà $T(z;z)\ne 0$ thì từ $(4)$ suy ra $T(x;-x)=0,\, \forall x  \in \mathbb{R}.$
+\[T(x;y)=\sum\limits_{i\in\mathbb{N},j\in\mathbb{N}}a_{ij}x^iy^j=\sum\limits_{i\in\mathbb{N}^\ast,j\in\mathbb{N}}a_{ij}\left(x^i-(-y)^i\right)y^j+\sum\limits_{i\in\mathbb{N},j\in\mathbb{N}}a_{ij}x^i(-y)^iy^j.\]
+Mà $T(x;-x)=0,\, \forall x  \in \mathbb{R}\Rightarrow \sum\limits_{i\in\mathbb{N},j\in\mathbb{N}}a_{ij}x^i(-x)^j=0,\,\forall x  \in \mathbb{R}$ nên
+\[T(x;y)=\sum\limits_{i\in\mathbb{N}^\ast,j\in\mathbb{N}}a_{ij}\left(x^i-(-y)^i\right)y^j\Rightarrow T(x;y)\,\vdots\,Q(x;y)\]
+mâu thuẫn với $(1)$.\\
+Nếu $T(z;z)=0,\forall z\in\mathbb{R}$ thì
+\[T(x;y)=\sum\limits_{i\in\mathbb{N},j\in\mathbb{N}}a_{ij}x^iy^j=\sum\limits_{i\in\mathbb{N}^\ast,j\in\mathbb{N}}a_{ij}x^i\left(x^i-y^i\right)y^j+\sum\limits_{i\in\mathbb{N},j\in\mathbb{N}}a_{ij}y^iy^j.\]
+Mà $T(z;z)=0,\, \forall z  \in \mathbb{R}\Rightarrow \sum\limits_{i\in\mathbb{N},j\in\mathbb{N}}a_{ij}z^iz^j=0,\,\forall z  \in \mathbb{R}$ nên
+\[T(x;y)=\sum\limits_{i\in\mathbb{N}^\ast,j\in\mathbb{N}}a_{ij}\left(x^i-y^i\right)y^j\Rightarrow T(x;y)\,\vdots\,H(x;y)\]
+mâu thuẫn với $(1)$.\\
+Chứng tỏ điều giả sử là sai, do đó $T(0;0)\ne 0$. Từ $(3)$ ta có $T(x;y)=1,\, \forall x,y\in\mathbb{R}$. Do đó
+\[P(x;y)=(x+y)^m(x-y)^n.\]
+Vì $P(x;y)$ khác đa thức hằng nên $m^2+n^2\ne 0,\, \forall m,n\in\mathbb{N}$. Suy ra $P(x;y)$ chia hết cho ít nhất một trong hai đa thức \(Q(x;y)=x+y;\;H(x;y)=x-y.\)
+	}
+\end{bt}
+
+\begin{bt}
+Cho $P(x;y)$ là đa thức hai biến thỏa mãn $P(\cos t; \sin t)=0,\,\forall t\in\mathbb{R}$. Chứng minh rằng tồn tại đa thức $Q(x;y)$ sao cho $P(x;y)=(x^2+y^2-1)Q(x;y),\,\forall x,y \in\mathbb{R}.$
+	\loigiai{
+Ta cố định $x\in(-1;1)$, xét đa thức $R(y)=P(x;y)$ biến $y$, hệ số chứa $x$.\\
+Đặt $x=\sin t\Rightarrow \cos t=\pm\sqrt{1-\sin^2t}=\pm\sqrt{1-x^2}$. Ta có
+\begin{align*}
+&P(\cos t; \sin t)=0\Rightarrow P\left(\sin t;\pm\sqrt{1-\sin^2t}\right)=0\\ 
+\Rightarrow\;&\left[\begin{aligned}&P\left(x;\sqrt{1-x^2}\right)=0\Rightarrow R\left(\sqrt{1-x^2}\right)=0\Rightarrow R(y)\;\text{có nghiệm}\;y=\sqrt{1-x^2}\\ &P\left(x;-\sqrt{1-x^2}\right)=0\Rightarrow R\left(-\sqrt{1-x^2}\right)=0\Rightarrow R(y)\;\text{có nghiệm}\;y=-\sqrt{1-x^2}\end{aligned}\right.\\
+\Rightarrow\;& P(x;y)=R(y)=\left(y-\sqrt{1-x^2}\right)\left(y+\sqrt{1-x^2}\right)S(y)=(x^2+y^2-1)S(y)
+\end{align*}
+với $S(y)$ là đa thức biến $y$, hệ số phụ thuộc $x$.\\
+Tương tự cố định $y\in(-1;1)$, xét đa thức $S(x)=P(x;y)$ biến $x$, hệ số chứa $y$.\\
+$\Rightarrow P(x;y)=S(x)=(x^2+y^2-1)T(x)$, ở đây $T(x)$ là đa thức biến $x$, hệ số phụ thuộc $y$.\\
+$\Rightarrow P(x;y)=(x^2+y^2-1)T(x)=(x^2+y^2-1)S(y)$.\\
+$\Rightarrow T(x)=S(y)=Q(x;y),\,\forall x,y\in (-1;1), x^2+y^2\ne 1$, với $Q(x;y)$ là đa thức của $x,y$.\\
+$\Rightarrow P(x;y)=(x^2+y^2-1)Q(x;y)$ đúng với vô hạn giá trị $x,y\in (-1;1)$ và $ x^2+y^2\ne 1$.\\
+$\Rightarrow P(x;y)=(x^2+y^2-1)Q(x;y)$ đúng $\forall x,y\in\mathbb{R}$.
+	}
+\end{bt}
+
+\begin{bt}
+Tìm tất cả các đa thức $P(x)\in \mathbb{R}\left[x\right]$ sao cho tồn tại tương ứng duy nhất đa thức $Q(x)\in \mathbb{R}\left[x\right]$ thỏa mãn $Q(0)=0$ và $F(x;y)=x+Q\left(y+P(x)\right)$ là đa thức đối xứng hai biến.
+\loigiai{
+$F(x;y)$ là đa thức đối xứng hai biến nên $F(x;y)=F(y;x),\,\forall x,y\in\mathbb{R}$. Do đó
+\[x+Q\left(y+P(x)\right)=y+Q\left(x+P(y)\right); \,\forall x,y\in\mathbb{R}.\tag{1}\]
+Với $y=0$, thay vào $(1)$ ta được
+\[x+Q\left(P(x)\right)=Q\left(x+P(0)\right); \,\forall x\in\mathbb{R}.\tag{2}\]
+Giả sử $\deg P(x)=p, \deg Q(x)=q$. So sánh bậc hai vế của $(2)$ ta được
+\[q=\max \left\{1;pq\right\}\Rightarrow \left\{\begin{aligned}&pq\le q\\ &q\ge 1\end{aligned}\right.\Rightarrow p\le 1\le q.\]
+\begin{itemize}
+\item Nếu $P(x)\equiv 0$ thì từ $(1)$ ta có $x+Q(y)=y+Q(x); \,\forall x,y\in\mathbb{R}$. Mặt khác từ $(2)$ ta có $x+Q(0)=Q(x);\,\forall x\in\mathbb{R}$, mà $Q(0)=0$ nên $Q(x)=x;\,\forall x\in\mathbb{R}$.\\
+Vậy với $P(x)\equiv 0$ thì tồn tại duy nhất $Q(x)=x$ thỏa mãn bài toán.
+\item Nếu $P(x)=a$ với $a$ là hằng số thì từ $(2)$ ta có
+\[x+Q(a)=Q(x+a)\Rightarrow Q(t)=Q(t-a+a)=t-a+Q(a);\,\forall t\in\mathbb{R}.\]
+Mà $Q(0)=0\Rightarrow Q(a)=a\Rightarrow Q(t)=t$. Mặt khác từ $(1)$ ta có
+\[x+Q(y+a)=y+Q(x+a); \,\forall x,y\in\mathbb{R}\Leftrightarrow x+y+Q(a)=y+x+a; \,\forall x,y\in\mathbb{R}.\]
+Vậy $P(x)=a$ thì tồn tại duy nhất $Q(x)=x$ thỏa mãn bài toán.
+\item Nếu $P(x)=ax+b$ với $a\ne 0$. Giả sử $Q(x)=cx^q+\cdots$ với $c\ne 0$. So sánh lũy thừa cao nhất hai vế của $(2)$ ta được $c\cdot a^q=c\Rightarrow a^q=1\Rightarrow a=\pm 1$ hoặc $q=1$.
+\end{itemize}
+%Tô Ngọc Thy
++) Với $a=1\Rightarrow P(x)=x+b$.\\
+		$(2)\Rightarrow x+Q(x+b)=Q(x+b);\quad \forall x\in \mathbb{R}$ Vô lý.\\
+		+) Với $a=-1\Rightarrow P(x)=-x+b$.\\
+		$(2)\Rightarrow x+Q(-x+b)=Q(x+b);\quad \forall x\in \mathbb{R}$.\\
+		Đặt $R(x)=Q(x+b)$.\\
+		$(2)\Rightarrow x+R(-x)=R(x); \quad \forall x\in \mathbb{R}$ suy ra $R(x)=\dfrac{x+R(-x)+R(x)}{2}=\dfrac{x}{2}+E(x)$.\\
+		với $E(x)=\dfrac{1}{2}(R(-x)+R(x))$; $E(x)$ là hàm chẵn.\\
+		Do $Q(0)=0\Rightarrow R(-b)=Q(0)=0 \Rightarrow R(-b)=-\dfrac{b}{2}+E(-b)\Rightarrow E(-b)=\dfrac{b}{2}$.\\
+		Mà $E(b)=E(-b)=\dfrac{b}{2}$.\\
+		$\begin{array}{ll}
+				F(x;y)&=x+Q(y+P(x))=x+Q(y-x+b)=x+R(y-x).\\
+				&=x+\dfrac{y-x}{2}+E(y-x)=\dfrac{x+y}{2}+E(y-x).
+		\end{array}$\\
+		$\begin{array}{ll}
+			F(y;x)&=y+Q(x+P(y))=y+Q(x-y+b)=y+R(x-y).\\
+			&=y+\dfrac{x-y}{2}+E(x-y).
+		\end{array}$\\
+		Vì $E(x-y)=E(y-x) \quad \forall x, y\in \mathbb{R}\Rightarrow F(x;y)=F(y;x) \quad \forall x, y\in \mathbb{R}$. \\
+		Với $P(x)$ đã cho tồn tại $Q(x)=R(x-b)=\dfrac{x-b}{2}+E(x-b)$, trong đó $E(x)$ là đa thức chứa toàn bậc chẵn.\\
+		Ta chứng minh $Q(x)$ không duy nhất trong trường hợp này, chẳng hạn \\
+		Xét $E_1(x)=\dfrac{b}{2}$ thỏa mãn $E_1(b)=\dfrac{b}{2}, Q_1(x)=\dfrac{x-b}{2}+\dfrac{x-b}{2}=\dfrac{x}{2}$.\\
+		Xét $E_2(x)=\dfrac{x^2-b^2+b}{2}$ thỏa mãn $E_2(b)=\dfrac{b}{2}, Q_2(x)=\dfrac{x-b}{2}+\dfrac{(x-b)^2-b^2+b}{2}=\dfrac{x^2+(1-2b)x}{2}$.\\
+		+) Với $p=1$ thì $Q(x)=cx \quad c\neq 0$.\\
+		$\begin{array}{ll}
+		F(x;y)&=x+Q(y+P(x))=x+c(y+P(x))=x+cy+c(ax+b)\\
+		&=(ac+1)x+cy+cb.
+		\end{array}$\\
+		$\begin{array}{ll}
+		F(y;x)&=y+Q(x+P(y))\\
+		&=(ac+1)y+cx+cb.
+		\end{array}$\\
+		$F(x;y)=F(y;x) \forall x, y \Rightarrow ac+1=c\Leftrightarrow c=\dfrac{1}{1-a}$.\\
+		$Q(x)=\dfrac{1}{1-a}x$ xác định duy nhất.\\
+		Vậy với $P(x)=ax+b, a\neq \pm 1$ thì tồn tại duy nhất $Q(x)=\dfrac{x}{1-a}$ thỏa mãn đề bài.	
+}
+\end{bt}
+	
+\begin{bt}\text{}
+	\begin{enumerate}
+		\item Trong khai triển $(x + y + z)^n$ tìm số hạng chứa $x^ky^m (k+m\leq n)$.
+		\item Tìm hệ số theo $x^6y^5z^4$ của khai triển $(2x-5y+z)^{15}$.
+	\end{enumerate}
+\loigiai{
+	\begin{enumerate}
+		\item Ta có $(x + y + z)^n=(x + (y + z))^n= \displaystyle\sum\limits_{k=0}^{n}C^k_nx^k\cdot (y+z)^{n-k}=\displaystyle\sum\limits_{k=0}^{n}C^k_nx^k\left( \displaystyle\sum\limits_{m=0}^{n-k}C^m_{n-k}y^mz^{n-k-m}\right)$.\\
+		Vậy số hạng cần tìm là: $\dfrac{n!}{k!m!l!}x^ky^mz^l$ với $l=n-k-m$.\\
+		Ta có khai triển: $ (x + y + z)^n=\displaystyle\sum\limits_{k+l+m=n}\dfrac{n!}{k!m!l!}x^ky^mz^l$.
+		\item Áp dụng $(2x-5y+z)^{15}=((2x)+(-5y)+z)^{15}$.\\
+		Hệ số theo $x^6y^5z^4$ là $2^6(-5)^5\dfrac{15!}{6!5!4!}=-126\cdot 126\cdot10^6$.
+	\end{enumerate}	
+	\noindent{\bf Chú ý.} $C^k_nC^m_{n-k}=\dfrac{n!}{k!(n-k)!}\cdot \dfrac{(n-k)!}{m!(n-k-m)!}=\dfrac{n!}{k!m!(n-k-m)!}$.
+} 
+\end{bt}
+\begin{bt}\text{}
+\begin{enumerate}
+	\item Chứng minh đa thức $f(x,y) = x^ny^n + 1$ không thể phân tích thành tích hai đa thức một biến.
+	\item Cho đa thức $P(x,y,z,t)$ với các hệ số thực thoả mãn hệ thức:
+	$$P(x,y,z,\pm\sqrt{x^2+y^2+z^2})\equiv 0, \quad\forall x,y,z \in \mathbb{R}.$$
+	Chứng minh $P(x,y,z,t)$ có thể biểu diễn được dưới dạng:
+	$$P(x,y,z,t)=(x^2+y^2+z^2-t^2)Q(x,y,z,t).$$
+	trong đó $Q(x,y,z,t)$ là đa thức với hệ số thực.
+\end{enumerate}
+\loigiai{
+	\begin{enumerate}
+		\item Giả sử $f(x,y) = x^ny^n + 1=h(x)\cdot g(y)$ với:\\
+		$h(x)=a_0+a_1x+\dots+a_nx^n$ và $g(y)=b_0+b_1y+\dots+b_ny^n$.\\
+		Lấy $x=0\Rightarrow 1=a_0g(y)\Rightarrow g(y)\equiv\dfrac{1}{a_0}, \forall y$.\\
+		Lấy $y=0\Rightarrow 1=h(x)b_0\Rightarrow h(x)\equiv\dfrac{1}{b_0}, \forall x$.\\
+		Do đó $h(x)\cdot g(y)=\dfrac{1}{a_0b_0}$ vô lí.\\
+		Vậy không thể phân tích $f(x,y)$ thành tích hai đa thức một biến.
+		\item Thực hiện phép chia $P(x,y,z,t)$ cho $(t^2-x^2-y^2-z^2)$ theo biến $t$ ($x,y,z$ là tham số). Ta có: 
+		$$P(x,y,z,t)=(x^2+y^2+z^2-t^2)Q(x,y,z,t)+tR(x,y,z)+S(x,y,z) \quad (1)$$
+		Thay $t=\pm\sqrt{x^2+y^2+z^2}$ vào $(1)$ ta được:
+		$$tR(x,y,z)+S(x,y,z)=-tR(x,y,z)+S(x,y,z).$$
+		suy ra $R(x,y,z)\equiv 0$. Với $x,y,z$ cố định ta chọn $t=\sqrt{x^2+y^2+z^2}$ thì từ giả thiết và $(1)$ ta được $S(x,y,z)\equiv 0$. Từ đây ta biểu diễn:
+		$$P(x,y,z,t)=(x^2+y^2+z^2-t^2)Q(x,y,z,t).$$
+	\end{enumerate}
+}
+\end{bt}
+\begin{bt}
+	Cho đa thức hai biến $f(x,y) = ax^2 + 2by + cy^2$ với $a,b,c \in R $ và $D =ac-b^2>0$. Chứng minh tồn tại cặp số nguyên không âm $u, v$ thoả mãn:
+	$$\heva{& u^2+v^2\neq 0 \quad (1)\\ & \left| f(u,v)\right| \leq 2\sqrt{\dfrac{D}{3}}. \quad (2)}$$
+	\loigiai{
+	Từ $D =ac-b^2>0$ ta suy ra $a\neq 0$. Do $\left| -f(u,v)\right|=\left| f(u,v)\right|$ và vì $a\neq 0$ nên ta chỉ cần chứng minh $(1)$ với $a > 0$ là đủ. Với $y\neq 0$ ta có:
+	$$\begin{array}{ll}
+		f(x,y)&=y^2\left[ a\left( \dfrac{x}{y}\right)^2+2b\left( \dfrac{x}{y}\right)+c\right] \\
+		&=y^2\left[ a\left( \dfrac{x}{y}+\dfrac{b}{a}\right)^2+ \dfrac{D}{a}\right]>0.
+	\end{array}$$
+	Với $y = 0$ ta có $f(x,y) = ax^2$. Vậy gọi $G$ là tập hợp các cặp số nguyên $(x, y)$ không đồng thời bằng không, ta có $f(x,y) > 0$ với mọi $(x,y)\in G.$ Do đó ta có:
+	$$f(u,v)=\min\limits_{(x,y)\in G} f(x,y)=\min\limits_{(x,y)\in G} \left| f(x,y)\right| .$$
+	Đặt $\alpha = f(u,v)$, đương nhiên có $\alpha > 0$. Chú ý $f(x,y)$ đẳng cấp đối với $x$ và $y$, ta dễ dàng chứng minh được $u, v$ nguyên tố cùng nhau. Do $u, v$ nguyên tố cùng nhau, nên tồn tại hai số nguyên $s, t$ sao cho:
+	$$us-vt=1 \quad (2)$$
+	Đặt $g(x,y)=f(ux+ty,vx+sy)$, ta có:
+	$$\begin{array}{ll}
+	\min\limits_{(x,y)\in G} g(x,y)&=\min\limits_{(x,y)\in G} f(ux+ty,vx+sy) \\
+	&=f(u,v)=\alpha \text{ tại } x=1, y=0.
+	\end{array}$$
+	Mà
+	$$\begin{array}{ll}
+	 g(x,y)&=f(ux+ty,vx+sy) \\
+	&=f(u,v)x^2+2\beta xy++f(t,s)y^2, \quad \text{ với } \beta=uta+vsc+btv+bus.
+	\end{array}$$
+	Từ $(2)$ ta có: $\alpha f(t,s) = f(u,v)\cdot f(t,s) = \beta^2 + D$.\\
+	$$\Rightarrow g(x,y)=\alpha\left( x+\dfrac{\beta}{\alpha}y\right)^2+\dfrac{Dy^2}{\alpha}.$$
+	Ta xác định số nguyên $n$ như sau:  
+	$$n=\heva{& \left[ \frac{\beta}{\alpha}\right] \text{ nếu } \left\lbrace  \frac{\beta}{\alpha}\right\rbrace \leq \frac{1}{2}\\ & \left[ \frac{\beta}{\alpha}\right]+1 \text{ nếu } \left\lbrace  \frac{\beta}{\alpha}\right\rbrace > \frac{1}{2}.}$$
+	Với $[x], \left\lbrace x\right\rbrace $ chỉ phần nguyên, phần thập phân của $x$, thì ta có: $\left| n-\dfrac{\beta}{\alpha}\right| \leq \dfrac{1}{2}$. Từ đó ta có:\\
+	$$\alpha\leq g(n,-1)=\alpha\left( n-\dfrac{\beta}{\alpha}\right)^2+\dfrac{D}{\alpha}\leq\dfrac{\alpha}{4}+\dfrac{D}{\alpha}.$$
+	$$\Rightarrow \alpha^2\leq\left( \dfrac{4}{3}\right) D\Rightarrow \alpha \leq 2\sqrt{\dfrac{D}{3}} \text{ (đpcm)}.$$	
+}	
+\end{bt}
+\begin{bt}
+	Cho đa thức $f(x,y) = ax^2 + 2bxy + cy^2$ luôn luôn dương. 
+	Chứng minh: $$\left( f(x_1,y_1)\cdot f(x_2,y_2)\right)^{\frac{1}{2}}\cdot f(x_1 - x_2,y_1- y_2) \geq (ac-b^2)(x_1y_2- x_2y_1)^2$$
+	với mọi $x_1, x_2, y_1,y_2$.
+	\loigiai{
+	Từ giả thiết ta có $b^2-ac<0$ hay $ac-b^2>0$.\\
+	Ta có đồng nhất thức
+\begin{align*}
+&\left( ax_1^2+2bx_1y_1+cy_1^2\right)\left( ax_2^2+2bx_2y_2+cy_2^2\right)\\ 
+=&\left( ax_1x_2+by_1y_2+bx_2y_1+cy_1y_2\right)^2+(ac-b^2)(x_1y_2-x_2y_1)^2.
+\end{align*}
+	Đặt $E_1=f(x_1,y_1)>0, E_2=f(x_2,y_2)>0, F=\left| ax_1x_2+bx_1y_2+bx_2y_1+cy_1y_2\right| \geq 0$.\\
+	Từ $(1)\Rightarrow E_1E_2=F^2+(ac-b^2)(x_1y_2-x_2y_1)^2$ .\\
+	Mà $f(x_1-x_2,y_1-y_2)=E_1+E_2\pm 2F$.\\
+	Do đó,\\
+	 $\left( f(x_1,y_1)\cdot f(x_2,y_2)\right)^{\frac{1}{2}}f(x_1-x_2,y_1-y_2)$\\
+	$=(E_1E_2)^{\frac{1}{2}}\cdot (E_1+E_2-2F)$\\
+	$\geq (E_1E_2)^{\frac{1}{2}}\cdot (2(E_1E_2)^{\frac{1}{2}}-2F)$\\
+	$=2E_1E_2-2(E_1E_2)^{\frac{1}{2}}F$	\\
+	$=2F^2+2(ac-b)^2(x_1y_2-x_2y_1)^2-2F\left( F^2+(ac-b)(x_1y_2-x_2y_1)^2\right)^{\frac{1}{2}}$\\
+	$=2F^2+2(ac-b)^2(x_1y_2-x_2y_1)^2-2F^2\left( 1+\dfrac{(ac-b)(x_1y_2-x_2y_1)^2}{F^2}\right)^{\frac{1}{2}}$\\
+	$\geq 2F^2+2(ac-b)^2(x_1y_2-x_2y_1)^2-2F^2\left( 1+\dfrac{(ac-b)(x_1y_2-x_2y_1)^2}{2F^2}\right)$\\
+	$=(ac-b)^2(x_1y_2-x_2y_1)^2$.\\
+	Vậy $\left( f(x_1,y_1)\cdot f(x_2,y_2)\right)^{\frac{1}{2}}\cdot f(x_1 - x_2,y_1- y_2) \geq (ac-b^2)(x_1y_2- x_2y_1)^2.$
+}
+\end{bt}
+
+
+

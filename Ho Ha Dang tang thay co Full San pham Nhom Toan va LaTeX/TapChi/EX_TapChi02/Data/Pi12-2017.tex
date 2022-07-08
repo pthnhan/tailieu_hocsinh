@@ -1,0 +1,632 @@
+\section{Tạp chí Pi, số 12,  tháng 12 năm 2017}
+\Opensolutionfile{ans}[ans/Pi12-2017]
+
+\begin{bt}[P73, Tạp chí Pi, tháng 12 năm 2017]%[Nguyễn Thành Khang, Dự án EX_TapChi02]%[9H3G7]
+	Gọi $O,I,H$ tương ứng là tâm đường tròn ngoại tiếp, tâm đường tròn nội tiếp, trực tâm của tam giác nhọn, không đều $ABC$. Chứng minh rằng không có đỉnh nào của tam giác $ABC$ nằm trên đường tròn ngoại tiếp tam giác $OIH$. (\textit{Tam giác nhọn} là tam giác có tất cả các góc là trong đều là góc nhọn).
+	\loigiai
+	{
+	\immini{
+		Từ giả thiết tồn tại đường tròn ngoại tiếp tam giác $OIH$, suy ra tam giác $ABC$ không cân.
+		Ta sẽ chứng minh kết luận của bài ra bằng phương pháp phản chứng.
+		Giả sử ngược lại, tồn tại một đỉnh của tam giác $ABC$ nằm trên đường tròn ngoại tiếp tam giác $OIH$. Do tam giác $ABC$ nhọn và không cân nên không mất tính tổng quát, có thể giả sử đỉnh đó là $C$. Vì $H,I$ và $O$ tương ứng là trực tâm, tâm đường tròn nội tiếp và tâm đường tròn ngoại tiếp tam giác $ABC$ nên $CI$ là phân giác trong của góc $\widehat{HCO}$. Do đó, với lưu ý $IHCO$ là tứ giác nội tiếp, ta có:
+	}{
+		\begin{tikzpicture}
+			\tkzInit[xmin=-0.5, xmax=6.5, ymin=-0.5, ymax=4.5]
+			\tkzClip
+			\tkzDefPoints{0/0/A,6/0/B,2/3.5/C}
+			\tkzCircumCenter(A,B,C)\tkzGetPoint{O}
+			\tkzInCenter(A,B,C)\tkzGetPoint{I}
+			\tkzOrthoCenter(A,B,C)\tkzGetPoint{H}
+			\tkzDrawPoints(A,B,C,I,O,H)
+			\tkzDrawSegments(A,B A,C B,C C,H C,I C,O H,I H,O I,O)
+			\tkzLabelPoints[below](A,B,O)
+			\tkzLabelPoints[below left](H,I)
+			\tkzLabelPoints[above](C)
+		\end{tikzpicture}
+	}
+		\vspace{2ex}
+\noindent{$\widehat{IHO}=\widehat{ICO}=\widehat{ICH}=\widehat{HOI}.$}
+		Suy ra, tam giác $HIO$ cân tại $I$. Vì thế, $IH=IO=t$.
+		Gọi $M$ và $N$ tương ứng là hình chiếu vuông góc của $I$ trên $AO$ và $AH$.
+		Trên đường thẳng $AO$, lấy các điểm $O_1$ và $O_2$ sao cho $IO_1=IO_2=t$ và $O_1$ nằm giữa $A$ và $M$, $O_2$ nằm trên tia đối của $MO_1$.
+		Trên đường thẳng $AH$, lấy các điểm $H_1$ và $H_2$ sao cho $IH_1=IH_2=t$ và $H_1$ nằm giữa $A$ và $N$, $H_2$ nằm trên tia đối của $NH_1$.
+		Vì trên đường thẳng $AO$, cũng như trên đường thẳng $AH$, chỉ có đúng $2$ điểm cách $I$ một khoảng bằng $t$ nên chỉ có thể xảy ra một trong hai trường hợp sau:
+		\begin{itemize}
+			\item \textit{Trường hợp 1:} $O\equiv O_1$ và $H\equiv H_1$ (xem Hình 1) hoặc $O\equiv O_2$ và $H\equiv H_2$ (xem Hình 2).
+			\vspace{-5ex}
+			\begin{center}
+				\begin{tikzpicture}[label style/.append style={font=\scriptsize}]
+					\tkzInit[xmin=-0.1, xmax=17.1, ymin=-1, ymax=6]
+					\tkzClip
+					%Hình 1
+					\tkzDefPoints{0/0/A,8/0/B,2.3/5.5/C,3.5/1.8/I,2/1.8/H,3/1/O,4/-0.5/X}
+					\tkzDefPointBy[projection=onto A--H](I)\tkzGetPoint{N}
+					\tkzDefPointBy[projection=onto A--O](I)\tkzGetPoint{M}
+					\tkzDefPointBy[symmetry=center N](H)\tkzGetPoint{H2}
+					\tkzDefPointBy[symmetry=center M](O)\tkzGetPoint{O2}
+					\tkzDrawPoints(A,B,C,I,O,H,M,N,H2,O2)
+					\tkzDrawSegments(A,B A,C B,C C,H A,I C,I H,I H,O I,O A,H2 A,O2 I,H2 I,O2 I,M I,N)
+					\tkzMarkRightAngles(I,N,H2 I,M,O2)
+					\tkzLabelPoints[below](A,B)
+					\tkzLabelPoints[below right](M)
+					\tkzLabelPoints[above right](I)
+					\tkzLabelPoints[above](C,N)
+					\tkzLabelPoint[left](H){$ H \equiv H_1$}				
+					\tkzLabelPoint[below](O){$O\equiv O_1$}
+					\tkzLabelPoint[above](H2){$H_2$}
+					\tkzLabelPoint[below right](O2){$O_2$}
+					\tkzLabelPoint[below](X){\normalsize Hình 1}
+					%Hình 2					
+					\tkzDefPoints{9/0/A',17/0/B',11.5/5.5/C',11.5/1.5/I',11.2/2.5/H',12.7/1.2/O',13/-0.5/Y}
+					\tkzDefPointBy[projection=onto A'--H'](I')\tkzGetPoint{N'}
+					\tkzDefPointBy[projection=onto A'--O'](I')\tkzGetPoint{M'}
+					\tkzDefPointBy[symmetry=center N'](H')\tkzGetPoint{H1}
+					\tkzDefPointBy[symmetry=center M'](O')\tkzGetPoint{O1}
+					\tkzDrawPoints(A',B',C',I',O',H',M',N',H1,O1)
+					\tkzDrawSegments(A',B' A',C' B',C' C',H' A',I' H',I' I',O' A',H' A',O' I',H1 I',O1 I',M' I',N')
+					\tkzMarkRightAngles(I',N',H' I',M',O')
+					\tkzLabelPoint[below](A'){$A$}
+					\tkzLabelPoint[below](B'){$B$}
+					\tkzLabelPoint[below right](M'){$M$}
+					\tkzLabelPoint[above right](I'){$I$}
+					\tkzLabelPoint[above](C'){$C$}
+					\tkzLabelPoint[above left](N'){$N$}
+					\tkzLabelPoint[right](H'){$ H \equiv H_2$}				
+					\tkzLabelPoint[below right](O'){$O\equiv O_2$}
+					\tkzLabelPoint[above left](H1){$H_1$}
+					\tkzLabelPoint[below right](O1){$O_1$}
+					\tkzLabelPoint[below](Y){\normalsize Hình 2}
+				\end{tikzpicture}
+			\end{center}
+			Với lưu ý $AI$ là phân giác trong của góc $\widehat{HAO}$, dễ thấy, ta có $\triangle AIO=\triangle AIH$.
+Suy ra $AO=AH$. Từ đây dễ dàng chứng minh được $\widehat{BAC}=60^\circ$.
+			\item \textit{Trường hợp 2:} $O\equiv O_1$ và $H\equiv H_2$ (xem Hình 3) hoặc $O\equiv O_2$ và $H\equiv H_1$ (xem Hình 4).
+			\vspace{-5ex}
+			\begin{center}
+				\begin{tikzpicture}[label style/.append style={font=\scriptsize}]
+					\tkzInit[xmin=-0.1, xmax=17.1, ymin=-1, ymax=6]
+					\tkzClip
+					%Hình 1
+					\tkzDefPoints{0/0/A,8/0/B,2.8/5.5/C,3.5/1.8/I,3.7/3.4/H,3/1/O,4/-0.5/X}
+					\tkzDefPointBy[projection=onto A--H](I)\tkzGetPoint{N}
+					\tkzDefPointBy[projection=onto A--O](I)\tkzGetPoint{M}
+					\tkzDefPointBy[symmetry=center N](H)\tkzGetPoint{H2}
+					\tkzDefPointBy[symmetry=center M](O)\tkzGetPoint{O2}
+					\tkzDrawPoints(A,B,C,I,O,H,M,N,H2,O2)
+					\tkzDrawSegments(A,B A,C B,C C,H2 A,I C,I H,I H2,O I,O A,H A,O2 I,H2 I,O2 I,M I,N)
+					\tkzMarkRightAngles(I,N,H2 I,M,O2)
+					\tkzLabelPoints[below](A,B)
+					\tkzLabelPoints[below right](M)
+					\tkzLabelPoints[above right](I)
+					\tkzLabelPoints[above](C,N)
+					\tkzLabelPoint[above](H){$H \equiv H_2$}				
+					\tkzLabelPoint[below](O){$O\equiv O_1$}
+					\tkzLabelPoint[above left](H2){$H_2$}
+					\tkzLabelPoint[below right](O2){$O_2$}
+					\tkzLabelPoint[below](X){\normalsize Hình 3}
+					%Hình 2					
+					\tkzDefPoints{9/0/A',17/0/B',11.3/5.5/C',12.5/1.8/I',11/1.8/H',13.4/1.1/O',13/-0.5/Y}
+					\tkzDefPointBy[projection=onto A'--H'](I')\tkzGetPoint{N'}
+					\tkzDefPointBy[projection=onto A'--O'](I')\tkzGetPoint{M'}
+					\tkzDefPointBy[symmetry=center N'](H')\tkzGetPoint{H1}
+					\tkzDefPointBy[symmetry=center M'](O')\tkzGetPoint{O1}
+					\tkzDrawPoints(A',B',C',I',O',H',M',N',H1,O1)
+					\tkzDrawSegments(A',B' A',C' B',C' C',H' A',I' H',I' I',O' A',H1 A',O' I',H1 I',O1 I',M' I',N' C',I' H',O1)
+					\tkzMarkRightAngles(I',N',H' I',M',O')
+					\tkzLabelPoint[below](A'){$A$}
+					\tkzLabelPoint[below](B'){$B$}
+					\tkzLabelPoint[below right](M'){$M$}
+					\tkzLabelPoint[above right](I'){$I$}
+					\tkzLabelPoint[above](C'){$C$}
+					\tkzLabelPoint[above left](N'){$N$}
+					\tkzLabelPoint[left](H'){$ H \equiv H_1$}				
+					\tkzLabelPoint[below right](O'){$O\equiv O_2$}
+					\tkzLabelPoint[above](H1){$H_2$}
+					\tkzLabelPoint[below](O1){$O_1$}
+					\tkzLabelPoint[below](Y){\normalsize Hình 4}
+				\end{tikzpicture}
+			\end{center}
+			Với lưu ý $AI$ là phân giác trong của góc $\widehat{HAO}$, ta có $\widehat{IO_1O_2}=\widehat{IO_2O_1}=\widehat{IH_1H_2}=\widehat{IH_2H_1}$. Suy ra $AOIH$ là tứ giác nội tiếp.
+		\end{itemize}
+		Từ việc xét hai trường hợp trên hiển nhiên suy ra nếu $A$ không nằm trên đường tròn ngoại tiếp $\triangle OIH$ thì $\widehat{BAC}=60^\circ$.\hfill (1)\\
+		Bằng cách tương tự, ta cũng chứng minh được nếu $B$ không nằm trên đường tròn ngoại tiếp $\triangle OIH$ thì $\widehat{ABC}=60^\circ$.\hfill (2)\\
+		Do vai trò của $A$ và $B$ đối với $C$ là như nhau nên hoặc cả hai đỉnh $A,B$ cùng nằm trên đường tròn ngoại tiếp $\triangle OIH$ hoặc cả hai đỉnh đó cùng không nằm trên đường tròn vừa nêu.\hfill (3)\\
+		Từ (1), (2) và (3), với lưu ý $ABC$ là tam giác không đều (theo giả thiết), suy ra phải có cả $A$ và $B$ cùng nằm trên đường tròn ngoại tiếp $\triangle OIH$, và vì thế $O$ nằm trên đường tròn ngoại tiếp $\triangle ABC$, là điều không thể. Điều vô lí vừa nhận được chứng tỏ giả sử phản chứng ở phần đầu lời giải là sai và vì thế ta có điều phải chứng minh theo yêu cầu đề bài.
+		\begin{nx}
+			Việc phải dùng phương pháp phản chứng để giải bài đã ra là hiển nhiên. Điểm khó chịu của bài toán là khai thác giả thiết phản chứng đó như thế nào. Do ở bài toán này, bạn không thể vẽ chính xác hình nên bạn sẽ chỉ vượt qua được sự khó chịu vừa nêu nếu \textit{\textbf{không có}} thói quen khi giải các bài toán hình học phải vẽ hình thật chính xác, làm chỗ dựa quan trọng cho việc dự đoán quan hệ giữa các yếu tố trong hình.
+		\end{nx}
+}
+\end{bt}
+
+\begin{bt}[P122, Tạp chí Pi, tháng 12 năm 2017]%[Trần Tuấn Việt, Dự án EX_TapChi02]%[9D0G2]
+Chứng minh rằng, với mọi số thực dương $a, b, c$ ta luôn có bất đẳng thức:
+$$ \sqrt{\dfrac{a^2 + bc}{a(b + c)}} + \sqrt{\dfrac{b^2 + ca}{b(c + a)}} + \sqrt{\dfrac{c^2 + ab}{c(a + b)}} \geq 3. $$
+Hỏi đẳng thức xảy ra khi nào?
+\loigiai{ Ký hiệu $P$ là vế trái của bất đẳng thức cần chứng minh theo yêu cầu đề bài. \smallskip
+
+\noindent Tiếp theo, có thể giải bài đã ra theo một trong các cách sau: \smallskip
+
+\noindent \textbf{Cách 1} Vì $a, b, c > 0$ nên ta có: $$P = \dfrac{a^2 + bc}{\sqrt{a(b + c).(a^2 + bc)}} + \dfrac{b^2 + ca}{\sqrt{b(c + a). (b^2 + ca)}} + \dfrac{c^2 + ab}{\sqrt{c(a + b). (c^2 + ab)}}.$$
+
+\noindent Áp dụng bất đẳng thức Cauchy cho hai số thực dương $a(b + c)$ và $\left(a^2 + bc\right)$, ta được: $$\sqrt{a(b + c). \left(a^2 + bc\right)} \leq \dfrac{ab + ac + a^2 + bc}{2} = \dfrac{(a + b)(a + c)}{2}.$$
+
+\noindent Suy ra 
+$\dfrac{a^2 + bc}{\sqrt{a(b + c). \left(a^2 + bc\right)}}\geq \dfrac{2\left(a^2 + bc\right)}{(a + b)(a + c)}$. \hspace{\fill} $(1.1)$\\
+\noindent Chứng minh tương tự, ta được: 
+{\allowdisplaybreaks
+	\begin{align*}
+&\dfrac{b^2 + ac}{\sqrt{b(c + a).\left(b^2 + ca\right)}} \geq \dfrac{2\left(b^2 + ca\right)}{(b + c)(a + c)}.\tag{1.2}\\
+&\dfrac{c^2 + ab}{\sqrt{c(a + b).\left(c^2 + ab\right)}} \geq \dfrac{2\left(c^2 + ab\right)}{(c + a)(c + b)}.\tag{1.3}
+\end{align*}}\noindent Cộng vế theo vế, các bất đẳng thức $(1.1), (1.2)$ và $(1.3)$, ta được:
+\[P \geq 2\left( \dfrac{a^2 + bc}{(a + b)(a + c)} + \dfrac{b^2 + ca}{(b + c)(b + a)} + \dfrac{ c^2 + ab}{(c + a)(c + b)}\right).\tag{1.4}\]
+
+\noindent Ta sẽ chứng minh: 
+\[\dfrac{a^2 + bc}{(a + b)(a + c)} + \dfrac{b^2 + ca}{(b + c)(b + a)} + \dfrac{ c^2 + ab}{(c + a)(c + b)} \geq \dfrac{3}{2}.\tag{1.5}\]
+\noindent Thật vậy, vì $a, b, c > 0$ nên 
+{\allowdisplaybreaks
+\begin{align*}
+(1.5) &\Leftrightarrow 2\left[\left(a^2 + bc\right)(b + c) + \left(b^2 + ca\right)(a + c) + \left(c^2 + ab\right)(a + b)\right] \geq 3(a + b)(b + c)(c + a)\\
+&\Leftrightarrow 4\left(a^2b + ab^2 + b^2c + bc^2 + c^2a + ca^2\right) \geq 3\left(a^2b + ab^2 + b^2c + bc^2 + c^2a + ca^2 + 2abc\right)\\
+&\Leftrightarrow a^2b + ab^2 + b^2c + bc^2 + c^2a + ca^2 \geq 6abc \\
+&\Leftrightarrow a\left(b^2 + c^2 - 2abc\right) + b \left(c^2 + a^2 - 2ac\right) + c\left(a^2 + b^2 - 2ab\right) \geq 0 \\
+&\Leftrightarrow a(b - c)^2 + b (c - a)^2 + c(a - b)^2 \geq 0. \tag{1.6}
+\end{align*}}\noindent Hiển nhiên, $(1.6)$ là bất đẳng thức đúng. Vì thế, $(1.5)$ được chứng minh. 
+ Từ $(1.4)$ và $(1.5)$, suy ra $P \geq 3.$ 
+ Từ các chứng minh trên ta thấy, đẳng thức xảy ra khi và chỉ khi dấu bằng xảy ra đồng thời ở $(1.1), (1.2), (1.3)$ và $(1.6)$. Dễ thấy, điều cuối cùng có được khi và chỉ khi $a = b = c$. \\
+\noindent \textbf{Cách 2}  Vì $a, b, c > 0$ nên ta có: 
+\[P = \dfrac{\sqrt{\left(a^2 + bc \right)(ab + ac)}}{a(b + c)} + \dfrac{\sqrt{\left(b^2 + ca \right)(bc + ba)}}{b(c + a)} + \dfrac{\sqrt{\left(c^2 + ab \right)(ca + cb)}}{c(a + b)}.\tag{2.1}\]
+\noindent Áp dụng bất đẳng thức Bunhiacopxki cho hai bộ $2$ số $\left(a, \sqrt{bc}\right)$ và $\left(\sqrt{ab}, \sqrt{ac}\right)$, ta được: 
+$$\left(a^2 + bc\right)\left(ab + ac\right) \geq \left(a.\sqrt{ab} + \sqrt{bc}.\sqrt{ac}\right)^2 = ab.\left(a+c\right)^2.$$
+Suy ra 
+$\sqrt{\left(a^2 + bc\right)(ab + ac) \geq \sqrt{ab}. (a + c)}.$\hfill$(2.2)$\\
+Bằng cách tương tự, ta cũng chứng minh được: 
+{\allowdisplaybreaks
+\begin{align*}
+&\sqrt{\left(b^2 + ac\right)(bc + ba) \geq \sqrt{bc}. (b + a)}\tag{2.3}\\
+&\sqrt{\left(c^2 + ab\right)(ca + cb) \geq \sqrt{ca}. (c + b)}.\tag{2.4}
+\end{align*}}Từ ($2.1$), ($2.2$), ($2.3$) và ($2.4$), suy ra 
+\[P \geq \dfrac{\sqrt{ab}(a + c)}{a(b + c)} + \dfrac{\sqrt{bc}(b + a)}{b(c + a)} + \dfrac{\sqrt{ca}(c + b)}{c(a + b)}.\tag{2.5}\]
+\noindent Ký hiệu $Q$ là vế phải của ($2.5$). Theo bất đẳng thức Cauchy cho $3$ số thực dương, ta có:
+\[Q \geq \sqrt[3]{\dfrac{\sqrt{ab}(a + c)}{a(b + c)} + \dfrac{\sqrt{bc}(b + a)}{b(c + a)} + \dfrac{\sqrt{ca}(c + b)}{c(a + b)}} = 3.\tag{2.6}\] 
+\noindent Từ ($2.5$) và ($2.6$), suy ra $P \geq 3$. 
+Từ các chứng minh trên ta thấy, đẳng thức xảy ra khi và chỉ khi dấu bằng xảy ra đồng thời ở ($2.2$),($2.3$), ($2.4$) và ($2.6$). Dễ thấy, điều cuối cùng có được khi và chỉ khi $a = b = c$. \\
+\noindent \textbf{Cách 3}  Theo bất đẳng thức Cauchy cho $3$ số thực dương, ta có:
+\[P \geq 3\sqrt[6]{\dfrac{a^2 + bc}{a(b + c)} . \dfrac{b^2 + ca}{b(c + a)} . \dfrac{c^2 + ab}{c(a + b)}}.\tag{3.1}\]
+\noindent Tiếp theo, ta sẽ chứng minh: 
+\[\dfrac{a^2 + bc}{a(b + c)} . \dfrac{b^2 + ca}{b(c + a)} . \dfrac{c^2 + ab}{c(a + b)} \geq 1.\tag{3.2}\]
+\noindent Thật vậy, do $a, b, c > 0$ nên 
+\[(3.2) \Leftrightarrow \left( a^2 + bc\right) \left(b^2 + ca\right) \left(c^2 + ab\right) \geq abc (a + b)(b + c)(c + a). \tag{3.3}\]
+\noindent Áp dụng bất đẳng thức Bunhiacopxki cho hai bộ $2$ số $\left(a, \sqrt{bc}\right)$ và $\left(b, \sqrt{bc}\right)$, ta được:
+\[\left(a^2 + bc\right)\left(b^2 + bc\right) \geq \left(ab + bc\right)^2.\] 
+Hay 
+\[b\left(a^2 + bc\right) \left(b + c\right) \geq b^2 \left(a + c\right)^2.\tag{3.4}\]
+Chứng minh tương tự, ta cũng có: 
+{\allowdisplaybreaks
+	\begin{align*}
+&c\left(b^2 + ca\right) \left(c + a\right) \geq c^2 \left(b + a\right)^2.\tag{3.5}\\
+&a\left(c^2 + ab\right) \left(a + b\right) \geq a^2 \left(c + b\right)^2.\tag{3.6}
+\end{align*}}Vì các vế của ($3.4$), ($3.5$) và ($3.6$) đều dương nên nhân các bất đẳng thức đó với nhau, vế theo vế, rồi chia cả $2$ vế của bất đẳng thức thu được cho $abc(a + b)(b + c)(c + a)$, ta sẽ nhận được bất đẳng thức ($3.3$). Vì thế, ($3.2$) được chứng minh. 
+Từ ($3.1$) và ($3.2$), hiển nhiên suy ra $P \geq 3$. 
+\noindent Từ các chứng minh trên ta thấy, đẳng thức xảy ra khi và chỉ khi dấu bằng xảy ra đồng thời ở ($3.1$), ($3.4$), ($3.5$) và ($3.6$). Dễ thấy, điều cuối cùng có được khi và chỉ khi $a = b = c$.
+\begin{nx}\hfill
+\begin{itemize}
+	\item Để tiện cho việc theo dõi của mọi đối tượng độc giả, chúng tôi nhắc lại ở đây:
+\begin{itemize}
+	\item \textit{Bất đẳng thức Cauchy cho $n$ số thực không âm $($$n$ nguyên lớn hơn $1$$)$ $a_1, a_2, \ldots , a_n$.}
+$$ \dfrac{a_1 + a_2 + \ldots + a_n}{n} \geq \sqrt[n]{a_1 a_2 \ldots a_n}. $$
+\noindent Dấu bằng xảy ra khi và chỉ khi 
+$a_1 = a_2 = \cdots = a_n.$
+\item \textit{Bất đẳng thức Bunhiacopxki cho $2$ bộ $n$ số thức $\left(a_1, a_2, \ldots, a_n\right)$ và $\left(b_1, b_2, \ldots, b_n\right)$ $($$n$ nguyên lớn hơn $1$$)$}: 
+$$\left(a_1^2 + a_2^2 + \ldots + a_n^2\right)\left(b_1^2 + b_2^2 + \ldots + b_n^2 \right) \geq \left(a_1b_1 + a_2 b_2 + \ldots a_nb_n\right)^2.$$
+Dấu bằng xảy ra khi và chỉ khi
+$\dfrac{a_1}{b_1} = \dfrac{a_2}{b_2} = \cdots = \dfrac{a_n}{b_n}.$
+\noindent Bất đẳng thức Bunhiacopxki còn được gọi là bất đẳng thức Cauchy-Bunhiacopxki hoặc Cauchy-Schwarz.\medskip
+\end{itemize}
+\item  Hầu hết các bạn gửi lời giải tới Tạp chí đều đã ra theo Cách $1$ hoặc Cách $3$; một số bạn đã giải theo cả hai cách, $1$ và $3$.
+Điểm khác biệt của các lời giải theo Cách $1$ nằm ở cách chứng minh bất đẳng thức ($1.5$). Chẳng hạn, có bạn đã chứng minh bất đẳng thức vừa nêu bằng cách sử dụng hằng đẳng thức:
+$$\dfrac{a^2 + bc}{(a + b)(a + c)} + \dfrac{b^2 + ca}{(b + a)(b + c)} + \dfrac{c^2 + ab}{(c + a)(c + b)} = 2 - \dfrac{4abc}{(a + b)(b + c)(c + a)}.$$
+Lưu ý rằng, ở cách 1, ta có thể chứng minh
+$$a^2b+ab^2+a^2c+ac^2+b^2c+bc^2\ge 6abc$$
+bằng cách áp dụng bất đẳng thức Cauchy cho $6$ số hạng của tổng nằm ở vế trái của bất đẳng thức trên. Tuy nhiên, chúng tôi đã lựa chọn cách chứng minh như đã trình bày trong phần Lời giải nhằm khẳng định bài ra có thể được giải theo cách đơn giản chỉ bằng các kiến thức nằm trong phạm vi nội dung chương trình môn Toán cấp THCS hiện hành. \medskip
+
+\noindent Điểm khác biệt của các lời giải theo Cách $3$ nằm ở cách chứng minh bất đẳng thức ($3.2$). Ngoại trừ cách đã nêu ở phần Lời giải trên đây, các cách còn lại đều dựa trên việc khai triển cách tích có mặt trong bất đẳng thức ($3.2$).\medskip
+
+\item  Một số bạn đã phức tạp hóa việc giải bài đã ra bằng việc lựa chọn phương pháp đổi biến. \medskip
+
+\item  Một số bạn đã mắc các lỗi logic cơ bản trong quá trình lập luận. Chẳng hạn, có bạn đã lập luận như sau: 
+$$(*) \Rightarrow \cdots \Rightarrow (**).$$
+\noindent Vì $(**)$ là bất đẳng thức đúng nên $(*)$ là bất đẳng thức đúng". 
+\item  Một số bạn quên trả lời câu hỏi "đẳng thức xảy ra khi và chỉ khi nào" đã nêu trong đề bài.
+\item  Bạn Lê Tuấn Tú có nhận xét đúng rằng Lời giải Cách $3$ cho phép khái quát bài đã ra để thu được kết quả sau:
+ \textit{"Cho số nguyên $n \geq 2$. Khi đó, với mọi số thực dương $a, b, c$, ta luôn có bất đẳng thức:} 
+$$\sqrt[n]{\dfrac{a^2 + bc}{a(b + c)}} + \sqrt[n]{\dfrac{b^2 + ca}{b(c + a)}} + \sqrt[n]{\dfrac{c^2 + ab}{c(a + b)}} \geq 3.$$
+\noindent Dấu bằng xảy ra khi và chỉ khi $a = b = c.$"
+\item  Một trong các câu hỏi có thể đặt ra từ việc giải được bài đã ra: \textbf{Kết quả sau đây liệu có đúng?} 
+\noindent \textit{"Cho các số nguyên $m, n$ với $m \geq 3$ và $n \geq 2$. Khi đó, với mọi số thực dương $a_1, a_2, \ldots , a_m$, ta luôn có bất đẳng thức:} 
+$$\sqrt[n]{\dfrac{a_1^2 + a_2a_3}{a_1(a_2 + a_3)}} + \sqrt[n]{\dfrac{a_2^2 + a_3a_4}{a_2(a_3 + a_4)}} + \cdots + \sqrt[n]{\dfrac{a_m^2 + a_1 a_2}{a_m(a_1 + a_2)}} \geq m.$$
+\noindent Dấu bằng xảy ra khi và chỉ khi $a_1 = a_2 = \cdots a_m$"
+ \end{itemize}
+\end{nx}
+}
+\end{bt}
+\begin{bt}[P123, Tạp chí Pi, tháng 12 năm 2017]%[Thanh Hai Le, Dự án EX_TapChi02]%[9D0G4]
+Chứng minh rằng trong $18$ số nguyên dương liên tiếp, mà mỗi số đều có $3$ chữ số, tồn tại ít nhất một số có tính chất: số đó chia hết cho tổng các chữ số của nó.
+\loigiai
+{Xét 18 số nguyên dương liên tiếp tùy ý, mà mỗi số đều có $3$ chữ số.
+	Ta biết rằng, trong $18$ số nói trên có đúng một số chia hết cho $18$. Giả sử số đó là $\overline{abc}(a\neq0).$
+	Vì chia hết cho $18$ nên $\overline{abc}\vdots9$. Do đó, theo dấu hiệu chia hết cho $9$, ta có
+ \[ (a+b+c) \vdots 90. \tag{1}\]
+ Vì $a,b,c\in\left\lbrace 0;1;2;\dots;9\right\rbrace $ và $a\neq0$ nên $0<a+b+c\leqslant 27$. Do đó, từ $(1)$ suy ra
+ \[ a+b+c\in \left\lbrace 9; 18; 27\right\rbrace. \tag{2}\]
+ Nếu $a+b+c=27$ thì $\overline{abc}=999$ và vì thế, theo định nghĩa của $\overline{abc}$, ta phải có $999\vdots 18$, là điều không thể. Do đó, $a+b+c\neq27$. Kết hợp với $(2)$ suy ra $a+b+c\in \left\lbrace 9;18 \right\rbrace $. Từ đây, do $\overline{abc} \vdots 18$ nên
+ \[\overline{abc} \vdots (a+b+c).\]
+ Ta có điều phải chứng minh.
+\begin{nx}
+	\hfil
+	\begin{enumerate}[1.]
+		\item Trong lời giải trên, ta đã sử dụng kết quả quen biết sau:\\
+		\textbf{Kết quả 1.} Cho số nguyên $n\geqslant 2$. Khi đó, trong $n$ số nguyên liên tiếp, luôn có đúng một số chia hết cho $n$.
+	\\ \textit{Chứng minh:} Ta dùng phương pháp phản chứng. Xét $n$ số nguyên liên tiếp 
+	$$a,a+1,\dots, a+(n-1),$$
+	với $a$ là một số nguyên tùy ý.
+		 Trước hết ta chứng minh trong $n$ số trên có ít nhất một số chia hết cho $n$.
+		 Thật vậy, giả sử ngược lại, tất cả $n$ số trên đều không chia hết cho $n$. Thế thì, khi chia $n$ số đó cho $n$, ta chỉ có thể nhận được tối đa $n-1$ số dư đôi một khác nhau. Điều đó chứng tỏ tồn tại hai số (trong $n$ số nguyên liên tiếp nêu trên) cho cùng một số dư, khi chia cho $n$. Giả sử hai số đó là $a+k$ và $a+m$, với $k,m$ là các số tự nhiên và $0\leqslant k<m\leqslant n-1$. Khi đó, ta có $$(a+m)-(a+k)=m-k$$
+		là một số nguyên dương nhỏ hơn $n$ (suy ra từ các ràng buộc nêu trên đối với $k,m$) và chia hết cho $n$ (suy ra từ định nghĩa của các số $a+k$ và $a+m$). Rõ ràng, điều vừa nhận được là một điều vô lí; chứng tỏ giả sử phản chứng trên là sai. Vì thế, ta có điều muốn chứng minh.
+	Tiếp theo ta chứng minh trong $n$ số nguyên liên tiếp nêu trên không thể có quá một số chia hết cho $n$.
+		 Thật vậy, giả sử ngược lại, có hai số cùng chia hết cho $n$; giả sử là $a+p$ và $a+q$, với $p,q$ là các số tự nhiên và $0\leqslant p<q \leqslant n-1 $. Khi đó, bằng cách xét tương tự như phần chứng minh vừa nêu trên đố với hiệu $(a+p)-(a+q)$, ta sẽ đi đến một điều vô lí, cho thấy giả sử phản chứng vừa nêu trên là sai. Do đó, ta có điều muôn chứng minh.
+		Từ các kết quả đã chứng minh được ở trên, hiển nhiên suy ra điều phải chứng minh.
+		 \textit{Lưu ý rằng, chứng minh nêu trên không phải là chứng minh duy nhất cho kết quả 1}.
+		\item Trong số các bạn đã gửi lời giải tới Tòa soạn, có một số bạn thay vì áp dụng kết quả 1 cho $n=18$, đã áp dụng kết quả đó cho $n=9$, dẫn tới lời giải bị dài dòng.
+		\item Người chấm rất {\lq\lq}tò mò{\rq\rq} muốn biết lời giải cho bài toán sau, phát sinh từ bài đã ra:\\
+\textbf{Bài toán phát sinh.} \textit{Hãy tìm số nguyên dương $k$ nhỏ nhất có tính chất: trong $k$ số nguyên dương liên tiếp, mà mỗi số đều có $3$ chữ số, tồn tại ít nhất một số chia hết cho tổng các chữ số của nó.}
+\item Dễ dàng nhận thấy, chỉ cần thay cụm từ {\lq\lq}chia hết cho $n${\rq\rq} ở một số chỗ thích hợp (bạn đọc từ tìm các chỗ đó nhé) trong chứng minh ở mục 1 trên đây bởi cụm từ {\lq\lq}chia $n$ dư $r${\rq\rq}, ta sẽ có một chứng minh cho kết quả khái quát sau đây:\\
+\textbf{Kết quả 2.} \textit{Cho các số nguyên $n$ và $r$, với $n\geq 2$ và $0\leq r\leq n-1$. Khi đó, trong $n$ số nguyên liên tiếp, luôn có đúng một số chia $n$ dư $r$.}\\
+Như vậy, trong $n$ số nguyên liên tiếp (tùy ý), luôn có đúng một số chia $n$ dư $0$ (tức, chia hết cho $n$), có đúng một số chia $n$ dư $1$,$\dots$, có đúng một số chia $n$ dư $n-1$. Từ đây, hiển nhiên suy ra \textit{tập hợp gồm $n$ số nguyên liên tiếp có tính chất: mỗi số nguyên đều có cùng số dư, trong phép chia cho $n$, với đúng một số thuộc tập hợp đó} (nói cách khác: \textit{mỗi số nguyên đều đồng dư với đúng một số thuộc tập hợp đó, theo modulo $n$}). Trong toán học, một tập hợp các số nguyên có tính chất như thế được gọi là một \textit{hệ thặng dư đầy đủ modulo $n$}. Với khái niệm này, ta có thể phát biểu lại khẳng định vừa nêu dưới dạng:\\
+		\textit{{\lq\lq}Tập hợp gồm $n$ số nguyên liên tiếp là một hệ thặng dư đầy đủ modulo $n${\rq\rq}}.\\
+		Khái niệm hệ thặng dư đầy đủ là một khái niệm cơ bản, quan trọng trong Số học. Bạn đọc có thể tìm hiểu thêm về khái niệm này, cũng như một số ứng dụng của nó, trong cuốn sách \textbf{Số học} (Nhà xuất bản Giáo dục, 2004) do GS. Hà Huy Khoái biên soạn.
+		\begin{flushright}
+			\textbf{Lưu Thanh Hà}
+		\end{flushright}
+	\end{enumerate}
+\end{nx}
+}
+\end{bt}
+
+\begin{bt}[P123, Tạp chí Pi, tháng 12 năm 2018]%[Thanh Hai Le, Dự án EX_TapChi02]%[9D0G8]
+	Cho $n \ge 5$ điểm nằm trên mặt phẳng sao cho không có $3$ điểm nào thẳng hàng. Tí và Tèo chơi trò chơi sau: Hai bạn luân phiên nhau kẻ các đoạn thẳng nối hai điểm trong số các điểm đã cho; ở lượt của mình, mỗi bạn chỉ kẻ đúng một đoạn thẳng và không có bạn nào kẻ lại đoạn thẳng đã được kẻ trước đó. Nếu sau lượt kẻ của một bạn nào đó mà mỗi điểm, trong $n$ điểm đã cho, đều là đầu mút của ít nhất một đoạn thẳng (trong số các đoạn thẳng đã được kẻ) thì bạn đó được coi là thắng cuộc.
+Giả sử Tí là người kẻ đoạn thẳng đầu tiên. Hãy tìm tất cả các số nguyên $n\ge 5$ sao cho Tí có cách chơi để thắng cuộc, cho dù Tèo có thực hiện các lượt kẻ của mình như thế nào đi chăng nữa.
+	\loigiai{Ta sẽ gọi một điểm là \textit{điểm cô lập} nếu điểm đó không được nối với bất kì điểm nào khác trong số $n-1$ điểm còn lại.		
+Dễ thấy, Tí sẽ là người thắng cuộc khi và chỉ khi trước lượt kẻ cuối của Tí, trên mặt phẳng chỉ còn lại $1$ hoặc $2$ điểm cô lập.		
+Rõ ràng, Tèo buộc phải chấp nhận để Tí có được điều trên trước lượt kẻ cuối của Tí khi và chỉ khi trước lượt kẻ của Tèo, trên mặt phẳng còn đúng $3$ điểm cô lập và $n-3$ điểm còn lại đôi một đã được nối với nhau bởi các đoạn thẳng. Vì Tí là người thực hiện việc kẻ đầu tiên nên điều vừa nêu chỉ có thể xảy ra khi số đoạn thẳng có cả hai đầu mút nằm trong số $n-3$ điểm là một số lẻ; nghĩa là
+		$$\dfrac{(n-3)(n-4)}{2}$$
+		phải là số lẻ.
+Dễ thấy, điều vừa nêu trên có được khi và chỉ khi $n$ có dạng $4k+1$ hoặc $4k+2$, với $k$ là một số nguyên dương.		
+Như vậy, Tí có thể có cách chơi đảm bảo chắc chắn thắng chỉ khi $n=4k+1$ hoặc $n=4k+2, k\in \mathbb{N}^*$.
+ Ngược lại xét $n$ có các dạng vừa nêu trên, ta có:
+			\begin{itemize}
+		\item \textit{Trường hợp 1:} $n=4k+1, k\in \mathbb{N^*}.$
+		Với $k=1,$ hiển nhiên Tí là người thắng cuộc.
+		Xét $k \geq 2.$\\
+		Dễ thấy, sau mỗi lượt kẻ của Tí hoặc Tèo, số điểm cô lập (trong số $n$ điểm đã cho) hoặc giữ nguyên, hoặc giảm $1$ hoặc giảm $2.$
+Xét cách chơi sau của Tí:
+Ở lượt đầu tiên, Tí kẻ một đoạn thẳng bất kì. Tiếp theo, một khi số điểm cô lập trên mặt phẳng còn lớn hơn $3$ vào thời điểm Tèo thực hiện lượt kẻ của mình, sau mỗi lượt kẻ của Tèo, nếu số điểm cô lập giảm đi $s$ (điểm), $s\in \left\lbrace 0; 1; 2\right\rbrace,$ thì Tí sẽ kẻ một đoạn thẳng sao cho số điểm cô lập giảm đi $2-s,$ bằng cách:\\
+Nếu $s=0$ (tức Tèo kẻ một đoạn thẳng nối hai điểm không cô lập) thì Tí kẻ đoạn thẳng nối hai điểm cô lập tùy ý;\\
+Nếu $s=1$ (tức Tèo kẻ một đoạn thẳng nối một điểm cô lập với một điểm không cô lập) thì Tí cũng kẻ một đoạn thẳng nối một điểm cô lập với một điểm không cô lập;\\
+Nếu $s=2$ (tức Tèo kẻ một đoạn thẳng nối hai điểm cô lập) thì Tí kẻ một đoạn thẳng nối hai điểm không cô lập.\\
+Tí có thể thực hiện việc kẻ như trên do số điểm cô lập trên mặt phẳng lớn hơn $3$ vào thời điểm Tèo thực hiện lượt kẻ của mình và khi nối hai điểm cô lập với nhau, Tèo đã tạo ra $2$ điểm không cô lập mới, mà mỗi điểm chỉ được nối với đúng một điểm trong số các điểm không cô lập có trên mặt phẳng sau khi Tèo thực hiện lượt kẻ của mình.
+Với cách chơi nêu trên của Tí, sau lượt kẻ đầu tiên của Tí, cũng như sau mỗi cặp lượt kẻ Tèo-Tí, số điểm cô lập giảm đi đúng $2.$ Từ đó, do số điểm cô lập ban đầu là một số lẻ ($4k+1, k\geq 2$) lớn hơn hoặc bằng $9$ nên phải tồn tại thời điểm mà sau cặp lượt kẻ Tèo-Tí, số điểm cô lập bằng đúng $3$ và người phải thực hiện lượt kẻ ngay sau khi tình huống này xảy ra là Tèo. Lúc này, nếu $n-3$ điểm không cô lập đôi một đã được nối với nhau bởi các đoạn thẳng thì Tí sẽ là người thắng cuộc, theo nhận xét ở phần đầu lời giải. Trường	hợp ngược lại, còn các điểm không cô lập chưa được nối với nhau, hiển nhiên, ở mỗi lượt của mình, cả Tèo và Tí sẽ kẻ một đoạn thẳng nối hai điểm không cô lập (một khi còn có thể). Do sau mỗi lượt kẻ của Tèo, số đoạn thẳng đã được kẻ (kể từ khi hai bạn bắt đầu chơi) luôn là một số chẵn, mà tổng số đoạn thẳng có cả hai đầu mút nằm trong số $n-3$ điểm không cô lập là một số lẻ $((2k-1)\cdot(4k-3))$ nên một khi Tèo còn kẻ được đoạn thẳng nối hai điểm không cô lập thì Tí cũng làm được điều tương tự, và hơn nữa, phải tồn tại thời điểm mà sau lượt kẻ của Tí, tất cả $n-3$ điểm không cô lập sẽ đôi một được nối với nhau. Điều này, theo nhận xét ở phần đầu lời giải, buộc Tèo phải nhường phần thắng cuộc cho Tí.
+	\item \textit{Trường hợp 2:} $n=4k+2,k \in \mathbb{N^*}$.
+		 Với $k=1$, dễ thấy, Tí là người thắng cuộc.
+Xét $k\ge 2$. Khi đó, sau lượt kẻ đầu tiên của Tí, có thể xảy ra một trong hai khả năng sau:
+				\begin{itemize}
+					\item[+] Khả năng 1: Tèo kẻ một đoạn thẳng nối một trong hai điểm không cô lập với một điểm cô lập.
+					\item[+] Khả năng 2: Tèo kẻ một đoạn thẳng nối hai điểm cô lập với nhau.
+				\end{itemize}
+Nếu khả năng 1 xảy ra, Tí sẽ kẻ một đoạn thẳng nối hai điểm không cô lập với nhau; nếu khả năng 2 xảy ra, Tí sẽ kẻ một đoạn thẳng nối một điểm không cô lập với một điểm cô lập. Bằng cách này, Tí sẽ làm cho số điểm cô lập bị giảm đi một số lẻ (3 hoặc 5) điểm, sau 3 lượt kẻ đầu tiên (gồm 2 lượt của Tí và 1 lượt của Tèo). Vì thế, do số điểm cô lập ban đầu là số chẵn nên bằng cách kẻ nêu trên, Tí sẽ buộc Tèo phải thực hiện lượt kẻ tiếp theo trong trạng thái số điểm cô lập trên mặt phẳng là một số lẻ lớn hơn 3. Điều này, cùng với việc số đoạn thẳng có cả hai đầu mút nằm trong số $n-3$ điểm là một số lẻ $((2k-1)\cdot(4k-1))$, hiển nhiên, giúp Tí dùng cách chơi đã mô tả ở trường hợp 1 để trở thành người thắng cuộc.
+\end{itemize}
+Tóm lại, khi $n=4k+1$ hoặc $n=4k+2$,$k \in \mathbb{N^*}$, Tí sẽ có cách chơi đảm bảo chắc chắn thắng.
+Vậy, tất cả giá trị $n$ cần tìm theo yêu cầu đề bài là $n=4k+1$ và $n=4k+2$,$k\in \mathbb{N^*}$.
+	\begin{nx}\hfill
+			\begin{enumerate}[1.]
+				\item Cho tới thời điểm bản thảo vào nhà in, Tòa soạn chỉ nhận được $4$ lời giải từ $4$ bạn học sinh, gồm $2$ bạn lớp $9$ ( một ở Hà Giang và một ở TP. Hồ Chí Minh), $1$ bạn lớp $10$ (ở Bình Định) và $1$ bạn lớp $11$ (ở TP. Hồ Chí Minh). Tất cả $4$ lời giải đều sai, vì các lí do khác nhau.
+				\item Bạn học sinh lớp $11$ có lời giải sai do cho rằng bài đã ra tương đương và có cùng kết quả với bài toán sau:
+				`` Trên mặt phẳng, có $n-2$ hòn sỏi. Hai bạn, Tí và Tèo, chơi trò chơi sau: ở mỗi lượt chơi của mình, mỗi bạn sẽ bốc $1$ hoặc $2$ hòn sỏi. Người bốc $1$ hoặc $2$ hòn ỏi cuối cùng được coi là người thắng cuộc. Biết rằng, Tèo là người đầu tiên thực hiện việc bốc sỏi. Hỏi ai là người có cách chơi đảm bảo chắc chắn thắng cuộc?'' 
+				\textit{Dễ dàng nhận thấy việc nối hai điểm không cô lập $($theo thuật ngữ đã dùng trong lời giải trên$)$ ở bài đã ra không tương ứng với động tác bốc sỏi nào trong bài toán trên. Vì thế, bài đã ra không tương đương với bài toán trên.}
+				\item Bạn học sinh lớp $9$ ở Hà Giang và bạn học sinh lớp $10$ có lời giải sai do đã lập luận như sau, sau khi tìm ra được điều kiện cần cho các giá trị $n$ cần tìm theo yêu cầu đề bài:
+				``Vì đều biết cách chơi nên hai bạn (ngầm) ``thỏa thuận'' với nhau chừa ra $3$ điểm không động chạm tới và ở mỗi lượt chơi của mình, mỗi bạn chỉ kẻ một đoạn thẳng (tùy ý) nối hai trong số $n-3$ điểm còn lại. Do số đoạn thẳng có cả hai đầu mút nằm trong số $n-3$ điểm là một số lẻ và Tí là người kẻ đoạn thẳng đầu tiên nên Tí sẽ thắng.''\\
+				\textit{Nếu bạn là Tèo và lại biết cách chơi thì bạn có ``thỏa thuận'' với Tí như trên hay không, khi đã nhẩm tính được số đoạn thẳng có cả hai đầu mút nằm trong số $n-3$ điểm là một số lẻ?}
+				\item Bạn học sinh lớp $9$ ở TP. Hồ Chí Minh đã giải bài ra bằng cách xét đầy đủ cả $4$ trường hợp có thể đối với $n:n=4k+m,m=0,1,2,3$. Lời giải của bạn đó sai do chỉ ra sai cách chơi đảm bảo chắc chắn thắng của Tí, trong trường hợp $n=4k+2$.
+				\item Tôn trọng tác giả của trò chơi, Pi đã liệt bài đã ra vào loại ``sưu tầm''; tuy nhiên, sự sưu tầm trong trường hợp này không phải là ``sao y bản chính''. Cụ thể, bài toán gốc chỉ đòi hỏi tìm các giá trị của $n$ sao cho Tí có hi vọng tìm được cách chơi đảm bảo chắc chắn thắng. Với yêu cầu như thế, lời giải sẽ chỉ là phần tìm ra dạng của $n$ trong lời giải đã trình bày ở trên. Như vậy, về thực chất, bài đã ra là một sự phát triển đáng kể của bài toán gốc.
+			\end{enumerate}
+			\begin{flushright}
+				
+				\textbf{Nguyễn Khắc Minh}
+			\end{flushright}
+		\end{nx}
+}
+\end{bt}
+%\newpage	
+\begin{bt}[P125, Tạp chí Pi, tháng 12 năm 2018]%[Huỳnh Thị Sâm, Dự án EX_TapChi02]%[0H0G3]
+Cho tứ giác $ ABCD $ nội tiếp đường tròn $ (O) $. Biết rằng, các đường thẳng $ AB $ và $ CD $ cắt nhau tại $ E $, các đường thẳng $ AD $ và $ BC $ cắt nhau tại $ F $. Trên $ (O) $, lấy một điểm $ P $ tùy ý. Các đường thẳng $ PE, PF $ cắt lại đường tròn $ (O) $ tương ứng tại $ Q, R $. Chứng minh rằng các đường thẳng $ QF $ và $ RE $ cắt nhau tại một điểm nằm trên đường tròn $ (O) $.
+	\loigiai
+	{\begin{center}
+			\begin{tikzpicture}[scale=1.2]
+			\tkzDefPoint(0,0){O}
+			\tkzDefPoint(2,0){U}
+			\tkzDefPoint(-6,-2){E}
+			\tkzDrawCircle(O,U)
+			\tkzDefPointBy[rotation = center O angle -60](U)
+			\tkzGetPoint{P}
+			\tkzDefPointBy[rotation = center O angle -30](U)
+			\tkzGetPoint{C}
+			\tkzDefPointBy[rotation = center O angle 90](U)
+			\tkzGetPoint{B}
+			\tkzDefPointBy[rotation = center O angle 108](U)	\tkzGetPoint{R}	
+			\tkzInterLC(E,R)(O,U) \tkzGetFirstPoint{X}
+			\tkzInterLC(E,B)(O,U) \tkzGetFirstPoint{A}
+			\tkzInterLC(E,C)(O,U) \tkzGetSecondPoint{D}
+			\tkzInterLC(E,P)(O,U) \tkzGetSecondPoint{Q}
+			\tkzInterLL(A,C)(B,D) \tkzGetPoint{G}
+			\tkzInterLL(X,Q)(B,D) \tkzGetPoint{L}
+			\tkzInterLL(A,C)(X,Q) \tkzGetPoint{K}
+			\tkzDrawLine[add = 0 and 3.1](D,A)
+			\tkzDrawLine[add = 0 and 1.85](C,B)
+			\tkzDrawLine[add = 0 and 0.6](Q,P)
+			\tkzDrawLine[add = 0 and 0.25](B,C)
+			\tkzInterLL(Q,P)(B,C) \tkzGetPoint{Y}	\tkzLabelPoints[below ](Y)
+			\tkzInterLL(D,A)(C,B) \tkzGetPoint{F}	
+			\tkzLabelPoints[below ](P)
+				\tkzLabelPoints[above](O,B,R,F)
+					\tkzLabelPoints[above left](X)
+					\tkzLabelPoints[right](C)
+						\tkzLabelPoints[below left](A,D,Q)
+			\tkzLabelPoints[ left](E)	\tkzLabelPoints[ right](G,K,L)	\tkzDrawSegments(E,R E,B E,P E,C A,C B,D X,P Q,F P,F)	\tkzDrawPoints(O,B,P,R,E,C,X,A,D,Q,G,K,L,F,Y)
+			\coordinate (h) at ($(O)+(0,-2.5)$);
+			\draw (h)node[below]{$\text{Hình }125$};
+			\end{tikzpicture}
+		\end{center}
+		Gọi $ G $ là giao điểm của hai đường thẳng $ AC $ và $ BD $. Đường thẳng $ PG $ cắt lại đường tròn $(O)$ tại điểm thứ hai $ X $. Ta sẽ chứng minh $ QF $ và $ RE $ cùng đi qua điểm $ X $.
+	Thật vậy, gọi giao điểm của đường thẳng $ QX $ với các đường thẳng $ AC $ và $ BD $ tương ứng là $ K $ và $ L $.
+Đường thẳng $ BC $ cắt các đường $ PQ $ tại $ Y $.
+Chiếu xuyên tâm $ X $ hàng điểm $ (G,K,A,C) $ lên đường tròn $ (O) $ ta được: 
+\[(GK,AC)=X(GK,AC)=(PQ,AC).\tag{1}\]
+Chiếu xuyên tâm $ B $ hàng điểm $ (P,Q,A,C) $ lên đường thẳng $ PQ $, ta được:
+\[(PQ, AC) =B(PQ,AC) = (PQ,EY).\tag{2}\]
+Chiếu xuyên tâm $ C $ hàng điểm điều hòa $ (P,Q,E,Y) $ lên đường tròn $ (O) $, ta được:
+\[(PQ,EY) =C(PQ,EY)=(PQ,DB).\tag{3}\]
+Chiếu xuyên tâm $ X $ hàng điểm $ (P,Q,B,D) $ lên đường thẳng $ BD $ ta được:
+\[(PQ, DB) = X(PQ,DB)=(GL,DB).\tag{4}\]
+Từ (1),(2),(3) và (4) suy ra
+$ (GK,AC) = (GL,DB). $
+Do đó, các đường thẳng $ KL$, $AD $ và $ BC $ đồng quy.
+Hay nói cách khác, ba điểm $ Q, X,F $ thẳng hàng.\hfill(5)\\
+Bằng cách tương tự, ta cũng chứng minh được ba điểm $ R $, $ X $, $ E $ thẳng hàng.\hfill(6)\\
+Từ (5) và (6), suy ra hai đường thẳng $ QF $ và $ RE $ cắt nhau tại điểm $ X $ nằm trên đường tròn $ (O) $.
+Vậy ta có điều phải chứng minh.
+	\begin{nx}
+			\noindent 
+	\begin{enumerate}
+	\item Công cụ chủ lực được sử dụng trong lời giải trên là tỉ số kép và phép chiếu xuyên tâm. Các bạn đọc chưa làm quen với các kiến thức vừa nêu trên có thể tìm hiểu về các kiến thức đó trong cuốn ``Tài liệu giáo khoa chuyên toán hình học 10'' (sách do Nhà xuất bản Giáo dục tổ chức biên soạn, sản xuất và phát hành).
+		\item Bài toán trên có nhiều cách giải khác nhau như dùng hàng điểm điều hòa, tứ giác điều hòa, cực đối cực, định lí Pascal,\ldots So với các lời giải vừa nêu trên, lời giải trên đây không chỉ ngắn gọn mà còn có một ưu thế nổi trội hơn cả là giải quyết đồng thời mọi tình thế có thể. Cho tới thời điểm này, người chấm bài (và cũng đồng thời là tác giả của bài toán) vẫn chưa biết có hay không một lời giải ``sơ cấp'' hơn, đơn giản hơn cho bài toán đã ra. Vì thế, việc suy nghĩ tìm một lời giải  ``sơ cấp'' hơn, đơn giản ơn cho bài toán vẫn là một thách thức dành cho những người quan tâm.
+	\end{enumerate}
+	\end{nx}	
+\textbf{Chú ý: }Phép chiếu xuyên tâm bảo toàn tỉ số kép.		
+}
+\end{bt}	
+		
+\begin{bt}[P126, Tạp chí Pi, tháng 12 năm 2018]%[Ngô Quang Anh, Dự án EX_TapChi02]%[1D0G3]
+	Cho $P(x)$ là một đa thức bậc $5$ mà trên đồ thị của nó có đúng ba điểm, với hoành độ $x_1, x_2, x_3$ thỏa mãn điều kiện:$$ P''\left(x_1\right)=P'' \left(x_2\right)=P''\left(x_3\right)=0.$$
+	Chứng minh rằng nếu ba điểm nói trên thẳng hàng thì một trong ba điểm đó là trung điểm của đoạn thẳng nối hai điểm còn lại.
+	\loigiai{\noindent{\bf Cách 1.} 
+		Không mất tính tổng quát, giả sử $x_1<x_2<x_3$.  Do ba điểm $\left(x_1, P\left(x_1\right)\right), \left(x_2, P\left(x_2\right)\right)$ và $\left(x_3, P\left(x_3\right)\right)$ thẳng hàng (theo giả thiết) nên yêu cầu chứng minh của bài toán tương đương với yêu cầu chứng minh $2x_2=x_1+x_3$.
+		Không mất tính tổng quát, có thể coi hệ số cao nhất của $P(x)$ bằng $1$. Khi đó, từ giả thiết suy ra $$ P''(x)= 20\left(x-x_1\right)\left(x-x_2\right)\left(x-x_3\right),$$ đồng thời tồn tại các hằng số $\alpha, \beta$ sao cho $P\left(x_i\right)=\alpha x_i+\beta$ với $i=1, 2, 3$.
+		Xét đa thức 
+		$$Q(x)=P(x)-\alpha x-\beta.$$
+		Ta có $Q''(x)=P''(x)$ và $Q''\left(x_i\right)=Q\left(x_i\right)=0$, với mọi $i=1, 2, 3$.
+		Do đó
+		\[20Q(x)=\left(x^2+px+q\right)\cdot Q''(x).\tag{1}\]
+		Đặt $x=y-\dfrac{p}{2}$; khi đó, từ (1), ta được: \[20Q\left(y-\dfrac{p}{2}\right)=\left(y^2+q-\dfrac{p^2}{4}\right)\cdot Q''\left(y-\dfrac{p}{2}\right).\tag{2}\]
+		Đặt $R(y)=Q\left(y-\dfrac{p}{2}\right)=y^5+ay^4+by^3+cy^2+dy+e$ và $q-\dfrac{p^2}{4}=s$.
+		Khi đó, (2) được viết lại dưới dạng: \[20R(y)=\left(y^2+s\right)\cdot R''(y).\tag{3}\]
+		Đồng nhất hệ số các hệ số của $y^4, y^2$ và hệ số tự do ở hai vế của (3), ta được: $$ \heva{&20a=12a\\&20c=12as+2c\\&20e=12cs.} $$
+		Suy ra $a=c=e=0$. Vì vậy, $R(y)$ là hàm số lẻ; suy ra $R''(y)$ cũng là hàm số lẻ. Vì thế, $R''(y)$ có $3$ nghiệm $y_1, y_2, y_3$ với $y_2=0$ và $y_1+y_3=2y_2$. Từ đây, vì $x_i=y_i-\dfrac{p}{2}, i=1, 2, 3$, suy ra $x_1+x_3=2x_2$. Ta có điều phải chứng minh.\\
+\noindent{\bf Cách 2.}
+		Không mất tính tổng quát, giả sử $x_1<x_2<x_3$.  Do ba điểm $\left(x_1, P\left(x_1\right)\right), \left(x_2, P\left(x_2\right)\right)$ và $\left(x_3, P\left(x_3\right)\right)$ thẳng hàng (theo giả thiết) nên yêu cầu chứng minh của bài toán tương đương với yêu cầu chứng minh $2x_2=x_1+x_3$.
+		Không mất tính tổng quát, có thể coi hệ số cao nhất của $P(x)$ bằng $1$.
+		Vì tính chất của đồ thị của $P(x)$ không thay đổi qua phép tịnh tiến theo trục hoành nên ta có thể giả sử hệ số của $x^4$ bằng $0$. Tương tự, nhờ phép tịnh tiến theo trục tung, ta có thể giả sử hệ số tự do bằng $0$. Nghĩa là, ta có thể giả sử $P(x)$ có dạng: $$P(x)=x^5+ax^3+bx^2+cx.$$
+		Khi đó, ta có: $P''(x)=20x^3+6ax+2b$.
+Thực hiện phép chia đa thức $P(x)$ cho đa thức $P''(x)$, ta được: 
+$$ P(x)=\left(\dfrac{1}{20}x^2+\dfrac{7a}{200}\right)\cdot P''(x)+\dfrac{9b}{10}\cdot x^2+\left(c-\dfrac{21a^2}{100}\right)\cdot x-\dfrac{7ab}{100}.$$
+Do đó, $P\left(x_i\right)=\dfrac{9b}{10}\cdot x_i^2+\left(c-\dfrac{21a^2}{100}\right)\cdot x_i-\dfrac{7ab}{100}, i=1, 2, 3$.
+Như vậy, các điểm $\left(x_i, P\left(x_i\right)\right)$ nằm trên parabol $$y=\dfrac{9b}{10}\cdot x^2+\left(c-\dfrac{21a^2}{100}\right)\cdot x-\dfrac{7b}{100}.$$
+Theo giả thiết của bài ra, các điểm này nằm trên một đường thẳng. Vì thế, parabol trên phải suy biến thành đường thẳng; nghĩa là, ta phải có $b=0$.
+Do đó, $P(x)$ là hàm số lẻ; suy ra $P''(x)$ cũng là hàm số lẻ. Vì thế, ba nghiệm $x_1, x_2, x_3$ của $P''(x)$ phải thỏa mãn ràng buộc $x_1+x_3=2x_2$. Ta có điều phải chứng minh.
+\begin{nx}\hfill
+\begin{enumerate}
+			\item Đây là một bài toán giải tích về tính chất của đồ thị hàm đa thức, mà trong lời giải chứa đựng nhiều kỹ thuật cơ bản liên quan đến phép biến đổi trên đa thức và đồ thị. Các tính toán sẽ khá rắc rối và cồng kềnh,nếu không biết cách xử lý.
+			\item Hai cách giải trên đây có phần giao là sử dụng phép tịnh tiến theo trục hoành (phép đặt $x = y-\dfrac{p}{2}$), nhưng cách $1$ xây dựng trên đa thức (ứng với đồ thị nhận được qua phép tịnh tiến) dựa trên các nghiệm, còn cách $2$ xây dựng đa thức ở dạng tổng quát dựa trên các hệ số.
+			\item Ở lời giải $1$, chúng ta đã sử dụng các tính chất rất cơ bản và quan trọng sau đây của đa thức:
+			\begin{itemize}
+				\item \textbf{Tính chất 1.} Nếu đa thức $P(x)$ bậc $n$ có hệ số cao nhất là $a_n$ và có $n$ nghiệm thực phân biệt $x_1, x_2,\ldots, x_n$ thì $P(x)=a\left(x-x_1\right)\left(x-x_2\right)\cdots\left(x-x_n\right)$.
+				\item \textbf{Tính chất 2.} Nếu mọi nghiệm của đa thức $P(x)$ đều là nghiệm của đa thức $Q(x)$ (tính cả số bội, tức là nếu $\alpha$ là nghiệm bội $r$ của $P(x)$ thì $\alpha$ cũng là nghiệm bội $r$ của $Q(x)$) thì $Q(x)$ chia hết cho $P(x)$.
+			\end{itemize}
+			\item Lời giải $2$ hàm chứa hai kỹ thuật quan trọng. Kỹ thuật thứ nhất là các phép tịnh tiến theo trục hoành và theo trục tung. Phép tịnh tiến theo trục tung thì đơn giản; ý tưởng tịnh tiến theo trục hoành được lấy từ ý tưởng khử hệ số của $x^{n-1}$ trong phương trình đại số bậc $n$:
+			\textit{Trong phương trình $$ x^n+a_{n-1}x^{n-1}+\cdots +a_1x+a_0=0,$$ nếu đặt $x=y-\dfrac{a_{n-1}}{n}$ thì phương trình đó sẽ được đưa về dạng: $$ y^n+b_{n-2}y^{n-2}+\cdots+b_1y+b_0=0.$$}
+			\noindent{Ý} tưởng trên cũng được dùng ở lời giải $1$, để đưa tam thức bậc hai $x^2+px+q$ về dạng $y^2+s$.
+			Kỹ thuật thứ hai là kỹ thuật sử dụng phép chia đa thức để viết phương trình đường cong (hoặc đường thẳng) đi qua các điểm cực trị hoặc các điểm uốn của hàm đa thức. Ý tưởng cơ bản là:
+			\textit{Giả sử chia đa thức $P(x)$ bậc $n$ cho đa thức $P'(x)$ ta được $$ P(x)=P'(x)\cdot Q(x)+R(x),$$trong đó $R(x)$ là một đa thức bậc $n-2$.
+				Khi đó, đồ thị của $R(x)$ là đường cong đia qua $n-1$ điểm cực trị của đồ thị của $P(x)$.}
+		\end{enumerate}
+	\end{nx}
+	}
+\end{bt}
+\begin{bt}[P127, Tạp chí Pi, tháng 12 năm 2018]%[Ngô Quang Anh, Dự án EX_TapChi02]%[1D0G3]
+Cho $P(x)$, $Q(x)$ là hai đa thức với hệ số thực, khác đa thức hằng, và thỏa mãn điều kiện
+$$\forall x\in \mathbb{R},\left[P(x)\right]=\left[Q(x)\right].$$ 
+Chứng minh rằng $P(x)=Q(x)$ với mọi số thực $x$ (Với  $t$ là số thực, $\left[t\right]$ kí hiệu là số nguyên lớn nhất không vượt quá $t$).
+\loigiai{Trước hết ta chứng minh bổ đề sau.
+\begin{bode} Xét đa thức $P(x)$ với hệ số thực, khác đa thức hằng. Khi đó, tồn tại số thực $a$ để $P(x)$ đơn điệu trên khoảng $\left(a;+\infty \right).$
+\end{bode}
+\begin{cm}
+	Giả sử 
+	$$P(x)=c_0{x}^n+c_1{x}^{n-1}+\cdots+{c}_{n-1}{x}^n+c_n,$$
+	với $n\in {\mathbb{N}}^{*},c_0,c_1,\ldots ,c_n\in \mathbb{R}$ và $c_0\ne 0.$ 
+Không mất tính tổng quát, ta có thể giả sử  $c_0>0.$ Đặt
+$$M=\max\left\{\left| c_1\right|,\left| c_2\right|,\dots ,\left| {c}_{n-1}\right|\right\}.$$
+Khi đó, với mọi $x>1,$ ta có
+{\allowdisplaybreaks
+\begin{align*}
+P'(x)&=nc_0{x}^{n-1}+(n-1)c_1{x}^{n-2}+(n-2)c_2{x}^{n-3}+\cdots+{c}_{n-1}\\
+&\ge nc_0{x}^{n-1}-M\cdot {x}^{n-2}\left[(n-1)+(n-2)+\cdots+1\right]\\
+&=n{x}^{n-2}\left(c_0x-\dfrac{M(n-1)}{2}\right)\cdot
+\end{align*}}Do đó, chọn $a=\max\left\{1,\dfrac{M\left(n-1\right)}{2c_{0}}\right\}$ thì $P'(x)>0,\forall x>a.$ Suy ra, $P(x)$ tăng thực sự trên $(a;+\infty).$
+Bổ đề được chứng minh.
+\end{cm}
+\textit{Trở lại bài toán.}
+Xét đa thức $R(x)=P(x)-Q(x).$ Theo giả thiết, ta có:
+$$R(x)=\left[P(x)\right]+\left\{P(x)\right\}-\left[P(x)\right]-\left\{Q(x)\right\}=\left\{P(x)\right\}-\left\{Q(x)\right\},$$
+với mọi $x\in \mathbb{R}.$ 
+Vì thế, $-1<R(x)<1,\forall x\in \mathbb{R}.\hfill(1)$ \\
+Nếu $\deg R\ge 1$ thì tùy theo dấu của hệ số cao nhất, $R(x)\to+\infty $ hoặc  $R(x)\to-\infty $ khi $x\to+\infty ,$ mâu thuẫn với $(1).$ 
+Do đó, $R(x)\equiv c,$ với $c$ là một hằng số thực thuộc khoảng $(-1;1)$ hay $P(x)-Q(x)=c,\forall x\in \mathbb{R}.\hfill(2)$ \\
+Giả sử $c\ne 0.$
+\begin{itemize}
+\item Xét $c>0.$ 
+Do $P(x)$ khác đa thức hằng nên theo bổ đề trên, có thể chọn được số thực $a$ sao cho $P(x)$ đơn điệu trên $(a;+\infty).$ Từ đó, do $P(x)$ liên tục trên $(a;+\infty)$ nên tồn tại $x_0>a$  sao cho $P(x_{0})$ là một số nguyên; đặt $P(x_0)=k.$ Từ $(2)$, ta có: 
+$$Q(x_0)=P(x_0)-c=k-c<k.$$
+Do đó, $\left[Q(x_0)\right]<k=\left[P(x_0)\right],$ mâu thuẫn với giả thiết của đề bài.
+\item Xét $c<0.$ Do $Q(x)$ khác đa thức hằng nên theo bổ đề trên, có thể chọn được số thực $b$ sao cho $Q(x)$ đơn điệu trên $(b;+\infty).$ Từ đó, do $Q(x)$ liên tục trên $(b;+\infty)$  nên tồn tại $x_1>b$  sao cho $Q(x_1)$ là một số nguyên; đặt $Q(x_1)=m.$ Từ $(2)$, ta có: 
+$$P(x_1)=Q(x_1)+c=m+c<m.$$
+Do đó, $\left[P(x_1)\right]<m=\left[Q(x_1)\right],$ mâu thuẫn với giả thiết của đề bài.
+Vậy, phải có $c=0,$ hay $P(x)=Q(x)$ với mọi $x\in \mathbb{R}$ (theo $(2)$).\\
+\textbf{Chú ý:} Trong lời giải trên, $\left\{t\right\}$ kí hiệu phần lẻ của số thực $t$; nghĩa là $\left\{t\right\}=t-\left[t\right].$ 
+\end{itemize}
+\begin{nx}
+ Bài đã ra là một bài toán khó về tính chất của đa thức.
+ Bổ đề trong lời giải trên là một bổ đề hay và có nhiều ứng dụng trong giải toán.
+\end{nx}
+}
+\end{bt}
+		
+\begin{bt}[Bài toán T128, Tạp chí Pi, tháng 12 năm 2017]%[Nguyễn Văn Vũ]%[9D1G2]
+	Tìm tất cả các hàm số $f$ xác định trên tập số thực $\mathbb{R}$, lấy giá trị trong $\mathbb{R}$ và với mọi $x,y\in\mathbb{R}$, ta luôn có
+	$f\left(x^3+2f(y)\right)=\left(f(x)\right)^3+2y.$
+	\loigiai{Giả sử $f:\ \mathbb{R} \rightarrow \mathbb{R}$ là một hàm số sao cho với mọi $x,y\in\mathbb{R}$, ta luôn có 
+	\[f\left(x^3+2f(y)\right)=\left(f(x)\right)^3=2y.\tag{1}\]
+	Trước tiên, ta sẽ chứng minh $f$ là một song ánh. Thật vậy, trong $(1)$, chọn $x=0$ và đặt $a=f(0)$, ta được:
+	$f\left(2f(y)\right)=2y+a^3$,  với mọi $y\in\mathbb{R}$. \hfill$(2)$\\
+	Từ đó, nếu $f(y_1)=f(y_2)$ thì $2y_1+a^3=f(2f(y_1))=f(2f(y_2))=2y_2+a^3$, suy ra $y_1=y_2$. Do đó, $f$ là một đơn ánh. Hơn nữa, do vế phải của $(2)$ có thể nhận mọi giá trị thực (khi $y$ chạy khắp $\mathbb{R}$) nên $f$ là một toàn ánh. Vì thế, $f$ là một song ánh.
+	Do đó, tồn tại duy nhất $b\in\mathbb{R}$ để $f(b)=0.$ Thay $y=b$ vào $(2)$ ta được:
+	$a=2b+a^3.$ \hfill$(3)$\\
+	Trong $(1)$, chọn $x=b$, $y=0$, ta được: 
+	$$f(b^3+2a)=0=f(b).$$
+	Từ đó vì $f$ là đơn ánh, suy ra $b^3+2a=b.$ \hfill$(4)$\\
+	Rút $b=\dfrac{a-a^3}{2}$ từ $(3)$, rồi thay vào $(4)$, ta được: 
+	{\allowdisplaybreaks
+	\begin{align*}
+	&\dfrac{(a-a^3)^3}{8}+2a=\dfrac{a-a^3}{2}\\
+	\Leftrightarrow& a\left[a^2(1-a^2)^3+16-4(1-a^2)\right]=0\\
+	\Leftrightarrow& a\left(a^8-3a^6+3a^4-5a^2-12\right)=0\\
+	\Leftrightarrow& a(a^2-2)(a^2+1)(a^4-a^2+4)=0\\
+	\Leftrightarrow& a(a^2-3)=0\\
+	\Leftrightarrow& a^3=a. \tag{5}
+	\end{align*}}Do đó $b=\dfrac{a-a^3}{2}=-a$. \hfill$(6)$\\
+	Trong $(1)$, chọn $y=b$ ta được:
+	$f(x^3)=\left(f(x)\right)^3+2b$ với mọi $x\in\mathbb{R}$. \hfill$(7)$\\
+	Theo $(1)$, $(2)$, $(3)$ và $(7)$, ta có
+		{\allowdisplaybreaks
+		\begin{align*} f(x^3)+f(2f(y))&=\left(f(x)\right)^3+2b+2y+a^3\\
+		&=\left(f(x)\right)^3+2y+2b+a^3\\
+	&=f(x^3+2f(y))+a, \forall x,y\ \in \ \mathbb{R}.
+\end{align*}}Từ đó, do $x^3$ và $2f(y)$ có thể nhận mọi giá trị thực nên ta có: 
+\[f(x)+f(y)=f(x+y)+a, \, \forall x,y\ \in \ \mathbb{R}.\tag{8}\]
+	Trong $(2)$, chọn $y=0$ và sử dụng $(5)$, ta được: $f(2a)=a^3=3a.$ \hfill$(9)$\\
+	Trong $(8)$, chọn $x=y=a$ và sử dụng $(9)$, ta được: $f(a)=2a.$ \hfill$(10)$\\
+	Trong $(8)$, chọn $x=2a,y=a$ và sử dụng $(9)$, $(10)$ ta được: $f(3a)=4a$. \hfill$(11)$\\
+	Trong $(7)$, chọn $x=a$ và sử dụng $(5)$, $(6)$, $(10)$, $(11)$, ta đi đến 
+	$$4a=f(3a)=f(a^3)=\left(f(a)\right)^3+2b=(2a)^3-2a=8\cdot3a-2a=22a.$$
+	Suy ra $a=0$, hay $f(0)=0;$ do đó $b=0$. Vì vậy từ $(7)$ và $(8)$, ta có: 
+	{\allowdisplaybreaks
+	\begin{align*}
+	&f(x^3)=\left(f(x)\right)^3, \, \forall x,y \in  \mathbb{R}.\tag{12}\\
+&f(x)+f(y)=f(x+y), \, \forall x,y  \in  \mathbb{R}.\tag{13}
+\end{align*}}Trong $(12)$, chọn $x=1$, chú ý $f(1)\ne0$ (do $f$ là đơn ánh), ta được: 
+	$\left(f(1)\right)^2=1$.	\hfill$(14)$\\
+	Vì thế, theo $(13)$ ta có: 
+	$$\heva{&f((x+1)^3)&&=f(x^3+3x^2+3x+1)=f(x^3)+3f(x^2)+3f(x)+f(1)\\&\left(f(x+1)\right)^3&&=\left(f(x)+f(1)\right)^3=((f(x))^3+3f(1)(f(x))^2+3f(x)+f(1).}$$
+	Từ đó, do $f((x+1)^3)=(f(x+1))^3$ (theo $(12)$), suy ra \[f(x^2)=f(1)(f(x))^2, \, \forall x \in \mathbb{R}\tag{15}\]
+	Theo $(14)$, chỉ có thể xảy ra $2$ trường hợp sau:
+	\begin{enumerate}[TH1:]
+		\item $f(1)=1,$ lúc này $(15)$ trở thành $f(x^2)=(f(x))^2$, với mọi $x \in \mathbb{R}.$\\
+		Suy ra, với mọi $x\ge0,$ ta có: $f(x)=(f(\sqrt{x}))^2 \ge0$.\\
+		Do đó, với mọi $x,y\in \mathbb{R}$ mà $x\ge y,$ ta có $$f(x)=f(x-y+y)=f(x-y)+f(y)\ge f(y).$$
+		Vì vậy, $f$ là một hàm không giảm trên $\mathbb{R}$. Kết hợp với $(13)$, suy ra 
+		$$f(x)=f(1)\cdot x=x, \forall x \in \mathbb{R}.$$
+		\item $f(1)=-1.$ Lúc này, $(15)$ trở thành: 
+		$$f(x^2)=-(f(x))^2, \forall x \in \mathbb{R}.$$
+		Suy ra, với mọi $x\ge0,$ ta có 
+		$f(x)=-\left(\sqrt{x}\right)^2\le0.$
+		Do đó, với mọi $x,y\in\mathbb{R}$ mà $x\ge y,$ ta có:
+		$$f(x)=f(x-y+y)=f(x-y)+f(y)\le f(y).$$
+		Vì vậy, $f$ là một hàm không tăng trên $\mathbb{R}$. Kết hợp với $(13),$ suy ra 
+		$$f(x)=f(1)\cdot x=-x, \forall x \in \mathbb{R}.$$
+\end{enumerate}
+Bằng cách kiểm tra trực tiếp, dễ thấy cả hai hàm số $f(x)=x$ và $f(x)=-x$ đều thỏa mãn các yêu cầu của đề bài. Vì vậy, chúng là tất cả các hàm cần tìm.
+\begin{nx}
+	Các phương trình hàm có dạng như trong bài ra xuất hiện lần đầu ở IMO $1992$. Gần đây, trên Tạp chí Epsilon, số $7$, tháng $02/2016$, trong bài "Sự bằng nhau của hai đa thức và ứng dụng vào giải phương trình hàm" tác giả Võ Quốc Bá Cẩn đã đưa ra lời giải khá đẹp cho một số bài toán tổng quát hơn thuộc dạng này.   
+\end{nx}
+}
+\end{bt}
+\begin{bt}[Bài toán T129, Tạp chí Pi, tháng 12 năm 2017]%[9D1G2]%[Nguyễn Văn Vũ]
+	Tìm tất cả các bộ số nguyên dương $(x,y,z)$ sao cho với mọi số nguyên $n$, tổng $\dfrac{n}{x}+\dfrac{n^2}{y}+\dfrac{n^3}{z}$
+	là một số nguyên. 
+	\loigiai{ Đặt $T_n=\dfrac{n}{x}+\dfrac{n^2}{y}+\dfrac{n^3}{z}.$
+		Giả sử $(x,y,z)$ là bộ số nguyên dương thỏa mãn yêu cầu đề bài.
+		Với $n=1$ và $n=-1$, ta có: $$T_1=\dfrac{1}{x}+\dfrac{1}{y}+\dfrac{1}{z}, \,  T_{-1}=-\dfrac{1}{x}+\dfrac{1}{y}-\dfrac{1}{z}.$$
+		Vì $T_1$ và $T_{-1}$ là các số nguyên nên $T_1+T_{-1}=\dfrac{2}{y}$ và $T_1-T_{-1}=\dfrac{2}{x}+\dfrac{2}{z}$ là các số nguyên.\hfil$(1)$\\
+		Suy ra $y$ là ước nguyên dương của $2$. Vì vậy, $y \in \{1;2\}.$
+		Xét hai trường hợp sau:
+		\begin{enumerate}[TH 1.]
+		\item Xét $y=1$. Khi đó, vì $T_1$ là số nguyên và $x,z$ là các số nguyên dương nên suy ra $\dfrac{1}{x}+\dfrac{1}{z}$ là số nguyên dương \hfill$(2)$\\
+		Nếu $x,z\ge3$ thì $\dfrac{1}{x}+\dfrac{1}{z}\le\dfrac{1}{3}+\dfrac{1}{3}<1$ là điều vô lí. Vì vậy, một trong hai số nguyên dương $x,z$ có giá trị không vượt quá $2$; nghĩa là $x \in \{1;2\}$ hoặc $z \in \{1;2\}.$
+		\begin{itemize}
+		\item[+] Xét $x \in \{1;2\}$.
+			\begin{itemize}
+				\item Với $x=1,$ từ $(2)$ suy ra $z=1.$
+				\item Với $x=2,$ từ $(1)$ và $(2)$ suy ra $z=2.$
+			\end{itemize}
+		\item[+] Xét tương tự với $z \in \{1;2\}$, ta cũng được: Với $z=1$ thì $x=1$ và với $z=2$ thì $x=2$.
+		\end{itemize}
+		Như vậy, trong trường hợp này, ta được $(x,y,z) \in \{(1,1,1); (2,1,2)\}.$
+		\item Xét $y=2$. Khi đó, vì $T_2=\dfrac{2}{x}+\dfrac{4}{y}+\dfrac{8}{z}$ là số nguyên và $\dfrac{4}{y}=2$ nên $\dfrac{2}{x}+\dfrac{8}{z}$ là số nguyên. Kết hợp với $(1),$ suy ra $\left(\dfrac{2}{x}+\dfrac{8}{z}\right)-\left(\dfrac{2}{x}+\dfrac{2}{z}\right)=\dfrac{6}{z}$ là số nguyên. Do đó $z \in \{1;2;3;6\}.$
+		\begin{itemize}
+		\item[+]  Với $z=1$, từ $(1)$ suy ra $x \in \{1;2\}.$ Kết hợp với $T_1$ là số nguyên suy ra $x=2.$
+		\item[+] Với $z=2$, xét tương tự trên, ta được $x=1$.
+		\item[+] Với $z=3$, ta có $\dfrac{6}{zo}=2$ là số nguyên. Do đó, từ $(1)$ suy ra $\dfrac{6}{x}$ là số nguyên. Do đó $x \in \{1;2;3;6\}.$ Kết hợp với $T_1$ là số nguyên suy ra $x=6$.
+		\item[+] Với $z=6$, xét tương tự như trên, ta được $x=3$.
+		 Như vậy, ở trường hợp $2$, ta được:
+		$$(x,y,z) \in \{(2,2,1); (1,2,2); (6,2,3); (3,2,6)\}.$$
+		Tóm lại, từ việc xét hai trường hợp  nêu trên, ta được
+		$$(x,y,z) \in \{(1,1,1); (2,1,2); (2,2,1); (1,2,2); (6,2,3); (3,2,6)\}.$$
+		Ngược lại, xét $(x,y,z)$ thỏa mãn $(3)$, ta có:
+		\item[+]  Với $(x,y,z)=(1,1,1)$ thì $T_n=n+n^2+n^3$ là một số nguyên với mọi $n$ nguyên.
+		\item[+] Với $(x,y,z)=(2,1,2)$ thì $T_n=\dfrac{n}{2}+n^2+\dfrac{n^3}{2}=n^2+\dfrac{n(n^2+1)}{2}$ là một số nguyên với mọi $n$ nguyên, do trong hai số $n$ và $n^2+1$ luôn có một số chẵn.
+		\item[+] Với $(x,y,z)=(2,2,1)$ thì $T_n=\dfrac{n}{2}+\dfrac{n^2}{2}+n^3=\dfrac{n(m+1)}{n^3}$ là một số nguyên với mọi $n$ nguyên, do trong hai số $n$ và $n+1$ luôn có một số chẵn.
+		\item[+]  Với $(x,y,z)=(1,2,2)$ thì $T_n=n+\dfrac{n^2}{2}+\dfrac{n^3}{2}=n+\dfrac{n^2\cdot (n+1)}{2}$ là một số nguyên với mọi $n$ nguyên, do trong hai số $n^2$ và $n+1$ luôn có một số chẵn.
+		\item[+] Với $(x,y,z)=(6,2,3)$ thì $T_n=\dfrac{n}{2}+\dfrac{n^2}{2}+\dfrac{n^3}{6}=\dfrac{n(n+1)(n+2)}{6}$ là một số nguyên với mọi $n$, do tích của $3$ số nguyên liên tiếp luôn chia hết cho $6$.
+	\end{itemize}
+Vậy các bộ số nguyên dương $(x,y,z)$ thỏa mãn $(3)$ là tất cả các bộ số cần tìm theo yêu cầu đề bài.
+	\end{enumerate}
+\begin{nx}\hfill
+	\begin{enumerate}[1.]
+		\item Bài đã ra là một bài toán không khó, tuy nhiên đòi hỏi phải rất tỉ mỉ trong việc phân tích, sắp xếp các trường hợp cho hợp lý.
+		\item Để ý rằng với $x,y,z$ là các số nguyên dương cho trước, $T_n$ là một đa thức bậc $3$ với hệ số hữu tỉ của $n$. Trong lí thuyết đa thức, có kết quả sau:
+		\textit{"Cho số tự nhiên $m$. Khi đó, nếu đa thức $P(x)$, bậc $m$ với hệ số hữu tỉ, nhận giá trị nguyên tại mọi điểm nguyên thì $m!\cdot P(x)$ là một đa thức với hệ số nguyên."}
+		Vì thế, áp dụng kết quả trên cho đa thức $T_n$ (của $n$), ta sẽ suy ra ngay các số nguyên dương $x,y,z$ thỏa mãn yêu cầu đề bài phải là các ước nguyên dương của $6$.
+		\item Qua lời giải trên, có thể thấy yêu cầu $T_n$ là một số nguyên với mọi $n$ nguyên là quá mạnh. Từ đó có thể nghĩ tới việc làm yếu đi yêu cầu đó.\\
+		\textbf{Bài toán đề xuất.} {\em{Tìm tất cả các bộ số nguyên dương $(x,y,z)$ sao cho với mọi số nguyên $n>\pi^{2018}$, tổng $\dfrac{n}{x}+\dfrac{n^2}{y}+\dfrac{n^3}{z}$ là một số nguyên}}.
+	\end{enumerate}
+\end{nx}		
+}
+\end{bt}	
+\Closesolutionfile{ans}
